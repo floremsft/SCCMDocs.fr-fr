@@ -83,7 +83,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
         > [!NOTE]  
         >  Les données d'état utilisateur auxquelles font référence les liens physiques restent sur l'ordinateur une fois que la séquence de tâches a supprimé l'ancien système d'exploitation. Il s'agit de données qui sont utilisées pour restaurer l'état utilisateur lors du déploiement du nouveau système d'exploitation.  
 
-##  <a name="a-namebkmkstatemigrationpointa-configure-a-state-migration-point"></a><a name="BKMK_StateMigrationPoint"></a> Configurer un point de migration d’état  
+##  <a name="a-namebkmkstatemigrationpointa-configure-a-state-migration-point"></a><a name="BKMK_StateMigrationPoint"></a> Configure a state migration point  
  Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez stocker les données sur le même ordinateur à l’aide de liens physiques ou sur un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Vous pouvez utiliser les méthodes suivantes afin de configurer un point de migration d'état pour stocker les données d'état utilisateur :  
 
 -   Utilisez l' **Assistant Création d'un serveur de système de site** pour créer un nouveau serveur de système de site pour le point de migration d'état.  
@@ -104,7 +104,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
  Pour plus d’informations sur le point de migration d’état et les étapes nécessaires pour le configurer, consultez [Point de migration d’état](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="a-namebkmkcomputerassociationa-create-a-computer-association"></a><a name="BKMK_ComputerAssociation"></a> Créer une association d’ordinateurs  
+##  <a name="a-namebkmkcomputerassociationa-create-a-computer-association"></a><a name="BKMK_ComputerAssociation"></a> Create a computer association  
  Créez une association d’ordinateurs pour définir une relation entre un ordinateur source et un ordinateur de destination quand vous installez un système d’exploitation sur du nouveau matériel et que vous souhaitez capturer et restaurer les paramètres de données utilisateur. L’ordinateur source est un ordinateur existant qui est géré par Configuration Manager. Lorsque vous déployez le nouveau système d'exploitation sur l'ordinateur de destination, l'ordinateur source contient l'état utilisateur qui est migré vers l'ordinateur de destination.  
 
 > [!NOTE]  

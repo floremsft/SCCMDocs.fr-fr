@@ -28,7 +28,7 @@ ms.openlocfilehash: d10b6876058d19d3a9a750a59267913d15793574
 
 Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Manager, vous pouvez configurer des regroupements, des fenêtres de maintenance et des paramètres client pour mieux gérer les serveurs. En outre, bien que le client Configuration Manager pour Linux et UNIX n’a pas d’interface utilisateur, vous pouvez forcer le client à interroger manuellement la stratégie du client.
 
-##  <a name="a-namebkmkcollectionsforlnua-collections-of-linux-and-unix-servers"></a><a name="BKMK_CollectionsforLnU"></a> Regroupements de serveurs Linux et UNIX  
+##  <a name="a-namebkmkcollectionsforlnua-collections-of-linux-and-unix-servers"></a><a name="BKMK_CollectionsforLnU"></a> Collections of Linux and UNIX servers  
  Les regroupements vous permettent de gérer des groupes de serveurs Linux et UNIX de la même façon que d’autres types de clients. Les regroupements peuvent être des regroupements avec adhésion directe ou des regroupements basés sur une requête qui identifient les systèmes d’exploitation clients, les configurations matérielles ou d’autres détails sur le client, qui sont stockés dans la base de données du site. Par exemple, vous pouvez utiliser des regroupements qui incluent des serveurs Linux et UNIX pour gérer les éléments suivants :  
 
 -   Paramètres du client  
@@ -47,12 +47,12 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 
  Quand vous créez un regroupement personnalisé pour des serveurs Linux et UNIX, insérez des requêtes de règle d’appartenance qui incluent l’attribut Légende pour l’attribut Système d’exploitation. Pour plus d’informations sur la création de regroupements, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manage](../../../core/clients/manage/collections/create-collections.md).  
 
-##  <a name="a-namebkmkmaintenancewindowsforlnua-maintenance-windows-for-linux-and-unix-servers"></a><a name="BKMK_MaintenanceWindowsforLnU"></a> Fenêtres de maintenance pour les serveurs Linux et UNIX  
+##  <a name="a-namebkmkmaintenancewindowsforlnua-maintenance-windows-for-linux-and-unix-servers"></a><a name="BKMK_MaintenanceWindowsforLnU"></a> Maintenance windows for Linux and UNIX servers  
  Le client Configuration Manager pour les serveurs Linux et UNIX prend en charge l’utilisation des fenêtres de maintenance. Cette prise en charge est inchangée par rapport à celle des clients basés sur Windows.  
 
  Pour plus d’informations sur l’utilisation des fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-##  <a name="a-namebkmkclientsettingsforlnua-client-settings-for-linux-and-unix-servers"></a><a name="BKMK_ClientSettingsforLnU"></a> Paramètres client pour les serveurs Linux et UNIX  
+##  <a name="a-namebkmkclientsettingsforlnua-client-settings-for-linux-and-unix-servers"></a><a name="BKMK_ClientSettingsforLnU"></a> Client settings for Linux and UNIX servers  
  Vous pouvez configurer les paramètres client qui s’appliquent à des serveurs Linux et UNIX de la même façon que vous configurez des paramètres pour d’autres clients.  
 
  Par défaut, les **paramètres d’agent client par défaut** s’appliquent aux serveurs Linux et UNIX. Vous pouvez également créer des paramètres client personnalisés et les déployer sur des regroupements qui contiennent des systèmes d’exploitation clients spécifiques ou différents systèmes d’exploitation clients.  
@@ -63,7 +63,7 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 
  Pour obtenir des informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
 
-##  <a name="a-namebkmkpolicyforlnua-computer-policy-for-linux-and-unix-servers"></a><a name="BKMK_PolicyforLnU"></a> Stratégie d’ordinateur pour les serveurs Linux et UNIX  
+##  <a name="a-namebkmkpolicyforlnua-computer-policy-for-linux-and-unix-servers"></a><a name="BKMK_PolicyforLnU"></a> Computer policy for Linux and UNIX servers  
  Le client Configuration Manager des serveurs Linux et UNIX interroge régulièrement son site au sujet de la stratégie d’ordinateur pour en savoir plus sur les configurations demandées et pour rechercher les déploiements.  
 
  Vous pouvez également forcer le client sur un serveur Linux ou UNIX à interroger immédiatement la stratégie d’ordinateur. Pour interroger immédiatement, utilisez les informations d’identification **racine** sur le serveur pour exécuter la commande suivante : **/opt/microsoft/configmgr/bin/ccmexec -rs policy**  
@@ -73,7 +73,7 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 > [!NOTE]  
 >  Le client Configuration Manager pour Linux et UNIX ne demande et ne traite jamais de stratégie utilisateur.  
 
-##  <a name="a-namebkmkmanagelinuxcertsa-how-to-manage-certificates-on-the-client-for-linux-and-unix"></a><a name="BKMK_ManageLinuxCerts"></a> Gérer les certificats sur le client pour Linux et UNIX  
+##  <a name="a-namebkmkmanagelinuxcertsa-how-to-manage-certificates-on-the-client-for-linux-and-unix"></a><a name="BKMK_ManageLinuxCerts"></a> How to manage certificates on the client for Linux and UNIX  
  Après avoir installé le client pour Linux et UNIX, vous pouvez utiliser l’outil **certutil** pour mettre à jour le client avec un nouveau certificat PKI et importer une nouvelle liste de révocation de certificats (CRL). Quand vous installez le client pour Linux et UNIX, cet outil est placé dans l’emplacement suivant : **/opt/microsoft/configmgr/bin/certutil**  
 
  Pour gérer les certificats, sur chaque client, exécutez certutil avec l’une des options suivantes :  
