@@ -133,7 +133,7 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
 
 10. Confirmez les paramètres, puis mettez fin à l'Assistant.  
 
-###  <a name="a-namebkmkmodifyexclusionlista-to-modify-the-exclusion-list-for-migration"></a><a name="BKMK_Modify_Exclusion_List"></a> Pour modifier la liste d’exclusions pour la migration  
+###  <a name="a-namebkmkmodifyexclusionlista-to-modify-the-exclusion-list-for-migration"></a><a name="BKMK_Modify_Exclusion_List"></a> Pour modifier la liste d'exclusions pour la migration  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 

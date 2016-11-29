@@ -30,7 +30,7 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
 
  Utilisez les sections suivantes pour identifier ces fonctionnalités de gestion et pour obtenir plus d'informations sur la configuration du Pare-feu Windows pour ces exceptions.  
 
-##  <a name="a-namebkmkmodifyingwindowsfirewalla-modifying-the-ports-and-programs-permitted-by-windows-firewall"></a><a name="BKMK_ModifyingWindowsFirewall"></a> Modification des ports et des programmes autorisés par le Pare-feu Windows  
+##  <a name="a-namebkmkmodifyingwindowsfirewalla-modifying-the-ports-and-programs-permitted-by-windows-firewall"></a><a name="BKMK_ModifyingWindowsFirewall"></a> Modification des ports et programmes autorisés par le Pare-feu Windows  
  Utilisez la procédure suivante pour modifier les ports et les programmes sur le Pare-feu Windows pour le client Configuration Manager.  
 
 #### <a name="to-modify-the-ports-and-programs-permitted-by-windows-firewall"></a>Pour modifier les ports et programmes autorisés par le Pare-feu Windows  

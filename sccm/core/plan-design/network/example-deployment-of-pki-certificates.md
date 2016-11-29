@@ -82,7 +82,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 |Certificats pour Intel AMT|Trois certificats relatifs à la gestion hors bande sont disponibles pour les ordinateurs Intel AMT : un certificat de configuration AMT ; un certificat de serveur Web AMT ; et en option, un certificat d'authentification client pour les réseaux filaires ou sans fil 802.1X.<br /><br /> Le certificat de configuration AMT doit être installé indépendamment de System Center Configuration Manager sur l’ordinateur de point de service hors bande. Ensuite, vous sélectionnez le certificat installé dans les propriétés du point de service hors bande. Le certificat de serveur Web AMT, ainsi que le certificat d'authentification du client sont installés pendant la configuration et la gestion d'AMT. Ensuite, vous sélectionnez les modèles de certificats configurés dans les propriétés du composant de gestion hors bande.<br /><br /> Pour plus d'informations sur la procédure de configuration de ces certificats, voir [Déploiement des certificats pour AMT](#BKMK_AMT2008_cm2012) dans cette rubrique.|  
 |Certificat client pour les ordinateurs Mac|Vous pouvez obtenir et installer ce certificat à partir d’un ordinateur Mac quand vous utilisez l’inscription System Center Configuration Manager. Ensuite, vous sélectionnez le modèle de certificat configuré comme paramètre de client d’appareil mobile.<br /><br /> Pour plus d'informations sur les étapes permettant de configurer ce certificat, consultez [Deploying the Client Certificate for Mac Computers](#BKMK_MacClient_SP1) dans cette rubrique.|  
 
-##  <a name="a-namebkmkwebserver2008cm2012a-deploying-the-web-server-certificate-for-site-systems-that-run-iis"></a><a name="BKMK_webserver2008_cm2012"></a> Déploiement du certificat de serveur web pour les systèmes de site qui exécutent IIS  
+##  <a name="a-namebkmkwebserver2008cm2012a-deploying-the-web-server-certificate-for-site-systems-that-run-iis"></a><a name="BKMK_webserver2008_cm2012"></a> Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS  
  Les procédures de ce déploiement de certificat sont les suivantes :  
 
 -   Création et émission du modèle de certificat de serveur Web sur l'autorité de certification  
@@ -91,7 +91,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 -   Configuration des services IIS pour l'utilisation du certificat de serveur Web  
 
-###  <a name="a-namebkmkwebserver22008a-creating-and-issuing-the-web-server-certificate-template-on-the-certification-authority"></a><a name="BKMK_webserver22008"></a> Création et émission du modèle de certificat de serveur web sur l’autorité de certification  
+###  <a name="a-namebkmkwebserver22008a-creating-and-issuing-the-web-server-certificate-template-on-the-certification-authority"></a><a name="BKMK_webserver22008"></a> Création et émission du modèle de certificat de serveur Web sur l'autorité de certification  
  Cette procédure crée un modèle de certificat pour les systèmes de site System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
 ##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat de serveur Web sur l'autorité de certification  
@@ -125,7 +125,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 13. Si vous n'avez pas besoin de créer ou d'émettre d'autres certificats, fermez **Autorité de Certification**.  
 
-###  <a name="a-namebkmkwebserver32008a-requesting-the-web-server-certificate"></a><a name="BKMK_webserver32008"></a> Demande du certificat de serveur web  
+###  <a name="a-namebkmkwebserver32008a-requesting-the-web-server-certificate"></a><a name="BKMK_webserver32008"></a> Demande du certificat de serveur Web  
  Cette procédure permet de spécifier les valeurs FQDN Intranet et Internet qui seront configurées dans les propriétés de serveur de système de site, puis installe le certificat de serveur Web sur le serveur membre qui exécute IIS.  
 
 ##### <a name="to-request-the-web-server-certificate"></a>Pour demander le certificat de serveur Web  
@@ -175,7 +175,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 16. Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-###  <a name="a-namebkmkwebserver42008a-configuring-iis-to-use-the-web-server-certificate"></a><a name="BKMK_webserver42008"></a> Configuration d’IIS pour l’utilisation du certificat de serveur web  
+###  <a name="a-namebkmkwebserver42008a-configuring-iis-to-use-the-web-server-certificate"></a><a name="BKMK_webserver42008"></a> Configuration des services IIS pour l'utilisation du certificat de serveur Web  
  Cette procédure lie le certificat installé au **Site Web par défaut**IIS.  
 
 ##### <a name="to-configure-iis-to-use-the-web-server-certificate"></a>Pour configurer IIS en vue de l'utilisation du certificat de serveur Web  
@@ -213,7 +213,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 -   [Exportation du certificat de serveur Web personnalisé pour les points de distribution cloud](#BKMK_clouddpexporting2008)  
 
-###  <a name="a-namebkmkclouddpcreating2008a-creating-and-issuing-a-custom-web-server-certificate-template-on-the-certification-authority"></a><a name="BKMK_clouddpcreating2008"></a> Création et émission d’un modèle de certificat de serveur web personnalisé sur l’autorité de certification  
+###  <a name="a-namebkmkclouddpcreating2008a-creating-and-issuing-a-custom-web-server-certificate-template-on-the-certification-authority"></a><a name="BKMK_clouddpcreating2008"></a> Création et émission d'un modèle de certificat de serveur Web personnalisé sur l'autorité de certification  
  Cette procédure permet de créer un modèle de certificat personnalisé basé sur le modèle de certificat de serveur Web. Le certificat est destiné aux points de distribution cloud System Center Configuration Manager, et la clé privée doit être exportable. Vous devez ajouter le modèle de certificat à l'autorité de certification après sa création.  
 
 > [!NOTE]  
@@ -256,7 +256,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 13. Si vous n'avez pas besoin de créer ou d'émettre d'autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="a-namebkmkclouddprequesting2008a-requesting-the-custom-web-server-certificate"></a><a name="BKMK_clouddprequesting2008"></a> Demande du certificat de serveur web personnalisé  
+###  <a name="a-namebkmkclouddprequesting2008a-requesting-the-custom-web-server-certificate"></a><a name="BKMK_clouddprequesting2008"></a> Demande du certificat de serveur Web personnalisé  
  Cette procédure permet de demander, puis d'installer le certificat de serveur Web personnalisé sur le serveur membre qui exécutera le serveur de site.  
 
 ##### <a name="to-request-the-custom-web-server-certificate"></a>Pour demander le certificat de serveur Web personnalisé  
@@ -298,7 +298,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 17. Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-###  <a name="a-namebkmkclouddpexporting2008a-exporting-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a><a name="BKMK_clouddpexporting2008"></a> Exportation du certificat de serveur web personnalisé pour les points de distribution cloud  
+###  <a name="a-namebkmkclouddpexporting2008a-exporting-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a><a name="BKMK_clouddpexporting2008"></a> Exportation du certificat de serveur Web personnalisé pour les points de distribution cloud  
  Cette procédure permet d'exporter le certificat de serveur Web personnalisé dans un fichier, afin qu'il puisse être importé lorsque vous créez le point de distribution cloud.  
 
 ##### <a name="to-export-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a>Pour exporter le certificat de serveur Web personnalisé pour les points de distribution cloud  
@@ -326,7 +326,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
  Le certificat est prêt à l'importation dès que vous créez un point de distribution cloud.  
 
-##  <a name="a-namebkmkclient2008cm2012a-deploying-the-client-certificate-for-windows-computers"></a><a name="BKMK_client2008_cm2012"></a> Déploiement du certificat client sur les ordinateurs Windows  
+##  <a name="a-namebkmkclient2008cm2012a-deploying-the-client-certificate-for-windows-computers"></a><a name="BKMK_client2008_cm2012"></a> Déploiement du certificat client pour les ordinateurs Windows  
  Les procédures de ce déploiement de certificat sont les suivantes :  
 
 -   Création et émission du modèle de certificat Authentification de station de travail sur l'autorité de certification  
@@ -335,7 +335,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 -   Inscription automatique du certificat Authentification de station de travail et vérification de son installation sur les ordinateurs  
 
-###  <a name="a-namebkmkclient02008a-creating-and-issuing-the-workstation-authentication-certificate-template-on-the-certification-authority"></a><a name="BKMK_client02008"></a> Création et émission d’un modèle de certificat d’authentification de station de travail sur l’autorité de certification  
+###  <a name="a-namebkmkclient02008a-creating-and-issuing-the-workstation-authentication-certificate-template-on-the-certification-authority"></a><a name="BKMK_client02008"></a> Création et émission du modèle de certificat Authentification de station de travail sur l'autorité de certification  
  Cette procédure crée un modèle de certificat pour les ordinateurs clients System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
 ##### <a name="to-create-and-issue-the-workstation-authentication-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat d’authentification de station de travail sur l’autorité de certification  
@@ -361,7 +361,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 9. Si vous n'avez pas besoin de créer ou d'émettre d'autres certificats, fermez **Autorité de Certification**.  
 
-###  <a name="a-namebkmkclient12008a-configuring-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a><a name="BKMK_client12008"></a> Configuration de l’inscription automatique du modèle d’authentification de station de travail à l’aide d’une stratégie de groupe  
+###  <a name="a-namebkmkclient12008a-configuring-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a><a name="BKMK_client12008"></a> Configuration de l'inscription automatique du modèle Authentification de station de travail à l'aide d'une stratégie de groupe  
  Cette procédure permet de configurer la stratégie de groupe pour inscrire automatiquement le certificat client sur les ordinateurs.  
 
 ##### <a name="to-configure-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a>Pour configurer l'inscription automatique du modèle Authentification de station de travail à l'aide d'une stratégie de groupe  
@@ -385,7 +385,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 8.  Fermez la fenêtre **Gestion des stratégies de groupe**.  
 
-###  <a name="a-namebkmkclient22008a-automatically-enrolling-the-workstation-authentication-certificate-and-verifying-its-installation-on-computers"></a><a name="BKMK_client22008"></a> Inscription automatique du certificat d’authentification de station de travail et vérification de son installation sur les ordinateurs  
+###  <a name="a-namebkmkclient22008a-automatically-enrolling-the-workstation-authentication-certificate-and-verifying-its-installation-on-computers"></a><a name="BKMK_client22008"></a> Inscription automatique du certificat Authentification de station de travail et vérification de son installation sur les ordinateurs  
  Cette procédure permet d'installer le certificat client sur les ordinateurs et de vérifier l'installation.  
 
 ##### <a name="to-automatically-enroll-the-workstation-authentication-certificate-and-verify-its-installation-on-the-client-computer"></a>Pour procéder à l'inscription automatique du certificat Authentification de station de travail et vérifier son installation sur l'ordinateur client  
@@ -432,7 +432,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 -   Exportation du certificat client pour les points de distribution  
 
-###  <a name="a-namebkmkclientdistributionpoint02008a-creating-and-issuing-a-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a><a name="BKMK_clientdistributionpoint02008"></a> Création et émission d’un modèle de certificat d’authentification de station de travail personnalisé sur l’autorité de certification  
+###  <a name="a-namebkmkclientdistributionpoint02008a-creating-and-issuing-a-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a><a name="BKMK_clientdistributionpoint02008"></a> Création et émission d'un modèle de certificat Authentification de station de travail personnalisé sur l'autorité de certification  
  Cette procédure crée un modèle de certificat personnalisé pour les points de distribution System Center Configuration Manager, qui permet d’exporter la clé privée, et ajoute ce nouveau modèle à l’autorité de certification.  
 
 > [!NOTE]  
@@ -473,7 +473,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 12. Si vous n'avez pas besoin de créer ou d'émettre d'autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="a-namebkmkclientdistributionpoint12008a-requesting-the-custom-workstation-authentication-certificate"></a><a name="BKMK_clientdistributionpoint12008"></a> Demande du certificat d’authentification de station de travail personnalisé  
+###  <a name="a-namebkmkclientdistributionpoint12008a-requesting-the-custom-workstation-authentication-certificate"></a><a name="BKMK_clientdistributionpoint12008"></a> Demande du certificat d'authentification de station de travail personnalisé  
  Cette procédure permet de demander, puis d'installer le certificat client personnalisé sur le serveur membre qui exécute IIS et qui sera configuré comme point de distribution.  
 
 ##### <a name="to-request-the-custom-workstation-authentication-certificate"></a>Pour demander le certificat d'authentification de station de travail personnalisé  
@@ -535,7 +535,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 > [!TIP]  
 >  Vous pouvez utiliser le même fichier de certificat lors de la configuration d'images de média pour un déploiement de système d'exploitation qui n'utilise pas le démarrage PXE, et la séquence de tâches d'installation de l'image doit contacter un point de gestion qui requiert des connexions de client HTTPS.  
 
-##  <a name="a-namebkmkmobiledevices2008cm2012a-deploying-the-enrollment-certificate-for-mobile-devices"></a><a name="BKMK_mobiledevices2008_cm2012"></a> Déploiement du certificat d’inscription pour les appareils mobiles  
+##  <a name="a-namebkmkmobiledevices2008cm2012a-deploying-the-enrollment-certificate-for-mobile-devices"></a><a name="BKMK_mobiledevices2008_cm2012"></a> Déploiement du certificat d'inscription pour les périphériques mobiles  
  Ce déploiement de certificat a une procédure unique pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification.  
 
 ### <a name="creating-and-issuing-the-enrollment-certificate-template-on-the-certification-authority"></a>Création et émission du modèle de certificat d'inscription sur l'autorité de certification  
@@ -579,7 +579,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 -   Création et émission des certificats d'authentification du client pour les ordinateurs basés sur AMT 802.1X  
 
-###  <a name="a-namebkmkamtprovisioning2008a-creating-issuing-and-installing-the-amt-provisioning-certificate"></a><a name="BKMK_AMTprovisioning2008"></a> Création, émission et installation du certificat de configuration AMT  
+###  <a name="a-namebkmkamtprovisioning2008a-creating-issuing-and-installing-the-amt-provisioning-certificate"></a><a name="BKMK_AMTprovisioning2008"></a> Creating, Issuing, and Installing the AMT Provisioning Certificate  
  Créez le certificat de configuration avec votre autorité de certification interne lorsque les ordinateurs basés sur AMT sont configurés avec l'empreinte numérique du certificat de votre autorité de certification racine interne. Lorsque ce n’est pas le cas et que vous devez utiliser une autorité de certification externe, suivez les instructions de la société émettrice du certificat de configuration AMT, qui exige souvent le certificat du site web public de l’entreprise. Vous pouvez également trouver des instructions détaillées sur l'autorité de certification externe sur le site Intel vPro Expert Center : Microsoft vPro Manageability ([http://go.microsoft.com/fwlink/?LinkId=132001](http://go.microsoft.com/fwlink/?LinkId=132001)).  
 
 > [!IMPORTANT]  
@@ -742,7 +742,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
  Ce déploiement de certificat a une procédure unique pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification.  
 
-###  <a name="a-namebkmkmacclientcreatingissuinga-creating-and-issuing-a-mac-client-certificate-template-on-the-certification-authority"></a><a name="BKMK_MacClient_CreatingIssuing"></a> Création et émission d’un modèle de certificat de client Mac sur l’autorité de certification  
+###  <a name="a-namebkmkmacclientcreatingissuinga-creating-and-issuing-a-mac-client-certificate-template-on-the-certification-authority"></a><a name="BKMK_MacClient_CreatingIssuing"></a> Création et émission d'un modèle de certificat de client Mac sur l'autorité de certification  
  Cette procédure crée un modèle de certificat personnalisé pour les ordinateurs Mac System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
 > [!NOTE]  

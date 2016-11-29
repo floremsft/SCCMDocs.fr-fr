@@ -46,7 +46,7 @@ System Center Configuration Manager vous permet de configurer des fichiers d'éc
 
     -   **Nom**: entrez un nom unique pour le profil de certificat. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations pertinentes qui permettent de l’identifier dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
+    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
     -   **Spécifiez le type de profil de certificat que vous voulez créer**: choisissez un des types de profil de certificat suivants :  
 

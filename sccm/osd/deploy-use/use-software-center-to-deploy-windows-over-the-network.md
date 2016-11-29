@@ -36,7 +36,7 @@ La séquence de tâches pour installer un système d’exploitation dans System 
 ## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
  Quand vous souhaitez que le déploiement de système d’exploitation soit disponible dans le Centre logiciel, vous devez configurer le déploiement pour rendre le système d’exploitation accessible aux clients Configuration Manager. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez **Clients Configuration Manager uniquement** ou **Clients, média et environnement PXE Configuration Manager**. Une fois le système d’exploitation déployé, il est affiché dans le Centre logiciel pour les membres du regroupement cible.  
 
-##  <a name="a-namebkmkdeploya-deploy-the-task-sequence-to-computers"></a><a name="BKMK_Deploy"></a>Déployer la séquence de tâches sur les ordinateurs  
+##  <a name="a-namebkmkdeploya-deploy-the-task-sequence-to-computers"></a><a name="BKMK_Deploy"></a> Déployer la séquence de tâches sur les ordinateurs  
  Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quand vous déployez des systèmes d’exploitation pour le Centre logiciel, vous pouvez configurer si le déploiement est obligatoire ou disponible.  
 
 -   **Déploiement obligatoire**: les déploiements obligatoires rendent le système d’exploitation accessible dans le Centre logiciel, mais il est démarré automatiquement conformément au calendrier d’attribution configurée.  

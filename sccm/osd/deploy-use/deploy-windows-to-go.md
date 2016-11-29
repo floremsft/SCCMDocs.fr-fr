@@ -51,7 +51,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 8.  [L’utilisateur ouvre une session Windows 8](#BKMK_UserLogsIn)  
 
-###  <a name="a-namebkmkprereqsa-prerequisites-to-provision-windows-to-go"></a><a name="BKMK_Prereqs"></a> Prérequis à la mise en service de Windows To Go  
+###  <a name="a-namebkmkprereqsa-prerequisites-to-provision-windows-to-go"></a><a name="BKMK_Prereqs"></a> Conditions préalables à la préparation de Windows To Go  
  Avant de mettre en service Windows To Go, vous devez effectuer les opérations suivantes dans Configuration Manager :  
 
 -   **Distribuer une image de démarrage à un point de distribution**  
@@ -116,9 +116,9 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
     -   Sélectionnez **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
 
-        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé.  
+        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
-        -   Un ordinateur qui n’est pas importé dans Configuration Manager.  
+        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
 
         -   Un ordinateur qui n’a pas été découvert par Configuration Manager.  
 
@@ -136,7 +136,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
          Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinité entre périphérique et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 

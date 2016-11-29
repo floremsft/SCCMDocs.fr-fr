@@ -28,7 +28,7 @@ ms.openlocfilehash: 1228dc7ebee2f17da9a7ade5641ef73e1891bba9
 
 Aidez-vous des informations de cette rubrique pour déployer des systèmes d’exploitation sur des ordinateurs inconnus dans votre environnement System Center Configuration Manager. Un ordinateur inconnu est un ordinateur qui n’est pas géré par Configuration Manager. Autrement dit, il n’existe aucun enregistrement pour cet ordinateur dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
 
--   Un ordinateur sur lequel le client Configuration Manager n’est pas installé.  
+-   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
 -   Un ordinateur qui n’est pas importé dans Configuration Manager.  
 
@@ -70,7 +70,7 @@ Aidez-vous des informations de cette rubrique pour déployer des systèmes d’e
 > [!NOTE]  
 >  Pendant l'installation de l'image du système d'exploitation, la séquence de tâches peut récupérer les variables de regroupement, mais non les variables d'ordinateur à partir de cet ordinateur.  
 
-##  <a name="a-namebkmkenablingunknowna-enabling-unknown-computer-support"></a><a name="BKMK_EnablingUnknown"></a> Activer la prise en charge des ordinateurs inconnus  
+##  <a name="a-namebkmkenablingunknowna-enabling-unknown-computer-support"></a><a name="BKMK_EnablingUnknown"></a> Activation de la prise en charge d'ordinateur inconnu  
  Utilisez les informations suivantes pour activer la prise en charge des ordinateurs inconnus quand vous déployez un système d’exploitation à l’aide de PXE, d’un média de démarrage et d’un média préparé.  
 
 -   **Environnement Environnement PXE**  

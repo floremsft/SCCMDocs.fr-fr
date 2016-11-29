@@ -55,7 +55,7 @@ La gestion des appareils mobiles locale dans System Center Configuration Manager
 > -   Le paramètre de code de site spécifié dans l’Assistant est ignoré pour la gestion des appareils mobiles locale. Le code de site utilisé est celui que vous spécifiez dans le profil d’inscription qui autorise les utilisateurs à inscrire des appareils.  
 > -   N’activez pas l’authentification multifacteur. Elle n’est pas activée dans la gestion des appareils mobiles locale.  
 
-##  <a name="a-namebkmkconfigurea-configure-the-intune-subscription-for-on-premises-mobile-device-management"></a><a name="bkmk_configure"></a> Configurer l’abonnement Intune pour la gestion des appareils mobiles locale  
+##  <a name="a-namebkmkconfigurea-configure-the-intune-subscription-for-on-premises-mobile-device-management"></a><a name="bkmk_configure"></a> Configurer l’abonnement Intune pour la Gestion locale des appareils mobiles  
 
 1.  Dans la console Configuration Manager, cliquez avec le bouton droit sur **Abonnement à Microsoft Intune**, puis cliquez sur **Propriétés**.  
 

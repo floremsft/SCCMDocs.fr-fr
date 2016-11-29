@@ -83,7 +83,7 @@ La suppression de la technologie AMT intégrée pour System Center Configuration
 
 -   Le rôle de système de site de point de gestion hors bande n’est plus utilisé, ni disponible.  
 
-##  <a name="a-namebkmkouta-deprecated-functionality"></a><a name="bkmk_out"></a> Fonctionnalités dépréciées  
+##  <a name="a-namebkmkouta-deprecated-functionality"></a><a name="bkmk_out"></a> Fonctionnalités déconseillées  
  Avec System Center Configuration Manager, certaines fonctionnalités, telles que la [Prise en charge de la technologie Intel AMT (Active Management Technology)](#bkmk_AMT), sont retirées de la console Configuration Manager, alors que d’autres comme la Protection d’accès réseau sont entièrement retirées. Par ailleurs, certains produits Microsoft plus anciens comme Windows Vista, Windows Server 2008 et SQL Server 2008 ne sont plus pris en charge.  
 
  Pour obtenir la liste des fonctionnalités dépréciées, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  

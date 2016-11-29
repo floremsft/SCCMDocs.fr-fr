@@ -54,7 +54,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 
      Vous pouvez déployer un système d’exploitation sur un point de distribution, mais l’image du système d’exploitation doit être reçue à partir d’un autre point de distribution.  
 
-###  <a name="a-namebkmkpxedistributionpointa-configuring-distribution-points-to-accept-pxe-requests"></a><a name="BKMK_PXEDistributionPoint"></a> Configuration de points de distribution pour accepter des demandes PXE  
+###  <a name="a-namebkmkpxedistributionpointa-configuring-distribution-points-to-accept-pxe-requests"></a><a name="BKMK_PXEDistributionPoint"></a> Configuration de points de distribution pour accepter des requêtes PXE  
  Pour déployer des systèmes d’exploitation sur des clients Configuration Manager qui effectuent des demandes de démarrage PXE, vous devez configurer un ou plusieurs points de distribution pour accepter les demandes PXE. Une fois le point de distribution configuré, il répond à la demande de démarrage PXE et détermine l’action de déploiement appropriée à prendre.
 
 > [!IMPORTANT]  
@@ -98,7 +98,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 11. Cliquez sur **OK** pour mettre à jour les propriétés du point de distribution.  
 
 ###  <a name="a-namebkmkramdisktftpa-customize-the-ramdisk-tftp-block-size-and-window-size-on-pxe-enabled-distribution-points"></a><a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
-Vous pouvez personnaliser la taille de bloc TFTP RamDisk de même que, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
+Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
 Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
 
 -   **Taille de bloc TFTP**: la taille de bloc est la taille des paquets de données que le serveur envoie au client qui télécharge le fichier (comme indiqué dans RFC 2347). Plus la taille de bloc est importante, moins le serveur envoie de paquets. Il y a donc moins de délais d’aller et retour entre le serveur et le client. Toutefois, une taille de bloc importante entraîne une fragmentation des paquets, incompatible avec la plupart des implémentations du client PXE.  
@@ -133,7 +133,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
  La valeur par défaut est 4096 (4k).  
 
 
-###  <a name="a-namebkmkdpmulticasta-configure-distribution-points-to-support-multicast"></a><a name="BKMK_DPMulticast"></a> Configuration des points de distribution pour prendre en charge la multidiffusion  
+###  <a name="a-namebkmkdpmulticasta-configure-distribution-points-to-support-multicast"></a><a name="BKMK_DPMulticast"></a> Configurer des points de distribution pour prendre en charge la multidiffusion  
  La multidiffusion est une méthode d’optimisation réseau que vous pouvez utiliser sur des points de distribution quand plusieurs clients sont susceptibles de télécharger la même image de système d’exploitation simultanément. En cas d’utilisation de la multidiffusion, plusieurs ordinateurs peuvent télécharger simultanément l’image de système d’exploitation quand elle est multidiffusée par le point de distribution, plutôt que de faire en sorte que le point de distribution envoie une copie des données à chaque client à l’aide d’une connexion distincte. Vous devez configurer au moins un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
  Avant de déployer le système d'exploitation, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour modifier un point de distribution existant afin de prendre en charge la multidiffusion, procédez comme suit. Pour plus d’informations sur l’installation d’un nouveau point de distribution, consultez [Install and configure distribution points](../../core/servers/deploy/configure/install-and-configure-distribution-points.md) (Installer et modifier des points de distribution).
@@ -176,7 +176,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
 6.  Cliquez sur **OK**.  
 
-##  <a name="a-namebkmkstatemigrationpointsa-state-migration-point"></a><a name="BKMK_StateMigrationPoints"></a> Points de migration d’état  
+##  <a name="a-namebkmkstatemigrationpointsa-state-migration-point"></a><a name="BKMK_StateMigrationPoints"></a> Point de migration d'état  
  Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez choisir de stocker les données sur le même ordinateur à l’aide de liens physiques ou d’utiliser un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Au moment de planifier le point de migration d'état, tenez compte des facteurs suivants :  
 
 ### <a name="user-state-size"></a>Taille de l’état utilisateur  

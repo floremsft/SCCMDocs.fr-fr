@@ -28,7 +28,7 @@ ms.openlocfilehash: 4b3a3bf206dc273eabf88c680ca00688b6183115
 
 Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. En fonction du type de séquence de tâches que vous créez, les étapes de capture et de restauration peuvent être ajoutées automatiquement dans le cadre de la séquence de tâches. Dans d’autres scénarios, vous devrez peut-être ajouter manuellement les étapes de capture et de restauration à la séquence de tâches. Cette rubrique fournit les étapes que vous devez ajouter à une séquence de tâches existante pour capturer et restaurer des données d’état utilisateur.  
 
-##  <a name="a-namebkmkcapturerestoreuserstatea-how-to-capture-and-restore-user-state-data"></a><a name="BKMK_CaptureRestoreUserState"></a> Guide pratique pour capturer et restaurer des données d’état utilisateur  
+##  <a name="a-namebkmkcapturerestoreuserstatea-how-to-capture-and-restore-user-state-data"></a><a name="BKMK_CaptureRestoreUserState"></a> Comment capturer et restaurer des données d’état utilisateur  
  Pour capturer et restaurer l’état utilisateur, vous devez ajouter les étapes suivantes à la séquence de tâches :  
 
 -   **Demander le magasin d’état**: cette étape est nécessaire seulement si vous stockez l’état utilisateur sur le point de migration d’état.  

@@ -73,7 +73,7 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
 
  Les configurations matérielles requises prédéfinies stockées dans le catalogue Asset Intelligence sont accessibles en lecture seule et ne peuvent pas être supprimées.  Les utilisateurs administratifs peuvent ajouter, modifier ou supprimer des configurations matérielles définies par l'utilisateur pour les titres de logiciels qui ne sont pas stockés dans le catalogue Asset Intelligence.  
 
-##  <a name="a-namebkmkinventoriedsoftwaretitlesa-inventoried-software-titles"></a><a name="BKMK_InventoriedSoftwareTitles"></a> Titres de logiciels inventoriés  
+##  <a name="a-namebkmkinventoriedsoftwaretitlesa-inventoried-software-titles"></a><a name="BKMK_InventoriedSoftwareTitles"></a> Logiciels inventoriés  
  Vous pouvez afficher les informations de titres de logiciels inventoriés dans l'espace de travail **Biens et conformité** dans le noeud **Logiciels inventoriés** sous le noeud **Asset Intelligence** . L’agent du client d’inventaire matériel collecte les informations des logiciels inventoriés à partir des clients Configuration Manager en fonction des titres de logiciels stockés dans le catalogue Asset Intelligence.  
 
 > [!WARNING]  

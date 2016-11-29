@@ -41,7 +41,7 @@ System Center Configuration Manager collecte les données d’utilisation et de 
 
 -   Niveaux de collecte des données d’utilisation et de diagnostic :
     - [Données de diagnostic pour la version 1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
-    - [Données de diagnostic pour la version 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
+    - [Données de diagnostic pour 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
     - [Données de diagnostic pour la version 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)  
     
 

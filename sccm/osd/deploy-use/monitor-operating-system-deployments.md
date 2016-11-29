@@ -51,11 +51,11 @@ La console Configuration Manager fournit les méthodes suivantes pour vous aider
 
 4.  Dans l'onglet **Accueil** , du groupe **Déploiement** , cliquez sur **Afficher l'état**.  
 
-##  <a name="a-namebkmktsreportsa-operating-system-deployment-reports"></a><a name="BKMK_TSReports"></a> Rapports sur le déploiement de système d’exploitation  
+##  <a name="a-namebkmktsreportsa-operating-system-deployment-reports"></a><a name="BKMK_TSReports"></a> Rapports sur le déploiement du système d’exploitation  
  De nombreux rapports de déploiement du système d’exploitation prédéfinis sont disponibles. Ils sont organisés en plusieurs catégories et peuvent être utilisés pour obtenir des informations spécifiques sur les déploiements de séquences de tâches et la migration d’état. En plus d'utiliser les rapports préconfigurés, vous pouvez également créer des rapports de mises à jour logicielles personnalisés selon les besoins de votre entreprise. Pour plus d’informations, consultez [Opérations et maintenance pour les rapports](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
 ##  <a name="a-namebkmkmonitorcontenta-monitor-content"></a><a name="BKMK_MonitorContent"></a> Surveiller le contenu  
- Vous pouvez surveiller le contenu dans la console Configuration Manager pour déterminer l’état de tous les types de package en rapport avec les points de distribution associés. notamment l'état de validation du contenu du package, l'état du contenu attribué à un groupe de points de distribution spécifique, l'état du contenu attribué à un point de distribution et l'état des fonctions facultatives de chaque point de distribution (validation du contenu, PXE et multidiffusion).  
+ Vous pouvez surveiller le contenu dans la console Configuration Manager pour déterminer l’état de tous les types de package en rapport avec les points de distribution associés, notamment l'état de validation du contenu du package, l'état du contenu attribué à un groupe de points de distribution spécifique, l'état du contenu attribué à un point de distribution et l'état des fonctions facultatives de chaque point de distribution (validation du contenu, PXE et multidiffusion).  
 
 ###  <a name="a-namebkmkcontentstatusa-content-status-monitoring"></a><a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
  Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Vous pouvez consulter les informations générales sur l'emballage, l'état de distribution pour le package et les informations d'état détaillées sur le package. Pour afficher l'état du contenu, procédez comme suit.  

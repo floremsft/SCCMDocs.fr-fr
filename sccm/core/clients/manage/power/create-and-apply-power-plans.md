@@ -89,7 +89,7 @@ La gestion de l’alimentation dans System Center Configuration Manager vous per
 
 10. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres de ***<Nom du regroupement\>* et pour appliquer le mode de gestion de l’alimentation.  
 
-##  <a name="a-namebkmkplansa-available-power-management-plan-settings"></a><a name="BKMK_Plans"></a> Paramètres du mode de gestion de l’alimentation disponibles  
+##  <a name="a-namebkmkplansa-available-power-management-plan-settings"></a><a name="BKMK_Plans"></a> Available power management plan settings  
  Le tableau suivant répertorie les paramètres de gestion de l’alimentation disponibles dans Configuration Manager. Vous pouvez configurer d'autres paramètres pour les périodes où l'ordinateur est branché ou sur batterie. Selon la version de Windows que vous utilisez, il est possible que certains paramètres ne soient pas configurables.  
 
 > [!NOTE]  

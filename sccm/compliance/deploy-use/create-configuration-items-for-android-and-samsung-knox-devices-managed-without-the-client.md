@@ -83,7 +83,7 @@ ms.openlocfilehash: 8d676d31d519b7b6099c878d94b4c81f1c972887
 |**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
 |**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
 |**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative est atteint.|  
+|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.|  
 |**Durée d’inactivité avant le verrouillage de l’appareil**|Sélectionnez le laps de temps au bout duquel l’appareil est verrouillé en cas de non-utilisation.|
 |**Qualité du mot de passe**|Sélectionnez le niveau de complexité du mot de passe requis et spécifiez si les appareils biométriques peuvent être utilisés.|  
 |**Autoriser Smart Lock et d’autres agents de confiance**|Ce paramètre vous permet de contrôler la fonctionnalité Smart Lock sur les appareils Android compatibles. Cette fonctionnalité du téléphone, parfois appelée agents de confiance, vous permet de désactiver ou de contourner le mot de passe de l’écran de verrouillage de l’appareil si celui-ci se trouve dans un emplacement approuvé, comme quand il est connecté à un appareil Bluetooth spécifique, ou quand il se trouve à proximité d’une balise NFC. Vous pouvez utiliser ce paramètre pour empêcher les utilisateurs finaux de configurer Smart Lock.|
@@ -146,7 +146,7 @@ Dans la page **Configurer les paramètres du mode plein écran pour les appareil
     |**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez un nom de votre choix, éventuellement l'éditeur de l'application, et l'URL de l'application dans le magasin d'applications.<br /><br /> Pour spécifier l'URL, dans la [section Applications de Google Play](https://play.google.com/store/apps), recherchez l'application à utiliser.<br /><br /> Ouvrez la page de l'application, puis copiez l'URL dans le Presse-papiers. Vous pouvez maintenant utiliser cette URL dans la liste des applications conformes ou non conformes.<br /><br /> **Exemple :** recherchez Google Play pour **Microsoft Office Mobile**. L'URL que vous utilisez sera **https://play.google.com/store/apps/details?id=com.microsoft.office.officehub**.|  
     |**Éditer**|Vous permet de modifier le nom, l’éditeur et l’URL de l’application sélectionnée.|  
     |**Supprimer**|Supprime l'application sélectionnée dans la liste.|  
-    |**Importer**|Importe une liste d'applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.|  
+    |**Importerer**|Importe une liste d'applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.|  
 
 2.  Lorsque vous avez terminé, cliquez sur **Suivant**.  
 

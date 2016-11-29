@@ -33,7 +33,7 @@ Une fois que vous avez déployé des profils de certificat System Center Configu
 
 -   [Comment afficher les résultats de compatibilité à l'aide de rapports](#BKMK_Reports)  
 
-##  <a name="a-namebkmkconsolea-how-to-view-compliance-results-in-the-configuration-manager-console"></a><a name="BKMK_console"></a> Guide pratique pour afficher les résultats de compatibilité dans la console Configuration Manager  
+##  <a name="a-namebkmkconsolea-how-to-view-compliance-results-in-the-configuration-manager-console"></a><a name="BKMK_console"></a> Comment afficher les résultats de compatibilité dans la console Configuration Manager  
  Utilisez cette procédure pour afficher des détails sur la compatibilité des profils de certificat déployés dans la console System Center Configuration Manager.  
 
 > [!NOTE]  
@@ -80,7 +80,7 @@ Une fois que vous avez déployé des profils de certificat System Center Configu
     |0x00000040|Les informations d'état ont été ignorées. Cela peut se produire si une autorité de certification HYPERLINK « http://msdn.microsoft.com/en-us/windows/ms721572" \l "_security_certification_authority_gly » n'est pas valide ou n'a pas été sélectionnée pour la surveillance.|  
     |0x00000100|L'inscription a été refusée.|  
 
-##  <a name="a-namebkmkreportsa-how-to-view-compliance-results-by-using-reports"></a><a name="BKMK_Reports"></a> Guide pratique pour afficher les résultats de compatibilité à l’aide de rapports
+##  <a name="a-namebkmkreportsa-how-to-view-compliance-results-by-using-reports"></a><a name="BKMK_Reports"></a> Comment afficher les résultats de compatibilité à l'aide de rapports
 
  Les paramètres de compatibilité de System Center Configuration Manager incluent des rapports intégrés que vous pouvez utiliser pour analyser des informations sur les profils de certificat. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
 

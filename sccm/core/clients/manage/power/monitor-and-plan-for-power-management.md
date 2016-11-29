@@ -114,7 +114,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 |-----------------|-------------|  
 |**Détails de l'ordinateur**|Cliquez sur le lien **Cliquez pour obtenir des informations détaillées** pour afficher les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes d'alimentation appliqués de l'ordinateur sélectionné.|  
 
-###  <a name="a-namebkmkactivitydetailsa-computer-activity-details-report"></a><a name="BKMK_Activity_Details"></a> Rapport Détails de l’activité de l’ordinateur  
+###  <a name="a-namebkmkactivitydetailsa-computer-activity-details-report"></a><a name="BKMK_Activity_Details"></a> Computer Activity Details report  
  Le rapport **Détails de l'activité de l'ordinateur** contient la liste des ordinateurs actifs ou inactifs avec leurs fonctions de veille et de sortie de veille. Ce rapport est appelé par le [Computer Activity Report](#BKMK_Activity) et il n’est pas destiné à être exécuté directement par l’administrateur du site.  
 
  Utilisez les paramètres suivants pour configurer ce rapport.  
@@ -208,7 +208,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 |-----------------|-------------|  
 |**Détails de l'ordinateur**|Cliquez sur un nom d'ordinateur pour afficher les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes de gestion de l'alimentation appliqués à l'ordinateur sélectionné.<br /><br /> Pour plus d'informations, consultez [Computer Details Report](#BKMK_Computer_Details) dans cette rubrique.|  
 
-###  <a name="a-namebkmkmultiplea-computers-with-multiple-power-plans"></a><a name="BKMK_Multiple"></a> Ordinateurs avec plusieurs modes de gestion de l’alimentation  
+###  <a name="a-namebkmkmultiplea-computers-with-multiple-power-plans"></a><a name="BKMK_Multiple"></a> Ordinateurs avec plusieurs modes de gestion de l'alimentation  
  Le rapport **Ordinateurs avec plusieurs modes de gestion de l'alimentation** affiche la liste des ordinateurs qui sont membres de plusieurs regroupements, chacun appliquant des modes différents de gestion de l'alimentation. Pour chaque ordinateur ayant potentiellement des paramètres d'alimentation conflictuels, le rapport indique le nom de l'ordinateur et les modes de gestion de l'alimentation appliqués pour chaque regroupement dont l'ordinateur est membre.  
 
 > [!IMPORTANT]  
@@ -508,7 +508,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 |-----------------|-------------|  
 |**Détails de l'ordinateur**|Cliquez sur le lien **Cliquez pour obtenir des informations détaillées** pour afficher les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes d'alimentation appliqués de l'ordinateur sélectionné.<br /><br /> Pour plus d'informations, consultez [Computer Details Report](#BKMK_Computer_Details) dans cette rubrique.|  
 
-###  <a name="a-namebkmkinsomniaa-insomnia-report"></a><a name="BKMK_Insomnia"></a> Rapport sur la non mise en veille  
+###  <a name="a-namebkmkinsomniaa-insomnia-report"></a><a name="BKMK_Insomnia"></a> Insomnia report  
  Le **Rapport sur la non mise en veille** affiche une liste des causes courantes qui ont empêché les ordinateurs d'entrer en veille ou en veille prolongée et le nombre d'ordinateurs affectés par chaque cause pendant une période spécifique. Un certain nombre de causes peut empêcher un ordinateur d'entrer en veille ou en veille prolongée, notamment le processus en cours d'exécution sur l'ordinateur, une session de bureau à distance ouverte ou l'incapacité pour l'ordinateur d'entrer en veille ou en veille prolongée. À partir de ce rapport, vous pouvez ouvrir le rapport **Détails de l'ordinateur non mis en veille** , qui affiche une liste d'ordinateurs concernés par chaque cause d'ordinateurs qui ne sont pas en veille ou en veille prolongée.  
 
  Le rapport de non mise en veille affiche un ordinateur comme **Non compatible avec le mode veille** lorsqu'il ne peut pas se mettre en veille et qu'il a été sous tension pendant toute la période de rapport définie. Le rapport affiche un ordinateur comme **Non compatible avec le mode veille prolongée** lorsqu'il ne peut pas se mettre en veille prolongée et qu'il a été sous tension pendant toute la période de rapport définie.  
@@ -596,9 +596,9 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 
 |Nom du rapport|Détails|  
 |-----------------|-------------|  
-|**Détails des paramètres du mode de gestion de l'alimentation**|Cliquez sur le nombre d’ordinateurs dans la colonne **Ordinateurs** pour afficher la liste de tous les ordinateurs qui utilisent les paramètres d’alimentation de cette ligne.<br /><br /> Pour plus d'informations, consultez [Rapport Détails des paramètres d’alimentation](#BKMK_Settings_Details) dans cette rubrique.|  
+|**Détails des paramètres du mode de gestion de l'alimentation**|Cliquez sur le nombre d’ordinateurs dans la colonne **Ordinateurs** pour afficher la liste de tous les ordinateurs qui utilisent les paramètres d’alimentation de cette ligne.<br /><br /> Pour plus d'informations, consultez [Power Settings Details Report](#BKMK_Settings_Details) dans cette rubrique.|  
 
-###  <a name="a-namebkmksettingsdetailsa-power-settings-details-report"></a><a name="BKMK_Settings_Details"></a> Rapport Détails des paramètres d’alimentation  
+###  <a name="a-namebkmksettingsdetailsa-power-settings-details-report"></a><a name="BKMK_Settings_Details"></a> Power Settings Details report  
  Le rapport **Détails des paramètres d'alimentation** affiche d'autres informations sur les ordinateurs sélectionnés dans le rapport **Paramètres d'alimentation** . Ce rapport est appelé par le rapport **Paramètres d'alimentation** et il n'est pas destiné à être exécuté directement par l'administrateur du site.  
 
 #### <a name="required-report-parameters"></a>Paramètres de rapport obligatoires  

@@ -27,7 +27,7 @@ ms.openlocfilehash: be8002edb48506286e18b1fb8c09f92f46ff0e10
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les sites System Center Configuration Manager et la hiérarchie.
 
-##  <a name="a-namebkmksecuritysitesa-security-best-practices-for-site-administration"></a><a name="BKMK_Security_Sites"></a> Bonnes pratiques de sécurité pour l’administration de site  
+##  <a name="a-namebkmksecuritysitesa-security-best-practices-for-site-administration"></a><a name="BKMK_Security_Sites"></a> Meilleures pratiques de sécurité pour l'administration de site  
  Utilisez les bonnes pratiques de sécurité suivantes pour vous aider à sécuriser les sites System Center Configuration Manager et la hiérarchie.  
 
  **Exécutez le programme d'installation à partir d'une source approuvée et sécurisez le canal de communication entre le support d'installation et le serveur de site.**  
@@ -175,7 +175,7 @@ Pour plus d’informations sur les différentes technologies Wake On LAN, consul
 
 Dans la mesure du possible, utilisez un serveur de messagerie qui prend en charge l'accès authentifié et le compte d'ordinateur du serveur de site pour l'authentification. Si vous devez spécifier un compte d'utilisateur pour l'authentification, utilisez un compte qui dispose des privilèges minimum.  
 
-##  <a name="a-namebkmksecuritysiteservera-security-best-practices-for-the-site-server"></a><a name="BKMK_Security_SiteServer"></a> Bonnes pratiques de sécurité pour le serveur de site  
+##  <a name="a-namebkmksecuritysiteservera-security-best-practices-for-the-site-server"></a><a name="BKMK_Security_SiteServer"></a> Meilleures pratiques de sécurité pour le serveur de site  
  Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser le serveur de site Configuration Manager.  
 
  **Installez Configuration Manager sur un serveur membre plutôt que sur un contrôleur de domaine.**  
@@ -192,7 +192,7 @@ Dans la mesure du possible, utilisez un serveur de messagerie qui prend en charg
 
  Pour plus d’informations, consultez [Install a secondary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) (Installer un site secondaire) dans la rubrique [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Utiliser l’Assistant Configuration pour installer des sites).  
 
-##  <a name="a-namebkmksecuritysqlservera-security-best-practices-for-sql-server"></a><a name="BKMK_Security_SQLServer"></a> Bonnes pratiques de sécurité pour SQL Server  
+##  <a name="a-namebkmksecuritysqlservera-security-best-practices-for-sql-server"></a><a name="BKMK_Security_SQLServer"></a> Meilleures pratiques de sécurité pour SQL Server  
  Configuration Manager utilise SQL Server comme base de données principale. Si la base de données est compromise, des personnes malveillantes pourraient contourner Configuration Manager et accéder directement à SQL Server afin de lancer des attaques via Configuration Manager. Considérez les attaques contre SQL Server comme présentant un risque élevé et devant être traitées en conséquence.  
 
  Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser SQL Server pour Configuration Manager.  
@@ -223,7 +223,7 @@ Identifiez et suivez les meilleures pratiques pour votre version de SQL Server. 
 
 -   Si vous installez SQL Server à l'aide d'un compte utilisateur de domaine, vous devez configurer un nom principal de service (SPN) pour le compte d'ordinateur de domaine dans les services de domaine Active Directory. Sans le nom principal de service, l’authentification Kerberos échoue, et le programme d’installation de Configuration Manager échoue.  
 
-##  <a name="a-namebkmksecurityiisa-security-best-practices-for-site-systems-that-run-iis"></a><a name="BKMK_Security_IIS"></a> Bonnes pratiques de sécurité pour les systèmes de site exécutant IIS  
+##  <a name="a-namebkmksecurityiisa-security-best-practices-for-site-systems-that-run-iis"></a><a name="BKMK_Security_IIS"></a> Meilleures pratiques de sécurité pour les systèmes de site exécutant IIS  
 Plusieurs rôles de système de site dans Configuration Manager requièrent IIS. Lorsque vous sécurisez IIS, cela permet à Configuration Manager de fonctionner correctement et réduit les risques d’atteintes à la sécurité. Dans la mesure du possible, réduisez le nombre de serveurs qui requièrent IIS. Par exemple, exécutez uniquement le nombre de points de gestion dont vous avez besoin pour prendre en charge votre base de clients, en tenant compte de la haute disponibilité et de l'isolation du réseau pour la gestion des clients basée sur Internet.  
 
  Utilisez les meilleures pratiques de sécurité suivantes pour contribuer à sécuriser les systèmes de site qui exécutent IIS.  
@@ -289,7 +289,7 @@ Par exemple, les répertoires virtuels à supprimer pour un point de distributio
 
 Identifiez et suivez les meilleures pratiques relatives à votre version du serveur IIS. Toutefois, prenez en considération les spécifications de Configuration Manager relatives à certains rôles de système de site spécifiques. Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
-##  <a name="a-namebkmksecuritymanagementpointa-security-best-practices-for-the-management-point"></a><a name="BKMK_Security_ManagementPoint"></a> Bonnes pratiques de sécurité pour le point de gestion  
+##  <a name="a-namebkmksecuritymanagementpointa-security-best-practices-for-the-management-point"></a><a name="BKMK_Security_ManagementPoint"></a> Meilleures pratiques de sécurité pour le point de gestion  
  Les points de gestion représentent l’interface principale entre les appareils et Configuration Manager. Toute attaque contre le point de gestion et le serveur sur lequel il s'exécute doit être considérée comme représentant un risque élevé et doit donc être traitée en conséquence. Appliquez toutes les bonnes pratiques de sécurité et surveillez toute activité inattendue.  
 
  Utilisez les bonnes pratiques suivantes pour mieux sécuriser un point de gestion dans Configuration Manager.  
@@ -300,7 +300,7 @@ Identifiez et suivez les meilleures pratiques relatives à votre version du serv
 
  Si vous migrez vers System Center Configuration Manager à partir d’une version antérieure, migrez dès que possible le logiciel client sur le point de gestion vers System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityfspa-security-best-practices-for-the-fallback-status-point"></a><a name="BKMK_Security_FSP"></a> Bonnes pratiques de sécurité pour le point d’état de secours  
+##  <a name="a-namebkmksecurityfspa-security-best-practices-for-the-fallback-status-point"></a><a name="BKMK_Security_FSP"></a> Meilleures pratiques de sécurité pour le point d'état de secours  
  Utilisez les bonnes pratiques de sécurité suivantes si vous installez un point d’état de secours dans Configuration Manager.  
 
  Pour plus d'informations sur les considérations relatives à la sécurité, voir [Determine Whether You Require a Fallback Status Point](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#BKMK_Determine_FSP).  
@@ -321,7 +321,7 @@ Identifiez et suivez les meilleures pratiques relatives à votre version du serv
 
  Si vous installez le point d'état de secours sur le réseau de périmètre ou sur tout réseau non approuvé, configurez le serveur de site de sorte qu'il initialise le transfert des données au lieu du paramètre par défaut qui autorise le point d'état de secours à se connecter au serveur de site.  
 
-##  <a name="a-namebkmksecurityissuesclientsa-security-issues-for-site-administration"></a><a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour l’administration de site  
+##  <a name="a-namebkmksecurityissuesclientsa-security-issues-for-site-administration"></a><a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour l'administration de site  
  Passez en revue les problèmes de sécurité suivants pour Configuration Manager :  
 
 -   Configuration Manager ne possède aucune défense contre un utilisateur administratif autorisé qui utilise Configuration Manager pour attaquer le réseau. Les utilisateurs administratifs non autorisés représentent un risque élevé pour la sécurité et peuvent lancer de nombreuses attaques, telles que :  

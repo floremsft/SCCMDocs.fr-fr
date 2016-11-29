@@ -32,7 +32,7 @@ Utilisez les sections suivantes de cette rubrique pour créer ou importer des re
 
 -   [Comment importer des requêtes](#BKMK_Import)  
 
--   [Exemples de requêtes WQL](#BKMK_Example)  
+-   [Example WQL Queries](#BKMK_Example)  
 
 ##  <a name="a-namebkmkcreatea-how-to-create-queries"></a><a name="BKMK_Create"></a> Comment créer des requêtes  
  Procédez comme suit pour créer des requêtes dans Configuration Manager.  
@@ -101,7 +101,7 @@ Utilisez les sections suivantes de cette rubrique pour créer ou importer des re
 
 4.  Passez en revue les informations relatives à la requête à importer, puis terminez l’Assistant. La nouvelle requête s’affiche dans le nœud **Requêtes** de l’espace de travail **Surveillance** .  
 
-##  <a name="a-namebkmkexamplea-example-wql-queries"></a><a name="BKMK_Example"></a>Exemples de requêtes WQL  
+##  <a name="a-namebkmkexamplea-example-wql-queries"></a><a name="BKMK_Example"></a> Example WQL queries  
  Cette section contient des exemples de requêtes WMI que vous pouvez utiliser dans votre hiérarchie ou modifier à d’autres fins. Pour utiliser ces requêtes, cliquez sur **Afficher la requête** dans la boîte de dialogue **Propriétés de l’instruction de requête** , puis copiez et collez la requête dans le champ **Instruction de la requête** .  
 
 > [!TIP]  

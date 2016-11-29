@@ -26,7 +26,7 @@ ms.openlocfilehash: bf485456b4d8f0bffe956006b2a8b3dd8c17a5db
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="a-nameplanningintra-sitecoma-communications-between-site-systems-in-a-site"></a><a name="Planning_Intra-site_Com"></a> Communications entre les systèmes de site d’un site  
+##  <a name="a-nameplanningintra-sitecoma-communications-between-site-systems-in-a-site"></a><a name="Planning_Intra-site_Com"></a> Communications entre les systèmes d’un site  
  Quand des systèmes de site ou des composants Configuration Manager communiquent via le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
 
 -   SMB (Server Message Block)  

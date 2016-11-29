@@ -28,7 +28,7 @@ ms.openlocfilehash: 1abd28aa4ce4f946f6328f8f7924b5f5a81e640c
 System Center Configuration Manager utilise la **réplication basée sur les fichiers** et la **réplication de base de données** pour transférer différents types d’informations entre les sites.  Les sujets de cette rubrique peuvent vous aider à comprendre comment Configuration Manager déplace les données entre les sites et comment vous pouvez gérer le transfert de ces données sur votre réseau.  
 
 
-##  <a name="a-namebkmkfileroutea-file-based-replication"></a><a name="bkmk_fileroute"></a> Réplication basée sur les fichiers  
+##  <a name="a-namebkmkfileroutea-file-based-replication"></a><a name="bkmk_fileroute"></a> File-based replication  
  Configuration Manager utilise la réplication basée sur les fichiers pour transférer des données basées sur les fichiers entre les sites dans votre hiérarchie. Ces données incluent du contenu, par exemple, des applications et des packages que vous voulez déployer sur des points de distribution dans des sites enfants, ainsi que des enregistrements de données de découverte non traités qui sont transférés vers des sites parents pour le traitement.  
 
  La communication basée sur les fichiers entre les sites utilise le protocole **SMB (Server Message Block)** sur le port **TCP/IP 445**. Vous pouvez spécifier des configurations avec limitation de bande passante et mode impulsion pour contrôler la quantité de données transférées sur le réseau, ainsi que des planifications pour contrôler à quel moment les données sont envoyées via le réseau.  
@@ -72,7 +72,7 @@ Pour gérer un itinéraire de réplication de fichiers, dans l'espace de travail
 
 Pour gérer l'expéditeur pour un site, développez le nœud **Configuration du site** dans l'espace de travail **Administration** , sélectionnez le nœud **Sites** , puis cliquez sur **Propriétés** pour le site à gérer. Cliquez dans l'onglet **Expéditeur** pour modifier la configuration de l'expéditeur.  
 
-##  <a name="a-namebkmkdbrepa-database-replication"></a><a name="bkmk_dbrep"></a> Réplication de base de données  
+##  <a name="a-namebkmkdbrepa-database-replication"></a><a name="bkmk_dbrep"></a> Database replication  
 La réplication de base de données Configuration Manager utilise SQL Server pour transférer des données et fusionner les modifications apportées à la base de données d’un site avec les informations stockées dans la base de données sur d’autres sites de la hiérarchie.  
 
 -   Cela permet à tous les sites de partager les mêmes informations.  
@@ -113,7 +113,7 @@ Configuration Manager classe les données qu’il réplique via la réplication 
 
 Les sections suivantes détaillent les configurations disponibles pour gérer la réplication de base de données.  
 
-###  <a name="a-namebkmkdblinksa-database-replication-links"></a><a name="bkmk_Dblinks"></a> Liens de réplication de base de données  
+###  <a name="a-namebkmkdblinksa-database-replication-links"></a><a name="bkmk_Dblinks"></a> liens de réplication de base de données  
 Quand vous installez un nouveau site dans une hiérarchie, Configuration Manager crée automatiquement un lien de réplication de base de données entre les deux sites. Un seul lien est créé pour connecter le nouveau site au site parent.  
 
 Chaque lien de réplication de base de données prend en charge les configurations pour faciliter le contrôle du transfert de données via le lien de réplication. Chaque lien de réplication prend en charge des configurations distinctes. Les contrôles pour les liens de réplication de base de données sont les suivants :  
@@ -137,7 +137,7 @@ Pour plus d'informations sur la configuration des liens de réplication, voir [C
 
 Pour planifier des liens de réplication de base de données, aidez-vous des informations figurant dans les sections suivantes.  
 
-###  <a name="a-namebkmkdistviewsa-distributed-views"></a><a name="bkmk_distviews"></a> Vues distribuées  
+###  <a name="a-namebkmkdistviewsa-distributed-views"></a><a name="bkmk_distviews"></a> vues distribuées  
 Les vues distribuées permettent aux demandes formulées sur un site d'administration centrale relatives à des données de site sélectionnées d'accéder à ces données directement à partir de la base de données d'un site principal enfant. Cet accès direct évite d'avoir à répliquer ces données de site du site principal vers le site d'administration centrale. Comme chaque lien de réplication est indépendant des autres liens de réplication, vous pouvez activer les vues distribuées uniquement sur les liens de réplication de votre choix. Les vues distribuées ne sont pas prises en charge entre un site principal et un site secondaire.  
 
 Les vues distribuées peuvent offrir les avantages suivants :  
@@ -199,7 +199,7 @@ Chaque site réalise régulièrement une synthèse des données sur le trafic r�
 
 Par défaut, le résumé se produit toutes les 15 minutes. Vous pouvez modifier la fréquence du résumé du trafic réseau en modifiant la valeur **Intervalle de résumé** dans les propriétés du lien de réplication de la base de données. La fréquence du résumé affecte les informations affichées dans les rapports sur la réplication de la base de données. Vous pouvez définir cet intervalle entre 5 et 60 minutes. Lorsque vous augmentez la fréquence du résumé, vous augmentez la charge de traitement sur le serveur SQL Server au niveau de chaque site sur le lien de réplication.  
 
-###  <a name="a-namebkmkdbrepthresholdsa-database-replication-thresholds"></a><a name="BKMK_DBRepThresholds"></a> Seuils de réplication de la base de données  
+###  <a name="a-namebkmkdbrepthresholdsa-database-replication-thresholds"></a><a name="BKMK_DBRepThresholds"></a> seuils de réplication de base de données  
 Les seuils de réplication de la base de données définissent le moment auquel un lien de réplication de la base de données est signalé comme étant détérioré ou en état d'échec. Par défaut, un lien est défini comme détérioré quand l'un des groupes de réplication ne parvient pas à terminer la réplication à l'issue de 12 tentatives consécutives ; il est en état d'échec quand l'un des groupes de réplication ne parvient pas à se répliquer à l'issue de 24 tentatives consécutives.  
 
 Vous pouvez spécifier des valeurs personnalisées pour ajuster le moment auquel Configuration Manager signale qu’un lien de réplication est détérioré ou en état d’échec. L’ajustement du moment auquel Configuration Manager signale chaque état de vos liens de réplication de la base de données peut vous aider à surveiller l’intégrité de la réplication de la base de données avec précision.  

@@ -48,9 +48,9 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
     > [!TIP]  
     >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
 
-9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des appareils (quand cela est pris en charge).  
+9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
 
-10. Pour chaque groupe de paramètres, vous pouvez aussi configurer la gravité signalée (dans les rapports Configuration Manager) quand un élément de configuration n’est pas conforme :  
+10. Pour chaque groupe de paramètres, vous pouvez aussi spécifier la gravité signalée dans les rapports Configuration Manager quand un élément de configuration est évalué comme non conforme :  
 
     -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
 

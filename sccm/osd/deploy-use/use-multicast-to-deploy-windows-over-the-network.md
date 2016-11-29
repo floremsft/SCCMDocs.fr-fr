@@ -41,7 +41,7 @@ La multidiffusion est une méthode d'optimisation réseau que vous pouvez utilis
 ## <a name="prepare-an-operating-system-image-for-multicast-deployments"></a>Préparer une image de système d’exploitation pour les déploiements en multidiffusion  
  Pour configurer le package d’images du système d’exploitation dans l’optique d’une prise en charge de la multidiffusion, voir [Préparer l’image du système d’exploitation pour les déploiements en multidiffusion](../get-started/manage-operating-system-images.md#BKMK_OSImageMulticast).  
 
-##  <a name="a-namebkmkdeploya-deploy-the-task-sequence"></a><a name="BKMK_Deploy"></a>Déployer la séquence de tâches  
+##  <a name="a-namebkmkdeploya-deploy-the-task-sequence"></a><a name="BKMK_Deploy"></a> Déployer la séquence de tâches  
  Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
 
 

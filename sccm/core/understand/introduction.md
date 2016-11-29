@@ -86,7 +86,7 @@ Configuration Manager utilise également :
 
  Pour plus d’informations, consultez [Installer des consoles System Center Configuration Manager](../../core/servers/deploy/install/install-consoles.md).
 
-##  <a name="a-namebkmkapplicationcataloga-the-application-catalog-software-center-and-the-company-portal"></a><a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le Centre logiciel et le portail d'entreprise  
+##  <a name="a-namebkmkapplicationcataloga-the-application-catalog-software-center-and-the-company-portal"></a><a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
  Le **catalogue d’applications** est un site web sur lequel les utilisateurs peuvent rechercher et demander des logiciels pour leurs PC Windows. Pour utiliser le catalogue d'applications, vous devez installer le point de service Web du catalogue d'applications et le point de site Web du catalogue d'applications pour le site.  
 
  Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels qui leur sont déployés à l'aide de Configuration Manager. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  

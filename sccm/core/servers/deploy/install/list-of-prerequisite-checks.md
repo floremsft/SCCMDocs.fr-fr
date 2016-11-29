@@ -116,7 +116,7 @@ Les sections suivantes détaillent les vérifications de la configuration requis
 
     -   SQL Server  
 
-##  <a name="a-namebkmkdependenciesa-prerequisite-checks-for-configuration-manager-dependencies"></a><a name="BKMK_Dependencies"></a> Vérifications de la configuration requise pour les dépendances de Configuration Manager  
+##  <a name="a-namebkmkdependenciesa-prerequisite-checks-for-configuration-manager-dependencies"></a><a name="BKMK_Dependencies"></a> Vérifications de la configuration requise pour les dépendances Configuration Manager  
  Les vérifications de la configuration requise suivantes sont effectuées par l’outil de vérification de la configuration requise au niveau des dépendances de Configuration Manager.  
 
 **Mappages de migration actifs sur le site principal cible**  

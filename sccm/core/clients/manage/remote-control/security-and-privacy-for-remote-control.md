@@ -28,7 +28,7 @@ ms.openlocfilehash: 9b36c01e6ea3a5e63523b5e32b151c0b972f9877
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
 
-##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-remote-control"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques en matière de sécurité pour le contrôle à distance  
+##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-remote-control"></a><a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
  Utilisez les meilleures pratiques de sécurité suivantes lorsque vous gérez des ordinateurs client à l'aide du contrôle à distance.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  

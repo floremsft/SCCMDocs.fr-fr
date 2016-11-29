@@ -87,10 +87,10 @@ La branche LTSB est basée sur la version 1606 de Current Branch et présente le
 - Elle prend en charge une liste limitée de systèmes d’exploitation serveur et client et les technologies associées telles que les versions de SQL Server.  Pour plus d’informations sur ce qui est pris en charge avec cette branche, consultez [Configurations prises en charge pour la branche LTSB](supported-configurations-for-ltsb.md).
 - Elle ne reçoit pas de mises à jour pour les nouvelles fonctionnalités.
 - Elle ne prend pas en charge l’ajout d’un abonnement Microsoft Intune, ce qui vous empêche d’utiliser :
-  - Intune dans une configuration de gestion des appareils mobiles hybride
+  - Intune dans une configuration de gestion des appareils mobiles hybride ;
  - Gestion des appareils mobiles locale
 -   Elle ne prend pas en charge l’utilisation des plans de maintenance ni du tableau de bord de maintenance de Windows 10. Elle ne prend pas non plus en charge la branche CB (Current Branch) et la branche CBB (Current Branch for Business) de Windows 10.
-- Elle ne prend pas en charge les versions ultérieures de Windows 10 LTSB ni de Windows Server.
+- Elle ne prend pas en charge les futures versions de Windows 10 LTSB ni de Windows Server.
 -   Elle ne prend pas en charge Asset Intelligence.
 -   Elle ne prend pas en charge les points de distribution basés sur le cloud.
 -   Elle ne prend pas en charge la prise en charge pour Exchange Online en tant que connecteur Exchange.

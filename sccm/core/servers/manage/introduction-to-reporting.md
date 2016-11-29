@@ -44,14 +44,14 @@ Dans System Center Configuration Manager, les rapports fournissent un ensemble d
 
  Pour plus d'informations sur Reporting Services, voir [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) dans la documentation en ligne de SQL Server 2008.  
 
-##  <a name="a-namebkmkreportingservicespointa-reporting-services-point"></a><a name="BKMK_ReportingServicesPoint"></a> Point de Reporting Services  
+##  <a name="a-namebkmkreportingservicespointa-reporting-services-point"></a><a name="BKMK_ReportingServicesPoint"></a> Point Reporting Services  
  Le point de Reporting Services est un rôle de système de site installé sur un serveur qui exécute Microsoft SQL Server Reporting Services. Le point de Reporting Services copie les définitions de rapport Configuration Manager vers Reporting Services, crée des dossiers de rapports basés sur les catégories de rapports et paramètre les stratégies de sécurité des dossiers de rapports et des rapports en fonction des autorisations basées sur les rôles pour les utilisateurs administratifs de Configuration Manager. Toutes les 10 minutes, le point de Reporting Services se connecte à Reporting Services pour réappliquer la stratégie de sécurité si elle a été modifiée, par exemple, à l'aide du Gestionnaire de rapports. Pour plus d'informations sur la planification et l'installation d'un point de Reporting Services, consultez la documentation suivante :  
 
 -   [Planification de la création de rapports dans System Center Configuration Manager](planning-for-reporting.md)  
 
 -   [Configuration des rapports dans System Center Configuration Manager](configuring-reporting.md)  
 
-##  <a name="a-namebkmkconfigurationmanagerreportsa-configuration-manager-reports"></a><a name="BKMK_ConfigurationManagerReports"></a> Rapports Configuration Manager  
+##  <a name="a-namebkmkconfigurationmanagerreportsa-configuration-manager-reports"></a><a name="BKMK_ConfigurationManagerReports"></a> Rapports de Configuration Manager  
  Configuration Manager offre des définitions de rapports pour plus de 400 rapports dans plus de 50 dossiers de rapports qui sont copiés dans le dossier de rapports racine dans SQL Server Reporting Services lors du processus d’installation du point de Reporting Services. Les rapports sont affichés sur la console Configuration Manager et sont organisés dans des sous-dossiers en fonction de la catégorie de rapport. Les rapports ne se propagent pas en amont ou en aval dans la hiérarchie Configuration Manager, mais s’exécutent uniquement par rapport à la base de données du site dans lequel ils sont créés. Toutefois, étant donné que Configuration Manager réplique les données globales dans toute la hiérarchie, vous avez accès aux informations de toute la hiérarchie. Lorsqu'un rapport récupère des données depuis la base de donnée d'un site, il a accès aux données du site lui-même ainsi qu'à celles des sites enfants, pour chaque site de la hiérarchie. Comme les autres objets Configuration Manager, un utilisateur administratif doit disposer des autorisations appropriées pour l’exécution ou la modification de rapports. Pour exécuter un rapport, un utilisateur administratif doit avoir l'autorisation **Exécuter le rapport** pour cet objet. Pour créer ou modifier un rapport, un utilisateur administratif doit avoir l'autorisation **Modifier le rapport** pour cet objet.  
 
 ###  <a name="a-namebkmkcreatingreportsa-creating-and-modifying-reports"></a><a name="BKMK_CreatingReports"></a> Création et modification de rapports  
@@ -96,7 +96,7 @@ Dans System Center Configuration Manager, les rapports fournissent un ensemble d
 
  Vous pouvez également ouvrir le Générateur de rapports depuis SQL Server Reporting Services.  
 
-##  <a name="a-namebkmkreportmodelsa-report-models-in-sql-server-reporting-services"></a><a name="BKMK_ReportModels"></a> Modèles de rapport dans SQL Server Reporting Services  
+##  <a name="a-namebkmkreportmodelsa-report-models-in-sql-server-reporting-services"></a><a name="BKMK_ReportModels"></a> Modèles de rapports dans SQL Server Reporting Services  
  Dans Configuration Manager, SQL Reporting Services utilise des modèles de rapport pour aider l’utilisateur administratif à sélectionner les éléments de la base de données à inclure dans les rapports basés sur un modèle. L'utilisateur administratif chargé de générer le rapport peut choisir entre les vues et éléments spécifiques exposés dans le modèle de rapport. Au moins un modèle de rapport doit être disponible pour pouvoir générer des rapports basés sur un modèle. Les modèles de rapport sont dotés des fonctions ci-après :  
 
 -   Vous pouvez donner des noms plus pratiques aux champs des bases de données et aux vues pour faciliter la création de rapports. La connaissance de la structure de la base de données n'est pas nécessaire pour produire des rapports.  

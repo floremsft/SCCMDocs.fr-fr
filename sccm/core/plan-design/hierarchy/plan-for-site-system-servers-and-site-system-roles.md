@@ -35,7 +35,7 @@ Chaque site System Center Configuration Manager que vous installez se compose d�
 
  Si vous configurez le serveur de système de site avec un proxy pour une utilisation par des rôles de système de site, consultez [Rôles système de site pouvant utiliser un serveur proxy](#bkmk_proxy)  
 
-##  <a name="a-namebkmkplanrolesa-site-system-roles"></a><a name="bkmk_planroles"></a> Rôles de système de site  
+##  <a name="a-namebkmkplanrolesa-site-system-roles"></a><a name="bkmk_planroles"></a> Site system roles  
  Des rôles système de site sont installés sur un ordinateur pour fournir au site des fonctionnalités supplémentaires. En voici quelques exemples :  
 
 -   Points de gestion supplémentaires pour que le site puisse prendre en charge plus d’appareils, jusqu’à la capacité de prise en charge des sites  
@@ -113,7 +113,7 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
 -   **Point du programme de validation d’intégrité système** : bien que ce rôle de système de site reste visible dans la console Configuration Manager, il n’est plus utilisé avec System Center Configuration Manager.  
 
-##  <a name="a-namebkmkproxya-site-system-roles-that-can-use-a-proxy-server"></a><a name="bkmk_proxy"></a> Rôles de système de site pouvant utiliser un serveur proxy  
+##  <a name="a-namebkmkproxya-site-system-roles-that-can-use-a-proxy-server"></a><a name="bkmk_proxy"></a> Rôles système de site pouvant utiliser un serveur proxy  
  Certains rôles de système de site Configuration Manager ont besoin de connexions à Internet et utilisent un serveur proxy quand le serveur de système de site hébergeant le rôle est configuré pour cela. En règle générale, cette connexion est établie dans le contexte du **système** de l’ordinateur sur lequel le rôle de système de site est installé et ne peut pas utiliser une configuration du proxy pour les comptes d’utilisateurs standard. Quand un serveur proxy est requis pour établir une connexion à Internet, vous devez configurer l’ordinateur pour utiliser un serveur proxy :  
 
 -   Vous pouvez configurer un serveur proxy lors de l’installation d’un rôle système de site.  

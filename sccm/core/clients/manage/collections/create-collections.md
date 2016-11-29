@@ -44,7 +44,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
  Pour plus d’informations sur la création de regroupements pour des ordinateurs qui exécutent Linux et UNIX, consultez [Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
 
-##  <a name="a-namebkmk1a-to-create-a-device-collection"></a><a name="BKMK_1"></a> Pour créer un regroupement d’appareils  
+##  <a name="a-namebkmk1a-to-create-a-device-collection"></a><a name="BKMK_1"></a> Pour créer un regroupement de périphériques  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -137,7 +137,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 > [!NOTE]  
 >  Vous devez actualiser ou recharger la console Configuration Manager pour voir les membres du regroupement. Toutefois, les membres n’apparaissent pas dans le regroupement tant que la première mise à jour planifiée n’est pas effectuée ou que vous ne sélectionnez pas manuellement **Mettre à jour l’adhésion** pour le regroupement. Selon la complexité de la règle de regroupement et le nombre d’entrées dans la base de données Configuration Manager, la mise à jour d’un regroupement peut durer quelques minutes.  
 
-##  <a name="a-namebkmk2a-to-create-a-user-collection"></a><a name="BKMK_2"></a> Pour créer un regroupement d’utilisateurs  
+##  <a name="a-namebkmk2a-to-create-a-user-collection"></a><a name="BKMK_2"></a> Pour créer un regroupement d'utilisateurs  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 

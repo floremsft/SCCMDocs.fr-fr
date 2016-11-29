@@ -62,7 +62,7 @@ Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Con
 
 7.  Vérifiez que la nouvelle stratégie de pare-feu Windows s'affiche dans la liste **Stratégies de pare-feu Windows** .  
 
-##  <a name="a-namebkmkassigna-to-deploy-a-windows-firewall-policy"></a><a name="BKMK_Assign"></a> Pour déployer une stratégie de Pare-feu Windows  
+##  <a name="a-namebkmkassigna-to-deploy-a-windows-firewall-policy"></a><a name="BKMK_Assign"></a> Pour déployer une stratégie de pare-feu Windows  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 

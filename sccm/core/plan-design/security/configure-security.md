@@ -33,7 +33,7 @@ Aidez-vous des informations de cette rubrique pour configurer les options de sé
 
 -   [Configurer l’administration basée sur des rôles](#BKMK_ConfigureRBA)  
 
--   [Gérer les comptes utilisés par Configuration Manager](#BKMK_ManageAccounts)  
+-   [Manage Accounts that are Used by Configuration Manager](#BKMK_ManageAccounts)  
 
 ##  <a name="a-namebkmkconfigureclientpkia-configure-settings-for-client-pki-certificates"></a><a name="BKMK_ConfigureClientPKI"></a> Configurer les paramètres de certificat client PKI  
 Si vous souhaitez utiliser des certificats PKI (infrastructure à clés publiques) pour les connexions client aux systèmes de site utilisant les services IIS (Internet Information Services), la procédure suivante vous permet de configurer les paramètres pour ces certificats.  

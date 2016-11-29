@@ -28,7 +28,7 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
  Une fois l’application cliente System Center Configuration Manager installée sur les ordinateurs et appareils Windows de votre site, vous pouvez surveiller leur intégrité et leur activité dans la console Configuration Manager.  
 
-##  <a name="a-namebkmkabouta-about-client-status"></a><a name="bkmk_about"></a> À propos de l’état du client  
+##  <a name="a-namebkmkabouta-about-client-status"></a><a name="bkmk_about"></a> À propos du statut du client  
  Configuration Manager présente les types d’informations suivants sous forme d’état du client :  
 
 -   **État en ligne du client** : à compter de la version 1602 de Configuration Manager, cet état indique si l’ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté.  Pour indiquer que le client est en ligne, il envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après environ 5 minutes, le client est considéré comme étant hors connexion.  
@@ -41,7 +41,7 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
      Vous pouvez configurer la mise à jour de manière à ne pas l'exécuter sur des ordinateurs spécifiques, par exemple, sur un serveur essentiel pour l'entreprise. En outre, si vous souhaitez évaluer d’autres éléments, vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour fournir une solution complète de surveillance de l’intégrité, de l’activité et de la conformité globales des ordinateurs de votre organisation. Pour plus d’informations sur les paramètres de compatibilité, consultez [Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
 
-##  <a name="a-namebkmkindstatusa-monitor-the-status-of-individual-clients"></a><a name="bkmk_indStatus"></a> Surveiller l’état des clients individuels  
+##  <a name="a-namebkmkindstatusa-monitor-the-status-of-individual-clients"></a><a name="bkmk_indStatus"></a> Surveiller le statut de clients individuels  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Appareils** ou choisissez un regroupement sous **Regroupements d’appareils**.  
 
@@ -64,7 +64,7 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
 3.  Cliquez sur un client individuel dans le volet Liste pour voir plus d’informations sur le statut dans le volet Détails, dont des informations sur l’activité du client et l’intégrité du client.  
 
-##  <a name="a-namebkmkallstatusa-monitor-the-status-of-all-clients"></a><a name="bkmk_allStatus"></a> Surveiller l’état de tous les clients  
+##  <a name="a-namebkmkallstatusa-monitor-the-status-of-all-clients"></a><a name="bkmk_allStatus"></a> Surveiller le statut de tous les clients  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **État du client**. Dans cette page de la console, vous pouvez consulter les statistiques générales relatives à l’activité du client et à l’intégrité du client sur le site.  Vous pouvez également modifier l’étendue des informations en choisissant un autre regroupement.  
 
@@ -76,7 +76,7 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
  Vous pouvez configurer des alertes pour vous avertir lorsque les résultats de l'intégrité des clients ou l'activité des clients passent au-dessous d'un pourcentage de clients spécifié dans un enregistrement ou lorsque la mise à jour échoue sur un pourcentage de clients spécifié. Pour plus d’informations sur la configuration de l’état du client, consultez [Comment configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
-##  <a name="a-namebkmkclienthealtha-checks-and-remediations-made-by-client-check"></a><a name="BKMK_ClientHealth"></a> Vérifications et corrections effectuées par la fonction d’intégrité du client  
+##  <a name="a-namebkmkclienthealtha-checks-and-remediations-made-by-client-check"></a><a name="BKMK_ClientHealth"></a> Vérifications et corrections effectuées par la fonction d'intégrité du client  
  Les vérifications et corrections suivantes peuvent être effectuées par la fonction d'intégrité du client.  
 
 |Intégrité du client|Action corrective|Plus d'informations|  

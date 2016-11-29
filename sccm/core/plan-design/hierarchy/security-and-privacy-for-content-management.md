@@ -33,7 +33,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 -   [Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
-##  <a name="a-namebkmksecuritycontentmanagementa-security-best-practices-for-content-management"></a><a name="BKMK_Security_ContentManagement"></a> Bonnes pratiques de sécurité pour la gestion de contenu  
+##  <a name="a-namebkmksecuritycontentmanagementa-security-best-practices-for-content-management"></a><a name="BKMK_Security_ContentManagement"></a> Meilleures pratiques de sécurité pour la gestion de contenu  
  Utilisez les meilleures pratiques de sécurité suivantes pour la gestion de contenu :  
 
  **Pour les points de distribution sur intranet, prenez en considération les avantages et les inconvénients liés à l’utilisation de HTTP et HTTPS** : dans la plupart des cas, l’utilisation du protocole HTTP et des comptes d’accès aux packages pour l’autorisation est plus sûre que l’utilisation du protocole HTTPS avec chiffrement, mais sans autorisation. Toutefois, si des données sensibles se trouvent dans votre contenu que vous souhaitez chiffrer lors du transfert, utilisez le protocole HTTPS.  

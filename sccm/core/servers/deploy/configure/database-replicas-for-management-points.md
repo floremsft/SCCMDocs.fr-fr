@@ -413,7 +413,7 @@ Outre la configuration du point de gestion pour utiliser le serveur de réplica 
 
     5.  Cliquez sur **Terminer** pour fermer l'Assistant et terminer la configuration des certificats sur le point de gestion.  
 
-###  <a name="a-namebkmkdbreplicassba-step-5---configure-the-sql-server-service-broker-for-the-database-replica-server"></a><a name="BKMK_DBreplica_SSB"></a> Étape 5 : Configuration de SQL Server Service Broker pour le serveur réplica de base de données  
+###  <a name="a-namebkmkdbreplicassba-step-5---configure-the-sql-server-service-broker-for-the-database-replica-server"></a><a name="BKMK_DBreplica_SSB"></a> Étape 5 : Configuration de Service Broker SQL Server pour le serveur réplica de base de données  
 Pour prendre en charge la notification de client avec un réplica de base de données pour un point de gestion, vous devez configurer la communication entre le serveur de base de données de site et le serveur de réplica de base de données pour SQL Server Service Broker. Cela nécessite la configuration de chaque base de données avec des informations sur l'autre base de données et d'échanger les certificats entre les deux bases de données pour une communication sécurisée.  
 
 > [!NOTE]  

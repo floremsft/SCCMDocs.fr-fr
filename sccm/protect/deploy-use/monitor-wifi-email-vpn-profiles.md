@@ -60,7 +60,7 @@ Une fois que vous avez déployé des profils de messagerie, Wi-Fi ou VPN System 
 
 5.  Dans la page **État du déploiement**, vous pouvez consulter des informations détaillées sur la compatibilité du profil déployé. Un nœud temporaire est créé sous le nœud **Déploiements** qui vous aide à retrouver rapidement ces informations.  
 
-##  <a name="a-namebkmkreportsa-how-to-view-compliance-results-by-using-reports"></a><a name="BKMK_Reports"></a> Comment afficher les résultats de compatibilité à l’aide de rapports  
+##  <a name="a-namebkmkreportsa-how-to-view-compliance-results-by-using-reports"></a><a name="BKMK_Reports"></a> Comment afficher les résultats de compatibilité à l'aide de rapports  
  Les paramètres de compatibilité, qui englobent les profils dans System Center Configuration Manager, incluent aussi un certain nombre de rapports intégrés qui permettent de surveiller les informations sur les profils. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
 
 > [!IMPORTANT]  

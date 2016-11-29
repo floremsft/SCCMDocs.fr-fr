@@ -107,7 +107,7 @@ Ces certificats d’autorité de certification racine importés et le certificat
 
 Indépendamment de la configuration du site, vous pouvez également être amené à importer un certificat d'autorité de certification racine lorsque vous inscrivez des appareils mobiles ou des ordinateurs Mac, et lorsque vous configurez des ordinateurs Intel AMT pour des réseaux sans fil.  
 
-###  <a name="a-namebkmkplanningforclientcertificateselectiona-planning-for-pki-client-certificate-selection"></a><a name="BKMK_PlanningForClientCertificateSelection"></a> Planification de la sélection des certificats clients PKI  
+###  <a name="a-namebkmkplanningforclientcertificateselectiona-planning-for-pki-client-certificate-selection"></a><a name="BKMK_PlanningForClientCertificateSelection"></a> Planning for PKI client certificate selection  
  Si vos systèmes de site IIS utilisent des certificats clients PKI pour l’authentification des clients sur HTTP ou pour le chiffrement et l’authentification des clients sur HTTPS, planifiez la manière dont les clients Windows vont sélectionner le certificat à utiliser pour Configuration Manager.  
 
 > [!NOTE]  
@@ -181,7 +181,7 @@ Pour identifier facilement un certificat de client unique PKI, vous pouvez égal
 
 Pour plus d’informations sur la configuration des paramètres des certificats clients, consultez la section [Configurer les paramètres des certificats clients PKI](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureClientPKI) dans la rubrique [Configurer la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/configure-security.md).  
 
-###  <a name="a-namebkmkplanningforpkitransitiona-planning-a-transition-strategy-for-pki-certificates-and-internet-based-client-management"></a><a name="BKMK_PlanningForPKITransition"></a> Planification d’une stratégie de transition pour les certificats PKI et la gestion du client basée sur Internet  
+###  <a name="a-namebkmkplanningforpkitransitiona-planning-a-transition-strategy-for-pki-certificates-and-internet-based-client-management"></a><a name="BKMK_PlanningForPKITransition"></a> Planification d'une stratégie de transition pour les certificats PKI et la gestion des clients basés sur Internet  
 Grâce aux options de configuration flexibles de Configuration Manager, vous pouvez effectuer progressivement la transition des clients et du site pour utiliser des certificats PKI et sécuriser ainsi davantage les points de terminaison des clients. Les certificats PKI fournissent une meilleure sécurité et permettent aux clients d'être gérés lorsqu'ils sont sur Internet.  
 
 Les options et choix de configuration sont multiples dans Configuration Manager. Cela explique pourquoi il n’y a pas une méthode unique recommandée pour effectuer la transition d’un site afin que tous les clients utilisent des connexions HTTPS. Toutefois, vous pouvez suivre ces étapes comme guide :  

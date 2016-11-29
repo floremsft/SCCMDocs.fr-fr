@@ -51,7 +51,7 @@ Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’ap
 
     1.  Dans un navigateur, accédez au [portail Apple Push Certificates](http://go.microsoft.com/fwlink/?LinkId=269844) et connectez-vous avec votre ID Apple d’entreprise. Cet ID Apple doit être utilisé ultérieurement pour renouveler votre certificat APNs.  
 
-    2.  Terminez l’Assistant en utilisant le fichier (.csr) de demande de signature de certificat. Téléchargez le certificat APNs et enregistrez le fichier .pem localement. Ce fichier de certificat APNs (.pem) est utilisé pour établir une relation d’approbation entre le serveur de notifications Apple Push et l’autorité de gestion des appareils mobiles Intune.  
+    2.  Terminez l’Assistant en utilisant le fichier (.csr) de demande de signature de certificat. Téléchargez le certificat APNs et enregistrez le fichier .pem localement. Ce fichier de certificat APNs (.pem) est utilisé pour établir une relation d’approbation entre le serveur Apple Push Notification et l’autorité de gestion des appareils mobiles Intune.  
 
 4.  **Activez l’inscription et téléchargez le certificat APNs** : pour activer l’inscription iOS, téléchargez le certificat APNs.  
 

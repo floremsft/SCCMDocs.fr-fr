@@ -30,7 +30,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
 -   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Remplacer un ordinateur existant et transférer des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Remplacement d’un ordinateur existant et transfert des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
 
 ##  <a name="a-namebkmkcreatebootablemediaa-create-bootable-media"></a><a name="BKMK_CreateBootableMedia"></a> Créer un média de démarrage  
  Quand vous démarrez sur le média de démarrage, l’ordinateur de destination démarre, se connecte au réseau, puis récupère la séquence de tâches, l’image du système d’exploitation et tout autre contenu nécessaire à partir du réseau. Étant donné que la séquence de tâches ne se trouve pas sur le média, vous pouvez modifier la séquence de tâches ou le contenu sans avoir à recréer le média. Les packages sur le média de démarrage ne sont pas chiffrés. Vous devez prendre les mesures de sécurité appropriées, telles que l’ajout d’un mot de passe au média, afin de garantir que le contenu du package est protégé contre les utilisateurs non autorisés.  
@@ -92,9 +92,9 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
          Les ordinateurs inconnus sont les suivants :  
 
-        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé.  
+        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
-        -   Un ordinateur qui n’est pas importé dans Configuration Manager.  
+        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
 
         -   Un ordinateur qui n’est pas détecté par Configuration Manager.  
 
@@ -109,7 +109,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
          Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinité entre utilisateur et périphérique** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et périphérique par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 

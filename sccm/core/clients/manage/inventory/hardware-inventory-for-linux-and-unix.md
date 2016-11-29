@@ -92,7 +92,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
  Les actions d’inventaire matériel sont entrées dans le fichier journal du client, **scxcm.log**.  
 
-##  <a name="a-namebkmkcustomhinvforlinuxa-how-to-use-open-management-infrastructure-to-create-custom-hardware-inventory"></a><a name="BKMK_CustomHINVforLinux"></a> Guide pratique pour utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
+##  <a name="a-namebkmkcustomhinvforlinuxa-how-to-use-open-management-infrastructure-to-create-custom-hardware-inventory"></a><a name="BKMK_CustomHINVforLinux"></a> Comment utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
  Le client pour Linux et UNIX prend en charge l’inventaire matériel personnalisé que vous pouvez créer à l’aide de l’infrastructure OMI. Pour ce faire, vous devez procédez comme suit :  
 
 1.  Créer un fournisseur d’inventaire personnalisé à l’aide de la source OMI  
@@ -101,7 +101,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
 3.  Activer Configuration Manager pour prendre en charge le nouveau fournisseur  
 
-###  <a name="a-namebkmklinuxprovidera-create-a-custom-hardware-inventory-provider-for-linux-and-unix-computers"></a><a name="BKMK_LinuxProvider"></a> Créez un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
+###  <a name="a-namebkmklinuxprovidera-create-a-custom-hardware-inventory-provider-for-linux-and-unix-computers"></a><a name="BKMK_LinuxProvider"></a> Créer un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
  Pour créer un fournisseur d’inventaire matériel personnalisé pour le client Configuration Manager pour Linux et UNIX, utilisez **OMI Source - v.1.0.6** et suivez les instructions du guide de démarrage OMI. Ce processus comprend la création d’un fichier MOF (Managed Object Format) qui définit le schéma du nouveau fournisseur. Plus tard, vous importez le fichier MOF dans Configuration Manager pour activer la prise en charge de la nouvelle classe d’inventaire personnalisée.  
 
  Vous pouvez télécharger OMI Source - v.1.0.6 et le Guide de prise en main OMI à partir du site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . Ces téléchargements se trouvent sous l’onglet **Documents** de la page web suivante sur le site web OpenGroup.org : [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
@@ -120,7 +120,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 > [!TIP]  
 >  Utilisez la distribution de logiciels pour déployer les fournisseurs personnalisés et pour les inscrire sur chaque ordinateur client Linux et UNIX.  
 
-###  <a name="a-namebkmkaddlinuxprovidertocma-enable-the-new-inventory-class-in-configuration-manager"></a><a name="BKMK_AddLinuxProvidertoCM"></a> Activez la nouvelle classe d’inventaire dans Configuration Manager :  
+###  <a name="a-namebkmkaddlinuxprovidertocma-enable-the-new-inventory-class-in-configuration-manager"></a><a name="BKMK_AddLinuxProvidertoCM"></a> Activer la nouvelle classe d’inventaire dans Configuration Manager :  
  Pour que Configuration Manager puisse créer un rapport d’inventaire avec les données fournies par le nouveau fournisseur sur les ordinateurs Linux et UNIX, vous devez importer le fichier MOF qui définit le schéma de votre fournisseur personnalisé.  
 
  Pour importer un fichier MOF personnalisé dans Configuration Manager, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  

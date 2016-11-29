@@ -71,7 +71,7 @@ Les tâches suivantes expliquent comment inscrire des ordinateurs et des apparei
 
 5.  Dans l’écran suivant, entrez votre adresse de messagerie professionnelle et le mot de passe, puis cliquez sur **Connexion**. L’appareil est inscrit après un bref laps de temps. Cliquez sur **Terminé**.  
 
-##  <a name="a-namebkmkverifya-verify-device-enrollment"></a><a name="bkmk_verify"></a> Vérifier l’inscription des appareils  
+##  <a name="a-namebkmkverifya-verify-device-enrollment"></a><a name="bkmk_verify"></a> Vérifier l’inscription d’appareil  
  Vous pouvez vérifier que les appareils ont été inscrits correctement dans la console Configuration Manager.  
 
 1.  Démarrez la console Configuration Manager.  

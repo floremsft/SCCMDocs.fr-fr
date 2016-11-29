@@ -38,7 +38,7 @@ Utilisez les ressources suivantes pour obtenir plus d’informations sur System 
 
   Pour obtenir de l’aide concernant l’accessibilité, consultez [Fonctionnalités d’accessibilité dans System Center Configuration Manager](../../core/understand/accessibility-features.md).
 
-##  <a name="a-namebkmkinfoa-information-and-support"></a><a name="bkmk_Info"></a> Informations et support  
+##  <a name="a-namebkmkinfoa-information-and-support"></a><a name="bkmk_Info"></a> Information et support  
  Utilisez les ressources suivantes pour obtenir plus d’informations sur Configuration Manager.  
 
 -   **Pour accéder à la documentation la plus récente du produit System Center Configuration Manager :** Utilisez la [bibliothèque de documentation pour System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) dans TechNet.  
@@ -65,10 +65,10 @@ Utilisez les ressources suivantes pour obtenir plus d’informations sur System 
 
 -   S'il est plus facile et plus rapide pour vous de rechercher dans la documentation stockée sur votre ordinateur, vous pouvez sélectionner plusieurs rubriques sur TechNet et les enregistrer localement. **Connectez-vous à TechNet**, puis, en haut de la page que vous souhaitez enregistrer localement, cliquez sur **Exporter** (à côté d' **Imprimer**). Vous voyez alors la bannière **Exporter plusieurs ensembles de pages** , qui vous permet d'ajouter et de supprimer les pages que vous voulez enregistrer. Ensuite, cliquez sur **Gérer les pages** pour les exporter. Pour plus d'informations, cliquez sur **Aide** sur la bannière.  
 
-###  <a name="a-namebkmkproductgroupbloga-the-system-center-configuration-manager-team-blog"></a><a name="BKMK_ProductGroupBlog"></a> Blog de l’équipe System Center Configuration Manager  
+###  <a name="a-namebkmkproductgroupbloga-the-system-center-configuration-manager-team-blog"></a><a name="BKMK_ProductGroupBlog"></a> Blog de l'équipe System Center Configuration Manager  
  Les équipes d’ingénierie et partenaire de Configuration Manager utilisent le [blog de l’équipe System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=191941) pour vous donner des informations techniques et d’autres informations sur Configuration Manager et les technologies associées. Les publications de ce blog complètent la documentation et le support du produit.  
 
-###  <a name="a-namebkmksupportoptionsa-support-options-and-community-resources"></a><a name="BKMK_SupportOptions"></a> Options de support et ressources communautaires  
+###  <a name="a-namebkmksupportoptionsa-support-options-and-community-resources"></a><a name="BKMK_SupportOptions"></a> Options de support et ressources de la communauté  
  Les liens suivants fournissent des informations sur les options de support et les ressources communautaires :  
 
 -   [Aide et Support Microsoft](http://go.microsoft.com/fwlink/?LinkId=243064)  

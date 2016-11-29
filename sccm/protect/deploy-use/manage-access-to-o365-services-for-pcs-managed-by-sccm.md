@@ -84,7 +84,7 @@ ms.openlocfilehash: c475c560971ab73e8be7671164a010a91bd3f229
 
 -   **Exiger le chiffrement de lecteur BitLocker :** cette règle vérifie si le lecteur principal (par exemple C:\\) de l’appareil est chiffré avec BitLocker. Si le chiffrement BitLocker n’est pas activé sur le lecteur principal, l’accès de l’appareil aux services de messagerie et SharePoint est bloqué.  
 
--   **Exiger un logiciel anti-programme malveillant :** cette règle vérifie si le logiciel anti-programme malveillant (System Center Endpoint Protection ou Windows Defender uniquement) est activé et en cours d’exécution. S’il n’est pas activé, l’accès aux services de messagerie et SharePoint est bloqué.  
+-   **Exiger un logiciel anti-programme malveillant :** Cette règle vérifie si le logiciel anti-programme malveillant (System Center Endpoint Protection ou Windows Defender uniquement) est activé et en cours d’exécution. S’il n’est pas activé, l’accès aux services de messagerie et SharePoint est bloqué.  
 
 ### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Étape 2. Évaluer l’incidence de l’accès conditionnel  
  Exécutez le rapport de conformité de l’accès conditionnel. Il figure dans la section Analyse, sous Rapports > Gestion de la conformité et des paramètres. Cette opération affiche l’état de conformité de tous les appareils.  L’accès à Exchange Online et à SharePoint Online d’appareils signalés comme non conformes est bloqué.  

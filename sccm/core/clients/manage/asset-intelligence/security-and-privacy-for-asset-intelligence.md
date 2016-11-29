@@ -28,7 +28,7 @@ ms.openlocfilehash: 85e0b6e3a96852cbf9c8781a3124bff13a6c6fdd
 
 Cette rubrique contient des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityaia-security-best-practices-for-asset-intelligence"></a><a name="BKMK_Security_AI"></a> Bonnes pratiques de sécurité pour Asset Intelligence  
+##  <a name="a-namebkmksecurityaia-security-best-practices-for-asset-intelligence"></a><a name="BKMK_Security_AI"></a> Meilleures pratiques de sécurité pour Asset Intelligence  
  Utilisez les meilleures pratiques de sécurité suivantes dans l'optique d'utiliser Asset Intelligence.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  

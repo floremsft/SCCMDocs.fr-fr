@@ -108,7 +108,7 @@ Quand vous utilisez une séquence de tâches pour déployer un système d’expl
 
      Pour plus d’informations sur les propriétés qui peuvent être utilisées pour installer un client, consultez [À propos des propriétés d’installation du client](../../core/clients/deploy/about-client-installation-properties.md).  
 
-9. Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblées sur les regroupements auxquels l’ordinateur de destination appartient.  
+9. Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
 10. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
 

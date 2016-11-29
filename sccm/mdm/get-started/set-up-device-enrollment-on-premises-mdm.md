@@ -51,7 +51,7 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 > [!NOTE]  
 >  Si vous souhaitez déployer le profil d’inscription vers une partie des utilisateurs découverts, vous pouvez utiliser un regroupement d’utilisateurs et créer des paramètres client personnalisés à déployer dans ce regroupement. Pour plus d’informations sur la création de paramètres client personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
-##  <a name="a-namebkmkaddclienta-set-up-additional-client-settings-for-enrolled-devices"></a><a name="bkmk_addClient"></a> Définir des paramètres client supplémentaires pour les appareils inscrits  
+##  <a name="a-namebkmkaddclienta-set-up-additional-client-settings-for-enrolled-devices"></a><a name="bkmk_addClient"></a> Définir des paramètres du client supplémentaires pour des périphériques inscrits  
  En plus de définir le profil d’inscription pour des périphériques modernes, vous pouvez définir des paramètres du client supplémentaires pour la configuration de périphériques quand ils sont inscrits.  Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
  Tous les paramètres client ne sont pas disponibles pour la gestion des appareils mobiles locale. La version Current Branch de Configuration Manager prend en charge les paramètres client suivants pour la gestion des appareils mobiles locale :  

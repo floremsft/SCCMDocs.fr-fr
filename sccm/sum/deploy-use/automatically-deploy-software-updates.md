@@ -117,22 +117,22 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
 7.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation**: indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Quand vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager permet d’évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
 
     -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
 
-        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Lorsque vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
 
-        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Lorsque vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
 
     -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
 
         -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
 
-        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l'échéance d'installation des mises à jour logicielles en ajoutant l'intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
 
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
@@ -143,7 +143,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
     -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, voir [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
     -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
 
@@ -192,7 +192,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
         > [!IMPORTANT]  
         >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d'envoi du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
+    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
 12. Sur la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour logicielle. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
@@ -217,7 +217,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
  La règle ADR s’exécute une fois que vous avez terminé l’Assistant. Elle permet d'ajouter les mises à jour logicielles qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, de télécharger les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site, de distribuer les mises à jour logicielles aux points de distribution configurés, puis de déployer le groupe de mises à jour logicielles sur les clients du regroupement cible.  
 
 ##  <a name="a-namebkmkadddeploymenttoadra-add-a-new-deployment-to-an-existing-adr"></a><a name="BKMK_AddDeploymentToADR"></a> Ajouter un nouveau déploiement à une règle ADR existante  
- Après avoir créé une règle de déploiement automatique, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement.  
+ Après avoir créé une règle ADR, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement.  
 
 #### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Pour ajouter un nouveau déploiement à une règle ADR existante  
 
@@ -249,22 +249,22 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
 5.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation**: indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Quand vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager permet d’évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
 
     -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
 
-        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Lorsque vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
 
-        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Lorsque vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
 
     -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
 
         -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
 
-        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l'échéance d'installation des mises à jour logicielles en ajoutant l'intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
 
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
@@ -275,7 +275,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
     -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, voir [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
     -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
 

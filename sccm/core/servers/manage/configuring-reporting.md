@@ -59,7 +59,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 7.  Cliquez sur **Quitter** pour fermer le Gestionnaire de configuration de Reporting Services.  
 
-##  <a name="a-namebkmkreportbuilder3a-configure-reporting-to-use-report-builder-30"></a><a name="BKMK_ReportBuilder3"></a> Configurer la génération de rapports pour utiliser le Générateur de rapports 3.0  
+##  <a name="a-namebkmkreportbuilder3a-configure-reporting-to-use-report-builder-30"></a><a name="BKMK_ReportBuilder3"></a> Configuration de Reporting pour utiliser le Générateur de rapports 3.0  
 
 #### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Pour modifier le nom de manifeste Générateur de rapports en Générateur de rapports 3.0  
 
@@ -73,7 +73,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 5.  Fermez l'Éditeur de Registre Windows.  
 
-##  <a name="a-namebkmkinstallreportingservicespointa-install-a-reporting-services-point"></a><a name="BKMK_InstallReportingServicesPoint"></a> Installer un point de Reporting Services  
+##  <a name="a-namebkmkinstallreportingservicespointa-install-a-reporting-services-point"></a><a name="BKMK_InstallReportingServicesPoint"></a> Installation d’un point de Reporting Services  
  Le point de Reporting Services doit être installé sur un site pour gérer les rapports sur le site. Le point de Reporting Services copie les dossiers de rapports et les rapports vers SQL Server Reporting Services, applique la stratégie de sécurité des rapports et des dossiers, et définit des paramètres de configuration dans Reporting Services. L’affichage des rapports dans la console Configuration Manager et leur gestion dans Configuration Manager passent par la configuration préalable d’un point de Reporting Services. Le point de Reporting Services est un rôle de système de site qui doit être configuré sur un serveur sur lequel Microsoft SQL Server Reporting Services est installé et en cours d'exécution. Pour plus d’informations sur la configuration requise, consultez [Configuration requise pour la création de rapports](prerequisites-for-reporting.md).  
 
 > [!IMPORTANT]  
@@ -142,7 +142,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
     > [!NOTE]  
     >  Quand les dossiers de rapports sont créés et que les rapports sont copiés sur le serveur de rapports, Configuration détermine la langue adéquate pour les objets. Si le module linguistique correspondant est installé sur le site, Configuration Manager crée les objets dans la langue du système d’exploitation s’exécutant sur le serveur de rapports du site. Si la langue n'est pas disponible, les rapports sont créés et affichés en anglais. Lorsque vous installez un point de Reporting Services sur un site sans module linguistique, les rapports sont installés en anglais. Si vous installez un module linguistique après avoir installé le point de Reporting Services, vous devez désinstaller et réinstaller ce dernier pour que les rapports soient disponibles dans la langue du module linguistique adéquat. Pour plus d’informations sur les modules linguistiques, consultez [Modules linguistiques dans System Center Configuration Manager](../deploy/install/language-packs.md).  
 
-###  <a name="a-namebkmkfileinstallationandsecuritya-file-installation-and-report-folder-security-rights"></a><a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichiers et droits de sécurité du dossier de rapports  
+###  <a name="a-namebkmkfileinstallationandsecuritya-file-installation-and-report-folder-security-rights"></a><a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichier et droits de sécurité du dossier de rapport  
  Configuration Manager effectue les actions suivantes pour installer le point de Reporting Services et configurer Reporting Services :  
 
 > [!IMPORTANT]  
@@ -233,7 +233,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 2.  Effectuez les étapes suivantes sur l’ordinateur qui exécute la console Configuration Manager pour ajouter le certificat auto-signé au magasin de certificats Personnes autorisées :  
 
-    1.  Répétez les étapes précédentes de 1.a à 1.e pour configurer le composant enfichable MMC **Certificat** sur l’ordinateur du point de gestion.  
+    1.  Répétez les étapes précédentes de 1.a à 1.e pour configurer le composant logiciel enfichable MMC **Certificat** sur l’ordinateur du point de gestion.  
 
     2.  Dans la console, développez **Certificats (ordinateur local)**et **Personnes autorisées**, cliquez avec le bouton droit sur **Certificats**, sélectionnez **Toutes les tâches**, puis sélectionnez **Importer** pour lancer l' **Assistant Importation de certificat**.  
 

@@ -28,7 +28,7 @@ ms.openlocfilehash: 1e588db325ea6c3e83614892d3bf76d86ed1b041
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour l’inventaire logiciel dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-software-inventory"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour l’inventaire logiciel  
+##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-software-inventory"></a><a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour l’inventaire logiciel  
  Utilisez les meilleures pratiques de sécurité suivantes lorsque vous recueillez des données d'inventaire logiciel à partir de clients :  
 
 |Meilleure pratique de sécurité|Plus d'informations|  

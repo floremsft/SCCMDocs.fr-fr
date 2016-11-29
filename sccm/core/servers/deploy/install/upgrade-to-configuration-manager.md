@@ -59,7 +59,7 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
 
 -   La migration d’une version d’évaluation technique vers une version sous licence n’est pas pris en charge.  
 
-##  <a name="a-namebkmkchecklista-upgrade-checklists"></a><a name="bkmk_checklist"></a> Listes de contrôle de mise à niveau  
+##  <a name="a-namebkmkchecklista-upgrade-checklists"></a><a name="bkmk_checklist"></a> Listes de vérification de mise à niveau  
  Les listes de vérification suivantes peuvent vous aider à planifier une mise à niveau vers System Center Configuration Manager.  
 
 ### <a name="before-you-upgrade"></a>Avant la mise à niveau :  
@@ -325,7 +325,7 @@ Utilisez la procédure suivante sur chaque site d'administration centrale et sit
 
 Après avoir mis à niveau une copie de la base de données du site, procédez à la mise à niveau du site Configuration Manager et de sa base de données.  
 
-##  <a name="a-namebkmkupgradea-upgrade-sites"></a><a name="bkmk_upgrade"></a> Mettre à niveau les sites  
+##  <a name="a-namebkmkupgradea-upgrade-sites"></a><a name="bkmk_upgrade"></a> Effectuez la mise à niveau des sites.  
 Dès lors que vous avez mené à bien les tâches de configuration préalables à la mise à niveau de votre site, testé la mise à niveau de la base de données du site sur une copie de la base de données, puis téléchargé les fichiers et les modules linguistiques prérequis pour la version du Service Pack que vous prévoyez d’installer, vous êtes prêt à mettre à niveau votre site Configuration Manager.  
 
 Lorsque vous mettez à niveau un site qui fait partie d'une hiérarchie, vous mettez d'abord à niveau le site situé le plus haut dans la hiérarchie. Ce site de niveau supérieur est soit un site d'administration centrale, soit un site principal autonome. Après avoir effectué la mise à niveau d'un site d'administration centrale, vous pouvez mettre à niveau les sites principaux enfants dans l'ordre que vous voulez. Une fois que vous avez mis à niveau un site principal, vous pouvez mettre à niveau les sites secondaires enfants de ce site ou mettre à niveau d’autres sites principaux avant de mettre à niveau des sites secondaires.  
@@ -409,7 +409,7 @@ Sur la page **Mettre à niveau** , le programme d'installation affiche l'état d
 
 La mise à niveau du site secondaire progresse en arrière-plan. Une fois la mise à niveau terminée, vous pouvez vérifier l’état de la console Configuration Manager. Pour ce faire, sélectionnez le serveur du site secondaire puis, sous l'onglet **Accueil** , dans le groupe **Site** , cliquez sur **Afficher l'état d'installation**.  
 
-##  <a name="a-namebkmkpostupgradea-perform-post-upgrade-tasks"></a><a name="BKMK_PostUpgrade"></a> Exécuter les tâches de post-mise à niveau  
+##  <a name="a-namebkmkpostupgradea-perform-post-upgrade-tasks"></a><a name="BKMK_PostUpgrade"></a> Exécuter les étapes de post-mise à niveau  
 Après avoir mis à niveau un site vers un nouveau Service Pack, vous pouvez être amené à effectuer des tâches supplémentaires pour finaliser la mise à niveau ou reconfigurer le site. Ces tâches peuvent consister notamment à mettre à niveau des clients Configuration Manager ou des consoles Configuration Manager, à réactiver des réplicas de base de données pour des points de gestion ou à restaurer des paramètres pour la fonctionnalité Configuration Manager que vous utilisez et qui ne subsiste pas après la mise à niveau du Service Pack.  
 
 **Problèmes connus :**  

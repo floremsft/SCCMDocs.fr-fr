@@ -41,7 +41,7 @@ Les profils de messagerie fonctionnent avec Microsoft Intune pour vous permettre
 -   Appareils iPad exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils iOS, Android Samsung KNOX, Windows Phone, Windows 8.1 ou Windows 10, il faut que ces appareils soient inscrits dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+>  Pour déployer des profils sur des appareils iOS, Android Samsung KNOX, Windows Phone, Windows 8.1 ou Windows 10, ces appareils doivent être inscrits auprès de Microsoft Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
  En plus de configurer un compte de messagerie sur l'appareil, vous pouvez également configurer des paramètres de synchronisation pour les contacts, les calendriers et les tâches.  
 

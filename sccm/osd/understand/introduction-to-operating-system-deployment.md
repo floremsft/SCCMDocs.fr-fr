@@ -27,7 +27,7 @@ ms.openlocfilehash: ece68bd30e31595226f154fd1148b0ee55feceaf
 
 Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’exploitation de différentes façons. Utilisez les informations contenues dans cette section pour comprendre comment déployer des systèmes d’exploitation et automatiser des tâches.
 
-##  <a name="a-namebkmkosdeploymentprocessa-the-operating-system-deployment-process"></a><a name="BKMK_OSDeploymentProcess"></a> Le processus de déploiement de systèmes d’exploitation  
+##  <a name="a-namebkmkosdeploymentprocessa-the-operating-system-deployment-process"></a><a name="BKMK_OSDeploymentProcess"></a> Le processus de déploiement de système d’exploitation  
  Configuration Manager propose plusieurs méthodes que vous pouvez utiliser pour déployer un système d’exploitation. Vous devez effectuer plusieurs actions quelle que soit la méthode de déploiement utilisée.  
 
 -   Identifier les pilotes d’appareils Windows qui sont nécessaires pour démarrer l’image de démarrage ou pour installer l’image du système d’exploitation que vous devez déployer.  
@@ -44,7 +44,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
 -   Surveiller le déploiement.  
 
-##  <a name="a-namebkmkosdscenariosa-operating-system-deployment-scenarios"></a><a name="BKMK_OSDScenarios"></a> Scénarios de déploiement d’un système d’exploitation  
+##  <a name="a-namebkmkosdscenariosa-operating-system-deployment-scenarios"></a><a name="BKMK_OSDScenarios"></a> Scénarios de déploiement du système d’exploitation  
  Vous avez le choix entre de nombreux scénarios de déploiement de systèmes d’exploitation dans Configuration Manager en fonction de votre environnement et de l’objectif de l’installation du système d’exploitation.  Par exemple, vous pouvez partitionner et formater un ordinateur existant avec une nouvelle version de Windows ou mettre à niveau Windows vers la version la plus récente. Pour vous aider à déterminer la méthode de déploiement qui répond à vos besoins, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](../deploy-use/scenarios-to-deploy-enterprise-operating-systems.md).  Vous pouvez choisir parmi les scénarios de déploiement de système d’exploitation suivants :  
 
 -   [Effectuer une mise à niveau de Windows vers la dernière version](../deploy-use/upgrade-windows-to-the-latest-version.md)  
@@ -53,7 +53,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
 -   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](../deploy-use/install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Remplacer un ordinateur existant et transférer des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
+-   [Remplacement d’un ordinateur existant et transfert des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
 
 ##  <a name="a-namebkmkosdmethodsa-methods-to-deploy-operating-systems"></a><a name="BKMK_OSDMethods"></a> Méthodes pour déployer des systèmes d’exploitation  
  Il existe plusieurs méthodes que vous pouvez utiliser pour déployer des systèmes d’exploitation sur des ordinateurs clients Configuration Manager.  
@@ -90,7 +90,7 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 ##  <a name="a-namebkmkosdmediaa-media-to-deploy-operating-systems"></a><a name="BKMK_OSDMedia"></a> Médias pour déployer des systèmes d’exploitation  
  Vous pouvez créer plusieurs types de médias qui peuvent être utilisés pour déployer des systèmes d'exploitation. Les différents types de médias incluent le média qui est utilisé pour capturer des images de système d'exploitation et le média de démarrage, préparé et autonome qui est utilisé pour déployer un système d'exploitation. Les médias vous permettent de déployer des systèmes d’exploitation sur des ordinateurs qui ne disposent pas de connexion réseau ou qui possèdent une connexion avec une faible bande passante vers votre site Configuration Manager. Pour plus d’informations sur la façon d’utiliser des médias, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md).  
 
-##  <a name="a-namebkmkdevicedriversa-device-drivers"></a><a name="BKMK_DeviceDrivers"></a> Pilotes d’appareils  
+##  <a name="a-namebkmkdevicedriversa-device-drivers"></a><a name="BKMK_DeviceDrivers"></a> Pilotes d'appareils  
  Vous pouvez installer des pilotes de périphérique sur les ordinateurs de destination sans les inclure dans l'image du système d'exploitation déployée. Configuration Manager propose un catalogue de pilotes qui contient les références à tous les pilotes de périphérique que vous importez dans Configuration Manager. Le catalogue de pilotes se trouve dans l’espace de travail **Bibliothèque de logiciels** et est composé de deux nœuds : **Pilotes** et **Packages de pilotes**. Le nœud **Pilotes** répertorie tous les pilotes que vous avez importés dans le catalogue de pilotes. Vous pouvez utiliser ce nœud pour découvrir les détails sur chaque pilote importé, pour modifier le package de pilotes ou l'image de démarrage auquel/à laquelle appartient un pilote, pour activer ou désactiver un pilote, et bien plus encore. Pour plus d’informations, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
 ##  <a name="a-namebkmkosduserstatea-save-and-restore-user-state"></a><a name="BKMK_OSDUserState"></a> Enregistrer et restaurer l’état utilisateur  
