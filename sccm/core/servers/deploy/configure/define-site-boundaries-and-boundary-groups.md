@@ -118,7 +118,7 @@ Quand vous créez une limite, elle reçoit automatiquement un nom basé sur son 
 
 7.  Cliquez sur **OK** pour fermer les propriétés de la limite et enregistrer la configuration.  
 
-##  <a name="a-namebkmkboundarygroupsa-boundary-groups"></a><a name="BKMK_BoundaryGroups"></a> Groupes de limites  
+##  <a name="a-namebkmkboundarygroupsa-boundary-groups"></a><a name="BKMK_BoundaryGroups"></a> Boundary groups  
  Créer des groupes de limites vous permet de regrouper de façon logique des emplacements réseau (limites) pour faciliter la gestion de votre infrastructure. Vous devez attribuer des limites à des groupes de limites avant de pouvoir utiliser le groupe de limites. Les clients utilisent la configuration du groupe de limites pour les opérations suivantes :  
 
 -   Attribution automatique du site  
@@ -261,7 +261,7 @@ Ce comportement permet au client de sélectionner le serveur le plus proche depu
 
  Pour plus d’informations sur les effets de la vitesse de connexion réseau sur l’obtention du contenu par les clients, consultez [Scénarios d’emplacement source de contenu](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
-##  <a name="a-namebkmkboundarybestpracticesa-best-practices-for-boundaries"></a><a name="BKMK_BoundaryBestPractices"></a> Bonnes pratiques en matière de limites  
+##  <a name="a-namebkmkboundarybestpracticesa-best-practices-for-boundaries"></a><a name="BKMK_BoundaryBestPractices"></a> Meilleures pratiques en matière de limites  
 
 -   **Utilisez le type de limite de plage d’adresses IP uniquement quand les autres types de limites ne peuvent pas être utilisés :**  
 

@@ -29,7 +29,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
  Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
 
-##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Planifier  
+##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
 
 -   **Planifier et implémenter la configuration requise pour l’infrastructure**  
 
@@ -39,7 +39,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
      Quand vous allez capturer les paramètres de l’ordinateur existant et restaurer les paramètres sur le nouveau système d’exploitation, vous devez installer un point de migration d’état. Pour plus d’informations, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurer  
+##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurerr  
 
 1.  **Préparer une image de démarrage**  
 
@@ -49,7 +49,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   Pour plus d’informations sur la personnalisation d’une image de démarrage, consultez [Personnaliser des images de démarrage](../get-started/customize-boot-images.md).  
 
-    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer le contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
 2.  **Préparer une image de système d’exploitation**  
 
@@ -57,7 +57,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   Pour en savoir plus sur la création d’une image de système d’exploitation, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer le contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
 3.  **Créer une séquence de tâches pour déployer des systèmes d’exploitation sur le réseau**  
 
@@ -74,7 +74,7 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
     -   [Utiliser la multidiffusion pour déployer Windows sur le réseau](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Créer une image pour un fabricant OEM en usine ou dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Créer une image pour un fabricant OEM en usine ou un dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
     -   [Utiliser un média autonome pour déployer Windows sans utiliser le réseau](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 

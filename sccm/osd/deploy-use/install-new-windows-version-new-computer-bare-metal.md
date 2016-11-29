@@ -29,13 +29,13 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
  Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
 
-##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Planifier  
+##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
 
 -   **Planifier et implémenter la configuration requise pour l’infrastructure**  
 
      Plusieurs éléments d’infrastructure doivent être installés et configurés avant de déployer des systèmes d’exploitation, tels que Windows ADK, les services de déploiement Windows (WDS, Windows Deployment Services), les configurations de disques durs prises en charge, et ainsi de suite. Pour plus d’informations, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md)  
 
-##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurer  
+##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurerr  
 
 1.  **Préparer une image de démarrage**  
 

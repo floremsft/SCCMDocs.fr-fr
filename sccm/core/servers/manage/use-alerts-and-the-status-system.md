@@ -154,7 +154,7 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 4.  Cliquez sur **OK**.  
 
-###  <a name="a-namebkmkmonitorsystemstatusa-monitor-the-status-system-of-configuration-manager"></a><a name="BKMK_MonitorSystemStatus"></a> Configurer le système d'état de Configuration Manager  
+###  <a name="a-namebkmkmonitorsystemstatusa-monitor-the-status-system-of-configuration-manager"></a><a name="BKMK_MonitorSystemStatus"></a> Surveiller l’état du système de Configuration Manager  
  L’**état du système** dans Configuration Manager fournit une vue d’ensemble des opérations générales de sites et des opérations de serveur de site de votre hiérarchie. Il peut révéler des problèmes de fonctionnement des serveurs de système de site ou des composants, et vous pouvez utiliser l'état du système pour consulter des détails spécifiques pour différentes opérations de Configuration Manager. Vous surveillez l'état du système à partir du nœud **État du système** de l'espace de travail **Surveillance** dans la console Configuration Manager.  
 
  La plupart des composants et rôles de système de site Configuration Manager génèrent des messages d'état. Les détails des messages d'état sont consignés dans chaque journal opérationnel des composants, mais ils sont également soumis à la base de données de site lorsqu'ils sont résumés et présentés dans un cumul général de l'intégrité de chaque composant ou des systèmes de site. Ces cumuls de messages d'état fournissent des informations détaillées pour les opérations et avertissements réguliers ainsi que pour les détails de l'erreur. Vous pouvez configurer les seuils auxquels les avertissements ou les erreurs sont déclenchés et ajuster le système afin de vous assurer que les informations relatives au cumul ignorent les problèmes connus qui ne vous concernent pas tout en attirant votre attention sur les problèmes réels des serveurs ou sur les opérations liées aux composants que vous souhaitez peut-être examiner.  
@@ -204,7 +204,7 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 |Configurer les abonnements par courrier électronique aux alertes|Consultez la section [Management tasks for alerts](#BKMK_Manage) de cette rubrique.|  
 |Surveiller les alertes|Consultez la section [Surveiller les alertes](#BKMK_MonitorAlerts)|  
 
-###  <a name="a-namebkmkmanagea-management-tasks-for-alerts"></a><a name="BKMK_Manage"></a> Tâches de gestion pour les alertes  
+###  <a name="a-namebkmkmanagea-management-tasks-for-alerts"></a><a name="BKMK_Manage"></a> Management tasks for alerts  
 
 ##### <a name="to-manage-general-alerts"></a>Pour gérer les alertes générales  
 
@@ -241,9 +241,9 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 5.  Dans la liste **Conditions** de l'onglet **Alertes** , sélectionnez chaque alerte relative à l'état du client, puis spécifiez les informations suivantes.  
 
-    -   **Nom d'alerte** : acceptez le nom par défaut ou entrez un nouveau nom pour l'alerte.  
+    -   **Nom d’alerte** – Acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.  
 
-    -   **Gravité d'alerte** : dans la liste déroulante, choisissez la gravité d'alerte qui sera affichée dans la console Configuration Manager.  
+    -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
 
     -   **Déclencher l'alerte** : spécifiez le pourcentage seuil pour l'alerte.  
 
