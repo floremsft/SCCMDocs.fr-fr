@@ -36,8 +36,8 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="a-namedmpcategorya-automatically-categorize-devices-into-collections"></a><a name="dmp_category"></a> Classer automatiquement les appareils dans des regroupements
-Vous pouvez créer des catégories d’appareils, qui permettent de placer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs doivent ensuite choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
+## <a name="a-namedmpcategorya-automatically-categorize-devices-into-collections"></a><a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
+Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
 
 **Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
@@ -227,7 +227,7 @@ Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPl
 1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**.
 1. Ouvrez les paramètres d’appareil appropriés pour activer l’agent client. Pour plus d’informations sur les paramètres par défaut et personnalisés du client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
 2. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.
-## <a name="a-nameosdpreservedriveletterathe-osdpreservedriveletter-task-sequence-variable-has-been-deprecated"></a><a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est déconseillée
+## <a name="a-nameosdpreservedriveletterathe-osdpreservedriveletter-task-sequence-variable-has-been-deprecated"></a><a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
 La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination. Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606. Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination.
 ## <a name="a-nameupdatesandservicingachanges-for-the-updates-and-servicing-node"></a><a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
 Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
@@ -236,26 +236,26 @@ Dans la version d’évaluation technique 1606, plusieurs modifications ont ét�
     Dans l’espace de travail **Surveillance**, le nœud **État de maintenance du site** a été renommé en **État des mises à jour et de la maintenance**.
 - **État de l’installation plus détaillé :**
 
-    Lorsque vous affichez l’état d’installation des mises à jour d’un site, la console affiche désormais des détails distincts pour les actions suivantes :
+    Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
     - **Téléchargement** (Cela s’applique uniquement au site de niveau supérieur où est installé le rôle de système de site de point de connexion de service)
     - **Réplication**
     - **Vérification de la configuration requise**
     - **Installation**
 
-  En outre, il existe désormais des informations plus détaillées pour chaque étape, y compris le fichier journal que vous pouvez consulter pour plus d’informations.  
+  De plus, des informations plus détaillées sont maintenant fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
 -   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
 
-    Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** inclut un nouveau bouton sur le ruban, nommé **Ignorer les avertissements de configuration requise**.
+    Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** affiche le nouveau bouton **Ignorer les avertissements de configuration requise** sur le ruban.
 
-    Lorsque vous installez des mises à jour sans utiliser l’option Ignorer les avertissements de configuration requise (à partir de l’Assistant Mises à jour) et que l’installation des mises à jour s’arrête avec un état d’**avertissement de condition préalable**, vous pouvez sélectionner **Ignorer les avertissements de configuration requise** dans le ruban pour déclencher une continuation automatique de cette installation de mise à jour qui ignore les avertissements de condition préalable.  
+    Quand vous installez des mises à jour sans utiliser l’option Ignorer les avertissements de configuration requise (à partir de l’Assistant Mises à jour) et que l’installation des mises à jour s’arrête avec un état **Avertissement de configuration requise**, vous pouvez maintenant sélectionner le bouton **Ignorer les avertissements de configuration requise** dans le ruban pour ignorer les avertissements et continuer automatiquement l’installation des mises à jour.  
 
 
 
-- **Vue plus conviviale des mises à jour :**
+- **Vue plus claire des mises à jour :**
 
-    Lorsque vous affichez le nœud **Mises à jour et maintenance**, vous voyez à présent seulement la dernière mise à jour installée et toutes les nouvelles mises à jour que vous pouvez installer. Pour afficher les mises à jour précédemment installées, cliquez sur le nouveau bouton **Historique** qui apparaît dans le ruban.  
+    Quand vous affichez le nœud **Mises à jour et maintenance**, vous voyez maintenant uniquement la dernière mise à jour que vous avez installée, ainsi que les nouvelles mises à jour prêtes à être installées. Pour afficher les mises à jour précédemment installées, cliquez sur le nouveau bouton **Historique** dans le ruban.  
 
--   **Option renommée pour la préproduction :**
+-   **Option renommée pour la pré-production :**
 
     Dans le nœud Mises à jour et maintenance, le bouton qui était appelé **Options du client** a été renommé **Promouvoir le client de préproduction**.
 

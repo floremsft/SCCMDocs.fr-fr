@@ -28,7 +28,7 @@ ms.openlocfilehash: 06ab159203e3ee2d3b6da726bc7264445dd41488
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les profils de certificat dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityremoteconnectionsa-security-best-practices-for-certificate-profiles"></a><a name="BKMK_Security_RemoteConnections"></a> Bonnes pratiques pour la sécurité des profils de certificat  
+##  <a name="a-namebkmksecurityremoteconnectionsa-security-best-practices-for-certificate-profiles"></a><a name="BKMK_Security_RemoteConnections"></a> Bonnes pratiques de sécurité pour les profils de certificat  
  Utilisez les bonnes pratiques de sécurité suivantes lorsque vous gérez des profils de certificat pour des appareils.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  

@@ -159,7 +159,7 @@ Suivez les procédures de base ci-dessous pour installer ou modifier un point de
 
 3.  Dans **Groupes de points de distribution disponibles**, sélectionnez les groupes de points de distribution dont les points de distribution sélectionnés doivent être ajoutés en tant que membres, puis cliquez sur **OK**.  
 
-##  <a name="a-namebkmkconfigsa-distribution-point-configurations"></a><a name="bkmk_configs"></a> Configuration des points de distribution  
+##  <a name="a-namebkmkconfigsa-distribution-point-configurations"></a><a name="bkmk_configs"></a> Configurations des points de distribution  
  Chaque point de distribution prend en charge plusieurs configurations différentes. Toutefois, tous les types de point de distribution ne prennent pas en charge toutes les configurations. Par exemple, les points de distribution cloud ne prennent pas en charge les déploiements de contenu activés pour PXE ou la multidiffusion. Les rubriques suivantes contiennent des informations sur des limitations bien précises :  
 
 -   [Utiliser un point de distribution cloud avec System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  

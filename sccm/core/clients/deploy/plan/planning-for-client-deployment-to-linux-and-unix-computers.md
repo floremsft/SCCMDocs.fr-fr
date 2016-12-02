@@ -46,7 +46,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 
  Aidez-vous des informations de cet article pour planifier le déploiement du client Configuration Manager pour Linux et UNIX.  
 
-##  <a name="a-namebkmkclientdeployprereqforlnua-prerequisites-for-client-deployment-to-linux-and-unix-servers"></a><a name="BKMK_ClientDeployPrereqforLnU"></a> Prérequis pour le déploiement du client sur des serveurs Linux et UNIX  
+##  <a name="a-namebkmkclientdeployprereqforlnua-prerequisites-for-client-deployment-to-linux-and-unix-servers"></a><a name="BKMK_ClientDeployPrereqforLnU"></a> Conditions préalables pour le déploiement du client sur des serveurs Linux et UNIX  
  Utilisez les informations suivantes pour déterminer les conditions préalables pour que doivent avoir mis en place installer le client pour Linux et UNIX.  
 
 ###  <a name="a-namebkmkclientdeployexternalforlnua-dependencies-external-to-configuration-manager"></a><a name="BKMK_ClientDeployExternalforLnU"></a> Dépendances externes à Configuration Manager :  

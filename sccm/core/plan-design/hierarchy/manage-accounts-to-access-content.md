@@ -34,7 +34,7 @@ Avant de déployer du contenu dans System Center Configuration Manager, vous dev
 
 -   **Compte de connexion multidiffusion** : compte utilisé pour les déploiements de système d’exploitation.  
 
-##  <a name="a-namebkmknaaa-network-access-account"></a><a name="bkmk_NAA"></a>Compte d’accès réseau  
+##  <a name="a-namebkmknaaa-network-access-account"></a><a name="bkmk_NAA"></a> Compte d’accès réseau  
  Les ordinateurs clients utilisent le compte d'accès réseau lorsqu'ils ne peuvent pas utiliser le compte de leur ordinateur local pour accéder au contenu des points de distribution. Cela s'applique par exemple aux clients de groupes de travail et aux ordinateurs de domaines non approuvés. Ce compte peut également être utilisé pendant le déploiement du système d'exploitation si l'ordinateur qui installe le système d'exploitation ne possède pas encore de compte d'ordinateur sur le domaine.  
 
 -   Les clients utilisent uniquement le compte d’accès réseau pour accéder aux ressources du réseau.  

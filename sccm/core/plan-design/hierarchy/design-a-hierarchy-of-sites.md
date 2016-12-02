@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d22f29ad5c5d193e387bd172899902cc1604c8a0
+ms.sourcegitcommit: 783fb4d61aab83ad64b9cec332e90d6c9de59f47
+ms.openlocfilehash: b1ed3011356a794b7b0913a1c8f189230d8957b2
 
 
 ---
@@ -28,11 +28,14 @@ ms.openlocfilehash: d22f29ad5c5d193e387bd172899902cc1604c8a0
 
 Avant d’installer le premier site d’une nouvelle hiérarchie System Center Configuration Manager, vous devez comprendre les topologies disponibles pour Configuration Manager, les types de sites disponibles et leurs relations mutuelles, ainsi que l’étendue de gestion fournie par chaque type de site. Après avoir étudié les options de gestion de contenu qui peuvent réduire le nombre de sites à installer, vous pouvez planifier une topologie qui répond efficacement aux besoins de votre entreprise et peut être étendue par la suite pour gérer la croissance à venir.  
 
+> [!NOTE]
+> Quand vous planifiez une nouvelle installation de Configuration Manager, tenez compte des [notes de publication]( /sccm/core/servers/deploy/install/release-notes) qui décrivent en détail les problèmes dans les versions actives. Les notes de publication s’appliquent à toutes les branches de Configuration Manager.  Toutefois, quand vous utilisez la [branche de la préversion Technical Preview]( /sccm/core/get-started/technical-preview), vous rencontrez des problèmes spécifiques à cette branche uniquement dans la documentation pour chaque version de Technical Preview.  
+
 ##  <a name="a-namebkmktopologya-hierarchy-topology"></a><a name="bkmk_topology"></a> Topologie de la hiérarchie  
  Les topologies de hiérarchie peuvent aller d’un site principal autonome unique à un groupe de sites principaux et secondaires connectés avec un site d’administration centrale dans le site de niveau supérieur de la hiérarchie.    
 Le principal facteur qui détermine le type et le nombre de sites que vous utilisez dans une hiérarchie est généralement le nombre et le type d’appareils que vous devez prendre en charge :  
 
- **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre entreprise peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
  Les avantages de cette topologie sont notamment les suivants :  
 
@@ -45,7 +48,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 -   Ce choix n’est pas définitif. Vous pouvez convertir une hiérarchie principale autonome en une hiérarchie plus grande avec un site d’administration centrale. Cela vous permet d’installer ensuite de nouveaux sites principaux pour étendre l’échelle de votre déploiement.  
 
 
-**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Les avantages de cette topologie sont notamment les suivants :  
+**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** Utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Les avantages de cette topologie sont notamment les suivants :  
 
 -   Nécessaire quand vous avez besoin d’utiliser plusieurs sites principaux.  
 
@@ -115,9 +118,9 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 
 -   Vous n’avez pas besoin de point de connectivité local pour un utilisateur administratif.  
 
--   Vous devez gérer le transfert de contenu de déploiement vers des sites qui se trouvent à un niveau inférieur dans la hiérarchie.  
+-   Vous devez gérer le transfert de contenu de déploiement vers des sites qui se trouvent à un niveau inférieur dans la hiérarchie  
 
--   Vous devez gérer des informations clientes qui sont envoyées à des sites à un niveau supérieur dans la hiérarchie.  
+-   Vous devez gérer des informations clientes qui sont envoyées à des sites à un niveau supérieur dans la hiérarchie  
 
  Si vous ne souhaitez pas installer de site secondaire et que vous avez des clients à des emplacements distants, utilisez Windows BranchCache ou installez des points de distribution qui sont activés pour la planification et le contrôle de la bande passante. Vous pouvez utiliser ces options de gestion de contenu avec ou sans sites secondaires et elles peuvent vous aider à réduire le nombre de sites et de serveurs que vous devez installer. Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Déterminer quand utiliser les options de gestion de contenu](#BKMK_ChooseSecondaryorDP).  
 

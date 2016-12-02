@@ -40,7 +40,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
  Pour plus d’informations sur les étapes qui peuvent être ajoutées à une séquence de tâches, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
 
-##  <a name="a-namebkmktsgroupsa-task-sequence-groups"></a><a name="BKMK_TSGroups"></a> Groupes d’une séquence de tâches  
+##  <a name="a-namebkmktsgroupsa-task-sequence-groups"></a><a name="BKMK_TSGroups"></a> Groupes de séquence de tâches  
  Les **groupes** désignent plusieurs étapes dans une séquence de tâches. Un groupe de séquence de tâches comprend un nom, une description facultative et des conditions facultatives qui sont évaluées comme un tout avant que la séquence de tâches passe à l'étape suivante. Les groupes peuvent être imbriqués les uns dans les autres et un groupe peut contenir un mélange d'étapes et de sous-groupes. Les groupes sont utiles pour associer plusieurs étapes qui possèdent une condition commune.  
 
 > [!IMPORTANT]  
@@ -230,7 +230,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
  Pour plus d’informations sur le déploiement de séquences de tâches, consultez [Déployer une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
 
-##  <a name="a-namebkmktsexportimporta-export-and-import-a-task-sequences"></a><a name="BKMK_TSExportImport"></a> Exporter et importer des séquences de tâches  
+##  <a name="a-namebkmktsexportimporta-export-and-import-a-task-sequences"></a><a name="BKMK_TSExportImport"></a> Exporter et importer une séquence de tâches  
  Configuration Manager vous permet d’exporter et d’importer des séquences de tâches. Lorsque vous exportez une séquence de tâches, vous pouvez inclure les objets qui sont référencés par la séquence de tâches. Citons notamment une image de système d'exploitation, une image de démarrage, un package de l'agent du client, un package de pilotes et des applications qui ont des dépendances.  
 
 > [!NOTE]  
@@ -274,7 +274,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
  Si l'exécution du programme sélectionné échoue sur un client, la séquence de tâches n'est pas exécutée.  
 
-##  <a name="a-namebkmktsmaintenancewindowa-use-a-maintenance-window-to-specify-when-a-task-sequence-can-run"></a><a name="BKMK_TSMaintenanceWindow"></a> Utiliser une fenêtre de maintenance pour spécifier le moment où une séquence de tâches peut s’exécuter  
+##  <a name="a-namebkmktsmaintenancewindowa-use-a-maintenance-window-to-specify-when-a-task-sequence-can-run"></a><a name="BKMK_TSMaintenanceWindow"></a> Utiliser une fenêtre de maintenance pour spécifier quand une séquence de tâches peut s’exécuter  
  Vous pouvez définir à quel moment la séquence de tâches peut être exécutée. Pour cela, définissez une fenêtre de maintenance pour le regroupement contenant vos ordinateurs de destination. La configuration des fenêtres de maintenance consiste à définir une date de début, une heure de début et de fin, ainsi qu'une périodicité. En outre, lorsque vous définissez le calendrier de la fenêtre de maintenance, vous pouvez faire en sorte que la fenêtre de maintenance s'applique uniquement aux séquences de tâches. Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 > [!IMPORTANT]  

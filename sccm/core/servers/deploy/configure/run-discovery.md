@@ -65,7 +65,7 @@ Vous pouvez utiliser une ou plusieurs des méthodes de découverte proposées da
 
 -   déployer des paramètres client et les configurations associées.  
 
-##  <a name="a-namebkmkddrsa-about-discovery-data-records"></a><a name="BKMK_DDRs"></a>À propos des enregistrements de données de découverte  
+##  <a name="a-namebkmkddrsa-about-discovery-data-records"></a><a name="BKMK_DDRs"></a> À propos des enregistrements de données de découverte  
  Les enregistrements de données de découverte (DDR) sont des fichiers créés par une méthode de découverte ; ils contiennent des informations sur une ressource que vous pouvez gérer dans Configuration Manager. Les DDR contiennent des informations sur les ordinateurs, les utilisateurs et, dans certains cas, l'infrastructure du réseau. Ils sont traités au niveau des sites principaux ou des sites d'administration centrale. Une fois que les informations sur la ressource contenues dans le DDR ont été entrées dans la base de données, le DDR est supprimé et cette information est répliquée sous forme de données globales vers tous les sites de la hiérarchie.  
 
  Le site où un DDR est traité dépend des informations qu'il contient :  

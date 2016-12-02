@@ -61,7 +61,7 @@ Les options de haute disponibilité sont les suivantes :
 -   [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
 
-##  <a name="a-namebkmksnha-high-availability-for-sites-and-hierarchies"></a><a name="bkmk_snh"></a> Haute disponibilité des sites et des hiérarchies  
+##  <a name="a-namebkmksnha-high-availability-for-sites-and-hierarchies"></a><a name="bkmk_snh"></a> Haute disponibilité pour les sites et les hiérarchies  
  **Utiliser un cluster SQL Server pour héberger la base de données de site :**  
 
  Lorsque vous utilisez un cluster SQL Server pour la base de données sur un site d'administration centrale ou sur un site principal, vous utilisez la prise en charge de basculement intégrée à SQL Server.  
@@ -86,7 +86,7 @@ Les options de haute disponibilité sont les suivantes :
 
  **Installer plusieurs instances du fournisseur SMS sur un site :** le fournisseur SMS fournit le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
 
-##  <a name="a-namebkmkssra-high-availability-for-site-system-roles"></a><a name="bkmk_ssr"></a> Haute disponibilité pour les rôles de système de site  
+##  <a name="a-namebkmkssra-high-availability-for-site-system-roles"></a><a name="bkmk_ssr"></a> Haute disponibilité pour les rôles système de site  
  Sur chaque site, vous déployez des rôles de système de site pour fournir les services que vous souhaitez voir les clients utiliser sur ce site. La base de données du site contient les informations de configuration du site et de tous les clients. Utilisez une ou plusieurs des options disponibles pour fournir une haute disponibilité de la base de données de site et la récupération du site et de la base de données de site, le cas échéant.  
 
  **Redondance pour les rôles de système de site importants :**  
@@ -200,7 +200,7 @@ Les options de haute disponibilité sont les suivantes :
 
 -   La défaillance d'un ordinateur client n'affecte pas l'intégrité des informations qui sont stockées dans la base de données. Ces informations peuvent rester disponibles pour les rapports.  
 
-##  <a name="a-namebkmknonhaoptionsa-options-for-sites-and-site-system-roles-that-are-not-highly-available"></a><a name="bkmk_nonHAoptions"></a> Options pour les sites et les rôles de système de site qui n’ont pas un haut niveau de disponibilité  
+##  <a name="a-namebkmknonhaoptionsa-options-for-sites-and-site-system-roles-that-are-not-highly-available"></a><a name="bkmk_nonHAoptions"></a> Options pour les sites et les rôles système de site qui n’ont pas un haut niveau de disponibilité  
  Plusieurs systèmes de site ne prennent pas en charge des instances multiples sur un site ou dans la hiérarchie. Aidez-vous des informations ci-dessous pour préparer la mise hors connexion de ces systèmes de site.  
 
  **Serveur de site (site) :**  

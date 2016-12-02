@@ -61,7 +61,7 @@ Il existe deux méthodes pour découvrir l'infrastructure du réseau, la découv
 
  Lorsque vous souhaitez découvrir la topologie de votre réseau, utilisez la découverte du réseau. Les autres méthodes de découverte renvoient des informations liées aux services de domaine Active Directory et peuvent identifier l'emplacement réseau actuel d'un client, mais elles ne peuvent pas fournir des informations d'infrastructure basées sur la topologie des sous-réseaux ou du routeur de votre réseau.  
 
-##  <a name="a-namebkmkshareda-discovery-data-is-shared-between-sites"></a><a name="bkmk_shared"></a> Les données de découverte sont partagées entre sites  
+##  <a name="a-namebkmkshareda-discovery-data-is-shared-between-sites"></a><a name="bkmk_shared"></a> Les données de découverte sont partagées entre les sites  
  Une fois que Configuration Manager a ajouté des données de découverte à une base de données, elles sont rapidement partagées entre tous les sites de la hiérarchie. Comme il n’y a généralement pas d’avantage à découvrir les mêmes informations sur plusieurs sites de votre hiérarchie, il peut être judicieux de configurer une seule instance de chaque méthode de découverte que vous utilisez, pour qu’elle s’exécute sur un seul site, plutôt que d’exécuter plusieurs instances d’une seule méthode sur différents sites.  
 
  Il peut toutefois être utile, pour certains environnements, d’attribuer la même méthode de découverte à plusieurs sites, avec une configuration et une planification distinctes à chaque fois. Cela tien t au fait que les configurations d’exécution d’une méthode de découverte sont spécifiques à un site unique. Cela vous permet d’exécuter la découverte sur un site, puis de partager les résultats avec d’autres sites ou d’utiliser la même méthode sur deux sites différents, lorsque la découverte s’exécute sur une ressource locale et n’essaie pas de découvrir des informations à partir d’emplacements sur un réseau WAN.  Par exemple, cela est souvent utile lorsque vous utilisez la découverte du réseau et dirigez chaque site pour découvrir son réseau local au lieu d’essayer d’exécuter la découverte de tous les emplacements réseau sur un réseau WAN. Si vous configurez plusieurs instances des mêmes méthodes de découverte pour qu’elles s’exécutent sur différents sites, planifiez avec soin la configuration de chaque site pour éviter que plusieurs sites ne découvrent les mêmes ressources à partir de votre réseau ou d’Active Directory. La découverte d’emplacements et de ressources identiques sur plusieurs sites peut consommer plus de bande passante réseau et créer des doublons d’enregistrements de données de découverte pour les ressources, qui ne présentent pas d’intérêt mais qui doivent tout de même être traités par vos serveurs de site.  
@@ -74,10 +74,10 @@ Il existe deux méthodes pour découvrir l'infrastructure du réseau, la découv
 |Découverte de groupes Active Directory|Site principal|  
 |Découverte de systèmes Active Directory|Site principal|  
 |Découverte d’utilisateurs Active Directory|Site principal|  
-|Découverte par pulsations d'inventaire<sup>1</sup>|Site principal|  
+|Découverte par pulsations d’inventaire<sup>1</sup>|Site principal|  
 |Découverte du réseau|Site principal<br /><br /> Site secondaire|  
 
- <sup>1</sup> Les sites secondaires ne peuvent pas configurer la découverte par pulsations d'inventaire mais peuvent recevoir l'enregistrement de données de découverte par pulsation de la part d'un client.  
+ <sup>1</sup> Les sites secondaires ne peuvent pas configurer la découverte par pulsations d’inventaire, mais peuvent recevoir l’enregistrement de données de découverte par pulsation de la part d’un client.  
 
  Lorsque des sites secondaires exécutent la découverte du réseau, ou reçoivent des DDR de découverte par pulsations d'inventaire, ils transfèrent le DDR par réplication basée sur les fichiers vers leur site principal parent. Ceci est dû au fait que seuls les sites principaux et les sites d’administration centrale peuvent traiter les enregistrements de données de découverte. Pour plus d’informations sur le traitement des enregistrements de données de découverte, consultez [À propos des enregistrements de données de découverte](../../../../core/servers/deploy/configure/run-discovery.md#BKMK_DDRs).  
 

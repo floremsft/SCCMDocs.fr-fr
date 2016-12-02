@@ -54,7 +54,7 @@ Les modifications apportées au nœud Mises à jour et maintenance dans la conso
     - **Installation**
 
   De plus, des informations plus détaillées sont maintenant fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
--   **Nouvelle option pour retenter l’installation après l’échec de la vérification de la configuration requise :**
+-   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
 
     Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** affiche le nouveau bouton **Ignorer les avertissements de configuration requise** sur le ruban.
 
@@ -77,7 +77,7 @@ Les modifications apportées au nœud Mises à jour et maintenance dans la conso
 ### <a name="new-distribution-point-update-behavior"></a>Nouveau comportement de mise à jour des points de distribution
 La mise à jour 1606 apporte des modifications qui améliorent la disponibilité des points de distribution lors de l’installation des mises à jour ultérieures.
 
-Si, après avoir installé la mise à jour 1606, vous installez une nouvelle mise à jour sur le même site qui nécessite la réinstallation automatique des rôles de système de site pour les points de distribution standard et d’extraction, la mise à jour peut maintenant s’effectuer en même temps, sans avoir besoin de mettre tous les points de distribution en mode hors connexion. Au lieu de cela, le serveur de site utilise les paramètres de distribution de contenu du site pour distribuer la mise à jour à plusieurs points de distribution à la fois. Résultat : seuls certains points de distribution sont mis en mode hors connexion pendant l’installation de la mise à jour. Ainsi, les points de distribution dont la mise à jour n’a pas encore commencé ou qui s’est terminée restent en ligne et peuvent fournir du contenu aux clients.
+Si, après avoir installé la mise à jour 1606, vous installez une nouvelle mise à jour sur le même site qui nécessite la réinstallation automatique des rôles de système de site pour les points de distribution standard et d’extraction, la mise à jour peut maintenant s’effectuer en même temps, sans avoir besoin de mettre tous les points de distribution en mode hors connexion. Au lieu de cela, le serveur de site utilise les paramètres de distribution de contenu du site pour distribuer la mise à jour à plusieurs points de distribution à la fois. Résultat : seuls certains points de distribution sont mis en mode hors connexion pendant l’installation de la mise à jour. Ainsi, les points de distribution dont la mise à jour n’a pas encore commencé ou est terminée restent en ligne et peuvent fournir du contenu aux clients.
 
 
 

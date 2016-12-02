@@ -194,7 +194,7 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 
 -   Dans l’**Assistant Déploiement logiciel**, dans la page **Stratégie de configuration des applications**, associez la stratégie de configuration d’application que vous avez créée à un type de déploiement compatible de l’application.  
 
-##  <a name="a-namebkmkcompliance1601a-improvements-to-compliance-settings"></a><a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de compatibilité  
+##  <a name="a-namebkmkcompliance1601a-improvements-to-compliance-settings"></a><a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de conformité  
  Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
 ### <a name="microsoft-edge-browser-settings"></a>Paramètres du navigateur Microsoft Edge  

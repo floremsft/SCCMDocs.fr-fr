@@ -35,7 +35,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 > [!NOTE]  
 >  Les numéros de version de logiciel mentionnés dans cet article indiquent uniquement les numéros de version minimale requise.  
 
-##  <a name="a-namebkmkprereqscomputersa-prerequisites-for-computer-clients"></a><a name="BKMK_prereqs_computers"></a> Configuration requise pour les clients d’ordinateurs  
+##  <a name="a-namebkmkprereqscomputersa-prerequisites-for-computer-clients"></a><a name="BKMK_prereqs_computers"></a> Conditions préalables pour les clients d’ordinateurs  
  Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des ordinateurs.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
@@ -161,7 +161,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 ### <a name="firewall-requirements"></a>Configuration requise du pare-feu  
  S’il existe un pare-feu entre les serveurs du système de site et les ordinateurs sur lesquels vous souhaitez installer le client Configuration Manager, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
-##  <a name="a-namebkmkprereqsmobiledevicesa-prerequisites-for-mobile-device-clients"></a><a name="BKMK_prereqs_mobiledevices"></a> Configuration requise pour les clients d’appareils mobiles  
+##  <a name="a-namebkmkprereqsmobiledevicesa-prerequisites-for-mobile-device-clients"></a><a name="BKMK_prereqs_mobiledevices"></a> Conditions préalables pour les clients d’appareils mobiles  
  Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des appareils mobiles et pour inscrire ces appareils à l’aide de Configuration Manager.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  

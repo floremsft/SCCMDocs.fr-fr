@@ -47,7 +47,7 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
 
 -   [Planification des tâches de migration d’objets déjà migrés](#About_Object_Migrations)  
 
-##  <a name="a-nametypesofmigrationa-types-of-migration-jobs"></a><a name="Types_of_Migration"></a> Types de tâche de migration  
+##  <a name="a-nametypesofmigrationa-types-of-migration-jobs"></a><a name="Types_of_Migration"></a> Types de tâches de migration  
  Configuration Manager prend en charge les types de tâche de migration suivants. Chaque type de tâche est conçu pour vous aider à définir les objets à inclure dans cette tâche.  
 
  **Migration de regroupements** (prise en charge uniquement pour la migration à partir de Configuration Manager 2007 SP2) - Migrez des objets liés aux regroupements de votre choix. Par défaut, la migration d'un regroupement inclut tous les objets qui sont associés aux membres du regroupement. Vous pouvez exclure des instances d'objet spécifiques lors de l'utilisation d'une tâche de migration de regroupement.  

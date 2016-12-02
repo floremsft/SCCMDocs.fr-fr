@@ -56,7 +56,7 @@ Pour en savoir plus sur les étapes de création d’une image de système d’e
     -   L’installation du système d’exploitation peut prendre plus de temps, car l’installation des applications et d’autres configurations s’effectue une fois l’installation du système d’exploitation terminée.  
 
 
-##  <a name="a-namebkmkaddosimagesa-add-operating-system-images-to-configuration-manager"></a><a name="BKMK_AddOSImages"></a>Ajouter des images de système d’exploitation à Configuration Manager  
+##  <a name="a-namebkmkaddosimagesa-add-operating-system-images-to-configuration-manager"></a><a name="BKMK_AddOSImages"></a> Ajouter des images de système d’exploitation à Configuration Manager  
  Avant d’utiliser une image de système d’exploitation, vous devez ajouter l’image à un site Configuration Manager. Utilisez la procédure suivante pour ajouter une image de système d’exploitation à un site.  
 
 #### <a name="to-add-an-operating-system-image-to-a-site"></a>Pour ajouter une image de système d’exploitation à un site  

@@ -47,7 +47,7 @@ Les déploiements de système d’exploitation établis par PXE dans System Cent
 
 -   Pour activer PXE sur une image de démarrage, sélectionnez  **Déployer cette image de démarrage depuis le point de distribution PXE** sous l’onglet **Source de données** dans les propriétés de l’image de démarrage.  
 
--   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d'informations, voir [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+-   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
 ##  <a name="a-namebkmkpxeexclusionlista-create-an-exclusion-list-for-pxe-deployments"></a><a name="BKMK_PXEExclusionList"></a> Créer une liste d’exclusion pour les déploiements PXE  
  Quand vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez créer une liste d’exclusion sur chaque point de distribution pour ignorer les demandes de démarrage PXE reçues d’ordinateurs figurant dans la liste d’exclusion. La liste d’exclusion contient les adresses MAC des ordinateurs qui doivent être ignorés par le point de distribution. Ces ordinateurs ne recevront pas les séquences de tâches de déploiement que Configuration Manager utilise pour le déploiement PXE.  

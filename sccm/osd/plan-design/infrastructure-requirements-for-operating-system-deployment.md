@@ -71,7 +71,7 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurati
 
      Windows ADK pour Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager console**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
@@ -104,7 +104,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 ### <a name="windows-device-drivers"></a>Pilotes de périphérique Windows  
  Des pilotes de périphérique Windows peuvent être utilisés lorsque vous installez le système d'exploitation sur l'ordinateur de destination et lorsque vous exécutez Windows PE à partir d'une image de démarrage. Pour plus d’informations sur les pilotes de périphérique, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
-##  <a name="a-namebkmkinternaldependenciesa-configuration-manager-dependencies"></a><a name="BKMK_InternalDependencies"></a> Dépendances internes à Configuration Manager  
+##  <a name="a-namebkmkinternaldependenciesa-configuration-manager-dependencies"></a><a name="BKMK_InternalDependencies"></a> Dépendances de Configuration Manager  
  Vous trouverez ci-dessous des informations sur la configuration requise pour le déploiement de système d’exploitation dans Configuration Manager.  
 
 ### <a name="operating-system-image"></a>Image du système d'exploitation  
@@ -176,7 +176,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 
 -   Si le fournisseur est installé sur un serveur distant, vous devez installer WDS sur le serveur de site et le fournisseur distant.  
 
-###  <a name="a-namebkmkwdsanddhcpa-considerations-when-you-have-wds-and-dhcp-on-the-same-server"></a><a name="BKMK_WDSandDHCP"></a> Éléments à prendre en considération quand WDS et DHCP cohabitent sur le même serveur  
+###  <a name="a-namebkmkwdsanddhcpa-considerations-when-you-have-wds-and-dhcp-on-the-same-server"></a><a name="BKMK_WDSandDHCP"></a> Considérations quand vous avez WDS et DHCP sur le même serveur  
  Tenez compte des problèmes de configuration suivants si vous envisagez de faire cohabiter le point de distribution sur un serveur exécutant DHCP.  
 
 -   Vous devez disposer d'un serveur DHCP opérationnel avec une étendue active. Les Services de déploiement Windows utilisent PXE, qui nécessite un serveur DHCP.  

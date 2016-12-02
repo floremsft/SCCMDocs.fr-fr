@@ -33,7 +33,7 @@ ms.openlocfilehash: 0f24fd912b3e65dc0c0074ef1c8f76cc128a716c
 > [!NOTE]  
 >  12 janvier 2016, fin de la prise en charge de .NET 4.0, 4.5 et 4.5.1. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
 
-## <a name="a-namebkmkgeneralprerewqa-general-site-server-requierments-and-limitations"></a><a name="bkmk_generalprerewq"></a> Configurations requises et limitations générales du serveur de site :
+## <a name="a-namebkmkgeneralprerewqa-general-site-server-requierments-and-limitations"></a><a name="bkmk_generalprerewq"></a> Configuration requise et limitations générales du serveur de site :
 **Ce qui suit s’applique à tous les serveurs de système de site :**
 
 -   Chaque serveur de système de site doit utiliser un système d’exploitation 64 bits. La seule exception est le rôle système de site de point de distribution qui peut être installé sur certains systèmes d’exploitation 32 bits.  
@@ -54,7 +54,7 @@ ms.openlocfilehash: 0f24fd912b3e65dc0c0074ef1c8f76cc128a716c
 
 -   Le changement du type de démarrage ou des paramètres d’ouverture de session n’est pas pris en charge, quel que soit le service Configuration Manager. Cela peut empêcher l’exécution correcte de certains services clés.  
 
-##  <a name="a-namebkmk2012prereqa-prerequisites-for-windows-server-2012-and-later-operating-systems"></a><a name="bkmk_2012Prereq"></a> Prérequis pour les systèmes d’exploitation Windows Server 2012 et les versions ultérieures  
+##  <a name="a-namebkmk2012prereqa-prerequisites-for-windows-server-2012-and-later-operating-systems"></a><a name="bkmk_2012Prereq"></a> Conditions préalables pour les systèmes d’exploitation Windows Server 2012 et versions ultérieures  
 ###  <a name="a-namebkmk2012sspreqa-site-server---central-administration-site-and-primary-site"></a><a name="bkmk_2012sspreq"></a> Serveur de site - site d’administration centrale et site principal  
   **Rôles et fonctionnalités Windows Server :**  
 
@@ -293,7 +293,7 @@ ms.openlocfilehash: 0f24fd912b3e65dc0c0074ef1c8f76cc128a716c
 
     -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET Extensibility 3.5  
+    -   Extensibilité .NET 3.5  
 
     -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
@@ -332,9 +332,9 @@ ms.openlocfilehash: 0f24fd912b3e65dc0c0074ef1c8f76cc128a716c
 
     -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET Extensibility 3.5  
+    -   Extensibilité .NET 3.5  
 
-    -   .NET Extensibility 4.5  
+    -   Extensibilité .NET 4.5  
 
 -   Sécurité :  
 
@@ -424,7 +424,7 @@ ms.openlocfilehash: 0f24fd912b3e65dc0c0074ef1c8f76cc128a716c
 ### <a name="state-migration-point"></a>Point de migration d’état  
 **Nécessite la configuration IIS par défaut.**  
 
-##  <a name="a-namebkmk2008a-prerequisites-for-windows-server-2008-r2-and-windows-server-2008"></a><a name="bkmk_2008"></a> Prérequis pour Windows Server 2008 R2 et Windows Server 2008  
+##  <a name="a-namebkmk2008a-prerequisites-for-windows-server-2008-r2-and-windows-server-2008"></a><a name="bkmk_2008"></a> Conditions préalables pour Windows Server 2008 R2 et Windows Server 2008  
 Windows Server 2008 et Windows Server 2008 R2 bénéficient désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation en tant que serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
 **Ce qui suit s’applique à toutes les conditions requises pour le .NET Framework :**  

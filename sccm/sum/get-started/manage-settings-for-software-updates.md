@@ -108,7 +108,7 @@ Sous l'onglet **Informations de remplacement** , vous pouvez voir les informatio
 
 - **Cette mise à jour remplace les mises à jour suivantes**: spécifie les mises à jour logicielles remplacées par cette mise à jour logicielle, ce qui signifie que cette mise à jour logicielle est plus récente. Dans la plupart des cas, vous allez déployer cette mise à jour logicielle pour qu'elle se substitue aux mises à jour logicielles remplacées. Les mises à jour logicielles qui sont répertoriées dans la liste contiennent des liens hypertexte vers des pages Web qui fournissent davantage d'informations sur les mises à jour logicielles. Lorsque cette mise à jour n'en remplace aucune autre, **Aucun** s'affiche.  
 
-###  <a name="a-namebkmksoftwareupdatessettingsa-configure-software-updates-settings"></a><a name="BKMK_SoftwareUpdatesSettings"></a> Configurer les paramètres des mises à jour logicielles  
+###  <a name="a-namebkmksoftwareupdatessettingsa-configure-software-updates-settings"></a><a name="BKMK_SoftwareUpdatesSettings"></a> Configurer les paramètres de mise à jour logicielle  
 Dans les propriétés, vous pouvez configurer les paramètres d'une ou plusieurs mises à jour logicielles. Vous pouvez configurer la plupart des paramètres des mises à jour logicielles uniquement au niveau du site d'administration centrale ou du site principal autonome. Aidez-vous des sections suivantes pour configurer les paramètres des mises à jour logicielles.  
 
 ####  <a name="a-namebkmksetmaxruntimea-set-maximum-run-time"></a><a name="BKMK_SetMaxRunTime"></a> Définir la durée maximale d’exécution  

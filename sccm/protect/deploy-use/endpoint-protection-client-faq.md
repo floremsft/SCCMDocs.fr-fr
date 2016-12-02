@@ -216,7 +216,7 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
 
 ##  <a name="what-is-real-time-protection"></a>Qu’est-ce que la protection en temps réel ?  
 
- La protection en temps réel permet à Windows Defender d’analyser votre ordinateur en permanence et de vous avertir quand des menaces potentielles, notamment des virus et des logiciels espions, essayent de s’installer eux-mêmes ou de s’exécuter sur votre ordinateur. Comme cette fonctionnalité est un élément important de la façon dont Windows Defender contribue à protéger votre ordinateur, vérifiez que la protection en temps réel est toujours activée. Si la protection en temps réel est désactivée, Windows Defender vous en avertit et change l’état de votre ordinateur à « Risqué ».  
+ La protection en temps réel permet à Windows Defender d’analyser votre ordinateur en permanence et de vous avertir quand des menaces potentielles, notamment des virus et des logiciels espions, essayent de s’installer eux-mêmes ou de s’exécuter sur votre ordinateur. Comme cette fonctionnalité est un élément important de la façon dont Windows Defender contribue à protéger votre ordinateur, vérifiez que la protection en temps réel est toujours activée. Si la protection en temps réel est désactivée, Windows Defender vous en avertit et change l’état de votre ordinateur par « Risqué ».  
 
  Chaque fois que la protection en temps réel détecte une menace ou une menace potentielle, Windows Defender affiche une notification. Vous pouvez maintenant choisir parmi les options suivantes :  
 

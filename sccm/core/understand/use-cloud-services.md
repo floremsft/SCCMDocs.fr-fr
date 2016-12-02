@@ -91,7 +91,7 @@ Même si Intune utilise Microsoft Azure, vous n’êtes pas tenu de configurer A
 
 Pour utiliser ces fonctionnalités supplémentaires, vous n’avez pas besoin d’avoir un abonnement Azure, ni de configurer des connexions, certificats ou services particuliers dans le cloud. En effet, ces fonctionnalités sont automatiquement gérées par Configuration Manager à votre place.  Vous devez seulement veiller à ce que les systèmes de site et les appareils puissent accéder aux URL Internet.  
 
-##  <a name="a-namebkmkcloudseca-security-for-cloud-based-services"></a><a name="BKMK_CloudSec"></a>Sécurité des services cloud  
+##  <a name="a-namebkmkcloudseca-security-for-cloud-based-services"></a><a name="BKMK_CloudSec"></a> Sécurité des services cloud  
  Configuration Manager utilise des certificats pour configurer votre contenu dans Microsoft Azure et y accéder, et pour gérer les services que vous utilisez. Configuration Manager chiffre les données que vous stockez dans Microsoft Azure, mais n’introduit pas de contrôles de données ou de sécurité en plus de ceux fournis par Microsoft Azure.  
 
  Pour plus d’informations, consultez les détails des différents scénarios de ressources cloud. Vous pouvez également consulter les rubriques suivantes sur la sécurité dans Microsoft Azure :  

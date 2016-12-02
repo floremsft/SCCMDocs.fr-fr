@@ -115,7 +115,7 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
  Pour afficher les journaux, vous pouvez utiliser la visionneuse du journal Configuration Manager, CMTrace, qui se trouve dans le dossier **\SMSSETUP\TOOLS** du support source de Configuration Manager. Il est également ajouté à toutes les images de démarrage ajoutées à la **Bibliothèque de logiciels**.  
 
-###  <a name="a-namebkmklogoptionsa-configure-logging-options-by-using-the-configuration-manager-service-manager"></a><a name="BKMK_LogOptions"></a> Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration manager  
+###  <a name="a-namebkmklogoptionsa-configure-logging-options-by-using-the-configuration-manager-service-manager"></a><a name="BKMK_LogOptions"></a> Configurer les options de journalisation à l’aide du Gestionnaire de service de Configuration Manager  
  Configuration Manager prend en charge plusieurs options qui vous permettent de modifier l’emplacement de stockage des fichiers journaux, ainsi que la taille du fichier journal.  
 
  La procédure suivante vous permet d'utiliser le **Gestionnaire de service de Configuration Manager** pour modifier la taille des fichiers journaux, le nom et l'emplacement du fichier journal, et forcer plusieurs composants à écrire dans un fichier journal unique.  
@@ -258,7 +258,7 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
 Dans des conditions normales de fonctionnement, le niveau de journal ERROR doit être utilisé. Le niveau de journalisation ERROR crée le fichier journal le plus petit. En augmentant le niveau de journal d'ERROR à WARNING, à INFO à TRACE, chaque étape génère un fichier journal plus volumineux car plus de données sont écrites dans le fichier journal.  
 
-####  <a name="a-namebkmkmanagelinuxlogsa-manage-log-files-for-the-client-for-linux-and-unix-client"></a><a name="BKMK_ManageLinuxLogs"></a> Gérer des fichiers journaux du client pour Linux et UNIX  
+####  <a name="a-namebkmkmanagelinuxlogsa-manage-log-files-for-the-client-for-linux-and-unix-client"></a><a name="BKMK_ManageLinuxLogs"></a> Gérer les fichiers journaux du client pour Linux et UNIX  
 Le client pour Linux et UNIX ne limite pas la taille maximale des fichiers journaux du client. Il ne copie pas non plus automatiquement le contenu de ses fichiers **.LOG** dans un autre fichier tel qu'un fichier **.LO_** . Si vous voulez contrôler la taille maximale des fichiers journaux, implémentez un processus pour gérer les fichiers journaux indépendamment du client Configuration Manager pour Linux et UNIX.  
 
 Par exemple, vous pouvez utiliser la commande Linux et UNIX standard **logrotate** pour gérer la taille et la rotation des fichiers journaux du client. Le client Configuration Manager pour Linux et UNIX fournit une interface qui permet à **logrotate** de signaler au client le moment où la rotation des journaux est terminée. Le client peut ainsi reprendre la journalisation dans le fichier journal.  
@@ -536,7 +536,7 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 |SMSdpmon.log|Enregistre des détails concernant la tâche planifiée de surveillance de l'intégrité du point de distribution configurés sur un point de distribution.|Rôle de système de site|  
 |smsdpprov.log|Enregistre des détails concernant l'extraction des fichiers compressés reçus à partir d'un site principal. Ce journal est généré par le fournisseur WMI du point de distribution distant.|Un ordinateur de point de distribution n'est pas forcément sur le même emplacement que le serveur de site.|  
 
-###  <a name="a-namebkmkdiscoveryloga-discovery"></a><a name="BKMK_DiscoveryLog"></a> Détection  
+###  <a name="a-namebkmkdiscoveryloga-discovery"></a><a name="BKMK_DiscoveryLog"></a> Découverte  
 Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la détection.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -690,7 +690,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |--------------|-----------------|----------------------------|  
 |CMRcViewer.log|Enregistre des détails concernant l'activité de l'observateur de contrôle à distance.|Situé dans le dossier *%temp%* sur l'ordinateur exécutant l'observateur de contrôle à distance.|  
 
-###  <a name="a-namebkmkreportloga-reporting"></a><a name="BKMK_ReportLog"></a> Création de rapports  
+###  <a name="a-namebkmkreportloga-reporting"></a><a name="BKMK_ReportLog"></a> Rapports  
  Le tableau suivant répertorie les fichiers journaux de Configuration Manager qui contiennent des informations relatives à la création de rapports.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  

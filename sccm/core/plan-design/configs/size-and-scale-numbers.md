@@ -36,7 +36,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 Les nombres indiqués dans cet article se basent sur l’utilisation du matériel recommandé pour Configuration Manager. Quand vous n’utilisez pas le matériel recommandé, les performances des systèmes de site peuvent se dégrader et ne pas correspondre aux niveaux indiqués de prise en charge.
 
-##  <a name="a-namebkmksitesystemscalea-site-types"></a><a name="bkmk_SiteSystemScale"></a> Types de site  
+##  <a name="a-namebkmksitesystemscalea-site-types"></a><a name="bkmk_SiteSystemScale"></a> Types de sites  
  **Site d’administration centrale :**  
 
 -   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  

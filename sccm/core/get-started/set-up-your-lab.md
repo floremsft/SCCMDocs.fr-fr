@@ -81,7 +81,7 @@ Bien qu’elles ne soient pas requises pour ce laboratoire, vous pouvez consulte
 
 Une fois que vous avez installé tous ces composants, des étapes supplémentaires sont à suivre pour configurer votre environnement Windows pour Configuration Manager :  
 
-###  <a name="a-namebkmklabadprepa-prepare-active-directory-content-for-the-lab"></a><a name="BKMK_LabADPrep"></a> Préparer le contenu Active Directory pour le laboratoire  
+###  <a name="a-namebkmklabadprepa-prepare-active-directory-content-for-the-lab"></a><a name="BKMK_LabADPrep"></a> Préparer le contenu d’Active Directory pour le laboratoire  
  Pour ce laboratoire, vous allez créer un groupe de sécurité, puis lui ajouter un utilisateur de domaine.  
 
 -   Groupe de sécurité : **Evaluation**  

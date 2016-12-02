@@ -33,7 +33,7 @@ Les sections suivantes fournissent des informations sur les différents prérequ
 Les prérequis suivants s’appliquent à l’installation d’un site d’administration centrale en tant que premier site d’une hiérarchie, site principal autonome ou site principal enfant. Si vous installez un site d’administration centrale dans le cadre d’un scénario d’extension de hiérarchie, consultez [Développement d’un site principal autonome](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand
 ) dans cette rubrique.
 
-####  <a name="a-namebkmkprereqpria-prerequisites-to-install-a-primary-site-or-central-administration-site"></a><a name="bkmk_PrereqPri"></a> Prérequis à l’installation d’un site principal ou d’un site d’administration centrale  
+####  <a name="a-namebkmkprereqpria-prerequisites-to-install-a-primary-site-or-central-administration-site"></a><a name="bkmk_PrereqPri"></a> Conditions préalables pour installer un site principal ou un site d’administration centrale  
 
 -   Pour installer le site, l’utilisateur doit disposer des autorisations suivantes :  
 

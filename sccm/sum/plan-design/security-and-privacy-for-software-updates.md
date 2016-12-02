@@ -26,7 +26,7 @@ ms.openlocfilehash: d1eb920dfed3be06837c2cd4635b61e3964cf0e5
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les mises à jour logicielles dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-software-updates"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour les mises à jour logicielles  
+##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-software-updates"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques concernant les mises à jour logicielles  
  Utilisez ces meilleures pratiques de sécurité lorsque vous déployez des mises à jour logicielles vers des clients :  
 
 -   Ne modifiez pas les autorisations par défaut des packages de mises à jour logicielles.  

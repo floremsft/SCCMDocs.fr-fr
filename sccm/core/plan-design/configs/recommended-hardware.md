@@ -90,7 +90,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
 |Fichiers de base de données temporaires (.mdf et .ldf)|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|  
 |Contenu (partages de point de distribution)|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|  
 
- <sup>1</sup> Les instructions relatives à l'espace disque n'incluent pas l'espace requis pour le contenu situé dans la bibliothèque de contenu sur le serveur de site ou les points de distribution. Pour plus d’informations sur la planification de la bibliothèque de contenu, consultez [Bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).  
+ <sup>1</sup> Les instructions relatives à l’espace disque n’incluent pas l’espace requis pour le contenu situé dans la bibliothèque de contenu sur le serveur de site ou les points de distribution. Pour plus d’informations sur la planification de la bibliothèque de contenu, consultez [Bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).  
 
  En plus des indications précédentes, prenez en compte les recommandations suivantes pour prévoir l’espace disque nécessaire :  
 

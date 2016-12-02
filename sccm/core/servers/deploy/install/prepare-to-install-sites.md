@@ -73,7 +73,7 @@ Vous devez utiliser la console Configuration Manager pour installer un site seco
 
 
 
-## <a name="a-namebkmktasksa-common-tasks-to-complete-before-starting-an-install"></a><a name="bkmk_tasks"></a> Tâches courantes à effectuer avant de démarrer une installation
+## <a name="a-namebkmktasksa-common-tasks-to-complete-before-starting-an-install"></a><a name="bkmk_tasks"></a>  Tâches courantes à effectuer avant de démarrer une installation
 -   Déterminer la topologie de la hiérarchie que vous allez utiliser pour votre déploiement    
      (voir [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md))  
 

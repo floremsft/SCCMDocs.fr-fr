@@ -26,7 +26,7 @@ ms.openlocfilehash: cc9c04409a6eb040ac49ca6eeeab5f65c4517d17
 
 
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1609 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1609 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 **Problèmes connus dans cette version d’évaluation technique :**  
 *  Quand vous effectuez la mise à jour vers la version d’évaluation technique 1609 pour Configuration Manager, toutes les stratégies de mise à niveau d’édition que vous avez déployées sont supprimées. Pour continuer à utiliser ces stratégies, vous devez les recréer et les déployer.
@@ -453,7 +453,7 @@ Complétez les sections suivantes dans l’ordre :
 
 
 ## <a name="see-also"></a>Voir aussi
-[Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md)
+[Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)
 
 
 

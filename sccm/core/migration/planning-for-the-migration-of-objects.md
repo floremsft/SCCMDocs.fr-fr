@@ -126,7 +126,7 @@ Vous pouvez migrer des publications d’un site source Configuration Manager 200
 
  La migration de l’objet de regroupement n’est pas prise en charge quand vous effectuez une migration à partir d’une hiérarchie source Configuration Manager 2007.  
 
-##  <a name="a-nameplanmigrateosda-planning-to-migrate-operating-system-deployments"></a><a name="Plan_migrate_OSD"></a> Planification de la migration de déploiements de système d’exploitation  
+##  <a name="a-nameplanmigrateosda-planning-to-migrate-operating-system-deployments"></a><a name="Plan_migrate_OSD"></a> Planification de la migration de déploiements de systèmes d’exploitation  
 Vous pouvez migrer les objets de déploiement de système d'exploitation suivants à partir d'une hiérarchie source pris en charge :  
 
 -   Images et packages de système d'exploitation Le chemin source des images de démarrage est remplacé par l'emplacement de l'image par défaut pour le Kit d'installation automatisée Windows (Windows AIK) sur le site de destination. Vous trouverez ci-dessous les exigences et les restrictions liées à la migration d'images et de packages de système d'exploitation :  

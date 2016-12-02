@@ -37,7 +37,7 @@ Avant de commencer l’installation du site, vous devez être familiarisé avec 
 
 Si vous installez un site d’administration centrale dans le cadre d’un scénario d’extension de site, lisez la section [Extension d’un site principal autonome](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) avant d’utiliser la procédure suivante.
 
-### <a name="a-namebkmkinstallpria-to-install-a-primary-or-central-administration-site"></a><a name="bkmk_installpri"></a>  Pour installer un site principal ou un site d’administration centrale
+### <a name="a-namebkmkinstallpria-to-install-a-primary-or-central-administration-site"></a><a name="bkmk_installpri"></a>   Pour installer un site principal ou un site d’administration centrale
 
 1.  Sur l’ordinateur sur lequel vous voulez installer le site, exécutez **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** pour démarrer l’**Assistant Installation de System Center Configuration Manager**.  
 
@@ -216,7 +216,7 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
     -   Vous devez attendre la fin de l’installation pour connecter une console permettant de modifier les objets et paramètres.  
 
 
-## <a name="a-namebkmkexpanda-expand-a-stand-alone-primary-site"></a><a name="bkmk_expand"></a> Étendre un site principal autonome
+## <a name="a-namebkmkexpanda-expand-a-stand-alone-primary-site"></a><a name="bkmk_expand"></a> Développer un site principal autonome
 Après avoir installé un site principal autonome en tant que premier site, vous pouvez ultérieurement étendre ce site dans une plus grande hiérarchie en installant un site d’administration centrale.   
 
 Quand vous étendez un site principal autonome, vous installez un nouveau site d’administration centrale qui utilise la base de données du site principal autonome existant en tant que référence. Après l’installation du nouveau site d’administration centrale, le site principal autonome est utilisé comme site principal enfant.
@@ -378,7 +378,7 @@ Pour étendre un site principal autonome, utilisez la procédure *[Pour installe
 11. Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant** pour installer le site secondaire. Quand l’Assistant affiche la page **Dernière étape** , vous pouvez fermer l’Assistant. L’installation du site secondaire se poursuit en arrière-plan.  
 
 
-### <a name="a-namebkmkverifya-to-verify-the-secondary-site-installation-status"></a><a name="bkmk_verify"></a> Pour vérifier l'état d'installation du site secondaire  
+### <a name="a-namebkmkverifya-to-verify-the-secondary-site-installation-status"></a><a name="bkmk_verify"></a> Pour vérifier l’état d’installation du site secondaire  
 
 1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**.  
 

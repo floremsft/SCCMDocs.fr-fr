@@ -24,14 +24,14 @@ ms.openlocfilehash: 512bbb1c8f2b4811be7770bda5fa2236a2dc7e06
 
 *S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
  Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
 ##  <a name="a-namebkmkwindowsvppa-manage-volume-purchased-apps-from-the-windows-store-for-business"></a><a name="BKMK_WindowsVPP"></a> Gérer les applications achetées en volume à partir du Windows Store pour Entreprises  
- Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, isolément ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
+ Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
 
--   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager  
+-   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
 
 -   Les applications synchronisées apparaissent dans la console Configuration Manager et vous pouvez les déployer comme les autres applications  
 
@@ -57,7 +57,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
     1.  Sélectionnez l’application que vous venez de créer, puis cliquez sur **Configurer**.  
 
-    2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**.  Cela a pour effet de créer une nouvelle clé de client.  Ne quittez pas cette page tant que vous n’avez pas correctement intégré Windows Store pour Entreprises à Configuration Manager.  
+    2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**.  Cela a pour effet de créer une nouvelle clé de client.  Ne quittez pas cette page tant que vous n’avez pas correctement intégré le Windows Store pour Entreprises à Configuration Manager.  
 
 3.  Dans le Windows Store pour Entreprises, configurez Configuration Manager en tant qu’outil de gestion du Windows Store.  
 
@@ -65,9 +65,9 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
     2.  Acceptez les conditions d’utilisation si nécessaire.  
 
-    3.  Sous **Outils de gestion**, cliquez sur **Add a management tool** (Ajouter un outil de gestion).  
+    3.  Sous **Outils de gestion**, cliquez sur **Ajouter un outil de gestion**.  
 
-    4.  Dans **Search for the tool by name** (Rechercher l’outil par son nom), tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.  
+    4.  Dans **Rechercher l’outil par son nom**, tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.  
 
     5.  Cliquez sur **Activer** en regard de l’application que vous venez d’importer.  
 
@@ -106,7 +106,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 > [!NOTE]  
 >  Cette option est disponible uniquement sur les sites qui ont plusieurs points de mise à jour logicielle.  
 
-##  <a name="a-namebkmkpeercachea-client-settings-to-manage-client-cache-settings-and-client-peer-cache"></a><a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache des clients et le cache d’homologue du client  
+##  <a name="a-namebkmkpeercachea-client-settings-to-manage-client-cache-settings-and-client-peer-cache"></a><a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client  
  La version d’évaluation technique 1604 introduit deux nouveaux paramètres client d’appareil qui affectent l’utilisation du cache d’un client. Les deux paramètres peuvent être utilisés séparément, mais sont configurés sur la même feuille de propriétés des paramètres du client, et ils se combinent pour vous aider à gérer le déploiement de contenu sur vos clients dans des emplacements distants.  
 
 -   Le premier nouveau paramètre est celui du **cache d’homologue du client**, solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local. Pour pouvoir partager du contenu, les clients du cache d’homologue doivent être membres du même groupe de limites. Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en parallèle afin de vous offrir davantage d’options pour étendre les solutions de déploiement de contenu traditionnelles telles que des points de distribution.  

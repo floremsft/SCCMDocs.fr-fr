@@ -92,7 +92,7 @@ Cette rubrique décrit les fonctionnalités, produits et systèmes d’exploitat
 
 -   La gestion hors bande dans System Center 2012 Configuration Manager n’est pas affectée par cette modification.  
 
-###  <a name="a-namebkmknapa-network-access-protection"></a><a name="bkmk_nap"></a> Protection d’accès réseau  
+###  <a name="a-namebkmknapa-network-access-protection"></a><a name="bkmk_nap"></a> Protection d’accès au réseau  
  System Center Configuration Manager ne prend pas en charge la protection d’accès réseau. La fonctionnalité était déconseillée dans Windows Server 2012 R2 et a été supprimée dans Windows 10.  
 
  Pour les solutions de protection d'accès réseau, consultez la section **Fonctionnalités déconseillées** dans [Vue d'ensemble des services de stratégie et d'accès réseau](https://technet.microsoft.com/library/hh831683.aspx).  

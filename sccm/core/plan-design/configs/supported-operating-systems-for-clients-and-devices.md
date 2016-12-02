@@ -38,10 +38,10 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 ##  <a name="a-namebkmkwinclientosa-windows-computers"></a><a name="bkmk_WinClientos"></a> Ordinateurs Windows  
  Vous pouvez gérer les ordinateurs Windows avec le client Configuration Manager fourni avec Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 -  **Windows Server 2016** : Standard, Datacenter <sup>1</sup>
-  - Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606 assortie du correctif cumulatif KB3186654 (ou version de référence 1606 publiée en octobre 2016).  
+  - Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606 assortie du correctif cumulatif KB3186654 (ou la version de référence 1606 publiée en octobre 2016).  
 
 
 -   **Windows Server 2012 R2** (x64) : Standard, Datacenter <sup>1</sup>    
@@ -52,11 +52,11 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 -   **Windows Storage Server 2012** (x64)    
 
--   **Windows Server 2008 R2 avec SP1** (x64) : Standard, Enterprise, Datacenter <sup>1</sup>    
+-   **Windows Server 2008 R2 avec SP1** (x64) : Standard, Entreprise, Datacenter <sup>1</sup>    
 
--   **Windows Storage Server 2008 R2** (x86, x64) : Workgroup, Standard, Entreprise    
+-   **Windows Storage Server 2008 R2** (x86, x64) - Workgroup, Standard, Enterprise    
 
--   **Windows  Server 2008 avec SP2** (x86, x64) : Standard, Enterprise, Datacenter <sup>1</sup>    
+-   **Windows Server 2008 avec SP2** (x86, x64) : Standard, Entreprise, Datacenter <sup>1</sup>    
 
 -   **Windows 10 Entreprise LTSB** (x86, x64) <sup>3</sup>    
 
@@ -66,7 +66,7 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 -   **Windows 8** (x86, x64) : Professionnel, Entreprise    
 
--   **Windows 7 avec SP1** (x86, x64) : Professionnel, Entreprise, Édition Intégrale    
+-   **Windows 7 avec SP1** (x86, x64) - Professionnel, Entreprise, Édition Intégrale    
 
 -   **Installation minimale de Windows Server 2012 R2** (x64) <sup>2</sup>    
 
@@ -77,7 +77,7 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 -   **Installation minimale de Windows Server 2008 SP2** (x86, x64)  
 
- <sup>1</sup>Les versions Datacenter sont prises en charge mais ne sont pas certifiées pour Configuration Manager. Les correctifs ne sont pas pris en charge pour résoudre les problèmes spécifiques de l'édition Windows Server Datacenter.  
+ <sup>1</sup> Les versions Datacenter sont prises en charge, mais ne sont pas certifiées pour Configuration Manager. Les correctifs ne sont pas pris en charge pour résoudre les problèmes spécifiques de l'édition Windows Server Datacenter.  
 
  <sup>2</sup> Pour prendre en charge l’installation Push du client, l’ordinateur exécutant cette version du système d’exploitation doit exécuter le service de rôle Serveur de fichiers pour le rôle serveur Services de fichiers et de stockage. Pour plus d’informations sur l’installation des fonctionnalités Windows sur un ordinateur Server Core, consultez [Installer des rôles et fonctionnalités de serveur sur un serveur en mode d’installation minimale](http://go.microsoft.com/fwlink/p/?LinkId=299359) dans la bibliothèque TechNet de Windows Server 2012.  
 
@@ -100,7 +100,7 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 -   Le catalogue des applications n’est pris en charge pour aucun appareil Windows Embedded.  
 
--   Avant de pouvoir surveiller les programmes malveillants détectés sur les appareils Windows Embedded basés sur Windows XP, vous devez installer le package de script Microsoft Windows WMI sur les appareils intégrés. Utilisez Windows Embedded Target Designer pour installer ce package. Les fichiers **WBEMDISP.DLL** et **WBEMDISP.TLB** doivent exister et être inscrits dans le dossier **%windir%\System32\WBEM** de l’appareil intégré pour s’assurer que les programmes malveillants sont signalés.  
+-   Avant de pouvoir surveiller les programmes malveillants détectés sur les appareils Windows Embedded basés sur Windows XP, vous devez installer le package de script Microsoft Windows WMI sur les appareils intégrés. Utilisez Windows Embedded Target Designer pour installer ce package. Les fichiers **WBEMDISP.DLL** et **WBEMDISP.TLB** doivent exister et être inscrits dans le dossier **%windir%\System32\WBEM** sur l’appareil intégré pour garantir que les programmes malveillants sont signalés.  
 
 **Systèmes d’exploitation pris en charge** :  
 
@@ -133,19 +133,19 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 -   **Windows Embedded Standard 2009** (x86)  
 
 ## <a name="windows-ce"></a>Windows CE  
- Vous pouvez gérer les appareils Windows CE à l’aide du client hérité d’appareil mobile Configuration Manager qui est fourni avec Configuration Manager.  
+ Vous pouvez gérer les appareils Windows CE avec le client hérité d’appareil mobile Configuration Manager inclus dans Configuration Manager.  
 
-**Conditions requises et limitations**  
+**Configuration requise et limitations**  
 
 -   L’installation du client d’appareil mobile nécessite 0,78 Mo d’espace de stockage. La journalisation sur l’appareil mobile peut nécessiter jusqu’à 256 Ko d’espace de stockage supplémentaire.    
 
 -   Les fonctionnalités de ces appareils mobiles varient selon la plateforme et le type de client. Pour plus d’informations sur les fonctions de gestion prises en charge par Configuration Manager pour le client hérité d’appareil mobile, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../../core/plan-design/choose-a-device-management-solution.md).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Systèmes d’exploitation pris en charge :**  
 
 -   Windows CE 7.0 (processeurs ARM et x86)  
 
-**Langues prises en charge** :  
+**Langues prises en charge :**  
 
 -   Chinois (simplifié et traditionnel)    
 
@@ -178,7 +178,7 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
  Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-macs.md).  
 
-**Versions prises en charge** :  
+**Versions prises en charge :**  
 
 -   **Mac OS X 10.9** (Mavericks)  
 
@@ -195,7 +195,7 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 -   Pour vérifier les dépendances des fichiers du système d’exploitation pour le client pour Linux et UNIX, consultez [Conditions préalables pour le déploiement du client pour les serveurs Linux et UNIX](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_ClientDeployPrereqforLnU).  
 
--   Pour obtenir une vue d’ensemble des fonctionnalités de gestion prises en charge pour les ordinateurs qui exécutent Linux ou UNIX, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+-   Pour une vue d’ensemble des fonctionnalités de gestion prises en charge pour les ordinateurs exécutant Linux ou UNIX, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
 -   Pour versions prises en charge de Linux et UNIX, la version répertoriée inclut toutes les versions mineures suivantes. Par exemple, quand la prise en charge est indiquée pour CentOS version 6, elle inclut également toute version mineure suivante de CentOS 6, telle CentOS 6.3. De même, quand la prise en charge est indiquée pour un système d’exploitation utilisant des Service Packs, comme SUSE Linux Enterprise Server 11 SP1, elle inclut les Service Packs suivants pour cette version du système d’exploitation.  
 
@@ -207,95 +207,95 @@ ms.openlocfilehash: 862291f52d5a1bb34fb5483806972fcf70f158a8
 
 |||  
 |-|-|  
-|Version 5.3 (Power)|ccm-Aix53ppc.&lt;build\>.tar|  
-|Version 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
-|Version 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
+|Version 5.3 (Power)|ccm-Aix53ppc.&lt;version\>.tar|  
+|Version 6.1 (Power)|ccm-Aix61ppc.&lt;version\>.tar|  
+|Version 7.1 (Power)|ccm-Aix71ppc.&lt;version\>.tar|  
 
 ### <a name="centos"></a>CentOS  
 
 |||  
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ### <a name="debian"></a>Debian  
 
 |||  
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 7 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 8 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 8 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 7 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 8 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 8 x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ### <a name="hp-ux"></a>HP-UX  
 
 |||  
 |-|-|  
-|Version 11iv2 IA64|ccm-HpuxB.11.23i64.&lt;build\>.tar|  
-|Version 11iv2 PA-RISC|ccm-HpuxB.11.23PA.&lt;build\>.tar|  
-|Version 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
-|Version 11iv3 PA-RISC|ccm-HpuxB.11.31PA.&lt;build\>.tar|  
+|Version 11iv2 IA64|ccm-HpuxB.11.23i64.&lt;version\>.tar|  
+|Version 11iv2 PA-RISC|ccm-HpuxB.11.23PA.&lt;version\>.tar|  
+|Version 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;version\>.tar|  
+|Version 11iv3 PA-RISC|ccm-HpuxB.11.31PA.&lt;version\>.tar|  
 
 ### <a name="oracle-linux"></a>Oracle Linux  
 
 |||  
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
 |||  
 |-|-|  
-|Version 4 x86|ccm-RHEL4x86.&lt;build\>.tar|  
-|Version 4 x64|ccm-RHEL4x64.&lt;build\>.tar|  
-|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 4 x86|ccm-RHEL4x86.&lt;version\>.tar|  
+|Version 4 x64|ccm-RHEL4x64.&lt;version\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ### <a name="solaris"></a>Solaris  
 
 |||  
 |-|-|  
-|SPARC version 9|ccm-Sol9sparc.&lt;build\>.tar|  
-|Version 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
-|SPARC version 10|ccm-Sol10sparc.&lt;build\>.tar|  
-|Version 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
-|SPARC version 11|ccm-Sol11sparc.&lt;build\>.tar|  
+|SPARC version 9|ccm-Sol9sparc.&lt;version\>.tar|  
+|Version 10 x86|ccm-Sol10x86.&lt;version\>.tar|  
+|SPARC version 10|ccm-Sol10sparc.&lt;version\>.tar|  
+|Version 11 x86|ccm-Sol11x86.&lt;version\>.tar|  
+|SPARC version 11|ccm-Sol11sparc.&lt;version\>.tar|  
 
 ### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
 |||  
 |-|-|  
-|Version 9 x86|ccm-SLES9x86.&lt;build\>.tar|  
-|Version 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 11 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 12 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 9 x86|ccm-SLES9x86.&lt;version\>.tar|  
+|Version 10 SP1 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 10 SP1 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 11 SP1 x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 11 SP1 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 12 x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ### <a name="ubuntu"></a>Ubuntu  
 
 |||  
 |-|-|  
-|Version 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 12.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 12.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
-|Version 14.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
-|Version 14.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 10.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 10.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 12.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 12.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 14.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
+|Version 14.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
 
 ##  <a name="a-namebkmkintuneosa-mobile-devices-enrolled-by-microsoft-intune"></a><a name="bkmk_IntuneOS"></a> Appareils mobiles inscrits par Microsoft Intune  
  Pour plus d’informations sur les ordinateurs et les appareils que vous pouvez gérer quand vous intégrez Microsoft Intune à Configuration Manager, consultez les deux rubriques ci-dessous dans la bibliothèque de la documentation Microsoft Intune :  

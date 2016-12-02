@@ -43,7 +43,7 @@ Les entreprises qui achètent des appareils iOS pour leurs employés peuvent les
 #### <a name="enable-setup-assistant-enrollment-with-configuration-manager-and-intune"></a>Activer l’inscription via l’Assistant Configuration avec Configuration Manager et Intune  
 
 1.  **Ajouter un profil d'inscription des appareils d'entreprise**   
-    Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Profils d’inscription**. Cliquez sur **Créer un profil** sous l’onglet **Accueil** pour ouvrir l’Assistant Création d’un profil. Configurez les paramètres des pages suivantes :  
+    Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Profils d’inscription**. Cliquez sur **Créer un profil** sous l’onglet **Accueil** pour ouvrir l’Assistant Create Profile (Création d’un profil). Configurez les paramètres des pages suivantes :  
 
     1.  Dans la page **Général**, spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 

@@ -289,7 +289,7 @@ Pour plus d’informations, consultez la section [À propos de la découverte du
 > [!NOTE]  
 >  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu'elle utilise un serveur DHCP dans un environnement IPv6 natif.  
 
-###  <a name="a-namebkmkhowtoconfignetdisca-how-to-configure-network-discovery"></a><a name="BKMK_HowToConfigNetDisc"></a> Comment configurer la découverte du réseau  
+###  <a name="a-namebkmkhowtoconfignetdisca-how-to-configure-network-discovery"></a><a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
  Procédez comme suit pour d'abord découvrir uniquement la topologie de votre réseau, puis configurer la découverte du réseau afin de découvrir des clients potentiels à l'aide de l'une ou de plusieurs options disponibles de découverte du réseau.  
 
 ##### <a name="to-determine-your-network-topology"></a>Pour déterminer la topologie de votre réseau  
@@ -398,7 +398,7 @@ Pour plus d’informations, consultez la section [À propos de la découverte du
 
 12. Cliquez sur **OK** pour enregistrer vos configurations.  
 
-###  <a name="a-namebkmkhowtoverifynetdisca-how-to-verify-that-network-discovery-has-finished"></a><a name="BKMK_HowToVerifyNetDisc"></a> Comment vérifier que la découverte du réseau est terminée  
+###  <a name="a-namebkmkhowtoverifynetdisca-how-to-verify-that-network-discovery-has-finished"></a><a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
  La durée d'exécution de la découverte du réseau peut varier considérablement en fonction d'un certain nombre de facteurs, dont un ou plusieurs des points suivants :  
 
 -   Taille de votre réseau  

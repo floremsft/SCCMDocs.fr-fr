@@ -76,9 +76,9 @@ Les actions de la découverte de forêts Active Directory sont enregistrées dan
 
 -   Les actions de publication de la découverte de forêts Active Directory sont enregistrées dans les fichiers **hman.log** et **sitecomp.log** du dossier **&lt;Chemin_installation>\Logs** sur le serveur de site.  
 
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer la découverte Active Directory dans Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
-##  <a name="a-namebkmkaboutgroupa-active-directory-group-discovery"></a><a name="bkmk_aboutGroup"></a>Découverte de groupes Active Directory  
+##  <a name="a-namebkmkaboutgroupa-active-directory-group-discovery"></a><a name="bkmk_aboutGroup"></a> Découverte de groupes Active Directory  
 **Configurable :** Oui  
 
 **Activée par défaut :** Non  
@@ -188,7 +188,7 @@ Les actions de la découverte d’utilisateurs Active Directory sont enregistré
 
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
-##  <a name="a-namebkmkaboutheartbeata-heartbeat-discovery"></a><a name="bkmk_aboutHeartbeat"></a> Découverte par pulsations d'inventaire  
+##  <a name="a-namebkmkaboutheartbeata-heartbeat-discovery"></a><a name="bkmk_aboutHeartbeat"></a> Découverte par pulsations d’inventaire  
 **Configurable :** Oui  
 
 **Activée par défaut :** Oui  
@@ -468,7 +468,7 @@ Vous configurez le filtrage à partir de l'onglet **Option** dans les boîtes de
 > [!WARNING]  
 >  Lorsque vous configurez ce filtre et **Filtrer les enregistrements obsolètes par mot de passe de l'ordinateur**, les ordinateurs qui répondent aux critères de l'un des filtres sont exclus de la découverte.  
 
-###  <a name="a-namebkmkstalepassworda-filter-stale-records-by-computer-password"></a><a name="bkmk_stalepassword"></a> Filtrer les enregistrements obsolètes par mot de passe de l'ordinateur  
+###  <a name="a-namebkmkstalepassworda-filter-stale-records-by-computer-password"></a><a name="bkmk_stalepassword"></a> Filtrer les enregistrements obsolètes par mot de passe de l’ordinateur  
 Disponible pour :  
 
 -   Découverte de groupes Active Directory  

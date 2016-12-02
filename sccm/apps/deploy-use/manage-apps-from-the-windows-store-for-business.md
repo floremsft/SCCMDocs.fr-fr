@@ -52,7 +52,7 @@ Configuration Manager prend en charge la gestion des applications du Windows Sto
 
 <sup>1</sup>Prend en charge les appareils gérés par Intune uniquement. Bien qu’il ne vous soit pas interdit de créer une application en ligne dans la console Configuration Manager et de la déployer sur un appareil géré par le client Configuration Manager, elle ne fonctionnera pas. L’utilisateur final sera dirigé vers la page correspondante du magasin d’applications d’où il devra installer l’application manuellement.
 
-<sup>2</sup>Les applications en ligne peuvent être déployées comme étant disponibles pour les regroupements d’utilisateurs ou d’appareils gérés par le client Configuration Manager uniquement, mais quand l’utilisateur final sélectionne une application de ce type dans le Centre logiciel, il est dirigé vers le Windows Store pour Entreprises d’où il doit installer l’application manuellement. Les déploiements disponibles sur les appareils inscrits auprès de Microsoft Intune ne sont pas pris en charge.
+<sup>2</sup>Les applications en ligne peuvent être déployées comme étant disponibles pour les regroupements d’utilisateurs ou d’appareils gérés par le client Configuration Manager uniquement mais, quand l’utilisateur final sélectionne une application de ce type dans le Centre logiciel, il est dirigé vers le Windows Store pour Entreprises d’où il doit installer l’application manuellement. Les déploiements disponibles sur les appareils inscrits auprès de Microsoft Intune ne sont pas pris en charge.
 
 <sup>3</sup>Non pris en charge pour les appareils gérés par Intune.
 
@@ -81,7 +81,7 @@ S’agissant d’une fonctionnalité en version préliminaire, pour pouvoir conn
 1. Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.
 2.  Cliquez sur **Ajouter une application développée par mon organisation**.
 3.  Attribuez un nom à l’application, sélectionnez **Application web** et/ou **API web**, puis cliquez sur la flèche **Suivant**.
-4.  Entrez la même URL tant pour **URL de connexion** que pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer *https://votredomaine/sccm*.
+4.  Entrez la même URL pour **URL de connexion** et pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer *https://votredomaine/sccm*.
 5.  Effectuez toutes les étapes de l'Assistant.
 
 **Dans Azure Active Directory, créez une clé de client pour l’outil de gestion inscrit**.
@@ -106,7 +106,7 @@ S’agissant d’une fonctionnalité en version préliminaire, pour pouvoir conn
 
 ## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Créer et déployer une application Configuration Manager à partir d’une application du Windows Store pour Entreprises
 1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.
-2.  Choisissez l’application que vous voulez déployez puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.
+2.  Choisissez l’application que vous voulez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.
 Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.
 
 > [!IMPORTANT]

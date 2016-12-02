@@ -177,7 +177,7 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
 ##  <a name="a-namebkmkstep7a-step-7-configure-supported-platforms-for-the-wi-fi-profile"></a><a name="BKMK_Step7"></a> Étape 7 : Configurer les plateformes prises en charge pour le profil Wi-Fi  
  Sur la page **Plateformes prises en charge** de l'Assistant Création d'un profil Wi-Fi, sélectionnez les systèmes d'exploitation dans lesquels vous voulez installer le profil Wi-Fi. Sinon, cliquez sur **Sélectionner tout** pour installer le profil Wi-Fi sur tous les systèmes d'exploitation disponibles.  
 
-##  <a name="a-namebkmkstep8a-step-8-complete-the-wizard"></a><a name="BKMK_Step8"></a> Étape 8 : Terminer l’Assistant  
+##  <a name="a-namebkmkstep8a-step-8-complete-the-wizard"></a><a name="BKMK_Step8"></a> Étape 8 : Terminer l'Assistant  
  Dans la page **Résumé** de l'Assistant, passez en revue les actions qui seront exécutées, puis terminez l'Assistant. Le nouveau profil Wi-Fi figure dans le nœud **Profils Wi-Fi** dans l'espace de travail **Ressources et Conformité** .  
 
  Pour plus d’informations sur le déploiement du profil Wi-Fi, consultez [Comment déployer des profils Wi-Fi dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

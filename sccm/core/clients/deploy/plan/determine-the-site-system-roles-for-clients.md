@@ -76,7 +76,7 @@ Utilisez les informations de cet article pour déterminer les systèmes de site 
 
  Bien que les points de distribution ne soient pas indispensables pour installer la plupart des clients Configuration Manager, vous aurez besoin de points de distribution pour installer des logiciels tels que les applications et mises à jour logicielles sur les clients.  
 
-##  <a name="a-namebkmkdetermineapplicationcatalogpointsa-determine-whether-you-require-an-application-catalog-website-point-and-an-application-catalog-web-services-point"></a><a name="BKMK_Determine_ApplicationCatalogPoints"></a> Déterminer si vous avez besoin d’un point de site web du catalogue des applications et d’un point de service web du catalogue des applications  
+##  <a name="a-namebkmkdetermineapplicationcatalogpointsa-determine-whether-you-require-an-application-catalog-website-point-and-an-application-catalog-web-services-point"></a><a name="BKMK_Determine_ApplicationCatalogPoints"></a> Déterminer si vous avez besoin d’un point du site web du catalogue des applications et d’un point de service web du catalogue des applications  
  Le point du site Web du catalogue des applications et le point de service Web du catalogue des applications ne sont pas requis dans le cadre du déploiement de clients. Cependant, il peut être utile de les installer dans le cadre du processus de déploiement des clients, pour que les utilisateurs puissent effectuer les actions suivantes dès que le client Configuration Manager est installé sur les ordinateurs Windows :  
 
 -   Réinitialiser les appareils mobiles.  

@@ -127,7 +127,7 @@ Après avoir installé le groupe de mises à jour sur un serveur de site, vous p
 
  Pour installer les mises à jour sur chacun des composants de Configuration Manager, utilisez les informations figurant dans les sections suivantes.  
 
-###  <a name="a-namebkmkserversa-update-servers"></a><a name="bkmk_servers"></a> Mettre à jour des serveurs  
+###  <a name="a-namebkmkserversa-update-servers"></a><a name="bkmk_servers"></a> Mettre à jour les serveurs  
  Les mises à jour destinées aux serveurs peuvent englober des mises à jour pour les **sites**, la **site database**et les ordinateurs qui exécutent une instance du **fournisseur SMS**.  
 
 ####  <a name="a-namebkmksitea-update-a-site"></a><a name="bkmk_site"></a> Mettre à jour un site  
@@ -203,7 +203,7 @@ Par exemple, vous pouvez utiliser la ligne de commande suivante pour mettre à j
 ##  <a name="a-namebkmkdeploya-deploy-updates-for-configuration-manager"></a><a name="BKMK_Deploy"></a> Déployer des mises à jour pour Configuration Manager  
  Après avoir installé le groupe de mises à jour sur un serveur de site, vous pouvez utiliser l’une des trois méthodes suivantes pour déployer des mises à jour sur des ordinateurs supplémentaires.  
 
-###  <a name="a-namebkmkdeployscupa-use-updates-publisher-2011-to-install-updates"></a><a name="BKMK_DeploySCUP"></a> Utiliser l’éditeur de mise à jour 2011 pour installer des mises à jour  
+###  <a name="a-namebkmkdeployscupa-use-updates-publisher-2011-to-install-updates"></a><a name="BKMK_DeploySCUP"></a> Utiliser Updates Publisher 2011 pour installer des mises à jour  
  Lorsque vous installez le groupe de mises à jour sur un serveur de site, l’Assistant Installation crée un fichier catalogue pour l’éditeur de mise à jour, que vous pouvez utiliser pour déployer les mises à jour sur les ordinateurs concernés. L’Assistant crée toujours ce catalogue, même quand vous sélectionnez l’option **Use package and program to deploy this update**.  
 
  Le catalogue de l’éditeur de mise à jour est nommé **SCUPCatalog.cab** et se trouve sur l’ordinateur sur lequel s’exécute le groupe de mises à jour logicielles à l’emplacement suivant : **\\\\&lt;nom_serveur\>\SMS_&lt;code_site\>\Hotfix\\\&lt;Numéro_article_Base_connaissances\>\SCUP\SCUPCatalog.cab**  
@@ -249,7 +249,7 @@ Par exemple, vous pouvez utiliser la ligne de commande suivante pour mettre à j
 
  Pour plus d’informations sur le déploiement des packages vers des clients Configuration Manager, voir [System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
 
-###  <a name="a-namebkmkdeploycollectionsa-create-collections-for-deploying-updates-to-configuration-manager"></a><a name="BKMK_DeployCollections"></a> Créer des regroupements pour déployer des mises à jour vers Configuration Manager  
+###  <a name="a-namebkmkdeploycollectionsa-create-collections-for-deploying-updates-to-configuration-manager"></a><a name="BKMK_DeployCollections"></a> Créer des regroupements pour déployer des mises à jour sur Configuration Manager  
  Vous pouvez déployer des mises à jour spécifiques vers les clients applicables. Les informations suivantes peuvent vous aider à créer des regroupements d’appareils pour les différents composants de Configuration Manager.  
 
 |Composant de Configuration Manager|Instructions|  

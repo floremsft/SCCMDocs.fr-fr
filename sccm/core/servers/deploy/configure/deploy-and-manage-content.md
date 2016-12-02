@@ -105,7 +105,7 @@ Pour distribuer du contenu vers les points de distribution, procédez comme suit
 
 9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-##  <a name="a-namebkmkprestagea-use-prestaged-content"></a><a name="bkmk_prestage"></a> Utilisation de contenu préparé  
+##  <a name="a-namebkmkprestagea-use-prestaged-content"></a><a name="bkmk_prestage"></a> Utiliser le contenu préparé  
  Vous pouvez préparer des fichiers de contenu pour les applications et les types de packages :  
 
 -   Dans la console Configuration Manager, vous sélectionnez le contenu dont vous avez besoin, puis utilisez l’**Assistant Création du fichier de contenu préparé** pour créer un fichier de contenu préparé compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous avez sélectionné.  
@@ -279,7 +279,7 @@ Utilisez les sections suivantes pour préparer du contenu.
     >   
     > Configuration Manager ne distribue pas automatiquement le package version 2 vers le point de distribution. Vous devez créer un nouveau fichier de contenu préparé contenant la nouvelle version du fichier, puis extraire le contenu, mettre à jour le point de distribution pour distribuer les fichiers qui ont été modifiés ou redistribuer tous les fichiers du package.  
 
-###  <a name="a-namebkmkdpsiteservera-how-to-prestage-content-on-a-distribution-point-on-a-site-server"></a><a name="bkmk_dpsiteserver"></a> Comment préparer du contenu sur un point de distribution situé sur un serveur de site  
+###  <a name="a-namebkmkdpsiteservera-how-to-prestage-content-on-a-distribution-point-on-a-site-server"></a><a name="bkmk_dpsiteserver"></a> Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site  
  Lorsqu'un point de distribution est installé sur un serveur de site, vous devez suivre la procédure suivante pour préparer correctement le contenu. Cela est dû au fait que les fichiers de contenu se trouvent déjà dans la bibliothèque de contenu.  
 
  Lorsqu’un point de distribution n’est pas activé pour préparer le contenu ou lorsque le point de distribution ne se trouve pas sur un serveur de site, consultez la section [Utilisation de contenu préparé](#bkmk_prestage) dans cette rubrique.  
