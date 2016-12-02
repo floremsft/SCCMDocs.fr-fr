@@ -37,7 +37,7 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
  Suivez les sections ci-dessous pour déployer des systèmes d’exploitation sur le réseau à l’aide d’une séquence de tâches.  
 
-##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Planifier  
+##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
 
 -   **Passer en revue les limitations de la séquence de tâches pour mettre à niveau un système d’exploitation**  
 
@@ -53,13 +53,13 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
         -   Implémentation d’une modification fondamentale sur l’ordinateur, y compris un partitionnement de disque, le passage d’une architecture x86 à x64, l’implémentation d’UEFI ou la modification de la langue de base du système d’exploitation.  
 
-        -   Vous avez des besoins personnalisés, notamment l’utilisation d’une image personnalisée de base ou du chiffrement de disque tiers<sup></sup>, ou vous exigez des opérations hors connexion WinPE.  
+        -   Vous avez des besoins personnalisés, notamment l’utilisation d’une image personnalisée de base ou du chiffrement de disque <sup>tiers</sup>, ou vous exigez des opérations hors connexion WinPE.  
 
 -   **Planifier et implémenter la configuration requise pour l’infrastructure**  
 
      La seule condition préalable pour le scénario de mise à niveau est que vous disposiez d’un point de distribution disponible pour le package de mise à niveau de système d’exploitation et pour les autres packages que vous incluez dans la séquence de tâches. Pour plus d’informations, consultez [Installer ou modifier un point de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
 
-##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurer  
+##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurerr  
 
 1.  **Préparer le package de mise à niveau de système d’exploitation**  
 
