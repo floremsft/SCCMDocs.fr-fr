@@ -6,7 +6,7 @@ layout: HubPage
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 11/18/2016
 ms.topic: hubpage
 ms.prod: configuration-manager
 ms.technology:
@@ -15,8 +15,8 @@ ms.suite: ems
 ms.assetid: a89ecd55-fe24-4f40-86c4-8a91dd683a1c
 toc_rel: /sccm/toc.json
 translationtype: Human Translation
-ms.sourcegitcommit: 06506ef41638c2c518b02b3b13ab3453fe5de5af
-ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
+ms.sourcegitcommit: a10fb140adfc1109a49760d601b5fca3d93d4b39
+ms.openlocfilehash: 690b516b6be4380b566649adacfafcc8f920373c
 
 ---
 # <a name="system-center-configuration-manager-documentation"></a>Documentation System Center Configuration Manager
@@ -26,7 +26,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
     <section id="hero-content">
       <h1>Documentation System Center Configuration Manager</h1>
       <h2>Apprenez à gérer et à protéger les ordinateurs, les serveurs et les appareils de l’entreprise avec l’infrastructure locale Configuration Manager.</h2>
-      <h3>Vous gérez les appareils avec Microsoft Intune ? <a href="https://docs.microsoft.com/intune/" target="_blank">Consultez la documentation Intune &rarr;</a></h3>
+      <h3>Vous gérez les appareils avec Microsoft Intune ? <a href="https://docs.microsoft.com/intune/" target="_blank">Consultez la documentation Intune &rarr;</a></h3>
     </section>
 
     <section id="featured" class="container">
@@ -35,7 +35,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
         <ul class="column column-half">
           <li><a href="/sccm/core/understand/introduction">Présentation de Configuration Manager</a></li>
           <li><a href="/sccm/core/get-started/evaluate-with-lab-environment">Évaluer System Center Configuration Manager en créant votre propre environnement lab</a></li>
-          <li><a href="/sccm/core/plan-design/changes/whats-new-in-version-1606">Nouveautés de la version 1606 de System Center Configuration Manager</a></li>
+          <li><a href="/sccm/core/plan-design/changes/whats-new-in-version-1610">Nouveautés dans la version 1610 de System Center Configuration Manager</a></li>
         </ul>
         <ul class="column column-half">
           <li><a href="/sccm/core/plan-design/changes/features-and-capabilities">Fonctions et fonctionnalités de System Center Configuration Manager</a></li>
@@ -145,7 +145,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
                 <li class="column-third">
                   <a href="/sccm/compliance/deploy-use/upgrade-windows-version">
                     <h3>Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition</h3>
-                    <p>Mettez facilement à niveau vos appareils Windows 10 vers une édition plus récente en utilisant la clé ou le fichier de licence de votre produit.</p>
+                    <p>Mettez facilement à niveau vos appareils Windows 10 vers une édition plus récente en utilisant la clé ou le fichier de licence de votre produit.</p>
                   </a>
                 </li>
               </ul>
@@ -174,7 +174,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
                 <li class="column-third">
                   <a href="/sccm/mdm/deploy-use/setup-hybrid-mdm">
                     <h3>Configurer la gestion hybride MDM avec Intune</h3>
-                    <p>Exécutez les étapes suivantes pour autoriser les scénarios BYOD « Apportez votre propre appareil » et remplir les conditions préalables pour la plupart des stratégies de gestion des appareils d’entreprise.</p>
+                    <p>Exécutez les étapes suivantes pour autoriser les scénarios BYOD « Apportez votre propre appareil » et remplir les conditions préalables pour la plupart des stratégies de gestion des appareils d’entreprise.</p>
                   </a>
                 </li>
                 <li class="column-third">
@@ -214,7 +214,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
                 <li class="column-third">
                   <a href="/sccm/osd/deploy-use/manage-windows-as-a-service">
                     <h3>Gérer Windows en tant que service</h3>
-                    <p>Apprenez à créer des plans de maintenance pour former des anneaux de déploiement et vérifiez que les ordinateurs Windows 10 Current Branch sont tenus à jour quand de nouvelles versions sont publiées.</p>
+                    <p>Apprenez à créer des plans de maintenance pour former des anneaux de déploiement et vérifiez que les ordinateurs Windows 10 Current Branch sont tenus à jour quand de nouvelles versions sont publiées.</p>
                   </a>
                 </li>
               </ul>
@@ -242,7 +242,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
                 <li class="column-third">
                   <a href="/sccm/protect/deploy-use/manage-access-to-services">
                     <h3>Accès conditionnel</h3>
-                    <p>Utilisez l’accès conditionnel pour mieux sécuriser la messagerie électronique, Office 365 et d’autres services.</p>
+                    <p>Utilisez l’accès conditionnel pour mieux sécuriser la messagerie électronique, Office 365 et d’autres services.</p>
                   </a>
                 </li>
                 <li class="column-third">
@@ -288,6 +288,43 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
               </ul>
             </section>
           </li>
+
+
+<li class="journey-step">
+            <header class="journey-step-header row">
+              <a href="/sccm/develop/core/misc/system-center-configuration-manager-sdk">
+                <div class="title column-third">
+                  <span class="step-number">8</span>
+                  <p>Développement et automatisation de Configuration Manager</p>
+                </div>
+                <p class="description column-two-thirds">Découvrez comment automatiser et étendre Configuration Manager.</p>
+              </a>
+            </header>
+            <section class="journey-step-elements content">
+              <ul class="row">
+                <li class="column-third">
+                  <a href="/sccm/develop/core/understand/configuration-manager-programming-fundamentals">
+                    <h3>Concepts de base de la programmation de Configuration Manager</h3>
+                    <p>Découvrez les techniques de programmation de base qui vous aideront à programmer Configuration Manager.</p>
+                  </a>
+                </li>
+                <li class="column-third">
+                  <a href="/sccm/develop/reference/configuration-manager-reference">
+                    <h3>Informations de référence sur Configuration Manager</h3>
+                    <p>Fournit des informations détaillées sur la bibliothèque de fournisseurs SMS gérée, le schéma des classes de Configuration Manager, le langage de requête WMI étendu (WQL), les valeurs et les qualificateurs nommés, et les bibliothèques de la console Configuration Manager.</p>
+                  </a>
+                </li>
+                <li class="column-third">
+                  <a href="https://docs.microsoft.com/powershell/sccm/configurationmanager/vlatest/configurationmanager">
+                    <h3>Applets de commande Configuration Manager</h3>
+                    <p>Fournit les fichiers d’aide en ligne des applets de commande Configuration Manager, qui incluent des informations détaillées sur chaque applet de commande et des exemples qui montrent comment l’utiliser.</p>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </li>
+
+
       </section>
     </div>
     <div class="section-border">
@@ -299,7 +336,7 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
           <li><a href="https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation" target="_blank">Envoyer des commentaires sur la documentation</a></li>
           </ul>
           <ul class="column-half">
-          <li><a href="https://technet.microsoft.com/en-us/library/gg682129.aspx" target="_blank">Documentation System Center 2012 Configuration Manager</a></li>
+          <li><a href="https://technet.microsoft.com/en-us/library/gg682129.aspx" target="_blank">Documentation System Center 2012 Configuration Manager</a></li>
           <li><a href="https://social.technet.microsoft.com/Forums/en-US/home?forum=ConfigMgrCBGeneral%2CConfigMgrDeployment%2CConfigMgrMDM%2CConfigMgrMigration%2CConfigMgrCompliance%2CConfigMgrAppManagement%2CConfigMgrPowerShell%2CConfigMgrCBOSD&filter=alltypes&sort=lastpostdesc" target="_blank">Forums TechNet Configuration Manager</a></li>
           <li><a href="https://www.microsoft.com/en-us/cloud-platform/system-center-configuration-manager" target="_blank">Page du produit Configuration Manager</a></li>
           </ul>
@@ -317,6 +354,6 @@ ms.openlocfilehash: 2ed99aa90915903056ee43074e0d19a1e018b9a4
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
