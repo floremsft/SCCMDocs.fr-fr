@@ -1,8 +1,8 @@
 ---
-title: "Gérer Windows as a Service (WaaS) | Configuration Manager"
+title: "Gérer Windows en tant que service | Documents Microsoft"
 description: "Dans System Center Configuration Manager, certaines fonctionnalités vous permettent d’afficher l’état de Windows as a Service dans votre environnement pour vous aider à maintenir votre système à jour."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,17 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 0ed06bb30d1277afa71d1eb2d045ea0ebc87912a
+ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
+ms.openlocfilehash: 1885968006ef5be1f507e94e0d33918174b1af12
 
 
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des boucles de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
+ Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des boucles de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
 
  Pour plus d’informations sur les options de maintenance de Windows 10, consultez  [Options de maintenance de Windows 10 pour les mises à jour et les mises à niveau](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
@@ -35,35 +35,35 @@ ms.openlocfilehash: 0ed06bb30d1277afa71d1eb2d045ea0ebc87912a
 ##  <a name="a-namebkmkprerequisitesa-prerequisites"></a><a name="BKMK_Prerequisites"></a> Conditions préalables  
  Pour afficher les données dans le tableau de bord de maintenance de Windows 10, vous devez procéder comme suit :  
 
--   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update for Business (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
+-   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update for Business (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
 -   WSUS 4.0 avec le [correctif logiciel 3095113](https://support.microsoft.com/kb/3095113) doit être installé sur les points de mise à jour logicielle et les serveurs de site. Ceci ajoute la classification des mises à jour logicielles **Mises à niveau** . Pour plus d’informations, consultez [Prérequis pour les mises à jour logicielles](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
--   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Mobilité et sécurité d’entreprise](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
+-   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Mobilité et sécurité d’entreprise](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
 -   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
 
      Les informations de branche et de build Windows 10 suivantes sont découvertes et stockées dans les attributs suivants :  
 
-    -   **Branche de disponibilité du système d’exploitation** : spécifie la branche du système d’exploitation. Par exemple, **0** = branche CB (ne pas différer les mises à niveau), **1** = branche CBB (différer les mises à niveau), **2** = branche LTSB (Long Term Servicing Branch)
+    -   **Branche de disponibilité du système d’exploitation** : spécifie la branche du système d’exploitation. Par exemple, **0** = branche CB (ne pas différer les mises à niveau), **1** = branche CBB (différer les mises à niveau), **2** = branche LTSB (Long Term Servicing Branch)
 
-    -   **Build du système d’exploitation** : spécifie le numéro de build du système d’exploitation. Par exemple, **10.0.10240** (RTM) ou **10.0.10586** (version 1511)  
+    -   **Build du système d’exploitation** : spécifie le numéro de build du système d’exploitation. Par exemple, **10.0.10240** (RTM) ou **10.0.10586** (version 1511)  
 
 -   Le point de connexion de service doit être installé et configuré pour le mode **En ligne, connexion permanente** pour afficher des données dans le tableau de bord de maintenance de Windows 10. En mode hors connexion, vous ne voyez pas les mises à jour des données dans le tableau de bord tant que vous n’avez pas obtenu les mises à jour de maintenance pour Configuration Manager.   
      Pour plus d’informations, consultez [À propos du point de connexion de service](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
 -   Spécifiez le paramètre de stratégie de groupe **Différer les mises à niveau et les mises à jour**pour déterminer si un ordinateur est CB ou CBB.  
 
--   Internet Explorer 9 ou version ultérieure doit être installé sur l’ordinateur qui exécute la console Configuration Manager.  
+-   Internet Explorer 9 ou version ultérieure doit être installé sur l’ordinateur qui exécute la console Configuration Manager.  
 
--   Les mises à jour logicielles doivent être configurées et synchronisées. Vous devez sélectionner la classification **Mises à niveau** et synchroniser les mises à jour logicielles pour que les mises à niveau de fonctionnalités Windows 10 soient disponibles dans la console Configuration Manager. Pour plus d’informations, consultez [Préparer la gestion des mises à jour logicielles](../../sum/get-started/prepare-for-software-updates-management.md).  
+-   Les mises à jour logicielles doivent être configurées et synchronisées. Vous devez sélectionner la classification **Mises à niveau** et synchroniser les mises à jour logicielles pour que les mises à niveau de fonctionnalités Windows 10 soient disponibles dans la console Configuration Manager. Pour plus d’informations, consultez [Préparer la gestion des mises à jour logicielles](../../sum/get-started/prepare-for-software-updates-management.md).  
 
 ##  <a name="a-namebkmkservicingdashboarda-windows-10-servicing-dashboard"></a><a name="BKMK_ServicingDashboard"></a> Tableau de bord de maintenance de Windows 10  
  Le tableau de bord de maintenance de Windows 10 fournit des informations sur les ordinateurs Windows 10 de votre environnement, les plans de maintenance actifs, les informations de conformité et ainsi de suite. Les données du tableau de bord de maintenance de Windows 10 dépendent de l’installation du point de connexion de service. Le tableau de bord comporte les vignettes suivantes :  
 
 -   **Vignette Utilisation Windows 10**: fournit des informations détaillées sur les builds publiques de Windows 10. Les builds Windows Insiders sont répertoriées comme **autres** , de même que celles qui ne sont pas encore connues de votre site. Le point de connexion de service télécharge les métadonnées qui l’informent quant aux builds Windows, puis ces données sont comparées aux données de découverte.  
 
--   **Vignette Boucles Windows 10**: fournit une vue détaillée de Windows 10 par branche et état de préparation. Le segment LTSB correspond à toutes les versions LTSB (tandis que la première vignette répartit les informations d’après les versions spécifiques. Par exemple, Windows 10 LTSB 2015. Le segment **Release Ready** correspond à CB et le segment **Business Ready** correspond à CBB.  
+-   **Vignette Boucles Windows 10**: fournit une vue détaillée de Windows 10 par branche et état de préparation. Le segment LTSB correspond à toutes les versions LTSB (tandis que la première vignette répartit les informations d’après les versions spécifiques. Par exemple, Windows 10 LTSB 2015. Le segment **Release Ready** correspond à CB et le segment **Business Ready** correspond à CBB.  
 
 -   **Vignette Créer un plan de maintenance**: permet de créer rapidement un plan de maintenance. Vous spécifiez le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation. Des valeurs par défaut sont utilisées pour les autres paramètres. Cliquez sur **Paramètres avancés** pour démarrer l’Assistant Créer un plan de maintenance, dans lequel vous pouvez configurer tous les paramètres du plan de maintenance.  
 
@@ -81,7 +81,7 @@ ms.openlocfilehash: 0ed06bb30d1277afa71d1eb2d045ea0ebc87912a
 >  Les informations affichées dans le tableau de bord de maintenance de Windows 10 (telles que le cycle de vie de prise en charge des versions de Windows 10) sont fournies à des fins de commodité et destinées uniquement à une utilisation en interne dans votre société. Vous ne devez pas vous fier uniquement à ces informations pour confirmer la conformité des mises à jour. Veillez à vérifier l’exactitude des informations qui vous sont fournies.  
 
 ## <a name="servicing-plan-workflow"></a>Flux de travail de plan de maintenance  
- Les plans de maintenance de Windows 10 dans Configuration Manager s’apparentent à des règles de déploiement automatique pour les mises à jour logicielles. Vous créez un plan de maintenance avec les critères suivants évalués par Configuration Manager :  
+ Les plans de maintenance de Windows 10 dans Configuration Manager s’apparentent à des règles de déploiement automatique pour les mises à jour logicielles. Vous créez un plan de maintenance avec les critères suivants évalués par Configuration Manager :  
 
 -   **Classification Mises à niveau**: seules les mises à jour figurant dans la classification **Mises à niveau** sont évaluées.  
 
@@ -98,10 +98,10 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
 > [!NOTE]  
 >  Vous pouvez utiliser une séquence de tâches pour déployer une mise à niveau pour chaque build de Windows 10, mais cela nécessite davantage d’opérations manuelles. Il vous faudrait importer les fichiers sources mis à jour en tant que package de mise à niveau du système d’exploitation, puis créer et déployer la séquence de tâches sur l’ensemble d’ordinateurs approprié. Toutefois, une séquence de tâches fournit des options personnalisées supplémentaires, telles que les actions de prédéploiement et de post-déploiement.  
 
- Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
+ Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
 
 > [!NOTE]  
->  À partir de Configuration Manager version 1602, vous pouvez gérer le comportement pour les déploiements à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches ayant comme objectif **Obligatoire** qui déploie Windows 10 est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  À partir de Configuration Manager version 1602, vous pouvez gérer le comportement pour les déploiements à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches ayant comme objectif **Obligatoire** qui déploie Windows 10 est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 #### <a name="to-create-a-windows-10-servicing-plan"></a>Pour créer un plan de maintenance de Windows 10  
 
@@ -122,9 +122,9 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
     -   **Regroupement cible**: spécifie le regroupement cible à utiliser pour le plan de maintenance. Les membres du regroupement reçoivent les mises à niveau de Windows 10 qui sont définies dans le plan de maintenance.  
 
     > [!NOTE]  
-    >  À partir de Configuration Manager version 1602, quand vous effectuez un déploiement à haut risque, comme un plan de maintenance, la fenêtre **Sélectionner un regroupement** affiche seulement les regroupements personnalisés qui satisfont aux paramètres de vérification de déploiement configurés dans les propriétés du site. Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+    >  À partir de Configuration Manager version 1602, quand vous effectuez un déploiement à haut risque, comme un plan de maintenance, la fenêtre **Sélectionner un regroupement** affiche seulement les regroupements personnalisés qui satisfont aux paramètres de vérification de déploiement configurés dans les propriétés du site. Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
     > Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois le plan de maintenance déployé, l’appartenance du regroupement n’est pas réévaluée pour les paramètres de déploiement à haut risque.  
-    > Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
+    > Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
     > Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :  
     >   
     >  -   Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez de bloquer les regroupements contenant des serveurs de système de site, une erreur se produit et vous ne pouvez pas continuer.  
@@ -134,21 +134,22 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
 
     -   **Spécifiez l’état de disponibilité Windows auquel ce plan de maintenance doit s’appliquer**: sélectionnez l’une des options suivantes :  
 
-        -   **Release Ready (branche CB)**:  
+        -   **Release Ready (Current Branch)** : dans le modèle de maintenance CB, les mises à jour des fonctionnalités sont disponibles dès leur publication par Microsoft.
 
-        -   **Business Ready (branche CBB)**:  
+        -   **Business Ready (Current Branch for Business** : la branche de maintenance CBB est généralement utilisée pour les déploiements à grande échelle. Les clients Windows 10 dans la branche de maintenance CBB reçoivent la même version de Windows 10 que ceux de la branche de maintenance CB, mais à un moment ultérieur.
 
-    -   **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement**:  
+    -   **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement** : Configuration Manager détermine s’il faut inclure une mise à niveau du déploiement si la date du jour est postérieure à la date de publication plus le nombre de jours que vous configurez pour ce paramètre.
 
-    -   Avec une version de Configuration Manager antérieure à la version 1602, cliquez sur **Aperçu** pour afficher les mises à jour de Windows 10 associées à l’état de disponibilité.  
+    -   Avec une version de Configuration Manager antérieure à la version 1602, cliquez sur **Aperçu** pour afficher les mises à jour de Windows 10 associées à l’état de disponibilité.  
 
-7.  À partir de la version 1602 de Configuration Manager, dans la page Mises à niveau, configurez les critères de recherche pour filtrer les mises à niveau qui seront ajoutées au plan de maintenance. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
+    Pour plus d’informations, consultez [Branches de maintenance](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+7.  À partir de la version 1602 de Configuration Manager, dans la page Mises à niveau, configurez les critères de recherche pour filtrer les mises à niveau qui seront ajoutées au plan de maintenance. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
      Cliquez sur **Aperçu** pour afficher les mises à niveau qui répondent aux critères spécifiés.  
 
 8.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
         >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
@@ -168,7 +169,7 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l’impact lié à l’installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour incluses dans le déploiement.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#BKMK_ComputerAgentDeviceSettings).  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
 9. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
@@ -220,7 +221,12 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
  Une fois l’Assistant terminé, le plan de maintenance est exécuté. Il ajoute les mises à jour qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, télécharge les mises à jour dans la bibliothèque de contenu sur le serveur de site, distribue les mises à jour aux points de distribution configurés, puis déploie le groupe de mises à jour logicielles sur les clients du regroupement cible.  
 
 ##  <a name="a-namebkmkmodifyservicingplana-modify-a-servicing-plan"></a><a name="BKMK_ModifyServicingPlan"></a> Modifier un plan de maintenance  
- Après avoir créé un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10 ou si vous devez modifier les paramètres d’un plan de maintenance existant, vous pouvez accéder à ses propriétés. Pour modifier les propriétés d’un plan de maintenance, appliquez la procédure suivante.  
+Après avoir créé un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10, ou si vous devez modifier les paramètres d’un plan de maintenance existant, vous pouvez accéder à ses propriétés.
+
+> [!NOTE]
+> Vous pouvez configurer des paramètres dans les propriétés du plan de maintenance qui ne sont pas disponibles dans l’Assistant quand vous créez le plan. L’Assistant utilise les valeurs par défaut pour les paramètres des éléments suivants : paramètres de téléchargement, paramètres de déploiement et alertes.  
+
+Pour modifier les propriétés d’un plan de maintenance, appliquez la procédure suivante.  
 
 #### <a name="to-modify-the-properties-of-a-servicing-plan"></a>Pour modifier les propriétés d’un plan de maintenance  
 
@@ -228,10 +234,34 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
 
 2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Maintenance de Windows 10**, cliquez sur **Plans de maintenance**, puis sélectionnez le plan de maintenance que vous souhaitez modifier.  
 
-3.  Sous l’onglet **Accueil** cliquez sur **Propriétés** pour ouvrir les propriétés du plan de maintenance sélectionné.  
+3.  Sous l’onglet **Accueil** cliquez sur **Propriétés** pour ouvrir les propriétés du plan de maintenance sélectionné.
+
+    Les paramètres suivants sont disponibles dans les propriétés du plan de maintenance qui n’ont pas été configurées dans l’Assistant :
+
+    - Paramètres de déploiement : dans la page Paramètres de déploiement, configurez les paramètres suivants :  
+
+        -   **Type de déploiement**: indique le type de déploiement pour le déploiement des mises à jour logicielles. Sélectionnez **Obligatoire** pour créer un déploiement de mises à jour logicielles obligatoire où les mises à jour logicielles sont installées automatiquement sur les clients selon une échéance d'installation configurée. Sélectionnez **Disponible** pour créer un déploiement de mises à jour logicielles facultatives que les utilisateurs peuvent installer à partir du Centre logiciel.  
+
+            > [!IMPORTANT]  
+            >  Après avoir créé le déploiement de mises à jour logicielles, vous ne pourrez pas modifier ultérieurement le type de déploiement.  
+
+            > [!NOTE]  
+            >  Un groupe de mises à jour logicielles déployé avec l’option **Obligatoire** est téléchargé en arrière-plan et respecte les paramètres BITS, s’ils sont configurés.  
+            > Toutefois, les groupes de mises à jour logicielles déployés avec l’option **Disponible** sont téléchargés au premier plan et ignore les paramètres BITS.  
+
+        -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indiquez si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil afin que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé et il est disponible uniquement lorsque le **Type de déploiement** est défini sur **Obligatoire**.  
+
+            > [!WARNING]  
+            >  Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
+
+        -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
+
+    - Paramètres de téléchargement
+
+    - Alertes
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

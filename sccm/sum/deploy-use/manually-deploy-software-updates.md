@@ -1,12 +1,12 @@
 ---
 
-title: "Déployer manuellement des mises à jour logicielles | Configuration Manager"
+title: "Déployer manuellement des mises à jour logicielles | Documents Microsoft"
 description: "Pour déployer manuellement des mises à jour logicielles, sélectionnez les mises à jour dans la console Configuration Manager et déployez-les manuellement, ou ajoutez les mises à jour à un groupe de mises à jour et déployez ce groupe."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,15 +14,15 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
+ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
+ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
 
 
 ---
 
 #  <a name="a-namebkmkmanualdeploya-manually-deploy-software-updates"></a><a name="BKMK_ManualDeploy"></a> Déployer manuellement des mises à jour logicielles  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Le déploiement manuel des mises à jour logicielles consiste à sélectionner des mises à jour logicielles dans la console Configuration Manager et à lancer manuellement le processus de déploiement. Ou bien, vous pouvez ajouter des mises à jour logicielles sélectionnées à un groupe de mises à jour, puis déployer manuellement ce groupe. Avant de créer des règles ADR chargées de gérer en continu les déploiements mensuels de mises à jour logicielles, il est probable que vous aurez recours à un déploiement manuel pour mettre à jour vos appareils clients avec les mises à jour logicielles requises. Vous pourrez également utiliser une méthode manuelle pour déployer des mises à jour logicielles hors bande. Si vous avez besoin d’aide pour déterminer la méthode de déploiement qui vous convient, consultez [Déployer des mises à jour logicielles](deploy-software-updates.md).
 
@@ -41,7 +41,7 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**et cliquez sur **Toutes les mises à jour logicielles**. Les mises à jour logicielles synchronisées sont affichées.  
 
     > [!NOTE]  
-    >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
+    >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
 3.  Dans le volet de recherche, appliquez un filtre pour identifier les mises à jour logicielles dont vous avez besoin en suivant l'une des étapes suivantes ou les deux :  
 
@@ -175,7 +175,7 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 
 5.  Sur la page Général, configurez les paramètres suivants :  
 
-    -   **Nom**: indiquez le nom du déploiement. Le déploiement doit porter un nom unique qui décrit son objectif et le différencie des autres déploiements dans le site Configuration Manager. Par défaut, Configuration Manager fournit automatiquement un nom pour le déploiement au format suivant : **Mises à jour logicielles Microsoft -** <*date*><*heure*>  
+    -   **Nom**: indiquez le nom du déploiement. Le déploiement doit porter un nom unique qui décrit son objectif et le différencie des autres déploiements dans le site Configuration Manager. Par défaut, Configuration Manager fournit automatiquement un nom pour le déploiement au format suivant : **Mises à jour logicielles Microsoft -** <*date*><*heure*>  
 
     -   **Description :**spécifiez la description du déploiement. La description fournit une vue d’ensemble du déploiement et toute autre information pertinente permettant d’identifier et de différencier le déploiement des autres déploiements dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
 
@@ -205,7 +205,7 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 
 7.  Sur la page Planification, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation** : indiquez si la durée disponible et la date d’échéance de l’installation sont évaluées à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si la durée disponible et la date d’échéance de l’installation sont évaluées à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
         >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
@@ -228,29 +228,31 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure spécifique que vous configurez plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#a-namebkmkcomputeragentdevicesettingsa-computer-agent).  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
 8.  Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
     -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients. Lorsque **Type de déploiement** est défini sur **Disponible** sur la page Paramètres de déploiement, vous ne pouvez pas sélectionner **Masquer dans le Centre logiciel et toutes les notifications**.  
 
-    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance** : *Disponible uniquement quand **Type de déploiement** *est défini sur**Obligatoire** *dans la page Paramètres de déploiement.*   
+    spécifier le comportement qui doit se produire lorsque l'échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
+    -   **Comportement de redémarrage de l’appareil** : *Disponible uniquement quand **Type de déploiement** *est défini sur**Obligatoire** *dans la page Paramètres de déploiement.*    
+    indiquer si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l'installation.  
 
         > [!IMPORTANT]  
-        >  La suppression des redémarrages du système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles. .  
+        >  La suppression des redémarrages du système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.
 
     -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
         >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
 
-     Vous pouvez configurer les paramètres **Comportement à l'échéance** et **Comportement de redémarrage de l'appareil** uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
+    - **Comportement de réévaluation du déploiement des mises à jour logicielles après le redémarrage** : à compter de Configuration Manager version 1606, sélectionnez ce paramètre pour configurer les déploiements de mises à jour logicielles de façon à ce que les clients exécutent une analyse de conformité des mises à jour logicielles immédiatement après avoir installé celles-ci et redémarré. Cela permet au client de vérifier la disponibilité de mises à jour logicielles supplémentaires devenues applicables après le redémarrage, puis de les installer (et devenir ainsi conforme) au cours d’une même fenêtre de maintenance.
 
-9. Dans la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèrent des alertes pour ce déploiement. Vous pouvez configurer des alertes uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
+9. Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement. Vous pouvez configurer des alertes uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
 
-    > [!WARNING]  
+    > [!NOTE]  
     >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
 10. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
@@ -259,7 +261,7 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 
     -   Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
 
-    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BrandCache, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BranchCache, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
     -   Indiquez si les clients connectés à l’intranet doivent télécharger les mises à jour logicielles à partir de Microsoft Update si elles ne sont pas disponibles sur des points de distribution.  
 
@@ -275,9 +277,9 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 
 12. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour spécifier un nouveau package de déploiement :  
 
-    1.  **Nom**: spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
+    1.  **Nom** : spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
 
-    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
+    2.  **Description** : spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
 
     3.  **Source du package**: spécifiez l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour trouver l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
 
@@ -290,7 +292,7 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
         > [!IMPORTANT]  
         >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
+    4.  **Priorité d’expédition** : spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
 13. Sur la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour logicielle. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
@@ -316,6 +318,6 @@ ms.openlocfilehash: be845d9f6ad2f92a0235cdb7410654e229448e1b
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

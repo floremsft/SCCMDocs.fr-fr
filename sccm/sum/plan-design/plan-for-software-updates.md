@@ -1,12 +1,12 @@
 ---
 
-title: "Planifier les mises à jour logicielles | System Center Configuration Manager"
+title: "Planifier les mises à jour logicielles | Documents Microsoft"
 description: "Il est essentiel de planifier l’infrastructure du point de mise à jour logicielle avant d’utiliser les mises à jour logicielles dans un environnement de production System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,28 +14,36 @@ ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 69f2c9c3c098013679e12d8578a780130adb94be
+ms.sourcegitcommit: b1c68b233097ef3a744dd25b3fb919660f0b2244
+ms.openlocfilehash: 16415fb54a2cf91747990c94ffea0076effe525b
 
 
 ---
 
 # <a name="plan-for-software-updates-in-system-center-configuration-manager"></a>Planifier les mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant d’utiliser les mises à jour logicielles dans un environnement de production System Center Configuration Manager, vous devez parcourir le processus de planification. Une bonne planification de l’infrastructure du point de mise à jour logicielle est la clé d’une implémentation réussie des mises à jour logicielles.
 
 ## <a name="capacity-planning-recommendations-for-software-updates"></a>Recommandations pour la planification de la capacité pour les mises à jour logicielles  
- Vous pouvez utiliser les recommandations suivantes comme ligne de base pour déterminer les informations de planification de capacité des mises à jour logicielles convenant à votre organisation. Les besoins de capacité réels peuvent différer des recommandations indiquées dans cette rubrique selon le critères suivants : votre environnement réseau spécifique, le matériel utilisé pour héberger le système de site du point de mise à jour logicielle, le nombre de clients installés et les rôles de système de site qui sont installés sur le serveur.  
+ Vous pouvez utiliser les recommandations suivantes comme ligne de base pour déterminer les informations de planification de capacité des mises à jour logicielles convenant à votre organisation. Les besoins de capacité réels peuvent différer des recommandations indiquées dans cette rubrique selon les critères suivants : votre environnement réseau spécifique, le matériel utilisé pour héberger le système de site du point de mise à jour logicielle, le nombre de clients installés et les rôles de système de site qui sont installés sur le serveur.  
 
 ###  <a name="a-namebkmksumcapacitya-capacity-planning-for-the-software-update-point"></a><a name="BKMK_SUMCapacity"></a> Planification de la capacité du point de mise à jour logicielle  
  Le nombre de clients pris en charge dépend de la version de Windows Server Update Services (WSUS) exécutée sur le point de mise à jour logicielle et de la coexistence ou non du rôle de système de site du point de mise à jour logicielle avec un autre rôle de système de site.  
 
 -   Le point de mise à jour logicielle peut prendre en charge jusqu’à 25 000 clients quand WSUS s’exécute sur l’ordinateur du point de mise à jour logicielle et quand le point de mise à jour logicielle coexiste avec un autre rôle de système de site.  
 
--   Le point de mise à jour logicielle peut prendre en charge jusqu’à 150 000 clients quand l’ordinateur distant satisfait à la configuration requise de WSUS pour prendre en charge ce nombre.   
-    Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Toutefois, vous pouvez utiliser le SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster d’équilibrage de la charge réseau (NLB).  
+-   Le point de mise à jour logicielle peut prendre en charge jusqu’à 150 000 clients quand l’ordinateur distant satisfait à la configuration requise de WSUS pour prendre en charge ce nombre, WSUS est utilisé avec Configuration Manager et vous configurez les éléments suivants :
+
+    Pools d’applications IIS :
+    - Augmenter la longueur de file d’attente WsusPool à 2000
+    - Multiplier par quatre la limite de mémoire privée WsusPool, ou lui affecter la valeur 0 (illimitée)      
+
+    Pour plus d’informations sur la configuration matérielle requise pour le point de mise à jour logicielle, consultez [Matériel recommandé pour les systèmes de site](/sccm/core/plan-design/configs/recommended-hardware#a-namebkmkscalesiesystemsa-site-systems).
+
+-   Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Toutefois, vous pouvez utiliser le SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster d’équilibrage de la charge réseau (NLB).  
+
 
 ### <a name="capacity-planning-for-software-updates-objects"></a>Planification de la capacité pour les objets des mises à jour logicielles  
  Utilisez les informations de capacité suivantes pour planifier les objets des mises à jour logicielles.  
@@ -44,7 +52,7 @@ Avant d’utiliser les mises à jour logicielles dans un environnement de produc
 
      Vous devez limiter le nombre de mises à jour logicielles à 1 000 pour chaque déploiement de mises à jour logicielles. Lorsque vous créez une règle de déploiement automatique, spécifiez un critère qui limite le nombre de mises à jour logicielles retournées. La règle de déploiement automatique échoue lorsque les critères que vous spécifiez renvoient plus de 1 000 mises à jour logicielles. Vous pouvez vérifier l’état de la règle de déploiement automatique à partir du nœud **Règles de déploiement automatique** dans la console Configuration Manager. Lorsque vous déployez manuellement des mises à jour logicielles, ne sélectionnez pas plus de 1 000 mises à jour à déployer.  
 
-     Vous devez également limiter le nombre de mises à jour logicielles à 1 000 dans une base de référence de configuration. Pour plus d’informations, consultez [Créer des bases de référence de configuration](../../compliance/deploy-use/create-configuration-baselines.md).
+     Vous devez également limiter le nombre de mises à jour logicielles à 1 000 dans une base de référence de configuration. Pour plus d’informations, consultez [Créer des bases de référence de configuration](../../compliance/deploy-use/create-configuration-baselines.md).
 
 ##  <a name="a-namebkmksupinfrastructurea-determine-the-software-update-point-infrastructure"></a><a name="BKMK_SUPInfrastructure"></a> Déterminer l’infrastructure du point de mise à jour logicielle  
  Le site d'administration centrale et tous les sites principaux enfants doivent disposer d'un point de mise à jour logicielle auquel vous allez déployer les mises à jour logicielles. Lors de la planification de l'infrastructure du point de mise à jour logicielle, vous devez déterminer les dépendances suivantes : où installer le point de mise à jour logicielle pour le site, quels sites requièrent un point de mise à jour logicielle acceptant des communications de clients Internet, si vous configurez ou non le point de mise à jour logicielle comme cluster NLB et si vous avez ou non besoin d'un point de mise à jour logicielle sur un site secondaire. Utilisez les sections suivantes pour déterminer l'infrastructure du point de mise à jour logicielle.  
@@ -59,7 +67,7 @@ Avant d’utiliser les mises à jour logicielles dans un environnement de produc
  Quand un point de mise à jour logicielle échoue, et qu'il est configuré en tant que source de synchronisation pour les autres points de mise à jour logicielle sur le site, vous devez supprimer manuellement ce point de mise à jour logicielle en échec et en sélectionner un nouveau à utiliser en tant que source de synchronisation. Pour plus d’informations sur la suppression d’un point de mise à jour logicielle, consultez [Supprimer le rôle de système de site du point de mise à jour logicielle](../get-started/remove-a-software-update-point.md).  
 
 ###  <a name="a-namebkmksuplista-software-update-point-list"></a><a name="BKMK_SUPList"></a> Liste des points de mise à jour logicielle  
- Configuration Manager fournit au client une liste de points de mise à jour logicielle dans les scénarios suivants : quand un nouveau client reçoit la stratégie d’activation des mises à jour logicielles, ou quand un client ne parvient pas à contacter son point de mise à jour logicielle et qu’il a besoin d’en changer. Le client sélectionne un point de mise à jour logicielle de manière aléatoire dans la liste, puis il hiérarchise les points de mise à jour logicielle qui se trouvent dans la même forêt. Configuration Manager fournit aux clients une liste différente selon le type de client.  
+ Configuration Manager fournit au client une liste de points de mise à jour logicielle dans les scénarios suivants : quand un nouveau client reçoit la stratégie d’activation des mises à jour logicielles, ou quand un client ne parvient pas à contacter son point de mise à jour logicielle et qu’il a besoin d’en changer. Le client sélectionne un point de mise à jour logicielle de manière aléatoire dans la liste, puis il hiérarchise les points de mise à jour logicielle qui se trouvent dans la même forêt. Configuration Manager fournit aux clients une liste différente selon le type de client.  
 
 -   **Clients basés sur intranet**: reçoivent la liste des points de mise à jour logicielle que vous pouvez configurer pour autoriser les connexions uniquement depuis l'intranet, ou la liste des points de mise à jour logicielle qui autorisent les connexions client Internet et intranet.  
 
@@ -91,7 +99,7 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>Pour activer l’option de basculement vers des points de mise à jour logicielle  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
 
 2.  Sous l’onglet **Accueil** , dans le groupe **Regroupement** , cliquez sur **Notification du client**, puis sur **Passer au point de mise à jour logicielle suivant**.  
 
@@ -120,14 +128,14 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 ###  <a name="a-namebkmksupsystemrequirementsa-requirements-for-the-software-update-point"></a><a name="BKMK_SUPSystemRequirements"></a> Configuration requise pour le point de mise à jour logicielle  
  Le rôle de système de site du point de mise à jour logicielle doit être installé sur un système de site qui répond aux conditions minimales requises pour WSUS et les configurations prises en charge des systèmes de site Configuration Manager.  
 
--   Pour plus d’informations sur les conditions minimales requises pour le rôle serveur WSUS dans Windows Server 2012, consultez les détails de la [vérification des considérations et de la configuration requise](https://technet.microsoft.com/library/hh852344.aspx#BKMK_1.1) dans la bibliothèque de documentation Windows Server 2012.  
+-   Pour plus d’informations sur les conditions minimales requises pour le rôle serveur WSUS dans Windows Server 2012, consultez les détails de la [vérification des considérations et de la configuration requise](https://technet.microsoft.com/library/hh852344.aspx#BKMK_1.1) dans la bibliothèque de documentation Windows Server 2012.  
 
 -   Pour plus d’informations sur les configurations prises en charge pour les systèmes de site Configuration Manager, consultez [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
 ###  <a name="a-namebkmkplanningforwsusa-plan-for-wsus-installation"></a><a name="BKMK_PlanningForWSUS"></a> Planifier l’installation de WSUS  
  Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soit installée sur tous les serveurs de système de site que vous configurez pour le rôle de système de site du point de mise à jour logicielle. De plus, lorsque vous n'installez pas le point de mise à jour logicielle sur le serveur de site, vous devez installer la console d'administration WSUS sur le serveur de site si elle n'est pas encore installée. Cela permet au serveur de site de communiquer avec le serveur WSUS qui est exécuté sur le point de mise à jour logicielle.  
 
- Quand vous utilisez WSUS sur Windows Server 2012, vous devez configurer des autorisations supplémentaires pour permettre au **Configuration Manager WSUS** dans Configuration Manager de se connecter au serveur WSUS pour effectuer des contrôles d’intégrité réguliers. Choisissez l'une des options suivantes pour configurer ces autorisations :  
+ Quand vous utilisez WSUS sur Windows Server 2012, vous devez configurer des autorisations supplémentaires pour permettre au **Configuration Manager WSUS** dans Configuration Manager de se connecter au serveur WSUS pour effectuer des contrôles d’intégrité réguliers. Choisissez l'une des options suivantes pour configurer ces autorisations :  
 
 -   Ajouter le compte **SYSTEM** au groupe **Administrateurs WSUS**  
 
@@ -156,7 +164,7 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 ###  <a name="a-namebkmkconfigurefirewallsa-configure-firewalls"></a><a name="BKMK_ConfigureFirewalls"></a> Configurer des pare-feu  
  Les mises à jour logicielles présentes sur un site d’administration centrale Configuration Manager communiquent avec le serveur WSUS qui s’exécute sur le point de mise à jour logicielle qui, à son tour, communique avec la source de synchronisation pour synchroniser les métadonnées des mises à jour logicielles. Les points de mise à jour logicielle sur un site enfant communiquent avec le point de mise à jour logicielle sur le site parent. Quand il existe plusieurs points de mise à jour logicielle sur un site principal, les points supplémentaires doivent communiquer avec le premier point de mise à jour logicielle installé sur le site, qui est le point de mise à jour logicielle par défaut.  
 
- Il peut être nécessaire de configurer le pare-feu pour qu’il accepte les ports HTTP ou HTTPS utilisés par WSUS dans les scénarios suivants : quand vous avez un pare-feu d’entreprise entre le point de mise à jour logicielle Configuration Manager et Internet, quand vous avez un point de mise à jour logicielle et sa source de synchronisation en amont, ou quand vous avez des points de mise à jour logicielle supplémentaires. La connexion à Microsoft Update est toujours configurée pour utiliser le port 80 pour HTTP et le port 443 pour HTTPS. Vous pouvez utiliser un port personnalisé pour la connexion à partir de WSUS fonctionnant sur le point de mise à jour logicielle sur un site enfant vers WSUS fonctionnant sur le point de mise à jour logicielle sur le site parent. Quand votre stratégie de sécurité n’autorise pas la connexion, vous devez utiliser la méthode de synchronisation d’exportation et d’importation. Pour plus d’informations, consultez la section [Synchronization source](#BKMK_SyncSource) de cette rubrique. Pour plus d’informations sur les ports utilisés par WSUS, consultez [Comment déterminer les paramètres de port utilisés par WSUS dans System Center Configuration Manager](../get-started/install-a-software-update-point.md#wsus-settings).  
+ Il peut être nécessaire de configurer le pare-feu pour qu’il accepte les ports HTTP ou HTTPS utilisés par WSUS dans les scénarios suivants : quand vous avez un pare-feu d’entreprise entre le point de mise à jour logicielle Configuration Manager et Internet, quand vous avez un point de mise à jour logicielle et sa source de synchronisation en amont, ou quand vous avez des points de mise à jour logicielle supplémentaires. La connexion à Microsoft Update est toujours configurée pour utiliser le port 80 pour HTTP et le port 443 pour HTTPS. Vous pouvez utiliser un port personnalisé pour la connexion à partir de WSUS fonctionnant sur le point de mise à jour logicielle sur un site enfant vers WSUS fonctionnant sur le point de mise à jour logicielle sur le site parent. Quand votre stratégie de sécurité n’autorise pas la connexion, vous devez utiliser la méthode de synchronisation d’exportation et d’importation. Pour plus d’informations, consultez la section [Synchronization source](#BKMK_SyncSource) de cette rubrique. Pour plus d’informations sur les ports utilisés par WSUS, consultez [Comment déterminer les paramètres de port utilisés par WSUS dans System Center Configuration Manager](../get-started/install-a-software-update-point.md#wsus-settings).  
 
 #### <a name="restrict-access-to-specific-domains"></a>Restreindre l'accès à des domaines spécifiques  
  Si votre organisation n'autorise pas l'ouverture des ports et des protocoles à toutes les adresses sur le pare-feu situé entre le point de mise à jour logicielle actif et Internet, vous pouvez restreindre l'accès aux domaines suivants de sorte que WSUS et les mises à jour automatiques puissent communiquer avec Microsoft Update :  
@@ -219,7 +227,7 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
  Une fois que le point de mise à jour logicielle a correctement terminé la synchronisation, une demande de synchronisation est envoyée aux sites enfants. Si vous avez des points de mise à jour logicielle supplémentaires sur un site principal, une demande de synchronisation est envoyée à chaque point de mise à jour logicielle. Ce processus se répète sur chaque site de la hiérarchie.  
 
 ###  <a name="a-namebkmkupdateclassificationsa-update-classifications"></a><a name="BKMK_UpdateClassifications"></a> Classifications des mises à jour  
- Chaque mise à jour logicielle fait partie d'une classification particulière qui permet d'organiser les différents types de mises à jour. Pendant le processus de synchronisation, les métadonnées des mises à jour logicielles pour les classifications spécifiées seront synchronisées. Configuration Manager vous permet de synchroniser les mises à jour logicielles avec les classifications de mise à jour suivantes :  
+ Chaque mise à jour logicielle fait partie d'une classification particulière qui permet d'organiser les différents types de mises à jour. Pendant le processus de synchronisation, les métadonnées des mises à jour logicielles pour les classifications spécifiées seront synchronisées. Configuration Manager vous permet de synchroniser les mises à jour logicielles avec les classifications de mise à jour suivantes :  
 
 -   **Mises à jour critiques :** spécifie des mises à jour distribuées en grand nombre, répondant à un problème spécifique qui concerne un bogue critique non lié à la sécurité.  
 
@@ -293,13 +301,13 @@ Quand une mise à jour logicielle nécessitant un redémarrage est déployée à
 
 À compter de Configuration Manager version 1606, les options **Mettre à jour et redémarrer**et **Mettre à jour et arrêter** sont disponibles sur les ordinateurs Windows 10 dans les options d’alimentation de Windows chaque fois qu’un redémarrage est en attente pour une mise à jour logicielle Configuration Manager. Après l’utilisation de l’une de ces options, la boîte de dialogue de redémarrage ne s’affiche pas quand l’ordinateur redémarre.
 
-Dans les versions précédentes de Configuration Manager, quand un redémarrage est en attente pour un ordinateur Windows 8 ou version ultérieure, et quand vous arrêtez ou redémarrez l’ordinateur via les options d’alimentation de Windows (au lieu de la boîte de dialogue de redémarrage), la boîte de dialogue de redémarrage reste affichée après le redémarrage de l’ordinateur, et celui-ci doit toujours redémarrer à l’échéance configurée.
+Dans les versions précédentes de Configuration Manager, quand un redémarrage est en attente pour un ordinateur Windows 8 ou version ultérieure, et quand vous arrêtez ou redémarrez l’ordinateur via les options d’alimentation de Windows (au lieu de la boîte de dialogue de redémarrage), la boîte de dialogue de redémarrage reste affichée après le redémarrage de l’ordinateur, et celui-ci doit toujours redémarrer à l’échéance configurée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Quand vous planifiez des mises à jour logicielles, consultez [Préparer la gestion des mises à jour logicielles](../get-started/prepare-for-software-updates-management.md).
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

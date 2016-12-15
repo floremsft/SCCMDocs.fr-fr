@@ -1,8 +1,8 @@
 ---
-title: "Utiliser PXE pour déployer Windows sur le réseau | Configuration Manager"
+title: "Utiliser PXE pour déployer Windows sur le réseau | Documents Microsoft"
 description: "Utilisez des déploiements de système d’exploitation établis par PXE pour actualiser le système d’exploitation d’un ordinateur ou installer une nouvelle version de Windows sur un nouvel ordinateur."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,21 +17,21 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4bb62f7479fafac6b57d42cd048fd5bcec29b0e9
+ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
+ms.openlocfilehash: b22cdbd42693078caa47f41182ce73ea881c3515
 
 
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les déploiements de système d’exploitation établis par PXE dans System Center Configuration Manager permettent aux ordinateurs clients de demander des systèmes d’exploitation et de les déployer sur le réseau. Dans ce scénario de déploiement de système d’exploitation, l’image du système d’exploitation et une image de démarrage Windows PE x86 et x64 sont envoyées à un point de distribution configuré pour accepter les demandes de démarrage PXE.  
 
 > [!NOTE]  
 >  Quand vous créez un déploiement de système d’exploitation qui cible seulement des ordinateurs avec un BIOS x64, les deux images de démarrage x64 et x86 doivent être disponibles sur le point de distribution.  
 
- Vous pouvez utiliser des déploiements de système d’exploitations établis par PXE dans les scénarios de déploiement de système d’exploitation suivants :  
+ Vous pouvez utiliser des déploiements de système d’exploitations établis par PXE dans les scénarios de déploiement de système d’exploitation suivants :  
 
 -   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
@@ -72,7 +72,7 @@ Les déploiements de système d’exploitation établis par PXE dans System Cent
      Il est inutile de redémarrer le serveur après avoir effectué cette modification au niveau du Registre.  
 
 ##  <a name="a-namebkmkramdisktftparamdisk-tftp-block-size-and-window-size"></a><a name="BKMK_RamDiskTFTP"></a>Taille de bloc et de fenêtre RamDisk TFTP  
-Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques. Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace. Pour plus d’informations, voir [Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
+Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques. Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace. Pour plus d’informations, voir [Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
 
 ## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
  Pour utiliser un déploiement de système de d’exploitation initié par PXE, vous devez configurer le déploiement pour rendre le système d’exploitation accessible aux demandes de démarrage PXE. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :  
@@ -95,16 +95,18 @@ Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Confi
 > [!IMPORTANT]  
 >  Le protocole PXE n'est pas sécurisé. Assurez-vous que le serveur PXE et le client PXE se trouvent sur un réseau sécurisé physiquement, tel qu'un centre de données, afin d'éviter l'accès non autorisé à votre site.  
 
-##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Comment l’image de démarrage est-elle sélectionnée pour les clients qui démarrent avec PXE ?
-Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une image de démarrage à utiliser. Depuis Configuration Manager version 1606, Configuration Manager utilise une image de démarrage avec correspondance exacte d’architecture si une telle image est disponible. Si une image de démarrage avec correspondance exacte d’architecture n’est pas disponible, Configuration Manager utilise une image de démarrage avec une architecture compatible. La liste ci-dessous indique de quelle manière une image de démarrage est sélectionnée pour les clients qui démarrent avec PXE.
+##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Comment l’image de démarrage est-elle sélectionnée pour les clients qui démarrent avec PXE ?
+Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une image de démarrage à utiliser. Depuis Configuration Manager version 1606, Configuration Manager utilise une image de démarrage avec correspondance exacte d’architecture si une telle image est disponible. Si une image de démarrage avec correspondance exacte d’architecture n’est pas disponible, Configuration Manager utilise une image de démarrage avec une architecture compatible. La liste ci-dessous indique de quelle manière une image de démarrage est sélectionnée pour les clients qui démarrent avec PXE.
 1. Configuration Manager recherche dans la base de données du site l’enregistrement système qui correspond à l’adresse MAC ou au SMBIOS du client qui essaie de démarrer.
-2. Configuration Manager recherche les séquences de tâches qui sont déployées sur l’enregistrement système trouvé à l’étape 1.
-3. Dans la liste des séquences de tâches trouvées à l’étape 2, Configuration Manager recherche une image de démarrage qui correspond à l’architecture du client qui tente de démarrer. Si une image de démarrage est trouvée avec la même architecture, celle-ci est utilisée.
+    > [!NOTE]
+    > Si un ordinateur qui est affecté à un site démarre via PXE pour un site de différent, les stratégies ne sont pas visibles pour l’ordinateur. Par exemple, si un client est déjà affecté au site A, le point de gestion et le point de distribution sur le site B ne peuvent pas accéder aux stratégies à partir du site A, et le client ne peut pas démarrer via PXE.
+2. Configuration Manager recherche les séquences de tâches qui sont déployées sur l’enregistrement système trouvé à l’étape 1.
+3. Dans la liste des séquences de tâches trouvées à l’étape 2, Configuration Manager recherche une image de démarrage qui correspond à l’architecture du client qui tente de démarrer. Si une image de démarrage est trouvée avec la même architecture, celle-ci est utilisée.
 
-4. Si une image de démarrage n’est pas trouvée avec la même architecture, Configuration Manager recherche une image de démarrage (à partir de la liste des séquences de tâches trouvées à l’étape 2) qui soit compatible avec l’architecture du client qui tente de démarrer. Par exemple, un client 64 bits est compatible avec des images de démarrage 32 bits et 64 bits. Un client 32 bits est compatible uniquement avec des images de démarrage 32 bits. Un client UEFI est compatible uniquement avec des images de démarrage 64 bits.
+4. Si une image de démarrage n’est pas trouvée avec la même architecture, Configuration Manager recherche une image de démarrage (à partir de la liste des séquences de tâches trouvées à l’étape 2) qui soit compatible avec l’architecture du client qui tente de démarrer. Par exemple, un client 64 bits est compatible avec des images de démarrage 32 bits et 64 bits. Un client 32 bits est compatible uniquement avec des images de démarrage 32 bits. Un client UEFI est compatible uniquement avec des images de démarrage 64 bits.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

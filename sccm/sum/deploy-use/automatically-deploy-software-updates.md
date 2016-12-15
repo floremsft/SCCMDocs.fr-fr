@@ -1,11 +1,11 @@
 ---
-title: "Déployer des mises à jour logicielles | Configuration Manager"
+title: "Déployer automatiquement des mises à jour logicielles | Documents Microsoft"
 description: "Déployez automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou en utilisant des règles ADR."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -13,19 +13,19 @@ ms.technology:
 - configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 133f29aa3f515054b23ba70f1a1dfd3eedaa56c8
+ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
+ms.openlocfilehash: 34b0819957ffcc3711ee354a5b821d78fa7445cb
 
 ---
 
 #  <a name="a-namebkmkautodeploya-automatically-deploy-software-updates"></a><a name="BKMK_AutoDeploy"></a> Déployer automatiquement des mises à jour logicielles  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Vous pouvez déployer automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou vous pouvez utiliser une règle de déploiement automatique (ADR, Automatic Deployment Rule). D’une manière générale, vous utilisez des règles ADR pour déployer les mises à jour logicielles mensuelles (généralement appelées mises à jour Patch Tuesday) et pour la gestion des mises à jour de définitions. Si vous avez besoin d’aide pour déterminer la méthode de déploiement qui vous convient, voir [Déployer des mises à jour logicielles](deploy-software-updates.md).
 
 ##  <a name="a-namebkmkaddupdatestoexistinggroupa-add-software-updates-to-a-deployed-update-group"></a><a name="BKMK_AddUpdatesToExistingGroup"></a> Ajouter des mises à jour logicielles à un groupe de mises à jour déployé  
-Après avoir créé et déployé un groupe de mises à jour logicielles, vous pouvez ajouter des mises à jour logicielles au groupe de mises à jour ; elles sont déployées automatiquement.  
+Après avoir créé et déployé un groupe de mises à jour logicielles, vous pouvez ajouter des mises à jour logicielles au groupe de mises à jour ; elles sont déployées automatiquement.  
 
 > [!IMPORTANT]  
 >  Lorsque vous ajoutez des mises à jour logicielles à un groupe de mises à jour logicielles existant qui a déjà été déployé, l'ajout des mises à jour logicielles supplémentaires au déploiement peut prendre plusieurs minutes.  
@@ -94,7 +94,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
     -   **Paramètre du contrat de licence**: indiquez si les mises à jour logicielles doivent être déployées automatiquement avec un contrat de licence associé. Certaines mises à jour logicielles comprennent un contrat de licence, dans le cas d'un Service Pack par exemple. Lorsque vous déployez automatiquement des mises à jour logicielles, le contrat de licence ne s'affiche pas et il n'est pas possible d'accepter le contrat de licence. Vous pouvez choisir de déployer automatiquement toutes les mises à jour logicielles indépendamment d'un contrat de licence associé ou de déployer uniquement les mises à jour logicielles qui ne sont associées à aucun contrat de licence.  
 
-        > [!WARNING]  
+        > [!NOTE]  
         >  Pour consulter le contrat de licence d'une mise à jour logicielle, vous pouvez sélectionner la mise à jour logicielle dans le nœud **Toutes les mises à jour logicielles** de l'espace de travail **Bibliothèque de logiciels** , puis, sur l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Consulter le contrat de licence**.  
         >   
         >  Pour trouver des mises à jour logicielles avec un contrat de licence associé, vous pouvez ajouter la colonne **Termes du contrat de licence** au volet des résultats dans le nœud **Toutes les mises à jour logicielles** , puis cliquer sur l'en-tête de la colonne pour effectuer un tri selon les mises à jour logicielles associées à un contrat de licence.  
@@ -103,6 +103,9 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
     > [!IMPORTANT]  
     >  Dans une règle ADR, le nombre limite de mises à jour logicielles est de 1 000. Pour veiller à ce que les critères spécifiés sur cette page permettent de récupérer moins de 1 000 mises à jour logicielles, envisagez de définir les mêmes critères sur le nœud **Toutes les mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
+
+    > [!NOTE]
+    > Depuis Configuration Manager version 1610, vous pouvez filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048** pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses pour une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée lorsque la bande passante du réseau est limitée. Pour plus d’informations, consultez [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
 6.  Dans la page Calendrier d’évaluation, indiquez si l’exécution de la règle ADR doit obéir à un calendrier. Si elle est activée, cliquez sur **Personnaliser** pour définir le calendrier périodique.  
 
@@ -117,7 +120,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
 7.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
         >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
@@ -137,7 +140,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#a-namebkmkcomputeragentdevicesettingsa-computer-agent).  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
 8. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
@@ -155,9 +158,11 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
         > [!NOTE]  
         >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
 
+    - **Comportement de réévaluation du déploiement des mises à jour logicielles après le redémarrage** : à compter de Configuration Manager version 1606, sélectionnez ce paramètre pour configurer les déploiements de mises à jour logicielles de façon à ce que les clients exécutent une analyse de conformité des mises à jour logicielles immédiatement après avoir installé celles-ci et redémarré. Cela permet au client de vérifier la disponibilité de mises à jour logicielles supplémentaires devenues applicables après le redémarrage, puis de les installer (et devenir ainsi conforme) au cours d’une même fenêtre de maintenance.
+
 9. Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement.  
 
-    > [!WARNING]  
+    > [!NOTE]  
     >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
 10. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
@@ -209,7 +214,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
 15. Sur la page Résumé, passez en revue les paramètres. Pour enregistrer les paramètres dans un modèle de déploiement, cliquez sur **Enregistrer comme modèle**, entrez un nom et sélectionnez les paramètres à inclure dans le modèle, puis cliquez sur **Enregistrer**. Pour modifier un paramètre configuré, cliquez sur la page de l'Assistant associée et modifiez le paramètre.  
 
-    > [!WARNING]  
+    > [!NOTE]  
     >  Le nom du modèle peut comporter des caractères ASCII alphanumériques ainsi que les caractères **\\** (barre oblique inverse) ou **‘** (guillemet-apostrophe).  
 
 16. Cliquez sur **Suivant** pour créer la règle ADR.  
@@ -249,7 +254,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
 
 5.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
         >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
@@ -269,7 +274,7 @@ Vous pouvez approuver et déployer automatiquement des mises à jour logicielles
         > [!NOTE]  
         >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#a-namebkmkcomputeragentdevicesettingsa-computer-agent).  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
 6.  Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
@@ -314,6 +319,6 @@ Pour plus d’informations sur le processus de déploiement, consultez [Software
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

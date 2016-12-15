@@ -1,4 +1,4 @@
-#   [Comprendre et explorer](understand/introduction.md)
+#   Comprendre et explorer
 ##  [Présentation de Configuration Manager](understand/introduction.md)
 ### [Trouver de l’aide pour Configuration Manager](understand/find-help.md)
 ### [Fonctionnalités d’accessibilité](understand/accessibility-features.md)
@@ -10,7 +10,7 @@
 ### [Principes de base de l’administration basée sur des rôles](understand/fundamentals-of-role-based-administration.md)
 ##  [Présentation de Long-Term Servicing Branch](understand/introduction-to-the-ltsb.md)
 ### [Licences pour System Center Configuration Manager](understand/learn-more-editions.md)
-### [Déterminer la branche de Configuration manager à utiliser](understand/which-branch-should-i-use.md)
+### [Déterminer la branche de Configuration Manager à utiliser](understand/which-branch-should-i-use.md)
 ### [Configurations prises en charge pour Long-Term Servicing Branch](understand/supported-configurations-for-ltsb.md)
 ### [Installer Long-Term Service Branch](understand/install-the-ltsb.md)
 ### [Mettre à niveau Long-Term Servicing Branch vers Current Branch](understand/convert-to-current-branch.md)
@@ -19,13 +19,16 @@
 ##  [Forum aux questions sur les données de diagnostic et d’utilisation](understand/frequently-asked-questions-about-diagnostics-and-usage-data.md)
 
 #    [Planifier et concevoir](plan-design/get-ready.md)
-##   [Modifications apportées au produit](plan-design/changes/features-and-capabilities.md)
+
+##   Modifications apportées au produit
 ###  [Fonctions et fonctionnalités](plan-design/changes/features-and-capabilities.md)
-###  [Nouveautés par rapport à Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
+###  [Nouveautés par rapport à Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Nouveautés dans les versions incrémentielles](plan-design/changes/whats-new-incremental-versions.md)
-###  [Nouveautés dans la version 1606](plan-design/changes/whats-new-in-version-1606.md)
-###  [Nouveautés dans la version 1602](plan-design/changes/whats-new-in-version-1602.md)
+###  [Nouveautés dans la version 1610](plan-design/changes/whats-new-in-version-1610.md)
+###  [Nouveautés dans la version 1606](plan-design/changes/whats-new-in-version-1606.md)
+###  [Nouveautés dans la version 1602](plan-design/changes/whats-new-in-version-1602.md)
 ###  [Fonctionnalités supprimées et dépréciées](plan-design/changes/removed-and-deprecated-features.md)
+
 ##   [Configurations prises en charge](plan-design/configs/supported-configurations.md)
 ###  [Taille et échelle en chiffres](plan-design/configs/size-and-scale-numbers.md)
 ###  [Prérequis des sites et systèmes de site](plan-design/configs/site-and-site-system-prerequisites.md)
@@ -37,6 +40,7 @@
 ###  [Prise en charge des domaines Active Directory](plan-design/configs/support-for-active-directory-domains.md)
 ###  [Prise en charge des fonctionnalités et réseaux Windows](plan-design/configs/support-for-windows-features-and-networks.md)
 ###  [Prise en charge des environnements de virtualisation](plan-design/configs/support-for-virtualization-environments.md)
+
 ##   [Choisir une solution de gestion d’appareils](plan-design/choose-a-device-management-solution.md)
 ##   [Concevoir une hiérarchie de sites](plan-design/hierarchy/design-a-hierarchy-of-sites.md)
 ###  [Planifier le fournisseur SMS](plan-design/hierarchy/plan-for-the-sms-provider.md)
@@ -47,25 +51,30 @@
 #### [Utiliser un point de distribution d’extraction](plan-design/hierarchy/use-a-pull-distribution-point.md)
 #### [Bibliothèque de contenu](plan-design/hierarchy/the-content-library.md)
 #### [Gérer les comptes pour accéder au contenu](plan-design/hierarchy/manage-accounts-to-access-content.md)
+#### [Cache d’homologue pour les clients Configuration Manager](plan-design/hierarchy/client-peer-cache.md)
 #### [Scénarios d’emplacement source du contenu](plan-design/hierarchy/content-source-location-scenarios.md)
 #### [Package Transfer Manager](plan-design/hierarchy/package-transfer-manager.md)
 #### [Gérer la bande passante du réseau pour la gestion du contenu](plan-design/hierarchy/manage-network-bandwidth.md)
 #### [Sécurité et confidentialité pour la gestion du contenu](plan-design/hierarchy/security-and-privacy-for-content-management.md)
 ###  [Méthodes de recherche de services et ressources utilisées par les clients](plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md)
 ###  [Sécurité et confidentialité pour l’administration de site](plan-design/hierarchy/security-and-privacy-for-site-administration.md)
+
 ##   [Planifier l’infrastructure réseau](plan-design/network/configure-firewalls-ports-domains.md)
 ###  [Étendre le schéma Active Directory](plan-design/network/extend-the-active-directory-schema.md)
 ###  [Préparer les serveurs Windows à prendre en charge les systèmes de site](plan-design/network/prepare-windows-servers.md)
 ###  [Sites web pour les serveurs de système de site](plan-design/network/websites-for-site-system-servers.md)
 ###  [Configuration requise des certificats PKI](plan-design/network/pki-certificate-requirements.md)
+
 ##   [Données de diagnostic et d’utilisation](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Utilisation des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
-###  [Données de diagnostic pour 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
-###  [Données de diagnostic pour 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
-###  [Données de diagnostic pour 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+###  [Données de diagnostic pour 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+###  [Données de diagnostic pour 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
+###  [Données de diagnostic pour 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+###  [Données de diagnostic pour 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
 ###  [Mode de collecte des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)
 ###  [Mode d’affichage des données de diagnostic et d’utilisation](plan-design/diagnostics/view-diagnostics-and-usage-data.md)
 ###  [Programme d’amélioration de l’expérience utilisateur (CEIP)](plan-design/diagnostics/customer-experience-improvement-program-ceip.md)
+
 ##   [Sécurité et confidentialité pour Configuration Manager](plan-design/security/security-and-privacy.md)
 ###  [Planifier la sécurité](plan-design/security/plan-for-security.md)
 ###  [Bonnes pratiques de sécurité et de confidentialité des informations](plan-design/security/security-best-practices-and-privacy-information.md)
@@ -73,22 +82,26 @@
 ###  [Autres informations sur la confidentialité](plan-design/security/additional-privacy.md)
 ###  [Configurer la sécurité](plan-design/security/configure-security.md)
 
-#    [Bien démarrer](get-started/evaluate-with-lab-environment.md)
+#    Prise en main
+
 ##   [Évaluer Configuration Manager dans un laboratoire](get-started/evaluate-with-lab-environment.md)
 ###  [Configurer votre laboratoire](get-started/set-up-your-lab.md)
+
 ##   [Préversion technique](get-started/technical-preview.md)
-###  [Fonctionnalités dans 1610](get-started/capabilities-in-technical-preview-1610.md)
-###  [Fonctionnalités dans 1609](get-started/capabilities-in-technical-preview-1609.md)
-###  [Fonctionnalités dans 1608](get-started/capabilities-in-technical-preview-1608.md)
-###  [Fonctionnalités dans 1607](get-started/capabilities-in-technical-preview-1607.md)
-###  [Fonctionnalités dans 1606](get-started/capabilities-in-technical-preview-1606.md)
-###  [Fonctionnalités dans 1605](get-started/capabilities-in-technical-preview-1605.md)
-###  [Fonctionnalités dans 1604](get-started/capabilities-in-technical-preview-1604.md)
-###  [Fonctionnalités dans 1603](get-started/capabilities-in-technical-preview-1603.md)
-###  [Fonctionnalités dans 1602](get-started/capabilities-in-technical-preview-1602.md)
-###  [Fonctionnalités dans 1601](get-started/capabilities-in-technical-preview-1601.md)
-###  [Fonctionnalités dans 1512](get-started/capabilities-in-technical-preview-1512.md)
-###  [Fonctionnalités dans 1511](get-started/capabilities-in-technical-preview-1511.md)
+###  [Fonctionnalités dans 1611](get-started/capabilities-in-technical-preview-1611.md)
+###  [Fonctionnalités dans 1610](get-started/capabilities-in-technical-preview-1610.md)
+###  [Fonctionnalités dans 1609](get-started/capabilities-in-technical-preview-1609.md)
+###  [Fonctionnalités dans 1608](get-started/capabilities-in-technical-preview-1608.md)
+###  [Fonctionnalités dans 1607](get-started/capabilities-in-technical-preview-1607.md)
+###  [Fonctionnalités dans 1606](get-started/capabilities-in-technical-preview-1606.md)
+###  [Fonctionnalités dans 1605](get-started/capabilities-in-technical-preview-1605.md)
+###  [Fonctionnalités dans 1604](get-started/capabilities-in-technical-preview-1604.md)
+###  [Fonctionnalités dans 1603](get-started/capabilities-in-technical-preview-1603.md)
+###  [Fonctionnalités dans 1602](get-started/capabilities-in-technical-preview-1602.md)
+###  [Fonctionnalités dans 1601](get-started/capabilities-in-technical-preview-1601.md)
+###  [Fonctionnalités dans 1512](get-started/capabilities-in-technical-preview-1512.md)
+###  [Fonctionnalités dans 1511](get-started/capabilities-in-technical-preview-1511.md)
+
 ##   [Faire migrer des données entre des hiérarchies](migration/migrate-data-between-hierarchies.md)
 ###  [Planification de la migration](migration/planning-for-migration.md)
 #### [Prérequis à la migration](migration/prerequisites-for-migration.md)
@@ -106,7 +119,8 @@
 ###  [Sécurité et confidentialité pour la migration](migration/security-and-privacy-for-migration.md)
 
 #    [Déployer des serveurs et des rôles](servers/deploy/start-using.md)
-##   [Installer l’infrastructure](servers/deploy/install/setup-downloader.md)
+
+##   Installer l’infrastructure
 ###  [Avant d’exécuter le programme d’installation](servers/deploy/install/setup-downloader.md)
 #### [Téléchargeur d’installation](servers/deploy/install/setup-downloader.md)
 #### [Outil de vérification de la configuration requise](servers/deploy/install/prerequisite-checker.md)
@@ -119,6 +133,7 @@
 #### [Mettre à niveau une installation d’évaluation](servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md)
 #### [Mettre à niveau vers System Center Configuration Manager](servers/deploy/install/upgrade-to-configuration-manager.md)
 #### [Scénarios pour rationaliser votre installation](servers/deploy/install/scenarios-to-streamline-your-installation.md)
+
 ##   [Configurer des sites et des hiérarchies](servers/deploy/configure/configure-sites-and-hierarchies.md)
 ###  [Ajouter des rôles système de site](servers/deploy/configure/add-site-system-roles.md)
 #### [Installer des rôles système de site](servers/deploy/configure/install-site-system-roles.md)
@@ -142,7 +157,7 @@
 ###  [Emplacements personnalisés pour les fichiers de base de données](servers/deploy/configure/custom-locations-for-site-database-files.md)
 ###  [Configurer l’administration basée sur des rôles](servers/deploy/configure/configure-role-based-administration.md)
 
-#    [Gérer l’infrastructure](servers/manage/maintenance-tasks.md)
+#    Gérer l’infrastructure
 ##   [Tâches de maintenance](servers/manage/maintenance-tasks.md)
 ##   [Modifier votre infrastructure](servers/manage/modify-your-infrastructure.md)
 ###  [Dossier CD.Latest](servers/manage/the-cd.latest-folder.md)
@@ -154,10 +169,12 @@
 ###  [Utiliser l’outil de connexion de service](servers/manage/use-the-service-connection-tool.md)
 ###  [Utiliser l’outil Inscription de la mise à jour](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Utiliser le programme d’installation de correctif logiciel](servers/manage/use-the-hotfix-installer-to-install-updates.md)
-###  [Liste de contrôle pour l’installation de la mise à jour 1606](servers/manage/checklist-for-installing-update-1606.md)
-###  [Liste de contrôle pour l’installation de la mise à jour 1602](servers/manage/checklist-for-installing-update-1602.md)
+###  [Liste de contrôle pour l’installation de la mise à jour 1610](servers/manage/checklist-for-installing-update-1610.md)
+###  [Liste de contrôle pour l’installation de la mise à jour 1606](servers/manage/checklist-for-installing-update-1606.md)
+###  [Liste de contrôle pour l’installation de la mise à jour 1602](servers/manage/checklist-for-installing-update-1602.md)
 ###  [Prise en charge pour les versions Current Branch](servers/manage/current-branch-versions-supported.md)
-##   [Surveiller l’infrastructure](servers/manage/use-alerts-and-the-status-system.md)
+
+##   Surveiller l’infrastructure
 ###  [Utiliser des alertes et le système d’état](servers/manage/use-alerts-and-the-status-system.md)
 ###  [Attestation d’intégrité](servers/manage/health-attestation.md)
 ###  [Surveiller l’infrastructure de la hiérarchie et de la réplication](servers/manage/monitor-hierarchy-and-replication-infrastructure.md)
@@ -179,8 +196,8 @@
 #### [Création de modèles de rapport personnalisés](servers/manage/creating-custom-report-models-in-sql-server-reporting-services.md)
 #### [Sécurité et confidentialité pour les rapports](servers/manage/security-and-privacy-for-reporting.md)
 
-#    [Déployer des clients](clients/deploy/plan/client-installation-methods.md)
-##   [Planification du déploiement du client](clients/deploy/plan/client-installation-methods.md)
+#    Déployer des clients
+##   Planification du déploiement du client
 ###  [Méthodes d’installation du client](clients/deploy/plan/client-installation-methods.md)
 ###  [Prérequis au déploiement de clients sur des ordinateurs Windows](clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md)
 ###  [Déterminer les rôles système de site pour les clients](clients/deploy/plan/determine-the-site-system-roles-for-clients.md)
@@ -191,10 +208,9 @@
 ###  [Planification du déploiement du client sur des ordinateurs Mac](clients/deploy/plan/planning-for-client-deployment-to-mac-computers.md)
 ###  [Planification du déploiement du client sur des appareils Windows Embedded](clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md)
 ###  [Planifier le mode de sortie de veille des clients](clients/deploy/plan/plan-wake-up-clients.md)
-###  [Planifier la gestion des clients Internet](clients/deploy/plan/plan-for-managing-internet-based-clients.md)
 ###  [Considérations liées à la gestion des clients dans une infrastructure VDI (Virtual Desktop Infrastructure)](clients/deploy/plan/considerations-for-managing-clients-in-a-vdi.md)
 
-##   [Tâches de déploiement du client](clients/deploy/configure-client-communication-ports.md)
+##   Tâches de déploiement du client
 ###  [Guide pratique pour configurer les ports de communication des clients](clients/deploy/configure-client-communication-ports.md)
 ###  [Guide pratique pour configurer des ordinateurs clients pour trouver les points de gestion à l’aide de la publication DNS](clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md)
 ###  [Guide pratique pour configurer les paramètres client](clients/deploy/configure-client-settings.md)
@@ -215,7 +231,13 @@
 ###  [Guide pratique pour gérer les clients Linux et UNIX](clients/manage/manage-clients-for-linux-and-unix-servers.md)
 ###  [Synchroniser des données avec OMS](clients/manage/sync-data-microsoft-operations-management-suite.md)
 
-##   [Regroupements](clients/manage/collections/introduction-to-collections.md)
+##   [Gérer des clients sur Internet](clients/manage/manage-clients-internet.md)
+###  [Planifier la passerelle de gestion cloud](clients/manage/plan-cloud-management-gateway.md)
+###  [Configurer la passerelle de gestion cloud](clients/manage/setup-cloud-management-gateway.md)
+###  [Surveiller des clients sur la passerelle de gestion cloud](clients/manage/monitor-clients-cloud-management-gateway.md)
+###  [Planifier la gestion des clients basés sur Internet](clients/manage/plan-internet-based-client-management.md)
+
+##   Regroupements
 ###  [Présentation des regroupements](clients/manage/collections/introduction-to-collections.md)
 ### [Prérequis pour les collections](clients/manage/collections/prerequisites-for-collections.md)
 ### [Bonnes pratiques pour les regroupements](clients/manage/collections/best-practices-for-collections.md)
@@ -225,24 +247,24 @@
 ### [Guide pratique pour classer automatiquement les appareils dans des regroupements](clients/manage/collections/automatically-categorize-devices-into-collections.md)
 ###  [Sécurité et confidentialité pour les regroupements](clients/manage/collections/security-and-privacy-for-collections.md)
 
-##   [Inventaire matériel](clients/manage/inventory/hardware-inventory.md)
+##   Inventaire matériel
 ###  [Présentation de l’inventaire matériel](clients/manage/inventory/introduction-to-hardware-inventory.md)
 ###  [Guide pratique pour étendre l’inventaire matériel](clients/manage/inventory/extend-hardware-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire matériel](clients/manage/inventory/configure-hardware-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire matériel pour des appareils mobiles dans un déploiement hybride](clients/manage/inventory/mobile-device-hardware-inventory-hybrid.md)
-###  [Opérations et maintenance pour l’inventaire matériel](clients/manage/inventory/operations-and-maintenance-for-hardware-inventory.md)
+<!--- ###  [Operations and maintenance for hardware inventory](clients/manage/inventory/hardware-inventory.md) --->
 ###  [Guide pratique pour utiliser l’Explorateur de ressources pour consulter l’inventaire matériel](clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md)
 ###  [Inventaire matériel pour Linux et UNIX](clients/manage/inventory/hardware-inventory-for-linux-and-unix.md)
 ###  [Sécurité et confidentialité pour l’inventaire matériel](clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)
 
-##   [Inventaire logiciel](clients/manage/inventory/software-inventory.md)
+##   Inventaire logiciel
 ###  [Présentation de l’inventaire logiciel](clients/manage/inventory/introduction-to-software-inventory.md)
 ###  [Guide pratique pour exclure des dossiers de l’inventaire logiciel](clients/manage/inventory/exclude-folders-from-software-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire logiciel](clients/manage/inventory/configure-software-inventory.md)
 ###  [Guide pratique pour utiliser l’Explorateur de ressources pour consulter l’inventaire logiciel](clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md)
 ###  [Sécurité et confidentialité pour l’inventaire logiciel](clients/manage/inventory/security-and-privacy-for-software-inventory.md)
 
-##   [Asset Intelligence](clients/manage/asset-intelligence/introduction-to-asset-intelligence.md)
+##   Asset Intelligence
 ###  [Présentation d’Asset Intelligence](clients/manage/asset-intelligence/introduction-to-asset-intelligence.md)
 ###  [Prérequis pour Asset Intelligence](clients/manage/asset-intelligence/prerequisites-for-asset-intelligence.md)
 ###  [Configurer Asset Intelligence](clients/manage/asset-intelligence/configuring-asset-intelligence.md)
@@ -251,7 +273,7 @@
 ###  [Exemples de transitions d’état de validation pour Asset Intelligence](clients/manage/asset-intelligence/example-validation-state-transitions-for-asset-intelligence.md)
 ###  [Exemple de fichier d’importation de licence générale Asset Intelligence](clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md)
 
-##   [Contrôle à distance](clients/manage/remote-control/introduction-to-remote-control.md)
+##   Contrôle à distance
 ###  [Présentation du contrôle à distance](clients/manage/remote-control/introduction-to-remote-control.md)
 ### [Prérequis pour le contrôle à distance](clients/manage/remote-control/prerequisites-for-remote-control.md)
 ###  [Configuration du contrôle à distance](clients/manage/remote-control/configuring-remote-control.md)
@@ -259,7 +281,7 @@
 ### [Guide pratique pour auditer l’utilisation du contrôle à distance](clients/manage/remote-control/audit-remote-control-usage.md)
 ###  [Sécurité et confidentialité pour le contrôle à distance](clients/manage/remote-control/security-and-privacy-for-remote-control.md)
 
-##   [Gestion de l’alimentation](clients/manage/power/introduction-to-power-management.md)
+##   Gestion de l'alimentation
 ###  [Présentation de la gestion de l’alimentation](clients/manage/power/introduction-to-power-management.md)
 ### [Prérequis pour la gestion de l’alimentation](clients/manage/power/prerequisites-for-power-management.md)
 ### [Bonnes pratiques de gestion de l’alimentation](clients/manage/power/best-practices-for-power-management.md)
@@ -270,12 +292,14 @@
 ###  [Sécurité et confidentialité pour la gestion de l’alimentation](clients/manage/power/security-and-privacy-for-power-management.md)
 
 ##   [Mettre à niveau les clients](clients/manage/upgrade/upgrade-clients.md)
-###  [Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction](clients/manage/upgrade/test-client-upgrades.md)
-###  [Guide pratique pour mettre à niveau les clients pour des ordinateurs Windows](clients/manage/upgrade/upgrade-clients-for-windows-computers.md)
-###  [Guide pratique pour mettre à niveau les clients pour des serveurs Linux et UNIX](clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)
-###  [Guide pratique pour mettre à niveau les clients pour des ordinateurs Mac](clients/manage/upgrade/upgrade-clients-on-mac-computers.md)
+###  [Tester les mises à niveau du client dans un regroupement de préproduction](clients/manage/upgrade/test-client-upgrades.md)
+###  [Exclure les clients Windows des mises à niveau ](clients/manage/upgrade/exclude-clients-windows.md)
+###  [Mettre à niveau les clients Windows](clients/manage/upgrade/upgrade-clients-for-windows-computers.md)
+###  [Mettre à niveau les clients Linux et UNIX](clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)
+###  [Mettre à niveau les clients Mac](clients/manage/upgrade/upgrade-clients-on-mac-computers.md)
+###  [Mettre à niveau l’analyse](clients/manage/upgrade/upgrade-analytics.md)
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

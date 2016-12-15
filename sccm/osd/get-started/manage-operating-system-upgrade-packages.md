@@ -1,8 +1,8 @@
 ---
-title: "Gérer des packages de mise à niveau de système d’exploitation | Configuration Manager"
+title: "Gérer les packages de mise à niveau de système d’exploitation | Documents Microsoft"
 description: "Découvrez comment gérer des packages de mise à niveau de système d’exploitation dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 226e283b5d9a04d2a9e0f3ce6894a82a3683d972
+ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
+ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
 
 
 ---
 # <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gérer des packages de mise à niveau de système d’exploitation avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, un package de mise à niveau contient les fichiers sources d’installation de Windows utilisés pour mettre à niveau un système d’exploitation existant sur un ordinateur. Aidez-vous des informations des sections suivantes pour gérer les packages de mise à niveau de système d’exploitation dans Configuration Manager.
 
@@ -63,7 +63,7 @@ Dans System Center Configuration Manager, un package de mise à niveau contient 
  Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
 ##  <a name="a-namebkmkosupgradepkgapplyupdatesa-apply-software-updates-to-an-operating-system-upgrade-package"></a><a name="BKMK_OSUpgradePkgApplyUpdates"></a> Appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
- À compter de Configuration Manager version 1602, vous pouvez appliquer les nouvelles mises à jour logicielles à l’image de système d’exploitation dans votre package de mise à niveau du système d’exploitation. Bien évidemment, avant de pouvoir appliquer des mises à jour logicielles à un package de mise à niveau, votre infrastructure de mises à jour logicielles doit être en place et vous devez avoir synchronisé correctement les mises à jour logicielles. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  
+ À compter de Configuration Manager version 1602, vous pouvez appliquer les nouvelles mises à jour logicielles à l’image de système d’exploitation dans votre package de mise à niveau du système d’exploitation. Avant de pouvoir appliquer des mises à jour logicielles à un package de mise à niveau, votre infrastructure de mises à jour logicielles doit être en place, et vous devez avoir synchronisé les mises à jour logicielles et téléchargé les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  
 
  Vous pouvez appliquer les mises à jour logicielles appropriées à un package de mise à niveau selon une planification définie. Aux heures planifiées, Configuration Manager applique les mises à jour logicielles sélectionnées au package de mise à niveau du système d’exploitation puis, si vous le souhaitez, distribue le package de mise à niveau mis à jour aux points de distribution. Les informations sur le package de mise à niveau du système d’exploitation sont stockées dans la base de données du site, y compris les mises à jour logicielles qui ont été appliquées au moment de l’importation. Les mises à jour logicielles appliquées au package de mise à niveau depuis son ajout initial sont également stockées dans la base de données du site. Lorsque vous ouvrez l’Assistant pour appliquer des mises à jour logicielles au package de mise à niveau du système d’exploitation, l’Assistant récupère la liste des mises à jour logicielles applicables qui n’ont pas encore été appliquées au package de mise à niveau, pour vous permettre de les sélectionner. Configuration Manager copie les mises à jour logicielles de la bibliothèque de contenu sur le serveur de site, puis applique les mises à jour logicielles au package de mise à niveau du système d’exploitation.  
 
@@ -95,6 +95,6 @@ Dans System Center Configuration Manager, un package de mise à niveau contient 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

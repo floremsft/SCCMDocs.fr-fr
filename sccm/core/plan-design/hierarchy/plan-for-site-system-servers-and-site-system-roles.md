@@ -1,5 +1,5 @@
 ---
-title: "Planifier des rôles de système de site | System Center Configuration Manager"
+title: "Planifier des rôles de système de site | Documents Microsoft"
 description: "Envisagez l’utilisation de serveurs de système de site et de rôles de système de site au moment de planifier votre hiérarchie System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5f8d051a92cd74938f1a5235b37f02ebe0ff542c
+ms.sourcegitcommit: 2b00cfcec0959716d69a1605018f33d30287fee9
+ms.openlocfilehash: a2e57aac01fff3c28b4acfcf58bcd786bd3e62c4
 
 
 ---
 # <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Chaque site System Center Configuration Manager que vous installez se compose d’un serveur de site qui est un **serveur de système de site**. Le site peut également inclure des serveurs de système de site supplémentaires sur des ordinateurs distants par rapport au serveur de site.   Les serveurs de système de site (serveur de site ou serveur de système de site distant) prennent en charge les **rôles de système de site**.
 
@@ -49,15 +49,15 @@ Les différents sites Configuration Manager peuvent prendre en charge un ensembl
 
 Après l’installation d’un site, vous pouvez déplacer certains rôles de système de site à partir de leur emplacement par défaut sur le serveur de site vers un autre serveur (tel que le point de gestion ou le point de distribution installés par défaut sur un serveur de site principal ou secondaire). Vous pouvez également installer des instances supplémentaires de certains rôles système de site pour étendre les capacités de votre site (fournir plus de services aux clients) et satisfaire les besoins de votre entreprise. Certains rôles sont obligatoires, tandis que d’autres sont facultatifs :  
 
--   **Serveur de site Configuration Manager** : ce rôle identifie le serveur sur lequel le programme d’installation de Configuration Manager est exécuté pour installer un site, ou le serveur sur lequel vous installez un site secondaire. Ce rôle ne peut pas être déplacé ni désinstallé tant que le site n’a pas été désinstallé.  
+-   **Serveur de site Configuration Manager** : ce rôle identifie le serveur sur lequel le programme d’installation de Configuration Manager est exécuté pour installer un site, ou le serveur sur lequel vous installez un site secondaire. Ce rôle ne peut pas être déplacé ni désinstallé tant que le site n’a pas été désinstallé.  
 
--   **Système de site Configuration Manager** : ce rôle est attribué à tout ordinateur sur lequel vous installez un site ou un rôle de système de site.  Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site n’a pas été supprimé de l’ordinateur.  
+-   **Système de site Configuration Manager** : ce rôle est attribué à tout ordinateur sur lequel vous installez un site ou un rôle de système de site.  Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site n’a pas été supprimé de l’ordinateur.  
 
--   **Rôle de système de site de composant Configuration Manager** : ce rôle identifie un système de site qui exécute une instance du service SMS Executive. Il est nécessaire à la prise en charge d’autres rôles, tels que des points de gestion. Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site applicable n’a pas été supprimé de l’ordinateur.  
+-   **Rôle de système de site de composant Configuration Manager** : ce rôle identifie un système de site qui exécute une instance du service SMS Executive. Il est nécessaire à la prise en charge d’autres rôles, tels que des points de gestion. Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site applicable n’a pas été supprimé de l’ordinateur.  
 
--   **Serveur de base de données de site Configuration Manager** : ce rôle est attribué aux serveurs de système de site qui détiennent une instance de la base de données d’un site.  Ce rôle ne peut être déplacé vers un nouveau serveur qu’en modifiant le site pour utiliser un autre serveur SQL Server pour héberger la base de données du site.  
+-   **Serveur de base de données de site Configuration Manager** : ce rôle est attribué aux serveurs de système de site qui détiennent une instance de la base de données d’un site.  Ce rôle ne peut être déplacé vers un nouveau serveur qu’en modifiant le site pour utiliser un autre serveur SQL Server pour héberger la base de données du site.  
 
--   **Fournisseur SMS** : ce rôle est attribué à chaque ordinateur qui héberge une instance du fournisseur SMS, interface entre une console Configuration Manager et la base de données du site.  Par défaut, ce rôle s’installe automatiquement sur le serveur de site d’un site d’administration centrale et de sites principaux, et vous pouvez installer des instances supplémentaires sur chaque site pour fournir à des utilisateurs administratifs supplémentaires l’accès administratif à un site.  
+-   **Fournisseur SMS** : ce rôle est attribué à chaque ordinateur qui héberge une instance du fournisseur SMS, interface entre une console Configuration Manager et la base de données du site.  Par défaut, ce rôle s’installe automatiquement sur le serveur de site d’un site d’administration centrale et de sites principaux, et vous pouvez installer des instances supplémentaires sur chaque site pour fournir à des utilisateurs administratifs supplémentaires l’accès administratif à un site.  
 
      Contrairement à la plupart des rôles de système de site qui s’installent à partir de la console, pour installer des fournisseurs supplémentaires, vous devez exécuter le programme d’installation de Configuration Manager pour [gérer le fournisseur SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider), puis installer des fournisseurs supplémentaires sur d’autres ordinateurs. Vous ne pouvez installer qu’une seule instance du fournisseur SMS sur un ordinateur, et celui-ci doit être dans le même domaine que le serveur de site.  
 
@@ -73,18 +73,20 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
      Chaque point d'enregistrement de certificat requiert l'accès à une instance distincte d'un service d'inscription d'appareils réseau. Vous ne pouvez pas configurer plusieurs points d'enregistrement de certificat pour utiliser le même service d'inscription d'appareils réseau. En outre, le point d’enregistrement de certificat ne doit pas être installé sur le serveur exécutant le service d’inscription de périphérique réseau.  
 
+- **Point de connexion de la passerelle de gestion cloud** : rôle de système de site pour communiquer avec la [passerelle de gestion cloud](/sccm/core/clients/manage/setup-cloud-management-gateway). 
+
 -   **Point de distribution** : rôle de système de site qui contient des fichiers sources que les clients peuvent télécharger, notamment le contenu de l’application, les packages logiciels, les mises à jour logicielles, les images du système d’exploitation et les images de démarrage. Par défaut, ce rôle est installé sur l’ordinateur du serveur de site de nouveaux sites principaux et secondaires lors de l’installation du site, mais n’est pas pris en charge sur un site d’administration centrale.  Vous pouvez installer plusieurs instances de ce rôle sur un site pris en charge et sur plusieurs sites dans la même hiérarchie.  Pour plus d’informations, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) et [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   **Point d’état de secours** : rôle de système de site qui vous aide à surveiller l’installation du client et à identifier les clients qui ne sont pas gérés, car ils ne peuvent pas communiquer avec leur point de gestion.  Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site et sur plusieurs sites dans la même hiérarchie.  Pour plus d'informations, voir [Content source location scenarios](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
 
 
--   **Point Endpoint Protection** : rôle de système de site utilisé par Configuration Manager pour accepter les termes du contrat de licence Endpoint Protection et pour configurer l’appartenance par défaut pour Cloud Protection Service (anciennement MAPS). Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit être sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome vers une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale. Pour plus d’informations, consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+-   **Point Endpoint Protection** : rôle de système de site utilisé par Configuration Manager pour accepter les termes du contrat de licence Endpoint Protection et pour configurer l’appartenance par défaut pour Cloud Protection Service (anciennement MAPS). Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit être sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome vers une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale. Pour plus d’informations, consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
--   **Point d’inscription** : rôle de système de site qui utilise des certificats PKI pour permettre à Configuration Manager d’inscrire des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
+-   **Point d’inscription** : rôle de système de site qui utilise des certificats PKI pour permettre à Configuration Manager d’inscrire des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
 
      Si un utilisateur inscrit des appareils mobiles à l’aide de Configuration Manager et que son compte Active Directory se trouve dans une forêt non approuvée par la forêt du serveur de site, vous devez installer un point d’inscription dans la forêt de l’utilisateur pour permettre l’authentification de ce dernier.  
 
--   **Point proxy d’inscription** : rôle de système de site qui gère les demandes d’inscription Configuration Manager émanant des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
+-   **Point proxy d’inscription** : rôle de système de site qui gère les demandes d’inscription Configuration Manager émanant des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
 
      Lors de la prise en charge d'appareils mobiles sur Internet, comme meilleure pratique de sécurité, installez le point proxy d'inscription dans un réseau de périmètre et le point d'inscription sur l'intranet.  
 
@@ -95,11 +97,11 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
      Des points de gestion peuvent être configurés pour prendre en charge les protocoles HTTP ou HTTPS, ainsi que les appareils mobiles que vous gérez via la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager. Vous pouvez utiliser des [réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) pour réduire la charge processeur placée sur le serveur de base de données du site par les points de gestion à mesure qu’ils traitent les demandes des clients.  
 
--   **Point de Reporting Services** : rôle de système de site qui s’intègre à SQL Server Reporting Services pour créer et gérer des rapports pour Configuration Manager. Ce rôle est pris en charge sur des sites principaux et le site d’administration centrale, et vous pouvez en installer plusieurs instances sur un site pris en charge. Pour plus d’informations, consultez [Planification de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
+-   **Point de Reporting Services** : rôle de système de site qui s’intègre à SQL Server Reporting Services pour créer et gérer des rapports pour Configuration Manager. Ce rôle est pris en charge sur des sites principaux et le site d’administration centrale, et vous pouvez en installer plusieurs instances sur un site pris en charge. Pour plus d’informations, consultez [Planification de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
 
--   **Point de connexion de service** : rôle de système de site permettant de gérer les appareils mobiles avec Microsoft Intune et la gestion MDM locale. Ce rôle charge aussi les données d’utilisation de votre site sur le serveur, et est nécessaire pour mettre les mises à jour de Configuration Manager à disposition dans la console Configuration Manager. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit être sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome vers une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale. Pour plus d’informations, voir [À propos du point de connexion de service dans System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+-   **Point de connexion de service** : rôle de système de site permettant de gérer les appareils mobiles avec Microsoft Intune et la gestion MDM locale. Ce rôle charge aussi les données d’utilisation de votre site sur le serveur, et est nécessaire pour mettre les mises à jour de Configuration Manager à disposition dans la console Configuration Manager. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit être sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome vers une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale. Pour plus d’informations, voir [À propos du point de connexion de service dans System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
--   **Point de mise à jour logicielle** : rôle de système de site qui s’intègre à Windows Server Update Services (WSUS) pour fournir les mises à jour logicielles aux clients Configuration Manager. Ce rôle est pris en charge sur tous les sites :  
+-   **Point de mise à jour logicielle** : rôle de système de site qui s’intègre à Windows Server Update Services (WSUS) pour fournir les mises à jour logicielles aux clients Configuration Manager. Ce rôle est pris en charge sur tous les sites :  
 
     -   Installez ce système de site sur le site d’administration centrale pour une synchronisation avec Windows Server Update Services.  
 
@@ -111,7 +113,7 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
 -   **Point de migration d’état** : rôle de système de site qui stocke les données d’état utilisateur quand un ordinateur est migré vers un nouveau système d’exploitation. Ce rôle est pris en charge sur des sites principaux et secondaires, et vous pouvez en installer plusieurs instances sur un site et sur plusieurs sites dans la même hiérarchie. Pour plus d’informations sur le stockage de l’état utilisateur quand vous déployez un système d’exploitation, consultez [Gérer l’état utilisateur dans System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
 
--   **Point du programme de validation d’intégrité système** : bien que ce rôle de système de site reste visible dans la console Configuration Manager, il n’est plus utilisé avec System Center Configuration Manager.  
+-   **Point du programme de validation d’intégrité système** : bien que ce rôle de système de site reste visible dans la console Configuration Manager, il n’est plus utilisé avec System Center Configuration Manager.  
 
 ##  <a name="a-namebkmkproxya-site-system-roles-that-can-use-a-proxy-server"></a><a name="bkmk_proxy"></a> Rôles système de site pouvant utiliser un serveur proxy  
  Certains rôles de système de site Configuration Manager ont besoin de connexions à Internet et utilisent un serveur proxy quand le serveur de système de site hébergeant le rôle est configuré pour cela. En règle générale, cette connexion est établie dans le contexte du **système** de l’ordinateur sur lequel le rôle de système de site est installé et ne peut pas utiliser une configuration du proxy pour les comptes d’utilisateurs standard. Quand un serveur proxy est requis pour établir une connexion à Internet, vous devez configurer l’ordinateur pour utiliser un serveur proxy :  
@@ -146,10 +148,10 @@ Les rôles système de site pouvant utiliser un serveur proxy sont les suivants 
 
  Pour plus d’informations sur les serveurs proxy associés aux points de mise à jour logicielle, consultez la section Paramètres du serveur proxy de la rubrique [Installer un point de mise à jour logicielle](../../../sum/get-started/install-a-software-update-point.md).  
 
--   **Point de connexion de service** : quand ce rôle de système de site est configuré pour être en ligne (et non hors connexion), il se connecte à Microsoft Intune et au service cloud Microsoft.  
+-   **Point de connexion de service** : quand ce rôle de système de site est configuré pour être en ligne (et non hors connexion), il se connecte à Microsoft Intune et au service cloud Microsoft.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

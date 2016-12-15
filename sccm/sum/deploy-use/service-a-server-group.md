@@ -1,11 +1,11 @@
 ---
-title: "Maintenance d’un groupe de serveurs | Configuration Manager"
+title: "Maintenance d’un groupe de serveurs | Documents Microsoft"
 description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -13,16 +13,16 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: da7a5f1d075eb1fcd7c56b713401bb0f985fa487
+ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
+ms.openlocfilehash: b89cec7cebb5342da32ec8e11a049edad12f1231
 
 
 ---
 # <a name="service-a-server-group"></a>Maintenance de groupe de serveurs
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-À partir de System Center Configuration Manager version 1606, vous pouvez configurer les paramètres de groupe de serveurs pour un regroupement, afin de définir le nombre, le pourcentage ou l’ordre des ordinateurs du regroupement qui installeront les mises à jour logicielles. Vous pouvez également configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.
+À partir de System Center Configuration Manager version 1606, vous pouvez configurer les paramètres de groupe de serveurs pour un regroupement, afin de définir le nombre, le pourcentage ou l’ordre des ordinateurs du regroupement qui installeront les mises à jour logicielles. Vous pouvez également configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.
 
 Lorsque vous déployez des mises à jour logicielles dans un regroupement dont les paramètres de groupe de serveurs sont configurés, Configuration Manager détermine le nombre d’ordinateurs du regroupement qui peuvent installer les mises à jour logicielles à un moment donné quelconque et met à disposition le même nombre de verrous de déploiement. Seuls les ordinateurs qui obtiennent un verrou de déploiement commenceront l’installation des mises à jour logicielles. Lorsqu’un verrou de déploiement est disponible, un ordinateur obtient le verrou de déploiement, installe les mises à jour logicielles, puis libère le verrou de déploiement lorsque l’installation des mises à jour logicielles se termine correctement. Ensuite, le verrou de déploiement devient disponible pour d’autres ordinateurs. Si un ordinateur ne parvient pas à libérer un verrou de déploiement, vous pouvez libérer manuellement tous les verrous de déploiement de groupe de serveurs pour le regroupement.
 
@@ -30,25 +30,28 @@ Lorsque vous déployez des mises à jour logicielles dans un regroupement dont l
 >Tous les ordinateurs du regroupement doivent être affectés au même site.
 
 #### <a name="to-create-a-collection-for-a-server-group"></a>Pour créer un regroupement pour un groupe de serveurs  
-Les paramètres du groupe de serveurs sont configurés dans les propriétés d’un regroupement d’appareils. Pour effectuer la maintenance d’un groupe de serveurs, tous les membres du regroupement doivent être affectés au même site. Utilisez les étapes suivantes pour créer un regroupement et configurer les paramètres du groupe de serveurs :
+Les paramètres du groupe de serveurs sont configurés dans les propriétés d’un regroupement d’appareils. Pour effectuer la maintenance d’un groupe de serveurs, tous les membres du regroupement doivent être affectés au même site. Utilisez les étapes suivantes pour créer un regroupement et configurer les paramètres du groupe de serveurs :
 1.  [Créez un regroupement d’appareils](../../core/clients/manage/collections/create-collections.md) contenant les ordinateurs du groupe de serveurs.  
 
 2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, cliquez avec le bouton droit sur le regroupement qui contient les ordinateurs du groupe de serveurs, puis cliquez sur **Propriétés**.  
 
 3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même groupe de serveurs**, puis cliquez sur **Paramètres**.  
 
-4.  Dans la page **Paramètres de groupe de serveurs**, spécifiez l’un des paramètres suivants :  
+4.  Dans la page **Paramètres de groupe de serveurs**, spécifiez l’un des paramètres suivants :  
 
-    -   **Autorisez un pourcentage des machines à être mises à jour en même temps** : Spécifie que seul un certain pourcentage de clients sont mis à jour à un moment quelconque. Si, par exemple, le regroupement compte 10 clients, et qu’il est configuré pour mettre à jour 30 % des clients en même temps, seuls 3 clients installeront les mises à jour logicielles à un moment donné quelconque.  
+    -   **Autorisez un pourcentage des machines à être mises à jour en même temps** : Spécifie que seul un certain pourcentage de clients sont mis à jour à un moment quelconque. Si, par exemple, le regroupement compte 10 clients, et qu’il est configuré pour mettre à jour 30 % des clients en même temps, seuls 3 clients installeront les mises à jour logicielles à un moment donné quelconque.  
 
-    -   **Autorisez un nombre de machines à être mises à jour en même temps** : Spécifie que seul un certain nombre de clients sont mis à jour à un moment quelconque.  
+    -   **Autorisez un nombre de machines à être mises à jour en même temps** : Spécifie que seul un certain nombre de clients sont mis à jour à un moment quelconque.  
 
-    -   **Spécifier la séquence de maintenance** : Spécifie que les clients du regroupement seront mis à jour l’un après l’autre, dans l’ordre que vous configurez. Un client installe les mises à jour logicielles après seulement que le client qui le précède dans la liste a terminé l’installation de ses mises à jour logicielles.  
+    -   **Spécifier la séquence de maintenance** : Spécifie que les clients du regroupement seront mis à jour l’un après l’autre, dans l’ordre que vous configurez. Un client installe les mises à jour logicielles après seulement que le client qui le précède dans la liste a terminé l’installation de ses mises à jour logicielles.  
 
 5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
 
+    > [!WARNING]
+    > Les scripts personnalisés ne sont pas signés par Microsoft. Il vous incombe de préserver l’intégrité de ces scripts.
+
     > [!TIP]  
-    >Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
+    > Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
     >   
     >  **Prédéploiement**  
     >   
@@ -85,6 +88,6 @@ Quand un ordinateur ne parvient pas à libérer un verrou de déploiement, vous 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
