@@ -132,6 +132,6 @@ Dans cette rubrique, vous allez apprendre à utiliser des versions d’applicati
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

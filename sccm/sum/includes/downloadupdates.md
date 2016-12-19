@@ -7,7 +7,7 @@
     -   Sélectionnez une ou plusieurs mises à jour logicielles à partir de **Toutes les mises à jour logicielles**, puis, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Télécharger**.  
 
         > [!NOTE]  
-        >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
+        >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
         > [!TIP]  
         >  Cliquez sur **Ajouter des critères** pour filtrer les mises à jour logicielles qui sont affichées dans le nœud **Toutes les mises à jour logicielles** , enregistrez les critères de recherche que vous utilisez fréquemment, puis gérez les recherches enregistrées sur l'onglet **Rechercher** .  
@@ -45,7 +45,7 @@
     > [!NOTE]  
     >  La page Points de distribution est disponible uniquement lorsque vous créez un package de déploiement de mises à jour logicielles.  
 
-6.  Dans la page **Paramètres de distribution**, spécifiez les paramètres suivants :  
+6.  Dans la page **Paramètres de distribution**, spécifiez les paramètres suivants :  
 
     -   **Priorité de distribution**: utilisez ce paramètre pour spécifier la priorité de distribution pour le package de déploiement. La priorité de distribution s'applique lorsque le package de déploiement est envoyé aux points de distribution sur les sites enfants. Les packages de déploiement sont envoyés par ordre de priorité : **Haute**, **Moyenne**ou **Faible**. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité. Par défaut, les packages sont transmis avec la priorité **Moyenne** .  
 
@@ -81,6 +81,6 @@
 9. Dans la page **Dernière étape**, vérifiez que les mises à jour logicielles ont été téléchargées avec succès, puis cliquez sur **Fermer**.  
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

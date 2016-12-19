@@ -67,6 +67,6 @@ Voici quelques exemples d’utilisation de regroupements :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

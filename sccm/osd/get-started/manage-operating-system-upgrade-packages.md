@@ -95,6 +95,6 @@ Dans System Center Configuration Manager, un package de mise à niveau contient 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -209,6 +209,6 @@ Les utilisateurs ayant des PC gérés par Configuration Manager et exécutant Wi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

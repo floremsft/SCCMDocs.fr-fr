@@ -90,6 +90,6 @@ Vous avez besoin d’un point de connecteur de passerelle de gestion cloud si vo
  
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

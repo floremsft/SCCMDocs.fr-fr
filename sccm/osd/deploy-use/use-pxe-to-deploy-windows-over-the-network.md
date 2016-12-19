@@ -107,6 +107,6 @@ Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une imag
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

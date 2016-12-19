@@ -167,6 +167,6 @@ La configuration suivante pour le Transfert intelligent en arrière-plan n'est p
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

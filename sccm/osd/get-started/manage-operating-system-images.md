@@ -142,6 +142,6 @@ Pour en savoir plus sur les étapes de création d’une image de système d’e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -209,6 +209,6 @@ Pour Windows Vista, Windows 7 et Windows 8, les journaux du client App-V sont 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

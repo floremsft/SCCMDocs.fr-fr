@@ -1,15 +1,14 @@
-# [Comprendre et explorer](understand/software-updates-introduction.md)
-
+# Comprendre et explorer
 ## [Présentation des mises à jour logicielles](understand/software-updates-introduction.md)
 ## [Icônes utilisées pour les mises à jour logicielles](understand/software-updates-icons.md)
 
-# [Planifier et concevoir](plan-design/plan-for-software-updates.md)
+# Planifier et concevoir
 ## [Planifier les mises à jour logicielles](plan-design/plan-for-software-updates.md)
 ## [Prérequis pour les mises à jour logicielles](plan-design/prerequisites-for-software-updates.md)
 ## [Sécurité et confidentialité pour les mises à jour logicielles](plan-design/security-and-privacy-for-software-updates.md)
 
-# [Prise en main](get-started/prepare-for-software-updates-management.md)
-## [Préparation à la gestion des mises à jour logicielles](get-started/prepare-for-software-updates-management.md)
+# Prise en main
+## [Préparer la gestion des mises à jour logicielles](get-started/prepare-for-software-updates-management.md)
 ## [Installer un point de mise à jour logicielle](get-started/install-a-software-update-point.md)
 ## [Synchroniser les mises à jour logicielles](get-started/synchronize-software-updates.md)
 ## [Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté](get-started/synchronize-software-updates-disconnected.md)
@@ -17,7 +16,7 @@
 ## [Gérer les paramètres des mises à jour logicielles](get-started/manage-settings-for-software-updates.md)
 ## [Supprimer un point de mise à jour logicielle](get-started/remove-a-software-update-point.md)
 
-# [Déployer et utiliser](deploy-use/deploy-software-updates.md)
+# Déployer et utiliser
 ## [Télécharger les mises à jour logicielles](deploy-use/download-software-updates.md)
 
 ## [Ajouter des mises à jour logicielles à un groupe de mises à jour](deploy-use/add-software-updates-to-an-update-group.md)
@@ -28,11 +27,11 @@
 ## [Surveiller les mises à jour logicielles](deploy-use/monitor-software-updates.md)
 ## [Maintenance des mises à jour logicielles](deploy-use/software-updates-maintenance.md)
 ## [Assurer la maintenance d’un groupe de serveurs](deploy-use/service-a-server-group.md)
-## [Gérer les mises à jour Office 365 ProPlus](deploy-use/manage-office-365-proplus-updates.md)
-## [Intégration à Windows Update for Business dans Windows 10](deploy-use/integrate-windows-update-for-business-windows-10.md)
+## [Gérer les mises à jour Office 365 ProPlus](deploy-use/manage-office-365-proplus-updates.md)
+## [Intégration à Windows Update for Business dans Windows 10](deploy-use/integrate-windows-update-for-business-windows-10.md)
 ## [Exemple de scénario de déploiement de mises à jour de sécurité](deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md)
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

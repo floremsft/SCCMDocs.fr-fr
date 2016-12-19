@@ -45,6 +45,6 @@ Gardez à l’esprit les considérations suivantes quand vous créez et déploye
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -58,6 +58,6 @@ Utilisez l’inventaire matériel dans System Center Configuration Manager pour 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -85,6 +85,6 @@ Le schéma ci-dessous montre comment créer et appliquer des paramètres client 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
