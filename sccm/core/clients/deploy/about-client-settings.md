@@ -1,8 +1,8 @@
 ---
-title: "Paramètres client | System Center Configuration Manager"
+title: "Paramètres client | Microsoft Docs"
 description: "Sélectionnez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/12/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,96 +13,106 @@ ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 caps.latest.revision: 15
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: cbe052891c55dd0c0d58c6e65d783314b0ec8ce9
+ms.sourcegitcommit: 809c7938968b4a6efce6ef37fe7b7baf2c9dd3e7
+ms.openlocfilehash: 1615c183c440b44084651d52bfc50be2d65c2e11
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Tous les paramètres client dans System Center Configuration Manager se gèrent dans la console Configuration Manager à partir du nœud **Paramètres client** de l’espace de travail **Administration**. Un ensemble de paramètres par défaut est fourni avec Configuration Manager. Lorsque vous modifiez les paramètres client par défaut, ces paramètres sont appliqués à tous les clients de la hiérarchie. Vous pouvez également configurer des paramètres client personnalisés, qui remplacent les paramètres client par défaut lorsque vous les affectez à des regroupements. Pour plus d'informations sur la configuration des paramètres client, voir [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
 
- La plupart des paramètres client sont explicites. Consultez les sections suivantes pour obtenir des informations supplémentaires sur les paramètres client qui pourraient nécessiter des informations avant d'être configurés.  
+ La plupart des paramètres client sont explicites, mais les autres sont décrits ici.  
 
-##  <a name="a-namebkmkbitsa-background-intelligent-transfer"></a><a name="BKMK_BITS"></a> Transfert intelligent en arrière-plan  
+## <a name="background-intelligent-transfer"></a>Transfert intelligent en arrière-plan  
 
 -   **Limiter la bande passante réseau maximale pour les transferts BITS en arrière-plan**  
 
-     Si cette option est configurée sur **Vrai** ou **Oui**, la limitation de bande passante BITS est utilisée par les clients Configuration Manager.  
+   Quand il est défini sur **Vrai** ou sur **Oui**, la limitation de bande passante BITS est utilisée par les clients.  
 
 -   **Heure de début de la fenêtre de limitation**  
 
-     Spécifiez l'heure de début en heure locale de la fenêtre de limitation BITS.  
+   Heure locale de début de la fenêtre de limitation BITS.  
 
 -   **Heure de fin de la fenêtre de limitation**  
 
-     Spécifiez l'heure de fin en heure locale de la fenêtre de limitation BITS. Si cette valeur est identique à la valeur **Heure de début de la fenêtre de limitation**, la limitation BITS est toujours activée.  
+  Heure locale de fin de la fenêtre de limitation BITS. Si elle est égale à l’**Heure de début de la fenêtre de limitation**, la limitation BITS est toujours activée.  
 
 -   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
 
-     Spécifiez le taux de transfert maximal en Kbits/s qui peut être utilisé par les clients Configuration Manager au cours de la fenêtre de limitation BITS spécifiée.  
+   Spécifie le taux de transfert maximal qui peut être utilisé par les clients pendant la durée de la fenêtre.  
 
 -   **Autoriser les téléchargements BITS en dehors de la fenêtre de limitation**  
 
-     Sélectionnez cette option pour autoriser les téléchargements BITS en dehors de la fenêtre de limitation. Cette option permet aux clients Configuration Manager d’utiliser des paramètres BITS distincts en dehors de la fenêtre spécifiée.  
+   Autorise les clients Configuration Manager à utiliser des paramètres BITS distincts en dehors de la fenêtre spécifiée.  
 
 -   **Taux de transfert maximal en dehors de la fenêtre de limitation (Kbit/s)**  
 
-     Spécifiez le taux de transfert maximal en Kbits/s qui est utilisé par les clients Configuration Manager en dehors de la fenêtre de limitation BITS spécifiée. Cette option peut être configurée uniquement lorsque vous avez choisi d'autoriser la limitation BITS en dehors de la fenêtre spécifiée.  
+   Taux de transfert maximal utilisé par les clients en dehors de la fenêtre de limitation BITS quand vous avez choisi d’autoriser la limitation BITS en dehors de la fenêtre.  
 
-##  <a name="a-namebkmkclientpolicydevicesettingsa-client-policy"></a><a name="BKMK_ClientPolicyDeviceSettings"></a> Stratégie du client  
+## <a name="client-cache-settings"></a>Paramètres du cache du client
+
+- **Configurer BranchCache**
+
+  Depuis la version 1606, utilisé pour configurer l’ordinateur client pour [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Pour autoriser la mise en cache BranchCache sur le client, définissez **Activer BranchCache** sur **Oui**. 
+
+- **Configurer la taille du cache du client**
+
+  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Sélectionnez **Oui** pour spécifier la **Taille maximale du cache** (Mo ou pourcentage du disque). S’il est défini sur **Non**, la taille par défaut est de 5 120 Mo.
+
+## <a name="client-policy"></a>Stratégie du client  
 
 -   **Intervalle d'interrogation de stratégie client (minutes)**  
 
-     Spécifiez la fréquence à laquelle les clients Configuration Manager suivants téléchargent la stratégie client :  
+   Spécifiez la fréquence à laquelle les clients Configuration Manager suivants téléchargent la stratégie client :  
 
-    -   Ordinateurs Windows (par exemple, ordinateurs de bureau, serveurs, ordinateurs portables)  
+  -   Ordinateurs Windows (par exemple, ordinateurs de bureau, serveurs, ordinateurs portables)  
 
-    -   Appareils mobiles inscrits par Configuration Manager  
+  -   Appareils mobiles inscrits par Configuration Manager  
 
-    -   Ordinateurs Mac  
+  -   Ordinateurs Mac  
 
-    -   Ordinateurs qui exécutent Linux ou UNIX  
+  -   Ordinateurs qui exécutent Linux ou UNIX  
 
 -   **Activer l'interrogation de la stratégie utilisateur sur les clients**  
 
-     Si vous configurez ce paramètre sur **Vrai** ou **Oui**, et si Configuration Manager a découvert l’utilisateur, les clients Configuration Manager sur les ordinateurs reçoivent des applications et des programmes qui sont ciblés sur l’utilisateur connecté. Pour plus d’informations sur la découverte des utilisateurs, consultez [Découverte d’utilisateurs Active Directory dans Configuration Manager](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser).  
+   Si vous configurez ce paramètre sur **Vrai** ou sur **Oui**, et si Configuration Manager a [découvert l’utilisateur](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), les clients sur les ordinateurs reçoivent les applications et les programmes qui sont ciblés sur l’utilisateur connecté.  
 
-     Étant donné que le catalogue d'applications reçoit la liste des logiciels disponibles pour les utilisateurs à partir du serveur de site, ce paramètre ne doit pas être configuré sur **Vrai** ou **Oui** pour que les utilisateurs voient et demandent des applications à partir du catalogue d'applications. Toutefois, si ce paramètre est défini sur **Faux** ou **Non**, ce qui suit ne fonctionne pas lorsque les utilisateurs utilisent le catalogue d'applications.  
+   Étant donné que le catalogue d'applications reçoit la liste des logiciels disponibles pour les utilisateurs à partir du serveur de site, ce paramètre ne doit pas être configuré sur **Vrai** ou **Oui** pour que les utilisateurs voient et demandent des applications à partir du catalogue d'applications. Toutefois, si ce paramètre est défini sur **Faux** ou **Non**, ce qui suit ne fonctionne pas lorsque les utilisateurs utilisent le catalogue d'applications.  
 
-    -   Les utilisateurs ne peuvent pas installer les applications qu’ils voient dans le catalogue des applications.  
+  -   Les utilisateurs ne peuvent pas installer les applications qu’ils voient dans le catalogue des applications.  
 
-    -   Les utilisateurs ne verront pas les notifications concernant leurs demandes d'approbation d'application. Au lieu de cela, ils doivent actualiser le catalogue d'applications et vérifier l'état d'approbation.  
+  -   Les utilisateurs ne verront pas les notifications concernant leurs demandes d'approbation d'application. Au lieu de cela, ils doivent actualiser le catalogue d'applications et vérifier l'état d'approbation.  
 
-    -   Les utilisateurs ne recevront pas de révisions et de mises à jour pour les applications qui sont publiées dans le catalogue d'applications. Toutefois, ils verront les modifications apportées aux informations de l'application dans le catalogue d'applications.  
+  -   Les utilisateurs ne recevront pas de révisions et de mises à jour pour les applications qui sont publiées dans le catalogue d'applications. Toutefois, ils verront les modifications apportées aux informations de l'application dans le catalogue d'applications.  
 
-    -   Si vous supprimez le déploiement d'une application après que le client a installé l'application en question à partir du catalogue d'applications, les clients continuent à vérifier que l'application est installée pendant une durée qui peut atteindre 2 jours.  
+  -   Si vous supprimez le déploiement d'une application après que le client a installé l'application en question à partir du catalogue d'applications, les clients continuent à vérifier que l'application est installée pendant une durée qui peut atteindre 2 jours.  
 
-     En outre, lorsque ce paramètre est défini sur **Faux** ou **Non**, les utilisateurs ne recevront pas les applications requises que vous déployez sur les utilisateurs ou toute autre opération de gestion contenue dans les stratégies utilisateur.  
+   En outre, lorsque ce paramètre est défini sur **Faux** ou **Non**, les utilisateurs ne recevront pas les applications requises que vous déployez sur les utilisateurs ou toute autre opération de gestion contenue dans les stratégies utilisateur.  
 
-     Ce paramètre s'applique aux utilisateurs lorsque leur ordinateur se trouve sur l'Intranet et Internet ; il doit être configuré sur **Vrai** ou **Oui** si vous souhaitez également activer les stratégies utilisateur sur Internet.  
+   Ce paramètre s'applique aux utilisateurs lorsque leur ordinateur se trouve sur l'Intranet et Internet ; il doit être configuré sur **Vrai** ou **Oui** si vous souhaitez également activer les stratégies utilisateur sur Internet.  
 
 -   **Autoriser les demandes de stratégie utilisateur depuis des clients Internet**  
 
-     Lorsque le client et le site sont configurés pour la gestion de client basée sur Internet et si vous configurez cette option sur **Vrai** ou **Oui** alors que les conditions suivantes s'appliquent, les utilisateurs reçoivent une stratégie utilisateur lorsque leur ordinateur se trouve sur Internet :  
+   Lorsque le client et le site sont configurés pour la gestion de client basée sur Internet et si vous configurez cette option sur **Vrai** ou **Oui** alors que les conditions suivantes s'appliquent, les utilisateurs reçoivent une stratégie utilisateur lorsque leur ordinateur se trouve sur Internet :  
 
-    -   Le paramètre client **Activer la stratégie utilisateur sur les clients** a la valeur **Vrai** ou **Activer la stratégie utilisateur sur les clients** est configuré sur **Oui**.  
+  -   Le paramètre client **Activer la stratégie utilisateur sur les clients** a la valeur **Vrai** ou **Activer la stratégie utilisateur sur les clients** est configuré sur **Oui**.  
 
-    -   Le point de gestion basé sur Internet authentifie correctement l'utilisateur à l'aide de l'authentification Windows (Kerberos ou NTLM).  
+  -   Le point de gestion basé sur Internet authentifie correctement l'utilisateur à l'aide de l'authentification Windows (Kerberos ou NTLM).  
 
-     Si vous laissez cette option configurée sur la valeur **Faux** ou **Non**, ou si l'une des conditions échoue, un ordinateur sur Internet recevra uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre est configuré sur **Faux** ou **Non** mais que **Activer la stratégie utilisateur sur les clients** est configuré sur **Vrai** ou que **Activer la stratégie utilisateur sur les clients** est configuré sur **Oui**, les utilisateurs ne reçoivent pas les stratégies utilisateur tant que l'ordinateur n'est pas connecté à l'intranet.  
+   Si vous laissez cette option configurée sur la valeur **Faux** ou **Non**, ou si l'une des conditions échoue, un ordinateur sur Internet recevra uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre est configuré sur **Faux** ou **Non** mais que **Activer la stratégie utilisateur sur les clients** est configuré sur **Vrai** ou que **Activer la stratégie utilisateur sur les clients** est configuré sur **Oui**, les utilisateurs ne reçoivent pas les stratégies utilisateur tant que l'ordinateur n'est pas connecté à l'intranet.  
 
-     Pour plus d’informations sur la gestion des clients sur Internet, consultez [Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) dans [Communications entre points de terminaison dans System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+   Pour plus d’informations sur la gestion des clients sur Internet, consultez [Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) dans [Communications entre points de terminaison dans System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-    > [!NOTE]  
-    >  Les demandes d'approbation d'application des utilisateurs ne requièrent pas de stratégies utilisateur ou l'authentification utilisateur.  
+  > [!NOTE]  
+  >  Les demandes d'approbation d'application des utilisateurs ne requièrent pas de stratégies utilisateur ou l'authentification utilisateur.  
 
-##  <a name="a-namebkmkcompliancea-compliance-settings"></a><a name="BKMK_Compliance"></a> Compliance Settings  
+##  <a name="compliance-settings"></a>Paramètres de conformité  
 
 -   **Planifier l'évaluation de compatibilité**  
 
@@ -110,29 +120,27 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
 -   **Activer les données et profils utilisateurs**  
 
-     Sélectionnez **Oui** si vous souhaitez déployer des éléments de configuration de profils et données utilisateurs sur les ordinateurs Windows 8 dans votre hiérarchie.  
+     Sélectionnez **Oui** si vous voulez déployer des éléments de configuration de [données et de profils utilisateur](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) sur les ordinateurs Windows 8 de votre hiérarchie.  
 
-     Pour plus d’informations sur les données et profils utilisateur, consultez [Guide pratique pour créer des éléments de configuration de données et profils utilisateur dans System Center Configuration Manager](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md).  
-
-##  <a name="a-namebkmkcomputeragentdevicesettingsa-computer-agent"></a><a name="BKMK_ComputerAgentDeviceSettings"></a> Agent ordinateur  
+## <a name="computer-agent"></a>Agent ordinateur  
 
 -   **Point de site Web du catalogue d'applications par défaut**  
 
      Configuration Manager utilise ce paramètre pour connecter les utilisateurs au catalogue d’applications du Centre logiciel. Vous pouvez spécifier un serveur qui héberge le point de site Web du catalogue d'applications par son nom NetBIOS ou son nom de domaine complet, spécifier la détection automatique ou spécifier une URL pour les déploiements personnalisés. Dans la plupart des cas, la détection automatique est le meilleur choix car elle offre les avantages suivants :  
 
-    -   les clients reçoivent automatiquement un point de site Web du catalogue d'applications à partir de leur site, si leur site contient un point de site Web du catalogue d'applications ;  
+    -   Les clients reçoivent automatiquement un point de site web du catalogue d'applications à partir de leur site, si leur site contient un point de site web du catalogue d'applications.  
 
-    -   la protection contre un serveur non autorisé car les points de site Web du catalogue d'applications sur l'Intranet qui sont configurés pour HTTPS sont préférés aux points de site Web du catalogue d'applications qui ne sont pas configurés pour HTTPS ;  
+    -   Une protection contre un serveur non autorisé car les points de site web du catalogue des applications sur l’intranet qui sont configurés pour HTTPS sont préférés à ceux qui ne le sont pas.  
 
-    -   lorsque les clients sont configurés pour la gestion des clients basés sur l'Intranet et Internet, ils reçoivent un point de site Web du catalogue d'applications basé sur Internet lorsqu'ils se trouvent sur Internet et un point de site Web du catalogue d'applications basé sur l'Intranet lorsqu'ils se trouvent sur l'Intranet.  
+    -   Lorsque les clients sont configurés pour la gestion des clients basés sur l'intranet et Internet, ils reçoivent un point de site web du catalogue d'applications basé sur Internet lorsqu'ils se trouvent sur Internet et un point de site web du catalogue d'applications basé sur l'intranet lorsqu'ils se trouvent sur l'intranet.  
 
      La détection automatique ne garantit pas que les clients recevront un point de site Web du catalogue d'applications qui est le plus proche d'eux. Vous pouvez décider de ne pas utiliser **Détecter automatiquement** pour les raisons suivantes :  
 
-    -   vous voulez configurer manuellement le serveur le plus proche pour les clients ou vous assurer qu'ils ne connectent pas à un serveur via une connexion réseau lente ;  
+    -   Vous voulez configurer manuellement le serveur le plus proche pour les clients ou vous assurer qu'ils ne connectent pas à un serveur via une connexion réseau lente.  
 
-    -   vous souhaitez contrôler quels clients se connectent à quel serveur, pour des raisons professionnelles ou de performances ou à des fins de tests ;  
+    -   Vous souhaitez contrôler quels clients se connectent à quel serveur, pour des raisons professionnelles ou de performances ou à des fins de tests.  
 
-    -   vous ne souhaitez pas patienter jusqu'à 25 heures ou attendre une modification du réseau pour que les clients soient configurés avec un autre point de site Web du catalogue d'applications.  
+    -   Vous ne souhaitez pas patienter jusqu'à 25 heures ou attendre une modification du réseau pour que les clients soient configurés avec un autre point de site web du catalogue d'applications.  
 
      Si vous spécifiez le point de site Web du catalogue d'applications au lieu d'utiliser la détection automatique, spécifiez le nom NetBIOS plutôt que le nom de domaine complet Intranet pour éviter que les informations d'identification soient demandées aux utilisateurs lorsqu'ils se connectent au catalogue d'applications sur l'Intranet. Pour utiliser le nom NetBIOS, les conditions suivantes doivent s'appliquer :  
 
@@ -147,7 +155,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
     > [!NOTE]  
     >  Fonctionnement de la détection automatique :  
     >   
-    >  le client effectue une demande d'emplacement de service à un point de gestion. S'il existe un point de site Web du catalogue d'applications dans le même site que le client, ce serveur est donné au client en tant que le serveur du catalogue d'applications à utiliser. Lorsqu'il existe plusieurs points de site Web du catalogue d'applications disponibles dans le site, un serveur HTTPS est prioritaire sur un serveur qui n'est pas activé pour le protocole HTTPS. Après ce filtrage, tous les clients reçoivent l’un des serveurs à utiliser comme catalogue d’applications ; Configuration Manager n’équilibre pas la charge entre plusieurs serveurs. Lorsque le site du client ne contient pas de point de site Web du catalogue d'applications, le point de gestion renvoie de manière non déterministique un point de site Web du catalogue d'applications à partir de la hiérarchie.  
+    >  le client effectue une demande d'emplacement de service à un point de gestion. S'il existe un point de site Web du catalogue d'applications dans le même site que le client, ce serveur est donné au client en tant que le serveur du catalogue d'applications à utiliser. Lorsqu'il existe plusieurs points de site Web du catalogue d'applications disponibles dans le site, un serveur HTTPS est prioritaire sur un serveur qui n'est pas activé pour le protocole HTTPS. Après ce filtrage, tous les clients reçoivent l’un des serveurs à utiliser comme catalogue d’applications ; Configuration Manager n’équilibre pas la charge entre plusieurs serveurs. Lorsque le site du client ne contient pas de point de site Web du catalogue d'applications, le point de gestion renvoie de manière non déterministique un point de site Web du catalogue d'applications à partir de la hiérarchie.  
     >   
     >  Lorsque le client se trouve sur l'Intranet, si le point de site Web du catalogue d'applications sélectionné est configuré avec un nom NetBIOS pour l'URL du catalogue d'applications, les clients reçoivent ce nom NetBIOS plutôt que le nom de domaine complet Intranet. Lorsque le client est détecté sur Internet, seul le nom de domaine complet Internet est donné au client.  
     >   
@@ -172,7 +180,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Si vous modifiez ce paramètre, il prend effet au prochain chargement du navigateur par les utilisateurs ou lorsqu'ils actualisent la fenêtre du navigateur actuellement ouverte.  
 
-     Pour plus d’informations sur ce paramètre, consultez [Certificats pour Microsoft Silverlight 5 et mode de confiance élevée requis pour le catalogue d’applications](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) dans [Sécurité et confidentialité pour la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+     Pour plus d’informations sur ce paramètre, consultez [Certificats pour Microsoft Silverlight 5 et mode de confiance élevée requis pour le catalogue d’applications](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) dans [Sécurité et confidentialité pour la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
 
 -   **Nom d'organisation affiché dans le Centre logiciel**  
 
@@ -205,9 +213,9 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Si l'entrée du code confidentiel BitLocker est configurée sur les ordinateurs, cette option peut contourner la nécessité d'entrer un code confidentiel lorsque l'ordinateur redémarre après l'installation d'un logiciel.  
 
-    -   **Toujours** : Configuration Manager suspend temporairement l’obligation de BitLocker d’entrer un code confidentiel au prochain démarrage de l’ordinateur après l’installation d’un logiciel nécessitant un redémarrage de l’ordinateur. Ce paramètre s’applique uniquement aux redémarrages d’ordinateur lancés par Configuration Manager et il ne suspend pas l’obligation de saisir le code confidentiel BitLocker lorsque l’utilisateur redémarre l’ordinateur. L'obligation de saisir un code confidentiel BitLocker reprend après le démarrage de Windows.  
+    -   **Toujours** : Configuration Manager suspend temporairement l’obligation de BitLocker d’entrer un code confidentiel au prochain démarrage de l’ordinateur après l’installation d’un logiciel nécessitant un redémarrage de l’ordinateur. Ce paramètre s’applique uniquement aux redémarrages d’ordinateur lancés par Configuration Manager et il ne suspend pas l’obligation de saisir le code confidentiel BitLocker lorsque l’utilisateur redémarre l’ordinateur. L'obligation de saisir un code confidentiel BitLocker reprend après le démarrage de Windows.  
 
-    -   **Jamais** : Configuration Manager ne suspend pas l’obligation de BitLocker de saisir un code confidentiel au prochain démarrage de l’ordinateur après avoir installé un logiciel qui nécessite un redémarrage. Dans ce cas, l'installation du logiciel ne peut être finalisée que lorsque l'utilisateur entre le code confidentiel pour terminer le processus de démarrage standard et charger Windows.  
+    -   **Jamais** : Configuration Manager ne suspend pas l’obligation de BitLocker de saisir un code confidentiel au prochain démarrage de l’ordinateur après avoir installé un logiciel qui nécessite un redémarrage. Dans ce cas, l'installation du logiciel ne peut être finalisée que lorsque l'utilisateur entre le code confidentiel pour terminer le processus de démarrage standard et charger Windows.  
 
 -   **D’autres logiciels gèrent le déploiement d’applications et de mises à jour logicielles**  
 
@@ -224,16 +232,16 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Configurez la façon dont les clients Configuration Manager peuvent exécuter des scripts Windows PowerShell. Ces scripts sont souvent utilisés pour la détection dans les éléments de configuration de paramètres de conformité, mais ils peuvent également être envoyés dans un déploiement sous la forme d'un script standard.  
 
-    -   **Ignorer** : le client Configuration Manager ignore la configuration Windows PowerShell sur l’ordinateur client afin que les scripts non signés puissent s’exécuter.  
+    -   **Ignorer** : le client Configuration Manager ignore la configuration Windows PowerShell sur l’ordinateur client afin que les scripts non signés puissent s’exécuter.  
 
-    -   **Restreint** : le client Configuration Manager utilise la configuration Windows PowerShell actuelle sur l’ordinateur client, qui détermine si les scripts non signés peuvent s’exécuter.  
+    -   **Restreint** : le client Configuration Manager utilise la configuration Windows PowerShell actuelle sur l’ordinateur client, qui détermine si les scripts non signés peuvent s’exécuter.  
 
-    -   **Toutes signées** : le client Configuration Manager exécute les scripts uniquement s’ils sont signés par un éditeur approuvé. Cette restriction s'applique indépendamment de la configuration Windows PowerShell actuelle sur l'ordinateur client.  
+    -   **Toutes signées** : le client Configuration Manager exécute les scripts uniquement s’ils sont signés par un éditeur approuvé. Cette restriction s'applique indépendamment de la configuration Windows PowerShell actuelle sur l'ordinateur client.  
 
      Cette option requiert au minimum la version 2.0 de Windows PowerShell et la valeur par défaut est **Toutes signées**.  
 
     > [!TIP]  
-    >  Si les scripts non signés ne parviennent pas à s’exécuter en raison de ce paramètre client, Configuration Manager signale cette erreur ainsi :  
+    >  Si les scripts non signés ne parviennent pas à s’exécuter en raison de ce paramètre client, Configuration Manager signale cette erreur ainsi :  
     >   
     >  -   ID de l’erreur **0X87D00327** et description **Le script n’est pas signé** en tant qu’erreur d’état de déploiement dans l’espace de travail **Surveillance** de la console Configuration Manager.  
     > -   Codes d'erreur et descriptions **0X87D00327** et **Le script n'est pas signé** ou **0X87D00320** et **L'environnement d'exécution de scripts n'a pas encore été installé** avec le type d'erreur **Erreur de découverte** dans les rapports, notamment **Détails des erreurs des éléments de configuration dans la ligne de base de configuration d'un composant**.  
@@ -247,12 +255,17 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Si les mises à jour logicielles nécessaires doivent être installées sans délai lorsque la date limite configurée est atteinte, sélectionnez **Oui** pour ce paramètre.  
 
-##  <a name="a-namebkmkcomputerrestartdevicesettingsa-computer-restart"></a><a name="BKMK_ComputerRestartDeviceSettings"></a> Redémarrage de l'ordinateur  
+-   **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** 
+    
+     Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+    Vous pouvez définir une période de grâce comprise entre 1 et 120 heures. Ce paramètre est utilisé conjointement avec la propriété de déploiement **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur**. Pour plus d’informations, consultez [Déployer des applications](/sccm/apps/deploy-use/deploy-applications).
+
+##  <a name="computer-restart"></a>Redémarrage de l'ordinateur  
  Lorsque vous spécifiez ces paramètres de redémarrage de l'ordinateur, assurez-vous que la valeur de l'intervalle de notification temporaire du redémarrage et la valeur de l'intervalle du compte à rebours final sont plus courtes que la fenêtre de maintenance la plus courte appliquée à l'ordinateur.  
 
  Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-##  <a name="a-namebkmkendpointprotectiondevicesettingsa-endpoint-protection"></a><a name="BKMK_EndpointProtectionDeviceSettings"></a> Endpoint Protection  
+##  <a name="endpoint-protection"></a>Endpoint Protection  
 
 -   **Gérer le client Endpoint Protection sur les ordinateurs clients**  
 
@@ -290,7 +303,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Sélectionnez **Vrai** ou **Oui** si vous voulez que Configuration Manager installe uniquement la mise à jour de définition initiale sur les ordinateurs clients. Ce paramètre peut s'avérer pratique pour éviter les connexions réseau inutiles et réduire la bande passante réseau pendant l'installation initiale de la mise à jour de définition.  
 
-##  <a name="a-namebkmkhardwareinventorydevicesettingsa-hardware-inventory"></a><a name="BKMK_HardwareInventoryDeviceSettings"></a> Inventaire matériel  
+##  <a name="hardware-inventory"></a>Inventaire matériel  
 
 -   **Taille maximale du fichier MIF personnalisé (Ko)**  
 
@@ -316,14 +329,14 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
     > [!NOTE]  
     >  Ce paramètre est disponible uniquement dans les paramètres client par défaut.  
 
-##  <a name="a-namebkmkmeteredinternetconnetionssettingsa-metered-internet-connections"></a><a name="BKMK_MeteredInternetConnetionsSettings"></a> Connexions Internet facturées à l'usage  
- Vous pouvez gérer la manière dont les ordinateurs clients Windows 8 communiquent avec les sites Configuration Manager quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+##  <a name="metered-internet-connections"></a>Connexions Internet facturées à l'usage  
+ Vous pouvez gérer la manière dont les ordinateurs clients Windows 8 communiquent avec les sites Configuration Manager quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
 
 > [!NOTE]  
 >  Le paramètre client configuré n'est pas appliqué aux ordinateurs clients Windows 8 dans les scénarios suivants :  
 >   
->  -   L’ordinateur se trouve sur une connexion de données itinérante : le client Configuration Manager n’exécute aucune opération nécessitant le transfert de données vers des sites Configuration Manager.  
-> -   Les propriétés de la connexion réseau Windows sont configurées pour une connexion non facturée à l’usage : le client Configuration Manager se comporte comme s’il existait une connexion Internet non facturée à l’usage et transfère donc les données vers les sites Configuration Manager.  
+>  -   L’ordinateur se trouve sur une connexion de données itinérante : le client Configuration Manager n’exécute aucune opération nécessitant le transfert de données vers des sites Configuration Manager.  
+> -   Les propriétés de la connexion réseau Windows sont configurées pour une connexion non facturée à l’usage : le client Configuration Manager se comporte comme s’il existait une connexion Internet non facturée à l’usage et transfère donc les données vers les sites Configuration Manager.  
 
 -   **Communication des clients sur des connexions Internet facturées à l’usage**  
 
@@ -346,9 +359,9 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
          Si la limite de transfert de données est atteinte pour la connexion Internet facturée à l’usage, le client ne tente plus de communiquer avec les sites Configuration Manager.  
 
-    -   **Bloc** : le client Configuration Manager n’essaie pas de communiquer avec les sites Configuration Manager quand il est sur une connexion Internet limitée. Il s'agit de la valeur par défaut.  
+    -   **Bloc** : le client Configuration Manager n’essaie pas de communiquer avec les sites Configuration Manager quand il est sur une connexion Internet limitée. Il s'agit de la valeur par défaut.  
 
-##  <a name="a-namebkmkpowmgmtdevicesettingsa-power-management"></a><a name="BKMK_PowMgmtDeviceSettings"></a> Gestion de l'alimentation  
+##  <a name="power-management"></a>Gestion de l'alimentation  
 
 -   **Autoriser les utilisateurs à exclure leur appareil de la gestion de l'alimentation**  
 
@@ -376,7 +389,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
     > [!IMPORTANT]  
     >  Ce numéro doit correspondre au numéro figurant dans les **Propriétés**du site. Si vous modifiez ce numéro en un seul emplacement, sachez qu'il n'est pas actualisé automatiquement à l'autre emplacement.  
 
-##  <a name="a-namebkmkremotetoolsdevicesettingsa-remote-tools"></a><a name="BKMK_RemoteToolsDeviceSettings"></a> Outils de contrôle à distance  
+##  <a name="remote-tools"></a>Outils de contrôle à distance  
 
 -   **Activer le contrôle à distance sur des clients** et **Profils d'exception de pare-feu**  
 
@@ -460,7 +473,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Sélectionnez cette option plus sécurisée si vous souhaitez utiliser l'authentification au niveau du réseau pour établir des connexions Bureau à distance avec les ordinateurs clients qui exécutent Windows Vista ou une version ultérieure. L'authentification au niveau du réseau nécessite au départ moins de ressources d'ordinateur distant, car l'authentification des utilisateurs se termine avant l'établissement de la connexion Bureau à distance. Cette méthode est plus sûre, car elle contribue à protéger l'ordinateur des utilisateurs et logiciels malveillants, et réduit le risque d'attaque par déni de service.  
 
-##  <a name="a-namebkmksoftwaredeploymentdevicesettingsa-software-deployment"></a><a name="BKMK_SoftwareDeploymentDeviceSettings"></a> Déploiement logiciel  
+## <a name="software-deployment"></a>Déploiement logiciel  
 
 -   **Planifier la réévaluation des déploiements**  
 
@@ -471,7 +484,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Vous pouvez également lancer cette action à partir d’un ordinateur client Configuration Manager en sélectionnant l’action **Cycle d’évaluation du déploiement de l’application** sous l’onglet **Actions** de **Configuration Manager** dans le Panneau de configuration.  
 
-##  <a name="a-namebkmksoftinventorydevicesettingsa-software-inventory"></a><a name="BKMK_SoftInventoryDeviceSettings"></a> Inventaire logiciel  
+##  <a name="software-inventory"></a>Inventaire logiciel  
 
 -   **Détails sur le rapport d'inventaire**  
 
@@ -524,7 +537,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
         >   
         >  La valeur **Taille maximale pour tous les fichiers regroupés (Ko) :** dans la boîte de dialogue **Configurer le paramètre client** indique la taille maximale de tous les fichiers regroupés. Lorsque cette taille est atteinte, la collecte de fichiers s'arrête. Tous les fichiers déjà regroupés sont conservés et envoyés au serveur de site.  
 
-        > [!IMPORTANT]  
+        > [!IMPORTANT]
         >  Si vous configurez l'inventaire logiciel pour regrouper un grand nombre de fichiers volumineux, vous risquez d'affecter négativement les performances du serveur de site et du réseau.  
 
          Pour plus d’informations sur l’affichage des fichiers collectés, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
@@ -543,7 +556,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
     -   **Noms inventoriés :** cliquez sur l'icône Nouveau pour ajouter un nouveau nom inventorié qui sera remplacé dans l'inventaire logiciel par le nom sélectionné dans la liste **Nom complet** . Vous pouvez ajouter plusieurs noms qui seront remplacés.  
 
-##  <a name="a-namebkmksoftwareupdatesdevicesettinga-software-updates"></a><a name="BKMK_SoftwareUpdatesDeviceSetting"></a> mises à jour logicielles  
+##  <a name="software-updates"></a>mises à jour logicielles  
 
 -   **Activer les mises à jour logicielles sur les clients**  
 
@@ -559,7 +572,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
      Un calendrier simple est utilisé par défaut et l'analyse de la conformité démarre tous les 7 jours. Vous pouvez choisir de créer un calendrier personnalisé pour spécifier une date et une heure exactes de début, d'utiliser UTC ou l'heure locale et de configurer l'intervalle de récurrence d'un jour spécifique de la semaine.  
 
     > [!NOTE]  
-    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
+    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
 
     > [!WARNING]  
     >  L'heure de début réelle sur les ordinateurs clients est l'heure de début plus une durée aléatoire de deux heures maximum. Ceci évite que les ordinateurs clients lancent l'analyse et se connectent à Windows Server Update Services (WSUS) sur le serveur du point de mise à jour logicielle actif en même temps.  
@@ -569,7 +582,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
      Utilisez ce paramètre pour configurer la fréquence à laquelle l’agent client des mises à jour logicielles réévalue les mises à jour logicielles pour en déterminer l’état de l’installation sur les ordinateurs clients Configuration Manager. Si des mises à jour ayant été préalablement installées ne se trouvent plus sur les ordinateurs clients mais sont toujours requises, elles sont réinstallées. Le calendrier de réévaluation du déploiement doit être réglé conformément à la stratégie de l'entreprise en matière de conformité des mises à jour logicielles, que les utilisateurs aient la possibilité ou non de désinstaller des mises à jour logicielles, etc., et en tenant compte du fait que chaque cycle de réévaluation du déploiement entraîne une activité du réseau et des processeurs des ordinateurs clients. Un calendrier simple est utilisé par défaut et l'analyse de la réévaluation du déploiement démarre tous les 7 jours.  
 
     > [!NOTE]  
-    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
+    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
 
 -   **Dès que l'échéance d'un déploiement de mise à jour logicielle est atteinte, installer tous les autres déploiements de mise à jour logicielle avec une échéance pendant une période de temps spécifiée**  
 
@@ -581,7 +594,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Utilisez ce paramètre pour spécifier le laps de temps pour le paramètre précédent. Vous pouvez entrer une valeur comprise entre 1 et 23 heures et entre 1 et 365 jours. Par défaut, ce paramètre est configuré pour 7 jours.  
 
-##  <a name="a-namebkmkuserdeviceaffinitydevicesettingsa-user-and-device-affinity"></a><a name="BKMK_UserDeviceAffinityDeviceSettings"></a> Affinité entre utilisateur et appareil  
+##  <a name="user-and-device-affinity"></a>Affinité entre utilisateur et appareil  
 
 -   **Seuil d'utilisation de l'affinité entre utilisateur et appareil (minutes)**  
 
@@ -598,23 +611,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
      Sélectionnez **Vrai** ou **Oui** pour permettre à Configuration Manager de créer automatiquement des affinités entre appareil et utilisateur à partir des données d’utilisation recueillies.  
 
-## <a name="client-cache-settings"></a>Paramètres du cache du client
-
-- **Configurer la taille du cache du client**
-
-  Le dossier du cache du client permet de stocker les fichiers temporaires utilisés pour installer des applications et des programmes sur les ordinateurs Windows. À compter de la version 1606, sélectionnez **Oui** pour spécifier la taille du dossier du cache du client en utilisant les paramètres **Taille maximale du cache**. Si la valeur est **Non**, la taille du dossier du cache du client s’élève par défaut à 5 120 Mo.
-
-  D’autres propriétés du cache du client peuvent être définies pendant l’installation du client. Pour plus d'informations, voir [Configure the Client Cache for Configuration Manager Clients](../../../core/clients/manage/manage-clients.md#BKMK_ClientCache).
-
-- **Taille maximale du cache (Mo)**
-
-  À compter de la version 1606, spécifiez la taille maximale du dossier du cache du client en mégaoctets.
-
-- **Taille maximale du cache (pourcentage du disque)** (à partir de la version 1606)
-
-  À compter de la version 1606, spécifiez la taille maximale du dossier du cache du client en pourcentage de la taille du disque.
-
-##  <a name="a-namebkmkmobiledevicesusersettingsa-mobile-devices"></a><a name="BKMK_MobileDevicesUserSettings"></a> Appareils mobiles  
+##  <a name="mobile-devices"></a>Appareils mobiles  
 
 -   **Profil d'inscription d'appareil mobile**  
 
@@ -623,7 +620,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
     > [!IMPORTANT]  
     >  Assurez-vous d'avoir configuré un modèle de certificat à utiliser pour l'inscription d'appareils mobiles avant de pouvoir configurer cette option.  
 
-##  <a name="a-namebkmkenrollmentusersettingsa-enrollment"></a><a name="BKMK_EnrollmentUserSettings"></a> Inscription  
+##  <a name="enrollment"></a>Inscription  
 
 -   **Profil d'inscription d'appareil mobile**  
 
@@ -632,7 +629,7 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
     > [!IMPORTANT]  
     >  Avant de configurer cette option, vous devez voir configuré un modèle de certificat à utiliser pour l'inscription de l'appareil mobile ou du certificat de client Mac.  
 
-##  <a name="a-namebkmkuserdeviceaffinityusersettingsa-user-and-device-affinity"></a><a name="BKMK_UserDeviceAffinityUserSettings"></a> Affinité entre utilisateur et appareil  
+## <a name="user-and-device-affinity"></a>Affinité entre utilisateur et appareil  
 
 -   **Autoriser les utilisateurs à définir leurs appareils principaux**  
 
@@ -640,6 +637,6 @@ Tous les paramètres client dans System Center Configuration Manager se gèrent 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

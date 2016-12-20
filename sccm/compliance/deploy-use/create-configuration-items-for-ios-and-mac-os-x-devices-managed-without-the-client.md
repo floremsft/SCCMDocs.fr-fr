@@ -1,8 +1,8 @@
 ---
-title: "Créer des éléments de configuration pour les appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager | System Center Configuration Manager"
+title: "Créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager | Microsoft Docs"
 description: "L’élément de configuration System Center Configuration Manager iOS et Mac OS X permet de gérer les paramètres des appareils iOS et Mac OS X."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/14/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 34fb20b0d793d4b508d4cfc3b45c76a407ff4299
+ms.sourcegitcommit: d023df79e0bcb7d5583224802976a5059c4ee753
+ms.openlocfilehash: ea4024aaa07d40781663725127d64388055c6501
 
 
 ---
 # <a name="create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-system-center-configuration-manager-client"></a>Créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez l’élément de configuration System Center Configuration Manager **iOS et Mac OS X** pour gérer les paramètres des appareils iOS et Mac OS X qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
 
@@ -49,17 +49,17 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 
 9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
 
-10. Pour chaque groupe de paramètres, vous pouvez aussi spécifier la gravité signalée dans les rapports Configuration Manager quand un élément de configuration est évalué comme non conforme :  
+10. Pour chaque groupe de paramètres, vous pouvez aussi spécifier la gravité signalée dans les rapports Configuration Manager quand un élément de configuration est évalué comme non conforme :  
 
-    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
+    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
 
-    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
+    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
 
-    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
+    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
 
-    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
+    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
 
-    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
+    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
 
 11. Dans la page **Condition d’application de la plateforme**, passez en revue tous les paramètres qui ne sont pas conformes avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
 
@@ -80,11 +80,14 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 |**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
 |**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
 |**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.<br>(iOS uniquement)|  
-|**Complexité du mot de passe**|Indiquez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|  
+|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.<br>(iOS uniquement)| 
+|**Durée d’inactivité avant le verrouillage de l’appareil**|Spécifie le nombre de minutes d’inactivité avant que l’appareil soit automatiquement verrouillé.|
+|**Complexité du mot de passe**|Indiquez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|
+|**Autoriser les mots de passe simples**|Spécifie que des mots de passe simples comme « 0000 » et « 1234 » peuvent être utilisés.|
+|**Empreinte digitale pour le déverrouillage**|Autorise l’utilisation d’une empreinte digitale pour déverrouiller l’appareil.|
 
 ###  <a name="device"></a>Appareil  
- Ces paramètres s’appliquent aux appareils iOS et Mac OS X.  
+ Ces paramètres s’appliquent aux appareils iOS et Mac OS X.  
 
 |Nom du paramètre|Détails|  
 |------------------|-------------|  
@@ -112,7 +115,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 
 |Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Navigateur par défaut**|L'utilisateur peut modifier le navigateur Internet par défaut.|  
+|**Autoriser le navigateur web**|L’utilisateur peut utiliser le navigateur web par défaut de l’appareil.|  
 |**Remplissage automatique**|L'utilisateur peut modifier les paramètres de saisie semi-automatique dans le navigateur.|  
 |**Active scripting**|Le navigateur peut exécuter des scripts, tels que les scripts ActiveX.|  
 |**Bloqueur de fenêtres publicitaires**|Active ou désactive le bloqueur de fenêtres publicitaires du navigateur.|  
@@ -168,8 +171,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 |**Autoriser le verrou d’activation (mode supervisé uniquement)**|Utilisez ce paramètre pour activer le verrou d’activation iOS sur les appareils iOS **supervisés** que vous gérez. Pour plus d’informations sur le verrou d’activation, consultez [Gérer le verrou d’activation iOS](../../mdm/deploy-use/manage-ios-activation-lock.md).
 |**Centre de contrôle sur l’écran de verrouillage**|Détermine si l'application de centre de contrôle est accessible lorsque l'appareil est verrouillé.|  
 |**Affichage des notifications sur l’écran de verrouillage**|Détermine si les notifications peuvent s'afficher lorsque l'appareil est verrouillé.|  
-|**Affichage journée sur l’écran de verrouillage**|Détermine si la vue Aujourd'hui peut s'afficher lorsque l'appareil est verrouillé.|  
-|**Empreinte digitale pour le déverrouillage**|Autorisez l'utilisation du capteur d'empreintes digitales pour déverrouiller l'appareil.|  
+|**Affichage journée sur l’écran de verrouillage**|Détermine si la vue Aujourd'hui peut s'afficher lorsque l'appareil est verrouillé.|   
 
 ###  <a name="data-protection"></a>Protection des données  
  Ces paramètres s'appliquent aux appareils iOS uniquement.  
@@ -247,7 +249,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 
     -   **Importer** - Importe une liste d’applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format, le nom de l’application, l’éditeur et l’ID d’offre groupée dans le fichier.  
 
-2.  Lorsque vous avez terminé, cliquez sur **Suivant**.  
+2.  Lorsque vous avez terminé, cliquez sur **Suivant**. Les éléments de configuration contenant des paramètres d’application conformes et non conformes doivent être déployés sur des regroupements d’utilisateurs.
 
  Vous pouvez utiliser l’un des rapports suivants pour surveiller les applications conformes et non conformes :  
 
@@ -282,15 +284,15 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
         > [!NOTE]  
         >  Quand un appareil Mac OS X est en mode veille, il n’est pas possible de remettre ou d’inventorier les stratégies et les profils. La console Configuration Manager peut donc afficher temporairement l’état Paramètres de stratégie erronés jusqu’à ce que l’appareil sorte du mode veille.  
 
-        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
 
         -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
 
-        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
 
-        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
 
-        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
 
 ## <a name="how-to-create-a-configuration-profile-file"></a>Création d’un fichier de profil de configuration  
  Vous pouvez créer le fichier de profil de configuration utilisé par la stratégie personnalisée de deux manières :  
@@ -354,20 +356,20 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 
     -   **Résoudre les paramètres non compatibles** - Sélectionnez si vous souhaitez corriger les paramètres de configuration non conformes (si cela est pris en charge).  
 
-    -   **Gravité de non-compatibilité pour les rapports** - Spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette stratégie de conformité est évaluée comme non conforme. Les degrés de gravité disponibles sont les suivants :  
+    -   **Gravité de non-compatibilité pour les rapports** - Spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette stratégie de conformité est évaluée comme non conforme. Les degrés de gravité disponibles sont les suivants :  
 
-        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
+        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
 
-        -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
+        -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
 
-        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
+        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
 
-        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
+        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
 
-        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
+        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

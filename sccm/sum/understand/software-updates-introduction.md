@@ -1,6 +1,6 @@
 ---
 
-title: "Présentation des mises à jour logicielles | Configuration Manager"
+title: "Introduction aux mises à jour logicielles | Microsoft Docs"
 description: "Découvrez les principes de base des mises à jour logicielles dans System Center Configuration Manager."
 keywords: 
 author: dougeby
@@ -14,25 +14,25 @@ ms.technology:
 - configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e41f91b9f796cb6a1a8eb2a500c7f615e07d60ac
+ms.sourcegitcommit: d8cace9edd58e8fa438dbb43e54e57cd0dc55d2b
+ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
 
 
 
 ---
 # <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Présentation des mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les mises à jour logicielles dans System Center Configuration Manager offrent un ensemble d’outils et de ressources qui peuvent faciliter la gestion de la tâche complexe que représentent le suivi et l’application des mises à jour logicielles sur les ordinateurs clients de l’entreprise. Il est essentiel de disposer d'un processus de gestion des mises à jour logicielles efficace pour assurer le fonctionnement des opérations, résoudre les problèmes de sécurité et préserver la stabilité de l'infrastructure réseau. Toutefois, la gestion des mises à jour logicielles nécessite une attention constante et continue du fait que les technologies évoluent rapidement et que de nouvelles menaces de sécurité émergent constamment.  
 
 Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez déployer des mises à jour logicielles dans votre environnement, consultez [Exemple de scénario de déploiement de mises à jour logicielles de sécurité](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
 
 ##  <a name="a-namebkmksynchronizationa-software-updates-synchronization"></a><a name="BKMK_Synchronization"></a> Synchronisation des mises à jour logicielles  
- La synchronisation des mises à jour logicielles dans Configuration Manager utilise Microsoft Update pour récupérer les métadonnées des mises à jour logicielles. Le site de niveau supérieur (site d’administration centrale ou site principal autonome) se synchronise avec Microsoft Update selon une planification ou quand vous démarrez manuellement la synchronisation à partir de la console Configuration Manager. Dès lors que Configuration Manager a terminé la synchronisation des mises à jour logicielles sur le site de niveau supérieur, il la démarre sur les sites enfants, le cas échéant. Quand la synchronisation est terminée sur chaque site principal ou secondaire, une stratégie à l'échelle du site est créée, laquelle fournit aux ordinateurs clients l'emplacement des points de mise à jour logicielle.  
+ La synchronisation des mises à jour logicielles dans Configuration Manager se connecte à Microsoft Update pour récupérer les métadonnées des mises à jour logicielles. Le site de niveau supérieur (site d’administration centrale ou site principal autonome) se synchronise avec Microsoft Update selon une planification ou quand vous démarrez manuellement la synchronisation à partir de la console Configuration Manager. Dès lors que Configuration Manager a terminé la synchronisation des mises à jour logicielles sur le site de niveau supérieur, il la démarre sur les sites enfants, le cas échéant. Quand la synchronisation est terminée sur chaque site principal ou secondaire, une stratégie à l'échelle du site est créée, laquelle fournit aux ordinateurs clients l'emplacement des points de mise à jour logicielle.  
 
 > [!NOTE]  
->  Les mises à jour logicielles sont activées par défaut dans les paramètres client. Toutefois, si vous définissez le paramètre client **Activer les mises à jour logicielles sur les clients** sur **Non** pour désactiver les mises à jour logicielles sur un regroupement ou dans les paramètres par défaut, l'emplacement des points de mise à jour logicielle ne sont pas envoyés aux clients associés. Pour plus d’informations, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#BKMK_SoftwareUpdatesDeviceSetting).  
+>  Les mises à jour logicielles sont activées par défaut dans les paramètres client. Toutefois, si vous définissez le paramètre client **Activer les mises à jour logicielles sur les clients** sur **Non** pour désactiver les mises à jour logicielles sur un regroupement ou dans les paramètres par défaut, l'emplacement des points de mise à jour logicielle ne sont pas envoyés aux clients associés. Pour plus d’informations, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
  Une fois que le client a reçu la stratégie, il lance une analyse de la conformité des mises à jour logicielles et écrit les informations dans Windows Management Instrumentation (WMI). Les informations de conformité sont ensuite envoyées au point de gestion qui les transmet alors au serveur de site. Pour plus d'informations sur l'évaluation de la conformité, voir la section [Software updates compliance assessment](#BKMK_SUMCompliance) de cette rubrique.  
 
@@ -86,7 +86,7 @@ Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez dépl
  Avant de déployer des mises à jour logicielles sur des ordinateurs clients dans Configuration Manager, lancez une analyse de conformité des mises à jour logicielles sur ces ordinateurs. Pour chaque mise à jour logicielle, un message indiquant l'état de conformité de la mise à jour est créé. Les messages d'état sont envoyés en bloc vers le point de gestion, puis vers le serveur du site où l'état de conformité est inséré dans la base de données du site. L’état de conformité des mises à jour logicielles s’affiche dans la console Configuration Manager. Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour. Vous trouverez dans les sections suivantes des informations sur les états de conformité, ainsi qu'une description du processus d'analyse de la conformité des mises à jour logicielles.  
 
 ### <a name="software-updates-compliance-states"></a>États de conformité des mises à jour logicielles  
- Vous trouverez ci-dessous une description de chaque état de conformité affiché dans la console Configuration Manager pour les mises à jour logicielles.  
+ Vous trouverez ci-dessous une description de chaque état de conformité affiché dans la console Configuration Manager pour les mises à jour logicielles.  
 
 -   **Obligatoire**  
 
@@ -132,11 +132,11 @@ Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez dépl
 
  En incluant la planification de l'analyse, l'analyse de la conformité des mises à jour logicielles peut être lancée de différentes manières :  
 
--   **Calendrier d’analyse des mises à jour logicielles**: l’analyse de la conformité des mises à jour logicielles commence selon le calendrier d’analyse configuré dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur la configuration des paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#BKMK_SoftwareUpdatesDeviceSetting).  
+-   **Calendrier d’analyse des mises à jour logicielles**: l’analyse de la conformité des mises à jour logicielles commence selon le calendrier d’analyse configuré dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur la configuration des paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
 -   **Action Propriétés de Configuration Manager**: l’utilisateur peut démarrer l’action **Cycle d’analyse des mises à jour de logiciels** ou **Cycle d’évaluation des déploiements de mises à jour de logiciels** sous l’onglet **Action** de la boîte de dialogue **Propriétés du Configuration Manager** sur l’ordinateur client.  
 
--   **Planification de la réévaluation du déploiement**: l’évaluation du déploiement et l’analyse de la conformité des mises à jour logicielles commencent selon le calendrier de réévaluation du déploiement configuré, comme indiqué dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur les paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#BKMK_SoftwareUpdatesDeviceSetting).  
+-   **Planification de la réévaluation du déploiement**: l’évaluation du déploiement et l’analyse de la conformité des mises à jour logicielles commencent selon le calendrier de réévaluation du déploiement configuré, comme indiqué dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur les paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
 -   **Avant de télécharger les fichiers de mises à jour**: quand un ordinateur client reçoit une stratégie d’attribution pour un nouveau déploiement obligatoire, l’Agent client des mises à jour logicielles télécharge les fichiers de mise à jour logicielle dans le cache du client local. Avant de télécharger les fichiers de mise à jour logicielle, l'agent du client démarre une analyse pour vérifier que la mise à jour logicielle est toujours nécessaire.  
 
@@ -278,13 +278,13 @@ Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez dépl
  Pour plus d’informations sur la façon dont Configuration Manager gère les appareils intégrés qui utilisent des filtres d’écriture, consultez [Planification du déploiement du client sur des appareils Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
 ##  <a name="a-namebkmkextendsoftwareupdatesa-extend-software-updates-in-configuration-manager"></a><a name="BKMK_ExtendSoftwareUpdates"></a> Étendre les mises à jour logicielles dans Configuration Manager  
- Utilisez l’éditeur de mise à jour Systems Center pour gérer les mises à jour logicielles qui ne sont pas disponibles à partir de Microsoft Update. Une fois que vous avez publié les mises à jour logicielles sur le serveur de mise à jour et que vous les avez synchronisées dans Configuration Manager, vous pouvez les déployer sur des clients Configuration Manager. Pour plus d’informations sur l’éditeur de mise à jour, consultez [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
+ Utilisez l’éditeur de mise à jour Systems Center pour gérer les mises à jour logicielles qui ne sont pas disponibles à partir de Microsoft Update. Une fois que vous avez publié les mises à jour logicielles sur le serveur de mise à jour et que vous les avez synchronisées dans Configuration Manager, vous pouvez les déployer sur des clients Configuration Manager. Pour plus d’informations sur l’éditeur de mise à jour, consultez [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md)
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

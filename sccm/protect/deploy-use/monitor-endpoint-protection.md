@@ -1,8 +1,8 @@
 ---
-title: Surveiller Endpoint Protection | System Center Configuration Manager
+title: Surveiller Endpoint Protection | Microsoft Docs
 description: "Découvrez comment surveiller Endpoint Protection dans votre hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/9/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,22 +16,22 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fb5b247ae3fc031cd0beea21b03a45affe3add68
+ms.sourcegitcommit: 9fcbc0bb9c8ccd4265381ca4db7a363c8ae3b54a
+ms.openlocfilehash: 590d95f82a30167dcc0d5191feaa39ecab2b3136
 
 
 ---
 # <a name="how-to-monitor-endpoint-protection-in-system-center-configuration-manager"></a>Comment surveiller Endpoint Protection dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft System Center 2012 Configuration Manager à l’aide du nœud **État Endpoint Protection** dans l’espace de travail **Surveillance**, à l’aide du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité** et à l’aide de rapports.  
+Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft System Center Configuration Manager à l’aide du nœud **État Endpoint Protection** sous **Sécurité** dans l’espace de travail **Surveillance**, à l’aide du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité** et à l’aide de rapports.  
 
 ##  <a name="a-namebkmk1a-how-to-monitor-endpoint-protection-by-using-the-endpoint-protection-status-node"></a><a name="BKMK_1"></a> Guide pratique pour surveiller Endpoint Protection à l’aide du nœud État Endpoint Protection  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Dans l’espace de travail **Surveillance**, cliquez sur **État Endpoint Protection**.  
+2.  Dans l’espace de travail **Surveillance**, développez **Sécurité**, puis cliquez sur **État Endpoint Protection**.  
 
 3.  Dans la liste **Regroupement** , sélectionnez le regroupement pour lequel vous souhaitez afficher des informations sur l'état.  
 
@@ -74,7 +74,7 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 
 |Niveau d'alerte|Description|  
 |-----------------|-----------------|  
-|**Échec**|Endpoint Protection n’a pas pu remédier au logiciel malveillant. Vérifiez les journaux pour plus de détails de l'erreur.<br /><br /> **Remarque :** pour obtenir la liste des fichiers journaux Configuration Manager et Endpoint Protection, consultez la section « Endpoint Protection » dans la rubrique [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
+|**Échec**|Endpoint Protection n’a pas pu remédier au logiciel malveillant. Vérifiez les journaux pour plus de détails de l'erreur.<br /><br /> **Remarque :** pour obtenir la liste des fichiers journaux Configuration Manager et Endpoint Protection, consultez la section « Endpoint Protection » dans la rubrique [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
 |**Supprimé**|Endpoint Protection a correctement supprimé le logiciel malveillant.|  
 |**En quarantaine**|Endpoint Protection a déplacé le logiciel malveillant vers un emplacement sécurisé et a empêché son exécution en attendant que vous le supprimiez ou que vous en autorisiez l’exécution.|  
 |**Nettoyage effectué**|Les logiciels malveillants ont été supprimés du fichier infecté.|  
@@ -84,6 +84,6 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
