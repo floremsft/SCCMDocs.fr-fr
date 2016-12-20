@@ -2,7 +2,7 @@
 title: "Configurer le contrôle à distance | Documents Microsoft"
 description: "Configurez le contrôle à distance dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/06/2016
+ms.date: 12/12/2016
 ms.prod: configuration-manager
 ms.reviewer: dudeso
 ms.suite: na
@@ -17,8 +17,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 88828e68bc4aff216e83807ea8288c7d42c60cbd
-ms.openlocfilehash: cbfa9dc6cb37518c0a561700272cc882b0041350
+ms.sourcegitcommit: 809c7938968b4a6efce6ef37fe7b7baf2c9dd3e7
+ms.openlocfilehash: 6741c6aa11a8a7c868bff36916afe4d066b9924d
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: cbfa9dc6cb37518c0a561700272cc882b0041350
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
- Cette procédure décrit la configuration des paramètres client par défaut pour le contrôle à distance et s’applique à tous les ordinateurs de votre hiérarchie. Si vous voulez que ces paramètres s’appliquent uniquement à certains ordinateurs, créez un paramètre client de périphérique personnalisé et affectez-le à un regroupement contenant les ordinateurs à utiliser dans une session de contrôle à distance. Pour plus d’informations, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md). 
+ Cette procédure décrit la configuration des paramètres client par défaut pour le contrôle à distance. Ces paramètres s’appliquent à tous les ordinateurs de votre hiérarchie. Si vous voulez que ces paramètres s’appliquent seulement à certains ordinateurs, affectez un paramètre client personnalisé à un regroupement contenant ces ordinateurs. Pour plus d’informations, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md). 
 
 Pour utiliser l’Assistance à distance ou le Bureau à distance, vous devez les installer et les configurer sur l’ordinateur qui exécute la console Configuration Manager. Pour plus d’informations sur la procédure d’installation et de configuration de l’Assistance à distance ou du Bureau à distance, consultez votre documentation Windows.  
 
@@ -44,8 +44,17 @@ Pour utiliser l’Assistance à distance ou le Bureau à distance, vous devez le
 
  Les ordinateurs clients sont configurés avec ces paramètres la prochaine fois qu’ils téléchargent la stratégie du client. Pour lancer la récupération de stratégie pour un client unique, consultez [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
+#### <a name="enable-keyboard-translation"></a>Activer la traduction du clavier
+
+Par défaut, Configuration Manager transmet la position des touches à partir de l’emplacement de la personne qui visualise vers l’emplacement de la personne effectuant le partage. Ceci peut poser un problème pour les configurations de clavier qui diffèrent entre la personne qui visualise et la personne effectuant le partage. Par exemple, un afficheur avec un clavier anglais tapait un « A », mais le clavier français de la personne effectuant le partage fournissait un « Q ». Nous pouvons maintenant configurer le contrôle à distance afin que le caractère lui-même soit transmis du clavier de la personne qui visualise vers la personne effectuant le partage, et que ce que la personne qui visualise veut taper parvienne à la personne effectuant le partage.
+
+Pour activer la traduction du clavier, dans **Contrôle à distance de Configuration Manager**, choisissez **Action** et choisissez **Activer la traduction du clavier** pour transmettre la position des touches.
+
+> [!NOTE]
+>
+> Les touches spéciales, telles que ~!#@$%,, ne seront pas traduites correctement.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

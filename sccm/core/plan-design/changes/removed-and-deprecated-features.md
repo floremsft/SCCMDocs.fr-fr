@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: c899b4beaa2aae4eb609291dca0e23f3c266627a
-ms.openlocfilehash: 294166af3d5c6062e3508249c767779876b23931
+ms.sourcegitcommit: ffebee1e85008611a9841dc849bea735d15a88c6
+ms.openlocfilehash: 888b6de9fd2b70e8b4f58e32cca7cf5e615d1dca
 
 
 ---
@@ -51,7 +51,8 @@ Pour plus d'informations, voir :
 |-|-|-|  
 |Protection d’accès réseau (NAP) : telle que dans System Center 2012 Configuration Manager|7/10/2015|Version 1511|  
 |Gestion hors bande : telle que dans System Center 2012 Configuration Manager|10/16/2015|Version 1511|
-|Séquences de tâches : <br /> - Convertir en disque dynamique <br /> - Installer les outils de déploiement |11/18/2016|La prise en charge de ces séquences de tâches prend fin avec la première mise à jour publiée après le 1er juin 2017|  
+|Séquences de tâches : <br /> - Convertir en disque dynamique <br /> - Installer les outils de déploiement |11/18/2016|La prise en charge de ces séquences de tâches prend fin avec la première mise à jour publiée après le 1er juin 2017|
+|Le nouveau Centre logiciel été modernisé et les applications qui seraient apparues uniquement dans le catalogue des applications dépendant de Silverlight (applications accessibles à l’utilisateur) apparaissent maintenant dans le Centre logiciel sous l’onglet **Applications**. Il est toujours possible d’accéder au catalogue d’applications via le lien situé sous l’onglet **État de l’installation** du Centre logiciel.<br><br>Dans les prochains mois, nous allons supprimer la version précédente du Centre logiciel, qui ne sera alors plus disponible.<br><br>Vous pouvez faire en sorte que les clients utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|12/13/2016|Annoncé prochainement| 
 
  **Systèmes d’exploitation serveur dépréciés :**  
 
@@ -111,6 +112,6 @@ Pour plus d'informations, voir :
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

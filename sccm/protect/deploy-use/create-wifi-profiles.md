@@ -2,7 +2,7 @@
 title: "Créer des profils Wi-Fi | Documents Microsoft"
 description: "Découvrez comment utiliser des profils Wi-Fi dans System Center Configuration Manager pour déployer des paramètres de réseau sans fil pour les utilisateurs de votre organisation."
 ms.custom: na
-ms.date: 12/04/2016
+ms.date: 12/11/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: e433fc450a2d033c24bc37333dd59fdec41dcdb6
-ms.openlocfilehash: c629d1bf8d17573cdbde783b4ec3264bed3f4b1e
+ms.sourcegitcommit: 22a74f3b12fe4f4559b682a8fcb287863a7686af
+ms.openlocfilehash: 1262cb7d524fdce21f778e2179275bd177e9330f
 
 
 ---
@@ -47,7 +47,7 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
 
 -   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
 
--   Appareils Android qui exécutent la version 4  
+-   Appareils Android qui exécutent la version 4 ou ultérieure
 
 > [!IMPORTANT]  
 >  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
@@ -136,6 +136,6 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

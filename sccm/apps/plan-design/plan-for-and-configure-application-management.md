@@ -2,7 +2,7 @@
 title: Planifier et configurer la gestion des applications | Documents Microsoft
 description: "Implémentez et configurez les dépendances nécessaires au déploiement d’applications dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/06/2016
+ms.date: 12/13/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f1aaaf1c4fba8613b82d2c7a344a4dab572449a6
-ms.openlocfilehash: e9179a16d6fef73c7e50c3cf1dbfdc41623d1d15
+ms.sourcegitcommit: 7634d5326265d7947a01e5b83374f65911e33aeb
+ms.openlocfilehash: 3ab905192c091cb5ad013c8e0c8590597fb0422a
 
 
 ---
@@ -65,7 +65,11 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
  Quelle que soit la version que vous choisissez d’utiliser, le Centre logiciel est installé automatiquement pendant l’installation du client Configuration Manager sur les PC Windows.  
 
     > [!TIP]  
-    >  La version du Centre logiciel auxquels ont accès les utilisateurs varie en fonction des paramètres du client Configuration Manager. Vous pouvez ainsi choisir la version qui est utilisée en fonction des paramètres client personnalisés que vous déployez sur un regroupement.  
+    >  La version du Centre logiciel auxquels ont accès les utilisateurs varie en fonction des paramètres du client Configuration Manager. Vous pouvez ainsi choisir la version qui est utilisée en fonction des paramètres client personnalisés que vous déployez sur un regroupement. 
+
+    > [!IMPORTANT]
+    > Dans les prochains mois, nous allons supprimer la version précédente du Centre logiciel, qui ne sera alors plus disponible.
+    > Vous pouvez faire en sorte que les clients utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**. 
 
 ## <a name="steps-to-install-and-configure-the-application-catalog-and-software-center"></a>Installation et configuration du catalogue des applications et du Centre logiciel  
 
@@ -130,7 +134,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
     Pour plus d’informations, recherchez les fichiers journaux **awebsvcMSI.log** et **portlwebMSI.log**.  
 
 ###  <a name="step-4-configure-the-client-settings-for-the-application-catalog-and-software-center"></a>Étape 4 : configuration des paramètres client pour le catalogue des applications et le Centre logiciel  
- Cette procédure configure les paramètres client par défaut qui s'appliqueront au catalogue des applications et au Centre logiciel pour l'ensemble des appareils de la hiérarchie. Si vous voulez que ces paramètres s’appliquent seulement à certains appareils, créez un paramètre client personnalisé et déployez-le sur un regroupement contenant ces appareils. Pour plus d’informations sur la création d’un paramètre d’appareil personnalisé, consultez la section [Comment créer et déployer des paramètres client personnalisés](../../core/clients/deploy/configure-client-settings.md#BKMK_CustomClientSettings) dans l’article [Comment configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
+ Cette procédure configure les paramètres client par défaut qui s'appliqueront au catalogue des applications et au Centre logiciel pour l'ensemble des appareils de la hiérarchie. Si vous voulez que ces paramètres s’appliquent seulement à certains appareils, créez un paramètre client personnalisé et déployez-le sur un regroupement contenant ces appareils. Pour plus d’informations sur la création d’un paramètre d’appareil personnalisé, consultez la section [Comment créer et déployer des paramètres client personnalisés](../../core/clients/deploy/configure-client-settings.md#create-and-deploy-custom-client-settings) dans l’article [Comment configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
 1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
@@ -224,6 +228,6 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
