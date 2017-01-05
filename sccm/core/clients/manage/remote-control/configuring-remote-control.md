@@ -2,7 +2,7 @@
 title: "Configurer le contrôle à distance | Documents Microsoft"
 description: "Configurez le contrôle à distance dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/12/2016
+ms.date: 12/26/2016
 ms.prod: configuration-manager
 ms.reviewer: dudeso
 ms.suite: na
@@ -17,8 +17,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 809c7938968b4a6efce6ef37fe7b7baf2c9dd3e7
-ms.openlocfilehash: 6741c6aa11a8a7c868bff36916afe4d066b9924d
+ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
+ms.openlocfilehash: 20c28a625adb69f239b9c0e7673e57dd39e8d561
 
 
 ---
@@ -55,6 +55,21 @@ Pour activer la traduction du clavier, dans **Contrôle à distance de Configura
 > Les touches spéciales, telles que ~!#@$%,, ne seront pas traduites correctement.
 
 
-<!--HONumber=Dec16_HO3-->
+## <a name="keyboard-shortcuts-for-the-remote-control-viewer"></a>Raccourcis clavier relatifs à l’observateur de contrôle à distance
+
+|Raccourci clavier|Description|  
+|-----------------------|-----------------|  
+|Alt+Pg préc|Bascule entre les programmes en cours d'exécution de gauche à droite.|  
+|Alt+Pg suiv|Bascule entre les programmes en cours d'exécution de droite à gauche.|  
+|Alt+Inser|Parcourt les programmes en cours d’exécution dans l’ordre dans lequel ils ont été ouverts.|  
+|Alt+Origine|Affiche le menu **Démarrer** .|  
+|Ctrl+Alt+Fin|Affiche la boîte de dialogue Sécurité de Windows (Ctrl+Alt+Suppr).|  
+|Alt+Suppr|Affiche le menu Windows.|  
+|Ctrl+Alt+Signe moins (sur le pavé numérique)|Copie la fenêtre active de l’ordinateur local vers le Presse-papiers de l’ordinateur distant.|  
+|Ctrl+Alt+Signe plus (sur le pavé numérique)|Copie la zone entière de la fenêtre de l’ordinateur local dans le Presse-papiers de l’ordinateur distant.|  
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 
