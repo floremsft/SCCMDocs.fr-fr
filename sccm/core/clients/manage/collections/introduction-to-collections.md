@@ -2,7 +2,7 @@
 title: "Présentation des regroupements | Documents Microsoft"
 description: "Obtenez une présentation de l’utilisation des regroupements dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/05/2016
+ms.date: 01/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 08a509cacb711ed6d1ae188d5512a026a12417f2
-ms.openlocfilehash: 8a228a55c198df08701f28123696e35cc73fd98c
+ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
+ms.openlocfilehash: fd4c6fd85d12592b3d4f57a48cf6da6c7a668615
 
 
 ---
@@ -25,13 +25,13 @@ ms.openlocfilehash: 8a228a55c198df08701f28123696e35cc73fd98c
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les regroupements de System Center Configuration Manager (également appelé ConfigMgr et SCCM) vous aident à organiser les ressources en unités gérables. Vous pouvez créer des regroupements pour répondre à vos besoins de gestion des clients et pour effectuer des opérations sur plusieurs ressources à la fois. 
+Les regroupements vous permettent d’organiser les ressources en unités gérables. Vous pouvez créer des regroupements pour répondre à vos besoins de gestion des clients et pour effectuer des opérations sur plusieurs ressources à la fois. 
 
-La plupart des tâches de gestion reposent sur ou nécessitent l’utilisation d’un ou plusieurs regroupements. Même si vous pouvez utiliser le regroupement prédéfini Tous les systèmes, son utilisation pour des tâches de gestion n’est pas une bonne pratique. Créez vos propres regroupements personnalisés pour identifier de façon plus spécifique les appareils ou les utilisateurs pour une tâche.  
+La plupart des tâches de gestion reposent sur ou nécessitent l’utilisation d’un ou plusieurs regroupements. Même si vous pouvez utiliser le regroupement prédéfini Tous les systèmes, son utilisation pour des tâches de gestion n’est pas une bonne pratique. Créez des regroupements personnalisés pour identifier de façon plus spécifique les appareils ou les utilisateurs pour une tâche.  
 
  Les regroupements intégrés et personnalisés figurent dans les nœuds **Regroupements d’utilisateurs** et **Regroupements de périphériques** dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager.  
 
- Les derniers regroupements visualisés apparaissent dans le nœud **Utilisateurs** et dans le nœud **Appareils** dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager.  
+ Les derniers regroupements visualisés apparaissent dans le nœud **Utilisateurs** et dans le nœud **Appareils** de l’espace de travail **Biens et conformité**.  
 
 Voici quelques exemples d’utilisation de regroupements :  
 
@@ -67,6 +67,6 @@ Voici quelques exemples d’utilisation de regroupements :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

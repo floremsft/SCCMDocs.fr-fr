@@ -1,8 +1,8 @@
 ---
-title: "Tester les mises à niveau du client dans un regroupement de préproduction | Documents Microsoft"
+title: "Tester les mises à niveau du client dans un regroupement de préproduction | Microsoft Docs"
 description: "Testez les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/04/2016
+ms.date: 12/12/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,12 +17,12 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 17b36eae97272c408fce20e1f88812dafc984773
-ms.openlocfilehash: bfc53760572e71814ebf0e38ea24c5c4684619ee
+ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
+ms.openlocfilehash: 250c9312b932670c408554f3968ae43ae4f3dbaa
 
 
 ---
-# <a name="how-to-test-client-upgrades-in-a-preproduction-collection-in-system-center-configuration-manager"></a>Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager
+# <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -33,21 +33,15 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 
  Il existe 3 étapes de base pour tester des clients en préproduction.  
 
-1.  [Pour configurer des mises à jour automatiques du client pour utiliser un regroupement de préproduction](#BKMK_config) pour utiliser un regroupement de préproduction.  
+1.  Configurez les mises à jour automatiques du client pour utiliser un regroupement de préproduction.  
 
-2.  [Pour installer une mise à jour de Configuration Manager qui inclut une nouvelle version du client](#BKMK_install) qui inclut une nouvelle version du client. Lors de l’installation, vous spécifiez un regroupement de préproduction pour le nouveau logiciel client.  
+2.  Installez une mise à jour de Configuration Manager qui inclut une nouvelle version du client.  
 
-3.  [Pour promouvoir le nouveau client en production](#BKMK_promote) après des tests réussis.  
+3.  Promouvez le nouveau client en production.  
 
-> [!TIP]  
->  Si vous mettez à niveau votre infrastructure de serveurs à partir d’une version précédente de Configuration Manager \(comme Configuration Manager 2007 ou System Center 2012 Configuration Manager\), nous vous recommandons d’effectuer les mises à niveau des serveurs en incluant l’installation de toutes les mises à jour Current Branch. Ceci garantit que vous avez la dernière version du logiciel client avant la mise à niveau des clients Configuration Manager.  
+##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>Pour configurer les mises à jour automatiques du client pour utiliser un regroupement de préproduction  
 
-##  <a name="a-namebkmkconfiga-to-configure-automatic-client-upgrades-to-use-a-preproduction-collection"></a><a name="BKMK_config"></a> Pour configurer des mises à jour automatiques du client pour utiliser un regroupement de préproduction  
-
-1. Configurez un regroupement contenant les ordinateurs sur lesquels vous voulez déployer le client de préproduction. Pour plus d’informations, consultez [Guide pratique pour créer des regroupements](..\collections\create-collections.md).
-
-> [!NOTE]
-> N’incluez pas d’ordinateurs de groupe de travail dans les regroupements de préproduction. Les ordinateurs de groupe de travail ne peuvent pas utiliser l’authentification nécessaire pour permettre au point de distribution d’accéder au package du client de préproduction.   
+1. [Configurez un regroupement](..\collections\create-collections.md) contenant les ordinateurs sur lesquels vous voulez déployer le client de préproduction. N’incluez pas d’ordinateurs de groupe de travail dans les regroupements de préproduction. Ils ne peuvent pas utiliser l’authentification nécessaire pour permettre au point de distribution d’accéder au package du client de préproduction.   
 
 1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**.  
 
@@ -57,8 +51,10 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 
     -   Entrez le nom d’un regroupement à utiliser comme regroupement de préproduction.  
 
+![Tester les mises à niveau du client](media/test-client-upgrades.png)
 
-##  <a name="a-namebkmkinstalla-to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a><a name="BKMK_install"></a> Pour installer une mise à jour de Configuration Manager qui inclut une nouvelle version du client  
+
+##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>Pour installer une mise à jour de Configuration Manager qui inclut une nouvelle version du client  
 
 1.  Dans la console Configuration Manager, ouvrez **Administration** > **Services cloud** > **Mises à jour et services**, sélectionnez une mise à jour avec l’indication **Disponible**, puis choisissez **Installer le pack de mise à jour**.  
 
@@ -73,19 +69,19 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
     > [!NOTE]
     > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non conforme**, même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.
 
-##  <a name="a-namebkmkpromotea-to-promote-the-new-client-to-production"></a><a name="BKMK_promote"></a> Pour promouvoir le nouveau client en production  
+##  <a name="to-promote-the-new-client-to-production"></a>Pour promouvoir le nouveau client en production  
 
 1.  Dans la console Configuration Manager, ouvrez **Administration** > **Services cloud** > **Mises à jour et maintenance**, puis choisissez **Promouvoir le client de préproduction**.
 
     > [!TIP]
     > Le bouton **Promouvoir le client de préproduction** est également disponible quand vous surveillez les déploiements de clients dans la console en utilisant **Surveillance** > **État du client** > **Déploiement des clients en préproduction**.
 
-2.  Dans la boîte de dialogue, examinez les versions du client en production et préproduction, vérifiez que le regroupement de préproduction approprié est spécifié, puis cliquez sur **Promouvoir**. Dans la zone de confirmation, cliquez sur **Oui**.  
+2.  Examinez les versions du client en production et préproduction, vérifiez que le regroupement de préproduction approprié est spécifié, et cliquez sur **Promouvoir**, puis sur **Oui**.  
 
-3.  Une fois la boîte de dialogue fermée, la version du client mise à jour remplace la version du client actuellement en cours d’utilisation dans votre hiérarchie. Vous pouvez ensuite mettre à niveau les clients pour l’ensemble du site. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+3.  Une fois la boîte de dialogue fermée, la version du client mise à jour remplace la version du client en cours d’utilisation dans votre hiérarchie. Vous pouvez ensuite mettre à niveau les clients pour l’ensemble du site. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

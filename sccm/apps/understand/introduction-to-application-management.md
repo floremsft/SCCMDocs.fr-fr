@@ -2,7 +2,7 @@
 title: "Introduction à la gestion des applications | Documents Microsoft"
 description: "Découvrez les informations de base dont vous aurez besoin pour gérer et déployer des applications System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,8 +18,8 @@ manager: angrobe
 experimental: true
 experiment_id: rob-table-161101
 translationtype: Human Translation
-ms.sourcegitcommit: aa985dcb947803f7bc6d770f80a89a2fe6750681
-ms.openlocfilehash: 4be1fdaeeba2859389ea87b49b8e5891a28d052c
+ms.sourcegitcommit: 5aef08865b232ff2dacec6906098bebf4e42e6b1
+ms.openlocfilehash: 699adb5fac0c625c321db011af6989cc4c0778ec
 
 
 ---
@@ -37,11 +37,11 @@ Dans cette rubrique, vous allez découvrir les principes de base à connaître a
 
  Quand l’application est déployée sur des appareils, des **spécifications** déterminent le type de déploiement qui est installé sur l’appareil.  
 
- Bien sûr, une application permet d’effectuer bien d’autres choses que nous passerons en revue dans ce guide. Le tableau suivant présente les concepts que vous devez connaître avant d’aller plus loin. Notez que vous n’aurez pas forcément recours à tous ces concepts dans chaque application que vous créez :  
+ Bien sûr, une application permet d’effectuer bien d’autres choses que nous passerons en revue dans ce guide. Le tableau suivant présente les concepts que vous devez connaître avant d’aller plus loin. Notez que vous n’aurez pas forcément recours à tous ces concepts dans chaque application que vous créez :  
 
 |Concept|Description|    
 |-|-|  
-|**Requirements**|Dans les versions précédentes de Configuration Manager, il était fréquent de créer un regroupement contenant les appareils sur lesquels vous souhaitiez déployer une application. Bien que vous puissiez toujours procéder de cette façon, vous pouvez désormais utiliser des spécifications pour indiquer des critères d’installation plus granulaires.<br /><br /> Par exemple, vous pouvez préciser qu’une application peut uniquement être installée sur des appareils Windows 10. Vous pouvez ensuite déployer l’application sur tous vos appareils, mais elle ne sera installée que sur les appareils Windows 10.<br /><br /> Configuration Manager évalue les spécifications pour déterminer si une application et ses types de déploiement doivent être installés. Ensuite, il détermine le type de déploiement correct selon lequel installer une application. Tous les sept jours, par défaut, les règles de spécification sont réévaluées pour garantir leur conformité en fonction du paramètre client **Planifier la réévaluation des déploiements**.<br /><br /> Pour plus d’informations, consultez [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md).|  
+|**Requirements**|Dans les versions précédentes de Configuration Manager, il était fréquent de créer un regroupement contenant les appareils sur lesquels vous souhaitiez déployer une application. Bien que vous puissiez toujours procéder de cette façon, vous pouvez désormais utiliser des spécifications pour indiquer des critères d’installation plus granulaires.<br /><br /> Par exemple, vous pouvez préciser qu’une application peut uniquement être installée sur des appareils Windows 10. Vous pouvez ensuite déployer l’application sur tous vos appareils, mais elle ne sera installée que sur les appareils Windows 10.<br /><br /> Configuration Manager évalue les spécifications pour déterminer si une application et ses types de déploiement doivent être installés. Ensuite, il détermine le type de déploiement correct selon lequel installer une application. Tous les sept jours, par défaut, les règles de spécification sont réévaluées pour garantir leur conformité en fonction du paramètre client **Planifier la réévaluation des déploiements**.<br /><br /> Pour plus d’informations, consultez [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md).|  
 |**Conditions globales**|Tandis que les spécifications sont utilisées avec un type de déploiement spécifique dans une seule application, vous pouvez également créer des conditions globales. Il s’agit d’une bibliothèque de spécifications prédéfinies que vous pouvez utiliser avec n’importe quel type d’application et de déploiement.<br /><br /> Configuration Manager contient un ensemble de conditions globales intégrées, mais vous pouvez également créer vos propres conditions globales.<br /><br /> Pour plus d’informations, consultez [Créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).|  
 |**Déploiement simulé**|Évalue les spécifications, la méthode de détection et les dépendances d’une application. Il signale les résultats sans installer l’application.<br /><br /> Pour plus d’informations, consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).|  
 |**Action de déploiement**|Spécifie si vous voulez installer ou désinstaller (en cas de prise en charge) l’application que vous déployez.<br /><br /> Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  
@@ -56,12 +56,12 @@ Dans cette rubrique, vous allez découvrir les principes de base à connaître a
  Configuration Manager vous permet de déployer les types d’application suivants :  
 
 - Windows Installer (fichier *.msi)
-- Package d’application Windows (*.appx, \*.appxbundle)
-- Package d'application Windows (dans le Windows Store)
+- Package d’application Windows (*.appx, *.appxbundle)
+- Package d'application Windows (dans le Windows Store)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5
-- Fichier CAB Windows Mobile
-- Mac OS X  
+- Fichier CAB Windows Mobile
+- macOS  
 
 
 De plus, quand vous gérez des appareils par le biais de la gestion des appareils locaux Microsoft Intune ou Configuration Manager, vous pouvez gérer ces types d’application supplémentaires :
@@ -96,7 +96,7 @@ De plus, quand vous gérez des appareils par le biais de la gestion des appareil
 ## <a name="software-center-and-the-application-catalog"></a>Centre logiciel et catalogue des applications  
  Dans les versions précédentes de Configuration Manager, le Centre logiciel servait à installer et à planifier les installations de logiciels, à configurer les paramètres de contrôle à distance et à configurer la gestion de l’alimentation. Les utilisateurs pouvaient se connecter au catalogue des applications pour rechercher et demander des logiciels, configurer certaines préférences et réinitialiser à distance leurs appareils mobiles.  
 
- Bien que ces paramètres soient toujours disponibles dans System Center Configuration Manager, une nouvelle version du Centre logiciel est maintenant disponible et vous permet de rechercher des applications. Vous ne devez pas utiliser le catalogue des applications, qui nécessite un navigateur web compatible avec Silverlight. Toutefois, les rôles de système de site Point du site web du catalogue des applications et Point de service web du catalogue des applications sont toujours requis pour que les applications accessibles à l’utilisateur apparaissent dans le Centre logiciel .  
+ Bien que ces paramètres soient toujours disponibles dans System Center Configuration Manager, une nouvelle version du Centre logiciel est maintenant disponible et vous permet de rechercher des applications. Vous ne devez pas utiliser le catalogue des applications, qui nécessite un navigateur web compatible avec Silverlight. Toutefois, les rôles de système de site Point du site web du catalogue des applications et Point de service web du catalogue des applications sont toujours requis pour que les applications accessibles à l’utilisateur apparaissent dans le Centre logiciel.  
 
  Pour plus d’informations, consultez [Planifier et configurer la gestion des applications](../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
@@ -113,6 +113,6 @@ De plus, quand vous gérez des appareils par le biais de la gestion des appareil
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

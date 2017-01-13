@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8195abd403d94a96d193289ea6e6bf8880d06078
-ms.openlocfilehash: aaa9a80a8429ab315a25862a78d6eb8733fd2e89
+ms.sourcegitcommit: 4a8d98addcd463eb82d8b7100b44254a10d21992
+ms.openlocfilehash: b5f7ad01f7a32d69d0c75b3c80a053f3c020c036
 
 
 ---
@@ -34,13 +34,15 @@ Le point de connexion de service System Center Configuration Manager est un rôl
 
 -   **Charger les données d’utilisation à partir de votre infrastructure Configuration Manager** : vous pouvez contrôler le niveau ou la quantité de détails que vous chargez. Les données chargées nous aide à :  
 
-    -   identifier et résoudre les problèmes de manière proactive ;  
+    -   identifier et résoudre les problèmes de manière proactive ;  
 
-    -   améliorer nos produits et services ;  
+    -   améliorer nos produits et services ;  
 
     -   identifier les mises à jour pour Configuration Manager applicables à la version de Configuration Manager que vous utilisez.  
 
-     Consultez [Paramètres et niveaux de données d’utilisation](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+  Pour plus d’informations sur les données collectées par chaque niveau et sur la façon de modifier le niveau de regroupement après l’installation du rôle, consultez [Données d’utilisation et de diagnostics](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data), puis suivez le lien correspondant à la version de Configuration Manager que vous utilisez.  
+
+    Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
 -   **Télécharger les mises à jour applicables à votre infrastructure Configuration Manager** : seules les mises à jour appropriées pour votre infrastructure sont disponibles, en fonction des données d’utilisation que vous chargez.  
 
@@ -117,6 +119,6 @@ Après l’exécution du programme d’installation ou si vous réinstallez le r
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

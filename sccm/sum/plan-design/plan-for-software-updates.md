@@ -6,7 +6,7 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 12/07/2016
+ms.date: 01/04/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,8 +14,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 translationtype: Human Translation
-ms.sourcegitcommit: b1c68b233097ef3a744dd25b3fb919660f0b2244
-ms.openlocfilehash: 16415fb54a2cf91747990c94ffea0076effe525b
+ms.sourcegitcommit: 46c8004afee4b18d5c7a2fcc5dac0f7d0d1f823c
+ms.openlocfilehash: 8a5efdce88127c71547c4f5ef85660a2983aa577
 
 
 ---
@@ -55,7 +55,7 @@ Avant d’utiliser les mises à jour logicielles dans un environnement de produc
      Vous devez également limiter le nombre de mises à jour logicielles à 1 000 dans une base de référence de configuration. Pour plus d’informations, consultez [Créer des bases de référence de configuration](../../compliance/deploy-use/create-configuration-baselines.md).
 
 ##  <a name="a-namebkmksupinfrastructurea-determine-the-software-update-point-infrastructure"></a><a name="BKMK_SUPInfrastructure"></a> Déterminer l’infrastructure du point de mise à jour logicielle  
- Le site d'administration centrale et tous les sites principaux enfants doivent disposer d'un point de mise à jour logicielle auquel vous allez déployer les mises à jour logicielles. Lors de la planification de l'infrastructure du point de mise à jour logicielle, vous devez déterminer les dépendances suivantes : où installer le point de mise à jour logicielle pour le site, quels sites requièrent un point de mise à jour logicielle acceptant des communications de clients Internet, si vous configurez ou non le point de mise à jour logicielle comme cluster NLB et si vous avez ou non besoin d'un point de mise à jour logicielle sur un site secondaire. Utilisez les sections suivantes pour déterminer l'infrastructure du point de mise à jour logicielle.  
+ Le site d'administration centrale et tous les sites principaux enfants doivent disposer d'un point de mise à jour logicielle auquel vous allez déployer les mises à jour logicielles. Lors de la planification de l'infrastructure du point de mise à jour logicielle, vous devez déterminer les dépendances suivantes : où installer le point de mise à jour logicielle pour le site, quels sites requièrent un point de mise à jour logicielle acceptant des communications de clients Internet, si vous configurez ou non le point de mise à jour logicielle comme cluster NLB et si vous avez ou non besoin d'un point de mise à jour logicielle sur un site secondaire. Utilisez les sections suivantes pour déterminer l'infrastructure du point de mise à jour logicielle.  
 
 > [!IMPORTANT]  
 >  Pour plus d’informations sur les dépendances internes et externes nécessaires pour les mises à jour logicielles, consultez [Prérequis pour les mises à jour logicielles](prerequisites-for-software-updates.md).  
@@ -76,21 +76,28 @@ Avant d’utiliser les mises à jour logicielles dans un environnement de produc
 ###  <a name="a-namebkmksupswitchinga-software-update-point-switching"></a><a name="BKMK_SUPSwitching"></a> Basculement de point de mise à jour logicielle  
  Si vous avez plusieurs points de mise à jour logicielle sur un site, et que l'un d'eux est en échec ou indisponible, les clients se connectent à un point de mise à jour logicielle différent pour continuer de rechercher les dernières mises à jour logicielles. Quand un client est affecté à un point de mise à jour logiciel, il le reste sauf s'il ne parvient pas à rechercher des mises à jour logicielles sur ce point de mise à jour logicielle.  
 
- La recherche des mises à jour logicielles peut échouer avec plusieurs codes de nouvelle tentative et de non-nouvelle tentative différents. Lorsque l'analyse échoue avec un code d'erreur de nouvelle tentative, le client démarre un processus de nouvelle tentative pour rechercher les mises à jour logicielles sur le point de mise à jour logicielle. Les conditions précises qui génèrent un code d'erreur de nouvelle tentative sont généralement dues à l'indisponibilité ou à la surcharge temporaire du serveur WSUS. Le client utilise le processus suivant lorsqu'il ne parvient pas à rechercher les mises à jour logicielles :  
+ La recherche des mises à jour logicielles peut échouer avec plusieurs codes de nouvelle tentative et de non-nouvelle tentative différents. Lorsque l'analyse échoue avec un code d'erreur de nouvelle tentative, le client démarre un processus de nouvelle tentative pour rechercher les mises à jour logicielles sur le point de mise à jour logicielle. Les conditions précises qui génèrent un code d'erreur de nouvelle tentative sont généralement dues à l'indisponibilité ou à la surcharge temporaire du serveur WSUS. Le client utilise le processus suivant lorsqu'il ne parvient pas à rechercher les mises à jour logicielles :  
 
-1.  Le client recherche les mises à jour logicielles soit à l'heure planifiée, soit lorsque la recherche est lancée via le Panneau de configuration sur le client, soit en utilisant le Kit de développement logiciel (SDK). Si l'analyse échoue, le client attend 30 minutes avant d'effectuer une nouvelle tentative d'analyse et il utilise le même point de mise à jour logicielle.  
+1.  Le client recherche les mises à jour logicielles soit à l'heure planifiée, soit lorsque la recherche est lancée via le Panneau de configuration sur le client, soit en utilisant le Kit de développement logiciel (SDK). Si l'analyse échoue, le client attend 30 minutes avant d'effectuer une nouvelle tentative d'analyse et il utilise le même point de mise à jour logicielle.  
 
 2.  Le client effectue au moins quatre nouvelles tentatives à des intervalles de 30 minutes. Après le quatrième échec, il attend deux minutes supplémentaires, puis il passe au point de mise à jour logicielle suivant dans la liste des points de mise à jour logicielle.  
 
-3.  Après une analyse réussie, le client continue à se connecter au point de mise à jour logicielle.  
+3.  Le client suit le même processus sur le nouveau point de mise à jour logicielle. Après une analyse réussie, le client continue à se connecter au nouveau point de mise à jour logicielle.
 
- La liste suivante fournit des informations supplémentaires que vous pouvez consulter en cas de nouvelle tentative et de basculement des points de mise à jour logicielle :  
+ La liste suivante fournit des informations supplémentaires que vous pouvez consulter en cas de nouvelle tentative et de basculement des points de mise à jour logicielle :  
 
 -   Si un client est déconnecté de l'intranet d'entreprise et qu'il ne parvient pas à rechercher des mises à jour logicielles, il ne bascule pas vers un autre point de mise à jour logicielle. Il s'agit d'un échec attendu, étant donné que le client ne peut pas atteindre le réseau d'entreprise ou le point de mise à jour logicielle qui permet la connexion depuis l'intranet. Le client Configuration Manager détermine la disponibilité du point de mise à jour logicielle intranet.  
 
 -   Si la gestion des clients basés sur Internet est activée et qu'il existe plusieurs points de mise à jour logicielle configurés pour accepter les communications provenant des clients sur Internet, le processus de basculement suit le processus de nouvelle tentative standard décrit dans le scénario précédent.  
 
 -   Si le processus d'analyse a démarré, alors que le client a été mis hors tension avant la fin de l'analyse, cela n'est pas considéré comme un échec d'analyse et cela n'est pas comptabilisé dans les quatre nouvelles tentatives.  
+
+Quand Configuration Manager reçoit l’un des codes d’erreur suivants de l’Agent Windows Update, le client retente d’établir la connexion :  
+
+2149842970, 2147954429, 2149859352, 2149859362, 2149859338, 2149859344, 2147954430, 2147747475, 2149842974, 2149859342, 2149859372, 2149859341, 2149904388, 2149859371, 2149859367, 2149859366, 2149859364, 2149859363, 2149859361, 2149859360, 2149859359, 2149859358, 2149859357, 2149859356, 2149859354, 2149859353, 2149859350, 2149859349, 2149859340, 2149859339, 2149859332, 2149859333, 2149859334, 2149859337, 2149859336, 2149859335
+
+Pour rechercher la signification d’un code d’erreur, vous devez convertir le code d’erreur décimal au format hexadécimal, puis rechercher la valeur hexadécimale sur un site tel que le [wiki des codes d’erreur de l’Agent Windows Update](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+
 
 ###  <a name="a-namebkmkmanuallyswitchsupsamanually-switch-clients-to-a-new-software-update-point"></a><a name="BKMK_ManuallySwitchSUPs"></a>Basculer manuellement les clients vers un nouveau point de mise à jour logicielle
 À compter de Configuration Manager version 1606, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle en cas de problème avec le point de mise à jour logicielle actif. Cette option entraîne des modifications uniquement quand un client reçoit plusieurs points de mise à jour logicielle à partir d’un point de gestion.  
@@ -133,7 +140,7 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 -   Pour plus d’informations sur les configurations prises en charge pour les systèmes de site Configuration Manager, consultez [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
 ###  <a name="a-namebkmkplanningforwsusa-plan-for-wsus-installation"></a><a name="BKMK_PlanningForWSUS"></a> Planifier l’installation de WSUS  
- Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soit installée sur tous les serveurs de système de site que vous configurez pour le rôle de système de site du point de mise à jour logicielle. De plus, lorsque vous n'installez pas le point de mise à jour logicielle sur le serveur de site, vous devez installer la console d'administration WSUS sur le serveur de site si elle n'est pas encore installée. Cela permet au serveur de site de communiquer avec le serveur WSUS qui est exécuté sur le point de mise à jour logicielle.  
+ Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soit installée sur tous les serveurs de système de site que vous configurez pour le rôle de système de site du point de mise à jour logicielle. De plus, lorsque vous n'installez pas le point de mise à jour logicielle sur le serveur de site, vous devez installer la console d'administration WSUS sur le serveur de site si elle n'est pas encore installée. Cela permet au serveur de site de communiquer avec le serveur WSUS qui est exécuté sur le point de mise à jour logicielle.  
 
  Quand vous utilisez WSUS sur Windows Server 2012, vous devez configurer des autorisations supplémentaires pour permettre au **Configuration Manager WSUS** dans Configuration Manager de se connecter au serveur WSUS pour effectuer des contrôles d’intégrité réguliers. Choisissez l'une des options suivantes pour configurer ces autorisations :  
 
@@ -269,7 +276,7 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 
 -   Elle met à jour un produit vers les versions les plus récentes. En d'autres termes, elle met à jour les versions qui ne concernent plus d'anciennes versions ou configurations d'un produit. Les mises à jour peuvent également remplacer d'autres mises à jour si des modifications ont été apportées pour étendre la prise en charge des langues. Par exemple, une révision récente d'une mise à jour de produit pour Microsoft Office peut supprimer la prise en charge d'un ancien système d'exploitation, mais ajouter la prise en charge de langues supplémentaires dans la version de mise à jour initiale.  
 
- Dans les propriétés du point de mise à jour logicielle, vous pouvez indiquer si vous souhaitez faire expirer immédiatement les mises à jour logicielles remplacées. Dans ce cas, elles ne seront pas incluses dans les nouveaux déploiements et un indicateur sera ajouté aux déploiements existants pour indiquer qu'ils contiennent une ou plusieurs mises à jour logicielles expirées. Ou bien, vous pouvez spécifier une période avant l'expiration des mises à jour logicielles remplacées, ce qui vous permet de continuer à les déployer. Examinez les scénarios suivants, dans lesquels vous devrez peut-être déployer une mise à jour logicielle remplacée :  
+ Dans les propriétés du point de mise à jour logicielle, vous pouvez indiquer si vous souhaitez faire expirer immédiatement les mises à jour logicielles remplacées. Dans ce cas, elles ne seront pas incluses dans les nouveaux déploiements et un indicateur sera ajouté aux déploiements existants pour indiquer qu'ils contiennent une ou plusieurs mises à jour logicielles expirées. Ou bien, vous pouvez spécifier une période avant l'expiration des mises à jour logicielles remplacées, ce qui vous permet de continuer à les déployer. Examinez les scénarios suivants, dans lesquels vous devrez peut-être déployer une mise à jour logicielle remplacée :  
 
 -   une mise à jour logicielle de remplacement prend en charge uniquement les versions les plus récentes du système d'exploitation, mais certains de vos ordinateurs clients exécutent des versions antérieures du système d'exploitation ;  
 
@@ -308,6 +315,6 @@ Quand vous planifiez des mises à jour logicielles, consultez [Préparer la gest
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

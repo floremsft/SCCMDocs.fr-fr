@@ -2,7 +2,7 @@
 title: "Créer des applications Windows Phone | Documents Microsoft"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des appareils Windows Phone."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 557888d1f1f899e3198c430bbe5ccdd44178f824
-ms.openlocfilehash: 5cd1ba42afd13e98565d24d1ec8a3ee209e8532c
+ms.sourcegitcommit: 5aef08865b232ff2dacec6906098bebf4e42e6b1
+ms.openlocfilehash: c230212d72e1c00856d6869414f2db927b1b79ad
 
 
 ---
@@ -33,13 +33,14 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 |Type d'appareil|Types de fichiers pris en charge|  
 |-----------------|---------------------|  
 |Windows Phone 8|.xap|  
-|Windows Phone 8.1|.xap, .appx, .appxbundle|  
+|Windows Phone 8.1|.xap, .appx, .appxbundle|
+|Windows 10 Mobile|.xap, .appx, .appxbundle|
 
  Les actions de déploiement suivantes sont prises en charge :  
 
 |Type d'appareil|Actions prises en charge|  
 |-----------------|-----------------------|  
-|Windows Phone 8 et Windows Phone 8.1|disponible, obligatoire, désinstaller|  
+|Windows Phone 8, Windows Phone 8.1 et Windows 10 Mobile|Disponible, Obligatoire, Désinstaller|  
 
 ## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Étapes de déploiement de la dernière version de l’application de portail d’entreprise Windows Phone avec remplacement  
  Le tableau suivant présente la procédure, des détails et des informations complémentaires pour créer et déployer la dernière version de l'application de portail d'entreprise Windows Phone 8.  
@@ -56,6 +57,6 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
