@@ -17,8 +17,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f6a6aad6859cf962f6f94fa5385a1dbfae6c7ff2
-ms.openlocfilehash: bea86f7fce6af913339ba0d1b56822ad761af48f
+ms.sourcegitcommit: d56b2a8090dd798bceda63e29df6c6ff4a4afe4e
+ms.openlocfilehash: 792d9b03904193c1c302c2f8373448a44887ed9c
 
 
 ---
@@ -92,7 +92,7 @@ Vous pouvez utiliser ces solutions de gestion des appareils par elles-mêmes ou 
 |Connexions aux points de distribution|Oui|Oui|Oui||  
 |Blocage à partir de Configuration Manager|Oui|Oui|Oui||  
 |Mise en quarantaine et blocage à partir d’Exchange Server (et Configuration Manager)||||Oui|  
-|Réinitialisation à distance|Oui|Oui|Oui|Oui|  
+|Réinitialisation à distance| |Oui|Oui|Oui|  
 
 
 
