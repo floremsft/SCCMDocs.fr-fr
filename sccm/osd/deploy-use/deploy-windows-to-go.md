@@ -1,5 +1,5 @@
 ---
-title: "Déployer Windows To Go avec System Center Configuration Manager"
+title: "Déployer Windows To Go avec System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez comment mettre en service Windows To Go dans System Center Configuration Manager pour créer un espace de travail Windows To Go qui démarre à partir d’un lecteur externe."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,18 +17,18 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 104355185c5bbb4c15f3b9cc80cf8fa0e529cf6d
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
 
 
 ---
 # <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Déployer Windows To Go avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique fournit les étapes permettant de mettre en service Windows To Go dans System Center Configuration Manager. Windows To Go est une fonctionnalité d'entreprise de Windows 8 qui permet de créer un espace de travail Windows To Go pouvant être démarré à partir d'un lecteur externe USB sur les ordinateurs qui satisfont les conditions de certification de Windows 7 ou Windows 8, quel que soit le système d'exploitation en cours d'exécution sur ces ordinateurs. Les espaces de travail Windows To Go peuvent utiliser la même image que celle que les entreprises utilisent pour leurs ordinateurs de bureau et ordinateurs portables ; ils peuvent être gérés de la même façon.  
 
- Pour plus d’informations sur Windows To Go, consultez [Windows To Go : vue d’ensemble des fonctionnalités](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
+ Pour plus d’informations sur Windows To Go, consultez [Windows To Go : vue d’ensemble des fonctionnalités](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
 
 ## <a name="provision-windows-to-go"></a>Préparer Windows To Go  
  Windows To Go est un système d'exploitation stocké sur un lecteur externe USB. Vous pouvez préparer le lecteur Windows To Go de la même manière que vous préparez les déploiements d'autres systèmes d'exploitation. Toutefois, étant donné que Windows To Go a vocation à constituer une solution centrée sur l'utilisateur et hautement mobile, vous devez adopter une approche légèrement différente pour préparer ces lecteurs.  
@@ -52,14 +52,14 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 8.  [L’utilisateur ouvre une session Windows 8](#BKMK_UserLogsIn)  
 
 ###  <a name="a-namebkmkprereqsa-prerequisites-to-provision-windows-to-go"></a><a name="BKMK_Prereqs"></a> Conditions préalables à la préparation de Windows To Go  
- Avant de mettre en service Windows To Go, vous devez effectuer les opérations suivantes dans Configuration Manager :  
+ Avant de mettre en service Windows To Go, vous devez effectuer les opérations suivantes dans Configuration Manager :  
 
 -   **Distribuer une image de démarrage à un point de distribution**  
 
      avant de créer des médias préparés, vous devez distribuer l'image de démarrage à un point de distribution.  
 
     > [!NOTE]  
-    >  Les images de démarrage sont utilisées pour installer le système d’exploitation sur les ordinateurs de destination dans votre environnement Configuration Manager. Elles contiennent une version de Windows PE qui installe le système d'exploitation, ainsi que les autres pilotes de périphérique nécessaires. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Vous pouvez également créer vos propres images de démarrage. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    >  Les images de démarrage sont utilisées pour installer le système d’exploitation sur les ordinateurs de destination dans votre environnement Configuration Manager. Elles contiennent une version de Windows PE qui installe le système d'exploitation, ainsi que les autres pilotes de périphérique nécessaires. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Vous pouvez également créer vos propres images de démarrage. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 -   **Distribuer l’image du système d’exploitation Windows 8 à un point de distribution**  
 
@@ -110,7 +110,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
     -   **Commentaire**: spécifiez une description unique de ce pour quoi le média est utilisé.  
 
-    -   **Fichier multimédia**: spécifiez le nom et le chemin des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nomserveur\dossier\outputfile.wim**  
+    -   **Fichier multimédia**: spécifiez le nom et le chemin des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nomserveur\dossier\outputfile.wim**  
 
 7.  Sur la page **Sécurité** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
@@ -136,7 +136,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
          Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 
@@ -225,7 +225,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 2.  Copiez le fichier du média préparé que vous avez créé dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) vers le dossier source du package.  
 
-3.  Copiez l'outil Windows To Go Creator (WTGCreator.exe) vers le dossier source du package. L’outil Creator est disponible sur n’importe quel serveur de site principal à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\Creator.  
+3.  Copiez l'outil Windows To Go Creator (WTGCreator.exe) vers le dossier source du package. L’outil Creator est disponible sur n’importe quel serveur de site principal à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\Creator.  
 
 4.  Créez un package et un programme à l'aide de l'Assistant Création d'un package et d'un programme.  
 
@@ -271,7 +271,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
         >  Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel ce programme est exécuté, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **Inconnu**, il démarre pendant la fenêtre de maintenance mais continue son exécution jusqu'à ce qu'il ait terminé ou échoué après la fermeture de la fenêtre de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (pas sur Inconnu) qui dépasse la durée de toute fenêtre de maintenance disponible, ce programme n'est pas exécuté.  
 
         > [!NOTE]  
-        >  Si la valeur définie est **Inconnu**, Configuration Manager fixe la durée d’exécution maximale autorisée à 12 heures (720 minutes).  
+        >  Si la valeur définie est **Inconnu**, Configuration Manager fixe la durée d’exécution maximale autorisée à 12 heures (720 minutes).  
 
         > [!NOTE]  
         >  Si cette durée d’exécution maximale (qu’elle soit définie par l’utilisateur ou par défaut) est dépassée, Configuration Manager arrête le programme si **Exécuter avec les droits d’administration** est sélectionné et si **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** n’est pas sélectionné sur la page **Programme standard**.  
@@ -296,7 +296,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 4.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, tapez **BitLocker for Windows To Go** comme nom de package et spécifiez **Package to update BitLocker for Windows To Go** comme description de package.  
 
-5.  Sélectionnez **Ce package contient des fichiers sources**, spécifiez l'emplacement de l'outil BitLocker pour Windows To Go, puis cliquez sur **Suivant**. L’outil BitLocker est disponible sur n’importe quel serveur de site principal Configuration Manager à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\BitLocker\  
+5.  Sélectionnez **Ce package contient des fichiers sources**, spécifiez l'emplacement de l'outil BitLocker pour Windows To Go, puis cliquez sur **Suivant**. L’outil BitLocker est disponible sur n’importe quel serveur de site principal Configuration Manager à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\BitLocker\  
 
 6.  Sur la page **Type de programme** , sélectionnez **Ne pas créer de programme**.  
 
@@ -316,15 +316,15 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
     1.  **Nom**: spécifiez un nom pour la ligne de commande, par exemple **Enable BitLocker for Windows To Go**.  
 
-    2.  **Ligne de commande** : i386\osdbitlocker_wtg.exe /Enable /pwd:< *None&#124;AD*>  
+    2.  **Ligne de commande** : i386\osdbitlocker_wtg.exe /Enable /pwd:< *None&#124;AD*>  
 
          Paramètres :  
 
-        -   /pwd:<None&#124;AD> : spécifiez le mode de récupération de mot de passe BitLocker. Ce paramètre est requis si vous utilisez le paramètre /Enable dans la ligne de commande.  
+        -   /pwd:<None&#124;AD> : spécifiez le mode de récupération de mot de passe BitLocker. Ce paramètre est requis si vous utilisez le paramètre /Enable dans la ligne de commande.  
 
              Sélectionnez **AD** pour configurer le chiffrement de lecteur BitLocker pour la sauvegarde des informations de récupération des lecteurs protégés par BitLocker sur les services de domaine Active Directory (AD DS). La sauvegarde des mots de passe de récupération d'un lecteur protégé par BitLocker permet aux utilisateurs administratifs de récupérer le lecteur s'il est verrouillé. Ainsi, les utilisateurs autorisés peuvent toujours accéder aux données chiffrées appartenant à l'entreprise. Lorsque vous spécifiez **Aucun**, l'utilisateur est responsable de la conservation d'une copie du mot de passe de récupération ou de la clé de récupération. Si l'utilisateur perd ces informations ou omet de déchiffrer le lecteur avant de quitter l'organisation, les utilisateurs administratifs ne peuvent pas accéder facilement au lecteur.  
 
-        -   /wait:<TRUE&#124;FALSE> : indiquez si la séquence de tâches attend la fin du chiffrement avant de se terminer.  
+        -   /wait:<TRUE&#124;FALSE> : indiquez si la séquence de tâches attend la fin du chiffrement avant de se terminer.  
 
     3.  Sélectionnez **Package**, puis définissez le package que vous avez créé au début de cette procédure.  
 
@@ -419,7 +419,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
     -   **Objet**: sélectionnez **Disponible**. Lorsque vous déployez la séquence de tâches sur un utilisateur, l'utilisateur peut voir la séquence de tâches publiée dans le catalogue des applications et il peut la demander au besoin. Si la séquence de tâches est déployée sur un périphérique, l'utilisateur pourra la voir dans le Centre logiciel et peut l'installer sur demande.  
 
-    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
+    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
         > [!IMPORTANT]  
         >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média préparé de sorte que l'ordinateur démarre automatiquement le déploiement de Windows To Go sans aucune interaction utilisateur lorsqu'il détecte un lecteur Windows To Go. Pour plus d'informations sur ces paramètres de média préparé, voir la section [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
@@ -432,7 +432,7 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
 8.  Sur la page **Expérience utilisateur** , spécifiez les informations suivantes :  
 
-    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
+    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
 
     -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
 
@@ -450,7 +450,9 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
 
     -   **Quand aucun point de distribution local n’est disponible, utiliser un point de distribution distant**: spécifiez si les clients peuvent utiliser les points de distribution qui se trouvent sur des réseaux lents et peu fiables pour télécharger le contenu exigé par la séquence de tâches.  
 
-    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu**: spécifiez si les clients sont autorisés à revenir et à utiliser un point de distribution non préféré en tant qu’emplacement source de contenu quand le contenu n’est pas disponible sur un point de distribution préféré.  
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** :
+        - *Avant la version 1610*, vous pouviez cocher la case Autoriser un emplacement source de secours pour le contenu pour permettre aux clients situés en dehors de ces groupes de limites d’avoir recours au point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
+        - *À partir de la version 1610*, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui déterminent quand un client peut commencer à rechercher un emplacement source de contenu valide dans d’autres groupes de limites. 
 
 11. Effectuez toutes les étapes de l'Assistant.  
 
@@ -464,10 +466,10 @@ Cette rubrique fournit les étapes permettant de mettre en service Windows To Go
  Après le redémarrage de l'ordinateur sur le lecteur Windows To Go, le lecteur démarre dans Windows PE et se connecte au point de gestion pour obtenir la stratégie de finalisation du déploiement du système d'exploitation. Configuration Manager configure et prépare le lecteur. Après la préparation du lecteur par Configuration Manager, l’utilisateur peut redémarrer l’ordinateur pour finaliser le processus de mise en service (par exemple, joindre un domaine ou installer des applications). Ce processus est le même pour tous les médias préparés.  
 
 ###  <a name="a-namebkmkuserlogsina-user-logs-in-to-windows-8"></a><a name="BKMK_UserLogsIn"></a> L’utilisateur ouvre une session Windows 8  
- Lorsque Configuration Manager termine le processus de mise en service et que l’écran de verrouillage Windows 8 s’affiche, l’utilisateur peut ouvrir une session sur le système d’exploitation.  
+ Lorsque Configuration Manager termine le processus de mise en service et que l’écran de verrouillage Windows 8 s’affiche, l’utilisateur peut ouvrir une session sur le système d’exploitation.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

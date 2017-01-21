@@ -1,6 +1,6 @@
 ---
 
-title: "Bonnes pratiques concernant les mises à jour logicielles | Configuration Manager"
+title: "Bonnes pratiques concernant les mises à jour logicielles | Microsoft Docs"
 description: "Adoptez ces bonnes pratiques pour les mises à jour logicielles dans System Center Configuration Manager."
 keywords: 
 author: dougeby
@@ -14,15 +14,15 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 6d20389a-9de2-4a64-bced-9fc4fa519174
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3ccf88231edc22af329bf88ab8c053523646c50d
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: ea365491dd334980693375fbb7730653af9cd8e4
 
 
 
 ---
 # <a name="best-practices-for-software-updates-in-system-center-configuration-manager"></a>Bonnes pratiques concernant les mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique indique les bonnes pratiques à suivre pour les mises à jour logicielles dans System Center Configuration Manager. Nous distinguons ci-dessous les bonnes pratiques liées à l'installation initiale, d'une part, et les bonnes pratiques liées aux opérations courantes, d'autre part.  
 
@@ -49,7 +49,7 @@ Cette rubrique indique les bonnes pratiques à suivre pour les mises à jour log
 ### <a name="limit-software-updates-to-1000-in-a-single-software-update-deployment"></a>Limiter les mises à jour logicielles à 1 000 dans un déploiement de mises à jour logicielles unique  
  Vous devez limiter le nombre de mises à jour logicielles à 1 000 pour chaque déploiement de mises à jour logicielles. À la création d'une règle de déploiement automatique, vérifiez que les critères spécifiés n'entraînent pas plus de 1 000 mises à jour logicielles. Lorsque vous déployez manuellement des mises à jour logicielles, ne sélectionnez pas plus de 1 000 mises à jour à déployer.  
 
-### <a name="create-a-new-software-update-group-each-time-an-automatic-deployment-rule-runs-for-patch-tuesday-and-for-general-deployment"></a>Créer un groupe de mises à jour logicielles chaque fois qu’une règle de déploiement automatique s’exécute pour « Patch Tuesday » et pour un déploiement général  
+### <a name="create-a-new-software-update-group-each-time-an-automatic-deployment-rule-runs-for-patch-tuesday-and-for-general-deployment"></a>Créer un groupe de mises à jour logicielles chaque fois qu’une règle de déploiement automatique s’exécute pour « Patch Tuesday » et pour un déploiement général  
  La limite pour les mises à jour logicielles dans un déploiement de mises à jour logicielles est de 1 000. Lorsque vous créez une règle de déploiement automatique, vous spécifiez s'il faut utiliser un groupe de mises à jour existant ou en créer un à chaque exécution de la règle. Si vous spécifiez dans une règle de déploiement automatique des critères entraînant plusieurs mises à jour logicielles et que la règle est exécutée à intervalle régulier, indiquez que vous souhaitez créer un nouveau groupe de mises à jour logicielles à chaque exécution de la règle. La limite de 1000 mises à jour logicielles par déploiement ne pourra ainsi pas être dépassée.  
 
 ### <a name="use-an-existing-software-update-group-for-automatic-deployment-rules-for-endpoint-protection-definition-updates"></a>Utiliser un groupe de mises à jour logicielles existant pour les règles de déploiement automatique des mises à jour de définitions Endpoint Protection  
@@ -60,6 +60,6 @@ Cette rubrique indique les bonnes pratiques à suivre pour les mises à jour log
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

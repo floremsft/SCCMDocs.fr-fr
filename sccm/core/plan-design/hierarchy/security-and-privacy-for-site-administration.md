@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité de l’administration de site | System Center Configuration Manager"
+title: "Sécurité et confidentialité pour l’administration de site | Microsoft Docs"
 description: "Optimisez la sécurité et la confidentialité pour l’administration de site dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: be8002edb48506286e18b1fb8c09f92f46ff0e10
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: aca2169c8f5f855e84ca924ca56f6b64bba80fd6
 
 
 ---
 # <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour l’administration de site dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les sites System Center Configuration Manager et la hiérarchie.
 
@@ -42,7 +42,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
  Les extensions de schéma ne sont pas nécessaires pour exécuter System Center Configuration Manager, mais elles créent un environnement plus sécurisé car les serveurs de site et les clients Configuration Manager peuvent récupérer les informations à partir d’une source approuvée.  
 
- Si les clients se trouvent dans un domaine non approuvé, déployez les rôles de système de site suivants dans le domaine des clients :  
+ Si les clients se trouvent dans un domaine non approuvé, déployez les rôles de système de site suivants dans le domaine des clients :  
 
 -   Point de gestion  
 
@@ -95,14 +95,14 @@ Bien que vous puissiez installer tous les rôles de système de site sur un seul
 Si vous isolez chaque rôle de système de site sur un autre serveur, vous réduisez le risque qu’une attaque contre les vulnérabilités d’un système de site puisse être utilisée contre un autre système de site. De nombreux rôles de système de site requièrent l'installation de services Internet (IIS) sur le système de site et cela augmente la surface d'attaque. Si vous devez combiner des rôles de système de site afin de réduire les dépenses en matériel, combinez les rôles de système de site IIS uniquement avec d’autres rôles de système de site nécessitant IIS.  
 
 > [!IMPORTANT]  
->  Le rôle de point d’état de secours est une exception : étant donné que ce rôle de système de site accepte les données non authentifiées de clients, il ne doit jamais être attribué à un autre rôle de système de site Configuration Manager.  
+>  Le rôle de point d’état de secours est une exception : étant donné que ce rôle de système de site accepte les données non authentifiées de clients, il ne doit jamais être attribué à un autre rôle de système de site Configuration Manager.  
 
 
 **Suivez les meilleures pratiques de sécurité pour Windows Server et exécutez l'Assistant Configuration de la sécurité sur tous les systèmes de site.**  
 
 L'Assistant Configuration de la sécurité (SCW) vous aide à créer une stratégie de sécurité que vous pouvez appliquer à n'importe quel serveur de votre réseau. Une fois que vous avez installé le modèle System Center Configuration Manager, l’Assistant Configuration de la sécurité reconnaît les applications, les services, les ports et les rôles de système de site Configuration Manager. Il autorise ensuite les communications requises pour Configuration Manager et bloque les communications non requises.  
 
-L’Assistant Configuration de la sécurité est inclus dans le kit de ressources pour System Center 2012 Configuration Manager, que vous pouvez télécharger sur le Centre de téléchargement Microsoft : [System Center 2012 - Configuration Manager Component Add-ons and Extensions (Composants additionnels et extensions du composant Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
+L’Assistant Configuration de la sécurité est inclus dans le kit de ressources pour System Center 2012 Configuration Manager, que vous pouvez télécharger sur le Centre de téléchargement Microsoft : [System Center 2012 - Configuration Manager Component Add-ons and Extensions (Composants additionnels et extensions du composant Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
 
 **Configurez des adresses IP statiques pour les systèmes de site.**  
 
@@ -193,21 +193,21 @@ Dans la mesure du possible, utilisez un serveur de messagerie qui prend en charg
  Pour plus d’informations, consultez [Install a secondary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) (Installer un site secondaire) dans la rubrique [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Utiliser l’Assistant Configuration pour installer des sites).  
 
 ##  <a name="a-namebkmksecuritysqlservera-security-best-practices-for-sql-server"></a><a name="BKMK_Security_SQLServer"></a> Meilleures pratiques de sécurité pour SQL Server  
- Configuration Manager utilise SQL Server comme base de données principale. Si la base de données est compromise, des personnes malveillantes pourraient contourner Configuration Manager et accéder directement à SQL Server afin de lancer des attaques via Configuration Manager. Considérez les attaques contre SQL Server comme présentant un risque élevé et devant être traitées en conséquence.  
+ Configuration Manager utilise SQL Server comme base de données principale. Si la base de données est compromise, des personnes malveillantes pourraient contourner Configuration Manager et accéder directement à SQL Server afin de lancer des attaques via Configuration Manager. Considérez les attaques contre SQL Server comme présentant un risque élevé et devant être traitées en conséquence.  
 
- Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser SQL Server pour Configuration Manager.  
+ Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser SQL Server pour Configuration Manager.  
 
- **N’utilisez pas le serveur de base de données de site Configuration Manager pour exécuter d’autres applications SQL Server.**  
+ **N’utilisez pas le serveur de base de données de site Configuration Manager pour exécuter d’autres applications SQL Server.**  
 
- L’augmentation du nombre d’accès au serveur de base de données de site Configuration Manager augmente le risque auquel sont exposées vos données Configuration Manager. De la même façon, si la base de données de site Configuration Manager est compromise, cela peut générer des risques pour d’autres applications sur le même ordinateur SQL Server.  
+ L’augmentation du nombre d’accès au serveur de base de données de site Configuration Manager augmente le risque auquel sont exposées vos données Configuration Manager. De la même façon, si la base de données de site Configuration Manager est compromise, cela peut générer des risques pour d’autres applications sur le même ordinateur SQL Server.  
 
  **Configurez SQL Server pour utiliser l'authentification Windows.**  
 
- Configuration Manager accède au site de base de données à l’aide d’un compte Windows et de l’authentification Windows, mais vous pouvez également configurer SQL Server de sorte qu’il utilise le mode mixte SQL Server. Le mode mixte SQL Server vous permet de configurer des ouvertures de sessions SQL supplémentaires afin d'accéder à la base de données, mais cela n'est pas nécessaire et augmente la surface d'attaque.  
+ Configuration Manager accède au site de base de données à l’aide d’un compte Windows et de l’authentification Windows, mais vous pouvez également configurer SQL Server de sorte qu’il utilise le mode mixte SQL Server. Le mode mixte SQL Server vous permet de configurer des ouvertures de sessions SQL supplémentaires afin d'accéder à la base de données, mais cela n'est pas nécessaire et augmente la surface d'attaque.  
 
  **Prenez des mesures supplémentaires pour assurer que les sites secondaires qui utilisent SQL Server Express disposent des dernières mises à jour logicielles.**  
 
- Lorsque vous installez un site principal, Configuration Manager télécharge SQL Server Express depuis le Centre de téléchargement Microsoft, puis copie les fichiers sur le serveur de site principal. Lorsque vous installez un site secondaire et sélectionnez l’option d’installation de SQL Server Express, Configuration Manager installe la version téléchargée précédemment et ne vérifie pas si de nouvelles versions sont disponibles. Pour vous assurer que le site secondaire dispose des dernières versions, effectuez l'une des opérations suivantes :  
+ Lorsque vous installez un site principal, Configuration Manager télécharge SQL Server Express depuis le Centre de téléchargement Microsoft, puis copie les fichiers sur le serveur de site principal. Lorsque vous installez un site secondaire et sélectionnez l’option d’installation de SQL Server Express, Configuration Manager installe la version téléchargée précédemment et ne vérifie pas si de nouvelles versions sont disponibles. Pour vous assurer que le site secondaire dispose des dernières versions, effectuez l'une des opérations suivantes :  
 
 -   Une fois le site secondaire installé, exécutez Windows Update sur le serveur de site secondaire.  
 
@@ -217,9 +217,9 @@ Exécutez régulièrement Windows Update sur ces sites et sur toutes les version
 
 **Suivez les meilleures pratiques pour SQL Server.**  
 
-Identifiez et suivez les meilleures pratiques pour votre version de SQL Server. Prenez toutefois en compte les impératifs suivants pour Configuration Manager :  
+Identifiez et suivez les meilleures pratiques pour votre version de SQL Server. Prenez toutefois en compte les impératifs suivants pour Configuration Manager :  
 
--   Le compte d'ordinateur du serveur de site doit être membre du groupe Administrateurs sur l'ordinateur exécutant SQL Server. Si vous suivez la recommandation SQL Server « Définir des administrateurs de manière explicite », le compte utilisé pour exécuter l’installation sur le serveur de site doit être membre du groupe Utilisateurs SQL.  
+-   Le compte d'ordinateur du serveur de site doit être membre du groupe Administrateurs sur l'ordinateur exécutant SQL Server. Si vous suivez la recommandation SQL Server « Définir des administrateurs de manière explicite », le compte utilisé pour exécuter l’installation sur le serveur de site doit être membre du groupe Utilisateurs SQL.  
 
 -   Si vous installez SQL Server à l'aide d'un compte utilisateur de domaine, vous devez configurer un nom principal de service (SPN) pour le compte d'ordinateur de domaine dans les services de domaine Active Directory. Sans le nom principal de service, l’authentification Kerberos échoue, et le programme d’installation de Configuration Manager échoue.  
 
@@ -251,7 +251,7 @@ Une liste de certificats de confiance est une liste définie d'autorités de cer
 Ce dernier vous confère un contrôle accru de la sécurité car la liste de certificats de confiance limite l'acceptation des certificats clients à ceux qui sont publiés à partir de la liste des autorités de certification de la liste de certificats de confiance. Par exemple, Windows est fourni avec différents certificats d'autorités de certification tierces renommées, telles que VeriSign et Thawte. Par défaut, l'ordinateur qui exécute les services Internet (IIS) approuve les certificats liés à ces autorités de certification connues. Si vous ne configurez pas IIS avec une liste de certificats de confiance pour les rôles de système de site répertoriés, tout appareil doté d’un certificat client publié par ces autorités de certification est accepté en tant que client Configuration Manager valide. Si vous configurez les services Internet (IIS) avec une liste de certificats de confiance qui ne comprend pas ces autorités de certification, les connexions de clients sont rejetées si le certificat requis était lié à ces autorités de certification. Cependant, pour que les clients Configuration Manager soient acceptés dans les rôles de système de site répertoriés, vous devez configurer IIS avec une liste de certificats de confiance qui spécifie les autorités de certification utilisées par les clients Configuration Manager.  
 
 > [!NOTE]  
->  Seuls les rôles de système de site répertoriés exigent la configuration d’une liste de certificats de confiance dans IIS ; la liste d’émetteurs de certificats utilisée par Configuration Manager pour les points de gestion fournit la même fonctionnalité aux ordinateurs clients lorsqu’ils se connectent aux points de gestion HTTPS.  
+>  Seuls les rôles de système de site répertoriés exigent la configuration d’une liste de certificats de confiance dans IIS ; la liste d’émetteurs de certificats utilisée par Configuration Manager pour les points de gestion fournit la même fonctionnalité aux ordinateurs clients lorsqu’ils se connectent aux points de gestion HTTPS.  
 
 Pour plus d'informations sur la façon de configurer une liste d'autorités de certification approuvées dans IIS, consultez la documentation de IIS.  
 
@@ -322,13 +322,13 @@ Identifiez et suivez les meilleures pratiques relatives à votre version du serv
  Si vous installez le point d'état de secours sur le réseau de périmètre ou sur tout réseau non approuvé, configurez le serveur de site de sorte qu'il initialise le transfert des données au lieu du paramètre par défaut qui autorise le point d'état de secours à se connecter au serveur de site.  
 
 ##  <a name="a-namebkmksecurityissuesclientsa-security-issues-for-site-administration"></a><a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour l'administration de site  
- Passez en revue les problèmes de sécurité suivants pour Configuration Manager :  
+ Passez en revue les problèmes de sécurité suivants pour Configuration Manager :  
 
 -   Configuration Manager ne possède aucune défense contre un utilisateur administratif autorisé qui utilise Configuration Manager pour attaquer le réseau. Les utilisateurs administratifs non autorisés représentent un risque élevé pour la sécurité et peuvent lancer de nombreuses attaques, telles que :  
 
-    -   l’utilisation de la fonction de déploiement de logiciels pour installer et exécuter automatiquement un logiciel malveillant sur tous les clients Configuration Manager de l’entreprise ;  
+    -   l’utilisation de la fonction de déploiement de logiciels pour installer et exécuter automatiquement un logiciel malveillant sur tous les clients Configuration Manager de l’entreprise ;  
 
-    -   l’utilisation du contrôle distant pour prendre à distance le contrôle d’un client Configuration Manager sans autorisation ;  
+    -   l’utilisation du contrôle distant pour prendre à distance le contrôle d’un client Configuration Manager sans autorisation ;  
 
     -   la configuration d'intervalles d'interrogation rapides et d'un grand nombre d'inventaires afin de créer des attaques par déni de service contre les clients et les serveurs ;  
 
@@ -365,6 +365,6 @@ Identifiez et suivez les meilleures pratiques relatives à votre version du serv
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

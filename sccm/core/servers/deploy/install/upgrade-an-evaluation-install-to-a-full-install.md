@@ -1,5 +1,5 @@
 ---
-title: "Mettre à niveau les installations d’évaluation | System Center Configuration Manager"
+title: "Mettre à niveau des installations d’évaluation | Microsoft Docs"
 description: "Découvrez comment mettre à niveau une installation d’évaluation vers une installation complète de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,17 +16,17 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 0ad15c0caddeb3c200b8c663631d2993a338c7c8
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 66dc01b7d1eeed5ad8262c60164460b669301aaf
 
 ---
 # <a name="upgrade-an-evaluation-install-of-system-center-configuration-manager-to-a-full-install"></a>Mettre à niveau une installation d’évaluation de System Center Configuration Manager vers une installation complète
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 
- Si vous avez installé une version d’évaluation de System Center Configuration Manager, à l’issue de 180 jours, la console Configuration Manager passe en lecture seule jusqu’à ce que vous activiez le produit à partir de la page **Maintenance de site** du programme d’installation. À tout moment avant ou après la période de 180 jours, vous avez la possibilité de mettre à niveau l'installation d'évaluation vers une installation complète.  
+ Si vous avez installé une version d’évaluation de System Center Configuration Manager, à l’issue de 180 jours, la console Configuration Manager passe en lecture seule jusqu’à ce que vous activiez le produit à partir de la page **Maintenance de site** du programme d’installation. À tout moment avant ou après la période de 180 jours, vous avez la possibilité de mettre à niveau l'installation d'évaluation vers une installation complète.  
 
 > [!NOTE]  
 >  Quand vous connectez une console Configuration Manager à une installation d’évaluation de Configuration Manager, la barre de titre de la console indique le nombre de jours restants avant que l’installation d’évaluation n’expire. Le nombre de jours n'est pas actualisé automatiquement et est mis à jour uniquement lorsque vous effectuez une nouvelle connexion à un site.  
@@ -39,7 +39,7 @@ ms.openlocfilehash: 0ad15c0caddeb3c200b8c663631d2993a338c7c8
 
 Dans la mesure où les sites secondaires ne sont pas considérés comme des installations d'évaluation, il est inutile de modifier un site secondaire après la mise à niveau de son site parent principal vers une installation complète.  
 
-**Prérequis de la mise à niveau d’une édition d’évaluation vers une édition complète :**  
+**Prérequis de la mise à niveau d’une édition d’évaluation vers une édition complète :**  
 
 -   Vous devez disposer d’un produit valide à utiliser lors de la mise à niveau.  
 
@@ -64,6 +64,6 @@ Dans la mesure où les sites secondaires ne sont pas considérés comme des inst
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

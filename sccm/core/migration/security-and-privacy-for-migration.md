@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité de la migration | System Center Configuration Manager"
+title: "Sécurité et confidentialité de la migration | Microsoft Docs"
 description: "Bonnes pratiques et informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 8c47633cfe6a03d881ebd02154ca2ab2e3009b3e
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 8aa6971d75924ab5bcacd70c330913097ecf8717
 
 
 ---
 # <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Sécurité et confidentialité pour la migration vers System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient les bonnes pratiques en matière de sécurité et les informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager.  
 
@@ -53,9 +53,9 @@ Lorsque vous migrez les données d'un site source vers un site de destination, v
 
  Pour plus d'informations sur la sécurité et la confidentialité, consultez l'une des rubriques suivantes :  
 
--   Pour plus d'informations sur les informations de confidentialité pour Configuration Manager 2007, voir [Sécurité et confidentialité pour Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) dans la bibliothèque de documentation de Configuration Manager 2007.  
+-   Pour plus d'informations sur les informations de confidentialité pour Configuration Manager 2007, voir [Sécurité et confidentialité pour Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) dans la bibliothèque de documentation de Configuration Manager 2007.  
 
--   Pour plus d'informations sur les informations de confidentialité pour System Center 2012 Configuration Manager, voir [Sécurité et confidentialité pour System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) dans la bibliothèque de documentation de System Center 2012 Configuration Manager.  
+-   Pour plus d'informations sur les informations de confidentialité pour System Center 2012 Configuration Manager, voir [Sécurité et confidentialité pour System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) dans la bibliothèque de documentation de System Center 2012 Configuration Manager.  
 
 -   Pour plus d’informations sur les informations de confidentialité pour System Center Configuration Manager, voir [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
@@ -67,6 +67,6 @@ Avant de migrer les données d'une hiérarchie source, analysez vos besoins en m
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

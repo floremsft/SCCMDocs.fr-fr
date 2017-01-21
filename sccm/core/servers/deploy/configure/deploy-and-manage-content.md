@@ -1,5 +1,5 @@
 ---
-title: "Déployer du contenu | System Center Configuration Manager"
+title: "Déployer du contenu | Microsoft Docs"
 description: "Après avoir installé des points de distribution pour System Center Configuration Manager, voici comment commencer à y déployer du contenu."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c6bf461a762b8aa51678a17cb7b294c803d05f37
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 36b08285ef78d0acb9ba9c44abe2d57e311d44b3
 
 ---
 # <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Déployer et gérer du contenu pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Après avoir installé des points de distribution pour System Center Configuration Manager, vous pouvez commencer à y déployer du contenu. En règle générale, le contenu est transféré aux points de distribution via le réseau, mais il existe d’autres options pour placer du contenu aux points de distribution. Une fois le contenu transféré vers un point de distribution, vous pouvez mettre à jour, redistribuer, supprimer et valider ce contenu sur les points de distribution.  
 
 ##  <a name="a-namebkmkdistributea-distribute-content"></a><a name="bkmk_distribute"></a> Distribuer du contenu  
- En règle générale, vous distribuez du contenu sur des points de distribution pour le rendre accessible aux ordinateurs clients. (Ceci ne s’applique pas si vous utilisez la distribution de contenu à la demande pour un déploiement spécifique.)  Quand vous distribuez du contenu, Configuration Manager stocke les fichiers de contenu dans un package, puis distribue ce package sur le point de distribution. Les types de contenu que vous pouvez distribuer incluent les suivants :  
+ En règle générale, vous distribuez du contenu sur des points de distribution pour le rendre accessible aux ordinateurs clients. (Ceci ne s’applique pas si vous utilisez la distribution de contenu à la demande pour un déploiement spécifique.)  Quand vous distribuez du contenu, Configuration Manager stocke les fichiers de contenu dans un package, puis distribue ce package sur le point de distribution. Les types de contenu que vous pouvez distribuer incluent les suivants :  
 
 -   Types de déploiement d’application  
 
@@ -55,21 +55,21 @@ Pour distribuer du contenu vers les points de distribution, procédez comme suit
 
 2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer.  
 
-    -   **Packages** : Développez **Gestion d’applications** >  **Packages**, puis sélectionnez les packages à distribuer.  
+    -   **Packages** : Développez **Gestion d’applications** >  **Packages**, puis sélectionnez les packages à distribuer.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez les packages de déploiement à distribuer.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez les packages de déploiement à distribuer.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** >  **Packages de pilotes**, puis sélectionnez les packages de pilotes à distribuer.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** >  **Packages de pilotes**, puis sélectionnez les packages de pilotes à distribuer.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à distribuer.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à distribuer.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à distribuer.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à distribuer.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à distribuer.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à distribuer.  
 
-    -   **Séquences de tâches** : Développez **Systèmes d’exploitation** >  **Séquences de tâches**, puis sélectionnez la séquence de tâches à distribuer. Les séquences de tâches ne contiennent pas de contenu, mais elles comportent des dépendances de contenu associées qui sont distribuées.  
+    -   **Séquences de tâches** : Développez **Systèmes d’exploitation** >  **Séquences de tâches**, puis sélectionnez la séquence de tâches à distribuer. Les séquences de tâches ne contiennent pas de contenu, mais elles comportent des dépendances de contenu associées qui sont distribuées.  
 
         > [!NOTE]  
         >  Si vous modifiez la séquence de tâches, vous devez redistribuer le contenu.  
@@ -106,7 +106,7 @@ Pour distribuer du contenu vers les points de distribution, procédez comme suit
 9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
 ##  <a name="a-namebkmkprestagea-use-prestaged-content"></a><a name="bkmk_prestage"></a> Utiliser le contenu préparé  
- Vous pouvez préparer des fichiers de contenu pour les applications et les types de packages :  
+ Vous pouvez préparer des fichiers de contenu pour les applications et les types de packages :  
 
 -   Dans la console Configuration Manager, vous sélectionnez le contenu dont vous avez besoin, puis utilisez l’**Assistant Création du fichier de contenu préparé** pour créer un fichier de contenu préparé compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous avez sélectionné.  
 
@@ -116,7 +116,7 @@ Pour distribuer du contenu vers les points de distribution, procédez comme suit
 
 -   Lorsque vous importez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution, et un message d'état est envoyé au serveur de site qui informe le site que le contenu est disponible sur le point de distribution.  
 
-**Limitations et éléments à prendre en compte pour le contenu préparé :**  
+**Limitations et éléments à prendre en compte pour le contenu préparé :**  
 
 -   **Si le point de distribution est situé sur le serveur de site**, n’activez pas le point de distribution pour le contenu préparé. Au lieu de cela, procédez comme indiqué dans [Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site](#bkmk_dpsiteserver).  
 
@@ -124,13 +124,13 @@ Pour distribuer du contenu vers les points de distribution, procédez comme suit
 
 -   **Vous devez créer la bibliothèque de contenu sur le point de distribution avant de préparer le contenu pour ce point de distribution**. Distribuez le contenu sur le réseau au moins une fois avant de préparer le contenu vers le point de distribution.  
 
--   **Lorsque vous préparez du contenu pour un package dont le chemin source est particulièrement long** (plus de 140 caractères, par exemple), l’outil en ligne de commande d’extraction de contenu risque de ne pas réussir à extraire le contenu de ce package vers la bibliothèque de contenu.  
+-   **Lorsque vous préparez du contenu pour un package dont le chemin source est particulièrement long** (plus de 140 caractères, par exemple), l’outil en ligne de commande d’extraction de contenu risque de ne pas réussir à extraire le contenu de ce package vers la bibliothèque de contenu.  
 
 Pour plus d’informations sur le moment propice à la préparation des fichiers de contenu, consultez *Contenu préparé* dans la rubrique [Gérer la bande passante du réseau pour la gestion de contenu](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).  
 
 Utilisez les sections suivantes pour préparer du contenu.  
 
-###  <a name="a-namebkmkcreateprestagedcontentfilea-step-1-create-a-prestaged-content-file"></a><a name="BKMK_CreatePrestagedContentFile"></a> Étape 1 : Créer un fichier de contenu préparé  
+###  <a name="a-namebkmkcreateprestagedcontentfilea-step-1-create-a-prestaged-content-file"></a><a name="BKMK_CreatePrestagedContentFile"></a> Étape 1 : Créer un fichier de contenu préparé  
  Vous pouvez créer un fichier de contenu préparé et compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous sélectionnez dans la console Configuration Manager. Pour créer un fichier de contenu préparé, procédez comme suit.  
 
 ##### <a name="to-create-a-prestaged-content-file"></a>Pour créer un fichier de contenu préparé  
@@ -156,9 +156,9 @@ Utilisez les sections suivantes pour préparer du contenu.
 3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Créer un fichier de contenu préparé**. L'Assistant Création du fichier de contenu préparé s'ouvre.  
 
     > [!NOTE]  
-    >  **Pour les applications :** Sous l’onglet **Accueil**, dans le groupe **Application**, cliquez sur **Créer un fichier de contenu préparé**.  
+    >  **Pour les applications :** Sous l’onglet **Accueil**, dans le groupe **Application**, cliquez sur **Créer un fichier de contenu préparé**.  
     >   
-    >  **Pour les packages :** Sous l’onglet **Accueil**, dans le groupe &lt;*nom_package*>, cliquez sur **Créer un fichier de contenu préparé**.  
+    >  **Pour les packages :** Sous l’onglet **Accueil**, dans le groupe &lt;*nom_package*>, cliquez sur **Créer un fichier de contenu préparé**.  
 
 4.  Sur la page **Général** , cliquez sur **Parcourir**, choisissez l'emplacement pour le fichier de contenu préparé, spécifiez un nom pour le fichier, puis cliquez sur **Enregistrer**. Vous utilisez ce fichier de contenu préparé sur des serveurs de site principaux, des serveurs de site secondaires ou des points de distribution afin d'importer le contenu et les métadonnées.  
 
@@ -176,7 +176,7 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 11. Sur la page **Dernière étape** , vérifiez que le fichier de contenu préparé a été créé correctement, puis cliquez sur **Fermer**.  
 
-###  <a name="a-namebkmkassigncontenttodistributionpointa-step-2-assign-the-content-to-distribution-points"></a><a name="BKMK_AssignContentToDistributionPoint"></a> Étape 2 : Affecter le contenu aux points de distribution  
+###  <a name="a-namebkmkassigncontenttodistributionpointa-step-2-assign-the-content-to-distribution-points"></a><a name="BKMK_AssignContentToDistributionPoint"></a> Étape 2 : Affecter le contenu aux points de distribution  
  Après avoir préparé le fichier de contenu, attribuez le contenu aux points de distribution.  
 
 > [!NOTE]  
@@ -238,7 +238,7 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-###  <a name="a-namebkmkexportcontentfromprestagedcontentfilea-step-3-extract-the-content-from-the-prestaged-content-file"></a><a name="BKMK_ExportContentFromPrestagedContentFile"></a> Étape 3 : Extraire le contenu du fichier de contenu préparé  
+###  <a name="a-namebkmkexportcontentfromprestagedcontentfilea-step-3-extract-the-content-from-the-prestaged-content-file"></a><a name="BKMK_ExportContentFromPrestagedContentFile"></a> Étape 3 : Extraire le contenu du fichier de contenu préparé  
  Une fois que vous avez créé le fichier de contenu préparé et que vous avez attribué le contenu aux points de distribution, vous pouvez extraire les fichiers de contenu vers la bibliothèque de contenu d'un serveur de site ou d'un point de distribution. Généralement, vous avez copié le fichier de contenu préparé vers un lecteur portable, tel qu’un lecteur USB, ou gravé le contenu sur un support, tel qu’un DVD, puis vous l’avez mis à disposition à l’emplacement du serveur de site ou du point de distribution qui demande le contenu.  
 
  Pour exporter manuellement les fichiers de contenu à partir du fichier de contenu préparé à l'aide de l'outil de ligne de commande Extraire le contenu, procédez comme suit.  
@@ -277,7 +277,7 @@ Utilisez les sections suivantes pour préparer du contenu.
     >  2.  Vous mettez à jour les fichiers sources pour le package avec la version 2.  
     >  3.  Vous extrayez le fichier de contenu préparé (version 1 du package) sur un point de distribution.  
     >   
-    > Configuration Manager ne distribue pas automatiquement le package version 2 vers le point de distribution. Vous devez créer un nouveau fichier de contenu préparé contenant la nouvelle version du fichier, puis extraire le contenu, mettre à jour le point de distribution pour distribuer les fichiers qui ont été modifiés ou redistribuer tous les fichiers du package.  
+    > Configuration Manager ne distribue pas automatiquement le package version 2 vers le point de distribution. Vous devez créer un nouveau fichier de contenu préparé contenant la nouvelle version du fichier, puis extraire le contenu, mettre à jour le point de distribution pour distribuer les fichiers qui ont été modifiés ou redistribuer tous les fichiers du package.  
 
 ###  <a name="a-namebkmkdpsiteservera-how-to-prestage-content-on-a-distribution-point-on-a-site-server"></a><a name="bkmk_dpsiteserver"></a> Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site  
  Lorsqu'un point de distribution est installé sur un serveur de site, vous devez suivre la procédure suivante pour préparer correctement le contenu. Cela est dû au fait que les fichiers de contenu se trouvent déjà dans la bibliothèque de contenu.  
@@ -296,54 +296,30 @@ Utilisez les sections suivantes pour préparer du contenu.
 
     4.  Dans l'onglet **Général** , vérifiez que la case **Activer ce point de distribution pour le contenu préparé** est décochée.  
 
-2.  Créez le fichier de contenu préparé en suivant la section [Étape 1 : Créer un fichier de contenu préparé](#BKMK_CreatePrestagedContentFile) dans cette rubrique.  
+2.  Créez le fichier de contenu préparé en suivant la section [Étape 1 : Créer un fichier de contenu préparé](#BKMK_CreatePrestagedContentFile) dans cette rubrique.  
 
-3.  Affectez le contenu au point de distribution en suivant la section [Étape 2 : Affecter le contenu aux points de distribution](#BKMK_AssignContentToDistributionPoint) dans cette rubrique.  
+3.  Affectez le contenu au point de distribution en suivant la section [Étape 2 : Affecter le contenu aux points de distribution](#BKMK_AssignContentToDistributionPoint) dans cette rubrique.  
 
-4.  Sur le serveur de site, extrayez le contenu du fichier de contenu préparé en suivant la section [Étape 3 : Extraire le contenu du fichier de contenu préparé](#BKMK_ExportContentFromPrestagedContentFile) dans cette rubrique.  
+4.  Sur le serveur de site, extrayez le contenu du fichier de contenu préparé en suivant la section [Étape 3 : Extraire le contenu du fichier de contenu préparé](#BKMK_ExportContentFromPrestagedContentFile) dans cette rubrique.  
 
     > [!NOTE]  
-    >  Lorsque le point de distribution est situé sur un site secondaire, patientez au moins 10 minutes, puis utilisez une console Configuration Manager connectée au site principal parent pour affecter le contenu au point de distribution sur le site secondaire.  
+    >  Lorsque le point de distribution est situé sur un site secondaire, patientez au moins 10 minutes, puis utilisez une console Configuration Manager connectée au site principal parent pour affecter le contenu au point de distribution sur le site secondaire.  
 
 ##  <a name="a-namebkmkmanagea-manage-the-content-you-have-distributed"></a><a name="bkmk_manage"></a> Gérer le contenu que vous avez distribué  
- Vous disposez des options suivantes pour gérer le contenu :  
+ Vous disposez des options suivantes pour gérer le contenu :  
+ - [Mettre à jour le contenu](#update-content)
+ - [Redistribuer le contenu](#redistribute-content)
+ - [Supprimer le contenu](#remove-content)
+ - [Valider le contenu](#validate-content)
 
-**Mettre à jour le contenu :** Si l’emplacement du fichier source d’un déploiement est mis à jour suite à l’ajout de nouveaux fichiers ou au remplacement de fichiers existants par d’autres plus récents, vous pouvez mettre à jour les fichiers de contenu sur les points de distribution à l’aide de l’action **Mettre à jour les points de distribution** ou **Mettre à jour le contenu** :  
-
+### <a name="update-content"></a>Mettre à jour le contenu
+Si l’emplacement du fichier source d’un déploiement est mis à jour par l’ajout de nouveaux fichiers ou le remplacement de fichiers existants par d’autres plus récents, vous pouvez mettre à jour les fichiers de contenu sur les points de distribution à l’aide de l’action **Mettre à jour les points de distribution** ou **Mettre à jour le contenu** :  
 -   Les fichiers de contenu sont copiés du chemin source vers la bibliothèque de contenu sur le site propriétaire de la source du contenu du package.  
-
 -   La version du package est incrémentée.  
-
 -   Chaque instance de la bibliothèque de contenu sur les serveurs de site et sur les points de distribution est mise à jour uniquement avec les fichiers qui ont été modifiés.  
 
 > [!WARNING]  
 >  La version du package pour les applications est toujours 1. Quand vous mettez à jour le contenu pour un type de déploiement d’application, Configuration Manager crée un ID de contenu pour le type de déploiement, et le package fait référence à ce nouvel ID de contenu.  
-
-**Redistribuer le contenu :** Vous pouvez redistribuer un package pour copier tous les fichiers de contenu dans le package vers des points de distribution ou des groupes de points de distribution, et remplacer les fichiers existants.  
-
- Utilisez cette option pour réparer les fichiers de contenu dans le package ou pour renvoyer le contenu après un échec de la distribution initiale. Vous pouvez redistribuer un package à partir des propriétés suivantes :  
-
--   Propriétés du package  
-
--   Propriétés du point de distribution  
-
--   Propriétés du groupe de points de distribution  
-
-**Supprimer le contenu :** Si vous n’avez plus besoin de contenu sur vos points de distribution, vous pouvez supprimer les fichiers de contenu sur le point de distribution.  
-
--   Propriétés du package  
-
--   Propriétés du point de distribution  
-
--   Propriétés du groupe de points de distribution  
-
- Cependant, si le contenu est associé à un autre package qui a été distribué au même point de distribution, vous ne pouvez pas le supprimer. Vous pouvez supprimer le contenu à partir de :  
-
-**Valider le contenu :** Le processus de validation du contenu vérifie l’intégrité des fichiers de contenu sur les points de distribution. Vous pouvez activer la validation du contenu selon une planification, ou vous pouvez démarrer manuellement la validation du contenu à partir des propriétés des points de distribution et des packages.  
-
- Lors du démarrage du processus de validation du contenu, Configuration Manager vérifie les fichiers de contenu sur les points de distribution et si le hachage du fichier est inattendu pour les fichiers du point de distribution, Configuration Manager crée un message d’état que vous pouvez consulter dans l’espace de travail **Surveillance**.  
-
- Pour plus d’informations sur la configuration de la planification de la validation du contenu, consultez [Configurations des points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
 #### <a name="to-update-content-on-distribution-points"></a>Pour mettre à jour du contenu sur les points de distribution  
 
@@ -351,19 +327,19 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer. Cliquez sur l'onglet **Types de déploiement** , puis sélectionnez le type de déploiement à mettre à jour.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer. Cliquez sur l'onglet **Types de déploiement** , puis sélectionnez le type de déploiement à mettre à jour.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez les packages à mettre à jour.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez les packages à mettre à jour.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez les packages de déploiement à mettre à jour.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez les packages de déploiement à mettre à jour.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez les packages de pilotes à mettre à jour.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez les packages de pilotes à mettre à jour.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à mettre à jour.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à mettre à jour.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à mettre à jour.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à mettre à jour.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à mettre à jour.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à mettre à jour.  
 
 3.  Dans l'onglet **Accueil** , cliquez sur le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**, puis cliquez sur **OK** pour confirmer la mise à jour du contenu.  
 
@@ -373,25 +349,35 @@ Utilisez les sections suivantes pour préparer du contenu.
     > [!NOTE]  
     >  Lorsque vous mettez à jour du contenu pour les images de démarrage, l'Assistant Gestion des points de distribution s'ouvre. Vérifiez les informations sur la **Résumé** , puis effectuez toutes les étapes de l'Assistant pour mettre à jour le contenu.  
 
+### <a name="redistribute-content"></a>Redistribuer le contenu
+Vous pouvez redistribuer un package pour copier tous les fichiers de contenu dans le package vers des points de distribution ou des groupes de points de distribution, et remplacer les fichiers existants.  
+
+ Utilisez cette option pour réparer les fichiers de contenu dans le package ou pour renvoyer le contenu après un échec de la distribution initiale. Vous pouvez redistribuer un package à partir des propriétés suivantes :  
+
+-   Propriétés du package  
+-   Propriétés du point de distribution  
+-   Propriétés du groupe de points de distribution  
+
+
 #### <a name="to-redistribute-content-from-package-properties"></a>Pour redistribuer du contenu à partir des propriétés de package  
 
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
 2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Applications** : Développez **Gestion d’applications** >  **Applications**, puis sélectionnez l’application à redistribuer.  
+    -   **Applications** : Développez **Gestion d’applications** >  **Applications**, puis sélectionnez l’application à redistribuer.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à redistribuer.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à redistribuer.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez le package de déploiement à redistribuer.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez le package de déploiement à redistribuer.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilote à redistribuer.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilote à redistribuer.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à redistribuer.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à redistribuer.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à redistribuer.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à redistribuer.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez l’image de démarrage à redistribuer.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez l’image de démarrage à redistribuer.  
 
 3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
@@ -420,25 +406,42 @@ Utilisez les sections suivantes pour préparer du contenu.
     > [!IMPORTANT]  
     >  Le contenu du package est redistribué à tous les points de distribution du groupe de points de distribution.  
 
+
+#### <a name="use-the-sdk-to-force-replication-of-content"></a>Utiliser le SDK pour forcer la réplication de contenu
+Vous pouvez utiliser la méthode de classe WMI (Windows Management Instrumentation) **RetryContentReplication** à partir du SDK Configuration Manager pour forcer le gestionnaire de distribution à copier le contenu de l’emplacement source vers la bibliothèque de contenu.  
+
+Utilisez uniquement cette méthode pour forcer la réplication quand vous devez redistribuer le contenu après avoir rencontré des problèmes lors de la réplication normale de contenu (généralement validée à l’aide du nœud Surveillance de la console).   
+
+Pour plus d’informations sur cette option SDK, consultez [RetryContentReplication Method in Class SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) (Méthode RetryContentReplication dans la classe SMS_CM_UpdatePackages) sur MSDN.Microsoft.com.
+
+### <a name="remove-content"></a>Supprimer le contenu
+Si vous n'avez plus besoin de contenu sur vos points de distribution, vous pouvez supprimer les fichiers de contenu sur le point de distribution.  
+
+-   Propriétés du package  
+-   Propriétés du point de distribution  
+-   Propriétés du groupe de points de distribution  
+
+Cependant, si le contenu est associé à un autre package qui a été distribué au même point de distribution, vous ne pouvez pas le supprimer.  
+
 #### <a name="to-remove-package-content-files-from-distribution-points"></a>Pour supprimer les fichiers de contenu de package de points de distribution  
 
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
 2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez supprimer :  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à supprimer.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à supprimer.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à supprimer.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à supprimer.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à supprimer.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à supprimer.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à supprimer.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à supprimer.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à supprimer.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à supprimer.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à supprimer.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à supprimer.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à supprimer.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à supprimer.  
 
 3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
@@ -464,6 +467,15 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à supprimer, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
 
+
+### <a name="validate-content"></a>Valider le contenu
+Le processus de validation du contenu vérifie l'intégrité des fichiers de contenu sur les points de distribution. Vous pouvez activer la validation du contenu selon une planification, ou vous pouvez démarrer manuellement la validation du contenu à partir des propriétés des points de distribution et des packages.  
+
+ Lors du démarrage du processus de validation du contenu, Configuration Manager vérifie les fichiers de contenu sur les points de distribution et si le hachage du fichier est inattendu pour les fichiers du point de distribution, Configuration Manager crée un message d’état que vous pouvez consulter dans l’espace de travail **Surveillance**.  
+
+ Pour plus d’informations sur la configuration de la planification de la validation du contenu, consultez [Configurations des points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+
+
 #### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Pour initier la validation du contenu de tout le contenu d'un point de distribution  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
@@ -482,19 +494,19 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez valider :  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à valider.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à valider.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à valider.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à valider.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à valider.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à valider.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à valider.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à valider.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à valider.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à valider.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à valider.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à valider.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à préparer.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à préparer.  
 
 3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
@@ -504,6 +516,6 @@ Utilisez les sections suivantes pour préparer du contenu.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

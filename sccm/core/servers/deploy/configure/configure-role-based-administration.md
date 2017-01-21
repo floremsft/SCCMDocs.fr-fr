@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’administration basée sur des rôles | System Center Configuration Manager"
+title: "Configurer l’administration basée sur des rôles | Microsoft Docs"
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 8c67fb351fff7f362ca3845c2cc67d222b6477b8
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: fb5a3cb9fc5aebf512f09a2e584c1eee58b2d15a
 
 
 ---
 # <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Configurer l’administration basée sur des rôles pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, l’administration basée sur des rôles combine des rôles de sécurité, des étendues de sécurité et des regroupements attribués pour définir l’étendue administrative de chaque utilisateur administratif. L’étendue administrative inclut les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les tâches associées à ces objets que cet utilisateur est autorisé à exécuter. Les configurations d'administration basée sur des rôles s'appliquent à chaque site dans une hiérarchie.  
 
@@ -73,7 +73,7 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
 
         6.  Après avoir configuré les autorisations, cliquez sur **OK** pour enregistrer le nouveau rôle de sécurité.  
 
-    -   Pour importer un rôle de sécurité exporté à partir d’une autre hiérarchie Configuration Manager, effectuez les actions suivantes :  
+    -   Pour importer un rôle de sécurité exporté à partir d’une autre hiérarchie Configuration Manager, effectuez les actions suivantes :  
 
         1.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Importer un rôle de sécurité**.  
 
@@ -300,6 +300,6 @@ La configuration actuelle du comportement de l'objet sécurisable modifie le pro
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

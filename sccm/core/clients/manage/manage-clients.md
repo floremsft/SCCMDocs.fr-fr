@@ -1,8 +1,8 @@
 ---
-title: "Gérer les clients | System Center Configuration Manager"
+title: "Gérer les clients | Microsoft Docs"
 description: "Découvrez comment gérer les clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3986a992-c175-4b6f-922e-fc561e3d7cb7
 caps.latest.revision: 17
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: 67a814330123a1615a0663872bf4af64e5b81a84
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: dfdb5a95b672d3858d094750625cb5f6ef50700d
 
 
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Une fois qu’un client System Center Configuration Manager a été installé et attribué à un site Configuration Manager, l’appareil est affiché dans l’espace de travail **Ressources et Conformité** du nœud **Appareils**, ainsi que dans un ou plusieurs regroupements du nœud **Regroupements d’appareils**. Lorsque vous sélectionnez le périphérique ou le regroupement qui contient le périphérique, vous pouvez sélectionner plusieurs opérations de gestion. Toutefois, il existe d’autres manières de gérer le client, pouvant impliquer d’autres espaces de travail dans la console ou des tâches qui n’utilisent pas la console Configuration Manager.  
 
@@ -90,7 +90,7 @@ Une fois qu’un client System Center Configuration Manager a été installé et
         > [!WARNING]  
         >  Certaines fonctions de gestion peuvent fonctionner pour les clients non approuvés, mais ce scénario n’est pas pris en charge pour Configuration Manager.  
 
-         Vous ne devez pas approuver les clients qui communiquent toujours avec les systèmes de site à l'aide du protocole HTTPS au lieu de HTTP, ou les clients qui utilisent un certificat PKI lorsqu'ils communiquent avec les systèmes de site à l'aide du protocole HTTP. Ces clients établissent une relation de confiance avec Configuration Manager à l’aide des certificats PKI.  
+         Vous ne devez pas approuver les clients qui communiquent toujours avec les systèmes de site à l'aide du protocole HTTPS au lieu de HTTP, ou les clients qui utilisent un certificat PKI lorsqu'ils communiquent avec les systèmes de site à l'aide du protocole HTTP. Ces clients établissent une relation de confiance avec Configuration Manager à l’aide des certificats PKI.  
 
     -   **Bloquer ou débloquer un client**  
 
@@ -160,7 +160,7 @@ Une fois qu’un client System Center Configuration Manager a été installé et
 
         Pour afficher la valeur de propriété dans la liste d’appareils, vous devrez peut-être ajouter la colonne à la vue en cliquant avec le bouton droit sur n’importe quel titre de colonne et en choisissant **Propriétaire de l’appareil**.
 
-         Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/plan-design/hybrid-mobile-device-management.md).  
+         Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
 ##  <a name="a-namebkmkmanagingclientsdevicecollectionsnodea-manage-clients-from-the-device-collections-node"></a><a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
  La procédure et le tableau ci-après permettent de gérer des périphériques dans un regroupement à partir du nœud **Regroupements de périphériques** de l'espace de travail **Ressources et Conformité** .  
@@ -204,9 +204,9 @@ Une fois qu’un client System Center Configuration Manager a été installé et
 ##  <a name="a-namebkmkclientcachea-configure-the-client-cache-for-configuration-manager-clients"></a><a name="BKMK_ClientCache"></a> Configurer le cache du client pour les clients Configuration Manager  
  Vous pouvez configurer l’emplacement du cache du client et la quantité d’espace disque que les clients Configuration Manager sur Windows utilisent pour stocker les fichiers temporaires lors de l’installation de programmes et d’applications. Les mises à jour logicielles utilisent également le cache du client, mais elles ne sont pas limitées par la taille configurée pour le cache et tenteront toujours de télécharger vers le cache. Vous pouvez configurer les paramètres du cache du client au moment où vous installez manuellement le client Configuration Manager, quand vous utilisez une installation push du client ou après que le client a été installé.
 
-Dans Configuration Manager version 1606, vous pouvez spécifier la taille du dossier du cache en utilisant les paramètres client dans la console Configuration Manager.   
+Dans Configuration Manager version 1606, vous pouvez spécifier la taille du dossier du cache en utilisant les paramètres client dans la console Configuration Manager.   
 
- L’emplacement par défaut pour le cache du client Configuration Manager est %*windir*%\ccmcache, et l’espace disque par défaut est de 5 120 Mo.  
+ L’emplacement par défaut pour le cache du client Configuration Manager est %*windir*%\ccmcache, et l’espace disque par défaut est de 5 120 Mo.  
 
 > [!IMPORTANT]  
 >  Ne chiffrez pas le dossier utilisé pour le cache du client. Configuration Manager ne peut pas télécharger du contenu vers un dossier chiffré.  
@@ -215,7 +215,7 @@ Dans Configuration Manager version 1606, vous pouvez spécifier la taille du dos
 
 Le client Configuration Manager télécharge le contenu pour les logiciels nécessaires dès qu’il reçoit le déploiement, mais il ne l’exécute pas avant l’heure planifiée du déploiement. À l’heure planifiée, le client Configuration Manager vérifie si le contenu est disponible dans le cache. Si le contenu est dans le cache et que la version en est correcte, le client utilise toujours ce contenu mis en cache. Toutefois, lorsque la version requise du contenu a été modifiée, ou si le contenu a été supprimé afin de faire de la place pour un autre package, le contenu est de nouveau téléchargé vers le cache.  
 
-Si le client tente de télécharger du contenu pour un programme ou une application dont la taille est supérieure à celle du cache, le déploiement échoue en raison de la taille insuffisante du cache et Configuration Manager génère un message d’état (ID 10050). Si la taille du cache est augmentée par la suite, le comportement de la nouvelle tentative de téléchargement est différent pour un programme requis et pour une application requise :  
+Si le client tente de télécharger du contenu pour un programme ou une application dont la taille est supérieure à celle du cache, le déploiement échoue en raison de la taille insuffisante du cache et Configuration Manager génère un message d’état (ID 10050). Si la taille du cache est augmentée par la suite, le comportement de la nouvelle tentative de téléchargement est différent pour un programme requis et pour une application requise :  
 
 -   Pour un programme requis : le client ne retente pas automatiquement de télécharger le contenu. Vous devez redéployer le package et le programme vers le client.  
 -   Pour une application requise : comme le déploiement d'une application est basé sur son état, le client tente automatiquement de télécharger le contenu lors de son prochain téléchargement de sa stratégie client.  
@@ -239,7 +239,7 @@ Exécutez la commande CCMSetup.exe à partir de l'emplacement source d'installat
     -   SMSCACHESIZE  
 
         > [!NOTE]
-        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#Client-Cache-Settings) (Paramètres du cache du client).
+        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) (Paramètres du cache du client).
 
 Pour plus d’informations sur l’utilisation de ces propriétés de ligne de commande pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
@@ -264,7 +264,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
     -   SMSCACHESIZE  
 
         > [!NOTE]
-        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#Client-Cache-Settings) (Paramètres du cache du client).
+        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) (Paramètres du cache du client).
 
        Pour plus d’informations sur l’utilisation de ces propriétés de ligne de commande pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
@@ -286,7 +286,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>Pour configurer la taille du cache du client dans les paramètres client
 
-À compter de la version 1606, vous pouvez ajuster la taille du dossier du cache du client sans avoir à réinstaller le client. Pour ce faire, vous configurez la taille du cache du client dans la console Configuration Manager à l’aide des paramètres client.  
+À compter de la version 1606, vous pouvez ajuster la taille du dossier du cache du client sans avoir à réinstaller le client. Pour ce faire, vous configurez la taille du cache du client dans la console Configuration Manager à l’aide des paramètres client.  
 
 1. Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**.
 
@@ -323,6 +323,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
  Si Configuration Manager peut résoudre un conflit à l’aide de l’authentification Windows du compte d’ordinateur ou d’un certificat PKI émis par une source fiable, le conflit est résolu automatiquement. Si Configuration Manager ne peut pas résoudre le conflit, il utilise un paramètre de hiérarchie qui fusionne automatiquement les enregistrements avec le même ID de matériel qu’il a détectés (il s’agit du paramètre par défaut) ou qui vous laisse le choix de fusionner ou de bloquer les enregistrements du client, ou d’en créer d’autres. Si vous décidez de gérer manuellement les enregistrements en double, vous devez résoudre vous-même les conflits d’enregistrement à l’aide de la console Configuration Manager.  
 
+
 #### <a name="to-change-the-hierarchy-setting-for-managing-conflicting-records"></a>Pour modifier le paramètre de hiérarchie pour gérer les conflits d'enregistrement  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
@@ -352,8 +353,20 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
     -   **Bloquer** : permet de créer un nouvel enregistrement pour l'enregistrement de client en conflit, mais le marquer comme bloqué.  
 
+## <a name="manage-duplicate-hardware-identifiers"></a>Gérer les identificateurs de matériel dupliqués
+Depuis Configuration Manager version 1610, vous pouvez fournir la liste des ID de matériel ignorés par Configuration Manager dans le cadre du démarrage PXE et de l’inscription des clients. Deux problèmes courants bénéficient de cette fonctionnalité.
+
+1. De nombreux nouveaux appareils, comme la Surface Pro 3, ne comprennent pas de port Ethernet intégré. Une carte USB-Ethernet est généralement utilisée pour établir une connexion filaire afin de déployer le système d’exploitation. Toutefois, il s’agit souvent de cartes partagées pour des questions de coût et de facilité d’utilisation. Étant donné que l’adresse MAC de cette carte est utilisée pour identifier l’appareil, la réutilisation de cette carte nécessite l’intervention supplémentaire d’un administrateur entre chaque déploiement. L’édition Current Branch version 1610 de Configuration Manager permet désormais d’exclure l’adresse MAC de cette carte pour faciliter sa réutilisation dans ce scénario.
+2. Tandis que l’ID SMBIOS est supposé être un identificateur de matériel unique, certains appareils spécialisés sont créés avec des ID dupliqués. La liste des ID de matériel peut également être utilisée pour résoudre ce problème, même s’il s’agit d’un scénario plus rare que l’utilisation d’une carte USB-Ethernet ci-dessus.
+
+#### <a name="to-add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Pour ajouter des identificateurs de matériel que Configuration Manager doit ignorer  
+1. Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.
+2. Dans l'onglet **Accueil** , dans le groupe **Sites** , cliquez sur **Paramètres de hiérarchie**.
+3. Accédez à l’onglet **Approbation client et enregistrements en conflit**.
+4. Cliquez sur **Ajouter** dans la section **Identificateurs de matériel dupliqués** pour ajouter de nouveaux identificateurs de matériel.
+
 ##  <a name="a-namebkmkpolicyretrievala-initiate-policy-retrieval-for-a-configuration-manager-client"></a><a name="BKMK_PolicyRetrieval"></a> Lancer une récupération de stratégie pour un client Configuration Manager  
- Sur Windows, un client Configuration Manager télécharge sa stratégie client selon un calendrier que vous configurez comme paramètre du client. Toutefois, vous pouvez avoir besoin de lancer une récupération de stratégie ad hoc à partir du client, par exemple, dans un scénario de dépannage ou pour effectuer des tests.  
+ Sur Windows, un client Configuration Manager télécharge sa stratégie client selon un calendrier que vous configurez comme paramètre du client. Toutefois, vous pouvez avoir besoin de lancer une récupération de stratégie ad hoc à partir du client, par exemple, dans un scénario de dépannage ou pour effectuer des tests.  
 
  Suivez les procédures décrites ci-après pour initier une récupération de stratégie ad hoc à partir du client, en dehors de l'intervalle d'interrogation planifié, à l'aide de l'onglet **Actions** du client Configuration Manager ou en exécutant un script sur l'ordinateur. Vous devez vous connecter à l'ordinateur client avec des droits d'administrateur local pour pouvoir effectuer ces procédures.  
 
@@ -440,6 +453,6 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

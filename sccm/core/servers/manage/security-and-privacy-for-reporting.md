@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité pour la création de rapports | Configuration Manager"
+title: "Sécurité et confidentialité pour les rapports | Microsoft Docs"
 description: "Découvrez les bonnes pratiques de sécurité et de confidentialité lorsque vous utilisez les fonctionnalités de création de rapports dans Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9e8ce5abf2c00a1aa2c89360bdc0244428c6834b
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 50ef8b761533bfdd5e8d23abc7791beb4c7d0b11
 
 
 ---
 # <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient les bonnes pratiques de sécurité et les informations de confidentialité pour la création de rapports dans System Center Configuration Manager.  
 
@@ -34,6 +34,6 @@ Cette rubrique contient les bonnes pratiques de sécurité et les informations d
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

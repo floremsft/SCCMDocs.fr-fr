@@ -1,8 +1,8 @@
 ---
-title: "Notions de base des sites et des hiérarchies | System Center Configuration Manager"
+title: "Notions de base des sites et des hiérarchies | Microsoft Docs"
 description: "Obtenez des informations de base sur les sites et les hiérarchies System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/08/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 07e10ead8d4b147a4a96b1e5189597e1ac4d4f52
+ms.sourcegitcommit: 1b64b5f6e208b85a5ec2ef02bab34afee451c484
+ms.openlocfilehash: cda27b9478e915bca99f5784ec6bcbedc989e841
 
 
 ---
 # <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Notions de base des sites et des hiérarchies pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Un déploiement System Center Configuration Manager doit être installé dans un domaine Active Directory et a pour base un ou plusieurs sites Configuration Manager formant une hiérarchie de sites. Qu’il s’agisse d’un site unique ou d’une hiérarchie à plusieurs sites, le type et l’emplacement des sites que vous installez permettent de faire monter en puissance (développer) votre déploiement si nécessaire et d’offrir des services clés aux appareils et utilisateurs gérés.
 
@@ -35,7 +35,7 @@ Quand vous installez System Center Configuration Manager pour la première fois,
  Un **site principal autonome** convient pour des déploiements plus petits et permet de gérer des appareils sans devoir installer des sites supplémentaires. Si un site principal autonome risque de limiter la taille de votre déploiement, il prend en charge un scénario d’extension ultérieure de votre hiérarchie par l’installation d’un nouveau site d’administration centrale. Dans le cadre de ce scénario d’extension du site, votre site principal autonome devient un site principal enfant, et vous pouvez installer des sites principaux enfants supplémentaires sous votre nouveau site d’administration centrale.  Cela vous permet ensuite d’étendre votre déploiement initial dans la perspective d’une croissance future de votre entreprise.  
 
 > [!TIP]  
->  Un site principal autonome et un site principal enfant sont en fait du même type : il s’agit de sites principaux. La différence de nom est basée sur la relation de hiérarchie qui est créée quand vous utilisez également un site d’administration centrale.  Cette relation de hiérarchie peut également limiter l’installation de certains rôles système de site qui étendent les fonctionnalités de Configuration Manager. En effet, certains rôles de système de site ne peuvent être installés que sur le site de niveau supérieur de la hiérarchie, un site d’administration centrale ou un site principal autonome.  
+>  Un site principal autonome et un site principal enfant sont en fait du même type : il s’agit de sites principaux. La différence de nom est basée sur la relation de hiérarchie qui est créée quand vous utilisez également un site d’administration centrale.  Cette relation de hiérarchie peut également limiter l’installation de certains rôles système de site qui étendent les fonctionnalités de Configuration Manager. En effet, certains rôles de système de site ne peuvent être installés que sur le site de niveau supérieur de la hiérarchie, un site d’administration centrale ou un site principal autonome.  
 
  Après avoir installé votre premier site, vous pouvez installer des sites supplémentaires.  Si votre premier site est un site d’administration centrale, vous pouvez installer un ou plusieurs sites principaux enfants.  Après avoir installé un site principal (autonome ou principal de l’enfant), vous pouvez installer un ou plusieurs sites secondaires.  
 
@@ -69,6 +69,6 @@ Quand vous installez System Center Configuration Manager pour la première fois,
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

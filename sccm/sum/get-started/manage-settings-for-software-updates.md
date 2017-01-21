@@ -1,6 +1,6 @@
 ---
 
-title: "Gérer les paramètres des mises à jour logicielles | Configuration Manager"
+title: "Gérer les paramètres des mises à jour logicielles | Microsoft Docs"
 description: "Découvrez les paramètres client adaptés aux mises à jour logicielles sur votre site après avoir installé le point de mise à jour logicielle."
 keywords: 
 author: dougeby
@@ -14,15 +14,15 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4d7ffc12a3626f35a4481a3dcaed40abc0bbdac0
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 7d37f3c5e398c914482c45ab837fe41d00fce8ea
 
 
 ---
 
 #  <a name="a-namebkmkmanagesusettingsa-manage-settings-for-software-updates"></a><a name="BKMK_ManageSUSettings"></a> Gérer les paramètres des mises à jour logicielles  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Après avoir synchronisé les mises à jour logicielles dans Configuration Manager, configurez et vérifiez les paramètres décrits dans les sections suivantes.
 
@@ -63,7 +63,7 @@ Pour ouvrir les propriétés de mise à jour logicielle, procédez comme suit.
 3.  Sélectionnez une ou plusieurs mises à jour logicielles, puis, sous l'onglet **Accueil** , cliquez sur **Propriétés** dans le groupe **Propriétés** .  
 
    > [!NOTE]  
-   >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
+   >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
 ###  <a name="a-namebkmksoftwareupdatesinformationa-review-software-updates-information"></a><a name="BKMK_SoftwareUpdatesInformation"></a> Consulter les informations relatives aux mises à jour logicielles  
 Dans les propriétés de mise à jour logicielle, vous pouvez consulter des informations détaillées sur une mise à jour logicielle. Les informations détaillées ne sont pas affichées lorsque vous sélectionnez plusieurs mises à jour logicielles. Les sections suivantes décrivent les informations disponibles pour une mise à jour logicielle sélectionnée.  
@@ -90,7 +90,7 @@ Sous l'onglet **Informations de contenu** , consultez les informations suivantes
 
 -   **ID du contenu**: indique l’ID du contenu pour la mise à jour logicielle.  
 
--   **Téléchargé** : indique si Configuration Manager a téléchargé les fichiers de la mise à jour logicielle.  
+-   **Téléchargé** : indique si Configuration Manager a téléchargé les fichiers de la mise à jour logicielle.  
 
 -   **Langue**: indique les langues de la mise à jour logicielle.  
 
@@ -118,7 +118,7 @@ Configuration Manager utilise aussi ce paramètre pour déterminer s’il est n�
 
 Sous l'onglet **Durée maximale d'exécution** , vous pouvez afficher et configurer les paramètres suivants :  
 
-- **Durée maximale d’exécution** : indique le nombre maximal de minutes dont dispose le processus d’installation de mises à jour logicielles avant que l’installation ne soit plus contrôlée par Configuration Manager. Ce paramètre permet également de déterminer s'il reste suffisamment de temps disponible pour installer la mise à jour avant la fin de la fenêtre de maintenance. La valeur par défaut est de 60 minutes pour les Service Packs, et de 5 minutes pour les autres types de mises à jour logicielles. La plage des valeurs est comprise entre 5 et 9999 minutes.  
+- **Durée maximale d’exécution** : indique le nombre maximal de minutes dont dispose le processus d’installation de mises à jour logicielles avant que l’installation ne soit plus contrôlée par Configuration Manager. Ce paramètre permet également de déterminer s'il reste suffisamment de temps disponible pour installer la mise à jour avant la fin de la fenêtre de maintenance. La valeur par défaut est de 60 minutes pour les Service Packs, et de 5 minutes pour les autres types de mises à jour logicielles. La plage des valeurs est comprise entre 5 et 9999 minutes.  
 
 > [!IMPORTANT]  
 >  Veillez à affecter à la durée maximale d'exécution une valeur inférieure à la durée de la fenêtre de maintenance configurée. Sinon, l'installation des mises à jour logicielles n'est jamais lancée.  
@@ -136,12 +136,12 @@ Par défaut, la liste de révocation de certificats n’est pas contrôlée pend
 Si vous l’utilisez, la vérification de la liste de révocation de certificats doit être activée sur les consoles Configuration Manager qui traitent les mises à jour logicielles.  
 
 #### <a name="to-enable-crl-checking"></a>Pour activer la vérification de la liste de révocation de certificats  
-Sur l’ordinateur effectuant la vérification de la liste de révocation de certificats, à partir du DVD du produit, exécutez la commande suivante à partir d’une invite de commandes : **\SMSSETUP\BIN\X64\\**<*langue*>**\UpdDwnldCfg.exe/checkrevocation**.  
+Sur l’ordinateur effectuant la vérification de la liste de révocation de certificats, à partir du DVD du produit, exécutez la commande suivante à partir d’une invite de commandes : **\SMSSETUP\BIN\X64\\**<*langue*>**\UpdDwnldCfg.exe/checkrevocation**.  
 
 Par exemple, pour l’anglais (US), exécutez **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer des certificats | Gestion MDM locale | System Center Configuration Manager
+title: Configurer des certificats | Microsoft Docs | Gestion des appareils mobiles locale
 description: "Configurez des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 22a01ffa8385413c9671fd282c7337cbb6e2ffa0
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: d7aaad9298308b588f1bc13027082bf07066a3c2
 
 
 ---
 # <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La gestion des appareils mobiles locale System Center Configuration Manager exige de configurer des rôles de système de site de point d’inscription, de point proxy d’inscription, de point de distribution et de point de gestion d’appareil pour assurer des communications fiables avec les appareils gérés. Tout serveur de système de site hébergeant un ou plusieurs de ces rôles doit avoir un certificat PKI unique lié au serveur web sur ce système. Un certificat avec la même racine que le certificat sur les serveurs doit également être stocké sur les appareils gérés afin d’établir une communication fiable avec ceux-ci.  
 
@@ -37,11 +37,11 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 > [!IMPORTANT]  
 >  Il existe différentes façons de configurer les certificats pour assurer des communications fiables entre les appareils et les serveurs de système de site à des fins de gestion des appareils mobiles locale. Les informations fournies dans cet article sont destinées à illustrer une manière de procéder. Cette méthode requiert que vous exécutiez un serveur au sein de votre site avec le rôle Services de certificats Active Directory et les services du rôle Autorité de Certification et Inscription de l’autorité de certification via le Web installés. Pour obtenir plus d’informations et des conseils sur ce rôle Windows Server, consultez [Services de certificats Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=115018).  
 
- Pour configurer le site Configuration Manager pour les communications SSL nécessaires à la gestion des appareils mobiles locale, exécutez ces étapes générales :  
+ Pour configurer le site Configuration Manager pour les communications SSL nécessaires à la gestion des appareils mobiles locale, exécutez ces étapes générales :  
 
 -   [Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats](#bkmk_configCa)  
 
--   [Créer le modèle de certificat de serveur web sur l’autorité de certification](#bkmk_certTempl)  
+-   [Créer le modèle de certificat de serveur web sur l’autorité de certification](#bkmk_certTempl)  
 
 -   [Demander le certificat de serveur web pour chaque rôle de système de site](#bkmk_requestCert)  
 
@@ -52,7 +52,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 ##  <a name="a-namebkmkconfigcaa-configure-the-certification-authority-ca-for-crl-publishing"></a><a name="bkmk_configCa"></a> Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats  
  Par défaut, l’autorité de certification (AC) utilise des listes de révocation de certificats (CRL) LDAP qui autorisent les connexions pour des appareils joints au domaine. Vous devez ajouter des listes de révocation de certificats basées sur HTTP à l’autorité de certification pour permettre que des appareils non joints au domaine soient approuvés avec des certificats émis par l’autorité de certification. Ces certificats sont nécessaires aux communications SSL entre les serveurs hébergeant les rôles de système de site Configuration Manager et les appareils inscrits pour la gestion des appareils mobiles locale.  
 
- Procédez de la manière décrite ci-dessous pour configurer l’autorité de certification afin qu’elle publie automatiquement les informations de liste de révocation de certificats pour l’émission de certificats qui autorisent des connexions approuvées pour des appareils joints et non joints au domaine :  
+ Procédez de la manière décrite ci-dessous pour configurer l’autorité de certification afin qu’elle publie automatiquement les informations de liste de révocation de certificats pour l’émission de certificats qui autorisent des connexions approuvées pour des appareils joints et non joints au domaine :  
 
 1.  Sur le serveur exécutant l’autorité de certification pour votre site, cliquez sur **Démarrer** > **Outils d’administration** > **Autorité de certification**.  
 
@@ -60,7 +60,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 3.  Dans les propriétés CertificateAuthority, cliquez sur l’onglet **Extensions**, puis vérifiez que l’option **Sélectionner l’extension** a la valeur **Points de distribution de liste de révocation de certificats (CDP)**  
 
-4.  Sélectionnez **http://<NomDNSServeur\>/CertEnroll/<NomAutoritéCert\><SuffixeNomListeCRL\><ListeCRLDeltaAutorisée\>.crl**. Sélectionnez également les trois options ci-dessous :  
+4.  Sélectionnez **http://<NomDNSServeur\>/CertEnroll/<NomAutoritéCert\><SuffixeNomListeCRL\><ListeCRLDeltaAutorisée\>.crl**. Sélectionnez également les trois options ci-dessous :  
 
     -   **Inclure dans les listes de révocation des certificats afin de pouvoir rechercher les listes de révocation des certificats delta.**  
 
@@ -76,8 +76,8 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 8.  Dans la boîte de dialogue Publier la liste de révocation de certificats, sélectionnez **Liste de révocation de certificats delta uniquement**, puis cliquez sur **OK**.  
 
-##  <a name="a-namebkmkcerttempla-create-the-web-server-certificate-template-on-the-ca"></a><a name="bkmk_certTempl"></a> Créer le modèle de certificat de serveur web sur l’autorité de certification  
- Après publication de la nouvelle liste de révocation de certificats sur l’autorité de certification, l’étape suivante consiste à créer un modèle de certificat de serveur web. Ce modèle est requis pour émettre des certificats pour les serveurs hébergeant les rôles système de site point d’inscription, point proxy d’inscription, point de distribution et point de gestion d’appareil. Ces serveurs sont des points de terminaison SSL pour les communications approuvées entre les rôles système de site et les appareils inscrits.    Procédez de la manière décrite ci-dessous pour créer le modèle de certificat :  
+##  <a name="a-namebkmkcerttempla-create-the-web-server-certificate-template-on-the-ca"></a><a name="bkmk_certTempl"></a> Créer le modèle de certificat de serveur web sur l’autorité de certification  
+ Après publication de la nouvelle liste de révocation de certificats sur l’autorité de certification, l’étape suivante consiste à créer un modèle de certificat de serveur web. Ce modèle est requis pour émettre des certificats pour les serveurs hébergeant les rôles système de site point d’inscription, point proxy d’inscription, point de distribution et point de gestion d’appareil. Ces serveurs sont des points de terminaison SSL pour les communications approuvées entre les rôles système de site et les appareils inscrits.    Procédez de la manière décrite ci-dessous pour créer le modèle de certificat :  
 
 1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr MDM**, contenant les serveurs exécutant les systèmes de site qui nécessitent des communications approuvées avec les appareils inscrits.  
 
@@ -88,7 +88,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 4.  Dans la boîte de dialogue **Dupliquer le modèle** , assurez-vous que l'option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis cliquez sur **OK**.  
 
     > [!IMPORTANT]  
-    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**. Configuration Manager ne prend pas en charge les modèles de certificat de Windows Server 2008 pour assurer des communications fiables utilisant le protocole HTTPS.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**. Configuration Manager ne prend pas en charge les modèles de certificat de Windows Server 2008 pour assurer des communications fiables utilisant le protocole HTTPS.  
 
     > [!NOTE]  
     >  Si l’autorité de certification que vous utilisez est sur Windows Server 2012, vous n’êtes pas invité à spécifier la version du modèle de certificat quand vous cliquez sur **Dupliquer le modèle**. Spécifiez-la plutôt sous l'onglet **Compatibilité** des propriétés du modèle, comme suit :  
@@ -174,6 +174,6 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

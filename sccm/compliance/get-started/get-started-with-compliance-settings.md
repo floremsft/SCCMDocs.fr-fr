@@ -1,5 +1,5 @@
 ---
-title: "Bien démarrer avec les paramètres de compatibilité | System Center Configuration Manager"
+title: "Bien démarrer avec les paramètres de compatibilité | Microsoft Docs"
 description: "Découvrez le fonctionnement des paramètres de compatibilité dans System Center Configuration Manager. Découvrez également les concepts fondamentaux que vous devez connaître."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 395a0927d1ac39f941a504efb0a32c9a70f9477a
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: f16c87dfd0c4f80d96aedf7f5f7497f2bbd4752a
 
 
 ---
 # <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Prise en main des paramètres de compatibilité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de commencer à créer des éléments de configuration System Center Configuration Manager, vous devez parcourir cette rubrique pour comprendre comment fonctionnent les paramètres de compatibilité et pour découvrir certains concepts fondamentaux.  
 
@@ -32,9 +32,9 @@ Avant de commencer à créer des éléments de configuration System Center Confi
 
  Les éléments de configuration se répartissent en deux catégories principales :  
 
--   **Paramètres pour les appareils gérés par le client Configuration Manager** : il s’agit généralement d’appareils sur lesquels vous avez installé le logiciel client Configuration Manager, grâce auquel vous pouvez gérer ces appareils.  
+-   **Paramètres pour les appareils gérés par le client Configuration Manager** : il s’agit généralement d’appareils sur lesquels vous avez installé le logiciel client Configuration Manager, grâce auquel vous pouvez gérer ces appareils.  
 
--   **Paramètres pour les appareils gérés sans le client Configuration Manager** : il s’agit généralement d’appareils qui sont gérés avec Microsoft Intune ou par le biais de la gestion des appareils locale de Configuration Manager.  
+-   **Paramètres pour les appareils gérés sans le client Configuration Manager** : il s’agit généralement d’appareils qui sont gérés avec Microsoft Intune ou par le biais de la gestion des appareils locale de Configuration Manager.  
 
 ## <a name="what-devices-are-supported"></a>Quels sont les appareils pris en charge ?  
 
@@ -49,7 +49,7 @@ Avant de commencer à créer des éléments de configuration System Center Confi
 |Ordinateurs Mac (avec le client Configuration Manager)|Permet de créer des éléments de configuration personnalisés afin d’évaluer des éléments tels que les préférences Mac OS X, les valeurs (liste de propriétés) et les résultats retournés par un script.|  
 |Ordinateurs Mac (inscrits auprès de Microsoft Intune)|Sélectionnez les paramètres de votre choix dans une liste prédéfinie.|  
 
-## <a name="what-is-a-configuration-item"></a>Qu’est-ce qu’un élément de configuration ?  
+## <a name="what-is-a-configuration-item"></a>Qu’est-ce qu’un élément de configuration ?  
  Un élément de configuration peut être considéré comme un conteneur qui stocke les informations suivantes (les informations que vous configurez varient selon le type d’élément de configuration) :  
 
 -   **Informations sur la méthode de détection** (pour les éléments de configuration Windows qui contiennent des paramètres d’application uniquement) : permettent de déterminer si une application est installée en détectant le fichier Windows Installer de l’application ou en utilisant un script personnalisé.  
@@ -70,7 +70,7 @@ Avant de commencer à créer des éléments de configuration System Center Confi
  Vous pouvez surveiller les résultats de l’évaluation de la compatibilité de la base de référence de configuration à partir du nœud **Déploiements** dans l’espace de travail **Surveillance** de la console Configuration Manager pour afficher les causes les plus courantes de non-conformité, d’erreurs et le nombre d’utilisateurs et d’appareils affectés. Vous pouvez également exécuter des rapports de paramètres de compatibilité afin de trouver d’autres détails, notamment les appareils qui sont conformes ou non, ainsi que l’élément de la base de référence de configuration qui est à l’origine de la non-conformité de l’ordinateur. Vous pouvez également afficher les résultats de l’évaluation de la compatibilité à partir d’ordinateurs Windows exécutant le logiciel client Configuration Manager, à l’aide de l’onglet **Configurations** de **Configuration Manager** dans le panneau de configuration.  
 
 ## <a name="user-data-and-profiles-configuration-items"></a>Éléments de configuration des données et profils utilisateur  
- Les éléments de configuration de données et profils utilisateur contiennent des paramètres qui contrôlent la manière dont les utilisateurs inclus dans votre hiérarchie gèrent la redirection des dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et version ultérieure. Vous pouvez les déployer sur des regroupements d’utilisateurs, puis surveiller leur conformité à partir du nœud **Surveillance** de la console Configuration Manager. Contrairement aux autres éléments de configuration, vous n’ajoutez pas ces éléments à des bases de référence de configuration avant de les déployer. Vous pouvez les déployer directement avec la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** .  
+ Les éléments de configuration de données et profils utilisateur contiennent des paramètres qui contrôlent la manière dont les utilisateurs inclus dans votre hiérarchie gèrent la redirection des dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et version ultérieure. Vous pouvez les déployer sur des regroupements d’utilisateurs, puis surveiller leur conformité à partir du nœud **Surveillance** de la console Configuration Manager. Contrairement aux autres éléments de configuration, vous n’ajoutez pas ces éléments à des bases de référence de configuration avant de les déployer. Vous pouvez les déployer directement avec la boîte de dialogue **Déployer un élément de configuration des données et profils utilisateur** .  
 
  Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
@@ -80,12 +80,12 @@ Avant de commencer à créer des éléments de configuration System Center Confi
 Pour plus d’informations, consultez [Créer des profils de connexion à distance](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
 ## <a name="windows-edition-upgrade"></a>Mise à niveau des éditions de Windows
-La stratégie de mise à niveau d’édition vous permet de mettre automatiquement à niveau les appareils qui exécutent certaines versions de Windows 10 vers une version plus récente en fournissant un nouveau fichier de licence ou une nouvelle clé de produit.
+La stratégie de mise à niveau d’édition vous permet de mettre automatiquement à niveau les appareils qui exécutent certaines versions de Windows 10 vers une version plus récente en fournissant un nouveau fichier de licence ou une nouvelle clé de produit.
 
 Pour plus d’informations, consultez [Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition](/sccm/compliance/deploy-use/upgrade-windows-version).
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

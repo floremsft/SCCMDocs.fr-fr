@@ -1,5 +1,5 @@
 ---
-title: "Planification des tâches de migration | System Center Configuration Manager"
+title: "Planification des tâches de migration | Microsoft Docs"
 description: "Utilisez des tâches de migration pour configurer les données que vous souhaitez migrer vers votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -18,20 +18,20 @@ ms.author: brenduns
 manager: angrobe
 robots: noindex
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 21e00064a8ecad3dd1c24b7f02bd0a8a8c36924f
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 4e1ad4e8a043d1a6ede5dc88ca6b6c703f46e9da
 
 
 ---
 # <a name="planning-a-migration-job-strategy-in-system-center-configuration-manager"></a>Planification d’une stratégie pour les tâches de migration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez des tâches de migration pour configurer les données spécifiques que vous souhaitez migrer vers votre environnement System Center Configuration Manager. Les tâches de migration identifient les objets que vous envisagez de migrer, et elles s'exécutent sur le site de niveau supérieur dans votre hiérarchie de destination. Vous pouvez configurer une ou plusieurs tâches de migration par site source. Cela vous permet de migrer tous les objets simultanément ou des sous-ensembles limités de données avec chaque tâche.  
 
- Vous pouvez créer des tâches de migration une fois que Configuration Manager a collecté avec succès les données d’un ou de plusieurs sites à partir de la hiérarchie source. Vous pouvez migrer des données dans n'importe quel ordre à partir des sites source contenant des données. Avec un site source Configuration Manager 2007, vous ne pouvez migrer les données qu’à partir du site où un objet a été créé. Avec les sites sources exécutant System Center 2012 Configuration Manager ou une version ultérieure, toutes les données que vous pouvez migrer sont disponibles sur le site de niveau supérieur de la hiérarchie source.  
+ Vous pouvez créer des tâches de migration une fois que Configuration Manager a collecté avec succès les données d’un ou de plusieurs sites à partir de la hiérarchie source. Vous pouvez migrer des données dans n'importe quel ordre à partir des sites source contenant des données. Avec un site source Configuration Manager 2007, vous ne pouvez migrer les données qu’à partir du site où un objet a été créé. Avec les sites sources exécutant System Center 2012 Configuration Manager ou une version ultérieure, toutes les données que vous pouvez migrer sont disponibles sur le site de niveau supérieur de la hiérarchie source.  
 
- Avant de migrer des clients entre hiérarchies, vérifiez que les objets que les clients utilisent ont été migrés et que ces objets sont disponibles dans la hiérarchie de destination. Par exemple, quand vous effectuez une migration à partir d’une hiérarchie source Configuration Manager 2007 SP2, vous pouvez recevoir une publication pour du contenu déployé sur un regroupement personnalisé contenant un client. Dans ce cas, vous devez migrer le regroupement, la publication et le contenu associé avant de migrer le client. En effet, lorsque le contenu, le regroupement et la publication ne sont pas migrés avant la migration du client, ces données ne peut pas être associées au client dans la hiérarchie de destination. Si un client n'est pas associé aux données liées à une publication et à un contenu exécutés précédemment, le contenu peut être proposé au client pour l'installation dans la hiérarchie de destination, ce qui peut être inutile. Si le client est migré après la migration des données, il est associé à ce contenu et à cette publication, et sauf si la publication est récurrente, le contenu n'est plus proposé pour la publication migrée.  
+ Avant de migrer des clients entre hiérarchies, vérifiez que les objets que les clients utilisent ont été migrés et que ces objets sont disponibles dans la hiérarchie de destination. Par exemple, quand vous effectuez une migration à partir d’une hiérarchie source Configuration Manager 2007 SP2, vous pouvez recevoir une publication pour du contenu déployé sur un regroupement personnalisé contenant un client. Dans ce cas, vous devez migrer le regroupement, la publication et le contenu associé avant de migrer le client. En effet, lorsque le contenu, le regroupement et la publication ne sont pas migrés avant la migration du client, ces données ne peut pas être associées au client dans la hiérarchie de destination. Si un client n'est pas associé aux données liées à une publication et à un contenu exécutés précédemment, le contenu peut être proposé au client pour l'installation dans la hiérarchie de destination, ce qui peut être inutile. Si le client est migré après la migration des données, il est associé à ce contenu et à cette publication, et sauf si la publication est récurrente, le contenu n'est plus proposé pour la publication migrée.  
 
  Pour certains objets, la migration des données de la hiérarchie source vers la hiérarchie de destination ne suffit pas. Par exemple, pour pouvoir migrer les mises à jour logicielles des clients vers votre hiérarchie de destination, vous devez déployer un point de mise à jour logicielle actif dans la hiérarchie de destination, configurer le catalogue des produits et synchroniser le point de mise à jour logicielle avec un service WSUS (Windows Server Update Services).  
 
@@ -50,21 +50,21 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
 ##  <a name="a-nametypesofmigrationa-types-of-migration-jobs"></a><a name="Types_of_Migration"></a> Types de tâches de migration  
  Configuration Manager prend en charge les types de tâche de migration suivants. Chaque type de tâche est conçu pour vous aider à définir les objets à inclure dans cette tâche.  
 
- **Migration de regroupements** (prise en charge uniquement pour la migration à partir de Configuration Manager 2007 SP2) - Migrez des objets liés aux regroupements de votre choix. Par défaut, la migration d'un regroupement inclut tous les objets qui sont associés aux membres du regroupement. Vous pouvez exclure des instances d'objet spécifiques lors de l'utilisation d'une tâche de migration de regroupement.  
+ **Migration de regroupements** (prise en charge uniquement pour la migration à partir de Configuration Manager 2007 SP2) - Migrez des objets liés aux regroupements de votre choix. Par défaut, la migration d'un regroupement inclut tous les objets qui sont associés aux membres du regroupement. Vous pouvez exclure des instances d'objet spécifiques lors de l'utilisation d'une tâche de migration de regroupement.  
 
- **Migration d’objets** - Migrez des objets individuels de votre choix. Vous sélectionnez uniquement les données à migrer.  
+ **Migration d’objets** - Migrez des objets individuels de votre choix. Vous sélectionnez uniquement les données à migrer.  
 
- **Migration d’objets déjà migrés** - Migrez des objets que vous avez déjà migrés, quand ces objets ont été mis à jour dans la hiérarchie source après leur dernière migration.  
+ **Migration d’objets déjà migrés** - Migrez des objets que vous avez déjà migrés, quand ces objets ont été mis à jour dans la hiérarchie source après leur dernière migration.  
 
 ###  <a name="a-nameobjectsthatcanmigratea-objects-that-you-can-migrate"></a><a name="Objects_that_can_migrate"></a> Objets que vous pouvez migrer  
  Tous les objets ne peuvent pas migrer en fonction du type de tâche de migration. La liste suivant indique le type des objets que vous pouvez migrer à l’aide de chaque type de tâche de migration.  
 
 > [!NOTE]  
->  Les tâches de migration de regroupements sont disponibles uniquement quand vous migrez des objets à partir d’une hiérarchie source Configuration Manager 2007 SP2.  
+>  Les tâches de migration de regroupements sont disponibles uniquement quand vous migrez des objets à partir d’une hiérarchie source Configuration Manager 2007 SP2.  
 
- **Types de tâche que vous pouvez utiliser pour migrer chaque objet :**  
+ **Types de tâche que vous pouvez utiliser pour migrer chaque objet :**  
 
--   **Publications** (disponibles pour une migration à partir des sites sources Configuration Manager 2007 pris en charge)  
+-   **Publications** (disponibles pour une migration à partir des sites sources Configuration Manager 2007 pris en charge)  
 
     -   Migration du regroupement  
 
@@ -226,7 +226,7 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
 ### <a name="data-selection"></a>Sélection de données  
  Lorsque vous créez une tâche de migration de regroupement, vous devez sélectionner au moins un regroupement. Après avoir sélectionné les regroupements, l'Assistant Création de tâche de migration affiche les objets associés aux regroupements. Par défaut, tous les objets associés aux regroupements sélectionnés sont migrés, mais vous pouvez désélectionner les objets à ne pas migrer avec la tâche. Lorsque vous désélectionnez un objet ayant des objets dépendants, ces derniers sont également désélectionnés. Tous les objets désélectionnés sont ajoutés à une liste d'exclusion. Les objets dans une liste d'exclusion sont éliminés de la sélection automatique pour les prochaines tâches de migration. Vous devez modifier manuellement la liste d'exclusion pour supprimer les objets qui doivent être sélectionnés automatiquement pour les tâches de migration suivantes.  
 
-### <a name="site-ownership-for-migrated-content"></a>Propriétaire de site pour le contenu migré  
+### <a name="site-ownership-for--migrated-content"></a>Propriétaire de site pour le contenu migré  
  Lorsque vous migrez du contenu pour des déploiements, vous devez attribuer l'objet de contenu à un site dans la hiérarchie de destination. Ce site devient alors le propriétaire de ce contenu dans la hiérarchie de destination. Bien que le site de niveau supérieur de votre hiérarchie de destination soit le site qui migre les métadonnées du contenu, c'est le site attribué qui accède aux fichiers source d'origine du contenu dans le réseau.  
 
  Pour réduire la bande passante réseau utilisée lors de la migration, transférez la propriété du contenu au site disponible le plus proche. Dans la mesure où les informations sur le contenu sont partagées globalement dans System Center Configuration Manager, elles sont disponibles sur tous les sites.  
@@ -256,7 +256,7 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
  Par défaut, les tâches de migration ne remplacent pas les données dans la base de données de destination, à moins que vous configuriez la tâche de migration pour qu'elle ignore ou remplace les données déjà migrées vers la base de données de destination.  
 
 ##  <a name="a-nameaboutcollectionmigration-a-planning-for-collection-migration-jobs"></a><a name="About_Collection_Migration "></a> Planification des tâches de migration de regroupements  
- Les tâches de migration de regroupements sont disponibles uniquement quand vous migrez des données à partir d’une hiérarchie source qui exécute une version prise en charge de Configuration Manager 2007. Vous devez spécifier un ou plusieurs regroupements à migrer lorsque vous utilisez la migration basée sur le regroupement. Pour chaque regroupement que vous spécifiez, la tâche de migration sélectionne automatiquement tous les objets associés pour les migrer. Par exemple, si vous sélectionnez un regroupement d'utilisateurs, les membres du regroupement sont identifiés et vous pouvez migrer les déploiements associés au regroupement. Vous pouvez également sélectionner d'autres objets de déploiement à migrer associés à ces membres. Tous ces éléments sélectionnés sont ajoutés à la liste des objets qui peuvent être migrés.  
+ Les tâches de migration de regroupements sont disponibles uniquement quand vous migrez des données à partir d’une hiérarchie source qui exécute une version prise en charge de Configuration Manager 2007. Vous devez spécifier un ou plusieurs regroupements à migrer lorsque vous utilisez la migration basée sur le regroupement. Pour chaque regroupement que vous spécifiez, la tâche de migration sélectionne automatiquement tous les objets associés pour les migrer. Par exemple, si vous sélectionnez un regroupement d'utilisateurs, les membres du regroupement sont identifiés et vous pouvez migrer les déploiements associés au regroupement. Vous pouvez également sélectionner d'autres objets de déploiement à migrer associés à ces membres. Tous ces éléments sélectionnés sont ajoutés à la liste des objets qui peuvent être migrés.  
 
  Quand vous migrez un regroupement, System Center Configuration Manager migre également les paramètres du regroupement, notamment les fenêtres de maintenance et les variables du regroupement. Toutefois, il ne peut pas migrer les paramètres du regroupement pour la préparation du client AMT.  
 
@@ -268,7 +268,7 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
  Vous pouvez modifier la liste d'exclusion pour supprimer des objets que vous avez exclus. Lorsque vous supprimez un objet de la liste d'exclusion, il est automatiquement sélectionné lorsqu'un regroupement associé est défini lors de la création d'une tâche de migration.  
 
 ### <a name="unsupported-collections"></a>Regroupements non pris en charge  
- Configuration Manager peut migrer les regroupements d’utilisateurs par défaut, les regroupements d’appareils et la plupart des regroupements personnalisés à partir d’une hiérarchie source Configuration Manager 2007. Toutefois, Configuration Manager ne peut pas migrer les regroupements qui contiennent des utilisateurs et des appareils dans le même regroupement.  
+ Configuration Manager peut migrer les regroupements d’utilisateurs par défaut, les regroupements d’appareils et la plupart des regroupements personnalisés à partir d’une hiérarchie source Configuration Manager 2007. Toutefois, Configuration Manager ne peut pas migrer les regroupements qui contiennent des utilisateurs et des appareils dans le même regroupement.  
 
  Vous ne pouvez pas migrer les regroupements suivants :  
 
@@ -292,10 +292,10 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
 ### <a name="collection-limiting"></a>Limitation au regroupement  
  Avec System Center Configuration Manager, les regroupements sont des données globales et sont évalués au niveau de chaque site de la hiérarchie. Par conséquent, pensez à limiter l’étendue d’un regroupement après sa migration. Pendant la migration, vous pouvez identifier un regroupement à partir de la hiérarchie de destination à utiliser pour limiter l'étendue du regroupement que vous migrez, de sorte que le regroupement migré n'inclut pas de membres imprévus.  
 
- Par exemple, dans Configuration Manager 2007, les regroupements sont évalués au niveau du site qui les crée et au niveau des sites enfants. Une publication peut être déployée vers un site enfant seulement, et cela limiterait l'étendue de cette publication à ce site enfant. En comparaison, avec System Center Configuration Manager, les regroupements sont évalués au niveau de chaque site, et les publications associées sont ensuite évaluées pour chaque site. La limitation au regroupement vous permet d'affiner les membres du regroupement à partir d'un autre regroupement afin d'éviter l'ajout de membres du regroupement imprévus.  
+ Par exemple, dans Configuration Manager 2007, les regroupements sont évalués au niveau du site qui les crée et au niveau des sites enfants. Une publication peut être déployée vers un site enfant seulement, et cela limiterait l'étendue de cette publication à ce site enfant. En comparaison, avec System Center Configuration Manager, les regroupements sont évalués au niveau de chaque site, et les publications associées sont ensuite évaluées pour chaque site. La limitation au regroupement vous permet d'affiner les membres du regroupement à partir d'un autre regroupement afin d'éviter l'ajout de membres du regroupement imprévus.  
 
 ### <a name="site-code-replacement"></a>Remplacement du code de site  
- Quand vous migrez un regroupement contenant des critères qui identifient un site Configuration Manager 2007, vous devez spécifier un site spécifique dans la hiérarchie de destination. Cela garantit que le regroupement migré reste fonctionnel dans votre environnement de destination et que son étendue n'augmente pas.  
+ Quand vous migrez un regroupement contenant des critères qui identifient un site Configuration Manager 2007, vous devez spécifier un site spécifique dans la hiérarchie de destination. Cela garantit que le regroupement migré reste fonctionnel dans votre environnement de destination et que son étendue n'augmente pas.  
 
 ### <a name="specify-behavior-for-migrated-advertisements"></a>Spécifier le comportement pour les publications migrées  
  Par défaut, les tâches de migration basée sur des regroupements désactivent les publications qui migrent vers la hiérarchie de destination. Cela inclut tous les programmes qui sont associés à la publication. Quand vous créez une tâche de migration basée sur un regroupement et contenant des publications, l’option **Activer les programmes à déployer dans Configuration Manager après la migration d’une publication** apparaît dans la page **Paramètres** de l’Assistant Création de tâche de migration. Si vous sélectionnez cette option, les programmes associés aux publications sont activés après qu'ils ont migré. Nous vous conseillons de ne pas sélectionner cette option mais d'activer plutôt les programmes une fois qu'ils ont migré si vous pouvez vérifier les clients qui les recevront.  
@@ -306,7 +306,7 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
  Pour activer un programme après la migration, désactivez l'option **Désactiver ce programme sur les ordinateurs qui le publient** sur l'onglet **Avancé** des propriétés du programme.  
 
 ##  <a name="a-nameaboutobjectmigrationa-planning-for-object-migration-jobs"></a><a name="About_Object_Migration"></a> Planification des tâches de migration d’objets  
- Contrairement à la migration des regroupements, vous devez sélectionner chaque objet et instance d'objet que vous souhaitez migrer. Vous pouvez sélectionner des objets individuels, par exemple les publications d’une hiérarchie Configuration Manager 2007, ou une publication d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, afin de les ajouter à la liste d’objets à migrer pour une tâche de migration spécifique. Tous les objets que vous n'ajoutez pas à la liste de migration ne sont pas migrés vers le site de destination par la tâche de migration d'objet.  
+ Contrairement à la migration des regroupements, vous devez sélectionner chaque objet et instance d'objet que vous souhaitez migrer. Vous pouvez sélectionner des objets individuels, par exemple les publications d’une hiérarchie Configuration Manager 2007, ou une publication d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, afin de les ajouter à la liste d’objets à migrer pour une tâche de migration spécifique. Tous les objets que vous n'ajoutez pas à la liste de migration ne sont pas migrés vers le site de destination par la tâche de migration d'objet.  
 
  Les tâches de migration basées sur un objet ne sont associées à aucune autre configuration supplémentaire à planifier au-delà de celles applicables à toutes les tâches de migration.  
 
@@ -322,6 +322,6 @@ Utilisez des tâches de migration pour configurer les données spécifiques que 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Outil de maintenance hiérarchique | System Center Configuration Manager"
+title: "Outil Maintenance de la hiérarchie | Microsoft Docs"
 description: "Découvrez comment utiliser l’outil de maintenance hiérarchique, et en quoi il est utile. Inclut des informations techniques de référence sur les options de ligne de commande."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e9c386d3f45e29de4ddfcfd3807eb96e3544a3b2
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: f3ddeaadfb1418aeeaacdca47768600c86b59083
 
 
 ---
 # <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 L’outil de maintenance hiérarchique (Preinst.exe) transfère des commandes au service Gestionnaire de hiérarchie de System Center Configuration Manager, si ce service est en cours d’exécution. Quand vous installez un site Configuration Manager, l’outil de maintenance hiérarchique est automatiquement installé. Preinst.exe se trouve dans le dossier partagé \\&lt;*nom_serveur_site*>\SMS_&lt;*code_site*\bin\X64\00000409 sur le serveur de site.  
 
@@ -45,16 +45,16 @@ Pour exécuter l'outil de maintenance hiérarchique, l'utilisateur doit disposer
 ## <a name="hierarchy-maintenance-tool-command-line-options"></a>Options de ligne de commande de l'outil de maintenance hiérarchique  
 Lorsque vous utilisez l'outil de maintenance hiérarchique, vous devez l'exécuter localement sur le site d'administration centrale, le site principal ou le serveur de site secondaire.  
 
-Pour exécuter l’outil de maintenance hiérarchique, utilisez la syntaxe suivante : preinst.exe /&lt;option\>. Les options de ligne de commande sont les suivantes.  
+Pour exécuter l’outil de maintenance hiérarchique, utilisez la syntaxe suivante : preinst.exe /&lt;option\>. Les options de ligne de commande sont les suivantes.  
 
- **/DELJOB &lt;*code_site*>** : utilisez cette option sur un site pour supprimer l’ensemble des travaux ou commandes entre le site actuel et le site de destination spécifié.  
+ **/DELJOB &lt;*code_site*>** : utilisez cette option sur un site pour supprimer l’ensemble des travaux ou commandes entre le site actuel et le site de destination spécifié.  
 
- **/DELSITE &lt;*code_site_enfant_à_supprimer*>** : utilisez cette option sur un site parent pour supprimer les données des sites enfants dans la base de données de site du site parent. En règle générale, cette option est utilisée si un ordinateur du serveur de site est désactivé avant de désinstaller le site à partir de celui-ci.  
+ **/DELSITE &lt;*code_site_enfant_à_supprimer*>** : utilisez cette option sur un site parent pour supprimer les données des sites enfants dans la base de données de site du site parent. En règle générale, cette option est utilisée si un ordinateur du serveur de site est désactivé avant de désinstaller le site à partir de celui-ci.  
 
 > [!NOTE]  
 >  L'option /DELSITE ne désinstalle pas le site sur l'ordinateur spécifié par le paramètre ChildSiteCodeToRemove. Cette option supprime uniquement les informations du site dans la base de données de site Configuration Manager.  
 
-**/DUMP &lt;*code_site*>** : utilisez cette option sur le serveur de site local pour écrire des images de contrôle de site dans le dossier racine du lecteur sur lequel le site est installé. Vous pouvez écrire une image de contrôle de site spécifique dans le dossier ou écrire tous les fichiers de contrôle de site de la hiérarchie.  
+**/DUMP &lt;*code_site*>** : utilisez cette option sur le serveur de site local pour écrire des images de contrôle de site dans le dossier racine du lecteur sur lequel le site est installé. Vous pouvez écrire une image de contrôle de site spécifique dans le dossier ou écrire tous les fichiers de contrôle de site de la hiérarchie.  
 
 -   /DUMP &lt;*code_site*> écrit l’image de contrôle de site uniquement pour le site spécifié.  
 
@@ -64,7 +64,7 @@ Une image est une représentation binaire du fichier de contrôle de site, stock
 
 Une fois l’image du fichier de contrôle de site supprimée à l’aide de l’outil de maintenance hiérarchique, le nom du fichier est au format sitectrl_&lt;*code_site*>.ct0.  
 
-**/STOPSITE** : utilisez cette option sur le serveur de site local pour lancer un cycle d’arrêt du service Gestionnaire de composant de site dans Configuration Manager, ce qui réinitialise partiellement le site. L’exécution de ce cycle d’arrêt entraîne l’arrêt de certains services Configuration Manager sur un serveur de site et ses systèmes de site distants. Ces services sont marqués en vue d'être réinstallés. À la suite de ce cycle d'arrêt, certains mots de passe sont automatiquement modifiés lorsque les services sont réinstallés.  
+**/STOPSITE** : utilisez cette option sur le serveur de site local pour lancer un cycle d’arrêt du service Gestionnaire de composant de site dans Configuration Manager, ce qui réinitialise partiellement le site. L’exécution de ce cycle d’arrêt entraîne l’arrêt de certains services Configuration Manager sur un serveur de site et ses systèmes de site distants. Ces services sont marqués en vue d'être réinstallés. À la suite de ce cycle d'arrêt, certains mots de passe sont automatiquement modifiés lorsque les services sont réinstallés.  
 
 > [!NOTE]  
 >  Si vous souhaitez enregistrer un arrêt, une réinstallation et un changement de mot de passe pour le Gestionnaire de composants de site, activez l'enregistrement de ce composant avant de vous servir de cette option de ligne de commande.  
@@ -109,7 +109,7 @@ Vous pouvez utiliser l'outil de maintenance hiérarchique pour exporter les clé
 
 1.  Lorsque vous êtes connecté au site enfant, ouvrez une invite de commande et naviguez jusqu'à l'emplacement de **Preinst.exe**.  
 
-2.  Tapez la commande suivante pour exporter la clé publique du site enfant : **Preinst /keyforparent**  
+2.  Tapez la commande suivante pour exporter la clé publique du site enfant : **Preinst /keyforparent**  
 
 3.  L’option /keyforparent copie la clé publique du site enfant dans le fichier **&lt;code_site\>.CT4** situé à la racine du lecteur système.  
 
@@ -119,7 +119,7 @@ Vous pouvez utiliser l'outil de maintenance hiérarchique pour exporter les clé
 
 1.  Lorsque vous êtes connecté au site parent, ouvrez une invite de commande et naviguez jusqu'à l'emplacement de **Preinst.exe**.  
 
-2.  Tapez la commande suivante pour exporter la clé publique du site parent : **Preinst /keyforchild**.  
+2.  Tapez la commande suivante pour exporter la clé publique du site parent : **Preinst /keyforchild**.  
 
 3.  L’option /keyforchild copie la clé publique du site parent dans le fichier **&lt;code_site\>.CT5** situé à la racine du lecteur système.  
 
@@ -127,6 +127,6 @@ Vous pouvez utiliser l'outil de maintenance hiérarchique pour exporter les clé
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

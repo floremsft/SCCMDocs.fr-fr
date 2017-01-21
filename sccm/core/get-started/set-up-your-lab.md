@@ -1,5 +1,5 @@
 ---
-title: Configurer votre laboratoire de System Center Configuration Manager
+title: Configurer votre laboratoire de System Center Configuration Manager | Microsoft Docs
 description: "Configurez un laboratoire pour évaluer Configuration Manager avec des activités réelles simulées."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,33 +17,33 @@ author: brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ea084f30a1a6ec731e97cec46448d0ffbfca42e0
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: 36e5307449bd843156307598ccdde717b4b59be3
 
 
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurer votre laboratoire de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 En suivant les recommandations de cette rubrique, vous pourrez mettre en place un laboratoire pour évaluer Configuration Manager en simulant des activités réelles.  
 
 ##  <a name="a-namebkmklabcorea-core-components"></a><a name="BKMK_LabCore"></a> Composants principaux  
- La configuration de votre environnement pour System Center Configuration Manager requiert certains composants principaux pour prendre en charge l’installation de Configuration Manager.  
+ La configuration de votre environnement pour System Center Configuration Manager requiert certains composants principaux pour prendre en charge l’installation de Configuration Manager.    
 
--   **L’environnement lab utilise Windows Server 2012 R2**, sur lequel nous allons installer System Center Configuration Manager.  
+-   **L’environnement lab utilise Windows Server 2012 R2**, sur lequel nous allons installer System Center Configuration Manager.  
 
-     Vous pouvez télécharger une version d’évaluation de Windows Server 2012 R2 à partir du [Centre d’évaluation TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
+     Vous pouvez télécharger une version d’évaluation de Windows Server 2012 R2 à partir du [Centre d’évaluation TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
 
      Envisagez de modifier ou de désactiver la configuration de sécurité renforcée d’Internet Explorer pour accéder plus facilement à certains téléchargements référencés tout au long de ces exercices. Consultez [Internet Explorer : Configuration de sécurité renforcée](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) .  
 
 -   **L’environnement lab utilise SQL Server 2012 SP2** pour la base de données de site.  
 
-     Vous pouvez télécharger une version d’évaluation de SQL Server 2012 à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
+     Vous pouvez télécharger une version d’évaluation de SQL Server 2012 à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
 
      SQL Server a des [versions prises en charge de SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) qui doivent être satisfaites pour pouvoir être utilisées avec System Center Configuration Manager.  
 
-    -   Configuration Manager requiert une version 64 bits de SQL Server pour héberger la base de données de site.  
+    -   Configuration Manager requiert une version 64 bits de SQL Server pour héberger la base de données de site.  
 
     -   **SQL_Latin1_General_CP1_CI_AS** en tant que classe **Classement SQL** .  
 
@@ -59,13 +59,13 @@ En suivant les recommandations de cette rubrique, vous pourrez mettre en place u
 
     -   **communications intersites** utilisent SQL Server Service Broker sur le port par défaut TCP 4022.  
 
-    -   Les **communications intrasites** entre le moteur de base de données SQL Server et divers rôles de systèmes de site Configuration Manager utilisent par défaut le port TCP 1433.  
+    -   Les **communications intrasites** entre le moteur de base de données SQL Server et divers rôles de systèmes de site Configuration Manager utilisent par défaut le port TCP 1433.  
 
--   **Le contrôleur de domaine utilise Windows Server 2008 R2** avec Active Directory Domain Services. Le contrôleur de domaine fonctionne également en tant qu’hôte pour les serveurs DNS et DHCP à utiliser avec un nom de domaine complet.  
+-   **Le contrôleur de domaine utilise Windows Server 2008 R2** avec Active Directory Domain Services. Le contrôleur de domaine fonctionne également en tant qu’hôte pour les serveurs DNS et DHCP à utiliser avec un nom de domaine complet.  
 
      Pour plus d’informations, consultez cette [vue d’ensemble des services de domaine Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
 
--   **Hyper-V est utilisé avec quelques machines virtuelles** pour vérifier que les opérations de gestion entreprises dans ces exercices fonctionnent comme prévu. Un minimum de trois machines virtuelles est recommandé quand Windows 7 (ou version ultérieure) est installé.  
+-   **Hyper-V est utilisé avec quelques machines virtuelles** pour vérifier que les opérations de gestion entreprises dans ces exercices fonctionnent comme prévu. Un minimum de trois machines virtuelles est recommandé quand Windows 7 (ou version ultérieure) est installé.  
 
      Pour plus d’informations, consultez cette [vue d’ensemble d’Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
 
@@ -79,7 +79,7 @@ En suivant les recommandations de cette rubrique, vous pourrez mettre en place u
 
 Bien qu’elles ne soient pas requises pour ce laboratoire, vous pouvez consulter les [configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) pour plus d’informations sur la configuration requise pour implémenter System Center Configuration Manager. Reportez-vous à la documentation pour les versions logicielles autres que celles référencées ici.  
 
-Une fois que vous avez installé tous ces composants, des étapes supplémentaires sont à suivre pour configurer votre environnement Windows pour Configuration Manager :  
+Une fois que vous avez installé tous ces composants, des étapes supplémentaires sont à suivre pour configurer votre environnement Windows pour Configuration Manager :  
 
 ###  <a name="a-namebkmklabadprepa-prepare-active-directory-content-for-the-lab"></a><a name="BKMK_LabADPrep"></a> Préparer le contenu d’Active Directory pour le laboratoire  
  Pour ce laboratoire, vous allez créer un groupe de sécurité, puis lui ajouter un utilisateur de domaine.  
@@ -210,7 +210,7 @@ Pour plus d’informations, consultez les articles suivants qui expliquent pourq
 
 -   [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
 
--   [Les coulisses du CLR – L’approche « In-Process Side-by-Side »](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
+-   [Les coulisses du CLR – L’approche « In-Process Side-by-Side »](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
 
 **Activer BITS, IIS et RDC**  
 
@@ -348,7 +348,7 @@ Par défaut, le service IIS bloque l’accès via la communication HTTP ou HTTPS
 Vous allez [déterminer quand utiliser un site principal](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) pour gérer directement les clients. Cela permettra à votre environnement lab de prendre en charge la gestion de la [mise à l’échelle du système de site](/sccm/core/plan-design/configs/size-and-scale-numbers) des appareils potentiels.  
 Au cours de ce processus, vous allez également installer la console Configuration Manager qui permettra de gérer vos appareils d’évaluation.  
 
-Avant de commencer l’installation, lancez l’[outil de vérification des prérequis](/sccm/core/servers/deploy/install/prerequisite-checker) sur le serveur utilisant Windows Server 2012 pour confirmer que tous les paramètres ont été correctement activés.  
+Avant de commencer l’installation, lancez l’[outil de vérification des prérequis](/sccm/core/servers/deploy/install/prerequisite-checker) sur le serveur utilisant Windows Server 2012 pour confirmer que tous les paramètres ont été correctement activés.  
 
 ##### <a name="to-download-and-install-configuration-manager"></a>Pour télécharger et installer Configuration Manager :  
 
@@ -366,7 +366,7 @@ Avant de commencer l’installation, lancez l’[outil de vérification des pré
     |Étape 11 : **Installation du site principal**|Sélectionnez **Installer le site principal en tant que site autonome**, puis cliquez sur **Suivant**.|  
     |Étape 12 : **Installation de la base de données**|-   **Nom du serveur SQL Server (nom de domaine complet) :** entrez ici votre nom de domaine complet.<br />-   **Nom de l’instance :** laissez ce champ vide, car vous utiliserez l’instance par défaut de SQL que vous avez installée précédemment.<br />-   **Port Service Broker :** conservez le port par défaut 4022.|  
     |Étape 13 : **Installation de la base de données**|Conservez ces paramètres par défaut.|  
-    |Étape 14 : **Fournisseur SMS**|Conservez ces paramètres par défaut.|  
+    |Étape 14 : **Fournisseur SMS**|Conservez ces paramètres par défaut.|  
     |Étape 15 : **Paramètres de communication client**|Assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** n’est pas sélectionnée.|  
     |Étape 16 : **Rôles système de site**|Entrez votre nom de domaine complet et assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** est toujours désactivée.|  
 
@@ -389,7 +389,7 @@ Chaque site Configuration Manager publie ses propres informations de site sur le
 
 7.  Dans l’espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Forêts Active Directory**.  
 
-##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Pour permettre à un site Configuration Manager de publier des informations de site vers votre forêt Active Directory :  
+##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Pour permettre à un site Configuration Manager de publier des informations de site vers votre forêt Active Directory :  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
@@ -401,6 +401,6 @@ Chaque site Configuration Manager publie ses propres informations de site sur le
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

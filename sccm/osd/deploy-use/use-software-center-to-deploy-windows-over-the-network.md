@@ -1,5 +1,5 @@
 ---
-title: "Utiliser le Centre logiciel pour déployer Windows sur le réseau | System Center Configuration Manager"
+title: "Utiliser le Centre logiciel pour déployer Windows sur le réseau | Microsoft Docs"
 description: "Vous pouvez déployer un système d’exploitation dans le Centre logiciel afin d’actualiser un ordinateur existant avec une nouvelle version de Windows ou afin d’effectuer une mise à niveau de Windows vers la version la plus récente."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 189fdac38760b75eb3795348f6af4ef7e83c3f20
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 4c3ec20396da37d36f908af527f445a7a736e0ac
 
 
 ---
 # <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser le Centre logiciel pour déployer Windows sur le réseau avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager peut être mise à disposition dans le Centre logiciel. Vous pouvez déployer un système d’exploitation dans le Centre logiciel dans les scénarios de déploiement de système d’exploitation suivants :  
 
@@ -45,6 +45,6 @@ La séquence de tâches pour installer un système d’exploitation dans System 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

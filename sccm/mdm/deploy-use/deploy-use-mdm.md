@@ -1,9 +1,9 @@
 ---
-title: "Déployer et utiliser la gestion des appareils mobiles | System Center Configuration Manager"
+title: "Déployer et utiliser la gestion des appareils mobiles | Microsoft Docs"
 description: "Découvrez les différentes façons de gérer les appareils mobiles avec System Center Configuration Manager."
 keywords: 
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 ms.date: 10/06/2016
 ms.topic: article
@@ -13,17 +13,17 @@ ms.technology:
 - configmgr-hybrid
 ms.assetid: 756694f3-4d62-4463-9334-a21991c30ba3
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4347a305124e023d069aa28499fdc3eb3a7de7ef
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 7a7b64a187d66f0dc965fe3568dd14004b2d090e
 
 ---
 
 # <a name="deploy-and-use-mobile-device-management-in-configuration-manager"></a>Déployer et utiliser la gestion des appareils mobiles dans Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Vous pouvez utiliser System Center Configuration Manager pour gérer des appareils mobiles de plusieurs façons :
+Vous pouvez utiliser System Center Configuration Manager pour gérer des appareils mobiles de plusieurs façons :
 - [Gestion hybride des appareils mobiles avec Intune](setup-hybrid-mdm.md)
 - [Gestion des appareils mobiles locale](enroll-devices-on-premises-mdm.md)
 - [Mise hors service, verrouillage et réinitialisation des appareils gérés](wipe-lock-reset-devices.md)
@@ -31,6 +31,6 @@ Vous pouvez utiliser System Center Configuration Manager pour gérer des apparei
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

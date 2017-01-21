@@ -1,5 +1,5 @@
 ---
-title: "Surveiller l’état de déploiement des clients | System Center Configuration Manager"
+title: "Surveiller l’état de déploiement des clients | Microsoft Docs"
 description: "Surveillez l’état de déploiement des clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.assetid: 20a573b3-53cb-4ed5-bae1-7542f533ed20
 caps.latest.revision: 11
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 495c95b6add90619881291a551f394511d9eb36d
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 3bc82535955d937e5620ef2963ccc29bfd0124e3
 
 
 ---
 # <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Guide pratique pour surveiller l’état de déploiement des clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Le déploiement de clients sur votre site prend du temps et certaines installations ne réussissent pas dès la première fois. La console System Center Configuration Manager permet de garder un œil sur les déploiements de clients au sein d’un regroupement en signalant l’état de déploiement des clients en temps réel.  
 
@@ -33,9 +33,7 @@ Le déploiement de clients sur votre site prend du temps et certaines installati
 
  Dans l’espace de travail **Analyse** de la console, vous pouvez surveiller les états suivants des déploiements de clients se produisant à l’intérieur d’un regroupement que vous spécifiez :  
 
--   Non démarré   
-
--   Conforme  
+-   conformité  
 
 -   En cours  
 
@@ -60,7 +58,7 @@ Le déploiement de clients sur votre site prend du temps et certaines installati
  Pour en savoir plus sur les déploiements de clients en préproduction, consultez [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 
  > [!NOTE]
- > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non démarré** même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.   
+ > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non conforme**, même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.   
 
  Pour analyser l’état des clients déployés, consultez [Comment surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
 
@@ -68,6 +66,6 @@ Le déploiement de clients sur votre site prend du temps et certaines installati
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

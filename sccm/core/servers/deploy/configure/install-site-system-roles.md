@@ -1,5 +1,5 @@
 ---
-title: "Installer des rôles système de site | System Center Configuration Manager"
+title: "Installer des rôles de système de site | Microsoft Docs"
 description: "Les Assistants vous aident à ajouter des rôles système de site à un serveur de système de site existant ou nouveau dans le site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 780ef516ddc641d53e1d2d4a5f559795cfd22cbb
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 9c930db61139fd089554591f4ca0aa2271fb2289
 
 ---
 # <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Installer des rôles de système de site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-La console System Center Configuration Manager comporte deux Assistants, que vous pouvez utiliser pour installer des rôles système de site :  
+La console System Center Configuration Manager comporte deux Assistants, que vous pouvez utiliser pour installer des rôles système de site :  
 
 -   **Assistant Ajout de rôles de système de site**: utilisez cet Assistant pour ajouter des rôles de système de site à un serveur de système de site existant dans le site.  
 
@@ -32,7 +32,7 @@ La console System Center Configuration Manager comporte deux Assistants, que vou
 
 Lorsque vous installez un rôle de système de site sur un ordinateur distant (y compris une instance du fournisseur SMS), le compte d'ordinateur de l'ordinateur distant est ajouté à un groupe local du serveur de site. Quand le site est installé sur un contrôleur de domaine, le groupe du serveur de site est un groupe de domaine et non un groupe local. Par ailleurs, le rôle système de site distant n’est pas opérationnel tant que l’ordinateur du rôle système de site n’a pas redémarré ou que le ticket Kerberos du compte figurant dans les [Comptes utilisés dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md) des ordinateurs distants n’a pas été actualisé.  
 
-Juste avant d’installer le rôle système de site, Configuration Manager vérifie si l’ordinateur de destination satisfait aux prérequis des rôles système de site que vous avez sélectionnés. Lors de l’installation des rôles de système de site :  
+Juste avant d’installer le rôle système de site, Configuration Manager vérifie si l’ordinateur de destination satisfait aux prérequis des rôles système de site que vous avez sélectionnés. Lors de l’installation des rôles de système de site :  
 
 -   Par défaut, quand Configuration Manager installe un rôle système de site, les fichiers d’installation sont installés sur le premier lecteur de disque formaté NTFS disponible dont l’espace libre disponible est le plus grand. Pour que Configuration Manager n’effectue pas l’installation sur des lecteurs spécifiques, créez un fichier vide **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant d’installer le serveur de système de site.  
 
@@ -58,7 +58,7 @@ Juste avant d’installer le rôle système de site, Configuration Manager véri
 7.  Effectuez toutes les étapes de l'Assistant.  
 
 > [!TIP]  
->  L'applet de commande Windows PowerShell, New-CMSiteSystemServer, assure la même fonction que cette procédure. Pour plus d’informations, consultez [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) dans la documentation de référence des applets de commande System Center 2012 Configuration Manager SP1.  
+>  L'applet de commande Windows PowerShell, New-CMSiteSystemServer, assure la même fonction que cette procédure. Pour plus d’informations, consultez [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) dans la documentation de référence des applets de commande System Center 2012 Configuration Manager SP1.  
 
 ## <a name="to-install-site-system-roles-on-a-new-site-system-server"></a>Pour installer des rôles de système de site sur un nouveau serveur de système de site  
 
@@ -80,10 +80,10 @@ Juste avant d’installer le rôle système de site, Configuration Manager véri
 7.  Effectuez toutes les étapes de l'Assistant.  
 
 > [!TIP]  
->  L'applet de commande Windows PowerShell, New-CMSiteSystemServer, assure la même fonction que cette procédure. Pour plus d’informations, consultez [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) dans la documentation de référence des applets de commande System Center 2012 Configuration Manager SP1.  
+>  L'applet de commande Windows PowerShell, New-CMSiteSystemServer, assure la même fonction que cette procédure. Pour plus d’informations, consultez [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) dans la documentation de référence des applets de commande System Center 2012 Configuration Manager SP1.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

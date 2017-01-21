@@ -1,6 +1,6 @@
 ---
-title: Point de distribution cloud | System Center Configuration Manager
-description: "En savoir plus sur les configurations et les limites de l’utilisation d’un point de distribution cloud avec System Center Configuration Manager."
+title: Point de distribution cloud | Microsoft Docs
+description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution cloud avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,18 +16,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c1838866241c30598346b84cb36b8bf4967bf7f6
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 840f7be09f234d598bc7856d53e278665808fef1
 
 
 ---
 # <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution cloud avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Un point de distribution cloud est un point de distribution System Center Configuration Manager qui est hébergé dans Microsoft Azure. Les informations suivantes visent à vous faire découvrir les différentes configurations et limitations liées à l’utilisation d’un point de distribution cloud.
 
-Quand vous avez installé un site principal et que vous êtes prêt à installer un point de distribution cloud, consultez [Install cloud-based distribution points in Microsoft Azure](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md) (Installer des points de distribution cloud dans Microsoft Azure).
+Quand vous avez installé un site principal et que vous êtes prêt à installer un point de distribution cloud, consultez [Installer des points de distribution cloud dans Microsoft Azure](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).
 
 
 ## <a name="plan-to-use-a-cloud-based-distribution-point"></a>Planifier l’utilisation d’un point de distribution cloud
@@ -94,7 +94,7 @@ Un point de distribution cloud présente les limitations suivantes :
 ##  <a name="a-namebkmkclouddpcosta-cost-of-using-cloud-based-distribution"></a><a name="BKMK_CloudDPCost"></a> Coût d’utilisation d’une distribution cloud  
  Lorsque vous utilisez un point de distribution cloud, planifiez le coût du stockage de données et des téléchargements que les clients Configuration Manager effectuent.  
 
- Configuration Manager inclut des options facilitant le contrôle des coûts et de l’accès aux données :  
+ Configuration Manager inclut des options facilitant le contrôle des coûts et de l’accès aux données :  
 
 -   Vous pouvez contrôler et surveiller la quantité de contenu que vous stockez dans un service cloud.  
 
@@ -122,7 +122,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
  Vous pouvez définir des seuils pour chaque point de distribution cloud pendant l'installation du point de distribution ou modifier les propriétés de chaque point de distribution cloud après son installation.  
 
--   **Alertes** : vous pouvez configurer Configuration Manager de manière à déclencher des alertes pour les transferts de données à destination et en provenance de chaque point de distribution cloud, en fonction des seuils de transfert de données que vous spécifiez. Ces alertes vous aident à surveiller les transferts de données, et peuvent vous aider à décider quand arrêter le service cloud pour empêcher son utilisation, à ajuster le contenu que vous stockez sur le point de distribution ou à modifier les clients pouvant utiliser les points de distribution cloud.  
+-   **Alertes** : vous pouvez configurer Configuration Manager de manière à déclencher des alertes pour les transferts de données à destination et en provenance de chaque point de distribution cloud, en fonction des seuils de transfert de données que vous spécifiez. Ces alertes vous aident à surveiller les transferts de données, et peuvent vous aider à décider quand arrêter le service cloud pour empêcher son utilisation, à ajuster le contenu que vous stockez sur le point de distribution ou à modifier les clients pouvant utiliser les points de distribution cloud.  
 
      Dans un cycle horaire, le site principal qui surveille le point de distribution cloud télécharge des données de transaction à partir de Microsoft Azure et les stocke dans le fichier CloudDP-&lt;nom_service\>.log sur le serveur de site. Configuration Manager évalue ensuite ces informations par rapport aux quotas de stockage et de transfert pour chaque point de distribution du cloud. Lorsque le transfert de données atteint ou dépasse le volume défini pour des alertes d'avertissement ou critiques, Configuration Manager génère l'alerte appropriée.  
 
@@ -144,7 +144,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
  **Certificats**  
 
--   **Certificat de gestion pour la communication entre un serveur de site et un point de distribution** : le certificat de gestion établit la relation de confiance entre l’API de gestion Microsoft Azure et Configuration Manager. Cette authentification permet à Configuration Manager d'appeler l'API Microsoft Azure quand vous effectuez des tâches comme le déploiement de contenu, ou le démarrage et l'arrêt du service cloud. Microsoft Azure permet aux clients de créer leurs propres certificats de gestion, qu'il s'agisse de certificats auto-signés ou de certificats émis par une Autorité de certification :  
+-   **Certificat de gestion pour la communication entre un serveur de site et un point de distribution** : le certificat de gestion établit la relation de confiance entre l’API de gestion Microsoft Azure et Configuration Manager. Cette authentification permet à Configuration Manager d'appeler l'API Microsoft Azure quand vous effectuez des tâches comme le déploiement de contenu, ou le démarrage et l'arrêt du service cloud. Microsoft Azure permet aux clients de créer leurs propres certificats de gestion, qu'il s'agisse de certificats auto-signés ou de certificats émis par une Autorité de certification :  
 
     -   Fournissez le fichier .cer du certificat de gestion à Microsoft Azure quand vous configurez Microsoft Azure pour Configuration Manager. Le fichier .cer contient la clé publique pour le certificat de gestion. Vous devez télécharger ce certificat dans Microsoft Azure avant d'installer un point de distribution cloud. Ce certificat permet à Configuration Manager d'accéder à l'API Microsoft Azure.  
 
@@ -156,7 +156,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
     Pour plus d'informations, consultez [Création d'un certificat de gestion](http://go.microsoft.com/fwlink/p/?LinkId=220281) et [Comment ajouter un certificat de gestion à un abonnement Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=241722) dans la section Plateforme Microsoft Azure de la bibliothèque MSDN.  
 
--   **Certificat de service pour la communication entre le client et le point de distribution** : le certificat de service de point de distribution cloud Configuration Manager établit une relation de confiance entre les clients Configuration Manager et le point de distribution cloud, et sécurise les données que les clients téléchargent à partir de ce point de distribution grâce au protocole SSL sur HTTPS.  
+-   **Certificat de service pour la communication entre le client et le point de distribution** : le certificat de service de point de distribution cloud Configuration Manager établit une relation de confiance entre les clients Configuration Manager et le point de distribution cloud, et sécurise les données que les clients téléchargent à partir de ce point de distribution grâce au protocole SSL sur HTTPS.  
 
     > [!IMPORTANT]  
     >  Le nom commun dans la zone d'objet de certificat du certificat de service doit être unique dans votre domaine et ne correspondre à aucun appareil joint à un domaine.  
@@ -193,7 +193,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
     -   **Contenu**: vous surveillez le contenu que vous déployez vers un point de distribution cloud de la même manière que vous déployez du contenu vers des points de distribution locaux.  
 
-    -   **Service cloud** : Configuration Manager vérifie périodiquement le service Microsoft Azure et déclenche une alerte si ce dernier n’est pas actif ou si un problème d’abonnement ou de certificat a été détecté. Vous pouvez également afficher des informations sur le point de distribution dans le nœud **Points de distribution cloud** sous **Services cloud** dans l'espace de travail **Administration** de la console Configuration Manager. À partir de cet emplacement, vous pouvez afficher des informations de haut niveau sur le point de distribution ou sélectionner un point de distribution, puis modifier ses **Propriétés**.  
+    -   **Service cloud** : Configuration Manager vérifie périodiquement le service Microsoft Azure et déclenche une alerte si ce dernier n’est pas actif ou si un problème d’abonnement ou de certificat a été détecté. Vous pouvez également afficher des informations sur le point de distribution dans le nœud **Points de distribution cloud** sous **Services cloud** dans l'espace de travail **Administration** de la console Configuration Manager. À partir de cet emplacement, vous pouvez afficher des informations de haut niveau sur le point de distribution ou sélectionner un point de distribution, puis modifier ses **Propriétés**.  
 
     Quand vous modifiez les propriétés d’un point de distribution cloud, vous pouvez :  
 
@@ -209,12 +209,12 @@ Un point de distribution cloud présente les limitations suivantes :
 
     -   Il est recommandé de sauvegarder et d'enregistrer une copie du certificat de gestion et du certificat de service en cours d'utilisation avec un point de distribution cloud. En cas de restauration du site principal Configuration Manager qui gère le point de distribution cloud vers un autre ordinateur, vous devez importer de nouveau les certificats avant de pouvoir continuer à les utiliser.  
 
--   **Désinstaller un point de distribution cloud** : pour désinstaller un point de distribution cloud, sélectionnez-le dans la console Configuration Manager, puis sélectionnez **Supprimer**.  
+-   **Désinstaller un point de distribution cloud** : pour désinstaller un point de distribution cloud, sélectionnez-le dans la console Configuration Manager, puis sélectionnez **Supprimer**.  
 
     Lorsque vous supprimez un point de distribution cloud d'une hiérarchie, Configuration Manager supprime le contenu du service cloud dans Windows Azure.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

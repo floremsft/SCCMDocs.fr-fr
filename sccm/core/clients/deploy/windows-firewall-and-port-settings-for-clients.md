@@ -1,5 +1,5 @@
 ---
-title: "Paramètres de port et de pare-feu des clients Windows | System Center Configuration Manager"
+title: "Paramètres de pare-feu et de port du client Windows | Microsoft Docs"
 description: "Sélectionnez les paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: article
 ms.assetid: dce4b640-c92f-401a-9873-ce9aa9262014
 caps.latest.revision: 8
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d74f882e99383ed1f159bcdb24b2c5fe6052c349
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 140bbc676fe0e3df1037c6bead2211b84486494b
 
 
 ---
 # <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, les ordinateurs clients qui exécutent le Pare-feu Windows exigent souvent que des exceptions soient configurées pour permettre la communication avec leur site. Les exceptions que vous devez configurer dépendent des fonctionnalités de gestion que vous utilisez avec le client Configuration Manager.  
 
@@ -42,13 +42,13 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
 3.  Configurez toutes les exceptions nécessaires et tous les programmes et ports personnalisés dont vous avez besoin.  
 
 ## <a name="programs-and-ports-that-configuration-manager-requires"></a>Programmes et ports dont Configuration Manager a besoin  
- Les fonctionnalités de Configuration Manager suivantes nécessitent des exceptions sur le Pare-feu Windows :  
+ Les fonctionnalités de Configuration Manager suivantes nécessitent des exceptions sur le Pare-feu Windows :  
 
 ### <a name="queries"></a>Requêtes  
  Si vous exécutez la console Configuration Manager sur un ordinateur qui exécute le Pare-feu Windows, les requêtes échouent à leur première exécution et le système d’exploitation affiche une boîte de dialogue vous demandant si vous voulez débloquer statview.exe. Si vous débloquez statview.exe, les requêtes ultérieures s'exécuteront sans erreur. Vous pouvez également ajouter manuellement le fichier Statview.exe à la liste des programmes et services dans l'onglet **Exceptions** du Pare-feu Windows avant d'exécuter une requête.  
 
 ### <a name="client-push-installation"></a>Installation poussée du client  
- Pour procéder à une installation Push du client Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
+ Pour procéder à une installation Push du client Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
 
 -   Entrant et sortant : **Partage de fichiers et d’imprimantes**  
 
@@ -58,7 +58,7 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
  Pour installer le client Configuration Manager à l’aide de la stratégie de groupe, ajoutez **Partage de fichiers et d’imprimantes** en tant qu’exception au Pare-feu Windows.  
 
 ### <a name="client-requests"></a>Requêtes client  
- Pour permettre aux ordinateurs clients de communiquer avec les systèmes de site Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
+ Pour permettre aux ordinateurs clients de communiquer avec les systèmes de site Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
 
  Sortant : Port TCP **80** (pour communications HTTP)  
 
@@ -68,11 +68,11 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
 >  Ces numéros de port sont les valeurs par défaut. Elles peuvent être modifiées dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Si ces ports ont été modifiés par rapport aux valeurs par défaut, vous devez également configurer des exceptions correspondantes pour le Pare-feu Windows.  
 
 ### <a name="client-notification"></a>Notification du client  
- Pour que le point de gestion signale aux ordinateurs clients les actions qu’ils doivent entreprendre quand un utilisateur administratif sélectionne une action de client dans la console Configuration Manager (téléchargement d’une stratégie d’ordinateur, démarrage d’une recherche de programmes malveillants, etc.), ajoutez l’exception suivante au Pare-feu Windows :  
+ Pour que le point de gestion signale aux ordinateurs clients les actions qu’ils doivent entreprendre quand un utilisateur administratif sélectionne une action de client dans la console Configuration Manager (téléchargement d’une stratégie d’ordinateur, démarrage d’une recherche de programmes malveillants, etc.), ajoutez l’exception suivante au Pare-feu Windows :  
 
  Sortant : Port TCP **10123**  
 
- Si la communication n’aboutit pas, Configuration Manager recommence automatiquement à utiliser le port de communication HTTP ou HTTPS existant entre le client et le point de gestion :  
+ Si la communication n’aboutit pas, Configuration Manager recommence automatiquement à utiliser le port de communication HTTP ou HTTPS existant entre le client et le point de gestion :  
 
  Sortant : Port TCP **80** (pour communications HTTP)  
 
@@ -82,7 +82,7 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
 >  Ces numéros de port sont les valeurs par défaut. Elles peuvent être modifiées dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Si ces ports ont été modifiés par rapport aux valeurs par défaut, vous devez également configurer des exceptions correspondantes pour le Pare-feu Windows.  
 
 ### <a name="remote-control"></a>Contrôle à distance  
- Pour utiliser la fonctionnalité de contrôle à distance de Configuration Manager, autorisez le port suivant :  
+ Pour utiliser la fonctionnalité de contrôle à distance de Configuration Manager, autorisez le port suivant :  
 
 -   Entrant : Port TCP**2701**  
 
@@ -176,6 +176,6 @@ Dans System Center Configuration Manager, les ordinateurs clients qui exécutent
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

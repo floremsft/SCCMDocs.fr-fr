@@ -1,17 +1,17 @@
-# [Comprendre](understand/introduction-to-operating-system-deployment.md)
+# Comprendre et explorer
 ## [Introduction au déploiement de systèmes d’exploitation](understand/introduction-to-operating-system-deployment.md)
 ## [Étapes de séquence de tâches](understand/task-sequence-steps.md)
 ## [Variables d’action de séquence de tâches](understand/task-sequence-action-variables.md)
 ## [Variables intégrées de séquence de tâches](understand/task-sequence-built-in-variables.md)
 ## [Commandes de prédémarrage pour les médias de séquence de tâches](understand/prestart-commands-for-task-sequence-media.md)
 
-# [Planifier et concevoir](plan-design/infrastructure-requirements-for-operating-system-deployment.md)
+# Planifier et concevoir
 ## [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](plan-design/infrastructure-requirements-for-operating-system-deployment.md)
 ## [Considérations relatives à la planification de l’automatisation des tâches](plan-design/planning-considerations-for-automating-tasks.md)
 ## [Sécurité et confidentialité du déploiement de système d’exploitation](plan-design/security-and-privacy-for-operating-system-deployment.md)
 ## [Planification de l’interopérabilité des déploiements de systèmes d’exploitation](plan-design/planning-for-operating-system-deployment-interoperability.md)
 
-# [Bien démarrer](get-started/prepare-site-system-roles-for-operating-system-deployments.md)
+# Prise en main
 ## [Préparer les rôles système de site pour les déploiements de système d’exploitation](get-started/prepare-site-system-roles-for-operating-system-deployments.md)
 ## [Préparer un déploiement de système d’exploitation](get-started/prepare-for-operating-system-deployment.md)
 ### [Gérer les images de démarrage](get-started/manage-boot-images.md)
@@ -28,7 +28,7 @@
 
 ## [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md)
 
-# [Déployer et utiliser](deploy-use/scenarios-to-deploy-enterprise-operating-systems.md)
+# Déployer et utiliser
 ## [Scénarios de déploiement de systèmes d’exploitation d’entreprise](deploy-use/scenarios-to-deploy-enterprise-operating-systems.md)
 ### [Effectuer une mise à niveau de Windows vers la dernière version](deploy-use/upgrade-windows-to-the-latest-version.md)
 ### [Actualiser un ordinateur existant avec une nouvelle version de Windows](deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)
@@ -54,8 +54,10 @@
 ### [Créer une séquence de tâches pour capturer et restaurer l’état utilisateur](deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md)
 ### [Utiliser une séquence de tâches pour gérer des disques durs virtuels](deploy-use/use-a-task-sequence-to-manage-virtual-hard-disks.md)
 
-## [Créer une séquence de tâches personnalisée](deploy-use/create-a-custom-task-sequence.md)
+## [Scénarios de séquence de tâches personnalisée](deploy-use/custom-task-sequence-scenarios.md)
+### [Créer une séquence de tâches personnalisée](deploy-use/create-a-custom-task-sequence.md)
 ### [Créer une séquence de tâches pour les déploiements autres que les déploiements de système d’exploitation](deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)
+### [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion.md)
 
 ## [Créer un média de séquence de tâches](deploy-use/create-task-sequence-media.md)
 ### [Créer un média autonome](deploy-use/create-stand-alone-media.md)
@@ -64,6 +66,6 @@
 ### [Créer un média de capture](deploy-use/create-capture-media.md)
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

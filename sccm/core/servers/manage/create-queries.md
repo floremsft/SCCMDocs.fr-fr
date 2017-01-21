@@ -1,5 +1,5 @@
 ---
-title: "Créer des requêtes | System Center Configuration Manager"
+title: "Créer des requêtes | Microsoft Docs"
 description: "Découvrez comment créer et importer des requêtes dans System Center Configuration Manager. Inclut des conseils et des exemples de requêtes."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1cbba80a73fdd66d84d38e710c02cc79ab972b81
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 89bd798339489071fdb69325c957fefda32621e9
 
 
 ---
 # <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Comment créer des requêtes dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les sections suivantes de cette rubrique pour créer ou importer des requêtes dans System Center Configuration Manager.  
 
@@ -71,7 +71,7 @@ Utilisez les sections suivantes de cette rubrique pour créer ou importer des re
     > [!IMPORTANT]  
     >  Si vous créez une requête qui ne contient aucun critère, elle retourne tous les appareils du regroupement **Tous les systèmes** .  
 
-9. Sous l’onglet **Jointures** de la boîte de dialogue *Propriétés de l’instruction de ***&lt;Nom de la requête\>**, vous pouvez combiner des données de deux attributs différents dans les résultats de votre requête. Bien que Configuration Manager crée automatiquement des jointures de requête lorsque vous choisissez différents attributs pour les résultats de votre requête, l'onglet **Jointures** fournit d'autres options avancées. Les classes d’attributs prises en charge par System Center 2012 Configuration Manager sont indiquées dans le tableau ci-dessous :  
+9. Sous l’onglet **Jointures** de la boîte de dialogue *Propriétés de l’instruction de ***&lt;Nom de la requête\>**, vous pouvez combiner des données de deux attributs différents dans les résultats de votre requête. Bien que Configuration Manager crée automatiquement des jointures de requête lorsque vous choisissez différents attributs pour les résultats de votre requête, l'onglet **Jointures** fournit d'autres options avancées. Les classes d’attributs prises en charge par System Center 2012 Configuration Manager sont indiquées dans le tableau ci-dessous :  
 
     |Type de jointure|Description|  
     |---------------|-----------------|  
@@ -160,7 +160,7 @@ SMS_R_System where SMS_R_System.NetbiosName like "ABC%"
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = <Device ID>  
 ```  
 
- Utilisez l’une des valeurs suivantes pour *&lt;ID d’appareil\>* :  
+ Utilisez l’une des valeurs suivantes pour *&lt;ID d’appareil\>* :  
 
 |Type d'appareil|Valeur de AgentEdition|  
 |-----------------|---------------------------|  
@@ -190,6 +190,6 @@ Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

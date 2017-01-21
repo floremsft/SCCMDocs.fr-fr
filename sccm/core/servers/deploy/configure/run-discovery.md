@@ -1,5 +1,5 @@
 ---
-title: "Exécuter la découverte | System Center Configuration Manager"
+title: "Exécuter la découverte | Microsoft Docs"
 description: "Lire une vue d’ensemble du processus de découverte et des enregistrements de données de découverte."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,20 +17,20 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d73b493318b0a1938d42265ec03369015365addb
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 1d225b9f904215280feef5efd4283cbd51f84577
 
 
 ---
 # <a name="run-discovery-for-system-center-configuration-manager"></a>Exécuter la découverte pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser une ou plusieurs des méthodes de découverte proposées dans    
       System Center Configuration Manager pour trouver les appareils et les utilisateurs que vous pouvez gérer. Vous pouvez également utiliser la découverte pour identifier l’infrastructure réseau de votre environnement.  Vous disposez de diverses méthodes de découverte permettant de découvrir différents éléments. Chaque méthode a ses propres configurations et limitations.  
 
 ## <a name="overview-of-discovery"></a>Vue d’ensemble de la découverte  
- La découverte est le processus par lequel Configuration Manager apprend quels élément vous pouvez gérer. Les méthodes de découverte disponibles sont les suivantes :  
+ La découverte est le processus par lequel Configuration Manager apprend quels élément vous pouvez gérer. Les méthodes de découverte disponibles sont les suivantes :  
 
 -   Découverte de forêts Active Directory  
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser une ou plusieurs des méthodes de découverte proposées da
 
  Une fois les informations de découverte ajoutées à la base de données du site, elles sont répliquées vers chaque site dans la hiérarchie, indépendamment du site sur lequel les informations ont été découvertes ou traitées. Par conséquent, si vous pouvez configurer des planifications et des paramètres différents pour les méthodes de découverte sur différents sites, vous ne pouvez exécuter une méthode de découverte spécifique que sur un seul site afin de réduire l’utilisation de la bande passante réseau par le biais d’actions de détection de doublons, et de réduire le traitement de données de découverte redondantes sur plusieurs sites.  
 
- Vous pouvez utiliser les données de découverte pour créer des regroupements et requêtes personnalisés qui regroupent logiquement des ressources pour les tâches de gestion suivantes, par exemple :  
+ Vous pouvez utiliser les données de découverte pour créer des regroupements et requêtes personnalisés qui regroupent logiquement des ressources pour les tâches de gestion suivantes, par exemple :  
 
 -   effectuer une installation Push du client ou une mise à niveau ;  
 
@@ -66,7 +66,7 @@ Vous pouvez utiliser une ou plusieurs des méthodes de découverte proposées da
 -   déployer des paramètres client et les configurations associées.  
 
 ##  <a name="a-namebkmkddrsa-about-discovery-data-records"></a><a name="BKMK_DDRs"></a> À propos des enregistrements de données de découverte  
- Les enregistrements de données de découverte (DDR) sont des fichiers créés par une méthode de découverte ; ils contiennent des informations sur une ressource que vous pouvez gérer dans Configuration Manager. Les DDR contiennent des informations sur les ordinateurs, les utilisateurs et, dans certains cas, l'infrastructure du réseau. Ils sont traités au niveau des sites principaux ou des sites d'administration centrale. Une fois que les informations sur la ressource contenues dans le DDR ont été entrées dans la base de données, le DDR est supprimé et cette information est répliquée sous forme de données globales vers tous les sites de la hiérarchie.  
+ Les enregistrements de données de découverte (DDR) sont des fichiers créés par une méthode de découverte ; ils contiennent des informations sur une ressource que vous pouvez gérer dans Configuration Manager. Les DDR contiennent des informations sur les ordinateurs, les utilisateurs et, dans certains cas, l'infrastructure du réseau. Ils sont traités au niveau des sites principaux ou des sites d'administration centrale. Une fois que les informations sur la ressource contenues dans le DDR ont été entrées dans la base de données, le DDR est supprimé et cette information est répliquée sous forme de données globales vers tous les sites de la hiérarchie.  
 
  Le site où un DDR est traité dépend des informations qu'il contient :  
 
@@ -78,18 +78,18 @@ Vous pouvez utiliser une ou plusieurs des méthodes de découverte proposées da
 
 Les fichiers DDR sont identifiés par l'extension .ddr et ont généralement une taille standard d'environ 1 Ko.  
 
-## <a name="get-started-with-discovery"></a>Prise en main de la découverte :  
+## <a name="get-started-with-discovery"></a>Prise en main de la découverte :  
  Avant d’utiliser la console Configuration Manager pour configurer la découverte, vous devez comprendre les différences entre les méthodes, les opérations possibles et, pour certaines d’entre elles, leurs limites.  
-Les rubriques suivantes peuvent vous aider à utiliser correctement les méthodes de découverte :  
+Les rubriques suivantes peuvent vous aider à utiliser correctement les méthodes de découverte :  
 
 -   [À propos des méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md)  
 
 -   [Sélectionner les méthodes de découverte à utiliser pour System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md)  
 
-Dès lors que vous avez déterminé quelles méthodes utiliser, vous pouvez les configurer en vous aidant des conseils fournis dans [Configure discovery methods for System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md) (Configurer les méthodes de découverte pour System Center Configuration Manager).  
+Dès lors que vous avez déterminé quelles méthodes utiliser, vous pouvez les configurer en vous aidant des conseils fournis dans [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

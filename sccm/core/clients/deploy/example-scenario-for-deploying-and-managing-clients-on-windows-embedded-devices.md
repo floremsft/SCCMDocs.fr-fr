@@ -1,5 +1,5 @@
 ---
-title: "Exemple de scénario de déploiement de clients Windows Embedded | System Center Configuration Manager"
+title: "Exemple de scénario : Déployer des clients Windows Embedded | Microsoft Docs"
 description: "Consultez un exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 10049c89-b37c-472b-b317-ce4f56cd4be7
 caps.latest.revision: 8
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: dd97ae9afb2d0ecfc33266267a65f3c3f6d1dd29
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 7b5cd35b22b610902628142d9cc52b8f3d54069d
 
 
 ---
 # <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded activés pour les filtres d’écriture en utilisant System Center Configuration Manager. Si vos appareils incorporés ne prennent pas en charge les filtres d’écriture, ils se comportent comme des clients Configuration Manager standard et vous n’êtes pas tenu d’effectuer les étapes incluses dans ce scénario nécessaires à la gestion des filtres d’écriture.  
 
@@ -82,7 +82,7 @@ Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded ac
 
 7.  Maintenant que le client Configuration Manager est installé sur les appareils Windows Embedded, Jane vérifie qu’elle peut les gérer de la même manière que les clients Windows standard. Par exemple, à partir de la console Configuration Manager, elle peut les gérer à distance à l’aide du contrôle à distance, leur appliquer la stratégie et afficher les propriétés du client, ainsi que l’inventaire matériel.  
 
-     Comme ces appareils sont joints à un domaine Active Directory, elle n’a pas besoin de les confirmer manuellement en tant que clients approuvés ; pour cela, elle utilise la console Configuration Manager.  
+     Comme ces appareils sont joints à un domaine Active Directory, elle n’a pas besoin de les confirmer manuellement en tant que clients approuvés ; pour cela, elle utilise la console Configuration Manager.  
 
      Pour plus d'informations, voir [How to manage clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
@@ -110,7 +110,7 @@ Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded ac
      Jane sélectionne le regroupement d’appareils Windows Embedded pour la règle de déploiement automatique.  
 
      Pour plus d'informations, voir  
-                  Étape 3 : configurer les mises à jour logicielles de Configuration Manager pour fournir des mises à jour de définitions aux ordinateurs clients dans [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
+                  Étape 3 : configurer les mises à jour logicielles de Configuration Manager pour fournir des mises à jour de définitions aux ordinateurs clients dans [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
 
 10. Jane décide de configurer une tâche de maintenance qui valide régulièrement toutes les modifications apportées au segment de recouvrement. Cette tâche consiste à prendre en charge le déploiement des définitions de mises à jour logicielles, afin de réduire le nombre de mises à jour qui s'accumulent et doivent être à nouveau installées, chaque fois que l’appareil redémarre. Elle sait, par expérience, que cela permet aux logiciels anti-programmes malveillants de s'exécuter plus efficacement.  
 
@@ -182,6 +182,6 @@ Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded ac
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

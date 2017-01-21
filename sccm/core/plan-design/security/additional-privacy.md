@@ -1,5 +1,5 @@
 ---
-title: "Déclaration de confidentialité de System Center Configuration Manager – Bibliothèque d’applets de commande de Configuration Manager"
+title: "Déclaration de confidentialité de System Center Configuration Manager - Informations supplémentaires | Microsoft Docs"
 description: "Découvrez comment Microsoft collecte et utilise les données d’un déploiement de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -36,13 +36,13 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bcac4e2b6f8377a27417cb2519814ad9e74ee542
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 613b7dbf81de84129e113468d554d8430cbc3182
 
 ---
 # <a name="additional-information-about-privacy-for-system-center-configuration-manager"></a>Informations supplémentaires sur la confidentialité pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 ## <a name="updates-and-servicing"></a>Mises à jour et maintenance
@@ -53,9 +53,9 @@ System Center Configuration Manager introduit un nouveau modèle de mise à jour
 System Center Configuration Manager collecte des données d’utilisation et de diagnostic qui le concernent. Microsoft utilise ensuite ces données pour améliorer le processus d’installation, la qualité et la sécurité des versions ultérieures.
 Des données d’utilisation et de diagnostic sont collectées pour chaque hiérarchie System Center Configuration Manager. Elle consistent en requêtes SQL Server qui s’exécutent chaque semaine sur chaque site principal et sur le site d’administration centrale. Quand la hiérarchie utilise un site d’administration centrale, les données provenant des sites principaux sont répliquées sur ce site. Sur le site de niveau supérieur de votre hiérarchie, le point de connexion de service soumet ces informations quand il recherche des mises à jour. Si le point de connexion de service est en mode hors connexion, les informations sont transférées à l’aide de l’outil de connexion de service.
 
-Configuration Manager collecte uniquement les données de la base de données SQL Server des sites. Il ne collecte pas de données directement à partir des clients ni des serveurs de site.
+Configuration Manager collecte uniquement les données de la base de données SQL Server des sites. Il ne collecte pas de données directement à partir des clients ni des serveurs de site.
 
-Les administrateurs peuvent modifier le niveau de données collectées en accédant à la section « Données d’utilisation » de la console Configuration Manager.
+Les administrateurs peuvent modifier le niveau de données collectées en accédant à la section « Données d’utilisation » de la console Configuration Manager.
 
 Pour plus d’informations, consultez l’article complémentaire sur les niveaux de données d’utilisation et les paramètres à l’adresse [http://go.microsoft.com/fwlink/?LinkID=626566](http://go.microsoft.com/fwlink/?LinkID=626566).
 
@@ -80,9 +80,9 @@ Une fois un nom de logiciel téléchargé, les fonctions de recherche de Microso
 Asset Intelligence n’est pas activé dans System Center Configuration Manager par défaut. Le téléchargement de titres sans catégorie ne se produit jamais automatiquement et le système n'est pas conçu pour que cette tâche soit automatisée. Vous devez sélectionner et approuver manuellement le téléchargement de chaque nom de logiciel.
 
 ## <a name="endpoint-protection"></a>Endpoint Protection
-Produits applicables de Microsoft Cloud Protection Service (anciennement Microsoft Active Protection Service ou MAPS) : System Center Endpoint Protection et la fonctionnalité Endpoint Protection de System Center Configuration Manager (pour la gestion de System Center Endpoint Protection et Windows Defender pour Windows 10). Cette fonctionnalité n’est pas implémentée pour System Center Endpoint Protection pour Linux ni System Center Endpoint Protection pour Mac.
+Produits applicables de Microsoft Cloud Protection Service (anciennement Microsoft Active Protection Service ou MAPS) : System Center Endpoint Protection et la fonctionnalité Endpoint Protection de System Center Configuration Manager (pour la gestion de System Center Endpoint Protection et Windows Defender pour Windows 10). Cette fonctionnalité n’est pas implémentée pour System Center Endpoint Protection pour Linux ni System Center Endpoint Protection pour Mac.
 
-La communauté anti-programme malveillant de Microsoft Cloud Protection Service est une communauté en ligne internationale bénévole qui rassemble les utilisateurs de System Center Endpoint Protection. Si vous adhérez à Microsoft Cloud Protection Service, System Center Endpoint Protection envoie automatiquement des informations à Microsoft qui aideront à décider quels logiciels doivent être analysés en vue de détecter d’éventuels dangers et à améliorer l’efficacité de System Center Endpoint Protection. Cette communauté contribue à limiter la portée des infections des nouveaux logiciels malveillants. Si un rapport Microsoft Cloud Protection Service inclut des détails sur des logiciels malveillants ou potentiellement non désirés que le client Endpoint Protection peut supprimer, Microsoft Cloud Protection Service télécharge la signature la plus récente pour y procéder. Microsoft Cloud Protection Service peut également rechercher de « faux positifs » (un élément initialement identifié comme logiciel malveillant mais qui ne l’est pas) et les corriger.
+La communauté anti-programme malveillant de Microsoft Cloud Protection Service est une communauté en ligne internationale bénévole qui rassemble les utilisateurs de System Center Endpoint Protection. Si vous adhérez à Microsoft Cloud Protection Service, System Center Endpoint Protection envoie automatiquement des informations à Microsoft qui aideront à décider quels logiciels doivent être analysés en vue de détecter d’éventuels dangers et à améliorer l’efficacité de System Center Endpoint Protection. Cette communauté contribue à limiter la portée des infections des nouveaux logiciels malveillants. Si un rapport Microsoft Cloud Protection Service inclut des détails sur des logiciels malveillants ou potentiellement non désirés que le client Endpoint Protection peut supprimer, Microsoft Cloud Protection Service télécharge la signature la plus récente pour y procéder. Microsoft Cloud Protection Service peut également rechercher de « faux positifs » (un élément initialement identifié comme logiciel malveillant mais qui ne l’est pas) et les corriger.
 
 Les rapports Microsoft Cloud Protection Service contiennent des informations sur les fichiers des logiciels malveillants potentiels, tels que les noms de fichiers, le hachage cryptographique, le fournisseur, la taille et les horodatages. Par ailleurs, Microsoft Cloud Protection Service peut collecter des URL complètes pour indiquer l’origine du fichier. Ces URL contiennent parfois des informations personnelles telles que des termes de recherche ou des données entrées dans des formulaires. Les rapports peuvent également inclure les actions effectuées quand Endpoint Protection vous a informé sur des logiciels indésirables. Les rapports Microsoft Cloud Protection Service incluent ces informations pour aider Microsoft à évaluer l’efficacité avec laquelle Endpoint Protection peut détecter et supprimer des programmes malveillants et potentiellement indésirables et pour tenter d’identifier les nouveaux logiciels malveillants.
 
@@ -97,8 +97,8 @@ Microsoft Cloud Protection Service ne collecte pas intentionnellement des inform
 
 Vous trouverez des informations supplémentaires sur les données collectées dans la documentation du produit à l’adresse [http://go.microsoft.com/fwlink/?LinkId=823547](http://go.microsoft.com/fwlink/?LinkId=823547).
 
-## <a name="site-hierarchy-geographical-view-with-bing-maps"></a>Hiérarchie de site : vue géographique avec cartes Bing
-Hiérarchie de site : la vue géographique permet d’afficher la topologie de votre serveur physique Configuration Manager à l’aide de cartes fournies par Microsoft Bing Maps. Pour activer cette fonction, les informations d'emplacement que vous fournissez sont envoyées de votre serveur vers le service Web de cartes Bing.
+## <a name="site-hierarchy--geographical-view-with-bing-maps"></a>Hiérarchie de site : vue géographique avec cartes Bing
+Hiérarchie de site : la vue géographique permet d’afficher la topologie de votre serveur physique Configuration Manager à l’aide de cartes fournies par Microsoft Bing Maps. Pour activer cette fonction, les informations d'emplacement que vous fournissez sont envoyées de votre serveur vers le service Web de cartes Bing.
 
 Microsoft utilise les informations pour exploiter et améliorer les cartes Microsoft Bing et autres sites et services Microsoft. Pour plus d’informations, consultez la déclaration de confidentialité de Microsoft à l’adresse http://go.microsoft.com/fwlink/?LinkId=823548.
 Vous pouvez choisir de ne pas utiliser la vue géographique pour la hiérarchie du site. La vue Diagramme de la hiérarchie permet d'afficher la hiérarchie sans utiliser le service de cartes Bing.
@@ -114,6 +114,6 @@ Cette fonction n'est pas configurée par défaut. Les administrateurs contrôlen
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

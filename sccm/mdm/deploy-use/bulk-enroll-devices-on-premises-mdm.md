@@ -1,6 +1,6 @@
 ---
 
-title: Inscrire en bloc des appareils | Gestion MDM locale | System Center Configuration Manager
+title: Inscrire en bloc des appareils | Microsoft Docs | Gestion des appareils mobiles locale
 description: "Inscrivez en bloc des appareils de manière automatisée avec la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -18,28 +18,28 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 92f30335c412fb1ddf790de7218bb4b704562298
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: ef68a9f998ea6ff9628e01f6ac622711de68375d
 
 
 ---
 # <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Comment inscrire en bloc des appareils avec la gestion des appareils mobiles (MDM) locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 L’inscription en bloc dans la gestion des appareils mobiles locale dans System Center Configuration Manager est un mécanisme d’inscription d’appareils plus automatisé que l’inscription d’utilisateur, qui nécessite que les utilisateurs entrent leurs informations d’identification pour inscrire l’appareil.  L’inscription en bloc utilise un package d’inscription pour authentifier l’appareil lors de l’inscription. Le package (un fichier .ppkg) contient un profil de certificat et éventuellement un profil Wi-Fi si l’appareil a besoin d’une connectivité intranet pour prendre en charge l’inscription.  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
->  -   Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
+>  -   Windows 10 Entreprise  
+> -   Windows 10 Professionnel  
+> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Entreprise
 
-Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des appareils pour la gestion des appareils mobiles locale :  
+Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des appareils pour la gestion des appareils mobiles locale :  
 
 -   [Créer un profil de certificat](#bkmk_createCert)  
 
@@ -66,9 +66,9 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
  Pour créer un profil Wi-Fi dans Configuration Manager, suivez les instructions fournies dans [Comment créer des profils Wi-Fi dans System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
 
 > [!IMPORTANT]  
->Gardez à l’esprit les deux problèmes suivants quand vous créez un profil Wi-Fi pour l’inscription en bloc :
+>Gardez à l’esprit les deux problèmes suivants quand vous créez un profil Wi-Fi pour l’inscription en bloc :
 >
-> - La branche CB (Current Branch) de Configuration Manager prend uniquement en charge les configurations de sécurité Wi-Fi suivantes pour la gestion des appareils mobiles locale :  
+> - La branche CB (Current Branch) de Configuration Manager prend uniquement en charge les configurations de sécurité Wi-Fi suivantes pour la gestion des appareils mobiles locale :  
 >   
 >   - Types de sécurité : **WPA2-Entreprise** ou **WPA2-Personnel**  
 >   - Types de chiffrement : **AES** ou **TKIP**  
@@ -106,7 +106,7 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 ##  <a name="a-namebkmkcreateppkga-create-an-enrollment-package-ppkg-file"></a><a name="bkmk_createPpkg"></a> Créer un fichier de package d’inscription (ppkg)  
  Le package d’inscription est le fichier que vous utilisez pour inscrire en bloc des appareils pour la gestion des appareils mobiles locale.  Ce fichier doit être créé avec Configuration Manager. Vous pouvez créer des types de packages similaires à l’aide du Concepteur de configuration et d’acquisition d’images Windows, mais seuls les packages que vous créez dans Configuration Manager peuvent être utilisés pour inscrire des appareils pour la gestion des appareils mobiles locale du début à la fin. Les packages créés avec Windows ICD peuvent uniquement fournir le nom d’utilisateur principal (UPN) nécessaire à l’inscription. Ils ne peuvent pas exécuter le processus d’inscription proprement dit.  
 
- Le processus de création du package d’inscription exige l’utilisation du Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  Sur le serveur exécutant la console Configuration Manager, vérifiez que la version 1511 de Windows ADK est installée. Pour plus d’informations, consultez la section ADK dans [Télécharger le kit Windows ADK](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
+ Le processus de création du package d’inscription exige l’utilisation du Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  Sur le serveur exécutant la console Configuration Manager, vérifiez que la version 1511 de Windows ADK est installée. Pour plus d’informations, consultez la section ADK dans [Télécharger le kit Windows ADK](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
 
 > [!TIP]  
 >  Si vous supprimez un package d’inscription de la console Configuration Manager, il ne peut pas être utilisé pour inscrire des appareils. Vous pouvez utiliser la suppression de package comme moyen de gérer les packages que vous ne souhaitez plus utiliser pour l’inscription en bloc des appareils.  
@@ -168,6 +168,6 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,0 +1,46 @@
+---
+title: Activer Lookout MTP dans Intune | System Center Configuration Manager
+description: "Activez Mobile Threat Protection de Lookout dans la console d’administration Intune."
+ms.custom: na
+ms.date: 11/18/2016
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-other
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 9536efdd-0f29-47a8-8283-0edea7714319
+caps.latest.revision: 
+author: nathbarn
+ms.author: nathbarn
+manager: angrobe
+translationtype: Human Translation
+ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
+ms.openlocfilehash: a06f0b3a0080a06a0ccbfa7f3802c575aee2c9b7
+
+
+---
+# <a name="enable-lookout-mtp-connection-in-the-intune-admin-console"></a>Activer la connexion Lookout MTP dans la console d’administration Intune
+
+*S’applique à : System Center Configuration Manager (Current Branch)*
+
+Cette rubrique montre comment activer la connexion Lookout MTP dans Intune. Vous devez déjà avoir configuré le connecteur Intune dans la console Lookout avant d’effectuer cette étape.  Si vous ne l’avez pas déjà fait, procédez comme décrit dans [Configurer votre abonnement avec Mobile Threat Protection de Lookout](set-up-your-subscription-with-lookout.md).
+
+Pour activer la connexion Lookout MTP dans Intune, dans la page **Administration** de la [console Administrateur Microsoft Intune](https://manage.microsoft.com), choisissez **Intégration de service tiers**. Choisissez **État de Lookout** et activez **Synchronisation avec MTP** à l’aide du bouton bascule.
+
+![capture d’écran de la page de synchronisation Lookout avec le bouton bascule Activer mis en surbrillance](../media/lookout-intune-synchronization.png)
+
+Cette étape termine la configuration de l’intégration de Lookout et Intune dans la console Administrateur Intune.  Les étapes suivantes permettant d’implémenter cette solution impliquent le déploiement des [applications Lookout for Work](configure-and-deploy-lookout-for-work-apps.md) et la configuration de la stratégie de [conformité](enable-device-threat-protection-rule-compliance-policy.md).
+
+>[!IMPORTANT]
+> Vous **devez** configurer l’application Lookout for Work avant de créer des règles de stratégie de conformité et de configurer l’accès conditionnel. De cette façon, l’application est prête et disponible pour l’installation afin de permettre aux utilisateurs finaux d’accéder à la messagerie et à d’autres ressources de l’entreprise.
+
+## <a name="next-steps"></a>Étapes suivantes
+[Configurer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md)
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

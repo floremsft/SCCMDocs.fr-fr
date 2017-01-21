@@ -1,5 +1,5 @@
 ---
-title: "Utiliser une séquence de tâches pour gérer des disques durs virtuels | System Center Configuration Manager"
+title: "Utiliser une séquence de tâches pour gérer des disques durs virtuels | Microsoft Docs"
 description: "Créez et modifiez un disque dur virtuel, ajoutez des applications et des mises à jour logicielles et publiez le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e0ba309d8efc34cccce6acc4c59f0c4d218a617a
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: f77af4b8fcb193ed44511c0e5eea7290f55dbbf8
 
 
 ---
 # <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utiliser une séquence de tâches pour gérer des disques durs virtuels dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, vous pouvez gérer des disques durs virtuels (VHD) et intégrer les disques durs virtuels créés dans votre centre de données à partir de la console Configuration Manager. Plus précisément, vous pouvez créer et modifier un disque dur virtuel, ajouter des applications et des mises à jour logicielles au disque dur virtuel, ainsi que publier le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.  
 
- Pour gérer les disques durs virtuels dans Configuration Manager, utilisez les sections suivantes :
+ Pour gérer les disques durs virtuels dans Configuration Manager, utilisez les sections suivantes :
 
 ## <a name="prerequisites"></a>Conditions préalables  
  Vérifiez la configuration requise suivante avant de commencer :  
@@ -42,7 +42,7 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
     -   Windows Server 2012  
 
-    -   Windows Server 2012 R2  
+    -   Windows Server 2012 R2  
 
 -   La fonction de virtualisation doit être activée dans le BIOS et Hyper-V doit être installé sur l'ordinateur à partir duquel vous exécutez la console Configuration Manager pour gérer les disques durs virtuels. Comme meilleures pratiques, installez également les outils de gestion Hyper-V pour vous aider à tester et résoudre les problèmes liés à vos disques durs virtuels. Par exemple, pour surveiller le fichier smsts.log et suivre la progression de la séquence de tâches dans Hyper-V, les outils de gestion Hyper-V doivent être installés. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
@@ -156,7 +156,7 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
     -   **Chemin d’accès :**spécifiez le chemin et le nom de fichier utilisés par l’Assistant lors de la création du fichier de disque dur virtuel.  
 
-         Vous devez entrer un chemin d'accès réseau valide au format UNC. Par exemple : **\\\nom_serveur\\<nom_partage\>\\<nom_fichier\>.vhd**.  
+         Vous devez entrer un chemin d'accès réseau valide au format UNC. Par exemple : **\\\nom_serveur\\<nom_partage\>\\<nom_fichier\>.vhd**.  
 
         > [!WARNING]  
         >  Configuration Manager doit disposer de l'autorisation d'accès **Écriture** vers le chemin spécifié pour créer le disque dur virtuel. Lorsque Configuration Manager ne parvient pas à accéder au chemin, l'erreur associée est consignée dans le fichier distmgr.log sur le serveur de site.  
@@ -331,6 +331,6 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Utiliser un média autonome pour déployer Windows sans utiliser le réseau | System Center Configuration Manager"
+title: "Utiliser un média autonome pour déployer Windows sans utiliser le réseau | Microsoft Docs"
 description: "Utilisez un média autonome dans Configuration Manager pour déployer des systèmes d’exploitation lorsque la bande passante est limitée ou comme option pour actualiser, installer ou mettre à niveau des ordinateurs."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f09359b2c565f259ddd0dab01812bafcaecff60a
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 30ae794381c6894e11b21a8167d0af60463c5279
 
 
 ---
 # <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Utiliser un média autonome pour déployer Windows sans utiliser le réseau dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, un média autonome contient tout ce qui est nécessaire pour permettre le déploiement d’un système d’exploitation sur un ordinateur. Cela comprend l’image de démarrage, l’image du système d’exploitation et la séquence de tâches permettant d’installer le système d’exploitation, c’est-à-dire les applications, les pilotes, etc. Les déploiements de médias autonomes vous permettent de déployer des systèmes d'exploitation dans les conditions suivantes :  
 
@@ -63,7 +63,7 @@ Vous pouvez utiliser un média autonome dans les scénarios de déploiement de s
 >   
 >  Dans le cas d’un média autonome qui comprend une étape **Installer le package**, vous devez créer le média autonome sur un site principal sur lequel l’agent de distribution logicielle est activé ou ajoutez une étape [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine) après l’étape [Configurer Windows et ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) et avant la première étape **Installer le package** de la séquence de tâches. L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
 >   
->  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 
 ## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
  Quand vous utilisez un média autonome pour lancer le processus de déploiement de système d’exploitation, vous devez configurer le déploiement pour rendre le système d’exploitation accessible au média. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :  
@@ -82,6 +82,6 @@ Vous pouvez utiliser un média autonome dans les scénarios de déploiement de s
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

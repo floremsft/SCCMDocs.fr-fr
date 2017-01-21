@@ -1,5 +1,5 @@
 ---
-title: Planifier la migration | System Center Configuration Manager
+title: Planifier la migration | Microsoft Docs
 description: "Informez-vous sur les sites et les hiérarchies avant de migrer des données vers une hiérarchie de destination System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a80c7af58f88f76afd00771778411a4842a204c8
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: ccc9973c07da9eca4bfacfb3bc7d1228a976c78b
 
 
 ---
 # <a name="planning-for-migration-to-system-center-configuration-manager"></a>Planification de la migration vers System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de migrer des données vers une hiérarchie de destination System Center Configuration Manager, familiarisez-vous avec les sites et les hiérarchies dans Configuration Manager. Pour plus d’informations sur les sites et les hiérarchies, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
@@ -37,7 +37,7 @@ Avant de migrer des données vers une hiérarchie de destination System Center C
  Pour plus d’informations sur les attributions de site, consultez la section [Considérations sur l’attribution de sites aux clients](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) dans la rubrique [Interopérabilité entre les différentes versions de System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
 ## <a name="planning-topics"></a>Rubriques relatives à la planification  
- Utilisez les rubriques suivantes pour planifier la migration d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager :  
+ Utilisez les rubriques suivantes pour planifier la migration d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager :  
 
 -   [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md)  
 
@@ -61,6 +61,6 @@ Avant de migrer des données vers une hiérarchie de destination System Center C
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Désinstaller des applications | System Center Configuration Manager"
+title: "Désinstaller des applications | Microsoft Docs"
 description: "Désinstaller une application à l’aide de System Center Configuration Manager"
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,62 +17,62 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9f654d899a1e3e1603eccb3943ffc4d4c178e143
+ms.sourcegitcommit: 2d0c0bc2e4e080e6061d8d3fe6cafd264d95c42a
+ms.openlocfilehash: f42fee5974567f667c015a6b0bf34d9a9a7d2dab
 
 
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Désinstaller des applications avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-## <a name="introduction"></a>Introduction  
-  
--   Sur la page **Contenu** de l' **Assistant Création d'un type de déploiement**, entrez la ligne de commande permettant de désinstaller le contenu du type de déploiement.  
+Effectuez les actions suivantes pour désinstaller une application que vous avez déjà déployée.
+
+-   Dans la page **Contenu** de l’Assistant Création d’un type de déploiement, entrez la ligne de commande permettant de désinstaller le contenu du type de déploiement.  
 
 -   Déployez l'application en utilisant l'action de déploiement **Désinstaller**.  
 
 > [!IMPORTANT]  
->  Certains types d'application ne permettent pas la désinstallation.  
+> Certains types d'application ne permettent pas la désinstallation.  
 
- La liste suivante offre des informations complémentaires sur le comportement de la fonctionnalité de désinstallation des applications :  
+ Cette liste fournit plus d’informations sur la désinstallation d’applications :  
 
--   Quand vous désinstallez une application Configuration Manager, toutes les applications qui en dépendent ne sont pas automatiquement désinstallées.  
+-   Quand vous désinstallez une application System Center Configuration Manager (Configuration Manager), toutes les applications dépendantes ne sont pas automatiquement désinstallées.  
 
--   Si vous déployez une application auprès d'un utilisateur une application en utilisant l'action **Désinstaller** et que l'application a été installée pour tous les utilisateurs de l'ordinateur, la désinstallation peut échouer si le compte de l'utilisateur ne dispose pas des autorisations requises désinstaller l'application.  
+-   Si vous déployez une application avec l’action **Désinstaller** pour un utilisateur et que l’application a été installée pour tous les utilisateurs de l’ordinateur, la désinstallation peut échouer si le compte de l’utilisateur ne dispose pas des autorisations pour désinstaller l’application.  
 
--   Si vous supprimez un utilisateur ou un périphérique à partir d'un regroupement qui dispose d'une application déployée, l'application ne sera pas automatiquement supprimée du périphérique.  
+-   Si vous supprimez un utilisateur ou un appareil d’un regroupement sur lequel une application est déployée, l’application n’est pas automatiquement supprimée de l’appareil.  
 
 -   Un déploiement dont l'objet est **Désinstaller** ne vérifie pas les règles de spécification. Si l'application est installée sur l'ordinateur sur lequel s'exécute le déploiement, elle sera désinstallée.  
 
 > [!IMPORTANT]  
->  Pour pouvoir déployer l'application en utilisant l'action de déploiement **Désinstaller**, vous devez au préalable supprimer les déploiements existants ou les déploiements simulés d'applications sur un regroupement.  
-  
+> Pour pouvoir déployer l'application en utilisant l'action de déploiement **Désinstaller**, vous devez au préalable supprimer les déploiements existants ou les déploiements simulés d'applications sur un regroupement.  
+
  Pour plus d’informations sur la manière de créer un type de déploiement, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).  
-  
+
  Pour plus d’informations sur le déploiement d’une application, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).  
-  
+
 ## <a name="uninstall-an-application"></a>Désinstaller une application  
 
 1.  Configurez le type de déploiement d'application avec la ligne de commande de désinstallation en utilisant l'une des méthodes suivantes :  
 
-    -   Sur la page **Général** de l' **Assistant Création d'un type de déploiement**sélectionnez l'option **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d'installation**. Si les informations sont disponibles dans les fichiers d'installation, la ligne de commande de désinstallation est automatiquement ajoutée aux propriétés du type de déploiement.  
+    -   Dans la page **Général** de l’Assistant Création d’un type de déploiement, sélectionnez l’option **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d’installation**. Si les informations sont disponibles dans les fichiers d'installation, la ligne de commande de désinstallation est automatiquement ajoutée aux propriétés du type de déploiement.  
 
-    -   Sur la page **Contenu** de l' **Assistant Création d'un type de déploiement**, dans le champ **Programme de désinstallation** , spécifiez la ligne de commande pour désinstaller l'application.  
+    -   Dans la page **Contenu** de l’Assistant Création d’un type de déploiement, dans le champ **Programme de désinstallation**, spécifiez la ligne de commande pour désinstaller l’application.  
 
         > [!NOTE]  
-        >  La page **Contenu** ne s'affiche que si vous sélectionnez l'option **Spécifier manuellement les informations sur le type de déploiement** sur la page **Général** de l' **Assistant Création d'un type de déploiement**.  
+        >  La page **Contenu** ne s’affiche que si vous sélectionnez l’option **Spécifier manuellement les informations sur le type de déploiement** dans la page **Général** de l’Assistant Création d’un type de déploiement.  
 
-    -   Sous l’onglet **Programmes** de la boîte de dialogue *Propriétés de***<nom_type_déploiement\>**, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
+    -   Sous l’onglet **Programmes** de la boîte de dialogue **Propriétés de <*nom_type_déploiement*>**, spécifiez la ligne de commande pour désinstaller l’application dans le champ **Programme de désinstallation**.  
 
-2.  Déployez l'application et sélectionnez l'action de déploiement **Désinstaller** sur la page **Paramètres de déploiement** de l' **Assistant Déploiement logiciel**.  
+2.  Déployez l’application et sélectionnez l’action de déploiement **Désinstaller** dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel.  
 
     > [!NOTE]  
     >  Lorsque vous sélectionnez l'action de déploiement **Désinstaller**, l'objet du déploiement est automatiquement configuré comme **Obligatoire**.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

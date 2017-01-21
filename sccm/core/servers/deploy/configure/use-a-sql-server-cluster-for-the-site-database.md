@@ -1,5 +1,5 @@
 ---
-title: Cluster SQL Server | System Center Configuration Manager
+title: Cluster SQL Server | Microsoft Docs
 description: "Utiliser un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. Inclut des informations sur les options prises en charge."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e8d708cd3c138cc0f564e86073c25fa3bc519a71
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: e5a001ee018e240396498d134c5e75e325eae275
 
 
 ---
 # <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utiliser un cluster SQL Server pour la base de données du site System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Vous pouvez utiliser un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. La base de données du site est le seul rôle de système de site pris en charge sur un cluster de serveurs.  
@@ -88,10 +88,10 @@ ms.openlocfilehash: e8d708cd3c138cc0f564e86073c25fa3bc519a71
 
 -   Ajoutez le compte ordinateur du serveur de site au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
 
--   Dans l'instance SQL Server virtuelle, attribuez le rôle SQL Server **sysadmin** au compte utilisateur qui exécutera le programme d'installation de Configuration Manager.  
+-   Dans l'instance SQL Server virtuelle, attribuez le rôle SQL Server **sysadmin** au compte utilisateur qui exécutera le programme d'installation de Configuration Manager.  
 
 ### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Pour installer un nouveau site avec un serveur SQL Server en cluster  
- Pour installer un site qui utilise une base de données de site en cluster, exécutez le programme d’installation de Configuration Manager en suivant votre processus habituel pour installer un site, mais en apportant la modification suivante :  
+ Pour installer un site qui utilise une base de données de site en cluster, exécutez le programme d’installation de Configuration Manager en suivant votre processus habituel pour installer un site, mais en apportant la modification suivante :  
 
 -   Dans la page **Informations sur la base de données** , spécifiez le nom de l’instance de cluster SQL Server virtuelle qui doit héberger la base de données du site.  L’instance virtuelle remplace le nom de l’ordinateur qui exécute SQL Server.  
 
@@ -100,6 +100,6 @@ ms.openlocfilehash: e8d708cd3c138cc0f564e86073c25fa3bc519a71
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

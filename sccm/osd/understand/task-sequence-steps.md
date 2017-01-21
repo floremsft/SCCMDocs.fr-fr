@@ -1,8 +1,8 @@
 ---
-title: "Étapes de séquence de tâches | Configuration Manager"
+title: "Étapes de séquence de tâches | Microsoft Docs"
 description: "Découvrez les différentes étapes de séquence de tâches que vous pouvez ajouter à une séquence de tâches Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/07/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2a45cfb3e00d8078fbf45bdc8a2668b7dd0a62c6
-ms.openlocfilehash: 538cb9795586115ad8b52b44fb82b50a0abdbaa2
+ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
+ms.openlocfilehash: 6e324eb97c0e803d382371ace541a4b9f96e6ba3
 
 
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui peuvent être ajoutées à une séquence de tâches Configuration Manager. Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
@@ -60,13 +60,13 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
  **Destination**  
  Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
 
--   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
+-   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
 
--   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
+-   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
 
--   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
+-   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
 
--   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
+-   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
 
  **Supprimer l’intégralité du contenu de la partition avant d’appliquer l’image**  
  Précise que tous les fichiers de la partition cible seront supprimés avant l'installation de l'image. Si vous ne supprimez pas le contenu de la partition, cette étape peut être utilisée pour appliquer le contenu supplémentaire à une partition précédemment ciblée.  
@@ -153,7 +153,7 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
 
  L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'une image de système d'exploitation est utilisée.  
 
-1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés dans le dossier spécifié par la variable de séquence de tâches _SMSTSUserStatePath.  
+1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
 
 2.  Extrait le contenu des fichiers .wim spécifiés sur la partition de destination indiquée.  
 
@@ -169,7 +169,7 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
 
  L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'un package d'installation de système d'exploitation est utilisé.  
 
-1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés dans le dossier spécifié par la variable de séquence de tâches _SMSTSUserStatePath.  
+1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
 
 2.  Prépare le fichier de réponses :  
 
@@ -223,13 +223,13 @@ Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui p
  **Destination**  
  Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
 
--   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
+-   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
 
--   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
+-   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
 
--   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
+-   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
 
--   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
+-   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
 
 ##  <a name="a-namebkmkapplywindowssettingsa-apply-windows-settings"></a><a name="BKMK_ApplyWindowsSettings"></a> Appliquer les paramètres Windows  
  Utilisez l'étape de séquence de tâches **Appliquer les paramètres Windows** pour configurer les paramètres Windows de l'ordinateur de destination. Les valeurs spécifiées sont stockées au format approprié d'un fichier de réponses afin d'être utilisées par le programme d'installation Windows lors de l'exécution de l'étape de séquence de tâches **Configurer Windows et ConfigMgr** .  
@@ -408,7 +408,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  Vous devez entrer le compte Windows qui dispose des droits d'accès au partage réseau que vous avez spécifié. Cliquez sur **Définir** pour indiquer le nom de ce compte Windows.  
 
 ##  <a name="a-namebkmkcaptureuserstatea-capture-user-state"></a><a name="BKMK_CaptureUserState"></a> Capturer l’état utilisateur  
- L'étape de la séquence de tâches **Capturer l'état utilisateur** permet d'utiliser l'outil de migration de l'état utilisateur (USMT) pour capturer l'état et les paramètres utilisateur de l'ordinateur exécutant la séquence de tâches. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Restaurer l'état utilisateur** . Dans USMT 3.0.1 et ultérieur, cette option chiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
+ L'étape de la séquence de tâches **Capturer l'état utilisateur** permet d'utiliser l'outil de migration de l'état utilisateur (USMT) pour capturer l'état et les paramètres utilisateur de l'ordinateur exécutant la séquence de tâches. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Restaurer l'état utilisateur** . Dans USMT 3.0.1 et ultérieur, cette option chiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
 
  Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
@@ -436,7 +436,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  Informations plus détaillées sur l'action effectuée dans cette étape.  
 
  **Package de l’outil de migration de l’état utilisateur**  
- Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape de séquence de tâches pour l’utiliser pendant la capture des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 de USMT en fonction de l'architecture du système d'exploitation à partir duquel vous capturez l'état.  
+ Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape de séquence de tâches pour l’utiliser pendant la capture des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 de USMT en fonction de l'architecture du système d'exploitation à partir duquel vous capturez l'état.  
 
  **Capturer tous les profils utilisateur présentant les options standard**  
  Sélectionnez cette option pour migrer toutes les informations des profils utilisateur. Cette option est activée par défaut.  
@@ -450,7 +450,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  **Personnaliser la façon dont les profils utilisateur sont capturés**  
  Sélectionnez cette option pour indiquer une migration de fichiers de profils personnalisée. Cliquez sur **Fichiers** pour sélectionner les fichiers de configuration pour l'outil de migration de l'état utilisateur à utiliser avec cette étape. Vous devez indiquer un fichier .xml personnalisé contenant les règles qui définissent les fichiers de l'état utilisateur à migrer.  
 
- **Cliquez ici pour sélectionner les fichiers de configuration :**  
+ **Cliquez ici pour sélectionner les fichiers de configuration :**  
  Sélectionnez cette option pour sélectionner les fichiers de configuration dans le package USMT que vous souhaitez utiliser pour capturer les profils utilisateur. Cliquez sur le bouton **Fichiers** pour lancer la boîte de dialogue **Fichiers de configuration** . Pour indiquer un fichier de configuration, entrez son nom sur la ligne **Nom de fichier** , puis cliquez sur le bouton **Ajouter** .  
 
  **Activer la journalisation documentée**  
@@ -460,7 +460,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  Activez cette option si vous souhaitez ignorer la capture des fichiers chiffrés au moyen d'EFS (Encrypted File System, Système de fichiers chiffrés), y compris les fichiers de profils. Selon le système d'exploitation et la version d'USMT, les fichiers chiffrés peuvent ne pas être accessibles après la restauration. Pour plus d'informations, consultez la documentation d'USMT.  
 
  **Copier en utilisant l’accès au système de fichiers**  
- Activez cette option pour spécifier les paramètres suivants :  
+ Activez cette option pour spécifier les paramètres suivants :  
 
 -   **Continuer si certains fichiers ne peuvent pas être capturés**: activez ce paramètre pour continuer le processus de migration même si certains fichiers ne peuvent pas être capturés. Si vous désactivez cette option et qu'un fichier ne peut pas être capturé, l'étape de la séquence de tâches échouera. Cette option est activée par défaut.  
 
@@ -627,7 +627,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 
 -   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
 
- Cette étape s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Toutefois, la possibilité d’enregistrer le package dans le cache du client Configuration Manager n’est pas prise en charge dans WinPE.
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -771,7 +771,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 
 -   Standard (MBR) – Secteur de démarrage principal.  
 
--   GPT – Table de partition GUID  
+-   GPT – Table de partition GUID  
 
 > [!NOTE]  
 >  Si vous passez le type de disque de **Standard (MBR)** à **GPT**, et si la structure de la partition contient une partition étendue, toutes les partitions étendues et logiques seront supprimées de la structure. Un message vous invite à confirmer l'opération avant de valider le changement de type de disque.  
@@ -845,7 +845,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  **Installer les applications en fonction de la liste de variables dynamiques**  
  Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les applications qui seront installées pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 01. La valeur de chaque variable doit contenir le nom de l'application et rien d'autre.  
 
- Pour les applications à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Général** de la boîte de dialogue **Propriétés** de l’application : **Autoriser cette application à être installée à partir de l’action de la séquence de tâches Installer l’application plutôt que de la déployer manuellement**.  
+ Pour les applications à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Général** de la boîte de dialogue **Propriétés** de l’application : **Autoriser cette application à être installée à partir de l’action de la séquence de tâches Installer l’application plutôt que de la déployer manuellement**.  
 
 > [!NOTE]  
 >  Vous ne pouvez pas installer d'applications à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
@@ -893,7 +893,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  Informations plus détaillées sur l'action effectuée dans cette étape.  
 
  **Package Sysprep**  
- Ce paramètre permet de spécifier le package Configuration Manager qui contient les outils de déploiement Sysprep pour les systèmes d’exploitation suivants :  
+ Ce paramètre permet de spécifier le package Configuration Manager qui contient les outils de déploiement Sysprep pour les systèmes d’exploitation suivants :  
 
 -   Windows XP SP3  
 
@@ -922,7 +922,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 >   
 >  Dans le cas de médias autonomes contenant une étape Installer le package, vous devez créer le média autonome sur un site principal sur lequel l'agent de distribution logicielle est activé ou insérer une étape **Exécuter la ligne de commande** entre l'étape **Configurer Windows et Configuration Manager** et la première étape **Installer le package** . L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
 >   
->  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 >   
 >  Pour plus d’informations sur la création d’un média autonome, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
 
@@ -951,7 +951,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  **Installer les packages logiciels en fonction de la liste de variables dynamiques**  
  Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les packages qui seront installés pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 001. La valeur de chaque variable doit contenir un ID de package et le nom du logiciel séparés par deux-points.  
 
- Pour les logiciels à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Avancé** de la boîte de dialogue **Propriétés** du package : **Autoriser l’installation de ce programme depuis la séquence de tâches d’installation du package sans le déployer**.  
+ Pour les logiciels à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Avancé** de la boîte de dialogue **Propriétés** du package : **Autoriser l’installation de ce programme depuis la séquence de tâches d’installation du package sans le déployer**.  
 
 > [!NOTE]  
 >  Vous ne pouvez pas installer de packages logiciels à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
@@ -985,8 +985,8 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  L'étape de séquence de tâches **Installer les mises à jour logicielles** permet d'installer les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles comme n’importe quel autre client géré par Configuration Manager. En particulier, cette étape n'installe que les mises à jour logicielles destinées aux regroupements dont l'ordinateur est actuellement membre.  
 >  [!IMPORTANT]
 >Nous vous recommandons vivement d’installer la dernière version de l’Agent Windows Update pour obtenir de meilleures performances lors de l’utilisation de l’étape de séquence de tâches Installer les mises à jour logicielles.
->* Pour Windows 7, consultez [l’article de la Base de connaissances 3161647](https://support.microsoft.com/kb/3161647).
->* Pour Windows 8, consultez [l’article de la Base de connaissances 3163023](https://support.microsoft.com/kb/3163023).
+>* Pour Windows 7, consultez [l’article de la Base de connaissances 3161647](https://support.microsoft.com/kb/3161647).
+>* Pour Windows 8, consultez [l’article de la Base de connaissances 3163023](https://support.microsoft.com/kb/3163023).
 
  Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Installer les mises à jour logicielles](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
 
@@ -994,7 +994,7 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  > Vous pouvez utiliser les variables intégrées SMSTSMPListRequestTimeoutEnabled et SMSTSMPListRequestTimeout pour activer et spécifier le délai d’attente (en millisecondes) d’une séquence de tâche avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
 > [!NOTE]
->Sous l’onglet des options, vous pouvez configurer une nouvelle tentative de cette séquence de tâches si l’ordinateur redémarre de façon inattendue. Par exemple, une installation de mise à jour logicielle qui redémarre automatiquement l’ordinateur. À compter de Configuration Manager 1602, vous pouvez configurer la variable SMSTSWaitForSecondReboot pour spécifier le temps (en secondes) pendant lequel la séquence de tâches doit rester suspendue après le redémarrage de l’ordinateur lors de l’installation de mises à jour logicielles. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+>Sous l’onglet des options, vous pouvez configurer une nouvelle tentative de cette séquence de tâches si l’ordinateur redémarre de façon inattendue. Par exemple, une installation de mise à jour logicielle qui redémarre automatiquement l’ordinateur. À compter de Configuration Manager 1602, vous pouvez configurer la variable SMSTSWaitForSecondReboot pour spécifier le temps (en secondes) pendant lequel la séquence de tâches doit rester suspendue après le redémarrage de l’ordinateur lors de l’installation de mises à jour logicielles. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -1015,16 +1015,16 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
  **Description**  
  Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Nécessaires pour l’installation – Mises à jour logicielles obligatoires seulement**  
+ **Nécessaires pour l’installation – Mises à jour logicielles obligatoires seulement**  
  Sélectionnez cette option pour installer toutes les mises à jour logicielles signalées dans Configuration Manager comme étant obligatoires pour les ordinateurs de destination qui reçoivent la séquence de tâches. Les mises à jour logicielles obligatoires possèdent des échéances d'installation définies par l'administrateur.  
 
- **Disponibles pour l’installation – Toutes les mises à jour logicielles**  
+ **Disponibles pour l’installation – Toutes les mises à jour logicielles**  
  Sélectionnez cette option pour installer toutes les mises à jour logicielles disponibles ciblant le regroupement Configuration Manager appelé à recevoir la séquence de tâches. Toutes les mises à jour logicielles disponibles seront installées sur les ordinateurs de destination.  
 
  **Évaluer les mises à jour logicielles à partir des résultats d’analyse en mémoire cache**  
-À compter de Configuration Manager version 1606, vous pouvez effectuer une analyse complète des mises à jour logicielles au lieu d’utiliser les résultats d’analyse en mémoire cache. Par défaut, la séquence de tâches utilise les résultats mis en cache. Vous pouvez décocher la case pour que le client se connecte au point de mise à jour logicielle pour traiter et télécharger le dernier catalogue de mises à jour logicielles. Vous pouvez sélectionnez cette option quand vous utilisez une séquence de tâches pour [capturer et créer une image de système d’exploitation](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), où vous savez qu’il y aura un grand nombre de mises à jour logicielles, surtout si la plupart auront des dépendances (besoin d’installer X avant qu’Y n’apparaisse comme applicable). Quand vous désactivez ce paramètre et que vous déployez la séquence de tâches sur un grand nombre de clients, ils se connectent tous au point de mise à jour logicielle en même temps. Cela peut entraîner des problèmes de performances pendant le processus et le téléchargement du catalogue. Dans la plupart des cas, nous vous recommandons d’utiliser le paramètre par défaut.
+À compter de Configuration Manager version 1606, vous pouvez effectuer une analyse complète des mises à jour logicielles au lieu d’utiliser les résultats d’analyse en mémoire cache. Par défaut, la séquence de tâches utilise les résultats mis en cache. Vous pouvez décocher la case pour que le client se connecte au point de mise à jour logicielle pour traiter et télécharger le dernier catalogue de mises à jour logicielles. Vous pouvez sélectionnez cette option quand vous utilisez une séquence de tâches pour [capturer et créer une image de système d’exploitation](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), où vous savez qu’il y aura un grand nombre de mises à jour logicielles, surtout si la plupart auront des dépendances (besoin d’installer X avant qu’Y n’apparaisse comme applicable). Quand vous désactivez ce paramètre et que vous déployez la séquence de tâches sur un grand nombre de clients, ils se connectent tous au point de mise à jour logicielle en même temps. Cela peut entraîner des problèmes de performances pendant le processus et le téléchargement du catalogue. Dans la plupart des cas, nous vous recommandons d’utiliser le paramètre par défaut.
 
-Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a été introduite dans Configuration Manager version 1606 pour vous permettre de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a été introduite dans Configuration Manager version 1606 pour vous permettre de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
 
 ##  <a name="a-namebkmkjoindomainorworkgroupa-join-domain-or-workgroup"></a><a name="BKMK_JoinDomainorWorkgroup"></a> Joindre le domaine ou le groupe de travail  
@@ -1062,8 +1062,12 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
  *Domaine\compte*  
 
-##  <a name="a-namebkmkprepareconfigmgrclientforcapturea-prepare-configmgr-client-for-capture"></a><a name="BKMK_PrepareConfigMgrClientforCapture"></a> Préparer le client ConfigMgr pour capture  
- Utilisez l’étape **Préparer le client ConfigMgr pour capture** pour prendre le client Configuration Manager sur l’ordinateur de référence et le préparer pour la capture pendant le processus de création d’image en effectuant les tâches suivantes :  
+## <a name="a-namebkmkprepareconfigmgrclientforcapturea-prepare-configmgr-client-for-capture"></a><a name="BKMK_PrepareConfigMgrClientforCapture"></a> Préparer le client ConfigMgr pour capture  
+Utilisez l’étape **Préparer le client ConfigMgr pour capture** pour supprimer le client Configuration Manager ou configurer le client sur l’ordinateur de référence afin de le préparer pour la capture pendant le processus de création d’image.
+
+À partir de Configuration Manager version 1610, l’étape de préparation du client ConfigMgr supprime complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
+
+Avant Configuration Manager version 1610, cette étape effectuait les tâches suivantes :  
 
 -   Supprime du fichier smscfg.ini présent dans le répertoire Windows la section des propriétés de configuration du client. Celles-ci comprennent des informations spécifiques au client, par exemple le GUID Configuration Manager, ainsi que d’autres identificateurs clients.  
 
@@ -1235,7 +1239,7 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 ##  <a name="a-namebkmkrestartcomputera-restart-computer"></a><a name="BKMK_RestartComputer"></a> Redémarrer l’ordinateur  
  L'étape de séquence de tâches **Redémarrer l'ordinateur** permet de redémarrer l'ordinateur exécutant la séquence de tâches. Ceci fait, l'ordinateur passe automatiquement à l'étape suivante dans la séquence.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -1274,7 +1278,7 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
  Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
- Vous pouvez aussi utiliser l’étape de séquence de tâches **Restaurer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager. Dans USMT 3.0 et versions supérieures, cette option déchiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
+ Vous pouvez aussi utiliser l’étape de séquence de tâches **Restaurer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager. Dans USMT 3.0 et versions supérieures, cette option déchiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
 
  L'étape de séquence de tâches **Restaurer l'état utilisateur** permet de contrôler un sous-ensemble des options USMT les plus couramment utilisées. D'autres options de ligne de commande peuvent être spécifiées au moyen de la variable de séquence de tâches OSDMigrateAdditionalRestoreOptions.  
 
@@ -1354,7 +1358,7 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 > [!NOTE]  
 >  Les actions de ligne de commande comme la redirection de la sortie, la canalisation ou la copie (voir exemple précédent) doivent être précédées de la commande **cmd.exe /c** pour s’exécuter correctement.  
 
- **Désactiver la redirection du système de fichiers 64 bits**  
+ **Désactiver la redirection du système de fichiers 64 bits**  
  Par défaut, dans un système d'exploitation 64 bits, l'exécutable de la ligne de commande est localisé et exécuté au moyen d'un redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions 32 bits des exécutables et les DLL du système d'exploitation.  La sélection de cette option désactive l'utilisation du redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions natives 64 bits des exécutables et les DLL du système d'exploitation.  Cette option est sans effet dans un système d'exploitation 32 bits.  
 
  **Démarrer dans**  
@@ -1458,19 +1462,19 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
  La séquence de tâches définit automatiquement les variables de séquence de tâches en lecture seule suivantes :  
 
--   _SMSTSMake  
+ -   &#95;SMSTSMake  
 
--   _SMSTSModel  
+ -   &#95;SMSTSModel  
 
--   _SMSTSMacAddresses  
+ -   &#95;SMSTSMacAddresses  
 
--   _SMSTSIPAddresses  
+ -   &#95;SMSTSIPAddresses  
 
--   _SMSTSSerialNumber  
+ -   &#95;SMSTSSerialNumber  
 
--   _SMSTSAssetTag  
+ -   &#95;SMSTSAssetTag  
 
--   _SMSTSUUID  
+ -   &#95;SMSTSUUID  
 
  Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
 
@@ -1485,32 +1489,34 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
 -   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Nom**  
+**Nom**  
  Nom court défini par l'utilisateur pour cette étape de séquence de tâches.  
 
- **Description**  
+**Description**  
  Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Règles dynamiques et variables**  
+**Règles dynamiques et variables**  
  Pour définir une variable dynamique à utiliser dans la séquence de tâches, vous pouvez ajouter une règle, puis spécifier une valeur pour chaque variable que vous spécifiez pour la règle ou ajouter une ou plusieurs variables à définir sans ajouter de règle. Lorsque vous ajoutez une règle, vous pouvez choisir parmi les catégories suivantes :  
 
--   **Ordinateur**: utilisez cette catégorie de règle pour évaluer des valeurs d’étiquette d’inventaire, d’UUID, de numéro de série ou d’adresse MAC. Vous pouvez définir plusieurs valeurs et si l'une d'elles est true, la règle est évaluée comme vraie. Par exemple, la règle suivante est évaluée comme vraie si le numéro de série est 5892087, que l'adresse MAC soit égale ou non à 26-78-13-5A-A4-22.  
+ -   **Ordinateur**: utilisez cette catégorie de règle pour évaluer des valeurs d’étiquette d’inventaire, d’UUID, de numéro de série ou d’adresse MAC. Vous pouvez définir plusieurs valeurs et si l'une d'elles est true, la règle est évaluée comme vraie. Par exemple, la règle suivante est évaluée comme vraie si le numéro de série est 5892087, que l'adresse MAC soit égale ou non à 26-78-13-5A-A4-22.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
 -   **Emplacement**: utilisez cette catégorie de règle pour évaluer des valeurs de passerelle par défaut.  
 
--   **Marque et modèle**: utilisez cette catégorie de règle pour évaluer les valeurs de marque et de modèle d’un ordinateur. La marque et le modèle doivent tous deux être évalués comme vrais pour que la règle soit évaluée comme vraie.  
+-   **Marque et modèle**: utilisez cette catégorie de règle pour évaluer les valeurs de marque et de modèle d’un ordinateur. La marque et le modèle doivent tous deux être évalués comme vrais pour que la règle soit évaluée comme vraie.   
+
+    À partir de Configuration Manager version 1610, vous pouvez spécifier un astérisque (*****) et un point d’interrogation (**?**) comme caractères génériques, où ***** correspond à plusieurs caractères et **?** correspond à un caractère unique. Par exemple, la chaîne « DELL*900? » correspond à DELL-ABC-9001 et DELL9009.
 
 -   **Variable de séquence de tâches**: utilisez cette catégorie de règle pour ajouter une variable de séquence de tâches, une condition et une valeur à évaluer. La règle est évaluée comme vraie quand la valeur définie pour la variable remplit la condition spécifiée.  
 
- Vous pouvez spécifier une ou plusieurs variables qui seront définies pour une règle évaluée comme vraie ou définir des variables sans utiliser de règle. Vous pouvez sélectionner parmi des variables existantes ou créer une variable personnalisée.  
+Vous pouvez spécifier une ou plusieurs variables qui seront définies pour une règle évaluée comme vraie ou définir des variables sans utiliser de règle. Vous pouvez sélectionner parmi des variables existantes ou créer une variable personnalisée.  
 
--   **Variables de séquence de tâches existantes**: utilisez ce paramètre pour sélectionner une ou plusieurs variables dans la liste des variables de séquence de tâches existantes. Les variables tableau ne peuvent pas être sélectionnées.  
+ -   **Variables de séquence de tâches existantes**: utilisez ce paramètre pour sélectionner une ou plusieurs variables dans la liste des variables de séquence de tâches existantes. Les variables tableau ne peuvent pas être sélectionnées.  
 
--   **Variables de séquence de tâches personnalisées**: utilisez ce paramètre pour définir une variable de séquence de tâches personnalisée. Vous pouvez également spécifier une variable de séquence de tâches existante. Cela est utile pour spécifier un tableau de variables existant, tel qu'OSDAdapter, car les tableaux de variables ne figurent pas dans la liste des variables de séquence de tâches existantes.  
+ -   **Variables de séquence de tâches personnalisées**: utilisez ce paramètre pour définir une variable de séquence de tâches personnalisée. Vous pouvez également spécifier une variable de séquence de tâches existante. Cela est utile pour spécifier un tableau de variables existant, tel qu'OSDAdapter, car les tableaux de variables ne figurent pas dans la liste des variables de séquence de tâches existantes.  
 
- Après avoir sélectionné les variables pour une règle, vous devez fournir une valeur pour chaque variable. Lorsque la règle est évaluée comme vraie, la variable est définie à la valeur spécifiée. Pour chaque variable, vous pouvez sélectionner **Valeur secrète** pour masquer la valeur de la variable. Par défaut, certaines variables existantes (telles que la variable de séquence de tâches OSDCaptureAccountPassword) masquent les valeurs.  
+Après avoir sélectionné les variables pour une règle, vous devez fournir une valeur pour chaque variable. Lorsque la règle est évaluée comme vraie, la variable est définie à la valeur spécifiée. Pour chaque variable, vous pouvez sélectionner **Valeur secrète** pour masquer la valeur de la variable. Par défaut, certaines variables existantes (telles que la variable de séquence de tâches OSDCaptureAccountPassword) masquent les valeurs.  
 
 > [!IMPORTANT]  
 >  Quand vous importez une séquence de tâches lors de l'étape Définir des variables dynamiques et que l'option **Valeur secrète** est sélectionnée pour la valeur de la variable, la valeur est supprimée lorsque vous importez la séquence de tâches. Ainsi, vous devez réentrer la valeur de la variable dynamique après avoir importé la séquence de tâches.  
@@ -1672,10 +1678,10 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
 |Code de sortie|Détails|  
 |-|-|  
-|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Aucun problème de compatibilité (« réussite »).|  
+|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Aucun problème de compatibilité (« réussite »).|  
 |MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0XC1900208)|Problèmes de compatibilité pouvant donner lieu à une action.|  
 |MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Le choix de migration sélectionné n’est pas disponible. Par exemple, une mise à niveau depuis Entreprise vers Professionnel.|  
-|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Non éligible pour Windows 10.|  
+|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Non éligible pour Windows 10.|  
 |MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Espace disque disponible insuffisant.|  
 
  Pour plus d’informations sur ce paramètre, consultez [Options de ligne de commande du programme d’installation de Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
@@ -1690,6 +1696,6 @@ Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

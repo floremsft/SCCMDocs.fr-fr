@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’inscription des appareils | Gestion des appareils mobiles locale | System Center Configuration Manager"
+title: "Configurer l’inscription d’appareils | Microsoft Docs | Gestion des appareils mobiles locale"
 description: "Accordez aux utilisateurs l’autorisation d’inscrire leurs appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ddbb5648002adb8cf9249febb23797ee71d8a026
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: ee2bfd1b0bdd51322819cfef9fb6185642bd8796
 
 
 ---
 # <a name="set-up-device-enrollment-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager, vous devez leur accorder l’autorisation de le faire. Pour accorder aux utilisateurs l’autorisation d’inscrire des appareils, effectuez les tâches ci-dessous.
 
@@ -54,7 +54,7 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 ##  <a name="a-namebkmkaddclienta-set-up-additional-client-settings-for-enrolled-devices"></a><a name="bkmk_addClient"></a> Définir des paramètres du client supplémentaires pour des périphériques inscrits  
  En plus de définir le profil d’inscription pour des périphériques modernes, vous pouvez définir des paramètres du client supplémentaires pour la configuration de périphériques quand ils sont inscrits.  Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
- Tous les paramètres client ne sont pas disponibles pour la gestion des appareils mobiles locale. La version Current Branch de Configuration Manager prend en charge les paramètres client suivants pour la gestion des appareils mobiles locale :  
+ Tous les paramètres client ne sont pas disponibles pour la gestion des appareils mobiles locale. La version Current Branch de Configuration Manager prend en charge les paramètres client suivants pour la gestion des appareils mobiles locale :  
 
 -   Inscription - Ces paramètres spécifient le profil d’inscription de périphériques gérés. Pour plus d’informations sur la façon de configurer un profil d’inscription, consultez [Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents](#bkmk_createProf).  
 
@@ -91,6 +91,6 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

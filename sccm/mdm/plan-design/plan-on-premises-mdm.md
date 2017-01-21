@@ -1,5 +1,5 @@
 ---
-title: Planifier la gestion MDM locale | System Center Configuration Manager
+title: Planifier la gestion des appareils mobiles locale | Microsoft Docs
 description: "Planifiez la gestion des appareils mobiles (MDM) locale pour gérer des appareils mobiles dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 6bc3bf68d098fec7b6ac976d8e7ee7a7d71fab6a
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: cc5b04dc41b13993fca35f202437b71e96bc9cdd
 
 
 ---
 # <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planifier la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Tenez compte des conditions requises suivantes avant de préparer l’infrastructure Configuration Manager à la gestion des appareils mobiles locale.
 
@@ -32,15 +32,15 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
  La gestion des appareils mobiles locale vous permet de gérer des appareils mobiles à l’aide des fonctions de gestion intégrées aux systèmes d’exploitation des appareils.  La fonctionnalité de gestion est basée sur la norme Open Mobile Alliance (OMA) Device Management (DM), et de nombreuses plateformes d’appareils utilisent cette norme pour autoriser la gestion des appareils.  Nous les appelons **appareils modernes** (dans la documentation et l’interface utilisateur de la console Configuration Manager) pour les différencier des autres appareils dont la gestion nécessite le client Configuration Manager.  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
->  -   Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
+>  -   Windows 10 Entreprise  
+> -   Windows 10 Professionnel  
+> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Entreprise   
 
-##  <a name="a-namebkmkintunea-use-of-the-microsoft-intune-subscription"></a><a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
+##  <a name="a-namebkmkintunea-use-of-the--microsoft-intune-subscription"></a><a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
  Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  
 
 > [!IMPORTANT]  
@@ -54,7 +54,7 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
  Pour plus d’informations sur la façon de configurer l’abonnement Intune, consultez [Configurer un abonnement Microsoft Intune pour la gestion locale des appareils mobiles dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
 ##  <a name="a-namebkmkrolesa-required-site-system-roles"></a><a name="bkmk_roles"></a> Rôles système de site nécessaires  
- La gestion des appareils mobiles locale nécessite au moins un rôle système de site parmi chacun des suivants :  
+ La gestion des appareils mobiles locale nécessite au moins un rôle système de site parmi chacun des suivants :  
 
 -   **Point proxy d’inscription** pour prendre en charge les demandes d’inscription.  
 
@@ -122,6 +122,6 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

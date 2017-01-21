@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’accès à SharePoint Online | System Center Configuration Manager"
+title: "Gérer l’accès à SharePoint Online | Microsoft Docs"
 description: "Apprenez à utiliser la stratégie d’accès conditionnel System Center Configuration Manager SharePoint Online pour gérer l’accès à OneDrive."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: article
 ms.assetid: c1b3fb75-f3ab-4886-9421-d81da7ef589d
 caps.latest.revision: 11
 caps.handback.revision: 0
-author: karthikaraman
-ms.author: karaman
+author: andredm7
+ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6cf3c1697b49708aa5192b67b08b700da7dc72
-ms.openlocfilehash: 84fdd9c1141c7bee5e331eacb136d9dc21837c0f
+ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
+ms.openlocfilehash: 73fd4e26a16184cfb7f1535aa2e70911884ffdcc
 
 
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Gérer l’accès à SharePoint Online dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Utilisez la stratégie d’accès conditionnel System Center Configuration Manager **SharePoint Online** pour gérer l’accès aux fichiers OneDrive Entreprise situés sur SharePoint Online, en fonction des conditions que vous spécifiez.
@@ -42,7 +42,7 @@ Vous pouvez contrôler l'accès à SharePoint Online à partir des applications 
 
 -   Microsoft OneNote (Android et iOS)
 
-Les applications de bureau Office peuvent accéder à SharePoint Online sur les PC exécutant :  
+Les applications de bureau Office peuvent accéder à SharePoint Online sur les PC exécutant :  
 
 -   Office 2013 et ultérieur pour ordinateur avec [l’authentification moderne](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) activée.  
 
@@ -111,9 +111,9 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
  Vous pouvez spécifier deux types de groupes dans une stratégie SharePoint Online :  
 
--   **Groupes ciblés** : groupes d’utilisateurs auxquels s’applique la stratégie.  
+-   **Groupes ciblés** : groupes d’utilisateurs auxquels s’applique la stratégie.  
 
--   **Groupes exemptés** : groupes d’utilisateurs exempts de la stratégie (facultatif).  
+-   **Groupes exemptés** : groupes d’utilisateurs exempts de la stratégie (facultatif).  
 
  Si un utilisateur se trouve dans les deux groupes, il est exempt de la stratégie.  
 
@@ -130,13 +130,13 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
  Quand vous êtes prêt, passez à l' **Étape 3**.  
 
-###  <a name="a-namebkmkonedrivea-step-3-configure-the-sharepoint-online-policy"></a><a name="BKMK_OneDrive"></a> Étape 3 : configurer la stratégie SharePoint Online  
+###  <a name="a-namebkmkonedrivea-step-3-configure-the-sharepoint-online-policy"></a><a name="BKMK_OneDrive"></a> Étape 3 : configurer la stratégie SharePoint Online  
 
 
  Ensuite, configurez la stratégie de manière à restreindre l'accès à SharePoint Online aux appareils gérés et conformes. Cette stratégie sera stockée dans Azure Active Directory.
 
  >[!NOTE]
- >Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).  
+ >Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -162,9 +162,9 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
     -   **Les appareils doivent être conformes** Cela signifie que les PC doivent être inscrits dans Intune et être conformes. Si le PC n'est pas inscrit, un message contenant des instructions sur la procédure d'inscription à suivre s'affiche.  
 
-4.  Sous **Accès du navigateur à SharePoint et à OneDrive Entreprise**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué.  Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour OneDrive s’appliquent également ici.
+4.  Sous **Accès du navigateur à SharePoint et à OneDrive Entreprise**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué.  Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour OneDrive s’appliquent également ici.
 
-    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit comme suit :
+    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit comme suit :
     1.  Lancez **l’application Portail d’entreprise**.
     2.  Accédez à la page **Paramètres** via les trois points (...) ou le bouton de menu matériel.
     3.  Appuyez sur le bouton **Activer l’accès du navigateur** .
@@ -204,6 +204,6 @@ Les applications de bureau Office peuvent accéder à SharePoint Online sur les 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

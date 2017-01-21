@@ -1,5 +1,5 @@
 ---
-title: Configurer la gestion des appareils iOS et Mac hybride avec System Center Configuration Manager et Microsoft Intune
+title: Configurer la gestion des appareils iOS et Mac hybride avec System Center Configuration Manager et Microsoft Intune | Microsoft Docs
 description: Configurez la gestion des appareils iOS avec System Center Configuration Manager et Microsoft Intune.
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,20 +13,20 @@ ms.topic: get-started-article
 ms.assetid: 5eae4400-58ca-4c71-804c-6a585cd3df5d
 caps.latest.revision: 10
 caps.handback.revision: 0
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3754f0e49d8393aed51bb6519af99b9eb728402f
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 74c75653e69154ced18d5bc713b1d9b89e88ae64
 
 
 ---
 # <a name="set-up-ios-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer la gestion des appareils iOS hybride avec System Center Configuration Manager et Microsoft Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’appareils iOS et Mac OS X BYOD (« Apportez votre propre appareil ») pour octroyer l’accès à la messagerie et aux ressources de l’entreprise aux utilisateurs iPhone, iPad et Mac. Une fois que les utilisateurs installent l’application portail d’entreprise Intune, leurs appareils peuvent être ciblés avec la stratégie. Pour pouvoir gérer des appareils iOS et Mac, vous devez importer un certificat des services de notifications Push Apple (APN) provenant d’Apple. Ce certificat permet à Intune de gérer les appareils iOS et Mac et établit une connexion IP agréée et chiffrée avec les services de l’autorité de gestion des appareils mobiles.  
+Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’appareils iOS et Mac OS X BYOD (« Apportez votre propre appareil ») pour octroyer l’accès à la messagerie et aux ressources de l’entreprise aux utilisateurs iPhone, iPad et Mac. Une fois que les utilisateurs installent l’application portail d’entreprise Intune, leurs appareils peuvent être ciblés avec la stratégie. Pour pouvoir gérer des appareils iOS et Mac, vous devez importer un certificat des services de notifications Push Apple (APN) provenant d’Apple. Ce certificat permet à Intune de gérer les appareils iOS et Mac et établit une connexion IP agréée et chiffrée avec les services de l’autorité de gestion des appareils mobiles.  
 
  Vous pouvez aussi inscrire des appareils iOS d’entreprise.  Consultez [Inscrire des appareils d’entreprise](enroll-company-owned-devices.md).  
 
@@ -35,7 +35,7 @@ Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’ap
 
 #### <a name="set-up-ios-device-enrollment-in-configuration-manager"></a>Configurer l’inscription d’appareils iOS dans Configuration Manager  
 
-1.  **Conditions préalables** : pour configurer l’inscription pour n’importe quelle plateforme, conformez-vous aux conditions préalables et appliquez les procédures indiquées dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).    
+1.  **Conditions préalables** : pour configurer l’inscription pour n’importe quelle plateforme, conformez-vous aux conditions préalables et appliquez les procédures indiquées dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).    
 
 2.  **Téléchargez une demande de signature de certificat** : un fichier de demande de signature de certificat (.csr) est nécessaire pour demander un certificat APNs auprès d’Apple.  
 
@@ -70,6 +70,6 @@ Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’ap
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

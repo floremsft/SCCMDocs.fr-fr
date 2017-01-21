@@ -1,5 +1,5 @@
 ---
-title: "Ajouter des mises à jour logicielles à un groupe de mises à jour | Configuration Manager"
+title: "Ajouter des mises à jour logicielles à un groupe de mises à jour | Microsoft Docs"
 description: "Ajoutez manuellement ou automatiquement des mises à jour logicielles à un groupe de mises à jour logicielles dans votre environnement."
 keywords: 
 author: dougeby
@@ -13,14 +13,14 @@ ms.technology:
 - configmgr-sum
 ms.assetid: a0767664-fd60-46a8-9da5-86cc431ce53c
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9ea0d607028f4ca59f02664a502d5ff2f370aa23
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 620bec75ba61de2146361a86ab61f6f8e6074bcf
 
 ---
 
 # <a name="add-software-updates-to-an-update-group"></a>Ajouter des mises à jour logicielles à un groupe de mises à jour  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Les groupes de mises à jour logicielles vous permettent d'organiser efficacement les mises à jour logicielles dans votre environnement. Vous pouvez ajouter des mises à jour logicielles à un groupe de mises à jour logicielles manuellement ou automatiquement à l’aide d’une règle de déploiement automatique (ADR). Une telle règle vous permet aussi de déployer un groupe de mises à jour logicielles manuellement ou automatiquement. Après avoir déployé un groupe de mises à jour logicielles, vous pouvez ajouter de nouvelles mises à jour logicielles au groupe et Configuration Manager les déploiera automatiquement. Pour ajouter des mises à jour logicielles à un groupe nouveau ou existant de mises à jour logicielles, procédez comme suit.  
 
@@ -49,7 +49,7 @@ ms.openlocfilehash: 9ea0d607028f4ca59f02664a502d5ff2f370aa23
 3.  Sélectionnez les mises à jour logicielles que vous souhaitez ajouter au nouveau groupe de mises à jour logicielles.  
 
     > [!NOTE]  
-    >  Dans le nœud **Toutes les mises à jour logicielles**, par défaut, Configuration Manager affiche uniquement les mises à jour logicielles classées comme **Critique** et **Sécurité** et qui ont été publiées au cours des 30 derniers jours.  
+    >  Dans le nœud **Toutes les mises à jour logicielles**, par défaut, Configuration Manager affiche uniquement les mises à jour logicielles classées comme **Critique** et **Sécurité** et qui ont été publiées au cours des 30 derniers jours.  
 
 4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Modifier l'adhésion**.  
 
@@ -61,6 +61,6 @@ ms.openlocfilehash: 9ea0d607028f4ca59f02664a502d5ff2f370aa23
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

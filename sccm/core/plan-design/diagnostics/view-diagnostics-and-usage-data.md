@@ -1,5 +1,5 @@
 ---
-title: "Afficher les données de diagnostic | System Center Configuration Manager"
+title: "Afficher les données de diagnostic | Microsoft Docs"
 description: "Affichez les données d’utilisation et de diagnostic pour vérifier que votre hiérarchie System Center Configuration Manager ne contient aucune information sensible."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5d1382d4912d03fb38bfc2f07edfb361c0ac6139
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 5b5d6b6c176de8acbc1161f6820aa1cc3e9fca49
 
 
 ---
 # <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Comment afficher les données d’utilisation et de diagnostic pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez afficher les données d’utilisation et de diagnostic de votre hiérarchie System Center Configuration Manager pour vérifier qu’elle ne contient aucune information sensible ni identifiable. Les données de télémétrie sont résumées et stockées dans la table **TEL_TelemetryResults** de la base de données du site et mises en forme de manière à être utilisables et efficaces en programmation. Les options suivantes vous offrent une vue des données exactes envoyées à Microsoft, mais celles-ci ne sont pas destinées à être utilisées à d’autres fins, telle que l’analyse des données.  
 
-La commande SQL suivante peut être utilisée pour afficher le contenu de cette table et elle affiche les données exactes qui sont envoyées (vous pouvez également exporter ces données dans un fichier texte) :  
+La commande SQL suivante peut être utilisée pour afficher le contenu de cette table et elle affiche les données exactes qui sont envoyées (vous pouvez également exporter ces données dans un fichier texte) :  
 
 -   **SELECT \* FROM TEL_TelemetryResults**  
 
@@ -43,7 +43,7 @@ Lorsque vous affichez les données brutes, une valeur hachée apparaît dans cha
 
 #### <a name="to-see-how-the-one-way-hash-works"></a>Pour voir comment fonctionne le hachage unidirectionnel  
 
-1.  Obtenez l’ID de votre hiérarchie en exécutant l’instruction SQL suivante dans SQL Management Studio sur la base de données Configuration Manager : **select [dbo].[fnGetHierarchyID](\)**  
+1.  Obtenez l’ID de votre hiérarchie en exécutant l’instruction SQL suivante dans SQL Management Studio sur la base de données Configuration Manager : **select [dbo].[fnGetHierarchyID](\)**  
 
 2.  Ensuite, utilisez le script Windows PowerShell suivant pour exécuter le hachage unidirectionnel du GUID obtenu de la base de données. Vous pouvez alors le comparer à l’ID de hiérarchie dans les données brutes pour voir comment nous masquons ces données.  
 
@@ -69,6 +69,6 @@ Lorsque vous affichez les données brutes, une valeur hachée apparaît dans cha
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Stratégies de conformité des appareils | System Center Configuration Manager"
+title: "Stratégies de conformité des appareils | Microsoft Docs"
 description: "Découvrez comment gérer les stratégies de conformité dans System Center Configuration Manager pour rendre les appareils compatibles avec les stratégies d’accès conditionnel."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 353ec99a-9982-4dab-ae21-d7fb595b3c50
 caps.latest.revision: 22
-author: karthikaraman
-ms.author: karaman
+author: andredm7
+ms.author: andredm
 manager: angrobe
 robots: noindex
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6cf3c1697b49708aa5192b67b08b700da7dc72
-ms.openlocfilehash: d461f95f875632860238d503d7acd7ab8c320d58
+ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
+ms.openlocfilehash: fd5830fef3759def7806dbbe1802872df19ca939
 
 ---
 # <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Stratégies de conformité des appareils dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les **stratégies de conformité** dans System Center Configuration Manager définissent les règles et les paramètres auxquels un appareil doit se conformer pour être considéré comme conforme au vu des stratégies d’accès conditionnel. Vous pouvez également utiliser des stratégies de conformité pour surveiller et corriger les problèmes de conformité avec les appareils indépendamment de l'accès conditionnel.  
 
@@ -31,7 +31,7 @@ Les **stratégies de conformité** dans System Center Configuration Manager déf
 > [!IMPORTANT]  
 >  Cet article décrit les stratégies de conformité applicables aux appareils gérés par Microsoft Intune.    Les stratégies de conformité applicables aux PC gérés par System Center Configuration Manager sont décrites dans [Gérer l’accès aux services O365 pour les PC gérés par System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
- Ces règles incluent des exigences telles que :  
+ Ces règles incluent des exigences telles que :  
 
 -   Un code confidentiel et des mots de passe pour accéder à un appareil
 
@@ -46,7 +46,7 @@ Les **stratégies de conformité** dans System Center Configuration Manager déf
 
  Le tableau suivant répertorie les appareils pris en charge par les stratégies de conformité et la façon dont les paramètres de non-conformité sont gérés quand la stratégie est utilisée avec une stratégie d'accès conditionnel.  
 
-|Règle|Windows 8.1 et versions ultérieures|Windows Phone 8.1 et versions ultérieures|iOS 6.0 et versions ultérieures|Android 4.0 et versions ultérieures, Samsung KNOX Standard 4.0 et versions ultérieures|  
+|Règle|Windows 8.1 et versions ultérieures|Windows Phone 8.1 et versions ultérieures|iOS 6.0 et versions ultérieures|Android 4.0 et versions ultérieures, Samsung KNOX Standard 4.0 et versions ultérieures|  
 |----------|---------------------------|---------------------------------|-----------------------|---------------------------|-----------------------------------------|  
 |**Configuration d’un code confidentiel ou mot de passe**|Corrigé|Corrigé|Corrigé|En quarantaine|  
 |**Chiffrement de l’appareil**|N/A|Corrigé|Corrigé (en définissant le code confidentiel)|En quarantaine|  
@@ -72,6 +72,6 @@ Les **stratégies de conformité** dans System Center Configuration Manager déf
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

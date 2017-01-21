@@ -1,5 +1,5 @@
 ---
-title: "Déployer des bases de référence de configuration | System Center Configuration Manager"
+title: "Déployer des lignes de base de configuration | Microsoft Docs"
 description: "Déployez des bases de référence de configuration pour définir les déploiements de bases de référence de configuration et pour ajouter ou supprimer des bases de référence de configuration dans les déploiements."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 47aad22bc88d3a466767e4d131122fbee38e3fd7
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 9c9e6b7780c7c10c20a60dbbbf506e916031eb88
 
 
 ---
 # <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Comment déployer des lignes de base de configuration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les bases de référence de configuration dans System Center Configuration Manager doivent être déployées vers un ou plusieurs regroupements d’utilisateurs ou d’appareils avant que les appareils clients de ces mêmes regroupements ne puissent évaluer leur conformité avec la base de référence de configuration.  
 
@@ -43,15 +43,15 @@ Utilisez la boîte de dialogue **Déployer des lignes de base de configuration**
 
 5.  Spécifiez les informations supplémentaires suivantes :  
 
-    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.  
 
     -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la ligne de base de configuration, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-6.  **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
+6.  **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
 7.  **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la ligne de base de configuration.  
 
-8.  **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifie le calendrier d’évaluation de la base de référence de configuration déployée sur des ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
+8.  **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifie le calendrier d’évaluation de la base de référence de configuration déployée sur des ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
 
     > [!NOTE]  
     >  Si la ligne de base de configuration est déployée vers un ordinateur, sa conformité est évaluée dans les deux heures suivant l’heure de début que vous programmez. Si elle est déployée vers un utilisateur, sa conformité est évaluée quand l’utilisateur se connecte.  
@@ -60,6 +60,6 @@ Utilisez la boîte de dialogue **Déployer des lignes de base de configuration**
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

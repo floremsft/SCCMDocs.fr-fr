@@ -1,5 +1,5 @@
 ---
-title: "Présentation d’Asset Intelligence | System Center Configuration Manager"
+title: "Présentation d’Asset Intelligence| Microsoft Docs"
 description: "Obtenez une présentation d’Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,20 +17,20 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 59f96a3ae906319ea285c7b3627d170b9bb0fdaf
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 6a851ddfeee78574fbb0b1eff0c7cc518a7bb598
 
 
 ---
 # <a name="introduction-to-asset-intelligence-in-system-center-configuration-manager"></a>Présentation d’Asset Intelligence dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Asset Intelligence dans System Center Configuration Manager permet d’inventorier et de gérer l’utilisation des licences logicielles dans l’entreprise en utilisant le catalogue Asset Intelligence. De nombreuses classes WMI (Windows Management Instrumentation) d’inventaire matériel améliorent l’éventail des informations collectées sur le matériel et les noms de logiciels en cours d’utilisation. Ces informations sont présentées dans plus de 60 rapports dans un format pratique. La plupart de ces rapports renvoient vers des rapports plus spécifiques qui permettent de rechercher des informations générales et d'accéder à des informations plus détaillées. Vous pouvez ajouter des informations personnalisées dans le catalogue Asset Intelligence, telles que des catégories de logiciels, des familles de logiciels, des légendes logicielles et des configurations matérielles requises personnalisées. En outre, les clients peuvent se connecter à System Center Online pour mettre à jour dynamiquement le catalogue Asset Intelligence avec les dernières informations disponibles. Les clients Microsoft peuvent également rapprocher l’utilisation des licences logicielles de l’entreprise avec les licences logicielles achetées en cours d’utilisation en important les informations de licence logicielle dans la base de données du site Configuration Manager.  
 
 ##  <a name="a-namebkmkassetintelligencecataloga-asset-intelligence-catalog"></a><a name="BKMK_AssetIntelligenceCatalog"></a> Catalogue Asset Intelligence  
 
- Le catalogue Asset Intelligence Configuration Manager est un ensemble de tables stockées dans la base de données de site qui contiennent les informations de catégorisation et d’identification de plus de 300 000 titres et versions de logiciels. Ces tables de base de données sont également utilisées pour gérer les configurations matérielles requises des titres de logiciels.  
+ Le catalogue Asset Intelligence Configuration Manager est un ensemble de tables stockées dans la base de données de site qui contiennent les informations de catégorisation et d’identification de plus de 300 000 titres et versions de logiciels. Ces tables de base de données sont également utilisées pour gérer les configurations matérielles requises des titres de logiciels.  
 
  Le catalogue Asset Intelligence fournit des informations sur les licences des logiciels utilisés, Microsoft et non-Microsoft. Un ensemble prédéfini de configurations matérielles requises pour les titres de logiciels figure dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle requise définies par l'utilisateur en fonction de vos besoins. En outre, vous pouvez personnaliser les informations dans le catalogue Asset Intelligence et envoyer les informations de titres de logiciels à System Center Online pour les catégoriser.  
 
@@ -55,7 +55,7 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
  Vous pouvez utiliser les informations de configuration de matériel requise pour vérifier que les ordinateurs répondent à la configuration matérielle requise pour les titres de logiciels avant d'y déployer des logiciels. Vous pouvez gérer les configurations matérielles requises pour les titres de logiciels dans l'espace de travail **Biens et conformité** dans le noeud **Configuration matérielle requise** sous le noeud **Asset Intelligence** . La plupart des configurations matérielles requises sont prédéfinies dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle définies par l'utilisateur pour répondre à des besoins spécifiques. L'état de validation de toutes les configurations matérielles requises prédéfinies est toujours **Validé**, tandis que celui des informations de configuration matérielle requise définies par l'utilisateur ajoutées au catalogue Asset Intelligence est **Défini par l'utilisateur**. Pour plus d’informations sur la gestion de la configuration matérielle requise, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
 > [!NOTE]  
->  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence et elles ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
+>  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence et elles ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
 
  Les informations suivantes s'affichent pour chaque configuration matérielle requise répertoriée :  
 
@@ -93,7 +93,7 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
 
 -   **Légende** [**1**, **2**et **3**] : spécifie les légendes personnalisées associées au logiciel. Les titres de logiciels inventoriés peuvent avoir jusqu'à trois légendes personnalisées.  
 
--   **Nombre** : spécifie le nombre de clients Configuration Manager qui ont inventorié le logiciel.  
+-   **Nombre** : spécifie le nombre de clients Configuration Manager qui ont inventorié le logiciel.  
 
 -   **État**: spécifie l’état de validation du logiciel inventorié.  
 
@@ -101,7 +101,7 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
 >  Vous pouvez modifier les informations de catégorisation (nom du produit, fournisseur, catégorie et famille) des logiciels inventoriés uniquement sur le site de niveau supérieur de votre hiérarchie. Lorsque vous modifiez les informations de catégorisation des logiciels prédéfinis, l'état de validation **Validé** des logiciels devient **Défini par l'utilisateur**.  
 
 ##  <a name="a-nameassetintelligencesycnronizationpointa-asset-intelligence-synchronization-point"></a><a name="AssetIntelligenceSycnronizationPoint"></a> Point de synchronisation Asset Intelligence  
- Le point de synchronisation Asset Intelligence est un rôle système de site Configuration Manager utilisé pour établir une connexion à System Center Online (via le port TCP 443) pour gérer les mises à jour dynamiques des informations du catalogue Asset Intelligence. Ce rôle de site peut être installé uniquement sur le site de niveau supérieur de la hiérarchie. Vous devez configurer toutes les personnalisations de catalogue Asset Intelligence en utilisant une console Configuration Manager connectée au site de niveau supérieur. Même si toutes les mises à jour doivent être configurées sur le site de niveau supérieur, les informations de catalogue Asset Intelligence sont répliquées sur les autres sites de la hiérarchie. Le rôle de site du point de synchronisation Asset Intelligence permet de synchroniser le catalogue à la demande avec System Center Online ou de planifier la synchronisation automatique du catalogue. Outre le téléchargement des nouvelles informations du catalogue Asset Intelligence, le point de synchronisation Asset Intelligence peut envoyer les informations de titres de logiciels personnalisés à System Center Online à des fins de catégorisation. Microsoft considère tous les titres de logiciels envoyés à System Center Online pour être catégorisés comme des informations publiques. Ainsi, vous devez vérifier que vos titres de logiciels personnalisés ne contiennent pas d’informations confidentielles ou propriétaires.  
+ Le point de synchronisation Asset Intelligence est un rôle système de site Configuration Manager utilisé pour établir une connexion à System Center Online (via le port TCP 443) pour gérer les mises à jour dynamiques des informations du catalogue Asset Intelligence. Ce rôle de site peut être installé uniquement sur le site de niveau supérieur de la hiérarchie. Vous devez configurer toutes les personnalisations de catalogue Asset Intelligence en utilisant une console Configuration Manager connectée au site de niveau supérieur. Même si toutes les mises à jour doivent être configurées sur le site de niveau supérieur, les informations de catalogue Asset Intelligence sont répliquées sur les autres sites de la hiérarchie. Le rôle de site du point de synchronisation Asset Intelligence permet de synchroniser le catalogue à la demande avec System Center Online ou de planifier la synchronisation automatique du catalogue. Outre le téléchargement des nouvelles informations du catalogue Asset Intelligence, le point de synchronisation Asset Intelligence peut envoyer les informations de titres de logiciels personnalisés à System Center Online à des fins de catégorisation. Microsoft considère tous les titres de logiciels envoyés à System Center Online pour être catégorisés comme des informations publiques. Ainsi, vous devez vérifier que vos titres de logiciels personnalisés ne contiennent pas d’informations confidentielles ou propriétaires.  
 
 > [!NOTE]  
 >  Lorsque vous envoyez un titre de logiciel non catégorisé et qu'au moins quatre clients ont demandé la catégorisation du titre, les programmes de recherche System Center Online identifient et catégorisent les informations du titre logiciel et rendent les informations de catégorisation accessibles à tous les clients qui utilisent le service en ligne. Les titres de logiciels ayant le plus grand nombre de demandes de catégorisation sont affectés de la priorité de catégorisation la plus élevée. Les logiciels personnalisés et les applications métier sont peu susceptibles de recevoir une catégorie, et nous vous conseillons de ne pas envoyer ces logiciels à Microsoft pour catégorisation.  
@@ -148,11 +148,11 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
 ###  <a name="a-namebkmksoftwareidtagreportsa-asset-intelligence-software-identification-tag-reports"></a><a name="BKMK_SoftwareIdTagReports"></a> Rapports sur les balises d’identification logicielle Asset Intelligence  
  Ces rapports fournissent des informations sur les logiciels qui contiennent une balise d’identification logicielle conforme à la norme ISO/IEC 19770-2. Ces balises d’identification logicielle fournissent des informations faisant autorité servant à identifier les logiciels installés. Quand vous activez la classe de rapport d’inventaire matériel SMS_SoftwareTag, Configuration Manager collecte des informations sur les logiciels dotés de balises d’identification logicielle. Les rapports suivants fournissent des informations sur les logiciels :  
 
--   **Logiciels 14A - Recherche de logiciels dont la balise d’identification logicielle est activée** : ce rapport indique le nombre de logiciels installés qui ont une balise d’identification logicielle activée.  
+-   **Logiciels 14A - Recherche de logiciels dont la balise d’identification logicielle est activée** : ce rapport indique le nombre de logiciels installés qui ont une balise d’identification logicielle activée.  
 
--   **Logiciels 14B - Ordinateurs sur lesquels sont installés des logiciels ayant une balise d’identification logicielle spécifique activée** : ce rapport répertorie tous les ordinateurs qui ont installé des logiciels dotés d’une balise d’identification logicielle spécifique activée.  
+-   **Logiciels 14B - Ordinateurs sur lesquels sont installés des logiciels ayant une balise d’identification logicielle spécifique activée** : ce rapport répertorie tous les ordinateurs qui ont installé des logiciels dotés d’une balise d’identification logicielle spécifique activée.  
 
--   **Logiciels 14C - Balise d’identification logicielle installée activée sur un ordinateur spécifique** : ce rapport répertorie tous les logiciels installés dotés d’une balise d’identification logicielle spécifique activée sur un ordinateur spécifique.  
+-   **Logiciels 14C - Balise d’identification logicielle installée activée sur un ordinateur spécifique** : ce rapport répertorie tous les logiciels installés dotés d’une balise d’identification logicielle spécifique activée sur un ordinateur spécifique.  
 
 ###  <a name="a-namebkmkreportinglimitationsa-asset-intelligence-reporting-limitations"></a><a name="BKMK_ReportingLImitations"></a> Limites des rapports Asset Intelligence  
  Les rapports Asset Intelligence peuvent fournir une grande quantité d'informations sur les titres de logiciels installés et les licences logicielles achetées en cours d'utilisation. Toutefois, n'utilisez pas ces informations comme seule source pour déterminer la conformité des licence logicielles achetées.  
@@ -161,7 +161,7 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
  La précision de la quantité affichée dans les rapports Asset Intelligence sur les logiciels installés et les informations de licence peut varier par rapport aux quantités réelles actuellement utilisées. Cette variation est due aux dépendances complexes qu’implique l’inventaire des informations de licence des logiciels en cours d’utilisation dans les environnements d’entreprise. Les exemples suivants montrent les dépendances liées à l’inventaire des logiciels installés dans l’entreprise en utilisant Asset Intelligence, qui sont susceptibles d’affecter l’exactitude des rapports Asset Intelligence :  
 
  **Dépendances d'inventaire matériel sur les clients**  
- Les rapports Asset Intelligence des logiciels installés sont basés sur les données collectées sur les clients Configuration Manager en étendant l’inventaire matériel afin d’activer la création de rapports Asset Intelligence. En raison de ces dépendances par rapport à la création de rapports d’inventaire matériel, les rapports Asset Intelligence contiennent uniquement les données des clients Configuration Manager qui ont terminé le processus d’inventaire matériel avec les classes de rapport Asset Intelligence WMI requises activées. En outre, puisque les clients Configuration Manager exécutent les processus d’inventaire matériel selon un calendrier défini par l’utilisateur administratif, il peut exister un décalage au niveau des rapports de données, qui affecte l’exactitude des rapports Asset Intelligence. Par exemple, un logiciel sous licence inventorié peut être désinstallé après que le client a terminé un cycle d’inventaire matériel. Toutefois, le logiciel apparaît comme étant installé dans les rapports Asset Intelligence jusqu’au prochain cycle de rapports d’inventaire matériel du client.  
+ Les rapports Asset Intelligence des logiciels installés sont basés sur les données collectées sur les clients Configuration Manager en étendant l’inventaire matériel afin d’activer la création de rapports Asset Intelligence. En raison de ces dépendances par rapport à la création de rapports d’inventaire matériel, les rapports Asset Intelligence contiennent uniquement les données des clients Configuration Manager qui ont terminé le processus d’inventaire matériel avec les classes de rapport Asset Intelligence WMI requises activées. En outre, puisque les clients Configuration Manager exécutent les processus d’inventaire matériel selon un calendrier défini par l’utilisateur administratif, il peut exister un décalage au niveau des rapports de données, qui affecte l’exactitude des rapports Asset Intelligence. Par exemple, un logiciel sous licence inventorié peut être désinstallé après que le client a terminé un cycle d’inventaire matériel. Toutefois, le logiciel apparaît comme étant installé dans les rapports Asset Intelligence jusqu’au prochain cycle de rapports d’inventaire matériel du client.  
 
  **Dépendances de package de logiciel**  
  Étant donné que les rapports Asset Intelligence reposent sur les données des logiciels installés collectées en utilisant des processus standard d’inventaire matériel de client Configuration Manager, certaines données de logiciels peuvent ne pas être collectées correctement. Par exemple, les installations logicielles non conformes aux processus d’installation standard ou modifiées avant l’installation peuvent générer des rapports Asset Intelligence inexacts.  
@@ -209,6 +209,6 @@ Asset Intelligence dans System Center Configuration Manager permet d’inventori
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

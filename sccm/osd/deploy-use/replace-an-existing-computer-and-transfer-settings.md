@@ -1,5 +1,5 @@
 ---
-title: "Remplacer un ordinateur existant et transférer des paramètres | Configuration Manager"
+title: "Remplacer un ordinateur existant et transférer des paramètres | Microsoft Docs"
 description: "Dans Configuration Manager, choisissez les méthodes de déploiement, telles que le média de démarrage, la multidiffusion ou le Centre logiciel, pour remplacer un ordinateur existant par un nouveau."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 82a2ebb830b872f8e6368be75b6d9beb1955ec27
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 243433980e1720fd468d52a4a61f2c3a8e3659b5
 
 
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Remplacer un ordinateur existant et transférer des paramètres avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique indique les étapes générales à suivre dans System Center Configuration Manager pour remplacer un ordinateur existant par un nouveau. Pour ce scénario, vous pouvez choisir parmi de nombreuses méthodes de déploiement, telles que média de démarrage, multidiffusion ou Centre logiciel. Vous pouvez aussi choisir d’installer un point de migration d’état pour stocker les paramètres, puis les restaurer sur le nouveau système d’exploitation après son installation. Pour vous aider à déterminer si ce scénario de déploiement de système d’exploitation est adapté à votre cas, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md).  
 
@@ -86,6 +86,6 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

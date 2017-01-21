@@ -1,5 +1,5 @@
 ---
-title: "Matériel recommandé | System Center Configuration Manager"
+title: "Matériel recommandé | Microsoft Docs"
 description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d5aa39a9551cc872631895bb1664de5a35531854
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 3155c877a14f99e054cfa7ca4afaa73bae3f8cac
 
 
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Matériel recommandé pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les recommandations suivantes sont des indications destinées à vous aider à adapter votre environnement System Center Configuration Manager pour qu’il prenne en charge un déploiement plus complexe de sites, de systèmes de site et de clients. Elles ne sont pas prévues pour couvrir toutes les configurations possibles de site et de hiérarchie.  
 
@@ -70,7 +70,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
 |Point de mise à jour logicielle<sup>1</sup>|8|16|En fonction des besoins du système d’exploitation et pour stocker les mises à jour que vous déployez|  
 |Tous les autres rôles de système de site|4|8|50|  
 
- <sup>1</sup> L’ordinateur qui héberge un point de mise à jour logicielle nécessite les configurations suivantes pour les pools d’applications IIS :  
+ <sup>1</sup> L’ordinateur qui héberge un point de mise à jour logicielle nécessite les configurations suivantes pour les pools d’applications IIS :  
 
 -   Augmenter la **longueur de file d’attente WsusPool** à **2000**  
 
@@ -79,7 +79,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
 ###  <a name="a-namebkmkdiskspacea-disk-space-for-site-systems"></a><a name="bkmk_DiskSpace"></a> Espace disque pour les systèmes de site  
  L’allocation et la configuration de disque contribuent aux performances de Configuration Manager. Comme chaque environnement Configuration Manager est différent, ajustez les valeurs indiquées ci-dessous en fonction de vos besoins.  
 
- Pour des performances optimales, placez chaque objet sur un volume RAID séparé et dédié. Pour tous les volumes de données (Configuration Manager et ses fichiers de base de données), utilisez RAID 10 pour des performances optimales.  
+ Pour des performances optimales, placez chaque objet sur un volume RAID séparé et dédié. Pour tous les volumes de données (Configuration Manager et ses fichiers de base de données), utilisez RAID 10 pour des performances optimales.  
 
 |Utilisation des données|Espace disque minimum|25 000 clients|50 000 clients|100 000 clients|150 000 clients|700 000 clients (site d’administration centrale)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
@@ -113,11 +113,11 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
  Cette section identifie les configurations matérielles recommandées pour les ordinateurs gérés en installant le logiciel client Configuration Manager.  
 
 ### <a name="client-for-windows-computers"></a>Client pour les ordinateurs Windows  
- Le tableau suivant indique la configuration minimale requise pour les ordinateurs Windows gérés avec Configuration Manager, y compris les systèmes d’exploitation incorporés :  
+ Le tableau suivant indique la configuration minimale requise pour les ordinateurs Windows gérés avec Configuration Manager, y compris les systèmes d’exploitation incorporés :  
 
 -   **Processeur et mémoire :** reportez-vous à la configuration de processeur et mémoire RAM requise pour les systèmes d’exploitation des ordinateurs.  
 
--   **Espace disque :** 500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager. L’espace disque requis est moindre si vous utilisez des paramètres personnalisés pour installer le client Configuration Manager :  
+-   **Espace disque :** 500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager. L’espace disque requis est moindre si vous utilisez des paramètres personnalisés pour installer le client Configuration Manager :  
 
     -   Utilisez la propriété /skipprereq de la ligne de commande de CCMSetup pour éviter d’installer des fichiers dont le client n’a pas besoin. Par exemple, **CCMSetup.exe /skipprereq:silverlight.exe** si le client ne doit pas utiliser le catalogue d’applications.  
 
@@ -142,13 +142,13 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
 |Exigence|Détails|  
 |-----------------|-------------|  
 |Processeur et mémoire|Reportez-vous à la configuration de processeur et mémoire RAM requise pour le système d'exploitation de l'ordinateur.|  
-|Espace disque|500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager.|  
+|Espace disque|500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager.|  
 |Connectivité réseau|Les ordinateurs clients Configuration Manager doivent disposer d’une connexion réseau aux systèmes de site Configuration Manager pour en permettre la gestion.|  
 
 ##  <a name="a-namebkmkscaleconsolea-configuration-manager-console"></a><a name="bkmk_ScaleConsole"></a> Console Configuration Manager  
  La configuration requise indiquée dans le tableau ci-dessous s’applique à chaque ordinateur qui exécute la console Configuration Manager.  
 
- **Configuration matérielle minimale :**  
+ **Configuration matérielle minimale :**  
 
 -   Intel i3 ou processeur comparable  
 
@@ -163,7 +163,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous l
 |144 / 150 %|1600 x 1200|  
 |196 / 200 %|2500 x 1600|  
 
- **Prise en charge de PowerShell :**  
+ **Prise en charge de PowerShell :**  
 
  Quand vous installez la prise en charge de PowerShell sur un ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter des applets de commande PowerShell sur cet ordinateur pour gérer Configuration Manager. Les versions minimales suivantes sont prises en charge :  
 
@@ -185,6 +185,6 @@ Vous pouvez installer PowerShell avant ou après l’installation de la console 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

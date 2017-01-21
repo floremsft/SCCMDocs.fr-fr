@@ -1,5 +1,5 @@
 ---
-title: "Définitions de programmes malveillants pour Endpoint Protection à partir de WSUS | System Center Configuration Manager"
+title: "Définitions de programmes malveillants Endpoint Protection à partir de WSUS | Microsoft Docs"
 definition: Learn how to configure Windows Server Updates Services to auto-approve definition updates.
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1c545e990fe6e3fc1bb79361d553a77914c20ea5
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 3142db9e25f678a0093f305ef11a17bde1990a88
 
 
 ---
 
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Activer le téléchargement des définitions de programmes malveillants pour Endpoint Protection à partir de Windows Server Update Services (WSUS) pour Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Si vous utilisez WSUS pour tenir à jour vos définitions de logiciels anti-programmes malveillants, vous pouvez le configurer pour approuver automatiquement les mises à jour de définition. Bien que l’utilisation des mises à jour logicielles Configuration Manager soit la méthode recommandée pour tenir à jour les définitions, vous pouvez aussi configurer WSUS en tant que méthode pour autoriser les utilisateurs à lancer manuellement des mises à jour de définitions. Utilisez les procédures suivantes pour configurer WSUS comme source de mise à jour de définition.
 
@@ -106,6 +106,6 @@ ms.openlocfilehash: 1c545e990fe6e3fc1bb79361d553a77914c20ea5
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

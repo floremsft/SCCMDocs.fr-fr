@@ -1,5 +1,5 @@
 ---
-title: Surveiller les profils de certificat | System Center Configuration Manager
+title: Surveiller des profils de certificat | Microsoft Docs
 description: "Découvrez comment surveiller l’état de compatibilité des profils de certificat System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,17 +17,17 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bb72571596e77ce3069c1f6526fb3ba00fc9ecdc
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 34e1f57798a9745303dd6d03a8b4362c01c5efbb
 
 
 ---
 # <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Comment surveiller des profils de certificat dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Une fois que vous avez déployé des profils de certificat System Center Configuration Manager auprès d’utilisateurs dans votre hiérarchie, vous pouvez utiliser les procédures suivantes pour surveiller l’état de compatibilité du profil de certificat :  
+Une fois que vous avez déployé des profils de certificat System Center Configuration Manager auprès d’utilisateurs dans votre hiérarchie, vous pouvez utiliser les procédures suivantes pour surveiller l’état de compatibilité du profil de certificat :  
 
 -   [Comment afficher les résultats de compatibilité dans la console Configuration Manager](#BKMK_console)  
 
@@ -91,6 +91,6 @@ Une fois que vous avez déployé des profils de certificat System Center Configu
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

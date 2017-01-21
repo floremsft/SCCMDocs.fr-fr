@@ -1,5 +1,5 @@
 ---
-title: Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager
+title: Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager | Microsoft Docs
 description: Comprendre comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,27 +17,27 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e390da9377adfb7f32687c6c01b35a51a3bd495b
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: 6fdf9d0b01805b341838b3dc7f0368a4f70e1d08
 
 
 ---
 # <a name="how-users-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La gestion des appareils mobiles locale de System Center Configuration Manager permet aux utilisateurs d’inscrire des appareils si une autorisation d’inscription (par le biais de paramètres client mis à jour) leur a été accordée et que le certificat racine nécessaire a été installé sur leurs appareils pour que leurs communications soient approuvées auprès des serveurs hébergeant les rôles de système de site exigés. Pour plus d’informations sur la configuration de l’inscription, consultez [Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
->  -  Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
+>  -  Windows 10 Entreprise  
+> -   Windows 10 Professionnel  
+> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Entreprise
 
-Les tâches suivantes expliquent comment inscrire des ordinateurs et des appareils pour la gestion des appareils mobiles locale et comment vérifier leur inscription :  
+Les tâches suivantes expliquent comment inscrire des ordinateurs et des appareils pour la gestion des appareils mobiles locale et comment vérifier leur inscription :  
 
 -   [Inscrire un ordinateur Windows 10](#bkmk_enrollDesk)  
 
@@ -83,6 +83,6 @@ Les tâches suivantes expliquent comment inscrire des ordinateurs et des apparei
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

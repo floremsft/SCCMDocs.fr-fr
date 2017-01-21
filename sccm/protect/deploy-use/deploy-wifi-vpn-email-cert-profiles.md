@@ -1,5 +1,5 @@
 ---
-title: "Déployer des profils de certificat, de messagerie, VPN et Wi-Fi | System Center Configuration Manager"
+title: "Déployer des profils Wi-Fi, VPN, de messagerie et de certificat | Microsoft Docs"
 description: "Découvrez comment déployer des profils de certificat, de messagerie, VPN et Wi-Fi dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7e13c52c135850b1f449cf91bc81425208d16551
+ms.sourcegitcommit: c2e3aef41e9a890d136039f85777ab07284e5c27
+ms.openlocfilehash: 70372d5df13034b48f3e43b766776442f1be5823
 
 ---
 # <a name="deploy-profiles-in-system-center-configuration-manager"></a>Déployer des profils dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les profils doivent être déployés dans un ou plusieurs regroupements avant de pouvoir être utilisés.  
 
@@ -40,10 +40,10 @@ Les profils doivent être déployés dans un ou plusieurs regroupements avant de
 > -   [Guide pratique pour créer des profils de certificat dans System Center Configuration Manager](create-certificate-profiles.md)    
 
 > [!IMPORTANT]  
->  Lorsque vous supprimez le déploiement d'un profil Wi-Fi, le profil Wi-Fi n'est pas supprimé des appareils clients. Si vous souhaitez supprimer le profil des appareils, vous devez le supprimer manuellement.
+>  Quand un déploiement de profil VPN est supprimé, il n’est pas supprimé des appareils clients. Si vous souhaitez supprimer le profil des appareils, vous devez le supprimer manuellement.
 >   
 
-## <a name="deploying-profiles"></a>Déploiement de profils  
+## <a name="deploying--profiles"></a>Déploiement de profils  
 
 
 1.  Dans la console System Center Configuration Manager, choisissez **Ressources et Conformité**.  
@@ -52,15 +52,15 @@ Les profils doivent être déployés dans un ou plusieurs regroupements avant de
 
 3.  Dans la liste des profils, sélectionnez le profil que vous souhaitez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Déployer**.  
 
-4.  Dans la boîte de dialogue de déploiement de profil, spécifiez les informations suivantes :  
+4.  Dans la boîte de dialogue de déploiement de profil, spécifiez les informations suivantes :  
 
     -   **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer le profil.  
 
-    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la conformité du profil est inférieure à un pourcentage spécifié à une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
+    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la conformité du profil est inférieure à un pourcentage spécifié à une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
-    -   -   **Délai aléatoire (heure)** : (uniquement pour les profils de certificat contenant des paramètres de protocole d’inscription de certificats simple) spécifie un délai pour éviter un traitement excessif sur le service d’inscription de périphérique réseau. La valeur par défaut est **64** heures.  
+    -   -   **Délai aléatoire (heure)** : (uniquement pour les profils de certificat contenant des paramètres de protocole d’inscription de certificats simple) spécifie un délai pour éviter un traitement excessif sur le service d’inscription de périphérique réseau. La valeur par défaut est **64** heures.  
 
-    -   **Spécifier le calendrier d’évaluation de la compatibilité pour ce profil <type>** : spécifie le calendrier par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
+    -   **Spécifier le calendrier d’évaluation de la compatibilité pour ce profil <type>** : spécifie le calendrier par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
 
         > [!NOTE]  
         >  Lorsque l'utilisateur ouvre une session, le profil est évalué par les ordinateurs clients.  
@@ -75,6 +75,6 @@ Les profils doivent être déployés dans un ou plusieurs regroupements avant de
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

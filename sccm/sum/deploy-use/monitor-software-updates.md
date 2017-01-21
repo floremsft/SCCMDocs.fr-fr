@@ -1,12 +1,12 @@
 ---
 
-title: "Surveiller les mises à jour logicielles | Configuration Manager"
-description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la conformité."
+title: "Surveiller les mises à jour logicielles | Microsoft Docs"
+description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 11/10/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,15 +14,18 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 9afd7b0f-5c8e-48bc-9a65-1f7d74103688
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fe41807cebf87f4e6bab47e41db0ffe7cc83c5d1
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 956ef263a1c178b5ab5926705859f4b2d0ae5bc7
 
 ---
 # <a name="monitor-software-updates-in-system-center-configuration-manager"></a>Surveiller les mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager fournit de nombreuses méthodes pour vous aider à surveiller les objets de mises à jour logicielles, les processus et les informations de conformité. Utilisez les sections suivantes pour surveiller les mises à jour logicielles.
+
+## <a name="software-updates-dashboard"></a>Tableau de bord des mises à jour logicielles
+À partir de Configuration Manager version 1610, vous pouvez utiliser le tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils qui sont exposés. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Software Updates Dashboard** (Tableau de bord des mises à jour logicielles).   
 
 ##  <a name="a-namebkmksualertsa-alerts-for-software-updates"></a><a name="BKMK_SUAlerts"></a> Alertes pour les mises à jour logicielles  
  Vous pouvez configurer des alertes pour les mises à jour logicielles afin d'avertir les utilisateurs administratifs lorsque les niveaux de conformité pour les déploiements de mises à jour logicielles sont inférieurs au pourcentage configuré. Vous pouvez configurer des alertes pour les déploiements de mises à jour logicielles aux emplacements suivants :  
@@ -98,6 +101,6 @@ Après avoir configuré les paramètres d’alerte, si les conditions spécifié
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

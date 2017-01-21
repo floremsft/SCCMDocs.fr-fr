@@ -1,5 +1,5 @@
 ---
-title: "Obtenir de l’aide | System Center Configuration Manager"
+title: "Obtenir de l’aide | Microsoft Docs"
 description: "Recherchez des ressources pour plus d’informations sur System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 30d2e51635969dbdfc58b959a11c2bcfb8fc7128
-ms.openlocfilehash: 07509457fcc699440649b2540065f1f3619c9a5e
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 6c864cc443801d2a21e06b7d2e7a4784c52ffc1e
 
 
 ---
 # <a name="find-help-for-using-system-center-configuration-manager"></a>Trouver de l’aide pour l’utilisation de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez les ressources suivantes pour obtenir plus d’informations sur System Center Configuration Manager :  
+Utilisez les ressources suivantes pour obtenir plus d’informations sur System Center Configuration Manager :  
 
 -   [Information et support](#bkmk_Info)  
 
@@ -41,19 +41,19 @@ Utilisez les ressources suivantes pour obtenir plus d’informations sur System 
 ##  <a name="a-namebkmkinfoa-information-and-support"></a><a name="bkmk_Info"></a> Information et support  
  Utilisez les ressources suivantes pour obtenir plus d’informations sur Configuration Manager.  
 
--   **Pour accéder à la documentation la plus récente du produit System Center Configuration Manager :** Utilisez la [bibliothèque de documentation pour System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) dans TechNet.  
+-   **Pour accéder à la documentation la plus récente du produit System Center Configuration Manager :** Utilisez la [bibliothèque de documentation pour System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) dans TechNet.  
 
--   **Pour fournir des commentaires sur la documentation :** Envoyez vos commentaires via **User Voice** à la page [System Center Configuration Manager Feedback (Documentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
+-   **Pour fournir des commentaires sur la documentation :** Envoyez vos commentaires via **User Voice** à la page [System Center Configuration Manager Feedback (Documentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
 
--   **Pour télécharger une copie archivée de la documentation :** Accédez à la Galerie TechNet :
+-   **Pour télécharger une copie archivée de la documentation :** Accédez à la Galerie TechNet :
 
-    - [Version 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
-    - [Version 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Version 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Version 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
 
 ###  <a name="a-namebkmksearchtipsa-search-the-documentation-library"></a><a name="BKMK_SearchTips"></a> Rechercher dans la bibliothèque de documentation  
  Utilisez les conseils de recherche suivants pour vous aider à trouver les informations dont vous avez besoin :  
 
--   Lorsque vous utilisez votre moteur de recherche préféré pour localiser du contenu pour System Center Configuration Manager, vous pouvez limiter les résultats de recherche à la bibliothèque de contenu actuel en incluant les deux termes suivants, y compris les guillemets : **"current branch"** et **"System Center Configuration Manager"**.  
+-   Lorsque vous utilisez votre moteur de recherche préféré pour localiser du contenu pour System Center Configuration Manager, vous pouvez limiter les résultats de recherche à la bibliothèque de contenu actuel en incluant les deux termes suivants, y compris les guillemets : **"current branch"** et **"System Center Configuration Manager"**.  
 
 -   Utilisez des termes de recherche correspondant à ceux que vous voyez dans l’interface utilisateur (UI) et la documentation en ligne, plutôt que des termes ou abréviations non officiels que vous pouvez voir dans le contenu de la communauté. Par exemple, rechercher « point de gestion » plutôt que « MP », « type de déploiement » plutôt que « DT » et « mises à jour logicielles » plutôt que « SUM ».  
 
@@ -79,6 +79,6 @@ Utilisez les ressources suivantes pour obtenir plus d’informations sur System 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

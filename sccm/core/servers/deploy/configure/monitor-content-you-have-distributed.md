@@ -1,5 +1,5 @@
 ---
-title: Surveiller le contenu | System Center Configuration Manager
+title: Surveiller le contenu | Microsoft Docs
 description: "Apprenez à surveiller le contenu distribué à l’aide de la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,64 +16,50 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 402c06ed92bbfe509206d3e7800e41e90c5d3a38
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 9a5d2c3a3c6bdca05b5b00fa4d746c437a56ef89
 
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Surveiller le contenu que vous avez distribué avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez la console System Center Configuration Manager pour surveiller le contenu distribué, à savoir :  
+Utilisez la console System Center Configuration Manager pour surveiller le contenu distribué, à savoir :  
 
 -   État de tous les types de package liés aux points de distribution associés  
-
 -   État de la validation du contenu d’un package  
-
 -   État du contenu attribué à un groupe de points de distribution spécifique  
-
 -   État du contenu attribué à un point de distribution  
-
 -   État des fonctionnalités facultatives pour chaque point de distribution (validation du contenu, PXE et multidiffusion)  
 
 > [!NOTE]  
 >  Configuration Manager surveille uniquement le contenu d’un point de distribution situé dans la bibliothèque de contenu. Le contenu stocké sur le point de distribution au sein de packages ou de partages personnalisés n'est pas surveillé.  
 
 ##  <a name="a-namebkmkcontentstatusa-content-status-monitoring"></a><a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
- Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Dans la console Configuration Manager, vous pouvez examiner les informations suivantes :  
+ Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Dans la console Configuration Manager, vous pouvez examiner les informations suivantes :  
 
 -   Nom du package  
-
 -   Type  
-
 -   Nombre de points de distribution ayant reçu un package  
-
 -   Niveau de compatibilité  
-
 -   Date de création du package  
-
 -   ID du package  
-
 -   Version source  
 
-Vous y trouverez également des informations d’état détaillées pour chaque package, ainsi que l’état de distribution du package :  
+Vous y trouverez également des informations d’état détaillées pour chaque package, ainsi que l’état de distribution du package :  
 
 -   Nombre d’échecs  
-
 -   Distributions en attente  
-
 -   Nombre d’installations  
 
-Vous pouvez aussi gérer les distributions qui sont toujours en cours de cheminement vers un point de distribution ou celles qui n’ont pas pu distribuer correctement le contenu à un point de distribution :  
+Vous pouvez aussi gérer les distributions qui sont toujours en cours de cheminement vers un point de distribution ou celles qui n’ont pas pu distribuer correctement le contenu à un point de distribution :  
 
 -   L'option à utiliser pour annuler ou redistribuer du contenu est disponible lorsque vous affichez le message d'état du déploiement d'une tâche de distribution vers un point de distribution dans le volet **Détails du bien** de l'onglet **En cours** ou de l'onglet **Erreur** du nœud **État du contenu** .  
-
 -   De plus, les détails de la tâche affichent le pourcentage de la tâche qui est terminé lorsque vous affichez les détails d'une tâche dans l'onglet **En cours** et le nombre de nouvelles tentatives restantes pour une tâche ainsi que la durée restante avant la nouvelle tentative suivante lorsque vous affichez les détails d'une tâche qui est disponible à partir de l'onglet **Erreur** .  
 
-Quand vous annulez un déploiement qui n’est pas encore terminé, la tâche de distribution pour transférer ce contenu s’arrête :  
+Quand vous annulez un déploiement qui n’est pas encore terminé, la tâche de distribution pour transférer ce contenu s’arrête :  
 
 -   L'état du déploiement est ensuite mis à jour pour indiquer que la distribution a échoué et a été annulée par une action de l'utilisateur.  
-
 -   Ce nouvel état s'affiche dans l'onglet **Erreur** .  
 
 > [!TIP]  
@@ -121,26 +107,19 @@ Procédez comme suit pour afficher l'état du contenu et gérer les distribution
 5.  Cliquez sur **Oui** pour confirmer l'action et démarrez le processus de redistribution vers ce point de distribution.  
 
 ## <a name="distribution-point-group-status"></a>État du groupe de points de distribution  
-Le nœud **État du groupe de points de distribution** dans l'espace de travail **Surveillance** fournit des informations sur les groupes de points de distribution. Vous pouvez notamment consulter les informations suivantes :  
+Le nœud **État du groupe de points de distribution** dans l'espace de travail **Surveillance** fournit des informations sur les groupes de points de distribution. Vous pouvez notamment consulter les informations suivantes :  
 
 -   Nom du groupe de points de distribution  
-
 -   Description  
-
 -   Nombre de points de distribution appartenant au groupe de points de distribution  
-
 -   Nombre de packages attribués au groupe  
-
 -   État du groupe de points de distribution  
-
 -   Niveau de compatibilité  
 
-Vous pouvez également consulter les informations d’état détaillées suivantes :  
+Vous pouvez également consulter les informations d’état détaillées suivantes :  
 
 -   Erreurs liées au groupe de points de distribution  
-
 -   Nombre de distributions en cours  
-
 -   Nombre de distributions correctement effectuées  
 
 #### <a name="to-monitor-distribution-point-group-status"></a>Pour surveiller l'état du groupe de points de distribution  
@@ -171,8 +150,18 @@ Pour afficher l'état de configuration du point de distribution, procédez comme
 
 4.  Dans le volet des résultats, cliquez sur l'onglet **Détails** . Des informations d'état pour le point de distribution sont affichées.  
 
+## <a name="client-data-sources-dashboard"></a>Tableau de bord Sources de données du client
+À compter de la version 1610, vous pouvez utiliser le tableau de bord **Sources de données du client** pour comprendre l’utilisation du [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) dans votre environnement. Pour que ce tableau de bord soit visible dans la console, les clients doivent d’abord télécharger le contenu à l’aide du cache d’homologue et renvoyer ces informations au site. Compte tenu de l’intervalle de création de rapports, cette opération peut prendre jusqu’à 24 heures.
+
+> [!TIP]  
+> Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+
+Dans la console, accédez à **Analyse** > **État du client** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.  
+
+Vous pouvez également utiliser un nouveau rapport, **Sources de données du client - Résumé**, pour afficher une synthèse des sources de données du client pour chaque groupe de limites.
 
 
-<!--HONumber=Nov16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Afficher l’inventaire matériel | Explorateur de ressources | System Center Configuration Manager"
+title: "Afficher l’inventaire matériel | Microsoft Docs | Explorateur de ressources"
 description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,25 +16,25 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 12bf49b6a68d277c7f505ddfe37556363d0e3e53
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 2cd138b3bbb437d84f0ff7c2aeef869518bd817d
 
 
 ---
 # <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Comment utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire matériel collecté à partir de clients de votre hiérarchie.  
 
 > [!NOTE]  
 >  L'Explorateur de ressources n'affichera pas de données d'inventaire avant qu'un cycle d'inventaire matériel ait été exécuté sur le client auquel vous êtes connecté.  
 
- L'Explorateur de ressources de Configuration Manager contient les sections suivantes relatives à l'inventaire matériel :  
+ L'Explorateur de ressources de Configuration Manager contient les sections suivantes relatives à l'inventaire matériel :  
 
--   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client Configuration Manager spécifié. Vous pouvez consulter l'article en stock **état de la station de travail** pour découvrir l'heure et la date lorsque le périphérique de la dernière exécution de l'inventaire matériel.  
+-   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client Configuration Manager spécifié. Vous pouvez consulter l'article en stock **état de la station de travail** pour découvrir l'heure et la date lorsque le périphérique de la dernière exécution de l'inventaire matériel.  
 
--   **Historique du matériel** : contient un historique des éléments d'inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément de la liste contient un nœud **En cours** et un ou plusieurs nœuds de *<date\>*. Vous pouvez comparer les informations du nœud en cours à l'un des nœuds historiques pour découvrir les éléments qui ont été modifiés dans l'inventaire de matériel des ordinateurs client.  
+-   **Historique du matériel** : contient un historique des éléments d'inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément de la liste contient un nœud **En cours** et un ou plusieurs nœuds de *<date\>*. Vous pouvez comparer les informations du nœud en cours à l'un des nœuds historiques pour découvrir les éléments qui ont été modifiés dans l'inventaire de matériel des ordinateurs client.  
 
     > [!NOTE]  
     >  Configuration Manager conserve l'historique de l'inventaire matériel pendant le nombre de jours que vous spécifiez dans la tâche de maintenance du site **Supprimer les historiques d'inventaire anciens**.  
@@ -56,6 +56,6 @@ Utilisez l’Explorateur de ressources de System Center Configuration Manager po
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

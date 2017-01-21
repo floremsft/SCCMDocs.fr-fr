@@ -1,5 +1,5 @@
 ---
-title: Configurer le client Endpoint Protection | System Center Configuration Manager
+title: Configurer le client Endpoint Protection | Microsoft Docs
 description: "Découvrez comment configurer des paramètres client personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fe342b76569f171855c6c422c7173317381e0103
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 2d7ec9cc626f3ccfded990cf8ba392c4979adfee
 
 
 ---
 
 # <a name="configure-custom-client-settings-for-endpoint-protection"></a>Configurer des paramètres client personnalisés pour Endpoint Protection
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette procédure permet de configurer des paramètres client personnalisés pour Endpoint Protection, dans le but de les déployer ensuite dans certains regroupements d’ordinateurs de votre hiérarchie.
 
@@ -52,7 +52,7 @@ Cette procédure permet de configurer des paramètres client personnalisés pour
 
 8.  Dans la boîte de dialogue **Sélectionner des regroupements** , choisissez le regroupement dans lequel vous voulez déployer les paramètres client, puis cliquez sur **OK**. Le nouveau déploiement figure dans l'onglet **Déploiements** du panneau des détails.
 
-Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour savoir comment lancer une récupération de stratégie pour un seul client, consultez la section « Lancer une récupération de stratégie pour un client Configuration Manager » dans [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md).
+Les ordinateurs client sont configurés avec ces paramètres lorsqu'ils téléchargent la stratégie client. Pour savoir comment lancer une récupération de stratégie pour un seul client, consultez la section « Lancer une récupération de stratégie pour un client Configuration Manager » dans [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md).
 
 ## <a name="how-to-provision-the-endpoint-protection-client-in-a-disk-image-in-configuration-manager"></a>Guide pratique pour configurer le client Endpoint Protection dans une image disque dans Configuration Manager
 Vous pouvez installer le client Endpoint Protection sur un ordinateur que vous prévoyez d’utiliser comme source de l’image disque pour le déploiement du système d’exploitation dans Configuration Manager. En général, on appelle cet ordinateur l'ordinateur de référence. Après avoir créé l’image du système d’exploitation, vous pouvez utiliser le déploiement du système d’exploitation dans Configuration Manager pour déployer l’image pouvant contenir des packages logiciels, y compris Endpoint Protection, sur vos ordinateurs clients.
@@ -151,7 +151,7 @@ Pour plus d’informations sur le déploiement de système d’exploitation dans
    ```
 
    > [!IMPORTANT]
-   >  Soyez prudent quand vous exécutez l’Éditeur du Registre de cette manière, car l’option -s dans PsExec.exe exécute l’Éditeur du Registre avec des privilèges LocalSystem.
+   >  Soyez prudent quand vous exécutez l’Éditeur du Registre de cette manière, car l’option -s dans PsExec.exe exécute l’Éditeur du Registre avec des privilèges LocalSystem.
 
 4.  Dans l'Éditeur du Registre, accédez à chacune des clés de Registre suivantes et supprimez-les.
 
@@ -176,6 +176,6 @@ Quand une image contenant le logiciel client Endpoint Protection est déployée,
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

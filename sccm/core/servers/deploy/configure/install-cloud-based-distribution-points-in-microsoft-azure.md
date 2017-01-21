@@ -1,5 +1,5 @@
 ---
-title: Installer des points de distribution cloud | System Center Configuration Manager
+title: Installer des points de distribution cloud | Microsoft Docs
 description: "Découvrez ce que vous devez faire pour commencer à utiliser des points de distribution cloud dans Microsoft Azure."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,24 +16,24 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1dafd0b61a61a0fd2f2c597b89dea7cd6ac715a8
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: aba573b2822568236c006e7af19b421639faa8bc
 
 ---
 # <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Installer des points de distribution cloud dans Microsoft Azure pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez installer des points de distribution cloud System Center Configuration Manager dans Microsoft Azure. Si vous n’êtes pas familiarisé avec les points de distribution cloud, consultez [Utiliser un point de distribution cloud](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) avant de poursuivre.
 
- Avant de débuter l’installation, vérifiez que vous disposez bien des fichiers de certificat nécessaires :  
+ Avant de débuter l’installation, vérifiez que vous disposez bien des fichiers de certificat nécessaires :  
 
--   un certificat de gestion Microsoft Azure exporté vers un fichier .cer et vers un fichier .pfx ;  
+-   un certificat de gestion Microsoft Azure exporté vers un fichier .cer et vers un fichier .pfx ;  
 
 -   un certificat de service de point de distribution cloud Configuration Manager exporté dans un fichier .pfx.  
 
     > [!TIP]
-    >   Pour plus d’informations sur ces certificats, consultez la section consacrée aux points de distribution cloud dans la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement du certificat de service de point de distribution cloud, consultez la section *Déploiement du certificat de service pour les points de distribution cloud* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+    >   Pour plus d’informations sur ces certificats, consultez la section consacrée aux points de distribution cloud dans la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement du certificat de service de point de distribution cloud, consultez la section *Déploiement du certificat de service pour les points de distribution cloud* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
 
  Après avoir installé le point de distribution cloud, Microsoft Azure génère automatiquement un GUID pour le service et l'ajoute au suffixe DNS de **cloudapp.net**. En utilisant ce GUID, vous devez configurer DNS avec un alias DNS (enregistrement CNAME) pour mapper le nom de service que vous définissez dans le certificat de service de point de distribution cloud Configuration Manager au GUID généré automatiquement.  
@@ -90,7 +90,7 @@ Vous pouvez installer des points de distribution cloud System Center Configurati
  L'Assistant crée un service hébergé pour le point de distribution cloud. Après avoir fermé l’Assistant, vous pouvez surveiller la progression de l’installation du point de distribution cloud dans la console Configuration Manager ou en surveillant le fichier **CloudMgr.log** sur le serveur du site principal. Vous pouvez également surveiller la préparation du service cloud dans le portail de gestion Microsoft Azure.  
 
 > [!NOTE]  
->  La préparation d'un nouveau point de distribution dans Microsoft Azure peut prendre jusqu'à 30 minutes. Le message suivant est répété dans le fichier **CloudMgr.log** tant que le compte de stockage n’est pas approvisionné : **En attente de vérification de l’existence du conteneur. Une nouvelle vérification sera effectuée dans 10 secondes**. Le service est ensuite créé et configuré.  
+>  La préparation d'un nouveau point de distribution dans Microsoft Azure peut prendre jusqu'à 30 minutes. Le message suivant est répété dans le fichier **CloudMgr.log** tant que le compte de stockage n’est pas approvisionné : **En attente de vérification de l’existence du conteneur. Une nouvelle vérification sera effectuée dans 10 secondes**. Le service est ensuite créé et configuré.  
 
  Pour savoir si l'installation du point de distribution cloud est terminée, employez les méthodes suivantes :  
 
@@ -107,10 +107,10 @@ Vous pouvez installer des points de distribution cloud System Center Configurati
 
 2.  Ils résolvent le nom de domaine complet du service Microsoft Azure à l'adresse IP allouée par Microsoft Azure. Cette adresse IP peut également être identifiée dans le tableau de bord pour le service cloud du portail Microsoft Azure, et elle est nommée **ADRESSE IP VIRTUELLE PUBLIQUE (VIP)**.  
 
-Pour mapper le nom de service que vous avez fourni avec le certificat de service de point de distribution cloud Configuration Manager (par exemple **clouddp1.contoso.com**) au nom de domaine complet de votre service Microsoft Azure (par exemple **d1594d4527614a09b934d470.cloudapp.net**), les serveurs DNS sur Internet doivent avoir un alias DNS (enregistrement CNAME). Les clients peuvent ensuite résoudre le nom de domaine complet du service Microsoft Azure en adresse IP à l'aide de serveurs DNS situés sur Internet.  
+Pour mapper le nom de service que vous avez fourni avec le certificat de service de point de distribution cloud Configuration Manager (par exemple **clouddp1.contoso.com**) au nom de domaine complet de votre service Microsoft Azure (par exemple **d1594d4527614a09b934d470.cloudapp.net**), les serveurs DNS sur Internet doivent avoir un alias DNS (enregistrement CNAME). Les clients peuvent ensuite résoudre le nom de domaine complet du service Microsoft Azure en adresse IP à l'aide de serveurs DNS situés sur Internet.  
 
 ##  <a name="a-namebkmkconfigproxyforclouda-configure-proxy-settings-for-primary-sites-that-manage-cloud-services"></a><a name="BKMK_ConfigProxyforCloud"></a> Configurer les paramètres de proxy pour des sites principaux gérant des services cloud  
- Quand vous utilisez des services cloud avec Configuration Manager, le site principal qui gère le point de distribution cloud doit pouvoir se connecter au portail de gestion Microsoft Azure en utilisant le compte **Système** de l’ordinateur de site principal. Cette connexion est établie à l'aide du navigateur Web par défaut sur l'ordinateur serveur de site principal.  
+ Quand vous utilisez des services cloud avec Configuration Manager, le site principal qui gère le point de distribution cloud doit pouvoir se connecter au portail de gestion Microsoft Azure en utilisant le compte **Système** de l’ordinateur de site principal. Cette connexion est établie à l'aide du navigateur Web par défaut sur l'ordinateur serveur de site principal.  
 
  Sur le serveur de site principal qui gère le point de distribution cloud, vous devrez peut-être configurer les paramètres de proxy pour permettre au site principal d'accéder à Internet et à Microsoft Azure.  
 
@@ -133,6 +133,6 @@ Pour mapper le nom de service que vous avez fourni avec le certificat de service
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

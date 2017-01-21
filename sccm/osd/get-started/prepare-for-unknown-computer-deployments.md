@@ -1,5 +1,5 @@
 ---
-title: "Préparer les déploiements sur des ordinateurs inconnus | Configuration Manager"
+title: "Préparer les déploiements d’ordinateurs inconnus | Microsoft Docs"
 description: "Découvrez comment déployer des systèmes d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1228dc7ebee2f17da9a7ade5641ef73e1891bba9
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 445e76950f0605da917f3d0e7e71557d969e3c2d
 
 
 ---
 # <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Préparer les déploiements sur des ordinateurs inconnus dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Aidez-vous des informations de cette rubrique pour déployer des systèmes d’exploitation sur des ordinateurs inconnus dans votre environnement System Center Configuration Manager. Un ordinateur inconnu est un ordinateur qui n’est pas géré par Configuration Manager. Autrement dit, il n’existe aucun enregistrement pour cet ordinateur dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
 
@@ -34,7 +34,7 @@ Aidez-vous des informations de cette rubrique pour déployer des systèmes d’e
 
 -   Un ordinateur qui n’a pas été découvert par Configuration Manager.  
 
- Vous pouvez déployer des systèmes d’exploitation sur des ordinateurs inconnus avec les méthodes de déploiement suivantes :  
+ Vous pouvez déployer des systèmes d’exploitation sur des ordinateurs inconnus avec les méthodes de déploiement suivantes :  
 
 -   [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
 
@@ -55,7 +55,7 @@ Aidez-vous des informations de cette rubrique pour déployer des systèmes d’e
 -   Déployez la séquence de tâches pour installer le système d’exploitation.  
 
 ## <a name="unknown-computer-installation-process"></a>Processus d'installation d'un ordinateur inconnu  
- Quand un ordinateur est démarré pour la première fois à partir de PXE ou d’un média, Configuration Manager vérifie s’il existe un enregistrement pour cet ordinateur dans la base de données Configuration Manager. S’il en trouve un, Configuration Manager vérifie ensuite s’il existe des séquences de tâches déployées sur l’enregistrement. S’il ne trouve pas d’enregistrement, Configuration Manager vérifie s’il existe des séquences de tâches déployées sur un objet ordinateur inconnu. Dans les deux cas, Configuration Manager effectue ensuite l’une des actions suivantes :  
+ Quand un ordinateur est démarré pour la première fois à partir de PXE ou d’un média, Configuration Manager vérifie s’il existe un enregistrement pour cet ordinateur dans la base de données Configuration Manager. S’il en trouve un, Configuration Manager vérifie ensuite s’il existe des séquences de tâches déployées sur l’enregistrement. S’il ne trouve pas d’enregistrement, Configuration Manager vérifie s’il existe des séquences de tâches déployées sur un objet ordinateur inconnu. Dans les deux cas, Configuration Manager effectue ensuite l’une des actions suivantes :  
 
 -   S’il existe une séquence de tâches disponible, Configuration Manager invite l’utilisateur à l’exécuter.  
 
@@ -65,7 +65,7 @@ Aidez-vous des informations de cette rubrique pour déployer des systèmes d’e
 
  Quand un ordinateur inconnu est démarré, Configuration Manager le reconnaît comme un ordinateur non préparé plutôt que comme un ordinateur inconnu. Cela signifie que l'ordinateur peut maintenant recevoir les séquences de tâches qui ont été déployées sur l'objet d'ordinateur inconnu. La séquence de tâches déployée installe ensuite une image de système d’exploitation qui doit inclure le client Configuration Manager.  
 
- Une fois que le client Configuration Manager a été installé, un enregistrement est créé pour l’ordinateur, lequel s’affiche alors dans le regroupement approprié de Configuration Manager. Si l’ordinateur ne parvient pas à installer l’image du système d’exploitation ou le client Configuration Manager, un enregistrement « Inconnu » est créé pour l’ordinateur. Cet ordinateur est affiché dans le regroupement **Tous les systèmes** de Configuration Manager.  
+ Une fois que le client Configuration Manager a été installé, un enregistrement est créé pour l’ordinateur, lequel s’affiche alors dans le regroupement approprié de Configuration Manager. Si l’ordinateur ne parvient pas à installer l’image du système d’exploitation ou le client Configuration Manager, un enregistrement « Inconnu » est créé pour l’ordinateur. Cet ordinateur est affiché dans le regroupement **Tous les systèmes** de Configuration Manager.  
 
 > [!NOTE]  
 >  Pendant l'installation de l'image du système d'exploitation, la séquence de tâches peut récupérer les variables de regroupement, mais non les variables d'ordinateur à partir de cet ordinateur.  
@@ -87,6 +87,6 @@ Aidez-vous des informations de cette rubrique pour déployer des systèmes d’e
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

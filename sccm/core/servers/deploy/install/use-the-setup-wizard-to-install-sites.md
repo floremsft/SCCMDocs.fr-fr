@@ -1,5 +1,5 @@
 ---
-title: Assistant Installation | System Center Configuration Manager
+title: Assistant Installation | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -15,29 +15,29 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: ffcdf4285d5f182e8d625200989f65c748bc2067
-ms.openlocfilehash: 9552ac1b77acfce6a398ec6e74f1be3686ee15a4
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 28ce074469469b6a7c1c456da051b5f8dea43dbb
 
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilisez l’Assistant Installation pour installer des sites System Center Configuration Manager.
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Pour installer un nouveau site System Center Configuration Manager en utilisant une interface utilisateur guidée, vous utilisez l’Assistant Installation de Configuration Manager (setup.exe). Cet Assistant prend en charge l’installation d’un site principal ou d’un site d’administration centrale. Vous utilisez également cet Assistant pour [mettre à niveau une installation d’évaluation](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) de Configuration Manager vers une installation sous licence.  Si vous ne souhaitez pas utiliser l’Assistant, vous pouvez utiliser à la place un [script d’installation](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) et exécuter une installation sans assistance en ligne de commande.
 
 Pour installer un site secondaire, vous devez installer le site à partir de la console Configuration Manager.  Les sites secondaires ne prennent pas en charge l’installation en ligne de commande scriptée.
 
-## <a name="a-namebkmkprimarya-install-a-central-administration-site-or-primary-site"></a><a name="bkmk_primary"></a>  Installer un site d’administration centrale ou un site principal
+## <a name="a-namebkmkprimarya--install-a-central-administration-site-or-primary-site"></a><a name="bkmk_primary"></a>  Installer un site d’administration centrale ou un site principal
 Utilisez la procédure suivante pour installer un site d’administration centrale ou un site principal, ou encore pour mettre à niveau un site d’évaluation vers un site Configuration Manager sous licence.   
 
-Avant de commencer l’installation du site, vous devez être familiarisé avec le contenu des articles suivants :
+Avant de commencer l’installation du site, vous devez être familiarisé avec le contenu des articles suivants :
  -  [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
  -  [Conditions préalables à l’installation d’un site](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
 
 Si vous installez un site d’administration centrale dans le cadre d’un scénario d’extension de site, lisez la section [Extension d’un site principal autonome](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) avant d’utiliser la procédure suivante.
 
-### <a name="a-namebkmkinstallpria-to-install-a-primary-or-central-administration-site"></a><a name="bkmk_installpri"></a>   Pour installer un site principal ou un site d’administration centrale
+### <a name="a-namebkmkinstallpria---to-install-a-primary-or-central-administration-site"></a><a name="bkmk_installpri"></a>   Pour installer un site principal ou un site d’administration centrale
 
 1.  Sur l’ordinateur sur lequel vous voulez installer le site, exécutez **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** pour démarrer l’**Assistant Installation de System Center Configuration Manager**.  
 
@@ -46,15 +46,15 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
 
 2.  Dans la page **Avant de commencer** , cliquez sur **Suivant**.  
 
-3.  Dans la page **Prise en main**, sélectionnez le type de site à installer :  
+3.  Dans la page **Prise en main**, sélectionnez le type de site à installer :  
 
-     **Site d’administration centrale** : en tant que premier site d’une nouvelle hiérarchie, ou lors du développement d’un site principal autonome :  
+     **Site d’administration centrale** : en tant que premier site d’une nouvelle hiérarchie, ou lors du développement d’un site principal autonome :  
 
     -   Sélectionnez : **Installer un site d’administration centrale Configuration Manager**  
 
          À une étape ultérieure de cette procédure, vous aurez le choix entre installer un site d’administration centrale en tant que premier site d’une nouvelle hiérarchie ou installer un site d’administration centrale par extension d’un site principal autonome.  
 
-     **Site principal** : en tant que site principal autonome constituant le premier site d’une nouvelle hiérarchie, ou en tant que site principal enfant :  
+     **Site principal** : en tant que site principal autonome constituant le premier site d’une nouvelle hiérarchie, ou en tant que site principal enfant :  
 
     -   Sélectionnez : **Installer un site principal Configuration Manager**  
 
@@ -67,13 +67,13 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
         > -   Installe un point de gestion et un point de distribution sur l’ordinateur serveur de site.  
         > -   Configure le site en anglais et avec la langue d’affichage du système d’exploitation du serveur de site principal si elle correspond à l’une des langues que Configuration Manager prend en charge.  
 
-4.  Sur la page **Clé du produit** :
+4.  Sur la page **Clé du produit** :
     - Choisissez d’installer Configuration Manager en tant que version d’évaluation ou version sous licence.  
 
       -   Si vous sélectionnez une version sous licence, entrez votre clé de produit, puis cliquez sur **Suivant**.  
 
       -   Si vous sélectionnez une version d’évaluation, cliquez sur **Suivant**. (Vous pourrez mettre à niveau une installation d’évaluation vers une installation complète par la suite.)  
-    - À partir de la version d’octobre 2016 du support de la base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. Sur cette page, vous avez la possibilité de spécifier la **date d’expiration Software Assurance** de votre contrat de licence en guise de rappel pratique pour vous. Si vous ne l’entrez pas pendant l’installation, vous pouvez la spécifier ultérieurement depuis la console Configuration Manager.
+    - À partir de la version d’octobre 2016 du support de la base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. Sur cette page, vous avez la possibilité de spécifier la **date d’expiration Software Assurance** de votre contrat de licence en guise de rappel pratique pour vous. Si vous ne l’entrez pas pendant l’installation, vous pouvez la spécifier ultérieurement depuis la console Configuration Manager.
 
       >  [!NOTE]   
       >  Microsoft ne valide pas la date d’expiration que vous entrez et ne l’utilise pas pour la validation de la licence.  Vous pouvez ainsi l’utiliser en guise de rappel de votre date d’expiration. Ce rappel s’avère pratique car Configuration Manager vérifie régulièrement les nouvelles mises à jour logicielles proposées en ligne et l’état de votre licence Software Assurance doit être actualisé pour prétendre à l’utilisation de ces mises à jour supplémentaires.    
@@ -102,7 +102,7 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
 
 10. Dans la page **Paramètres d’installation et du site** , spécifiez les éléments suivants pour le nouveau site que vous installez :  
 
-    -   **Code du site** : [Le code de chaque site dans une hiérarchie doit être](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) unique et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Le code du site étant utilisé dans les noms de dossiers, n’utilisez pas les noms suivants pour le site (notamment ceux réservés à Windows) :    
+    -   **Code du site** : [Le code de chaque site dans une hiérarchie doit être](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) unique et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Le code du site étant utilisé dans les noms de dossiers, n’utilisez pas les noms suivants pour le site (notamment ceux réservés à Windows) :    
         -   AUX  
         -   CON    
         -   NUL    
@@ -114,25 +114,25 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
 
     -   **Nom du site** : chaque site doit posséder un nom convivial pour faciliter son identification.  
 
-    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. De plus, le chemin d’accès ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
+    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. De plus, le chemin d’accès ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
 
 11. Dans la page **Installation du site** , utilisez l’option correspondant à votre scénario :  
 
-    -   **J’installe un site d’administration centrale :**  
+    -   **J’installe un site d’administration centrale :**  
 
          Dans la page **Installation du site d’administration centrale** , sélectionnez **Installer en tant que premier site d’une nouvelle hiérarchie**, puis cliquez sur **Suivant** pour continuer.  
 
-    -   **J’étends un site principal autonome en une hiérarchie comportant un site d’administration centrale :**  
+    -   **J’étends un site principal autonome en une hiérarchie comportant un site d’administration centrale :**  
 
          Dans la page **Installation du site d’administration centrale** , sélectionnez **Étendre un site principal autonome existant dans une hiérarchie**, spécifiez le nom de domaine complet (FQDN) du serveur du site principal autonome, puis cliquez sur **Suivant** pour continuer.  
 
          Le support que vous utilisez pour installer le nouveau site d’administration centrale doit correspondre à la version du site principal.  
 
-    -   **J’installe un site principal autonome :**  
+    -   **J’installe un site principal autonome :**  
 
          Dans la page **Installation du site principal** , sélectionnez**Installer le site principal en tant que site autonome**, puis cliquez sur **Suivant**.  
 
-    -   **J’installe un site principal enfant :**  
+    -   **J’installe un site principal enfant :**  
 
          Sur la page **Installation du site principal** , sélectionnez **Joindre le site principal à une hiérarchie existante**, spécifiez le nom de domaine complet pour le site d'administration centrale, puis cliquez sur **Suivant**.  
 
@@ -142,7 +142,7 @@ Si vous installez un site d’administration centrale dans le cadre d’un scén
 
     -   **Nom d’instance** : par défaut, cette valeur est vide, ce qui indique que l’instance par défaut de SQL sur l’ordinateur serveur de site sera utilisée.  
 
-    -   **Nom de base de données** : par défaut, la valeur définie est CM_&lt;codeSite\>. Vous êtes libre de spécifier un autre nom de votre choix.  
+    -   **Nom de base de données** : par défaut, la valeur définie est CM_&lt;codeSite\>. Vous êtes libre de spécifier un autre nom de votre choix.  
 
     -   **Port Service Broker** : la valeur prédéfinie indique d’utiliser le port SQL Server Service Broker (SSB) par défaut (4022), qui permet à SQL de communiquer directement avec des bases de données d’autres sites.  
 
@@ -230,7 +230,7 @@ Quand vous étendez un site principal autonome, vous installez un nouveau site d
 
 -   Pour supprimer un site principal d’une hiérarchie ayant un site d’administration centrale, vous devez le désinstaller.  
 
-Pour étendre le site, utilisez l’Assistant Installation de System Center Configuration Manager pour installer un nouveau site d’administration centrale, en prenant les précautions suivantes :  
+Pour étendre le site, utilisez l’Assistant Installation de System Center Configuration Manager pour installer un nouveau site d’administration centrale, en prenant les précautions suivantes :  
 
 -   Vous devez installer le site d’administration centrale en utilisant la même version de Configuration Manager que celle utilisée pour le site principal autonome.  
 
@@ -328,7 +328,7 @@ Pour étendre un site principal autonome, utilisez la procédure *[Pour installe
 
 7.  Dans la page **Point de distribution** , configurez les paramètres du point de distribution à installer sur le serveur de site secondaire.  
 
-     **Paramètres obligatoires :**  
+     **Paramètres obligatoires :**  
 
     -   **Spécifiez la façon dont les appareils clients communiquent avec le point de distribution** : choisissez HTTP ou HTTPS.  
 
@@ -338,7 +338,7 @@ Pour étendre un site principal autonome, utilisez la procédure *[Pour installe
 
          Pour plus d’informations sur la configuration requise pour les certificats, consultez Configuration requise des certificats PKI pour Configuration Manager.  
 
-    **Paramètres facultatifs :**  
+    **Paramètres facultatifs :**  
 
     -   **Installer et configurer IIS si requis par Configuration Manager** : sélectionnez ce paramètre pour permettre à Configuration Manager d’installer et de configurer Internet Information Services (IIS) sur le serveur si IIS n’est pas installé. Les services Internet doivent être installés sur tous les points de distribution.  
 
@@ -355,7 +355,7 @@ Pour étendre un site principal autonome, utilisez la procédure *[Pour installe
 
      Vous pouvez configurer jusqu’à deux lecteurs de disque pour la bibliothèque de contenu et deux lecteurs de disque pour le partage de package, même si Configuration Manager peut utiliser des lecteurs supplémentaires quand les deux premiers atteignent la réserve d’espace libre configurée sur le lecteur. La page **Paramètres du lecteur** permet de configurer la priorité des lecteurs de disque et la quantité d'espace disque libre restant sur chaque lecteur de disque.  
 
-    -   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
+    -   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
 
     -   **Emplacements du contenu**: Spécifiez les emplacements de contenu pour le partage de bibliothèque et de package de contenu. Configuration Manager copie le contenu à l’emplacement de contenu principal jusqu’à ce que la quantité d’espace libre atteigne la valeur spécifiée dans **Réserve d’espace libre sur le lecteur (Mo)**. Par défaut, les emplacements de contenu sont définis sur **Automatique**; l'emplacement de contenu principal sera défini sur le lecteur de disque qui possède le plus d'espace disque lors de l'installation et l'emplacement secondaire sera affecté au lecteur de disque qui possède la deuxième plus importante quantité d'espace disque libre. Quand le lecteur principal et le lecteur secondaire atteignent la réserve d’espace libre sur le lecteur, Configuration Manager sélectionne le lecteur disponible suivant avec le plus d’espace disque libre et poursuit le processus de copie.  
 
@@ -389,6 +389,6 @@ Pour étendre un site principal autonome, utilisez la procédure *[Pour installe
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

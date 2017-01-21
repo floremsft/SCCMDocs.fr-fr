@@ -1,5 +1,5 @@
 ---
-title: "Mettre à niveau les clients | System Center Configuration Manager"
+title: "Mettre à niveau les clients | Microsoft Docs"
 description: "Obtenez des informations sur la mise à niveau des clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 446c83b5-c292-4e74-ba19-0792ac6b3472
 caps.latest.revision: 8
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1571d31af1e2697c5ecbdc709a3eea9d6e28dbf0
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: c9794b9770e6fa5665af547d6b36559f85ade691
 
 
 ---
 # <a name="upgrade-clients-in-system-center-configuration-manager"></a>Mettre à niveau les clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel client System Center Configuration Manager sur les ordinateurs Windows, les serveurs UNIX et Linux et les ordinateurs Mac de votre entreprise. Les sections ci-dessous présentent les avantages et les inconvénients de chaque méthode de mise à niveau des clients pour vous aider à déterminer celle qui est la mieux adaptée à votre entreprise.  
 
@@ -97,7 +97,7 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
  **Plateforme cliente prise en charge :** Windows  
 
 > [!NOTE]  
->  Vous ne pouvez pas mettre à niveau des clients Configuration Manager 2007 avec cette méthode. Dans ces circonstances, vous pouvez déployer le client Configuration Manager comme un package à partir du site Configuration Manager 2007 ou vous pouvez utiliser la mise à niveau automatique du client, qui crée et déploie automatiquement un package contenant la dernière version du client.  
+>  Vous ne pouvez pas mettre à niveau des clients Configuration Manager 2007 avec cette méthode. Dans ces circonstances, vous pouvez déployer le client Configuration Manager comme un package à partir du site Configuration Manager 2007 ou vous pouvez utiliser la mise à niveau automatique du client, qui crée et déploie automatiquement un package contenant la dernière version du client.  
 
  **Avantages**  
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 ## <a name="automatic-client-upgrade"></a>Mise à niveau automatique du client  
 
 > [!NOTE]  
->  Peut être utilisée pour mettre à niveau les clients Configuration Manager 2007 vers des clients System Center Configuration Manager. Un client Configuration Manager 2007 peut être attribué à un site Configuration Manager, mais ne peut effectuer aucune action en dehors de la mise à niveau automatique du client.  
+>  Peut être utilisée pour mettre à niveau les clients Configuration Manager 2007 vers des clients System Center Configuration Manager. Un client Configuration Manager 2007 peut être attribué à un site Configuration Manager, mais ne peut effectuer aucune action en dehors de la mise à niveau automatique du client.  
 
  **Plateforme cliente prise en charge :** Windows  
 
@@ -153,6 +153,6 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

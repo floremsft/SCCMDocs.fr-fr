@@ -1,5 +1,5 @@
 ---
-title: "Créer un média de capture | System Center Configuration Manager"
+title: "Créer un média de capture | Microsoft Docs"
 description: "Utilisez l’Assistant Création d’un média de séquence de tâches pour créer un média de capture dans Configuration Manager pour capturer une image de système d’exploitation à partir d’un ordinateur de référence."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 604844d073ca3caedbbfc77d76cb3368965980af
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: f948c993099786432b76d1486bbb5eded4ec38eb
 
 
 ---
 # <a name="create-capture-media-with-system-center-configuration-manager"></a>Créer un média de capture avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans Configuration Manager, un média de capture vous permet de capturer une image de système d’exploitation à partir d’un ordinateur de référence. Utilisez un média de capture dans le scénario suivant :  
 
@@ -58,7 +58,7 @@ Vous créez des média de capture à l'aide de l'Assistant Création d'un média
 
     -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
 
-    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
+    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
          Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
 
@@ -83,6 +83,6 @@ Vous créez des média de capture à l'aide de l'Assistant Création d'un média
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

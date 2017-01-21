@@ -1,8 +1,8 @@
 ---
-title: Fichiers journaux | System Center Configuration Manager
+title: Fichiers journaux pour Configuration Manager | Microsoft Docs
 description: "Utilisez des fichiers journaux pour résoudre des problèmes dans une hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/01/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: cb27f2f2a6e0b0e3d6fca2d616d8ab806b74f9df
+ms.sourcegitcommit: f36cdecd96d50bd62892b262024e43d64f7c8205
+ms.openlocfilehash: 5b7afc3e00bc8ee317b8d8c3660808c465758f91
 
 
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Fichiers journaux dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, les composants des clients et des serveurs de site enregistrent les informations sur les processus dans des fichiers journaux individuels. Par défaut, l’enregistrement des composants client et serveur dans le journal est activé dans Configuration Manager. Vous pouvez utiliser les informations contenues dans ces fichiers journaux pour résoudre les problèmes susceptibles de se produit dans votre hiérarchie Configuration Manager.  
 
@@ -70,6 +70,8 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
     -   [Inscription de certificats](#BKMK_CertificateEnrollment)  
 
+    - [Passerelle de gestion cloud](#cloud-management-gateway)
+
     -   [Paramètres de compatibilité et accès aux ressources de l’entreprise](#BKMK_CompSettingsLog)  
 
     -   [Console Configuration Manager](#BKMK_ConsoleLog)  
@@ -106,12 +108,14 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
     -   [Wake On LAN](#BKMK_WOLLog)  
 
+    -   [Maintenance de Windows 10](#BKMK_WindowsServicingLog)
+
     -   [Agent Windows Update](#BKMK_WULog)  
 
     -   [Serveur WSUS](#BKMK_WSUSLog)  
 
 ##  <a name="a-namebkmkaboutlogsa-about-configuration-manager-log-files"></a><a name="BKMK_AboutLogs"></a> À propos des fichiers journaux de Configuration Manager  
- Par défaut, la plupart des processus dans Configuration Manager consignent des informations opérationnelles dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par l'extension **.LOG** ou **.LO_** . Configuration Manager écrit dans le fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .LOG est copié vers un fichier portant le même nom mais avec l'extension .LO_, et le processus ou le composant continue à écrire dans le fichier .LOG. Lorsque le fichier .LOG atteint une nouvelle fois sa taille maximale, le fichier LO_ est remplacé, et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal tout en conservant l'extension .LOG. Une exception à la taille maximale et à l'utilisation du fichier **.LO_** est le client pour Linux et UNIX. Pour plus d'informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez Gérer des fichiers journaux pour le client pour Linux et UNIX dans la section [Client pour Linux et UNIX](#BKMK_LogFilesforLnU) de cette rubrique.  
+ Par défaut, la plupart des processus dans Configuration Manager consignent des informations opérationnelles dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par l'extension **.LOG** ou **.LO_** . Configuration Manager écrit dans le fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .LOG est copié vers un fichier portant le même nom mais avec l'extension .LO_, et le processus ou le composant continue à écrire dans le fichier .LOG. Lorsque le fichier .LOG atteint une nouvelle fois sa taille maximale, le fichier LO_ est remplacé, et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal tout en conservant l'extension .LOG. Une exception à la taille maximale et à l'utilisation du fichier **.LO_** est le client pour Linux et UNIX. Pour plus d'informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez Gérer des fichiers journaux pour le client pour Linux et UNIX dans la section [Client pour Linux et UNIX](#BKMK_LogFilesforLnU) de cette rubrique.  
 
  Pour afficher les journaux, vous pouvez utiliser la visionneuse du journal Configuration Manager, CMTrace, qui se trouve dans le dossier **\SMSSETUP\TOOLS** du support source de Configuration Manager. Il est également ajouté à toutes les images de démarrage ajoutées à la **Bibliothèque de logiciels**.  
 
@@ -152,7 +156,7 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 |Nom du fichier journal|Description|  
 |--------------|-----------------|  
 |CAS.log|Service d'accès au contenu. Conserve le cache du package local sur le client.|  
-|Ccm32BitLauncher.log|Enregistre des actions liées au démarrage des applications sur le client marqué « run as 32bit » (exécuter en 32 bits).|  
+|Ccm32BitLauncher.log|Enregistre des actions liées au démarrage des applications sur le client marqué « run as 32bit » (exécuter en 32 bits).|  
 |CcmEval.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager et des détails sur les composants exigés par le client Configuration Manager.|  
 |CcmEvalTask.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager lancées par la tâche planifiée d’évaluation.|  
 |CcmExec.log|Enregistre les activités du client et du service Hôte d'agent SMS. Ce fichier journal inclut également des informations sur l'activation et la désactivation du proxy de mise en éveil.|  
@@ -170,7 +174,7 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 |CMHttpsReadiness.log|Enregistre les résultats de l’exécution de l’outil d’évaluation d’analyse HTTPS de Configuration Manager. Cet outil vérifie si les ordinateurs disposent d’un certificat d’authentification de client PKI pouvant être utilisé pour Configuration Manager.|  
 |CmRcService.log|Enregistre des informations pour le service de contrôle à distance.|  
 |ContentTransferManager.log|Planifie le service BITS (Background Intelligent Transfer Service) ou le service SMB (Server Message Block) pour leur permettre de télécharger des packages ou d'y accéder.|  
-|DataTransferService.log|Enregistre toutes les communications BITS relatives à l'accès aux stratégies ou aux packages.|  
+|DataTransferService.log|Enregistre toutes les communications BITS relatives à l'accès aux stratégies ou aux packages.|  
 |EndpointProtectionAgent|Enregistre des informations concernant l'installation du client Endpoint Protection et l'application de la stratégie anti-programme malveillant à ce client.|  
 |execmgr.log|Enregistre des détails concernant les packages et les séquences de tâches qui s'exécutent sur le client.|  
 |ExpressionSolver.log|Enregistre des détails concernant les méthodes de détection améliorée utilisées lorsque la journalisation documentée ou de débogage est activée.|  
@@ -236,9 +240,9 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 |scxcm.log|Il s’agit du fichier journal pour le service principal du client Configuration Manager pour Linux et UNIX (ccmexec.bin). Ce fichier journal contient des informations liées à l'installation et aux opérations en cours de ccmexec.bin.<br /><br /> Par défaut, le fichier journal est créé à l'emplacement suivant : **/var/opt/microsoft/scxcm.log**<br /><br /> Pour définir un autre emplacement pour le fichier journal, modifiez **/opt/microsoft/configmgr/etc/scxcm.conf** et changez le champ **PATH** . Il n'est pas nécessaire de redémarrer l'ordinateur ou le service client pour appliquer la modification.<br /><br /> Vous pouvez définir le niveau de journal sur l'un de quatre paramètres différents :|  
 |scxcmprovider.log|Il s’agit du fichier journal pour le service CIM du client Configuration Manager pour Linux et UNIX (omiserver.bin). Ce fichier journal contient les informations liées aux opérations en cours de nwserver.bin.<br /><br /> Par défaut, le fichier journal est créé à l'emplacement suivant : **/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Pour définir un autre emplacement pour le fichier journal, modifiez **/opt/microsoft/omi/etc/scxcmprovider.conf** et changez le champ **PATH** . Il n'est pas nécessaire de redémarrer l'ordinateur ou le service client pour appliquer la modification.<br /><br /> Vous pouvez définir le niveau de journal sur l'un de trois paramètres différents :|  
 
- **Les deux fichiers journaux prennent en charge plusieurs niveaux de journalisation :**  
+ **Les deux fichiers journaux prennent en charge plusieurs niveaux de journalisation :**  
 
--   **scxcm.log** - Pour changer le niveau du journal, modifiez **/opt/microsoft/configmgr/etc/scxcm.conf** et changez chaque instance de la balise **MODULE** pour le niveau de journalisation voulu :  
+-   **scxcm.log** - Pour changer le niveau du journal, modifiez **/opt/microsoft/configmgr/etc/scxcm.conf** et changez chaque instance de la balise **MODULE** pour le niveau de journalisation voulu :  
 
     -   ERROR : indique des problèmes nécessitant votre attention.  
 
@@ -248,7 +252,7 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
     -   TRACE : une journalisation documentée généralement utilisée pour diagnostiquer les problèmes.  
 
--   **scxcmprovider.log** - Pour définir un autre niveau de journal, modifiez **/opt/microsoft/omi/etc/scxcmprovider.conf** et changez chaque instance de la balise **MODULE** pour le niveau de journalisation voulu :  
+-   **scxcmprovider.log** - Pour définir un autre niveau de journal, modifiez **/opt/microsoft/omi/etc/scxcmprovider.conf** et changez chaque instance de la balise **MODULE** pour le niveau de journalisation voulu :  
 
     -   ERROR : indique des problèmes nécessitant votre attention.  
 
@@ -315,7 +319,7 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 |inboxmon.log|Enregistre le traitement des fichiers des boîtes de réception et des mises à jour du compteur de performances.|Serveur de site|  
 |invproc.log|Enregistre le transfert des fichiers MIF d'un site secondaire vers son site parent.|Serveur de site|  
 |migmctrl.log|Enregistre des informations sur les actions de migration qui impliquent des tâches de migration, des points de distribution partagés et des mises à niveau des points de distribution.|Site de niveau supérieur dans la hiérarchie Configuration Manager et chaque site principal enfant<br /><br /> Dans une hiérarchie comportant des sites principaux multiples, utilisez le fichier journal créé sur le site d'administration centrale.|  
-|mpcontrol.log|Enregistre l'inscription du point de gestion dans WINS. Enregistre la disponibilité du point de gestion toutes les dix minutes.|Serveur de système de site|  
+|mpcontrol.log|Enregistre l'inscription du point de gestion dans WINS. Enregistre la disponibilité du point de gestion toutes les dix minutes.|Serveur de système de site|  
 |mpfdm.log|Enregistre les actions du composant du point de gestion qui déplace les fichiers du client vers le dossier Boîtes de réception correspondant sur le serveur de site.|Serveur de système de site|  
 |mpMSI.log|Enregistre des détails sur l'installation du point de gestion.|Serveur de site|  
 |MPSetup.log|Enregistre le processus de wrapper d'installation du point de gestion.|Serveur de site|  
@@ -482,9 +486,9 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 
  En plus des fichiers journaux de Configuration Manager, consultez les journaux des applications Windows dans l’Observateur d’événements sur le serveur exécutant le service d’inscription d’appareils réseau et sur le serveur hébergeant le point d’enregistrement de certificat. Par exemple, recherchez des messages de la source **NetworkDeviceEnrollmentService** . Vous pouvez également utiliser les fichiers journaux suivants :  
 
--   Fichiers journaux IIS pour le service d’inscription d’appareils réseau : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
+-   Fichiers journaux IIS pour le service d’inscription d’appareils réseau : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
 
--   Fichiers journaux IIS pour le point d’inscription du certificat : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
+-   Fichiers journaux IIS pour le point d’inscription du certificat : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
 
 -   Fichier journal de la stratégie d'inscription de périphérique réseau : **mscep.log**  
 
@@ -502,6 +506,15 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 |bgbisapiMSI.log|Enregistre des détails concernant l'installation et la désinstallation du serveur de notification.|Point de gestion|  
 |BgbHttpProxy.log|Enregistre les activités du proxy HTTP de notification lors de la transmission des messages des clients via HTTP depuis et vers le serveur de notification.|Client|  
 |CCMNotificationAgent.log|Enregistre les activités de l'agent de notification, par exemple, la communication client à serveur et des informations concernant les tâches reçues et transmises aux autres agents de client.|Client|  
+
+### <a name="cloud-management-gateway"></a>Passerelle de gestion cloud
+
+Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la passerelle de gestion cloud.
+
+|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|--------------|-----------------|----------------------------|  
+|CloudMgr.log|Enregistre des détails sur le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.|Serveur de système de site|
+|SMS_Cloud_ProxyConnector.log|Enregistre des détails sur la configuration des connexions entre le service de passerelle de gestion cloud et le point de connexion de passerelle de gestion cloud.|Serveur de système de site|
 
 ###  <a name="a-namebkmkcompsettingsloga-compliance-settings-and-company-resource-access"></a><a name="BKMK_CompSettingsLog"></a> Paramètres de compatibilité et accès aux ressources de l’entreprise  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux paramètres de compatibilité et à l'accès aux ressources de l'entreprise.  
@@ -535,6 +548,7 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 |PrestageContent.log|Enregistre des détails sur l'utilisation de l'outil ExtractContent.exe sur un point de distribution préparé distant. Cet outil extrait le contenu qui a été exporté vers un fichier.|Rôle de système de site|  
 |SMSdpmon.log|Enregistre des détails concernant la tâche planifiée de surveillance de l'intégrité du point de distribution configurés sur un point de distribution.|Rôle de système de site|  
 |smsdpprov.log|Enregistre des détails concernant l'extraction des fichiers compressés reçus à partir d'un site principal. Ce journal est généré par le fournisseur WMI du point de distribution distant.|Un ordinateur de point de distribution n'est pas forcément sur le même emplacement que le serveur de site.|  
+
 
 ###  <a name="a-namebkmkdiscoveryloga-discovery"></a><a name="BKMK_DiscoveryLog"></a> Découverte  
 Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la détection.  
@@ -731,11 +745,10 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |Statesys.log|Enregistre le traitement des messages de gestion d'appareil mobile.|Site principal et site d'administration centrale|  
 
 ###  <a name="a-namebkmksunaploga-software-updates"></a><a name="BKMK_SU_NAPLog"></a> Mises à jour logicielles  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux mises à jour logicielles.  De plus, certains détails restent liés à la protection d’accès réseau, fonctionnalité qui n’est plus disponible avec System Center Configuration Manager.  
+ Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux mises à jour logicielles.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
-|ccmcca.log|Enregistre des détails concernant le traitement de l’évaluation de la conformité basée sur le traitement de la stratégie NAP de Configuration Manager et contient le traitement de correction pour chaque mise à jour logicielle nécessaire pour la conformité.|Client|  
 |Ccmperf.log|Enregistre les activités liées à la maintenance et la capture de données relatives aux compteurs de performances du client.|Client|  
 |PatchDownloader.log|Enregistre des détails concernant le processus de téléchargement des mises à jour logicielles vers la destination de téléchargement, sur le serveur de site.|Ordinateur qui héberge la console Configuration Manager à partir de laquelle les téléchargements sont lancés|  
 |PolicyEvaluator.log|Enregistre des détails concernant l'évaluation des stratégies sur les ordinateurs clients, dont les stratégies de mises à jour logicielles.|Client|  
@@ -743,13 +756,6 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |ScanAgent.log|Enregistre des détails concernant les demandes d'analyse pour les mises à jour logicielles, l'emplacement de WSUS et des actions connexes.|Client|  
 |SdmAgent.log|Enregistre des détails sur le suivi de la correction et de la compatibilité. Toutefois, le fichier journal des mises à jour logicielles, Updateshandler.log, fournit plus de détails sur l'installation des mises à jour logicielles requises pour la compatibilité.<br /><br /> Ce fichier journal est partagé avec les paramètres de compatibilité.|Client|  
 |ServiceWindowManager.log|Enregistre des détails concernant l'évaluation des fenêtres de maintenance.|Client|  
-|smssha.log|Il s’agit du fichier journal principal pour le client de protection d’accès réseau de Configuration Manager. Il contient les informations fusionnées de déclaration d’intégrité provenant des deux composants Configuration Manager : services de localisation et agent de conformité de configuration. Ce fichier journal contient également des informations sur les interactions entre l'Agent d'intégrité système de Configuration Manager et l'agent NAP du système d'exploitation, ainsi qu'entre l'Agent d'intégrité système de Configuration Manager et à la fois l'agent de conformité de la configuration et les services d'emplacement. Il fournit des informations sur la réussite ou l'échec de l'initialisation de l'agent NAP, la déclaration des données d'intégrité et la déclaration de la réponse d'intégrité.|Client|  
-|Smsshv.log|Il s'agit du fichier journal principal du point du programme de validation d'intégrité système. Il enregistre les opérations de base du programme de validation d'intégrité système, telles que la progression de l'initialisation.|Serveur de système de site|  
-|Smsshvadcacheclient.log|Enregistre des détails concernant la récupération de références d’état d’intégrité de Configuration Manager à partir des services de domaine Active Directory.|Serveur de système de site|  
-|SmsSHVCacheStore.log|Enregistre des détails concernant le stockage de cache utilisé pour contenir les références d’état d’intégrité NAP de Configuration Manager récupérées à partir des services de domaine Active Directory, par exemple la lecture dans le stockage et le vidage des entrées du fichier de stockage de cache local. Le stockage de cache n'est pas configurable.|Serveur de système de site|  
-|smsSHVQuarValidator.log|Enregistre les informations de déclaration d'intégrité du client et les opérations de traitement. Pour obtenir des informations complètes, remplacez la valeur 1 de la clé de Registre **LogLevel** par 0 dans l’emplacement suivant : **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMSSHV\Logging\\@GLOBAL**|Serveur de système de site|  
-|smsshvregistrysettings.log|Enregistre toutes les modifications dynamiques dans la configuration du composant du programme de validation d'intégrité système pendant l'exécution du service.|Serveur de système de site|  
-|SMSSHVSetup.log|Enregistre la réussite ou l'échec (avec le motif de l'échec) de l'installation du point du programme de validation d'intégrité système.|Serveur de système de site|  
 |SmsWusHandler.log|Enregistre des détails concernant le processus d'analyse pour l'outil d'inventaire de Microsoft Updates.|Client|  
 |StateMessage.log|Enregistre des détails sur les messages d'état des mises à jour logicielles créés et envoyés au point de gestion.|Client|  
 |SUPSetup.log|Enregistre des détails concernant l'installation du point de mise à jour logicielle. Lorsque l'installation d'un point de mise à jour logicielle se termine, la mention **Installation was successful** est consignée dans ce fichier journal.|Serveur de système de site|  
@@ -772,6 +778,31 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |wolcmgr.log|Enregistre des détails concernant les clients auxquels des paquets de mise en éveil doivent être envoyés, le nombre de paquets de mise en éveil envoyés et le nombre de nouvelles tentatives.|Serveur de site|  
 |wolmgr.log|Enregistre des détails concernant les procédures de mise en éveil, notamment le moment opportun pour déclencher le réveil des déploiements configurés pour Wake On LAN.|Serveur de site|  
 
+###  <a name="a-namebkmkwindowsservicinglogawindows-10-servicing"></a><a name="BKMK_WindowsServicingLog"></a>Maintenance de Windows 10  
+ Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la maintenance de Windows 10.  
+
+|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|--------------|-----------------|----------------------------|  
+|Ccmperf.log|Enregistre les activités liées à la maintenance et la capture de données relatives aux compteurs de performances du client.|Client|  
+|CcmRepair.log|Enregistre les activités de réparation de l'agent du client.|Client|
+|PatchDownloader.log|Enregistre des détails concernant le processus de téléchargement des mises à jour logicielles vers la destination de téléchargement, sur le serveur de site.|Ordinateur qui héberge la console Configuration Manager à partir de laquelle les téléchargements sont lancés|  
+|PolicyEvaluator.log|Enregistre des détails concernant l'évaluation des stratégies sur les ordinateurs clients, dont les stratégies de mises à jour logicielles.|Client|  
+|RebootCoordinator.log|Enregistre des détails concernant la coordination des redémarrages du système sur des ordinateurs clients après l'installation de mises à jour logicielles.|Client|  
+|ScanAgent.log|Enregistre des détails concernant les demandes d'analyse pour les mises à jour logicielles, l'emplacement de WSUS et des actions connexes.|Client|  
+|SdmAgent.log|Enregistre des détails sur le suivi de la correction et de la compatibilité. Toutefois, le fichier journal des mises à jour logicielles, Updateshandler.log, fournit plus de détails sur l'installation des mises à jour logicielles requises pour la compatibilité.<br /><br /> Ce fichier journal est partagé avec les paramètres de compatibilité.|Client|  
+|ServiceWindowManager.log|Enregistre des détails concernant l'évaluation des fenêtres de maintenance.|Client|  
+|setupact.log|Fichier journal principal pour la plupart des erreurs qui se produisent pendant le processus d’installation de Windows. Le fichier journal se trouve dans le dossier *%windir%\$Windows.~BT\sources\panther*.|Client|
+|SmsWusHandler.log|Enregistre des détails concernant le processus d'analyse pour l'outil d'inventaire de Microsoft Updates.|Client|  
+|StateMessage.log|Enregistre des détails sur les messages d'état des mises à jour logicielles créés et envoyés au point de gestion.|Client|  
+|SUPSetup.log|Enregistre des détails concernant l'installation du point de mise à jour logicielle. Lorsque l'installation d'un point de mise à jour logicielle se termine, la mention **Installation was successful** est consignée dans ce fichier journal.|Serveur de système de site|  
+|UpdatesDeployment.log|Enregistre des détails concernant les déploiements sur le client, y compris l'activation, l'évaluation et l'application des mises à jour logicielles. La journalisation documentée contient des informations supplémentaires sur l'interaction avec l'interface utilisateur du client.|Client|  
+|UpdatesHandler.log|Enregistre des détails concernant l'analyse de la compatibilité des mises à jour logicielles, ainsi que le téléchargement et l'installation des mises à jour logicielles sur le client.|Client|  
+|UpdatesStore.log|Enregistre des détails concernant l'état de compatibilité des mises à jour logicielles qui ont été évaluées au cours du cycle d'analyse de la compatibilité.|Client|  
+|WCM.log|Enregistre des détails concernant les configurations du point de mise à jour logicielle et les connexions au serveur WSUS (Windows Server Update Services) pour les catégories, les classifications et les langues des mises à jour souscrites.|Serveur de site|  
+|WSUSCtrl.log|Enregistre des détails concernant la configuration, la connectivité de la base de données et l'intégrité du serveur WSUS du site.|Serveur de système de site|  
+|wsyncmgr.log|Enregistre des détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de site|  
+|WUAHandler.log|Enregistre des détails concernant l'agent Windows Update sur le client, lors de la recherche des mises à jour logicielles.|Client|  
+
 ###  <a name="a-namebkmkwuloga-windows-update-agent"></a><a name="BKMK_WULog"></a> Agent Windows Update  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l'agent Windows Update.  
 
@@ -789,6 +820,6 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

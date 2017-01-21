@@ -1,5 +1,5 @@
 ---
-title: "Utiliser les fenêtres de maintenance | System Center Configuration Manager"
+title: "Utiliser des fenêtres de maintenance | Microsoft Docs"
 description: "Utilisez les regroupements et les fenêtres de maintenance pour gérer efficacement les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,18 +17,18 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c29d8a1bc0d224113a1c906893308d5582894a01
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: e59953f41422ee8f79ca054b5ccaccf41bb4e7af
 
 
 ---
 # <a name="how-to-use-maintenance-windows-in-system-center-configuration-manager"></a>Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les fenêtres de maintenance dans System Center Configuration Manager permettent aux utilisateurs administratifs de définir une période pendant laquelle diverses opérations Configuration Manager peuvent être effectuées sur les membres d’un regroupement d’appareils. Vous pouvez utiliser les fenêtres de maintenance afin de vous assurer que les modifications apportées à la configuration client seront effectuées pendant des périodes qui n'affectent pas la productivité de l'organisation.  
 
- Les opérations Configuration Manager suivantes prennent en charge les fenêtres de maintenance :  
+ Les opérations Configuration Manager suivantes prennent en charge les fenêtres de maintenance :  
 
 -   Déploiements de logiciels  
 
@@ -80,6 +80,6 @@ Les fenêtres de maintenance dans System Center Configuration Manager permettent
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

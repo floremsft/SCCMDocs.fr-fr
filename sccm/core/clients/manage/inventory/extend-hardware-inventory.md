@@ -1,5 +1,5 @@
 ---
-title: "Étendre l’inventaire matériel | System Center Configuration Manager"
+title: "Étendre l’inventaire matériel | Microsoft Docs"
 description: "Découvrez différentes façons d’étendre l’inventaire matériel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,27 +17,27 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: 4a42e266c4152145a4a1c291804ff98934671692
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: cf325aec385f570b297f753f37c2c39abe93154f
 
 
 ---
 # <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Comment étendre l’inventaire matériel dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 L’inventaire matériel System Center Configuration Manager lit les informations concernant les appareils sur les PC Windows en utilisant WMI (Windows Management Instrumentation). WMI est l'implémentation Microsoft de WBEM (Web-based Enterprise Management) qui est une norme sectorielle pour l'accès aux informations de gestion dans un environnement d'entreprise. Dans les versions précédentes de Configuration Manager, vous pouviez étendre l'inventaire matériel en modifiant le fichier sms_def.mof fichier sur le serveur de site. Ce fichier contenait une liste de classes WMI qui pouvaient être lues par l’inventaire matériel de Configuration Manager. En modifiant ce fichier, vous pouviez activer et désactiver les classes existantes et également créer des classes à inventorier.  
 
- Le fichier Configuration.mof permet de définir les classes de données qui doivent faire l’objet d’un inventaire matériel sur le client. Il n’a pas été modifié depuis Configuration Manager 2012. Vous pouvez créer des classes de données pour inventorier les classes de données de référentiel WMI existantes ou personnalisées ou les clés de Registre présentes sur les systèmes clients.  
+ Le fichier Configuration.mof permet de définir les classes de données qui doivent faire l’objet d’un inventaire matériel sur le client. Il n’a pas été modifié depuis Configuration Manager 2012. Vous pouvez créer des classes de données pour inventorier les classes de données de référentiel WMI existantes ou personnalisées ou les clés de Registre présentes sur les systèmes clients.  
 
  Le fichier Configuration.mof définit également et inscrit les fournisseurs WMI d'accéder aux informations de périphérique durant l'inventaire matériel. L'enregistrement des fournisseurs définit le type de fournisseur à utiliser et les classes prises en charge par le fournisseur.  
 
  Quand les clients Configuration Manager demandent une stratégie, par exemple, pendant leur intervalle d’interrogation standard de stratégie client, le fichier Configuration.mof est joint au corps de la stratégie. Ce fichier est ensuite téléchargé et compilé par les clients. Lorsque vous ajoutez, modifiez ou supprimez des classes de données à partir du fichier Configuration.mof, les clients compilent automatiquement ces modifications sont apportées aux classes de données liées au stock. Aucune autre action n’est requise pour inventorier les classes de données nouvelles ou modifiées sur les clients Configuration Manager. Ce fichier se trouve dans **<emplacement_installation_CM\>\Inboxes\clifiles.src\hinv\\\** sur les serveurs de site principal.  
 
- Dans Configuration Manager, le fichier sms_def.mof n’a plus besoin d’être modifié comme c’était le cas dans Configuration Manager 2007. Au lieu de cela, vous pouvez activer et désactiver des classes WMI, et ajouter de nouvelles classes que l’inventaire matériel collectera, à l’aide des paramètres client. Configuration Manager permet d’étendre l’inventaire matériel à l’aide des méthodes ci-dessous.  
+ Dans Configuration Manager, le fichier sms_def.mof n’a plus besoin d’être modifié comme c’était le cas dans Configuration Manager 2007. Au lieu de cela, vous pouvez activer et désactiver des classes WMI, et ajouter de nouvelles classes que l’inventaire matériel collectera, à l’aide des paramètres client. Configuration Manager permet d’étendre l’inventaire matériel à l’aide des méthodes ci-dessous.  
 
 > [!NOTE]  
->  Si vous avez modifié manuellement le fichier Configuration.mof pour ajouter des classes d’inventaire personnalisées, ces modifications sont remplacées quand vous effectuez la mise à jour vers la version 1602. Pour continuer à utiliser des classes personnalisées après la mise à jour, vous devez les ajouter à la section « Added extensions » du fichier Configuration.mof après la mise à jour vers 1602.  
+>  Si vous avez modifié manuellement le fichier Configuration.mof pour ajouter des classes d’inventaire personnalisées, ces modifications sont remplacées quand vous effectuez la mise à jour vers la version 1602. Pour continuer à utiliser des classes personnalisées après la mise à jour, vous devez les ajouter à la section « Added extensions » du fichier Configuration.mof après la mise à jour vers 1602.  
 > En revanche, vous ne devez rien modifier au-dessus de cette section, car la modification de ces sections est réservée à Configuration Manager. Une sauvegarde de votre fichier Configuration.mof personnalisé se trouve dans :  
 > **<répertoire_installation_CM\>\data\hinvarchive\\**.  
 
@@ -104,9 +104,9 @@ L’inventaire matériel System Center Configuration Manager lit les information
 
 12. Si vous souhaitez modifier les informations sur la classe WMI sélectionnée, cliquez sur **Modifier**et dans la boîte de dialogue **Qualificatifs de classe** , fournissez les informations suivantes :  
 
-    -   **Nom complet** : permet d’indiquer un nom convivial pour la classe qui s’affiche dans l’Explorateur de ressources.  
+    -   **Nom complet** : permet d’indiquer un nom convivial pour la classe qui s’affiche dans l’Explorateur de ressources.  
 
-    -   **Propriétés** : définissez l’unité dans laquelle s’affiche chaque propriété de la classe WMI.  
+    -   **Propriétés** : définissez l’unité dans laquelle s’affiche chaque propriété de la classe WMI.  
 
      Vous pouvez également désigner des propriétés comme propriété de clé pour identifier de façon unique chaque instance de la classe. Si aucune clé n'est définie pour la classe et que plusieurs instances de la classe sont signalées par le client, seule la dernière instance trouvée est stockée dans la base de données.  
 
@@ -163,7 +163,7 @@ L’inventaire matériel System Center Configuration Manager lit les information
 8.  Dans la boîte de dialogue **Exporter** , spécifiez le fichier MOF (Managed Object Format) vers lequel vous voulez exporter les classes, puis cliquez sur **Enregistrer**.  
 
 ## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Comment utiliser les fichiers MIF (Management Information Format) pour étendre l’inventaire matériel  
- Utilisez des fichiers MIF (Management Information Format) pour étendre les informations d’inventaire matériel recueillies auprès des clients par Configuration Manager. Au cours de l'inventaire matériel, les informations stockées dans les fichiers MIF sont ajoutées au rapport d'inventaire du client et stockées dans la base de données de site. Vous pourrez utiliser les données depuis cet emplacement de la même manière que vous utilisez les données d'inventaire du client par défaut. Il existe deux types de fichiers MIF, NOIDMIF et IDMIF. 
+ Utilisez des fichiers MIF (Management Information Format) pour étendre les informations d’inventaire matériel recueillies auprès des clients par Configuration Manager. Au cours de l'inventaire matériel, les informations stockées dans les fichiers MIF sont ajoutées au rapport d'inventaire du client et stockées dans la base de données de site. Vous pourrez utiliser les données depuis cet emplacement de la même manière que vous utilisez les données d'inventaire du client par défaut. Il existe deux types de fichiers MIF, NOIDMIF et IDMIF.
 
 > [!IMPORTANT]  
 >  Avant d’ajouter les informations de fichiers MIF à la base de données Configuration Manager, vous devez créer ou importer des informations de classe pour eux. Pour plus d’informations, consultez les sections [Pour ajouter une nouvelle classe d'inventaire](#BKMK_Add) et [Pour importer des classes d'inventaire matériel](#BKMK_Import) de cette rubrique.  
@@ -181,11 +181,11 @@ L’inventaire matériel System Center Configuration Manager lit les information
 
  Après avoir créé un fichier IDMIF, stockez-le dans le dossier *%windir%***\System32\CCM\Inventory\Idmifs** dossier sur les ordinateurs clients. Configuration Manager collecte les informations de ce fichier lors du prochain cycle d’inventaire matériel planifié. Vous devez déclarer de nouvelles classes pour les informations contenues dans le fichier en les ajoutant ou en les important.  
 
-> [!NOTE] 
+> [!NOTE]
 > Les fichiers MIF peuvent contenir de grandes quantités de données et le regroupement de ces données pourrait affecter négativement les performances de votre site. Activez la collecte de fichiers MIF uniquement quand cela est nécessaire et configurez l’option **Taille maximale du fichier MIF personnalisé (Ko)** dans les paramètres d’inventaire matériel. Pour plus d’informations, consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](introduction-to-hardware-inventory.md).
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

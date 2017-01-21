@@ -1,5 +1,5 @@
 ---
-title: "Opérations et maintenance pour les requêtes | System Center Configuration Manager"
+title: "Opérations et maintenance pour les requêtes | Microsoft Docs"
 description: "Découvrez une liste de rubriques sur les requêtes dans System Center Configuration Manager. Le thème central est la maintenance et les opérations."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3720aec5b831585e6399de129f1f138218766ebf
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 82648626882ddd23db0e40cfb18621a5953a1786
 
 
 ---
 # <a name="operations-and-maintenance-for-queries-in-system-center-configuration-manager"></a>Opérations et maintenance pour les requêtes dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Consultez les rubriques de cette section pour en savoir plus sur les opérations et la maintenance en matière de requêtes dans System Center Configuration Manager.  
 
@@ -39,6 +39,6 @@ Consultez les rubriques de cette section pour en savoir plus sur les opérations
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

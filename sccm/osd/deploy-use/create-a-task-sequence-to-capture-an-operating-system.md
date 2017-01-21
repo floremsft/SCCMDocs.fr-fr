@@ -1,5 +1,5 @@
 ---
-title: "Créer une séquence de tâches pour capturer un système d’exploitation | Configuration Manager"
+title: "Créer une séquence de tâches pour capturer un système d’exploitation | Microsoft Docs"
 description: "Une séquence de tâches de création et de capture génère un ordinateur de référence qui peut inclure des pilotes et des mises à jour logicielles spécifiques en même temps que le système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 12ea958e18a291a1b88e342b204e633d3bdf869f
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: e9320e40b8e5031ffa3da5e5149c7da718cc87d5
 
 
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer un système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Quand vous utilisez une séquence de tâches pour déployer un système d’exploitation sur un ordinateur dans System Center Configuration Manager, l’ordinateur installe l’image du système d’exploitation que vous spécifiez dans la séquence de tâches. Pour personnaliser l’image de système d’exploitation pour qu’elle comporte entre autres des pilotes, applications ou mises à jour logicielles spécifiques, vous utilisez une séquence de tâches de création et de capture pour créer un ordinateur de référence, puis vous capturez l’image du système d’exploitation à partir de cet ordinateur de référence. Si vous avez déjà un ordinateur de référence disponible pour la capture, vous pouvez créer une séquence de tâches pour capturer le système d’exploitation. Utilisez les sections suivantes pour capturer un système d’exploitation personnalisé.  
 
@@ -84,7 +84,7 @@ Quand vous utilisez une séquence de tâches pour déployer un système d’expl
 
     -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement du système d'exploitation.  
 
-        -   **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge** : spécifiez s’il faut que Configuration Manager crée un mot de passe aléatoire pour le compte administrateur local et désactive le compte quand le système d’exploitation est déployé.  
+        -   **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge** : spécifiez s’il faut que Configuration Manager crée un mot de passe aléatoire pour le compte administrateur local et désactive le compte quand le système d’exploitation est déployé.  
 
         -   **Activer le compte et spécifier le mot de passe administrateur local**: spécifiez si le même mot de passe est utilisé pour le compte d’administrateur local sur tous les ordinateurs où est déployé le système d’exploitation.  
 
@@ -114,7 +114,7 @@ Quand vous utilisez une séquence de tâches pour déployer un système d’expl
 
 11. Sur la page **Préparation du système** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Package** : spécifiez le package Configuration Manager qui contient la version appropriée de Sysprep à utiliser pour capturer les paramètres de l’ordinateur de référence.  
+    -   **Package** : spécifiez le package Configuration Manager qui contient la version appropriée de Sysprep à utiliser pour capturer les paramètres de l’ordinateur de référence.  
 
          Si la version du système d'exploitation que vous utilisez est Windows Vista ou version ultérieure, Sysprep est automatiquement installé sur l'ordinateur et il n'est pas nécessaire de spécifier de package.  
 
@@ -235,6 +235,6 @@ Quand vous utilisez une séquence de tâches pour déployer un système d’expl
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

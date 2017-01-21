@@ -1,5 +1,5 @@
 ---
-title: Modules linguistiques | System Center Configuration Manager
+title: Modules linguistiques | Microsoft Docs
 description: "Découvrez la prise en charge linguistique disponible dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f44ea59b86ace05e6d495aa4311d01518097daf7
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 35d1008752a3275febef46b8817e97afdb91d580
 
 
 ---
 # <a name="language-packs-in-system-center-configuration-manager"></a>Modules linguistiques dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique fournit des détails techniques sur la prise en charge linguistique dans System Center Configuration Manager.  
 
@@ -96,6 +96,6 @@ Vous pouvez utiliser un inventaire matériel pour collecter ces informations, pu
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

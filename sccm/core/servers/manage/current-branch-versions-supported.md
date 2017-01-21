@@ -1,5 +1,5 @@
 ---
-title: Versions Current Branch | System Center Configuration Manager
+title: Versions Current Branch | Microsoft Docs
 description: "Passez en revue l’historique des versions de System Center Configuration Manager et découvrez les phases de service proposées."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,22 +17,22 @@ ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 2308e1f8bde4a93329dfe6ce96d781fcac1b495a
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: fecbdfa9ad99ca36f419cdda19a14b58f9f2b316
 
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Prise en charge des versions Current Branch de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Microsoft prévoit de publier des mises à jour de la version Current Branch de System Center Configuration Manager plusieurs fois par an, chaque version de mise à jour étant prise en charge douze (12) mois à partir de sa date de publication pour disponibilité générale. Un support technique est assuré sur la totalité de cette période de douze (12) mois. Toutefois, notre structure de prise en charge est désormais dynamique et évolue en deux phases de maintenance distinctes qui dépendent de la disponibilité de la dernière version Current Branch.  
 
--   Phase de maintenance Mises à jour de sécurité et mises à jour critiques : lorsque vous exécutez la dernière version Current Branch de Configuration Manager, vous recevez des mises à jour de sécurité et des mises à jour critiques.  
+-   Phase de maintenance Mises à jour de sécurité et mises à jour critiques : lorsque vous exécutez la dernière version Current Branch de Configuration Manager, vous recevez des mises à jour de sécurité et des mises à jour critiques.  
 
--   Phase de maintenance Mises à jour de sécurité (uniquement) : après la publication d’une nouvelle version Current Branch, la prise en charge des branches antérieures est réduite aux mises à jour de sécurité uniquement pour le reste de la politique de support de douze (12) mois (illustré à la figure 1).  
+-   Phase de maintenance Mises à jour de sécurité (uniquement) : après la publication d’une nouvelle version Current Branch, la prise en charge des branches antérieures est réduite aux mises à jour de sécurité uniquement pour le reste de la politique de support de douze (12) mois (illustré à la figure 1).  
 
  ![CM&#95;Servicing&#95;support&#95;timeline](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
-Figure 1. Exemple de prise en charge de la maintenance de Current Branch.
+Figure 1. Exemple de prise en charge de la maintenance de Current Branch.
 
 > [!NOTE]  
 >  La dernière version Current Branch est toujours en phase de maintenance Mises à jour de sécurité et mises à jour critiques. Cela signifie que si vous rencontrez une erreur de code qui nécessite une mise à jour critique, vous devez avoir la dernière version Current Branch afin de recevoir un correctif. Toutes les autres versions Current Branch prises en charge seront autorisées à recevoir uniquement les mises à jour de sécurité. Tout support se termine après l’expiration de la politique de support de douze (12) mois des versions Current Branch. À ce stade, les clients doivent effectuer une mise à jour vers une version Current Branch prise en charge.  
@@ -44,9 +44,12 @@ Figure 1. Exemple de prise en charge de la maintenance de Current Branch.
 |1511|08/12/2015|12/8/2016|  
 |1602|11/03/2016|3/11/2017|
 |1606|7/22/2016|7/22/2017|
+|1610|11/18/2016|11/18/2017|
+
+Pour plus d’informations sur les numéros de version et la disponibilité sous forme de mise à jour dans la console ou d’une ligne de base, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer une séquence de tâches pour capturer et restaurer l’état utilisateur | Configuration Manager"
+title: "Créer une séquence de tâches pour capturer et restaurer l’état utilisateur | Microsoft Docs"
 description: "Utilisez des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4b3a3bf206dc273eabf88c680ca00688b6183115
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: fdfbdd1acb1190ca7de9cff2b4b7f916d8dc1272
 
 
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. En fonction du type de séquence de tâches que vous créez, les étapes de capture et de restauration peuvent être ajoutées automatiquement dans le cadre de la séquence de tâches. Dans d’autres scénarios, vous devrez peut-être ajouter manuellement les étapes de capture et de restauration à la séquence de tâches. Cette rubrique fournit les étapes que vous devez ajouter à une séquence de tâches existante pour capturer et restaurer des données d’état utilisateur.  
 
@@ -172,6 +172,6 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

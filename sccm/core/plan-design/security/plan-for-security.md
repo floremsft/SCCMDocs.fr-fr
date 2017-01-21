@@ -1,5 +1,5 @@
 ---
-title: "Planifier la sécurité dans System Center Configuration Manager"
+title: "Planifier la sécurité dans System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les bonnes pratiques et d’autres informations relatives à la sécurité dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f38d7275a39d16f9e6cf90334a46668fcc860bc1
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: dc78ecb308d385c04d821f51fc14650b306b5108
 
 
 ---
 # <a name="plan-for-security-in-system-center-configuration-manager"></a>Planifier la sécurité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Aidez-vous des informations contenues dans cette rubrique pour planifier la sécurité dans System Center Configuration Manager.  
 
@@ -79,7 +79,7 @@ Si les ordinateurs utilisent la vérification de la révocation des certificats 
 
 Le fait de vérifier la liste de révocation des certificats chaque fois qu'un certificat est utilisé offre un niveau de sécurité supérieur par rapport à l'utilisation d'un certificat qui a été révoqué, mais ajoute un délai de connexion et de traitement sur le client. Vous êtes plus susceptible de demander cette vérification de sécurité supplémentaire lorsque les clients sont sur Internet ou sur un réseau non approuvé.  
 
-Avec l’aide des administrateurs de votre infrastructure PKI, déterminez si les clients Configuration Manager doivent ou non vérifier la liste de révocation des certificats. Envisagez de laisser cette option activée dans Configuration Manager si les deux conditions suivantes sont réunies :  
+Avec l’aide des administrateurs de votre infrastructure PKI, déterminez si les clients Configuration Manager doivent ou non vérifier la liste de révocation des certificats. Envisagez de laisser cette option activée dans Configuration Manager si les deux conditions suivantes sont réunies :  
 
 -   Votre infrastructure PKI prend en charge une liste de révocation des certificats, et cette liste est publiée à un emplacement accessible par tous les clients Configuration Manager. N'oubliez pas que cela peut inclure des clients sur Internet si vous utilisez la gestion des clients basés sur Internet et les clients situés dans des forêts non approuvées.  
 
@@ -99,7 +99,7 @@ Si vous devez importer des certificats d’autorité de certification racine pou
 
 Si l'un des certificats d'autorité de certification racine que vous importez est renouvelé, vous devez importer les certificats renouvelés.  
 
-Ces certificats d’autorité de certification racine importés et le certificat d’autorité de certification racine de chaque point de gestion créent la liste des émetteurs de certificats que les ordinateurs Configuration Manager utilisent de la manière suivante :  
+Ces certificats d’autorité de certification racine importés et le certificat d’autorité de certification racine de chaque point de gestion créent la liste des émetteurs de certificats que les ordinateurs Configuration Manager utilisent de la manière suivante :  
 
 -   Quand un client se connecte à un point de gestion, le point de gestion vérifie que le certificat client est lié à un certificat racine approuvé dans la liste des émetteurs de certificats du site. Dans le cas contraire, le certificat est rejeté et la connexion PKI échoue.  
 
@@ -113,13 +113,13 @@ Indépendamment de la configuration du site, vous pouvez également être amené
 > [!NOTE]  
 >  Tous les appareils ne prennent pas en charge une méthode de sélection du certificat. Ils sélectionnent plutôt automatiquement le premier certificat qui répond à la configuration requise des certificats. Par exemple, les clients sur les ordinateurs Mac et les appareils mobiles ne prennent pas en charge une méthode de sélection du certificat.  
 
-Dans de nombreux cas, la configuration par défaut et le comportement seront suffisants. Le client Configuration Manager sur les ordinateurs Windows filtre plusieurs certificats selon les critères suivants :  
+Dans de nombreux cas, la configuration par défaut et le comportement seront suffisants. Le client Configuration Manager sur les ordinateurs Windows filtre plusieurs certificats selon les critères suivants :  
 
 1.  La liste des émetteurs de certificats : le certificat est lié à une autorité de certification racine qui est approuvée par le point de gestion.  
 
 2.  Le certificat se trouve dans le magasin de certificats par défaut de **Personnel**.  
 
-3.  Le certificat est valide, non révoqué, et n'a pas expiré. La vérification de la validité consiste à vérifier que la clé privée est accessible et que le certificat n’est pas créé à partir d’un modèle de certificat version 3, qui n’est pas compatible avec Configuration Manager.  
+3.  Le certificat est valide, non révoqué, et n'a pas expiré. La vérification de la validité consiste à vérifier que la clé privée est accessible et que le certificat n’est pas créé à partir d’un modèle de certificat version 3, qui n’est pas compatible avec Configuration Manager.  
 
 4.  Le certificat dispose d'une fonctionnalité d'authentification client ou il est émis vers le nom d'ordinateur.  
 
@@ -190,7 +190,7 @@ Les options et choix de configuration sont multiples dans Configuration Manager.
 
 2.  Configurez l'onglet **Communication de l'ordinateur client** dans les propriétés du site, de sorte que les **Paramètres du système de site** soient **HTTP ou HTTPS**et cochez la case **Utiliser le certificat client PKI (fonctionnalité d'authentification client) si possible** . Configurez tous les autres paramètres dont vous avez besoin à partir de cet onglet. Pour plus d’informations, consultez la section [Configurer les paramètres des certificats clients PKI](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureClientPKI) dans la rubrique [Configurer la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/configure-security.md).  
 
-3.  Pilotez un déploiement PKI pour les certificats clients. Pour obtenir un exemple de déploiement, consultez la section *Déploiement du certificat client sur les ordinateurs Windows* dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+3.  Pilotez un déploiement PKI pour les certificats clients. Pour obtenir un exemple de déploiement, consultez la section *Déploiement du certificat client sur les ordinateurs Windows* dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
 4.  Installez des clients à l'aide de la méthode d'installation poussée du client. Pour plus d’informations, consultez la section [Installer des clients Configuration Manager à l’aide de l’installation Push du client](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush) dans la rubrique [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
@@ -212,7 +212,7 @@ Les options et choix de configuration sont multiples dans Configuration Manager.
 
 7.  Lorsque vous êtes certain qu'un nombre suffisant de clients utilisent avec succès leur certificat client PKI pour l'authentification sur HTTP, procédez comme suit :  
 
-    1.  Déployez un certificat de serveur Web PKI sur un serveur de membre qui exécutera un point de gestion supplémentaire pour le site et configurez ce certificat dans IIS. Pour plus d’informations, consultez la section *Déploiement du certificat de serveur web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+    1.  Déployez un certificat de serveur Web PKI sur un serveur de membre qui exécutera un point de gestion supplémentaire pour le site et configurez ce certificat dans IIS. Pour plus d’informations, consultez la section *Déploiement du certificat de serveur web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
     2.  Installez le rôle de point de gestion sur ce serveur et configurez l'option **Connexions clients** dans les propriétés du point de gestion pour **HTTPS**.  
 
@@ -242,7 +242,7 @@ Les clients peuvent récupérer automatiquement la copie publique de la clé rac
 
 Si les clients ne peuvent pas récupérer la clé racine approuvée selon l'un de ces mécanismes, ils font confiance à la clé racine approuvée qui est fournie par le premier point de gestion avec lequel ils communiquent. Dans ce scénario, un client peut être redirigé vers le point de gestion d’un pirate informatique où il recevrait la stratégie à partir du point de gestion non autorisé. Cela ne peut être que l'œuvre d'un pirate chevronné et ne peut se produire qu'au cours d'une période limitée, avant que le client ne récupère la clé racine approuvée à partir d'un point de gestion valide. Toutefois, pour réduire le risque d'un acte de piraterie consistant à réacheminer les clients vers un point de gestion factice, mettez en service anticipé la clé racine approuvée sur les clients.  
 
-Pour préconfigurer et vérifier la clé racine approuvée pour un client Configuration Manager, procédez comme suit :  
+Pour préconfigurer et vérifier la clé racine approuvée pour un client Configuration Manager, procédez comme suit :  
 
 -   Mettez en service anticipé un client à l'aide de la clé racine approuvée avec un fichier.  
 
@@ -315,6 +315,6 @@ Vous pouvez supprimer la clé racine approuvée d'un client à l'aide de la prop
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

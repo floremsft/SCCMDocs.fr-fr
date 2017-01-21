@@ -1,5 +1,5 @@
 ---
-title: "Désinstaller des sites | System Center Configuration Manager"
+title: "Désinstaller des sites | Microsoft Docs"
 description: "Utilisez ces informations comme référence lorsque quand vous devez désinstaller un site System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: db203f6b8b76df28b2cd03f5ebd931c520294ba6
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: f41e70c98c4b2ede575debb868978afa3dad1abc
 
 
 ---
 # <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Désinstaller des sites et des hiérarchies dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les informations suivantes comme référence quand vous devez désinstaller un site System Center Configuration Manager.  
 
@@ -106,7 +106,7 @@ Pour désinstaller un site principal, suivez les instructions ci-dessous.
 
     -   Nom d'utilisateur associé au rôle de sécurité Administrateur d'infrastructure ou le rôle Administrateur complet sur le site d'administration centrale  
 
-2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site principal en utilisant l’une des méthodes suivantes :  
+2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site principal en utilisant l’une des méthodes suivantes :  
 
     -   Dans le menu **Démarrer**, cliquez sur **Installation de Configuration Manager**.  
 
@@ -152,7 +152,7 @@ Pour désinstaller un site principal, suivez les instructions ci-dessous.
 
     -   Droits d'administrateur local sur le serveur de base de données de site pour le site d'administration centrale, lorsque le serveur de base de données de site n'est pas installé sur le serveur de site  
 
-2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site d’administration centrale en utilisant l’une des méthodes suivantes :  
+2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site d’administration centrale en utilisant l’une des méthodes suivantes :  
 
     -   Dans le menu **Démarrer**, cliquez sur **Installation de Configuration Manager**.  
 
@@ -173,6 +173,6 @@ Pour désinstaller un site principal, suivez les instructions ci-dessous.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

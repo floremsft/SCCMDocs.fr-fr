@@ -1,5 +1,5 @@
 ---
-title: Prise en charge Unicode et ASCII | System Center Configuration Manager
+title: Prise en charge Unicode et ASCII | Microsoft Docs
 description: "Découvrez la prise en charge des caractères ASCII et Unicode dans les objets System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 125cc72389f6dc95668c8a2f73a4c50597eb3186
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 1888ce257232b63e4671aa619da190ea570b8a57
 
 
 ---
 # <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Prise en charge Unicode et ASCII dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager crée la plupart des objets à l’aide de caractères Unicode. Cependant, plusieurs objets prennent en charge uniquement des caractères ASCII ou disposent d'autres limitations.  
 
@@ -37,7 +37,7 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 -   [Objets Configuration Manager non localisés](#BKMK_LangNonLocalize)  
 
 ##  <a name="a-namebkmkasciichara-objects-that-use-ascii-characters"></a><a name="BKMK_ASCIIchar"></a> Objets qui utilisent des caractères ASCII  
- Configuration Manager prend en charge le jeu de caractères ASCII uniquement lorsque vous créez les objets suivants :  
+ Configuration Manager prend en charge le jeu de caractères ASCII uniquement lorsque vous créez les objets suivants :  
 
 -   Code de site  
 
@@ -147,6 +147,6 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

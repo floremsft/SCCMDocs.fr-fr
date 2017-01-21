@@ -1,5 +1,5 @@
 ---
-title: "Créer des profils de messagerie Exchange ActiveSync | System Center Configuration Manager"
+title: "Créer des profils de messagerie Exchange ActiveSync | Microsoft Docs"
 description: "Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,15 +17,15 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 613ed15742322e2eb90eec3c9f493e3b1755d93a
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 3ff5d53464c61e0dc1836d032bcb3815bae05d1f
 
 
 ---
 
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Profils de messagerie Exchange ActiveSync dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les profils de messagerie fonctionnent avec Microsoft Intune pour vous permettre de configurer des appareils avec des profils de messagerie et des restrictions en utilisant Exchange ActiveSync. Cela permet à vos utilisateurs d'accéder à la messagerie d'entreprise sur leurs appareils avec une installation minimale requise de leur part.  
 
@@ -39,10 +39,10 @@ Les profils de messagerie fonctionnent avec Microsoft Intune pour vous permettre
 
 -   Appareils iPhone exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
 
--   Appareils iPad exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
+-   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils iOS, Android Samsung KNOX, Windows Phone, Windows 8.1 ou Windows 10, ces appareils doivent être inscrits auprès de Microsoft Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+>  Pour déployer des profils sur des appareils iOS, Android Samsung KNOX Standard, Windows Phone, Windows 8.1 ou Windows 10, ces appareils doivent être inscrits dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
  En plus de configurer un compte de messagerie sur l'appareil, vous pouvez également configurer des paramètres de synchronisation pour les contacts, les calendriers et les tâches.  
 
@@ -57,7 +57,7 @@ Démarrer l’Assistant Création d’un profil de messagerie Exchange ActiveSyn
 
 2.  Dans l'espace de travail **Ressources et Conformité** , développez **Paramètres de compatibilité**, puis **Accès aux ressources de l'entreprise**et cliquez sur **Profils de messagerie**.  
 
-3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil Exchange ActiveSync**. 
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil Exchange ActiveSync**.
 
 4.  Suivez les instructions de l’Assistant   
 
@@ -173,7 +173,7 @@ Démarrer l’Assistant Création d’un profil de messagerie Exchange ActiveSyn
         -   **Tâches**  
 
 ###  <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>spécifier les plateformes prises en charge pour le profil de messagerie Exchange ActiveSync.  
- 
+
 1.  Dans la page **Plateformes prises en charge** de l'Assistant Création d'un profil de messagerie Exchange ActiveSync, sélectionnez les systèmes d'exploitation sur lesquels le profil de messagerie sera installé ou cliquez sur **Sélectionner tout** pour installer le profil de messagerie sur tous les systèmes d'exploitation disponibles.  
 
 2.  Effectuez toutes les étapes de l'Assistant.
@@ -182,6 +182,6 @@ Pour plus d’informations sur le déploiement des profils de messagerie Exchang
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

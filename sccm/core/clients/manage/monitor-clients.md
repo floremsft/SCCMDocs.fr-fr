@@ -1,5 +1,5 @@
 ---
-title: Surveiller les clients | System Center Configuration Manager
+title: Surveiller les clients | Microsoft Docs
 description: "Obtenez des instructions détaillées sur la façon de surveiller les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,30 +12,30 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2c8f57cf-1968-48de-87fb-4897432ed6e0
 caps.latest.revision: 23
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: d3b7e917ccf841f8f5687b0afa5acaf151730ba6
 
 
 ---
 # <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Guide pratique pour surveiller des clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Une fois l’application cliente System Center Configuration Manager installée sur les ordinateurs et appareils Windows de votre site, vous pouvez surveiller leur intégrité et leur activité dans la console Configuration Manager.  
 
 ##  <a name="a-namebkmkabouta-about-client-status"></a><a name="bkmk_about"></a> À propos du statut du client  
- Configuration Manager présente les types d’informations suivants sous forme d’état du client :  
+ Configuration Manager présente les types d’informations suivants sous forme d’état du client :  
 
--   **État en ligne du client** : à compter de la version 1602 de Configuration Manager, cet état indique si l’ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté.  Pour indiquer que le client est en ligne, il envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après environ 5 minutes, le client est considéré comme étant hors connexion.  
+-   **État en ligne du client** : à compter de la version 1602 de Configuration Manager, cet état indique si l’ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté.  Pour indiquer que le client est en ligne, il envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après environ 5 minutes, le client est considéré comme étant hors connexion.  
 
--   **Activité du client** : cet état indique si le client a été activement en contact avec Configuration Manager au cours des 7 derniers jours. Si le client n’a pas demandé de mise à jour de la stratégie, a envoyé un message de pulsation, ou a envoyé un inventaire matériel dans les 7 jours, il est considéré comme inactif.  
+-   **Activité du client** : cet état indique si le client a été activement en contact avec Configuration Manager au cours des 7 derniers jours. Si le client n’a pas demandé de mise à jour de la stratégie, a envoyé un message de pulsation, ou a envoyé un inventaire matériel dans les 7 jours, il est considéré comme inactif.  
 
--   **Intégrité du client** : cet état indique la réussite de l’évaluation périodique de l’exécution du client Configuration Manager sur l’ordinateur.  L’évaluation vérifie l’ordinateur et peut corriger certains problèmes détectés. Pour plus d’informations, consultez [Vérifications et corrections effectuées par la fonction d’intégrité du client](#BKMK_ClientHealth).  
+-   **Intégrité du client** : cet état indique la réussite de l’évaluation périodique de l’exécution du client Configuration Manager sur l’ordinateur.  L’évaluation vérifie l’ordinateur et peut corriger certains problèmes détectés. Pour plus d’informations, consultez [Vérifications et corrections effectuées par la fonction d’intégrité du client](#BKMK_ClientHealth).  
 
      Sur les ordinateurs qui exécutent Windows 7, l'intégrité du client s'exécute en tant que tâche planifiée. Sur les systèmes d'exploitation ultérieurs, l'intégrité du client s'exécute automatiquement pendant la fenêtre de maintenance de Windows.  
 
@@ -45,7 +45,7 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Appareils** ou choisissez un regroupement sous **Regroupements d’appareils**.  
 
-     À compter de la version 1602 de Configuration Manager, les icônes au début de chaque ligne indiquent le statut de connexion de l’appareil :  
+     À compter de la version 1602 de Configuration Manager, les icônes au début de chaque ligne indiquent le statut de connexion de l’appareil :  
 
     |||  
     |-|-|  
@@ -112,6 +112,6 @@ ms.openlocfilehash: 9961932a35a685626c021613d69f9b223f781d46
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

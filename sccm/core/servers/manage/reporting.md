@@ -1,5 +1,5 @@
 ---
-title: Rapports | Configuration Manager
+title: Rapports | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,19 +16,19 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 12676f8cb483128820c0a8a92ca73ee550322bb2
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: cebc48180144ae0d711ff09d16be7c37ec237cfa
 
 
 ---
 # <a name="reporting-in-system-center-configuration-manager"></a>Rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les rapports dans System Center Configuration Manager fournissent un ensemble d'outils et de ressources vous permettant d'utiliser les fonctions de rapport avancées de Microsoft SQL Server Reporting Services dans la console Configuration Manager.  
 
 ## <a name="reporting-topics"></a>Rubriques relatives aux rapports  
- Les rubriques suivantes vous aident à gérer les rapports dans Configuration Manager :  
+ Les rubriques suivantes vous aident à gérer les rapports dans Configuration Manager :  
 
 -   [Présentation des rapports](introduction-to-reporting.md)  
 
@@ -42,6 +42,6 @@ Les rapports dans System Center Configuration Manager fournissent un ensemble d'
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager"
+title: "Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
 descriptions: Pre-enroll iOS devices by using Apple Configurator with Configuration Manager.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/16/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,81 +12,70 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61a19d95-83ff-4ad8-9a67-f304d2ba54f2
 caps.latest.revision: 5
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 19f4880d6e7ba3da2e4bcfe725c1c806ee3b3334
+ms.sourcegitcommit: 0fd410a6572acce685dc6cdb954c1c2d97d5ed8b
+ms.openlocfilehash: 33aebbbe0dc59fc9dcc8bee79d1465566403d204
 
 
 ---
 # <a name="ios-hybrid-enrollment-using-apple-configurator-with-configuration-manager"></a>Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les entreprises qui achètent des appareils iOS pour leurs employés peuvent les gérer à l’aide de Microsoft Intune. Vous pouvez préinscrire des appareils iOS en les connectant via un câble USB à un ordinateur Mac qui exécute Apple Configurator. Avant l’inscription, vous devez préparer un profil d’appareil d’entreprise Intune dans la console d’administration Intune et l’exporter vers l’ordinateur Mac. Le processus d’inscription restaure les paramètres d’usine de l’appareil et suit le processus de l’Assistant Configuration pour configurer l’appareil. La procédure qui suit est recommandée pour les appareils iOS dédiés utilisés par un seul utilisateur pour accéder à la messagerie professionnelle et aux ressources de l’entreprise comme les applications.  
+Les entreprises qui achètent des appareils iOS pour leurs employés peuvent les gérer à l’aide de Microsoft Intune. Pour préparer des appareils iOS d’entreprise pour l’inscription, configurez un profil d’inscription dans la console Configuration Manager, puis exportez l’URL du profil pour qu’elle soit utilisée par Apple Configurator. Préparez ensuite l’appareil iOS pour l’inscription. Pour cela, connectez-le à un ordinateur Mac à l’aide d’un câble USB et utilisez Apple Configurator pour le configurer. Apple Configurator rétablit les paramètres d’usine de l’appareil et ajoute le profil d’inscription. L’utilisateur peut ainsi inscrire l’appareil quand il le met en marche pour la première fois dans le cadre de l’Assistant Configuration.
 
-##  <a name="a-namebkmksaea-apple-configurator-enrollment-via-setup-assistant"></a><a name="BKMK_SAE"></a> Inscription d’Apple Configurator via l’Assistant Configuration  
- Apple Configurator vous permet de rétablir les paramètres d’usine des appareils iOS et de les préparer de façon à ce que leur nouvel utilisateur puisse les configurer.  Cette méthode implique de connecter l’appareil iOS à un ordinateur Mac via une connexion USB pour configurer l’inscription d’entreprise. Elle suppose que vous utilisez Apple Configurator 2.0.  
+La procédure qui suit est recommandée pour les appareils iOS dédiés utilisés par un seul utilisateur pour accéder à la messagerie professionnelle et aux ressources de l’entreprise comme les applications.  
 
- **Conditions préalables**  
+## <a name="prerequisites"></a>Conditions préalables  
 
 -   Accès physique aux appareils iOS  
 
--   Numéros de série des appareils : [Localisation du numéro de série de votre produit Apple](https://support.apple.com/en-us/HT204308)  
+-   Numéros de série des appareils : [Localisation du numéro de série de votre produit Apple](https://support.apple.com/en-us/HT204308)  
 
--   Câbles de connexion USB  
+-   Ordinateur Mac avec [Apple Configurator 2.0](http://go.microsoft.com/fwlink/?LinkId=518017)  
 
--   Ordinateur Mac avec [Apple Configurator 2.0](http://go.microsoft.com/fwlink/?LinkId=518017)  
+-   Câbles USB pour connecter des appareils à votre ordinateur Mac  
 
-#### <a name="enable-setup-assistant-enrollment-with-configuration-manager-and-intune"></a>Activer l’inscription via l’Assistant Configuration avec Configuration Manager et Intune  
+## <a name="step-1-add-a-corporate-owned-device-enrollment-profile"></a>Étape 1 : Ajouter un profil d’inscription des appareils d’entreprise
 
-1.  **Ajouter un profil d'inscription des appareils d'entreprise**   
-    Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Profils d’inscription**. Cliquez sur **Créer un profil** sous l’onglet **Accueil** pour ouvrir l’Assistant Create Profile (Création d’un profil). Configurez les paramètres des pages suivantes :  
+1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**. Cliquez sur **Créer un profil** pour ouvrir l’Assistant Création d’un profil. Configurez les paramètres des pages suivantes :  
 
-    1.  Dans la page **Général**, spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+2.  Sur la page **Général** , spécifiez informations suivantes :  
 
-        -   **Nom** : nom du profil d’inscription d’appareil. (Non visible pour les utilisateurs)  
+    -   **Nom** (non visible pour les utilisateurs)  
 
-        -   **Description** : description du profil d'inscription d'appareil. (Non visible pour les utilisateurs)  
+    -   **Description** (non visible pour les utilisateurs)  
 
-        -   **Affinité utilisateur** : spécifie la façon dont les appareils sont inscrits. Pour la plupart des scénarios de l’Assistant Configuration, utilisez **Demander une affinité utilisateur**.  
+    -   **Affinité utilisateur** : spécifie la façon dont les appareils sont inscrits. Pour la plupart des scénarios de l’Assistant Configuration, utilisez **Demander une affinité utilisateur**.  
 
-            -   **Demander une affinité utilisateur**: l’appareil doit être affilié à un utilisateur durant la configuration initiale. Il peut ensuite être autorisé à accéder aux données de l’entreprise et à envoyer des e-mails au nom de cet utilisateur.  
+        -   **Demander une affinité utilisateur**: l’appareil doit être affilié à un utilisateur durant la configuration initiale. Il peut ensuite être autorisé à accéder aux données de l’entreprise et à envoyer des e-mails au nom de cet utilisateur.  
 
-            -   **Pas d'affinité utilisateur**: L'appareil n'est pas affilié à un utilisateur. Utilisez cette affiliation pour les appareils qui effectuent des tâches sans accéder aux données de l'utilisateur local. Les applications nécessitant une affiliation de l'utilisateur ne fonctionneront pas.  
+        -   **Pas d'affinité utilisateur**: L'appareil n'est pas affilié à un utilisateur. Utilisez cette affiliation pour les appareils qui effectuent des tâches sans accéder aux données de l'utilisateur local. Les applications nécessitant une affiliation de l'utilisateur ne fonctionneront pas.
 
-    2.  Dans la page **Programme d’inscription d’appareils**, laissez la case **Configurer les paramètres DEP pour ce profil** cochée, puis cliquez sur **Suivant**.  
+    Cliquez sur **Suivant** pour continuer.  
 
-    3.  Examinez le résumé, puis cliquez sur Suivant.  
+3.  Dans la page **Programme d’inscription d’appareils**, laissez la case **Configurer les paramètres DEP pour ce profil** cochée, puis cliquez sur **Suivant**.  
 
-2.  **Ajouter des appareils iOS à inscrire avec l’Assistant Configuration**   
-    Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Informations sur l’appareil**. Cliquez ensuite sur **Ajouter des appareils**. Vous pouvez ajouter des appareils de deux manières :  
+4.  Passez en revue le résumé, puis cliquez sur **Suivant** pour créer le profil d’inscription. Cliquez sur **Fermer** pour terminer l’Assistant. Vous êtes maintenant prêt à ajouter des numéros IMEI ou de série pour les appareils à inscrire.  
 
-    - Vous pouvez **charger un fichier CSV qui contient les numéros de série et les détails** : créez une liste de valeurs séparées par des virgules (.csv) de deux colonnes sans en-tête, limitée à 5 000 appareils ou 5 Mo par fichier csv. Pour chaque ligne, la première cellule correspond au numéro de série de l’appareil et la deuxième cellule aux détails de l’appareil (facultatif).
+## <a name="step-2-predeclare-devices-to-enroll-with-setup-assistant"></a>Étape 2 : Prédéclarer des appareils à inscrire avec l’Assistant Configuration
 
-  Dans un éditeur de texte, ce fichier .csv s'affiche comme suit :  
+Dans cette étape, vous prédéclarez des appareils comme appartenant à l’entreprise. Pour cela, vous fournissez une liste d’identificateurs de matériel (numéros IMEI ou de série).
 
-    ```  
-    0000000,PO 1234  
-    111111111,PO 1234  
-    ```  
+Pour plus d’informations, consultez [Prédéclarer des appareils avec des numéros IMEI ou des numéros de série iOS](predeclare-devices-with-hardware-id.md). Une fois cette tâche terminée, revenez à cette page pour passer à l’étape suivante.
 
-    - Vous pouvez également **ajouter manuellement les numéros de série et les détails** : entrez le numéro de série et les détails d’au maximum cinq appareils.  
+## <a name="step-3-export-the-profile-to-deploy-to-ios-devices"></a>Étape 3 : Exporter le profil à déployer sur les appareils iOS
 
-    Puis cliquez sur **Suivant**.  
+1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**.
 
-3.  **Sélectionnez les appareils à inscrire**   
-    Confirmez les appareils à inscrire. Il n'est pas possible d'importer des numéros de série déjà inscrits ou inscrits par d'autres moyens. Cliquez sur **Suivant** pour continuer.  
+2.  Sélectionnez le profil d’inscription à déployer sur les appareils mobiles, puis cliquez sur **Exporter**.
 
-4.  **Attribuer un profil**   
-    Spécifiez le profil à attribuer aux appareils ajoutés dans la liste des profils disponibles, vérifiez les **Détails du profil d’inscription**, puis cliquez sur **Terminer**. Les appareils ajoutés manuellement peuvent être affectés à tout profil d'inscription, mais les appareils synchronisés avec le programme d'inscription d'appareils doivent être attribués à un profil où ce programme est activé.  
+3.  Copiez et enregistrez l’**URL du profil** dans un fichier que vous pouvez modifier.   
 
-5.  **Sélectionner un profil à déployer sur les appareils iOS**   
-    Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Profils d’inscription** et sélectionnez le profil d’appareil à déployer sur des appareils mobiles. Cliquez sur **Exporter** dans la barre des tâches. Copiez et enregistrez la valeur **URL de profil**. Vous la chargerez dans Apple Configurator plus tard pour définir le profil Intune utilisé par les appareils iOS.  L’URL du profil d’inscription est valide pendant deux semaines après son exportation. Après deux semaines, vous devez exporter un nouveau fichier d’URL pour inscrire des appareils iOS.  
-
-     Pour prendre en charge Apple Configurator 2, l’URL du profil 2.0 doit être modifiée. Remplacez :  
+4.  Pour prendre en charge Apple Configurator 2, l’URL du profil 2.0 doit être modifiée. Remplacez la partie suivante de l’URL :  
 
     ```  
     https://manage.microsoft.com/EnrollmentServer/Discovery.svc/iOS/ESProxy?id=  
@@ -98,46 +87,58 @@ Les entreprises qui achètent des appareils iOS pour leurs employés peuvent les
     ```  
     https://appleconfigurator2.manage.microsoft.com/MDMServiceConfig?id=  
 
-    ```  
+    ```
 
-6.  **Préparer l’appareil avec Apple Configurator**   
-    Les appareils iOS sont connectés à l'ordinateur Mac et inscrits pour la gestion des appareils mobiles.  
+5.  Enregistrez l’URL du profil modifié. Vous allez l’utiliser pour ajouter l’URL du profil d’inscription dans Apple Configurator dans la [section suivante](#step-4-prepare-the-device-with-apple-configurator).  
 
-    > [!WARNING]  
-    >  Les paramètres d'usine des appareils sont rétablis pendant le processus d'inscription.  
+> [!NOTE]
+> L’URL du profil d’inscription est valide pendant deux semaines après son exportation. Après deux semaines, vous devez exporter une nouvelle URL pour inscrire des appareils iOS.
 
-    1.  Sur un ordinateur Mac, ouvrez **Apple Configurator 2**.  Dans la barre de menus, cliquez sur **Apple Configurator 2**, puis cliquez sur **Préférences**.  
+## <a name="step-4-prepare-the-device-with-apple-configurator"></a>Étape 4 : Préparer l’appareil avec Apple Configurator
 
-    2.  Dans le volet Préférences, sélectionnez **Serveurs**, puis cliquez sur le symbole « + » situé sous le volet gauche pour lancer l’Assistant Serveur MDM. Cliquez sur **Suivant**.  
+Pour préparer des appareils iOS pour l’inscription, connectez chaque appareil à un ordinateur Mac et chargez le profil d’inscription sur cet appareil.  
 
-    3.  Entrez le **Nom** et l’**URL d’inscription** du serveur MDM, définis à l’étape 5 ci-dessus. Cliquez sur **Suivant**.  
+> [!WARNING]  
+>  Apple Configurator réinitialise les appareils et rétablit les configurations d’usine.  
 
-         Si vous recevez un avertissement à propos des exigences de profil de confiance pour Apple TV, vous pouvez annuler en toute sécurité l’option **Profil de confiance** en cliquant sur le « X » gris. Vous pouvez également ignorer tout avertissement relatif au certificat d’ancrage (ou certificat racine). Pour continuer, cliquez sur **Suivant** jusqu’à la fin de l’exécution de l’Assistant.  
+1.  Sur un ordinateur Mac, ouvrez **Apple Configurator 2**.  
 
-    4.  Dans le volet **Serveurs**, cliquez sur « Modifier » en regard du profil du nouveau serveur. Assurez-vous que l’URL d’inscription correspond exactement à l’URL exportée à partir d’Intune. Entrer à nouveau l’URL d’origine si elle est différente, puis **Enregistrez** le profil d’inscription exporté à partir d’Intune.  
+2.  Dans la barre de menus, cliquez sur **Apple Configurator 2** > **Préférences**.  
 
-    5.  Connectez les appareils mobiles iOS à l'ordinateur Apple à l'aide d'un adaptateur USB.  
+2.  Dans le volet Préférences, sélectionnez **Serveurs**, puis cliquez sur le symbole « + » situé sous le volet gauche pour lancer l’Assistant Serveur MDM. Cliquez sur **Suivant**.  
 
-        > [!WARNING]  
-        >  Les paramètres d'usine des appareils sont rétablis pendant le processus d'inscription. Il est recommandé de réinitialiser l’appareil et de le mettre sous tension. Les appareils devraient s’afficher sur l’écran Hello lorsque vous démarrez l’Assistant Configuration.  
+3.  Entrez le **nom** et l’**URL d’inscription** enregistrés [précédemment](#step-3-export-the-profile-to-deploy-to-ios-devices). Cliquez sur **Suivant**.  
 
-    6.  Cliquez sur **Préparer**. Dans le volet **Prepare iOS Device** (Préparer l’appareil iOS), sélectionnez **Manual** (Manuel), puis cliquez sur **Suivant**.  
+   > [!NOTE]
+   > Si vous recevez un avertissement à propos des exigences de profil de confiance pour Apple TV, vous pouvez annuler en toute sécurité l’option **Profil de confiance** en cliquant sur le « X » gris. Vous pouvez également ignorer tout avertissement relatif au certificat d’ancrage (ou certificat racine).
 
-    7.  Dans le volet **Enroll in MDM Server** (Inscription dans un serveur MDM), sélectionnez le nom du serveur que vous avez créé, puis cliquez sur **Suivant**.  
+   Pour continuer, cliquez sur **Suivant** jusqu’à la fin de l’exécution de l’Assistant.  
 
-    8.  Dans le volet **Enroll in MDM Server** (Inscription dans un serveur MDM), sélectionnez le nom du serveur que vous avez créé, puis cliquez sur **Suivant**.  
+4.  Dans le volet **Serveurs**, cliquez sur « Modifier » en regard du profil du nouveau serveur. Vérifiez que l’URL d’inscription correspond exactement à l’URL entrée précédemment. Retapez l’URL si elle est différente, puis cliquez sur **Enregistrer**.  
 
-    9. Dans le volet **Create an Organization** (Créer une organisation), choisissez ou créez une **organisation**, puis cliquez sur **Suivant**.  
+5.  Connectez un appareil iOS à l’ordinateur Mac à l’aide d’un câble USB.  
 
-    10. Dans le volet **Configure iOS Setup Assistant** (Configurer l’Assistant Installation iOS), choisissez les étapes présentées à l’utilisateur, puis cliquez sur **Prepare** (Préparer). Si vous y êtes invité, authentifiez-vous pour mettre à jour les paramètres d’approbation.  
+  > [!WARNING]  
+  >  Ce processus rétablit les configurations d’usine des appareils. Avant de connecter l’appareil, réinitialisez-le et mettez-le en marche. Nous vous recommandons d’attendre que l’appareil affiche l’écran Hello avant de continuer.  
 
-    11. Une fois la préparation de l’appareil iOS terminée, vous pouvez déconnecter le câble USB.  
+6.  Cliquez sur **Préparer**. Dans le volet **Prepare iOS Device** (Préparer l’appareil iOS), sélectionnez **Manual** (Manuel), puis cliquez sur **Suivant**.  
 
-7.  **Distribuer les appareils**   
-    Les appareils sont désormais prêts pour l’inscription d’entreprise. Éteignez les appareils et distribuez-les aux utilisateurs. Quand vous allumez un appareil, l'Assistant Configuration démarre et invite l'utilisateur à identifier son compte professionnel ou scolaire.
+7.  Dans le volet **Enroll in MDM Server** (Inscription dans un serveur MDM), sélectionnez le nom du serveur que vous avez créé, puis cliquez sur **Suivant**.  
+
+9. Dans le volet **Create an Organization** (Créer une organisation), choisissez ou créez une **organisation**, puis cliquez sur **Suivant**.  
+
+10. Dans le volet **Configure iOS Setup Assistant** (Configurer l’Assistant Installation iOS), choisissez les étapes présentées à l’utilisateur, puis cliquez sur **Prepare** (Préparer). Si vous y êtes invité, authentifiez-vous pour mettre à jour les paramètres d’approbation.  
+
+11. Quand vous avez terminé, vous pouvez déconnecter le câble USB.  
+
+Répétez ces étapes pour tous les appareils à préparer pour l’inscription.
+
+## <a name="step-5-distribute-devices"></a>Étape 5 : Distribuer les appareils
+
+Les appareils sont désormais prêts pour l’inscription d’entreprise. Éteignez les appareils et distribuez-les aux utilisateurs. Quand vous mettez en marche l’appareil, l’Assistant Configuration démarre et invite l’utilisateur à entrer son compte professionnel ou scolaire pour commencer l’inscription.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

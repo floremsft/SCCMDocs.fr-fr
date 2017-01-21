@@ -87,7 +87,8 @@
 ##   [Évaluer Configuration Manager dans un laboratoire](get-started/evaluate-with-lab-environment.md)
 ###  [Configurer votre laboratoire](get-started/set-up-your-lab.md)
 
-##   [Préversion technique](get-started/technical-preview.md)
+##   [Préversion technique](get-started/technical-preview.md) 
+###  [Fonctionnalités dans 1612](get-started/capabilities-in-technical-preview-1612.md)
 ###  [Fonctionnalités dans 1611](get-started/capabilities-in-technical-preview-1611.md)
 ###  [Fonctionnalités dans 1610](get-started/capabilities-in-technical-preview-1610.md)
 ###  [Fonctionnalités dans 1609](get-started/capabilities-in-technical-preview-1609.md)
@@ -300,6 +301,6 @@
 ###  [Mettre à niveau l’analyse](clients/manage/upgrade/upgrade-analytics.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

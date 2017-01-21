@@ -1,5 +1,5 @@
 ---
-title: "Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager"
+title: "Inscription d’appareils iOS par le biais du programme DEP pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
 description: "Activez l’inscription d’appareils iOS via le programme DEP pour les déploiements hybrides dans Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 78d44adc-9b1c-4bc6-b72d-e93873916ea6
 caps.latest.revision: 9
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 730b0e6b0ad9eb0ee3bf58c9419920c3a28a27d1
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 0421589d928a88eee6f4629726fbd0171aba7436
 
 ---
 # <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les entreprises peuvent acheter des appareils iOS via le programme d’inscription des appareils (DEP, Device Enrollment Program) d’Apple, puis les gérer à l’aide de Microsoft Intune. Pour gérer des appareils iOS d’entreprise avec le programme d’inscription d’appareils d’Apple, les sociétés doivent suivre la procédure requise auprès d’Apple pour participer au programme et acquérir des appareils par son biais. Les détails de cette procédure sont disponibles à l’adresse suivante :  [https://deploy.apple.com](https://deploy.apple.com). Les avantages du programme incluent la configuration automatique des appareils sans connexion USB de chaque appareil à un ordinateur.  
 
@@ -77,48 +77,44 @@ Les entreprises peuvent acheter des appareils iOS via le programme d’inscripti
 
     2.  Dans la page **Programme d’inscription d’appareils**, spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-        -   **Service** : cette information s’affiche quand les utilisateurs appuient sur «À propos de la configuration » pendant l’activation.  
+        -   **Service** : cette information s’affiche quand les utilisateurs appuient sur «À propos de la configuration » pendant l’activation.  
 
-        -   **Numéro de téléphone du support** : s’affiche quand l’utilisateur clique sur le bouton **Besoin d’aide** pendant l’activation.  
+        -   **Numéro de téléphone du support** : s’affiche quand l’utilisateur clique sur le bouton **Besoin d’aide** pendant l’activation.  
 
-        -   **Mode de préparation** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine de l’appareil :  
+        -   **Mode de préparation** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine de l’appareil :  
 
-            -   **Non supervisé** : capacités de gestion limitées  
+            -   **Non supervisé** : capacités de gestion limitées  
 
-            -   **Supervisé** : active des options de gestion supplémentaires et désactive le verrou d’activation par défaut  
+            -   **Supervisé** : active des options de gestion supplémentaires et désactive le verrou d’activation par défaut  
 
-        -   **Verrouiller le profil d’inscription de l’appareil** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine.  
+        -   **Verrouiller le profil d’inscription de l’appareil** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine.  
 
-            -   **Désactiver** : permet de supprimer le profil de gestion à partir du menu **Paramètres**  
+            -   **Désactiver** : permet de supprimer le profil de gestion à partir du menu **Paramètres**  
 
-            -   Activer : (nécessite le **Mode de préparation** = **Supervisé**) désactive les paramètres iOS qui pourraient autoriser la suppression du profil de gestion  
+            -   **Activer** : (nécessite le **Mode de préparation** = **Supervisé**) désactive les paramètres iOS qui pourraient autoriser la suppression du profil de gestion  
 
     3.  Dans la page **Assistant Configuration** , configurez les paramètres qui personnalisent l’Assistant Configuration iOS qui démarre quand l’appareil est mis sous tension pour la première fois, puis cliquez sur **Suivant**. Ces paramètres incluent :  
-
-        -   **Code secret** : demande un code secret pendant l’activation. Exige toujours un code secret, sauf si l’appareil doit être sécurisé ou si son accès doit être contrôlé d’une autre façon (c’est-à-dire, en mode plein écran qui limite l’appareil à une seule application).  
-
-        -   **Services de localisation** : si cette option est activée, l’Assistant Installation vous invite à spécifier le service pendant l’activation  
-
-        -   **Restaurer** : si cette option est activée, l’Assistant Installation invite à spécifier la sauvegarde iCloud pendant l’activation  
-
-        -   **ID Apple** : un ID Apple est nécessaire pour télécharger des applications App Store iOS, y compris celles qui sont installées par Intune. Si cette option est activée, iOS demande un ID Apple aux utilisateurs quand Intune tente d’installer une application sans ID.  
-
-        -   **Termes et Conditions** : si cette option est activée, l’Assistant Installation invite l’utilisateur à accepter les conditions générales d’Apple pendant l’activation  
-
-        -   **Siri** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
-
-        -   **Envoyer les données de diagnostic à Apple** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
+        -   **Code secret** : demande un code secret pendant l’activation. Exige toujours un code secret, sauf si l’appareil doit être sécurisé ou si son accès doit être contrôlé d’une autre façon (c’est-à-dire, en mode plein écran qui limite l’appareil à une seule application).  
+        -   **Services de localisation** : si cette option est activée, l’Assistant Installation vous invite à spécifier le service pendant l’activation  
+        -   **Restaurer** : si cette option est activée, l’Assistant Installation invite à spécifier la sauvegarde iCloud pendant l’activation  
+        -   **ID Apple** : un ID Apple est nécessaire pour télécharger des applications App Store iOS, y compris celles qui sont installées par Intune. Si cette option est activée, iOS demande un ID Apple aux utilisateurs quand Intune tente d’installer une application sans ID.  
+        -   **Termes et Conditions** : si cette option est activée, l’Assistant Installation invite l’utilisateur à accepter les conditions générales d’Apple pendant l’activation  
+        -   **Touch ID** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
+        -   **Apple Pay** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
+        -   **Zoom** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
+        -   **Siri** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
+        -   **Envoyer les données de diagnostic à Apple** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
 
     4.  Sur la page **Gestion supplémentaire**, spécifiez si une connexion USB peut être utilisée pour les paramètres de la gestion supplémentaire. Quand vous sélectionnez **Demander un certificat**, vous devez importer un certificat de gestion Apple Configurator à utiliser pour ce profil.  Spécifiez **Interdire** pour empêcher la synchronisation des fichiers avec iTunes ou la gestion via Apple Configurator. Microsoft vous recommande de spécifier la valeur **Interdire**, exporter les configurations supplémentaires d’Apple Configurator, puis déployer en tant que profil de configuration iOS personnalisé via Intune, plutôt que d’utiliser ce paramètre pour permettre un déploiement manuel avec ou sans un certificat.  
 
-        -   **Interdire** : empêche l’appareil de communiquer via USB (désactive l’appariement)  
+        -   **Interdire** : empêche l’appareil de communiquer via USB (désactive l’appariement)  
 
-        -   **Autoriser** : autorise un appareil à communiquer via une connexion USB pour n’importe quel PC ou Mac  
+        -   **Autoriser** : autorise un appareil à communiquer via une connexion USB pour n’importe quel PC ou Mac  
 
-        -   **Demander un certificat** : permet un appariement avec un Mac avec un certificat importé dans le profil d’inscription  
+        -   **Demander un certificat** : permet un appariement avec un Mac avec un certificat importé dans le profil d’inscription  
 
 2.  **Attribuer des appareils DEP pour la gestion**   
-    Accédez au [portail du programme d’inscription d’appareils](https://deploy.apple.com) (https://deploy.apple.com) et connectez-vous avec votre ID Apple d’entreprise. Accédez à **Programme de déploiement** > **Programme d’inscription d’appareils** > **Gérer les appareils**. Spécifiez la façon dont vous allez **choisir des appareils**, fournissez les informations relatives aux appareils et spécifiez les détails par appareil : **Numéro de série**, **Numéro de commande**ou **Télécharger un fichier CSV**. Ensuite, sélectionnez **Attribuer au serveur** et sélectionnez le <*nom_serveur*> que vous avez spécifié à l'étape 3, puis cliquez sur **OK**.  
+    Accédez au [portail du programme d’inscription d’appareils](https://deploy.apple.com) (https://deploy.apple.com) et connectez-vous avec votre ID Apple d’entreprise. Accédez à **Programme de déploiement** > **Programme d’inscription d’appareils** > **Gérer les appareils**. Spécifiez la façon dont vous allez **choisir des appareils**, fournissez les informations relatives aux appareils et spécifiez les détails par appareil : **Numéro de série**, **Numéro de commande**ou **Télécharger un fichier CSV**. Ensuite, sélectionnez **Attribuer au serveur** et sélectionnez le <*nom_serveur*> que vous avez spécifié à l'étape 3, puis cliquez sur **OK**.  
 
 3.  **Synchroniser des appareils gérés par le programme DEP**   
     Dans la console **Ressources et Conformité** , accédez à **Tous les appareils d’entreprise** > **iOS** > **Informations sur l’appareil**. Sous l’onglet **Accueil** , cliquez sur **Synchronisation DEP**. Une demande de synchronisation est envoyée à Apple. Une fois la synchronisation terminée, les appareils gérés par le programme DEP s'affichent. La boîte de dialogue **État d’inscription** pour les appareils gérés indique **Non contacté** tant que l’appareil n’est pas sous tension et n’exécute pas l’Assistant Configuration pour inscrire l’appareil.  
@@ -128,6 +124,6 @@ Les entreprises peuvent acheter des appareils iOS via le programme d’inscripti
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

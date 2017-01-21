@@ -1,5 +1,5 @@
 ---
-title: "Planification du déploiement de clients sur des ordinateurs Linux et UNIX | System Center Configuration Manager"
+title: "Planification du déploiement de clients sur des ordinateurs Linux et UNIX | Microsoft Docs"
 description: "Planifiez le déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.assetid: 44153689-70e8-42ad-9ae8-17ae35f6a2e3
 caps.latest.revision: 9
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7d541d3afc86e1bb887a61d5b8cabce9aef9af57
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: dad941d5984fc7e0b43954b14c3966bb2632ad05
 
 
 ---
 # <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Planification du déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez installer le client System Center Configuration Manager sur des ordinateurs exécutant Linux ou UNIX. Ce client est conçu pour les serveurs qui fonctionnent en tant qu'ordinateur de groupe de travail, et le client ne prend pas en charge l'interaction avec les utilisateurs connectés. Une fois que le logiciel client est installé et que le client a établi la communication avec le site Configuration Manager, vous gérez le client à l’aide de la console et des rapports Configuration Manager.  
 
 > [!NOTE]  
->  Le client Configuration Manager pour les ordinateurs Linux et UNIX ne prend pas en charge les fonctionnalités de gestion suivantes :  
+>  Le client Configuration Manager pour les ordinateurs Linux et UNIX ne prend pas en charge les fonctionnalités de gestion suivantes :  
 >   
 >  -   Installation poussée du client  
 > -   Déploiement du système d'exploitation  
@@ -49,10 +49,10 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 ##  <a name="a-namebkmkclientdeployprereqforlnua-prerequisites-for-client-deployment-to-linux-and-unix-servers"></a><a name="BKMK_ClientDeployPrereqforLnU"></a> Conditions préalables pour le déploiement du client sur des serveurs Linux et UNIX  
  Utilisez les informations suivantes pour déterminer les conditions préalables pour que doivent avoir mis en place installer le client pour Linux et UNIX.  
 
-###  <a name="a-namebkmkclientdeployexternalforlnua-dependencies-external-to-configuration-manager"></a><a name="BKMK_ClientDeployExternalforLnU"></a> Dépendances externes à Configuration Manager :  
+###  <a name="a-namebkmkclientdeployexternalforlnua-dependencies-external-to-configuration-manager"></a><a name="BKMK_ClientDeployExternalforLnU"></a> Dépendances externes à Configuration Manager :  
  Les tableaux suivants décrivent les systèmes d'exploitation UNIX et Linux requis et les dépendances des packages.  
 
- **Red Hat Enterprise Linux ES 4**  
+ **Red Hat Enterprise Linux ES 4**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -60,7 +60,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.7a-43.1|  
 |PAM|Modules d'authentification enfichables|0.77-65.1|  
 
- **Red Hat Enterprise Linux Server 5.1 (Tikanga)**  
+ **Red Hat Enterprise Linux Server 5.1 (Tikanga)**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -68,7 +68,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8b-8.3.el5|  
 |PAM|Modules d'authentification enfichables|0.99.6.2-3.14.el5|  
 
- **Red Hat Enterprise Linux Server 6**  
+ **Red Hat Enterprise Linux Server 6**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -76,7 +76,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|1.0.0-4|  
 |PAM|Modules d'authentification enfichables|1.1.1-4|  
 
- **Solaris 9 SPARC**  
+ **Solaris 9 SPARC**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -86,7 +86,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|SMCosslg (sparc)<br /><br /> Sun ne fournit pas de version d'OpenSSL pour Solaris 9 SPARC. Une version est disponible sur Sunfreeware.|0.9.7g|  
 |PAM|Modules d'authentification enfichables<br /><br /> SUNWcsl, Solaris Core, (partagé Libs) (sparc)|11.9.0,REV=2002.04.06.15.27|  
 
- **Solaris 10 SPARC**  
+ **Solaris 10 SPARC**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -99,7 +99,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|SUNopenssl-libraries (Usr)<br /><br /> Sun fournit les bibliothèques OpenSSL pour Solaris 10 SPARC. Elles sont fournies avec le système d'exploitation.|11.10.0,REV=2005.01.21.15.53|  
 |PAM|Modules d'authentification enfichables<br /><br /> SUNWcsr, Core Solaris, (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
 
- **Solaris 10 x86**  
+ **Solaris 10 x86**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -111,7 +111,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèques SUNWopenssl ; Bibliothèques OpenSSL (Usr) (i386)|11.10.0, REV=2005.01.21.16.34|  
 |PAM|Modules d'authentification enfichables<br /><br /> Installation principale, Solaris, (Root)(i386)|11.10.0,REV=2005.01.21.16.34|  
 
- **Solaris 11 SPARC**  
+ **Solaris 11 SPARC**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -122,7 +122,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |SUNWcsr|Core Solaris, (Root)|11.11, REV=2009.11.11|  
 |SUNWopenssl-libraries|Bibliothèques OpenSSL (Usr)|11.11.0,REV=2010.05.25.01.00|  
 
- **Solaris 11 x86**  
+ **Solaris 11 x86**  
 
 |Package requis|Description|Version minimale|  
 |----------------|-----------|---------------|  
@@ -133,7 +133,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |SUNWcsr|Core Solaris, (Root)|11.11, REV=2009.11.11|  
 |SUNWopenssl-libraries|Bibliothèques OpenSSL (Usr)|11.11.0,REV=2010.05.25.01.00|  
 
- **SUSE Linux Enterprise Server 9 (i586)**  
+ **SUSE Linux Enterprise Server 9 (i586)**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -143,7 +143,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.7d-15.35|  
 |PAM|Modules d'authentification enfichables|0.77-221-11|  
 
- **SUSE Linux Enterprise Server 10 SP1 (i586)**  
+ **SUSE Linux Enterprise Server 10 SP1 (i586)**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -151,7 +151,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8a-18.15|  
 |PAM|Modules d'authentification enfichables|0.99.6.3-28.8|  
 
- **SUSE Linux Enterprise Server 11 (i586)**  
+ **SUSE Linux Enterprise Server 11 (i586)**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -174,7 +174,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8 ou 1.0|  
 |PAM|Modules d'authentification enfichables|0.99.6.2-3.14|  
 
- **IBM AIX 5L 5.3**  
+ **IBM AIX 5L 5.3**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -182,7 +182,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |xlC.rte|XL C/C++ Runtime|9.0.0.2|  
 |openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8.4|  
 
- **IBM AIX 6.1**  
+ **IBM AIX 6.1**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -190,7 +190,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |xlC.rte|XL C/C++ Runtime|9.0.0.5|  
 |OpenSSL/openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8.4|  
 
- **IBM AIX 7.1 (Power)**  
+ **IBM AIX 7.1 (Power)**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -198,7 +198,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |xlC.rte|XL C/C++ Runtime||  
 |OpenSSL/openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé||  
 
- **HP-UX 11i v2 IA 64**  
+ **HP-UX 11i v2 IA 64**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -207,7 +207,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |HPUXBaseAux.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.07l.003|  
 |PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
 
- **HP-UX 11i v2 PA-RISC**  
+ **HP-UX 11i v2 PA-RISC**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -217,7 +217,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |HPUXBaseAux.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.071.003|  
 |PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
 
- **HP-UX 11i v3 PA-RISC**  
+ **HP-UX 11i v3 PA-RISC**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -226,7 +226,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |openssl/Openssl.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.08d.002|  
 |PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
 
- **HP-UX 11i v3 IA64**  
+ **HP-UX 11i v3 IA64**  
 
 |Package requis|Description|Version minimale|  
 |----------------------|-----------------|---------------------|  
@@ -236,7 +236,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 |SysMgmtMin.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.08d.002|  
 |PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
 
- **Dépendances de Configuration Manager :** le tableau suivant répertorie les rôles de système de site qui prennent en charge des clients Linux et UNIX. Pour plus d’informations sur ces rôles de système de site, consultez [Déterminer les rôles de système de site pour les clients System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+ **Dépendances de Configuration Manager :** le tableau suivant répertorie les rôles de système de site qui prennent en charge des clients Linux et UNIX. Pour plus d’informations sur ces rôles de système de site, consultez [Déterminer les rôles de système de site pour les clients System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
 |Système de site Configuration Manager|Plus d'informations|  
 |---------------------------------------|----------------------|  
@@ -270,7 +270,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
  Pour plus d’informations sur l’utilisation des certificats dans Configuration Manager, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 ###  <a name="a-namebkmkaboutcertsforlnua-about-certificates-for-use-by-linux-and-unix-servers"></a><a name="BKMK_AboutCertsforLnU"></a> À propos des certificats pour les serveurs Linux et UNIX  
- Le client Configuration Manager pour Linux et UNIX utilise un certificat auto-signé ou un certificat PKI X.509, comme les clients Windows. Aucune modification des exigences PKI pour les systèmes de site Configuration Manager n’est nécessaire quand vous gérez des clients Linux et UNIX.  
+ Le client Configuration Manager pour Linux et UNIX utilise un certificat auto-signé ou un certificat PKI X.509, comme les clients Windows. Aucune modification des exigences PKI pour les systèmes de site Configuration Manager n’est nécessaire quand vous gérez des clients Linux et UNIX.  
 
  Les certificats utilisés pour les clients Linux et UNIX qui communiquent avec les systèmes de site Configuration Manager doivent être au format PKCS#12 (Public Key Certificate Standard). De plus, vous devez connaître le mot de passe pour pouvoir l’indiquer au client quand vous spécifiez le certificat PKI.  
 
@@ -283,8 +283,8 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 
  Si vous ne spécifiez pas **- /usepkicert**, le client génère un certificat auto-signé et tente de communiquer avec les serveurs de système de site via le protocole HTTP uniquement.  
 
-##  <a name="a-namebkmknosha-256a-about-linux-and-unix-operating-systems-that-do-not-support-sha-256"></a><a name="BKMK_NoSHA-256"></a> À propos des systèmes d’exploitation Linux et UNIX qui ne prennent pas en charge SHA-256  
- Les systèmes d’exploitation Linux et UNIX suivants, pris en charge en tant que clients pour Configuration Manager, ont été publiés avec des versions d’OpenSSL qui ne prennent pas en charge SHA-256 :  
+##  <a name="a-namebkmknosha-256a-about-linux-and-unix-operating-systems-that-do-not-support-sha-256"></a><a name="BKMK_NoSHA-256"></a> À propos des systèmes d’exploitation Linux et UNIX qui ne prennent pas en charge SHA-256  
+ Les systèmes d’exploitation Linux et UNIX suivants, pris en charge en tant que clients pour Configuration Manager, ont été publiés avec des versions d’OpenSSL qui ne prennent pas en charge SHA-256 :  
 
 -   Red Hat Enterprise Linux Version 4 (x 86/x 64)  
 
@@ -312,6 +312,6 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

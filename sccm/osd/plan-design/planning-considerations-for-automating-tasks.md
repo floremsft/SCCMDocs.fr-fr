@@ -1,5 +1,5 @@
 ---
-title: "Considérations relatives à la planification de l’automatisation des tâches | Configuration Manager"
+title: "Considérations relatives à la planification de l’automatisation des tâches | Microsoft Docs"
 description: "Planifiez les tâches avant de les automatiser dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a439d847adb129a341b33be8e1a1674c72184e77
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 830f715b688cc9929a179da94eba9c81de8db11a
 
 
 ---
-# <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Considérations relatives à la planification de l’automatisation des tâches dans System Center Configuration Manager
+# <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Considérations relatives à la planification de l’automatisation des tâches dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez créer des séquences de tâches pour automatiser les tâches dans votre environnement System Center Configuration Manager. Ces tâches vont de la capture d'un système d'exploitation sur un ordinateur de référence au déploiement du système d'exploitation sur un ou plusieurs ordinateurs de destination. Les actions de la séquence de tâches sont définies dans les étapes individuelles de la séquence. Lors de l’exécution de la séquence de tâches, les actions de chaque étape sont effectuées au niveau de la ligne de commande dans le contexte de Système local sans intervention de l’utilisateur. Aidez-vous des sections suivantes pour planifier l’automatisation des tâches dans Configuration Manager.
 
@@ -61,11 +61,11 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 |Étape de séquence de tâches 5|Non défini.|  
 |Étape de séquence de tâches 6|Non défini.|  
 
--   Si l'étape de séquence de tâches 1 échoue, la séquence de tâches continue avec l'étape de séquence de tâches 2.  
+-   Si l'étape de séquence de tâches 1 échoue, la séquence de tâches continue avec l'étape de séquence de tâches 2.  
 
--   Si l'étape de séquence de tâches 2 échoue, la séquence de tâches n'exécute pas l'étape de séquence de tâches 3 mais continue d'exécuter les étapes de séquence de tâches 4 et 5, qui se trouvent dans un autre groupe de séquence de tâches.  
+-   Si l'étape de séquence de tâches 2 échoue, la séquence de tâches n'exécute pas l'étape de séquence de tâches 3 mais continue d'exécuter les étapes de séquence de tâches 4 et 5, qui se trouvent dans un autre groupe de séquence de tâches.  
 
--   Si l’étape de séquence de tâches 4 n’aboutit pas, aucune autre étape n’est exécutée et la séquence de tâches se solde par un échec, car le paramètre **Continuer en cas d’erreur** n’a pas été configuré pour le groupe de séquences de tâches 2.  
+-   Si l’étape de séquence de tâches 4 n’aboutit pas, aucune autre étape n’est exécutée et la séquence de tâches se solde par un échec, car le paramètre **Continuer en cas d’erreur** n’a pas été configuré pour le groupe de séquences de tâches 2.  
 
  Même si le nom du groupe n'est pas nécessairement unique, vous devez attribuer un nom aux groupes de séquences de tâches. Vous devez également fournir une description facultative pour le groupe de séquence de tâches.  
 
@@ -74,20 +74,20 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
  Lorsque vous exécutez une séquence de tâches, la plupart de ses paramètres sont stockés sous la forme de variables d'environnement. Vous pouvez accéder aux variables de séquence de tâches intégrées et en modifier les valeurs, et vous pouvez créer de nouvelles variables de séquence de tâches afin de personnaliser son exécution sur un ordinateur de destination.  
 
- Vous pouvez réaliser les opérations suivantes à l'aide des variables de séquences de tâches utilisées dans l'environnement de séquence de tâches :  
+ Vous pouvez réaliser les opérations suivantes à l'aide des variables de séquences de tâches utilisées dans l'environnement de séquence de tâches :  
 
--   configurer les paramètres d'une action de séquence de tâches ;  
+-   configurer les paramètres d'une action de séquence de tâches ;  
 
--   fournir des arguments de ligne de commande pour une étape de séquence de tâches ;  
+-   fournir des arguments de ligne de commande pour une étape de séquence de tâches ;  
 
--   évaluer une condition qui détermine si un groupe ou une étape de séquence de tâches est exécuté ;  
+-   évaluer une condition qui détermine si un groupe ou une étape de séquence de tâches est exécuté ;  
 
 -   fournir des valeurs aux scripts personnalisés utilisés dans une séquence de tâches.  
 
  Par exemple, vous disposez peut-être d’une séquence de tâches incluant une étape **Joindre le domaine ou le groupe de travail**. Vous pouvez déployer la séquence de tâches dans différents regroupements, pour lesquels l'appartenance au regroupement est déterminée par l'appartenance au domaine. Dans ce cas, vous pouvez spécifier une variable de séquence de tâches par regroupement pour le nom de domaine de chaque regroupement, puis utiliser cette variable pour fournir le nom de domaine approprié dans la séquence de tâches.  
 
 ###  <a name="a-namebkmktscreatevariablesa-create-task-sequence-variables"></a><a name="BKMK_TSCreateVariables"></a> Créer des variables de séquence de tâches  
- Vous pouvez ajouter des nouvelles variables de séquence de tâches pour personnaliser et contrôler les étapes d'une séquence de tâches. Vous pouvez, par exemple, créer une variable de séquence de tâches qui remplace le paramètre d'une étape de séquence de tâches intégrée. Vous pouvez également créer une variable de séquence de tâches personnalisée à utiliser avec les conditions, lignes de commande ou étapes personnalisées de la séquence de tâches. Lorsque vous créez une variable de séquence de tâches, elle est conservée, avec la valeur qui lui est associée dans l'environnement de séquence de tâches, même lorsque la séquence redémarre l'ordinateur de destination. La variable et sa valeur peuvent être utilisées dans la séquence de tâches à travers différents environnements de système d'exploitation. Par exemple, elle peut être utilisée à la fois dans un système d’exploitation Windows complet et dans l’environnement Windows PE.  
+ Vous pouvez ajouter des nouvelles variables de séquence de tâches pour personnaliser et contrôler les étapes d'une séquence de tâches. Vous pouvez, par exemple, créer une variable de séquence de tâches qui remplace le paramètre d'une étape de séquence de tâches intégrée. Vous pouvez également créer une variable de séquence de tâches personnalisée à utiliser avec les conditions, lignes de commande ou étapes personnalisées de la séquence de tâches. Lorsque vous créez une variable de séquence de tâches, elle est conservée, avec la valeur qui lui est associée dans l'environnement de séquence de tâches, même lorsque la séquence redémarre l'ordinateur de destination. La variable et sa valeur peuvent être utilisées dans la séquence de tâches à travers différents environnements de système d'exploitation. Par exemple, elle peut être utilisée à la fois dans un système d’exploitation Windows complet et dans l’environnement Windows PE.  
 
  Le tableau suivant décrit les méthodes de création d'une variable de séquence de tâches et d'autres informations sur l'utilisation.  
 
@@ -113,11 +113,11 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
 4.  Si aucune variable de séquence de tâches n'est définie dans l'environnement de séquences global, les actions intégrées utilisent la valeur par défaut de l'étape, telle que définie dans l'Éditeur de séquence de tâches.  
 
- Outre l'écrasement des valeurs des paramètres d'étape de séquence de tâches intégrés, vous avez également la possibilité de créer une nouvelle variable d'environnement à utiliser dans une étape, un script, une ligne de commande ou une condition de séquence de tâches. Lorsque vous spécifiez un nom pour une nouvelle variable de séquence de tâches, suivez ces instructions :  
+ Outre l'écrasement des valeurs des paramètres d'étape de séquence de tâches intégrés, vous avez également la possibilité de créer une nouvelle variable d'environnement à utiliser dans une étape, un script, une ligne de commande ou une condition de séquence de tâches. Lorsque vous spécifiez un nom pour une nouvelle variable de séquence de tâches, suivez ces instructions :  
 
 -   Le nom de variable de séquence de tâches spécifié peut contenir des lettres, des chiffres, le caractère de soulignement (_) et le tiret (-).  
 
--   La longueur des noms de variable de séquence de tâches doit être comprise entre 1 et 256 caractères.  
+-   La longueur des noms de variable de séquence de tâches doit être comprise entre 1 et 256 caractères.  
 
 -   Les variables définies par l'utilisateur doivent commencer par une lettre (A-Z ou a-z).  
 
@@ -138,9 +138,9 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 |Ma_Variable|MyV@riable<br /><br /> Les variables de séquence de tâches définies par l’utilisateur ne peuvent pas contenir le symbole @.|  
 |Ma_Variable_2|_MaVariable<br /><br /> Les variables définies par l'utilisateur ne peuvent pas commencer par un caractère de soulignement.|  
 
- Limitations générales pour les variables de séquence de tâches :  
+ Limitations générales pour les variables de séquence de tâches :  
 
--   Les valeurs de variable de séquence de tâches ne peuvent pas dépasser 4 000 caractères.  
+-   Les valeurs de variable de séquence de tâches ne peuvent pas dépasser 4 000 caractères.  
 
 -   Vous ne pouvez pas créer ou remplacer une variable de séquence de tâches en lecture seule. Les variables en lecture seule sont désignées par des noms commençant par un caractère de soulignement (_). Vous pouvez accéder à la valeur d'une variable en lecture seule dans votre séquence de tâches ; toutefois, vous ne pouvez pas en modifier les valeurs associées.  
 
@@ -157,7 +157,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 |-----------------------------|-----------|  
 |Configurer les paramètres de l'action|Vous pouvez indiquer qu'un paramètre d'étape de séquence de tâches est fourni par une valeur de variable à l'exécution de la séquence.<br /><br /> Pour cela, utilisez l'Éditeur de séquence de tâches, modifiez l'étape, puis spécifiez le nom de la variable en tant que valeur de champ. Le nom de la variable doit être mis entre symboles de pourcentage (%) pour indiquer qu'il s'agit d'une variable d'environnement.|  
 |Fournir des arguments de ligne de commande|Vous pouvez spécifier tout ou partie d'une ligne de commande personnalisée à l'aide d'une valeur de variable d'environnement.<br /><br /> Pour fournir un paramètre de ligne de commande avec une variable d’environnement, intégrez le nom de la variable dans le champ **Ligne de commande** de l’étape de séquence de tâches **Exécuter la ligne de commande**. Il convient de mettre le nom de la variable entre symboles de pourcentage (%).<br /><br /> Par exemple, la ligne de commande suivante utilise une variable d'environnement intégrée pour enregistrer le nom de l'ordinateur dans le fichier C:\File.txt.<br /><br /> <br /><br /> **Cmd /C %_SMSTSMachineName% > C:\File.txt**|  
-|Évaluer une condition d'étape|Vous pouvez utiliser des variables d'environnement de séquence de tâches intégrées ou personnalisées dans le cadre d'une condition de groupe ou d'étape de séquence de tâches. La valeur de variable d'environnement sera évaluée avant l'exécution de l'étape de séquence de tâches ou du groupe de séquences de tâches.<br /><br /> Pour ajouter une condition qui prend la valeur d'une variable, effectuez les opérations suivantes :<br /><br /> 1.  Sélectionnez l'étape ou le groupe auquel vous souhaitez ajouter la condition.<br />2.  Sous l’onglet **Options** de l’étape ou du groupe, sélectionnez **Variable de séquence de tâches** dans la liste déroulante **Ajouter une condition**.<br />3.  Dans la boîte de dialogue **Variable de séquence de tâches**, spécifiez le nom de la variable, la condition testée et la valeur de la variable.|  
+|Évaluer une condition d'étape|Vous pouvez utiliser des variables d'environnement de séquence de tâches intégrées ou personnalisées dans le cadre d'une condition de groupe ou d'étape de séquence de tâches. La valeur de variable d'environnement sera évaluée avant l'exécution de l'étape de séquence de tâches ou du groupe de séquences de tâches.<br /><br /> Pour ajouter une condition qui prend la valeur d'une variable, effectuez les opérations suivantes :<br /><br /> 1.  Sélectionnez l'étape ou le groupe auquel vous souhaitez ajouter la condition.<br />2.  Sous l’onglet **Options** de l’étape ou du groupe, sélectionnez **Variable de séquence de tâches** dans la liste déroulante **Ajouter une condition**.<br />3.  Dans la boîte de dialogue **Variable de séquence de tâches**, spécifiez le nom de la variable, la condition testée et la valeur de la variable.|  
 |Fournir des informations pour un script personnalisé|Vous pouvez lire et écrire les variables de séquence de tâches à l'aide de l'objet Microsoft.SMS.TSEnvironment pendant l'exécution de la séquence de tâches.<br /><br /> L’exemple suivant illustre un fichier de script Visual Basic qui interroge la variable de séquence de tâches **_SMSTSLogPath** pour obtenir l’emplacement actuel du fichier journal. Le script définit également une variable personnalisée.<br /><br /> <br /><br /> **dim osd: set env = CreateObject("Microsoft.SMS.TSEnvironment")**<br /><br /> <br /><br /> **dim logPath**<br /><br /> <br /><br /> **' You can query the environment to get an existing variable.**<br /><br /> **logPath = env("_SMSTSLogPath")**<br /><br /> <br /><br /> **' You can also set a variable in the OSD environment.**<br /><br /> **env("MyCustomVariable") = "varname"**<br /><br /> <br /><br /> Pour plus d'informations sur l'utilisation des variables de séquence de tâches dans les scripts, consultez la documentation du SDK.|  
 
 ###  <a name="a-namebkmkcomputercollectionvariablesa-computer-and-collection-variables"></a><a name="BKMK_ComputerCollectionVariables"></a> Variables d’ordinateur et de regroupement  
@@ -173,7 +173,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
  Pour plus d’informations sur la création de variables de séquence de tâches pour des ordinateurs et des regroupements, consultez [Créer des variables de séquence de tâches pour les ordinateurs et les regroupements](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_CreateTSVariables).  
 
 ###  <a name="a-namebkmktsmediavariablesa-task-sequence-media-variables"></a><a name="BKMK_TSMediaVariables"></a> Variables de média de séquence de tâches  
- Vous pouvez spécifier des variables de séquence de tâches pour les séquences de tâches exécutées à partir du média. Lorsque vous utilisez un média pour déployer le système d'exploitation, vous ajoutez les variables de séquence de tâches et en spécifiez les valeurs lors de la création du média ; les variables et leurs valeurs sont stockées sur le média.  
+ Vous pouvez spécifier des variables de séquence de tâches pour les séquences de tâches exécutées à partir du média. Lorsque vous utilisez un média pour déployer le système d'exploitation, vous ajoutez les variables de séquence de tâches et en spécifiez les valeurs lors de la création du média ; les variables et leurs valeurs sont stockées sur le média.  
 
 > [!NOTE]  
 >  Les séquences de tâches sont stockées sur des médias autonomes. Cependant, tous les autres types de médias, tels que les médias préparés, récupèrent la séquence de tâches à partir d'un point de gestion.  
@@ -183,7 +183,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 > [!TIP]  
 >  La séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, notamment la valeur des variables de séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
 
-##  <a name="a-namebkmktscreatea-create-a-task-sequence"></a><a name="BKMK_TSCreate"></a> Créer une séquence de tâches  
+##  <a name="a-namebkmktscreatea-create-a--task-sequence"></a><a name="BKMK_TSCreate"></a> Créer une séquence de tâches  
  Vous créez des séquences de tâches à l'aide de l'Assistant Création d'une séquence de tâches. L'Assistant peut créer des séquences de tâches intégrées qui effectuent des tâches spécifiques ou des séquences de tâches personnalisées qui peuvent effectuer de nombreuses tâches différentes.  
 
  Par exemple, vous pouvez créer des séquences de tâches qui créent et capturent une image de système d'exploitation d'un ordinateur de référence, installent une image de système d'exploitation existante sur un ordinateur de destination ou créent une séquence de tâches personnalisée pour exécuter une tâche personnalisée. Vous pouvez utiliser des séquences de tâches personnalisées pour effectuer des déploiements de système d'exploitation spécialisés.  
@@ -191,7 +191,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
  Pour plus d’informations sur la création de séquences de tâches, consultez [Créer des séquences de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_CreateTaskSequence).  
 
 ##  <a name="a-namebkmktsedita-edit-a-task-sequence"></a><a name="BKMK_TSEdit"></a> Modifier une séquence de tâches  
- Vous modifiez la séquence de tâches à l’aide de l’**Éditeur de séquence de tâches**. L'éditeur peut apporter les modifications suivantes à la séquence de tâches :  
+ Vous modifiez la séquence de tâches à l’aide de l’**Éditeur de séquence de tâches**. L'éditeur peut apporter les modifications suivantes à la séquence de tâches :  
 
 -   Vous pouvez ajouter ou supprimer des étapes de la séquence de tâches.  
 
@@ -224,7 +224,7 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
  Quand vous déployez des séquences de tâches sur des appareils Windows Embedded dont les filtres d’écriture sont activés, vous pouvez faire en sorte que le filtre d’écriture soit désactivé sur l’appareil pendant le déploiement et que ce dernier soit redémarré à l’issue du déploiement. Si le filtre d'écriture n'est pas désactivé, la séquence de tâches est déployée sur un segment de recouvrement temporaire et elle n'est pas disponible au redémarrage de l'appareil.  
 
 > [!NOTE]  
->  Lorsque vous déployez une séquence de tâches sur un appareil Windows Embedded, assurez-vous que celui-ci appartient à un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de contrôler à quel moment le filtre d'écriture est désactivé et activé, et à quel moment l'appareil redémarre.  
+>  Lorsque vous déployez une séquence de tâches sur un appareil Windows Embedded, assurez-vous que celui-ci appartient à un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de contrôler à quel moment le filtre d'écriture est désactivé et activé, et à quel moment l'appareil redémarre.  
 >   
 >  Si les clients téléchargent des séquences de tâches en dehors d'une fenêtre de maintenance, la séquence de tâches est téléchargée deux fois. Dans ce cas, les clients téléchargent la séquence de tâches, désactivent les filtres d'écriture, redémarrent l'ordinateur, puis téléchargent de nouveau la séquence de tâches, car celle-ci a été téléchargée dans le segment de recouvrement temporaire, qui est effacé au redémarrage de l'appareil.  
 
@@ -256,21 +256,21 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 >  Avant d’exécuter une séquence de tâches, le client Configuration Manager vérifie toutes les séquences de tâches à la recherche d’éventuelles dépendances et des disponibilités de ces dépendances sur un point de distribution. Si le client trouve un objet supprimé dont dépend la séquence de tâches, le client génère une erreur et n'exécute pas la séquence de tâches.  
 
 ###  <a name="a-namebkmkrunprograma-run-a-program-before-the-task-sequence-is-run"></a><a name="BKMK_RunProgram"></a> Exécuter un programme avant l’exécution de la séquence de tâches  
- Vous pouvez sélectionner un programme qui s'exécute avant l'exécution de la séquence de tâches. Pour spécifier un programme à exécuter en premier, ouvrez la boîte de dialogue **Propriétés** de la séquence de tâches, puis sélectionnez l’onglet **Avancé** pour définir les options suivantes :  
+ Vous pouvez sélectionner un programme qui s'exécute avant l'exécution de la séquence de tâches. Pour spécifier un programme à exécuter en premier, ouvrez la boîte de dialogue **Propriétés** de la séquence de tâches, puis sélectionnez l’onglet **Avancé** pour définir les options suivantes :  
 
 > [!IMPORTANT]  
 >  Pour exécuter un programme avant d'exécuter la séquence de tâches, tout le contenu de la séquence de tâches et du programme doit être mis à la disposition du package sur un partage de package. Le partage de package peut être configuré sous l’onglet **Accès aux données** des propriétés du package.  
 
--   **Exécuter un autre programme en premier** : indiquez qu’un autre programme doit être exécuté avant la séquence de tâches.  
+-   **Exécuter un autre programme en premier** : indiquez qu’un autre programme doit être exécuté avant la séquence de tâches.  
 
     > [!IMPORTANT]  
     >  Ce paramètre s'applique uniquement aux séquences de tâches qui s'exécutent dans le système d'exploitation complet. Configuration Manager ignore ce paramètre si la séquence de tâches est démarrée à l’aide de l’environnement PXE ou d’un média de démarrage.  
 
--   **Package** : indiquez le package qui contient le programme.  
+-   **Package** : indiquez le package qui contient le programme.  
 
--   **Programme** : spécifiez le programme à exécuter.  
+-   **Programme** : spécifiez le programme à exécuter.  
 
--   **Toujours exécuter ce programme en premier** : indiquez que Configuration Manager doit exécuter ce programme chaque fois qu’il exécute la séquence de tâches sur le même client. Par défaut, après l'exécution d'un programme avec succès, le programme n'est pas exécuté à nouveau si la séquence de tâches est réexécutée sur le même client.  
+-   **Toujours exécuter ce programme en premier** : indiquez que Configuration Manager doit exécuter ce programme chaque fois qu’il exécute la séquence de tâches sur le même client. Par défaut, après l'exécution d'un programme avec succès, le programme n'est pas exécuté à nouveau si la séquence de tâches est réexécutée sur le même client.  
 
  Si l'exécution du programme sélectionné échoue sur un client, la séquence de tâches n'est pas exécutée.  
 
@@ -281,27 +281,27 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 >  Lorsque vous configurez une fenêtre de maintenance en vue d'exécuter une séquence de tâches, une fois que la séquence de tâches démarrée, elle se poursuit jusqu'à son terme, même si la fenêtre de maintenance arrive à terme entre temps. Une séquence de tâches aboutit entièrement ou échoue entièrement.  
 
 ##  <a name="a-namebkmktsnetworkaccessaccounta-task-sequences-and-the-network-access-account"></a><a name="BKMK_TSNetworkAccessAccount"></a> Séquences de tâches et compte d’accès réseau  
- Même si les séquences de tâches s'exécutent uniquement dans le contexte du compte Système local, il peut être nécessaire de configurer le compte d'accès réseau dans les circonstances suivantes :  
+ Même si les séquences de tâches s'exécutent uniquement dans le contexte du compte Système local, il peut être nécessaire de configurer le compte d'accès réseau dans les circonstances suivantes :  
 
 -   Vous devez configurer correctement le compte d’accès réseau, sinon la séquence de tâches ne pourra pas accéder aux packages Configuration Manager des points de distribution pour s’effectuer. Pour plus d’informations sur le compte d’accès réseau, consultez [Compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account).  
 
     > [!NOTE]  
     >  Le compte d'accès réseau n'est jamais utilisé comme contexte de sécurité pour l'exécution de programmes, l'installation d'applications ou de mises à jour ou bien l'exécution de séquences de tâches. En revanche, il est utilisé pour accéder aux ressources associées sur le réseau.  
 
--   Quand vous utilisez une image de démarrage pour lancer un déploiement du système d’exploitation, Configuration Manager utilise l’environnement Windows PE, qui n’est pas un système d’exploitation complet. Windows PE utilise un nom aléatoire généré automatiquement qui ne fait partie d’aucun domaine. Si vous ne configurez pas correctement le compte d’accès réseau, l’ordinateur risque de ne pas disposer des autorisations nécessaires pour accéder aux packages Configuration Manager et effectuer la séquence de tâches.  
+-   Quand vous utilisez une image de démarrage pour lancer un déploiement du système d’exploitation, Configuration Manager utilise l’environnement Windows PE, qui n’est pas un système d’exploitation complet. Windows PE utilise un nom aléatoire généré automatiquement qui ne fait partie d’aucun domaine. Si vous ne configurez pas correctement le compte d’accès réseau, l’ordinateur risque de ne pas disposer des autorisations nécessaires pour accéder aux packages Configuration Manager et effectuer la séquence de tâches.  
 
 ##  <a name="a-namebkmktscreatemediaa-create-media-for-task-sequences"></a><a name="BKMK_TSCreateMedia"></a> Créer un média pour les séquences de tâches  
  Vous pouvez écrire des séquences de tâches et leurs fichiers et dépendances associés sur plusieurs types de média. Ces média sont notamment les média amovibles, tels que les ensembles de CD ou DVD ou bien les disques mémoire flash USB pour les média de capture, autonomes et amovibles ou bien les fichiers WIM pour les média préparés.  
 
- Vous pouvez créer les types de média suivants :  
+ Vous pouvez créer les types de média suivants :  
 
 -   **Média de capture**. Ce type de média capture une image de système d’exploitation qui est configurée et créée en dehors de l’infrastructure Configuration Manager. Il peut contenir des programmes personnalisés qui sont exécutés avant l'exécution d'une séquence de tâches. Le programme personnalisé peut interagir avec le bureau, inviter l'utilisateur à entrer des valeurs ou créer des variables à utiliser par la séquence de tâches.  
 
      Pour plus d’informations, consultez [Créer un média de capture](../deploy-use/create-capture-media.md).  
 
--   **Média autonome**. ce média contient la séquence de tâches et tous les objets associés qui sont nécessaires à l’exécution de la séquence de tâches. Les séquences de tâches d’un média autonome peuvent s’exécuter quand Configuration Manager dispose d’une connectivité limitée ou nulle au réseau. Un média autonome peut être exécuté comme suit :  
+-   **Média autonome**. ce média contient la séquence de tâches et tous les objets associés qui sont nécessaires à l’exécution de la séquence de tâches. Les séquences de tâches d’un média autonome peuvent s’exécuter quand Configuration Manager dispose d’une connectivité limitée ou nulle au réseau. Un média autonome peut être exécuté comme suit :  
 
-    -   Si l’ordinateur de destination n’a pas démarré, l’image Windows PE associée à la séquence de tâches est utilisée à partir du média autonome, et la séquence de tâches commence.  
+    -   Si l’ordinateur de destination n’a pas démarré, l’image Windows PE associée à la séquence de tâches est utilisée à partir du média autonome, et la séquence de tâches commence.  
 
     -   Le média autonome peut être démarré manuellement si un utilisateur est connecté au réseau et lance l'installation.  
 
@@ -326,6 +326,6 @@ Vous pouvez créer des séquences de tâches pour automatiser les tâches dans v
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

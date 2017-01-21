@@ -1,5 +1,5 @@
 ---
-title: "Commandes de prédémarrage pour les médias de séquence de tâches | Configuration Manager"
+title: "Commandes de prédémarrage pour les médias de séquence de tâches | Microsoft Docs"
 description: "Créez un script à utiliser avec la commande de prédémarrage, distribuez le contenu associé à la commande de prédémarrage et configurez la commande de prédémarrage dans le média."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 40787837e17c31f788c6c20a764460aa9dba2769
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
 
 
 ---
 # <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Commandes de prédémarrage pour les médias de séquence de tâches dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez créer une commande de prédémarrage dans System Center Configuration Manager à utiliser avec un média de démarrage, un média autonome et un média préparé. La commande de prédémarrage est un script ou un exécutable qui s'exécute avant la sélection de la séquence de tâches et qui peut interagir avec l'utilisateur dans Windows PE. La commande de prédémarrage peut demander des informations à l'utilisateur et les enregistrer dans l'environnement de la séquence de tâches, ou interroger une variable de séquence de tâches pour obtenir des informations. Au démarrage de l'ordinateur de destination, la ligne de commande est exécutée avant que la stratégie ne soit téléchargée auprès du point de gestion. Suivez les procédures ci-dessous pour créer un script qui sera utilisé avec la commande de prédémarrage, distribuer le contenu associé à la commande de prédémarrage et configurer la commande de prédémarrage dans le média.  
 
@@ -81,6 +81,6 @@ env("MyCustomVariable") = "varname"
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

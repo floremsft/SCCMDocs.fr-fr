@@ -1,5 +1,5 @@
 ---
-title: "Modifier l’infrastructure | System Center Configuration Manager"
+title: "Modifier l’infrastructure | Microsoft Docs"
 description: "Découvrez comment apporter des modifications ou prendre des mesures qui affecteront l’infrastructure Configuration Manager que vous avez déployée."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fc58e77841baedd45649d676e98c736fa91e5bf2
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: fa9881e06abd410438fe5985151309c45f337802
 
 
 ---
 # <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modifier votre infrastructure System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Après avoir installé un ou plusieurs sites, vous pouvez être amené à modifier les configurations ou à effectuer des actions qui affectent l’infrastructure que vous avez déployée.  
 
@@ -32,7 +32,7 @@ Après avoir installé un ou plusieurs sites, vous pouvez être amené à modifi
 ##  <a name="a-namebkmkmanagesmsprovidera-manage-the-sms-provider"></a><a name="BKMK_ManageSMSprovider"></a> Gérer le fournisseur SMS  
  Le fournisseur SMS (fichier de bibliothèque de liens dynamiques smsprov.dll) procure le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
 
- Sur chaque site Configuration Manager, vous pouvez réexécuter le programme d’installation pour :  
+ Sur chaque site Configuration Manager, vous pouvez réexécuter le programme d’installation pour :  
 
 -   ajouter une instance du fournisseur SMS (chaque instance supplémentaire du fournisseur SMS doit se trouver sur un ordinateur distinct) ;  
 
@@ -66,7 +66,7 @@ Après avoir installé un ou plusieurs sites, vous pouvez être amené à modifi
  Une fois toutes les étapes de l'Assistant Installation effectuées, la configuration du fournisseur SMS est terminée. Dans l'onglet **Général** dans la boîte de dialogue **Propriétés** du site, vous pouvez vérifier les ordinateurs disposant d'un fournisseur SMS installé pour un site.  
 
 ##  <a name="a-namebkmkconsolea-manage-the-configuration-manager-console"></a><a name="bkmk_Console"></a> Gérer la console Configuration Manager  
- Voici les tâches que vous pouvez effectuer pour gérer la console Configuration Manager :  
+ Voici les tâches que vous pouvez effectuer pour gérer la console Configuration Manager :  
 
 -   **Modifier la langue qui s’affiche dans la console Configuration Manager** – Pour modifier les langues installées, consultez [Gérer la langue de la console Configuration Manager](#BKMK_ManageConsoleLanguages) dans cette rubrique.  
 
@@ -113,7 +113,7 @@ Par exemple, considérez un scénario dans lequel vous installez la console Conf
 4.  Pour ouvrir la console Configuration Manager dans la langue configurée pour l’ordinateur, rétablissez le nom d’origine du dossier. Par exemple, renommez **de.disabled** , **de**.  
 
 ##  <a name="a-namebkmkconfigdcomforremoteconsolea-configure-dcom-permissions-for-remote-configuration-manager-consoles"></a><a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurer les autorisations DCOM pour les consoles Configuration Manager distantes  
- Le compte d’utilisateur exécutant la console Configuration Manager exige des autorisations pour accéder à la base de données de site par le biais du fournisseur SMS. Toutefois, chaque utilisateur administratif qui utilise une console Configuration Manager distante doit posséder également des autorisations DCOM d’**activation à distance** sur :  
+ Le compte d’utilisateur exécutant la console Configuration Manager exige des autorisations pour accéder à la base de données de site par le biais du fournisseur SMS. Toutefois, chaque utilisateur administratif qui utilise une console Configuration Manager distante doit posséder également des autorisations DCOM d’**activation à distance** sur :  
 
 -   L'ordinateur de serveur de site ;  
 
@@ -167,17 +167,19 @@ Par exemple, considérez un scénario dans lequel vous installez la console Conf
 
 -   Port SQL Server Service Broker utilisé par Configuration Manager  
 
-**Si vous déplacez la base de données de site, vous devez configurer les éléments suivants :**  
+**Si vous déplacez la base de données de site, vous devez configurer les éléments suivants :**  
 
 -   **Configurer l’accès :** quand vous déplacez la base de données de site vers un nouvel ordinateur, ajoutez le compte d’ordinateur du serveur de site au groupe **Administrateurs locaux** sur l’ordinateur exécutant SQL Server. Si vous utilisez un cluster SQL Server pour la base de données de site, vous devez ajouter le compte d'ordinateur au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
 
--   **Activer l’intégration du CLR (Common Language Runtime) :**  quand vous déplacez la base de données vers une nouvelle instance de SQL Server ou vers un nouvel ordinateur SQL Server, vous devez activer l’intégration du CLR. Pour activer le CLR, utilisez **SQL Server Management Studio** pour vous connecter à l’instance de SQL Server qui héberge la base de données de site, puis exécutez la procédure stockée suivante en tant que requête : **sp_configure ’clr enabled’,1; reconfigure**.  
+-   **Activer l’intégration du CLR (Common Language Runtime) :**  quand vous déplacez la base de données vers une nouvelle instance de SQL Server ou vers un nouvel ordinateur SQL Server, vous devez activer l’intégration du CLR. Pour activer le CLR, utilisez **SQL Server Management Studio** pour vous connecter à l’instance de SQL Server qui héberge la base de données de site, puis exécutez la procédure stockée suivante en tant que requête : **sp_configure ’clr enabled’,1; reconfigure**.  
+-  **Garantir que le nouvel ordinateur SQL Server a accès à l’emplacement de sauvegarde :** quand vous utilisez un chemin UNC pour le stockage de la sauvegarde de la base de données de site, après avoir déplacé la base de données vers un nouveau serveur, dont un déplacement vers un groupe de disponibilité SQL Server AlwaysOn ou un cluster SQL Server, vérifiez que le compte d’ordinateur du nouvel ordinateur SQL Server a des autorisations en **écriture** sur l’emplacement UNC.  
+
 
 > [!IMPORTANT]  
 >  Avant de déplacer une base de données possédant un ou plusieurs réplicas de base de données de points de gestion, vous devez supprimer les réplicas de base de données. Une fois la base de données déplacée, vous pouvez reconfigurer les réplicas de base de données. Pour plus d'informations, consultez [Database replicas for management points for System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 ##  <a name="a-namebkmkspna-manage-the-spn-for-the-site-database-server"></a><a name="bkmk_SPN"></a> Gérer le SPN pour le serveur de base de données de site  
-Vous pouvez choisir le compte exécutant les services SQL pour la base de données du site :  
+Vous pouvez choisir le compte exécutant les services SQL pour la base de données du site :  
 
 -   Quand les services s’exécutent avec le compte système d’ordinateurs, le SPN est enregistré automatiquement pour vous.  
 
@@ -207,9 +209,9 @@ Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur d
     > [!IMPORTANT]  
     >  Lorsque vous créez un SPN pour un SQL Server en cluster, vous devez spécifier le nom virtuel du cluster SQL Server comme nom d'ordinateur SQL Server.  
 
-    -   Pour créer un SPN pour le nom NetBIOS de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_ordinateur_SQL_Server\>:1433 &lt;Domaine\Compte>**  
+    -   Pour créer un SPN pour le nom NetBIOS de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_ordinateur_SQL_Server\>:1433 &lt;Domaine\Compte>**  
 
-    -   Pour créer un SPN pour le nom de domaine complet de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_de_domaine_complet_SQL_Server\>:1433 &lt;Domaine\Compte**  
+    -   Pour créer un SPN pour le nom de domaine complet de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_de_domaine_complet_SQL_Server\>:1433 &lt;Domaine\Compte**  
 
     > [!NOTE]  
     >  La commande permettant d'enregistrer un SPN pour une instance nommée de SQL Server est la même que celle utilisée pour l'enregistrement du SPN d'une instance par défaut, sauf que le numéro de port doit correspondre au port utilisé par l'instance nommée.  
@@ -218,7 +220,7 @@ Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur d
 
 1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**et entrez **cmd** dans la boîte de dialogue **Exécuter** .  
 
-2.  À l’invite de commandes, entrez la commande suivante : **setspn -L &lt;domaine\compte_de_service_SQL>**.  
+2.  À l’invite de commandes, entrez la commande suivante : **setspn -L &lt;domaine\compte_de_service_SQL>**.  
 
 3.  Examinez le **Nom principal de service** inscrit pour vous assurer qu'un SPN valide a été créé pour SQL Server.  
 
@@ -230,7 +232,7 @@ Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur d
 
 3.  Dans le volet de la console, développez le domaine du serveur de site, développez **DC=&lt;nom_serveur_unique\>**, développez **CN=Users**, cliquez avec le bouton droit sur **CN=&lt;utilisateur_compte_de_service\>**, puis cliquez sur **Propriétés**.  
 
-4.  Dans la boîte de dialogue **Propriétés CN=&lt;utilisateur_compte_de_service\>**, consultez la valeur de **servicePrincipalName** pour vérifier qu’un SPN valide a été créé et associé à l’ordinateur SQL Server approprié.  
+4.  Dans la boîte de dialogue **Propriétés CN=&lt;utilisateur_compte_de_service\>**, consultez la valeur de **servicePrincipalName** pour vérifier qu’un SPN valide a été créé et associé à l’ordinateur SQL Server approprié.  
 
 #### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Pour indiquer un compte d'utilisateur de domaine à la place du système local comme compte du service SQL Server  
 
@@ -238,7 +240,7 @@ Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur d
 
 2.  Ouvrez le **Gestionnaire de configuration SQL Server**.  
 
-3.  Cliquez sur **Services SQL Server**, puis double-cliquez sur **SQL Server&lt;NOM_INSTANCE\>**.  
+3.  Cliquez sur **Services SQL Server**, puis double-cliquez sur **SQL Server&lt;NOM_INSTANCE\>**.  
 
 4.  Dans l'onglet **Ouvrir une session** , sélectionnez **Ce compte**et entrez le nom et le mot de passe du compte d'utilisateur de domaine créé à l'étape 1. Vous pouvez également cliquer sur **Parcourir** pour rechercher le compte d'utilisateur dans les services de domaine Active Directory, puis cliquer sur **Appliquer**.  
 
@@ -249,7 +251,7 @@ Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur d
 ##  <a name="a-namebkmkreseta-run-a-site-reset"></a><a name="bkmk_reset"></a> Exécuter une réinitialisation de site  
  Quand une réinitialisation de site s’exécute sur un site d’administration centrale ou sur un site principal, le site :  
 
--   réapplique les autorisations de fichiers et de Registre Configuration Manager par défaut ;  
+-   réapplique les autorisations de fichiers et de Registre Configuration Manager par défaut ;  
 
 -   réinstalle tous les composants de site et tous les rôles de système de site sur le site.  
 
@@ -257,7 +259,7 @@ Les sites secondaires ne prennent pas en charge la réinitialisation du site.
 
 Les réinitialisations de site peuvent être exécutées manuellement, quand vous le souhaitez, mais peuvent également s’exécuter automatiquement une fois que vous avez modifié la configuration du site.  
 
-Par exemple, si les comptes utilisés par les composants Configuration Manager ont été modifiés, vous devez envisager de réinitialiser le site manuellement ; ainsi mis à jour, les composants de site peuvent utiliser les nouvelles informations de compte. Toutefois, si vous modifiez les langues du client ou du serveur sur un site, Configuration Manager réinitialise automatiquement le site, car cette action est nécessaire avant que le site puisse utiliser cette modification.  
+Par exemple, si les comptes utilisés par les composants Configuration Manager ont été modifiés, vous devez envisager de réinitialiser le site manuellement ; ainsi mis à jour, les composants de site peuvent utiliser les nouvelles informations de compte. Toutefois, si vous modifiez les langues du client ou du serveur sur un site, Configuration Manager réinitialise automatiquement le site, car cette action est nécessaire avant que le site puisse utiliser cette modification.  
 
 > [!NOTE]  
 >  La réinitialisation d’un site ne réinitialise pas les autorisations d’accès aux objets non-Configuration Manager.  
@@ -287,7 +289,7 @@ Le compte que vous utilisez pour effectuer une réinitialisation du site doit di
     -   **Site principal**: le compte que vous utilisez pour réinitialiser un site de ce site doit être un administrateur local situé sur le serveur de site principal et doit disposer de privilèges équivalents au rôle de sécurité de l'administration basée sur le rôle **Administrateur complet** . Si le site principal se trouve dans une hiérarchie disposant d'un site d'administration centrale, ce compte doit également être un administrateur local sur le serveur du site d'administration centrale.  
 
 **Limitations d’une réinitialisation de site**
-  - Depuis la version 1602, vous ne pouvez pas utiliser une réinitialisation de site pour modifier les modules linguistiques serveur ou client qui ont été installés sur les sites tant que la hiérarchie est configurée pour prendre en charge [les tests des mises à niveau du client dans un regroupement de préproduction](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+  - Depuis la version 1602, vous ne pouvez pas utiliser une réinitialisation de site pour modifier les modules linguistiques serveur ou client qui ont été installés sur les sites tant que la hiérarchie est configurée pour prendre en charge [les tests des mises à niveau du client dans un regroupement de préproduction](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
 #### <a name="to-perform-a-site-reset"></a>Pour effectuer une réinitialisation de site  
 
@@ -305,29 +307,29 @@ Le compte que vous utilisez pour effectuer une réinitialisation du site doit di
 Une fois la réinitialisation du site terminée, cliquez sur **Fermer** pour terminer cette procédure.  
 
 ##  <a name="a-namebkmksitelanga-manage-language-packs-at-a-site"></a><a name="bkmk_sitelang"></a> Gérer les modules linguistiques sur un site  
-Après l’installation d’un site, vous pouvez modifier les modules linguistiques client et serveur en cours d’utilisation :  
+Après l’installation d’un site, vous pouvez modifier les modules linguistiques client et serveur en cours d’utilisation :  
 
-**Modules linguistiques serveur :**  
+**Modules linguistiques serveur :**  
 
--   **S’applique à :**  
+-   **S’applique à :**  
 
      Installations de la console Configuration Manager  
 
      Nouvelles installations de rôles de système de site applicables  
 
--   **Détails :**  
+-   **Détails :**  
 
      Après la mise à jour des modules linguistiques serveur d’un site, vous pouvez ajouter la prise en charge des modules linguistiques dans les consoles Configuration Manager.  
 
      Pour ajouter la prise en charge d’un module linguistique serveur dans une console Configuration Manager, vous devez installer la console Configuration Manager à partir du dossier **ConsoleSetup** d’un serveur de site dans lequel figure le module linguistique que vous souhaitez utiliser. Si la console Configuration Manager est déjà installée, vous devez commencer par la désinstaller, afin de permettre à la nouvelle installation d’identifier la liste actuelle des modules linguistiques pris en charge.  
 
-**Modules linguistiques client :**  
+**Modules linguistiques client :**  
 
--   **S’applique à :**  
+-   **S’applique à :**  
 
      Les modifications apportées aux modules linguistiques client mettent à jour les fichiers sources d’installation du client, pour que les nouvelles installations et mises à niveau de client ajoutent la prise en charge de la liste des langues client mise à jour.  
 
--   **Détails :**  
+-   **Détails :**  
 
      Après la mise à jour des modules linguistique client d'un site, vous devez installer chacun des clients qui utiliseront les modules linguistiques en utilisant les fichiers sources qui incluent les modules linguistiques client.  
 
@@ -369,6 +371,6 @@ Pour plus d’informations sur les langues client et serveur prises en charge pa
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Définitions de programmes malveillants Endpoint Protection de partage réseau | System Center Configuration Manager"
+title: "Définitions de programmes malveillants Endpoint Protection à partir d’un partage réseau | Microsoft Docs"
 description: "Apprenez à activer le téléchargement des définitions de programmes malveillants Endpoint Protection à partir de Microsoft Updates pour Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 23c19256f3f38d44c57e5d3d25b36ceb023f3214
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 344f551a370378620d3d11870993a77e60f9f685
 
 
 ---
 
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-microsoft-updates-for-configuration-manager"></a>Activer le téléchargement des définitions de programmes malveillants Endpoint Protection à partir de Microsoft Updates pour Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Quand vous choisissez de télécharger des mises à jour de définition à partir de Microsoft Update, les clients vérifient le site Microsoft Update à l’intervalle défini dans la section **Mises à jour de définitions** de la boîte de dialogue Stratégie de logiciel anti-programme malveillant.
@@ -49,6 +49,6 @@ ms.openlocfilehash: 23c19256f3f38d44c57e5d3d25b36ceb023f3214
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

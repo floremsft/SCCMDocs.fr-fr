@@ -1,5 +1,5 @@
 ---
-title: SQL Server AlwaysOn | System Center Configuration Manager
+title: SQL Server AlwaysOn | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -15,18 +15,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 9d4d0c741418af29edc586a5d629fc61f86da426
 
 
 ---
 # <a name="sql-server-alwayson-for-a-highly-available-site-database-for-system-center-configuration-manager"></a>SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 
- À partir de System Center Configuration Manager version 1602, vous pouvez utiliser des [groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230\(v=sql.120\).aspx) SQL Server pour héberger la base de données du site sur les sites principaux, et le site d’administration centrale en tant que solution de récupération d’urgence à haute disponibilité. Le groupe de disponibilité peut être hébergé localement ou dans Microsoft Azure.  
+ À partir de System Center Configuration Manager version 1602, vous pouvez utiliser des [groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230\(v=sql.120\).aspx) SQL Server pour héberger la base de données du site sur les sites principaux, et le site d’administration centrale en tant que solution de récupération d’urgence à haute disponibilité. Le groupe de disponibilité peut être hébergé localement ou dans Microsoft Azure.  
 
  Quand vous utilisez Microsoft Azure pour héberger le groupe de disponibilité, vous pouvez encore augmenter la disponibilité de la base de données de votre site en utilisant des groupes de disponibilité AlwaysOn SQL Server avec des groupes à haute disponibilité Azure. Pour plus d’informations sur les groupes à haute disponibilité Azure, consultez [Gestion de la disponibilité des machines virtuelles](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).  
 
@@ -71,9 +71,9 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
     -   ERREUR : erreur SQL Server : [25000][3906][Microsoft][SQL Server Native Client 11.0][SQL Server]Échec de la mise à jour de la base de données « CM_AAA », car celle-ci est en lecture seule.   Installation de Configuration Manager 21/1/2016 16:54:59 7344 (0x1CB0)  
 
      Ces erreurs sont journalisées quand le programme d’installation tente de traiter des rôles de base de données sur des réplicas secondaires du groupe de disponibilité. Vous pouvez ignorer ces erreurs sans risque.
-- **Serveurs SQL qui hébergent des groupes de disponibilité supplémentaires :**
+- **Serveurs SQL qui hébergent des groupes de disponibilité supplémentaires :**
 
-  Avant d’installer la version 1610, quand vous utilisez un groupe de disponibilité, et que vous exécutez ensuite le programme d’installation de Configuration Manager ou que vous installez une mise à jour pour Configuration Manager, chaque réplica de chaque groupe de disponibilité supplémentaire sur le serveur SQL Server hébergeant le groupe de disponibilité Configuration Manager doit disposer des configurations suivantes :
+  Avant d’installer la version 1610, quand vous utilisez un groupe de disponibilité, et que vous exécutez ensuite le programme d’installation de Configuration Manager ou que vous installez une mise à jour pour Configuration Manager, chaque réplica de chaque groupe de disponibilité supplémentaire sur le serveur SQL Server hébergeant le groupe de disponibilité Configuration Manager doit disposer des configurations suivantes :
     - **basculement manuel**
     - **autoriser toute connexion en lecture seule**
 
@@ -143,7 +143,7 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
 #### <a name="to-configure-an-availability-group-to-host-a-site-database"></a>Pour configurer un groupe de disponibilité pour héberger une base de données de site  
 
-1.  Utilisez la commande suivante pour arrêter le site Configuration Manager :  
+1.  Utilisez la commande suivante pour arrêter le site Configuration Manager :  
      **Preinst.exe /stopsite**  
 
      Pour plus d’informations sur l’utilisation de Preinst.exe, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
@@ -152,15 +152,7 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
      Consultez [Afficher ou modifier le mode de récupération d’une base de données (SQL Server)](https://msdn.microsoft.com/library/ms189272\(v=sql.120\).aspx) dans la documentation de SQL Server. (Les groupes de disponibilité prennent en charge uniquement le mode de récupération COMPLÈTE).  
 
-3.  Utilisez SQL Server pour créer une sauvegarde complète de la base de données de votre site, puis :  
-
-    -   Si le serveur de bases de données de votre site actuel ne sera pas membre du groupe de disponibilité, ou ne sera pas utilisé en tant que réplica principal initial pour le groupe de disponibilité, restaurez une copie de la base de données du site sur le serveur qui hébergera le réplica principal du groupe.  
-
-    -   Si le serveur de base de données du site actuel sera membre de votre groupe de disponibilité, planifiez d’utiliser ce serveur comme membre réplica principal du groupe de disponibilité. Ce faisant, il est inutile de restaurer une copie de la base de données du site sur ce serveur ou sur un autre.  
-
-    Pour plus d’informations sur la façon de procéder, consultez [Créer une sauvegarde complète de base de données (SQL Server)](https://msdn.microsoft.com/library/ms187510\(v=sql.120\).aspx) et [Restaurer une sauvegarde de base de données (SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429\(v=sql.120\).aspx)dans la documentation de SQL Server.  
-
-4.  Sur le serveur qui hébergera le réplica principal du groupe, utilisez **l’Assistant Nouveau groupe de disponibilité** pour créer le groupe de disponibilité. Dans l’Assistant :  
+3.  Sur le serveur qui hébergera le réplica principal du groupe, utilisez **l’Assistant Nouveau groupe de disponibilité** pour créer le groupe de disponibilité. Dans l’Assistant :  
 
     -   Dans la page **Sélectionner une base de données**, sélectionnez la base de données pour votre site Configuration Manager  
 
@@ -168,21 +160,21 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
         -   **Réplicas**: spécifiez les serveurs qui hébergeront les réplicas secondaires  
 
-        -   **Écouteur** : spécifiez le **nom d’écouteur DNS** en tant que nom DNS complet, par exemple **&lt;Serveur_écouteur>.fabrikam.com**. Ce nom est utilisé quand vous configurez Configuration Manager pour utiliser la base de données située dans le groupe de disponibilité.
+        -   **Écouteur** : spécifiez le **nom d’écouteur DNS** en tant que nom DNS complet, par exemple **&lt;Serveur_écouteur>.fabrikam.com**. Ce nom est utilisé quand vous configurez Configuration Manager pour utiliser la base de données située dans le groupe de disponibilité.
 
     -   Dans la page **Sélectionner la synchronisation de données initiale** , sélectionnez **Complète**. Après avoir créé le groupe de disponibilité, l’Assistant sauvegarde la base de données primaire et le journal des transactions, puis les restaure sur chaque serveur hébergeant un réplica secondaire. Si vous ne suivez pas cette étape, vous devez restaurer une copie de la base de données du site sur chaque serveur hébergeant un réplica secondaire, et joindre manuellement cette base de données au groupe.  
 
     Pour plus d’informations, consultez [Utiliser l’Assistant Groupe de disponibilité (SQL Server Management Studio)](https://msdn.microsoft.com/library/hh403415\(v=sql.120\).aspx) dans la documentation de SQL Server.  
 
-5.  Une fois le groupe de disponibilité configuré, configurez la base de données du site sur le réplica principal avec la propriété **TRUSTWORTHY** , puis **activez l’intégration du CLR**. Pour plus d’informations sur la façon d’effectuer ces configurations, consultez [Propriété de base de données TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) et  [Activation de l’intégration du CLR](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx) dans la documentation de SQL Server.  
+4.  Une fois le groupe de disponibilité configuré, configurez la base de données du site sur le réplica principal avec la propriété **TRUSTWORTHY** , puis **activez l’intégration du CLR**. Pour plus d’informations sur la façon d’effectuer ces configurations, consultez [Propriété de base de données TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) et  [Activation de l’intégration du CLR](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx) dans la documentation de SQL Server.  
 
-6.  Pour configurer chaque réplica secondaire dans le groupe de disponibilité, procédez comme suit :  
+5.  Pour configurer chaque réplica secondaire dans le groupe de disponibilité, procédez comme suit :  
 
     1.  Basculez manuellement le réplica principal actuel vers un réplica secondaire. Consultez [Effectuer un basculement manuel planifié d’un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) dans la documentation de SQL Server.  
 
     2.  Configurez la base de données sur le nouveau réplica principal avec la propriété **TRUSTWORTHY** , puis **activez l’intégration du CLR**.  
 
-7.  Une fois tous les réplicas promus en réplicas principaux et les bases de données configurées, le groupe de disponibilité est prêt à être utilisé avec Configuration Manager.  
+6.  Une fois tous les réplicas promus en réplicas principaux et les bases de données configurées, le groupe de disponibilité est prêt à être utilisé avec Configuration Manager.  
 
 
 
@@ -220,15 +212,13 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
 2.  Arrêtez le site Configuration Manager en exécutant **Preinst.exe /stopsite**. Consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
-3.  Utilisez SQL Server pour créer une sauvegarde de la base de données du site à partir du réplica principal, puis restaurez cette sauvegarde sur le nouveau serveur réplica secondaire. Consultez [Créer une sauvegarde complète de base de données (SQL Server)](https://msdn.microsoft.com/library/ms187510\(v=sql.120\).aspx) et [Restaurer une sauvegarde de base de données (SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429\(v=sql.120\).aspx) dans la bibliothèque de documentation de SQL Server.  
-
-4.  Configurez chaque réplica secondaire. Pour chaque réplica secondaire dans le groupe de disponibilité, effectuez les opérations suivantes :  
+3.  Configurez chaque réplica secondaire. Pour chaque réplica secondaire dans le groupe de disponibilité, effectuez les opérations suivantes :  
 
     1.  Basculez manuellement le réplica principal vers le nouveau réplica secondaire. Consultez [Effectuer un basculement manuel planifié d’un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) dans la documentation de SQL Server.  
 
     2.  Configurez la base de données sur le nouveau serveur sur Digne de confiance, puis activez l’intégration du CLR. Consultez [Propriété de base de données TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) et  [Activation de l’intégration du CLR](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx)dans la documentation de SQL Server.  
 
-5.  Redémarrez le site en démarrant le Gestionnaire de composant de site (**sitecomp**) et les services **SMS_Executive** .  
+4.  Redémarrez le site en démarrant le Gestionnaire de composant de site (**sitecomp**) et les services **SMS_Executive** .  
 
 #### <a name="to-remove-a-replica-member-from-the-availability-group"></a>Pour supprimer un membre réplica du groupe de disponibilité  
 
@@ -239,7 +229,7 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
 #### <a name="to-move-the-site-database-from-an-availability-group-back-to-a-single-instance-sql-server"></a>Pour replacer la base de données du site à partir d’un groupe de disponibilité dans une instance SQL Server unique  
 
-1.  Arrêtez le site Configuration Manager à l’aide de la commande suivante :  
+1.  Arrêtez le site Configuration Manager à l’aide de la commande suivante :  
      **Preinst.exe /stopsite**.  Pour plus d’informations, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
 2.  Utilisez SQL Server pour créer une sauvegarde complète de la base de données de votre site à partir du réplica principal. Pour plus d’informations sur la façon de procéder, consultez [Créer une sauvegarde complète de base de données (SQL Server)](https://msdn.microsoft.com/library/ms187510\(v=sql.120\).aspx) dans la documentation de SQL Server.  
@@ -270,6 +260,6 @@ ms.openlocfilehash: 570e651d486a6120eb062ef845930445596054da
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

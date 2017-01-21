@@ -1,5 +1,5 @@
 ---
-title: "Personnaliser les images de démarrage | Configuration Manager"
+title: "Personnaliser les images de démarrage | Microsoft Docs"
 description: "Découvrez plusieurs façons d’utiliser Configuration Manager ou l’outil en ligne de commande de gestion et de maintenance des images de déploiement (DISM) pour personnaliser une image de démarrage."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,36 +17,36 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5b78d68087bb5513723e1cc25291f7776d48f7b5
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 9312ad976986f97293d294c12161f78e5d6fee1e
 
 
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personnaliser les images de démarrage avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Chaque version de Configuration Manager prend en charge une version spécifique du Kit de déploiement et d’évaluation Windows (Windows ADK). Vous pouvez utiliser, ou personnaliser, les images de démarrage depuis la console Configuration Manager quand elles sont basées sur une version Windows PE depuis la version prise en charge de Windows ADK. Vous devez déployer les autres images de démarrage à l'aide d'une autre méthode, telle que l'outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) qui fait partie de Windows AIK et Windows ADK.  
+Chaque version de Configuration Manager prend en charge une version spécifique du Kit de déploiement et d’évaluation Windows (Windows ADK). Vous pouvez utiliser, ou personnaliser, les images de démarrage depuis la console Configuration Manager quand elles sont basées sur une version Windows PE depuis la version prise en charge de Windows ADK. Vous devez déployer les autres images de démarrage à l'aide d'une autre méthode, telle que l'outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) qui fait partie de Windows AIK et Windows ADK.  
 
- Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de l’outil DISM avant d’ajouter l’image à Configuration Manager.  
+ Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de l’outil DISM avant d’ajouter l’image à Configuration Manager.  
 
 -   **Version de Windows ADK**  
 
      Windows ADK pour Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
--   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
+-   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 3.1<sup>1</sup> et Windows PE 5  
 
-     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager.  
+     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager.  
 
- Les procédures de cette rubrique expliquent comment ajouter les composants facultatifs requis par Configuration Manager à l’image de démarrage en utilisant les packages Windows PE suivants :  
+ Les procédures de cette rubrique expliquent comment ajouter les composants facultatifs requis par Configuration Manager à l’image de démarrage en utilisant les packages Windows PE suivants :  
 
 -   **WinPE-WMI**: Ajoute la prise en charge de Windows Management Instrumentation (WMI).  
 
@@ -68,13 +68,13 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 
 #### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 5  
 
-1.  Installez le kit Windows ADK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé.  
+1.  Installez le kit Windows ADK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé.  
 
 2.  Téléchargez Windows ADK pour Windows 8.1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=39982).  
 
-3.  Copiez l’image de démarrage (wimpe.wim) du dossier d’installation de Windows ADK (par exemple, <*chemin_installation*>\Windows Kits\\<*version*>\Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 ou amd64*>\\<*paramètres régionaux*>) vers un dossier de destination sur l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier de destination.  
+3.  Copiez l’image de démarrage (wimpe.wim) du dossier d’installation de Windows ADK (par exemple, <*chemin_installation*>\Windows Kits\\<*version*>\Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 ou amd64*>\\<*paramètres régionaux*>) vers un dossier de destination sur l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier de destination.  
 
-4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
+4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
 
      **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
@@ -83,7 +83,7 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
     > [!NOTE]
     >  Pour plus d'informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/hh824821.aspx) dans la bibliothèque de documentation TechNet Windows 8.1 et Windows 8.
 
-5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 5, les composants facultatifs 64 bits sont situés dans <*chemin_installation*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
+5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 5, les composants facultatifs 64 bits sont situés dans <*chemin_installation*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
     > [!NOTE]
     >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows ADK.  
@@ -141,7 +141,7 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 
     4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
+        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
 
         -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
 
@@ -190,22 +190,22 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 
 #### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 3.1  
 
-1.  Installez Windows AIK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé. Téléchargez le kit Windows AIK depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
+1.  Installez Windows AIK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé. Téléchargez le kit Windows AIK depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
 
 2.  Installez le supplément Windows AIK pour Windows 7 avec SP1 sur l'ordinateur de l'étape 1. Téléchargez le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-3.  Copiez l’image de démarrage (wimpe.wim) qui se trouve dans le dossier d’installation Windows AIK (par exemple, <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\\) vers un dossier de l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier.  
+3.  Copiez l’image de démarrage (wimpe.wim) qui se trouve dans le dossier d’installation Windows AIK (par exemple, <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\\) vers un dossier de l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier.  
 
-4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
+4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
 
      **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
      Où C:\WinPEWAIK est le dossier qui contient l'image de démarrage et C:\WinPEMount est le dossier monté.  
 
     > [!NOTE]
-    >  Pour plus d’informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
+    >  Pour plus d’informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
 
-5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 3.1, par exemple, les composants facultatifs sont situés dans <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
+5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 3.1, par exemple, les composants facultatifs sont situés dans <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
     > [!NOTE]
     >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows AIK.  
@@ -233,7 +233,7 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
     > [!TIP]
-    >  Pour plus d’informations sur les différents packages que vous pouvez ajouter à l’image de démarrage, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
+    >  Pour plus d’informations sur les différents packages que vous pouvez ajouter à l’image de démarrage, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
 
 6.  Utilisez DISM pour ajouter des pilotes spécifiques à l'image de démarrage, si nécessaire. Tapez la commande suivante pour ajouter des pilotes à l'image de démarrage, si nécessaire :  
 
@@ -257,7 +257,7 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 
     4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
+        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
 
         -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
 
@@ -303,6 +303,6 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

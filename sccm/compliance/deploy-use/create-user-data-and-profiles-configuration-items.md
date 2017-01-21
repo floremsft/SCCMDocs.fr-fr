@@ -1,5 +1,5 @@
 ---
-title: "Créer des éléments de configuration des données et profils utilisateur | System Center Configuration Manager"
+title: "Créer des éléments de configuration des données et profils utilisateur | Microsoft Docs"
 description: "Utilisez des éléments de configuration des données et profils dans System Center Configuration Manager pour gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,17 +17,17 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f9d0986fe1275bc6cb855be6ca7fa34bc289feca
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 85b984d739dc9f9d2046186b381eff54ba687c66
 
 
 ---
 
 # <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Créer des éléments de configuration des données et profils utilisateur dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les éléments de configuration des données et profils utilisateur dans System Center Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Par exemple, vous pouvez :  
+Les éléments de configuration des données et profils utilisateur dans System Center Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Par exemple, vous pouvez :  
 
 -   rediriger le dossier Documents d’un utilisateur vers un partage réseau ;  
 
@@ -120,6 +120,6 @@ Les éléments de configuration des données et profils utilisateur dans System 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

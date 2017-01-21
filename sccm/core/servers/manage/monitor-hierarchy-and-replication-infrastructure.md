@@ -1,5 +1,5 @@
 ---
-title: "Surveiller la réplication| System Center Configuration Manager"
+title: "Surveiller la réplication | Microsoft Docs"
 description: "Apprenez à surveiller l’infrastructure et les opérations dans Configuration Manager à l’aide de l’espace de travail Surveillance dans la console."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: 92ded1197d1dcdd6e5f3a8917718e6232b18bce4
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 132803a1aa9aad5c5462686bd656688418e47d07
 
 
 ---
 # <a name="monitor-hierarchy-and-replication-infrastructure-in-system-center-configuration-manager"></a>Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour surveiller l’infrastructure et les opérations dans System Center Configuration Manager, utilisez l’espace de travail **Surveillance** dans la console Configuration Manager.  
 
@@ -55,10 +55,10 @@ Pour réduire les risques de défaillance d'un site, si les tâches de contrôle
 
 
 
-##  <a name="a-namebkmkmonintormgmttasksa-monitor-common-management-tasks-for-configuration-manager"></a><a name="BKMK_MonintorMgmtTasks"></a> Surveiller les tâches de gestion courantes pour Configuration Manager  
+##  <a name="a-namebkmkmonintormgmttasksa-monitor--common-management-tasks-for-configuration-manager"></a><a name="BKMK_MonintorMgmtTasks"></a> Surveiller les tâches de gestion courantes pour Configuration Manager  
  Configuration Manager assure une surveillance intégrée à partir de la console Configuration Manager. Vous pouvez surveiller de nombreuses tâches, dont celles liées aux mises à jour logicielles, à la gestion de l'alimentation et au déploiement de contenu au sein de votre hiérarchie.  
 
- Utilisez les informations suivantes pour vous aider à surveiller les tâches Configuration Manager courantes :  
+ Utilisez les informations suivantes pour vous aider à surveiller les tâches Configuration Manager courantes :  
 
  **Alertes**  
    Consultez [Surveiller les alertes](../../../core/servers/manage/use-alerts-and-the-status-system.md#BKMK_MonitorAlerts) dans [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
@@ -191,17 +191,17 @@ La réplication de base de données entre sites implique la réplication de plus
 >  Les groupes de réplication de données de site sont envoyés uniquement à partir du site enfant vers le site parent. Les groupes de réplication pour les données globales sont répliqués dans les deux directions.  
 
 ###  <a name="a-namebkmkrlaa-about-the-replication-link-analyzer"></a><a name="BKMK_RLA"></a> À propos de l'analyseur de lien de réplication  
- Configuration Manager inclut l’**analyseur de lien de réplication** que vous utilisez pour analyser et réparer les problèmes de réplication. Vous pouvez utiliser l'analyseur de lien de réplication pour corriger les échecs de lien de réplication en cas d'échec de la réplication et lorsque la réplication cesse de fonctionner mais n'a pas encore été signalée comme ayant échoué. L’analyseur de lien de réplication peut être utilisé pour corriger les problèmes de réplication entre les ordinateurs suivants dans la hiérarchie Configuration Manager (la direction de l’échec de réplication n’a aucune importance) :  
+ Configuration Manager inclut l’**analyseur de lien de réplication** que vous utilisez pour analyser et réparer les problèmes de réplication. Vous pouvez utiliser l'analyseur de lien de réplication pour corriger les échecs de lien de réplication en cas d'échec de la réplication et lorsque la réplication cesse de fonctionner mais n'a pas encore été signalée comme ayant échoué. L’analyseur de lien de réplication peut être utilisé pour corriger les problèmes de réplication entre les ordinateurs suivants dans la hiérarchie Configuration Manager (la direction de l’échec de réplication n’a aucune importance) :  
 
 -   Entre un serveur de site et le serveur de base de données de site.  
 
 -   Entre un serveur de base de données de site des sites et un autre ordinateur de base de données de site des sites (réplication intersite).  
 
-Vous pouvez exécuter l’analyseur de lien de réplication dans la console Configuration Manager ou à partir d’une invite de commandes :  
+Vous pouvez exécuter l’analyseur de lien de réplication dans la console Configuration Manager ou à partir d’une invite de commandes :  
 
--   Pour l’exécuter dans la console Configuration Manager : dans l’espace de travail **Surveillance**, cliquez sur le nœud **Réplication de la base de données**, sélectionnez le lien de réplication à analyser, puis, dans le groupe **Réplication de la base de données**, sous l’onglet **Accueil**, sélectionnez **Analyseur de lien de réplication**.  
+-   Pour l’exécuter dans la console Configuration Manager : dans l’espace de travail **Surveillance**, cliquez sur le nœud **Réplication de la base de données**, sélectionnez le lien de réplication à analyser, puis, dans le groupe **Réplication de la base de données**, sous l’onglet **Accueil**, sélectionnez **Analyseur de lien de réplication**.  
 
--   Pour l’exécuter à l’invite de commandes, entrez la commande suivante : **%chemin%\Microsoft Configuration Manager\AdminConsole\bin\Microsoft.ConfigurationManager.ReplicationLinkAnalyzer.Wizard.exe &lt;nom de domaine complet du serveur de site source\> &lt;nom de domaine complet du serveur de site de destination\>**  
+-   Pour l’exécuter à l’invite de commandes, entrez la commande suivante : **%chemin%\Microsoft Configuration Manager\AdminConsole\bin\Microsoft.ConfigurationManager.ReplicationLinkAnalyzer.Wizard.exe &lt;nom de domaine complet du serveur de site source\> &lt;nom de domaine complet du serveur de site de destination\>**  
 
 Lorsque vous exécutez l'analyseur de lien de réplication, celui-ci détecte les problèmes à l'aide d'une série de règles et contrôles de diagnostic. Lorsque l'outil est exécuté, vous voyez les problèmes identifiés par celui-ci. Des instructions pour résoudre un problème, lorsqu'elles sont connues, sont affichées. Si l'analyseur de lien de réplication peut corriger automatiquement un problème, cette option vous est présentée. Une fois l'analyseur de lien de réplication terminé, celui-ci enregistre les résultats dans le rapport suivant basé sur XML et un fichier journal sur le bureau de l'utilisateur qui exécute l'outil :  
 
@@ -227,7 +227,7 @@ Les actions de recherche et de correction ayant réussi et celles ayant échoué
 
 **Problèmes connus de l’analyseur de lien de réplication :**  
 
--   Avec la version 1511 de System Center Configuration Manager, l’analyseur de lien de réplication génère des erreurs de certificat SQL Server Service Broker pour les sites principaux mis à niveau à partir de System Center 2012 Configuration Manager. Ces erreurs sont dues à des modifications des noms des certificats introduits dans la version 1511 pour lesquels l’analyseur de lien de réplication n’a pas encore été mis à jour. Vous pouvez ignorer ces erreurs sans risque.  
+-   Avec la version 1511 de System Center Configuration Manager, l’analyseur de lien de réplication génère des erreurs de certificat SQL Server Service Broker pour les sites principaux mis à niveau à partir de System Center 2012 Configuration Manager. Ces erreurs sont dues à des modifications des noms des certificats introduits dans la version 1511 pour lesquels l’analyseur de lien de réplication n’a pas encore été mis à jour. Vous pouvez ignorer ces erreurs sans risque.  
 
 ###  <a name="a-namebkmkprocsformonitoringreplicationa-procedures-for-monitoring-database-replication"></a><a name="BKMK_ProcsforMonitoringReplication"></a> Procédures de surveillance de la réplication de la base de données  
 
@@ -245,6 +245,6 @@ Les actions de recherche et de correction ayant réussi et celles ayant échoué
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

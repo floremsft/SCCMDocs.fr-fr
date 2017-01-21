@@ -1,5 +1,5 @@
 ---
-title: "Fonctions et fonctionnalités | System Center Configuration Manager"
+title: "Fonctions et fonctionnalités | Microsoft Docs"
 description: "Découvrez les principales fonctionnalités de gestion de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: fc40912a3da034ac0e3f84c72593aa4a9df8d057
-ms.openlocfilehash: c558148104b6338e4038bf690491c88e76dfdcaf
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 851029368d97312ef2766505f933eac72d6950e5
 
 
 ---
 # <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Fonctions et fonctionnalités de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les principales fonctionnalités de gestion de System Center Configuration Manager sont exposées ci-après. Chaque fonctionnalité possède ses propres prérequis, et les fonctionnalités que vous souhaitez utiliser peuvent influencer la conception et l’implémentation de votre hiérarchie Configuration Manager. Par exemple, si vous souhaitez déployer des logiciels sur des appareils de votre hiérarchie, vous devez installer le rôle de système de site du point de distribution.  
 
@@ -58,7 +58,7 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
 **Gestion des appareils mobiles avec Microsoft Intune**  
 
- Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (y compris Samsung KNOX), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
+ Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (y compris Samsung KNOX Standard), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
 
  Même si vous utilisez le service Intune, les tâches de gestion s’effectuent à l’aide du rôle de système de site de point de connexion de service, disponible via la console Configuration Manager. Consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
@@ -84,7 +84,7 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
  **Éléments de configuration des données et profils utilisateur**  
 
- Les éléments de configuration des données et profils utilisateur dans Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur des ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Consultez [Utilisation d’éléments de configuration des données et profils utilisateur dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
+ Les éléments de configuration des données et profils utilisateur dans Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur des ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Consultez [Utilisation d’éléments de configuration des données et profils utilisateur dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
  **Contrôle à distance**  
 
@@ -104,6 +104,6 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

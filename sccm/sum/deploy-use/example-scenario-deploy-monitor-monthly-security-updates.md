@@ -1,6 +1,6 @@
 ---
 
-title: "Exemple de scénario pour le déploiement et la surveillance des mises à jour logicielles de sécurité | Configuration Manager"
+title: "Exemple de scénario pour le déploiement et la surveillance des mises à jour logicielles de sécurité | Microsoft Docs"
 description: "Suivez cet exemple de scénario pour découvrir comment utiliser les mises à jour logicielles dans Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité mensuelles publiées par Microsoft."
 keywords: 
 author: dougeby
@@ -14,15 +14,15 @@ ms.technology:
 ms.service: 
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: cd03ddda0a39704a5715f7ed8d620daaefb57653
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 0e6e2b3a9455bb6eda437eb1325aaaadb3d83420
 
 
 
 ---
 # <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Exemple de scénario d’utilisation de System Center Configuration Manager pour le déploiement et la surveillance des mises à jour logicielles de sécurité publiées chaque mois par Microsoft
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique présente un exemple de scénario qui montre comment utiliser les mises à jour logicielles dans System Center Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité publiées chaque mois par Microsoft.  
 
@@ -44,22 +44,22 @@ Cette rubrique présente un exemple de scénario qui montre comment utiliser les
 
  Les sections suivantes de cette rubrique présentent des exemples d’étapes à suivre pour déployer et surveiller les mises à jour logicielles de sécurité dans Configuration Manager au sein de votre organisation.
 
-##  <a name="a-namebkmkstep1a-step-1-create-a-software-update-group-for-yearly-compliance"></a><a name="BKMK_Step1"></a> Étape 1 : Créer un groupe de mises à jour logicielles pour la compatibilité annuelle  
- John crée un groupe de mises à jour logicielles, qu’il va ensuite utiliser pour surveiller la compatibilité de toutes les mises à jour logicielles de sécurité déployées en 2016. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="a-namebkmkstep1a-step-1-create-a-software-update-group-for-yearly-compliance"></a><a name="BKMK_Step1"></a> Étape 1 : Créer un groupe de mises à jour logicielles pour la compatibilité annuelle  
+ John crée un groupe de mises à jour logicielles, qu’il va ensuite utiliser pour surveiller la compatibilité de toutes les mises à jour logicielles de sécurité déployées en 2016. Il suit la procédure décrite dans le tableau ci-dessous.  
 
 |Processus|Référence|  
 |-------------|---------------|  
-|Dans le nœud **Toutes les mises à jour logicielles** de la console Configuration Manager, John ajoute des critères pour afficher uniquement les mises à jour logicielles de sécurité ayant été publiées ou révisées en 2015 et respectant les critères suivants :<br /><br /><ul><li>**Critère**: Date de publication ou de révision</li><li>**Condition**: est supérieure ou égale à une date spécifique<br />**Valeur**: 01/01/2015</li><li>**Critères**: Classification des mises à jour<br />**Valeur**: Mises à jour de sécurité</li><li>**Critère**: Expiré <br />**Valeur**: Non</li></ul>|Aucune information supplémentaire|
+|Dans le nœud **Toutes les mises à jour logicielles** de la console Configuration Manager, John ajoute des critères pour afficher uniquement les mises à jour logicielles de sécurité ayant été publiées ou révisées en 2015 et respectant les critères suivants :<br /><br /><ul><li>**Critère**: Date de publication ou de révision</li><li>**Condition**: est supérieure ou égale à une date spécifique<br />**Valeur**: 01/01/2015</li><li>**Critères**: Classification des mises à jour<br />**Valeur**: Mises à jour de sécurité</li><li>**Critère**: Expiré <br />**Valeur**: Non</li></ul>|Aucune information supplémentaire|
 |John ajoute toutes les mises à jour logicielles ainsi filtrées à un nouveau groupe de mises à jour logicielles respectant les spécifications suivantes :<br /><br /><ul><li>**Nom**: Groupe de compatibilité - Mises à jour de sécurité Microsoft 2015</li><li>**Description**: Mises à jour logicielles|[Ajouter des mises à jour logicielles à un groupe de mises à jour](add-software-updates-to-an-update-group.md)|  
 
-##  <a name="a-namebkmkstep2a-step-2-create-an-automatic-deployment-rule-for-the-current-month"></a><a name="BKMK_Step2"></a> Étape 2 : Créer une règle de déploiement automatique pour le mois actuel  
+##  <a name="a-namebkmkstep2a-step-2-create-an-automatic-deployment-rule-for-the-current-month"></a><a name="BKMK_Step2"></a> Étape 2 : Créer une règle de déploiement automatique pour le mois actuel  
  John crée une règle de déploiement automatique pour les mises à jour logicielles de sécurité publiées par Microsoft pour le mois en cours. Il suit la procédure décrite dans le tableau ci-dessous.  
 
 |Processus|Référence|  
 |-------------|---------------|  
-|John crée une règle de déploiement automatique respectant les spécifications suivantes :<br /><br /><ol><li>Sous l'onglet **Général** , John effectue la configuration suivante :<br /> <ul><li>Spécifie **Mises à jour de sécurité mensuelles** comme nom.</li><li>Sélectionne un regroupement de tests contenant un petit nombre de clients.</li><li>Sélectionne **Créer un groupe de mises à jour logicielles**.</li><li>Vérifie que l’option **Activer le déploiement après l’exécution de cette règle** n’est pas sélectionnée.</li></ul></li><li>Sous l'onglet **Paramètres de déploiement** , John sélectionne les paramètres par défaut.</li><li>Dans la page **Mises à jour logicielles**, John configure les filtres de propriétés et les critères de recherche suivants :<br /><ul><li>Date de publication ou de révision : **Dernier mois**.</li><li>Classification des mises à jour : **Mises à jour de sécurité**.</li></ul></li><li>Dans la page **Évaluation**, John configure la règle pour qu’elle soit exécutée à intervalle régulier, le **deuxième mardi** de **chaque mois**. John vérifie également que les synchronisations sont planifiées pour s’exécuter le **deuxième mercredi** de chaque **mois**.</li><li>John conserve les paramètres par défaut des pages Calendrier de déploiement, Expérience utilisateur, Alertes et Paramètres de téléchargement.</li><li>Dans la page **Package de déploiement**, John spécifie un nouveau package de déploiement.</li><li>Sur les pages Emplacement de téléchargement et Sélection de la langue, John conserve les paramètres par défaut.</li></ol>|[Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md)|  
+|John crée une règle de déploiement automatique respectant les spécifications suivantes :<br /><br /><ol><li>Sous l'onglet **Général** , John effectue la configuration suivante :<br /> <ul><li>Spécifie **Mises à jour de sécurité mensuelles** comme nom.</li><li>Sélectionne un regroupement de tests contenant un petit nombre de clients.</li><li>Sélectionne **Créer un groupe de mises à jour logicielles**.</li><li>Vérifie que l’option **Activer le déploiement après l’exécution de cette règle** n’est pas sélectionnée.</li></ul></li><li>Sous l'onglet **Paramètres de déploiement** , John sélectionne les paramètres par défaut.</li><li>Dans la page **Mises à jour logicielles**, John configure les filtres de propriétés et les critères de recherche suivants :<br /><ul><li>Date de publication ou de révision : **Dernier mois**.</li><li>Classification des mises à jour : **Mises à jour de sécurité**.</li></ul></li><li>Dans la page **Évaluation**, John configure la règle pour qu’elle soit exécutée à intervalle régulier, le **deuxième mardi** de **chaque mois**. John vérifie également que les synchronisations sont planifiées pour s’exécuter le **deuxième mercredi** de chaque **mois**.</li><li>John conserve les paramètres par défaut des pages Calendrier de déploiement, Expérience utilisateur, Alertes et Paramètres de téléchargement.</li><li>Dans la page **Package de déploiement**, John spécifie un nouveau package de déploiement.</li><li>Sur les pages Emplacement de téléchargement et Sélection de la langue, John conserve les paramètres par défaut.</li></ol>|[Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md)|  
 
-##  <a name="a-namebkmkstep3a-step-3-verify-that-software-updates-are-ready-to-deploy"></a><a name="BKMK_Step3"></a> Étape 3 : Vérifier que les mises à jour logicielles sont prêtes à être déployées  
+##  <a name="a-namebkmkstep3a-step-3-verify-that-software-updates-are-ready-to-deploy"></a><a name="BKMK_Step3"></a> Étape 3 : Vérifier que les mises à jour logicielles sont prêtes à être déployées  
  Le deuxième jeudi de chaque mois, John vérifie que les mises à jour logicielles sont prêtes à être déployées. Il effectue l’étape suivante.  
 
 |Processus|Référence|  
@@ -75,14 +75,14 @@ Cette rubrique présente un exemple de scénario qui montre comment utiliser les
 |John vérifie que les déploiements de test ont été correctement déployés.|[État de déploiement des mises à jour logicielles](monitor-software-updates.md#BKMK_SUDeployStatus)|  
 |John met à jour les deux déploiements en utilisant les nouveaux regroupements contenant ses stations de travail et ses serveurs de production.|Aucune information supplémentaire|  
 
-##  <a name="a-namebkmkstep5a-step-5-monitor-compliance-for-deployed-software-updates"></a><a name="BKMK_Step5"></a> Étape 5 : Surveiller la compatibilité des mises à jour logicielles déployées  
+##  <a name="a-namebkmkstep5a-step-5-monitor-compliance-for-deployed-software-updates"></a><a name="BKMK_Step5"></a> Étape 5 : Surveiller la compatibilité des mises à jour logicielles déployées  
  John surveille la compatibilité de ses déploiements de mises à jour logicielles. Il suit la procédure décrite dans le tableau ci-dessous.  
 
 |Processus|Référence|  
 |-------------|---------------|  
 |John surveille l’état du déploiement des mises à jour logicielles dans la console Configuration Manager et examine les rapports de déploiement de mises à jour logicielles accessibles via la console.|[Surveiller les mises à jour logicielles dans System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
 
-##  <a name="a-namebkmkstep6a-step-6-add-monthly-software-updates-to-the-yearly-update-group"></a><a name="BKMK_Step6"></a> Étape 6 : Ajouter les mises à jour logicielles mensuelles au groupe de mises à jour annuel  
+##  <a name="a-namebkmkstep6a-step-6-add-monthly-software-updates-to-the-yearly-update-group"></a><a name="BKMK_Step6"></a> Étape 6 : Ajouter les mises à jour logicielles mensuelles au groupe de mises à jour annuel  
  John ajoute les mises à jour logicielles du groupe de mises à jour logicielles mensuel au groupe de mises à jour logicielles annuel. Il suit la procédure décrite dans le tableau ci-dessous.  
 
 |Processus|Référence|  
@@ -96,6 +96,6 @@ John a procédé correctement au déploiement mensuel des mises à jour logiciel
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Principes de base de la gestion de contenu | System Center Configuration Manager
+title: Principes de base de la gestion de contenu | Microsoft Docs
 description: "Utilisez les outils et les options de System Center Configuration Manager pour gérer le contenu que vous déployez."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 27342ef83d877c31f39bc232e3e19e37b78e62da
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 577d7e3acc27e3b50e22fc42d5db2f68d9cdde29
 
 
 ---
 # <a name="fundamental-concepts-for-content-management-in-system-center-configuration-manager"></a>Principes de base de la gestion de contenu dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager vous propose un système d’outils et d’options efficace pour gérer le contenu que vous déployez (applications, packages, mises à jour logicielles et déploiements de système d’exploitation).  
 
@@ -35,13 +35,13 @@ Les concepts clés pour la gestion de contenu suivent. Si un concept doit être 
 ## <a name="accounts-used-for-content-management"></a>Comptes utilisés pour la gestion de contenu  
  Les comptes suivants peuvent être utilisés pour la gestion de contenu :  
 
--   **Compte d’accès réseau** : compte utilisé par les clients pour se connecter à un point de distribution et accéder au contenu. Par défaut, les clients essaient d’abord d’utiliser leur compte d’ordinateur.  
+-   **Compte d’accès réseau** : compte utilisé par les clients pour se connecter à un point de distribution et accéder au contenu. Par défaut, les clients essaient d’abord d’utiliser leur compte d’ordinateur.  
 
      Ce compte est également utilisé par les points de distribution d’extraction pour obtenir le contenu d’un point de distribution source dans une forêt distante.  
 
--   **Compte d’accès au package** : par défaut, Configuration Manager permet aux utilisateurs et aux administrateurs de comptes d’accès génériques d’accéder au contenu d’un point de distribution. Toutefois, vous pouvez configurer des autorisations supplémentaires pour limiter l’accès. Voir &lt;Gérer les comptes d’accès au contenu des packages\>  
+-   **Compte d’accès au package** : par défaut, Configuration Manager permet aux utilisateurs et aux administrateurs de comptes d’accès génériques d’accéder au contenu d’un point de distribution. Toutefois, vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.   
 
--   **Compte de connexion multidiffusion** : compte utilisé pour les déploiements de système d’exploitation.  
+-   **Compte de connexion multidiffusion** : compte utilisé pour les déploiements de système d’exploitation.  
 
 Pour plus d’informations sur ces comptes, consultez [Gérer les comptes pour accéder au contenu](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
 
@@ -75,12 +75,16 @@ Les applications utilisent toujours la réplication différentielle binaire. La 
 
 -   Ainsi, les clients suivants sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients, en vue de transferts futurs.  
 
+## <a name="peer-cache"></a>Cache d’homologue
+À partir de la version 1610, le cache d’homologue vous permet de gérer le déploiement de contenu sur les clients distants. Le cache d’homologue est une solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local.
 
+Une fois que vous avez déployé des paramètres du client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme source de contenu homologue pour d’autres clients du même groupe de limites.
 
+Pour plus d’informations, consultez [Cache d’homologue pour les clients Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache).
 
 
 ## <a name="windows-pe-peer-cache"></a>Mise en cache d’homologue Windows PE
-Quand vous déployez un nouveau système d’exploitation dans System Center Configuration Manager, les ordinateurs qui exécutent la séquence de tâches peuvent utiliser le cache d’homologue Windows PE pour obtenir du contenu à partir d’un homologue local (source de cache d’homologue) au lieu de le télécharger à partir d’un point de distribution. Cela permet de réduire le trafic du réseau étendu dans les scénarios de succursale où il n'existe aucun point de distribution local.
+Quand vous déployez un nouveau système d’exploitation dans System Center Configuration Manager, les ordinateurs qui exécutent la séquence de tâches peuvent utiliser le cache d’homologue Windows PE pour obtenir du contenu à partir d’un homologue local (source de cache d’homologue) au lieu de le télécharger à partir d’un point de distribution. Cela permet de réduire le trafic du réseau étendu dans les scénarios de succursale où il n'existe aucun point de distribution local.
 
 Pour plus d’informations, consultez [Mise en cache d’homologue Windows PE](../../../osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).
 
@@ -94,7 +98,7 @@ Pour plus d’informations, consultez [Mise en cache d’homologue Windows PE](.
 
     -   Utilisez un point de distribution cloud de secours uniquement quand les points de distribution locaux ne sont pas disponibles.  
 
--   **Internet** :  
+-   **Internet** :  
 
     -   Nécessite des points de distribution pour accepter le protocole HTTPS.  
 
@@ -117,11 +121,11 @@ En savoir plus sur la [bibliothèque de contenu](../../../core/plan-design/hiera
 ## <a name="distribution-point"></a>Point de distribution  
  Configuration Manager utilise des points de distribution pour stocker les fichiers nécessaires à l’exécution de logiciels sur les ordinateurs clients. Les clients doivent avoir accès à au moins un point de distribution à partir duquel ils peuvent télécharger les fichiers du contenu que vous déployez.  
 
- Le point de distribution (non spécifique) de base est communément appelé point de distribution standard.  Il existe deux variantes du point de distribution standard qui reçoivent une attention particulière :  
+ Le point de distribution (non spécifique) de base est communément appelé point de distribution standard.  Il existe deux variantes du point de distribution standard qui reçoivent une attention particulière :  
 
--   **Point de distribution d’extraction** : variation d’un point de distribution où le point de distribution obtient le contenu à partir d’un autre point de distribution (point de distribution source), tout comme les clients téléchargent le contenu à partir de points de distribution. Les points de distribution d’extraction peuvent vous aider à éviter les goulots d’étranglement de bande passante réseau qui peuvent se produire quand le serveur de site doit distribuer directement le contenu à chaque point de distribution.  [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)  
+-   **Point de distribution d’extraction** : variation d’un point de distribution où le point de distribution obtient le contenu à partir d’un autre point de distribution (point de distribution source), tout comme les clients téléchargent le contenu à partir de points de distribution. Les points de distribution d’extraction peuvent vous permettre d’éviter les goulots d’étranglement de bande passante réseau qui peuvent se produire quand le serveur de site doit distribuer directement le contenu à chaque point de distribution.  [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).
 
--   **Point de distribution cloud** : variante d’un point de distribution installé dans Microsoft Azure. [Utiliser un point de distribution cloud avec System Center Configuration Manager](../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
+-   **Point de distribution cloud** : variante d’un point de distribution installé dans Microsoft Azure. [Utiliser un point de distribution cloud avec System Center Configuration Manager](../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md).  
 
 
 Les points de distribution standard prennent en charge diverses configurations et fonctionnalités, comme la limitation et la planification, le PXE et la multidiffusion, et le contenu préparé.  
@@ -155,39 +159,57 @@ Les points de distribution standard prennent en charge diverses configurations e
 >  Les points de distribution d’extraction utilisent également un concept de priorité pour ordonner la séquence de leur points de distribution source.  
 >   
 >  -   La priorité des points de distribution pour les transferts de contenu d’un point de distribution à un autre est différente de la priorité utilisée par les points de distribution d’extraction lors de la recherche de contenu à partir d’un point de distribution source.  
-> -   Pour plus d’informations, consultez [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).  
+>  -   Pour plus d’informations, consultez [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).  
 
 
 ## <a name="fallback"></a>Secours  
- Les paramètres de secours sont liés à l’utilisation de **points de distribution préférés** et à l’emplacement de la source de contenu utilisée par les clients.  
+ À partir de la version 1610, plusieurs concepts ont été modifiés en ce qui concerne la façon dont les clients recherchent un point de distribution avec du contenu, y compris les scénarios de secours. Utilisez les informations suivantes en fonction de la version que vous utilisez :
+
+**Version 1610 et ultérieure :**   
+Les clients qui ne peuvent pas rechercher de contenu à partir d’un point de distribution associé à leur groupe de limites actuel peuvent avoir recours à des emplacements sources de contenu associés à des groupes de limites voisins. Pour faire office de groupe de secours, un groupe de limites voisin doit avoir une relation définie avec le groupe de limites actuel du client. Cette relation inclut une durée configurée qui doit s’écouler avant qu’un client qui ne peut pas rechercher de contenu localement puisse alors inclure dans sa recherche des sources de contenu du groupe de limites voisin.
+
+Les concepts de points de distribution préférés ne sont plus utilisés, et les paramètres permettant d’autoriser les emplacements sources de secours pour le contenu ne sont plus disponibles ou appliqués.
+
+Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+
+
+**Version 1511, 1602 et 1606 :**   
+Les paramètres de secours sont liés à l’utilisation de **points de distribution préférés** et à l’emplacement de la source de contenu utilisée par les clients.
 
 -   Par défaut, les clients téléchargent uniquement le contenu à partir d’un point de distribution préféré (qui est associé aux groupes limites du client).  
 
 -   Cependant, quand un point de distribution donné est configuré avec **Autoriser les clients à utiliser ce système de site en tant qu’emplacement source de secours du contenu**, ce point de distribution est proposé uniquement comme source de contenu valide aux clients qui ne peuvent pas obtenir un déploiement à partir de l’un de leurs points de distribution préférés.  
 
 
-Pour plus d’informations sur les différents emplacements de contenu et les scénarios de secours, consultez [Scénarios d’emplacement source du contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
+Pour plus d’informations sur les différents scénarios de secours et d’emplacement de contenu, consultez [Scénarios d’emplacement source de contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Pour plus d’informations sur les groupes de limites, consultez [Groupes de limites pour les versions 1511, 1602 et 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
 ## <a name="network-bandwidth"></a>Bande passante du réseau  
  Pour mieux gérer la quantité de bande passante réseau utilisée quand vous distribuez du contenu, vous pouvez utiliser les options suivantes :  
 
--   Utiliser du contenu préparé : processus de transfert de contenu vers un point de distribution sans passer par Configuration Manager pour distribuer le contenu sur le réseau.  
+-   Utiliser du contenu préparé : processus de transfert de contenu vers un point de distribution sans passer par Configuration Manager pour distribuer le contenu sur le réseau.  
 
--   Utiliser la planification et la limitation : configurations qui vous aident à contrôler quand et comment le contenu est distribué aux points de distribution.  
+-   Utiliser la planification et la limitation : configurations qui vous aident à contrôler quand et comment le contenu est distribué aux points de distribution.  
 
 Pour plus d’informations, consultez [Gérer la bande passante réseau](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
 
 ## <a name="network-connection-speed-to-content-source"></a>Vitesse de la connexion réseau vers la source de contenu  
+À partir de la version 1610, plusieurs concepts ont été modifiés en ce qui concerne la façon dont les clients recherchent un point de distribution avec du contenu, y compris la vitesse de connexion réseau à une source de contenu. Utilisez les informations suivantes en fonction de la version que vous utilisez :
+
+**Version 1610 et ultérieure :**   
+Les vitesses de connexion réseau qui définissent un point de distribution comme **Rapide** ou **Lent** ne sont plus utilisées. Au lieu de cela, chaque système de site associé à un groupe de limites est traité de la même façon.
+
+Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+
+
+**Version 1511, 1602 et 1606 :**   
+
  Vous pouvez configurer la vitesse de connexion réseau de chaque point de distribution d’un groupe de limites :  
 
 -   Les clients utilisent cette valeur pour se connecter au point de distribution.  
-
 -   Par défaut, la vitesse de connexion réseau est configurée sur **Rapide**, mais elle peut également être définie sur **Lente**.  
-
 -   La **vitesse de connexion réseau** et la configuration de déploiement déterminent si un client peut télécharger du contenu à partir d’un point de distribution quand le client se trouve dans un groupe de limites associé.  
 
-
-Pour plus d’informations sur les différents emplacements de contenu et les scénarios de secours, consultez [Scénarios d’emplacement source du contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+Pour plus d’informations sur les différents scénarios de secours et d’emplacement de contenu, consultez [Scénarios d’emplacement source de contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Pour plus d’informations sur les groupes de limites, consultez [Groupes de limites pour les versions 1511, 1602 et 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
 ## <a name="on-demand-content-distribution"></a>Distribution de contenu à la demande  
  Vous pouvez définir cette option individuellement pour les applications et les packages (déploiements) afin d’activer la distribution de contenu à la demande vers les points de distribution préférés.  
@@ -198,8 +220,9 @@ Pour plus d’informations sur les différents emplacements de contenu et les sc
 
 -   Même si cette option force Configuration Manager à distribuer automatiquement le contenu aux points de distribution préférés des clients, un client peut obtenir ce contenu auprès d’autres points de distribution avant que ses points de distribution préférés reçoivent le déploiement. Dans ce cas, le contenu est alors disponible sur ce point de distribution pour que le client suivant qui cherche ce déploiement puisse l’utiliser.  
 
+Si vous utilisez la version 1610 ou ultérieure, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+Si vous utilisez la version 1511, 1602 ou 1606, consultez les [scénarios d’emplacement source de contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md) pour plus d’informations sur les différents scénarios de secours et d’emplacement de contenu.  
 
-Pour plus d’informations sur les différents emplacements de contenu et les scénarios de secours, consultez [Scénarios d’emplacement source du contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
 
 ## <a name="package-transfer-manager"></a>Package Transfer Manager  
@@ -208,16 +231,17 @@ Pour plus d’informations sur les différents emplacements de contenu et les sc
  En savoir plus sur le [Package Transfer Manager](../../../core/plan-design/hierarchy/package-transfer-manager.md).  
 
 ## <a name="preferred-distribution-point"></a>Point de distribution préféré  
- Points de distribution associés aux groupes limites actuels d’un client.  
+ Un point de distribution préféré comprend tous les points de distribution associés aux groupes de limites actuels d’un client.  
 
  Vous pouvez associer chaque point de distribution avec un ou plusieurs groupes de limites :  
 
 -   Cette association permet au client de trouver plus facilement les points de distribution d’où il peut télécharger du contenu.  
-
 -   Par défaut, les clients peuvent uniquement télécharger du contenu à partir d’un point de distribution préféré.  
 
 
-Pour plus d’informations sur les différents emplacements de contenu et les scénarios de secours, consultez [Scénarios d’emplacement source du contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+Pour plus d’informations :
+ - Si vous utilisez la version 1610 ou ultérieure, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+ - Si vous utilisez la version 1511, 1602 ou 1606, consultez [Scénarios d’emplacement source de contenu](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
 
 ## <a name="prestage-content"></a>Contenu préparé  
  Processus de transfert de contenu vers un point de distribution sans passer par Configuration Manager pour distribuer le contenu sur le réseau.  
@@ -226,6 +250,6 @@ Pour plus d’informations sur les différents emplacements de contenu et les sc
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

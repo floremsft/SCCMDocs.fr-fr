@@ -1,5 +1,5 @@
 ---
-title: "Planification du déploiement de clients sur des ordinateurs Mac | System Center Configuration Manager"
+title: "Planification du déploiement du client sur des ordinateurs Mac | Microsoft Docs"
 description: "Planifiez le déploiement de clients sur des ordinateurs Mac dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,26 +13,26 @@ ms.topic: get-started-article
 ms.assetid: 8d15ae3f-de42-461f-a907-c43873da22d2
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 216a2e2cf239fc86ed18d5692d39da170a4168d7
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: d8ccfee895f5fd3649fb4bef4a62fd790cce7ea8
 
 
 ---
 # <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planification du déploiement du client pour les ordinateurs Mac dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qui exécutent le système d’exploitation Mac OS X et utilisent les fonctionnalités de gestion suivantes :  
+Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qui exécutent le système d’exploitation Mac OS X et utilisent les fonctionnalités de gestion suivantes :  
 
 -   **Inventaire matériel**  
 
      Vous pouvez utiliser l’inventaire matériel de Configuration Manager pour collecter des informations sur le matériel et les applications installées sur des ordinateurs Mac. Consultez ensuite ces informations dans l’Explorateur de ressources dans la console Configuration Manager et utilisez-les pour créer des regroupements, des requêtes et des rapports. Pour plus d’informations, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-     Configuration Manager collecte les informations matérielles suivantes auprès des ordinateurs Mac :  
+     Configuration Manager collecte les informations matérielles suivantes auprès des ordinateurs Mac :  
 
     -   Processeur  
 
@@ -89,7 +89,7 @@ Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qu
 
     -   Application Mac OS X (.APP)  
 
- Quand vous installez le client Configuration Manager sur des ordinateurs Mac, vous ne pouvez pas utiliser les fonctionnalités de gestion suivantes prises en charge par le client Configuration Manager sur les ordinateurs Windows :  
+ Quand vous installez le client Configuration Manager sur des ordinateurs Mac, vous ne pouvez pas utiliser les fonctionnalités de gestion suivantes prises en charge par le client Configuration Manager sur les ordinateurs Windows :  
 
 -   Installation poussée du client  
 
@@ -112,6 +112,6 @@ Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qu
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

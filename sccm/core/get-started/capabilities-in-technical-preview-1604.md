@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager."
+title: "Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,20 +16,20 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 512bbb1c8f2b4811be7770bda5fa2236a2dc7e06
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: 7358e310ad672a1a0ba4cbcb6b008506aaaa5d2b
 
 ---
-# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
  Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
 ##  <a name="a-namebkmkwindowsvppa-manage-volume-purchased-apps-from-the-windows-store-for-business"></a><a name="BKMK_WindowsVPP"></a> Gérer les applications achetées en volume à partir du Windows Store pour Entreprises  
- Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
+ Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
 
 -   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
 
@@ -39,9 +39,9 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 ### <a name="try-it-out"></a>Essayez !  
 
-##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Scénario 1 : configurer la synchronisation du Windows Store pour Entreprises  
+##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Scénario 1 : configurer la synchronisation du Windows Store pour Entreprises  
 
-1.  Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Vous obtenez ainsi un ID de client dont vous aurez besoin ultérieurement.  
+1.  Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Vous obtenez ainsi un ID de client dont vous aurez besoin ultérieurement.  
 
     1.  Dans le nœud **Active Directory** de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.  
 
@@ -83,7 +83,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 8.  Une fois que vous avez terminé, le compte que vous avez configuré figure dans la liste **Windows Store for Business Accounts** (Comptes Windows Store pour Entreprises) de la console Configuration Manager.  
 
-##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Scénario 2 : créer et déployer une application Configuration Manager à partir d’une application sous licence hors connexion du Windows Store pour Entreprises  
+##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Scénario 2 : créer et déployer une application Configuration Manager à partir d’une application sous licence hors connexion du Windows Store pour Entreprises  
 
 1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.  
 
@@ -92,14 +92,14 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 3.  Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.  
 
 ##  <a name="a-namebkmkpfwa-improvements-to-microsoft-passport-for-work-management"></a><a name="BKMK_PFW"></a> Améliorations apportées à la gestion de Microsoft Passport for Work  
- Vous pouvez désormais déployer des stratégies Microsoft Passport for Work sur des appareils Windows 10 joints au domaine et gérés par le client Configuration Manager.  
+ Vous pouvez désormais déployer des stratégies Microsoft Passport for Work sur des appareils Windows 10 joints au domaine et gérés par le client Configuration Manager.  
 
 ##  <a name="a-namebkmkswitchsupa-option-for-clients-to-switch-to-a-new-software-update-point"></a><a name="bkmk_switchsup"></a> Option permettant aux clients de basculer vers un nouveau point de mise à jour logicielle  
- Dans la version d’évaluation technique 1604, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle quand des problèmes se posent au niveau du point de mise à jour logicielle actif. Pour utiliser cette option, vous devez disposer de plusieurs points de mise à jour logicielle sur un site principal. Vous activez cette option sur un regroupement d’appareils et, une fois activée, les clients du regroupement recherchent un autre point de mise à jour logicielle lors de l’analyse suivante quand le client ne parvient pas à se connecter au point de mise à jour logicielle actif. En fonction des paramètres de configuration WSUS (classifications des mises à jour, produits, etc.), le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Par conséquent, vous ne devez utiliser cette option qu’en cas de nécessité.  
+ Dans la version d’évaluation technique 1604, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle quand des problèmes se posent au niveau du point de mise à jour logicielle actif. Pour utiliser cette option, vous devez disposer de plusieurs points de mise à jour logicielle sur un site principal. Vous activez cette option sur un regroupement d’appareils et, une fois activée, les clients du regroupement recherchent un autre point de mise à jour logicielle lors de l’analyse suivante quand le client ne parvient pas à se connecter au point de mise à jour logicielle actif. En fonction des paramètres de configuration WSUS (classifications des mises à jour, produits, etc.), le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Par conséquent, vous ne devez utiliser cette option qu’en cas de nécessité.  
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>Pour activer l’option de basculement vers des points de mise à jour logicielle  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
 
 2.  Sous l’onglet **Accueil** , dans le groupe **Regroupement** , cliquez sur **Notification du client**, puis sur **Passer au point de mise à jour logicielle suivant**.  
 
@@ -107,7 +107,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 >  Cette option est disponible uniquement sur les sites qui ont plusieurs points de mise à jour logicielle.  
 
 ##  <a name="a-namebkmkpeercachea-client-settings-to-manage-client-cache-settings-and-client-peer-cache"></a><a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client  
- La version d’évaluation technique 1604 introduit deux nouveaux paramètres client d’appareil qui affectent l’utilisation du cache d’un client. Les deux paramètres peuvent être utilisés séparément, mais sont configurés sur la même feuille de propriétés des paramètres du client, et ils se combinent pour vous aider à gérer le déploiement de contenu sur vos clients dans des emplacements distants.  
+ La version d’évaluation technique 1604 introduit deux nouveaux paramètres client d’appareil qui affectent l’utilisation du cache d’un client. Les deux paramètres peuvent être utilisés séparément, mais sont configurés sur la même feuille de propriétés des paramètres du client, et ils se combinent pour vous aider à gérer le déploiement de contenu sur vos clients dans des emplacements distants.  
 
 -   Le premier nouveau paramètre est celui du **cache d’homologue du client**, solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local. Pour pouvoir partager du contenu, les clients du cache d’homologue doivent être membres du même groupe de limites. Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en parallèle afin de vous offrir davantage d’options pour étendre les solutions de déploiement de contenu traditionnelles telles que des points de distribution.  
 
@@ -118,7 +118,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 Pour vous aider à comprendre l’utilisation du cache d’homologue du client, vous pouvez afficher le tableau de bord **Sources de données du client**. Dans la console, accédez à **Analyse > État du client > Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.  
 
  Vous pouvez également utiliser un nouveau rapport, **Sources de données du client - Résumé**, pour afficher une synthèse des sources de données du client pour chaque groupe de limites.   
-**Configuration requise pour utiliser le cache d’homologue :**  
+**Configuration requise pour utiliser le cache d’homologue :**  
 
 -   Vous devez configurer votre site avec un **compte d’accès réseau** ayant le **contrôle total** du dossier de cache sur chaque client. Par défaut, il s’agit de **%windir%\ccmcache**  
 
@@ -135,7 +135,7 @@ Pour vous aider à comprendre l’utilisation du cache d’homologue du client, 
 4.  Pour permettre aux clients de participer au cache d’homologue du client, affectez à **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu** la valeur **Oui**. Vous pouvez ensuite configurer les ports que les clients utilisent, notamment s’il s’agit de HTTP ou HTTPS.  
 
 ### <a name="try-it-out"></a>Essayez !  
- Essayez d’accomplir les tâches suivantes, puis utilisez les informations relatives à l’envoi de commentaires au début de cette rubrique pour nous faire savoir comment cela a fonctionné :  
+ Essayez d’accomplir les tâches suivantes, puis utilisez les informations relatives à l’envoi de commentaires au début de cette rubrique pour nous faire savoir comment cela a fonctionné :  
 
 1.  Modifiez les paramètres client pour spécifier une nouvelle taille pour le cache des clients et confirmez ce paramètre sur un client.  
 
@@ -157,7 +157,7 @@ Passport vous permet d’utiliser un geste utilisateur au lieu d’un mot de pas
 Quand un utilisateur crée un code confidentiel Passport, Windows envoie une notification que Configuration Manager écoute.  Cela permet à Configuration Manager de déterminer rapidement quels utilisateurs ont créé un code confidentiel Passport. Ensuite, Configuration Manager peut également émettre de nouveaux certificats pour les utilisateurs si Passport est utilisé comme fournisseur de stockage de clés dans un profil de certificat.  
 
 ##  <a name="a-namebkmkonpremdhaa-on-premises-device-health-attestation"></a><a name="bkmk_onpremdha"></a> Attestation d’intégrité de l’appareil en local  
- L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale.  Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales.  Si l’option **local** est sélectionnée pour le rapport d’attestation d’intégrité, vous pouvez spécifier un URI pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
+ L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale.  Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales.  Si l’option **local** est sélectionnée pour le rapport d’attestation d’intégrité, vous pouvez spécifier un URI pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
 
 #### <a name="enable-health-attestation-for-on-premises-devices"></a>Activation de l’attestation d’intégrité pour les appareils locaux  
 
@@ -172,6 +172,6 @@ Pour l’essayer, configurez le service d’attestation d’intégrité local à
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

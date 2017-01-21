@@ -1,5 +1,5 @@
 ---
-title: "Schéma Active Directory | System Center Configuration Manager"
+title: "Publication et schéma Active Directory | Microsoft Docs"
 description: "L’extension du schéma Active Directory pour System Center Configuration Manager permet de simplifier le processus de déploiement et de configuration des clients."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d4cdaa646265b2d05ec93aeaefaf3a6e7a2c269f
+ms.sourcegitcommit: 2083a2ca7a199771f26981cdbe04e4e2ef6e8958
+ms.openlocfilehash: 3bd18e2de76d886b275c80d0dce3b824f2598008
 
 
 ---
-# <a name="extend-the-active-directory-schema-for-system-center-configuration-manager"></a>Étendre le schéma Active Directory pour System Center Configuration Manager
+# <a name="prepare-active-directory-for-site-publishing"></a>Préparer Active Directory pour la publication de site
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Quand vous étendez le schéma Active Directory pour System Center Configuration Manager, les nouvelles structures que vous introduisez dans Active Directory sont utilisées par les sites System Center Configuration Manager pour publier des informations importantes, à un emplacement sécurisé facilement accessible par les clients.  
 
@@ -34,12 +34,12 @@ Quand vous étendez le schéma Active Directory pour System Center Configuration
 
 -   Si vous n’utilisez pas de schéma étendu, vous pouvez configurer d’autres méthodes, telles que DNS et WINS, pour rechercher des services et des serveurs de système de site. Ces méthodes d’emplacement de service nécessitent des configurations supplémentaires et ne sont pas la méthode préférée pour l’emplacement du service par les clients. Pour en savoir plus à ce sujet, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   Si votre schéma Active Directory a déjà été étendu pour Configuration Manager 2007 ou System Center 2012 Configuration Manager, vous n’avez pas d’autres tâches à effectuer. Les extensions de schéma demeurent inchangées et sont déjà en place.  
+-   Si votre schéma Active Directory a déjà été étendu pour Configuration Manager 2007 ou System Center 2012 Configuration Manager, vous n’avez pas d’autres tâches à effectuer. Les extensions de schéma demeurent inchangées et sont déjà en place.  
 
 L’extension du schéma est une opération qui s’effectue une seule fois pour n’importe quelle forêt. Pour étendre un schéma Active Directory et utiliser le schéma étendu, suivez les étapes décrites ci-dessous :  
 
 ## <a name="step-1-extend-the-schema"></a>Étape 1. Étendre le schéma  
-Pour étendre le schéma pour Configuration Manager, vous devez :  
+Pour étendre le schéma pour Configuration Manager, vous devez :  
 
 -   Utiliser un compte qui est membre du groupe de sécurité Administrateurs du schéma  
 
@@ -66,12 +66,12 @@ Pour étendre le schéma pour Configuration Manager, vous devez :
 
 2.  Avec l’utilitaire de ligne de commande LDIFDE, importez le contenu du fichier **ConfigMgr_ad_schema.ldf** dans les services de domaine Active Directory :  
 
-    -   Par exemple, la ligne de commande suivante importe les extensions de schéma dans les services de domaine Active Directory, active la journalisation détaillée et crée un fichier journal pendant l’importation : **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;emplacement_de_stockage_du_fichier_journal\>**  
+    -   Par exemple, la ligne de commande suivante importe les extensions de schéma dans les services de domaine Active Directory, active la journalisation détaillée et crée un fichier journal pendant l’importation : **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;emplacement_de_stockage_du_fichier_journal\>**  
 
 3.  Vous pouvez vérifier si l’extension du schéma a réussi en consultant le fichier journal créé par la ligne de commande exécutée à l’étape précédente.  
 
-## <a name="step-2-create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Étape 2.  Créer le conteneur System Management et accorder des autorisations de sites au nouveau conteneur  
- Après avoir étendu le schéma, vous devez créer un conteneur nommé **System Management** dans les services de domaine Active Directory (AD DS) :  
+## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Étape 2.  Créer le conteneur System Management et accorder des autorisations de sites au nouveau conteneur  
+ Après avoir étendu le schéma, vous devez créer un conteneur nommé **System Management** dans les services de domaine Active Directory (AD DS) :  
 
 -   Vous créez ce conteneur une fois pour toutes dans chaque domaine comportant un site principal ou secondaire qui publiera des données dans Active Directory.  
 
@@ -79,7 +79,7 @@ Pour étendre le schéma pour Configuration Manager, vous devez :
 
 #### <a name="to-add-the-container"></a>Pour ajouter le conteneur  
 
-1.  Utilisez un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **Système** dans les services de domaine Active Directory.  
+1.  Utilisez un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **Système** dans les services de domaine Active Directory.  
 
 2.  Exécutez **ADSI Edit** (adsiedit.msc) et connectez-vous au domaine du serveur de site.  
 
@@ -107,13 +107,13 @@ Pour étendre le schéma pour Configuration Manager, vous devez :
 
 5.  Cliquez sur **OK** pour fermer la console et enregistrer la configuration.  
 
-## <a name="step-3-configure-sites-to-publish-to-active-directory-domain-services"></a>Étape 3. Configurer les sites pour la publication de données dans les services de domaine Active Directory  
+## <a name="step-3-configure-sites-to-publish-to-active-directory-domain-services"></a>Étape 3. Configurer les sites pour la publication de données dans les services de domaine Active Directory  
  Une fois que vous avez configuré le conteneur, accordé les autorisations appropriées et installé un site principal Configuration Manager, vous pouvez configurer ce site pour la publication de données dans Active Directory.  
 
  Pour plus d’informations sur la publication, consultez [Publish site data for System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

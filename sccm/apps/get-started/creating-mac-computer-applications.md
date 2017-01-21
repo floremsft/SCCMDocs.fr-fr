@@ -1,5 +1,5 @@
 ---
-title: "Créer des applications pour ordinateurs Mac | System Center Configuration Manager"
+title: "Créer des applications pour ordinateurs Mac | Microsoft Docs"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des ordinateurs Mac."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 98b36c58506bcb82fe82f842b8c3ed9dbd2a75d1
+ms.sourcegitcommit: 8dcf9f310a4ea8e2f43f2fe79e5e3cfa2c8aeb61
+ms.openlocfilehash: c2feffad39a20519fd86ca9348b0855a51e05aa9
 
 
 ---
 # <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Créer des applications pour ordinateurs Mac avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 En plus des autres exigences et procédures System Center Configuration Manager à observer pour créer une application, vous devez aussi prendre en compte les éléments suivants au moment de créer et de déployer des applications pour des ordinateurs Mac.  
 
@@ -31,11 +31,11 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 >  Les procédures décrites dans cette rubrique abordent des informations sur le déploiement d’applications sur un ordinateur Mac sur lequel vous avez installé le client Configuration Manager. Les ordinateurs Mac que vous avez inscrits auprès de Microsoft Intune ne prennent pas en charge le déploiement d’applications.  
 
 ## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
- Vous pouvez utiliser System Center Configuration Manager pour déployer des applications sur les ordinateurs Mac qui exécutent le client Configuration Manager pour Mac. La procédure de déploiement de logiciels sur les ordinateurs Mac est similaire à celle utilisée pour le déploiement de logiciels sur les ordinateurs Windows. Toutefois, avant de créer et déployer des applications pour des ordinateurs Mac gérés par Configuration Manager, tenez compte des points suivants :  
-  
+ Vous pouvez utiliser System Center Configuration Manager pour déployer des applications sur les ordinateurs Mac qui exécutent le client Configuration Manager pour Mac. La procédure de déploiement de logiciels sur les ordinateurs Mac est similaire à celle utilisée pour le déploiement de logiciels sur les ordinateurs Windows. Toutefois, avant de créer et déployer des applications pour des ordinateurs Mac gérés par Configuration Manager, tenez compte des points suivants :  
+
 -   Pour pouvoir déployer des packages d’application Mac sur des ordinateurs Mac, vous devez vous servir de l’outil **CMAppUtil** sur un ordinateur Mac pour convertir ces applications dans un format lisible par Configuration Manager.  
 
--   Configuration Manager ne prend pas en charge le déploiement d’applications Mac vers les utilisateurs ; ces déploiements doivent être dirigés vers un appareil. De même, pour les déploiements d’applications Mac, Configuration Manager ne prend pas en charge l’option **Prédéployer des logiciels sur le périphérique principal de l’utilisateur** proposée sur la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel.  
+-   Configuration Manager ne prend pas en charge le déploiement d’applications Mac vers les utilisateurs ; ces déploiements doivent être dirigés vers un appareil. De même, pour les déploiements d’applications Mac, Configuration Manager ne prend pas en charge l’option **Prédéployer des logiciels sur le périphérique principal de l’utilisateur** proposée sur la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel.  
 
 -   Les applications Mac prennent en charge les déploiements simulés.  
 
@@ -71,9 +71,9 @@ En plus des autres exigences et procédures System Center Configuration Manager 
 -   Paquet d'installation Mac OS X (.pkg)  
 
 -   Application Mac OS X (.app)  
-  
+
 Après avoir recueilli les informations sur l'application, **CMAppUtil** crée un fichier avec l'extension **.cmmac**. Ce fichier contient les fichiers d'installation du logiciel Mac et des informations sur les méthodes de détection pouvant être utilisées pour déterminer si l'application est déjà installée. **CMAppUtil** peut également traiter des fichiers **.dmg** qui contiennent plusieurs applications Mac et créer différents types de déploiement pour chaque application.  
-  
+
 1.  Copiez le package d'installation du logiciel Mac dans le dossier de l'ordinateur Mac dans lequel vous avez extrait le contenu du fichier **macclient.dmg** que vous avez téléchargé à partir du Centre de téléchargement Microsoft.  
 
 2.  Sur ce même ordinateur Mac, ouvrez une fenêtre de terminal et accédez au dossier dans lequel vous avez extrait le contenu du fichier **macclient.dmg** .  
@@ -103,12 +103,12 @@ Après avoir recueilli les informations sur l'application, **CMAppUtil** crée u
 
 4.  Assurez-vous que le fichier **.cmmac** a été créé dans le dossier de sortie que vous avez spécifié.  
 
-###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>créer une application Configuration Manager contenant le logiciel Mac  
+###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>créer une application Configuration Manager contenant le logiciel Mac  
 
 La procédure suivante permet de créer une application pour les ordinateurs Mac gérés par Configuration Manager.  
-  
+
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
-  
+
 3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une application**.  
 
 4.  Sur la page **Général,** de l'Assistant Création d'une application, sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d'installation**.  
@@ -141,9 +141,9 @@ La procédure suivante permet de créer une application pour les ordinateurs Mac
 
 > [!NOTE]  
 >  Si vous avez importé automatiquement des informations sur l'application dans l'Assistant Création d'une application, il se peut qu'un type de déploiement ait déjà été créé pour l'application.  
-  
+
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
-  
+
 3.  Sélectionnez une application puis, sous l'onglet **Accueil** , dans le groupe **Application** , cliquez sur **Créer un type de déploiement** pour créer un nouveau type de déploiement pour cette application.  
 
     > [!NOTE]  
@@ -207,9 +207,9 @@ La procédure suivante permet de créer une application pour les ordinateurs Mac
 
 > [!NOTE]  
 >  Vous pouvez créer un regroupement contenant uniquement des ordinateurs Mac. Pour ce faire, créez un regroupement qui utilise une règle de requête et utilisez l’exemple de requête WQL figurant dans la rubrique [Guide pratique pour créer des requêtes](../../core/servers/manage/create-queries.md).  
-  
+
  Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).  
-  
+
 ###  <a name="step-5-monitor-the-deployment-of-the-mac-application"></a>Étape 5 : contrôler le déploiement de l'application Mac  
  Pour contrôler les déploiements d'applications sur les ordinateurs Mac, vous pouvez suivre la même procédure que celle applicable aux déploiements d'applications sur les ordinateurs Windows.  
 
@@ -217,6 +217,6 @@ La procédure suivante permet de créer une application pour les ordinateurs Mac
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

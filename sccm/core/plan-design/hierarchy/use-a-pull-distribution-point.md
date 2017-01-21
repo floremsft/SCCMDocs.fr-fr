@@ -1,5 +1,5 @@
 ---
-title: "Point de distribution d’extraction | System Center Configuration Manager"
+title: "Point de distribution d’extraction | Microsoft Docs"
 description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6cd640085e90b2945326e3fa942ae9bd7b8f7e24
-ms.openlocfilehash: c1c476b69e955058d315af9853e18bd3b71de723
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: f94d928244699c1c926dca05823f0029c588c7f1
 
 
 ---
 
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution d’extraction avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Un point de distribution d’extraction pour System Center Configuration Manager est un point de distribution standard qui obtient le contenu distribué en le téléchargeant à partir d’un emplacement source tel qu’un client, au lieu que le contenu lui soit envoyé à partir du serveur de site.  
@@ -84,7 +84,7 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS. Pour utiliser un point de distribution source configuré pour le protocole HTTPS, le point de distribution d’extraction doit se trouver sur l’ordinateur qui exécute le client Configuration Manager.  
 
-Une priorité peut être attribuée à chaque point de distribution figurant dans la liste de points de distribution sources utilisée par le point de distribution d’extraction :  
+Une priorité peut être attribuée à chaque point de distribution figurant dans la liste de points de distribution sources utilisée par le point de distribution d’extraction :  
 
 -   Vous pouvez affecter une priorité distincte à chaque point de distribution source ou affecter la même priorité à plusieurs points de distribution source.  
 
@@ -111,10 +111,9 @@ Quand un point de distribution d’extraction télécharge du contenu à partir 
 
 ## <a name="see-also"></a>Voir aussi  
  [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   
- 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

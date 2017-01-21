@@ -1,6 +1,6 @@
 ---
 
-title: "Supprimer un point de mise à jour logicielle | Configuration Manager"
+title: "Supprimer un point de mise à jour logicielle | Microsoft Docs"
 description: "Suivez cette procédure pour supprimer le rôle système de site du point de mise à jour logicielle sur un site à partir de la console Configuration Manager."
 keywords: 
 author: dougeby
@@ -14,14 +14,14 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 2486375c-d4a2-4cf2-9124-9bee02bbf173
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e95e3fc2aafde2d947f08d32e2b2130a313e7328
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 22de02c51be3a0cd66b1be0f04b2fbdeb897858c
 
 
 ---
 #  <a name="a-namebkmkremovesupa-remove-the-software-update-point-site-system-role"></a><a name="BKMK_RemoveSUP"></a> Supprimer le rôle de système de site du point de mise à jour logicielle  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez supprimer le rôle système de site du point de mise à jour logicielle sur un site à partir de la console Configuration Manager. La stratégie du client est mise à jour, de façon à retirer le point de mise à jour logicielle de la liste. Lorsque vous supprimez le dernier point de mise à jour logicielle du site, le point de mise à jour logicielle ne contient plus de points de mise à jour logicielle et les mises à jour logicielles sont purement et simplement désactivées au niveau du site. Quand un site principal contient plusieurs points de mise à jour logicielle et que vous supprimez celui qui est configuré comme source de synchronisation, vous devez en choisir un autre sur le site pour en faire la nouvelle source de synchronisation.  
 
@@ -42,6 +42,6 @@ Vous pouvez supprimer le rôle système de site du point de mise à jour logicie
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

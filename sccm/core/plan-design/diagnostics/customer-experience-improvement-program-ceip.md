@@ -1,5 +1,5 @@
 ---
-title: CEIP | System Center Configuration Manager
+title: "Programme d’amélioration des services | Microsoft Docs"
 description: "Découvrez les paramètres du Programme d’amélioration des services pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 94b5d9bff85f0ac9a0c0c97ca3ef3d6ce8959619
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 76d268adda39b7d30f91d640ded81df85ba300d3
 
 
 ---
 # <a name="customer-experience-improvement-program-ceip-for-system-center-configuration-manager"></a>Programme d’amélioration des services (CEIP) pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Lors de l’installation de la console System Center Configuration Manager, vous pouvez choisir de participer au **Programme d’amélioration des services** (CEIP). Ce programme est désactivé par défaut, mais s’il a été activé auparavant, il reste activé.  
 
@@ -37,6 +37,6 @@ Vous pouvez modifier les paramètres du programme d’amélioration de l’expé
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

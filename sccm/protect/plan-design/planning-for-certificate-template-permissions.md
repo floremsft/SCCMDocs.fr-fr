@@ -1,5 +1,5 @@
 ---
-title: "Planification des autorisations des modèles de certificat | System Center Configuration Manager"
+title: "Planification d’autorisations de modèles de certificat | Microsoft Docs"
 description: "Informez-vous sur la planification des autorisations à configurer pour les modèles de certificat que System Center Configuration Manager utilise."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,26 +17,26 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 38f4176d40bffd20b9e3076213957765dfb0c7f3
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: 3c3725678561c32fce316ed1209ac8fe73a0eed1
 
 
 ---
 # <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Les informations suivantes peuvent vous aider à prévoir comment configurer des autorisations pour les modèles de certificat que System Center Configuration Manager utilise quand vous déployez des profils de certificat.  
 
 ## <a name="default-security-permissions-and-considerations"></a>Considérations et autorisations de sécurité par défaut  
- Les autorisations de sécurité par défaut requises pour les modèles de certificat que System Center Configuration Manager utilise pour demander des certificats pour les utilisateurs et les appareils sont les suivantes :  
+ Les autorisations de sécurité par défaut requises pour les modèles de certificat que System Center Configuration Manager utilise pour demander des certificats pour les utilisateurs et les appareils sont les suivantes :  
 
 -   Lecture et Inscription pour le compte utilisé par le pool d'applications du service d'inscription de périphériques réseau  
 
 -   Lecture pour le compte qui exécute la console System Center Configuration Manager  
 
- Pour plus d’informations sur ces autorisations de sécurité, consultez [Étape 1 : Installer et configurer le service d’inscription d’appareils réseau et les dépendances](../deploy-use/certificate-infrastructure.md#BKMK_Step1).  
+ Pour plus d’informations sur ces autorisations de sécurité, consultez [Étape 1 : Installer et configurer le service d’inscription d’appareils réseau et les dépendances](../deploy-use/certificate-infrastructure.md#step-1-install-and-configure-the-network-device-enrollment-service-and-dependencies).  
 
  Lorsque vous utilisez cette configuration par défaut, les utilisateurs et les périphériques ne peuvent pas demander directement des certificats depuis les modèles de certificat et toutes les demandes doivent être lancées par le service d'inscription de périphériques réseau. Il s'agit d'une restriction importante car ces modèles de certificat doivent être configurés avec **Fourni dans la demande** comme objet de certificat, ce qui signifie qu'il existe un risque d'emprunt d'identité si un utilisateur non autorisé ou un périphérique compromis a demandé un certificat. Dans la configuration par défaut, le service d'inscription de périphériques réseau doit lancer une telle demande. Toutefois, ce risque d'emprunt d'identité demeure si le service qui exécute le service d'inscription de périphériques réseau est compromis. Afin d'éviter ce risque, suivez toutes les meilleures pratiques de sécurité pour le service d'inscription de périphériques réseau et l'ordinateur qui exécute ce service de rôle.  
 
@@ -55,16 +55,16 @@ Les informations suivantes peuvent vous aider à prévoir comment configurer des
 
 #### <a name="to-check-for-read-and-enroll-permissions-for-users-and-domain-member-computers"></a>Pour rechercher des autorisations Lecture et Inscription pour les utilisateurs et les ordinateurs membres du domaine  
 
-1.  Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 0 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheck  
+1.  Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 0 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheck  
 
 2.  Si un compte ne peut pas être authentifié car un contrôleur de domaine ne répond pas et que vous souhaitez ignorer la vérification des autorisations :  
 
-    -   Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 1 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheckOnlyIfAccountAccessDenied  
+    -   Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 1 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheckOnlyIfAccountAccessDenied  
 
 3.  Sur l'autorité de certification émettrice, dans l'onglet **Sécurité** des propriétés du modèle de certificat, ajoutez un ou plusieurs groupes de sécurité afin d'accorder aux comptes d'utilisateur ou de périphérique des autorisations Lecture et Inscription.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

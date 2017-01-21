@@ -1,5 +1,5 @@
 ---
-title: "Personnaliser les images de système d’exploitation | Configuration Manager"
+title: "Personnaliser les images de système d’exploitation | Microsoft Docs"
 description: "Pour personnaliser une image de système d’exploitation, utilisez des séquences de tâches de capture et de génération, une configuration manuelle ou une combinaison des deux."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,18 +17,18 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e7e0ecf394297799c2a3d0c14e719182b403e1e8
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: c183fbde6de29ccd7c78ae066d305f0e99e37bda
 
 
 ---
 # <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Personnaliser les images de système d’exploitation avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, les images de système d’exploitation sont des fichiers WIM qui représentent un regroupement compressé des fichiers et dossiers de référence nécessaires à l’installation et à la configuration d’un système d’exploitation sur un ordinateur. Une image de système d’exploitation personnalisée est créée et capturée à partir d’un ordinateur de référence que vous configurez avec l’ensemble des fichiers de système d’exploitation, fichiers de prise en charge, mises à jour logicielles, outils et autres applications logicielles nécessaires. Il vous revient de décider dans quelle mesure vous voulez configurer manuellement l’ordinateur de référence. Vous pouvez totalement automatiser la configuration de l’ordinateur de référence à l’aide d’une séquence de tâches de création et de capture, vous pouvez configurer manuellement certains aspects de l’ordinateur de référence puis automatiser le reste à l’aide de séquences de tâches ou vous pouvez configurer manuellement l’ordinateur de référence sans utiliser de séquences de tâches. Utilisez les sections suivantes pour personnaliser un système d’exploitation.
 
-##  <a name="a-namebkmkpreparereferencecomputera-prepare-for-the-reference-computer"></a><a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
+##  <a name="a-namebkmkpreparereferencecomputera-prepare-for-the--reference-computer"></a><a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
  Avant de capturer l’image de système d’exploitation d’un ordinateur de référence, vous devez réfléchir à plusieurs aspects.  
 
 ###  <a name="a-namebkmkrefcomputerdecidea-decide-between-an-automated-or-manual-configuration"></a><a name="BKMK_RefComputerDecide"></a> Choisir entre une configuration automatisée ou manuelle  
@@ -140,6 +140,6 @@ Dans System Center Configuration Manager, les images de système d’exploitatio
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Surveiller les paramètres de compatibilité | System Center Configuration Manager"
+title: "Surveiller les paramètres de compatibilité | Microsoft Docs"
 description: "Utilisez une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité de la base de référence de configuration."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7dcaafa95f97d33c53399321f5d1efb2b5021952
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 75cd7e811262633d81d978265f21ec7ed3b61a58
 
 
 ---
 # <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Surveiller les paramètres de compatibilité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Une fois que vous avez déployé les bases de référence de configuration de System Center Configuration Manager sur les appareils de votre hiérarchie, vous pouvez utiliser une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité d’une base de référence de configuration :
+Une fois que vous avez déployé les bases de référence de configuration de System Center Configuration Manager sur les appareils de votre hiérarchie, vous pouvez utiliser une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité d’une base de référence de configuration :
 
 > [!NOTE]  
 >  Les champs des critères de validation dans les rapports des paramètres de compatibilité (l’équivalent dans le rapport côté client est **Contraintes**) s’affichent dans le langage SML (Service Modeling Language) sous-jacent. Par conséquent, les administrateurs qui ont créé l’élément de configuration dans la console Configuration Manager qui ne connaissent pas le langage SML peuvent avoir des difficultés à comprendre les critères de validation. Dans ce cas, utilisez l’espace de travail **Surveillance** dans la console Configuration Manager pour afficher les propriétés de l’élément de configuration et ses critères de validation.  
@@ -113,6 +113,6 @@ Une fois que vous avez déployé les bases de référence de configuration de Sy
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

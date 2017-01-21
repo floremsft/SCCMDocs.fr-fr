@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité des profils de certificat | System Center Configuration Manager"
+title: "Sécurité et confidentialité des profils de certificat | Microsoft Docs"
 description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils de certificat des utilisateurs et des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 06ab159203e3ee2d3b6da726bc7264445dd41488
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 8673ca3f556feda31aa29653461cd4fbed01409a
 
 
 ---
 # <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils de certificat dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les profils de certificat dans System Center Configuration Manager.  
 
@@ -35,7 +35,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 |----------------------------|----------------------|  
 |Identifiez et suivez les meilleures pratiques de sécurité pour le service d'inscription de périphériques réseau, ce qui comprend la configuration du site Web Service d'inscription de périphériques réseau dans Internet Information Services (IIS) pour exiger le protocole SSL et ignorer les certificats clients.|Pour plus d'informations, voir [Guide du service d'inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=309016) dans la bibliothèque des services de certificats Microsoft Active Directory sur TechNet.|  
 |Lorsque vous configurez des profils de certificat SCEP, choisissez les options les plus sécurisées prises en charge par vos périphériques et votre infrastructure.|Identifiez, implémentez et suivez les meilleures pratiques de sécurité recommandées pour vos périphériques et votre infrastructure.|  
-|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Si vous cliquez sur l'option **Autoriser l'inscription du certificat uniquement sur le périphérique principal des utilisateurs** dans un profil de certificat SCEP, ne considérez pas les informations collectées à partir d'utilisateurs ou du périphérique comme faisant autorité. Si vous déployez des profils de certificat SCEP avec cette configuration, et l'affinité entre utilisateur et périphérique n'est pas spécifiée par un utilisateur administratif approuvé, une élévation de privilèges et des certificats pour l'authentification peuvent être accordés à des utilisateurs qui ne sont pas autorisés.<br /><br /> **Remarque :** Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par System Center Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB ou IPsec entre les ordinateurs clients et le point de gestion.|  
+|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Si vous cliquez sur l'option **Autoriser l'inscription du certificat uniquement sur le périphérique principal des utilisateurs** dans un profil de certificat SCEP, ne considérez pas les informations collectées à partir d'utilisateurs ou du périphérique comme faisant autorité. Si vous déployez des profils de certificat SCEP avec cette configuration, et l'affinité entre utilisateur et périphérique n'est pas spécifiée par un utilisateur administratif approuvé, une élévation de privilèges et des certificats pour l'authentification peuvent être accordés à des utilisateurs qui ne sont pas autorisés.<br /><br /> **Remarque :** Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par System Center Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB ou IPsec entre les ordinateurs clients et le point de gestion.|  
 |N'ajoutez pas d'autorisations de lecture et d'inscription pour les utilisateurs sur les modèles de certificats ou configurez le point d'enregistrement de certificat de manière à ignorer la vérification du modèle de certificat.|Même si System Center Configuration Manager prend en charge la vérification supplémentaire si vous ajoutez les autorisations de sécurité Lecture et Inscription pour les utilisateurs, et que vous pouvez configurer le point d’enregistrement de certificat de manière à ignorer cette vérification si l’authentification n’est pas possible, ces configurations ne représentent pas les bonnes pratiques en matière de sécurité. Pour plus d’informations, consultez [Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
 
 ## <a name="privacy-information-for-certificate-profiles"></a>Informations de confidentialité pour les profils de certificat  
@@ -52,6 +52,6 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

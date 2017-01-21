@@ -1,6 +1,6 @@
 ---
 
-title: "Gérer la synchronisation des mises à jour logicielles | Configuration Manager"
+title: "Gérer la synchronisation des mises à jour logicielles | Microsoft Docs"
 description: "Exécutez ces étapes pour planifier, démarrer manuellement et surveiller la synchronisation des mises à jour logicielles."
 keywords: 
 author: dougeby
@@ -14,8 +14,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: ea8698c4-9df5-4cf5-8b62-ab93115b4769
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a720a38962aee33f0d6a7c9ca447dd98d7e0c24e
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: e68170a16a6a908e035247ed9c0f3cc6cdbe1983
 
 
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: a720a38962aee33f0d6a7c9ca447dd98d7e0c24e
 
 #  <a name="a-namebkmksumsynca-synchronize-software-updates"></a><a name="BKMK_SUMSync"></a> Synchroniser les mises à jour logicielles
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  La synchronisation des mises à jour logicielles dans Configuration Manager consiste à récupérer les métadonnées des mises à jour logicielles correspondant aux critères que vous configurez, comme les produits, les classifications et les langues. En règle générale, les métadonnées sont récupérées par le point de mise à jour logicielle du site d’administration centrale ou d’un site principal autonome auprès de Microsoft Update. Ensuite, le site de niveau supérieur envoie une demande de synchronisation aux autres sites. Quand un site reçoit la demande de synchronisation du site parent, le point de mise à jour logicielle du site récupère les métadonnées des mises à jour logicielles à partir de sa [source de synchronisation](../plan-design/plan-for-software-updates.md#BKMK_SyncSource) en amont. Pour plus d’informations sur la synchronisation des mises à jour logicielles, consultez [Synchronisation des mises à jour logicielles](../understand/software-updates-introduction.md#BKMK_Synchronization).
 
@@ -83,6 +83,6 @@ Après avoir synchronisé les mises à jour logicielles avec les critères dont 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

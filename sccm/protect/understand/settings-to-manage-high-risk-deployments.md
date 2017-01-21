@@ -1,5 +1,5 @@
 ---
-title: "Gérer les déploiements à haut risque | System Center Configuration Manager"
+title: "Gérer les déploiements à haut risque | Microsoft Docs"
 description: "Apprenez à configurer les paramètres du site dans System Center Configuration Manager pour avertir les administrateurs s’ils créent un déploiement à haut risque."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e265c2de8a1d29863d430e0e2b693c69ff4bda10
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 8b5564f39f07a67a3c9278379ed59ca415603d21
 
 
 ---
 # <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Avec System Center Configuration Manager, vous pouvez configurer les paramètres du site pour avertir les administrateurs s’ils créent un déploiement de séquence de tâches à haut risque. Un déploiement à haut risque est :  
@@ -34,15 +34,15 @@ Avec System Center Configuration Manager, vous pouvez configurer les paramètres
 
  Par exemple, une séquence de tâches dont l’objectif est **Obligatoire** qui déploie un système d’exploitation est considérée comme étant à haut risque.  
 
- Pour réduire le risque lié à un déploiement à haut risque indésirable, vous pouvez configurer des limites de taille dans ces paramètres de vérification de déploiement :  
+ Pour réduire le risque lié à un déploiement à haut risque indésirable, vous pouvez configurer des limites de taille dans ces paramètres de vérification de déploiement :  
 
--   **Limites de taille des regroupements** : masquez les regroupements contenant plus de clients que votre limite quand vous créez un déploiement.  
+-   **Limites de taille des regroupements** : masquez les regroupements contenant plus de clients que votre limite quand vous créez un déploiement.  
 
-    -   **Taille par défaut** : ce paramètre masque les regroupements, par défaut, qui contiennent plus de clients que votre limite quand vous créez un déploiement. Vous pouvez quand même voir ces regroupements lors de la création du déploiement, mais ils sont masqués par défaut. La valeur par défaut est 100. Entrez la valeur 0 pour ignorer ce paramètre.  
+    -   **Taille par défaut** : ce paramètre masque les regroupements, par défaut, qui contiennent plus de clients que votre limite quand vous créez un déploiement. Vous pouvez quand même voir ces regroupements lors de la création du déploiement, mais ils sont masqués par défaut. La valeur par défaut est 100. Entrez la valeur 0 pour ignorer ce paramètre.  
 
-    -   **Taille maximale** : ce paramètre masque toujours les regroupements contenant plus de clients que votre limite quand vous créez un déploiement. La valeur par défaut est 0, qui ignore ce paramètre. La valeur **Taille maximale** doit être supérieure à la valeur **Taille par défaut** .  
+    -   **Taille maximale** : ce paramètre masque toujours les regroupements contenant plus de clients que votre limite quand vous créez un déploiement. La valeur par défaut est 0, qui ignore ce paramètre. La valeur **Taille maximale** doit être supérieure à la valeur **Taille par défaut** .  
 
-     Par exemple, vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
+     Par exemple, vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
 
 -   **Regroupements avec des serveurs de système de site**: ce paramètre permet de bloquer les déploiements, ou d’exiger la vérification avant de créer le déploiement, si le regroupement cible comporte un ordinateur ayant un rôle de système de site. Quand un déploiement est bloqué, vous devez sélectionner un autre regroupement qui remplit les critères de vérification de déploiement.  
 
@@ -62,6 +62,6 @@ Avec System Center Configuration Manager, vous pouvez configurer les paramètres
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

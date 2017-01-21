@@ -1,5 +1,5 @@
 ---
-title: Configurer la gestion hybride des appareils mobiles Windows avec System Center Configuration Manager et Microsoft Intune
+title: Configurer la gestion des appareils mobiles hybride Windows avec System Center Configuration Manager et Microsoft Intune | Microsoft Docs
 description: Configurez la gestion des appareils Windows avec System Center Configuration Manager et Microsoft Intune.
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,31 +12,31 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: dc1f70f5-64ab-42ab-aa91-d3858803e12f
 caps.latest.revision: 9
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 55fca210e5b3ce11e513662994105027f1a4f227
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 808327495c66f4e6ad86ab144455014171a453b2
 
 
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer la gestion hybride des appareils mobiles Windows avec System Center Configuration Manager et Microsoft Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser Configuration Manager avec Intune pour gérer des ordinateurs de bureau, des ordinateurs portables et d’autres appareils exécutant Windows en tant qu’appareils mobiles. Vous pouvez configurer Azure Active Directory pour autoriser l’inscription automatique des PC Windows. Vous pouvez également configurer Configuration Manager pour simplifier l’inscription à l’aide de l’application Portail d’entreprise.
 
 
-Les options d’inscription Windows incluent ce qui suit :
+Les options d’inscription Windows incluent ce qui suit :
 
 - [Inscription automatique auprès d’Azure AD](#azure-active-directory-enrollment)
 - [PC Windows](#set-up-windows-device-enrollment)
-- [Appareils Windows 10 Mobile et Windows Phone](#enable-windows-phone-devices)
+- [Appareils Windows 10 Mobile et Windows Phone](#enable-windows-phone-devices)
 
 ## <a name="azure-active-directory-enrollment"></a>Inscription Azure Active Directory
 
-L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 10 appartenant à l’entreprise ou personnels et des appareils Windows 10 Mobile dans Intune en ajoutant un compte professionnel ou scolaire et en acceptant leur gestion. En arrière-plan, l’appareil de l’utilisateur s’inscrit et rejoint Azure Active Directory. Une fois inscrit, l’appareil peut être géré avec Intune.
+L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 10 appartenant à l’entreprise ou personnels et des appareils Windows 10 Mobile dans Intune en ajoutant un compte professionnel ou scolaire et en acceptant leur gestion. En arrière-plan, l’appareil de l’utilisateur s’inscrit et rejoint Azure Active Directory. Une fois inscrit, l’appareil peut être géré avec Intune.
 
 **Conditions préalables**
 - Abonnement Premium à Azure Active Directory ([abonnement d’évaluation](http://go.microsoft.com/fwlink/?LinkID=816845))
@@ -55,13 +55,13 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 
 
 4. Cliquez sur **Configurer** pour démarrer la configuration de l’inscription automatique de la gestion des appareils mobiles avec Microsoft Intune.
 
-5. Spécifiez les URL pour Intune :
+5. Spécifiez les URL pour Intune :
 
-  - **URL d’inscription de MDM** : utilisez `https://enterpriseenrollment-s.manage.microsoft.com/EnrollmentServer/Discovery.svc` pour l’URL d’inscription de MDM.
-  - **URL des conditions d’utilisation de MDM** : utilisez la valeur par défaut. Cette URL présente les conditions d’utilisation applicables aux utilisateurs qui inscrivent des appareils.
-  - **URL de conformité de MDM** : utilisez la valeur par défaut. Si un appareil se révèle non conforme, un message **Accès refusé** s’affiche avec cette URL. L’URL pointe vers une page qui permet aux utilisateurs de comprendre pourquoi leur appareil n’est pas conforme à la stratégie et comment ils peuvent le remettre en conformité.
+  - **URL d’inscription de MDM** : utilisez `https://enterpriseenrollment-s.manage.microsoft.com/EnrollmentServer/Discovery.svc` pour l’URL d’inscription de MDM.
+  - **URL des conditions d’utilisation de MDM** : utilisez la valeur par défaut. Cette URL présente les conditions d’utilisation applicables aux utilisateurs qui inscrivent des appareils.
+  - **URL de conformité de MDM** : utilisez la valeur par défaut. Si un appareil se révèle non conforme, un message **Accès refusé** s’affiche avec cette URL. L’URL pointe vers une page qui permet aux utilisateurs de comprendre pourquoi leur appareil n’est pas conforme à la stratégie et comment ils peuvent le remettre en conformité.
 
-6.  Spécifiez les appareils des utilisateurs qui doivent être gérés par Microsoft Intune. Les appareils Windows 10 de ces utilisateurs sont automatiquement inscrits à la gestion avec Microsoft Intune.
+6.  Spécifiez les appareils des utilisateurs qui doivent être gérés par Microsoft Intune. Les appareils Windows 10 de ces utilisateurs sont automatiquement inscrits à la gestion avec Microsoft Intune.
 
   - **Tous**
   - **Groupes**
@@ -81,7 +81,7 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 
 |CNAME|EnterpriseRegistration.domaine_entreprise.com|EnterpriseRegistration.windows.net|  
 ### <a name="to-enable-enrollment-for-windows-devices"></a>Pour activer l’inscription des appareils Windows  
 
-1.  **Prérequis** : avant de configurer l’inscription d’une plateforme, observez les prérequis et les procédures indiqués dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).  
+1.  **Prérequis** : avant de configurer l’inscription d’une plateforme, observez les prérequis et les procédures indiqués dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).  
 
 2.  Dans la console Configuration Manager, dans l’espace de travail **Administration** , accédez à **Services cloud** > **Abonnements Microsoft Intune**.  
 
@@ -101,7 +101,7 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 
 
 ### <a name="to-enable-enrollment-for-windows-phone-81-and-later-devices"></a>Pour activer l’inscription pour les appareils Windows Phone 8.1 et versions ultérieures  
 
- 1.  **Prérequis** : avant de configurer l’inscription d’une plateforme, observez les prérequis et les procédures indiqués dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).  
+ 1.  **Prérequis** : avant de configurer l’inscription d’une plateforme, observez les prérequis et les procédures indiqués dans [Configurer la gestion hybride des appareils mobiles](setup-hybrid-mdm.md).  
 
  2.  Dans la console Configuration Manager, dans l’espace de travail **Administration** , accédez à **Services cloud** > **Abonnements Microsoft Intune**.  
 
@@ -118,6 +118,6 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

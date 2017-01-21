@@ -1,5 +1,5 @@
 ---
-title: "Référence des tâches de maintenance | System Center Configuration Manager"
+title: "Référence des tâches de maintenance | Microsoft Docs"
 description: "Lisez les détails de chaque tâche de maintenance de site de System Center Configuration Manager, et découvrez si ces tâches sont activées par défaut."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,18 +17,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f88282736c5e1fd3560745933f4c8e2a2268ea77
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 7aee7c89c2857bc59beff7f140f06c4ac82f4294
 
 
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Référence des tâches de maintenance pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique répertorie les détails de chaque tâche de maintenance de site de System Center Configuration Manager, ainsi que les types de sites sur lesquels la tâche est disponible. Chaque entrée indique également si la tâche est activée ou non par défaut.   Pour plus d’informations sur la planification et la configuration de sites pour exécuter des tâches de maintenance, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md).  
 
-**Serveur de site de sauvegarde** : cette tâche permet de préparer la récupération de données critiques en créant une sauvegarde des informations critiques dont vous disposez pour restaurer un site et la base de données Configuration Manager. Pour plus d'informations, consultez [Backup and recovery for System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+**Serveur de site de sauvegarde** : cette tâche permet de préparer la récupération de données critiques en créant une sauvegarde des informations critiques dont vous disposez pour restaurer un site et la base de données Configuration Manager. Pour plus d'informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
 -   **Site d’administration centrale** - Activée    
 -   **Site principal ** - Non activée    
@@ -112,7 +112,7 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** - Activée    
 -   Site secondaire - Non disponible  
 
-**Supprimer les anciens périphériques inscrits** - À partir de la mise à jour 1602, cette tâche est désactivée par défaut. Elle permet de supprimer de la base de données du site les anciennes données relatives aux appareils mobiles qui n’ont communiqué aucune information au site pendant une période spécifiée.  Cette tâche s’applique aux appareils qui sont inscrits par Microsoft Intune (hybride), ou avec la gestion des appareils mobiles locale de Configuration Manage.  Pour plus d’informations sur les systèmes d’exploitation des appareils inscrits par Configuration Manager ou par Intune, consultez la section [Appareils mobiles inscrits par Microsoft Intune](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#bkmk_IntuneOS) dans [Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).
+**Supprimer les anciens périphériques inscrits** - À partir de la mise à jour 1602, cette tâche est désactivée par défaut. Elle permet de supprimer de la base de données du site les anciennes données relatives aux appareils mobiles qui n’ont communiqué aucune information au site pendant une période spécifiée.  Cette tâche s’applique aux appareils qui sont inscrits par Microsoft Intune (hybride), ou avec la gestion des appareils mobiles locale de Configuration Manage.  Pour plus d’informations sur les systèmes d’exploitation des appareils inscrits par Configuration Manager ou par Intune, consultez la section [Appareils mobiles inscrits par Microsoft Intune](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#bkmk_IntuneOS) dans [Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).
 
 -   Site d’administration centrale - Non disponible    
 -   **Site principal ** - Non activée    
@@ -151,7 +151,7 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** - Activée    
 -   Site secondaire - Non disponible  
 
-**Supprimer les anciennes données de suivi de réplication** : cette tâche permet de supprimer de la base de données d’anciennes données sur la réplication de base de données entre sites Configuration Manager. Lorsque vous modifiez la configuration de cette tâche de maintenance, la configuration s'applique à chaque site concerné de la hiérarchie. Pour plus d'informations, voir la section [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) .  
+**Supprimer les anciennes données de suivi de réplication** : cette tâche permet de supprimer de la base de données d’anciennes données sur la réplication de base de données entre sites Configuration Manager. Lorsque vous modifiez la configuration de cette tâche de maintenance, la configuration s'applique à chaque site concerné de la hiérarchie. Pour plus d'informations, voir la section [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) .  
 
 -   **Site d’administration centrale** - Activée    
 -   **Site principal ** - Activée    
@@ -217,7 +217,7 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** - Non activée    
 -   Site secondaire - Non disponible  
 
-**Supprimer les sites et sous-réseaux de découverte de forêts obsolètes** - Cette tâche permet de supprimer des données de sites, de sous-réseaux et de domaines Active Directory n’ayant pas été découverts par la méthode de découverte de forêt Active Directory au cours des 30 derniers jours. Cela supprime les données de découverte, mais n'affecte pas les limites créées à partir de ces données de découverte.  Pour plus d’informations, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Supprimer les sites et sous-réseaux de découverte de forêts obsolètes** - Cette tâche permet de supprimer des données de sites, de sous-réseaux et de domaines Active Directory n’ayant pas été découverts par la méthode de découverte de forêt Active Directory au cours des 30 derniers jours. Cela supprime les données de découverte, mais n'affecte pas les limites créées à partir de ces données de découverte.  Pour plus d’informations, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
 -   **Site d’administration centrale** - Activée    
 -   **Site principal ** - Activée    
@@ -235,13 +235,13 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** - Activée    
 -   Site secondaire - Non disponible  
 
-**Contrôler les clés** : cette tâche permet de surveiller l’intégrité des clés primaires de la base de données Configuration Manager. Une clé primaire est une colonne ou une combinaison de colonnes qui identifie de manière unique une ligne et la distingue des autres lignes dans une table de base données Microsoft SQL Server.  
+**Contrôler les clés** : cette tâche permet de surveiller l’intégrité des clés primaires de la base de données Configuration Manager. Une clé primaire est une colonne ou une combinaison de colonnes qui identifie de manière unique une ligne et la distingue des autres lignes dans une table de base données Microsoft SQL Server.  
 
 -   **Site d’administration centrale** - Activée    
 -   **Site principal ** - Activée    
 -   Site secondaire - Non disponible  
 
-**Reconstruire les index** : cette tâche permet de reconstruire les index des bases de données Configuration Manager. Un index désigne une structure de base de données créée dans une table de base de données pour accélérer le processus d'extraction des données. Par exemple, il est souvent plus rapide d'effectuer une recherche dans une colonne indexée que dans une colonne qui ne l'est pas. Pour des performances optimales, les index de base de données Configuration Manager sont mis à jour fréquemment pour être synchronisés avec les données changeant constamment stockées dans la base de données. Cette tâche permet de créer et de placer des index dans des colonnes de base de données uniques à moins de 50 % et de reconstruire tous les index existants conformes aux critères d'unicité des données.  
+**Reconstruire les index** : cette tâche permet de reconstruire les index des bases de données Configuration Manager. Un index désigne une structure de base de données créée dans une table de base de données pour accélérer le processus d'extraction des données. Par exemple, il est souvent plus rapide d'effectuer une recherche dans une colonne indexée que dans une colonne qui ne l'est pas. Pour des performances optimales, les index de base de données Configuration Manager sont mis à jour fréquemment pour être synchronisés avec les données changeant constamment stockées dans la base de données. Cette tâche permet de créer et de placer des index dans des colonnes de base de données uniques à moins de 50 % et de reconstruire tous les index existants conformes aux critères d'unicité des données.  
 
 -   **Site d’administration centrale** - Non activée    
 -   **Site principal ** - Non activée    
@@ -265,7 +265,7 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** - Activée    
 -   Site secondaire - Non disponible  
 
-**Mettre à jour le ciblage disponible de l’application** : cette tâche permet de faire en sorte que Configuration Manager recalcule le mappage des déploiements de stratégies et d’applications aux ressources dans des regroupements.  Lorsque vous déployez une stratégie ou des applications dans un regroupement, Configuration Manager crée un mappage initial entre les objets que vous déployez et les membres du regroupement. Ces mappages sont stockés dans une table à des fins de référence rapide. Quand l’appartenance à un regroupement change, ces mappages stockés sont mis à jour afin de refléter ces modifications. Toutefois, il est possible pour ces mappages soient désynchronisées. Par exemple, si le site ne parvient pas à traiter correctement un fichier de notification, il se peut que cette modification ne soit pas reflétée dans une modification des mappages. Cette tâche actualise ce mappage en fonction de l’appartenance au regroupement actuel.  
+**Mettre à jour le ciblage disponible de l’application** : cette tâche permet de faire en sorte que Configuration Manager recalcule le mappage des déploiements de stratégies et d’applications aux ressources dans des regroupements.  Lorsque vous déployez une stratégie ou des applications dans un regroupement, Configuration Manager crée un mappage initial entre les objets que vous déployez et les membres du regroupement. Ces mappages sont stockés dans une table à des fins de référence rapide. Quand l’appartenance à un regroupement change, ces mappages stockés sont mis à jour afin de refléter ces modifications. Toutefois, il est possible pour ces mappages soient désynchronisées. Par exemple, si le site ne parvient pas à traiter correctement un fichier de notification, il se peut que cette modification ne soit pas reflétée dans une modification des mappages. Cette tâche actualise ce mappage en fonction de l’appartenance au regroupement actuel.  
 
 -   Site d’administration centrale - Non disponible    
 -   **Site principal ** - Activée    
@@ -279,6 +279,6 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

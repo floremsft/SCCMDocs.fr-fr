@@ -1,8 +1,8 @@
 ---
-title: Profils VPN dans System Center Configuration Manager | System Center Configuration Manager
+title: Profils VPN dans System Center Configuration Manager | Microsoft Docs
 description: "Découvrez comment utiliser des profils VPN dans System Center Configuration Manager pour déployer des paramètres VPN pour les utilisateurs de votre organisation."
 ms.custom: na
-ms.date: 10/10/2016
+ms.date: 11/27/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,17 +17,17 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fbce476b8a9b91a88354fb4abfadfd2526ca5e8
-ms.openlocfilehash: dda572392884c54b63af09a9fae79c1e73eb3d95
+ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
+ms.openlocfilehash: 0ff83aed4d5e19806a8c69f4b45e39a6156dee7e
 
 
 ---
 # <a name="vpn-profiles-in-system-center-configuration-manager"></a>Profils VPN dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Utilisez des profils VPN dans System Center Configuration Manager pour déployer des paramètres VPN pour les utilisateurs de votre organisation. En déployant ces paramètres, vous réduisez l'effort que doit fournir l'utilisateur final pour se connecter aux ressources du réseau d'entreprise.  
+Utilisez des profils VPN dans System Center Configuration Manager (aussi appelé ConfigMgr ou SCCM) pour déployer des paramètres VPN sur les utilisateurs de votre organisation. En déployant ces paramètres, vous réduisez l'effort que doit fournir l'utilisateur final pour se connecter aux ressources du réseau d'entreprise.  
 
  Par exemple, vous souhaitez provisionner tous les appareils qui exécutent le système d'exploitation iOS avec les paramètres requis pour se connecter à un partage de fichiers sur le réseau d'entreprise. Vous pouvez créer un profil VPN contenant les paramètres nécessaires pour la connexion au réseau d'entreprise, puis déployer ce profil auprès de tous les utilisateurs qui disposent d'appareils exécutant iOS dans votre hiérarchie. Les utilisateurs d'appareils iOS voient la connexion VPN dans la liste des réseaux disponibles et peuvent se connecter à ce réseau avec un minimum d'effort.  
 
@@ -38,11 +38,11 @@ Utilisez des profils VPN dans System Center Configuration Manager pour déployer
 ## <a name="vpn-profiles-when-using-configuration-manager"></a>Profils VPN si Configuration Manager est utilisé  
  Le tableau suivant décrit les profils VPN que vous pouvez configurer pour diverses plateformes d’appareil.  
 
-|Type de connexion|Windows 8.1|Windows RT|Windows RT 8.1|Windows 10|  
+|Type de connexion|Windows 8.1|Windows RT|Windows RT 8.1|Windows 10|  
 |---------------------|-----------------|----------------|--------------------|----------------|  
 |**Cisco AnyConnect**|Non|Non|Non|Non|  
 |**Pulse Secure**|Oui|Non|Oui|Oui|  
-|**Client F5 Edge**|Oui|Non|Oui|Oui|  
+|**Client F5 Edge**|Oui|Non|Oui|Oui|  
 |**Dell SonicWALL Mobile Connect**|Oui|Non|Oui|Oui|  
 |**Check Point Mobile VPN**|Oui|Non|Oui|Oui|  
 |**Microsoft SSL (SSTP)**|Oui|Oui|Oui|Non|  
@@ -52,9 +52,9 @@ Utilisez des profils VPN dans System Center Configuration Manager pour déployer
 |**L2TP**|Oui|Oui|Oui|Non|  
 
 ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Profils VPN si Configuration Manager est utilisé en association avec Intune  
- Pour déployer des profils sur des appareils iOS, Android, Windows Phone et Windows 8.1, ces appareils doivent être inscrits dans Microsoft Intune. Les appareils sur d’autres plateformes peuvent également être inscrits auprès Intune. Pour plus d’informations sur la procédure d’inscription, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Ce tableau présente le type de connexion pris en charge pour chaque plateforme d’appareil :  
+ Pour déployer des profils sur des appareils iOS, Android, Windows Phone et Windows 8.1, ces appareils doivent être inscrits dans Microsoft Intune. Les appareils sur d’autres plateformes peuvent également être inscrits auprès Intune. Pour plus d’informations sur la procédure d’inscription, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Ce tableau présente le type de connexion pris en charge pour chaque plateforme d’appareil :  
 
-|Type de connexion|iOS et Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop et Mobile|  
+|Type de connexion|iOS et Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop et Mobile|  
 |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
 |Cisco AnyConnect|Oui|Oui|Non|Non|Non|Non|Oui (OMA-URI)|  
 |Pulse Secure|Oui|Oui|Oui|Non|Oui|Oui|Oui|  
@@ -76,6 +76,6 @@ Utilisez des profils VPN dans System Center Configuration Manager pour déployer
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

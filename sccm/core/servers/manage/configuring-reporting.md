@@ -1,5 +1,5 @@
 ---
-title: "Configurer la génération de rapports | System Center Configuration Manager"
+title: Configurer des rapports | Microsoft Docs
 description: "Découvrez comment configurer la génération de rapports dans votre hiérarchie Configuration Manager, y compris des informations sur SQL Server Reporting Services."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7c7fb75ec6be7a24afe2bb8038998fb58b10e331
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: aed95333b6509b0aa7061f23969381f1ce8aff7f
 
 
 ---
 # <a name="configuring-reporting-in-system-center-configuration-manager"></a>Configuration des rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avant de créer, modifier et exécuter des rapports dans la console System Center Configuration Manager, vous devez effectuer certaines tâches de configuration. Aidez-vous des sections de cette rubrique pour configurer la génération de rapports dans votre hiérarchie Configuration Manager :  
+Avant de créer, modifier et exécuter des rapports dans la console System Center Configuration Manager, vous devez effectuer certaines tâches de configuration. Aidez-vous des sections de cette rubrique pour configurer la génération de rapports dans votre hiérarchie Configuration Manager :  
 
- Avant de procéder à l’installation et à la configuration de Reporting Services dans votre hiérarchie, passez en revue les rubriques suivantes sur la génération de rapports Configuration Manager :  
+ Avant de procéder à l’installation et à la configuration de Reporting Services dans votre hiérarchie, passez en revue les rubriques suivantes sur la génération de rapports Configuration Manager :  
 
 -   [Présentation des rapports dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md)  
 
@@ -110,21 +110,21 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 6.  Sur la page **Point de Reporting Services** , configurez les paramètres suivants :  
 
-    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
+    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
 
-    -   **Nom de la base de données** : spécifiez le nom de la base de données de site Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
+    -   **Nom de la base de données** : spécifiez le nom de la base de données de site Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
 
         > [!IMPORTANT]  
         >  Le compte d'utilisateur qui crée le point de Reporting Services doit avoir accès **en lecture** à la base de données de site. Si le test de connexion échoue, une icône d'avertissement rouge s'affiche. Déplacez le curseur sur cette icône afin de lire les informations relatives à la défaillance. Corrigez la défaillance, puis cliquez à nouveau sur **Tester** .  
 
-    -   **Nom du dossier** : spécifiez le nom de dossier qui est créé et utilisé pour héberger les rapports Configuration Manager dans Reporting Services.  
+    -   **Nom du dossier** : spécifiez le nom de dossier qui est créé et utilisé pour héberger les rapports Configuration Manager dans Reporting Services.  
 
     -   **Instance du serveur reporting Services**: sélectionnez dans la liste l’instance de SQL Server Reporting Services. Lorsqu'une seule instance est trouvée, par défaut, elle est répertoriée et sélectionnée. Lorsqu'aucune instance n'est trouvée, vérifiez que SQL Server Reporting Services est installé et configuré, et que le service SQL Server Reporting Services est démarré sur le système de site.  
 
         > [!IMPORTANT]  
         >  Configuration Manager établit une connexion dans le contexte de l’utilisateur actif avec Windows Management Instrumentation (WMI) sur le système de site sélectionné pour récupérer l’instance de SQL Server pour Reporting Services. L'utilisateur actuel doit disposer d'un accès **Lecture** à WMI sur le système de site, sans quoi, les instances de Reporting Services ne peuvent pas être récupérées.  
 
-    -   **Compte du point de Reporting Services** : cliquez sur **Définir**, puis sélectionnez le compte à utiliser quand SQL Server Reporting Services sur le point de Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui s’affichent dans un rapport. Sélectionnez **Compte existant** pour spécifier un compte d’utilisateur Windows déjà configuré en tant que compte Configuration Manager ou sélectionnez **Nouveau compte** pour spécifier un compte d’utilisateur Windows qui n’est pas actuellement configuré en tant que compte Configuration Manager. Configuration Manager accorde automatiquement l’accès à la base de données du site pour l’utilisateur spécifié. L'utilisateur est affiché dans le sous-dossier **Comptes** du nœud **Sécurité** dans l'espace de travail **Administration** avec le nom de compte **Point Reporting Services ConfigMgr** .  
+    -   **Compte du point de Reporting Services** : cliquez sur **Définir**, puis sélectionnez le compte à utiliser quand SQL Server Reporting Services sur le point de Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui s’affichent dans un rapport. Sélectionnez **Compte existant** pour spécifier un compte d’utilisateur Windows déjà configuré en tant que compte Configuration Manager ou sélectionnez **Nouveau compte** pour spécifier un compte d’utilisateur Windows qui n’est pas actuellement configuré en tant que compte Configuration Manager. Configuration Manager accorde automatiquement l’accès à la base de données du site pour l’utilisateur spécifié. L'utilisateur est affiché dans le sous-dossier **Comptes** du nœud **Sécurité** dans l'espace de travail **Administration** avec le nom de compte **Point Reporting Services ConfigMgr** .  
 
          Le compte qui exécute Reporting Services doit appartenir au groupe de sécurité de domaine local **Groupe d'accès d'autorisation Windows**et l'autorisation **Read tokenGroupsGlobalAndUniversal** doit être définie sur **Autoriser**.  
 
@@ -143,7 +143,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
     >  Quand les dossiers de rapports sont créés et que les rapports sont copiés sur le serveur de rapports, Configuration détermine la langue adéquate pour les objets. Si le module linguistique correspondant est installé sur le site, Configuration Manager crée les objets dans la langue du système d’exploitation s’exécutant sur le serveur de rapports du site. Si la langue n'est pas disponible, les rapports sont créés et affichés en anglais. Lorsque vous installez un point de Reporting Services sur un site sans module linguistique, les rapports sont installés en anglais. Si vous installez un module linguistique après avoir installé le point de Reporting Services, vous devez désinstaller et réinstaller ce dernier pour que les rapports soient disponibles dans la langue du module linguistique adéquat. Pour plus d’informations sur les modules linguistiques, consultez [Modules linguistiques dans System Center Configuration Manager](../deploy/install/language-packs.md).  
 
 ###  <a name="a-namebkmkfileinstallationandsecuritya-file-installation-and-report-folder-security-rights"></a><a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichier et droits de sécurité du dossier de rapport  
- Configuration Manager effectue les actions suivantes pour installer le point de Reporting Services et configurer Reporting Services :  
+ Configuration Manager effectue les actions suivantes pour installer le point de Reporting Services et configurer Reporting Services :  
 
 > [!IMPORTANT]  
 >  Les actions dans la liste suivante sont effectuées en utilisant les informations d'identification du compte configuré pour le service SMS_Executive, qui correspond généralement au compte système local du serveur de site.  
@@ -164,20 +164,20 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 -   Récupère le mappage entre les dossiers de rapports et les types d’objets sécurisés Configuration Manager (conservés dans la base de données de site Configuration Manager).  
 
--   Configure les droits suivants pour les utilisateurs administratifs de Configuration Manager sur des dossiers de rapports spécifiques de Reporting Services :  
+-   Configure les droits suivants pour les utilisateurs administratifs de Configuration Manager sur des dossiers de rapports spécifiques de Reporting Services :  
 
     -   Ajoute les utilisateurs et attribue le rôle **Utilisateurs de rapports ConfigMgr** au dossier de rapports associé pour les utilisateurs administratifs qui disposent d’autorisations **Exécuter le rapport** pour l’objet Configuration Manager.  
 
     -   Ajoute les utilisateurs et attribue le rôle **Administrateurs de rapport ConfigMgr** au dossier de rapports associé pour les utilisateurs administratifs qui disposent d’autorisations **Modifier le rapport** pour l’objet Configuration Manager.  
 
-     Configuration Manager se connecte à Reporting Services et définit les autorisations pour les utilisateurs sur les dossiers racine de Configuration Manager et Reporting Services, et sur des dossiers de rapports spécifiques. Après l’installation initiale du point de Reporting Services, Configuration Manager se connecte à Reporting Services dans un intervalle de 10 minutes pour vérifier que les droits d’utilisateur configurés sur les dossiers de rapports sont les droits associés définis pour les utilisateurs de Configuration Manager. Quand des utilisateurs sont ajoutés ou que des droits d’utilisateur sont modifiés sur le dossier de rapports via le Gestionnaire de rapports de Reporting Services, Configuration Manager remplace ces modifications en utilisant les attributions basées sur les rôles qui sont stockées dans la base de données de site. De même, Configuration Manager supprime les utilisateurs qui n’ont pas de droits de génération de rapports dans Configuration Manager.  
+     Configuration Manager se connecte à Reporting Services et définit les autorisations pour les utilisateurs sur les dossiers racine de Configuration Manager et Reporting Services, et sur des dossiers de rapports spécifiques. Après l’installation initiale du point de Reporting Services, Configuration Manager se connecte à Reporting Services dans un intervalle de 10 minutes pour vérifier que les droits d’utilisateur configurés sur les dossiers de rapports sont les droits associés définis pour les utilisateurs de Configuration Manager. Quand des utilisateurs sont ajoutés ou que des droits d’utilisateur sont modifiés sur le dossier de rapports via le Gestionnaire de rapports de Reporting Services, Configuration Manager remplace ces modifications en utilisant les attributions basées sur les rôles qui sont stockées dans la base de données de site. De même, Configuration Manager supprime les utilisateurs qui n’ont pas de droits de génération de rapports dans Configuration Manager.  
 
 ##  <a name="a-namebkmksecurityrolesa-reporting-services-security-roles-for-configuration-manager"></a><a name="BKMK_SecurityRoles"></a> Rôles de sécurité de Reporting Services pour Configuration Manager  
- Quand Configuration Manager installe le point de Reporting Services, les rôles de sécurité suivants sont ajoutés dans Reporting Services :  
+ Quand Configuration Manager installe le point de Reporting Services, les rôles de sécurité suivants sont ajoutés dans Reporting Services :  
 
--   **Utilisateurs de rapports ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent seulement exécuter des rapports Configuration Manager.  
+-   **Utilisateurs de rapports ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent seulement exécuter des rapports Configuration Manager.  
 
--   **Administrateurs de rapport ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent exécuter toutes les tâches liées à la génération de rapports dans Configuration Manager.  
+-   **Administrateurs de rapport ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent exécuter toutes les tâches liées à la génération de rapports dans Configuration Manager.  
 
 ##  <a name="a-namebkmkverifyreportingservicespointinstallationa-verify-the-reporting-services-point-installation"></a><a name="BKMK_VerifyReportingServicesPointInstallation"></a> Vérifier l’installation du point de Reporting Services  
  Après avoir ajouté le rôle de site de point de Reporting Services, vous pouvez vérifier l'installation en consultant les messages d'état spécifiques et les entrées de fichiers journaux. Utilisez la procédure suivante pour vérifier que l'installation du point de Reporting Services a réussi.  
@@ -209,7 +209,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 > [!NOTE]  
 >  Pour plus d'informations sur les autres environnements de création de rapports pour SQL Server Reporting Services, voir [Comparaison d'environnements de création de rapport](http://go.microsoft.com/fwlink/p/?LinkId=242805) dans la documentation en ligne de SQL Server 2008.  
 
- Prenez pour exemple les procédures suivantes pour transférer une copie du certificat auto-signé du serveur de site vers un autre ordinateur exécutant la console Configuration Manager quand les deux ordinateurs exécutent Windows Server 2008 R2. Si vous ne pouvez pas suivre cette procédure car vous avez une version différente du système d'exploitation, consultez la documentation de votre système d'exploitation pour voir la procédure équivalente.  
+ Prenez pour exemple les procédures suivantes pour transférer une copie du certificat auto-signé du serveur de site vers un autre ordinateur exécutant la console Configuration Manager quand les deux ordinateurs exécutent Windows Server 2008 R2. Si vous ne pouvez pas suivre cette procédure car vous avez une version différente du système d'exploitation, consultez la documentation de votre système d'exploitation pour voir la procédure équivalente.  
 
 #### <a name="to-transfer-a-copy-of-self-signed-certificate-from-the-site-server-to-another-computer"></a>Pour transférer une copie du certificat auto-signé du serveur de site vers un autre ordinateur  
 
@@ -231,7 +231,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
     8.  Effectuez toutes les étapes de l' **Assistant Exportation de certificat** à l'aide des options par défaut et enregistrez le certificat avec l'extension de nom de fichier **.cer** .  
 
-2.  Effectuez les étapes suivantes sur l’ordinateur qui exécute la console Configuration Manager pour ajouter le certificat auto-signé au magasin de certificats Personnes autorisées :  
+2.  Effectuez les étapes suivantes sur l’ordinateur qui exécute la console Configuration Manager pour ajouter le certificat auto-signé au magasin de certificats Personnes autorisées :  
 
     1.  Répétez les étapes précédentes de 1.a à 1.e pour configurer le composant logiciel enfichable MMC **Certificat** sur l’ordinateur du point de gestion.  
 
@@ -261,9 +261,9 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 5.  Dans la boîte de dialogue **Propriétés du point de Reporting Services** , vous pouvez modifier les paramètres suivants :  
 
-    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
+    -   **Nom du serveur de base de données de site** : spécifiez le nom du serveur qui héberge la base de données de site Configuration Manager. En règle générale, l'Assistant récupère automatiquement le nom de domaine complet (FQDN) du serveur. Pour spécifier une instance de base de données, utilisez le format &lt;*nom_serveur*>\&lt;*nom_instance*>.  
 
-    -   **Nom de la base de données** : spécifiez le nom de la base de données de site System Center 2012 Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
+    -   **Nom de la base de données** : spécifiez le nom de la base de données de site System Center 2012 Configuration Manager, puis cliquez sur **Vérifier** pour confirmer que l’Assistant a accès à la base de données de site.  
 
         > [!IMPORTANT]  
         >  Le compte d'utilisateur qui crée le point de Reporting Services doit avoir accès en lecture à la base de données de site. Si le test de connexion échoue, une icône d'avertissement rouge s'affiche. Déplacez le curseur sur cette icône afin de lire les informations relatives à la défaillance. Corrigez la défaillance, puis cliquez à nouveau sur **Tester** .  
@@ -298,6 +298,6 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

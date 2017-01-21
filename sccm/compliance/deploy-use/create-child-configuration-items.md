@@ -1,5 +1,5 @@
 ---
-title: "Créer des éléments de configuration enfants | System Center Configuration Manager"
+title: "Créer des éléments de configuration enfants | Microsoft Docs"
 description: "Créez des éléments de configuration enfants dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 977821799dc7323b03bc8c27c59473cd90f70e2a
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 33d4a2d5a09af74e1d76ac9b34a42b749f5bf7ef
 
 
 ---
 # <a name="how-to-create-child-configuration-items-in-system-center-configuration-manager"></a>Guide pratique pour créer des éléments de configuration enfants dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, les éléments de configuration enfants sont des copies d’éléments de configuration qui maintiennent une relation avec l’élément de configuration d’origine dans le sens où ils héritent de la configuration d’origine de l’élément de configuration parent.  
 
@@ -46,6 +46,6 @@ La création et la modification d’un élément de configuration enfant vise g�
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

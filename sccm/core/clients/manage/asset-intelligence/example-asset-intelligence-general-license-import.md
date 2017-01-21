@@ -1,5 +1,5 @@
 ---
-title: "Exemple de fichier d’importation de licence générale Asset Intelligence | System Center Configuration Manager"
+title: "Exemple de fichier d’importation de licence générale Asset Intelligence | Microsoft Docs"
 description: "Aidez-vous d’un exemple de fichier d’importation de licence générale Asset Intelligence pour importer des licences logicielles dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 706828f2b954eb4ad5fc6fbaa27f0f816e701d47
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 6ee39d311108253ece1c9d60c25ac06017867c1f
 
 
 ---
 # <a name="example-asset-intelligence-general-license-import-file-in-system-center-configuration-manager"></a>Exemple de fichier d’importation de licence générale Asset Intelligence dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les informations données à titre d'exemple dans cette rubrique peuvent être utilisées pour créer un exemple de fichier de licence logicielle générale afin d'importer des licences logicielles dans le catalogue Asset Intelligence à l'aide de l'Assistant Importer des licences logicielles. Vous pouvez copier et coller le tableau suivant dans une nouvelle feuille de calcul Microsoft Excel et l'enregistrer avec l'extension .csv afin de pouvoir l'utiliser en tant qu'exemple de fichier d'importation de licence générale à des fins de test. Lors de la création d'un fichier d'importation de licence, tous les champs d'en-tête sont requis alors que seules les valeurs de données Nom, Éditeur, Version et Quantité effective sont requises dans la feuille de calcul. Pour plus d’informations sur l’importation de licences logicielles dans le catalogue Asset Intelligence, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
@@ -43,6 +43,6 @@ Les informations données à titre d'exemple dans cette rubrique peuvent être u
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

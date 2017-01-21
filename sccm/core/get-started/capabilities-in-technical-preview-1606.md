@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager."
+title: "Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,18 +16,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d1410b853e8f6b3bcb4d2cbfca735ba26c5c4d52
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: 6bc3087768d8455a6ca6beb77a3afc8f313eb831
 
 ---
-# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
-**Problèmes connus dans cette version d’évaluation technique :**  
-*  Lorsque vous mettez à jour la version d’évaluation technique 1604 vers la version 1605, puis vers la version 1606, la mise à jour peut échouer et une erreur similaire à la suivante est enregistrée dans le fichier **cmupdate.log** :
+**Problèmes connus dans cette version d’évaluation technique :**  
+*  Lorsque vous mettez à jour la version d’évaluation technique 1604 vers la version 1605, puis vers la version 1606, la mise à jour peut échouer et une erreur similaire à la suivante est enregistrée dans le fichier **cmupdate.log** :
 
        ERROR: Failed to execute SQL Server command:  ~ ~-- Create site boundary group ~IF  dbo.fnIsCasOrStandalonePrimary() = 1 ~BEGIN ~   PRINT N'Create site boundary group during upgrade' ~   EXEC dbo.spBuildDefaultBoundaryGroups @UserName = N'SYSTEM' ~END          
 
@@ -39,7 +39,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 ## <a name="a-namedmpcategorya-automatically-categorize-devices-into-collections"></a><a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
 Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
 
-**Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+**Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
 ### <a name="try-it-out"></a>Essayez !
 
@@ -67,9 +67,9 @@ Pour résoudre ce problème, vous pouvez désormais définir une période de gr�
 
 ### <a name="try-it-out"></a>Essayez !
 
-Pour configurer la période de grâce, procédez comme suit :
+Pour configurer la période de grâce, procédez comme suit :
 
-1.  Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
+1.  Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
 2.  Dans un nouveau déploiement d’application requis, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**.
 Tous les déploiements pour lesquels cette case à cocher est activée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utiliseront la période de grâce de mise en œuvre.
 
@@ -78,7 +78,7 @@ Des options similaires ont été ajoutées dans l’Assistant de déploiement de
 
 ##  <a name="a-namedmpdevgausing-configuration-manager-as-a-managed-installer-with-device-guard"></a><a name="dmp_devg"></a>Utilisation de Configuration Manager comme programme d’installation géré avec Device Guard
 
-Device Guard est une fonctionnalité de Windows 10 qui utilise des fonctionnalités matérielles et logicielles pour contrôler de manière stricte ce qui est autorisé à s’exécuter sur l’appareil.
+Device Guard est une fonctionnalité de Windows 10 qui utilise des fonctionnalités matérielles et logicielles pour contrôler de manière stricte ce qui est autorisé à s’exécuter sur l’appareil.
 
 Vous pouvez lire une présentation détaillée de ce que fait Device Guard et de la manière dont il fonctionne dans [cet article Technet](https://technet.microsoft.com/itpro/windows/whats-new/device-guard-overview).
 
@@ -88,27 +88,27 @@ Actuellement, cette fonctionnalité n’est pas configurable à partir de la con
 Une fois cette opération effectuée, configurez le fichier de stratégie AppLocker. Après avoir configuré le fichier de stratégie, vous pouvez le déployer sur un appareil client compatible quelconque.
 
 
-Comme toutes les stratégies AppLocker, les stratégies avec des règles de programme d’installation géré peuvent s’exécuter dans deux modes :
+Comme toutes les stratégies AppLocker, les stratégies avec des règles de programme d’installation géré peuvent s’exécuter dans deux modes :
 
-- Mode audit : Rien n’empêche les applications de s’exécuter, mais toutes les applications qui auraient été bloquées sont signalées dans un fichier journal (cette opération sera prise en charge dans une version ultérieure de Configuration Manager).
-- Mise en œuvre activée : Les applications sont bloquées et ne peuvent pas s’exécuter.
+- Mode audit : Rien n’empêche les applications de s’exécuter, mais toutes les applications qui auraient été bloquées sont signalées dans un fichier journal (cette opération sera prise en charge dans une version ultérieure de Configuration Manager).
+- Mise en œuvre activée : Les applications sont bloquées et ne peuvent pas s’exécuter.
 
 Des informations complémentaires sur l’utilisation de Device Guard avec Configuration Manager sont disponibles dans le blog [Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/20/configmgr-as-a-managed-installer-with-win10).
 
-Articles complémentaires :
+Articles complémentaires :
 
 - [Présentation de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies)
 - [Compatibilité et certification de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
 - [Guide de déploiement de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
 
  ##  <a name="a-namedmponprema-multiple-device-management-points-for-on-premises-mobile-device-management"></a><a name="dmp_onprem"></a> Points de gestion d’appareils multiples pour la gestion des appareils mobiles locale  
- Avec la version d’évaluation technique 1606, la gestion des appareils mobiles (MDM) locale prend en charge une nouvelle fonctionnalité de la mise à jour anniversaire de Windows 10, qui configure automatiquement un appareil inscrit pour bénéficier de plusieurs points de gestion d’appareil disponibles. Cette fonctionnalité permet à l’appareil de basculer vers un autre point de gestion d’appareil quand celui qu’il utilise normalement n’est pas disponible. Cette fonctionnalité fonctionne uniquement pour les PC dotés de la mise à jour anniversaire de Windows 10.  
+ Avec la version d’évaluation technique 1606, la gestion des appareils mobiles (MDM) locale prend en charge une nouvelle fonctionnalité de la mise à jour anniversaire de Windows 10, qui configure automatiquement un appareil inscrit pour bénéficier de plusieurs points de gestion d’appareil disponibles. Cette fonctionnalité permet à l’appareil de basculer vers un autre point de gestion d’appareil quand celui qu’il utilise normalement n’est pas disponible. Cette fonctionnalité fonctionne uniquement pour les PC dotés de la mise à jour anniversaire de Windows 10.  
 
 ### <a name="try-it-out"></a>Essayez !  
 
 1.  Installez plusieurs points de gestion d’appareil dans votre hiérarchie.  
 
-2.  Inscrivez un appareil doté de la mise à jour anniversaire de Windows 10 pour la gestion des appareils mobiles locale.  
+2.  Inscrivez un appareil doté de la mise à jour anniversaire de Windows 10 pour la gestion des appareils mobiles locale.  
 
 Pour plus d’informations sur la façon de préparer votre site et d’inscrire des appareils pour la gestion des appareils mobiles locale, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
@@ -120,13 +120,13 @@ Vous utilisez la console Configuration Manager pour déployer le service sur Azu
 
 Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. En plus de ces deux types de certificats, vous devez également configurer un certificat de gestion sur Azure, permettant à Configuration Manager de déployer le service proxy cloud.  
 
-### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Configuration requise pour le service proxy cloud dans la version d’évaluation technique 1606
+### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Configuration requise pour le service proxy cloud dans la version d’évaluation technique 1606
 - Les ordinateurs clients et le serveur de système de site doivent exécuter le point du connecteur de proxy cloud.
-- Certificats SSL personnalisés provenant de l’autorité de certification interne : utilisés pour chiffrer la communication en provenance des ordinateurs clients et authentifier l’identité du service proxy cloud.
+- Certificats SSL personnalisés provenant de l’autorité de certification interne : utilisés pour chiffrer la communication en provenance des ordinateurs clients et authentifier l’identité du service proxy cloud.
 - Abonnement Azure pour les services cloud.
-- Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
+- Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
 
-### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Limitations du service proxy cloud dans la version d’évaluation technique 1606
+### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Limitations du service proxy cloud dans la version d’évaluation technique 1606
 
 - Prend en charge uniquement les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle.
 - Les stratégies utilisateur ne sont pas prises en charge.
@@ -136,7 +136,7 @@ Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis
 
 ### <a name="try-it-out"></a>Essayez !
 
-Le processus de déploiement du service proxy cloud inclut les étapes suivantes :
+Le processus de déploiement du service proxy cloud inclut les étapes suivantes :
 
 1. Créez et émettez un certificat SSL personnalisé pour le service proxy cloud.
 1. Exportez la racine du certificat client.
@@ -150,7 +150,7 @@ Les sections suivantes fournissent plus d’informations sur ces étapes.
 
 #### <a name="create-a-custom-ssl-certificate"></a>Créer un certificat SSL personnalisé
 
-Vous pouvez créer un certificat SSL personnalisé pour le service proxy cloud de la même façon que vous le feriez pour un point de distribution basé sur le cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012), mais procédez différemment pour ce qui suit :
+Vous pouvez créer un certificat SSL personnalisé pour le service proxy cloud de la même façon que vous le feriez pour un point de distribution basé sur le cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012), mais procédez différemment pour ce qui suit :
 
 * Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
 
@@ -163,7 +163,7 @@ Le moyen le plus simple pour exporter la racine des certificats clients utilisé
 
 1. Dans la fenêtre Exécuter, tapez **mmc** et appuyez sur Entrée.
 2. Dans le menu Fichier de la console de gestion, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.
-3. Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, cliquez sur **Certificats**, sur **Ajouter >**, sur **Compte d’ordinateur**, sur **Suivant**, sur **Ordinateur local**, puis sur **Terminer**. Cliquez sur **OK** pour fermer la boîte de dialogue.
+3. Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, cliquez sur **Certificats**, sur **Ajouter >**, sur **Compte d’ordinateur**, sur **Suivant**, sur **Ordinateur local**, puis sur **Terminer**. Cliquez sur **OK** pour fermer la boîte de dialogue.
 4. Accédez à **Certificats > Personnel > Certificats**.
 5. Double-cliquez sur le certificat pour l’authentification du client sur l’ordinateur, cliquez sur l’onglet Chemin d’accès de certification et double-cliquez sur l’autorité racine (en haut du chemin d’accès).
 6.  Cliquez sur l’onglet Détails, puis cliquez sur **Copier dans un fichier**.
@@ -171,7 +171,7 @@ Le moyen le plus simple pour exporter la racine des certificats clients utilisé
 
 #### <a name="upload-the-management-certificate-to-azure"></a>Charger le certificat de gestion dans Azure
 
-Un certificat de gestion Azure est requis pour que Configuration Manager puisse accéder à l’API Azure et configurer le service proxy cloud. Pour plus d’informations et des instructions sur la manière de charger un certificat de gestion, consultez les articles suivants dans la documentation Azure :
+Un certificat de gestion Azure est requis pour que Configuration Manager puisse accéder à l’API Azure et configurer le service proxy cloud. Pour plus d’informations et des instructions sur la manière de charger un certificat de gestion, consultez les articles suivants dans la documentation Azure :
 - [Vue d’ensemble des certificats pour Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-certs-create/)
 - [Téléchargement d’un certificat de gestion API dans Azure Management](https://azure.microsoft.com/documentation/articles/azure-api-management-certs/).
 
@@ -182,13 +182,13 @@ Veillez à copier l’ID d’abonnement associé au certificat de gestion. Vous 
 1. Ouvrez la console Configuration Manager, puis accédez à **Administration > Services cloud > Service proxy cloud**.
 2. Cliquez sur **Créer un service proxy cloud**.
 3. Dans l’Assistant Création d’un service proxy cloud, entrez votre ID d’abonnement Azure (copié à partir du portail de gestion Azure), cliquez sur Parcourir et sélectionnez le fichier de certificat que vous avez chargé comme certificat de gestion Azure. Cliquez sur **Suivant**. Attendez quelques instants que la console se connecte à Azure.
-4. Remplissez les détails supplémentaires dans l’Assistant :
-    - Spécifiez la clé privée (fichier .pfx) que vous avez exportée à partir du certificat SSL personnalisé.
+4. Remplissez les détails supplémentaires dans l’Assistant :
+    - Spécifiez la clé privée (fichier .pfx) que vous avez exportée à partir du certificat SSL personnalisé.
     - Spécifiez le certificat racine exporté à partir du certificat client.
     - Spécifiez le même nom de domaine complet de service que vous avez utilisé lorsque vous avez créé le nouveau modèle de certificat.
     - Décochez la case à côté de **Vérifier la révocation des certificats clients** (sauf si vous publiez publiquement les informations de votre liste de révocation de certificats).
     - Cliquez sur **Suivant** lorsque vous avez terminé.
-5. Vérifiez les paramètres et cliquez sur **Suivant**. Configuration Manager commence à configurer le service. Une fois que l’Assistant a terminé, vous pouvez cliquer sur **Fermer**, mais il faudra entre 5 et 15 minutes pour configurer complètement le service dans Azure. Vérifiez la colonne **État** du service proxy cloud nouvellement configuré pour déterminer quand le service est prêt.
+5. Vérifiez les paramètres et cliquez sur **Suivant**. Configuration Manager commence à configurer le service. Une fois que l’Assistant a terminé, vous pouvez cliquer sur **Fermer**, mais il faudra entre 5 et 15 minutes pour configurer complètement le service dans Azure. Vérifiez la colonne **État** du service proxy cloud nouvellement configuré pour déterminer quand le service est prêt.
 
 #### <a name="configure-primary-site-for-client-certification-authentication"></a>Configurer le site principal pour l’authentification de certification de client
 
@@ -204,7 +204,7 @@ Le point du connecteur de proxy cloud est un nouveau rôle de système de site p
 
 #### <a name="configure-roles-for-cloud-proxy-traffic"></a>Configurer des rôles pour le trafic du proxy cloud
 
-La dernière étape de la configuration du service proxy cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic du proxy cloud. Pour la version d’évaluation technique 1606, seuls les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle sont pris en charge pour le service proxy cloud. Vous devez configurer chaque rôle séparément.
+La dernière étape de la configuration du service proxy cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic du proxy cloud. Pour la version d’évaluation technique 1606, seuls les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle sont pris en charge pour le service proxy cloud. Vous devez configurer chaque rôle séparément.
 
 1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Serveurs et rôles de système de site**.
 2. Cliquez sur le serveur de système de site pour le rôle que vous souhaitez configurer pour le trafic du proxy cloud.
@@ -213,37 +213,37 @@ La dernière étape de la configuration du service proxy cloud consiste à confi
 
 #### <a name="check-status-on-a-client-on-the-internet"></a>Vérifier l’état d’un client sur Internet
 
-Une fois que le service et les rôles ont été entièrement configurés, les clients internes obtiennent l’emplacement du service proxy cloud à la prochaine demande d’emplacement. Les clients avec les informations d’emplacement mises à jour peuvent alors communiquer avec Configuration Manager sur Internet. Le cycle d’interrogation pour les demandes d’emplacement est de 24 heures. Si vous ne souhaitez pas attendre la demande d’emplacement normalement planifiée, vous pouvez forcer la demande en redémarrant le service hôte de l’agent SMS (ccmexec.exe) sur l’ordinateur.
+Une fois que le service et les rôles ont été entièrement configurés, les clients internes obtiennent l’emplacement du service proxy cloud à la prochaine demande d’emplacement. Les clients avec les informations d’emplacement mises à jour peuvent alors communiquer avec Configuration Manager sur Internet. Le cycle d’interrogation pour les demandes d’emplacement est de 24 heures. Si vous ne souhaitez pas attendre la demande d’emplacement normalement planifiée, vous pouvez forcer la demande en redémarrant le service hôte de l’agent SMS (ccmexec.exe) sur l’ordinateur.
 
 Une fois que les clients possèdent les nouvelles informations d’emplacement pour le service proxy cloud, essayez de vérifier l’état des clients qui ne sont plus sur le réseau privé interne, mais qui ont accès à Internet. Vous pouvez également surveiller le trafic sur le service proxy cloud en accédant à **Administration > Services cloud > Service proxy cloud**, en sélectionnant le service dans le volet Liste et en consultant les informations de trafic dans le volet d’informations.   
 
-## <a name="a-namemanageo365amanage-the-office-365-client-agent-in-configuration-manager"></a><a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
+## <a name="a-namemanageo365amanage-the-office-365-client-agent-in-configuration-manager"></a><a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
 
-À partir de la version d’évaluation technique 1606, vous pouvez utiliser un paramètre de l’agent client Configuration Manager, à la place d’une stratégie de groupe, pour permettre aux clients Office 365 de recevoir des mises à jour à partir de Configuration Manager. Après avoir configuré ce paramètre et déployé les mises à jour Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client pour télécharger les mises à jour Office 365 à partir d’un point de distribution et les installer. Configuration Manager effectue également l’inventaire du paramètre de l’agent client.
+À partir de la version d’évaluation technique 1606, vous pouvez utiliser un paramètre de l’agent client Configuration Manager, à la place d’une stratégie de groupe, pour permettre aux clients Office 365 de recevoir des mises à jour à partir de Configuration Manager. Après avoir configuré ce paramètre et déployé les mises à jour Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client pour télécharger les mises à jour Office 365 à partir d’un point de distribution et les installer. Configuration Manager effectue également l’inventaire du paramètre de l’agent client.
 
-Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](https://technet.microsoft.com/library/mt741983.aspx).
+Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](https://technet.microsoft.com/library/mt741983.aspx).
 
-### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>Définir le paramètre du client Configuration Manager pour gérer l’agent Office 365 Client
+### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>Définir le paramètre du client Configuration Manager pour gérer l’agent Office 365 Client
 1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**.
 1. Ouvrez les paramètres d’appareil appropriés pour activer l’agent client. Pour plus d’informations sur les paramètres par défaut et personnalisés du client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
-2. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.
+2. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.
 ## <a name="a-nameosdpreservedriveletterathe-osdpreservedriveletter-task-sequence-variable-has-been-deprecated"></a><a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
-La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination. Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606. Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination.
+La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination. Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606. Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination.
 ## <a name="a-nameupdatesandservicingachanges-for-the-updates-and-servicing-node"></a><a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
-Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
-- **Changement de nom du nœud :**
+Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
+- **Changement de nom du nœud :**
 
     Dans l’espace de travail **Surveillance**, le nœud **État de maintenance du site** a été renommé en **État des mises à jour et de la maintenance**.
-- **État de l’installation plus détaillé :**
+- **État de l’installation plus détaillé :**
 
-    Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
+    Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
     - **Téléchargement** (Cela s’applique uniquement au site de niveau supérieur où est installé le rôle de système de site de point de connexion de service)
     - **Réplication**
     - **Vérification de la configuration requise**
     - **Installation**
 
   De plus, des informations plus détaillées sont maintenant fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
--   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
+-   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
 
     Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** affiche le nouveau bouton **Ignorer les avertissements de configuration requise** sur le ruban.
 
@@ -251,16 +251,16 @@ Dans la version d’évaluation technique 1606, plusieurs modifications ont ét�
 
 
 
-- **Vue plus claire des mises à jour :**
+- **Vue plus claire des mises à jour :**
 
     Quand vous affichez le nœud **Mises à jour et maintenance**, vous voyez maintenant uniquement la dernière mise à jour que vous avez installée, ainsi que les nouvelles mises à jour prêtes à être installées. Pour afficher les mises à jour précédemment installées, cliquez sur le nouveau bouton **Historique** dans le ruban.  
 
--   **Option renommée pour la pré-production :**
+-   **Option renommée pour la pré-production :**
 
     Dans le nœud Mises à jour et maintenance, le bouton qui était appelé **Options du client** a été renommé **Promouvoir le client de préproduction**.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Informations de référence sur le programme d’installation | System Center Configuration Manager"
+title: "Informations de référence sur le programme d’installation | Microsoft Docs"
 description: "Prenez connaissance de ces informations de référence pour mieux préparer l’installation d’un site ou d’une hiérarchie Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 06bab7e01fee2c0b030a2879fa67fd455bf668fe
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: a1f13fcde27baf7d0245682292134f08c4f9f8e6
 
 
 ---
 # <a name="reference-for-system-center-configuration-manager-setup"></a>Informations de référence sur le programme d’installation de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Le programme d’installation de System Center Configuration Manager fournit des liens vers plusieurs rubriques comportant les sections suivantes. Les informations contenues dans les sections suivantes peuvent vous aider à préparer l’installation d’un site ou d’une hiérarchie Configuration Manager et à prendre certaines décisions relatives à l’installation :  
+Le programme d’installation de System Center Configuration Manager fournit des liens vers plusieurs rubriques comportant les sections suivantes. Les informations contenues dans les sections suivantes peuvent vous aider à préparer l’installation d’un site ou d’une hiérarchie Configuration Manager et à prendre certaines décisions relatives à l’installation :  
 
 -   [Avant de commencer](#bkmk_start)  
 
@@ -36,7 +36,7 @@ Le programme d’installation de System Center Configuration Manager fournit des
 -   [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)  
 
 ##  <a name="a-namebkmkstarta-before-you-begin"></a><a name="bkmk_start"></a> Avant de commencer  
- Avant d’installer de nouveaux sites Configuration Manager, veillez à passer en revue les informations suivantes. Celles-ci peuvent vous aider à mettre en œuvre une conception de déploiement réussie :  
+ Avant d’installer de nouveaux sites Configuration Manager, veillez à passer en revue les informations suivantes. Celles-ci peuvent vous aider à mettre en œuvre une conception de déploiement réussie :  
 
 -   [Principes de base de System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
 
@@ -52,7 +52,7 @@ Le programme d’installation de System Center Configuration Manager fournit des
 -   [Outil de vérification de la configuration requise](https://technet.microsoft.com/library/mt590813.aspx#bkmk_PreqChk)  
 
 ##  <a name="a-namebkmkaddclientsa-clients-for-additional-operating-systems"></a><a name="bkmk_Addclients"></a> Clients pour d’autres systèmes d’exploitation  
- Vous pouvez télécharger le logiciel client pour Configuration Manager à partir du Centre de téléchargement Microsoft pour les systèmes d’exploitation suivants :  
+ Vous pouvez télécharger le logiciel client pour Configuration Manager à partir du Centre de téléchargement Microsoft pour les systèmes d’exploitation suivants :  
 
 -   Mac (Apple)  
 
@@ -60,7 +60,7 @@ Le programme d’installation de System Center Configuration Manager fournit des
 
 -   Linux  
 
-**Utilisez les liens suivants pour télécharger des clients pour la version de Configuration Manager que vous utilisez :**  
+**Utilisez les liens suivants pour télécharger des clients pour la version de Configuration Manager que vous utilisez :**  
 
 -   [System Center Configuration Manager (Current Branch)](http://www.microsoft.com/download/details.aspx?id=47719)  
 
@@ -71,7 +71,7 @@ Le programme d’installation de System Center Configuration Manager fournit des
 -   [System Center 2012 Configuration Manager SP1](http://www.microsoft.com/en-pk/download/details.aspx?id=36212)  
 
 ##  <a name="a-namebkmkusagea-usage-data-levels-and-settings"></a><a name="bkmk_usage"></a> Paramètres et niveaux de données d’utilisation  
-Quand vous installez votre premier site System Center Configuration Manager, il installe et configure automatiquement sur le serveur de site un nouveau rôle système de site appelé **point de connexion de service**, avec les paramètres par défaut suivants :  
+Quand vous installez votre premier site System Center Configuration Manager, il installe et configure automatiquement sur le serveur de site un nouveau rôle système de site appelé **point de connexion de service**, avec les paramètres par défaut suivants :  
 
 -   Mode**En ligne** (un mode hors connexion est également pris en charge)  
 
@@ -99,6 +99,6 @@ Pour plus d’informations, notamment sur la divulgation des informations collec
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Télécharger les définitions de programmes malveillants pour Endpoint Protection à partir du partage réseau | System Center Configuration Manager"
+title: "Définitions de programmes malveillants Endpoint Protection à partir d’un partage réseau | Microsoft Docs"
 description: "Découvrez comment télécharger manuellement les dernières mises à jour de définitions de Microsoft et configurer ensuite les clients pour le téléchargement de ces définitions."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e4ff39f89a71ddbf9cadfcfa80f0c5c019611a35
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 6b1780c4ea4304d950188fbb6201d810e940c4fc
 
 
 ---
 
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Activer le téléchargement des définitions de programmes malveillants pour Endpoint Protection à partir d’un partage réseau dans Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Vous pouvez télécharger manuellement les dernières mises à jour de définition à partir de Microsoft et configurer les clients pour télécharger ces définitions à partir d’un dossier partagé sur le réseau. Les utilisateurs peuvent également lancer des mises à jour de définition quand vous utilisez cette source de mise à jour.
 
@@ -60,6 +60,6 @@ ms.openlocfilehash: e4ff39f89a71ddbf9cadfcfa80f0c5c019611a35
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

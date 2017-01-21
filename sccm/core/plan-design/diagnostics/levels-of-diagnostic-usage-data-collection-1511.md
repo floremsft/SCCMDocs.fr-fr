@@ -1,5 +1,5 @@
 ---
-title: "Données de diagnostic pour la version 1511 | System Center Configuration Manager"
+title: "Données de diagnostic pour 1511 | Microsoft Docs"
 description: "En savoir plus sur les niveaux de données de diagnostic et d’utilisation collectés par System Center Configuration Manager version 1511."
 ms.custom: na
 ms.date: 10/06/2016
@@ -34,26 +34,29 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3488efcd6638b538f05fae52dfd8918423a32b58
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: fa3c2f9c9bdc1f095b450babd675db4a160992d9
 
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1511-of-system-center-configuration-manager"></a>Niveaux de collecte des données de diagnostic et d’utilisation pour la version 1511 de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager version 1511 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.  
+System Center Configuration Manager version 1511 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.  
 
 > [!IMPORTANT]  
 >  Configuration Manager ne collecte pas les codes de sites ou noms de sites, les adresses IP, les noms d’utilisateur ou d’ordinateur, les adresses physiques ni les adresses e-mail aux niveaux De base et Étendu. Les informations au niveau Complet ne sont pas collectées dans un but précis (elles peuvent être incluses dans des informations de diagnostic avancées telles que des fichiers journaux ou des instantanés de la mémoire) et ne sont pas utilisées par Microsoft pour vous identifier, vous contacter ou à des fins publicitaires.  
 
 ##  <a name="a-namebkmkchangea-how-to-change-the-level"></a><a name="bkmk_change"></a> Modification du niveau  
- Les administrateurs disposant d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.  
+ Les administrateurs disposant d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
+
+ Pour cela, dans la console, accédez à l’onglet Backstage (onglet gauche supérieur avec flèche déroulante). Sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
+
 
 ##  <a name="a-namebkmklevel1a-level-1---basic"></a><a name="bkmk_level1"></a> Niveau 1 - De base  
  Le niveau De base comprend les données relatives à votre hiérarchie. Il est nécessaire pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que pour aider à déterminer quelles mises à jour Configuration Manager s’appliquent à votre hiérarchie.  
 
- À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
+ À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
 
 
 -   Informations sur l’installation (build, type d’installation, modules linguistiques, fonctionnalités que vous avez activées, état et erreurs de déploiement des packs de mise à jour)  
@@ -93,7 +96,7 @@ Le niveau Étendu est configuré par défaut après l’installation. Ce niveau 
 
 Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations des objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes nécessitant des mises à jour logicielles.  
 
-À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
+À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
 
 -   **Gestion des applications :**  
 
@@ -179,7 +182,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre d’utilisateurs avec plusieurs appareils mobiles inscrits  
 
--   **Dépannage de Microsoft Intune :**  
+-   **Dépannage de Microsoft Intune :**  
 
     -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de compatibilité téléchargés à partir de Microsoft Intune  
 
@@ -248,7 +251,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 ##  <a name="a-namebkmklevel3a-level-3---full"></a><a name="bkmk_level3"></a> Niveau 3 – Complet  
 Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.  
 
-À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
+À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
 
 -   Statistiques d’évaluation et d’actualisation des regroupements  
 
@@ -278,6 +281,6 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

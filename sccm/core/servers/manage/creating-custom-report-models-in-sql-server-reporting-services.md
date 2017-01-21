@@ -1,5 +1,5 @@
 ---
-title: "Créer des rapports personnalisés | System Center Configuration Manager"
+title: "Créer des rapports personnalisés | Microsoft Docs"
 description: "Définissez des modèles de rapport pour répondre aux besoins de votre activité, puis déployez-les sur Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4b286fbca3c71b14e0b82ff421132408df7c6e8b
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
 
 
 ---
 # <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Des exemples de modèles de rapport sont inclus dans System Center Configuration Manager, mais vous pouvez également définir des modèles de rapport qui répondent aux besoins de votre activité, puis déployer le modèle de rapport sur Configuration Manager pour l’utiliser quand vous créez des rapports basés sur des modèles. Le tableau suivant indique les étapes à suivre pour créer et déployer un modèle de rapport basique.  
 
@@ -73,7 +73,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 4.  Dans la boîte de dialogue **Connection Manager** , spécifiez les propriétés de connexion suivantes pour la source de données :  
 
-    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
+    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
 
     -   Sélectionnez **Utiliser l'authentification Windows**.  
 
@@ -141,7 +141,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 ###  <a name="a-namebkmkdeployreportmodela-to-deploy-the-custom-report-model-to-configuration-manager"></a><a name="BKMK_DeployReportModel"></a> To deploy the custom report model to Configuration Manager  
 
-1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
+1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
 
 2.  Copiez les fichiers suivants du dossier du projet de modèle de rapport dans un dossier temporaire sur votre ordinateur :  
 
@@ -151,7 +151,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 3.  Ouvrez les fichiers mentionnés précédemment dans un éditeur de texte tel que le Bloc-notes.  
 
-4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
+4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
 
      **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
@@ -163,7 +163,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 6.  Fermez le fichier *&lt;nom_modèle\>***.dsv**.  
 
-7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
+7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
 
      `</Entity>`  
 
@@ -181,9 +181,9 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
     >  Après avoir copié le fichier du modèle de rapport sur le serveur de site Configuration Manager, vous devez quitter et redémarrer la console Configuration Manager avant de pouvoir utiliser le modèle de rapport à partir de l’**Assistant Création de rapport**.  
 
 ##  <a name="a-nameadvancedreportmodela-steps-for-creating-an-advanced-report-model-in-sql-server-reporting-services"></a><a name="AdvancedReportModel"></a> Steps for Creating an Advanced Report Model in SQL Server Reporting Services  
- Vous pouvez utiliser les procédures suivantes pour créer un modèle de rapport avancé dont les utilisateurs de votre site peuvent se servir pour générer des rapports spécifiques basés sur des modèles et sur des données de plusieurs vues de la base de données Configuration Manager. Vous allez créer un modèle de rapport destiné à l'auteur du rapport et présentant les informations relatives aux ordinateurs clients et au système d'exploitation installé sur ces derniers. Ces informations sont extraites des vues suivantes de la base de données Configuration Manager :  
+ Vous pouvez utiliser les procédures suivantes pour créer un modèle de rapport avancé dont les utilisateurs de votre site peuvent se servir pour générer des rapports spécifiques basés sur des modèles et sur des données de plusieurs vues de la base de données Configuration Manager. Vous allez créer un modèle de rapport destiné à l'auteur du rapport et présentant les informations relatives aux ordinateurs clients et au système d'exploitation installé sur ces derniers. Ces informations sont extraites des vues suivantes de la base de données Configuration Manager :  
 
--   **V_R_System** : contient des informations sur les ordinateurs découverts et sur le client Configuration Manager.  
+-   **V_R_System** : contient des informations sur les ordinateurs découverts et sur le client Configuration Manager.  
 
 -   **V_GS_OPERATING_SYSTEM**: contient des informations sur le système d’exploitation installé sur l’ordinateur client.  
 
@@ -218,7 +218,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 4.  Dans la boîte de dialogue **Connection Manager** , spécifiez les propriétés de connexion suivantes pour la source de données :  
 
-    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
+    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
 
     -   Sélectionnez **Utiliser l'authentification Windows**.  
 
@@ -384,7 +384,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 #### <a name="to-deploy-the-custom-report-model-to-configuration-manager"></a>To deploy the custom report model to Configuration Manager  
 
-1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
+1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
 
 2.  Copiez les fichiers suivants du dossier du projet de modèle de rapport dans un dossier temporaire sur votre ordinateur :  
 
@@ -394,7 +394,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 3.  Ouvrez les fichiers mentionnés précédemment dans un éditeur de texte tel que le Bloc-notes.  
 
-4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
+4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
 
      **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
@@ -406,7 +406,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 6.  Fermez le fichier *&lt;nom_modèle\>***.dsv**.  
 
-7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
+7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
 
      `</Entity>`  
 
@@ -425,6 +425,6 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

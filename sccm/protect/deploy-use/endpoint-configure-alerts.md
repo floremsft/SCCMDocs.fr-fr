@@ -1,6 +1,6 @@
 ---
-title: Configurer les alertes Endpoint Protection | System Center Configuration Manager
-description: "Apprenez à configurer les alertes Endpoint Protection dans Microsoft System Center 2012 Configuration Manager."
+title: Configurer les alertes Endpoint Protection | Microsoft Docs
+description: "Apprenez à configurer les alertes Endpoint Protection dans Microsoft System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 38abfd1823972f8fea9966d74ae7c00a48baeb8b
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 7ade196766d036f5dbca2b39efad380c7895847c
 
 
 ---
 
 #  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurer des alertes pour Endpoint Protection dans Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Vous pouvez configurer des alertes Endpoint Protection dans Microsoft System Center Configuration Manager pour avertir les utilisateurs administratifs quand des événements spécifiques, comme une infection par un logiciel malveillant, se produisent dans votre hiérarchie. Les notifications s’affichent dans le tableau de bord Endpoint Protection, dans la console Configuration Manager, dans le nœud **Alertes** de l’espace de travail **Surveillance**. Elles peuvent aussi être envoyées par e-mail à des utilisateurs spécifiés.
 
@@ -53,36 +53,36 @@ ms.openlocfilehash: 38abfd1823972f8fea9966d74ae7c00a48baeb8b
 
 6.  Dans la section **Générer une alerte lorsque ces conditions s’appliquent** de la boîte de dialogue **Ajouter de nouvelles alertes de regroupement**, sélectionnez les alertes que doit générer Configuration Manager lorsque les événements Endpoint Protection spécifiés se produisent, puis cliquez sur **OK**.
 
-7.  Dans la liste  **Conditions** de l’onglet **Alertes**, sélectionnez chaque alerte Endpoint Protection, puis spécifiez ce qui suit :
+7.  Dans la liste  **Conditions** de l’onglet **Alertes**, sélectionnez chaque alerte Endpoint Protection, puis spécifiez ce qui suit :
 
-    -   **Nom d’alerte** : acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.
+    -   **Nom d’alerte** : acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.
 
-    -   **Gravité d’alerte** : dans la liste, sélectionnez le niveau d’alerte à afficher dans la console Configuration Manager.
+    -   **Gravité d’alerte** : dans la liste, sélectionnez le niveau d’alerte à afficher dans la console Configuration Manager.
 
-8.  Selon l’alerte que vous sélectionnez, spécifiez les informations supplémentaires suivantes :
+8.  Selon l’alerte que vous sélectionnez, spécifiez les informations supplémentaires suivantes :
 
-    -   **Détection d’un programme malveillant** : cette alerte est générée si un logiciel malveillant est détecté sur un ordinateur du regroupement que vous surveillez. Le **seuil de détection des programmes malveillants** indique les niveaux de détection auxquels cette alerte est générée :
+    -   **Détection d’un programme malveillant** : cette alerte est générée si un logiciel malveillant est détecté sur un ordinateur du regroupement que vous surveillez. Le **seuil de détection des programmes malveillants** indique les niveaux de détection auxquels cette alerte est générée :
 
-        -   **Haute - Toutes les détections** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, quelle que soit l’action qu’exécute le client Endpoint Protection.
+        -   **Haute - Toutes les détections** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, quelle que soit l’action qu’exécute le client Endpoint Protection.
 
-        -   **Moyenne - Détectée, action en attente** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et que vous devez le supprimer manuellement.
+        -   **Moyenne - Détectée, action en attente** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et que vous devez le supprimer manuellement.
 
-        -   **Faible - Détectée, toujours active** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et qu’il est toujours actif.
+        -   **Faible - Détectée, toujours active** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et qu’il est toujours actif.
 
-    -   **Apparition d’un programme malveillant** : cette alerte est générée si un programme malveillant spécifié est détecté sur un pourcentage donné d’ordinateurs du regroupement que vous surveillez.
+    -   **Apparition d’un programme malveillant** : cette alerte est générée si un programme malveillant spécifié est détecté sur un pourcentage donné d’ordinateurs du regroupement que vous surveillez.
 
-        -   **Pourcentage d’ordinateurs sur lesquels un programme malveillant a été détecté** : l’alerte est générée quand le pourcentage d’ordinateurs avec un programme malveillant détecté dans le regroupement est supérieur au pourcentage que vous spécifiez. Spécifiez un pourcentage compris entre **1** et **99**.
+        -   **Pourcentage d’ordinateurs sur lesquels un programme malveillant a été détecté** : l’alerte est générée quand le pourcentage d’ordinateurs avec un programme malveillant détecté dans le regroupement est supérieur au pourcentage que vous spécifiez. Spécifiez un pourcentage compris entre **1** et **99**.
 
             > [!NOTE]
             >  La valeur du pourcentage est basée sur le nombre d’ordinateurs du regroupement, mais exclut les ordinateurs sur lesquels aucun client Configuration Manager n’est installé. Il inclut les ordinateurs sur lesquels le client Endpoint Protection n’est pas encore installé.
 
-    -   **Détection de logiciel malveillant répétée** : cette alerte est générée si un logiciel malveillant spécifique est détecté un nombre spécifié de fois sur un nombre spécifié d’heures sur les ordinateurs du regroupement que vous surveillez. Spécifiez les informations suivantes pour configurer cette alerte :
+    -   **Détection de logiciel malveillant répétée** : cette alerte est générée si un logiciel malveillant spécifique est détecté un nombre spécifié de fois sur un nombre spécifié d’heures sur les ordinateurs du regroupement que vous surveillez. Spécifiez les informations suivantes pour configurer cette alerte :
 
         -   **Nombre de fois où un programme malveillant a été détecté :** l’alerte est générée quand le nombre de détections d’un même programme malveillant sur les ordinateurs du regroupement est supérieur au nombre d’occurrences spécifié. Spécifiez un nombre compris entre **2** et **32**.
 
         -   **Intervalle de détection (heures) :** spécifiez l’intervalle de détection (en heures) au cours duquel le nombre de détections de programme malveillant doit être exécuté. Spécifiez un nombre compris entre **1** et **168**.
 
-    -   **Détection de plusieurs logiciels malveillants** : cette alerte est générée si le nombre de types de programmes malveillants détectés pendant un nombre d’heures donné sur les ordinateurs du regroupement que vous surveillez est supérieur au nombre défini. Spécifiez les informations suivantes pour configurer cette alerte :
+    -   **Détection de plusieurs logiciels malveillants** : cette alerte est générée si le nombre de types de programmes malveillants détectés pendant un nombre d’heures donné sur les ordinateurs du regroupement que vous surveillez est supérieur au nombre défini. Spécifiez les informations suivantes pour configurer cette alerte :
 
         -   **Nombre de types de programmes malveillants détectés :** l’alerte est générée quand le nombre spécifié de types différents de programmes malveillants sur les ordinateurs du regroupement est détecté. Spécifiez un nombre compris entre **2** et **32**.
 
@@ -98,6 +98,6 @@ ms.openlocfilehash: 38abfd1823972f8fea9966d74ae7c00a48baeb8b
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

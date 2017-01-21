@@ -1,5 +1,5 @@
 ---
-title: "Opérations de migration | System Center Configuration Manager"
+title: "Opérations de migration | Microsoft Docs"
 description: "Créez et exécutez des tâches pour migrer les données et les clients vers System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9289dd8983846c27a3f5bd3ae999eed018ae4ccb
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 3b5fc05542125454e224df73344cb29cb5f502ef
 
 
 ---
 # <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Opérations de migration vers System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour la migration dans System Center Configuration Manager, une fois que vous avez correctement recueilli des données à partir d’un site source dans une hiérarchie source prise en charge, vous pouvez commencer à migrer les données et les clients. Utilisez les informations des sections suivantes pour créer et exécuter des tâches de migration afin de migrer des données, des clients, puis terminer le processus de migration.  
 
@@ -43,7 +43,7 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
  Procédez comme suit pour créer des tâches de migration de données, modifier la liste d'exclusions pour les tâches de migration basée sur un regroupement, configurer des points de distribution partagés et modifier des planifications de tâches de migration.  
 
 > [!NOTE]  
->  La procédure ci-dessous, qui permet de créer une tâche de migration basée sur des regroupements, s’applique uniquement aux hiérarchies sources qui exécutent une version prise en charge de Configuration Manager 2007. Le type de tâche de migration basée sur les regroupements n’est pas disponible lorsque vous migrez à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager.  
+>  La procédure ci-dessous, qui permet de créer une tâche de migration basée sur des regroupements, s’applique uniquement aux hiérarchies sources qui exécutent une version prise en charge de Configuration Manager 2007. Le type de tâche de migration basée sur les regroupements n’est pas disponible lorsque vous migrez à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager.  
 
 #### <a name="to-create-a-migration-job-to-migrate-by-collections"></a>Pour créer une tâche de migration par regroupements  
 
@@ -73,7 +73,7 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
 
 9. Sur la page **Limitation au regroupement** , configurez un regroupement appartenant à la hiérarchie de destination, afin de limiter l'étendue de chacun des regroupements de la liste, puis cliquez sur **Suivant**. Si aucun regroupement ne figure dans la liste, cliquez sur **Suivant**.  
 
-10. Dans la page **Remplacement d’un code de site**, affectez un code de site appartenant à la hiérarchie de destination, afin de remplacer le code de site Configuration Manager 2007 de chaque regroupement répertorié, puis cliquez sur **Suivant**. Si aucun regroupement ne figure dans la liste, cliquez sur **Suivant**.  
+10. Dans la page **Remplacement d’un code de site**, affectez un code de site appartenant à la hiérarchie de destination, afin de remplacer le code de site Configuration Manager 2007 de chaque regroupement répertorié, puis cliquez sur **Suivant**. Si aucun regroupement ne figure dans la liste, cliquez sur **Suivant**.  
 
 11. Sur la page **Consulter les informations** , cliquez sur **Enregistrer dans un fichier** pour enregistrer les informations affichées afin de les consulter ultérieurement. Lorsque vous êtes prêt à continuer, cliquez sur **Suivant**.  
 
@@ -181,10 +181,10 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
 4.  Cliquez sur **Oui** pour démarrer la tâche de migration maintenant.  
 
 ##  <a name="a-namebkmkprocupgrdssa-upgrade-or-reassign-a-shared-distribution-point"></a><a name="BKMK_ProcUpgrdSS"></a> Mettre à niveau ou réattribuer un point de distribution partagé  
- Vous pouvez mettre à niveau un point de distribution pris en charge partagé à partir d’un site source Configuration Manager 2007 ou réaffecter un point de distribution pris en charge partagé à partir d’un site source System Center Configuration Manager, pour qu’ils deviennent des points de distribution dans la hiérarchie de destination.  
+ Vous pouvez mettre à niveau un point de distribution pris en charge partagé à partir d’un site source Configuration Manager 2007 ou réaffecter un point de distribution pris en charge partagé à partir d’un site source System Center Configuration Manager, pour qu’ils deviennent des points de distribution dans la hiérarchie de destination.  
 
 > [!IMPORTANT]  
->  Avant de mettre à niveau un point de distribution de branche Configuration Manager 2007, vous devez désinstaller le logiciel client Configuration Manager 2007 de l’ordinateur du point de distribution de branche. Si le logiciel client Configuration Manager 2007 est installé lorsque vous essayez de mettre à niveau le point de distribution, la mise à niveau échoue et le contenu précédemment déployé sur le point de distribution de branche est supprimé de l’ordinateur.  
+>  Avant de mettre à niveau un point de distribution de branche Configuration Manager 2007, vous devez désinstaller le logiciel client Configuration Manager 2007 de l’ordinateur du point de distribution de branche. Si le logiciel client Configuration Manager 2007 est installé lorsque vous essayez de mettre à niveau le point de distribution, la mise à niveau échoue et le contenu précédemment déployé sur le point de distribution de branche est supprimé de l’ordinateur.  
 
 > [!CAUTION]  
 >  Lorsque vous mettez à niveau ou réaffectez un point de distribution partagé, le rôle de système de site et l'ordinateur du système de site du point de distribution sont supprimés du site source et ajoutés comme un point de distribution au site sélectionné dans la hiérarchie de destination.  
@@ -230,13 +230,13 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
 
 2.  Dans l'espace de travail **Administration** , développez **Migration**, puis cliquez sur **Hiérarchie source**.  
 
-3.  Dans le cas d’une hiérarchie source Configuration Manager 2007, sélectionnez un site source qui se trouve au niveau inférieur de la hiérarchie source. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, sélectionnez le site source disponible.  
+3.  Dans le cas d’une hiérarchie source Configuration Manager 2007, sélectionnez un site source qui se trouve au niveau inférieur de la hiérarchie source. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, sélectionnez le site source disponible.  
 
 4.  Dans l'onglet **Accueil** , dans le groupe **Nettoyer** , cliquez sur **Arrêter la collecte de données**.  
 
 5.  Cliquez sur **Oui** pour confirmer l'action.  
 
-6.  Pour une hiérarchie source Configuration Manager 2007, avant de passer à l’étape suivante, répétez les étapes 3, 4 et 5. Répétez ces étapes au niveau de chaque site de la hiérarchie, du bas vers le haut. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, passez à l’étape suivante.  
+6.  Pour une hiérarchie source Configuration Manager 2007, avant de passer à l’étape suivante, répétez les étapes 3, 4 et 5. Répétez ces étapes au niveau de chaque site de la hiérarchie, du bas vers le haut. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, passez à l’étape suivante.  
 
 7.  Dans l'onglet **Accueil** , dans le groupe **Nettoyer** , cliquez sur **Nettoyer les données de migration**.  
 
@@ -246,6 +246,6 @@ Pour la migration dans System Center Configuration Manager, une fois que vous av
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

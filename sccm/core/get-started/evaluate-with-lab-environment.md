@@ -1,5 +1,5 @@
 ---
-title: "Évaluer System Center Configuration Manager en créant votre propre environnement lab"
+title: "Évaluer System Center Configuration Manager en créant votre propre environnement lab | Microsoft Docs"
 description: "Créez un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 363e6a929b72e027d5fff7584905fb552dc695b0
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: e72acbe0a2f5592b5bdf9a3612db62bfb066fadf
 
 
 ---
 # <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Évaluer System Center Configuration Manager en créant votre propre environnement lab
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Découvrez comment créer un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation.  
 
@@ -40,7 +40,7 @@ Découvrez comment créer un environnement lab pour évaluer System Center Confi
 -   Administrateurs souhaitant gérer la montée en puissance de leur architecture de serveurs locale  
 
 ### <a name="what-this-lab-does"></a>Ce que fait ce lab  
- L’objectif principal de la création de cet environnement est de vous fournir les connaissances générales pour vous permettre de commencer à travailler avec Configuration Manager et d’améliorer vos connaissances de cet outil. Nous allons pour cela décrire pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
+ L’objectif principal de la création de cet environnement est de vous fournir les connaissances générales pour vous permettre de commencer à travailler avec Configuration Manager et d’améliorer vos connaissances de cet outil. Nous allons pour cela décrire pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
 
 -   L’un hébergeant Active Directory, le contrôleur de domaine et le serveur DNS.  
 
@@ -64,12 +64,12 @@ Découvrez comment créer un environnement lab pour évaluer System Center Confi
 
 -   Découvrez l’importance des rôles de sécurité dans [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#bkmk_Concepts) décrit certains concepts spécifiques relatifs à la gestion de contenu.  
+-   [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) décrit certains concepts spécifiques relatifs à la gestion de contenu.  
 
 -   [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) peut vous aider à prendre correctement en charge les opérations quotidiennes tout au long de votre déploiement.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

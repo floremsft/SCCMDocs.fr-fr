@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité pour Asset Intelligence | System Center Configuration Manager"
+title: "Sécurité et confidentialité d’Asset Intelligence | Microsoft Docs"
 description: "Obtenez des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 85e0b6e3a96852cbf9c8781a3124bff13a6c6fdd
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: d577a16725c2b167d1ff9f77096018433a2fa580
 
 
 ---
 # <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour Asset Intelligence dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager.  
 
@@ -61,6 +61,6 @@ Cette rubrique contient des informations sur la sécurité et la confidentialit�
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

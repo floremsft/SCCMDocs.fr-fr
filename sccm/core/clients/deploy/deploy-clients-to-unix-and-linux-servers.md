@@ -1,5 +1,5 @@
 ---
-title: "Déployer des clients UNIX/Linux | System Center Configuration Manager"
+title: "Déployer les clients UNIX/Linux | Microsoft Docs"
 description: "Découvrez comment déployer un client sur un serveur UNIX ou Linux dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 15a4e323-9f42-4fea-bb14-f2b905d1f77c
 caps.latest.revision: 9
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 77a0825346b461cdc3b36e5aabcb1e4e83135d6e
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 0e5f65552045e9cef06f5286b0087153751c79b0
 
 
 ---
 # <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Comment déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de pouvoir gérer un serveur Linux ou UNIX avec System Center Configuration Manager, vous devez installer le client Configuration Manager pour Linux et UNIX sur chaque serveur Linux ou UNIX. Vous pouvez soit installer manuellement le client sur chaque ordinateur, soit utiliser un script Shell qui installe le client à distance. Configuration Manager ne prend pas en charge l’installation Push du client pour les serveurs Linux ou UNIX. Vous pouvez éventuellement configurer un Runbook pour System Center Orchestrator pour automatiser l’installation du client sur le serveur Linux ou UNIX.  
 
@@ -69,7 +69,7 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
 
 -   **package d’installation du client** est le nom du package .tar d’installation du client pour le système d’exploitation, la version et l’architecture d’UC de l’ordinateur. Le fichier .tar d'installation client doit être spécifié en dernier.  
 
-     Exemple : ccm-Universal-x64.&lt;build\>.tar  
+     Exemple : ccm-Universal-x64.&lt;build\>.tar  
 
 ###  <a name="a-namebkmktoinstalllnuclinenta-to-install-the-configuration-manager-client-on-linux-and-unix-servers"></a><a name="BKMK_ToInstallLnUClinent"></a> Pour installer le Client Configuration Manager sur des serveurs Linux et UNIX  
 
@@ -84,7 +84,7 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
     > [!IMPORTANT]  
     >  Vous devez utiliser des informations d'identification racine pour installer le client.  
 
-5.  Ensuite, exécutez la commande suivante pour installer le client Configuration Manager : **./install –mp &lt;nom_hôte\> -sitecode &lt;code\> ccm-Universal-x64.&lt;build\>.tar**  
+5.  Ensuite, exécutez la commande suivante pour installer le client Configuration Manager : **./install –mp &lt;nom_hôte\> -sitecode &lt;code\> ccm-Universal-x64.&lt;build\>.tar**  
 
      Lorsque vous entrez cette commande, utilisez les propriétés de ligne de commande supplémentaires que vous avez besoin.  Pour obtenir la liste des propriétés de ligne de commande, consultez [Propriétés de ligne de commande pour installer le client sur des serveurs Linux et UNIX](#BKMK_CmdLineInstallLnUClient).  
 
@@ -153,19 +153,19 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
     > [!NOTE]  
     >  Vous devez spécifier cette propriété quand vous installez un client et utiliser la propriété **-mp** pour indiquer un point de gestion qui est configuré pour accepter uniquement les connexions client HTTPS.  
 
-     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
 
 -   **-certpw &lt;paramètre\>**  
 
      Facultatif. Spécifie le mot de passe associé au fichier PKCS #12 que vous avez spécifié à l'aide de la **- /usepkicert** propriété.  
 
-     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
 
 -   **-/Nocrlcheck**  
 
      Facultatif. Spécifie qu'un client ne doit pas vérifier la liste de révocation de certificats (CRL) lorsqu'il communique via HTTPS à l'aide d'un certificat PKI. Lorsque cette option n'est pas spécifiée, le client vérifie la révocation de certificats avant d'établir une connexion HTTPS à l'aide de certificats PKI. Pour plus d'informations sur la vérification de révocation de certificats client, consultez Planification de la révocation de certificats PKI.  
 
-     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\> -NoCRLCheck  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\> -NoCRLCheck  
 
 -   **-rootkeypath &lt;emplacement_fichier\>**  
 
@@ -203,7 +203,7 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
 
      Si cette option n'est pas spécifiée lors de l'installation, les clients Linux et UNIX approuvent le premier point de gestion qu'ils communiquent avec et récupère automatiquement le certificat de signature à partir de ce point de gestion.  
 
-     Exemple : -signcertpath &lt;chemin_complet_et_nom_de_fichier\>  
+     Exemple : -signcertpath &lt;chemin_complet_et_nom_de_fichier\>  
 
 -   **-rootcerts**  
 
@@ -213,7 +213,7 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
 
      Si vous n'utilisez pas cette option, le client Linux et UNIX vérifiera la hiérarchie d'approbation en utilisant uniquement le certificat dans le **- /usepkicert** option.  
 
-     Exemple : -rootcerts &lt;chemin_complet_et_nom_de_fichier\>,&lt;chemin_complet_et_nom_de_fichier\>  
+     Exemple : -rootcerts &lt;chemin_complet_et_nom_de_fichier\>,&lt;chemin_complet_et_nom_de_fichier\>  
 
 ###  <a name="a-namebkmkuninstalllnuclienta-uninstalling-the-client-from-linux-and-unix-servers"></a><a name="BKMK_UninstallLnUClient"></a> Désinstallation du client sur des serveurs Linux et UNIX  
  Pour désinstaller le client Configuration Manager pour Linux et UNIX, vous utilisez l’utilitaire de désinstallation, **uninstall**. Par défaut, ce fichier se trouve dans le **/opt/microsoft/configmgr/bin/** dossier sur l'ordinateur client. Cette commande de désinstallation ne prend pas en charge des paramètres de ligne de commande et supprimera tous les fichiers liés au logiciel client à partir du serveur.  
@@ -240,6 +240,6 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

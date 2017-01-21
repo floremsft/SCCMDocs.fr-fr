@@ -1,5 +1,5 @@
 ---
-title: "Prérequis de la migration | System Center Configuration Manager"
+title: "Prérequis de la migration | Microsoft Docs"
 description: Prenez connaissance des versions prises en charge de Configuration Manager, des langues de site source prises en charge et des configurations requises pour la migration.
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1b310aeee487087e79c2d0fd6469f8f63b932045
+ms.sourcegitcommit: 6cbb790df47c9a87514b0233e2d0c12dd6f23ee9
+ms.openlocfilehash: 70e2531076abedc1381b6e3bccf15b5afe27b465
 
 
 ---
 # <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Prérequis de la migration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour migrer à partir d’une hiérarchie source prise en charge, vous devez avoir accès à chaque site source Configuration Manager applicable et aux autorisations dans le site de destination System Center Configuration Manager pour configurer et exécuter des opérations de migration.  
 
@@ -37,19 +37,19 @@ Pour migrer à partir d’une hiérarchie source prise en charge, vous devez avo
 -   [Configurations requises pour la migration](#BKMK_Required_Configurations)  
 
 ##  <a name="a-namebkmksupportedmigrationversionsa-versions-of-configuration-manager-that-are-supported-for-migration"></a><a name="BKMK_SupportedMigrationVersions"></a> Versions de Configuration Manager prises en charge pour la migration  
- Vous pouvez migrer des données à partir d’une hiérarchie source qui exécute une des versions suivantes de Configuration Manager :  
+ Vous pouvez migrer des données à partir d’une hiérarchie source qui exécute une des versions suivantes de Configuration Manager :  
 
--   Configuration Manager 2007 SP2 (Pour la migration, il importe peu que le site source dispose de Configuration Manager 2007 R2 ou R3. Tant que le site source exécute SP2, les sites dotés du module complémentaire R2 ou R3 sont pris en charge pour la migration vers System Center Configuration Manager.)  
+-   Configuration Manager 2007 SP2 (Pour la migration, il importe peu que le site source dispose de Configuration Manager 2007 R2 ou R3. Tant que le site source exécute SP2, les sites dotés du module complémentaire R2 ou R3 sont pris en charge pour la migration vers System Center Configuration Manager.)  
 
--   System Center 2012 Configuration Manager SP2 ou System Center 2012 R2 Configuration Manager SP1  
+-   System Center 2012 Configuration Manager SP2 ou System Center 2012 R2 Configuration Manager SP1  
 
     > [!TIP]  
-    >  En plus de la migration, vous pouvez utiliser une mise à niveau sur place des sites exécutant System Center 2012 Configuration Manager vers System Center Configuration Manager.  
+    >  En plus de la migration, vous pouvez utiliser une mise à niveau sur place des sites exécutant System Center 2012 Configuration Manager vers System Center Configuration Manager.  
 
 -   Une hiérarchie System Center Configuration Manager de la version identique ou inférieur de System Center Configuration Manager  
 
 ##  <a name="a-namebkmksorcesitelanguagea-source-site-languages-that-are-supported-for-migration"></a><a name="BKMK_SorceSiteLanguage"></a> Langues de site source prises en charge pour la migration  
- Quand vous migrez des données entre hiérarchies Configuration Manager, celles-ci sont stockées dans la hiérarchie de destination dans un format indépendant de la langue pour System Center Configuration Manager. Étant donné que Configuration Manager 2007 ne stocke pas les données dans un format indépendant de la langue, le processus de migration doit convertir les objets dans ce format pendant la migration depuis Configuration Manager 2007. Par conséquent, seuls les sites sources Configuration Manager 2007 installés avec les langues suivantes sont pris en charge pour la migration :  
+ Quand vous migrez des données entre hiérarchies Configuration Manager, celles-ci sont stockées dans la hiérarchie de destination dans un format indépendant de la langue pour System Center Configuration Manager. Étant donné que Configuration Manager 2007 ne stocke pas les données dans un format indépendant de la langue, le processus de migration doit convertir les objets dans ce format pendant la migration depuis Configuration Manager 2007. Par conséquent, seuls les sites sources Configuration Manager 2007 installés avec les langues suivantes sont pris en charge pour la migration :  
 
 -   Anglais  
 
@@ -67,12 +67,12 @@ Pour migrer à partir d’une hiérarchie source prise en charge, vous devez avo
 
 -   Chinois traditionnel  
 
-Quand vous migrez des données à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, il n’existe aucune limitation de langue du site source. Les objets dans la base de données du site source sont déjà dans un format indépendant de la langue.  
+Quand vous migrez des données à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, il n’existe aucune limitation de langue du site source. Les objets dans la base de données du site source sont déjà dans un format indépendant de la langue.  
 
 ##  <a name="a-namebkmkrequiredconfigurationsa-required-configurations-for-migration"></a><a name="BKMK_Required_Configurations"></a> Configurations requises pour la migration  
 Voici les configurations requises pour utiliser la migration et les opérations de migration :  
 
--   **Pour configurer, exécuter et surveiller la migration dans la console Configuration Manager :**  
+-   **Pour configurer, exécuter et surveiller la migration dans la console Configuration Manager :**  
 
      Dans le site de destination, le rôle de sécurité d'administration **Administrateur d'infrastructure**doit être affecté à votre compte. Ce rôle de sécurité accorde des autorisations pour gérer toutes les opérations de migration, notamment la création de tâches de migration, le nettoyage, la surveillance ainsi que le partage et la mise à niveau de points de distribution.  
 
@@ -82,9 +82,9 @@ Voici les configurations requises pour utiliser la migration et les opérations 
 
     -   **Compte de site source** : ce compte est utilisé pour accéder au fournisseur SMS du site source.  
 
-        -   Pour un site source Configuration Manager 2007 SP2, ce compte nécessite une autorisation **Lecture** sur tous les objets du site source.  
+        -   Pour un site source Configuration Manager 2007 SP2, ce compte nécessite une autorisation **Lecture** sur tous les objets du site source.  
 
-        -   Pour un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, ce compte requiert une autorisation **Lecture** sur tous les objets du site source. Pour accorder cette autorisation au compte, vous utilisez l’administration basée sur des rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+        -   Pour un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, ce compte requiert une autorisation **Lecture** sur tous les objets du site source. Pour accorder cette autorisation au compte, vous utilisez l’administration basée sur des rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
     -   **Compte de base de données de site source** : ce compte permet d’accéder à la base de données SQL Server du site source, et nécessite des autorisations **Connect**, **Execute**et **Select** sur la base de données du site source.  
 
@@ -111,28 +111,21 @@ Voici les configurations requises pour utiliser la migration et les opérations 
 
      Pour chaque site source, uniquement les points de distribution installés sur les serveurs système de site qui sont configurés avec un nom de domaine complet sont partagés.  
 
-     En outre, pour partager un point de distribution depuis un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, le **compte de site source** (qui accède au fournisseur SMS du serveur de site source) doit disposer de l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+     En outre, pour partager un point de distribution depuis un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, le **compte de site source** (qui accède au fournisseur SMS du serveur de site source) doit disposer de l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   **Partager des points de distribution :**  
-
-     Pour partager des points de distribution depuis un site source, au moins un site principal ou le site d'administration centrale dans la hiérarchie de destination doit utiliser les mêmes numéros de port pour les demandes des clients que le site source. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md)  
-
-     Pour chaque site source, uniquement les points de distribution installés sur les serveurs système de site qui sont configurés avec un nom de domaine complet sont partagés.  
-
-     En outre, pour partager un point de distribution depuis un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, le **compte de site source** (qui accède au fournisseur SMS du serveur de site source) doit disposer de l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
 -   **Mettre à niveau ou réaffecter des points de distribution :**  
 
      Le **compte d'accès de site source** configuré pour collecter des données depuis le fournisseur SMS du site source doit disposer des autorisations suivantes :  
 
-    -   Pour mettre à niveau un point de distribution Configuration Manager 2007, le compte requiert des autorisations **Lecture**, **Exécuter** et **Supprimer** sur la classe **Site** sur le serveur de site Configuration Manager 2007 pour pouvoir supprimer correctement le point de distribution du site source Configuration Manager 2007.  
+    -   Pour mettre à niveau un point de distribution Configuration Manager 2007, le compte requiert des autorisations **Lecture**, **Exécuter** et **Supprimer** sur la classe **Site** sur le serveur de site Configuration Manager 2007 pour pouvoir supprimer correctement le point de distribution du site source Configuration Manager 2007.  
 
-    -   Pour réattribuer un point de distribution System Center 2012 Configuration Manager ou System Center Configuration Manager, le compte doit avoir l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+    -   Pour réattribuer un point de distribution System Center 2012 Configuration Manager ou System Center Configuration Manager, le compte doit avoir l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
      Pour mettre à niveau un point de distribution ou le réaffecter à une nouvelle hiérarchie, les ports qui sont configurés pour les demandes clients sur le site qui gère le point de distribution dans la hiérarchie source doivent correspondre aux ports qui sont configurés pour les demandes client sur le site de destination qui gérera le point de distribution. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

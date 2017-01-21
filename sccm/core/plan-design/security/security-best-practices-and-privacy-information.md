@@ -1,5 +1,5 @@
 ---
-title: "Meilleures pratiques de sécurité et informations de confidentialité de System Center Configuration Manager"
+title: "Bonnes pratiques de sécurité et informations de confidentialité de System Center Configuration Manager | Microsoft Docs"
 description: "Trouvez des ressources qui fournissent de bonnes pratiques de sécurité et des informations de confidentialité pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: dc9a98a10453c87ba05d6e32dc7e648a95c391cd
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 40d8a4f818d1d8fcaf3f87a810a391768d902bf2
 
 
 ---
 # <a name="security-best-practices-and-privacy-information-for-system-center-configuration-manager"></a>Meilleures pratiques de sécurité et informations de confidentialité de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les informations suivantes pour rechercher de bonnes pratiques de sécurité et des informations de confidentialité pour System Center Configuration Manager.  
 
@@ -71,6 +71,6 @@ Utilisez les informations suivantes pour rechercher de bonnes pratiques de sécu
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Créer un média de séquence de tâches avec System Center Configuration Manager"
+title: "Créer un média de séquence de tâches avec System Center Configuration Manager | Microsoft Docs"
 description: "Créez un média de séquence de tâches, par exemple un CD, pour déployer un système d’exploitation sur un ordinateur de destination dans votre environnement Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f00defcdb56e37476ac24d8ce25d1dc5fb2f3260
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: bd5448d70c2d465347de840cb197d4c33075c90a
 
 
 ---
 # <a name="create-task-sequence-media-with-system-center-configuration-manager"></a>Créer un média de séquence de tâches avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser un média pour capturer une image de système d’exploitation à partir d’un ordinateur de référence ou pour déployer un système d’exploitation sur un ordinateur de destination dans votre environnement System Center Configuration Manager. Le média que vous créez peut être un CD, un ensemble DVD, ou un disque mémoire flash USB.  
 
@@ -72,6 +72,6 @@ Vous pouvez utiliser un média pour capturer une image de système d’exploitat
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

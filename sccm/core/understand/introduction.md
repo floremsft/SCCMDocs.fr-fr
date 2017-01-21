@@ -1,5 +1,5 @@
 ---
-title: "Présentation | System Center Configuration Manager"
+title: "Présentation | Microsoft Docs"
 description: "Obtenez des informations de base faisant office de présentation de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,23 +16,23 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 46aa1fdf49dcdacb9d5e53963a0f799e5f0a1754
+ms.sourcegitcommit: b0b2f72d4b1eae3aa5b860a210ac3a4259e17069
+ms.openlocfilehash: 3bbbb6a00883a5e489696387fad9224fdc2082ba
 
 
 ---
 # <a name="introduction-to-system-center-configuration-manager"></a>Présentation de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Membre de la suite Microsoft System Center de solutions de gestion, System Center Configuration Manager peut vous aider à gérer vos appareils et utilisateurs localement et dans le cloud.  
 
-**Configuration Manager peut vous aider à :**   
+**Configuration Manager peut vous aider à :**   
 -   augmenter la productivité et l’efficacité de vos services informatiques en réduisant les tâches manuelles et en vous permettant de vous concentrer sur des projets à forte valeur ;  
 -   optimiser les investissements matériels et logiciels ;  
 -   maîtriser la productivité des utilisateurs finals en leur fournissant les bons logiciels au bon moment.  
 
-**Configuration Manager vous permet d’offrir des services informatiques plus efficaces en prenant en charge :**  
+**Configuration Manager vous permet d’offrir des services informatiques plus efficaces en prenant en charge :**  
 
 -   le déploiement de logiciels sécurisés et évolutifs ;  
 -   la gestion des paramètres de conformité ;  
@@ -40,7 +40,7 @@ Membre de la suite Microsoft System Center de solutions de gestion, System Cente
 
 **Configuration Manager s'étend et fonctionne avec vos solutions et technologies Microsoft existantes.**  
 
-Par exemple, Configuration Manager s’intègre aux éléments suivants :  
+Par exemple, Configuration Manager s’intègre aux éléments suivants :  
 
 -   Microsoft Intune pour gérer un vaste éventail de plateformes d’appareils mobiles  
 -   Windows Server Update Services (WSUS) pour gérer les mises à jour logicielles  
@@ -52,7 +52,7 @@ Par exemple, Configuration Manager s’intègre aux éléments suivants :
 -   Services de déploiement Windows (WDS)  
 -   Assistance à distance et Bureau à distance  
 
-Configuration Manager utilise également :  
+Configuration Manager utilise également :  
 
 -   les services de domaine Active Directory pour la sécurité, l’emplacement du service, la configuration et pour découvrir les utilisateurs et les appareils que vous souhaitez gérer ;  
 -   Microsoft SQL Server comme une base de données de gestion des modifications distribuée et s’intègre à SQL Server Reporting Services (SSRS) pour produire des rapports permettant de surveiller et de suivre les activités de gestion ;  
@@ -61,14 +61,14 @@ Configuration Manager utilise également :
 
  Pour réussir avec Configuration Manager, vous devez d'abord soigneusement planifier et tester les fonctionnalités de gestion avant d'utiliser Configuration Manager dans un environnement de production. En tant qu'application de gestion performante, Configuration Manager est susceptible d'affecter tous les ordinateurs de votre organisation. Lorsque Configuration Manager est déployé et géré avec une planification minutieuse prenant en compte les exigences de votre entreprise, Configuration Manager peut réduire les frais administratifs généraux ainsi que le coût total de possession.  
 
- Utilisez les rubriques suivantes et les autres sections de cette rubrique pour en savoir plus sur Configuration Manager :  
+ Utilisez les rubriques suivantes et les autres sections de cette rubrique pour en savoir plus sur Configuration Manager :  
 
 
 **Rubriques connexes dans la bibliothèque de documents :**  
 
 -   [Fonctions et fonctionnalités de System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md)  
 -   [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
--   [Ce qui a changé dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
+-   [Ce qui a changé dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 -   [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md)  
 -   [Évaluer System Center Configuration Manager en créant votre propre environnement lab](/sccm/core/get-started/set-up-your-lab)
 -   [Trouver de l’aide pour l’utilisation de System Center Configuration Manager](../../core/understand/find-help.md)  
@@ -92,8 +92,8 @@ Configuration Manager utilise également :
  Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels qui leur sont déployés à l'aide de Configuration Manager. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
 
 -   rechercher et installer des logiciels à partir du catalogue d’applications ;  
--   afficher leur historique de demande de logiciels ;  
--   configurer à quel moment Configuration Manager peut installer le logiciel sur l’appareil des utilisateurs ;  
+-   afficher leur historique de demande de logiciels ;  
+-   configurer à quel moment Configuration Manager peut installer le logiciel sur l’appareil des utilisateurs ;  
 -   configurer les paramètres d’accès pour le contrôle à distance (si un utilisateur administratif a activé le contrôle à distance).  
 
  **Le portail d'entreprise** est une application ou un site web qui propose des fonctions similaires au catalogue d'applications, mais pour les appareils mobiles qui sont inscrits par Windows Intune.  
@@ -106,7 +106,7 @@ Configuration Manager utilise également :
  Pour plus d’informations sur le déploiement de clients, consultez [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
 ##  <a name="a-namebkmkexamplescenariosa-example-scenarios-for-configuration-manager"></a><a name="BKMK_ExampleScenarios"></a> Exemples de scénarios de Configuration Manager  
- Les exemples de scénarios suivants montrent comment une entreprise nommée Trey Research utilise Configuration Manager pour permettre aux utilisateurs :  
+ Les exemples de scénarios suivants montrent comment une entreprise nommée Trey Research utilise Configuration Manager pour permettre aux utilisateurs :  
 
 -   d’être plus productifs ;  
 -   d’unifier la gestion de la compatibilité des appareils pour bénéficier une expérience d’administration plus rapide ;  
@@ -125,7 +125,7 @@ Configuration Manager utilise également :
 |Les employés peuvent être productifs même s'ils ne sont pas à leur bureau.|Lorsque les employés ne sont pas à leur bureau et ne disposent pas d'ordinateurs portables, ils ne peuvent pas accéder à leurs applications via les ordinateurs publics disponibles dans l'ensemble de l'entreprise.|Les employés peuvent utiliser des ordinateurs publics pour accéder à leurs applications et données.|  
 |En général, la pérennité des activités est prioritaire sur l'installation des applications et des mises à jour logicielles requises.|Les applications et les mises à jour logicielles requises sont installées pendant la journée, ce qui perturbe fréquemment le travail des utilisateurs dans la mesure où leurs ordinateurs ralentissent ou redémarrent au cours de l'installation.|Les utilisateurs peuvent configurer leurs heures de travail pour empêcher l'installation des logiciels requis pendant qu'ils utilisent leur ordinateur.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
 
 -   Gestion des applications  
 -   Gestion des appareils mobiles  
@@ -136,8 +136,8 @@ Configuration Manager utilise également :
 |-------------------------|-------------|  
 |Adam vérifie que les nouveaux utilisateurs disposent de comptes d'utilisateur dans Active Directory, puis il crée un nouveau regroupement basé sur des requêtes dans Configuration Manager pour ces utilisateurs. Il définit ensuite l'affinité entre appareil et utilisateur pour ces utilisateurs en créant un fichier de mappage des comptes d'utilisateur aux ordinateurs principaux qui seront utilisés, et il importe ce fichier dans Configuration Manager.<br /><br /> Les applications dont les nouveaux utilisateurs ont besoin sont déjà créées dans Configuration Manager. Il déploie ensuite ces applications dont l'objet est Requis sur le regroupement qui contient les nouveaux utilisateurs.|En raison des informations relatives à l'affinité entre appareil et utilisateur, les applications sont installées sur l'ordinateur principal ou sur les ordinateurs de chaque utilisateur avant l'ouverture d'une session utilisateur.<br /><br /> Les applications sont prêtes à l'emploi dès la connexion de l'utilisateur.|  
 |Adam installe et configure les rôles de système de site du catalogue des applications pour permettre aux utilisateurs de rechercher les applications à installer. Il crée des déploiements d'applications dont l'objet est Disponible, puis il déploie ces applications sur le regroupement qui contient les nouveaux utilisateurs.<br /><br /> Dans le cas d'applications dont le nombre de licences est limité, Adam les configure pour en demander l'approbation.|En configurant des applications comme étant disponibles pour ces utilisateurs et en utilisant le catalogue des applications, les utilisateurs peuvent désormais rechercher les applications qu'ils sont autorisés à installer. Les utilisateurs peuvent ensuite installer les applications immédiatement ou demander l'approbation et revenir au catalogue des applications pour les installer une fois que le support technique a approuvé leur demande.|  
-|Adam crée un connecteur Exchange Server dans Configuration Manager pour gérer les appareils mobiles qui se connectent au serveur Exchange Server local de l'entreprise. Il configure ce connecteur avec les paramètres de sécurité qui incluent la condition de mot de passe fort et de verrouillage de l'appareil mobile après une période d'inactivité.<br /><br /> Pour une gestion supplémentaire des appareils exécutant Windows Phone 8, Windows RT et iOS, Adam se procure un abonnement à Microsoft Intune, puis installe le rôle de système de site de point de connexion de service. Cette solution de gestion d'appareil mobile fournit à l'entreprise une meilleure prise en charge de la gestion de ces appareils. Cela inclut la mise des applications à la disposition des utilisateurs pour l'installation sur ces appareils, ainsi que la gestion étendue des paramètres. De plus, les connexions d'appareils mobiles sont sécurisées à l'aide de certificats PKI qui sont automatiquement créés et déployés par Intune. Après avoir configuré le point de connexion de service et l’abonnement à utiliser avec Configuration Manager, Adam envoie un e-mail aux utilisateurs possédant ces appareils mobiles avec un lien leur permettant de démarrer le processus d’inscription.<br /><br /> Pour inscrire les appareils mobiles auprès de Microsoft Intune, Adam utilise des paramètres de compatibilité afin de configurer des paramètres de sécurité pour ces appareils mobiles. Ces paramètres incluent la configuration d'un mot de passe fort et le verrouillage de l'appareil mobile après une période d'inactivité.|Ces deux solutions de gestion des appareils mobiles permettent maintenant au service informatique de fournir des informations de rapport relatives aux appareils mobiles qui sont utilisés sur le réseau de l'entreprise et à leur compatibilité avec les paramètres de sécurité configurés.<br /><br /> Les utilisateurs apprennent à réinitialiser leur appareil mobile à distance à l'aide du catalogue des applications ou du portail d'entreprise en cas de perte ou de vol de leur appareil mobile. Les membres du support technique apprennent également à réinitialiser à distance les appareils mobiles des utilisateurs à l'aide de la console Configuration Manager.<br /><br /> De plus, pour les appareils mobiles inscrits auprès de Microsoft Intune, Adam peut maintenant déployer des applications mobiles que les utilisateurs peuvent installer, collecter plus de données d'inventaire à partir de ces appareils et mieux contrôler la gestion des appareils en accédant à d'autres paramètres.|  
-|Trey Research dispose de plusieurs ordinateurs publics, utilisés par les employés visitant les bureaux. Les employés veulent que leurs applications soient disponibles d'où qu'ils se connectent. Toutefois, Adam ne souhaite pas installer localement toutes les applications sur chaque ordinateur.<br /><br /> Pour ce faire, Adam crée les applications requises avec deux types de déploiement :<br /><br /> **Le premier :** une installation complète et locale de l’application qui ne peut être installée que sur l’appareil principal d’un utilisateur.<br /><br /> **Le second :** une version virtuelle de l’application qui ne doit pas être installée sur l’appareil principal de l’utilisateur.|Lorsqu'un employé visiteur se connecte à un ordinateur public, il voit les applications requises, affichées sous forme d'icônes sur le bureau de l'ordinateur public. Lorsque l'application est exécutée, elle est diffusée en continu comme une application virtuelle. Ainsi, les utilisateurs peuvent être aussi productifs que s'ils étaient assis à leur bureau.|  
+|Adam crée un connecteur Exchange Server dans Configuration Manager pour gérer les appareils mobiles qui se connectent au serveur Exchange Server local de l'entreprise. Il configure ce connecteur avec les paramètres de sécurité qui incluent la condition de mot de passe fort et de verrouillage de l'appareil mobile après une période d'inactivité.<br /><br /> Pour une gestion supplémentaire des appareils exécutant Windows Phone 8, Windows RT et iOS, Adam se procure un abonnement à Microsoft Intune, puis installe le rôle de système de site de point de connexion de service. Cette solution de gestion d'appareil mobile fournit à l'entreprise une meilleure prise en charge de la gestion de ces appareils. Cela inclut la mise des applications à la disposition des utilisateurs pour l'installation sur ces appareils, ainsi que la gestion étendue des paramètres. De plus, les connexions d'appareils mobiles sont sécurisées à l'aide de certificats PKI qui sont automatiquement créés et déployés par Intune. Après avoir configuré le point de connexion de service et l’abonnement à utiliser avec Configuration Manager, Adam envoie un e-mail aux utilisateurs possédant ces appareils mobiles avec un lien leur permettant de démarrer le processus d’inscription.<br /><br /> Pour inscrire les appareils mobiles auprès de Microsoft Intune, Adam utilise des paramètres de compatibilité afin de configurer des paramètres de sécurité pour ces appareils mobiles. Ces paramètres incluent la configuration d'un mot de passe fort et le verrouillage de l'appareil mobile après une période d'inactivité.|Ces deux solutions de gestion des appareils mobiles permettent maintenant au service informatique de fournir des informations de rapport relatives aux appareils mobiles qui sont utilisés sur le réseau de l'entreprise et à leur compatibilité avec les paramètres de sécurité configurés.<br /><br /> Les utilisateurs apprennent à réinitialiser leur appareil mobile à distance à l'aide du catalogue des applications ou du portail d'entreprise en cas de perte ou de vol de leur appareil mobile. Les membres du support technique apprennent également à réinitialiser à distance les appareils mobiles des utilisateurs à l'aide de la console Configuration Manager.<br /><br /> De plus, pour les appareils mobiles inscrits auprès de Microsoft Intune, Adam peut maintenant déployer des applications mobiles que les utilisateurs peuvent installer, collecter plus de données d'inventaire à partir de ces appareils et mieux contrôler la gestion des appareils en accédant à d'autres paramètres.|  
+|Trey Research dispose de plusieurs ordinateurs publics, utilisés par les employés visitant les bureaux. Les employés veulent que leurs applications soient disponibles d'où qu'ils se connectent. Toutefois, Adam ne souhaite pas installer localement toutes les applications sur chaque ordinateur.<br /><br /> Pour ce faire, Adam crée les applications requises avec deux types de déploiement :<br /><br /> **Le premier :** une installation complète et locale de l’application qui ne peut être installée que sur l’appareil principal d’un utilisateur.<br /><br /> **Le second :** une version virtuelle de l’application qui ne doit pas être installée sur l’appareil principal de l’utilisateur.|Lorsqu'un employé visiteur se connecte à un ordinateur public, il voit les applications requises, affichées sous forme d'icônes sur le bureau de l'ordinateur public. Lorsque l'application est exécutée, elle est diffusée en continu comme une application virtuelle. Ainsi, les utilisateurs peuvent être aussi productifs que s'ils étaient assis à leur bureau.|  
 |Adam informe les utilisateurs qu'ils peuvent configurer leurs heures de travail dans le Centre logiciel et sélectionner des options pour empêcher les activités de déploiement de logiciel pendant cette période et lorsque l'ordinateur se trouve en mode présentation.|Les utilisateurs sont plus productifs pendant leur journée de travail car ils peuvent contrôler le moment du déploiement des logiciels par Configuration Manager sur leurs ordinateurs.|  
 
  Ces étapes et résultats de configuration permettent à Trey Research de donner plus d'autonomie à ses employés en assurant leur accès aux applications à partir de n'importe quel appareil.  
@@ -162,7 +162,7 @@ Configuration Manager utilise également :
 |Les appareils mobiles ne peuvent pas installer ou exécuter des applications non sécurisées.|Les utilisateurs sont invités à ne pas télécharger et exécuter des applications potentiellement dangereuses depuis Internet, mais il n'existe aucun contrôle en place pour surveiller ou appliquer cette recommandation.|Les appareils mobiles qui sont gérés avec Microsoft Intune ou Configuration Manager empêchent automatiquement l’installation ou l’exécution des applications non signées.|  
 |Les ordinateurs portables qui passent de l'intranet à Internet doivent être sécurisés.|Souvent, les utilisateurs en déplacement ne parviennent pas à se connecter via la connexion VPN tous les jours, et ces ordinateurs portables perdent leur compatibilité avec les exigences de sécurité.|Une simple connexion Internet suffit pour conserver les ordinateurs portables compatibles avec les exigences de sécurité. Les utilisateurs ne sont pas obligés d'ouvrir une session ou d'utiliser le réseau VPN.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
 
 -   Endpoint Protection  
 -   Mises à jour logicielles  
@@ -183,7 +183,7 @@ Configuration Manager utilise également :
  Ces étapes et résultats de configuration permettent à Trey Research d'unifier la gestion de la compatibilité des appareils.  
 
 ###  <a name="a-namebkmkscenariosimplifya-example-scenario-simplify-client-management-for-devices"></a><a name="BKMK_ScenarioSimplify"></a> Exemple de scénario : simplifier la gestion des clients pour les appareils  
- Trey Research souhaite que tous les nouveaux ordinateurs installent automatiquement l'image d'ordinateur de base de l'entreprise qui exécute Windows 7. Une fois l'image du système d'exploitation installée sur ces ordinateurs, ils doivent être gérés et surveillés pour tout logiciel que les utilisateurs installent. Les ordinateurs qui stockent des informations hautement confidentielles nécessitent des stratégies de gestion plus limitées que les autres ordinateurs. Par exemple, les ingénieurs du support technique ne doivent pas établir une connexion à distance à ces ordinateurs, un code confidentiel BitLocker doit être utilisé pour les redémarrages et uniquement les administrateurs locaux sont autorisés à installer un logiciel.  
+ Trey Research souhaite que tous les nouveaux ordinateurs installent automatiquement l'image d'ordinateur de base de l'entreprise qui exécute Windows 7. Une fois l'image du système d'exploitation installée sur ces ordinateurs, ils doivent être gérés et surveillés pour tout logiciel que les utilisateurs installent. Les ordinateurs qui stockent des informations hautement confidentielles nécessitent des stratégies de gestion plus limitées que les autres ordinateurs. Par exemple, les ingénieurs du support technique ne doivent pas établir une connexion à distance à ces ordinateurs, un code confidentiel BitLocker doit être utilisé pour les redémarrages et uniquement les administrateurs locaux sont autorisés à installer un logiciel.  
 
  Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
 
@@ -193,7 +193,7 @@ Configuration Manager utilise également :
 |Les ordinateurs doivent être gérés et surveillés. Cela inclut l'inventaire matériel et logiciel pour vous aider à déterminer les conditions de licence.|Le client Configuration Manager est déployé en utilisant l’installation Push automatique du client, et le support technique recherche les échecs d'installation et les clients qui n'envoient pas de données d'inventaire comme prévu.<br /><br /> Les échecs sont fréquents à cause des dépendances d'installation qui ne sont pas respectées et de la corruption de WMI sur le client.|Les données d'installation et d'inventaire client collectées depuis des ordinateurs sont plus fiables et requièrent moins d'intervention du support technique. Les rapports indiquent l'utilisation du logiciel pour les informations de licence.|  
 |Certains ordinateurs doivent avoir des stratégies de gestion plus rigoureuses.|En raison des stratégies de gestion plus rigoureuses, Configuration Manager ne gère pas encore ces ordinateurs.|Gérez ces ordinateurs à l'aide de Configuration Manager sans surcharge administrative supplémentaire pour prendre en compte les exceptions.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
 
 -   Déploiement du système d'exploitation  
 -   Déploiement du client et état du client  
@@ -215,13 +215,13 @@ Configuration Manager utilise également :
 ##  <a name="a-namebkmknextstepsa-next-steps"></a><a name="BKMK_NextSteps"></a> Étapes suivantes  
  Avant d'installer Configuration Manager, familiarisez-vous avec certains concepts de base et les termes qui sont spécifiques à Configuration Manager.  
 
--   Si vous connaissez déjà System Center 2012 Configuration Manager, consultez [Ce qui a changé dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) pour comprendre les nouvelles fonctionnalités.  
+-   Si vous connaissez déjà System Center 2012 Configuration Manager, consultez [Ce qui a changé dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) pour comprendre les nouvelles fonctionnalités.  
 -   Pour obtenir une vue d’ensemble technique globale de System Center Configuration Manager, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
  Lorsque vous êtes familiarisé avec les concepts de base, utilisez la documentation de System Center Configuration Manager pour vous aider à déployer et à utiliser correctement Configuration Manager.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

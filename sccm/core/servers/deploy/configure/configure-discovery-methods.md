@@ -1,5 +1,5 @@
 ---
-title: "Configurer la découverte | System Center Configuration Manager"
+title: "Configurer la découverte | Microsoft Docs"
 description: "Configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,22 +16,22 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 668da9706bb46e6338e81ed75be5d78ab32561c3
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 2fcc392ba700f871349200166fac715b73788c16
 
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Vous pouvez configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources gérables à partir de votre infrastructure réseau et d’Active Directory. Pour cela, vous devez activer et configurer chaque méthode à utiliser pour explorer votre environnement. (Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer.)  La découverte par pulsations d’inventaire et la découverte de serveur constituent les seules exceptions :  
+Vous pouvez configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources gérables à partir de votre infrastructure réseau et d’Active Directory. Pour cela, vous devez activer et configurer chaque méthode à utiliser pour explorer votre environnement. (Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer.)  La découverte par pulsations d’inventaire et la découverte de serveur constituent les seules exceptions :  
 
 -   Par défaut, la découverte par pulsations d’inventaire est déjà activée quand vous installez un site principal Configuration Manager et est configurée pour s’exécuter selon une planification de base. Il est recommandé de laisser la découverte par pulsations d’inventaire activée, car cette méthode est l’assurance que les enregistrements de données de découverte (DDR) pour les appareils sont à jour. Pour plus d’informations sur la découverte par pulsations d’inventaire, consultez [À propos de la découverte par pulsations d’inventaire](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
 -   La découverte de serveur est une méthode de découverte automatique qui recherche les ordinateurs que vous utilisez comme systèmes de site. Elle ne peut ni être configurée ni désactivée.  
 
-**Pour activer une méthode de découverte configurable :**  
+**Pour activer une méthode de découverte configurable :**  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration de la hiérarchie**, puis sur **Méthodes de découverte**.  
 
@@ -151,7 +151,7 @@ Vous pouvez configurez les méthodes de découverte à exécuter sur un site Con
 
 4.  Dans l'onglet **Général** , activez la case à cocher pour activer la découverte ou configurez la découverte maintenant, puis revenez ultérieurement pour activer la découverte.  
 
-5.  Cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory puis, dans la boîte de dialogue **Conteneur Active Directory**, effectuez les configurations suivantes :  
+5.  Cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory puis, dans la boîte de dialogue **Conteneur Active Directory**, effectuez les configurations suivantes :  
 
     1.  Spécifiez un ou plusieurs emplacements à rechercher.  
 
@@ -182,7 +182,7 @@ Vous pouvez configurez les méthodes de découverte à exécuter sur un site Con
 
 4.  Dans l'onglet **Général** , activez la case à cocher pour activer la découverte ou configurez la découverte maintenant, puis revenez pour l'activer.  
 
-5.  Cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory puis, dans la boîte de dialogue **Conteneur Active Directory**, effectuez les configurations suivantes :  
+5.  Cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory puis, dans la boîte de dialogue **Conteneur Active Directory**, effectuez les configurations suivantes :  
 
     1.  Spécifiez un ou plusieurs emplacements à rechercher.  
 
@@ -202,7 +202,7 @@ Vous pouvez configurez les méthodes de découverte à exécuter sur un site Con
 8.  À l’issue de la configuration de la découverte des utilisateurs Active Directory pour ce site, cliquez sur **OK** pour enregistrer la configuration.  
 
 ##  <a name="a-namebkmkconfighbdisca-configure-heartbeat-discovery"></a><a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
- Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, vous devez uniquement configurer la fréquence à laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion si vous ne voulez pas utiliser la valeur par défaut (tous les 7 jours).  
+ Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, vous devez uniquement configurer la fréquence à laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion si vous ne voulez pas utiliser la valeur par défaut (tous les 7 jours).  
 
 > [!NOTE]  
 >  Si la tâche d'installation poussée du client et la tâche de maintenance de site pour **Remettre à zéro l'indicateur d'installation** sont activées sur le même site, définissez la planification de la découverte par pulsations d'inventaire à une valeur inférieure à la **Période de redécouverte client** de la tâche de maintenance de site **Remettre à zéro l'indicateur d'installation** . Pour plus d’informations sur les tâches de maintenance de site, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
@@ -384,7 +384,7 @@ Pour plus d’informations, consultez la section [À propos de la découverte du
         > [!NOTE]  
         >  Pour utiliser cette option, le serveur doit louer son adresse IP à un serveur DHCP, et il ne peut pas utiliser une adresse IP statique.  
 
-    -   Pour interroger un serveur DHCP spécifique, cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) puis, dans la boîte de dialogue **Nouveau serveur DHCP**, entrez l’adresse IP ou le nom du serveur DHCP, puis cliquez sur **OK**.  
+    -   Pour interroger un serveur DHCP spécifique, cliquez sur l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) puis, dans la boîte de dialogue **Nouveau serveur DHCP**, entrez l’adresse IP ou le nom du serveur DHCP, puis cliquez sur **OK**.  
 
         > [!NOTE]  
         >  Si vous spécifiez un nom de serveur, Configuration Manager doit pouvoir résoudre le nom NetBIOS en adresse IP.  
@@ -448,6 +448,6 @@ La découverte du réseau ne génère pas de message d'alerte signalant qu'elle 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Prérequis pour les mises à jour logicielles | Configuration Manager"
+title: "Configuration requise pour les mises à jour logicielles | Microsoft Docs"
 description: "Découvrez les prérequis pour les mises à jour logicielles dans System Center Configuration Manager."
 keywords: 
 author: dougeby
@@ -13,15 +13,15 @@ ms.technology:
 - configmgr-sum
 ms.assetid: fdf05118-162a-411e-b72e-386b9dc9a5e1
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fe56129c09b8936ba59181add86acb239111fea7
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: 179f076f228daa5adf612275a822cd379b0ce1e3
 
 
 ---
 
 # <a name="prerequisites-for-software-updates-in-system-center-configuration-manager"></a>Configuration requise pour les mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique répertorie les prérequis pour les mises à jour logicielles dans System Center Configuration Manager. Pour chaque composant requis, les dépendances externes et les dépendances internes figurent dans des tableaux séparés.  
 
@@ -32,16 +32,16 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
  Internet Information Services (IIS) doit se trouver sur les serveurs de système de site pour exécuter le point de mise à jour logicielle, le point de gestion et le point de distribution. Pour plus d’informations, consultez [Prérequis pour les rôles système de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
 ### <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)  
- Les services WSUS sont requis pour la synchronisation des mises à jour logicielles et les analyses de compatibilité des mises à jour logicielles sur les clients. Le serveur WSUS doit être installé avant de créer le rôle de système de site du point de mise à jour logicielle. Les versions suivantes de WSUS sont prises en charge pour un point de mise à jour logicielle :  
+ Les services WSUS sont requis pour la synchronisation des mises à jour logicielles et les analyses de compatibilité des mises à jour logicielles sur les clients. Le serveur WSUS doit être installé avant de créer le rôle de système de site du point de mise à jour logicielle. Les versions suivantes de WSUS sont prises en charge pour un point de mise à jour logicielle :  
 
--   WSUS 4 (rôle dans Windows Server 2012 et Windows Server 2012 R2)  
+-   WSUS 4 (rôle dans Windows Server 2012 et Windows Server 2012 R2)  
 
--   WSUS 3.2 (rôle dans Windows Server 2008 R2)  
+-   WSUS 3.2 (rôle dans Windows Server 2008 R2)  
 
  Si vous possédez plusieurs points de mise à jour logicielle sur un même site, veillez à ce qu'ils exécutent tous la même version des services WSUS.  
 
 > [!WARNING]  
->  La classification des mises à jour logicielles de type **Mises à niveau** n’est prise en charge qu’à partir de WSUS 4.0. Avant de synchroniser cette nouvelle classification et d’avoir la possibilité d’évaluer des ordinateurs Windows 10 dans un plan de maintenance de Windows 10, il est essentiel que vous installiez le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour WSUS sur vos points de mise à jour logicielle et serveurs de site. Ce correctif permet à WSUS sur un serveur Windows Server 2012 ou Windows Server 2012 R2 de synchroniser et de distribuer des mises à niveau de fonctionnalités pour Windows 10. Pour plus d’informations, consultez [Gérer Windows as a service](../../osd/deploy-use/manage-windows-as-a-service.md).  
+>  La classification des mises à jour logicielles de type **Mises à niveau** n’est prise en charge qu’à partir de WSUS 4.0. Avant de synchroniser cette nouvelle classification et d’avoir la possibilité d’évaluer des ordinateurs Windows 10 dans un plan de maintenance de Windows 10, il est essentiel que vous installiez le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour WSUS sur vos points de mise à jour logicielle et serveurs de site. Ce correctif permet à WSUS sur un serveur Windows Server 2012 ou Windows Server 2012 R2 de synchroniser et de distribuer des mises à niveau de fonctionnalités pour Windows 10. Pour plus d’informations, consultez [Gérer Windows as a service](../../osd/deploy-use/manage-windows-as-a-service.md).  
 >   
 >  Si vous synchronisez des mises à jour logicielles entrant dans la classification **Mises à niveau** avant d’installer le [correctif 3095113](https://support.microsoft.com/kb/3095113), consultez [Recover from synchronizing the Mises à niveau category before you install KB 3095113](#BKMK_RecoverUpgrades).  
 
@@ -78,7 +78,7 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
 
 -   [Paramètres client pour les mises à jour logicielles](../get-started/manage-settings-for-software-updates.md#a-namebkmkclientsettingsa-client-settings-for-software-updates).  
 
--   [Paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#a-namebkmksoftwareupdatesdevicesettinga-software-updates).  
+-   [Paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
 ### <a name="reporting-services-point"></a>Point de Reporting Services  
  Le rôle de système de site Point de Reporting Services peut afficher des rapports concernant les mises à jour logicielles. Ce rôle est facultatif, mais recommandé. Pour plus d’informations sur la création d’un point de Reporting Services, consultez [Configuration de la création de rapports](../../core/servers/manage/configuring-reporting.md).  
@@ -86,9 +86,9 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
 ##  <a name="a-namebkmkrecoverupgradesa-recover-from-synchronizing-the-upgrades-category-before-you-install-kb-3095113"></a><a name="BKMK_RecoverUpgrades"></a> Récupérer d’une synchronisation de la catégorie Mises à niveau avant l’installation du correctif KB 3095113  
  Vous devez installer le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour WSUS sur vos points de mise à jour logicielle et serveurs de site avant de synchroniser la classification **Mises à niveau** . Si le correctif n’est pas installé lors de l’activation de la classification **Mises à niveau** , WSUS détecte la mise à niveau de fonctionnalités de la build 1511 de Windows 10, même s’il ne peut pas correctement télécharger et déployer les packages associés. Si vous synchronisez des mises à niveau sans avoir préalablement installé le [correctif 3095113](https://support.microsoft.com/kb/3095113), cela a pour effet de remplir la base de données WSUS (SUSDB) avec des données inutilisables qui doivent être effacées avant le déploiement des mises à niveau.  Pour résoudre ce problème, procédez comme suit.  
 
-#### <a name="to-recover-from-synchronizing-the-upgrades-classification-before-you-install-kb-3095113"></a>Pour récupérer d’une synchronisation de la classification Mises à niveau avant d’installer le correctif KB 3095113  
+#### <a name="to-recover-from-synchronizing-the-upgrades-classification-before-you-install-kb-3095113"></a>Pour récupérer d’une synchronisation de la classification Mises à niveau avant d’installer le correctif KB 3095113  
 
-1.  Supprimez les mises à jour logicielles entrant dans la classification Mises à niveau. Vous pouvez utiliser un script PowerShell similaire à l’exemple suivant :  
+1.  Supprimez les mises à jour logicielles entrant dans la classification Mises à niveau. Vous pouvez utiliser un script PowerShell similaire à l’exemple suivant :  
 
     ```  
     $Server = Get-WSUSServer  
@@ -114,6 +114,6 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

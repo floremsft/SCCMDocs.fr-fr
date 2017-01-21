@@ -1,5 +1,5 @@
 ---
-title: "Présentation du déploiement de systèmes d’exploitation | Configuration Manager"
+title: "Introduction au déploiement de système d’exploitation | Microsoft Docs"
 description: "Comprenez les concepts avant de déployer des systèmes d’exploitation dans votre environnement Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ece68bd30e31595226f154fd1148b0ee55feceaf
+ms.sourcegitcommit: 55a9f1caedcfa810e9a97e43626e4cf5fdbcfa0d
+ms.openlocfilehash: 2baa6b7dbd66ab41bc9b67e8f43c313be233153c
 
 
 ---
 # <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Introduction au déploiement de système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’exploitation de différentes façons. Utilisez les informations contenues dans cette section pour comprendre comment déployer des systèmes d’exploitation et automatiser des tâches.
+Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’exploitation de différentes façons. Utilisez les informations contenues dans cette section pour comprendre comment déployer des systèmes d’exploitation et automatiser des tâches. 
 
 ##  <a name="a-namebkmkosdeploymentprocessa-the-operating-system-deployment-process"></a><a name="BKMK_OSDeploymentProcess"></a> Le processus de déploiement de système d’exploitation  
  Configuration Manager propose plusieurs méthodes que vous pouvez utiliser pour déployer un système d’exploitation. Vous devez effectuer plusieurs actions quelle que soit la méthode de déploiement utilisée.  
@@ -60,13 +60,13 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
 -   **Déploiements établis par PXE**: ces déploiements permettent aux ordinateurs clients de demander un déploiement sur le réseau. Avec cette méthode de déploiement, l'image du système d'exploitation et une image de démarrage Windows PE sont envoyées à un point de distribution qui est configuré pour accepter les requêtes de démarrage PXE. Pour plus d’informations, consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
--   **Rendre les systèmes d’exploitation disponibles dans le Centre logiciel** : vous pouvez déployer un système d’exploitation et le rendre disponible dans le Centre logiciel. Les clients Configuration Manager peuvent lancer l’installation du système d’exploitation à partir du Centre logiciel. Pour plus d’informations, consultez [Remplacer un ordinateur existant et transférer des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
+-   **Rendre les systèmes d’exploitation disponibles dans le Centre logiciel** : vous pouvez déployer un système d’exploitation et le rendre disponible dans le Centre logiciel. Les clients Configuration Manager peuvent lancer l’installation du système d’exploitation à partir du Centre logiciel. Pour plus d’informations, consultez [Remplacer un ordinateur existant et transférer des paramètres](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
 
--   **Déploiements multidiffusion** : ces déploiements économisent la bande passante réseau en envoyant de manière simultanée des données à plusieurs clients plutôt que d’envoyer une copie des données à chaque client via une connexion distincte. Avec cette méthode de déploiement, l'image du système d'exploitation est envoyée à un point de distribution. Celui-ci déploie à son tour l'image lorsque les ordinateurs clients demandent le déploiement. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+-   **Déploiements multidiffusion** : ces déploiements économisent la bande passante réseau en envoyant de manière simultanée des données à plusieurs clients plutôt que d’envoyer une copie des données à chaque client via une connexion distincte. Avec cette méthode de déploiement, l'image du système d'exploitation est envoyée à un point de distribution. Celui-ci déploie à son tour l'image lorsque les ordinateurs clients demandent le déploiement. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
--   **Déploiements de médias de démarrage** : ces déploiements vous permettent de déployer le système d’exploitation au démarrage de l’ordinateur de destination. Au démarrage de l'ordinateur de destination, il récupère la séquence de tâches, l'image du système d'exploitation et tout autre contenu requis à partir du réseau. Étant donné que le contenu n'est pas inclus sur le média, vous pouvez mettre à jour le contenu sans avoir à recréer le média. Pour plus d’informations, consultez [Créer un média de démarrage](../deploy-use/create-bootable-media.md).  
+-   **Déploiements de médias de démarrage** : ces déploiements vous permettent de déployer le système d’exploitation au démarrage de l’ordinateur de destination. Au démarrage de l'ordinateur de destination, il récupère la séquence de tâches, l'image du système d'exploitation et tout autre contenu requis à partir du réseau. Étant donné que le contenu n'est pas inclus sur le média, vous pouvez mettre à jour le contenu sans avoir à recréer le média. Pour plus d’informations, consultez [Créer un média de démarrage](../deploy-use/create-bootable-media.md).  
 
--   **Déploiements de médias autonomes** : ces déploiements vous permettent de déployer des systèmes d’exploitation dans les conditions suivantes :  
+-   **Déploiements de médias autonomes** : ces déploiements vous permettent de déployer des systèmes d’exploitation dans les conditions suivantes :  
 
     -   dans les environnements où il n'est pas pratique de copier une image du système d'exploitation ou d'autres packages volumineux sur le réseau ;  
 
@@ -74,18 +74,18 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
      Pour plus d’informations, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
 
--   **Déploiements de médias préparés** : les déploiements de médias préparés vous permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement préparé. Le média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un système nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
+-   **Déploiements de médias préparés** : les déploiements de médias préparés vous permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement préparé. Le média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un système nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
 
      Ensuite, dans l’environnement Configuration Manager, l’ordinateur commence par utiliser l’image de démarrage fournie par le média, puis il se connecte au point de gestion de site pour les séquences de tâches disponibles qui terminent le processus de téléchargement. Cette méthode de déploiement peut réduire le trafic réseau car l'image de démarrage et l'image du système d'exploitation sont déjà sur l'ordinateur de destination. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Pour plus d’informations, consultez [Créer un média préparé](../deploy-use/create-prestaged-media.md).  
 
 ##  <a name="a-namebkmkbootimagesa-boot-images"></a><a name="BKMK_BootImages"></a> Images de démarrage  
- Une image de démarrage dans Configuration Manager est une image Windows PE (WinPE) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Celles-ci sont considérées comme des images de démarrage par défaut. Les images de démarrage que vous créez et ajoutez à Configuration Manager sont considérées comme des images personnalisées. Les images de démarrage par défaut peuvent être remplacées automatiquement quand vous mettez à jour Configuration Manager. Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+ Une image de démarrage dans Configuration Manager est une image Windows PE (WinPE) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Celles-ci sont considérées comme des images de démarrage par défaut. Les images de démarrage que vous créez et ajoutez à Configuration Manager sont considérées comme des images personnalisées. Les images de démarrage par défaut peuvent être remplacées automatiquement quand vous mettez à jour Configuration Manager. Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
-##  <a name="a-namebkmkosimagesa-operating-system-images"></a><a name="BKMK_OSImages"></a> Images du système d’exploitation  
+##  <a name="a-namebkmkosimagesa-operating--system-images"></a><a name="BKMK_OSImages"></a> Images du système d’exploitation  
  Les images de système d’exploitation dans Configuration Manager sont stockées au format de fichier WIM (Windows Imaging Format) et représentent un regroupement compressé de fichiers et de dossiers de référence nécessaires pour installer et configurer avec succès un système d’exploitation sur un ordinateur. Pour tous les scénarios de déploiement de système d’exploitation, vous devez sélectionner une image de système d’exploitation. Vous pouvez utiliser l’image de système d’exploitation par défaut ou créer l’image de système d’exploitation à partir d’un ordinateur de référence que vous configurez. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
 ##  <a name="a-namebkmkosupgradepackagesa-operating-system-upgrade-packages"></a><a name="BKMK_OSUpgradePackages"></a> Packages de mise à niveau du système d’exploitation  
- Les packages de mise à niveau de système d’exploitation servent à mettre à niveau un système d’exploitation. Il s’agit de déploiements de système d’exploitation initiés par le programme d’installation. Vous importez des packages de mise à niveau de système d’exploitation dans Configuration Manager à partir d’un DVD ou d’un fichier ISO monté. Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
+ Les packages de mise à niveau de système d’exploitation servent à mettre à niveau un système d’exploitation. Il s’agit de déploiements de système d’exploitation initiés par le programme d’installation. Vous importez des packages de mise à niveau de système d’exploitation dans Configuration Manager à partir d’un DVD ou d’un fichier ISO monté. Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
 
 ##  <a name="a-namebkmkosdmediaa-media-to-deploy-operating-systems"></a><a name="BKMK_OSDMedia"></a> Médias pour déployer des systèmes d’exploitation  
  Vous pouvez créer plusieurs types de médias qui peuvent être utilisés pour déployer des systèmes d'exploitation. Les différents types de médias incluent le média qui est utilisé pour capturer des images de système d'exploitation et le média de démarrage, préparé et autonome qui est utilisé pour déployer un système d'exploitation. Les médias vous permettent de déployer des systèmes d’exploitation sur des ordinateurs qui ne disposent pas de connexion réseau ou qui possèdent une connexion avec une faible bande passante vers votre site Configuration Manager. Pour plus d’informations sur la façon d’utiliser des médias, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md).  
@@ -135,6 +135,6 @@ Vous pouvez utiliser Configuration Manager pour déployer des systèmes d’expl
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

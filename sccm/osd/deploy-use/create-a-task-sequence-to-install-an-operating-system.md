@@ -1,5 +1,5 @@
 ---
-title: "Créer une séquence de tâches pour installer un système d’exploitation | Configuration Manager"
+title: "Créer une séquence de tâches pour installer un système d’exploitation | Microsoft Docs"
 description: "Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation et d’autres contenus sur un ordinateur de destination."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5c2823ddfc873864b7617d730e14742b7451ef0f
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 41aa6cf69a746f0ab67d804f1ee0c70db05d65ee
 
 
 ---
 # <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation sur un ordinateur de destination. Vous pouvez créer une séquence de tâches qui fasse référence à l’image de démarrage chargée de démarrer l’ordinateur de destination, à l’image du système d’exploitation que vous voulez installer sur l’ordinateur de destination et à tout autre contenu supplémentaire, par exemple les autres applications ou les mises à jour logicielles que vous voulez installer. Vous devez ensuite déployer la séquence de tâches sur le regroupement qui contient l’ordinateur de destination.  
 
@@ -159,6 +159,6 @@ Dans System Center Configuration Manager, utilisez des séquences de tâches pou
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

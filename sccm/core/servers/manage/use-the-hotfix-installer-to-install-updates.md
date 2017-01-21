@@ -1,5 +1,5 @@
 ---
-title: "Programme d’installation de correctif logiciel | System Center Configuration Manager"
+title: "Programme d’installation de correctif logiciel | Microsoft Docs"
 description: "Découvrez quand et comment installer des mises à jour via le programme d’installation de correctif logiciel pour Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 03940a499416ce4231bda5feb8a2e323abdff578
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 8ffc7383e895909e6e6c4b8a7875fd5f0df2220e
 
 
 ---
 # <a name="use-the-hotfix-installer-to-install-updates-for-system-center-configuration-manager"></a>Utiliser le programme d’installation de correctif logiciel pour installer les mises à jour de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Certaines mises à jour de System Center Configuration Manager indisponibles sur le service cloud Microsoft ne peuvent être obtenues que hors bande. C’est le cas, par exemple, d’un correctif logiciel en édition limitée destiné à résoudre un problème spécifique.   
 Si vous devez installer une mise à jour (ou un correctif logiciel) reçu de Microsoft et que le fichier de cette mise à jour porte un nom se terminant par l’extension **.exe** (pas **update.exe**), vous utilisez le programme d’installation du correctif logiciel inclus dans le téléchargement de celui-ci pour installer la mise à jour directement sur le serveur de site Configuration Manager.  
@@ -54,9 +54,9 @@ L’Assistant crée également des déploiements que vous pouvez utiliser pour i
 
  Quand il s’exécute, l’Assistant crée sur le serveur de site un fichier **.cab** à utiliser avec Updates Publisher 2011. Si vous le souhaitez, vous pouvez configurer l'Assistant pour créer également un ou plusieurs packages de déploiement de logiciels. Vous pouvez utiliser ces déploiements pour installer des mises à jour de composants, tels que les clients ou la console Configuration Manager. Vous pouvez aussi installer les mises à jour manuellement sur des ordinateurs qui n’exécutent pas le client Configuration Manager.  
 
- Dans Configuration Manager, une mise à jour peut porter sur les trois groupes suivants :  
+ Dans Configuration Manager, une mise à jour peut porter sur les trois groupes suivants :  
 
--   Rôles de serveur Configuration Manager, comprenant :  
+-   Rôles de serveur Configuration Manager, comprenant :  
 
     -   Site d'administration centrale  
 
@@ -82,7 +82,7 @@ L’Assistant crée également des déploiements que vous pouvez utiliser pour i
 |&lt;Version_produit\>-QFE-KB&lt;ID_article_Base_connaissances\>-&lt;plateforme\>-&lt;langue\>.exe|Correspond au fichier de mise à jour. La ligne de commande pour ce fichier est gérée par Updatesetup.exe.<br /><br /> Exemple :<br />CM1511RTM-QFE-KB123456-X64-ENU.exe|  
 |Updatesetup.exe|Ce wrapper .msi gère l'installation du groupe de mises à jour.<br /><br /> Lorsque vous exécutez la mise à jour, Updatesetup.exe détecte la langue d'affichage de l'ordinateur sur lequel elle s'exécute. Par défaut, l'interface utilisateur de la mise à jour est l'anglais. Toutefois, si la langue d'affichage est prise en charge, l'interface utilisateur s'affiche dans la langue locale de l'ordinateur.|  
 |Licence_&lt;langue\>.rtf|Le cas échéant, chaque mise à jour contient un ou plusieurs fichiers de licence en fonction des langues prises en charge.|  
-|&lt;Produit&type_MàJ>-&lt;version_produit\>-&lt;ID_article_Base_connaissances\>-&lt;plateforme\>.msp|Quand la mise à jour concerne la console ou les clients Configuration Manager, le groupe de mises à jour inclut des fichiers correctifs Windows Installer (.msp) distincts.<br /><br /> Exemple :<br /><br /> **Mise à jour de la console Configuration Manager :** ConfigMgr1511-AdminUI-KB1234567-i386.msp<br /><br /> **Mise à jour du client :** ConfigMgr1511-client-KB1234567-i386.msp<br />ConfigMgr1511-client-KB1234567-x64.msp|  
+|&lt;Produit&type_MàJ>-&lt;version_produit\>-&lt;ID_article_Base_connaissances\>-&lt;plateforme\>.msp|Quand la mise à jour concerne la console ou les clients Configuration Manager, le groupe de mises à jour inclut des fichiers correctifs Windows Installer (.msp) distincts.<br /><br /> Exemple :<br /><br /> **Mise à jour de la console Configuration Manager :** ConfigMgr1511-AdminUI-KB1234567-i386.msp<br /><br /> **Mise à jour du client :** ConfigMgr1511-client-KB1234567-i386.msp<br />ConfigMgr1511-client-KB1234567-x64.msp|  
 
  Par défaut, le groupe de mises à jour enregistre ses actions dans un fichier .log sur le serveur de site. Le fichier journal possède le même nom que le groupe de mises à jour et est écrit dans le dossier **%SystemRoot%/Temp** .  
 
@@ -98,7 +98,7 @@ L’Assistant crée également des déploiements que vous pouvez utiliser pour i
 |&lt;Nom_serveur\>|Nom du serveur de site sur lequel vous exécutez le groupe de mises à jour.|  
 |SMS_&lt;code_site\>|Nom de partage du dossier d’installation de Configuration Manager.|  
 |&lt;Numéro_article_Base_connaissances\>|Numéro d'identification de l'article de la Base de connaissances pour ce groupe de mises à jour.|  
-|&lt;Type_MàJ\>|Type de mise à jour de Configuration Manager. L'Assistant crée un dossier distinct pour chaque type de mise à jour contenu dans le groupe de mises à jour. Les noms de dossier représentent les types de mise à jour. Il s'agit des dossiers suivants :<br /><br /> **Serveur**: comprend les mises à jour des serveurs de site, des serveurs de base de données de site et des ordinateurs qui exécutent le fournisseur SMS.<br /><br /> **Client** : inclut les mises à jour du client Configuration Manager.<br /><br /> **AdminConsole** : comprend les mises à jour de la console Configuration Manager.<br /><br /> Outre les types de mise à jour précédents, l'Assistant crée un dossier nommé **SCUP**. Ce dossier ne représente pas un type de mise à jour. Par contre, il contient le fichier .cab pour Updates Publisher.|  
+|&lt;Type_MàJ\>|Type de mise à jour de Configuration Manager. L'Assistant crée un dossier distinct pour chaque type de mise à jour contenu dans le groupe de mises à jour. Les noms de dossier représentent les types de mise à jour. Il s'agit des dossiers suivants :<br /><br /> **Serveur**: comprend les mises à jour des serveurs de site, des serveurs de base de données de site et des ordinateurs qui exécutent le fournisseur SMS.<br /><br /> **Client** : inclut les mises à jour du client Configuration Manager.<br /><br /> **AdminConsole** : comprend les mises à jour de la console Configuration Manager.<br /><br /> Outre les types de mise à jour précédents, l'Assistant crée un dossier nommé **SCUP**. Ce dossier ne représente pas un type de mise à jour. Par contre, il contient le fichier .cab pour Updates Publisher.|  
 |&lt;Plateforme\>|Dossier propre à la plate-forme. Il contient les fichiers de mise à jour propres à un type de processeur.  Ces dossiers sont les suivants :<br /><br />- x64<br /><br /> - I386|  
 
 ##  <a name="a-namebkmkinstalla-how-to-install-updates"></a><a name="bkmk_Install"></a> Comment installer des mises à jour  
@@ -155,7 +155,7 @@ Après avoir installé le groupe de mises à jour sur un serveur de site, vous p
 > [!WARNING]  
 >  Lorsque la mise à jour comporte des mises à jour pour le serveur de site et la base de données de site, la mise à jour n'est pas opérationnelle tant qu'elle n'est pas terminée à la fois sur le serveur de site et sur la base de données de site. Tant que la mise à jour n’est pas appliquée à la base de données du site, celui-ci est dans un état non pris en charge.  
 
- **Pour mettre à jour manuellement une base de données de site :**  
+ **Pour mettre à jour manuellement une base de données de site :**  
 
 1.  Sur le serveur de site, arrêtez le service SMS_SITE_COMPONENT_MANAGER, puis arrêtez le service SMS_EXECUTIVE.  
 
@@ -165,9 +165,9 @@ Après avoir installé le groupe de mises à jour sur un serveur de site, vous p
 
 4.  Redémarrez les services que vous avez arrêtés lors des étapes précédentes.  
 
-5.  Pendant son installation, le groupe de mises à niveau extrait **update.sql** à l'emplacement suivant sur le serveur de site : **\\\\&lt;Nom_serveur\>\SMS_&lt;code_site\>\Hotfix\\&lt;Numéro_article_Base_connaissances\>\update.sql**  
+5.  Pendant son installation, le groupe de mises à niveau extrait **update.sql** à l'emplacement suivant sur le serveur de site : **\\\\&lt;Nom_serveur\>\SMS_&lt;code_site\>\Hotfix\\&lt;Numéro_article_Base_connaissances\>\update.sql**  
 
-####  <a name="a-namebkmkprovidera-update-a-computer-that-runs-the-sms-provider"></a><a name="bkmk_provider"></a> Mettre à jour un ordinateur exécutant le fournisseur SMS  
+####  <a name="a-namebkmkprovidera-update-a-computer-that-runs-the-sms-provider"></a><a name="bkmk_provider"></a> Mettre à jour un ordinateur exécutant le fournisseur SMS  
  Après avoir installé un groupe de mises à jour incluant des mises à jour pour le fournisseur SMS, vous devez déployer la mise à jour sur chaque ordinateur qui exécute le fournisseur SMS. La seule exception est l'instance du fournisseur SMS déjà installée sur le serveur de site sur lequel vous installez le groupe de mises à jour. L'instance locale du fournisseur SMS sur le serveur de site est mise à jour lorsque vous installez le groupe de mises à jour.  
 
  Si vous supprimez puis réinstallez le fournisseur SMS sur un ordinateur, vous devez alors réinstaller la mise à jour pour le fournisseur SMS sur cet ordinateur.  
@@ -182,7 +182,7 @@ Après avoir installé le groupe de mises à jour sur un serveur de site, vous p
 
 Pour installer manuellement la mise à jour du client, sur chaque client Configuration Manager, vous devez exécuter le fichier **Msiexec.exe** et référencer le fichier .msp de mise à jour client spécifique à la plateforme.  
 
- Par exemple, vous pouvez utiliser la ligne de commande suivante pour une mise à jour client. Cette ligne de commande exécute MSIEXEC sur l’ordinateur client et fait référence au fichier .msp que le groupe de mises à jour a extrait sur le serveur de site : **msiexec.exe /p \\\\&lt;Nom_serveur\>\SMS_&lt;Code_site\>\Hotfix\\&lt;Numéro_article_Base_de_connaissances\>\Client\\&lt;Plateforme\>\\&lt;msp\> /L\*v &lt;fichier_journal\>REINSTALLMODE=mous REINSTALL=ALL**  
+ Par exemple, vous pouvez utiliser la ligne de commande suivante pour une mise à jour client. Cette ligne de commande exécute MSIEXEC sur l’ordinateur client et fait référence au fichier .msp que le groupe de mises à jour a extrait sur le serveur de site : **msiexec.exe /p \\\\&lt;Nom_serveur\>\SMS_&lt;Code_site\>\Hotfix\\&lt;Numéro_article_Base_de_connaissances\>\Client\\&lt;Plateforme\>\\&lt;msp\> /L\*v &lt;fichier_journal\>REINSTALLMODE=mous REINSTALL=ALL**  
 
 ###  <a name="a-namebkmkconsolea-update-configuration-manager-consoles"></a><a name="BKMK_console"></a> Mettre à jour des consoles Configuration Manager  
  Pour mettre à jour une console Configuration Manager, après l'installation initiale de la console, vous devez installer la mise à jour sur l'ordinateur qui exécute cette dernière.  
@@ -190,7 +190,7 @@ Pour installer manuellement la mise à jour du client, sur chaque client Configu
 > [!IMPORTANT]  
 >  Quand vous installez des mises à jour pour la console Configuration Manager et que le groupe de mises à jour comprend des mises à jour pour les serveurs, veillez à également installer les mises à jour de serveur sur le site que vous utilisez avec la console Configuration Manager.  
 
-Si l’ordinateur que vous mettez à jour exécute le client Configuration Manager :  
+Si l’ordinateur que vous mettez à jour exécute le client Configuration Manager :  
 
 -   Vous pouvez utiliser un déploiement pour installer la mise à jour. Pour plus d’informations sur l’utilisation des déploiements dans le cadre de l’installation des mises à jour, consultez la section [Déployer des mises à jour pour Configuration Manager](#BKMK_Deploy) dans cette rubrique.  
 
@@ -198,20 +198,20 @@ Si l’ordinateur que vous mettez à jour exécute le client Configuration Manag
 
 -   Vous pouvez installer manuellement la mise à jour sur chaque ordinateur. Pour installer manuellement la mise à jour de la console Configuration Manager, sur chaque ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter le fichier Msiexec.exe et faire référence au fichier .msp de mise à jour de la console Configuration Manager.  
 
-Par exemple, vous pouvez utiliser la ligne de commande suivante pour mettre à jour une console Configuration Manager. Cette ligne de commande exécute MSIEXEC sur l’ordinateur et fait référence au fichier .msp que le groupe de mises à jour a extrait sur le serveur de site : **msiexec.exe /p \\\\&lt;Nom_serveur\>\SMS_&lt;Code_site\>\Hotfix\\&lt;Numéro_article_Base_connaissances\>\AdminConsole\\&lt;Plateforme\>\\&lt;msp\> /L\*v &lt;fichier_journal\>REINSTALLMODE=mous REINSTALL=ALL**  
+Par exemple, vous pouvez utiliser la ligne de commande suivante pour mettre à jour une console Configuration Manager. Cette ligne de commande exécute MSIEXEC sur l’ordinateur et fait référence au fichier .msp que le groupe de mises à jour a extrait sur le serveur de site : **msiexec.exe /p \\\\&lt;Nom_serveur\>\SMS_&lt;Code_site\>\Hotfix\\&lt;Numéro_article_Base_connaissances\>\AdminConsole\\&lt;Plateforme\>\\&lt;msp\> /L\*v &lt;fichier_journal\>REINSTALLMODE=mous REINSTALL=ALL**  
 
 ##  <a name="a-namebkmkdeploya-deploy-updates-for-configuration-manager"></a><a name="BKMK_Deploy"></a> Déployer des mises à jour pour Configuration Manager  
  Après avoir installé le groupe de mises à jour sur un serveur de site, vous pouvez utiliser l’une des trois méthodes suivantes pour déployer des mises à jour sur des ordinateurs supplémentaires.  
 
-###  <a name="a-namebkmkdeployscupa-use-updates-publisher-2011-to-install-updates"></a><a name="BKMK_DeploySCUP"></a> Utiliser Updates Publisher 2011 pour installer des mises à jour  
+###  <a name="a-namebkmkdeployscupa-use-updates-publisher-2011-to-install-updates"></a><a name="BKMK_DeploySCUP"></a> Utiliser Updates Publisher 2011 pour installer des mises à jour  
  Lorsque vous installez le groupe de mises à jour sur un serveur de site, l’Assistant Installation crée un fichier catalogue pour l’éditeur de mise à jour, que vous pouvez utiliser pour déployer les mises à jour sur les ordinateurs concernés. L’Assistant crée toujours ce catalogue, même quand vous sélectionnez l’option **Use package and program to deploy this update**.  
 
- Le catalogue de l’éditeur de mise à jour est nommé **SCUPCatalog.cab** et se trouve sur l’ordinateur sur lequel s’exécute le groupe de mises à jour logicielles à l’emplacement suivant : **\\\\&lt;nom_serveur\>\SMS_&lt;code_site\>\Hotfix\\\&lt;Numéro_article_Base_connaissances\>\SCUP\SCUPCatalog.cab**  
+ Le catalogue de l’éditeur de mise à jour est nommé **SCUPCatalog.cab** et se trouve sur l’ordinateur sur lequel s’exécute le groupe de mises à jour logicielles à l’emplacement suivant : **\\\\&lt;nom_serveur\>\SMS_&lt;code_site\>\Hotfix\\\&lt;Numéro_article_Base_connaissances\>\SCUP\SCUPCatalog.cab**  
 
 > [!IMPORTANT]  
 >  Dans la mesure où le fichier SCUPCatalog.cab est créé à l'aide de chemins spécifiques du serveur de site sur lequel le groupe de mises à jour est installé, il ne peut pas être utilisé sur d'autres serveurs de site.  
 
- Une fois l’exécution de l’Assistant terminée, vous pouvez importer le catalogue dans l’éditeur de mise à jour, puis utiliser les mises à jour logicielles de Configuration Manager pour déployer les mises à jour. Pour plus d’informations sur l’éditeur de mise à jour, voir [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkID=83449) dans la bibliothèque TechNet pour System Center 2012.  
+ Une fois l’exécution de l’Assistant terminée, vous pouvez importer le catalogue dans l’éditeur de mise à jour, puis utiliser les mises à jour logicielles de Configuration Manager pour déployer les mises à jour. Pour plus d’informations sur l’éditeur de mise à jour, voir [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkID=83449) dans la bibliothèque TechNet pour System Center 2012.  
 
  Utilisez la procédure suivante pour importer le fichier SCUPCatalog.cab vers Updates Publisher et publier les mises à jour.  
 
@@ -269,6 +269,6 @@ Par exemple, vous pouvez utiliser la ligne de commande suivante pour mettre à j
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

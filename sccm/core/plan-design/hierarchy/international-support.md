@@ -1,5 +1,5 @@
 ---
-title: Prise en charge internationale | System Center Configuration Manager
+title: Prise en charge internationale | Microsoft Docs
 description: "Configurez System Center Configuration Manager pour respecter des exigences internationales spécifiques."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,19 +17,19 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 592ae2b8fbf55fa59afe909071a81b6bd3159ef7
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 37e45e604e89d3ce280bb2bff47d4a55b6cdfaf8
 
 
 ---
 # <a name="international-support-in-system-center-configuration-manager"></a>Prise en charge internationale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les sections suivantes fournissent des détails techniques pour vous aider à configurer System Center Configuration Manager pour en assurer la conformité à des exigences internationales spécifiques.  
 
 ## <a name="gb18030-requirements"></a>Normes GB18030  
- Configuration Manager respecte les normes GB18030 pour permettre son utilisation en Chine. Un déploiement de Configuration Manager doit disposer des configurations suivantes pour respecter les exigences des normes GB18030 :  
+ Configuration Manager respecte les normes GB18030 pour permettre son utilisation en Chine. Un déploiement de Configuration Manager doit disposer des configurations suivantes pour respecter les exigences des normes GB18030 :  
 
 -   Chaque ordinateur serveur de site et chaque ordinateur SQL Server utilisés avec Configuration Manager doivent utiliser un système d’exploitation chinois.  
 
@@ -46,6 +46,6 @@ Les sections suivantes fournissent des détails techniques pour vous aider à co
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

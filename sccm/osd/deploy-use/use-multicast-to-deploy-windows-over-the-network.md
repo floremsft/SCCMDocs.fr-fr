@@ -1,5 +1,5 @@
 ---
-title: "Utiliser la multidiffusion pour déployer Windows sur le réseau | Configuration Manager"
+title: "Utiliser la multidiffusion pour déployer Windows sur le réseau | Microsoft Docs"
 description: "Utilisez la multidiffusion dans votre environnement System Center Configuration Manager afin que plusieurs ordinateurs puissent télécharger simultanément l’image du système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: da83037a28194e3bae1e6afe4d4bca1ce43f2bf6
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 55266696aa7340fddda3a57ff90e20222ff665a5
 
 
 ---
 # <a name="use-multicast-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser la multidiffusion pour déployer Windows sur le réseau avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La multidiffusion est une méthode d'optimisation réseau que vous pouvez utiliser dans votre environnement System Center Configuration Manager où plusieurs clients sont susceptibles de télécharger simultanément la même image du système d'exploitation. En cas d'utilisation de la multidiffusion, plusieurs ordinateurs téléchargent simultanément l'image de système d'exploitation lorsqu'elle est multidiffusée par le point de distribution, plutôt que de faire en sorte que le point de distribution envoie une copie des données à chaque client à l'aide d'une connexion distincte.  
 
@@ -46,6 +46,6 @@ La multidiffusion est une méthode d'optimisation réseau que vous pouvez utilis
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

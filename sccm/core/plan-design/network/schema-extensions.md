@@ -1,5 +1,5 @@
 ---
-title: "Extensions de schéma | System Center Configuration Manager"
+title: "Extensions de schéma | Microsoft Docs"
 description: "Étendre le schéma Active Directory pour prendre en charge System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -18,14 +18,14 @@ ms.author: brenduns
 manager: angrobe
 robots: noindex
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f8c8533da62d215ed22f5235eefa687d5df41394
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: f230b6cbe97b72fee4f5d2e45260e6217ef2cec0
 
 
 ---
 # <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensions de schéma pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez étendre le schéma Active Directory pour prendre en charge Configuration Manager. Cette opération modifie un schéma Active Directory de forêts pour ajouter un nouveau conteneur et plusieurs attributs grâce auxquels les sites Configuration Manager peuvent publier dans Active Directory des informations clés accessibles aux clients de manière sécurisée.  Ces informations peuvent simplifier le déploiement et la configuration des clients et aider ces derniers à localiser les ressources du site, comme les serveurs sur lesquels le contenu a été déployé ou qui fournissent différents services aux clients.  
 
@@ -35,7 +35,7 @@ Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp
 
 ## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Considérations relatives à l'extension du schéma Active Directory pour Configuration Manager  
 
--   Les extensions de schéma Active Directory pour System Center Configuration Manager sont identiques à celles utilisées par Configuration Manage 2007 et Configuration Manager 2012. Si vous avez déjà étendu le schéma pour l’une de ces versions, vous n’avez plus besoin de l’étendre.  
+-   Les extensions de schéma Active Directory pour System Center Configuration Manager sont identiques à celles utilisées par Configuration Manage 2007 et Configuration Manager 2012. Si vous avez déjà étendu le schéma pour l’une de ces versions, vous n’avez plus besoin de l’étendre.  
 
 -   L’extension du schéma est une action irréversible, unique et à l’échelle de la forêt.  
 
@@ -49,7 +49,7 @@ Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp
 
     -   À partir des forêts Windows 2003, seuls les attributs ajoutés récemment sont répliqués.  
 
-**Appareils et clients qui n’utilisent pas le schéma Active Directory :**  
+**Appareils et clients qui n’utilisent pas le schéma Active Directory :**  
 
 -   Appareils mobiles gérés par le connecteur du serveur Exchange Server  
 
@@ -68,11 +68,11 @@ Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp
 -   Clients Windows détectés par Configuration Manager comme étant connectés à Internet  
 
 ## <a name="capabilities-that-benefit-from-extending-the-schema"></a>Fonctionnalités qui bénéficient de l’extension du schéma  
-**Installation de l’ordinateur client et attribution de site** : durant l’installation d’un nouveau client sur un ordinateur Windows, le client recherche des propriétés d’installation dans les services de domaine Active Directory.  
+**Installation de l’ordinateur client et attribution de site** : durant l’installation d’un nouveau client sur un ordinateur Windows, le client recherche des propriétés d’installation dans les services de domaine Active Directory.  
 
 -   **Solutions de contournement :** si vous n’étendez pas le schéma, utilisez l’une des options suivantes pour fournir des détails de configuration dont les ordinateurs ont besoin pour l’installation :  
 
-    -   **Utiliser l’installation poussée du client**. Avant d'utiliser la méthode d'installation du client, assurez-vous que toutes les conditions préalables sont remplies. Pour plus d’informations, voir « Dépendances liées aux méthodes d’installation » dans Configuration requise pour les clients d’ordinateurs.  
+    -   **Utiliser l’installation poussée du client**. Avant d'utiliser la méthode d'installation du client, assurez-vous que toutes les conditions préalables sont remplies. Pour plus d’informations, voir « Dépendances liées aux méthodes d’installation » dans Configuration requise pour les clients d’ordinateurs.  
 
     -   **Installer les clients manuellement** et fournir les propriétés d'installation du client en utilisant les propriétés de ligne de commande d'installation CCMSetup. Ces méthodes doivent inclure :  
 
@@ -82,7 +82,7 @@ Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp
 
     -   **Publier le point de gestion dans DNS ou WINS** et configurer des clients pour utiliser cette méthode d’emplacement de service.  
 
-**Configuration du port pour la communication client à serveur** : quand un client est installé, il est configuré avec les informations du port stockées dans Active Directory. Si vous modifiez ultérieurement le port de communication client à serveur pour un site, un client peut obtenir ce nouveau paramètre de port par les services de domaine Active Directory.  
+**Configuration du port pour la communication client à serveur** : quand un client est installé, il est configuré avec les informations du port stockées dans Active Directory. Si vous modifiez ultérieurement le port de communication client à serveur pour un site, un client peut obtenir ce nouveau paramètre de port par les services de domaine Active Directory.  
 
 -   **Solutions de contournement :** si vous n’étendez pas le schéma, utilisez l’une des options suivantes pour fournir de nouvelles configurations de port aux clients existants :  
 
@@ -90,7 +90,7 @@ Avant d’ [étendre le schéma Active Directory](https://msdnstage.redmond.corp
 
     -   **Déployer sur les clients un script personnalisé qui met à jour les informations de port**. Si les clients ne peuvent pas communiquer avec un site en raison d’une modification du port, vous ne pouvez pas utiliser Configuration Manager pour déployer ce script. Vous pouvez par exemple utiliser la Stratégie de groupe.  
 
-**Scénarios de déploiement de contenu** : quand vous créez du contenu sur un site et que vous déployez ce contenu vers un autre site de la hiérarchie, le site récepteur doit être capable de vérifier la signature des données du contenu signé. Cela nécessite un accès à la clé publique du site source dans lequel vous créez ces données. Quand vous étendez le schéma Active Directory pour Configuration Manager, la clé publique d’un site est rendue disponible à tous les sites de la hiérarchie.  
+**Scénarios de déploiement de contenu** : quand vous créez du contenu sur un site et que vous déployez ce contenu vers un autre site de la hiérarchie, le site récepteur doit être capable de vérifier la signature des données du contenu signé. Cela nécessite un accès à la clé publique du site source dans lequel vous créez ces données. Quand vous étendez le schéma Active Directory pour Configuration Manager, la clé publique d’un site est rendue disponible à tous les sites de la hiérarchie.  
 
 -   **Solutions de contournement :** si vous n’étendez pas le schéma, utilisez l’outil de maintenance de hiérarchie, **preinst.exe**, pour échanger les informations de la clé sécurisées entre les sites.  
 
@@ -150,6 +150,6 @@ Vous pouvez vous assurer que les listes précédentes sont à jour en consultant
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

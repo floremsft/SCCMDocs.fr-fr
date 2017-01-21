@@ -1,5 +1,5 @@
 ---
-title: Utiliser des services cloud | System Center Configuration Manager
+title: Utiliser des services cloud | Microsoft Docs
 description: "Configurer des ressources cloud pour System Center Configuration Manager afin de compléter votre infrastructure locale."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 72e01c23ab597ad5a446492c3dc371aa50b9d949
-ms.openlocfilehash: 9440123f6f13e19723657e7b4d5627f3a349a3b4
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 539ad555b85b7517507c21718dab0b79fdf4dfb8
 
 
 ---
 # <a name="use-cloud-services-with-system-center-configuration-manager"></a>Utiliser des services cloud avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager prend en charge plusieurs options de cloud qui complètent votre infrastructure locale et peuvent aider à résoudre certains problèmes comme :  
+System Center Configuration Manager prend en charge plusieurs options de cloud qui complètent votre infrastructure locale et peuvent aider à résoudre certains problèmes comme :  
 
 -   Gérer les appareils BYOD (en utilisant Intune pour la gestion des appareils mobiles)  
 
@@ -46,11 +46,11 @@ La configuration de ressources cloud n’est pas indispensable avant de déploye
 ### <a name="microsoft-azure-virtual-machines-for-cloud-based-infrastructure"></a>Machines virtuelles Microsoft Azure (pour infrastructure cloud)  
  Configuration Manager prend en charge l’utilisation d’ordinateurs exécutés en tant que machines virtuelles Azure, de la même manière que les ordinateurs exécutés localement dans votre réseau physique d’entreprise. Vous pouvez utiliser des machines virtuelles Azure dans les scénarios suivants :  
 
--   **Scénario 1** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients installés sur d’autres machines virtuelles.  
+-   **Scénario 1** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients installés sur d’autres machines virtuelles.  
 
--   **Scénario 2** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients qui ne s’exécutent pas dans Azure.  
+-   **Scénario 2** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients qui ne s’exécutent pas dans Azure.  
 
--   **Scénario 3** : vous pouvez exécuter différents rôles de système de site Configuration Manager sur des machines virtuelles tout en exécutant d’autres rôles sur votre réseau physique d’entreprise (avec une connectivité réseau appropriée pour les communications).  
+-   **Scénario 3** : vous pouvez exécuter différents rôles de système de site Configuration Manager sur des machines virtuelles tout en exécutant d’autres rôles sur votre réseau physique d’entreprise (avec une connectivité réseau appropriée pour les communications).  
 
 La configuration requise en matière de réseaux, de systèmes d’exploitation et de matériel qui s’applique à l’installation de Configuration Manager sur votre réseau physique d’entreprise est la même que celle qui s’applique à l’installation de Configuration Manager dans Microsoft Azure.  
 
@@ -61,7 +61,7 @@ En outre, les sites et les clients Configuration Manager qui s'exécutent sur de
 ### <a name="microsoft-azure-services-for-cloud-based-distribution-points"></a>Services Microsoft Azure (pour points de distribution cloud)  
  Vous pouvez utiliser un service Azure pour héberger un point de distribution Configuration Manager, appelé point de distribution cloud.  Vous pouvez [utiliser un point de distribution cloud avec System Center Configuration Manager](../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) en même temps que des points de distribution locaux et des points de distribution déployés sur des machines virtuelles Azure.  
 
- Cela diffère de l’utilisation d’une machine virtuelle Azure sur laquelle vous déployez un rôle de système de site. Points de distribution cloud :  
+ Cela diffère de l’utilisation d’une machine virtuelle Azure sur laquelle vous déployez un rôle de système de site. Points de distribution cloud :  
 
 -   Ils s’exécutent comme service dans Microsoft Azure, et non sur une machine virtuelle.  
 
@@ -83,7 +83,7 @@ Pour pouvoir héberger des points de distribution sur Azure, vous avez besoin d�
 Même si Intune utilise Microsoft Azure, vous n’êtes pas tenu de configurer Azure de façon indépendante, et vous ne vous exposez pas à des coûts en supplément de ceux de l’abonnement Intune.  
 
 ### <a name="additional-configuration-manager-capabilities"></a>Fonctionnalités supplémentaires de Configuration Manager  
- Certaines fonctionnalités de Configuration Manager peuvent se connecter à des services cloud, par exemple :  
+ Certaines fonctionnalités de Configuration Manager peuvent se connecter à des services cloud, par exemple :  
 
 -   Windows Server Update Services (WSUS)  
 
@@ -96,7 +96,7 @@ Pour utiliser ces fonctionnalités supplémentaires, vous n’avez pas besoin d�
 
  Pour plus d’informations, consultez les détails des différents scénarios de ressources cloud. Vous pouvez également consulter les rubriques suivantes sur la sécurité dans Microsoft Azure :  
 
--   [Microsoft Azure : Comprendre la gestion des comptes de sécurité dans Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
+-   [Microsoft Azure : Comprendre la gestion des comptes de sécurité dans Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
 
 -   [Windows Azure Security Overview (Présentation des fonctionnalités de sécurité de Windows Azure)](http://go.microsoft.com/fwlink/p/?LinkId=262970)  
 
@@ -106,6 +106,6 @@ Pour utiliser ces fonctionnalités supplémentaires, vous n’avez pas besoin d�
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

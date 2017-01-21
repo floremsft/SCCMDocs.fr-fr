@@ -1,5 +1,5 @@
 ---
-title: Installation via la ligne de commande | System Center Configuration Manager
+title: "Installation à partir d’une ligne de commande | Microsoft Docs"
 description: "Découvrez comment exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour diverses installations de site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,34 +16,34 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ea097188351cd60a13659e2860c5e0a2bac2c069
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: a148fd1fd438efc01418c30b059874cfdfa09725
 
 ---
 # <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utiliser une ligne de commande pour installer des sites de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Si vous le souhaitez, vous pouvez exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour diverses installations de site.
 
  ## <a name="supported-tasks-for-command-line-installs"></a>Tâches prises en charge pour des installations via la ligne de commande
- Cette méthode consistant à exécuter le programme d’installation prend en charge les tâches d’installation de site et de maintenance de site suivantes :
+ Cette méthode consistant à exécuter le programme d’installation prend en charge les tâches d’installation de site et de maintenance de site suivantes :
 
--   **Installez un site d’administration centrale ou un site principal à partir d’une ligne de commande :**  
+-   **Installez un site d’administration centrale ou un site principal à partir d’une ligne de commande :**  
   Consultez la rubrique [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).
 
- -  **Modifiez les langues utilisées sur un site d’administration centrale ou un site principal :**  
+ -  **Modifiez les langues utilisées sur un site d’administration centrale ou un site principal :**  
     Pour modifier les langues installées sur un site à partir d’une ligne de commande (y compris les langues d’appareils mobiles), procédez comme suit :  
 
      -   Exécutez le programme d’installation à partir de **&lt;chemin_installation_Configuraton_Manager\>\Bin\X64** sur le serveur de site.
      -   Utilisez l’option de ligne de commande **/MANAGELANGS**
      -   Spécifiez un fichier de jeu de caractères définissant les langues à ajouter ou supprimer.  
 
-    Par exemple, utilisez la syntaxe de commande suivante : **setupwpf.exe /MANAGELANGS &lt;fichier de script de langue\>**.  
+    Par exemple, utilisez la syntaxe de commande suivante : **setupwpf.exe /MANAGELANGS &lt;fichier de script de langue\>**.  
 
     Pour créer le fichier de script de langue, utilisez les informations fournies dans [Options de ligne de commande pour gérer les langues](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
 
- -  **Utilisez un fichier de script d’installation pour les installations sans assistance de site ou la récupération de site :**  
+ -  **Utilisez un fichier de script d’installation pour les installations sans assistance de site ou la récupération de site :**  
     Vous pouvez exécuter le programme d’installation à partir d’une ligne de commande en demandant au programme d’installation d’utiliser un script d’installation et d’effectuer une installation sans assistance de site. Vous pouvez aussi utiliser cette option pour récupérer un site.    
 
     Pour utiliser un script avec le programme d’installation :  
@@ -52,7 +52,7 @@ ms.openlocfilehash: ea097188351cd60a13659e2860c5e0a2bac2c069
 
     -   Le fichier de script doit être configuré avec les clés et valeurs requises.  
 
-    Pour effectuer une installation sans assistance d’un site d’administration centrale ou d’un site principal, le fichier de script doit être configuré avec les sections suivantes :  
+    Pour effectuer une installation sans assistance d’un site d’administration centrale ou d’un site principal, le fichier de script doit être configuré avec les sections suivantes :  
 
     -   Identification    
     -   Options    
@@ -61,7 +61,7 @@ ms.openlocfilehash: ea097188351cd60a13659e2860c5e0a2bac2c069
 
     -   CloudConnectorOptions  
 
-    Pour récupérer un site, vous devez configurer les sections suivantes du fichier de script :  
+    Pour récupérer un site, vous devez configurer les sections suivantes du fichier de script :  
 
     -   Identification  
 
@@ -86,7 +86,7 @@ ms.openlocfilehash: ea097188351cd60a13659e2860c5e0a2bac2c069
 > [!NOTE]  
 >  Vous ne pouvez pas utiliser le fichier de script d’installation sans assistance pour mettre à niveau un site d’évaluation vers une installation sous licence de Configuration Manager.  
 
-**Pour créer le script** :  
+**Pour créer le script** :  
 Le script d’installation est automatiquement créé lorsque vous [exécutez le programme d’installation pour installer un site à l’aide de l’interface utilisateur](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quand vous confirmez les paramètres dans la page **Résumé** de l’Assistant :  
 
 -   Le programme d’installation crée le script **%TEMP%\ConfigMgrAutoSave.ini**.  Vous pouvez renommer ce fichier avant de l’utiliser, en veillant à conserver l’extension de fichier .ini.  
@@ -104,7 +104,7 @@ Lorsque le programme d'installation crée le script d'installation sans assistan
 
 Lorsque le programme d'installation démarre l'installation effective du site, le script créé automatiquement fait l'objet d'une nouvelle écriture pour effacer la valeur de clé de produit dans le script créé. Avant d’utiliser le script pour une installation sans assistance d’un nouveau site, vous pouvez modifier le script pour fournir une clé de produit valide ou spécifier une installation d’évaluation de Configuration Manager.  
 
-**Le script contient les noms de section, les noms de clé et les valeurs :**  
+**Le script contient les noms de section, les noms de clé et les valeurs :**  
 
 -   Les noms de clés de section requis varient en fonction du type d’installation faisant l’objet du script.  
 
@@ -129,6 +129,6 @@ Lorsque le programme d'installation démarre l'installation effective du site, l
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

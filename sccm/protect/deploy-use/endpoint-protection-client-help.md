@@ -1,5 +1,5 @@
 ---
-title: Aide du client Endpoint Protection | System Center Configuration Manager
+title: Aide du client Endpoint Protection | Microsoft Docs
 description: "Découvrez les fonctionnalités et améliorations dans Endpoint Protection qui vous aident à protéger votre ordinateur contre les menaces."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,17 +16,17 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3b3f16904de68a226db8cacc62bd6acf8dedd8c9
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 870aa9766c995a5c8858b9a8c9a5537cd5f82840
 
 
 ---
 # <a name="endpoint-protection-client-help"></a>Aide Endpoint Protection Client
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Cette version d’Endpoint Protection inclut les fonctionnalités suivantes pour mieux protéger votre ordinateur contre les menaces :  
+Cette version d’Endpoint Protection inclut les fonctionnalités suivantes pour mieux protéger votre ordinateur contre les menaces :  
 
 -   **Intégration du Pare-feu Windows** Le programme d’installation de Endpoint Protection vous permet d’activer ou de désactiver le Pare-feu Windows.  
 
@@ -52,6 +52,6 @@ Cette version d’Endpoint Protection inclut les fonctionnalités suivantes pour
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

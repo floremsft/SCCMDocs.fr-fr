@@ -1,5 +1,5 @@
 ---
-title: "Déployer des mises à jour logicielles | Configuration Manager"
+title: "Déployer des mises à jour logicielles | Microsoft Docs"
 description: "Choisissez les mises à jour logicielles dans la console Configuration Manager pour démarrer manuellement le processus de déploiement ou déployer automatiquement des mises à jour."
 keywords: 
 author: dougeby
@@ -13,14 +13,14 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: b9e922c526750a04b3b7b7b24106fcb8900e73fa
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 70a0ad1da03a7ca88df206fec683ab1df2b531e1
 
 ---
 
 #  <a name="a-namebkmksumdeploya-deploy-software-updates"></a><a name="BKMK_SUMDeploy"></a> Déployer des mises à jour logicielles  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La phase de déploiement de mises à jour logicielles consiste à déployer les mises à jour logicielles. Quelle que soit la façon dont vous déployez des mises à jour logicielles, les mises à jour sont généralement ajoutées à un groupe de mises à jour logicielles, les mises à jour logicielles sont téléchargées vers les points de distribution, et le groupe de mises à jour est déployé sur les clients. Lorsque vous créez le déploiement, une stratégie de mise à jour logicielle associée est envoyée aux ordinateurs clients, les fichiers de contenu des mises à jour logicielles sont téléchargés à partir d’un point de distribution vers le cache local sur les ordinateurs clients, puis les mises à jour logicielles peuvent être installées à partir du client. Les clients sur Internet téléchargent le contenu auprès de Microsoft Update.  
 
@@ -45,7 +45,7 @@ Vous pouvez sélectionner les mises à jour logicielles dans la console Configur
 Pour obtenir des instructions détaillées, consultez [Déployer manuellement des mises à jour logicielles](manually-deploy-software-updates.md).
 
 ## <a name="automatically-deploy-software-updates"></a>Déployer automatiquement des mises à jour logicielles
-La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Il s’agit d’une méthode courante pour le déploiement des mises à jour logicielles mensuelles (généralement appelées « Patch Tuesday ») et pour la gestion des mises à jour de définitions. Quand la règle s’exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (le cas échéant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours du dernier mois) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés aux points de distribution, et les mises à jour logicielles sont déployées sur les clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique des mises à jour logicielles :  
+La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Il s’agit d’une méthode courante pour le déploiement des mises à jour logicielles mensuelles (généralement appelées « Patch Tuesday ») et pour la gestion des mises à jour de définitions. Quand la règle s’exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (le cas échéant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours du dernier mois) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés aux points de distribution, et les mises à jour logicielles sont déployées sur les clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique des mises à jour logicielles :  
 
 1.  Créez une règle de déploiement automatique qui spécifie les paramètres de déploiement.
 2.  Les mises à jour logicielles sont ajoutées à un groupe de mises à jour logicielles.  
@@ -77,6 +77,6 @@ The Configuration Manager client downloads the content for required software upd
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

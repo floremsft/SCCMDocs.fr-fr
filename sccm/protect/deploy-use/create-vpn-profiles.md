@@ -1,8 +1,8 @@
 ---
-title: "Comment créer des profils VPN dans System Center Configuration Manager"
+title: "Guide pratique pour créer des profils VPN dans System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez comment créer des profils VPN dans System Center Configuration Manager."
-ms.custom: na
-ms.date: 10/28/2016
+ms.custom: 
+ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,24 +12,25 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f338e4db-73b5-45ff-92f4-1b89a8ded989
 caps.latest.revision: 15
+author: nbigman
 caps.handback.revision: 0
 ms.author: nbigman
 ms.manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: a65de5feae2ff44f938ce8b7e3c8d23d560bb180
-ms.openlocfilehash: bcea8676c163a8aba1bc7f3364fde52375f52429
+ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
+ms.openlocfilehash: f674aa5502e4b3b45d0eda119419863892d72cff
 
 
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Comment créer des profils VPN dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 > [!NOTE]  
 >
 > - Pour plus d’informations sur les types de connexion disponibles pour les différentes plateformes d’appareils, consultez [Profils VPN dans System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
-> - Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications).
+> - Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
 
 ### <a name="start-the-create-vpn-profile-wizard"></a>Démarrer l'Assistant Création d'un profil VPN  
 
@@ -48,9 +49,9 @@ ms.openlocfilehash: bcea8676c163a8aba1bc7f3364fde52375f52429
         > [!IMPORTANT]  
         >  N’utilisez pas les caractères \\/:*?<>&#124;, ou le caractère espace dans le nom du profil VPN, car ces caractères ne sont pas pris en charge par le profil VPN de Windows Server.  
 
-    -   **Description** : entrez une description pour vous aider à trouver le profil dans la console System Center Configuration Manager (jusqu’à 256 caractères).  
+    -   **Description** : entrez une description pour vous aider à trouver le profil dans la console System Center Configuration Manager (jusqu’à 256 caractères).  
 
-    -   **Importer un élément de profil VPN existant à partir d’un fichier** : sélectionnez cette option pour afficher la page **Importer un profil VPN**. Dans cette page, vous pouvez importer des informations de profil VPN qui ont été précédemment exportées vers un fichier XML (systèmes d'exploitation Windows 8.1 et Windows RT uniquement).  
+    -   **Importer un élément de profil VPN existant à partir d’un fichier** : sélectionnez cette option pour afficher la page **Importer un profil VPN**. Dans cette page, vous pouvez importer des informations de profil VPN qui ont été précédemment exportées vers un fichier XML (systèmes d'exploitation Windows 8.1 et Windows RT uniquement).  
 
 ### <a name="provide-connection-information-for-the-vpn-profile"></a>Fournir des informations de connexion pour le profil VPN  
 
@@ -81,18 +82,18 @@ ms.openlocfilehash: bcea8676c163a8aba1bc7f3364fde52375f52429
     |**Par VPN d'application (iOS 7 et versions ultérieures, Mac OS X 10.9 et versions ultérieures)**|Sélectionnez cette option si vous souhaitez associer cette connexion VPN à une application iOS pour que la connexion s'ouvre quand l'application est exécutée. Vous pouvez associer le profil VPN à une application lors de son déploiement.|- <br />                        Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
     |**Code XML personnalisé (facultatif)**|Vous permet de spécifier des commandes XML personnalisées qui configurent la connexion VPN.<br /><br /> Exemples :<br /><br /> Pour **Pulse Secure**:<br /><br /> **<pulse-schema><isSingleSignOnCredential\>true</isSingleSignOnCredential\></pulse-schema>**<br /><br /> Pour **CheckPoint VPN Mobile**:<br /><br /> **&lt;CheckPointVPN port="443" name="CheckPointSelfhost" sso="true" debug="3" /\>**<br /><br /> Pour **Dell SonicWALL Mobile Connect**:<br /><br /> **<MobileConnect\><Compression\>false</Compression\><debugLogging\>True</debugLogging\><packetCapture\>False</packetCapture\></MobileConnect\>**<br /><br /> Pour **Client F5 Edge**:<br /><br /> **&lt;f5-vpn-conf&gt;&lt;single-sign-on-credential /&gt;&lt;/f5-vpn-conf&gt;**<br /><br /> Pour plus d'informations sur la façon d'écrire des commandes XML personnalisées, reportez-vous à la documentation du VPN de chaque fabricant.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
 
-####   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Fonctionnalités VPN Windows 10, disponibles quand vous utilisez Configuration Manager avec Intune  
+####   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Fonctionnalités VPN Windows 10, disponibles quand vous utilisez Configuration Manager avec Intune  
 
 
 > [!NOTE]  
-> Le nom d’un profil VPN qui utilise des fonctionnalités VPN Windows 10 ne peut pas être au format Unicode ni contenir des caractères spéciaux.
+> Le nom d’un profil VPN qui utilise des fonctionnalités VPN Windows 10 ne peut pas être au format Unicode ni contenir des caractères spéciaux.
 
 
 |Option|Plus d'informations|Type de connexion|  
 |------------|----------------------|---------------------|  
 |**Ignorer VPN en cas de connexion à un réseau Wi-Fi d'entreprise**|Indique que la connexion VPN n'est pas utilisée quand l'appareil est connecté au réseau Wi-Fi d'entreprise. Entrez le nom du réseau approuvé, qui sera utilisé pour déterminer si l’appareil est connecté au réseau d’entreprise.|Tout|  
 |**Règles de trafic réseau**|Définissez les protocoles, les ports locaux et distants et les plages d’adresses à activer pour la connexion VPN.<br /><br /> **Remarque :** si vous ne créez pas de règle de trafic réseau, l’ensemble des protocoles, ports et plages d’adresses sont activés. Dès lors que vous créez une règle, seuls les protocoles, les ports et les plages d’adresses que vous spécifiez dans cette règle ou dans des règles supplémentaires sont utilisés par la connexion VPN.|Tout|  
-|**Itinéraires**|Itinéraires qui utilisent la connexion VPN. Notez que la création de plus de 60 itinéraires peut entraîner l’échec de la stratégie. |Tout|  
+|**Itinéraires**|Itinéraires qui utilisent la connexion VPN. Notez que la création de plus de 60 itinéraires peut entraîner l’échec de la stratégie. |Tout|  
 |**Serveurs DNS**|Serveurs DNS qui sont utilisés par la connexion VPN une fois la connexion établie.|Tout|  
 |**Applications qui se connectent automatiquement au VPN**|Vous pouvez ajouter des applications, ou importer des listes d’applications, qui utilisent automatiquement la connexion VPN. Le type d’application détermine l’identificateur de l’application. Pour une application de bureau, fournissez le chemin de fichier de l’application. Pour une application universelle, indiquez le nom de la famille de packages (PFN). Pour savoir comment rechercher le nom PFN pour une application, consultez [Rechercher le nom de la famille de packages pour le VPN par application](../../protect/deploy-use/find-a-pfn-for-per-app-vpn.md). |Tout|
 
@@ -129,13 +130,21 @@ ms.openlocfilehash: bcea8676c163a8aba1bc7f3364fde52375f52429
             >   
             >  Si le certificat SCEP que vous spécifiez n’est pas conforme ou n’a pas été déployé, le profil VPN n’est pas installé sur l’appareil.
             >  
-            >  Les appareils qui exécutent iOS prennent uniquement en charge RSA SecurID et MSCHAP v2 comme méthode d’authentification quand le type de connexion est PPTP. Pour éviter toute erreur, déployez un profil VPN PPTP distinct sur les appareils qui exécutent iOS.  
+            >  Les appareils qui exécutent iOS prennent uniquement en charge RSA SecurID et MSCHAP v2 comme méthode d’authentification quand le type de connexion est PPTP. Pour éviter toute erreur, déployez un profil VPN PPTP distinct sur les appareils qui exécutent iOS.  
 
-               - Paramètres **Accès conditionnel** et **Domaine principal de la Protection des données d’entreprise**, pris en charge uniquement quand vous utilisez Configuration Manager sans Intune, accessibles en sélectionnant **Advanced** (Avancé). Pour plus d’informations sur la protection des données d’entreprise, consultez [Créer une stratégie Protection des informations Windows (WIP) à l’aide de Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).
-        
-        ![Configurer l’accès conditionnel pour VPN](../media/vpn-conditional-access.png)
+        - **Accès conditionnel**
+            - Choisissez **Activer l’accès conditionnel pour cette connexion VPN** pour vérifier que les appareils qui se connectent au VPN ont été testés en vue de la conformité de l’accès conditionnel avant la connexion. Les stratégies de conformité sont décrites dans [Stratégies de conformité des appareils dans System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md)
+            - Choisissez **Activer l’authentification unique avec certificat de remplacement** pour choisir un certificat autre que le certificat d’authentification VPN pour la conformité des appareils. Si vous choisissez cette option, indiquez les valeurs de **Utilisation améliorée de la clé** (liste séparée par des virgules) et **Hachage de l’émetteur** pour le certificat approprié que le client VPN doit localiser.
 
-        -   Pour certaines méthodes d’authentification, vous pouvez cliquer sur **Configurer** pour ouvrir la boîte de dialogue Propriétés de Windows (si la version de Windows sur laquelle vous exécutez la console System Center Configuration Manager prend en charge cette méthode d’authentification), dans laquelle vous pouvez configurer les propriétés de la méthode d’authentification.  
+         - **Protection des informations Windows** : Indiquez l’identité d’entreprise gérée par l’entreprise, qui est généralement le domaine principal de votre organisation, par exemple, *contoso.com*. Vous pouvez spécifier plusieurs domaines appartenant à votre organisation en les séparant avec le caractère « | ». Par exemple, *contoso.com|newcontoso.com*.   
+            Pour plus d’informations sur la protection des informations Windows, consultez [Créer une stratégie Protection des informations Windows (WIP) à l’aide de Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
+
+         ![Configurer l’accès conditionnel pour VPN](../media/vpn-conditional-access.png)
+
+
+        > [!NOTE]  
+        >
+        >Pour certaines méthodes d’authentification, vous pouvez cliquer sur **Configurer** pour ouvrir la boîte de dialogue Propriétés de Windows (si la version de Windows sur laquelle vous exécutez la console System Center Configuration Manager prend en charge cette méthode d’authentification), dans laquelle vous pouvez configurer les propriétés de la méthode d’authentification.  
 
 ### <a name="configure-proxy-settings-for-the-vpn-profile"></a>Configurer des paramètres proxy pour le profil VPN  
 
@@ -144,27 +153,27 @@ ms.openlocfilehash: bcea8676c163a8aba1bc7f3364fde52375f52429
 2.  Spécifiez des détails sur votre serveur proxy et ses paramètres. Pour plus d’informations, consultez la documentation de Windows Server.  
 
 > [!NOTE]  
->  Sur les ordinateurs Windows 8.1, le profil VPN n’affiche pas les informations de proxy tant que vous n’êtes pas connecté au VPN avec cet ordinateur.  
+>  Sur les ordinateurs Windows 8.1, le profil VPN n’affiche pas les informations de proxy tant que vous n’êtes pas connecté au VPN avec cet ordinateur.  
 
 
 ### <a name="configure-further-dns-settings-if-required"></a>Configurer les paramètres DNS supplémentaires (si nécessaire)  
  Dans la page **Configurer une connexion VPN automatique** de l'Assistant, vous pouvez configurer les paramètres suivants :  
 
--   **Activer VPN à la demande** : sélectionnez cette option si vous souhaitez configurer d’autres paramètres DNS dans cette page de l’Assistant pour les appareils Windows Phone 8.1.
+-   **Activer VPN à la demande** : sélectionnez cette option si vous souhaitez configurer d’autres paramètres DNS dans cette page de l’Assistant pour les appareils Windows Phone 8.1.
 
 > [!Note]  
-> Ce paramètre s’applique uniquement aux appareils Windows Phone 8.1 et ne doit être activé que sur les profils VPN destinés à être déployés sur des appareils Windows Phone 8.1.
+> Ce paramètre s’applique uniquement aux appareils Windows Phone 8.1 et ne doit être activé que sur les profils VPN destinés à être déployés sur des appareils Windows Phone 8.1.
 
 
--   Liste de suffixes DNS (pour les appareils Windows Phone 8.1 uniquement) : configure les domaines qui établiront une connexion VPN. Pour chaque domaine que vous spécifiez, ajoutez le suffixe DNS, l'adresse du serveur DNS et l'une des actions à la demande suivantes :  
+-   Liste de suffixes DNS (pour les appareils Windows Phone 8.1 uniquement) : configure les domaines qui établiront une connexion VPN. Pour chaque domaine que vous spécifiez, ajoutez le suffixe DNS, l'adresse du serveur DNS et l'une des actions à la demande suivantes :  
 
-    -   **Ne jamais établir** : ne jamais ouvrir de connexion VPN  
+    -   **Ne jamais établir** : ne jamais ouvrir de connexion VPN  
 
-    -   **Établir si nécessaire** : ouvrir une connexion VPN uniquement si l’appareil doit se connecter aux ressources  
+    -   **Établir si nécessaire** : ouvrir une connexion VPN uniquement si l’appareil doit se connecter aux ressources  
 
-    -   **Toujours établir** : toujours ouvrir la connexion VPN  
+    -   **Toujours établir** : toujours ouvrir la connexion VPN  
 
--   **Fusionner** : copie tous les suffixes DNS que vous avez configurés dans la **Liste de réseaux approuvés**.  
+-   **Fusionner** : copie tous les suffixes DNS que vous avez configurés dans la **Liste de réseaux approuvés**.  
 
 -   **Liste de réseaux approuvés** (pour les appareils Windows Phone 8.1 uniquement) : spécifiez un suffixe DNS sur chaque ligne. Si l'appareil se trouve sur un réseau approuvé, la connexion VPN n'est pas ouverte.  
 
@@ -194,12 +203,12 @@ Sur la page **Plates-formes prises en charge** de l' **Assistant Création d'un 
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-- Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications).
+- Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
 
 - Déployez le profil VPN comme décrit dans [Guide pratique pour déployer des profils dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

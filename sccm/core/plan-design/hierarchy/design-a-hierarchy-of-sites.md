@@ -1,5 +1,5 @@
 ---
-title: "Concevoir une hiérarchie | System Center Configuration Manager"
+title: "Créer une hiérarchie | Microsoft Docs"
 description: "Découvrez les topologies et les options de gestion disponibles pour System Center Configuration Manager afin de pouvoir planifier votre hiérarchie de site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 783fb4d61aab83ad64b9cec332e90d6c9de59f47
-ms.openlocfilehash: b1ed3011356a794b7b0913a1c8f189230d8957b2
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: 000acfec2cd61cc2d69e1bbd555b10fc22a40318
 
 
 ---
 # <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Concevoir une hiérarchie de sites pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant d’installer le premier site d’une nouvelle hiérarchie System Center Configuration Manager, vous devez comprendre les topologies disponibles pour Configuration Manager, les types de sites disponibles et leurs relations mutuelles, ainsi que l’étendue de gestion fournie par chaque type de site. Après avoir étudié les options de gestion de contenu qui peuvent réduire le nombre de sites à installer, vous pouvez planifier une topologie qui répond efficacement aux besoins de votre entreprise et peut être étendue par la suite pour gérer la croissance à venir.  
 
@@ -35,7 +35,7 @@ Avant d’installer le premier site d’une nouvelle hiérarchie System Center C
  Les topologies de hiérarchie peuvent aller d’un site principal autonome unique à un groupe de sites principaux et secondaires connectés avec un site d’administration centrale dans le site de niveau supérieur de la hiérarchie.    
 Le principal facteur qui détermine le type et le nombre de sites que vous utilisez dans une hiérarchie est généralement le nombre et le type d’appareils que vous devez prendre en charge :  
 
- **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
  Les avantages de cette topologie sont notamment les suivants :  
 
@@ -48,7 +48,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 -   Ce choix n’est pas définitif. Vous pouvez convertir une hiérarchie principale autonome en une hiérarchie plus grande avec un site d’administration centrale. Cela vous permet d’installer ensuite de nouveaux sites principaux pour étendre l’échelle de votre déploiement.  
 
 
-**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** Utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Les avantages de cette topologie sont notamment les suivants :  
+**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** Utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Les avantages de cette topologie sont notamment les suivants :  
 
 -   Nécessaire quand vous avez besoin d’utiliser plusieurs sites principaux.  
 
@@ -61,7 +61,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 ##  <a name="a-namebkmkchoosecasa-determine-when-to-use-a-central-administration-site"></a><a name="BKMK_ChooseCAS"></a> Déterminer quand utiliser un site d’administration centrale  
  Utilisez un site d'administration centrale pour configurer des paramètres à l'échelle de la hiérarchie et surveiller tous les sites et objets dans la hiérarchie. Ce type de site ne gère pas directement les clients, mais il coordonne la réplication de données inter-site, y compris la configuration de sites et de clients dans toute la hiérarchie.  
 
-**Les informations suivantes peuvent vous aider à déterminer quand installer un site d’administration centrale :**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site d’administration centrale :**  
 
 -   Le site d’administration centrale est le site de niveau supérieur dans une hiérarchie.  
 
@@ -97,7 +97,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 -   Pour répondre aux exigences de gestion organisationnelles. Par exemple, vous pouvez installer un site principal à un emplacement distant pour gérer le transfert de contenu de déploiement dans un réseau à faible bande passante. Cependant, avec System Center Configuration Manager, vous pouvez utiliser des options pour limiter l’utilisation de la bande passante réseau lors du transfert de données vers un point de distribution, et cette fonctionnalité de gestion du contenu peut remplacer le besoin d’installer des sites supplémentaires.  
 
 
-**Les informations suivantes peuvent vous aider à déterminer quand installer un site principal :**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site principal :**  
 
 -   Un site principal peut être un site principal autonome ou un site principal enfant dans une hiérarchie plus grande. Lorsqu'un site principal est membre d'une hiérarchie avec un site d'administration centrale, les sites utilisent la réplication de base de données pour répliquer des données entre les sites. Sauf si vous avez besoin de prendre en charge un nombre de clients et de périphériques supérieur à la capacité d'un seul site principal, envisagez l'installation d'un site principal autonome.  Après l’installation d’un site principal autonome, vous pouvez l’étendre pour qu’il rende compte à un nouveau site d’administration centrale, pour faire monter votre déploiement en puissance.  
 
@@ -125,7 +125,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
  Si vous ne souhaitez pas installer de site secondaire et que vous avez des clients à des emplacements distants, utilisez Windows BranchCache ou installez des points de distribution qui sont activés pour la planification et le contrôle de la bande passante. Vous pouvez utiliser ces options de gestion de contenu avec ou sans sites secondaires et elles peuvent vous aider à réduire le nombre de sites et de serveurs que vous devez installer. Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Déterminer quand utiliser les options de gestion de contenu](#BKMK_ChooseSecondaryorDP).  
 
 
-**Les informations suivantes peuvent vous aider à déterminer quand installer un site secondaire :**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site secondaire :**  
 
 -   Les sites secondaires installent automatiquement SQL Server Express pendant l’installation de site si une instance locale de SQL Server n’est pas disponible.  
 
@@ -141,7 +141,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
  Si vous possédez des clients dans des emplacements réseau distants, envisagez d'utiliser une ou plusieurs options de gestion de contenu plutôt qu'un site principal ou secondaire. Souvent, vous n’avez pas besoin d’installer un site quand vous utilisez Windows BranchCache, quand vous configurez des points de distribution pour le contrôle de la bande passante, ou quand vous copiez manuellement du contenu vers des points de distribution (préparation du contenu).  
 
 
-**Envisagez de déployer un point de distribution plutôt que d’installer un autre site si l’une des conditions suivantes s’applique :**  
+**Envisagez de déployer un point de distribution plutôt que d’installer un autre site si l’une des conditions suivantes s’applique :**  
 
 -   Votre bande passante réseau est suffisante pour que les ordinateurs clients situés à l’emplacement distant communiquent avec un point de gestion pour télécharger une stratégie client et envoient des informations d’inventaire, d’état de rapport et de découverte.  
 
@@ -152,7 +152,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 ##  <a name="a-namebkmkbeyonda-beyond-hierarchy-topology"></a><a name="bkmk_beyond"></a> Au-delà de la topologie de la hiérarchie  
  En plus de la topologie de la hiérarchie initiale, réfléchissez aux services ou aux fonctionnalités qui seront disponibles à partir de différents sites dans la hiérarchie (rôles de système de site), et à la façon dont les fonctionnalités et configurations à l’échelle de la hiérarchie seront gérées dans votre infrastructure. Les éléments suivants représentent les considérations les plus courantes, qui sont traitées dans des rubriques distinctes. Ces éléments doivent être pris en compte, car ils peuvent influencer ou être influencés par la conception de votre hiérarchie :  
 
--   Quand vous vous préparez à [gérer des ordinateurs et des appareils avec System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), déterminez si les appareils que vous gérez sont locaux, situés dans le cloud ou comptent des appareils appartenant à l’utilisateur (BYOD).  Étudiez également la façon dont vous allez gérer les appareils qui sont pris en charge par plusieurs options de gestion, tels que des ordinateurs Windows 10 pouvant être gérés directement par Configuration Manager ou via l’intégration à Microsoft Intune.  
+-   Quand vous vous préparez à [gérer des ordinateurs et des appareils avec System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), déterminez si les appareils que vous gérez sont locaux, situés dans le cloud ou comptent des appareils appartenant à l’utilisateur (BYOD).  Étudiez également la façon dont vous allez gérer les appareils qui sont pris en charge par plusieurs options de gestion, tels que des ordinateurs Windows 10 pouvant être gérés directement par Configuration Manager ou via l’intégration à Microsoft Intune.  
 
 -   Découvrez comment votre infrastructure réseau disponible peut affecter le flux de données entre des sites distants (consultez [Préparer votre environnement réseau pour System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Tenez aussi compte de l’emplacement géographique des utilisateurs et appareils que vous gérez, et déterminez s’ils accèdent à votre infrastructure par l’intermédiaire de votre domaine d’entreprise ou à partir d’Internet.  
 
@@ -163,7 +163,7 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 -   Prenez en compte la sécurité des données et des appareils, notamment l’utilisation d’une infrastructure à clé publique. Consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md)  
 
 
-**Passez en revue les ressources suivantes pour les configurations spécifiques aux sites :**  
+**Passez en revue les ressources suivantes pour les configurations spécifiques aux sites :**  
 
 -   [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
 
@@ -173,10 +173,10 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 
 -   [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
--   [Managing network bandwidth](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#bkmk_bandwidth) lors du déploiement de contenu dans un site  
+-   [Managing network bandwidth](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) lors du déploiement de contenu dans un site  
 
 
-**Tenez compte des configurations qui couvrent plusieurs sites et hiérarchies :**  
+**Tenez compte des configurations qui couvrent plusieurs sites et hiérarchies :**  
 
 -   [Options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options) pour les sites et hiérarchies  
 
@@ -188,6 +188,6 @@ Le principal facteur qui détermine le type et le nombre de sites que vous utili
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’accès à la messagerie | System Center Configuration Manager"
+title: "Gérer l’accès à la messagerie | Microsoft Docs"
 description: "Apprenez à utiliser l’accès conditionnel System Center Configuration Manager pour gérer l’accès à la messagerie Exchange."
 ms.custom: na
 ms.date: 10/04/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4544088a-4752-4e3a-aa0a-049f10d8f178
 caps.latest.revision: 24
-author: karthikaraman
-ms.author: karaman
+author: andredm7
+ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6cf3c1697b49708aa5192b67b08b700da7dc72
-ms.openlocfilehash: c1797910f2b7ceda451c2ccb23f66a4b2bd4b6ff
+ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
+ms.openlocfilehash: 0bbe25598f38f9cf3c15375748fee09c43dfb928
 
 
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gérer l’accès à la messagerie dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 L’accès conditionnel System Center Configuration Manager permet de gérer l’accès à la messagerie Exchange selon les conditions que vous spécifiez.  
 
@@ -37,7 +37,7 @@ Vous pouvez gérer l'accès à :
 
 Vous pouvez contrôler l'accès à Exchange Online et Exchange sur site à partir du client de messagerie intégré sur les plateformes suivantes :  
 
--   Android 4.0 et versions ultérieures, Samsung Knox Standard 4.0 et versions ultérieures  
+-   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
 -   iOS 7.1 et versions ultérieures  
 
@@ -45,7 +45,7 @@ Vous pouvez contrôler l'accès à Exchange Online et Exchange sur site à parti
 
 -   Application de messagerie sur Windows 8.1 et versions ultérieures
 
-Les applications de bureau Office peuvent accéder à Exchange Online sur les PC exécutant :  
+Les applications de bureau Office peuvent accéder à Exchange Online sur les PC exécutant :  
 
 -   Office 2013 et ultérieur pour ordinateur avec [l’authentification moderne](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) activée.  
 
@@ -91,7 +91,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
  Vous pouvez bloquer l'accès à la messagerie Exchange à partir du client de messagerie Exchange ActiveSync intégré aux appareils sur les plateformes suivantes :  
 
--   Android 4.0 et versions ultérieures, Samsung Knox Standard 4.0 et versions ultérieures  
+-   Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
 -   iOS 7.1 et versions ultérieures  
 
@@ -119,13 +119,13 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
  Après avoir exécuté le rapport, examinez ces quatre colonnes pour déterminer si un utilisateur sera bloqué :  
 
--   **Canal de gestion** : indique si l’appareil est géré par Intune, Exchange ActiveSync ou les deux à la fois.  
+-   **Canal de gestion** : indique si l’appareil est géré par Intune, Exchange ActiveSync ou les deux à la fois.  
 
--   **Inscrit auprès d’AAD** : indique si l’appareil est inscrit auprès d’Azure Active Directory (ce qui s’appelle une « jonction d’espace de travail »).  
+-   **Inscrit auprès d’AAD** : indique si l’appareil est inscrit auprès d’Azure Active Directory (ce qui s’appelle une « jonction d’espace de travail »).  
 
--   **Conforme** : indique si l’appareil est conforme aux stratégies de conformité que vous avez déployées.  
+-   **Conforme** : indique si l’appareil est conforme aux stratégies de conformité que vous avez déployées.  
 
--   **EAS activé** : l’ID ActiveSync Exchange des appareils iOS et Android doit être associé à l’enregistrement d’inscription de l’appareil dans Azure Active Directory. Ceci se produit quand l'utilisateur clique sur le lien **Activer la messagerie** dans l'e-mail de mise en quarantaine.  
+-   **EAS activé** : l’ID ActiveSync Exchange des appareils iOS et Android doit être associé à l’enregistrement d’inscription de l’appareil dans Azure Active Directory. Ceci se produit quand l'utilisateur clique sur le lien **Activer la messagerie** dans l'e-mail de mise en quarantaine.  
 
     > [!NOTE]  
     >  Les appareils Windows Phone affichent toujours une valeur dans cette colonne.  
@@ -142,15 +142,15 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 ### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Étape 2 : Configurer des groupes ou des regroupements d’utilisateurs pour la stratégie d’accès conditionnel  
  Vous ciblez les stratégies d'accès conditionnel vers différents groupes ou regroupements d'utilisateurs en fonction du type de stratégie. Ces groupes contiennent les utilisateurs qui seront ciblés par la stratégie ou exemptés de celle-ci. Quand un utilisateur est ciblé par une stratégie, chaque appareil qu'il utilise doit être conforme à cette stratégie pour qu'il puisse accéder à la messagerie.  
 
--   **Stratégie Exchange Online** : cible des groupes de sécurité Azure Active Directory. Vous pouvez configurer ces groupes dans le **Centre d'administration Office 365**ou dans le **Portail de compte Intune**.  
+-   **Stratégie Exchange Online** : cible des groupes de sécurité Azure Active Directory. Vous pouvez configurer ces groupes dans le **Centre d'administration Office 365**ou dans le **Portail de compte Intune**.  
 
--   **Stratégie Exchange sur site** : cible des regroupements d’utilisateurs Configuration Manager. Vous pouvez les configurer dans l'espace de travail **Ressources et Conformité** .  
+-   **Stratégie Exchange sur site** : cible des regroupements d’utilisateurs Configuration Manager. Vous pouvez les configurer dans l'espace de travail **Ressources et Conformité** .  
 
  Vous pouvez spécifier deux types de groupes dans chaque stratégie :  
 
--   **Groupes ciblés** : groupes ou regroupements d’utilisateurs auxquels la stratégie est appliquée.  
+-   **Groupes ciblés** : groupes ou regroupements d’utilisateurs auxquels la stratégie est appliquée.  
 
--   **Groupes exemptés** : groupes ou regroupements d’utilisateurs exempts de la stratégie (facultatif).  
+-   **Groupes exemptés** : groupes ou regroupements d’utilisateurs exempts de la stratégie (facultatif).  
 
  Si un utilisateur se trouve dans les deux, il est exempté de la stratégie.  
 
@@ -171,7 +171,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Pour Exchange Online (et les locataires dans le nouvel environnement Exchange Online Dedicated)
 
 >[!NOTE]
->Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Vous pouvez aussi créer une stratégie d’accès conditionnel dans la console de gestion Azure AD. Celle-ci vous permet de créer les stratégies d’accès conditionnel aux appareils (appelées dans Azure AD « stratégies d’accès conditionnel en fonction de l’appareil ») en plus des autres stratégies d’accès conditionnel comme l’authentification multifacteur. Vous pouvez aussi définir des stratégies d’accès conditionnel pour des applications d’entreprise tierces comme Salesforce et Box prises en charge par Azure AD. Pour plus d’informations, consultez [Guide pratique pour définir la stratégie d’accès conditionnel en fonction de l’appareil Azure Active Directory pour contrôler l’accès aux applications connectées Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  Le flux suivant est utilisé par les stratégies d'accès conditionnel pour Exchange Online pour évaluer s'il faut autoriser ou bloquer des appareils.  
 
@@ -254,7 +254,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 7.  Sous **Outlook Web Access (OWA)**, vous pouvez choisir d’autoriser l’accès à Exchange Online uniquement par le biais des navigateurs pris en charge : Safari (iOS) et Chrome (Android). L’accès à partir d’autres navigateurs sera bloqué. Les mêmes restrictions de plateforme que celles que vous avez sélectionnées pour l’accès aux applications pour Outlook s’appliquent également ici.
 
-    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit en procédant comme suit :
+    Sur les appareils **Android** , les utilisateurs doivent activer l’accès du navigateur.  Pour cela, l’utilisateur final doit activer l’option « Activer l’accès du navigateur » sur l’appareil inscrit en procédant comme suit :
      1. Lancez **l’application Portail d’entreprise**.
      2. Accédez à la page **Paramètres** via les trois points (...) ou le bouton de menu matériel.
       3.    Appuyez sur le bouton **Activer l’accès du navigateur** .
@@ -290,7 +290,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 -   Quand un utilisateur crée un compte de messagerie, l’appareil est bloqué immédiatement.  
 
--   Si un utilisateur bloqué inscrit l’appareil auprès d’Intune (ou remédie à la non-conformité), l’accès à la messagerie est débloqué dans les 2 minutes.  
+-   Si un utilisateur bloqué inscrit l’appareil auprès d’Intune (ou remédie à la non-conformité), l’accès à la messagerie est débloqué dans les 2 minutes.  
 
 -   Si l’utilisateur annule l’inscription de son appareil, la messagerie électronique est bloquée après environ 6 heures.  
 
@@ -363,6 +363,6 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

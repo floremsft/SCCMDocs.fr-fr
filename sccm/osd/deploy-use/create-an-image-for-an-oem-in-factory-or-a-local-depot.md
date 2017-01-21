@@ -1,5 +1,5 @@
 ---
-title: "Créer une image pour un fabricant OEM en usine ou un dépôt local | System Center Configuration Manager"
+title: "Créer une image pour un fabricant OEM en usine ou un dépôt local | Microsoft Docs"
 description: "Procédez à des déploiements de médias préparés pour réduire le trafic réseau pendant le déploiement d’un système d’exploitation sur un ordinateur qui n’est pas entièrement approvisionné."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,21 +16,21 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d604577fdb9af7c7789840ea6281c371e35c46b0
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 07aba04fb1b845e389a5f75b115d536136c1569c
 
 
 ---
 # <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Créer une image pour un fabricant OEM en usine ou un dépôt avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les déploiements de médias préparés dans System Center Configuration Manager permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement approvisionné. Un média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un ordinateur nu par le fabricant (OEM) ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager. Par la suite, dans l’environnement Configuration Manager, l’ordinateur commence par utiliser l’image de démarrage fournie par le média, un contrôle de hachage est effectué sur le média préparé pour vérifier qu’il est valide, puis l’ordinateur se connecte au point de gestion de site pour les séquences de tâches disponibles qui terminent le processus de téléchargement.
 
 
 Cette méthode de déploiement peut réduire le trafic réseau car l'image de démarrage et l'image du système d'exploitation sont déjà sur l'ordinateur de destination. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Une fois le système d’exploitation installé sur l’ordinateur, le cache de séquence de tâches local est vérifié en premier à la recherche d’applications, de packages ou de packages de pilotes, et si le contenu est introuvable ou a été modifié, il est téléchargé à partir d’un point de distribution configuré dans le média préparé, puis installé.  
 
- Vous pouvez utiliser un média préparé dans les scénarios de déploiement de système d’exploitation suivants :  
+ Vous pouvez utiliser un média préparé dans les scénarios de déploiement de système d’exploitation suivants :  
 
 -   [Installation d’une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
@@ -58,6 +58,6 @@ Cette méthode de déploiement peut réduire le trafic réseau car l'image de d�
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

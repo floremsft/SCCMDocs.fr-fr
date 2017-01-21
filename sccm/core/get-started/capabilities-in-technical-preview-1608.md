@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1608 pour System Center Configuration Manager."
+title: "Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1608 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,15 +16,15 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4d548f097f0d0b80ca314384c345f9bcd08fbc14
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: c41409e957f43aee3be994ab3e702232c7dfe6ea
 
 ---
-# <a name="capabilities-in-technical-preview-1608-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1608-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1608 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1608 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
@@ -48,14 +48,14 @@ Nous avons ajouté un champ dans les propriétés pour les logiciels inventorié
   2. Dans la boîte de dialogue qui s’ouvre, sélectionnez le logiciel que vous souhaitez définir en tant que logiciel parent pour votre sélection initiale.
 
 ### <a name="filter-the-software-display"></a>Filtrer l’affichage des logiciels
-Après avoir défini des relations parent-enfant, vous pouvez filtrer votre vue pour afficher uniquement les logiciels qui sont parents ou qui n’ont aucune relation définie. Cela masque tout logiciel défini en tant qu’enfant d’un autre logiciel inventorié. Pour cela :
+Après avoir défini des relations parent-enfant, vous pouvez filtrer votre vue pour afficher uniquement les logiciels qui sont parents ou qui n’ont aucune relation définie. Cela masque tout logiciel défini en tant qu’enfant d’un autre logiciel inventorié. Pour cela :
    1.   Pour le volet de recherche, choisissez **Ajouter des critères**.
    2. Sélectionnez **Logiciel parent** et modifiez la valeur du critère en spécifiant **est vide**, puis cliquez sur **Rechercher**.
 
 L’affichage indique à présent uniquement les éléments logiciels parents et les logiciels qui n’ont pas de relations définies. Un logiciel qui n’est qu’un enfant d’un autre titre n’apparaît pas.
 
 ## <a name="remote-control-keyboard-translation"></a>Traduction du clavier de contrôle à distance
-Dans le passé, Configuration Manager transmettait la position des touches à partir de l’emplacement de l’utilisateur vers l’emplacement de la personne effectuant le partage. Cela posait des problèmes pour les configurations de clavier qui différaient entre l’afficheur et la personne effectuant le partage. Par exemple, un afficheur avec un clavier anglais tapait un « A », mais le clavier français de la personne effectuant le partage fournissait un « Q ». Nous modifions le comportement par défaut afin que le caractère lui-même soit transmis du clavier de l’afficheur vers la personne effectuant le partage, et que ce que l’afficheur souhaite taper parvienne auprès de la personne effectuant le partage.
+Dans le passé, Configuration Manager transmettait la position des touches à partir de l’emplacement de l’utilisateur vers l’emplacement de la personne effectuant le partage. Cela posait des problèmes pour les configurations de clavier qui différaient entre l’afficheur et la personne effectuant le partage. Par exemple, un afficheur avec un clavier anglais tapait un « A », mais le clavier français de la personne effectuant le partage fournissait un « Q ». Nous modifions le comportement par défaut afin que le caractère lui-même soit transmis du clavier de l’afficheur vers la personne effectuant le partage, et que ce que l’afficheur souhaite taper parvienne auprès de la personne effectuant le partage.
 
 Ce comportement peut être désactivé par l’afficheur s’il préfère taper en fonction de la disposition du clavier de la personne effectuant le partage. Pour modifier ce comportement, dans **Contrôle à distance de Configuration Manager**, choisissez **Action** et choisissez **Activer la traduction du clavier** pour transmettre la position des touches.
 
@@ -65,6 +65,6 @@ Ce comportement peut être désactivé par l’afficheur s’il préfère taper 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

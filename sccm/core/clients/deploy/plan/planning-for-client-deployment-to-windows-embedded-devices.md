@@ -1,5 +1,5 @@
 ---
-title: "Planification du déploiement de clients sur des appareils Windows Embedded | System Center Configuration Manager"
+title: "Planification du déploiement de clients sur des appareils Windows Embedded | Microsoft Docs"
 description: "Planifiez le déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.assetid: 038e61f9-f49d-41d1-9a9f-87bec9e00d5d
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 2b73a59023aa2658c0920beab5cf7706e40601c9
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 0f6a6719c4c9bc1e67be11adf5206a7672624fa0
 
 
 ---
 # <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 <a name="BKMK_DeployClientEmbedded"></a> Si votre appareil Windows Embedded n’inclut pas le client System Center Configuration Manager, vous pouvez utiliser l’une des méthodes d’installation de ce client si l’appareil respecte les dépendances requises. Si l'appareil intégré prend en charge les filtres d'écriture, vous devez désactiver ces filtres avant d'installer le client, puis réactiver les filtres une fois le client installé et attribué à un site.  
 
@@ -49,20 +49,20 @@ ms.openlocfilehash: 2b73a59023aa2658c0920beab5cf7706e40601c9
 
  Quand Configuration Manager désactive les filtres d’écriture pour rendre les modifications définitives, seuls les utilisateurs qui possèdent des droits administratifs locaux peuvent se connecter et utiliser l’appareil intégré. Pendant cette période, les utilisateurs dont les droits sont peu élevés sont verrouillés et ils voient un message indiquant que l'ordinateur n'est pas disponible car il est en cours de maintenance. Cette indisponibilité protège l'appareil pendant que son état permet l'application de modifications définitives et ce comportement de verrouillage du mode de maintenance constitue une autre raison pour configurer une fenêtre de maintenance pendant laquelle les utilisateurs ne se connectent pas à ces appareils.  
 
- Configuration Manager prend en charge la gestion des types de filtres d’écriture suivants :  
+ Configuration Manager prend en charge la gestion des types de filtres d’écriture suivants :  
 
--   Filtre d’écriture basé sur des fichiers (FBWF) : pour plus d’informations, consultez [Filtre d’écriture basé sur des fichiers](http://go.microsoft.com/fwlink/?LinkID=204717).  
+-   Filtre d’écriture basé sur des fichiers (FBWF) : pour plus d’informations, consultez [Filtre d’écriture basé sur des fichiers](http://go.microsoft.com/fwlink/?LinkID=204717).  
 
--   RAM de filtre d’écriture amélioré (EWF) : pour plus d’informations, consultez [Filtre d’écriture amélioré](http://go.microsoft.com/fwlink/?LinkId=204718).  
+-   RAM de filtre d’écriture amélioré (EWF) : pour plus d’informations, consultez [Filtre d’écriture amélioré](http://go.microsoft.com/fwlink/?LinkId=204718).  
 
--   Filtre d’écriture unifié (UWF) : pour plus d’informations, consultez [Filtre d’écriture unifié](http://go.microsoft.com/fwlink/?LinkId=309236).  
+-   Filtre d’écriture unifié (UWF) : pour plus d’informations, consultez [Filtre d’écriture unifié](http://go.microsoft.com/fwlink/?LinkId=309236).  
 
  Configuration Manager ne prend pas en charge les opérations de filtre d’écriture quand l’appareil Windows Embedded est en mode de registre RAM EWF.  
 
 > [!IMPORTANT]  
 >  Si vous avez le choix, utilisez des filtres d’écriture basés sur des fichiers avec Configuration Manager pour une efficacité accrue et une meilleure évolutivité.
 >
-> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers uniquement :** configurez les exceptions suivantes pour rendre permanents l’état du client et les données d’inventaire entre les redémarrages de l’appareil :  
+> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers uniquement :** configurez les exceptions suivantes pour rendre permanents l’état du client et les données d’inventaire entre les redémarrages de l’appareil :  
 >   
 >  -   CCMINSTALLDIR\\*.sdf  
 > -   CCMINSTALLDIR\ServiceData  
@@ -80,7 +80,7 @@ ms.openlocfilehash: 2b73a59023aa2658c0920beab5cf7706e40601c9
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
-> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers et des filtres d’écriture unifiés :** quand les clients d’un groupe de travail utilisent des certificats à des fins d’authentification auprès de points de gestion, vous devez également exclure la clé privée pour que les clients puissent continuer à communiquer avec les points de gestion. Sur ces appareils, configurez les exceptions suivantes :  
+> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers et des filtres d’écriture unifiés :** quand les clients d’un groupe de travail utilisent des certificats à des fins d’authentification auprès de points de gestion, vous devez également exclure la clé privée pour que les clients puissent continuer à communiquer avec les points de gestion. Sur ces appareils, configurez les exceptions suivantes :  
 >   
 >  -   c:\Windows\System32\Microsoft\Protect  
 > -   c:\ProgramData\Microsoft\Crypto  
@@ -111,6 +111,6 @@ ms.openlocfilehash: 2b73a59023aa2658c0920beab5cf7706e40601c9
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

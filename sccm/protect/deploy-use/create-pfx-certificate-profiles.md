@@ -1,5 +1,5 @@
 ---
-title: "Créer des profils de certificat PFX | System Center Configuration Manager"
+title: "Créer des profils de certificat PFX | Microsoft Docs"
 description: "Découvrez comment utiliser des fichiers PFX dans System Center Configuration Manager pour générer des certificats spécifiques à l’utilisateur qui prennent en charge l’échange de données chiffrées."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,17 +17,17 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4a4025325e635061cb99caed9cdb07390e90ea90
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 36c20af00e5a83be7038c3a0c01a33c546011427
 
 
 ---
 # <a name="how-to-create-pfx-certificate-profiles-in-system-center-configuration-manager"></a>Comment créer des profils de certificat PFX dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-System Center Configuration Manager vous permet de configurer des fichiers d'échange d'informations personnelles (.pfx) sur les appareils des utilisateurs. Vous pouvez utiliser des fichiers PFX pour générer des certificats spécifiques à l'utilisateur pour prendre en charge l'échange de données chiffrées. Vous pouvez créer des certificats PFX dans Configuration Manager ou les importer. Avec System Center Configuration Manager, vous pouvez déployer des certificats PFX nouveaux ou importés sur des appareils iOS, Android et Windows 10. Vous pouvez ensuite déployer ces fichiers sur plusieurs appareils pour prendre en charge la communication PKI basée sur l'utilisateur.  
+System Center Configuration Manager vous permet de configurer des fichiers d'échange d'informations personnelles (.pfx) sur les appareils des utilisateurs. Vous pouvez utiliser des fichiers PFX pour générer des certificats spécifiques à l'utilisateur pour prendre en charge l'échange de données chiffrées. Vous pouvez créer des certificats PFX dans Configuration Manager ou les importer. Avec System Center Configuration Manager, vous pouvez déployer des certificats PFX nouveaux ou importés sur des appareils iOS, Android et Windows 10. Vous pouvez ensuite déployer ces fichiers sur plusieurs appareils pour prendre en charge la communication PKI basée sur l'utilisateur.  
 
 > [!TIP]  
 >  Une procédure pas à pas décrivant ce processus est disponible dans [Comment créer et déployer des profils de certificat PFX dans Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx).  
@@ -46,7 +46,7 @@ System Center Configuration Manager vous permet de configurer des fichiers d'éc
 
     -   **Nom**: entrez un nom unique pour le profil de certificat. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
+    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
     -   **Spécifiez le type de profil de certificat que vous voulez créer**: choisissez un des types de profil de certificat suivants :  
 
@@ -54,7 +54,7 @@ System Center Configuration Manager vous permet de configurer des fichiers d'éc
 
         -   **Paramètres du protocole SCEP (Simple Certificate Enrollment Protocol)**: sélectionnez ce type de profil de certificat pour demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service de rôle du service d’inscription d’appareils réseau.  
 
-        -   **Échange d’informations personnelles -- Paramètres PKCS #12 (PFX) -- Importation** : sélectionnez cette option pour importer un certificat PFX.  
+        -   **Échange d’informations personnelles -- Paramètres PKCS #12 (PFX) -- Importation** : sélectionnez cette option pour importer un certificat PFX.  
 
 5.  Dans la fenêtre **Propriétés du certificat** de l'Assistant **Créer un profil de certificat** , spécifiez où le certificat PFX sera stocké sur les appareils ciblés.  
 
@@ -117,6 +117,6 @@ System Center Configuration Manager vous permet de configurer des fichiers d'éc
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

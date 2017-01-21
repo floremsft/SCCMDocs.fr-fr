@@ -1,8 +1,8 @@
 ---
-title: "Créer des éléments de configuration personnalisés pour les ordinateurs de bureau et les serveurs Windows gérés par le client System Center Configuration Manager | System Center Configuration Manager"
+title: "Créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager | Microsoft Docs"
 description: "Gérer les paramètres des ordinateurs et des serveurs Windows avec un élément de configuration Ordinateurs de bureau et serveurs Windows."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bf3d46377d4027832e59e5ce50af90a0770919ea
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: f5509d1ffb88bc128f7be6c74e6b65dc33605c9e
 
 
 ---
 # <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Windows (personnalisés)** pour gérer les paramètres des ordinateurs de bureau et serveurs Windows qui sont gérés par le client  Configuration Manager.  
@@ -115,7 +115,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 
                 -   **Base** -interroge uniquement l'objet spécifié.  
 
-                -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
+                -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
 
                 -   **Sous-arborescence** -interroge l'objet spécifié et son sous-arbre dans l'annuaire.  
 
@@ -235,7 +235,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 
             -   **Inclure les sous-dossiers** : activez cette option si vous voulez également rechercher dans tous les sous-dossiers sous le chemin spécifié.  
 
-            -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\System32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\Syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
+            -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\System32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\Syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
             -   **Requête XPath** -spécifier une valide complet requête XML path language (XPath) qui est utilisée pour évaluer la conformité sur les ordinateurs clients.  
 
@@ -299,7 +299,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
             |L'un des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
             |Aucun des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
 
-        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles. Configuration Manager.peut corriger automatiquement les types de règles suivants :  
+        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles. Configuration Manager.peut corriger automatiquement les types de règles suivants :  
 
             -   **Valeur de Registre** – la valeur de Registre est mis à jour si elle est non conforme et créé s'il n'existe pas.  
 
@@ -310,19 +310,19 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
             > [!IMPORTANT]  
             >  Vous ne pouvez corriger que les règles non compatibles lorsque l'opérateur de règle est défini sur **Égal à**.  
 
-        -   **Rapport de non-conformité si cette définition de l'instance est introuvable** : l'élément de configuration des rapports non-conformité si ce paramètre n'est pas disponible sur les ordinateurs clients.  
+        -   **Rapport de non-conformité si cette définition de l'instance est introuvable** : l'élément de configuration des rapports non-conformité si ce paramètre n'est pas disponible sur les ordinateurs clients.  
 
-        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
 
-            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
+            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
 
-            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
+            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
 
-            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
+            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
 
-            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
+            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
 
-            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
 
         -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
 
@@ -333,19 +333,19 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 
             -   **Le paramètre ne doit pas exister sur les appareils clients**  
 
-            -   **Le paramètre se produit le nombre de fois suivant :**  
+            -   **Le paramètre se produit le nombre de fois suivant :**  
 
-        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
 
-            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
+            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
 
-            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
+            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
 
-            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
+            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
 
-            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
+            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
 
-            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
 
 3.  Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une règle** .  
 
@@ -359,6 +359,6 @@ Dans la page **Plateformes prises en charge** de l’ **Assistant Création d’
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

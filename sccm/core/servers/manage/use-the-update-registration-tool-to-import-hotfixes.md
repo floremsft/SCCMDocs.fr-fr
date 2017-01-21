@@ -1,5 +1,5 @@
 ---
-title: "Outil Inscription de la mise à jour | System Center Configuration Manager"
+title: "Outil Inscription de la mise à jour | Microsoft Docs"
 description: "Découvrez quand et comment utiliser l’outil Inscription de la mise à jour pour importer manuellement une mise à jour dans la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 176c1d7055ae8706b92886d59d8a048dd867c18b
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: c729212d38168acfff3f11ea41f3d52b234c70c8
 
 
 ---
 # <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Importer des correctifs pour System Center Configuration Manager avec l’outil Inscription de la mise à jour
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Certaines mises à jour de Configuration Manager indisponibles sur le service cloud Microsoft ne peuvent être obtenues que hors-bande. C’est le cas, par exemple, d’un correctif logiciel en édition limitée destiné à résoudre un problème spécifique.   
 Quand vous devez installer une version hors-bande et que le nom de fichier du correctif ou de la mise à jour se termine par l’extension **update.exe**, vous pouvez vous servir de l’**outil Inscription de la mise à jour** pour importer manuellement la mise à jour dans la console Configuration Manager. Cet outil vous permet d’extraire et de transférer le package de mise à jour vers le serveur de site, et d’inscrire la mise à jour auprès de la console Configuration Manager.  
@@ -47,7 +47,7 @@ Quand vous devez installer une version hors-bande et que le nom de fichier du co
 
 -   Le compte que vous utilisez pour exécuter l’outil doit disposer d’autorisations d’**administrateur local** sur l’ordinateur hébergeant le point de connexion de service sur lequel l’outil s’exécute  
 
--   Le compte que vous utilisez pour exécuter l’outil doit disposer d’autorisations en **écriture** sur le dossier suivant de l’ordinateur hébergeant le point de connexion de service : **&lt;Répertoire d’installation de ConfigMgr\>\EasySetupPayload\offline**  
+-   Le compte que vous utilisez pour exécuter l’outil doit disposer d’autorisations en **écriture** sur le dossier suivant de l’ordinateur hébergeant le point de connexion de service : **&lt;Répertoire d’installation de ConfigMgr\>\EasySetupPayload\offline**  
 
 ### <a name="to-use-the-update-registration-tool"></a>Pour utiliser l’outil Inscription de la mise à jour  
 
@@ -61,11 +61,11 @@ Quand vous devez installer une version hors-bande et que le nom de fichier du co
 
     Une fois inscrit, le correctif logiciel s’affiche en tant que nouvelle mise à jour dans la console dans les 24 heures.  Vous pouvez accélérer le processus comme suit :  
 
-    -   Avec la version 1511 : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis sélectionnez **Start update discovery process immediately** (Démarrer immédiatement le processus de détection des mises à jour).  Cela a pour effet de démarrer l’importation du correctif dès la fin du processus d’inscription, de façon à ce qu’il soit disponible dans la console.  
+    -   Avec la version 1511 : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis sélectionnez **Start update discovery process immediately** (Démarrer immédiatement le processus de détection des mises à jour).  Cela a pour effet de démarrer l’importation du correctif dès la fin du processus d’inscription, de façon à ce qu’il soit disponible dans la console.  
 
-    -   Avec les versions 1602 et ultérieures : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis cliquez sur **Rechercher les mises à jour**  
+    -   Avec les versions 1602 et ultérieures : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis cliquez sur **Rechercher les mises à jour**  
 
-    L’outil Inscription de la mise à jour consigne ses actions dans un fichier .log sur l’ordinateur local. Ce fichier journal porte le même nom que le fichier .exe du correctif, et est stocké dans le dossier **%SystemRoot%/Temp**.  
+    L’outil Inscription de la mise à jour consigne ses actions dans un fichier .log sur l’ordinateur local. Ce fichier journal porte le même nom que le fichier .exe du correctif, et est stocké dans le dossier **%SystemRoot%/Temp**.  
 
      Une fois la mise à jour inscrite, vous pouvez fermer l’outil Inscription de la mise à jour.  
 
@@ -73,6 +73,6 @@ Quand vous devez installer une version hors-bande et que le nom de fichier du co
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager | System Center Configuration Manager"
-description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager."
+title: "Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager | Microsoft Docs"
+description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,23 +17,23 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d5248e7262f758c2de2a1deaf42282d4e77e3e0c
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 2b24570aa2e9d9aa45584842011dcd49c6e5e8cc
 
 
 ---
-# <a name="create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager
+# <a name="create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez l’élément de configuration System Center Configuration Manager **Windows 10** pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager.  
+Utilisez l’élément de configuration System Center Configuration Manager **Windows 10** pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager.  
 
 > [!IMPORTANT]  
->  Dans cette version, si vous avez créé un paramètre **Mot de passe** pour un élément de configuration de type **Windows 10** (pour un appareil géré avec le client Configuration Manager), il est évalué à tort comme étant compatible si le paramètre n’existe pas déjà ou s’il n’a pas été configuré sur l’appareil Windows 10.  
+>  Dans cette version, si vous avez créé un paramètre **Mot de passe** pour un élément de configuration de type **Windows 10** (pour un appareil géré avec le client Configuration Manager), il est évalué à tort comme étant compatible si le paramètre n’existe pas déjà ou s’il n’a pas été configuré sur l’appareil Windows 10.  
 >   
 >  Pour résoudre ce problème, quand vous créez un paramètre pour ces périphériques, assurez-vous de sélectionner **Résoudre les paramètres non compatibles** dans les pages de paramètres de l’Assistant Création d’élément de configuration. De plus, quand vous déployez une base de référence de configuration contenant un élément de configuration Windows 10 qui inclue des paramètres de mot de passe, sélectionnez **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** dans la boîte de dialogue Déployer des lignes de base de configuration. En utilisant cette solution de contournement, le paramètre est analysé et corrigé s’il n’est pas compatible. Après la correction, le paramètre est correctement signalé comme **Compatible** (sauf si un problème est rencontré, auquel cas une **Erreur**est signalée).  
 
-## <a name="create-a-windows-10-configuration-item"></a>Créer un élément de configuration Windows 10  
+## <a name="create-a-windows-10-configuration-item"></a>Créer un élément de configuration Windows 10  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
 
@@ -45,26 +45,26 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 
 6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
 
-7.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes Windows10  spécifiques chargées d’évaluer l’élément de configuration.  
+7.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes Windows10  spécifiques chargées d’évaluer l’élément de configuration.  
 
-8.  Dans la page **Paramètres de l’appareil**, sélectionnez le groupe de paramètres à configurer. Pour plus d’informations, consultez [Informations de référence sur les paramètres d’élément de configuration Windows 10](/sccm/compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client#windows-10-configuration-item-settings-reference) dans cette rubrique, puis cliquez sur **Suivant**.  
+8.  Dans la page **Paramètres de l’appareil**, sélectionnez le groupe de paramètres à configurer. Pour plus d’informations, consultez [Informations de référence sur les paramètres d’élément de configuration Windows 10](/sccm/compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client#windows-10-configuration-item-settings-reference) dans cette rubrique, puis cliquez sur **Suivant**.  
 
     > [!TIP]  
     >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
 
 9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
 
-10. Pour chaque groupe de paramètres, vous pouvez aussi spécifier la gravité signalée dans les rapports Configuration Manager quand un élément de configuration est évalué comme non conforme :  
+10. Pour chaque groupe de paramètres, vous pouvez aussi spécifier la gravité signalée dans les rapports Configuration Manager quand un élément de configuration est évalué comme non conforme :  
 
-    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
+    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec.  
 
-    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
+    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations**.  
 
-    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
+    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement**.  
 
-    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
+    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**.  
 
-    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique**. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
 
 11. Dans la page **Condition d’application de la plateforme**, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
 
@@ -125,7 +125,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Protection antivirus**|Exige l’installation et la configuration du logiciel antivirus.|  
 |**Les signatures de la protection antivirus sont à jour**|Exige que les fichiers de signature du logiciel antivirus de l’appareil soient à jour.|  
 
-### <a name="windows-information-protection-formerly-enterprise-data-protection"></a>Protection des informations Windows (anciennement Protection des données d’entreprise)
+### <a name="windows-information-protection"></a>Protection des informations Windows
 
 Face à l’augmentation du nombre d’appareils appartenant aux employés de l’entreprise, il existe un risque accru de fuites accidentelles de données via les applications et les services, tels que le courrier électronique, les réseaux sociaux et le cloud public, qui sont en dehors du contrôle de l’entreprise. C’est par exemple le cas quand un employé envoie les dernières photos de conception à partir de son compte de messagerie personnel, quand il copie et colle des informations sur des produits dans un tweet ou quand il enregistre un rapport des ventes en cours dans son stockage cloud public.
 
@@ -137,6 +137,6 @@ Pour plus d’informations sur la Protection des informations Windows avec Confi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

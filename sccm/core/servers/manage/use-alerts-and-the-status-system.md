@@ -1,5 +1,5 @@
 ---
-title: "Utiliser des alertes et le système d’état | System Center Configuration Manager"
+title: "Alertes et système d’état | Microsoft Docs"
 description: "Configurez des alertes et utilisez le système d’état pour rester informé de l’état de votre déploiement de Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: dda2e3af6ae14a949af5c70f300f8c7c6772e1a8
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
 
 
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utiliser des alertes et le système d’état pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Configurez des alertes et utilisez le système d’état intégré pour rester informé de l’état de votre déploiement de System Center Configuration Manager.  
 
@@ -95,7 +95,7 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
     5.  Pour supprimer un objet de stockage, sélectionnez l'objet, puis cliquez sur le bouton **Supprimer** .  
 
-    6.  Répétez les étapes 7.b à 7.e si besoin. Lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
+    6.  Répétez les étapes 7.b à 7.e si besoin. Lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
 
     7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
@@ -193,7 +193,7 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 -   Vous pouvez configurer des abonnements aux alertes qui peuvent ensuite envoyer des détails par courrier électronique, ce qui permet une plus grande sensibilisation aux problèmes clés  
 
- Utilisez le tableau suivant pour rechercher des informations sur la façon de configurer des alertes et des abonnements aux alertes dans Configuration Manager :  
+ Utilisez le tableau suivant pour rechercher des informations sur la façon de configurer des alertes et des abonnements aux alertes dans Configuration Manager :  
 
 
 |Action|Informations complémentaires|  
@@ -245,7 +245,7 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
     -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
 
-    -   **Déclencher l'alerte** : spécifiez le pourcentage seuil pour l'alerte.  
+    -   **Déclencher l'alerte** : spécifiez le pourcentage seuil pour l'alerte.  
 
 6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de ***&lt;Nom du regroupement*\>.  
 
@@ -257,11 +257,11 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 3.  Dans la boîte de dialogue **Propriétés du composant de notification de courrier électronique** , définissez ce qui suit :  
 
-    -   **Activer les notifications par courrier électronique pour les alertes** : cochez cette case pour permettre à Configuration Manager d’utiliser un serveur SMTP pour envoyer des alertes par e-mail.  
+    -   **Activer les notifications par courrier électronique pour les alertes** : cochez cette case pour permettre à Configuration Manager d’utiliser un serveur SMTP pour envoyer des alertes par e-mail.  
 
     -   **Nom de domaine complet ou adresse IP du serveur SMTP pour envoyer des alertes par courrier électronique**: entrez le nom de domaine complet (FQDN) ou l’adresse IP et le port SMTP du serveur de messagerie à utiliser pour ces alertes.  
 
-    -   **Compte de connexion au serveur SMTP** : spécifiez la méthode d’authentification que Configuration Manager doit utiliser pour se connecter au serveur de messagerie.  
+    -   **Compte de connexion au serveur SMTP** : spécifiez la méthode d’authentification que Configuration Manager doit utiliser pour se connecter au serveur de messagerie.  
 
     -   **Adresse de l’expéditeur pour les alertes de courrier électronique**: spécifiez l’adresse électronique à partir de laquelle les courriers électroniques d’alerte sont envoyés.  
 
@@ -297,11 +297,11 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 -   **Annulé**: la condition d’une alerte active n’est plus remplie. Cet état indique que la condition qui a entraîné l'alerte est maintenant résolue.  
 
--   **Reporté à plus tard** : un utilisateur administratif a configuré Configuration Manager pour évaluer l’état de l’alerte ultérieurement.  
+-   **Reporté à plus tard** : un utilisateur administratif a configuré Configuration Manager pour évaluer l’état de l’alerte ultérieurement.  
 
 -   **Désactivé**: l’alerte a été désactivée par un utilisateur administratif. Lorsqu'une alerte présente cet état, Configuration Manager ne la met pas à jour même si l'état de l'alerte change.  
 
- Vous pouvez effectuer l'une des actions suivantes lorsque Configuration Manager génère une alerte :  
+ Vous pouvez effectuer l'une des actions suivantes lorsque Configuration Manager génère une alerte :  
 
 -   Corrigez la condition qui a généré l'alerte, par exemple, corrigez un problème réseau ou un problème de configuration qui a généré l'alerte. Une fois que Configuration Manager a détecté que le problème n'existe plus, l'état de l'alerte passe à **Annuler**.  
 
@@ -313,6 +313,6 @@ Configurez des alertes et utilisez le système d’état intégré pour rester i
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Guide pratique pour créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager | System Center Configuration Manager"
+title: "Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager | Microsoft Docs"
 description: "L’élément de configuration System Center Configuration Manager Mac OS X permet de gérer les paramètres des appareils Mac OS X."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,18 +17,18 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4e5eb84fcbde7797a68a713b30ef809ed26d0210
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: f3d08d7f8efb592383e1099850665a2e9f3b2b5f
 
 
 ---
 # <a name="create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez l’élément de configuration System Center Configuration Manager **Mac OS X (personnalisé)** pour gérer les paramètres des appareils Mac OS X gérés par le client Configuration Manager.  
 
- Le système d’exploitation Mac OS X utilise des fichiers le liste de propriétés (plist) pour stocker les paramètres d’application. Utilisez les paramètres de compatibilité pour évaluer et corriger les paramètres dans un fichier de liste de propriétés. Vous pouvez également gérer les paramètres Mac OS X en écrivant un script Shell qui retourne une valeur que vous pouvez évaluer et dont vous pouvez corriger la conformité.  
+ Le système d’exploitation Mac OS X utilise des fichiers de liste de propriétés (plist) pour stocker les paramètres d’application. Utilisez les paramètres de compatibilité pour évaluer et corriger les paramètres dans un fichier de liste de propriétés. Vous pouvez également gérer les paramètres Mac OS X en écrivant un script Shell qui retourne une valeur que vous pouvez évaluer et dont vous pouvez corriger la conformité.  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
 
@@ -54,7 +54,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Ma
 
              Par exemple, si vous souhaitez modifier les paramètres du navigateur Web Safari, vous pouvez utiliser **com.apple.Safari.plist**.  
 
-        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante : */<dictionnaire>\>/<nom_clé\>*.  
+        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante : */<dictionnaire>\>/<nom_clé\>*.  
 
             > [!IMPORTANT]  
             >  Le nom de clé respecte la casse et il n’est pas évalué s’il diffère de celui indiqué sur l’ordinateur Mac. De plus, vous ne pouvez pas modifier le nom de clé une fois que vous l’avez spécifié. Si vous devez modifier le nom de clé, supprimez, puis recréez le paramètre.  
@@ -128,17 +128,17 @@ Utilisez l’élément de configuration System Center Configuration Manager **Ma
 
         -   **Signaler la non-compatibilité si l’instance de ce paramètre est introuvable** : l’élément de configuration signale une non-compatibilité si ce paramètre est introuvable sur l’ordinateur Mac.  
 
-    -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé en cas d’échec de cette règle de compatibilité. Les niveaux de gravité disponibles (présentés dans les rapports Configuration Manager) sont :  
+    -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé en cas d’échec de cette règle de compatibilité. Les niveaux de gravité disponibles (présentés dans les rapports Configuration Manager) sont :  
 
-        -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d’échec.  
+        -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d’échec.  
 
-        -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Information**.  
+        -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Information**.  
 
-        -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Avertissement**.  
+        -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Avertissement**.  
 
-        -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**.  
+        -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**.  
 
-        -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+        -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
 
     -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
 
@@ -148,17 +148,17 @@ Utilisez l’élément de configuration System Center Configuration Manager **Ma
 
             -   **Le paramètre ne doit pas exister sur les périphériques clients**  
 
-        -   **Gravité de non compatibilité pour les rapports :** Spécifier le niveau de gravité signalé en cas d'échec de cette règle de conformité. Les niveaux de gravité disponibles (présentés dans les rapports Configuration Manager) sont :  
+        -   **Gravité de non compatibilité pour les rapports :** Spécifier le niveau de gravité signalé en cas d'échec de cette règle de conformité. Les niveaux de gravité disponibles (présentés dans les rapports Configuration Manager) sont :  
 
-            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d’échec.  
+            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d’échec.  
 
-            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Information**.  
+            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Information**.  
 
-            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Avertissement**.  
+            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Avertissement**.  
 
-            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**.  
+            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**.  
 
-            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d’échec **Critique**. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
 
         > [!NOTE]  
         >  Les options affichées peuvent varier selon le type de paramètre pour lequel vous configurez une règle.  
@@ -173,6 +173,6 @@ Si vous voulez à présent ajouter cet élément de configuration à une base de
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

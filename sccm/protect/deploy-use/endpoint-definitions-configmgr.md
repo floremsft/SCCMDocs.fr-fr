@@ -1,5 +1,5 @@
 ---
-title: "Définitions de programmes malveillants pour Endpoint Protection | System Center Configuration Manager"
+title: "Définitions de programmes malveillants Endpoint Protection | Microsoft Docs"
 description: "Apprenez à configurer les mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,15 +16,15 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ead791ae0bf9d26ff02bea9a85973d7149b695a5
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: ca8dfd2882189065aecdb46b42205a04294dafed
 
 
 ---
 
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilisation des mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Vous pouvez configurer des mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients. Pour cela, vous devez configurer des règles de déploiement automatique. Avant de commencer à créer des règles de déploiement automatique, vérifiez que vous avez configuré des mises à jour logicielles Configuration Manager. Pour plus d’informations, consultez [Présentation des mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).
@@ -121,6 +121,6 @@ ms.openlocfilehash: ead791ae0bf9d26ff02bea9a85973d7149b695a5
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

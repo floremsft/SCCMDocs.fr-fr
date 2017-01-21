@@ -1,5 +1,5 @@
 ---
-title: "Gérer des clients Linux et UNIX | System Center Configuration Manager"
+title: "Gérer les clients Linux et UNIX | Microsoft Docs"
 description: "Découvrez comment gérer les clients sur des serveurs Linux et UNIX dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: article
 ms.assetid: 948664f2-239d-47a8-92fc-f8efeebd5796
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d10b6876058d19d3a9a750a59267913d15793574
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: d3a44d516bb1e2766a7a10b62d52405eecef31fc
 
 
 ---
 # <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Manager, vous pouvez configurer des regroupements, des fenêtres de maintenance et des paramètres client pour mieux gérer les serveurs. En outre, bien que le client Configuration Manager pour Linux et UNIX n’a pas d’interface utilisateur, vous pouvez forcer le client à interroger manuellement la stratégie du client.
 
@@ -80,12 +80,12 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 
 |Option|Plus d'informations|  
 |------------|----------------------|  
-|importPFX|Utilisez cette option pour spécifier un certificat pour remplacer le certificat actuellement utilisé par un client.<br /><br /> Quand vous utilisez **-importPFX**, vous devez également utiliser le paramètre de ligne de commande **-password** pour fournir le mot de passe associé au fichier PKCS#12.<br /><br /> Utilisez **-rootcerts** pour spécifier des exigences de certificat racine supplémentaires.<br /><br /> Exemple : **certutil -importPFX &lt;chemin du certificat PKCS#12> -mot de passe &lt;mot de passe de certificat\> [-rootcerts &lt;liste de certificats séparés par des virgules>]**|  
-|-importsitecert|Utilisez cette option pour mettre à jour le certificat de signature du serveur de site qui se trouve sur le serveur d’administration.<br /><br /> Exemple : **certutil -importsitecert &lt;chemin du certificat DER\>**|  
-|-importcrl|Utilisez cette option pour mettre à jour la liste de révocation de certificats sur le client avec un ou plusieurs chemins d’accès de fichiers CRL.<br /><br /> Exemple : **certutil -importcrl &lt;liste de chemins de fichier CRL séparés par des virgules\>**|  
+|importPFX|Utilisez cette option pour spécifier un certificat pour remplacer le certificat actuellement utilisé par un client.<br /><br /> Quand vous utilisez **-importPFX**, vous devez également utiliser le paramètre de ligne de commande **-password** pour fournir le mot de passe associé au fichier PKCS#12.<br /><br /> Utilisez **-rootcerts** pour spécifier des exigences de certificat racine supplémentaires.<br /><br /> Exemple : **certutil -importPFX &lt;chemin du certificat PKCS#12> -mot de passe &lt;mot de passe de certificat\> [-rootcerts &lt;liste de certificats séparés par des virgules>]**|  
+|-importsitecert|Utilisez cette option pour mettre à jour le certificat de signature du serveur de site qui se trouve sur le serveur d’administration.<br /><br /> Exemple : **certutil -importsitecert &lt;chemin du certificat DER\>**|  
+|-importcrl|Utilisez cette option pour mettre à jour la liste de révocation de certificats sur le client avec un ou plusieurs chemins d’accès de fichiers CRL.<br /><br /> Exemple : **certutil -importcrl &lt;liste de chemins de fichier CRL séparés par des virgules\>**|  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

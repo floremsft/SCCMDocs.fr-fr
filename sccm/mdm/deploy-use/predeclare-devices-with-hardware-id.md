@@ -1,8 +1,8 @@
 ---
-title: "Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS"
-description: "Prédéclarez vos appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS."
+title: "Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS | Microsoft Docs"
+description: "Prédéclarez vos appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/16/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -12,57 +12,80 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddb4c68e-e7f7-475a-89e2-7379a86e44c4
 caps.latest.revision: 3
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6cd640085e90b2945326e3fa942ae9bd7b8f7e24
-ms.openlocfilehash: 2550fef062b5ef508e4c0492a5a9c63ffcb9084a
+ms.sourcegitcommit: 0fd410a6572acce685dc6cdb954c1c2d97d5ed8b
+ms.openlocfilehash: 2aa9c8c65904e573b6a81ac865e09d1cf2458509
 
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez identifier des appareils d’entreprise en important leur numéro IMEI (International Mobile Equipment Identity) ou leur numéro de série iOS. Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) qui contient les numéros IMEI des appareils, ou saisir vous-même les informations sur les appareils.  Les informations importées définissent la **propriété** des appareils inscrits sur **Entreprise** dans les listes d’appareils. Une licence Intune est toujours nécessaire pour chaque utilisateur qui accède au service.  
+Vous pouvez identifier des appareils d’entreprise en important leur numéro IMEI (International Mobile Equipment Identity) ou leur numéro de série iOS. Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) contenant les numéros IMEI des appareils ou saisir manuellement les informations sur les appareils.  Les informations importées définissent la **propriété** des appareils inscrits sur **Entreprise** dans les listes d’appareils. Une licence Intune reste nécessaire pour chaque utilisateur qui accède au service.  
 
-## <a name="predeclare-corporate-owned-devices-with-imei-or-ios-serial-number"></a>Prédéclarer des appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS
+## <a name="how-to-predeclare-corporate-owned-devices"></a>Comment prédéclarer des appareils d’entreprise
 
-1.  Dans la console Configuration Manager, accédez à Ressources et Conformité > Vue d’ensemble > Tous les appareils d’entreprise > Appareils prédéclarés, puis cliquez sur Ajouter des appareils prédéclarés. L’Assistant Appareils prédéclarés s’ouvre.
-2.  Spécifiez la façon dont vous souhaitez ajouter les informations sur les appareils :
-     -  Charger un fichier CSV contenant des numéros IMEI et des informations détaillées
-     -  Ajouter manuellement des numéros IMEI et des informations détaillées Pour entrer manuellement les informations, tapez le numéro IMEI ou le numéro de série iOS ainsi que les informations détaillées pour les appareils.
+1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **Predeclared devices** (Appareils prédéclarés).
 
-      Pour charger un fichier, accédez au fichier .csv contenant les informations à utiliser pour prédéclarer les appareils d’entreprise. Le fichier doit avoir le format suivant, à l’exclusion de la ligne du haut qui est fournie à titre indicatif uniquement. Chaque ligne doit contenir un numéro IMEI ou un numéro de série iOS. Seuls les numéros de série des appareils iOS peuvent être prédéclarés. Utilisez le numéro IMEI pour les autres plateformes d’appareils. Ce tableau contient des exemples de données :
-      | IMEI #  | No de série iOS #  | SE | Détails |
-      | :------------ |:---------------|:-----|:-----|
-      | 123456789012345    |   | WINDOWS | Appareil d’entreprise Windows|
-      |       | A1B2C3D4E5C6 |   iOS |  Appareil d’entreprise iOS|
-      | 223456789012345 | E6D5C4B3A210 |   iOS |    Autre appareil iOS|
-      | 323456789012345 |        |   iOS |  Troisième appareil iOS|
-      | 123456789012346 |         |   Android |     Appareil d’entreprise Android|
+2.  Cliquez sur **Create Predeclared Devices** (Créer des appareils prédéclarés). L’Assistant Create Predeclared Devices (Création d’appareils prédéclarés) s’ouvre.
 
-    N’incluez pas de ligne d’en-tête dans votre fichier .csv. L’exemple ci-dessus en inclut une par souci de clarification uniquement.
+3.  Choisissez la façon dont vous souhaitez ajouter les informations sur les appareils :
 
-    **Les colonnes peuvent contenir les valeurs suivantes :**    
-      - Colonne 1 : numéro IMEI sans espace
-      - Colonne 2 : numéro de série iOS
-      - Colonne 3 : système d’exploitation de l’appareil :
-         - IOS : tous les appareils iOS
-         - WINDOWS : Inclut les appareils Windows Phone, Windows 10 Mobile et PC Windows
-         - ANDROID : tous les appareils Android
-      - Colonne 4 - Détails (facultatif) : informations supplémentaires sur l’appareil affichées dans la console Configuration Manager. Colonne limitée à 1 024 caractères.
+     -  **Charger un fichier CSV contenant des numéros IMEI ou numéros de série et des informations détaillées**
+
+        Pour cette option, cliquez sur **Parcourir** pour spécifier le fichier .csv contenant les informations à utiliser pour prédéclarer les appareils d’entreprise. Le fichier .csv doit être formaté correctement. Pour plus d’informations, consultez [Format pour le chargement des fichiers .csv](#format-for-uploading-csv-files).
+
+     -  **Ajouter manuellement des numéros IMEI ou numéros de série et des informations détaillées**
+
+        Pour entrer manuellement les informations, tapez le numéro IMEI ou le numéro de série iOS ainsi que les informations détaillées pour les appareils. Corrigez les éventuels avertissements ou erreurs avant de continuer.
 
     Cliquez sur **Suivant**.
 
-3. Passez en revue les résultats de l’importation du fichier. Si un numéro d’appareil avait déjà été importé, Configuration Manager affiche les appareils correspondants et les **détails** de remplacement. Sélectionnez les appareils pour lesquels vous voulez remplacer les détails. Les détails sur un appareil peuvent uniquement être modifiés en réimportant le numéro IMEI ou le numéro de série de l’appareil. Cliquez sur **Suivant** pour continuer ou sur **Retour** pour conserver les détails modifiés, puis terminez l’Assistant.
+4. Si vous avez chargé un fichier .csv, passez en revue les résultats de l’importation du fichier. Si un numéro d’appareil avait déjà été importé, Configuration Manager affiche les appareils correspondants et les **détails** de remplacement. Sélectionnez les appareils pour lesquels vous voulez remplacer les détails. Les détails sur un appareil peuvent uniquement être modifiés en réimportant le numéro IMEI ou le numéro de série de l’appareil.
 
-4. Si l’importation inclut des numéros de série iOS, vous devez attribuer ces appareils à un profil d’inscription. Sélectionnez **Profil d’inscription à affecter** dans la liste des profils disponibles, puis cliquez sur **Suivant**.
+  Si vous choisissez d’entrer manuellement le numéro, remplissez le formulaire pour les appareils que vous souhaitez prédéclarer.
 
-5. Cliquez sur **Suivant** pour afficher le résumé, puis terminez l’Assistant.
+  Cliquez sur **Suivant** pour continuer.
+
+4. Si votre liste inclut des numéros de série iOS, sélectionnez **Profil d’inscription à affecter** dans la liste des profils disponibles, puis cliquez sur **Suivant**.
+
+5. Cliquez sur **Suivant** pour passer en revue les détails, puis à nouveau sur **Suivant** pour charger les données.
+
+6. Cliquez sur **Fermer** pour terminer.
+
+## <a name="format-for-uploading-csv-files"></a>Format pour le chargement des fichiers .csv
+
+Le fichier .csv que vous utilisez pour identifier des appareils par numéro IMEI ou numéro de série doit avoir le format suivant, à l’exception de la ligne supérieure fournie à titre indicatif uniquement. Chaque ligne doit contenir un numéro IMEI ou un numéro de série iOS. Seuls les numéros de série des appareils iOS peuvent être prédéclarés. Utilisez le numéro IMEI pour les autres plateformes d’appareils. Ce tableau contient des exemples de données :
+
+| IMEI #  | No de série iOS #  | SE | Détails |
+|------------ |---------------|-----|-----|
+| 123456789012345    |   | WINDOWS | Appareil d’entreprise Windows|
+|   | A1B2C3D4E5C6 | IOS |  Appareil d’entreprise iOS|
+| 223456789012345 | E6D5C4B3A210 |   IOS |  Autre appareil iOS|
+| 323456789012345 |        |   IOS |    Troisième appareil iOS|
+| 123456789012346 |         |   ANDROID |   Appareil d’entreprise Android|
+
+N’incluez pas de ligne d’en-tête dans votre fichier .csv. L’exemple suivant montre les mêmes données au format CSV :
+
+```
+123456789012345,,WINDOWS,Company-owned Windows device
+,A1B2C3D4E5C6,IOS,Company-owned iOS device
+223456789012345,E6D5C4B3A210,IOS,Another iOS device
+323456789012345,,IOS,A third iOS device
+123456789012346,,ANDROID,Company-owned Android device
+```
+
+Les colonnes du fichier .csv acceptent les valeurs suivantes :
+
+| Colonne 1 | Colonne 2 | Colonne 3 | Colonne 4 |
+|---|---|---|---|
+|Numéro IMEI sans espace | Numéro de série iOS | IOS, WINDOWS ou ANDROID | Détails facultatifs sur l’appareil (1 024 caractères au maximum) |
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

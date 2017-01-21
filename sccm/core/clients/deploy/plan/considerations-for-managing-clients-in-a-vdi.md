@@ -1,5 +1,5 @@
 ---
-title: 'Gestion des clients VDI (Virtual Desktop Infrastructure) | System Center Configuration Manager '
+title: 'Gestion des clients dans une infrastructure VDI (Virtual Desktop Infrastructure) | Microsoft Docs '
 description: "Gérez les clients System Center Configuration Manager dans une infrastructure VDI (Virtual Desktop Infrastructure)."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,26 +13,26 @@ ms.topic: get-started-article
 ms.assetid: abd45393-d84e-4583-bc80-74bbb3709577
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 2f9014a592de07ae8f36d23ce939fc1de776cd76
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 58251f6a4eebac4cba9f3d51f8d0aaad068c3ab8
 
 
 ---
-# <a name="considerations-for-managing-system-center-configuration-manager-clients-in-a-virtual-desktop-infrastructure-vdi"></a>Considérations sur la gestion des clients System Center Configuration Manager dans une infrastructure VDI
+# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Considérations sur la gestion des clients System Center Configuration Manager dans une infrastructure VDI
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager prend en charge l’installation du client Configuration Manager dans les scénarios VDI suivants :  
+System Center Configuration Manager prend en charge l’installation du client Configuration Manager dans les scénarios VDI suivants :  
 
--   **Machines virtuelles personnelles** : les machines virtuelles personnelles sont généralement utilisées quand vous voulez vous assurer que les données et les paramètres utilisateur sont conservés sur les machines virtuelles entre les sessions.  
+-   **Machines virtuelles personnelles** : les machines virtuelles personnelles sont généralement utilisées quand vous voulez vous assurer que les données et les paramètres utilisateur sont conservés sur les machines virtuelles entre les sessions.  
 
--   **Sessions de services Bureau à distance** : les services Bureau à distance permettent à un serveur d’héberger plusieurs sessions clientes simultanées. Les utilisateurs peuvent se connecter à une session, puis exécuter des applications sur ce serveur.  
+-   **Sessions de services Bureau à distance** : les services Bureau à distance permettent à un serveur d’héberger plusieurs sessions clientes simultanées. Les utilisateurs peuvent se connecter à une session, puis exécuter des applications sur ce serveur.  
 
--   **Machines virtuelles regroupées** : les machines virtuelles regroupées ne sont pas conservées entre les sessions. Lorsqu'une session est fermée, toutes les données et tous les paramètres sont supprimés. Les machines virtuelles regroupées sont utiles lorsqu'il est impossible d'utiliser les services Bureau à distance, car une application métier requise ne peut pas s'exécuter sur le serveur Windows hébergeant les sessions clientes.  
+-   **Machines virtuelles regroupées** : les machines virtuelles regroupées ne sont pas conservées entre les sessions. Lorsqu'une session est fermée, toutes les données et tous les paramètres sont supprimés. Les machines virtuelles regroupées sont utiles lorsqu'il est impossible d'utiliser les services Bureau à distance, car une application métier requise ne peut pas s'exécuter sur le serveur Windows hébergeant les sessions clientes.  
 
  Le tableau suivant recense les éléments à prendre en considération pour la gestion du client Configuration Manager dans une infrastructure VDI.  
 
@@ -51,6 +51,6 @@ System Center Configuration Manager prend en charge l’installation du client C
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

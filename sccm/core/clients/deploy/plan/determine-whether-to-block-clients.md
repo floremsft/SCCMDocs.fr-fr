@@ -1,5 +1,5 @@
 ---
-title: Blocage de clients | System Center Configuration Manager
+title: Blocage des clients | Microsoft Docs
 description: "Bloquez l’accès client pour la sécurité du système à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 54ef5fbb-521d-4ca5-a1c5-61e6f538d71e
 caps.latest.revision: 8
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bbb541d62c0d8f6d7deb602aaf962e81d4e2b13a
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: c1b3b3e7fe756ce3e0c82ffc15693999d8e817d2
 
 
 ---
 # <a name="determine-whether-to-block-clients-in-system-center-configuration-manager"></a>Déterminer si des clients doivent être bloqués dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vous pouvez bloquer ce client dans la console System Center 2012 Configuration Manager. L’infrastructure Configuration Manager rejette les clients bloqués afin qu’ils ne puissent pas communiquer avec les systèmes de site pour télécharger la stratégie, charger les données d’inventaire ou envoyer des messages d’état.  
+Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vous pouvez bloquer ce client dans la console System Center 2012 Configuration Manager. L’infrastructure Configuration Manager rejette les clients bloqués afin qu’ils ne puissent pas communiquer avec les systèmes de site pour télécharger la stratégie, charger les données d’inventaire ou envoyer des messages d’état.  
 
  Vous devez bloquer et débloquer les clients depuis leur site attribué plutôt que depuis un site secondaire ou un site d'administration centrale.  
 
@@ -74,6 +74,6 @@ Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vou
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

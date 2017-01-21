@@ -1,5 +1,5 @@
 ---
-title: "FAQ sur les données de diagnostic | System Center Configuration Manager"
+title: "FAQ sur les données de diagnostic | Microsoft Docs"
 description: "Consultez les questions fréquemment posées sur les données de diagnostic et d’utilisation pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,19 +16,19 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f5d0bf6215e827b58dcbc4a64c509c2f07b44815
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 856ee34621816155d4ad95ed7240cf585e322486
 
 
 ---
 # <a name="frequently-asked-questions-about-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Questions fréquemment posées sur les données d’utilisation et de diagnostic pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Retrouvez ci-dessous les questions fréquemment posées sur les données de diagnostic et d’utilisation pour System Center Configuration Manager :  
+Retrouvez ci-dessous les questions fréquemment posées sur les données de diagnostic et d’utilisation pour System Center Configuration Manager :  
 
 ###  <a name="a-namebkmkoffa-how-do-i-turn-off-telemetry"></a><a name="bkmk_off"></a> Comment désactiver la télémétrie ?  
- La version Current Branch de Configuration Manager doit être mise à jour régulièrement pour pouvoir prendre en charge les nouvelles versions de Windows 10 et Microsoft Intune. Microsoft requiert au moins le niveau De base des données d’utilisation et de diagnostic pour pouvoir maintenir à jour le produit, améliorer l’expérience de mise à jour, ainsi qu’améliorer la qualité et la sécurité du produit.  
+ La version Current Branch de Configuration Manager doit être mise à jour régulièrement pour pouvoir prendre en charge les nouvelles versions de Windows 10 et Microsoft Intune. Microsoft requiert au moins le niveau De base des données d’utilisation et de diagnostic pour pouvoir maintenir à jour le produit, améliorer l’expérience de mise à jour, ainsi qu’améliorer la qualité et la sécurité du produit.  
 
 ###  <a name="a-namebkmkretentiona-what-is-the-data-retention-period"></a><a name="bkmk_retention"></a> Quelle est la période de rétention des données ?  
  Les données d’utilisation et de diagnostic sont conservées un an.  
@@ -41,9 +41,9 @@ Retrouvez ci-dessous les questions fréquemment posées sur les données de diag
 
 ###  <a name="a-namebkmknetworka-can-the-data-be-used-to-form-a-network-map"></a><a name="bkmk_network"></a> Les données peuvent-elles être utilisées pour former un mappage réseau ?  
  Comme indiqué dans la description des niveaux de collecte de données d’utilisation et de diagnostic pour System Center Configuration Manager, les détails de site incluent les informations de fuseau horaire de chaque site. Ceci peut fournir des indications concernant la géolocalisation large et la dispersion globale des sites dans une hiérarchie. Toutefois, aucun détail relatif au réseau, telles des adresses IP ou des informations géographiques plus détaillées, n’est collecté.
- - [Données de diagnostic pour la version 1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
- - [Données de diagnostic pour 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
- - [Données de diagnostic pour 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)
+ - [Données de diagnostic pour la version 1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
+ - [Données de diagnostic pour 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
+ - [Données de diagnostic pour 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)
 
 
 ###  <a name="a-namebkmktablesa-can-you-see-data-in-custom-tables"></a><a name="bkmk_tables"></a> Pouvez-vous voir les données figurant dans des tables personnalisées ?  
@@ -57,6 +57,6 @@ Retrouvez ci-dessous les questions fréquemment posées sur les données de diag
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

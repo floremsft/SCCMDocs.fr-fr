@@ -1,5 +1,5 @@
 ---
-title: "Garantir la conformité des appareils | System Center Configuration Manager"
+title: "Garantir la conformité des appareils | Microsoft Docs"
 description: "Gérez la configuration et la conformité des appareils de votre organisation à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 70104ac6e8fa19e222ef93c28e5fe33e9093af79
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: f7ecfe550d2e28579ea873442b2a68dc1c7c5483
 
 
 ---
 # <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Garantir la conformité des appareils avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les paramètres de compatibilité dans System Center Configuration Manager vous donnent les outils et ressources nécessaires pour gérer la configuration et la conformité des appareils de votre organisation. Cela vous permet de prendre en charge les exigences de l’entreprise suivantes :  
 
@@ -74,6 +74,6 @@ Les paramètres de compatibilité dans System Center Configuration Manager vous 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

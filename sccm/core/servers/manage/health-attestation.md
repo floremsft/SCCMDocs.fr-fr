@@ -1,5 +1,5 @@
 ---
-title: "Attestation d’intégrité | System Center Configuration Manager"
+title: "Attestation d’intégrité | Microsoft Docs"
 description: "Découvrez les fonctionnalités d’attestation d’intégrité de l’appareil disponibles dans la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7f3c95983f28d58bd0503570df9dc3b229059e82
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 937a168f79168b3e3a3a578513814abb2b368d9f
 
 
 ---
 # <a name="health-attestation-for-system-center-configuration-manager"></a>Attestation d’intégrité pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-À compter de la version Current Branch 1602 de System Center Configuration Manager, les administrateurs peuvent afficher l’état de l’[Attestation d’intégrité de l’appareil Windows 10](https://technet.microsoft.com/library/mt592023.aspx) dans la console Configuration Manager.  Cette fonctionnalité est disponible pour les PC et les ressources locales gérés par Configuration Manager et les appareils mobiles gérés avec Microsoft Intune. Les administrateurs peuvent spécifier si le signalement s’effectue par le biais du cloud ou de l’infrastructure locale. Les PC clients sans accès à Internet peuvent ainsi activer et surveiller des appareils à l’aide de l’attestation d’intégrité. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les configurations dignes de confiance suivantes de BIOS, de module de plateforme sécurisée (TPM) et de logiciel de démarrage sont activées sur les ordinateurs clients :  
+À compter de la version Current Branch 1602 de System Center Configuration Manager, les administrateurs peuvent afficher l’état de l’[Attestation d’intégrité de l’appareil Windows 10](https://technet.microsoft.com/library/mt592023.aspx) dans la console Configuration Manager.  Cette fonctionnalité est disponible pour les PC et les ressources locales gérés par Configuration Manager et les appareils mobiles gérés avec Microsoft Intune. Les administrateurs peuvent spécifier si le signalement s’effectue par le biais du cloud ou de l’infrastructure locale. Les PC clients sans accès à Internet peuvent ainsi activer et surveiller des appareils à l’aide de l’attestation d’intégrité. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les configurations dignes de confiance suivantes de BIOS, de module de plateforme sécurisée (TPM) et de logiciel de démarrage sont activées sur les ordinateurs clients :  
 
 -   Logiciel anti-programme malveillant à lancement anticipé - Un logiciel anti-programme malveillant à lancement anticipé (ELAM) protège votre ordinateur au démarrage et avant l’initialisation de pilotes tiers. [Comment activer le logiciel anti-programme malveillant à lancement anticipé (ELAM)](https://gallery.technet.microsoft.com/How-to-turn-on-Early-84552ec5)  
 
@@ -38,7 +38,7 @@ ms.openlocfilehash: 7f3c95983f28d58bd0503570df9dc3b229059e82
 
 
 ##  <a name="device-health-attestation"></a>Attestation de l’intégrité des appareils  
- L’attestation d’intégrité des appareils Configuration Manager affiche les informations suivantes :  
+ L’attestation d’intégrité des appareils Configuration Manager affiche les informations suivantes :  
 
 -   **État d’attestation d’intégrité** : indique la répartition des appareils en état conforme, non conforme, d’erreur ou inconnu.  
 
@@ -52,11 +52,11 @@ ms.openlocfilehash: 7f3c95983f28d58bd0503570df9dc3b229059e82
 
 -   Appareils clients exécutant Windows 10  
 
--   Windows Server 2016 Technical Preview 5 avec [Attestation d’intégrité de l’appareil activée](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
+-   Windows Server 2016 Technical Preview 5 avec [Attestation d’intégrité de l’appareil activée](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
 
 -    2 modules de plateforme sécurisée (TPM) activés  
 
--   Débloquer la communication entre l’agent du client Configuration Manager et le service d’attestation d’intégrité has.spserv.microsoft.com (port 443)
+-   Débloquer la communication entre l’agent du client Configuration Manager et le service d’attestation d’intégrité has.spserv.microsoft.com (port 443)
 
 ### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Comment activer la communication avec le service d’attestation d’intégrité sur des ordinateurs clients Configuration Manager  
 
@@ -85,6 +85,6 @@ ms.openlocfilehash: 7f3c95983f28d58bd0503570df9dc3b229059e82
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

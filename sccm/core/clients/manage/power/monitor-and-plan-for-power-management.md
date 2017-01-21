@@ -1,5 +1,5 @@
 ---
-title: "Surveiller et planifier la gestion de l’alimentation | System Center Configuration Manager"
+title: "Surveiller et planifier la gestion de l’alimentation | Microsoft Docs"
 description: "Découvrez comment surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 04ada4c90a5763a454c859eb7af9ac6ac84ceb3a
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: b308329635400438cebc4935efe79b46e607fd58
 
 
 ---
 # <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Comment surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les informations suivantes pour mieux surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager.  
 
@@ -34,8 +34,8 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
  Pour pouvoir utiliser les rapports de gestion de l'alimentation, vous devez configurer des rapports pour votre hiérarchie. Pour plus d’informations sur la création de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  Les informations de gestion de l’alimentation utilisées par les rapports quotidiens sont conservées dans la base de données du site Configuration Manager pendant 31 jours.  
->           Les informations de gestion de l’alimentation utilisées par les rapports mensuels sont conservées dans la base de données du site Configuration Manager pendant 13 mois.  
+>  Les informations de gestion de l’alimentation utilisées par les rapports quotidiens sont conservées dans la base de données du site Configuration Manager pendant 31 jours.  
+>           Les informations de gestion de l’alimentation utilisées par les rapports mensuels sont conservées dans la base de données du site Configuration Manager pendant 13 mois.  
 >   
 >  Quand vous exécutez des rapports pendant les phases de surveillance, de planification et de conformité de la gestion de l’alimentation, enregistrez ou exportez les résultats de tous les rapports pour lesquels vous souhaitez conserver les données afin de les comparer ultérieurement au cas où ils seraient ensuite supprimés par Configuration Manager.  
 
@@ -131,7 +131,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 |**Type d'appareil**|Dans la liste déroulante, sélectionnez le type d'ordinateur pour lequel vous souhaitez obtenir un rapport. Les valeurs valides sont **Tout** (ordinateurs portables et postes de travail), **Bureau** (postes de travail uniquement) et **Ordinateur portable** (ordinateurs portables uniquement). Ces valeurs sont retournées uniquement pour la période de création de rapports sélectionnée.|  
 |**Compatible avec le mode veille**|Dans la liste déroulante, indiquez si vous souhaitez afficher les ordinateurs compatibles avec le mode veille dans le rapport. Les valeurs valides sont **Tout** (ordinateurs aptes et inaptes à être mis en veille), **Non** (ordinateurs inaptes à être mis en veille) et **Oui** (ordinateurs aptes à être mis en veille).|  
 |**Compatible avec la sortie de veille**|Dans la liste déroulante, indiquez si vous souhaitez afficher les ordinateurs compatibles avec le mode de sortie de veille dans le rapport. Les valeurs valides sont **Tout** (ordinateurs aptes et inaptes à sortir de veille), **Non** (ordinateurs inaptes à sortir de veille) et **Oui** (ordinateurs aptes à sortir de veille).|  
-|**Gestion de l'alimentation**|Dans la liste déroulante, sélectionnez les types de modes d'alimentation à afficher dans le rapport. Les valeurs valides sont **Tout** (ordinateurs auxquels aucun mode de gestion de l’alimentation ne s’applique ; ordinateurs auxquels un mode de gestion de l’alimentation s’applique ; ordinateurs exclus de la gestion de l’alimentation), **Non spécifié** (ordinateurs auxquels aucun mode de gestion de l’alimentation ne s’applique), **Défini** (ordinateurs auxquels un mode de gestion de l’alimentation s’applique) et **Exclu** (ordinateurs exclus de la gestion de l’alimentation).|  
+|**Gestion de l'alimentation**|Dans la liste déroulante, sélectionnez les types de modes d'alimentation à afficher dans le rapport. Les valeurs valides sont **Tout** (ordinateurs auxquels aucun mode de gestion de l’alimentation ne s’applique ; ordinateurs auxquels un mode de gestion de l’alimentation s’applique ; ordinateurs exclus de la gestion de l’alimentation), **Non spécifié** (ordinateurs auxquels aucun mode de gestion de l’alimentation ne s’applique), **Défini** (ordinateurs auxquels un mode de gestion de l’alimentation s’applique) et **Exclu** (ordinateurs exclus de la gestion de l’alimentation).|  
 |**Système d'exploitation**|Dans la liste déroulante, sélectionnez les systèmes d'exploitation à afficher dans le rapport ou sélectionnez **Tout** pour afficher tous les systèmes d'exploitation.|  
 
 #### <a name="hidden-report-parameters"></a>Paramètres de rapport masqués  
@@ -142,7 +142,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 
 |Nom du rapport|Détails|  
 |-----------------|-------------|  
-|**Activité par ordinateur**|Cliquez sur un nom d’ordinateur pour voir l’activité spécifique pour cet ordinateur sur une période de création de rapports choisie. Ces activités incluent **Ordinateur allumé** (l’ordinateur a-t-il été allumé ?), **Moniteur allumé** (le moniteur a-t-il été allumé ?) et **Utilisateur actif** (une activité a été détectée à partir de la souris, du clavier ou d’une connexion Bureau à distance de l’ordinateur).<br /><br /> Pour plus d'informations, consultez [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) dans cette rubrique.|  
+|**Activité par ordinateur**|Cliquez sur un nom d’ordinateur pour voir l’activité spécifique pour cet ordinateur sur une période de création de rapports choisie. Ces activités incluent **Ordinateur allumé** (l’ordinateur a-t-il été allumé ?), **Moniteur allumé** (le moniteur a-t-il été allumé ?) et **Utilisateur actif** (une activité a été détectée à partir de la souris, du clavier ou d’une connexion Bureau à distance de l’ordinateur).<br /><br /> Pour plus d'informations, consultez [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) dans cette rubrique.|  
 
 ###  <a name="a-namebkmkcomputerdetailsa-computer-details-report"></a><a name="BKMK_Computer_Details"></a> Rapport Détails de l’ordinateur  
  Le rapport **Détails de l'ordinateur** affiche des informations détaillées sur les fonctions de gestion de l'alimentation, les paramètres d'alimentation et les modes d'alimentation appliqués à un ordinateur spécifié. Ce rapport est appelé par le rapport **Activité par ordinateur** , le rapport **Ordinateurs avec plusieurs modes de gestion de l'alimentation** , le rapport **Fonctions de gestion de l'alimentation** et le rapport **Détails des paramètres du mode de gestion de l'alimentation** . Il n'est pas destiné à être exécuté directement par l'administrateur du site.  
@@ -410,7 +410,7 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 
 -   Un tableau indiquant la quantité mensuelle totale de CO2 générée et la quantité mensuelle moyenne de CO2 générée par les ordinateurs du regroupement spécifié pendant la période indiquée.  
 
- Le rapport **Incidence sur l’environnement** calcule la quantité de CO2 générée (en tonnes) en utilisant la durée pendant laquelle un ordinateur ou un moniteur est resté sous tension sur une période de 24 heures.  
+ Le rapport **Incidence sur l’environnement** calcule la quantité de CO2 générée (en tonnes) en utilisant la durée pendant laquelle un ordinateur ou un moniteur est resté sous tension sur une période de 24 heures.  
 
  Utilisez les paramètres suivants pour configurer ce rapport.  
 
@@ -445,13 +445,13 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 ###  <a name="a-namebkmkenvironmentalimpactbydaya-environmental-impact-by-day-report"></a><a name="BKMK_Environmental_Impact_by_Day"></a> Rapport Incidence journalière sur l’environnement  
  Le rapport **Incidence journalière sur l'environnement** affiche les informations suivantes :  
 
--   Un graphique indiquant la quantité quotidienne totale de CO2 générée (en tonnes) par les ordinateurs du regroupement spécifié pendant les 31 derniers jours.  
+-   Un graphique indiquant la quantité quotidienne totale de CO2 générée (en tonnes) par les ordinateurs du regroupement spécifié pendant les 31 derniers jours.  
 
--   Un graphique indiquant la quantité quotidienne moyenne de CO2 générée (en tonnes) par chaque ordinateur du regroupement spécifié pendant les 31 derniers jours.  
+-   Un graphique indiquant la quantité quotidienne moyenne de CO2 générée (en tonnes) par chaque ordinateur du regroupement spécifié pendant les 31 derniers jours.  
 
--   Un tableau indiquant la quantité quotidienne totale de CO2 générée et la quantité quotidienne moyenne de CO2 générée par les ordinateurs du regroupement spécifié pendant les 31 derniers jours.  
+-   Un tableau indiquant la quantité quotidienne totale de CO2 générée et la quantité quotidienne moyenne de CO2 générée par les ordinateurs du regroupement spécifié pendant les 31 derniers jours.  
 
- Le rapport **Incidence journalière sur l’environnement** calcule la quantité de CO2 générée (en tonnes) en utilisant la durée pendant laquelle un ordinateur ou un moniteur est resté sous tension sur une période de 24 heures.  
+ Le rapport **Incidence journalière sur l’environnement** calcule la quantité de CO2 générée (en tonnes) en utilisant la durée pendant laquelle un ordinateur ou un moniteur est resté sous tension sur une période de 24 heures.  
 
 #### <a name="required-report-parameters"></a>Paramètres de rapport obligatoires  
  Les paramètres suivants doivent être spécifiés pour exécuter ce rapport.  
@@ -627,6 +627,6 @@ Utilisez les informations suivantes pour mieux surveiller et planifier la gestio
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

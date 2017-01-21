@@ -1,5 +1,5 @@
 ---
-title: "Transferts de données | System Center Configuration Manager"
+title: "Transferts de données | Microsoft Docs"
 description: "Découvrez comment Configuration Manager déplace les données entre les sites et comment vous pouvez gérer le transfert de ces données sur votre réseau."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1abd28aa4ce4f946f6328f8f7924b5f5a81e640c
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: e290a5491fbd43ddf3ca8f4cf6f122ac862103d1
 
 
 ---
 # <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Transfert de données entre sites dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager utilise la **réplication basée sur les fichiers** et la **réplication de base de données** pour transférer différents types d’informations entre les sites.  Les sujets de cette rubrique peuvent vous aider à comprendre comment Configuration Manager déplace les données entre les sites et comment vous pouvez gérer le transfert de ces données sur votre réseau.  
 
@@ -38,9 +38,9 @@ System Center Configuration Manager utilise la **réplication basée sur les fic
 
  **de réplication de fichiers** : chaque route de réplication de fichiers identifie un site de destination vers lequel les données basées sur des fichiers peuvent être transférées. Chaque site prend en charge un seul itinéraire de réplication de fichiers vers un site de destination spécifique.  
 
- Configuration Manager prend en charge les configurations suivantes pour les itinéraires de réplication de fichiers :  
+ Configuration Manager prend en charge les configurations suivantes pour les itinéraires de réplication de fichiers :  
 
--   **Compte de réplication de fichiers** : ce compte permet d’établir une connexion au site de destination et d’écrire des données dans le partage **SMS_SITE** de ce site. Les données écrites dans ce partage sont traitées par le site de réception. Par défaut, quand un site est ajouté à la hiérarchie, Configuration Manager attribue le compte d’ordinateur du serveur de site du nouveau site en tant que **Compte de réplication de fichiers**de ce site. Ce compte est ensuite ajouté au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination, qui est un groupe local sur l’ordinateur accordant l’accès au partage **SMS_SITE**. Vous pouvez modifier ce compte en un compte d'utilisateur Windows. Si vous changez le compte, vérifiez que vous ajoutez le nouveau compte au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination.  
+-   **Compte de réplication de fichiers** : ce compte permet d’établir une connexion au site de destination et d’écrire des données dans le partage **SMS_SITE** de ce site. Les données écrites dans ce partage sont traitées par le site de réception. Par défaut, quand un site est ajouté à la hiérarchie, Configuration Manager attribue le compte d’ordinateur du serveur de site du nouveau site en tant que **Compte de réplication de fichiers**de ce site. Ce compte est ensuite ajouté au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination, qui est un groupe local sur l’ordinateur accordant l’accès au partage **SMS_SITE**. Vous pouvez modifier ce compte en un compte d'utilisateur Windows. Si vous changez le compte, vérifiez que vous ajoutez le nouveau compte au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination.  
 
     > [!NOTE]  
     >  Les sites secondaires utilisent toujours le compte d'ordinateur du serveur de site secondaire en tant que **Compte de réplication de fichiers**.  
@@ -51,7 +51,7 @@ System Center Configuration Manager utilise la **réplication basée sur les fic
 
     -   Utilisez l'option **Mode impulsion** pour spécifier la taille des blocs de données envoyés vers le site de destination. Vous pouvez également spécifier un délai entre l'envoi de chaque bloc de données. Utilisez cette option lorsque vous devez envoyer des données via une connexion réseau de très faible bande passante vers le site de destination. Par exemple, vous pouvez forcer l'envoi de 1 Ko de données toutes les cinq secondes, mais empêcher l'envoi de 1 Ko toutes les trois secondes, quelle que soit la vitesse de la liaison ou son utilisation.  
 
-    -   Utilisez l'option **Limité aux taux de transfert maximaux indiqués par heure** pour permettre à un site d'envoyer des données vers un site de destination en utilisant uniquement le pourcentage de temps spécifié. Quand vous utilisez cette option, Configuration Manager n’identifie pas la bande passante disponible du réseau, mais divise plutôt le temps pendant lequel il peut envoyer des données en périodes plus petites. Ensuite, les données sont envoyées en une courte plage horaire, suivie de plages horaires pendant lesquelles aucune donnée n'est envoyée. Par exemple, si le taux maximal est fixé à **50 %**, Configuration Manager transmet les données pendant une durée, suivie d’une période d’une durée égale pendant laquelle aucune donnée n’est envoyée. La taille effective des donnés ou la taille des blocs de données ne sont pas gérées. En revanche, seule la durée pendant laquelle des données sont envoyées est gérée.  
+    -   Utilisez l'option **Limité aux taux de transfert maximaux indiqués par heure** pour permettre à un site d'envoyer des données vers un site de destination en utilisant uniquement le pourcentage de temps spécifié. Quand vous utilisez cette option, Configuration Manager n’identifie pas la bande passante disponible du réseau, mais divise plutôt le temps pendant lequel il peut envoyer des données en périodes plus petites. Ensuite, les données sont envoyées en une courte plage horaire, suivie de plages horaires pendant lesquelles aucune donnée n'est envoyée. Par exemple, si le taux maximal est fixé à **50 %**, Configuration Manager transmet les données pendant une durée, suivie d’une période d’une durée égale pendant laquelle aucune donnée n’est envoyée. La taille effective des donnés ou la taille des blocs de données ne sont pas gérées. En revanche, seule la durée pendant laquelle des données sont envoyées est gérée.  
 
         > [!CAUTION]  
         >  Par défaut, un site peut utiliser jusqu'à trois **envois simultanés** pour transférer des données vers un site de destination. Lorsque vous définissez des limites de taux pour un itinéraire de réplication de fichiers, les **envois simultanés** dans le cadre de l'envoi de données vers ce site sont limités à un. Cela s'applique même lorsque l'option **Limiter la bande passante disponible (%)** est définie sur **100 %**. Par exemple, si vous utilisez les paramètres par défaut pour l'expéditeur, le taux de transfert vers le site de destination est réduit à un tiers de la capacité par défaut.  
@@ -73,7 +73,7 @@ Pour gérer un itinéraire de réplication de fichiers, dans l'espace de travail
 Pour gérer l'expéditeur pour un site, développez le nœud **Configuration du site** dans l'espace de travail **Administration** , sélectionnez le nœud **Sites** , puis cliquez sur **Propriétés** pour le site à gérer. Cliquez dans l'onglet **Expéditeur** pour modifier la configuration de l'expéditeur.  
 
 ##  <a name="a-namebkmkdbrepa-database-replication"></a><a name="bkmk_dbrep"></a> Database replication  
-La réplication de base de données Configuration Manager utilise SQL Server pour transférer des données et fusionner les modifications apportées à la base de données d’un site avec les informations stockées dans la base de données sur d’autres sites de la hiérarchie.  
+La réplication de base de données Configuration Manager utilise SQL Server pour transférer des données et fusionner les modifications apportées à la base de données d’un site avec les informations stockées dans la base de données sur d’autres sites de la hiérarchie.  
 
 -   Cela permet à tous les sites de partager les mêmes informations.  
 
@@ -81,7 +81,7 @@ La réplication de base de données Configuration Manager utilise SQL Server pou
 
 -   Une fois l’installation du site terminée, la réplication de base de données démarre automatiquement.  
 
-Quand vous ajoutez un nouveau site à une hiérarchie, Configuration Manager crée une base de données générique sur le nouveau site. Ensuite, le site parent crée un instantané des données appropriées de sa base de données et transfère cet instantané vers le nouveau site par réplication basée sur des fichiers. Le nouveau site utilise ensuite un programme de copie en bloc de SQL Server pour charger les informations dans sa copie locale de la base de données Configuration Manager. Une fois l'instantané chargé, chaque site effectue une réplication de base de données avec l'autre site.  
+Quand vous ajoutez un nouveau site à une hiérarchie, Configuration Manager crée une base de données générique sur le nouveau site. Ensuite, le site parent crée un instantané des données appropriées de sa base de données et transfère cet instantané vers le nouveau site par réplication basée sur des fichiers. Le nouveau site utilise ensuite un programme de copie en bloc de SQL Server pour charger les informations dans sa copie locale de la base de données Configuration Manager. Une fois l'instantané chargé, chaque site effectue une réplication de base de données avec l'autre site.  
 
 Pour répliquer des données entre les sites, Configuration Manager utilise son propre service de réplication de base de données. Le service de réplication de base de données utilise le suivi des modifications de SQL Server pour contrôler les modifications apportées à la base de données du site local, puis procède à la réplication de ces modifications sur les autres sites à l’aide de **SQL Server Service Broker**. Par défaut, ce processus utilise le port **TCP/IP 4022**.  
 
@@ -107,7 +107,7 @@ Configuration Manager classe les données qu’il réplique via la réplication 
 
 -   **Données globales**: Les données globales font référence aux objets créés par l'administrateur et qui sont répliquées sur tous les sites dans la hiérarchie, bien que les sites secondaires reçoivent uniquement un sous-ensemble des données globales, en tant que données globales proxy. Les déploiements logiciels, les mises à jour logicielles, les définitions de regroupement et les étendues de sécurité de l'administration basée sur des rôles sont autant d'exemples de données globales. Les administrateurs peuvent créer des données globales sur des sites d'administration centrale et des sites principaux.  
 
--   **Données de site** : Les données de site font référence aux informations opérationnelles créées par les sites principaux Configuration Manager et les clients qui sont sous la hiérarchie de sites principaux. Les données de site sont répliquées vers le site d'administration centrale mais pas vers d'autres sites principaux. Les données d'inventaire matériel, les messages d'états, les alertes et les résultats de regroupements basés sur des requêtes sont des exemples de données de site. Les données de site ne peuvent être consultées que sur le site d'administration centrale et le site principal d'où proviennent les données. Les données de site ne peuvent être modifiées que sur le site principal sur lequel elles ont été créées.  
+-   **Données de site** : Les données de site font référence aux informations opérationnelles créées par les sites principaux Configuration Manager et les clients qui sont sous la hiérarchie de sites principaux. Les données de site sont répliquées vers le site d'administration centrale mais pas vers d'autres sites principaux. Les données d'inventaire matériel, les messages d'états, les alertes et les résultats de regroupements basés sur des requêtes sont des exemples de données de site. Les données de site ne peuvent être consultées que sur le site d'administration centrale et le site principal d'où proviennent les données. Les données de site ne peuvent être modifiées que sur le site principal sur lequel elles ont été créées.  
 
      Toutes les données de site sont répliquées vers le site d'administration centrale. Par conséquent, le site d'administration centrale peut procéder à l'administration et au reporting pour toute la hiérarchie.  
 
@@ -230,6 +230,6 @@ Pour configurer les contrôles de réplication d’une base de données de site,
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

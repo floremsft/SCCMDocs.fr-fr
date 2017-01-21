@@ -1,5 +1,5 @@
 ---
-title: "Gérer des appareils mobiles | System Center Configuration Manager et Exchange"
+title: "Gérer des appareils mobiles | Microsoft Docs"
 description: "Découvrez comment gérer des appareils mobiles à l’aide du connecteur Exchange Server dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,23 +16,23 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 18da1455796e265af2adb8852c9f2b610dc672a8
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: 4a2b60d893e8d430b107a5bc43ec0748177c27c3
 
 
 ---
 # <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez le connecteur Exchange Server dans System Center Configuration Manager pour gérer les appareils mobiles qui se connectent à Exchange Server (en local ou en ligne) en utilisant le protocole Microsoft Exchange ActiveSync, mais que vous ne pouvez pas inscrire à l’aide de Configuration Manager. Vous pouvez configurer les fonctionnalités de gestion des appareils mobiles d’Exchange, comme la réinitialisation à distance de l’appareil et le contrôle des paramètres de plusieurs serveurs Exchange, dans la console Configuration Manager.  
+Utilisez le connecteur Exchange Server dans System Center Configuration Manager pour gérer les appareils mobiles qui se connectent à Exchange Server (en local ou en ligne) en utilisant le protocole Microsoft Exchange ActiveSync, mais que vous ne pouvez pas inscrire à l’aide de Configuration Manager. Vous pouvez configurer les fonctionnalités de gestion des appareils mobiles d’Exchange, telles que la réinitialisation à distance de l’appareil et le contrôle des paramètres de plusieurs serveurs Exchange, dans la console Configuration Manager.  
 
- ![configmgr&#45;avec&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "configmgr-with-exchange")  
+ ![configmgr&#45;avec&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "configmgr-avec-exchange")  
 
  Quand vous gérez des appareils mobiles à l’aide du connecteur Exchange Server, le client Configuration Manager n’est pas installé sur les appareils mobiles. Certaines fonctions de gestion sont donc limitées. Par exemple, vous ne pouvez pas installer un logiciel sur ces périphériques ou les configurer à l'aide d'éléments de configuration. Pour plus d’informations sur les différentes fonctionnalités de gestion d’appareils mobiles que vous pouvez utiliser avec Configuration Manager, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md).  
 
 > [!IMPORTANT]  
->  Avant d’installer le connecteur Exchange Server, vérifiez que Configuration Manager prend bien en charge la version de Microsoft Exchange que vous utilisez. Pour plus d’informations, consultez la section « Connecteur Exchange Server » dans [Systèmes d’exploitation pris en charge pour les sites et les clients pour System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
+>  Avant d’installer le connecteur Exchange Server, vérifiez que Configuration Manager prend bien en charge la version de Microsoft Exchange que vous utilisez. Pour plus d’informations, consultez la section « Connecteur Exchange Server » dans [Systèmes d’exploitation pris en charge pour les sites et les clients pour System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
 
  Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité**et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
 
@@ -132,12 +132,12 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
 
 6.  Vous pouvez vérifier l'installation du connecteur Exchange Server à l'aide de messages d'état et en passant en revue les fichiers journaux :  
 
-    -   Pour vérifier que le Gestionnaire de composants de site a bien installé le connecteur Exchange Server, recherchez l'ID de l'état **1015** pour le composant **SMS_EXCHANGE_CONNECTOR** . Si Configuration Manager ne peut pas installer correctement le connecteur (parce que l’ordinateur du serveur d’accès au client spécifié est hors connexion, par exemple), Configuration Manager effectue une nouvelle tentative d’installation toutes les 60 minutes jusqu’à ce que l’opération réussisse ou que vous supprimiez le connecteur Exchange Server.  
+    -   Pour vérifier que le Gestionnaire de composants de site a bien installé le connecteur Exchange Server, recherchez l'ID de l'état **1015** pour le composant **SMS_EXCHANGE_CONNECTOR** . Si Configuration Manager ne peut pas installer correctement le connecteur (parce que l’ordinateur du serveur d’accès au client spécifié est hors connexion, par exemple), Configuration Manager effectue une nouvelle tentative d’installation toutes les 60 minutes jusqu’à ce que l’opération réussisse ou que vous supprimiez le connecteur Exchange Server.  
 
     -   Sur l'ordinateur du serveur de site, recherchez le fichier SiteComp.log, puis dans le fichier journal, recherchez `Component SMS_EXCHANGE_CONNECTOR flagged for installation`. Quand l'installation s'effectue correctement, elle est enregistrée avec le texte suivant : `STATMSG: ID=1015`.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

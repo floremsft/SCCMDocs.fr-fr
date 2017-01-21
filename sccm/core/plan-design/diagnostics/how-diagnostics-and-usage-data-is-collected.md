@@ -1,5 +1,5 @@
 ---
-title: "Collecte des données de diagnostic | System Center Configuration Manager"
+title: "Collecte des données de diagnostic | Microsoft Docs"
 description: "Découvrez comment System Center Configuration Manager collecte les données de diagnostic et d’utilisation y afférentes."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 89292a11d003edd9e3a0eeb7fd367265a6b150b6
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: f0a992139ad1bc516df2f6ea947509e3e4a77c54
 
 
 ---
 # <a name="how-diagnostics-and-usage-data-is-collected-by-system-center-configuration-manager"></a>Comment les données d’utilisation et de diagnostic sont collectées pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour collecter les données de diagnostic et d’utilisation pour System Center Configuration Manager, chaque site principal exécute des requêtes SQL Server à une fréquence hebdomadaire. Dans une hiérarchie multisite, les données sont répliquées vers le site d’administration centrale.  
 
@@ -37,6 +37,6 @@ Pour plus d’informations, voir [À propos du point de connexion de service dan
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

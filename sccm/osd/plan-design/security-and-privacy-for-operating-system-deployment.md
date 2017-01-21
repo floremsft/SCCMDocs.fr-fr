@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité du déploiement de systèmes d’exploitation | Configuration Manager"
+title: "Sécurité et confidentialité du déploiement de systèmes d’exploitation | Microsoft Docs"
 description: "Découvrez les bonnes pratiques en matière de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,19 +17,19 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7f83b9d30f933c7b8cc0a527e8a65d321b7ee786
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 5632a753fc565312a80b2ed69ce438335b3fad50
 
 
 ---
 # <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager.  
 
 ##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-operating-system-deployment"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour le déploiement de systèmes d’exploitation  
- Utilisez les bonnes pratiques de sécurité suivantes lorsque vous déployez des systèmes d’exploitation avec Configuration Manager :  
+ Utilisez les bonnes pratiques de sécurité suivantes lorsque vous déployez des systèmes d’exploitation avec Configuration Manager :  
 
 -   **Instaurez des contrôles d’accès pour protéger les médias de démarrage**  
 
@@ -210,6 +210,6 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

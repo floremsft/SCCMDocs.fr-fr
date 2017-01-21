@@ -1,5 +1,5 @@
 ---
-title: "Gérer les requêtes | System Center Configuration Manager"
+title: "Gérer les requêtes | Microsoft Docs"
 description: "Découvrez comment gérer vos requêtes. Inclut un tableau contenant des informations de référence détaillées."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c3c9bce02a177e755bb259634a7feab381a41466
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 738dcf0b52f18b38b732bf8ca5d7a87369b1c468
 
 
 ---
 # <a name="how-to-manage-queries-in-system-center-configuration-manager"></a>Guide pratique pour gérer les requêtes dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Aidez-vous des informations contenues dans cette rubrique pour gérer les requêtes dans System Center Configuration Manager.  
 
@@ -47,6 +47,6 @@ Aidez-vous des informations contenues dans cette rubrique pour gérer les requê
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

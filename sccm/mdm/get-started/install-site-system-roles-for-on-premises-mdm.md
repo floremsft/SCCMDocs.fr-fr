@@ -1,5 +1,5 @@
 ---
-title: "Installer des rôles système de site | Gestion des appareils mobiles locale | System Center Configuration Manager"
+title: "Installer des rôles de système de site | Microsoft Docs | Gestion des appareils mobiles locale"
 description: "Installez des rôles système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d6a36acc53b8ccd85395a7543cbd0e361d093840
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: 7f3b733390554b8dc149751d8a5dfc3ed3af43bf
 
 
 ---
 # <a name="install-site-system-roles-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-La gestion des appareils mobiles locale de System Center Configuration Manager nécessite les rôles système de site suivants dans votre infrastructure de site Configuration Manager :  
+La gestion des appareils mobiles locale de System Center Configuration Manager nécessite les rôles système de site suivants dans votre infrastructure de site Configuration Manager :  
 
 -   Point d'inscription  
 
@@ -40,14 +40,14 @@ La gestion des appareils mobiles locale de System Center Configuration Manager n
  Si vous ajoutez la gestion des appareils mobiles locale à votre organisation et que la plupart des ordinateurs et appareils de celle-ci sont gérés à l’aide du logiciel client Configuration Manager, la plupart des rôles système de site sont peut-être déjà installés dans le cadre de votre infrastructure existante. Dans le cas contraire, consultez [Ajouter des rôles système de site pour System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md) pour plus d’informations sur la façon de les ajouter à votre site.  
 
 > [!NOTE]  
->  Si vous utilisez des réplicas de base de données avec votre rôle de système de site de point de gestion de l’appareil, les appareils nouvellement inscrits échouent à se connecter au point de gestion de l’appareil tant que le réplica de base de données ne s’est pas synchronisé avec celui-ci. Cet échec de connexion se produit car le réplica de base de données n’a pas les informations sur l’appareil nouvellement inscrit nécessaires pour que la connexion réussisse. Les réplicas se synchronisent toutes les 5 minutes : les appareils vont échouer à se connecter pendant les 5 premières minutes après l’inscription (généralement 2 tentatives de connexion), après quoi l’appareil va se connecter avec succès.  
+>  Si vous utilisez des réplicas de base de données avec votre rôle de système de site de point de gestion de l’appareil, les appareils nouvellement inscrits échouent à se connecter au point de gestion de l’appareil tant que le réplica de base de données ne s’est pas synchronisé avec celui-ci. Cet échec de connexion se produit car le réplica de base de données n’a pas les informations sur l’appareil nouvellement inscrit nécessaires pour que la connexion réussisse. Les réplicas se synchronisent toutes les 5 minutes : les appareils vont échouer à se connecter pendant les 5 premières minutes après l’inscription (généralement 2 tentatives de connexion), après quoi l’appareil va se connecter avec succès.  
 
- Que vous utilisiez des rôles de système de site existants ou que vous en ajoutiez de nouveaux, vous devez les configurer de manière à pouvoir les utiliser pour gérer les appareils récents. Suivez les étapes ci-dessous pour configurer le point de distribution et le point de gestion d’appareil afin qu’ils fonctionnent correctement pour la gestion des appareils mobiles locale :  
+ Que vous utilisiez des rôles de système de site existants ou que vous en ajoutiez de nouveaux, vous devez les configurer de manière à pouvoir les utiliser pour gérer les appareils récents. Suivez les étapes ci-dessous pour configurer le point de distribution et le point de gestion d’appareil afin qu’ils fonctionnent correctement pour la gestion des appareils mobiles locale :  
 
 > [!NOTE]  
 >  La branche Current Branch de Configuration Manager prend uniquement en charge les connexions intranet depuis les appareils vers les points de distribution et les points de gestion d’appareil dans le cadre de la gestion des appareils mobiles locale. Toutefois, si vous gérez également des ordinateurs Mac OS X, ces clients nécessitent des connexions internet à ces rôles de système de site. Dans ce cas, quand vous configurez les propriétés du point de distribution et du point de gestion d’appareil, vous devez plutôt utiliser le paramètre **Autoriser les connexions intranet et Internet**.  
 
-### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>Pour configurer les rôles de système de site pour gérer les appareils récents :  
+### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>Pour configurer les rôles de système de site pour gérer les appareils récents :  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Configuration du site** > **Serveurs et rôles de système de site**.  
 
@@ -74,6 +74,6 @@ La gestion des appareils mobiles locale de System Center Configuration Manager n
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

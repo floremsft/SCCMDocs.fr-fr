@@ -1,6 +1,6 @@
 ---
-title: "Données de diagnostic pour la version 1602 | System Center Configuration Manager"
-description: "En savoir plus sur les niveaux de données de diagnostic et d’utilisation collectés par System Center Configuration Manager version 1602."
+title: "Données de diagnostic pour 1602 | Microsoft Docs"
+description: "En savoir plus sur les niveaux de données de diagnostic et d’utilisation collectés par System Center Configuration Manager version 1602."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -34,15 +34,15 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: b38de0ef8886b34ffe091fbfcb185fc42ba66064
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: 0f1be7aec8b15c4c61a325f2afb2caa2332cd31a
 
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1602 de System Center Configuration Manager
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1602 de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager version 1602 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.
+System Center Configuration Manager version 1602 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.
 
 Les modifications par rapport aux versions précédentes sont indiquées par ***[Nouveau]*** ou ***[Mis à jour]***.
 
@@ -52,13 +52,16 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 ##  <a name="a-namebkmkchangea-how-to-change-the-level"></a><a name="bkmk_change"></a> Modification du niveau
  Les administrateurs disposant d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
+
+  Pour cela, dans la console, accédez à l’onglet Backstage (onglet gauche supérieur avec flèche déroulante). Sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
+
 ##  <a name="a-namebkmklevel1a-level-1---basic"></a><a name="bkmk_level1"></a> Niveau 1 - De base
  Le niveau De base comprend les données relatives à votre hiérarchie. Il est nécessaire pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que pour aider à déterminer quelles mises à jour Configuration Manager s’appliquent à votre hiérarchie.
 
- À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+ À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
 
- -   Informations d’installation :
+ -   Informations d’installation :
     - Build, type d’installation, modules linguistiques et fonctionnalités que vous avez activés  
 
     - ***[Mis à jour]***  État et erreurs du déploiement du package de mise à jour, progression du téléchargement et erreurs au niveau des conditions préalables   
@@ -100,16 +103,16 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 - ***[Nouveau]*** Niveau de télémétrie configuré, mode (en ligne ou hors connexion) et configuration de la mise à jour rapide
 
 - ***[Nouveau]*** Utilisation de la découverte du réseau (activée ou désactivée)
-- ***[Nouveau]*** Console d’administration :
+- ***[Nouveau]*** Console d’administration :
 
-    -  Statistiques sur les connexions de la console (version, langue, référence (SKU) et architecture du SE ; mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
+    -  Statistiques sur les connexions de la console (version, langue, référence (SKU) et architecture du SE ; mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
 
 ##  <a name="a-namebkmklevel2a-level-2---enhanced"></a><a name="bkmk_level2"></a> Niveau 2 – Étendu
 Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données propres aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres tels que les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.
 
 Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations des objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes nécessitant des mises à jour logicielles.
 
-À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
 -   **Gestion des applications :**
 
@@ -199,7 +202,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre d’utilisateurs avec plusieurs appareils mobiles inscrits
 
--   **Dépannage de Microsoft Intune :**
+-   **Dépannage de Microsoft Intune :**
 
     -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de compatibilité téléchargés à partir de Microsoft Intune
 
@@ -278,7 +281,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 ##  <a name="a-namebkmklevel3a-level-3---full"></a><a name="bkmk_level3"></a> Niveau 3 – Complet
 Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
 
-À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
 -   Statistiques d’évaluation et d’actualisation des regroupements
 
@@ -307,12 +310,12 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 -   Nombre minimal/maximal/moyen d’heures depuis la dernière analyse des mises à jour logicielles
 
 -   ***[Nouveau]*** Produits des mises à jour logicielles synchronisés par le point de mise à jour logicielle
--   ***[Nouveau]*** Paramètres de compatibilité : détails de configuration des modèles SCEP, VPN, Wi-Fi et stratégie de conformité
+-   ***[Nouveau]*** Paramètres de compatibilité : détails de configuration des modèles SCEP, VPN, Wi-Fi et stratégie de conformité
 
 -   ***[Nouveau]*** Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les périphériques gérés par Intune
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

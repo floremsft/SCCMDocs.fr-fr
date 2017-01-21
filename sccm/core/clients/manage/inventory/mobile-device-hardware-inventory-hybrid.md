@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’inventaire matériel | Appareils mobiles | System Center Configuration Manager"
+title: "Configurer l’inventaire matériel | Microsoft Docs | appareils mobiles"
 description: "Configurez l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 59584a5b8953165e7c605c310346a00c4e0d6d51
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 6db22a2ddce1afb471cf8b603c6d98f7f0acbc15
 
 
 ---
 # <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, vous pouvez collecter l’inventaire matériel sur des appareils iOS, Android et Windows à l’aide du connecteur Microsoft Intune. Pour plus d’informations sur la manière de configurer l’inventaire matériel, consultez [Guide pratique pour étendre l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
@@ -60,7 +60,7 @@ Dans System Center Configuration Manager, vous pouvez collecter l’inventaire m
  **Android**  
 
 > [!NOTE]  
->  **REMARQUE :** les classes d’inventaire Android sont disponibles lors de l’utilisation de l’application Portail d’entreprise Android.  
+>  **REMARQUE :** les classes d’inventaire Android sont disponibles lors de l’utilisation de l’application Portail d’entreprise Android.  
 
 |Classe d'inventaire matériel|Android|  
 |------------------------------|-------------|  
@@ -85,7 +85,7 @@ Dans System Center Configuration Manager, vous pouvez collecter l’inventaire m
 |Technologie cellulaire|Device_ComputerSystem.CellularTechnology|  
 |Adresse MAC du réseau Wi-Fi|Device_WLAN.WiFiMAC|  
 
- **Windows Phone 8/8.1**  
+ **Windows Phone 8/8.1**  
 
 |Classe d'inventaire matériel|Windows Phone 8 et Windows Phone 8.1|  
 |------------------------------|-------------------------------------------|  
@@ -141,6 +141,6 @@ Dans System Center Configuration Manager, vous pouvez collecter l’inventaire m
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

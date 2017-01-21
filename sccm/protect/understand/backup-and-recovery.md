@@ -1,5 +1,5 @@
 ---
-title: "Sauvegarde et récupération | System Center Configuration Manager"
+title: Sauvegarde et restauration | Microsoft Docs
 description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: d02dc47b2a9010d035ceecbbc6bf3d544f4dc1f4
+ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
+ms.openlocfilehash: ce73be3a9fa3876c587bbd7b7cb05acd36c2687e
 
 
 ---
 # <a name="backup-and-recovery-for-system-center-configuration-manager"></a>Sauvegarde et récupération pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Préparez les approches de sauvegarde et de récupération pour éviter la perte de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données. Utilisez les sections de cette rubrique pour vous aider à sauvegarder vos sites et à récupérer un site en cas de défaillance ou de perte de données.  
 
@@ -65,7 +65,7 @@ Préparez les approches de sauvegarde et de récupération pour éviter la perte
 >  Si vous utilisez un groupe de disponibilité SQL Server AlwaysOn pour héberger la base de données du site, modifiez vos plans de sauvegarde et de récupération comme décrit dans la section [Modifications de la sauvegarde et de la récupération lorsque vous utilisez un groupe de disponibilité AlwaysOn SQL Server](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md#bkmk_BnR) section de la rubrique [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
 
 ##  <a name="a-namebkmksitebackupa-back-up-a-configuration-manager-site"></a><a name="BKMK_SiteBackup"></a> Sauvegarde d'un site Configuration Manager  
- Configuration Manager possède une tâche de maintenance de sauvegarde qui :  
+ Configuration Manager possède une tâche de maintenance de sauvegarde qui :  
 
 -   s’exécute selon un calendrier ;  
 
@@ -84,7 +84,7 @@ Préparez les approches de sauvegarde et de récupération pour éviter la perte
 Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Configuration Manager.  
 
 > [!NOTE]  
->  Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous avez créée avec un autre processus. Par exemple, vous pouvez restaurer la base de données de site à partir d'une sauvegarde créée dans le cadre du plan de maintenance de Microsoft SQL Server. Vous pouvez restaurer la base de données de site à partir d’une sauvegarde créée à l’aide de System Center 2012 Data Protection Manager (DPM). Pour plus d’informations, consultez [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup).  
+>  Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous avez créée avec un autre processus. Par exemple, vous pouvez restaurer la base de données de site à partir d'une sauvegarde créée dans le cadre du plan de maintenance de Microsoft SQL Server. Vous pouvez restaurer la base de données de site à partir d’une sauvegarde créée à l’aide de System Center 2012 Data Protection Manager (DPM). Pour plus d’informations, consultez [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup).  
 
 ###  <a name="a-namebkmkbackupmaintenancetaska-backup-maintenance-task"></a><a name="BKMK_BackupMaintenanceTask"></a> Tâche de maintenance de sauvegarde  
  Il est possible d'automatiser la sauvegarde des sites Configuration Manager en planifiant une tâche de maintenance de sauvegarde du serveur de site prédéfinie. Vous pouvez sauvegarder un site d'administration centrale et un site principal, mais il n'existe pas de prise en charge de la sauvegarde des sites secondaires ou des serveurs de système de site. Quand le service de sauvegarde de Configuration Manager est en cours d’exécution, il suit les instructions définies dans le fichier de contrôle de la sauvegarde (**<dossier_installation_ConfigMgr\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). Vous pouvez apporter des modifications à ce fichier de contrôle de la sauvegarde afin de changer le comportement du service de sauvegarde. Les informations sur l’état de la sauvegarde du site sont enregistrées dans le fichier **Smsbkup.log** . Ce fichier est créé dans le dossier de destination spécifié dans les propriétés de la tâche de maintenance de sauvegarde du serveur de site.  
@@ -114,9 +114,9 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
     -   **Lecteurs locaux sur le serveur de site et SQL Server**: spécifie que les fichiers de sauvegarde pour le site sont stockés dans le chemin spécifié sur le disque local du serveur de site, et les fichiers de sauvegarde pour la base de données de site sont stockés sur le chemin spécifié sur le disque local du serveur de base de données de site. Vous devez créer les dossiers locaux avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de site. Le compte d'ordinateur de SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de base de données de site. Cette option est disponible uniquement lorsque la base de données de site n'est pas installée sur le serveur de site.  
 
     > [!NOTE]  
-    >    - L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
+    >   - L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
 
-    >- Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
+    > - Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
 
 
 6.  Configurez une planification pour la tâche de sauvegarde de site. Comme meilleure pratique, considérez une planification de sauvegarde en dehors des heures de travail. Si vous disposez d'une hiérarchie, pensez à une planification qui s'exécute au moins deux fois par semaine pour assurer une conservation maximale des données en cas de défaillance du site.  
@@ -129,7 +129,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 ##### <a name="to-verify-that-the-backup-site-server-maintenance-task-is-running"></a>Pour vérifier que la tâche de maintenance de sauvegarde du serveur de site est en cours d’exécution  
 
--   Vérifiez que la tâche de maintenance de sauvegarde de site est en cours d’exécution en examinant les éléments suivants :  
+-   Vérifiez que la tâche de maintenance de sauvegarde de site est en cours d’exécution en examinant les éléments suivants :  
 
     -   Vérifiez l'horodatage sur les fichiers dans le dossier de destination de sauvegarde qui a été créé par la tâche. Vérifiez que l'horodatage a été mis à jour avec l'heure de la dernière exécution de la tâche.  
 
@@ -190,13 +190,13 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Vérifiez que vous incluez à la fois la bibliothèque de contenu et les emplacements sources du package dans la sauvegarde de votre système de fichiers pour le serveur de site.  
 
 #### <a name="back-up-custom-software-updates"></a>Sauvegarder les mises à jour logicielles personnalisées  
-     System Center Updates Publisher 2011 is a stand-alone tool that lets you publish custom software updates to Windows Server Update Services (WSUS), synchronize the software updates to Configuration Manager, assess software updates compliance, and deploy the custom software updates to clients. Updates Publisher uses a local database for its software update repository. When you use Updates Publisher to manage custom software updates, determine whether you have to include the Updates Publisher database in your backup plan. For more information about Updates Publisher, see [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) in the System Center TechCenter Library.  
+ System Center Updates Publisher 2011 est un outil autonome qui vous permet de publier des mises à jour logicielles personnalisées vers Windows Server Update Services (WSUS), de synchroniser les mises à jour logicielles vers Configuration Manager, d’évaluer la compatibilité des mises à jour logicielles et de déployer des mises à jour logicielles personnalisées sur des clients. L’éditeur de mise à jour utilise une base de données locale pour son espace de stockage des mises à jour logicielles. Quand vous utilisez l’éditeur de mise à jour pour gérer les mises à jour logicielles personnalisées, déterminez si vous devez inclure la base de données de l’éditeur de mise à jour dans votre plan de sauvegarde. Pour plus d'informations sur l'éditeur de mise à jour, voir [Éditeur de mise à jour System Center 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) dans la bibliothèque TechCenter de System Center.  
 
  Utilisez la procédure suivante pour sauvegarder la base de données de l'éditeur de mise à jour.  
 
 ###### <a name="to-back-up-the-updates-publisher-2011-database"></a>Pour sauvegarder la base de données de l'éditeur de mise à jour 2011  
 
-1.  Sur l’ordinateur qui exécute l’éditeur de mise à jour, accédez au fichier de base de données de l’éditeur de mise à jour (Scupdb.sdf) dans %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\\. Il existe un fichier de base de données différent pour chaque utilisateur qui exécute l’éditeur de mise à jour.  
+1.  Sur l’ordinateur qui exécute l’éditeur de mise à jour, accédez au fichier de base de données de l’éditeur de mise à jour (Scupdb.sdf) dans %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\\. Il existe un fichier de base de données différent pour chaque utilisateur qui exécute l’éditeur de mise à jour.  
 
 2.  Copiez le fichier de base de données vers votre destination de sauvegarde. Par exemple, si votre destination de sauvegarde est E:\ConfigMgr_Backup, vous pouvez copier le fichier de base de données de l’éditeur de mise à jour vers E:\ConfigMgr_Backup\SCUP2011.  
 
@@ -206,7 +206,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 ### <a name="user-state-migration-data"></a>Données de migration de l'état utilisateur  
  Vous pouvez utiliser des séquences de tâches Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Les dossiers qui stockent les données d'état utilisateur sont répertoriés dans les propriétés du point de migration d'état. Ces données de migration d'état utilisateur ne sont pas sauvegardées dans le cadre de la tâche de maintenance de sauvegarde du serveur de site. Dans le cadre de votre plan de sauvegarde, vous devez sauvegarder manuellement les dossiers que vous spécifiez pour stocker les données de migration d'état utilisateur.   
 
-##### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>Pour déterminer les dossiers utilisés pour stocker les données de migration d'état utilisateur  
+#### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>Pour déterminer les dossiers utilisés pour stocker les données de migration d'état utilisateur  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
@@ -224,7 +224,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 > [!IMPORTANT]  
 >  Quand vous récupérez la base de données pour un site :  
 >   
->  -   Vous devez utiliser la même version et la même édition de SQL Server. Par exemple, la restauration d’une base de données qui s’exécutait sur SQL Server 2012 vers SQL Server 2014 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2014 vers une édition Enterprise de SQL Server 2014.  
+>  -   Vous devez utiliser la même version et la même édition de SQL Server. Par exemple, la restauration d’une base de données qui s’exécutait sur SQL Server 2012 vers SQL Server 2014 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2014 vers une édition Enterprise de SQL Server 2014.  
 > -   SQL Server ne doit pas être configuré en **mode mono-utilisateur**.  
 > -   Vérifiez que les fichiers .MDF et .LDF sont valides. Quand vous récupérez un site, l’état des fichiers que vous restaurez n’est pas vérifié.  
 
@@ -240,15 +240,15 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 >  Après avoir restauré une base de données de site configurée pour des réplicas de base de données et avant de pouvoir utiliser les réplicas de base de données, vous devez reconfigurer chaque réplica de base de données en recréant les publications et les abonnements.  
 
 ###  <a name="a-namebkmkdeterminerecoveryoptionsa-determine-your-recovery-options"></a><a name="BKMK_DetermineRecoveryOptions"></a> Détermination de vos options de récupération  
- Il existe deux zones principales que vous devez prendre en compte pour la récupération d'un site principal Configuration Manager et d'un site d'administration centrale : le serveur de site et la base de données de site. Utilisez les sections suivantes pour vous aider à déterminer les options que vous devez sélectionner pour votre scénario de récupération.  
+ Il existe deux zones principales que vous devez prendre en compte pour la récupération d'un site principal Configuration Manager et d'un site d'administration centrale : le serveur de site et la base de données de site. Utilisez les sections suivantes pour vous aider à déterminer les options que vous devez sélectionner pour votre scénario de récupération.  
 
 > [!NOTE]  
->  En cas d'échec de récupération d'un site précédent ou lorsque vous essayez de récupérer un site qui n'est pas complètement désinstallé, vous devez sélectionner **Désinstaller un site Configuration Manager** à partir du programme d'installation avant de pouvoir récupérer le site. Si le site défaillant possède des sites enfants et s'il est nécessaire de désinstaller le site, vous devez supprimer manuellement la base de données de site du site défaillant avant de sélectionner l'option **Désinstaller un site Configuration Manager** ; dans le cas contraire, le processus de désinstallation échouera.  
+>  En cas d'échec de récupération d'un site précédent ou lorsque vous essayez de récupérer un site qui n'est pas complètement désinstallé, vous devez sélectionner **Désinstaller un site Configuration Manager** à partir du programme d'installation avant de pouvoir récupérer le site. Si le site défaillant possède des sites enfants et s'il est nécessaire de désinstaller le site, vous devez supprimer manuellement la base de données de site du site défaillant avant de sélectionner l'option **Désinstaller un site Configuration Manager** ; dans le cas contraire, le processus de désinstallation échouera.  
 
 ####  <a name="a-namebkmksiteserverrecoveryoptionsa-site-server-recovery-options"></a><a name="BKMK_SiteServerRecoveryOptions"></a> Options de récupération de serveur de site  
  Vous devez démarrer le programme d’installation à partir d’une copie du dossier CD.Latest que vous créez en dehors du dossier d’installation de Configuration Manager. Vous sélectionnez ensuite l’option **Récupérer un site** . Lorsque vous exécutez le programme d'installation, vous disposez des options de récupération suivantes pour le serveur de site défaillant :  
 
--   **Récupérer le serveur de site à l’aide d’une sauvegarde existante** : utilisez cette option si vous disposez d’une sauvegarde du serveur de site Configuration Manager qui a été créée sur le serveur de site dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** avant la défaillance du site. Le site est réinstallé et les paramètres du site sont configurés en fonction du site qui a été sauvegardé.  
+-   **Récupérer le serveur de site à l’aide d’une sauvegarde existante** : utilisez cette option si vous disposez d’une sauvegarde du serveur de site Configuration Manager qui a été créée sur le serveur de site dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** avant la défaillance du site. Le site est réinstallé et les paramètres du site sont configurés en fonction du site qui a été sauvegardé.  
 
 -   **Réinstaller le serveur de site**: utilisez cette option si vous ne possédez pas de sauvegarde du serveur du site. Le serveur de site est réinstallé et vous devez spécifier les paramètres du site, comme vous le feriez lors d'une installation initiale. Vous devez utiliser les mêmes code de site et nom de base de données de site que ceux que vous avez utilisés lors de l'installation initiale du site défaillant afin de récupérer correctement le site.  
 
@@ -258,21 +258,21 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 ####  <a name="a-namebkmksitedatabaserecoveryoptiona-site-database-recovery-options"></a><a name="BKMK_SiteDatabaseRecoveryOption"></a> Options de récupération de base de données de site  
  Lorsque vous exécutez le programme d'installation, vous disposez des options de récupération suivantes pour la base de données de site :  
 
--   **Récupérer la base de données de site à l’aide d’un jeu de sauvegarde** : utilisez cette option si vous disposez d’une sauvegarde de la base de données de site Configuration Manager qui a été créée dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** exécutée sur le site avant la défaillance de la base de données de site. Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.  
+-   **Récupérer la base de données de site à l’aide d’un jeu de sauvegarde** : utilisez cette option si vous disposez d’une sauvegarde de la base de données de site Configuration Manager qui a été créée dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** exécutée sur le site avant la défaillance de la base de données de site. Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.  
 
      Lorsque vous récupérez la base de données de site pour un site d'une hiérarchie, le comportement de récupération est différent pour un site d'administration centrale et un site principal et lorsque la dernière sauvegarde se situe pendant ou en dehors de la période de rétention du suivi des modifications SQL Server. Pour plus d’informations, voir la section [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios) de cette rubrique.  
 
     > [!NOTE]  
     >  La récupération échoue si vous choisissez de restaurer la base de données de site à l'aide d'un jeu de sauvegarde, alors que la base de données de site existe déjà.  
 
--   **Créer une nouvelle base de données pour ce site** : utilisez cette option si vous ne possédez pas de sauvegarde de la base de données de site Configuration Manager. Lorsque vous possédez une hiérarchie, une nouvelle base de données de site est créée et les données sont récupérées à l'aide des données répliquées depuis le site d'administration centrale pour un site principal ou depuis un site principal de référence pour un site d'administration centrale. Cette option n'est pas disponible lorsque vous récupérez un site principal autonome ou un site d'administration centrale qui ne possède pas de sites principaux.  
+-   **Créer une nouvelle base de données pour ce site** : utilisez cette option si vous ne possédez pas de sauvegarde de la base de données de site Configuration Manager. Lorsque vous possédez une hiérarchie, une nouvelle base de données de site est créée et les données sont récupérées à l'aide des données répliquées depuis le site d'administration centrale pour un site principal ou depuis un site principal de référence pour un site d'administration centrale. Cette option n'est pas disponible lorsque vous récupérez un site principal autonome ou un site d'administration centrale qui ne possède pas de sites principaux.  
 
--   **Utiliser une base de données de site qui a été récupérée manuellement** : utilisez cette option quand vous avez déjà récupéré la base de données de site Configuration Manager mais que vous devez effectuer le processus de récupération. Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous effectuez à l’aide de DPM ou d’autre processus. Après avoir restauré la base de données de site à l'aide d'une méthode en dehors de Configuration Manager, vous devez exécuter le programme d'installation et sélectionner cette option pour effectuer la récupération de la base de données de site. Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.  
+-   **Utiliser une base de données de site qui a été récupérée manuellement** : utilisez cette option quand vous avez déjà récupéré la base de données de site Configuration Manager mais que vous devez effectuer le processus de récupération. Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous effectuez à l’aide de DPM ou d’autre processus. Après avoir restauré la base de données de site à l'aide d'une méthode en dehors de Configuration Manager, vous devez exécuter le programme d'installation et sélectionner cette option pour effectuer la récupération de la base de données de site. Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.  
 
     > [!NOTE]  
     >  Lorsque vous utilisez DPM pour sauvegarder votre base de données de site, appliquez les procédures DPM pour restaurer la base de données de site sur un emplacement défini avant de continuer le processus de restauration dans Configuration Manager. Pour plus d'informations sur DPM, voir [Bibliothèque de documentation de Data Protection Manager](http://go.microsoft.com/fwlink/?LinkId=272772) sur TechNet.  
 
--   **Ignorer la récupération de base de données** : utilisez cette option quand aucune perte de données ne s’est produite sur le serveur de base de données de site Configuration Manager. Cette option est valide uniquement lorsque la base de données de site se trouve sur un ordinateur différent du serveur de site que vous récupérez.  
+-   **Ignorer la récupération de base de données** : utilisez cette option quand aucune perte de données ne s’est produite sur le serveur de base de données de site Configuration Manager. Cette option est valide uniquement lorsque la base de données de site se trouve sur un ordinateur différent du serveur de site que vous récupérez.  
 
 ####  <a name="a-namebkmksqlretentiona-sql-server-change-tracking-retention-period"></a><a name="bkmk_SQLretention"></a> Période de rétention du suivi des modifications SQL Server  
  Le suivi des modifications est activé pour la base de données de site dans SQL Server. Le suivi des modifications permet à Configuration Manager de demander des informations sur les modifications qui ont été apportées aux tables de base de données après un moment précis. La période de rétention spécifie la durée de conservation des informations de suivi des modifications. Par défaut, la période de rétention de la base de données de site est définie sur 5 jours. Lorsque vous récupérez une base de données de site, le processus de récupération se déroule différemment si votre sauvegarde a lieu pendant ou en dehors de la période de rétention. Par exemple, en cas d'échec de votre serveur de base de données de site, si votre dernière sauvegarde remonte à 7 jours, elle se situe en dehors de la période de rétention.  
@@ -351,7 +351,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 > [!NOTE]  
 >  Après la récupération d’un site d’administration centrale, l’établissement de la réplication de certaines données de site à partir des sites enfants peut échouer. Cela peut inclure l’inventaire matériel, l’inventaire logiciel et les messages d’état.  
 >   
->  Si cela se produit, vous devez réinitialiser **ConfigMgrDRSSiteQueue** pour la réplication de base de données.  Pour ce faire, utilisez **SQL Server Manager** pour exécuter la requête suivante sur la base de données de site Configuration Manager sur le site d’administration centrale :  
+>  Si cela se produit, vous devez réinitialiser **ConfigMgrDRSSiteQueue** pour la réplication de base de données.  Pour ce faire, utilisez **SQL Server Manager** pour exécuter la requête suivante sur la base de données de site Configuration Manager sur le site d’administration centrale :  
 >   
 >  **IF EXISTS (SELECT \* FROM sys.service_queues WHERE name = ’ConfigMgrDRSSiteQueue’ AND is_receive_enabled = 0)**  
 >   
@@ -384,7 +384,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** récupère un site d’administration centrale  
 
- **RecoveryOptions**  
+**RecoveryOptions**  
 
 -   **Nom de clé :** ServerRecoveryOptions  
 
@@ -428,7 +428,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <FQDN_site_référence\>  
+    -   **Valeurs :** <FQDN_site_référence\>  
 
     -   **Détails :** spécifie le site principal de référence que le site d’administration centrale utilise pour récupérer des données globales si la sauvegarde de la base de données est antérieure à la période de rétention du suivi des modifications ou quand vous récupérez le site sans sauvegarde.  
 
@@ -442,7 +442,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
+    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
 
     -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -450,11 +450,11 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
+    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
 
     -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site. La clé **BackupLocation** est requise lorsque vous configurez une valeur de **1** ou **4** pour la clé **ServerRecoveryOptions** , et une valeur de **10** pour la clé **DatabaseRecoveryOptions** .  
 
- **Options**  
+**Options**  
 
 -   **Nom de clé :** ProductID  
 
@@ -466,13 +466,13 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          Eval  
 
-    -   **Détails :** clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
+    -   **Détails :** clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
 -   **Nom de clé :** SiteCode  
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <code_de_site\>  
+    -   **Valeurs :** <code_de_site\>  
 
     -   **Détails :** trois caractères alphanumériques identifiant le site de façon univoque dans votre hiérarchie. Vous devez définir le code de site utilisé par le site avant la défaillance.  
 
@@ -490,7 +490,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Valeurs :** <*chemin_installation_ConfigMgr*>  
 
-    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
         > [!NOTE]  
         >  Vous pouvez spécifier le chemin d’origine ou un nouveau chemin à utiliser pour l’installation de Configuration Manager.  
@@ -535,7 +535,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          1 = installer  
 
-    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée. Cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée. Cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
 -   **Nom de clé :** JoinCEIP  
 
@@ -549,15 +549,15 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** spécifie si vous voulez vous joindre au programme d’amélioration de l’expérience utilisateur.  
 
- **SQLConfigOptions**  
+**SQLConfigOptions**  
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
+    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
 
-    -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
+    -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
 -   **Nom de clé :** DatabaseName  
 
@@ -571,7 +571,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          *<nom_instance\>*\\*< nom_base_de_données_site\>*  
 
-    -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
+    -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
         >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
@@ -597,7 +597,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** récupère un site principal  
 
- **RecoveryOptions**  
+**RecoveryOptions**  
 
 -   **Nom de clé :** ServerRecoveryOptions  
 
@@ -641,7 +641,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
+    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
 
     -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -649,11 +649,11 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
+    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
 
     -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site. La clé **BackupLocation** est requise lorsque vous configurez une valeur de **1** ou **4** pour la clé **ServerRecoveryOptions** , et une valeur de **10** pour la clé **DatabaseRecoveryOptions** .  
 
- **Options**  
+**Options**  
 
 -   **Nom de clé :** ProductID  
 
@@ -665,13 +665,13 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          Eval  
 
-    -   **Détails :** clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
+    -   **Détails :** clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
 -   **Nom de clé :** SiteCode  
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <code_de_site\>  
+    -   **Valeurs :** <code_de_site\>  
 
     -   **Détails :** trois caractères alphanumériques identifiant le site de façon univoque dans votre hiérarchie. Vous devez définir le code de site utilisé par le site avant la défaillance.  
 
@@ -689,7 +689,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Valeurs :** <*chemin_installation_ConfigMgr*>  
 
-    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
         > [!NOTE]  
         >  Vous pouvez spécifier le chemin d’origine ou un nouveau chemin à utiliser pour l’installation de Configuration Manager.  
@@ -734,7 +734,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          1 = installer  
 
-    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée. Cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée. Cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
 -   **Nom de clé :** JoinCEIP  
 
@@ -748,15 +748,15 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** spécifie si vous voulez vous joindre au programme d’amélioration de l’expérience utilisateur.  
 
- **SQLConfigOptions**  
+**SQLConfigOptions**  
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** oui  
+    -   **Obligatoire :** oui  
 
-    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
+    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
 
-    -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
+    -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
 -   **Nom de clé :** DatabaseName  
 
@@ -770,7 +770,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          *<nom_instance\>*\\*< nom_base_de_données_site\>*  
 
-    -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
+    -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
         >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
@@ -783,7 +783,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** spécifiez le port SQL Server Service Broker (SSB) utilisé par SQL Server. Généralement, SSB est configuré pour utiliser le port TCP 4022, mais d'autres ports sont pris en charge. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
- **Option d’extension de hiérarchie**  
+**Option d’extension de hiérarchie**  
 
 -   **Nom de clé :** CCARSiteServer  
 
@@ -791,7 +791,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Valeurs :** <*code_site_pour_site_administration_centrale*>  
 
-    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
 
 -   **Nom de clé :** CASRetryInterval  
 
@@ -839,7 +839,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Après une récupération de serveur de site, vous devez saisir à nouveau les clés de chargement de version test Windows spécifiées pour le site, car elles sont réinitialisées lors de la récupération de site. Une fois que vous avez de nouveau entré les clés de chargement de version test, la valeur de la colonne **Activations utilisées** pour les clés de chargement de version test Windows est réinitialisée dans la console Configuration Manager. Par exemple, avant la défaillance du site, la valeur du champ **Total activations** est définie sur **100** et **Activations utilisées** sur **90** pour le nombre de clés qui ont été utilisées par les appareils. Après la récupération du site, la colonne **Total activations** affiche toujours **100**, mais la colonne **Activations utilisées** affiche la valeur erronée de **0**. Cependant, une fois que 10 nouveaux appareils auront utilisé une clé de chargement de version test, il ne restera aucune clé de chargement de version test et l'appareil suivant ne parviendra pas à appliquer une clé de chargement de version test.  
 
 #### <a name="recreate-the-microsoft-intune-subscription"></a>Recréer l’abonnement Microsoft Intune  
- Si vous récupérez un serveur de site Configuration Manager après que l’ordinateur serveur de site a été ré-imagé, l’abonnement Microsoft Intune n’est pas restauré. Vous devez recréer l’abonnement après avoir récupéré le site. Pour plus d’informations, voir [Configuration de l’abonnement Microsoft Intune](../../mdm/plan-design/hybrid-mobile-device-management.md#bkmk_witsub).  
+ Si vous récupérez un serveur de site Configuration Manager après que l’ordinateur serveur de site a été ré-imagé, l’abonnement Microsoft Intune n’est pas restauré. Vous devez recréer l’abonnement après avoir récupéré le site. Pour plus d’informations, voir [Configuration de l’abonnement Microsoft Intune](../../mdm/deploy-use/setup-hybrid-mdm.md#step-3-configure-intune-subscription).  
 
 #### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>Configurer SSL pour les rôles de système de site qui utilisent IIS  
  Lorsque vous récupérez des systèmes de site qui exécutent IIS et qui ont été configurés pour le protocole HTTPS avant la panne, vous devez reconfigurer IIS pour utiliser le certificat de serveur Web.  
@@ -857,7 +857,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
  Si vous ne disposez pas d'une sauvegarde des systèmes de fichiers qui contient la bibliothèque de contenu, vous pouvez utiliser les options de restauration suivantes :  
 
--   **Importer un fichier de contenu préparé** : quand vous disposez d’une hiérarchie Configuration Manager, vous pouvez créer un fichier de contenu préparé avec tous les packages et applications d’un autre emplacement, puis importer le fichier de contenu préparé pour récupérer la bibliothèque de contenu sur le serveur de site.  
+-   **Importer un fichier de contenu préparé** : quand vous disposez d’une hiérarchie Configuration Manager, vous pouvez créer un fichier de contenu préparé avec tous les packages et applications d’un autre emplacement, puis importer le fichier de contenu préparé pour récupérer la bibliothèque de contenu sur le serveur de site.  
 
 -   **Mettre à jour le contenu**: quand vous démarrez l’action de mise à jour de contenu pour un type de déploiement d’application ou de package, le contenu est copié de la source du package vers la bibliothèque de contenu. Les fichiers sources du package doivent être disponibles sur l'emplacement d'origine pour que cette action soit effectuée avec succès. Vous devez effectuer cette action pour chaque package et chaque application.  
 
@@ -913,6 +913,6 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

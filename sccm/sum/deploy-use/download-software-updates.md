@@ -1,5 +1,5 @@
 ---
-title: "Télécharger des mises à jour logicielles | Configuration Manager"
+title: "Télécharger des mises à jour logicielles | Microsoft Docs"
 description: "Utilisez l’Assistant Téléchargement des mises à jour logicielles pour télécharger des mises à jour logicielles à partir de l’espace de travail Bibliothèque de logiciels."
 keywords: 
 author: dougeby
@@ -13,8 +13,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: da6fbef50d79ece398d0f6b3a8d364263bd133cb
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 181a6cdf0f8a697f9e44ba7f94950c3ed2dce395
 
 
 
@@ -24,7 +24,7 @@ ms.openlocfilehash: da6fbef50d79ece398d0f6b3a8d364263bd133cb
 
 # <a name="download-software-updates"></a>Télécharger les mises à jour logicielles  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous avez le choix entre plusieurs méthodes pour télécharger les mises à jour logicielles dans Configuration Manager. Quand vous créez une règle de déploiement automatique (ADR) ou que vous déployez manuellement des mises à jour logicielles, celles-ci sont téléchargées vers la bibliothèque de contenu du serveur de site. Ensuite, les mises à jour logicielles sont copiées dans la bibliothèque de contenu sur les points de distribution associés au package de déploiement configuré. Si vous souhaitez télécharger les mises à jour logicielles avant de les déployer, vous pouvez utiliser l'Assistant Téléchargement des mises à jour. Cela vous permet de vérifier que les mises à jour logicielles sont disponibles sur les points de distribution avant de les déployer sur les ordinateurs clients.  
 
@@ -120,6 +120,6 @@ Pour télécharger des mises à jour logicielles à l'aide de l'Assistant Télé
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

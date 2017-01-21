@@ -1,5 +1,5 @@
 ---
-title: Trouver des ressources de site | System Center Configuration Manager
+title: Rechercher des ressources de site | Microsoft Docs
 description: "Découvrez comment et quand les clients System Center Configuration Manager utilisent l’emplacement du service pour rechercher des ressources de site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 5d718d0f9b8c6121f3124a8ade7507c61b7313f2
-ms.openlocfilehash: cad4ebd3f8fa275d7d2cad9b2b87c32b971c580d
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: b006896091901fab7b141f99f4c95eb22ea61b82
 
 
 ---
 # <a name="understand-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les clients System Center Configuration Manager utilisent un processus appelé **emplacement du service** pour trouver les serveurs de système de site avec lesquels ils peuvent communiquer et qui leur fournissent les services dont ils ont besoin.   Bien comprendre comment et quand les clients utilisent l’emplacement du service pour rechercher des ressources de site peut vous aider à configurer vos sites de manière appropriée pour prendre en charge les opérations des clients.   Ces configurations peuvent nécessiter que le site interagisse avec des configurations de domaine et de réseau telles que les services de domaine Active Directory (AD DS) et DNS, ou que vous utilisiez d’autres configurations plus complexes.  
 
@@ -40,7 +40,7 @@ Les clients System Center Configuration Manager utilisent un processus appelé *
 -   Télécharger une stratégie qui définit des configurations sur le client et peut informer celui-ci sur les logiciels qu’il peut ou doit installer, et d’autres tâches connexes.  
 -   Demander des informations sur des rôles de système de site supplémentaires qui fournissent les services devant être utilisés par le client, comme des points de distribution de logiciels qu’il peut installer ou des points de mise à jour logicielle à partir desquels obtenir des mises à jour.  
 
-**Un client Configuration Manager effectue une demande d’emplacement du service :**  
+**Un client Configuration Manager effectue une demande d’emplacement du service :**  
 -   Toutes les 25 heures de fonctionnement continu  
 -   Quand il détecte une modification de sa configuration ou de son emplacement réseau  
 -   Quand le service **ccmexec.exe** sur l’ordinateur (le service client de base) démarre  
@@ -62,7 +62,7 @@ Quand un client est attribué pour la première fois à un site principal, il s�
 
 -   Vous pouvez utiliser des points de gestion préférés. Un point de gestion préféré est un point de gestion associé à un groupe de limites en tant que serveur de système de site, semblable à la façon dont les points de distribution ou les points de migration d'état sont associés à un groupe de limites. Si vous activez les points de gestion préférés pour la hiérarchie, lorsqu'un client utilise un point de gestion à partir de son site attribué, il va tenter d'utiliser un point de gestion préféré avant d'utiliser d'autres points de gestion à partir de son site attribué.  
 
--   Vous pouvez également utiliser les informations du blog suivant sur TechNet.com pour configurer l’affinité de point de gestion. L’affinité de point de gestion remplace le comportement par défaut pour les points de gestion attribués, et permet au client d’utiliser un ou plusieurs points de gestion spécifiques : [affinité de point de gestion](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx).  
+-   Vous pouvez également utiliser les informations du blog suivant sur TechNet.com pour configurer l’affinité de point de gestion. L’affinité de point de gestion remplace le comportement par défaut pour les points de gestion attribués, et permet au client d’utiliser un ou plusieurs points de gestion spécifiques : [affinité de point de gestion](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx).  
 
 Chaque fois qu’un client doit contacter un point de gestion, il consulte une liste de points de gestion connus (appelée **liste PG**), qui est stockée localement dans WMI. Le client crée une liste PG initiale lors de son installation et la met régulièrement à jour avec des détails sur chaque point de gestion de la hiérarchie.  
 
@@ -86,7 +86,7 @@ La liste PG est la source d’emplacement de service préférée du client, car 
 Pendant l'installation du client, les règles suivantes sont utilisées pour générer la **liste PG**initiale du client :  
 
 -   La liste initiale inclut des points de gestion spécifiés pendant l'installation du client (quand vous utilisez les options **SMSMP**= ou **/MP** ).  
--   Le client recherche dans les services de domaine Active Directory (AD DS) les points de gestion publiés. Pour que le point de gestion soit identifié à partir des services de domaine Active Directory (AD DS), il doit provenir du site attribué du client et avoir la même version de produit que celle du client.  
+-   Le client recherche dans les services de domaine Active Directory (AD DS) les points de gestion publiés. Pour que le point de gestion soit identifié à partir des services de domaine Active Directory (AD DS), il doit provenir du site attribué du client et avoir la même version de produit que celle du client.  
 -   Si aucun point de gestion n'a été spécifié pendant l'installation du client, et si le schéma Active Directory n'est pas étendu, le client recherche des points de gestion publiés dans les services DNS et WINS.  
 -   Quand vous créez la liste initiale, les informations sur certains points de gestion de la hiérarchie peuvent ne pas être connues.  
 
@@ -94,19 +94,19 @@ Pendant l'installation du client, les règles suivantes sont utilisées pour gé
 Les clients organisent leur liste de points de gestion selon les classifications suivantes :  
 
 -   **Proxy**: un point de gestion proxy est un point de gestion figurant sur un site secondaire.  
--   **Local** : tout point de gestion associé à l’emplacement réseau actuel du client tel que défini par les limites de site.  
+-   **Local** : tout point de gestion associé à l’emplacement réseau actuel du client tel que défini par les limites de site.  
     -   Quand un client appartient à plusieurs groupes de limites, la liste des points de gestion locaux est déterminée en réunissant toutes les limites qui incluent l'emplacement réseau actuel du client.  
     -   En règle générale, les points de gestion de type **Local** sont un sous-ensemble des points de gestion **Attribués** d'un client, sauf si ce dernier se trouve à un emplacement réseau associé à un autre site avec des points de gestion assurant la maintenance de ses groupes de limites.   
 
 
--   **Attribué** : tout point de gestion représentant un système de site pour le site attribué du client.  
+-   **Attribué** : tout point de gestion représentant un système de site pour le site attribué du client.  
 
      Vous pouvez utiliser des points de gestion préférés. Les points de gestion préférés sont des points de gestion à partir d’un site attribué du client qui sont associés à un groupe de limites que le client utilise pour rechercher des serveurs de système de site.  
 
      Les points de gestion d’un site qui ne sont pas associés à un groupe de limites, ou qui ne sont pas dans un groupe de limites associé à un emplacement réseau actuel du client, ne sont pas considérés comme préférés et sont utilisés lorsque le client ne peut pas identifier un point de gestion préféré disponible.  
 
 ### <a name="selecting-a-management-point-to-use"></a>Sélection d'un point de gestion à utiliser  
-Pendant une communication classique, un client tente d’utiliser un point de gestion appartenant aux classifications dans l’ordre suivant, en fonction de l’emplacement réseau du client :  
+Pendant une communication classique, un client tente d’utiliser un point de gestion appartenant aux classifications dans l’ordre suivant, en fonction de l’emplacement réseau du client :  
 
 1.  Proxy  
 2.  Local  
@@ -138,7 +138,7 @@ Les clients qui appartiennent à un domaine peuvent utiliser les services de dom
 
 Les clients peuvent utiliser les services de domaine Active Directory pour l'emplacement du service quand toutes les conditions suivantes sont remplies :  
 
--   Le [schéma Active Directory est étendu](https://technet.microsoft.com/library/mt345589.aspx) ou a été étendu pour System Center 2012 Configuration Manager.  
+-   Le [schéma Active Directory est étendu](https://technet.microsoft.com/library/mt345589.aspx) ou a été étendu pour System Center 2012 Configuration Manager.  
 -   La [forêt Active Directory est configurée pour la publication](http://technet.microsoft.com/library/hh696542.aspx), de même que les sites Configuration Manager.  
 -   L'ordinateur client est membre d'un domaine Active Directory et peut accéder à un serveur de catalogue global.  
 
@@ -160,7 +160,7 @@ Quand un site publie des enregistrements d'emplacement de service pour les point
 
 Par défaut, les clients appartenant à un domaine recherchent des enregistrements de point de gestion dans DNS à partir de leur domaine local. Vous pouvez configurer une propriété client qui spécifie un suffixe pour un domaine qui publie des informations de point de gestion dans DNS.  
 
-Pour plus d’informations sur la configuration de la propriété cliente du suffixe DNS, consultez [Guide pratique pour configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
+Pour plus d’informations sur la configuration de la propriété cliente du suffixe DNS, consultez [Guide pratique pour configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
 
 Si un client ne peut pas trouver de point de gestion à utiliser pour l'emplacement du service dans DNS, il tente alors d'utiliser WINS.  
 
@@ -175,24 +175,23 @@ Pour publier des points de gestion dans DNS, les deux conditions suivantes doive
 
 **Quand vos serveurs DNS prennent en charge les mises à jour automatiques**, vous pouvez configurer Configuration Manager pour qu’il publie automatiquement les points de gestion intranet dans DNS, ou vous pouvez publier manuellement ces enregistrements dans DNS. Lorsque des points de gestion sont publiés dans DNS, leur nom de domaine complet Intranet et leur numéro de port sont publiés dans l'enregistrement d'emplacement de service (SRV). Vous configurez la publication DNS sur un site dans les Propriétés du composant de point de gestion des sites. Pour plus d’informations, consultez [Composants de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
-**Quand la zone DNS a la valeur « Secure only » (Sécurisées uniquement) pour les mises à jour dynamiques**, seul le premier point de gestion pouvant publier dans DNS peut réussir cette action avec les autorisations par défaut.
-- Vous pouvez ajouter chaque serveur qui héberge un point de gestion au groupe DnsAdmins pour garantir que ces points de gestion sont autorisés à modifier leurs enregistrements.  
+**Quand la zone DNS a la valeur « Secure only » (Sécurisées uniquement) pour les mises à jour dynamiques**, seul le premier point de gestion pouvant publier dans DNS peut réussir cette action avec les autorisations par défaut.
 - Si un seul point de gestion peut réussir à publier et modifier son enregistrement DNS, tant que le serveur de ce point de gestion reste intègre, les clients peuvent obtenir la liste complète des points de gestion et trouver leur point de gestion préféré.
 
 
 **Quand vos serveurs DNS ne prennent pas en charge les mises à jour automatiques, mais prennent en charge les enregistrements d'emplacement de service**, vous pouvez publier manuellement des points de gestion dans DNS. Pour cela, vous devez spécifier manuellement l'enregistrement de la ressource d'emplacement de service (SRV RR) dans DNS.  
 
-Configuration Manager prend en charge la norme RFC 2782 pour les enregistrements d’emplacement de service au format suivant : *_Service._Proto.Nom TTL Classe SRV Priorité Poids Port Cible*  
+Configuration Manager prend en charge la norme RFC 2782 pour les enregistrements d’emplacement de service au format suivant : *_Service._Proto.Nom TTL Classe SRV Priorité Poids Port Cible*  
 
-Pour publier un point de gestion sur Configuration Manager, spécifiez les valeurs suivantes :  
+Pour publier un point de gestion sur Configuration Manager, spécifiez les valeurs suivantes :  
 
--   **_Service** : entrez **_mssms_mp***_&lt;code_site\>*, où *&lt;code_site\>* est le code site du point de gestion.  
+-   **_Service** : entrez **_mssms_mp***_&lt;code_site\>*, où *&lt;code_site\>* est le code site du point de gestion.  
 -   **._Proto**: spécifiez **._tcp**.  
 -   **.Name**: entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
 -   **TTL**: entrez **14400**, ce qui correspond à quatre heures.  
 -   **Class**: spécifiez **IN** (conformément à la norme RFC 1035).  
--   **Priorité** : ce champ n’est pas utilisé par Configuration Manager.
--   **Poids** : ce champ n’est pas utilisé par Configuration Manager.  
+-   **Priorité** : ce champ n’est pas utilisé par Configuration Manager.
+-   **Poids** : ce champ n’est pas utilisé par Configuration Manager.  
 -   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
 
     > [!NOTE]  
@@ -229,10 +228,10 @@ Si vous utilisez le DNS Windows Server, vous pouvez utiliser la procédure suiva
 4.  À l'aide de l'option **Autres nouveaux enregistrements** , cliquez sur **Emplacement du service (SRV)** dans la boîte de dialogue **Type d'enregistrement de ressource** , cliquez sur **Créer un enregistrement**, entrez les informations suivantes, puis cliquez sur **Terminé**:  
 
     -   **Domain**: si nécessaire, entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
-    -   **Service** : tapez **_mssms_mp***_&lt;code_site\>*, où *&lt;code_site\>* est le code de site du point de gestion.  
+    -   **Service** : tapez **_mssms_mp***_&lt;code_site\>*, où *&lt;code_site\>* est le code de site du point de gestion.  
     -   **Protocol**: entrez **_tcp**.  
-    -   **Priorité** : ce champ n’est pas utilisé par Configuration Manager.  
-    -   **Poids** : ce champ n’est pas utilisé par Configuration Manager.  
+    -   **Priorité** : ce champ n’est pas utilisé par Configuration Manager.  
+    -   **Poids** : ce champ n’est pas utilisé par Configuration Manager.  
     -   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
 
         > [!NOTE]  
@@ -251,6 +250,6 @@ Si vous ne souhaitez pas que les clients trouvent un point de gestion HTTP dans 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 
-title: "Installer et configurer un point de mise à jour logicielle | Configuration Manager"
+title: "Installer et configurer un point de mise à jour logicielle | Microsoft Docs"
 description: "Il doit y avoir un point de mise à jour logicielle installé sur le site d’administration centrale et sur les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et le déploiement des mises à jour logicielles sur les clients."
 keywords: 
 author: dougeby
@@ -14,8 +14,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 62a3b720abbc93460a782928e6cbdcb5d6f215aa
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
 
 
 
@@ -24,7 +24,7 @@ ms.openlocfilehash: 62a3b720abbc93460a782928e6cbdcb5d6f215aa
 
 # <a name="install-and-configure-a-software-update-point"></a>Installer et configurer un point de mise à jour logicielle  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 > [!IMPORTANT]  
@@ -154,6 +154,6 @@ Une fois que vous avez installé tous les points de mise à jour logicielle, vou
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

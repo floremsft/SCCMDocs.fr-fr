@@ -1,6 +1,6 @@
 ---
-title: "Gérer les images de démarrage | Configuration Manager"
-description: "Découvrez comment utiliser Configuration Manager pour gérer les images de démarrage Windows PE que vous utilisez pendant un déploiement de système d’exploitation."
+title: "Gérer les images de démarrage | Microsoft Docs"
+description: "Découvrez comment utiliser Configuration Manager pour gérer les images de démarrage Windows PE que vous utilisez pendant un déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,50 +17,50 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 43b87f7fd9d710cb4e7784dc34b4a8b14585b247
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 8c41c39a7f984be2612ae882d3bc08d92278dba6
 
 
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gérer les images de démarrage avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Une image de démarrage dans Configuration Manager est une image [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows.  Aidez-vous des informations des sections suivantes pour gérer les images de démarrage.
+Une image de démarrage dans Configuration Manager est une image [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows.  Aidez-vous des informations des sections suivantes pour gérer les images de démarrage.
 
 ##  <a name="a-namebkmkbootimagedefaulta-default-boot-images"></a><a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut  
- Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64 ou i386*.  
+ Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64 ou i386*.  
 
  Quand vous mettez à niveau Configuration Manager vers une nouvelle version, Configuration Manager remplace parfois les images de démarrage par défaut, et les images de démarrage personnalisées basées sur ces images de démarrage par défaut, situées à cet emplacement par des fichiers mis à jour. Les options que vous configurez sur les images de démarrage par défaut au niveau du site (par exemple, des composants facultatifs) sont transmises lors de la mise à jour des images de démarrage, dont les pilotes. Les objets pilotes de source doivent être valides, notamment les fichiers sources de pilotes. Autrement, les pilotes ne seront pas ajoutés aux images de démarrage mises à jour sur le site. Les autres images de démarrage non basées sur les images de démarrage par défaut, même si elles sont basées sur la même version de Windows ADK, ne sont pas mises à jour. Une fois les images de démarrage mises à jour, vous devez les redistribuer aux points de distribution. Tout support utilisant les images de démarrage doit être recréé. Si vous ne souhaitez pas que vos images de démarrage par défaut personnalisées soient mises à jour automatiquement, vous devez les stocker à un autre emplacement.  
 
- L’outil Journal de suivi de Configuration Manager est ajouté à toutes les images de démarrage que vous ajoutez à la **bibliothèque de logiciels**. Quand vous êtes dans WinPE, vous pouvez démarrer l’outil Journal de suivi de Configuration Manager en tapant **CMTrace** à partir d’une invite de commandes.  
+ L’outil Journal de suivi de Configuration Manager est ajouté à toutes les images de démarrage que vous ajoutez à la **bibliothèque de logiciels**. Quand vous êtes dans WinPE, vous pouvez démarrer l’outil Journal de suivi de Configuration Manager en tapant **CMTrace** à partir d’une invite de commandes.  
 
 ##  <a name="a-namebkmkbootimagecustoma-customize-a-boot-image"></a><a name="BKMK_BootImageCustom"></a> Personnaliser une image de démarrage  
- Vous pouvez personnaliser ou [modifier une image de démarrage](#BKMK_ModifyBootImages) depuis la console Configuration Manager si cette image est basée sur une version de Windows PE de la version prise en charge de Windows ADK. Quand un site est mis à niveau avec une nouvelle version et qu’une nouvelle version de Windows ADK est installée, les images de démarrage personnalisées (ne figurant pas dans l’emplacement d’image de démarrage par défaut) ne sont pas mises à jour avec la nouvelle version de Windows ADK. Dans ce cas, vous ne pouvez plus personnaliser les images de démarrage dans la console Configuration Manager. En revanche, elles continuent à fonctionner comme avant la mise à niveau.  
+ Vous pouvez personnaliser ou [modifier une image de démarrage](#BKMK_ModifyBootImages) depuis la console Configuration Manager si cette image est basée sur une version de Windows PE de la version prise en charge de Windows ADK. Quand un site est mis à niveau avec une nouvelle version et qu’une nouvelle version de Windows ADK est installée, les images de démarrage personnalisées (ne figurant pas dans l’emplacement d’image de démarrage par défaut) ne sont pas mises à jour avec la nouvelle version de Windows ADK. Dans ce cas, vous ne pouvez plus personnaliser les images de démarrage dans la console Configuration Manager. En revanche, elles continuent à fonctionner comme avant la mise à niveau.  
 
  Quand une image de démarrage est basée sur une autre version de Windows ADK installée sur un site, vous devez personnaliser les images de démarrage à l’aide d’une autre méthode, par exemple en vous servant de l’outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) intégré dans Windows AIK et Windows ADK. Pour plus d’informations, consultez [Personnaliser les images de démarrage](customize-boot-images.md).  
 
 ##  <a name="a-namebkmkaddbootimagesa-add-a-boot-image"></a><a name="BKMK_AddBootImages"></a> Ajouter une image de démarrage  
 
- Au moment de l’installation du site, Configuration Manager ajoute automatiquement des images de démarrage qui sont basées sur une version de WinPE de la version prise en charge de Windows ADK. Dans certaines versions de Configuration Manager, vous pouvez ajouter des images de démarrage basées sur une version de WinPE différente de la version prise en charge de Windows ADK.  Une erreur se produit si vous essayez d’ajouter une image de démarrage qui contient une version non prise en charge de WinPE.  
+ Au moment de l’installation du site, Configuration Manager ajoute automatiquement des images de démarrage qui sont basées sur une version de WinPE de la version prise en charge de Windows ADK. Dans certaines versions de Configuration Manager, vous pouvez ajouter des images de démarrage basées sur une version de WinPE différente de la version prise en charge de Windows ADK.  Une erreur se produit si vous essayez d’ajouter une image de démarrage qui contient une version non prise en charge de WinPE.  
 
- Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
+ Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
 
 -   **Version de Windows ADK**  
 
      Windows ADK pour Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager console**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
--   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
+-   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 3.1<sup>1</sup> et Windows PE 5  
 
-     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](customize-boot-images.md).
+     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](customize-boot-images.md).
 
  Pour ajouter une image de démarrage manuellement, procédez comme suit.  
 
@@ -76,7 +76,7 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (Wi
 
     -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier WIM de l'image de démarrage.  
 
-         Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Exemple : \\\\<*nom_serveur*\\<*nom_partage*>\\<*nom_image_démarrage*>.wim.  
+         Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Exemple : \\\\<*nom_serveur*\\<*nom_partage*>\\<*nom_image_démarrage*>.wim.  
 
     -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, sélectionnez l’image appropriée.  
 
@@ -103,7 +103,7 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (Wi
 >   
 >  -   Le point de distribution doit être configuré pour accepter les demandes PXE.  
 > -   Vous devez distribuer une image de démarrage PXE x86 et une image de démarrage PXE x64 à au moins un point de distribution PXE.  
-> -   Configuration Manager distribue les images de démarrage vers le dossier **RemoteInstall** du point de distribution compatible PXE.  
+> -   Configuration Manager distribue les images de démarrage vers le dossier **RemoteInstall** du point de distribution compatible PXE.  
 >   
 >  Pour plus d’informations sur l’utilisation de PXE pour déployer des systèmes d’exploitation, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
@@ -205,7 +205,7 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (Wi
 
         -   Cliquez sur **Valider** pour vérifier l'intégrité du package d'images de démarrage sur le point de distribution ou le groupe de points de distribution sélectionné.  
 
-    -   Sous l’onglet **Composants facultatifs**, spécifiez les composants à ajouter à Windows PE pour être utilisés avec Configuration Manager. Pour plus d’informations sur les composants facultatifs disponibles, consultez [WinPE : Ajouter des packages (informations de référence sur les composants facultatifs)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
+    -   Sous l’onglet **Composants facultatifs**, spécifiez les composants à ajouter à Windows PE pour être utilisés avec Configuration Manager. Pour plus d’informations sur les composants facultatifs disponibles, consultez [WinPE : Ajouter des packages (informations de référence sur les composants facultatifs)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
 
     -   Dans l'onglet **Sécurité** , sélectionnez un utilisateur administratif et modifiez les opérations qu'il peut effectuer.  
 
@@ -245,12 +245,12 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (Wi
 
 #### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>Pour définir la langue de Windows PE pour un déploiement PXE ou un déploiement de système d'exploitation établi par un média  
 
-1.  Avant de mettre à jour l'image de démarrage, vérifiez que le fichier de ressources de la séquence de tâche appropriée (tsres.dll) se trouve bien dans le dossier de langue correspondant sur le serveur de site. Par exemple, le fichier de ressources anglais se trouve à l’emplacement suivant : <*dossier_installation_ConfigMgr*> \OSD\bin\x64\00000409\tsres.dll.  
+1.  Avant de mettre à jour l'image de démarrage, vérifiez que le fichier de ressources de la séquence de tâche appropriée (tsres.dll) se trouve bien dans le dossier de langue correspondant sur le serveur de site. Par exemple, le fichier de ressources anglais se trouve à l’emplacement suivant : <*dossier_installation_ConfigMgr*> \OSD\bin\x64\00000409\tsres.dll.  
 
 2.  Dans le cadre de votre commande de prédémarrage, affectez l'ID de langue approprié à la variable d'environnement SMSTSLanguageFolder. Vous devez spécifier l'ID de langue au format décimal, et non hexadécimal. Par exemple, pour configurer l'ID de langue sur l'anglais, vous devez spécifier la valeur décimale 1033 au lieu de la valeur hexadécimale 00000409 utilisée comme nom de dossier.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

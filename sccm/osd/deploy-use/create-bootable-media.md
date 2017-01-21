@@ -1,8 +1,8 @@
 ---
-title: "Créer un média de démarrage | Configuration Manager"
+title: "Créer un média de démarrage | Microsoft Docs"
 description: "Un média de démarrage dans Configuration Manager facilite l’installation d’une nouvelle version de Windows ou le remplacement d’un ordinateur et le transfert de paramètres."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 6a3b72ecdee38f6955b601248300e49c1ffdee5d
+ms.sourcegitcommit: 03722ff4f480cd26842e395fe1f7ec8359e2b33e
+ms.openlocfilehash: a7bdad82dc55b4c0fe7d892ef34cc6aa0dfbf476
 
 
 ---
 # <a name="create-bootable-media-with-system-center-configuration-manager"></a>Créer un média de démarrage avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Un média de démarrage dans Configuration Manager contient l’image de démarrage, des commandes de prédémarrage facultatives et leurs fichiers associés, ainsi que les fichiers de Configuration Manager. Utilisez un média préparé pour les scénarios de déploiement de système d’exploitation suivants :  
 
@@ -77,7 +77,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
     -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
 
-    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
+    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
          Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
 
@@ -109,7 +109,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
          Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 
@@ -151,6 +151,6 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

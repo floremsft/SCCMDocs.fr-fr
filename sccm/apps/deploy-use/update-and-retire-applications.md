@@ -1,5 +1,5 @@
 ---
-title: "Mettre à jour et mettre hors service des applications | System Center Configuration Manager"
+title: "Mettre à jour et mettre hors service des applications | Microsoft Docs"
 description: "Révisez, remplacez ou désinstallez des applications déployées à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,33 +16,32 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5eafaca3317f22b0e0b434d9161785cc90c701b7
+ms.sourcegitcommit: c9fb0fa46058c773eec6ac23999357d35d9f970f
+ms.openlocfilehash: 805e04c447747b4d12350b692880dbc005bd7168
 
 
 ---
 # <a name="update-and-retire-applications-with-system-center-configuration-manager"></a>Mettre à jour et mettre hors service des applications avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Vous finirez probablement par vouloir apporter des modifications à une application, en désinstaller une ou remplacer une application déjà déployée par une nouvelle. System Center Configuration Manager inclut ces fonctions pour vous aider dans ce but :  
-  
--   **Réviser des applications** : quand vous apportez des modifications à un type d’application ou de déploiement, Configuration Manager conserve un historique de ces modifications. Vous pouvez revenir à tout moment à la version révisée précédente de l’application. Vous pouvez également afficher les propriétés de chaque révision, restaurer une révision précédente d'une application ou supprimer une ancienne révision.  
+Vous finirez probablement par vouloir apporter des modifications à une application, en désinstaller une ou remplacer une application déjà déployée par une nouvelle. System Center Configuration Manager offre ces fonctionnalités pour vous aider à mettre à jour et mettre hors service des applications :  
 
-     Pour plus d’informations, consultez [Révisions d’applications](/sccm/apps/deploy-use/revise-and-supersede-applications#application-revisions).  
+-   **Réviser des applications**. Quand vous apportez des modifications à un type d’application ou de déploiement, Configuration Manager conserve un historique de ces modifications. Vous pouvez revenir à tout moment à la version révisée précédente de l’application. Vous pouvez également afficher les propriétés de chaque révision, restaurer une révision précédente d’une application ou supprimer une ancienne révision.  
 
--   **Supersede applications** : vous permet de mettre à niveau ou de remplacer des applications existantes par le biais d’une relation de remplacement. Lorsque vous remplacez une application, vous pouvez spécifier un nouveau type de déploiement qui remplacera le type de déploiement de l'application remplacée. Vous pouvez aussi indiquer si vous souhaitez mettre à niveau ou désinstaller l'application remplacée avant l'installation de l'application de remplacement.  
+  Pour plus d’informations, consultez [Révisions d’applications](revise-and-supersede-applications.md#application-revisions).  
 
-     Pour plus d’informations, consultez [Remplacement d’applications](/sccm/apps/deploy-use/revise-and-supersede-applications#application-supersedence).  
+-   **Remplacer des applications**. Une relation de remplacement vous permet de mettre à niveau ou remplacer des applications existantes. Quand vous remplacez une application, vous pouvez spécifier un nouveau type de déploiement pour remplacer le type de déploiement de l’application remplacée. Vous pouvez aussi définir s’il faut mettre à niveau ou désinstaller l’application remplacée avant d’installer l’application de remplacement.  
 
--   **Désinstaller des applications** : Configuration Manager facilite la désinstallation d’une application. La désinstallation peut s’effectuer sans assistance, c’est-à-dire sans intervention de l’utilisateur final.  
-  
-Pour plus d’informations, consultez [Désinstaller des applications](../../apps/deploy-use/uninstall-applications.md).  
-   
+  Pour plus d’informations, consultez [Remplacement d’applications](revise-and-supersede-applications.md#application-supersedence).  
 
+-   **Désinstaller des applications**. Configuration Manager facilite la désinstallation d’une application. La désinstallation peut s’effectuer sans assistance, c’est-à-dire sans intervention de l’utilisateur de l’application ou de l’appareil.  
+
+  Pour plus d’informations, consultez [Désinstaller des applications](uninstall-applications.md).  
 
 
-<!--HONumber=Nov16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 

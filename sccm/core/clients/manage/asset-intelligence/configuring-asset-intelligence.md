@@ -1,5 +1,5 @@
 ---
-title: Configurer Asset Intelligence | System Center Configuration Manager
+title: Configurer Asset Intelligence | Microsoft Docs
 description: Configurez Asset Intelligence dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 43e04a447b03885286c6c7201afb4d1b7a10aa91
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: ed62dd273dfa5896c0bc0a8f6216755f44ce3513
 
 
 ---
 # <a name="configure-asset-intelligence-in-system-center-configuration-manager"></a>Configurer Asset Intelligence dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous devez effectuer un certain nombre d’étapes de configuration avant de pouvoir utiliser Asset Intelligence dans System Center Configuration Manager pour inventorier et gérer les licences logicielles utilisées dans l’entreprise.  
 
@@ -34,7 +34,7 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
 |Étape|Détails|Informations complémentaires|  
 |----------|-------------|----------------------|  
 |**Étape 1**: Activer les classes de création de rapports d’inventaire matériel Asset Intelligence|La collecte des informations Asset Intelligence n’est pas automatiquement activée à l’installation de Configuration Manager. Pour activer Asset Intelligence, au moins une des classes de création de rapports d'inventaire matériel requises sur lesquelles reposent les rapports Asset Intelligence doit être activée.|Pour plus d’informations, consultez la procédure suivante dans cette rubrique : [Enable Asset Intelligence hardware inventory reporting classes](#BKMK_EnableAssetIntelligence).|  
-|**Étape 2**: Installer un point de synchronisation Asset Intelligence|Le rôle de système de site du point de synchronisation Asset Intelligence permet de connecter des sites Configuration Manager à System Center Online pour synchroniser les informations du catalogue Asset Intelligence. Le point de synchronisation Asset Intelligence peut uniquement être installé sur un système de site de niveau supérieur dans la hiérarchie Configuration Manager. De plus, il a besoin d’un accès Internet pour se synchroniser avec System Center Online via le port TCP 443.<br /><br /> Outre le téléchargement des nouvelles informations du catalogue Asset Intelligence, le point de synchronisation Asset Intelligence peut envoyer les informations de titres de logiciels personnalisés à System Center Online à des fins de catégorisation. Microsoft considère tous les titres de logiciels envoyés à System Center Online pour être catégorisés comme des informations publiques. Par conséquent, vous devez vérifier que les titres de logiciels personnalisés ne contiennent pas d'informations confidentielles ou propriétaires. Pour plus d’informations sur la demande de catégorisation des titres de logiciels, consultez [Demander une mise à jour du catalogue pour les logiciels sans catégorie](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).|Pour plus d’informations, consultez la procédure suivante dans cette rubrique : [Install an Asset Intelligence Synchronization Point](#BKMK_InstallAssetIntelligenceSynchronizationPoint).|  
+|**Étape 2**: Installer un point de synchronisation Asset Intelligence|Le rôle de système de site du point de synchronisation Asset Intelligence permet de connecter des sites Configuration Manager à System Center Online pour synchroniser les informations du catalogue Asset Intelligence. Le point de synchronisation Asset Intelligence peut uniquement être installé sur un système de site de niveau supérieur dans la hiérarchie Configuration Manager. De plus, il a besoin d’un accès Internet pour se synchroniser avec System Center Online via le port TCP 443.<br /><br /> Outre le téléchargement des nouvelles informations du catalogue Asset Intelligence, le point de synchronisation Asset Intelligence peut envoyer les informations de titres de logiciels personnalisés à System Center Online à des fins de catégorisation. Microsoft considère tous les titres de logiciels envoyés à System Center Online pour être catégorisés comme des informations publiques. Par conséquent, vous devez vérifier que les titres de logiciels personnalisés ne contiennent pas d'informations confidentielles ou propriétaires. Pour plus d’informations sur la demande de catégorisation des titres de logiciels, consultez [Demander une mise à jour du catalogue pour les logiciels sans catégorie](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).|Pour plus d’informations, consultez la procédure suivante dans cette rubrique : [Install an Asset Intelligence Synchronization Point](#BKMK_InstallAssetIntelligenceSynchronizationPoint).|  
 |**Étape 3**: Activer l’audit des événements de connexion réussie|Quatre rapports Asset Intelligence affichent des informations extraites des journaux d'événements de sécurité Windows sur les ordinateurs client. Si les paramètres du journal des événements de sécurité ne sont pas configurés pour consigner tous les événements de connexion réussie, ces rapports ne contiennent aucune donnée, même si la classe de rapport d'inventaire matériel appropriée est activée. Pour activer l'agent du client d'inventaire matériel en vue de répertorier les informations requises par ces rapports, vous devez d'abord modifier les paramètres du journal des événements de sécurité Windows sur les clients afin de consigner tous les événements de connexion réussie et activer la classe de rapport d'inventaire matériel **SMS_SystemConsoleUser** .|Pour plus d’informations, consultez les procédures suivantes dans cette rubrique : [Enable auditing of success logon events](#BKMK_EnableSuccessLogonEvents).|  
 |**Étape 4**: Importer les informations de licence de logiciel|L'Assistant Importer des licences logicielles permet d'importer les informations MVLS (Microsoft Volume Licensing) et les déclarations de licence générales vers le catalogue Asset Intelligence.<br /><br /> La déclaration de licence MVLS contient des informations sur les droits de licence ou le nombre de licences achetées pour les produits Microsoft.<br /><br /> Une déclaration de licence générale contient des informations sur les licences achetées pour n'importe quel éditeur.|Pour plus d’informations, consultez les procédures suivantes dans cette rubrique : [Import software license information](#BKMK_ImportSoftwareLicenseInformation).|  
 |**Étape 5**: Configurer les tâches de maintenance Asset Intelligence|Les tâches de maintenance suivantes sont associées à Asset Intelligence. Par défaut, les deux tâches de maintenance sont activées et configurées dans une planification par défaut.<br /><br /> **Vérifier le titre de l’application à l’aide des informations d’inventaire**: cette tâche de maintenance vérifie si le nom du logiciel indiqué dans l’inventaire logiciel est rapproché du nom du logiciel figurant dans le catalogue Asset Intelligence.<br /><br /> **Résumer les données du logiciel installé**: cette tâche de maintenance fournit les informations affichées dans l’espace de travail **Ressources et Conformité** , dans le nœud **Logiciels inventoriés** , sous le nœud **Asset Intelligence** . Quand la tâche s’exécute, Configuration Manager compte les titres de logiciels inventoriés sur le site principal.|Pour plus d’informations, consultez les procédures suivantes dans cette rubrique : [Configure Asset Intelligence maintenance tasks](#BKMK_ConfigureMaintenanceTasks).|  
@@ -99,7 +99,7 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
     -   **Nouveau serveur de système de site**: sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un serveur de système de site**. L'Assistant Création de serveur de système de site s'ouvre.  
 
         > [!NOTE]  
-        >  Par défaut, quand Configuration Manager installe un rôle système de site, les fichiers d’installation sont installés sur le premier disque dur formaté NTFS disponible qui a le plus d’espace disque libre. Pour empêcher Configuration Manager d’effectuer l’installation sur des disques particuliers, créez un fichier vide « No_sms_on_drive.sms » et copiez-le dans le dossier racine du disque avant d’installer le serveur de système de site.  
+        >  Par défaut, quand Configuration Manager installe un rôle système de site, les fichiers d’installation sont installés sur le premier disque dur formaté NTFS disponible qui a le plus d’espace disque libre. Pour empêcher Configuration Manager d’effectuer l’installation sur des disques particuliers, créez un fichier vide « No_sms_on_drive.sms » et copiez-le dans le dossier racine du disque avant d’installer le serveur de système de site.  
 
     -   **Serveur de système de site existant**: cliquez sur le serveur sur lequel vous souhaitez installer le rôle de système de site de point de synchronisation Asset Intelligence. Lorsque vous cliquez sur un serveur, la liste des rôles de système de site déjà installés sur le serveur s'affiche dans le panneau des détails.  
 
@@ -178,7 +178,7 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
  Asset Intelligence fait correspondre les produits que vous spécifiez dans la déclaration de licence générale en utilisant le nom du produit et la version du produit, mais pas le nom de l'éditeur. Vous devez utiliser un nom de produit dans la déclaration de licence générale qui correspond exactement au nom de produit stocké dans la base de données du site. Asset Intelligence utilise le nombre **Quantité effective** donné dans la déclaration de licence générale et le compare au nombre de produits installés trouvés dans l’inventaire Configuration Manager.  
 
 > [!TIP]  
->  Pour obtenir la liste complète des noms de produits stockés dans la base de données du site Configuration Manager, exécutez la requête suivante sur la base de données du site : SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
+>  Pour obtenir la liste complète des noms de produits stockés dans la base de données du site Configuration Manager, exécutez la requête suivante sur la base de données du site : SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
 
  Vous pouvez spécifier les versions exactes pour un produit ou spécifier une partie de la version, comme par exemple uniquement la version principale. Les exemples suivants présentent les correspondances de version obtenues pour une entrée de version de déclaration générale de licence pour un produit spécifique.  
 
@@ -202,9 +202,9 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
 
 5.  Copiez le fichier .csv dans le partage de fichiers utilisé pour l'importation des informations de licence logicielle dans le catalogue Asset Intelligence.  
 
-6.  Dans la console Configuration Manager, utilisez l’Assistant Importer des licences logicielles pour importer le nouveau fichier d’informations de licence .csv créé.  
+6.  Dans la console Configuration Manager, utilisez l’Assistant Importer des licences logicielles pour importer le nouveau fichier d’informations de licence .csv créé.  
 
-7.  Générez le **rapport de rapprochement des licences logicielles tierces (licence 15A)** d’Asset Intelligence pour vérifier que les informations de licence ont bien été importées dans le catalogue Asset Intelligence.  
+7.  Générez le **rapport de rapprochement des licences logicielles tierces (licence 15A)** d’Asset Intelligence pour vérifier que les informations de licence ont bien été importées dans le catalogue Asset Intelligence.  
 
 > [!NOTE]  
 >  Pour obtenir un exemple de fichier de licence logicielle générale que vous pouvez utiliser à des fins de test, consultez [Exemple de fichier d’importation de licence générale Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md).  
@@ -229,9 +229,9 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
 ###  <a name="a-namebkmkconfiguremaintenancetasksa-configure-asset-intelligence-maintenance-tasks"></a><a name="BKMK_ConfigureMaintenanceTasks"></a> Configure Asset Intelligence maintenance tasks  
  Les tâches de maintenance suivantes sont disponibles pour Asset Intelligence :  
 
--   **Vérifier le titre de l’application à l’aide des informations d’inventaire**: cette tâche de maintenance vérifie si le nom du logiciel indiqué dans l’inventaire logiciel est rapproché du nom du logiciel figurant dans le catalogue Asset Intelligence. Par défaut, cette tâche est activée et planifiée pour être exécutée le samedi entre 00 h 00 et 5 h 00. Cette tâche de maintenance est uniquement disponible sur le site de niveau supérieur de la hiérarchie Configuration Manager.  
+-   **Vérifier le titre de l’application à l’aide des informations d’inventaire**: cette tâche de maintenance vérifie si le nom du logiciel indiqué dans l’inventaire logiciel est rapproché du nom du logiciel figurant dans le catalogue Asset Intelligence. Par défaut, cette tâche est activée et planifiée pour être exécutée le samedi entre 00 h 00 et 5 h 00. Cette tâche de maintenance est uniquement disponible sur le site de niveau supérieur de la hiérarchie Configuration Manager.  
 
--   **Résumer les données du logiciel installé**: cette tâche de maintenance fournit les informations affichées dans l’espace de travail **Ressources et Conformité** , dans le nœud **Logiciels inventoriés** , sous le nœud **Asset Intelligence** . Quand la tâche s’exécute, Configuration Manager compte les titres de logiciels inventoriés sur le site principal. Par défaut, cette tâche est activée et planifiée pour être exécutée tous les jours entre 00 h 00 et 5 h 00. Cette tâche de maintenance est disponible uniquement sur les sites principaux.  
+-   **Résumer les données du logiciel installé**: cette tâche de maintenance fournit les informations affichées dans l’espace de travail **Ressources et Conformité** , dans le nœud **Logiciels inventoriés** , sous le nœud **Asset Intelligence** . Quand la tâche s’exécute, Configuration Manager compte les titres de logiciels inventoriés sur le site principal. Par défaut, cette tâche est activée et planifiée pour être exécutée tous les jours entre 00 h 00 et 5 h 00. Cette tâche de maintenance est disponible uniquement sur les sites principaux.  
 
 ##### <a name="to-configure-asset-intelligence-maintenance-tasks"></a>Pour configurer les tâches de maintenance Asset Intelligence  
 
@@ -260,6 +260,6 @@ Vous devez effectuer un certain nombre d’étapes de configuration avant de pou
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

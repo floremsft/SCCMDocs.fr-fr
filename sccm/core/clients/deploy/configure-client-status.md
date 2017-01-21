@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’état du client | System Center Configuration Manager"
+title: "Configurer l’état du client | Microsoft Docs"
 description: "Sélectionnez les paramètres d’état du client dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.assetid: a2275ba2-c83d-43e7-90ed-418963a707fe
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 98d78ff0ef641baeef1323243f8f389fa5e95057
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 22cc286baa72d3e356a07b91ee0a1be646fa8a9e
 
 
 ---
 # <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Comment configurer l’état du client dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Afin de surveiller l’état du client System Center Configuration Manager et de corriger les problèmes rencontrés, vous devez configurer votre site pour spécifier les paramètres qui sont utilisés pour marquer des clients comme inactifs et configurer des options pour vous avertir si l’activité du client passe sous un seuil spécifié. Il est également possible de désactiver la résolution automatique par les ordinateurs des problèmes rencontrés par l'état du client.  
 
@@ -115,6 +115,6 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

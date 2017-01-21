@@ -1,5 +1,5 @@
 ---
-title: "Étapes de préparation | MDM local | System Center Configuration Manager"
+title: "Étapes de préparation | Microsoft Docs | Gestion des appareils mobiles locale"
 description: "Préparez-vous à gérer les appareils avec la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 21bac2eae1aaea5bbd5897fcd4eb2aa11538aac7
+ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
+ms.openlocfilehash: a5c9fa5994f9b7bd13fe53edb6998609852b98ca
 
 
 ---
 # <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Étapes de préparation pour la gestion des appareils mobiles locale dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Gérer les appareils à l’aide de la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager exige que l’infrastructure Configuration Manager soit configurée de telle sorte que les rôles de système de site requis (point proxy d’inscription, point d’inscription, point de gestion d’appareil et point de distribution) puissent communiquer avec les appareils mobiles à gérer sur un canal fiable.  
 
- Les tâches principales suivantes sont nécessaires à la préparation du système Configuration Manager à la gestion des appareils mobiles locale :  
+ Les tâches principales suivantes sont nécessaires à la préparation du système Configuration Manager à la gestion des appareils mobiles locale :  
 
 -   [Configurer un abonnement Microsoft Intune pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
 
@@ -47,6 +47,6 @@ Gérer les appareils à l’aide de la fonctionnalité de gestion des appareils 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

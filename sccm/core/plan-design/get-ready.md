@@ -1,5 +1,5 @@
 ---
-title: "Se préparer pour System Center Configuration Manager"
+title: "Se préparer pour System Center Configuration Manager | Microsoft Docs"
 description: "Recherchez les rubriques qui vous aideront à planifier un déploiement de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 70354ebc19786f9ff322d1c0b9e50d08265e15c0
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: b2d9cf11b944b6ee648b8fc7bc836ed5a82925a5
 
 
 ---
 # <a name="get-ready-for-system-center-configuration-manager"></a>Se préparer pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez les informations données dans les rubriques suivantes quand vous êtes prêt à planifier votre déploiement de System Center Configuration Manager :  
+Utilisez les informations données dans les rubriques suivantes quand vous êtes prêt à planifier votre déploiement de System Center Configuration Manager :  
 
 
   -   [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
@@ -43,6 +43,6 @@ Utilisez les informations données dans les rubriques suivantes quand vous êtes
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité pour les requêtes | System Center Configuration Manager"
+title: "Sécurité et confidentialité pour les requêtes | Microsoft Docs"
 description: "Maîtrisez les bonnes pratiques en matière de sécurité et de confidentialité quand vous recherchez des informations dans la base de données du site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e9ac8ce92a2ff5ebcbad852b6bfb291bb99236d4
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 09f7bdaa29a01fb2a38aa223db56b5bce3bc5205
 
 
 ---
 # <a name="security-and-privacy-for-queries-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les requêtes dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Dans System Center Configuration Manager, les requêtes vous permettent de récupérer des informations à partir de la base de données du site selon les critères que vous spécifiez. Configuration Manager collecte les informations de base de données de site pendant le fonctionnement standard. Par exemple, en utilisant les informations qui ont été collectées à partir de la découverte ou de l’inventaire, une requête peut être configurée pour identifier des périphériques qui répondent aux critères spécifiés.  
 
@@ -42,6 +42,6 @@ Dans System Center Configuration Manager, les requêtes vous permettent de récu
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

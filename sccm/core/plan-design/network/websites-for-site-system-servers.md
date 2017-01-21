@@ -1,5 +1,5 @@
 ---
-title: "Sites web pour les systèmes de site | System Center Configuration Manager"
+title: "Sites web pour les systèmes de site | Microsoft Docs"
 description: "Découvrez les sites web personnalisés et par défaut pour les serveurs de système de site dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,25 +17,25 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3f463aa804cb928b29fc26d9af8dede7f65222df
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 005c9f33367f173993d9626f10a72dd5b0141fbc
 
 
 ---
 # <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites web pour les serveurs de système de site dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Plusieurs rôles de système de site Configuration Manager nécessitent l’utilisation de Microsoft Internet Information Services (IIS) et utilisent le site web IIS par défaut pour héberger les services du système de site. Si vous devez exécuter d’autres applications web sur le même serveur et que les paramètres ne sont pas compatibles avec Configuration Manager, utilisez plutôt un site web personnalisé pour Configuration Manager.  
+Plusieurs rôles de système de site Configuration Manager nécessitent l’utilisation de Microsoft Internet Information Services (IIS) et utilisent le site web IIS par défaut pour héberger les services du système de site. Si vous devez exécuter d’autres applications web sur le même serveur et que les paramètres ne sont pas compatibles avec Configuration Manager, utilisez plutôt un site web personnalisé pour Configuration Manager.  
 
 > [!TIP]  
->  Une bonne pratique en matière de sécurité consiste à dédier un serveur aux systèmes de site Configuration Manager nécessitant IIS. Quand vous exécutez d’autres applications sur un système de site Configuration Manager, vous augmentez la surface exposée aux attaques de cet ordinateur.  
+>  Une bonne pratique en matière de sécurité consiste à dédier un serveur aux systèmes de site Configuration Manager nécessitant IIS. Quand vous exécutez d’autres applications sur un système de site Configuration Manager, vous augmentez la surface exposée aux attaques de cet ordinateur.  
 
 
 
 
 ##  <a name="a-namebkmkwhat2knowa-what-to-know-before-choosing-to-use-custom-websites"></a><a name="BKMK_What2Know"></a> Informations à connaître avant d’utiliser des sites web personnalisés  
- Par défaut, les rôles de système de site utilisent le **site web par défaut** dans IIS. Ceci est automatiquement configuré lors de l’installation du rôle de système de site. Toutefois, sur les sites principaux, vous pouvez choisir d’utiliser des sites web personnalisés à la place. Quand vous utilisez des sites web personnalisés :  
+ Par défaut, les rôles de système de site utilisent le **site web par défaut** dans IIS. Ceci est automatiquement configuré lors de l’installation du rôle de système de site. Toutefois, sur les sites principaux, vous pouvez choisir d’utiliser des sites web personnalisés à la place. Quand vous utilisez des sites web personnalisés :  
 
 -   Les sites web personnalisés sont activés pour l’ensemble du site, et non pas individuellement pour des serveurs ou rôles du système de site.  
 
@@ -44,7 +44,7 @@ Plusieurs rôles de système de site Configuration Manager nécessitent l’util
 -   Du fait que les sites secondaires sont automatiquement configurés pour utiliser un site web personnalisé quand leur site parent principal est configuré pour cela, vous devez également créer des sites web personnalisés dans IIS sur chaque serveur de système de site secondaire qui nécessite IIS.  
 
 
-  **Configuration requise pour l’utilisation de sites web personnalisés :**  
+  **Configuration requise pour l’utilisation de sites web personnalisés :**  
 
  Avant d’activer l’option pour utiliser des sites web personnalisés sur un site, vous devez effectuer les opérations suivantes :  
 
@@ -54,8 +54,8 @@ Plusieurs rôles de système de site Configuration Manager nécessitent l’util
 
 -   Pour chaque site web personnalisé ou site web par défaut qui utilise un dossier personnalisé, placez une copie du type de document par défaut que vous utilisez dans le dossier racine qui héberge le site web. Par exemple, sur un ordinateur Windows Server 2008 R2 avec des configurations par défaut, **iisstart.htm** est l'un des types de documents par défaut disponibles. Ce fichier se trouve à la racine du site web par défaut. Vous pouvez en placer une copie (ou une copie du type de document par défaut que vous utilisez) dans le dossier racine qui héberge le site web personnalisé SMSWEB. Pour plus d’informations sur les types de documents par défaut, consultez [Document par défaut &lt;defaultDocument\> pour IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
 
-**À propos de la configuration requise pour IIS :**
-**Les rôles de système de site suivants nécessitent IIS et un site web pour héberger les services de système de site :**  
+**À propos de la configuration requise pour IIS :**
+**Les rôles de système de site suivants nécessitent IIS et un site web pour héberger les services de système de site :**  
 
 -   Point de service Web du catalogue des applications  
 
@@ -135,6 +135,6 @@ Du fait que les procédures de création d’un site web personnalisé varient s
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

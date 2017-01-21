@@ -1,6 +1,6 @@
 ---
-title: "Stratégies de Pare-feu Windows pour Endpoint Protection | System Center Configuration Manager"
-description: "Découvrez comment créer et déployer des stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager."
+title: "Stratégies de pare-feu Windows pour Endpoint Protection | Microsoft Docs"
+description: "Découvrez comment créer et déployer des stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,16 +16,16 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 98e4c49a19da396389acdd0aa56aee9113ce58c9
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 7a02ae3fb102ab85f98d3b7453fc0736e5a11200
 
 
 ---
 # <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Créer et déployer des stratégies de Pare-feu Windows pour Endpoint Protection dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager permettent d’effectuer des tâches de maintenance et de configuration de Pare-feu Windows de base sur les ordinateurs clients de votre hiérarchie. Vous pouvez utiliser les stratégies de pare-feu Windows pour effectuer les tâches suivantes :  
+Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager permettent d’effectuer des tâches de maintenance et de configuration de Pare-feu Windows de base sur les ordinateurs clients de votre hiérarchie. Vous pouvez utiliser les stratégies de pare-feu Windows pour effectuer les tâches suivantes :  
 
 -   Contrôler si le pare-feu Windows est activé ou désactivé.  
 
@@ -81,6 +81,6 @@ Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Con
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

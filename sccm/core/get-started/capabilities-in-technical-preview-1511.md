@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1511 pour System Center Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager."
+title: "Fonctionnalités de la version d’évaluation technique 1511 pour System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,23 +16,23 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4616ba44485e4c528297441f1cf99e25add2dcf3
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: 8ef43a2f10a7ef1cbb101f6737c606c72ccdce4f
 
 ---
-# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1511 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1511 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager. Cette version est une installation de base de référence pour la version d’évaluation technique que vous pouvez utiliser pour installer un nouveau site de version d’évaluation technique ou pour effectuer la mise à niveau à partir d’une version antérieure de la version d’évaluation technique.   Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](/sccm/core/get-started/technical-preview), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1511 pour System Center Configuration Manager. Cette version est une installation de base de référence pour la version d’évaluation technique que vous pouvez utiliser pour installer un nouveau site de version d’évaluation technique ou pour effectuer la mise à niveau à partir d’une version antérieure de la version d’évaluation technique.   Avant d’installer cette version de la version d’évaluation technique, passez en revue la rubrique de présentation, [Version d’évaluation technique pour System Center Configuration Manager](/sccm/core/get-started/technical-preview), pour vous familiariser avec les conditions générales et limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
 Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="a-namebkmkwufba-integration-with-windows-update-for-business-in-windows-10"></a><a name="BKMK_WUfB"></a> Intégration à Windows Update for Business dans Windows 10  
- Configuration Manager peut désormais différencier un ordinateur Windows 10 directement connecté par le biais de Windows Update for Business (WUfB) de ceux connectés à WSUS pour obtenir les mises à jour et mises à niveau Windows 10.  Pour les ordinateurs connectés via WUFB, les mises à jour et les mises à niveau peuvent être gérées à la cadence définie par un utilisateur administratif via des stratégies de groupe ou des stratégies MDM. Par ailleurs, ces mises à jour/mises à niveau peuvent être installées directement à partir de WUFB.    
+##  <a name="a-namebkmkwufba-integration-with-windows-update-for-business-in-windows-10"></a><a name="BKMK_WUfB"></a> Intégration à Windows Update for Business dans Windows 10  
+ Configuration Manager peut désormais différencier un ordinateur Windows 10 directement connecté par le biais de Windows Update for Business (WUfB) de ceux connectés à WSUS pour obtenir les mises à jour et mises à niveau Windows 10.  Pour les ordinateurs connectés via WUFB, les mises à jour et les mises à niveau peuvent être gérées à la cadence définie par un utilisateur administratif via des stratégies de groupe ou des stratégies MDM. Par ailleurs, ces mises à jour/mises à niveau peuvent être installées directement à partir de WUFB.    
 Pour les ordinateurs connectés via WUfB, Configuration Manager ne peut pas créer de rapports sur l’état de conformité (dont les mises à jour Windows ou les mises à jour de définition). De plus, Configuration Manager ne peut pas déployer des mises à jour Microsoft ni tierces sur ces ordinateurs.  
 
- **Conditions requises pour ce scénario :**  
+ **Conditions requises pour ce scénario :**  
 
 -   Windows 10 Desktop Pro ou Windows 10 Édition Entreprise version 1511 ou ultérieure  
 
@@ -52,16 +52,16 @@ Pour les ordinateurs connectés via WUfB, Configuration Manager ne peut pas cré
 
 5.  Les ordinateurs qui sont gérés via WUFB affichent **Inconnu** dans l’état de conformité et ne sont pas comptabilisés dans le pourcentage de conformité global.  
 
-##  <a name="a-namebkmkoffice365proplusa-managing-office-365-proplus-client-update-through-system-center-configuration-manager"></a><a name="BKMK_Office365ProPlus"></a> Gestion des mises à jour du client Office 365 ProPlus via System Center Configuration Manager  
- Configuration Manager peut désormais gérer les mises à jour du client du bureau Office 365 à l’aide du flux de travail de gestion des mises à jour logicielles de Configuration Manager.    
-Quand Microsoft publie une nouvelle mise à jour du client de bureau Office 365 pour WSUS (Windows Server Updates Services), Configuration Manager peut synchroniser la mise à jour avec son catalogue si la mise à jour d’Office 365 est configurée pour faire partie de la synchronisation du catalogue.  Le serveur de site Configuration Manager télécharge les mises à jour du client Office 365 et distribue le package aux points de distribution Configuration Manager.  Le client Configuration Manager indique ensuite aux clients du bureau Office 365 où obtenir les mises à jour et quand commencer le processus d’installation des mises à jour.  
+##  <a name="a-namebkmkoffice365proplusa-managing-office-365-proplus-client-update-through-system-center-configuration-manager"></a><a name="BKMK_Office365ProPlus"></a> Gestion des mises à jour du client Office 365 ProPlus via System Center Configuration Manager  
+ Configuration Manager peut désormais gérer les mises à jour du client du bureau Office 365 à l’aide du flux de travail de gestion des mises à jour logicielles de Configuration Manager.    
+Quand Microsoft publie une nouvelle mise à jour du client de bureau Office 365 pour WSUS (Windows Server Updates Services), Configuration Manager peut synchroniser la mise à jour avec son catalogue si la mise à jour d’Office 365 est configurée pour faire partie de la synchronisation du catalogue.  Le serveur de site Configuration Manager télécharge les mises à jour du client Office 365 et distribue le package aux points de distribution Configuration Manager.  Le client Configuration Manager indique ensuite aux clients du bureau Office 365 où obtenir les mises à jour et quand commencer le processus d’installation des mises à jour.  
 
-**Conditions requises pour ce scénario :**  
+**Conditions requises pour ce scénario :**  
 
 ### <a name="try-it-out"></a>Essayez !  
  Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
-1.  Vous pouvez synchroniser les mises à jour d’Office 365 avec le serveur de site Configuration Manager et les afficher à partir de la console Configuration Manager.  
+1.  Vous pouvez synchroniser les mises à jour d’Office 365 avec le serveur de site Configuration Manager et les afficher à partir de la console Configuration Manager.  
 
 2.  Vous pouvez approuver et déployer avec succès les mises à jour d’Office 365.  
 
@@ -83,7 +83,7 @@ Le processus de haut niveau pour configurer et utiliser des groupes de disponibi
 
 2.  Installez un nouveau site Configuration Manager et, lors de l’installation, indiquez au site d’utiliser le groupe de disponibilité en spécifiant le point de terminaison du groupe.  
 
-**Conditions requises pour ce scénario :**  
+**Conditions requises pour ce scénario :**  
 
 -   Nécessite une version de SQL Server prise en charge par Configuration Manager Technical Preview.  
 
@@ -95,14 +95,14 @@ Le processus de haut niveau pour configurer et utiliser des groupes de disponibi
 
 -   Vous devez avoir un emplacement réseau accessible par chaque serveur SQL Server du groupe de disponibilité. Cet emplacement est utilisé par le programme d'installation lors de la configuration du groupe de disponibilité. Vous pouvez le supprimer une fois l'installation terminée.  
 
-**Problèmes connus pour cette version :**  
+**Problèmes connus pour cette version :**  
 
 -   Vous ne pouvez pas ajouter un nouveau membre de réplica à un groupe de disponibilité qui est déjà utilisé comme base de données de site. Au lieu de cela, vous devez réinstaller le site après avoir ajouté le nouveau membre de réplica.  
 
 -   Pour ce scénario, vous devrez peut-être installer le **client natif SQL Server 2012** ([à partir de SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065)) sur le serveur de point de gestion. Cela empêche toute erreur de connexion SQL (qui sont enregistrées dans le fichier **mp_getauth.log** sur le serveur de point de gestion).  
 
 ### <a name="try-it-out"></a>Essayez !  
-Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
+Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
 -   Je peux installer un site principal qui utilise un serveur de bases de données configuré pour les groupes de disponibilité AlwaysOn.  
 
@@ -112,7 +112,7 @@ Essayez d'exécuter les tâches suivantes, puis utilisez les informations fourni
  Appliquez les procédures suivantes pour tout d’abord créer et configurer le groupe de disponibilité, puis installez un nouveau site Configuration Manager qui utilise le groupe de disponibilité.  
 
 #### <a name="to-create-a-sql-server-alwayson-availability-group"></a>Pour créer un groupe de disponibilité SQL Server AlwaysOn  
-Le processus de [création d'un groupe de disponibilité SQL Server](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) est documenté dans la bibliothèque de documentation de SQL Server.  Quand vous créez le groupe de disponibilité, vérifiez que les conditions suivantes pour une utilisation avec Configuration Manager sont remplies :  
+Le processus de [création d'un groupe de disponibilité SQL Server](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) est documenté dans la bibliothèque de documentation de SQL Server.  Quand vous créez le groupe de disponibilité, vérifiez que les conditions suivantes pour une utilisation avec Configuration Manager sont remplies :  
 
 -   Un maximum de trois membres :  
 
@@ -131,7 +131,7 @@ Le processus de [création d'un groupe de disponibilité SQL Server](https://tec
 #### <a name="to-install-a-configuration-manager-site-that-uses-the-availability-group"></a>Pour installer un site Configuration Manager qui utilise le groupe de disponibilité  
 Pour installer un site qui utilise un groupe de disponibilité SQL Server  
 
-1.  Remplacez les éléments suivants quand le programme d’installation de Configuration Manager vous y invite :  
+1.  Remplacez les éléments suivants quand le programme d’installation de Configuration Manager vous y invite :  
 
     -   **Nom SQL Server**: entrez le nom virtuel du point de terminaison que vous avez configuré lors de la création du groupe de disponibilité. Le nom virtuel doit être un nom DNS complet, comme **&lt;serveur_point_de_terminaison\>.fabrikam.com**.  
 
@@ -147,10 +147,10 @@ Pour installer un site qui utilise un groupe de disponibilité SQL Server
 
 3.  Après avoir fourni ces informations, terminez l'installation avec vos processus et configurations ordinaires.  
 
-##  <a name="a-namebkmkclusterserverupdatesa-service-a-server-cluster"></a><a name="BKMK_ClusterServerUpdates"></a> Assurer la maintenance d’un cluster de serveurs  
+##  <a name="a-namebkmkclusterserverupdatesa-service-a--server-cluster"></a><a name="BKMK_ClusterServerUpdates"></a> Assurer la maintenance d’un cluster de serveurs  
 Vous pouvez maintenant créer un regroupement qui contient des serveurs dans un cluster, puis configurer les paramètres de cluster à utiliser lorsque vous déployez des mises à jour sur le cluster. Vous pouvez contrôler le pourcentage de serveurs qui sont en ligne à un moment donné et configurer l'exécution de scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.  
 
-**Problèmes connus pour cette version :**  
+**Problèmes connus pour cette version :**  
 
 -   La création de rapports n'est pas disponible pour vérifier l'état du déploiement des mises à jour logicielles pour les serveurs de cluster.  
 
@@ -173,12 +173,12 @@ Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies 
 
 3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même cluster de serveurs**, puis cliquez sur **Paramètres**.  
 
-4.  Dans la page **Paramètres du cluster**, sélectionnez le pourcentage de serveurs pouvant être mis hors connexion simultanément pour que les mises à jour logicielles soient installées. Un seul serveur de cluster peut être mis hors connexion à la fois, quel que soit le pourcentage que vous fournissez. Configuration Manager arrondit à la valeur inférieure lors de la sélection du nombre de serveurs à traiter en même temps. Par exemple, si vous choisissez 51 % et que le cluster contient 4 serveurs, 2 serveurs sont mis hors connexion en même temps.  
+4.  Dans la page **Paramètres du cluster**, sélectionnez le pourcentage de serveurs pouvant être mis hors connexion simultanément pour que les mises à jour logicielles soient installées. Un seul serveur de cluster peut être mis hors connexion à la fois, quel que soit le pourcentage que vous fournissez. Configuration Manager arrondit à la valeur inférieure lors de la sélection du nombre de serveurs à traiter en même temps. Par exemple, si vous choisissez 51 % et que le cluster contient 4 serveurs, 2 serveurs sont mis hors connexion en même temps.  
 
 5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
 
     > [!TIP]  
-    >  Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
+    >  Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
     >   
     >  **Prédéploiement**  
     >   
@@ -208,6 +208,6 @@ Essayez d'exécuter la tâche suivante, puis utilisez les informations fournies 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

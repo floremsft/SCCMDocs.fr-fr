@@ -1,5 +1,5 @@
 ---
-title: Liste des rapports | System Center Configuration Manager
+title: Liste des rapports | Microsoft Docs
 description: "Passez en revue la liste des rapports fournis avec Configuration Manager. Les rapports sont répartis dans différentes catégories."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ef0e136376f4229e531880ad46fc8ce636eb0d8b
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 1480c38a6a3afef76b2e8759eaafd47d28f978f4
 
 
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Liste des rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 De nombreux rapports intégrés sont fournis avec System Center Configuration Manager, couvrant une grande partie des tâches de création de rapports que vous pourriez souhaiter effectuer. Vous pouvez également utiliser les instructions SQL dans ces rapports pour vous aider à rédiger vos propres rapports. Utilisez les informations de cette rubrique pour en savoir plus sur les rapports fournis avec Configuration Manager.  
 
@@ -177,22 +177,22 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |-----------------|-----------------|  
 |**Tous les clients de périphériques mobiles**|Affiche des informations sur tous les clients d’appareils mobiles. Les appareils qui sont gérés par le connecteur Exchange Server ne sont pas inclus.|  
 |**Problèmes de certificat sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Affiche des informations détaillées sur les problèmes de certificat sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**Échecs de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur les échecs de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**Détails sur l'état de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations sur l’état de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**Déploiements réussis du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur la réussite du déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**Problèmes de communication sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de communication sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Échecs de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur les échecs de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Détails sur l'état de déploiement du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations sur l’état de déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Déploiements réussis du client pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations détaillées sur la réussite du déploiement pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Problèmes de communication sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de communication sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**État de compatibilité pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche une synthèse de l'état de compatibilité avec la stratégie de boîte aux lettres Exchange ActiveSync par défaut pour les appareils mobiles gérés par le connecteur du serveur Exchange Server.|  
 |**Nombre de périphériques mobiles par configurations d'affichage**|Ce rapport affiche le nombre d’appareils mobiles par paramètres d'affichage.|  
 |**Nombre de périphériques mobiles par système d'exploitation**|Affiche le nombre d’appareils mobiles par système d'exploitation.|  
 |**Nombre de périphériques mobiles par mémoire programme**|Affiche le nombre d’appareils mobiles par mémoire programme.|  
 |**Nombre de périphériques mobiles par configurations de mémoire de stockage**|Nombre d’appareils mobiles par configurations de mémoire de stockage|  
-|**Informations d'intégrité détaillées pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations d'intégrité détaillées pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
-|**Récapitulatif de l'intégrité pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations de synthèse de l'intégrité pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Informations d'intégrité détaillées pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations d'intégrité détaillées pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Récapitulatif de l'intégrité pour les périphériques mobiles gérés par le client Configuration Manager pour Windows CE**|Affiche des informations de synthèse de l'intégrité pour les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Périphériques mobiles inactifs qui sont gérés par le connecteur du serveur Exchange Server**|Affiche les appareils mobiles qui sont gérés par le connecteur du serveur Exchange Server et qui ne se sont pas connectés à Exchange Server depuis un nombre de jours spécifié.|  
 |**Liste des périphériques inscrits par utilisateur dans Windows Intune**|Affiche tous les appareils qu’un utilisateur a inscrits dans Microsoft Intune.|  
-|**Liste des appareils par état d'accès conditionnel**|Affiche des informations sur la conformité actuelle et sur l'état d'accès conditionnel des appareils. Vous pouvez utiliser ce rapport avec les stratégies d'accès conditionnel. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
-|**Conformité de l’accès conditionnel pour l’utilisateur**|Fournit des informations détaillées sur la compatibilité de l’accès conditionnel pour un utilisateur spécifique, dont le nom et la plateforme du périphérique, sa conformité et la date de sa dernière évaluation. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
-|**Problèmes de client local sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de client local sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
+|**Liste des appareils par état d'accès conditionnel**|Affiche des informations sur la conformité actuelle et sur l'état d'accès conditionnel des appareils. Vous pouvez utiliser ce rapport avec les stratégies d'accès conditionnel. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
+|**Conformité de l’accès conditionnel pour l’utilisateur**|Fournit des informations détaillées sur la compatibilité de l’accès conditionnel pour un utilisateur spécifique, dont le nom et la plateforme du périphérique, sa conformité et la date de sa dernière évaluation. Ce rapport est disponible depuis la version 1602 de Configuration Manager.|  
+|**Problèmes de client local sur les périphériques mobiles gérés par le client Configuration Manager pour Windows CE et qui ne sont pas sains**|Ce rapport contient des informations détaillées sur les problèmes de client local sur les appareils mobiles gérés par le client Configuration Manager pour Windows CE.|  
 |**Informations sur le client de périphérique mobile**|Affiche des informations sur les appareils mobiles sur lesquels le client Gestionnaire de configuration est installé. Vous pouvez utiliser ce rapport pour vérifier quels appareils mobiles peuvent communiquer correctement avec un point de gestion.|  
 |**Détails de la compatibilité des périphériques mobiles pour le connecteur du serveur Exchange Server**|Affiche les détails de compatibilité de l’appareil mobile pour une stratégie de boîte aux lettres Exchange ActiveSync par défaut qui est configurée à l'aide du connecteur du serveur Exchange Server.|  
 |**Périphériques mobiles par système d'exploitation**|Affiche les appareils mobiles par système d'exploitation.|  
@@ -208,7 +208,7 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |**Périphériques mobiles récemment inscrits et affectés**|Ce rapport affiche les appareils mobiles récemment inscrits dans Configuration Manager et affectés avec succès à un site.|  
 |**Périphériques mobiles récemment nettoyés**|Affiche la liste des appareils mobiles récemment nettoyés avec succès.|  
 |**Synthèse des paramètres pour les périphériques mobiles gérés par le connecteur du serveur Exchange Server**|Affiche le nombre d’appareils mobiles appliquant les paramètres pour chaque stratégie de boîte aux lettres Exchange ActiveSync par défaut gérée par le connecteur du serveur Exchange Server.|  
-|**État détaillé de clés de chargement de version test Windows RT**|Affiche des informations d'état détaillées pour une clé de chargement de version test Windows RT spécifiée.|  
+|**État détaillé de clés de chargement de version test Windows RT**|Affiche des informations d'état détaillées pour une clé de chargement de version test Windows RT spécifiée.|  
 |**Résumé des clés de chargement de version test Windows RT**|Affiche l'état des clés de chargement de version test Windows RT.|  
 
 ### <a name="driver-management"></a>Gestion des pilotes  
@@ -660,16 +660,16 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 |-----------------|-----------------|  
 |**Tous les messages pour un ID de message spécifique**|Affiche la liste des messages d'état qui ont un ID de message spécifié.|  
 |**Clients signalant des erreurs pendant les 12 dernières heures pour un site spécifique**|Affiche la liste des ordinateurs et des composants qui signalent des erreurs pendant les 12 dernières heures et le nombre d'erreurs signalées.|  
-|**Messages de composants pour les 12 dernières heures**|Affiche la liste des messages de composants pendant les 12 dernières heures pour un code de site, un ordinateur et un composant spécifiés.|  
+|**Messages de composants pour les 12 dernières heures**|Affiche la liste des messages de composants pendant les 12 dernières heures pour un code de site, un ordinateur et un composant spécifiés.|  
 |**Messages de composants pendant la dernière heure**|Affiche la liste des messages d’état créés pendant la dernière heure par un composant spécifié sur un ordinateur spécifié dans un site Configuration Manager spécifié.|  
 |**Compter les messages de composants pendant la dernière heure pour un site spécifique**|Affiche le nombre de messages d'état par composant et gravité signalés dans la dernière heure dans un site spécifié.|  
 |**Compter les erreurs survenues dans les 12 dernières heures**|Affiche le nombre de messages d'erreur de composants serveur dans les 12 dernières heures.|  
 |**Erreurs irrécupérables (par composant)**|Affiche la liste des ordinateurs qui signalent des erreurs irrécupérables par composant.|  
 |**Erreurs irrécupérables (par nom d'ordinateur)**|Affiche la liste des ordinateurs qui signalent des erreurs irrécupérables par nom d'ordinateur.|  
-|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs et avertissements)**|Affiche le résumé des 1000 derniers messages d'état d'erreur et d'avertissement pour un ordinateur spécifié.|  
-|**1 000 derniers messages pour un ordinateur spécifique (avertissements d'erreur et informations)**|Affiche le résumé des 1000 derniers messages d'état d'erreur, d'avertissement et d'information pour un ordinateur spécifié.|  
-|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs)**|Affiche le résumé des 1000 derniers messages d'état d'erreur du composant serveur pour un ordinateur spécifié.|  
-|**Les 1 000 derniers messages pour un composant serveur spécifique**|Affiche le résumé des 1000 messages d'état les plus récents pour un composant serveur spécifié.|  
+|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs et avertissements)**|Affiche le résumé des 1000 derniers messages d'état d'erreur et d'avertissement pour un ordinateur spécifié.|  
+|**1 000 derniers messages pour un ordinateur spécifique (avertissements d'erreur et informations)**|Affiche le résumé des 1000 derniers messages d'état d'erreur, d'avertissement et d'information pour un ordinateur spécifié.|  
+|**Les 1 000 derniers messages pour un ordinateur spécifique (erreurs)**|Affiche le résumé des 1000 derniers messages d'état d'erreur du composant serveur pour un ordinateur spécifié.|  
+|**Les 1 000 derniers messages pour un composant serveur spécifique**|Affiche le résumé des 1000 messages d'état les plus récents pour un composant serveur spécifié.|  
 
 ### <a name="status-messages---audit"></a>Messages d'état - Audit  
 
@@ -793,6 +793,6 @@ De nombreux rapports intégrés sont fournis avec System Center Configuration Ma
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

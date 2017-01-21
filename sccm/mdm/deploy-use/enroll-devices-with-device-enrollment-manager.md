@@ -1,5 +1,5 @@
 ---
-title: "Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager"
+title: "Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager | Microsoft Docs"
 description: "Inscrivez les appareils d’entreprise avec le compte du gestionnaire d’inscription d’appareil à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2905f26e-7859-497d-b995-5ff48261efa2
 caps.latest.revision: 8
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 287815a534c1fba8af8f5d212c6321bda93fc44f
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: ed60b23f7e7a194676cd7b055da9bc3517af8026
 
 
 ---
 # <a name="enroll-devices-with-device-enrollment-manager-with-configuration-manager"></a>Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les organisations peuvent utiliser System Center Configuration Manager et Intune pour gérer un grand nombre d’appareils mobiles avec un même compte d’utilisateur. Le compte du *gestionnaire d’inscription d’appareil* est un compte Intune spécial autorisé à inscrire plus de cinq appareils.  
 
 ## <a name="enroll-corporate-owned-devices-with-the-device-enrollment-manager"></a>Inscrire des appareils d’entreprise avec le gestionnaire d’inscription d’appareil  
- Vous pouvez affecter à un directeur ou responsable de magasin, par exemple, un compte de gestionnaire d'inscription d'appareil pour lui permettre d'effectuer les opérations suivantes :  
+ Vous pouvez affecter à un directeur ou responsable de magasin, par exemple, un compte de gestionnaire d'inscription d'appareil pour lui permettre d'effectuer les opérations suivantes :  
 
 -   Inscrire des appareils pour la gestion  
 
@@ -39,7 +39,7 @@ Les organisations peuvent utiliser System Center Configuration Manager et Intune
 -   Configurer l'accès aux données de l'entreprise  
 
 
-Les limitations suivantes s’appliquent aux appareils gérés en utilisant un compte de gestionnaire d’inscription d’appareil :
+Les limitations suivantes s’appliquent aux appareils gérés en utilisant un compte de gestionnaire d’inscription d’appareil :
 
 - Le directeur du magasin ne peut pas réinitialiser l'appareil à partir du portail d'entreprise.  
 -  Les appareils ne peuvent pas être joints à un espace de travail ou à Azure Active Directory. Cela empêche les appareils d’utiliser l’accès conditionnel.
@@ -47,7 +47,7 @@ Les limitations suivantes s’appliquent aux appareils gérés en utilisant un c
 - Pour améliorer les performances, l’application Portail d’entreprise affiche uniquement l’appareil local. La gestion à distance des autres appareils DEM ne peut être assurée qu’à partir de la console Configuration Manager et par l’administrateur.
 - Le site web Portail d’entreprise n’est pas accessible aux comptes de gestionnaire d’inscription d’appareil. Utilisez l’application Portail d’entreprise.
 
- **Exemples de scénarios faisant intervenir un gestionnaire d’inscription d’appareil :**   
+ **Exemples de scénarios faisant intervenir un gestionnaire d’inscription d’appareil :**   
 Un restaurant souhaite que son personnel de service utilise des tablettes et commande des écrans pour le personnel de cuisine. Les employés ne doivent jamais accéder aux données de l’entreprise ni ouvrir de session en tant qu’utilisateur. L'administrateur Intune crée un compte de gestionnaire d'inscription d'appareil et inscrit les appareils d'entreprise à l'aide de ce compte. L'administrateur pourrait également donner les informations d'identification du gestionnaire d'inscription d'appareil au directeur du restaurant, puis lui permettre d'inscrire et de gérer les appareils.  
 
  L'administrateur ou le directeur peuvent déployer des applications propres aux rôles sur les appareils du restaurant. Un administrateur peut également sélectionner un appareil dans la console et le supprimer de la Gestion des appareils mobiles.  
@@ -78,20 +78,20 @@ Un restaurant souhaite que son personnel de service utilise des tablettes et com
 
 4.  **Recherchez** le gestionnaire d’inscription d’appareil à supprimer et cliquez sur **Supprimer**, puis sur **OK**.  
 
- La suppression d'un gestionnaire d'inscription d'appareil n'affecte pas les appareils inscrits. Quand un gestionnaire d'inscription d'appareil est supprimé :  
+ La suppression d'un gestionnaire d'inscription d'appareil n'affecte pas les appareils inscrits. Quand un gestionnaire d'inscription d'appareil est supprimé :  
 
--   aucun appareil inscrit n'est affecté ;  
+-   aucun appareil inscrit n'est affecté ;  
 
--   les appareils inscrits continuent à être entièrement gérés ;  
+-   les appareils inscrits continuent à être entièrement gérés ;  
 
--   les informations d’identification de compte du gestionnaire d’inscription d’appareil supprimé restent valides et vous permettent de vous connecter au portail d’entreprise pour accéder aux applications ;  
+-   les informations d’identification de compte du gestionnaire d’inscription d’appareil supprimé restent valides et vous permettent de vous connecter au portail d’entreprise pour accéder aux applications ;  
 
--   la suppression du gestionnaire d'inscription d'appareil n'entraîne pas la réinitialisation ou la mise hors service des appareils ;  
+-   la suppression du gestionnaire d'inscription d'appareil n'entraîne pas la réinitialisation ou la mise hors service des appareils ;  
 
 -   il existe toujours une relation entre le compte du gestionnaire d'inscription d'appareil supprimé et les appareils inscrits, mais aucun appareil supplémentaire ne peut être inscrit.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

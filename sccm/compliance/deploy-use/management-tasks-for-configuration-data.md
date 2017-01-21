@@ -1,5 +1,5 @@
 ---
-title: "Gérer les données de configuration | System Center Configuration Manager"
+title: "Gérer les données de configuration | Microsoft Docs"
 description: "Après avoir créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer diverses actions."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4f9c78524bc264e55f7c8b5625a8d654ecabc8b7
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 1a6084834384e695b49a71fe23833049c86f8dbc
 
 
 ---
 # <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Gérer les données de configuration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Une fois que vous avez créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer plus rapidement diverses actions.  
 
@@ -57,10 +57,10 @@ Une fois que vous avez créé les éléments de configuration et les bases de r�
 |**Exporter**|Exporte une ligne de base de configuration dans un fichier .cab (cabinet) si elle a été créée sur ce site. Vous pouvez ensuite l’importer vers le même site ou un site Configuration Manager différent. Les données de configuration sont converties dans le format DCM Digest.<br /><br /> Pour plus d’informations sur l’importation des données de configuration, consultez [Importer des données de configuration](../../compliance/deploy-use/import-configuration-data.md).|  
 |**Copier**|Crée une copie de la ligne de base de configuration sélectionnée avec un nom que vous spécifiez. La nouvelle ligne de base de configuration ne conserve pas de relation avec la ligne de base de configuration d'origine.|  
 |**Supprimer**|Ouvre la boîte de dialogue **Supprimer une ligne de base de configuration** dans laquelle vous pouvez consulter toutes les références à cette ligne de base de configuration.<br /><br /> Vous devez supprimer toutes les références à une ligne de base de configuration pour pouvoir supprimer la ligne de base de configuration.|  
-|**Déployer**|Ouvre la boîte de dialogue **Déployer des lignes de base de configuration** dans laquelle vous pouvez déployer une ou plusieurs lignes de base de configuration sur les périphériques de votre hiérarchie.<br /><br /> Pour plus d’informations, consultez [Déployer des bases de référence de configuration](../../compliance/deploy-use/deploy-configuration-baselines.md).|  
+|**Déployer**|Ouvre la boîte de dialogue **Déployer des lignes de base de configuration** dans laquelle vous pouvez déployer une ou plusieurs lignes de base de configuration sur les appareils de votre hiérarchie.<br /><br /> Pour plus d’informations, consultez [Déployer des bases de référence de configuration](../../compliance/deploy-use/deploy-configuration-baselines.md).|  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

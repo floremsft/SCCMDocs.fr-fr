@@ -1,5 +1,5 @@
 ---
-title: "Configuration de la gestion de l’alimentation | System Center Configuration Manager"
+title: "Configuration de la gestion de l’alimentation | Microsoft Docs"
 description: "Configurez la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ca1277ba0c2be68a393da930769151e25e997210
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: e111ac2545dd9e0b96a50c10246bb75d286a737a
 
 
 ---
 # <a name="configuring-power-management-in-system-center-configuration-manager"></a>Configuration de la gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de pouvoir utiliser la gestion de l’alimentation dans System Center Configuration Manager, vous devez effectuer les étapes de configuration suivantes.  
 
@@ -47,7 +47,7 @@ Avant de pouvoir utiliser la gestion de l’alimentation dans System Center Conf
 
     -   **Autoriser la gestion de l'alimentation des périphériques** – Dans la liste déroulante, sélectionnez **Vrai** pour activer la gestion de l'alimentation.  
 
-7.  Configurez les paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client de gestion de l’alimentation que vous pouvez configurer, consultez la section [Gestion de l’alimentation](../../../../core/clients/deploy/about-client-settings.md#BKMK_PowMgmtDeviceSettings) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
+7.  Configurez les paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client de gestion de l’alimentation que vous pouvez configurer, consultez la section [Gestion de l’alimentation](../../../../core/clients/deploy/about-client-settings.md#power-management) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
 
 8.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres client par défaut** .  
 
@@ -88,6 +88,6 @@ Avant de pouvoir utiliser la gestion de l’alimentation dans System Center Conf
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

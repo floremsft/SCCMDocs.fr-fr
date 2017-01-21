@@ -1,5 +1,5 @@
 ---
-title: "Liste de contrôle de l’administrateur de gestion de l’alimentation | System Center Configuration Manager"
+title: "Liste de contrôle de l’administrateur de gestion de l’alimentation | Microsoft Docs"
 description: "Utilisez la liste de contrôle de l’administrateur pour planifier et implémenter la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 6d594334040a98c5f661b95b8a0b48a61d391b0c
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: e6a7a0b853be930b558cdd739b90285ebb8538e7
 
 
 ---
 # <a name="administrator-checklist-for-power-management-in-system-center-configuration-manager"></a>Liste de contrôle de l’administrateur de gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette liste de vérification de l'administrateur fournit les étapes recommandées pour l'utilisation de la gestion de l'alimentation System Center Configuration Manager au sein de votre organisation.  
 
@@ -83,6 +83,6 @@ Cette liste de vérification de l'administrateur fournit les étapes recommandé
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

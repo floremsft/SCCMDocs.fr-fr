@@ -1,5 +1,5 @@
 ---
-title: "Configuration d’Endpoint Protection | System Center Configuration Manager"
+title: "Configuration d’Endpoint Protection | Microsoft Docs"
 description: "Apprenez à configurer Endpoint Protection de façon à gérer la sécurité et les programmes malveillants sur les ordinateurs clients Configuration Manager."
 defintion: 
 definition: 
@@ -18,18 +18,18 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 3346a5ed596a62b0a74774a568739228d75ac050
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 4639203bf5e90486ce4b97abc2fc4f54eae3afe9
 
 
 ---
 # <a name="create-an-endpoint-protection-point-site-system-role"></a>Créer un rôle de système de site de point Endpoint Protection
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome.
 
- Utilisez l’une des procédures suivantes selon que vous voulez installer un nouveau serveur de système de site pour Endpoint Protection ou utiliser un serveur de système de site existant :
+ Utilisez l’une des procédures suivantes selon que vous voulez installer un nouveau serveur de système de site pour Endpoint Protection ou utiliser un serveur de système de site existant :
  - [Installation sur un nouveau serveur de système de site](#new-site-system-server)
  - [Installation sur un serveur de système de site existant](#existing-site-system-server)
 
@@ -98,6 +98,6 @@ ms.openlocfilehash: 3346a5ed596a62b0a74774a568739228d75ac050
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

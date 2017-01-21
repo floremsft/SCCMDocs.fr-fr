@@ -1,5 +1,5 @@
 ---
-title: "Comptes pour accéder au contenu | System Center Configuration Manager"
+title: "Comptes pour accéder au contenu | Microsoft Docs"
 description: "En savoir plus sur les comptes où les clients accèdent au contenu System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c7d5dc2767621ac2e494d24af07ca20513d6d63f
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 4bf8dbd007f2ff122d1447ffcb2a963579034033
 
 ---
 # <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de déployer du contenu dans System Center Configuration Manager, vous devez déterminer de quelle façon les clients accèderont à ce contenu à partir des points de distribution.  
 
@@ -30,7 +30,7 @@ Avant de déployer du contenu dans System Center Configuration Manager, vous dev
 
      Ce compte est également utilisé par les points de distribution d’extraction pour obtenir le contenu d’un point de distribution source dans une forêt distante.  
 
--   **Compte d’accès au package** : par défaut, Configuration Manager permet aux utilisateurs et aux administrateurs de comptes d’accès génériques d’accéder au contenu d’un point de distribution. Toutefois, vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
+-   **Compte d’accès au package** : par défaut, Configuration Manager permet aux utilisateurs et aux administrateurs de comptes d’accès génériques d’accéder au contenu d’un point de distribution. Toutefois, vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
 
 -   **Compte de connexion multidiffusion** : compte utilisé pour les déploiements de système d’exploitation.  
 
@@ -43,7 +43,7 @@ Avant de déployer du contenu dans System Center Configuration Manager, vous dev
 
 -   Les clients tentent d’abord d’accéder au contenu sur un point de distribution à l’aide de leur compte *nom_ordinateur*$. Si l’accès avec ce compte n’est pas possible, ils tentent alors d’utiliser un compte d’accès réseau. Ensuite, les clients continuent d’essayer d’utiliser le compte d’accès réseau, même en cas d’échec antérieur.  
 
-**Autorisations** : accordez les autorisations minimales appropriées à ce compte pour qu’il puisse accéder au logiciel permettant d’obtenir le contenu demandé par le client.  
+**Autorisations** : accordez les autorisations minimales appropriées à ce compte pour qu’il puisse accéder au logiciel permettant d’obtenir le contenu demandé par le client.  
 
 -   Le compte doit avoir le droit **Accéder à cet ordinateur à partir du réseau** sur le point de distribution.  
 
@@ -78,11 +78,11 @@ Avant de déployer du contenu dans System Center Configuration Manager, vous dev
 
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels**, sélectionnez l’une de ces étapes suivantes pour le type de contenu dont vous souhaitez gérer les comptes d’accès :  
+2.  Dans l’espace de travail **Bibliothèque de logiciels**, sélectionnez l’une de ces étapes suivantes pour le type de contenu dont vous souhaitez gérer les comptes d’accès :  
 
-    -   **Applications** : Développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications dont vous souhaitez gérer les comptes d'accès.  
+    -   **Applications** : Développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications dont vous souhaitez gérer les comptes d'accès.  
 
-    -   **Packages** : Développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les packages dont vous souhaitez gérer les comptes d'accès.  
+    -   **Packages** : Développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les packages dont vous souhaitez gérer les comptes d'accès.  
 
     -   **Packages de déploiement**: Développez **Mises à jour logicielles**, cliquez sur **Packages de déploiement**, puis sélectionnez les packages de déploiement dont vous souhaitez gérer les comptes d'accès.  
 
@@ -120,6 +120,6 @@ Si vous créez ce compte, créez-le en tant que compte local doté de droits lim
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Résolution des problèmes du client Windows Defender ou Endpoint Protection | System Center Configuration Manager"
+title: "Résolution des problèmes du client Windows Defender ou Endpoint Protection | Microsoft Docs"
 description: "Découvrez comment résoudre les problèmes liés à Windows Defender et Endpoint Protection."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4d30cd85cb59f8f27704979074470bb06310054b
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: eda5eb85aada88b77166582bb116cc680b2c0631
 
 
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Résolution des problèmes du client Windows Defender ou Endpoint Protection
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, contactez votre administrateur de sécurité pour obtenir du support. Vous pouvez également tenter de résoudre les problèmes suivants :  
@@ -244,7 +244,7 @@ Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, 
 
 -   Fermez toutes les applications et redémarrez l'ordinateur.  
 
-### <a name="step-2-make-sure-the-windows-defender-orbr-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Étape 2 : Vérifier que le service Windows Defender ou<br />      Endpoint Protection est automatique et qu’il a démarré  
+### <a name="step-2-make-sure-the-windows-defender-orbr-------endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Étape 2 : Vérifier que le service Windows Defender ou<br />      Endpoint Protection est automatique et qu’il a démarré  
 
 1.  Cliquez sur **Démarrer** et recherchez **services.msc**, puis appuyez sur **Entrée**.  
 
@@ -325,6 +325,6 @@ Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

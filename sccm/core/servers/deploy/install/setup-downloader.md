@@ -1,5 +1,5 @@
 ---
-title: "Téléchargeur d’installation | System Center Configuration Manager"
+title: "Téléchargeur d’installation | Microsoft Docs"
 description: "Découvrez les fonctions de cette application autonome, qui a été conçue pour vérifier que votre installation de site utilise les dernières actuelles des fichiers d’installation clés."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 574e4d450126d2c4411292b6dd52e18049d296f6
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: cbe6ebfa80ff8253ec7ed5ad71852fb5cd7e7d91
 
 ---
 # <a name="setup-downloader-for-system-center-configuration-manager"></a>Téléchargeur d’installation pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, vous pouvez utiliser cette application autonome (**Setupdl.exe**) de la version de Configuration Manager que vous souhaitez installer pour télécharger les fichiers d’installation mis à jour requis par le programme d’installation.  
 
@@ -60,17 +60,17 @@ Deux options sont possibles pour exécuter le téléchargeur d’installation :
 
 1.  Ouvrez une fenêtre d’invite de commandes et accédez à **&lt;Média_Installation_ConfigMgr\>\SMSSETUP\BIN\X64**.  
 
-2.  Exécutez **setupdl.exe** pour ouvrir le téléchargeur d’installation. Si vous le souhaitez, vous pouvez utiliser les options de ligne de commande suivantes avec setupdl.exe :  
+2.  Exécutez **setupdl.exe** pour ouvrir le téléchargeur d’installation. Si vous le souhaitez, vous pouvez utiliser les options de ligne de commande suivantes avec setupdl.exe :  
 
-    -   **/VERIFY** : utilisez cette option pour vérifier les fichiers dans le dossier de téléchargement, notamment les fichiers de langues. Examinez la liste des fichiers obsolètes dans le fichier ConfigMgrSetup.log situé à la racine du lecteur C. Aucun fichier n'est téléchargé lorsque vous utilisez cette option.  
+    -   **/VERIFY** : utilisez cette option pour vérifier les fichiers dans le dossier de téléchargement, notamment les fichiers de langues. Examinez la liste des fichiers obsolètes dans le fichier ConfigMgrSetup.log situé à la racine du lecteur C. Aucun fichier n'est téléchargé lorsque vous utilisez cette option.  
 
-    -   **/VERIFYLANG** : utilisez cette option pour vérifier les fichiers de langues dans le dossier de téléchargement. Examinez la liste des fichiers de langue obsolètes dans le fichier ConfigMgrSetup.log situé à la racine du lecteur C.  
+    -   **/VERIFYLANG** : utilisez cette option pour vérifier les fichiers de langues dans le dossier de téléchargement. Examinez la liste des fichiers de langue obsolètes dans le fichier ConfigMgrSetup.log situé à la racine du lecteur C.  
 
-    -   **/LANG** : utilisez cette option pour télécharger uniquement les fichiers de langues dans le dossier de téléchargement.  
+    -   **/LANG** : utilisez cette option pour télécharger uniquement les fichiers de langues dans le dossier de téléchargement.  
 
-    -   **/NOUI** : utilisez cette option pour démarrer le téléchargeur d’installation sans afficher l’interface utilisateur. Quand vous utilisez cette option, vous devez spécifier le **chemin de téléchargement** dans la ligne de commande.  
+    -   **/NOUI** : utilisez cette option pour démarrer le téléchargeur d’installation sans afficher l’interface utilisateur. Quand vous utilisez cette option, vous devez spécifier le **chemin de téléchargement** dans la ligne de commande.  
 
-    -   **&lt;chemin_téléchargement\>** : vous pouvez spécifier le chemin du dossier de téléchargement pour démarrer automatiquement la vérification ou le processus de téléchargement. Vous devez spécifier le chemin de téléchargement quand vous utilisez l’option **/NOUI**. Si vous ne spécifiez pas un chemin de téléchargement, vous devez le faire à l'ouverture du téléchargeur d'installation. Le téléchargeur d'installation crée le dossier si celui-ci n'existe pas.  
+    -   **&lt;chemin_téléchargement\>** : vous pouvez spécifier le chemin du dossier de téléchargement pour démarrer automatiquement la vérification ou le processus de téléchargement. Vous devez spécifier le chemin de téléchargement quand vous utilisez l’option **/NOUI**. Si vous ne spécifiez pas un chemin de téléchargement, vous devez le faire à l'ouverture du téléchargeur d'installation. Le téléchargeur d'installation crée le dossier si celui-ci n'existe pas.  
 
     Exemples d'utilisation :  
 
@@ -98,6 +98,6 @@ Deux options sont possibles pour exécuter le téléchargeur d’installation :
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

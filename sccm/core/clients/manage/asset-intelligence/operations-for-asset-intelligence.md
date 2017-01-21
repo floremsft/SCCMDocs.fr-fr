@@ -1,5 +1,5 @@
 ---
-title: Utiliser Asset Intelligence | System Center Configuration Manager
+title: Utiliser Asset Intelligence | Microsoft Docs
 description: "Effectuez les tâches courantes Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 415ab53796b6f335e3f58ebce4b0bb1b6ecfa45e
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 6bfbfbcce6ef5c38164e161d197f5a3fb4b4e353
 
 
 ---
 # <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Guide pratique pour utiliser Asset Intelligence dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations destinées à vous aider à gérer les tâches courantes Asset Intelligence dans votre hiérarchie System Center Configuration Manager :  
+Cette rubrique contient des informations destinées à vous aider à gérer les tâches courantes Asset Intelligence dans votre hiérarchie System Center Configuration Manager :  
 
 ##  <a name="a-namebkmkviewinformationa-view-asset-intelligence-information"></a><a name="BKMK_ViewInformation"></a> Afficher les informations Asset Intelligence  
  Vous pouvez afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** et dans les rapports Asset Intelligence.  
@@ -179,7 +179,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
  Les informations de configuration matérielle requise permettent de vérifier que les ordinateurs répondent à la configuration matérielle requise pour les titres de logiciels avant d'y déployer les logiciels. La plupart des configurations matérielles requises sont prédéfinies dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle définies par l'utilisateur pour répondre à des besoins spécifiques. L'état de validation de toutes les configurations matérielles requises prédéfinies est toujours **Validé**, tandis que celui des informations de configuration matérielle requise définies par l'utilisateur ajoutées au catalogue Asset Intelligence est **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
->  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence sur l’ordinateur local et ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
+>  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence sur l’ordinateur local et ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
 
  Utilisez la procédure suivante pour créer une configuration matérielle requise définie par l'utilisateur.  
 
@@ -292,7 +292,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 3.  Sélectionnez un ou plusieurs noms de produits à soumettre à System Center Online pour catégorisation. Seuls les noms de logiciels inventoriés sans catégorie peuvent être soumis. Si un logiciel inventorié a été catégorisé par un administrateur, entraînant un état défini par l'utilisateur, vous devez cliquer dessus avec le bouton droit, puis cliquer sur **Restaurer** pour rétablir le logiciel dans l'état **Sans catégorie** avant qu'il puisse être soumis à System Center Online pour catégorisation.  
 
     > [!NOTE]  
-    >  Configuration Manager peut traiter jusqu’à 100 titres de logiciels à la fois pour catégorisation. Si vous sélectionnez plus de 100 logiciels, seuls les 100 premiers logiciels seront traités. Vous devez sélectionner les logiciels restants pour catégorisation par lots de moins de 100.  
+    >  Configuration Manager peut traiter jusqu’à 100 titres de logiciels à la fois pour catégorisation. Si vous sélectionnez plus de 100 logiciels, seuls les 100 premiers logiciels seront traités. Vous devez sélectionner les logiciels restants pour catégorisation par lots de moins de 100.  
 
     > [!TIP]  
     >  Cliquez sur la colonne **État** pour trier selon l'état de validation. Cela vous permet de voir tous les noms de produit sans catégorie et de sélectionner rapidement plusieurs éléments à soumettre pour catégorisation.  
@@ -339,6 +339,6 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

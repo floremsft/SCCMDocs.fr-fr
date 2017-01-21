@@ -1,5 +1,5 @@
 ---
-title: "Tâches courantes de gestion de la conformité sur les appareils dotés du client System Center Configuration Manager | System Center Configuration Manager"
+title: "Tâches courantes de gestion de la compatibilité des appareils avec le client System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9be045df8433463d01d6cfca9271f230b5bf991d
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: feadb8b5b75832e914dfe62bd2d486e5bac1458d
 
 
 ---
 # <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Tâches courantes de gestion de la compatibilité des appareils avec le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
 
@@ -62,13 +62,13 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
  Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
 
 ## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Scénarios pour ordinateurs de bureau et serveurs Windows gérés avec le client Configuration Manager  
- Sur les ordinateurs Mac exécutant le client Configuration Manager, vous avez le choix entre deux options pour évaluer la compatibilité :  
+ Sur les ordinateurs Mac exécutant le client Configuration Manager, vous avez le choix entre deux options pour évaluer la compatibilité :  
 
 -   Évaluer un fichier de préférences (plist) Mac OS X.  
 
 -   Utiliser un script personnalisé et évaluer les résultats retournés par le script.  
 
- Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
+ Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
 
 ### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scénario : corriger une valeur de Registre incorrecte sur les ordinateurs de bureau Windows  
  Dans ce scénario, vous constatez qu’une d’applications métier importante ne fonctionne pas correctement sur certains ordinateurs que vous gérez et qui exécutent Windows 8.1. Après enquête, vous découvrez que le problème est lié à la définition de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** , qui a la valeur **0** sur certains ordinateurs. Pour que l’application métier s’exécute correctement, cette valeur doit être égale à **1**.  
@@ -113,6 +113,6 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

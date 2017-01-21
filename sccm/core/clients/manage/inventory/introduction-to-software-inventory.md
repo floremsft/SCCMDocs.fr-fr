@@ -1,5 +1,5 @@
 ---
-title: Inventaire logiciel | System Center Configuration Manager
+title: "Inventaire logiciel | Microsoft Docs"
 description: "Obtenez une présentation de l’inventaire logiciel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 8d664616e222119f7821a70a7c8f9cdbfca38538
+ms.sourcegitcommit: a468ce93e9536fe3f6bf0fc191ff9764dd1c3343
+ms.openlocfilehash: 401ba6e37d740310d49ab9e96112ce576d7130e4
 
 
 ---
 # <a name="introduction-to-software-inventory-in-system-center-configuration-manager"></a>Présentation de l’inventaire logiciel dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez l’inventaire logiciel dans System Center Configuration Manager pour collecter des informations sur les fichiers qui figurent sur les appareils clients de votre organisation. En outre, l'inventaire logiciel peut regrouper les fichiers des appareils client et stocker ces derniers sur le serveur de site. L'inventaire logiciel est collecté quand le paramètre **Activer l'inventaire logiciel sur les clients** est activé dans les paramètres du client.  
 
@@ -34,7 +34,7 @@ Utilisez l’inventaire logiciel dans System Center Configuration Manager pour c
 
 -   Créer des requêtes qui retournent les appareils en fonction des fichiers que vous spécifiez qui sont détectés sur les appareils. Pour plus d’informations, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
--   Créer des regroupements basés sur une requête et sur les fichiers que vous spécifiez qui sont détectés sur les appareils. Les appartenances à un regroupement basé sur une requête sont mises à jour automatiquement selon un calendrier. Vous pouvez utiliser des regroupements pour un certain nombre de tâches, telles que le déploiement de logiciels. Pour plus d’informations, consultez [Informations techniques de référence sur les regroupements pour System Center Configuration Manager](../../../../core/clients/manage/collections/collections-technical-reference.md).  
+-   Créer des regroupements basés sur une requête et sur les fichiers que vous spécifiez qui sont détectés sur les appareils. Les appartenances à un regroupement basé sur une requête sont mises à jour automatiquement selon un calendrier. Vous pouvez utiliser des regroupements pour un certain nombre de tâches, telles que le déploiement de logiciels. Pour plus d’informations, consultez [Présentation des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
 
 -   Exécuter des rapports qui affichent des détails spécifiques sur les fichiers sur les appareils de votre organisation. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
@@ -54,14 +54,15 @@ Utilisez l’inventaire logiciel dans System Center Configuration Manager pour c
 
 |Plate-forme|Pour les appareils personnels|Pour les appareils d’entreprise|  
 |--------------|---------------------------------|--------------------------------|  
-|Windows 8.1 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|  
+|Windows 10 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées| 
+|Windows 8.1 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|  
 |Windows Phone 8|Uniquement les applications gérées|Uniquement les applications gérées|  
-|Windows RT|Uniquement les applications gérées|Uniquement les applications gérées|  
+|Windows RT|Uniquement les applications gérées|Uniquement les applications gérées|  
 |iOS|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
 |Android|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

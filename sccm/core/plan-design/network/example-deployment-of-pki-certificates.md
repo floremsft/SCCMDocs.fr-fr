@@ -1,5 +1,5 @@
 ---
-title: "Déploiement de certificats PKI | System Center Configuration Manager"
+title: "Certificats PKI de déploiement | Microsoft Docs"
 description: "Suivez un exemple de procédure pas à pas pour découvrir le processus de création et de déploiement des certificats PKI utilisé par System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 49dfa303453b26a64c1495a1259674e0d8a6bde2
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 2db82f0572df9519b3119d4dca4f4626ae09d936
 
 
 ---
-# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008
+# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cet exemple de déploiement pas à pas utilise une autorité de certification Windows Server 2008. Il contient des procédures décrivant le processus de création et de déploiement des certificats pour infrastructure à clé publique (PKI) utilisé par System Center Configuration Manager. Ces procédures utilisent une autorité de certification d'entreprise (CA) et des modèles de certificats. Les étapes conviennent uniquement à un réseau de test utilisé à des fins de démonstration du concept.  
+Cet exemple de déploiement pas à pas utilise une autorité de certification Windows Server 2008. Il contient des procédures décrivant le processus de création et de déploiement des certificats pour infrastructure à clé publique (PKI) utilisé par System Center Configuration Manager. Ces procédures utilisent une autorité de certification d'entreprise (CA) et des modèles de certificats. Les étapes conviennent uniquement à un réseau de test utilisé à des fins de démonstration du concept.  
 
  Étant donné qu'il n'existe aucune méthode unique de déploiement des certificats requis, vous devez consulter la documentation de votre déploiement d'infrastructure à clés publiques (PKI) pour prendre connaissance des procédures et des meilleures pratiques liées au déploiement des certificats requis pour un environnement de production. Pour plus d’informations sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
@@ -36,7 +36,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 > -   **Destinataire du certificat**: **Windows XP / Server 2003**  
 
 ## <a name="in-this-section"></a>Dans cette section  
- Les sections suivantes contiennent des exemples de procédures pas à pas pour créer et déployer les certificats suivants à utiliser avec System Center Configuration Manager :  
+ Les sections suivantes contiennent des exemples de procédures pas à pas pour créer et déployer les certificats suivants à utiliser avec System Center Configuration Manager :  
 
  [Configuration requise du réseau de test](#BKMK_testnetworkenvironment)  
 
@@ -96,7 +96,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 ##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat de serveur Web sur l'autorité de certification  
 
-1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr IIS** qui contient les serveurs membres où installer les systèmes de site System Center Configuration Manager qui vont exécuter IIS.  
+1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr IIS** qui contient les serveurs membres où installer les systèmes de site System Center Configuration Manager qui vont exécuter IIS.  
 
 2.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats** , puis cliquez sur **Gérer** pour charger la console **Modèles de certificats** .  
 
@@ -203,7 +203,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 ##  <a name="a-namebkmkclouddp2008cm2012a-deploying-the-service-certificate-for-cloud-based-distribution-points"></a><a name="BKMK_clouddp2008_cm2012"></a> Déploiement du certificat de service pour les points de distribution cloud  
 
 > [!NOTE]  
->  Le certificat de service pour les points de distribution cloud s’applique à System Center Configuration Manager SP1 et versions ultérieures.  
+>  Le certificat de service pour les points de distribution cloud s’applique à System Center Configuration Manager SP1 et versions ultérieures.  
 
  Les procédures de ce déploiement de certificat sont les suivantes :  
 
@@ -379,7 +379,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 5.  Dans la boîte de dialogue **Éditeur de gestion des stratégies de groupe**, développez **Stratégies** sous **Configuration ordinateur**, puis accédez à **Paramètres Windows** / **Paramètres de sécurité** / **Public Key Stratégies**.  
 
-6.  Cliquez avec le bouton droit sur le type d’objet nommé **Client des services de certificats - Inscription automatique**, puis cliquez sur **Propriétés**.  
+6.  Cliquez avec le bouton droit sur le type d’objet nommé **Client des services de certificats - Inscription automatique**, puis cliquez sur **Propriétés**.  
 
 7.  Dans la liste déroulante **Modèle de configuration** , sélectionnez **Activé**, sélectionnez **Renouveler les certificats expirés, mettre à jour les certificats en attente et supprimer les certificats révoqués**, sélectionnez **Mettre à jour les certificats qui utilisent les modèles de certificats**, puis cliquez sur **OK**.  
 
@@ -438,7 +438,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 > [!NOTE]  
 >  Cette procédure utilise un modèle de certificat différent du modèle de certificat créé pour les ordinateurs clients. En effet, les deux certificats requièrent des fonctions d'authentification du client, mais le certificat pour les points de distribution requiert l'exportation de la clé privée. Comme meilleure pratique de sécurité, ne configurez pas les modèles de certificats autorisant l'exportation la clé privée, sauf si cette configuration est requise. Le point de distribution requiert cette configuration, car vous devez importer le certificat en tant que fichier, au lieu de le sélectionner dans le magasin de certificats.  
 >   
->  En créant un nouveau modèle de certificat pour ce certificat, vous pouvez limiter les ordinateurs qui demandent un certificat autorisant l'exportation de la clé privée. Dans notre exemple de déploiement, il s’agit du groupe de sécurité que vous avez créé précédemment pour les serveurs de système de site System Center Configuration Manager qui exécutent IIS. Sur un réseau de production qui distribue les rôles de système de site IIS, envisagez de créer un groupe de sécurité pour les serveurs exécutant des points de distribution, afin de limiter le certificat à ces serveurs de système de site uniquement. Vous pouvez également considérer d'apporter les modifications suivantes à ce certificat :  
+>  En créant un nouveau modèle de certificat pour ce certificat, vous pouvez limiter les ordinateurs qui demandent un certificat autorisant l'exportation de la clé privée. Dans notre exemple de déploiement, il s’agit du groupe de sécurité que vous avez créé précédemment pour les serveurs de système de site System Center Configuration Manager qui exécutent IIS. Sur un réseau de production qui distribue les rôles de système de site IIS, envisagez de créer un groupe de sécurité pour les serveurs exécutant des points de distribution, afin de limiter le certificat à ces serveurs de système de site uniquement. Vous pouvez également considérer d'apporter les modifications suivantes à ce certificat :  
 >   
 >  -   Demander l'approbation d'installer le certificat, pour plus de sécurité.  
 > -   Augmenter la période de validité du certificat. Étant donné que vous devez exporter, puis importer le certificat chaque fois avant son expiration, l'augmentation de la période de validité permet de réduire la fréquence de cette procédure. Cependant, l'augmentation de la période de validité diminue la sécurité du certificat, car une personne malveillante a plus de temps pour déchiffrer la clé privée et voler le certificat.  
@@ -725,7 +725,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 7.  Sélectionnez ces autorisations **Autoriser** applicables à ce groupe de sécurité : **Lecture** et **Inscription**.  
 
-8.  Cliquez sur **OK**, puis refermez la console de gestion **Modèles de certificats**, **certtmpl - [Modèles de certificats]**.  
+8.  Cliquez sur **OK**, puis refermez la console de gestion **Modèles de certificats**, **certtmpl - [Modèles de certificats]**.  
 
 9. Dans la console de gestion **Autorité de certification** , cliquez avec le bouton droit sur **Modèles de certificats**, cliquez sur **Nouveau**, puis cliquez sur **Modèle de certificat à délivrer**.  
 
@@ -738,7 +738,7 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 ##  <a name="a-namebkmkmacclientsp1a-deploying-the-client-certificate-for-mac-computers"></a><a name="BKMK_MacClient_SP1"></a> Déploiement du certificat client pour les ordinateurs Mac  
 
 > [!NOTE]  
->  Le certificat client pour les ordinateurs Mac s’applique à System Center Configuration Manager SP1 et versions ultérieures.  
+>  Le certificat client pour les ordinateurs Mac s’applique à System Center Configuration Manager SP1 et versions ultérieures.  
 
  Ce déploiement de certificat a une procédure unique pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification.  
 
@@ -785,6 +785,6 @@ Cet exemple de déploiement pas à pas utilise une autorité de certification Wi
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

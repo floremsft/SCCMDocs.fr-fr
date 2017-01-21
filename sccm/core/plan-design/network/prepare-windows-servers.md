@@ -1,5 +1,5 @@
 ---
-title: "Préparer des serveurs Windows | System Center Configuration Manager"
+title: "Préparer des serveurs Windows | Microsoft Docs"
 description: "Vérifiez qu’un ordinateur remplit les conditions préalables pour l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f0a1cc32285fcb792c3f4cdec616668474708404
-ms.openlocfilehash: acf8a401f1ce67a4d8c905c0126c031b97484271
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: bd89f97f4252ddea2d1bf7ab329417477c77868d
 
 
 ---
 # <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Préparer des serveurs Windows pour prendre en charge System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de pouvoir utiliser comme prévu un ordinateur Windows comme serveur de système de site ou de serveur de site pour System Center Configuration Manager, vous devez vérifier qu’il remplit bien les conditions préalables à cet usage.  
 
@@ -42,87 +42,60 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
 -   **.NET Framework** : incluant  
 
     -   ASP.NET  
-
     -   Activation HTTP  
-
     -   Activation non-HTTP  
-
     -   Services WCF  
 
     Différentes versions de .NET Framework sont requises par les différents rôles de système de site.  
 
-    Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures. Si différentes versions sont répertoriées comme requises, vous devez donc prévoir d’activer chaque version sur le même ordinateur.  
+    Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures. Si différentes versions sont répertoriées comme requises, vous devez donc prévoir d’activer chaque version sur le même ordinateur.  
 
--   **Service de transfert intelligent en arrière-plan (BITS)** : les points de gestion ont besoin du service BITS (et des options sélectionnées automatiquement) pour prendre en charge la communication avec les appareils gérés.  
+-   **Service de transfert intelligent en arrière-plan (BITS)** : les points de gestion ont besoin du service BITS (et des options sélectionnées automatiquement) pour prendre en charge la communication avec les appareils gérés.  
 
 -   **BranchCache** : les points de distribution peuvent être configurés avec BranchCache pour prendre en charge les clients qui utilisent BranchCache.  
 
 -   **Déduplication des données** : les points de distribution peuvent être configurés avec la déduplication des données et en tirer parti.  
 
--   **Compression différentielle à distance (RDC)** : chaque ordinateur qui héberge un serveur de site ou un point de distribution a besoin de la compression différentielle à distance.   
+-   **Compression différentielle à distance (RDC)** : chaque ordinateur qui héberge un serveur de site ou un point de distribution a besoin de la compression différentielle à distance.   
     Celle-ci est utilisée pour générer des signatures de package et effectuer des comparaisons de signatures.  
 
 ### <a name="roles"></a>Rôles  
  Les rôles Windows suivants sont requis pour prendre en charge des fonctionnalités spécifiques, telles que les mises à jour logicielles et les déploiements de système d’exploitation. IIS est requis par les principaux rôles de système de site.  
 
- -   **Service d’inscription de périphérique réseau** (relevant des services de certificats Active Directory) : ce rôle Windows est une condition préalable à l’utilisation de profils de certificat dans Configuration Manager.  
+ -   **Service d’inscription de périphérique réseau** (relevant des services de certificats Active Directory) : ce rôle Windows est une condition préalable à l’utilisation de profils de certificat dans Configuration Manager.  
 
- -   **Serveur web (IIS)**, avec notamment :  
-
-    -   Fonctionnalités HTTP communes >  
-
+ -   **Serveur web (IIS)**, avec notamment :  
+    -   Fonctionnalités HTTP communes >  
         -   Redirection HTTP  
-
     -   Développement d’applications >  
-
         -   Extensibilité .NET  
-
         -   ASP.NET  
-
         -   Extensions ISAPI  
-
         -   Filtres ISAPI  
-
     -   Outils de gestion >  
-
         -   IIS 6 Management Compatibility  
-
         -   Compatibilité avec la métabase de données IIS 6  
-
         -   Compatibilité WMI d'IIS 6  
-
     -   Sécurité >  
-
         -   Filtrage des demandes  
-
         -   Authentification Windows  
 
  Les rôles de système de site suivants utilisent une ou plusieurs des configurations IIS répertoriées :  
-
     -   Point de service Web du catalogue des applications  
-
     -   Point du site web du catalogue des applications  
-
     -   Point de distribution  
-
     -   Point d'inscription  
-
     -   Point proxy d'inscription  
-
     -   Point d’état de secours  
-
     -   Point de gestion  
-
     -   Point de mise à jour logicielle  
-
-    -   Point de migration d'état  
+    -   Point de migration d'état     
 
     La version minimale d’IIS requise est la version fournie avec le système d’exploitation du serveur de site.  
 
     En plus de ces configurations IIS, il se peut que vous deviez configurer [Filtrage des demandes IIS pour les points de distribution](#BKMK_IISFiltering).  
 
 -   **Services de déploiement Windows** : ce rôle est utilisé pour le déploiement de système d’exploitation.  
-
 -   **Windows Server Update Services** : ce rôle est nécessaire pour le déploiement de mises à jour logicielles.  
 
 ##  <a name="a-namebkmkiisfilteringa-iis-request-filtering-for-distribution-points"></a><a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
@@ -133,11 +106,8 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
  Par ailleurs, Configuration Manager utilise les extensions de nom de fichier suivantes pour les packages et les applications. Vérifiez que vos configurations de filtrage des demandes ne bloquent pas ces extensions de fichier :  
 
 -   .PCK  
-
 -   .PKG  
-
 -   .STA  
-
 -   .TAR  
 
 Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des fichiers sources incluant un dossier nommé **bin**ou contenant un fichier avec l’extension **.mdb** .  
@@ -157,22 +127,22 @@ Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des f
 >  La bonne pratique à suivre sur le plan de la sécurité consiste à exécuter Configuration Manager sur un serveur web dédié. Si vous devez exécuter d’autres applications sur le serveur web, utilisez un site web personnalisé pour Configuration Manager. Pour plus d’informations, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
 
 ## <a name="http-verbs"></a>Verbes HTTP
-**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
+**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
  - GET
  - POST
  - CCM_POST
  - HEAD
  - PROPFIND
 
-**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
+**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
  - GET
  - HEAD
- - PROFIND
+ - PROPFIND
 
 Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire qui vaut pour la version de Windows Server qui héberge votre point de gestion.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Surveiller les déploiements de système d’exploitation | Configuration Manager"
+title: "Surveiller les déploiements de système d’exploitation | Microsoft Docs"
 description: "Pour vous aider à surveiller les objets de déploiement de système d’exploitation, la console Configuration Manager fournit des alertes, des rapports et divers indicateurs d’état."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 893e5fe2acee0ffedb7759be85fb2f911f631611
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 154c0a286e6b9ccedc7545eb010967ac00d35407
 
 
 ---
 # <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Surveiller les déploiements de système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La console Configuration Manager fournit les méthodes suivantes pour vous aider à surveiller vos objets de déploiement de système d’exploitation.  
 
@@ -98,6 +98,6 @@ La console Configuration Manager fournit les méthodes suivantes pour vous aider
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

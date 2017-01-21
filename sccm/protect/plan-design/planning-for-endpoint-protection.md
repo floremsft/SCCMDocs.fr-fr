@@ -1,5 +1,5 @@
 ---
-title: Planifier Endpoint Protection | System Center Configuration Manager
+title: Planifier Endpoint Protection | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -14,14 +14,14 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: 34033e9413a9aa525534d563b94b713dca8ebdf0
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 927732150b99bbe362a3ed36976b49a716efc14c
 
 
 ---
 # <a name="planning-for-endpoint-protection-in-system-center-configuration-manager"></a>Planification de Endpoint Protection dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Endpoint Protection dans System Center Configuration Manager vous permet de gérer les stratégies de logiciel anti-programme malveillant et la sécurité du Pare-feu Windows pour les ordinateurs clients de votre hiérarchie Configuration Manager.  
@@ -29,7 +29,7 @@ Endpoint Protection dans System Center Configuration Manager vous permet de gér
 > [!IMPORTANT]  
 >  Vous devez détenir une licence pour pouvoir utiliser Endpoint Protection pour gérer les clients dans votre hiérarchie Configuration Manager.  
 
-L’utilisation d’Endpoint Protection avec Configuration Manager présente les avantages suivants :  
+L’utilisation d’Endpoint Protection avec Configuration Manager présente les avantages suivants :  
 
 -   Configuration des stratégies de logiciel anti-programme malveillant, des paramètres du Pare-feu Windows et gestion du service Protection avancée contre les menaces Windows Defender sur certains groupes d’ordinateurs  
 
@@ -37,7 +37,7 @@ L’utilisation d’Endpoint Protection avec Configuration Manager présente les
 
 -   Envoi de notifications par courrier électronique, utilisation de la surveillance dans la console et affichage de rapports pour informer les utilisateurs administratifs qu’un logiciel malveillant a été détecté sur des ordinateurs clients  
 
-Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestion d’Endpoint Protection. Sur les ordinateurs Windows 8.1 et antérieurs, Endpoint Protection installe son propre client en plus du client Configuration Manager. Le client Endpoint Protection offre les possibilités suivantes :  
+Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestion d’Endpoint Protection. Sur les ordinateurs Windows 8.1 et antérieurs, Endpoint Protection installe son propre client en plus du client Configuration Manager. Le client Endpoint Protection offre les possibilités suivantes :  
 
 -   Détection des logiciels malveillants et des logiciels espions et mesures correctives  
 
@@ -54,7 +54,7 @@ Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestion
 
   De plus, Endpoint Protection dans Configuration Manager vous permet de gérer les paramètres du Pare-feu Windows dans la console Configuration Manager.  
 
- [Exemple de scénario : l’utilisation de System Center Endpoint Protection pour protéger les ordinateurs contre les programmes malveillants dans System Center Configuration Manager](../deploy-use/scenarios-endpoint-protection.md) illustre la façon dont vous pouvez configurer et gérer Endpoint Protection et le Pare-feu Windows.  
+ [Exemple de scénario : l’utilisation de System Center Endpoint Protection pour protéger les ordinateurs contre les programmes malveillants dans System Center Configuration Manager](../deploy-use/scenarios-endpoint-protection.md) illustre la façon dont vous pouvez configurer et gérer Endpoint Protection et le Pare-feu Windows.  
 
 ## <a name="managing-malware-with-endpoint-protection"></a>Gestion des logiciels malveillants avec Endpoint Protection  
 
@@ -62,11 +62,11 @@ Endpoint Protection dans Configuration Manager vous permet de créer des straté
 
  Informations complémentaires :  
 
--   [Créer et déployer des stratégies anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](../deploy-use/endpoint-antimalware-policies.md) : créez, déployez et surveillez des stratégies de logiciel anti-programme malveillant à l’aide d’une liste de paramètres que vous pouvez configurer  
+-   [Créer et déployer des stratégies anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](../deploy-use/endpoint-antimalware-policies.md) : créez, déployez et surveillez des stratégies de logiciel anti-programme malveillant à l’aide d’une liste de paramètres que vous pouvez configurer  
 
--   [Surveiller Endpoint Protection dans System Center Configuration Manager](../deploy-use/monitor-endpoint-protection.md) : surveillez les rapports d’activité, les ordinateurs clients infectés, et bien d’autres choses encore.   
+-   [Surveiller Endpoint Protection dans System Center Configuration Manager](../deploy-use/monitor-endpoint-protection.md) : surveillez les rapports d’activité, les ordinateurs clients infectés, et bien d’autres choses encore.   
 
--   [Gérer les stratégies de logiciel anti-programme malveillant et les paramètres de pare-feu pour Endpoint Protection dans System Center Configuration Manager](../deploy-use/endpoint-antimalware-firewall.md) : vous pouvez changer la priorité des stratégies de [logiciel anti-programme malveillant](../deploy-use/endpoint-antimalware-firewall.md#manage-antimalware-policies) ou du [pare-feu](../deploy-use/endpoint-antimalware-firewall.md#manage-windows-firewall-policies), [prendre des mesures correctives contre les programmes malveillants détectés sur les ordinateurs clients](../deploy-use/endpoint-antimalware-firewall.md#remediate-detected-malware), et effectuer bien d’autres tâches
+-   [Gérer les stratégies de logiciel anti-programme malveillant et les paramètres de pare-feu pour Endpoint Protection dans System Center Configuration Manager](../deploy-use/endpoint-antimalware-firewall.md) : vous pouvez changer la priorité des stratégies de [logiciel anti-programme malveillant](../deploy-use/endpoint-antimalware-firewall.md#manage-antimalware-policies) ou du [pare-feu](../deploy-use/endpoint-antimalware-firewall.md#manage-windows-firewall-policies), [prendre des mesures correctives contre les programmes malveillants détectés sur les ordinateurs clients](../deploy-use/endpoint-antimalware-firewall.md#remediate-detected-malware), et effectuer bien d’autres tâches
 
 ## <a name="managing-windows-firewall-with-endpoint-protection"></a>Gestion du pare-feu Windows avec Endpoint Protection  
  Endpoint Protection dans Configuration Manager assure une gestion de base du Pare-feu Windows sur les ordinateurs clients. Pour chaque profil de réseau, vous pouvez :  
@@ -84,7 +84,7 @@ Endpoint Protection dans Configuration Manager vous permet de créer des straté
 
 ## <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
 
-À compter de la version 1606 de Configuration Manager (Current Branch), Endpoint Protection facilite la gestion et la surveillance du service Windows Defender Advanced Threat Protection (ATP). Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. Consultez [Protection avancée contre les menaces Windows Defender](../deploy-use/windows-defender-advanced-threat-protection.md).
+À compter de la version 1606 de Configuration Manager (Current Branch), Endpoint Protection facilite la gestion et la surveillance du service Windows Defender Advanced Threat Protection (ATP). Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. Consultez [Protection avancée contre les menaces Windows Defender](../deploy-use/windows-defender-advanced-threat-protection.md).
 
 ## <a name="endpoint-protection-workflow"></a>Flux de travail Endpoint Protection  
  Utilisez le diagramme suivant pour comprendre le flux de travail qui permet d’implémenter Endpoint Protection dans votre hiérarchie Configuration Manager.  
@@ -124,6 +124,6 @@ Endpoint Protection dans Configuration Manager vous permet de créer des straté
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

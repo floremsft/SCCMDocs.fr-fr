@@ -1,5 +1,5 @@
 ---
-title: "Créer des profils de connexion à distance | System Center Configuration Manager"
+title: "Créer des profils de connexion à distance | Microsoft Docs"
 description: "Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,15 +17,15 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fd05211959d844c3658e3c5ead70b0c9a7f90116
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 72fc94c6449649656a7e8b81659c2b5cc2551107
 
 
 ---
 
 # <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Profils de connexion à distance dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail quand ils ne sont pas connectés au domaine ou si leurs ordinateurs personnels sont connectés à Internet.  
 
@@ -66,7 +66,7 @@ Microsoft Intune est nécessaire si vous voulez que les utilisateurs se connecte
 
 |Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Configuration Manager doit être connecté à Microsoft Intune (« configuration hybride »).|Pour plus d’informations sur la connexion de Configuration Manager à Microsoft Intune, consultez Gérer les appareils mobiles avec Configuration Manager et Microsoft Intune.|  
+|Configuration Manager doit être connecté à Microsoft Intune (« configuration hybride »).|Pour plus d’informations sur la connexion de Configuration Manager à Microsoft Intune, consultez Gérer les appareils mobiles avec Configuration Manager et Microsoft Intune.|  
 |Pour qu'un utilisateur se connecte à un ordinateur professionnel sur le réseau de l'entreprise, cet ordinateur doit être un appareil principal de l'utilisateur.|Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
 |Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les profils de connexion à distance.|Le rôle de sécurité **Gestionnaire de paramètres de compatibilité** inclut les autorisations nécessaires pour gérer les profils de connexion à distance. Pour plus d'informations, voir <br />[Configurer l’administration basée sur des rôles](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
 
@@ -98,7 +98,7 @@ Microsoft Intune est nécessaire si vous voulez que les utilisateurs se connecte
 
 4.  Dans la page **Général** de l’ **Assistant Créer un profil de connexion à distance**, spécifiez un nom et une description éventuelle pour le profil en utilisant un maximum de 256 caractères pour chaque élément.  
 
-5.  Dans la page **Paramètres de profil**, spécifiez les paramètres suivants pour le profil de connexion à distance :  
+5.  Dans la page **Paramètres de profil**, spécifiez les paramètres suivants pour le profil de connexion à distance :  
 
     -   **Nom complet et port du serveur de passerelle Bureau à distance (facultatif)** : spécifiez le nom du serveur de passerelle Bureau à distance à utiliser pour les connexions.  
 
@@ -134,9 +134,9 @@ Déployer un profil de connexion à distance
 
     -   **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement de périphériques sur lequel vous souhaitez déployer le profil de connexion à distance.  
 
-    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement le profil de connexion à distance quand il n’est pas compatible sur un appareil (par exemple, s’il n’est pas présent).  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement le profil de connexion à distance quand il n’est pas compatible sur un appareil (par exemple, s’il n’est pas présent).  
 
-    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement sur lequel vous déployez le profil de connexion à distance, activez cette option pour permettre à Configuration Manager de résoudre le profil de connexion à distance en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement sur lequel vous déployez le profil de connexion à distance, activez cette option pour permettre à Configuration Manager de résoudre le profil de connexion à distance en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
     -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la compatibilité du profil de connexion à distance est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
@@ -186,6 +186,6 @@ Déployer un profil de connexion à distance
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

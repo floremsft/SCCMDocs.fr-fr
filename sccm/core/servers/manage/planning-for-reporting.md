@@ -1,5 +1,5 @@
 ---
-title: "Planification de la création de rapports | System Center Configuration Manager"
+title: "Planification de la création de rapports | Microsoft Docs"
 description: "Qu’il s’agisse des détails de l’installation, de la sécurité ou de la bande passante réseau, il est important de planifier la création de rapports dans Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 894c1e02c6739c6d158c73465b8d4391847a221a
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 119f501057bf44e483be31db20b88326b3d05ebb
 
 
 ---
 # <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Planification de la création de rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La création de rapports dans System Center Configuration Manager propose un ensemble d’outils et de ressources vous permettant d’utiliser les fonctionnalités de création de rapports avancées de SQL Server Reporting Services. Utilisez les sections suivantes pour vous aider à planifier la création de rapports dans Configuration Manager.  
 
@@ -63,13 +63,13 @@ La création de rapports dans System Center Configuration Manager propose un ens
  Pour plus d’informations sur l’administration basée sur des rôles dans Configuration Manager, consultez [Configurer l’administration basée sur des rôles](../deploy/configure/configure-role-based-administration.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes  
- Utilisez les rubriques supplémentaires suivantes pour vous aider à planifier les rapports dans Configuration Manager :  
+ Utilisez les rubriques supplémentaires suivantes pour vous aider à planifier les rapports dans Configuration Manager :  
 
 -   [Prérequis de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/prerequisites-for-reporting.md)  
 -   [Bonnes pratiques pour la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/best-practices-for-reporting.md)  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Classer automatiquement des appareils dans des regroupements | System Center Configuration Manager
+title: Classer automatiquement des appareils dans des regroupements | Microsoft Docs
 description: Classez automatiquement des appareils dans des regroupements avec System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 6e1e8c1da1209be03d4a1377dcc0c9ce9478a216
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: d5ef7260bcc2ab9cc56d8fed530a406aa1045c5a
 
 ---
 # <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Classer automatiquement des appareils dans des regroupements avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez créer des catégories d’appareils, qui permettent de placer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
 
 > [!IMPORTANT]  
-    >  Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+    >  Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
 
 ## <a name="create-device-categories"></a>Créer des catégories d’appareils
 
@@ -64,6 +64,6 @@ Si vous affectez un appareil à une catégorie, puis supprimez par la suite cett
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Gérer le verrou d’activation iOS | System Center Configuration Manager"
+title: "Gérer le verrou d’activation iOS | Microsoft Docs"
 description: "Découvrez comment gérer le verrou d’activation iOS avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/15/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 33125f9147afcac09c0f7a9a9c2522726c2eb99b
+ms.sourcegitcommit: a25c6b409ea6501ead762fabb8cc11c62c84885d
+ms.openlocfilehash: cf98bbb9dee6142e8b085dbffcadb3ed712adcb9
 
 
 ---
 # <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gérer le verrou d’activation iOS avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Quand le verrou d’activation est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour permettre à quiconque de :
@@ -107,6 +107,6 @@ Vous ne pouvez contourner le verrou d’activation ou récupérer le code de con
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
