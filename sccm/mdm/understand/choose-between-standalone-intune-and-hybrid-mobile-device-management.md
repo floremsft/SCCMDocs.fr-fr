@@ -1,0 +1,95 @@
+---
+title: Choisir entre Intune autonome et la gestion des appareils mobiles hybride | System Center Configuration Manager
+description: "Choisissez de déployer la gestion des appareils mobiles hybride avec Intune et Configuration Manager ou d’exécuter Intune de façon autonome."
+ms.custom: na
+ms.date: 10/06/2016
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-hybrid
+ms.tgt_pltfrm: na
+ms.topic: get-started-article
+ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
+caps.latest.revision: 10
+author: Mtillman
+ms.author: mtillman
+manager: angrobe
+translationtype: Human Translation
+ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
+ms.openlocfilehash: 2e6ec1b2b822298d4fa6a17e2d7439167b83080a
+
+---
+# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Choisir entre Intune autonome et la gestion des appareils mobiles hybride avec System Center Configuration Manager
+
+*S’applique à : System Center Configuration Manager (Current Branch)*
+
+L’une des questions les plus fréquentes relatives à la gestion des appareils mobiles (MDM) avec Microsoft Intune est « Dois-je déployer la gestion des appareils mobiles hybride avec Intune et Configuration Manager ou exécuter Intune autonome dans la configuration cloud uniquement ? ». Il s’agit d’une décision importante qu’il n’est pas aisé de changer après mise en œuvre.  
+
+ Un déploiement d’Intune autonome n’implique aucune infrastructure locale et est géré via une console web. Il est souple, léger et populaire auprès des organisations privilégiant le cloud.  
+
+ Un déploiement MDM hybride implique Intune et Configuration Manager, et est géré à l’aide d’outils familiers pour les administrateurs expérimentés de Configuration Manager. Il offre une gestion de type « volet unique » des clients MDM et traditionnels, ainsi qu’une mise à l’échelle dans les environnements de grande taille.  
+
+##  <a name="what-does-intune-standalone-mean"></a>Que signifie Intune autonome ?  
+ Intune, par essence, est un service cloud. Il existe des centres de données Intune hébergés en Amérique du Nord, en Europe et en Asie, qui fournissent des appareils mobiles avec des stratégies de sécurité, des profils Wi-Fi et de messagerie, des applications, un inventaire, etc.  
+
+ Une implémentation d’Intune autonome ne nécessite aucune infrastructure locale. La totalité de la configuration, de la gestion, du déploiement et de la création de rapports est effectuée via une console web, accessible partout dans le monde.  
+
+ Pour travailler avec des applications locales, telles que Microsoft Exchange et le service d’inscription de périphérique réseau, des connecteurs locaux sont disponibles pour assurer la connectivité au service Intune.  
+
+ En tant que service cloud, Intune peut être généré et déployé dans un délai court.  
+
+##  <a name="what-does-hybrid-mdm-mean"></a>Que signifie une gestion des appareils mobiles hybride ?  
+ Pour les organisations qui souhaitent optimiser leur investissement dans Configuration Manager, les clients qui ont besoin d’un contrôle affiné ou les clients qui dépassent les limites de mise à l’échelle d’Intune, une implémentation hybride est disponible, qui utilise Intune pour gérer les appareils mobiles.  
+
+ Les déploiements hybrides nécessitent Microsoft System Center 2012 Configuration Manager SP1 ou version ultérieure.  
+
+ Le service Intune est connecté à Configuration Manager avec le rôle de système de site Point de connexion de service (anciennement Connecteur Microsoft Intune), qui est installé sur le site d’administration centrale ou le site principal d’une hiérarchie Configuration Manager. Un locataire Intune peut être connecté à une seule hiérarchie Configuration Manager, et une hiérarchie Configuration Manager ne peut être connectée qu’à un seul locataire Intune.  
+
+ Dans une configuration MDM hybride, une partie de la charge de stockage et de traitement est effectuée par l’infrastructure Configuration Manager sur site. Ce gain d’efficacité permet une mise à l’échelle de la gestion des appareils mobiles hybride au-delà de celle d’Intune autonome.  
+
+ Un déploiement hybride permet d’utiliser des outils qui sont familiers aux administrateurs de Configuration Manager. Des fonctionnalités avancées, telles que le contrôle d’administration en fonction du rôle (RBAC), SQL Server Reporting Services (SSRS) et le regroupement complexe d’appareils et d’utilisateurs à l’aide de requêtes d’appartenance aux regroupements, deviennent disponibles pour les appareils mobiles lors de l’implémentation d’une gestion des appareils mobiles hybride.  
+
+##  <a name="planning-choices-and-intune-deployment-timelines"></a>Planification des choix et des plannings de déploiement Intune  
+ L’évolution et l’innovation Intune surviennent rapidement et des mises à jour mensuelles fournissent des fonctionnalités nouvelles ou améliorées, une mise à l’échelle améliorée, de nouvelles expériences de console d’administration via le portail Azure, des groupes dynamiques via Azure Active Directory, etc. Par conséquent, les décisions de conception doivent prendre en compte l’orientation future du produit.  
+
+ Un grand nombre des fonctionnalités uniques qu’une configuration hybride fournit actuellement seront répliquées fonctionnellement dans Intune autonome, lorsque le service sera développé à court, moyen et long terme.  
+
+ Si vous avez le choix entre une conception autonome et hybride, prenez en considération les délais de déploiement. Il est courant que les clients traversent plusieurs itérations de déploiement, y compris les phases de conception, de build, de test d’acceptation utilisateur et pilotes, prenant généralement de nombreux mois avant d’être prêts à déployer en production. Pour cette raison, lorsque vous choisissez une conception de hiérarchie Intune, prenez en compte la période dans laquelle le déploiement réel se produira et l’orientation à court, moyen et long terme du service.  
+
+ Au fur et à mesure que le service Intune évolue, notre objectif est de simplifier votre choix de configuration. À l’avenir, la seule raison de choisir un environnement MDM hybride doit être pour les clients qui ont besoin d’une console de gestion unique pour des appareils mobiles et des clients traditionnels.  Nous faisons beaucoup d’efforts pour améliorer l’évolutivité, en ajoutant un accès basé sur les rôles via le portail Azure, et des groupes dynamiques via une intégration plus profonde d’Azure Active Directory, tous alignés sur des mises à jour à court et moyen terme.  
+
+ Enfin, nous nous efforçons également d’assurer que, quel que soit le choix de configuration que vous effectuez aujourd’hui, vous êtes en mesure de vous déplacer aisément entre des choix de configuration hybride et autonome sans friction. Un changement d’autorités MDM aujourd’hui nécessite une intervention manuelle du support technique de Microsoft et des efforts considérables du locataire. Pour simplifier cela, notre objectif est de permettre la coexistence des conceptions hybride et Intune autonome, ce qui vous permet de déplacer des utilisateurs entre les deux types de gestion sans avoir à choisir une configuration par rapport à l’autre.  Cette modification supprime également les défis d’aujourd’hui consistant à appeler le support technique, et élimine la désinscription et la réinscription d’appareils.  
+
+##  <a name="pros-and-cons-of-intune-standalone"></a>Avantages et inconvénients d’Intune autonome  
+
+|Avantages|Inconvénients|  
+|----------|----------|  
+|Génération et déploiement rapides<br /><br /> Aucune infrastructure locale<br /><br /> Mises à jour et versions des fonctionnalités plus fréquentes<br /><br /> Courbe d’apprentissage basse<br /><br /> La console d’administration est disponible en externe|Fonctionnalités de création de rapports limitées<br /><br /> Restriction de rôle de sécurité limitée<br /><br /> Pas d’outils externes (tels que PowerShell, etc.)<br /><br /> Inventaire d’applications limité<br /><br /> Fonctionnalités élémentaires de regroupement d’appareils et d’utilisateurs<br /><br /> Silverlight requis|  
+
+##  <a name="pros-and-cons-of-hybrid-mdm"></a>Avantages et inconvénients de la gestion des appareils mobiles hybride  
+
+|Avantages|Inconvénients|  
+|----------|----------|  
+|Capacité de mise à l’échelle<br /><br /> Outils avancés (tels que la console Configuration Manager, PowerShell, journalisation, etc.)<br /><br /> Contrôle d’accès en fonction du rôle (RBAC)<br /><br /> Création de rapports avancée<br /><br /> Gestion de type « volet unique » pour les clients MDM + traditionnels<br /><br /> Inventaire d’applications étendu<br /><br /> Regroupement d’appareils et d’utilisateurs avancé<br /><br /> Plusieurs connecteurs Exchange Online et Exchange sur site pris en charge<br /><br /> Plusieurs rôles NDES/CRP pris en charge<br /><br /> Capacité à marquer des appareils comme « détenus par l’entreprise »<br /><br /> Meilleures fonctionnalités de dépannage<br /><br /> Licences d’accès client des utilisateurs Configuration Manager incluses dans l’abonnement|Complexité locale (configuration et gestion)<br /><br /> Courbe d’apprentissage à forte pente<br /><br /> Maintenance requise pour les mises à jour et les versions des fonctionnalités<br /><br /> Conditions de licence supplémentaires (par exemple, Windows, SQL Server, etc.)|  
+
+##  <a name="planning-decisions"></a>Planification des décisions  
+ ![hybrid&#45;decisions](../../mdm/understand/media/hybrid-decisions.png)  
+
+|Étape|Décision|
+|-|-|  
+|<img src="media/hybrid-1.png" style="min-width:32px">|**Combien d’appareils envisagez-vous de gérer ?**<br /><br /> Intune autonome prend en charge jusqu’à 50 000 appareils. La gestion des appareils mobiles hybride prend en charge jusqu’à 300 000 appareils.<br /><br /> Pour tout déploiement de taille importante, autonome ou MDM hybride, nous vous suggérons de contacter votre équipe de compte Microsoft. Votre équipe de compte Microsoft peut vous mettre en contact avec des spécialistes Intune capables d’expliquer plus en détails la mise à l’échelle et les limitations.|  
+|![hybrid&#45;2](../../mdm/understand/media/hybrid-2.png)|**Un contrôle d’accès affiné est-il requis ? (RBAC)**<br /><br /> Le contrôle d’accès en fonction du rôle (RBAC) a été ajouté dans System Center 2012 Configuration Manager. RBAC permet aux administrateurs de Configuration Manager de concevoir et de déployer des jeux d’autorisations complexes pour restreindre l’accès administrateur aux fonctions et objets Configuration Manager.<br /><br /> Intune autonome fournit uniquement deux rôles d’administrateur : l’accès complet et l’accès en lecture seule.<br /><br /> Si votre organisation a besoin de cibler certains administrateurs sur certains utilisateurs, appareils, fonctions ou objets, Configuration Manager avec RBAC est requis.<br /><br /> Si votre organisation dispose d’une équipe d’administration restreinte et que vous n’avez pas besoin de la complexité du contrôle d’accès affiné, Intune avec les rôles de sécurité intégrés est la meilleure solution.|  
+|![hybrid&#45;3](../../mdm/understand/media/hybrid-3.png)|**Des fonctionnalités avancées de création de rapports sont-elles requises ?**<br /><br /> La gestion des appareils mobiles hybride avec Configuration Manager inclut des fonctionnalités avancées de création de rapports à l’aide de SQL Server Reporting Services (SSRS). Configuration Manager est fourni avec 34 rapports MDM intégrés et plus de 400 rapports Configuration Manager standard. SSRS autorise également les administrateurs et les analystes d’entreprise à écrire leurs propres rapports personnalisés. En outre, la base de données Configuration Manager peut être interrogée par des outils externes, tels que les outils d’orchestration, pour fournir des fonctions spécifiques, telles que des alertes personnalisées. Lorsque Configuration Manager exécute des rapports, tous les rapports peuvent également inclure des données non-MDM, telles que l’inventaire des PC traditionnels côte à côte avec l’inventaire des appareils mobiles.<br /><br /> Intune autonome fournit 9 rapports. Ces rapports ne sont pas personnalisables et offrent des variables d’entrée limitées. Les rapports peuvent être imprimés ou exportés au format CSV ou HTML.<br /><br /> Si votre organisation nécessite des fonctions de création de rapports avancées et dispose de la bande passante et des connaissances nécessaires pour gérer SSRS, MDM hybride est la meilleure solution.<br /><br /> Si votre organisation souhaite un moteur de rapports simple à utiliser et des rapports prédéfinis, les fonctionnalités de création de rapports d’Intune autonome devraient suffire.|  
+|![hybrid&#45;4](../../mdm/understand/media/hybrid-4.png)|**Gérez-vous les appareils Windows 10 sans accès à Internet ?**<br /><br /> Dans Configuration Manager (Current Branch), les appareils Windows 10 peuvent être gérés via le canal de gestion des appareils mobiles en utilisant uniquement l’infrastructure sur site.<br /><br /> La fonctionnalité de gestion des appareils mobiles locale est conçue pour autoriser la gestion MDM pour les clients non accessibles via Internet, et cible principalement les appareils à usage unique (tels que les bornes) et les appareils IoT.<br /><br /> En raison de l’approche cloud exclusive d’Intune autonome, tous les appareils gérés doivent avoir accès à Internet. Si votre organisation souhaite gérer les appareils Windows 10 via la gestion des appareils mobiles sur site, une configuration MDM hybride est requise. Notez que la gestion des appareils mobiles sur site ne prend pas en charge la gestion simultanée des appareils mobiles via Internet et l’intranet.|  
+|![hybrid&#45;5](../../mdm/understand/media/hybrid-5.png)|**Avez-vous besoin d’un inventaire complet des applications ?**<br /><br /> Par défaut, Intune autonome collecte uniquement l’inventaire des applications gérées et déployées par Intune. Cela signifie que les rapports d’inventaire ne contiennent pas d’informations pour les applications chargées latéralement, qui ont été installées par les utilisateurs en dehors du portail d’entreprise Intune.<br /><br /> La gestion des appareils mobiles hybride avec Configuration Manager permet aux administrateurs de désigner certains appareils comme « appartenant à l’entreprise ». Quand un appareil est défini comme appartenant à l’entreprise, l’inventaire d’applications étendu est collecté, fournissant un accès à une liste complète d’applications de l’appareil.<br /><br /> Si votre organisation a besoin d’informations sur les applications installées personnellement à partir des appareils gérés, la gestion des appareils mobiles hybride est requise. Avant de prendre une décision en fonction de ce choix, considérez son impact sur la confidentialité de votre utilisateur final.|  
+|![hybrid&#45;6](../../mdm/understand/media/hybrid-6.png)|**Souhaitez-vous gérer les PC de la manière traditionnelle propre aux clients fat ?**<br /><br /> L’un des avantages qu’offre la gestion des appareils mobiles hybride par rapport à une configuration autonome est un « volet unique » de gestion. Cela signifie qu’une organisation peut gérer sa flotte complète d’ordinateurs de bureau, de serveurs et d’appareils mobiles à partir du seul outil de gestion, la console Configuration Manager. De plus, avec le client Configuration Manager, des fonctions de gestion avancées, telles que l’inventaire matériel et logiciel, la gestion des mises à jour logicielles, le déploiement de logiciels et le déploiement de systèmes d’exploitation, sont disponibles pour les appareils non mobiles.<br /><br /> Si votre organisation souhaite gérer des clients Windows, Linux/UNIX et Mac traditionnels, Configuration Manager est la plateforme de gestion principale.<br /><br /> Intune autonome propose également une gestion traditionnelle des PC (Windows 7, 8.1 et 10) à l’aide du client de gestion de PC Intune. Il assure la gestion de base des PC, notamment l’inventaire matériel, les mises à jour Windows, Endpoint Protection et le déploiement simple de logiciels. Le client ne fonctionne pas avec Configuration Manager, et peut donc être utilisé dans les déploiements MDM hybride et Intune autonome.|  
+|![hybrid&#45;7](../../mdm/understand/media/hybrid-7.png)|**Souhaitez-vous gérer l’infrastructure locale ?**<br /><br /> Un certain niveau de complexité et de charge de gestion accompagne une infrastructure locale quelconque. Configuration Manager est un produit qui nécessite des connaissances, une expérience et un investissement conséquents pour gérer et entretenir son infrastructure.<br /><br /> Au minimum, la gestion des appareils mobiles hybride nécessite un site principal Configuration Manager individuel, avec le rôle de base de données, le rôle Reporting Services et le rôle de point de connexion de service. Si la gestion des PC traditionnelle est requise, les rôles de point de gestion, de point de distribution, de point de mise à jour logicielle et de catalogue d’applications peuvent également être requis. Les fonctions avancées, telles que le déploiement des certificats, la gestion Mac et Endpoint Protection ajoutent encore plus de rôles et de complexité.<br /><br /> La hiérarchie Configuration Manager nécessite des efforts significatifs de maintenance et de gestion pour garantir qu’elle est intègre et qu’elle fonctionne comme nécessaire.<br /><br /> Si la surcharge d’une hiérarchie Configuration Manager n’est pas souhaitée, un déploiement d’Intune autonome représente votre meilleure option.|  
+|![hybrid&#45;8](../../mdm/understand/media/hybrid-8.png)|**Avez-vous besoin d’outils externes ?**<br /><br /> Configuration Manager est un produit professionnel et mature, qui prend en charge de nombreuses façons d’interagir avec le service sans utiliser la console. Un déploiement MDM hybride permet aux administrateurs d’utiliser le Kit SDK de Configuration Manager ou PowerShell pour gérer par programme les appareils mobiles. Il permet également aux administrateurs d’utiliser des outils tels que System Center Orchestrator, Power BI et divers compléments tiers.<br /><br /> Dans un déploiement Intune autonome, toute l’administration doit être effectuée via la console Silverlight et aucun outil externe n’est disponible.|  
+|![hybrid&#45;9](../../mdm/understand/media/hybrid-9.png)|**Voulez-vous des mises à jour rapides des fonctionnalités MDM ?**<br /><br /> Bien que Configuration Manager (Current Branch) offre une maintenance rapide des mises à jour et des fonctionnalités, le développement de services cloud, tels qu’Intune, se prête bien à un déploiement en production encore plus rapide.<br /><br /> Intune autonome recevra probablement de nouvelles fonctionnalités avant un déploiement MDM hybride.<br /><br /> Si votre organisation souhaite être à la pointe, Intune autonome propose les dernières fonctionnalités de gestion des appareils mobiles dans les meilleurs délais.|
+
+
+
+<!--HONumber=Nov16_HO1-->
+
+
