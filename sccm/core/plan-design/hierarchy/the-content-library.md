@@ -1,5 +1,5 @@
 ---
-title: "Bibliothèque de contenu| System Center Configuration Manager"
+title: "Bibliothèque de contenu | Microsoft Docs"
 description: "Découvrez la bibliothèque de contenu qu’utilise System Center Configuration Manager pour réduire la taille globale du contenu distribué."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5406dcbc8b1ca04f2754e19b171c55ab20a00d46
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 8bdb4e4209ea557afa9d8140d54e98637e560944
 
 ---
 # <a name="the-content-library-in-system-center-configuration-manager"></a>Bibliothèque de contenu System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La bibliothèque de contenu est l’emplacement de stockage SIS (Single-Instance Store) qu’utilise Configuration Manager pour réduire la taille globale de l’ensemble du contenu que vous distribuez. La bibliothèque de contenu stocke tous les fichiers de contenu pour le déploiement des mises à jour logicielles, des applications, du système d'exploitation, etc.
 
@@ -31,7 +31,7 @@ La bibliothèque de contenu est l’emplacement de stockage SIS (Single-Instance
  - Si le fichier de contenu est disponible, Configuration Manager ne le copie pas et associe le fichier de contenu existant à l’application ou au package.
 
 Sur les ordinateurs sur lesquels vous installez un point de distribution, vous pouvez configurer les éléments suivants :
-- les lecteurs de disque sur lesquels vous voulez créer la bibliothèque de contenu ;
+- les lecteurs de disque sur lesquels vous voulez créer la bibliothèque de contenu ;
 - une priorité pour chaque lecteur que vous utilisez.
 
 Quand Configuration Manager copie des fichiers de contenu, il les copie sur le lecteur présentant la plus haute priorité, sauf si ce lecteur dispose d’une quantité d’espace libre inférieure à la quantité minimale spécifiée.
@@ -43,12 +43,12 @@ Pour plus d’informations sur la configuration des paramètres de lecteur pour 
 
 
 >  [!IMPORTANT]  
->  Pour déplacer la bibliothèque de contenu à un autre emplacement sur un point de distribution après l’installation, utilisez l’**outil de transfert de bibliothèque de contenu** dans la boîte à outils de System Center 2012 R2 Configuration Manager. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
+>  Pour déplacer la bibliothèque de contenu à un autre emplacement sur un point de distribution après l’installation, utilisez l’**outil de transfert de bibliothèque de contenu** dans la boîte à outils de System Center 2012 R2 Configuration Manager. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
 
 ## <a name="about-the-content-library-on-the-central-administration-site"></a>À propos de la bibliothèque de contenu sur le site d’administration centrale  
  Par défaut, Configuration Manager crée une bibliothèque de contenu sur le site d’administration centrale pendant l’installation du site. La bibliothèque de contenu est placée sur le lecteur du serveur de site possédant l'espace disponible le plus important. Étant donné que vous ne pouvez pas installer un point de distribution sur le site d'administration centrale, vous ne pouvez pas attribuer une priorité aux lecteurs à utiliser pour la bibliothèque de contenu. Comme la bibliothèque de contenu sur d'autres serveurs de site ou sur des points de distribution, lorsque le lecteur contenant la bibliothèque de contenu n'a plus d'espace disponible, la bibliothèque de contenu s'étend sur le lecteur disponible suivant.  
 
- Configuration Manager utilise la bibliothèque de contenu sur le site d’administration centrale dans les scénarios suivants :  
+ Configuration Manager utilise la bibliothèque de contenu sur le site d’administration centrale dans les scénarios suivants :  
 
 -   Lorsque vous créez un contenu sur le site d'administration centrale.  
 
@@ -61,10 +61,10 @@ Pour plus d’informations sur la configuration des paramètres de lecteur pour 
 
 -   Pour empêcher la bibliothèque de contenu de s'installer sur un lecteur spécifique, créez un fichier vide intitulé **no_sms_on_drive.sms** et copiez-le vers le dossier racine du lecteur avant la création de la bibliothèque de contenu.  
 
--   Après avoir créé la bibliothèque de contenu, utilisez l’**outil de transfert de bibliothèque de contenu** de la boîte à outils System Center 2012 R2 Configuration Manager pour gérer l’emplacement de la bibliothèque de contenu. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
+-   Après avoir créé la bibliothèque de contenu, utilisez l’**outil de transfert de bibliothèque de contenu** de la boîte à outils System Center 2012 R2 Configuration Manager pour gérer l’emplacement de la bibliothèque de contenu. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

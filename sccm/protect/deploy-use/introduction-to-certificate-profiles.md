@@ -1,5 +1,5 @@
 ---
-title: "Présentation des profils de certificat | System Center Configuration Manager"
+title: "Présentation des profils de certificat | Microsoft Docs"
 description: "Découvrez le fonctionnement des profils de certificat dans System Center Configuration Manager avec les services de certificats Active Directory."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,19 +16,19 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 41567ba411732baf9e920595203f699179dcb20a
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 25d57d25ca683608bbe9a0695b2463ad5b9a0833
 
 
 ---
 # <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Présentation des profils de certificat dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Les profils de certificat dans System Center Configuration Manager s’intègrent aux services de certificats Active Directory et au rôle du service d’inscription de périphérique réseau afin d’approvisionner des certificats d’authentification pour des appareils gérés afin que les utilisateurs puissent accéder sans interruption aux ressources de l’entreprise. Par exemple, vous pouvez créer et déployer des profils de certificat pour fournir les certificats nécessaires aux utilisateurs pour établir des connexions VPN et sans fil.  
 
- Les profils de certificat dans System Center Configuration Manager fournissent les fonctionnalités de gestion suivantes :  
+ Les profils de certificat dans System Center Configuration Manager fournissent les fonctionnalités de gestion suivantes :  
 
 -   Inscription et renouvellement de certificats auprès d’une autorité de certification d’entreprise pour les appareils exécutant iOS, Windows 8.1, Windows RT 8.1, Windows 10 Desktop et Mobile, et Android. Ces certificats peuvent ensuite être utilisés pour les connexions Wi-Fi et VPN.  
 
@@ -43,12 +43,12 @@ Les profils de certificat dans System Center Configuration Manager s’intègren
  **Exemple :** Vous disposez d'une PKI en place et voulez adopter une méthode plus flexible et sécurisée pour configurer les certificats qui permettent aux utilisateurs d'accéder aux ressources d'entreprise à partir de leurs appareils personnels sans compromettre la sécurité. Pour ce faire, vous pouvez configurer des profils de certificat avec les paramètres et les protocoles qui sont pris en charge pour la plate-forme d'appareil spécifique. Les appareils peuvent ensuite demander automatiquement ces certificats depuis un serveur d'inscription via Internet. Vous pouvez ensuite configurer des profils VPN pour utiliser ces certificats afin que l'appareil puisse accéder aux ressources d'entreprise.  
 
 ## <a name="types-of-certificate-profile"></a>Types de profil de certificat  
- Vous pouvez créer trois types de profils de certificat dans System Center Configuration Manager :  
+ Vous pouvez créer trois types de profils de certificat dans System Center Configuration Manager :  
 
 -   **Certificat d'Autorité de certification approuvé** : vous permet de déployer un certificat d'autorité de certification racine ou intermédiaire approuvé pour former une chaîne d'approbation des certificats lorsque l'appareil doit authentifier un serveur.  
 
--   **Protocole SCEP (Simple Certificate Enrollment Protocol)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription de périphérique réseau sur un serveur exécutant Windows Server 2012 R2.
--   -   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription de périphérique réseau sur un serveur exécutant Windows Server 2012 R2.
+-   **Protocole SCEP (Simple Certificate Enrollment Protocol)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription de périphérique réseau sur un serveur exécutant Windows Server 2012 R2.
+-   -   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription de périphérique réseau sur un serveur exécutant Windows Server 2012 R2.
 
     > [!NOTE]  
     >  Vous devez créer un profil de certificat du type **Certificat d'Autorité de certification approuvé** avant de pouvoir créer un profil de certificat du type **Paramètres SCEP (Simple Certificate Enrollment Protocol)**.  
@@ -73,7 +73,7 @@ Les profils de certificat dans System Center Configuration Manager s’intègren
 -   Android  
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+>  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
  Un scénario type pour System Center Configuration Manager consiste à installer des certificats d’autorité de certification racine approuvés pour authentifier des serveurs Wi-Fi et VPN lorsque la connexion utilise les protocoles d’authentification EAP-TLS, EAP-TTLS et PEAP, ainsi que les protocoles de tunneling IKEv2, L2TP/IPsec et Cisco IPsec VPN.  
 
@@ -87,7 +87,7 @@ Les profils de certificat dans System Center Configuration Manager s’intègren
 ## <a name="monitoring-certificate-profiles"></a>Surveillance des profils de certificat  
  Vous pouvez surveiller les déploiements de profils de certificat à partir du nœud **Déploiements** de l’espace de travail **Surveillance** dans la console System Center Configuration Manager.  
 
- Vous pouvez également utiliser un des rapports de System Center Configuration Manager suivants pour surveiller des profils de certificat :  
+ Vous pouvez également utiliser un des rapports de System Center Configuration Manager suivants pour surveiller des profils de certificat :  
 
 -   **Historique des certificats émis par le point d'enregistrement de certificat**  
 
@@ -96,7 +96,7 @@ Les profils de certificat dans System Center Configuration Manager s’intègren
 -   **Liste de biens dont la date d'expiration des certificats approche**  
 
 ## <a name="automatic-revocation-of-certificates"></a>Révocation automatique de certificats  
- System Center Configuration Manager révoque automatiquement les certificats utilisateur et ordinateur qui ont été déployés à l’aide de profils de certificat dans les circonstances suivantes :  
+ System Center Configuration Manager révoque automatiquement les certificats utilisateur et ordinateur qui ont été déployés à l’aide de profils de certificat dans les circonstances suivantes :  
 
 -   L’appareil est mis hors service depuis la gestion de System Center Configuration Manager.  
 
@@ -108,6 +108,6 @@ Les profils de certificat dans System Center Configuration Manager s’intègren
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

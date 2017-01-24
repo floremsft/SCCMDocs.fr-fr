@@ -1,5 +1,5 @@
 ---
-title: "Accessibilité | System Center Configuration Manager"
+title: "Accessibilité | Microsoft Docs"
 description: "Découvrez les fonctionnalités qui rendent System Center Configuration Manager accessible aux personnes en situation de handicap."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: dd5dfb749e101b6fa19ac3c20c110085d3c2416e
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: d238b0d7af7636c08bdfa28974f4c9453d6a415c
 
 ---
 # <a name="accessibility-features-in-system-center-configuration-manager"></a>Fonctionnalités d’accessibilité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  System Center Configuration Manager inclut des fonctionnalités d’accessibilité pour les personnes en situation de handicap.
@@ -48,7 +48,7 @@ ms.openlocfilehash: dd5dfb749e101b6fa19ac3c20c110085d3c2416e
 
 -   Sur une page d'Assistant ou une page de propriétés, vous pouvez vous déplacer entre les zones à l'aide de raccourcis clavier. Appuyez sur la touche Alt et le caractère souligné (Alt+_) pour sélectionner une zone spécifique.  
 
- -  Depuis la version 1606, pour parcourir les différents nœuds d’un espace de travail, entrez la première lettre d’un nom de nœud. Chaque touche déplace le curseur vers le nœud suivant qui commence par cette lettre, et quand vous utilisez un lecteur d’écran, celui-ci lit à haute voix le nom de ce nœud.
+ -  Depuis la version 1606, pour parcourir les différents nœuds d’un espace de travail, entrez la première lettre d’un nom de nœud. Chaque touche déplace le curseur vers le nœud suivant qui commence par cette lettre, et quand vous utilisez un lecteur d’écran, celui-ci lit à haute voix le nom de ce nœud.
 
 > [!NOTE]  
 >  Les informations présentes dans cette section ne s'appliquent qu'aux utilisateurs détenteurs de licences de produits Microsoft aux États-Unis. Si vous avez obtenu ce produit en dehors des États-Unis, vous pouvez utiliser la carte d’information de filiale fournie avec le package logiciel ou consulter le [site web Accessibilité de Microsoft](http://go.microsoft.com/fwlink/?LinkId=8431) pour obtenir la liste des numéros de téléphone et adresses des services de support technique Microsoft. Vous pouvez contacter votre filiale pour établir si les types de produits ou de services présents dans cette section sont disponibles dans votre région. Les informations sur l'accessibilité sont disponibles dans d'autres langues, notamment en japonais et en français.  
@@ -111,6 +111,6 @@ ms.openlocfilehash: dd5dfb749e101b6fa19ac3c20c110085d3c2416e
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

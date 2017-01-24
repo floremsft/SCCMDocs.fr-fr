@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité des profils Wi-Fi et VPN | System Center Configuration Manager"
+title: "Sécurité et confidentialité des profils Wi-Fi et VPN | Microsoft Docs"
 description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils Wi-Fi et VPN des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/19/2016
@@ -17,19 +17,19 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 32dff36aa8027b0563b999e7fe6ef41d0eb79020
-ms.openlocfilehash: b9d70018708ab5932a3032134b03aef236ef9fda
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: fb168e3af33648e06c2c6be77ddd7d0c1f65d95d
 
 
 ---
 # <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils Wi-Fi et VPN dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour les profils Wi-Fi et VPN dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityremoteconnectionsa-security-best-practices-for-wi-fi-and-vpn-profiles"></a><a name="BKMK_Security_RemoteConnections"></a> Bonnes pratiques de sécurité pour les profils Wi-Fi et VPN  
+##  <a name="a-namebkmksecurityremoteconnectionsa-security-best-practices-for-wi-fi--and-vpn-profiles"></a><a name="BKMK_Security_RemoteConnections"></a> Bonnes pratiques de sécurité pour les profils Wi-Fi et VPN  
  Utilisez les bonnes pratiques de sécurité suivantes lorsque vous gérez des profils Wi-Fi et VPN pour des appareils.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  
@@ -45,6 +45,6 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

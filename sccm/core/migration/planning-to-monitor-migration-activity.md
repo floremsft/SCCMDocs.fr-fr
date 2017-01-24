@@ -1,5 +1,5 @@
 ---
-title: Surveiller la migration | System Center Configuration Manager
+title: Surveiller la migration | Microsoft Docs
 description: "Apprenez à surveiller l’avancement et la réussite des tâches de migration à l’aide de la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f8b577366cd2438aed21759e18f034642ceae5e3
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 896807ec2c4be2835094a27add59d4cc09e93add
 
 
 ---
 # <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Planification de la surveillance de la migration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager vous permet de surveiller la migration dans la console Configuration Manager qui se connecte à la hiérarchie de destination. Dans la console Configuration Manager, dans l’espace de travail **Administration**, vous pouvez utiliser le nœud **Migration** pour surveiller l’avancement et la réussite des tâches de migration. Vous pouvez consulter les informations récapitulatives de chaque tâche de migration qui identifie les objets qui ont été migrés, ceux qui n'ont pas encore été migrés et le nombre d'objets qui ont été exclus de la migration. Elles contiennent également des informations sur les problèmes éventuels de migration.  
 
@@ -42,6 +42,6 @@ System Center Configuration Manager vous permet de surveiller la migration dans 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

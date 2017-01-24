@@ -1,5 +1,5 @@
 ---
-title: "Conditions générales de System Center Configuration Manager"
+title: "Conditions générales de System Center Configuration Manager | Microsoft Docs"
 description: "Déployez les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
 caps.latest.revision: 9
-author: NathBarn
-ms.author: nathbarn
+author: mtillman
+ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a7b99bed3186ab8ff817ef5f420d7a55d60b1c14
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 2f8b14bef14d82584fd2bf6cdd05018bdd463ce4
 
 
 ---
 # <a name="terms-and-conditions-in-system-center-configuration-manager"></a>Conditions générales de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez déployer les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs pour expliquer en quoi l’inscription d’appareils, l’accès aux ressources de travail et l’utilisation du Portail d’entreprise affectent les utilisateurs et les appareils. Les utilisateurs doivent accepter les conditions générales avant de pouvoir utiliser le Portail d’entreprise pour s’inscrire et accéder à leur travail.  
 
@@ -38,9 +38,9 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
 3.  Sur la page **Général** , spécifiez informations suivantes :  
 
-    -   **Nom** : nom unique affiché dans la console Configuration Manager.  
+    -   **Nom** : nom unique affiché dans la console Configuration Manager.  
 
-    -   **Description** : détails qui vous aident à identifier les conditions générales dans la console Configuration Manager.  
+    -   **Description** : détails qui vous aident à identifier les conditions générales dans la console Configuration Manager.  
 
      Puis cliquez sur **Suivant**.  
 
@@ -50,7 +50,7 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
     -   **Texte pour les conditions** : conditions générales affichées dans le Portail d’entreprise.  
 
-    -   **Texte expliquant ce que cela signifie si l'utilisateur accepte** : étiquette informant les utilisateurs des conséquence de l'acceptation. **Exemple** : « J’accepte les conditions générales. »  
+    -   **Texte expliquant ce que cela signifie si l'utilisateur accepte** : étiquette informant les utilisateurs des conséquence de l'acceptation. **Exemple** : « J’accepte les conditions générales. »  
 
      Puis cliquez sur **Suivant**.  
 
@@ -89,7 +89,7 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
      Sur l’écran État du déploiement, vous pouvez sélectionner les onglets d’état pour afficher les utilisateurs avec cet état. Vous pouvez cliquer sur **Exécuter le résumé** pour mettre à jour les données dans toute la hiérarchie. Cliquez sur **Actualiser** pour mettre à jour les données dans la console  
 
-## <a name="to-view-a-terms-and-conditions-report"></a>Pour afficher un rapport de conditions générales  
+## <a name="to-view--a-terms-and-conditions-report"></a>Pour afficher un rapport de conditions générales  
 
 1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Reporting** > **Rapport**.  
 
@@ -122,6 +122,6 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

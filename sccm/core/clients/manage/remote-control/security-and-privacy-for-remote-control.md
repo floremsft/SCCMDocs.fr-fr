@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité pour le contrôle à distance | System Center Configuration Manager"
+title: "Sécurité et confidentialité pour le contrôle à distance | Microsoft Docs"
 description: "Obtenez des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9b36c01e6ea3a5e63523b5e32b151c0b972f9877
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 342a58d2b7439f721381beb43188594b5278043d
 
 
 ---
 # <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour le contrôle à distance dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
+Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
 
 ##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-remote-control"></a><a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
  Utilisez les meilleures pratiques de sécurité suivantes lorsque vous gérez des ordinateurs client à l'aide du contrôle à distance.  
@@ -41,7 +41,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 |Activez le profil de pare-feu Windows **Domaine** .|Activez le paramètre client **Activer le contrôle à distance sur les profils d'exception de pare-feu clients** , puis sélectionnez le pare-feu Windows **Domaine** pour les ordinateurs de l'intranet.|  
 |Si vous fermez une session pendant un contrôle à distance et vous connectez en tant qu’utilisateur différent, assurez-vous de fermer la session avant de déconnecter la session de contrôle à distance.|Si vous ne fermez pas la session selon ce scénario, la session reste ouverte.|  
 |N’accordez pas aux utilisateurs des droits d’administrateur local.|Lorsque vous accordez aux utilisateurs des droits d'administrateur local, ils peuvent reprendre votre session de contrôle à distance ou compromettre vos informations d'identification.|  
-|Utilisez une stratégie de groupe ou Configuration Manager pour configurer les paramètres d’assistance à distance, mais pas les deux.|Vous pouvez utiliser Configuration Manager et une stratégie de groupe pour modifier la configuration des paramètres d’assistance à distance. Quand la stratégie de groupe est actualisée sur le client, par défaut, le processus est optimisé en modifiant uniquement les stratégies qui ont été modifiées sur le serveur. Configuration Manager modifie les paramètres de la stratégie de sécurité locale, qui ne peuvent pas être remplacés, sauf si la mise à jour de la stratégie de groupe est imposée.<br /><br /> Définir la stratégie aux deux emplacements peut provoquer des incohérences. Choisissez l'une des méthodes ci-dessous pour configurer vos paramètres d'assistance à distance.|  
+|Utilisez une stratégie de groupe ou Configuration Manager pour configurer les paramètres d’assistance à distance, mais pas les deux.|Vous pouvez utiliser Configuration Manager et une stratégie de groupe pour modifier la configuration des paramètres d’assistance à distance. Quand la stratégie de groupe est actualisée sur le client, par défaut, le processus est optimisé en modifiant uniquement les stratégies qui ont été modifiées sur le serveur. Configuration Manager modifie les paramètres de la stratégie de sécurité locale, qui ne peuvent pas être remplacés, sauf si la mise à jour de la stratégie de groupe est imposée.<br /><br /> Définir la stratégie aux deux emplacements peut provoquer des incohérences. Choisissez l'une des méthodes ci-dessous pour configurer vos paramètres d'assistance à distance.|  
 |Activez le paramètre client **Inviter l’utilisateur à autoriser le contrôle à distance**.|Bien qu'il soit possible de contourner ce paramètre client qui invite un utilisateur à confirmer une session de contrôle à distance, activez ce paramètre afin de réduire le risque d'espionnage des utilisateurs lorsqu'ils travaillent sur des tâches confidentielles.<br /><br /> En outre, apprenez aux utilisateurs à vérifier le nom du compte qui est affiché pendant la session de contrôle à distance et à fermer la session s'ils pensent que le compte n'est pas autorisé.|  
 |Limitez la liste des observateurs autorisés.|Des droits d'administrateur local ne sont pas nécessaires à l'utilisation du contrôle à distance par un utilisateur.|  
 
@@ -65,6 +65,6 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

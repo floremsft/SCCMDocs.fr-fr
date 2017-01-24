@@ -1,5 +1,5 @@
 ---
-title: "Gérer les séquences de tâches pour automatiser des tâches | Configuration Manager"
+title: "Gérer les séquences de tâches pour automatiser des tâches | Microsoft Docs"
 description: "Vous pouvez créer, modifier, déployer, importer et exporter des séquences de tâches pour les gérer dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 04e4e8193d427289a3b84a14efe18511bf5c9731
+ms.sourcegitcommit: d04d28bbd5116a841c0872cf3f9ca18783dddc78
+ms.openlocfilehash: 417b31fa1feb6d0f674f14ef9e5c7cebd7013916
 
 
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez des séquences de tâches pour automatiser des étapes dans votre environnement System Center Configuration Manager. Ces étapes peuvent déployer une image du système d’exploitation sur un ordinateur de destination, créer et capturer une image du système d’exploitation à partir d’un ensemble de fichiers d’installation de système d’exploitation, et capturer et restaurer des informations d’état utilisateur. Les séquences de tâches sont affichées dans la console Configuration Manager, dans **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquence de tâches**. Le nœud **Séquence de tâches**, contenant les sous-dossiers que vous créez, est répliqué dans toute la hiérarchie Configuration Manager. Pour plus d’informations sur la planification, consultez [Considérations relatives à la planification de l’automatisation des tâches](../plan-design/planning-considerations-for-automating-tasks.md).  
 
@@ -45,7 +45,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
  Vous pouvez modifier une séquence de tâches en ajoutant ou en supprimant des étapes ou des groupes de séquence de tâches, ou bien en modifiant l'ordre des étapes. Pour modifier une séquence de tâches existante, procédez comme suit.  
 
 > [!IMPORTANT]  
->  Lorsque vous modifiez une séquence de tâches qui avait été créée à l'aide de l'Assistant Création d'une séquence de tâches, le nom de l'étape peut être l'action de l'étape ou le type de l'étape. Par exemple, vous pouvez voir une étape appelée « Partitionner le disque 0 », qui désigne l’action d’une étape de type [Formater et partitionner le disque](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Toutes les étapes de séquence de tâches sont documentées par leur type, pas nécessairement par le nom de l'étape qui est affichée dans l'éditeur.  
+>  Lorsque vous modifiez une séquence de tâches qui avait été créée à l'aide de l'Assistant Création d'une séquence de tâches, le nom de l'étape peut être l'action de l'étape ou le type de l'étape. Par exemple, vous pouvez voir une étape appelée « Partitionner le disque 0 », qui désigne l’action d’une étape de type [Formater et partitionner le disque](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Toutes les étapes de séquence de tâches sont documentées par leur type, pas nécessairement par le nom de l'étape qui est affichée dans l'éditeur.  
 
 #### <a name="to-edit-a-task-sequence"></a>Pour modifier une séquence de tâches  
 
@@ -132,7 +132,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
         >   
         >  Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois que vous avez déployé la séquence de tâches, l'appartenance du regroupement n'est pas réévaluée pour les paramètres de déploiement à haut risque.  
         >   
-        >  Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
+        >  Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
         >   
         >  Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :  
         >   
@@ -160,7 +160,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
     -   **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application**: cette option n’est pas disponible quand vous déployez une séquence de tâches.  
 
-    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
+    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
         > [!IMPORTANT]  
         >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média, de sorte que l'ordinateur démarre automatiquement le déploiement sans l'intervention de l'utilisateur. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables intégrées de séquence de tâches](../understand/task-sequence-built-in-variables.md)  
@@ -203,13 +203,13 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
     -   **Autoriser les utilisateurs à exécuter le programme indépendamment des attributions**: spécifiez si l’utilisateur est autorisé à exécuter une séquence de tâches obligatoire indépendamment des attributions de déploiement.  
 
-    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
+    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
 
     -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
 
     -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: spécifiez si l’utilisateur est autorisé à redémarrer l’ordinateur après une installation de logiciel en dehors d’une fenêtre de maintenance configurée après l’heure d’attribution.  
 
-    -   **Autoriser la séquence de tâches à s’exécuter pour le client sur Internet** : spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet que Configuration Manager a détecté comme étant sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
+    -   **Autoriser la séquence de tâches à s’exécuter pour le client sur Internet** : spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet que Configuration Manager a détecté comme étant sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
 
 9. Sur la page **Alertes** , spécifiez les paramètres d'alerte que vous souhaitez pour ce déploiement de séquence de tâches, puis cliquez sur **Suivant**.  
 
@@ -236,6 +236,8 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
  Considérez les éléments suivants lorsque vous exportez et importez des séquences de tâches.  
 
 -   Les mots de passe stockés dans la séquence de tâches ne sont pas exportés. Si vous exportez et importez une séquence de tâches qui contient des mots de passe, vous devez modifier la séquence de tâches importée et spécifier de nouveau les mots de passe. Veillez à spécifier des mots de passe pour les actions [Joindre le domaine ou le groupe de travail](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Connexion à un dossier réseau](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)et [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine).  
+
+- Quand vous exportez une séquence de tâches avec l’étape **Définir des variables dynamiques**, aucune valeur n’est exportée pour les variables qui sont configurées avec le paramètre **Valeur secrète**. Vous devez entrer de nouveau les valeurs pour ces variables après avoir importé la séquence de tâches.
 
 -   Quand vous avez plusieurs sites principaux, nous vous recommandons d'importer des séquences de tâches sur le site d'administration centrale.  
 
@@ -302,7 +304,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Vous pouvez masquer les variables par ordinateur et par regroupement pour qu’elles ne soient pas visibles dans la console Configuration Manager. Si vous ne souhaitez plus que ces variables soient masquées, vous devez les supprimer et les redéfinir sans sélectionner l'option pour les masquer. Quand vous utilisez l'option **Ne pas afficher cette valeur dans la console Configuration Manager**, la valeur de la variable n'est pas affichée, mais elle peut encore être utilisée par la séquence de tâches lors de son exécution.  
 
- Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
+ Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
 
 > [!WARNING]  
 >  Lorsque vous utilisez des variables par regroupement pour des séquences de tâches, considérez les éléments suivants :  
@@ -367,6 +369,6 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

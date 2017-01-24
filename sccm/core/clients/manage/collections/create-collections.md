@@ -1,5 +1,5 @@
 ---
-title: "Créer des regroupements | System Center Configuration Manager"
+title: "Créer des regroupements | Microsoft Docs"
 description: "Créez des regroupements dans System Center Configuration Manager pour faciliter la gestion des groupes d’utilisateurs et d’appareils."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f73f0e58b82d1aab1f64f3695dd5c3a61e933d2a
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 5ade6d22e1f04c1528f319e2c2a4b576ac290bd6
 
 
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Guide pratique pour créer des regroupements dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Créez des regroupements dans System Center Configuration Manager pour représenter des groupements logiques d’utilisateurs et d’appareils. Vous pouvez utiliser des regroupements pour effectuer de nombreuses tâches, telles que gérer les applications, déployer des paramètres de compatibilité ou installer des mises à jour logicielles. Vous pouvez également utiliser des regroupements pour gérer des groupes de paramètres client ou les utiliser avec l’administration basée sur les rôles pour définir les ressources auxquelles un utilisateur administratif peut accéder. Configuration Manager contient plusieurs regroupements intégrés. Pour plus d’informations, consultez [Présentation des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
 
@@ -74,11 +74,11 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
             -   **Nom d’attribut**: dans la liste, sélectionnez l’attribut associé à la classe de ressource sélectionnée à rechercher. Par exemple, si vous souhaitez sélectionner des ordinateurs par leur nom NetBIOS, sélectionnez **Ressource Système** dans la liste **Classe de ressource** et **NetBIOS nom** dans la liste **Nom d'attribut** .  
 
-            -   **Exclure les ressources signalées comme obsolètes** : si un ordinateur client est signalé comme obsolète, n’incluez pas cette valeur dans les résultats de recherche.  
+            -   **Exclure les ressources signalées comme obsolètes** : si un ordinateur client est signalé comme obsolète, n’incluez pas cette valeur dans les résultats de recherche.  
 
-            -   **Exclure les ressources sur lesquelles le client Configuration Manager n’est pas installé** : si les résultats de recherche contiennent une ressource sur laquelle le client Configuration Manager n’est pas installé, cette ressource ne figure pas dans les résultats de recherche.  
+            -   **Exclure les ressources sur lesquelles le client Configuration Manager n’est pas installé** : si les résultats de recherche contiennent une ressource sur laquelle le client Configuration Manager n’est pas installé, cette ressource ne figure pas dans les résultats de recherche.  
 
-            -   **Valeur :** entrez une valeur pour laquelle vous voulez rechercher le nom d’attribut sélectionné. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, si vous voulez rechercher les ordinateurs dont le nom NetBIOS commence par « M », entrez **M%** dans ce champ.  
+            -   **Valeur :** entrez une valeur pour laquelle vous voulez rechercher le nom d’attribut sélectionné. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, si vous voulez rechercher les ordinateurs dont le nom NetBIOS commence par « M », entrez **M%** dans ce champ.  
 
         2.  Dans la page **Sélectionner les ressources** de l' **Assistant Création d'une règle d'adhésion directe**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources** et cliquez sur **Suivant**.  
 
@@ -90,11 +90,11 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
             -   **Nom**: spécifiez un nom unique pour la règle de requête.  
 
-            -   **Importer l’instruction de requête** : ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une requête Configuration Manager à utiliser comme règle de requête pour le regroupement. Pour plus d’informations sur la création de ces requêtes et pour obtenir des exemples, consultez [Guide pratique pour créer des requêtes dans System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).  
+            -   **Importer l’instruction de requête** : ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une requête Configuration Manager à utiliser comme règle de requête pour le regroupement. Pour plus d’informations sur la création de ces requêtes et pour obtenir des exemples, consultez [Guide pratique pour créer des requêtes dans System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).  
 
             -   **Classe de ressource :** dans la liste, sélectionnez le type de ressource à rechercher et à ajouter au regroupement. Sélectionnez dans les valeurs **Ressource système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
 
-            -   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+            -   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
         2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de la règle de requête** et enregistrer la règle de requête d'adhésion.  
 
@@ -110,7 +110,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
         2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Sélectionner des regroupements** et enregistrer la règle d'exclusion d'adhésion.  
 
-    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : sélectionnez cette option pour rechercher régulièrement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente et mettre à jour l’appartenance au regroupement avec uniquement ces ressources, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : sélectionnez cette option pour rechercher régulièrement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente et mettre à jour l’appartenance au regroupement avec uniquement ces ressources, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
 
         > [!IMPORTANT]  
         >  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
@@ -130,7 +130,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
         > -   SMS_GH_System_*  
         > -   SMS_GEH_System_*  
 
-    -   **Planifier une mise à jour complète sur ce regroupement** : sélectionnez cette option pour planifier une évaluation complète régulière de l’appartenance au regroupement.  
+    -   **Planifier une mise à jour complète sur ce regroupement** : sélectionnez cette option pour planifier une évaluation complète régulière de l’appartenance au regroupement.  
 
 6.  Terminez l'Assistant pour créer le regroupement. Le nouveau regroupement figure dans le noeud **Regroupements de périphériques** de l'espace de travail **Biens et conformité** .  
 
@@ -179,11 +179,11 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
             -   **Nom**: spécifiez un nom unique pour la règle de requête.  
 
-            -   **Importer l’instruction de requête** : ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une requête Configuration Manager à utiliser comme règle de requête pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+            -   **Importer l’instruction de requête** : ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une requête Configuration Manager à utiliser comme règle de requête pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
             -   **Classe de ressource**: dans la liste, sélectionnez le type de ressource à rechercher et à ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
 
-            -   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+            -   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
         2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de la règle de requête** et enregistrer la règle de requête d'adhésion.  
 
@@ -199,7 +199,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
         2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Sélectionner des regroupements** et enregistrer la règle d'exclusion d'adhésion.  
 
-    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : sélectionnez cette option pour rechercher régulièrement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente et mettre à jour l’appartenance au regroupement avec uniquement ces ressources, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : sélectionnez cette option pour rechercher régulièrement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente et mettre à jour l’appartenance au regroupement avec uniquement ces ressources, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
 
         > [!IMPORTANT]  
         >  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
@@ -219,7 +219,7 @@ Créez des regroupements dans System Center Configuration Manager pour représen
         > -   SMS_GH_System_*  
         > -   SMS_GEH_System_*  
 
-    -   **Planifier une mise à jour complète sur ce regroupement** : sélectionnez cette option pour planifier une évaluation complète régulière de l’appartenance au regroupement.  
+    -   **Planifier une mise à jour complète sur ce regroupement** : sélectionnez cette option pour planifier une évaluation complète régulière de l’appartenance au regroupement.  
 
 6.  Terminez l'Assistant pour créer le regroupement. Le nouveau regroupement figure dans le noeud **Regroupements d'utilisateurs** de l'espace de travail **Biens et conformité** .  
 
@@ -248,6 +248,6 @@ Créez des regroupements dans System Center Configuration Manager pour représen
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

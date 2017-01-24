@@ -1,5 +1,5 @@
 ---
-title: "Créer et appliquer des modes de gestion de l’alimentation | System Center Configuration Manager"
+title: "Créer et appliquer des modes d’alimentation | Microsoft Docs"
 description: "Créez et appliquez des modes de gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 18017c64aa6e6769a1ea0921274d05625e99610d
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: de81da31b524cebe8e820766a64ecc5fdb7e4771
 
 
 ---
 # <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Comment créer et appliquer des modes de gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La gestion de l’alimentation dans System Center Configuration Manager vous permet d’appliquer les modes de gestion de l’alimentation fournis avec Configuration Manager à des regroupements d’ordinateurs de votre hiérarchie, ou de créer vos propres modes de gestion de l’alimentation personnalisés. Procédez comme indiqué dans cette rubrique pour appliquer un mode d'alimentation intégré ou personnalisé aux ordinateurs.  
 
@@ -74,7 +74,7 @@ La gestion de l’alimentation dans System Center Configuration Manager vous per
     > [!NOTE]  
     >  Vous ne pouvez pas modifier les modes d'alimentation intégrés.  
 
-8.  Dans la boîte de dialogue **Propriétés de ***<nom du mode de gestion de l’alimentation\>*, configurez les paramètres suivants :  
+8.  Dans la boîte de dialogue **Propriétés de ***<nom du mode de gestion de l’alimentation\>*, configurez les paramètres suivants :  
 
     -   **Nom** : spécifiez un nom pour ce mode de gestion de l’alimentation ou utilisez la valeur par défaut fournie.  
 
@@ -110,11 +110,11 @@ La gestion de l’alimentation dans System Center Configuration Manager vous per
 |**Action sur batterie critique**|Spécifie l'action qui est effectuée lorsque la batterie de l'ordinateur atteint le niveau de notification de batterie critique spécifié. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Les valeurs possibles incluent **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
 |**Autoriser la veille hybride**|La sélection de la valeur **Activé** ou **Désactivé** spécifie si Windows doit enregistrer un fichier de mise en veille prolongée lors de l’entrée en mode veille, qui peut être utilisé pour restaurer l’état de l’ordinateur en cas de perte d’alimentation alors qu’il est en veille.<br /><br /> La mise en veille hybride est conçue pour les ordinateurs de bureau et, par défaut, n'est pas activée sur les ordinateurs portables. Sur les ordinateurs qui exécutent Windows 7, la mise en veille hybride désactive la fonctionnalité de mise en veille prolongée.|  
 |**Autoriser l'état d'attente lors de l'action de mise en veille**|La sélection de la valeur **Activé** ou **Désactivé** permet à l’ordinateur de se mettre en attente, ce qui consomme toujours du courant, mais permet à l’ordinateur de sortir plus rapidement du mode veille. Si ce paramètre a la valeur **Désactivé**, l’ordinateur peut uniquement être mis en veille prolongée ou mis hors tension.|  
-|**Inactivité requise avant la mise en veille (%)**|Spécifie le pourcentage de temps d'inactivité du temps processeur nécessaire à l'ordinateur pour entrer en mode veille. Sur les ordinateurs qui exécutent Windows 7, cette valeur est toujours définie sur **0**.|  
+|**Inactivité requise avant la mise en veille (%)**|Spécifie le pourcentage de temps d'inactivité du temps processeur nécessaire à l'ordinateur pour entrer en mode veille. Sur les ordinateurs qui exécutent Windows 7, cette valeur est toujours définie sur **0**.|  
 |**Activer le minuteur de réveil Windows pour les ordinateurs de bureau**|La sélection de la valeur **Activer** ou **Désactiver** peut permettre à la gestion de l’alimentation d’utiliser l’horloge Windows intégrée pour sortir un ordinateur de bureau du mode veille. Lorsqu'un ordinateur de bureau quitte le mode veille grâce au minuteur de réveil Windows, il reste actif pendant 10 minutes par défaut afin de laisser le temps à l'ordinateur d'installer toutes les mises à jour ou de recevoir la stratégie.<br /><br /> Les minuteurs de réveil ne sont pas pris en charge sur les ordinateurs portables afin d'éviter les scénarios dans lesquels ils pourraient se mettre en éveil lorsqu'ils ne sont pas branchés.|  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Composants de site | System Center Configuration Manager
+title: Composants de site | Microsoft Docs
 description: "Apprenez à configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a0c2ff2ad2f76e7e769d49674ccf4d3efe6b4f3e
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: e22ffc898dc93f702f13417878aa6050d4cdd4ec
 
 
 ---
 # <a name="site-components-for-system-center-configuration-manager"></a>Composants de site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Sur chaque site System Center Configuration Manager, vous pouvez configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site. Les configurations de composants de site s’appliquent à un site donné et à chaque instance d’un rôle de système de site applicable au niveau de ce site.  
 
@@ -34,7 +34,7 @@ Sur chaque site System Center Configuration Manager, vous pouvez configurer des 
 
 -   **Paramètres de distribution de contenu**  : vous pouvez configurer les paramètres qui modifient la façon dont le serveur de site transfère du contenu vers ses points de distribution. Si vous augmentez les valeurs des paramètres de distribution simultanée, la distribution de contenu risque d’utiliser davantage de bande passante réseau.  
 
--   **Compte d’accès réseau :** pour plus d’informations sur la configuration et l’utilisation du compte d’accès réseau, consultez [Compte d’accès réseau](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA)  
+-   **Compte d’accès réseau :** pour plus d’informations sur la configuration et l’utilisation du compte d’accès réseau, consultez [Compte d’accès réseau](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA)  
 
 **Point de mise à jour logicielle :**  
 
@@ -42,7 +42,7 @@ Sur chaque site System Center Configuration Manager, vous pouvez configurer des 
 
 **Point de gestion :**  
 
--   **Points de gestion :** vous pouvez configurer le site pour publier des informations sur ses points de gestion dans les services de domaine Active Directory.  
+-   **Points de gestion :** vous pouvez configurer le site pour publier des informations sur ses points de gestion dans les services de domaine Active Directory.  
 
      Les clients Configuration Manager utilisent des points de gestion pour l’emplacement du service, pour rechercher des informations sur le site, telles que les appartenances à des groupes de limites et les options de sélection de certificats PKI, mais également pour rechercher d’autres points de gestion du site ainsi que des points de distribution, d’où ils peuvent télécharger des logiciels. Les clients utilisent également les points de gestion pour terminer l'attribution de site et télécharger la stratégie client et leurs informations client.  
 
@@ -52,15 +52,15 @@ Sur chaque site System Center Configuration Manager, vous pouvez configurer des 
 
      Pour obtenir des informations générales sur l’emplacement du service, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   **Publier les points de gestion d’intranet sélectionnés dans DNS :** spécifiez cette option quand des clients sur l’intranet ne trouvent pas de points de gestion à partir des services de domaine Active Directory, mais qu’ils peuvent utiliser un enregistrement de ressource d’emplacement de service DNS (SRV RR) pour trouver un point de gestion dans leur site attribué.  
+-   **Publier les points de gestion d’intranet sélectionnés dans DNS :** spécifiez cette option quand des clients sur l’intranet ne trouvent pas de points de gestion à partir des services de domaine Active Directory, mais qu’ils peuvent utiliser un enregistrement de ressource d’emplacement de service DNS (SRV RR) pour trouver un point de gestion dans leur site attribué.  
 
-    Pour que Configuration Manager puisse publier des points de gestion intranet dans DNS, toutes les conditions suivantes doivent être remplies :  
+    Pour que Configuration Manager puisse publier des points de gestion intranet dans DNS, toutes les conditions suivantes doivent être remplies :  
 
-    -   Vos serveurs DNS ont une version de BIND 8.1.2 ou ultérieure.  
+    -   Vos serveurs DNS ont une version de BIND 8.1.2 ou ultérieure.  
 
     -   Vos serveurs DNS sont configurés pour les mises à jour automatiques et prennent en charge les enregistrements de ressource d'emplacement de service.  
 
-    -   Les noms de domaine complets spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (enregistrements A ou AAA) dans DNS.  
+    -   Les noms de domaine complets spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (enregistrements A ou AAA) dans DNS.  
 
     > [!WARNING]  
     >  Pour que les clients identifient leurs points de gestion publiés dans DNS, vous devez attribuer les clients à un site spécifique (et non utiliser l'attribution automatique de site), et vous devez configurer ces clients pour qu'ils utilisent le code de site avec le suffixe du domaine de leur point de gestion. Pour plus d’informations, consultez [Localisation de points de gestion](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_LocatingMPs) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
@@ -86,11 +86,11 @@ Sur chaque site System Center Configuration Manager, vous pouvez configurer des 
 2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site** , puis sélectionnez le composant de site que vous souhaitez configurer.  
 
 ##  <a name="a-namebkmkservicemgra-use-the-configuration-manager-service-manager-to-manage-site-components"></a><a name="BKMK_ServiceMgr"></a> Utiliser Configuration Manager Service Manager pour gérer les composants de site  
-Vous pouvez utiliser Configuration Manager Service Manager pour contrôler les services Configuration Manager et afficher l’état de tout service ou thread de travail Configuration Manager (collectivement appelés composants Configuration Manager) :  
+Vous pouvez utiliser Configuration Manager Service Manager pour contrôler les services Configuration Manager et afficher l’état de tout service ou thread de travail Configuration Manager (collectivement appelés composants Configuration Manager) :  
 
 -   Les composants Configuration Manager peuvent s’exécuter sur n’importe quel système de site.  
 
--   Ils sont gérés de la même façon que les services dans Windows : vous pouvez les démarrer, les arrêter, les suspendre, les reprendre ou les interroger.  
+-   Ils sont gérés de la même façon que les services dans Windows : vous pouvez les démarrer, les arrêter, les suspendre, les reprendre ou les interroger.  
 
 Un service Configuration Manager s’exécute dès qu’il a une tâche à effectuer (quand un fichier de configuration est enregistré dans la boîte de réception d’un composant, par exemple). Si vous devez identifier le composant impliqué dans une opération, vous pouvez utiliser **Configuration Manager Service Manager** pour agir sur plusieurs services et threads Configuration Manager, puis afficher les effets sur le comportement de Configuration Manager. Vous pouvez par exemple arrêter les services Configuration Manager un par un jusqu’à ce qu’une réponse spécifique disparaisse. Vous pourrez ainsi déterminer le service qui provoque ce comportement.  
 
@@ -117,6 +117,6 @@ Un service Configuration Manager s’exécute dès qu’il a une tâche à effec
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

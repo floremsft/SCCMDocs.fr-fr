@@ -1,5 +1,5 @@
 ---
-title: Communications entre points de terminaison | System Center Configuration Manager
+title: Communications entre points de terminaison | Microsoft Docs
 description: "Découvrez comment les systèmes de site et les composants System Center Configuration Manager communiquent sur un réseau."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bf485456b4d8f0bffe956006b2a8b3dd8c17a5db
+ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
+ms.openlocfilehash: 7ab79fb69188fa5fe6b89b070829ec0f918137b9
 
 
 ---
 # <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Communications entre points de terminaison dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 ##  <a name="a-nameplanningintra-sitecoma-communications-between-site-systems-in-a-site"></a><a name="Planning_Intra-site_Com"></a> Communications entre les systèmes d’un site  
- Quand des systèmes de site ou des composants Configuration Manager communiquent via le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
+ Quand des systèmes de site ou des composants Configuration Manager communiquent via le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
 
 -   SMB (Server Message Block)  
 
@@ -123,9 +123,9 @@ Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site 
 ##  <a name="a-nameplancomx-foresta-communications-across-active-directory-forests"></a><a name="Plan_Com_X-Forest"></a> Communications dans les forêts Active Directory  
 System Center Configuration Manager prend en charge des sites et des hiérarchies qui recouvrent des forêts Active Directory.  
 
-Configuration Manager prend également en charge les ordinateurs de domaine qui ne se trouvent pas dans la même forêt Active Directory que le serveur de site, et les ordinateurs qui se trouvent dans des groupes de travail :  
+Configuration Manager prend également en charge les ordinateurs de domaine qui ne se trouvent pas dans la même forêt Active Directory que le serveur de site, et les ordinateurs qui se trouvent dans des groupes de travail :  
 
--   **Pour prendre en charge des ordinateurs de domaine situés dans une forêt qui n’est pas approuvée par la forêt de votre serveur de site**, vous pouvez procéder comme suit :  
+-   **Pour prendre en charge des ordinateurs de domaine situés dans une forêt qui n’est pas approuvée par la forêt de votre serveur de site**, vous pouvez procéder comme suit :  
 
     -   Installez des rôles de système de site dans cette forêt non approuvée, en activant l’option de publication des informations de site dans cette forêt Active Directory.  
 
@@ -148,7 +148,7 @@ Configuration Manager prend également en charge les ordinateurs de domaine qui 
 
     -   [Gérer les conflits d’enregistrement pour les clients Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
 
-    -   [Compte d’accès réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#bkmk_NAA)  
+    -   [Compte d’accès réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
 
     -   [Installer des clients Configuration Manager sur des ordinateurs de groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
 
@@ -170,7 +170,7 @@ Une fois que le site a installé et lancé avec succès les transferts basés su
 
 **Lorsqu’une approbation de forêt bidirectionnelle existe, Configuration Manager ne nécessite aucune étape de configuration supplémentaire.**  
 
-Par défaut, lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager configure les éléments suivants :  
+Par défaut, lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager configure les éléments suivants :  
 
 -   Un itinéraire de réplication de fichiers intersite sur chaque site qui utilise le compte d’ordinateur du serveur de site. Configuration Manager ajoute le compte d’ordinateur de chaque ordinateur au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** sur l’ordinateur de destination.  
 
@@ -238,7 +238,7 @@ Lorsque vous planifiez des rôles de système de site dans d'autres forêts, ten
 -   Lorsque le point de gestion basé sur Internet approuve la forêt contenant les comptes d'utilisateur, les stratégies utilisateur sont prises en charge. Lorsqu'il n'existe aucune relation d'approbation, seules les stratégies d'ordinateur sont prises en charge.  
 
 #### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Communication entre les clients et les rôles de système de site quand les clients ne se trouvent pas dans la même forêt Active Directory que leur serveur de site  
-Configuration Manager prend en charge les scénarios suivants pour les clients qui ne se trouvent pas dans la même forêt que le serveur de site de leur site :  
+Configuration Manager prend en charge les scénarios suivants pour les clients qui ne se trouvent pas dans la même forêt que le serveur de site de leur site :  
 
 -   il existe une relation d'approbation de forêt bidirectionnelle entre la forêt du client et celle du serveur du site  
 
@@ -261,6 +261,6 @@ Pour prendre en charge ce scénario, assurez-vous que la résolution de noms fon
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

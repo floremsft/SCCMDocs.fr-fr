@@ -1,5 +1,5 @@
 ---
-title: "Préparer un déploiement de système d’exploitation | Configuration Manager"
+title: "Préparer un déploiement de système d’exploitation | Microsoft Docs"
 description: "Lisez ces articles pour en savoir plus sur ce que vous devez faire dans Configuration Manager pour préparer les déploiements de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 7717b01f73f0403e24d8d192c09a5038a5733981
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: dcc35f39b6ece8b466fc3770c6b9f304180eb42a
 
 
 ---
 # <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Préparer un déploiement de système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous devez effectuer plusieurs opérations dans Configuration Manager avant de pouvoir déployer des systèmes d’exploitation. Utilisez les rubriques suivantes pour préparer un déploiement de système d’exploitation :  
 
@@ -43,6 +43,6 @@ Vous devez effectuer plusieurs opérations dans Configuration Manager avant de p
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

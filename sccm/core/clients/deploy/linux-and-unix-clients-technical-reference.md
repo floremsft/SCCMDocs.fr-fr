@@ -1,5 +1,5 @@
 ---
-title: Services de composants et leurs commandes sur des clients UNIX/Linux | System Center Configuration Manager
+title: Services de composants et leurs commandes sur des clients UNIX/Linux | Microsoft Docs
 description: En savoir plus sur les services de composants et leurs commandes sur des clients Linux et UNIX dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e5a8c79f-5791-49c5-8055-086d742e5559
 caps.latest.revision: 6
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 92ce5cadc1303fea9dbf828d22fa80e837583e32
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 4a10d3a59aa6417857abc163dd5416f167049f65
 
 
 ---
 # <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>Services de composants et leurs commandes sur des clients Linux et UNIX pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Le tableau ci-dessous identifie les services de composants clients du client Configuration Manager pour Linux et UNIX.  
@@ -46,6 +46,6 @@ ms.openlocfilehash: 92ce5cadc1303fea9dbf828d22fa80e837583e32
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

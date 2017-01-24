@@ -1,5 +1,5 @@
 ---
-title: "Tâches courantes de gestion de la conformité des appareils sur les appareils n’exécutant pas le client System Center Configuration Manager | System Center Configuration Manager"
+title: "Tâches courantes de gestion de la compatibilité des appareils sur les appareils n’exécutant pas le client System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f69250fbe51ea8902a0446a613d66be390ea7434
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: e24ef149e2a2648c9a7acaedfaa8f0b5bb173ab3
 
 
 ---
 # <a name="common-tasks-for-managing-compliance-on-devices-not-running-the-system-center-configuration-manager-client"></a>Tâches courantes de gestion de la conformité des appareils sur les appareils n’exécutant pas le client System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
 
@@ -51,7 +51,7 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
 1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows 8.1 et Windows 10** , puis cliquez sur **Suivant**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes Windows 10.  
+2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes Windows 10.  
 
 3.  Dans la page **Paramètres du périphérique** , sélectionnez **Boutique**, puis cliquez sur **Suivant**.  
 
@@ -70,7 +70,7 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
 1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows Phone** , puis cliquez sur **Suivant**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes **Tout Windows Phone 8.1**.  
+2.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes **Tout Windows Phone 8.1**.  
 
 3.  Dans la page **Paramètres du périphérique** , sélectionnez **Périphérique**, puis cliquez sur **Suivant**.  
 
@@ -101,14 +101,14 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
  Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
 
-## <a name="scenarios-for-android-and-samsung-knox-devices-managed-without-the-configuration-manager-client"></a>Scénarios pour les appareils Android et Samsung KNOX gérés sans le client Configuration Manager  
+## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-without-the-configuration-manager-client"></a>Scénarios pour les appareils Android et Samsung KNOX Standard gérés sans le client Configuration Manager  
 
 ### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Scénario : exiger un mot de passe sur tous les appareils Android 5  
  Dans ce scénario, vous allez créer un élément de configuration uniquement pour les appareils Android 5 qui exige des utilisateurs qu’ils configurent un mot de passe d’au moins six caractères sur leurs appareils. De plus, si un utilisateur entre un mot de passe incorrect à cinq reprises, l’appareil sera effacé.  
 
 1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Android et Samsung KNOX** , puis cliquez sur **Suivant**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez uniquement **Android 5** (pour que les paramètres soient appliqués uniquement à cette plateforme).  
+2.  Dans la page **Plateformes prises en charge**, sélectionnez uniquement **Android 5** (pour que les paramètres soient appliqués uniquement à cette plateforme).  
 
 3.  Dans la page **Paramètres du périphérique** , sélectionnez **Mot de passe**, puis cliquez sur **Suivant**.  
 
@@ -126,7 +126,6 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
 
 
-
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

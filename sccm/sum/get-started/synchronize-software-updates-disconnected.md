@@ -1,6 +1,6 @@
 ---
 
-title: "Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté | Configuration Manager"
+title: "Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté | Microsoft Docs"
 description: "Les procédures ci-dessous visent à vérifier que la synchronisation des mises à jour logicielles à abouti sur le serveur d’exportation, à exporter les mises à jour et à importer les métadonnées de mises à jour."
 keywords: 
 author: dougeby
@@ -14,8 +14,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f821433d017f2e14f874eca359df0f38e896ab69
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 73a54ddb896bfa7fb770e02d188a262230762c7f
 
 
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: f821433d017f2e14f874eca359df0f38e896ab69
 
 # <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
  Quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d'Internet, vous devez utiliser les fonctions d'exportation et d'importation de l'outil WSUSUtil pour synchroniser les métadonnées des mises à jour logicielles. Vous pouvez choisir un serveur WSUS existant qui ne fait pas partie de votre hiérarchie Configuration Manager en tant que source de synchronisation. Cette rubrique fournit des informations sur l’utilisation des fonctions d’exportation et d’importation de l’outil WSUSUtil.  
 
@@ -111,6 +111,6 @@ Après avoir synchronisé les mises à jour logicielles avec les critères dont 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

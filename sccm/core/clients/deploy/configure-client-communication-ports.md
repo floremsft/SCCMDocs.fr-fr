@@ -1,5 +1,5 @@
 ---
-title: Configurer les ports de communication des clients | System Center Configuration Manager
+title: Configurer les ports de communication des clients | Microsoft Docs
 description: Configurez les ports de communication des clients dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.assetid: 406bbdbf-ab4a-4121-a68b-154f96ea14ec
 caps.latest.revision: 5
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a9eb4b84d2d6573155df26e18ebd2e136f4380c4
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 12e7b8e96dc29a97dc9f81b43618fd7d0faeb1bb
 
 
 ---
 # <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Comment configurer les ports de communication des clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez modifier les numéros des ports de demande utilisés par les clients System Center Configuration Manager pour communiquer avec les systèmes de site qui utilisent des protocoles HTTP et HTTPS pour les communications. Même si les protocoles HTTP ou HTTPS sont sans doute déjà configurés pour les pare-feu, une notification de client utilisant le protocole HTTP ou HTTPS consomme plus de ressources processeur et de mémoire sur l'ordinateur du point de gestion qu'en utilisant un numéro de port personnalisé. Vous pouvez également spécifier le numéro de port de site à utiliser si vous réveillez les clients à l'aide de paquets de réveil traditionnels.  
 
@@ -78,6 +78,6 @@ Vous pouvez modifier les numéros des ports de demande utilisés par les clients
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

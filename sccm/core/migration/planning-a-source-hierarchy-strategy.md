@@ -1,5 +1,5 @@
 ---
-title: "Stratégie de hiérarchie source | System Center Configuration Manager"
+title: "Stratégie de hiérarchie source | Microsoft Docs"
 description: "Configurez une hiérarchie source et collectez les données d’un site source avant de configurer une tâche de migration System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 11ab1dc90c3e26b159346693b8e85a182219daf4
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 39f258ac271bec53b9a2cb2c8bb376ef5ba23e11
 
 
 ---
 # <a name="planning-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de configurer une tâche de migration dans votre environnement System Center Configuration Manager, vous devez configurer une hiérarchie source et collecter des données depuis au moins un site source de cette hiérarchie. Servez-vous des sections suivantes pour planifier la configuration de hiérarchies sources et de sites sources, ainsi que pour déterminer la manière dont Configuration Manager collecte les informations depuis les sites sources de la hiérarchie source.  
 
@@ -37,9 +37,9 @@ Avant de configurer une tâche de migration dans votre environnement System Cent
 ##  <a name="a-namebkmksourcehierarchiesa-source-hierarchies"></a><a name="BKMK_Source_Hierarchies"></a> Hiérarchies sources  
 Une hiérarchie source est une hiérarchie Configuration Manager qui contient les données à migrer. Lorsque vous configurez la migration et spécifiez une hiérarchie source, vous spécifiez le site de niveau supérieur de cette hiérarchie. Ce site est également appelé un site source. Les sites supplémentaires à partir desquels vous pouvez migrer des données dans la hiérarchie source sont également appelés des sites sources :  
 
--   Quand vous configurez une tâche de migration pour migrer des données depuis une hiérarchie source Configuration Manager 2007, vous la configurez pour migrer les données d’un ou de plusieurs sites sources spécifiques de la hiérarchie source.  
+-   Quand vous configurez une tâche de migration pour migrer des données depuis une hiérarchie source Configuration Manager 2007, vous la configurez pour migrer les données d’un ou de plusieurs sites sources spécifiques de la hiérarchie source.  
 
--   Quand vous configurez une tâche de migration pour migrer les données d’une hiérarchie source qui exécute System Center 2012 Configuration Manager ou une version ultérieure, vous devez uniquement spécifier le site de niveau supérieur.  
+-   Quand vous configurez une tâche de migration pour migrer les données d’une hiérarchie source qui exécute System Center 2012 Configuration Manager ou une version ultérieure, vous devez uniquement spécifier le site de niveau supérieur.  
 
 Vous pouvez configurer une seule hiérarchie source à la fois :  
 
@@ -51,7 +51,7 @@ Vous pouvez configurer une seule hiérarchie source à la fois :
 
 -   Dans le cadre du processus de collecte des données, les sites enfants de la hiérarchie source sont identifiés.  
 
--   Si la hiérarchie source est une hiérarchie Configuration Manager 2007, vous pouvez ensuite configurer ces sites supplémentaires en tant que sites sources, avec des informations d’identification distinctes pour chaque site source.  
+-   Si la hiérarchie source est une hiérarchie Configuration Manager 2007, vous pouvez ensuite configurer ces sites supplémentaires en tant que sites sources, avec des informations d’identification distinctes pour chaque site source.  
 
 Même si vous pouvez configurer plusieurs hiérarchies sources successivement, la migration est active pour une seule hiérarchie source à la fois :  
 
@@ -68,23 +68,23 @@ Si vous restaurez une hiérarchie source inactive et que vous n'avez pas exécut
 
 Pour plus d’informations sur la configuration d’une hiérarchie source, consultez [Configuration des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
 
-##  <a name="a-namebkmksourcesitesa-source-sites"></a><a name="BKMK_Source_Sites"></a> Sites sources  
+##  <a name="a-namebkmksourcesitesa-source-sites"></a><a name="BKMK_Source_Sites"></a> Sites source  
  Les sites source sont des sites dans la hiérarchie source qui contiennent des données à migrer. Le site de niveau supérieur de la hiérarchie source est toujours le premier site source. Lorsque la migration collecte des données à partir du premier site source d'une nouvelle hiérarchie source, elle découvre des informations à propos des sites supplémentaires dans cette hiérarchie.  
 
  À la fin de la collecte de données du site source initial, les actions suivantes que vous effectuez dépendent de la version du produit de la hiérarchie source.  
 
 ### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Sites sources exécutant Configuration Manager 2007 SP2  
- Une fois les données collectées à partir du site source initial de la hiérarchie Configuration Manager 2007 SP2, vous n’avez pas à configurer de sites sources supplémentaires pour créer des tâches de migration. Toutefois, pour pouvoir migrer les données à partir de sites supplémentaires, vous devez configurer les sites supplémentaires en tant que sites sources, et System Center Configuration Manager doit collecter correctement les données depuis ces sites.  
+ Une fois les données collectées à partir du site source initial de la hiérarchie Configuration Manager 2007 SP2, vous n’avez pas à configurer de sites sources supplémentaires pour créer des tâches de migration. Toutefois, pour pouvoir migrer les données à partir de sites supplémentaires, vous devez configurer les sites supplémentaires en tant que sites sources, et System Center Configuration Manager doit collecter correctement les données depuis ces sites.  
 
  Pour collecter des données depuis des sites supplémentaires, vous devez configurer individuellement chaque site comme site source. Vous devez définir les informations d’identification pour la connexion de System Center Configuration Manager au fournisseur SMS et à la base de données de site de chaque site source. Après avoir configuré les informations d'identification d'un site source, le processus de collecte de données commence pour ce site.  
 
- Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 SP2, vous devez configurer les sites sources du haut vers le bas, ce qui signifie que vous configurez les sites de niveau inférieur en dernier. Vous pouvez configurer des sites source ans une branche de la hiérarchie à tout moment, mais vous devez configurer un site comme site source pour pouvoir configurer ses sites enfant comme sites source.  
+ Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 SP2, vous devez configurer les sites sources du haut vers le bas, ce qui signifie que vous configurez les sites de niveau inférieur en dernier. Vous pouvez configurer des sites source ans une branche de la hiérarchie à tout moment, mais vous devez configurer un site comme site source pour pouvoir configurer ses sites enfant comme sites source.  
 
 > [!NOTE]  
->  Seuls les sites principaux d’une hiérarchie Configuration Manager 2007 SP2 sont pris en charge pour la migration.  
+>  Seuls les sites principaux d’une hiérarchie Configuration Manager 2007 SP2 sont pris en charge pour la migration.  
 
 ### <a name="source-sites-that-run-system-center-2012-configuration-or-later"></a>Sites sources exécutant System Center 2012 Configuration Manager ou version ultérieure  
- Une fois les données collectées à partir du site source initial de la hiérarchie System Center 2012 Configuration Manager ou une version ultérieure, vous n’avez pas à configurer de sites sources supplémentaires dans cette hiérarchie source. En effet, contrairement à Configuration Manager 2007, ces versions de Configuration Manager utilisent une base de données partagée qui vous permet d’identifier, puis de migrer tous les objets disponibles à partir du site source initial.  
+ Une fois les données collectées à partir du site source initial de la hiérarchie System Center 2012 Configuration Manager ou une version ultérieure, vous n’avez pas à configurer de sites sources supplémentaires dans cette hiérarchie source. En effet, contrairement à Configuration Manager 2007, ces versions de Configuration Manager utilisent une base de données partagée qui vous permet d’identifier, puis de migrer tous les objets disponibles à partir du site source initial.  
 
  Toutefois, lorsque vous configurez les comptes d'accès pour collecter des données, il peut être nécessaire d'accorder l'accès **Compte fournisseur SMS du site source** à plusieurs ordinateurs de la hiérarchie source. Cela peut être nécessaire lorsque le site source prend en charge plusieurs instances du fournisseur SMS, chacune sur un ordinateur différent. Lorsque la collecte des données commence, le site de niveau supérieur de la hiérarchie de destination contacte le site de niveau supérieur de la hiérarchie source pour identifier les emplacements du fournisseur SMS de ce site. Seule la première instance du fournisseur SMS est identifiée. Si le processus de collecte des données ne peut pas accéder au fournisseur SMS à l'emplacement identifié, le processus échoue et ne tente pas de se connecter à d'autres ordinateurs qui exécutent une instance du fournisseur SMS pour le site.  
 
@@ -116,6 +116,6 @@ Pour plus d’informations sur la configuration d’une hiérarchie source, cons
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

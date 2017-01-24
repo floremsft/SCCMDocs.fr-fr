@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques pour les rapports | System Center Configuration Manager
+title: "Bonnes pratiques pour la création de rapports | Microsoft Docs"
 description: "Lire des conseils utiles sur l’utilisation de la fonction de rapport de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fae72b0455b53923aaf93b5b53afb562bedc2eca
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 759258999f3eaa810803a6a7f856f00fe7771a9e
 
 
 ---
 # <a name="best-practices-for-reporting-in-system-center-configuration-manager"></a>Pratiques recommandées pour la création de rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez les bonnes pratiques suivantes pour les rapports dans System Center Configuration Manager :  
+Utilisez les bonnes pratiques suivantes pour les rapports dans System Center Configuration Manager :  
 
 ## <a name="for-best-performance-install-the-reporting-services-point-on-a-remote-site-system-server"></a>Pour des performances optimales, installez le point de Reporting Services sur un serveur de système de site distant  
  Même si vous pouvez installer le point de Reporting Services sur le serveur de site ou sur un système de site distant, la performance est meilleure lorsque vous installez le point de Reporting Services sur un serveur de système de site distant.  
@@ -42,6 +42,6 @@ Utilisez les bonnes pratiques suivantes pour les rapports dans System Center Con
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

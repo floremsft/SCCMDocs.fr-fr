@@ -1,5 +1,5 @@
 ---
-title: Installer des consoles | System Center Configuration Manager
+title: Installer des consoles | Microsoft Docs
 description: "Découvrez comment installer des consoles Configuration Manager pour vous connecter à un site d’administration centrale ou à un site principal."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1483e35a397667a340605c0454c1835ec6067d9e
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: e3bc8341b384be975098d1b9d7824ef117a47ccb
 
 ---
 # <a name="install-system-center-configuration-manager-consoles"></a>Installer des consoles System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Les utilisateurs administratifs se servent de la console System Center Configuration Manager pour gérer l’environnement Configuration Manager. Vous pouvez connecter une console Configuration Manager à un site d’administration centrale ou à un site principal, mais pas à un site secondaire.
@@ -37,7 +37,7 @@ Les utilisateurs administratifs se servent de la console System Center Configura
 
 ## <a name="to-install-a-configuration-manager-console"></a>Pour installer une console Configuration Manager  
 
-1.  Vérifiez que l’utilisateur administratif qui va exécuter l’application de la console Configuration Manager possède les droits de sécurité suivants :  
+1.  Vérifiez que l’utilisateur administratif qui va exécuter l’application de la console Configuration Manager possède les droits de sécurité suivants :  
 
     -   Droits d’**administrateur local** sur l’ordinateur sur lequel exécuter la console.  
 
@@ -69,7 +69,7 @@ Les utilisateurs administratifs se servent de la console System Center Configura
 
 ## <a name="to-install-a-configuration-manager-console-from-a-command-prompt"></a>Pour installer une console Configuration Manager à partir d'une invite de commandes  
 
-1.  Sur le serveur à partir duquel vous installez la console Configuration Manager, ouvrez une fenêtre d’invite de commandes et accédez à l’un des emplacements suivants :  
+1.  Sur le serveur à partir duquel vous installez la console Configuration Manager, ouvrez une fenêtre d’invite de commandes et accédez à l’un des emplacements suivants :  
 
     -   **&lt;Chemin_installation_serveur_de_site_ConfigMgr\>\Tools\ConsoleSetup**  
 
@@ -90,7 +90,7 @@ Les utilisateurs administratifs se servent de la console System Center Configura
   |DefaultSiteServerName|Spécifie le nom de domaine complet du serveur de site auquel la console se connecte à son ouverture. Vous devez spécifier cette option lorsque vous utilisez l’option **/q** .|  
 
 
-  **Exemples d’utilisation** :  
+  **Exemples d’utilisation** :  
   -  **consolesetup.exe /q TargetDir="D:\Program Files\ConfigMgr" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
 
   -  **consolesetup.exe /q LangPackDir=C:\Downloads\ConfigMgr TargetDir="D:\Program Files\ConfigMgr" Console EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
@@ -99,6 +99,6 @@ Les utilisateurs administratifs se servent de la console System Center Configura
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gérer les pilotes | Configuration Manager"
+title: "Gérer les pilotes | Microsoft Docs"
 description: "Le catalogue de pilotes Configuration Manager permet d’importer des pilotes de périphérique, de les regrouper dans des packages et de distribuer ces packages à des points de distribution."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 82cddeb0f2f5210f8bf246b0c757e15815f78669
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 361a18b7da8249fc6cccc333f39313a52dd8ab88
 
 
 ---
 # <a name="manage-drivers-in-system-center-configuration-manager"></a>Gérer les pilotes dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 System Center Configuration Manager propose un catalogue de pilotes qui permet de gérer les pilotes de périphérique Windows dans l’environnement Configuration Manager. Vous pouvez utiliser le catalogue de pilotes pour importer des pilotes de périphérique dans Configuration Manager, les regrouper dans des packages et distribuer ces packages à des points de distribution accessibles pendant le déploiement d’un système d’exploitation. Des pilotes de périphérique peuvent être utilisés lorsque vous installez le système d'exploitation complet sur l'ordinateur de destination et lorsque vous installez Windows PE à l'aide d'une image de démarrage. Les pilotes de périphérique Windows sont composés d'un fichier d'informations d'installation (INF) et de tous les autres fichiers nécessaires à la prise en charge du périphérique. À cette occasion, Configuration Manager obtient les informations matérielles et de plateforme du périphérique à partir de son fichier INF. Pour gérer les pilotes dans votre environnement Configuration Manager, aidez-vous des sections suivantes.
 
@@ -119,7 +119,7 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
     -   **Importer un pilote spécifique**: pour importer un pilote spécifique à partir d’un dossier, spécifiez le chemin réseau (UNC) vers le fichier .INF du pilote de périphérique Windows ou le fichier Txtsetup.oem de stockage de masse du pilote.  
 
-    -   **Spécifier l’option pour les pilotes dupliqués** : indiquez comment vous voulez que Configuration Manager gère les catégories de pilotes pendant l’importation d’un pilote de périphérique en double.  
+    -   **Spécifier l’option pour les pilotes dupliqués** : indiquez comment vous voulez que Configuration Manager gère les catégories de pilotes pendant l’importation d’un pilote de périphérique en double.  
 
     > [!IMPORTANT]  
     >  Lorsque vous importez des pilotes, le serveur de site doit disposer de l'autorisation **Lecture** pour le dossier, sinon l'importation échoue.  
@@ -198,7 +198,7 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
  Pour ajouter ou supprimer des pilotes de périphérique dans une image de démarrage, procédez comme suit :  
 
-#### <a name="to-modify-the-device-drivers-associated-with-a-boot-image"></a>Pour modifier les pilotes de périphérique associés à une image de démarrage  
+#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Pour modifier les pilotes de périphérique associés à une image de démarrage  
 
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
@@ -243,9 +243,9 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 ##  <a name="a-namebkmktsdriversa-use-task-sequences-to-install-device-drivers"></a><a name="BKMK_TSDrivers"></a> Utiliser des séquences de tâches pour installer des pilotes de périphérique  
  Utilisez des séquences de tâches pour automatiser le déploiement du système d'exploitation. Chaque étape de la séquence de tâches peut exécuter une action spécifique, telle que l'installation d'un pilote de périphérique. Vous pouvez utiliser les étapes de séquence de tâches suivantes pour installer les pilotes de périphériques pendant que vous déployez des systèmes d'exploitation :  
 
--   [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) : cette étape permet de faire correspondre et d’installer automatiquement des pilotes de périphérique pendant le déploiement d’un système d’exploitation. Vous pouvez configurer l'étape de la séquence de tâches de sorte que seul le meilleur pilote correspondant pour chaque périphérique matériel détecté soit installé ou bien spécifier que l'étape de la séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et laisser ensuite le programme d'installation Windows choisir le pilote le mieux adapté. En outre, vous pouvez spécifier une catégorie de pilotes de périphérique pour limiter les pilotes qui sont disponibles pour cette étape.  
+-   [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) : cette étape permet de faire correspondre et d’installer automatiquement des pilotes de périphérique pendant le déploiement d’un système d’exploitation. Vous pouvez configurer l'étape de la séquence de tâches de sorte que seul le meilleur pilote correspondant pour chaque périphérique matériel détecté soit installé ou bien spécifier que l'étape de la séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et laisser ensuite le programme d'installation Windows choisir le pilote le mieux adapté. En outre, vous pouvez spécifier une catégorie de pilotes de périphérique pour limiter les pilotes qui sont disponibles pour cette étape.  
 
--   [Appliquer le package de pilotes](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage) : cette étape permet de mettre tous les pilotes de périphérique contenus dans un package de pilotes spécifique à la disposition du programme d’installation de Windows. Dans les packages de pilotes spécifiés, le programme d'installation de Windows recherche les pilotes de périphérique qui sont nécessaires. Quand vous créez un média autonome, vous devez utiliser cette étape pour installer les pilotes de périphérique.  
+-   [Appliquer le package de pilotes](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage) : cette étape permet de mettre tous les pilotes de périphérique contenus dans un package de pilotes spécifique à la disposition du programme d’installation de Windows. Dans les packages de pilotes spécifiés, le programme d'installation de Windows recherche les pilotes de périphérique qui sont nécessaires. Quand vous créez un média autonome, vous devez utiliser cette étape pour installer les pilotes de périphérique.  
 
  Lorsque vous utilisez ces étapes de séquence de tâches, vous pouvez également spécifier la manière dont les pilotes de périphérique sont installés sur l'ordinateur où vous déployez le système d'exploitation. Pour plus d’informations, consultez [Gérer les séquences de tâches pour automatiser des tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
@@ -278,6 +278,6 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

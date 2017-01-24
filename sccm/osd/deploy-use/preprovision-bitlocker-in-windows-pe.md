@@ -1,5 +1,5 @@
 ---
-title: "Préconfigurer BitLocker dans Windows PE | Configuration Manager"
+title: "Préconfigurer BitLocker dans Windows PE | Microsoft Docs"
 description: "La tâche Préconfigurer BitLocker dans Configuration Manager permet d’activer BitLocker à partir de l’environnement de préinstallation Windows (WinPE) avant le déploiement du système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f047e4a7c9325e0f8662b4f567529fd439c76b0c
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: baca498dbc5b8e168852aa3c18ee23a9c483e69c
 
 
 ---
 # <a name="preprovision-bitlocker-in-windows-pe-with-system-center-configuration-manager"></a>Préconfigurer BitLocker dans Windows PE avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 L’étape de séquence de tâches **Préconfigurer BitLocker** dans System Center Configuration Manager vous permet d’activer BitLocker depuis l’environnement de préinstallation Windows (WinPE) préalablement au déploiement du système d’exploitation. Seul l'espace disque utilisé étant chiffré, l'opération de chiffrement est beaucoup plus rapide. Un protecteur clair généré de manière aléatoire est appliqué au volume mis en forme et le volume est chiffré avant l'exécution du processus d'installation de Windows. La possibilité de préconfigurer BitLocker est une nouveauté de Windows 8 et Windows Server 2012. Toutefois, vous pouvez préconfigurer BitLocker sur un disque dur et installer Windows 7, tant que vous suivez les étapes spécifiques. Une fois le programme d'installation de Windows 7 terminé, vous devez définir un protecteur de clé BitLocker car le panneau de configuration BitLocker de Windows 7 ne gère pas BitLocker avec un protecteur clair. Vous devez ajouter un protecteur de clé à l'aide de l'étape **Activer BitLocker** ou en utilisant l'outil de ligne de commande manage-bde.exe.  
 
@@ -33,7 +33,7 @@ L’étape de séquence de tâches **Préconfigurer BitLocker** dans System Cent
 -   Redémarrer l'ordinateur dans Windows PE  
 
     > [!IMPORTANT]  
-    >  Vous devez utiliser une image de démarrage avec Windows PE 4 ou une version ultérieure pour préconfigurer BitLocker. Pour plus d’informations sur les versions de Windows PE prises en charge, consultez [Dépendances externes à Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
+    >  Vous devez utiliser une image de démarrage avec Windows PE 4 ou une version ultérieure pour préconfigurer BitLocker. Pour plus d’informations sur les versions de Windows PE prises en charge, consultez [Dépendances externes à Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
 
 -   Partitionner et formater le disque dur  
 
@@ -43,7 +43,7 @@ L’étape de séquence de tâches **Préconfigurer BitLocker** dans System Cent
 
 -   Ajouter un protecteur de clé BitLocker  
 
- Dans Configuration Manager, la méthode recommandée pour préconfigurer BitLocker sur un disque dur et installer Windows 7 consiste à créer une séquence de tâches et de sélectionner **Installer un package d’images existant** dans la page **Créer une nouvelle séquence de tâches** de l’**Assistant Création d’une séquence de tâches**. L'Assistant crée les étapes de séquence de tâches répertoriées dans le tableau suivant.  
+ Dans Configuration Manager, la méthode recommandée pour préconfigurer BitLocker sur un disque dur et installer Windows 7 consiste à créer une séquence de tâches et de sélectionner **Installer un package d’images existant** dans la page **Créer une nouvelle séquence de tâches** de l’**Assistant Création d’une séquence de tâches**. L'Assistant crée les étapes de séquence de tâches répertoriées dans le tableau suivant.  
 
 > [!NOTE]  
 >  La séquence de tâches peut contenir des étapes supplémentaires en fonction de la façon dont vous avez configuré les paramètres dans l'Assistant. Par exemple, l'étape **Capturer les paramètres Windows** peut être incluse si vous avez sélectionné **Paramètres Microsoft Windows capturés** sur la page **Migration de l'état** de l'Assistant.  
@@ -63,6 +63,6 @@ L’étape de séquence de tâches **Préconfigurer BitLocker** dans System Cent
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

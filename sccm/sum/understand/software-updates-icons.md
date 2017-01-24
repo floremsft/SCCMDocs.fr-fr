@@ -1,5 +1,5 @@
 ---
-title: "Icônes utilisées pour les mises à jour logicielles | Configuration Manager"
+title: "Icônes utilisées pour les mises à jour logicielles | Microsoft Docs"
 description: "La console Configuration Manager contient des icônes qui indiquent un état pour la mise à jour ou le groupe de mises à jour logicielles synchronisés."
 keywords: 
 author: dougeby
@@ -13,14 +13,14 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 63c5ef72-5715-4d86-85a2-71beba469fab
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 48b0296809400805bdba9e6ebd163a0c39b37968
+ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
+ms.openlocfilehash: 04c5ccc53263b2672096b564695a636bfb28d952
 
 
 ---
 # <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Icônes utilisées pour les mises à jour logicielles dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les mises à jour logicielles synchronisées sont affichées dans la console Configuration Manager, où la première colonne de chaque mise à jour logicielle contient une icône indiquant un état spécifique. Les groupes de mises à jour logicielles sont également représentés par une icône qui fournit des informations sur l’état des mises à jour logicielles contenues dans chaque groupe. Cette section fournit des informations sur les icônes des mises à jour logicielles et sur la signification de chaque icône.  
 
@@ -28,7 +28,7 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Les mises à jour logicielles synchronisées sont représentées par une des icônes suivantes.  
 
 ### <a name="normal-icon"></a>Icône Normale  
- ![icône](../media/Normal.jpg "Normal icon") L’icône avec la flèche verte représente une mise à jour logicielle normale.  
+ ![icône](../media/Normal.jpg "Icône Normale") L’icône avec la flèche verte représente une mise à jour logicielle normale.  
 
  **Description :**  
 
@@ -39,7 +39,7 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Il n'existe aucun problème opérationnel.  
 
 ### <a name="expired-icon"></a>Icône Expiré  
- ![icône](../media/Expired.jpg "Expired icon") L’icône avec un X noir représente une mise à jour logicielle qui a expiré. Vous pouvez également identifier les mises à jour logicielles qui ont expiré en consultant la colonne **Expiré** de la mise à jour logicielle lors de l’affichage de cette dernière dans la console Configuration Manager.  
+ ![icône](../media/Expired.jpg "Icône Expiré") L’icône avec un X noir représente une mise à jour logicielle qui a expiré. Vous pouvez également identifier les mises à jour logicielles qui ont expiré en consultant la colonne **Expiré** de la mise à jour logicielle lors de l’affichage de cette dernière dans la console Configuration Manager.  
 
  **Description :**  
 
@@ -50,7 +50,7 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Il n'existe aucun problème opérationnel.
 
 ### <a name="superseded-icon"></a>Icône Remplacée  
- ![icône](../media/Superseded.jpg "Superseded icon") L’icône avec une étoile jaune représente une mise à jour logicielle remplacée. Vous pouvez également identifier les mises à jour logicielles remplacées dans la colonne **Remplacée** de la mise à jour logicielle affichée dans la console Configuration Manager.  
+ ![icône](../media/Superseded.jpg "Icône Remplacée") L’icône avec une étoile jaune représente une mise à jour logicielle remplacée. Vous pouvez également identifier les mises à jour logicielles remplacées dans la colonne **Remplacée** de la mise à jour logicielle affichée dans la console Configuration Manager.  
 
  **Description :**  
 
@@ -69,7 +69,7 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Quand cela est possible, déployez la mise à jour logicielle de remplacement sur les ordinateurs clients au lieu de la mise à jour logicielle remplacée. Vous pouvez afficher une liste des mises à jour logicielles qui remplacent la mise à jour logicielle, sous l’onglet **Informations de remplacement** dans les propriétés de mise à jour logicielle.  
 
 ### <a name="invalid-icon"></a>Icône Non valide  
- ![icône](../media/Invalid.jpg "Invalid icon") L’icône avec un X rouge représente une mise à jour logicielle non valide.  
+ ![icône](../media/Invalid.jpg "Icône Non valide") L’icône avec un X rouge représente une mise à jour logicielle non valide.  
 
  **Description :**  
 
@@ -84,7 +84,7 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Si le contenu d’une mise à jour logicielle est manquant, les clients ne peuvent pas installer la mise à jour logicielle tant que ce contenu n’est pas disponible sur un point de distribution. Vous pouvez redistribuer le contenu aux points de distribution à l’aide de l’action **Redistribuer** . Quand le contenu d’une mise à jour logicielle est manquant dans un déploiement créé sur un site parent, vous devez répliquer ou redistribuer la mise à jour logicielle sur le site enfant. Pour plus d’informations sur la redistribution de contenu, consultez [Gérer le contenu que vous avez distribué](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
 
 ### <a name="metadata-only-icon"></a>Icône Métadonnées uniquement
- ![icône](../media/MetadataOnly.png "Metadata-only icon") L’icône avec une flèche bleue représente une mise à jour logicielle de métadonnées uniquement.
+ ![icône](../media/MetadataOnly.png "Icône Métadonnées uniquement") L’icône avec une flèche bleue représente une mise à jour logicielle de métadonnées uniquement.
 
  **Description :**  
 
@@ -98,28 +98,28 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
  Les groupes de mises à jour logicielles sont représentés par une des icônes suivantes.  
 
 ### <a name="normal-icon"></a>Icône Normale  
- ![icône](../media/Normal.jpg "Normal icon") L’icône avec une flèche verte représente un groupe de mises à jour logicielles qui contient uniquement des mises à jour logicielles normales.  
+ ![icône](../media/Normal.jpg "Icône Normale") L’icône avec une flèche verte représente un groupe de mises à jour logicielles qui contient uniquement des mises à jour logicielles normales.  
 
  **Problèmes liés au fonctionnement :**  
 
  Il n'existe aucun problème opérationnel.  
 
 ### <a name="expired-icon"></a>Icône Expiré  
- ![icône](../media/Expired.jpg "Expired icon") L’icône avec un X noir représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles expirées.  
+ ![icône](../media/Expired.jpg "Icône Expiré")L’icône avec un X noir représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles qui ont expiré.  
 
  **Problèmes liés au fonctionnement :**  
 
  Quand cela est possible, supprimez ou remplacez les mises à jour logicielles expirées dans le groupe de mises à jour logicielles.  
 
 ### <a name="superseded-icon"></a>Icône Remplacée  
- ![icône](../media/Superseded.jpg "Superseded icon") L’icône avec une étoile jaune représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles remplacées.  
+ ![icône](../media/Superseded.jpg "Icône Remplacée") L’icône avec une étoile jaune représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles remplacées.  
 
  **Problèmes liés au fonctionnement :**  
 
  Quand cela est possible, remplacez la mise à jour logicielle remplacée dans le groupe de mises à jour logicielles par la mise à jour logicielle de remplacement.  
 
 ### <a name="invalid-icon"></a>Icône Non valide  
- ![icône](../media/Invalid.jpg "Invalid icon") L’icône avec un X rouge représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles non valides.  
+ ![icône](../media/Invalid.jpg "Icône Non valide") L’icône avec un X rouge représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles non valides.  
 
  **Problèmes liés au fonctionnement :**  
 
@@ -127,6 +127,6 @@ Les mises à jour logicielles synchronisées sont affichées dans la console Con
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

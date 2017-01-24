@@ -1,5 +1,5 @@
 ---
-title: Terminer la migration | System Center Configuration Manager
+title: Terminer la migration | Microsoft Docs
 description: "Apprenez à terminer la migration vers une hiérarchie de destination System Center Configuration Manager une fois qu’une hiérarchie source ne contient plus de données."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 862a039ada302c9432fc86d68f5ba9aad360f69b
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: 0595ab87222aca543ae67a33c2b9fab780c6160f
 
 
 ---
 # <a name="planning-to-complete-migration-in-system-center-configuration-manager"></a>Planification de la fin de la migration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avec System Center Configuration Manager, quand une hiérarchie source ne contient plus de données à migrer vers votre hiérarchie de destination, vous pouvez terminer le processus de migration. Pour cela, suivez les étapes ci-dessous :  
 
@@ -49,7 +49,7 @@ Pour planifier l'achèvement d'une migration à partir d'une hiérarchie source 
 
 -   Dans la hiérarchie de destination, distribuez le contenu à un point de distribution au moins.  
 
--   Avant d'arrêter la collecte de données à partir d'un site source, mettez à niveau ou réaffectez les points de distribution partagés ayant le contenu requis. Pour plus d’informations sur la mise à niveau ou la réaffectation de points de distribution partagés, consultez les sections correspondantes dans la rubrique [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+-   Avant d'arrêter la collecte de données à partir d'un site source, mettez à niveau ou réaffectez les points de distribution partagés ayant le contenu requis. Pour plus d’informations sur la mise à niveau ou la réaffectation de points de distribution partagés, consultez les sections correspondantes dans la rubrique [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
 Après avoir arrêté la collecte de données à partir de chaque site source de la hiérarchie source, vous pouvez nettoyer les données de migration. Dans la console Configuration Manager, vous pouvez accéder à chaque tâche de migration qui a été exécutée ou qui est planifiée pour être exécutée, tant que vous n’avez pas nettoyé les données de migration.  
 
@@ -62,6 +62,6 @@ Pour plus d’informations sur les sites source et la collecte de données, cons
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

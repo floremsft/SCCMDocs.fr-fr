@@ -1,5 +1,5 @@
 ---
-title: "Gérer la bande passante réseau pour le contenu | System Center Configuration Manager"
+title: "Gérer la bande passante du réseau pour le contenu | Microsoft Docs"
 description: "Découvrez comment configurer la planification, la limitation de bande passante et le contenu préparé pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 92a08908f284abb02ce8000122b0839c474616d7
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 14ce376f385ec19d224e8b1a2918eed5379a64e5
 
 
 ---
@@ -59,7 +59,7 @@ Vous pouvez éventuellement configurer le point de distribution comme **prépar�
 ###  <a name="a-namebkmkdeterminetoprestagecontentadetermine-whether-to-prestage-content"></a><a name="BKMK_DetermineToPrestageContent"></a>Déterminer si vous devez préparer du contenu  
  Envisagez de préparer du contenu pour les applications et les packages dans les cas suivants :  
 
--   **Bande passante réseau limitée depuis le serveur de site vers le point de distribution** : si la planification et la limitation ne répondent pas à vos besoins en matière de distribution de contenu sur le réseau vers un point de distribution distant, envisagez de préparer le contenu sur le point de distribution. Chaque point de distribution est associé au paramètre **Activer ce point de distribution pour le contenu préparé** que vous pouvez configurer dans les propriétés du point de distribution. Lorsque vous activez cette option, le point de distribution est identifié comme un point de distribution préparé et vous pouvez choisir comment gérer le contenu pour chaque package.  
+-   **Bande passante réseau limitée depuis le serveur de site vers le point de distribution** : si la planification et la limitation ne répondent pas à vos besoins en matière de distribution de contenu sur le réseau vers un point de distribution distant, envisagez de préparer le contenu sur le point de distribution. Chaque point de distribution est associé au paramètre **Activer ce point de distribution pour le contenu préparé** que vous pouvez configurer dans les propriétés du point de distribution. Lorsque vous activez cette option, le point de distribution est identifié comme un point de distribution préparé et vous pouvez choisir comment gérer le contenu pour chaque package.  
 
      Les paramètres suivants sont disponibles dans les propriétés d'une application, d'un package, d'un package de pilotes, d'une image de démarrage, du programme d'installation d'un système d'exploitation et d'une image et ils vous permettent de configurer la manière dont la distribution du contenu est gérée sur des points de distribution distants qui sont identifiés comme préparés :  
 
@@ -76,6 +76,6 @@ Vous pouvez éventuellement configurer le point de distribution comme **prépar�
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

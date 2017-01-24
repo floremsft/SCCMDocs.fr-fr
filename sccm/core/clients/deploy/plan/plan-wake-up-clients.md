@@ -1,5 +1,5 @@
 ---
-title: Sortir de veille des clients | System Center Configuration Manager
+title: Sortie de veille des clients | Microsoft Docs
 description: Planifiez la sortie de veille des clients dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52ee82b2-0b91-4829-89df-80a6abc0e63a
 caps.latest.revision: 6
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 154908fd78f0e6c96a8f51026f040bf45dd47979
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 12ee719a6a8b072fab27d083aeb2b8439484058d
 
 ---
 # <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Planifier la sortie de veille des clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Configuration Manager prend en charge deux technologies Wake On Lan (sortie de veille sur réseau local) pour réveiller les ordinateurs qui sont en mode veille lorsque vous souhaitez installer des logiciels obligatoires, comme des mises à jour logicielles et des applications : paquets de mise en éveil traditionnels et commandes de mise sous tension AMT.  
+ Configuration Manager prend en charge deux technologies Wake On Lan (sortie de veille sur réseau local) pour réveiller les ordinateurs qui sont en mode veille lorsque vous souhaitez installer des logiciels obligatoires, comme des mises à jour logicielles et des applications : paquets de mise en éveil traditionnels et commandes de mise sous tension AMT.  
 
 Vous pouvez compléter la méthode traditionnelle des paquets de mise en éveil par des paramètres de client de proxy de mise en éveil. Le proxy de mise en éveil utilise un protocole entre homologues et des ordinateurs sélectionnés pour vérifier si les autres ordinateurs du sous-réseau sont éveillés et les sortir de veille si nécessaire. Lorsque le site est configuré pour l'éveil par appel réseau (Wake On LAN) et les clients configurés pour le proxy de mise en éveil, le processus fonctionne comme suit :  
 
@@ -92,13 +92,13 @@ Vous devez également décider d’utiliser ou non des paquets de diffusions dir
 |Méthode de transmission|Avantages|Inconvénients|  
 |-------------------------|---------------|------------------|  
 |Monodiffusion|Il s'agit d'une solution plus sécurisée que les diffusions dirigées vers le sous-réseau car le paquet est envoyé directement à un seul ordinateur, et non à tous les ordinateurs d'un sous-réseau.<br /><br /> Ne nécessite pas de reconfiguration des routeurs (vous devrez peut-être configurer le cache ARP).<br /><br /> Elle consomme moins de bande passante réseau que les transmissions par diffusion dirigées vers le sous-réseau.<br /><br /> Prise en charge avec IPv4 et IPv6.|Les paquets de mise en éveil ne trouvent pas les ordinateurs de destination qui ont modifié leur adresse de sous-réseau depuis le dernier calendrier d'inventaire matériel.<br /><br /> La configuration des commutateurs sera peut-être nécessaire pour transmettre les paquets UDP.<br /><br /> Il est possible que certaines cartes réseau ne répondent pas aux paquets de mise en éveil dans tous les états de veille lorsque la monodiffusion est utilisée comme méthode de transmission.|  
-|Diffusion dirigée vers le sous-réseau|Elle génère un taux de réussite supérieur à celui de la monodiffusion si vous possédez des ordinateurs qui modifient souvent leur adresse IP dans le même sous-réseau.<br /><br /> Aucune configuration de commutateur n'est requise.<br /><br /> Le taux de compatibilité avec les cartes d'ordinateurs pour tous les états de veille est élevé. En effet, les diffusions dirigées vers le sous-réseau correspondaient à la méthode de transmission d'origine pour l'envoi des paquets de mise en éveil.|Solution moins sûre que l'utilisation de la monodiffusion, car une personne malveillante pourrait envoyer des flux continus de demandes d'écho ICMP à partir d'une adresse source falsifiée à l'adresse de diffusion dirigée. En conséquence, tous les hôtes répondent à cette adresse source. Si les routeurs sont configurés pour autoriser les diffusions dirigées vers le sous-réseau, la configuration supplémentaire est recommandée pour des raisons de sécurité :<br /><br /> -   Configurez les routeurs pour autoriser uniquement les diffusions dirigées vers IP depuis le serveur de site Configuration Manager, à l’aide d’un numéro de port UDP spécifique.<br />-   Configurez Configuration Manager pour utiliser le numéro de port autre que celui par défaut spécifié.<br /><br /> Il peut être nécessaire de reconfigurer tous les routeurs intervenants pour permettre des diffusions dirigées vers le sous-réseau.<br /><br /> Elle consomme plus de bande passante réseau que les transmissions par monodiffusion.<br /><br /> Prise en charge avec IPv4 uniquement. IPv6 n'est pas pris en charge.|  
+|Diffusion dirigée vers le sous-réseau|Elle génère un taux de réussite supérieur à celui de la monodiffusion si vous possédez des ordinateurs qui modifient souvent leur adresse IP dans le même sous-réseau.<br /><br /> Aucune configuration de commutateur n'est requise.<br /><br /> Le taux de compatibilité avec les cartes d'ordinateurs pour tous les états de veille est élevé. En effet, les diffusions dirigées vers le sous-réseau correspondaient à la méthode de transmission d'origine pour l'envoi des paquets de mise en éveil.|Solution moins sûre que l'utilisation de la monodiffusion, car une personne malveillante pourrait envoyer des flux continus de demandes d'écho ICMP à partir d'une adresse source falsifiée à l'adresse de diffusion dirigée. En conséquence, tous les hôtes répondent à cette adresse source. Si les routeurs sont configurés pour autoriser les diffusions dirigées vers le sous-réseau, la configuration supplémentaire est recommandée pour des raisons de sécurité :<br /><br /> -   Configurez les routeurs pour autoriser uniquement les diffusions dirigées vers IP depuis le serveur de site Configuration Manager, à l’aide d’un numéro de port UDP spécifique.<br />-   Configurez Configuration Manager pour utiliser le numéro de port autre que celui par défaut spécifié.<br /><br /> Il peut être nécessaire de reconfigurer tous les routeurs intervenants pour permettre des diffusions dirigées vers le sous-réseau.<br /><br /> Elle consomme plus de bande passante réseau que les transmissions par monodiffusion.<br /><br /> Prise en charge avec IPv4 uniquement. IPv6 n'est pas pris en charge.|  
 
 > [!WARNING]  
 >  Il existe des risques de sécurité associés aux diffusions dirigées vers le sous-réseau : Une personne malveillante pourrait envoyer des flux continus de demandes d'écho ICMP (Internet Control Message Protocol) à partir d'une adresse source falsifiée vers l'adresse de diffusion dirigée, obligeant tous les hôtes à répondre à cette adresse source. Ce type d'attaque par déni de service est généralement appelé attaque de réflexion et est traité en rejetant les diffusions dirigées vers le sous-réseau.
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Planifier la base de données du site | System Center Configuration Manager"
+title: "Planifier la base de données du site | Microsoft Docs"
 description: "Tenez compte de la base de données du site et son rôle serveur quand vous planifiez votre hiérarchie System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 40ebfaa9b82a65a6265f0c031dbbd0bcdb85da6e
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 012d5b313487640faeebe5b49064c74d41a7edb9
 
 
 ---
 # <a name="plan-for-the-site-database-for-system-center-configuration-manager"></a>Planifier la base de données du site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Le serveur de bases de données du site est un ordinateur qui exécute une version prise en charge de Microsoft SQL Server qui stocke des informations pour les sites Configuration Manager. Chaque site d’une hiérarchie Configuration Manager contient une base de données du site et un serveur qui est attribué au rôle serveur de la base de données du site.  
 
@@ -57,7 +57,7 @@ Généralement, un serveur de système de site prend en charge des rôles systè
 
 -   Une instance nommée sur une instance en cluster de SQL Server  
 
--   Un groupe de disponibilité SQL Server AlwaysOn (depuis la version 1602)
+-   Un groupe de disponibilité SQL Server AlwaysOn (depuis la version 1602)
 
 
 **Conditions préalables pour la base de données du site :**  
@@ -66,6 +66,6 @@ Généralement, un serveur de système de site prend en charge des rôles systè
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

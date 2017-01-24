@@ -1,5 +1,5 @@
 ---
-title: "Ajouter des rôles système de site | System Center Configuration Manager"
+title: "Ajouter des rôles de système de site | Microsoft Docs"
 description: "Comprenez les rôles système de site Configuration Manager et comment les ajouter pour étendre les fonctionnalités et la capacité de votre site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f9437760936cdc4f9daad67205e635ab916207bd
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: e0cc69baa2fdc5bb9c1327c89840e28d0f885608
 
 
 ---
 # <a name="add-site-system-roles-for-system-center-configuration-manager"></a>Ajouter des rôles de système de site pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Chaque site System Center Configuration Manager prend en charge plusieurs rôles système de site qui étendent chacun les fonctionnalités de votre site, ainsi que sa capacité à fournir des services et à gérer des appareils et des utilisateurs. Tous les rôles de système de site sur un serveur de système de site doivent être membres du même site.   
 
@@ -33,7 +33,7 @@ Configuration Manager ne prend pas en charge les rôles système de site pour pl
 > [!TIP]  
 >  Si vous n’êtes pas familiarisé avec les concepts de base des rôles de système de site ou avec les différences entre le serveur de site, les serveurs de système de site et les rôles de système de site, consultez [Principes de base de System Center Configuration Manager](../../../../core/understand/fundamentals.md).  
 
- Les rubriques suivantes décrivent des procédures et détails connexes pour l’installation de rôles système de site :  
+ Les rubriques suivantes décrivent des procédures et détails connexes pour l’installation de rôles système de site :  
 
 -   [Installer des rôles système de site pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-site-system-roles.md)  
 
@@ -53,6 +53,6 @@ Configuration Manager ne prend pas en charge les rôles système de site pour pl
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

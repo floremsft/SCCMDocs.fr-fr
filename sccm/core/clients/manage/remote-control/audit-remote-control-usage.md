@@ -1,5 +1,5 @@
 ---
-title: "Auditer l’utilisation du contrôle à distance | System Center Configuration Manager"
+title: "Auditer l’utilisation du contrôle à distance | Microsoft Docs"
 description: "Auditer l’utilisation du contrôle à distance dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1a23f37cfc67edb6ed097adb7e58342c9929a8fc
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: e3082e1d608f60a539fc58b0129132e33c8af833
 
 
 ---
 # <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Comment auditer l’utilisation du contrôle à distance dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser les rapports System Center Configuration Manager pour afficher les informations d’audit du contrôle à distance.  
 
@@ -32,9 +32,9 @@ Vous pouvez utiliser les rapports System Center Configuration Manager pour affic
 
  Les deux rapports suivants sont disponibles avec la catégorie **Messages d'état - Audit**:  
 
--   **Contrôle à distance - Tous les ordinateurs contrôlés à distance par un utilisateur spécifique** : affiche un résumé de l’activité de contrôle à distance initiée par un utilisateur spécifique.  
+-   **Contrôle à distance - Tous les ordinateurs contrôlés à distance par un utilisateur spécifique** : affiche un résumé de l’activité de contrôle à distance initiée par un utilisateur spécifique.  
 
--   **Contrôle à distance - Toutes les informations de contrôle à distance** : affiche un résumé des messages d'état concernant le contrôle à distance des ordinateurs clients.  
+-   **Contrôle à distance - Toutes les informations de contrôle à distance** : affiche un résumé des messages d'état concernant le contrôle à distance des ordinateurs clients.  
 
 ### <a name="to-run-the-report-remote-control---all-computers-remote-controlled-by-a-specific-user"></a>Pour exécuter le rapport Contrôle à distance - Tous les ordinateurs contrôlés à distance par un utilisateur spécifique  
 
@@ -64,6 +64,6 @@ Vous pouvez utiliser les rapports System Center Configuration Manager pour affic
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’accès à Skype Entreprise Online | System Center Configuration Manager"
+title: "Gérer l’accès à Skype Entreprise Online | Microsoft Docs"
 description: "Apprenez à utiliser la stratégie d’accès conditionnel pour gérer l’accès à Skype Entreprise Online."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3ad36c2-51d4-4467-8bdc-fde18485583e
 caps.latest.revision: 6
-author: karthikaraman
-ms.author: karaman
+author: andredm7
+ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6cf3c1697b49708aa5192b67b08b700da7dc72
-ms.openlocfilehash: a8d0655909c85eb53c2d1eb513586f9733236359
+ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
+ms.openlocfilehash: 7178f82c6cbe49f9d5f98ede9979bff83b16be36
 
 
 ---
 # <a name="manage-skype-for-business-online-access"></a>Gérer l’accès à Skype Entreprise Online
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Vous pouvez utiliser une stratégie d’accès conditionnel pour  **Skype Entreprise Online** pour gérer l’accès à Skype Entreprise Online en fonction des conditions que vous spécifiez.  
@@ -37,7 +37,7 @@ Vous pouvez utiliser une stratégie d’accès conditionnel pour  **Skype Entrep
 
 -   Tous vos utilisateurs finaux doivent utiliser Skype Entreprise Online. Si vous avez un déploiement avec Skype Entreprise Online et Skype Entreprise en local, la stratégie d’accès conditionnel n’est pas appliquée aux utilisateurs finaux.  
 
--   L’appareil devant accéder à Skype Entreprise Online doit :  
+-   L’appareil devant accéder à Skype Entreprise Online doit :  
 
     -   être un appareil Android ou iOS ;  
 
@@ -59,9 +59,9 @@ Si une condition n'est pas remplie, l'utilisateur reçoit l'un des messages suiv
 
  Vous pouvez spécifier deux types de groupes à utiliser pour la stratégie de Skype Entreprise :  
 
--   Groupes ciblés : groupes d’utilisateurs auxquels s’applique la stratégie.  
+-   Groupes ciblés : groupes d’utilisateurs auxquels s’applique la stratégie.  
 
--   Groupes exemptés : groupes d’utilisateurs exempts de la stratégie (facultatif).  
+-   Groupes exemptés : groupes d’utilisateurs exempts de la stratégie (facultatif).  
     Si un utilisateur se trouve dans les deux groupes, il est exempt de la stratégie.  
 
 ### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Étape 2 : configurer et déployer une stratégie de conformité  
@@ -102,11 +102,11 @@ Si une condition n'est pas remplie, l'utilisateur reçoit l'un des messages suiv
 
  Sélectionnez un groupe d’appareils mobiles quelconque puis, sous l’onglet **Appareils** , sélectionnez l’un des **Filtres**suivants :  
 
--   **Appareils non enregistrés avec AAD** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
+-   **Appareils non enregistrés avec AAD** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
 
--   **Appareils non conformes** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
+-   **Appareils non conformes** : l’accès à Skype Entreprise Online est bloqué pour ces appareils.  
 
--   **Appareils enregistrés avec AAD et conformes** : ces appareils peuvent accéder à Skype Entreprise Online.  
+-   **Appareils enregistrés avec AAD et conformes** : ces appareils peuvent accéder à Skype Entreprise Online.  
 
 ### <a name="see-also"></a>Voir aussi  
 
@@ -114,6 +114,6 @@ Si une condition n'est pas remplie, l'utilisateur reçoit l'un des messages suiv
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

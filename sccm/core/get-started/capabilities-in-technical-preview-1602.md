@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager."
+title: "Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,15 +16,15 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f777295958e9cbc729e3759d354521c96ae3e8ac
-ms.openlocfilehash: 25bceb4ab23f9c5e9ba9b7f9bdf028ea21564178
+ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
+ms.openlocfilehash: da69e2363114faa4f2e701f2784c90ec23537e42
 
 ---
-# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
  Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
@@ -39,28 +39,28 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 -   réactiver l'appareil.  
 
- Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Intune peut récupérer le code de contournement du verrou d’activation et l’émettre directement à l’appareil.  
+ Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Intune peut récupérer le code de contournement du verrou d’activation et l’émettre directement à l’appareil.  
 
  Pour plus d’informations, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation pour Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
 
-##  <a name="a-namebkmksc1601a-improvements-to-software-center-in-version-1602"></a><a name="BKMK_SC1601"></a> Améliorations apportées au Centre logiciel dans la version 1602  
+##  <a name="a-namebkmksc1601a-improvements-to-software-center-in-version-1602"></a><a name="BKMK_SC1601"></a> Améliorations apportées au Centre logiciel dans la version 1602  
 
 ### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Actualiser la stratégie ordinateur et utilisateur du PC à partir du Centre logiciel  
  Une nouvelle option, **Stratégie de synchronisation**, a été ajoutée à la page **Options** > **Maintenance de l’ordinateur** du Centre logiciel. Elle force le PC à actualiser sa stratégie ordinateur et utilisateur Configuration Manager.  
 
-##  <a name="a-namebkmkwin10servicinga-improvements-to-windows-10-servicing"></a><a name="BKMK_Win10Servicing"></a> Améliorations apportées à la maintenance de Windows 10  
- Dans Technical Preview 1602, nous avons ajouté les améliorations suivantes à la Maintenance de Windows 10 :  
+##  <a name="a-namebkmkwin10servicinga-improvements-to-windows-10-servicing"></a><a name="BKMK_Win10Servicing"></a> Améliorations apportées à la maintenance de Windows 10  
+ Dans Technical Preview 1602, nous avons ajouté les améliorations suivantes à la Maintenance de Windows 10 :  
 
 -   Nouvelles options de filtre pour les plans de maintenance.  Vous pouvez désormais filtrer par **Langue**, **Obligatoire** et **Titre**. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
--   Quand vous sélectionnez la classification **Mises à niveau** pour la synchronisation des mises à jour logicielles, une boîte de dialogue d’avertissement s’affiche pour vous informer que le [correctif 3095113](https://support.microsoft.com/kb/3095113) WSUS est nécessaire pour synchroniser correctement les mises à jour logicielles et pour que la maintenance de Windows 10 fonctionne correctement.  À partir de la boîte de dialogue, vous pouvez accéder à l’article de la Base de connaissances pour obtenir le correctif logiciel.  
+-   Quand vous sélectionnez la classification **Mises à niveau** pour la synchronisation des mises à jour logicielles, une boîte de dialogue d’avertissement s’affiche pour vous informer que le [correctif 3095113](https://support.microsoft.com/kb/3095113) WSUS est nécessaire pour synchroniser correctement les mises à jour logicielles et pour que la maintenance de Windows 10 fonctionne correctement.  À partir de la boîte de dialogue, vous pouvez accéder à l’article de la Base de connaissances pour obtenir le correctif logiciel.  
 
--   Les mises à niveau Windows 10 disponibles sont maintenant affichées uniquement dans le nœud **Maintenance de Windows 10** \ **Toutes les mises à jour Windows 10** de la console Configuration Manager. Ces mises à jour n’apparaissent plus dans le nœud **Mises à jour logicielles** \ **Toutes les mises à jour logicielles**.  
+-   Les mises à niveau Windows 10 disponibles sont maintenant affichées uniquement dans le nœud **Maintenance de Windows 10** \ **Toutes les mises à jour Windows 10** de la console Configuration Manager. Ces mises à jour n’apparaissent plus dans le nœud **Mises à jour logicielles** \ **Toutes les mises à jour logicielles**.  
 
--   Les utilisateurs finaux qui démarrent un package de mise à niveau Windows 10 sont informés qu’ils vont mettre à niveau leur système d’exploitation.  
+-   Les utilisateurs finaux qui démarrent un package de mise à niveau Windows 10 sont informés qu’ils vont mettre à niveau leur système d’exploitation.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

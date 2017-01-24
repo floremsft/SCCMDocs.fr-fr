@@ -1,5 +1,5 @@
 ---
-title: "Migrer des données | System Center Configuration Manager"
+title: "Migrer des données | Microsoft Docs"
 description: "Découvrez comment transférer des données d’une hiérarchie source vers une hiérarchie de destination System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,16 +17,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 658a98cf66d20bacf8d9fa2bedcb3a84d1f242b8
+ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
+ms.openlocfilehash: f406acc6044c77110035c04e0f147e77830db078
 
 
 ---
 # <a name="migrate-data-between-hierarchies-in-system-center-configuration-manager"></a>Migrer des données entre hiérarchies dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Transférez des données d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager en procédant à une migration.   Quand vous migrez des données d’une hiérarchie source :  
+Transférez des données d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager en procédant à une migration.   Quand vous migrez des données d’une hiérarchie source :  
 
 -   Vous accédez aux données des bases de données de site que vous identifiez dans l’infrastructure source, puis vous transférez ces données vers votre environnement actuel.  
 
@@ -34,7 +34,7 @@ Transférez des données d’une hiérarchie source prise en charge vers une hi�
 
  Tenez compte des points suivants quand vous planifiez votre stratégie de migration :  
 
--   Vous pouvez migrer une infrastructure Configuration Manager 2007 SP2 existante vers System Center Configuration Manager.  
+-   Vous pouvez migrer une infrastructure Configuration Manager 2007 SP2 existante vers System Center Configuration Manager.  
 
 -   Vous pouvez migrer certaines données ou toutes les données prises en charge à partir d’un site source.  
 
@@ -81,7 +81,7 @@ Après avoir migré les données d’une hiérarchie source Configuration Manage
 >  Le fait de développer une hiérarchie contenant un site autonome sous forme de hiérarchie contenant un site d'administration centrale n'est pas considéré comme une migration. Pour plus d’informations sur le développement d’une hiérarchie, consultez la section [Étendre un site principal autonome](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) dans la rubrique [Utiliser l’Assistant Installation pour installer des sites](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
 ### <a name="migration-from-configuration-manager-2007-hierarchies"></a>Migration à partir de hiérarchies Configuration Manager 2007  
- Quand vous migrez des données à partir de Configuration Manager 2007 via la migration, vous pouvez pérenniser les investissements liés à votre infrastructure de site existante et profiter des avantages suivants :  
+ Quand vous migrez des données à partir de Configuration Manager 2007 via la migration, vous pouvez pérenniser les investissements liés à votre infrastructure de site existante et profiter des avantages suivants :  
 
 |Avantage|Plus d'informations|  
 |-------------|----------------------|  
@@ -92,10 +92,10 @@ Après avoir migré les données d’une hiérarchie source Configuration Manage
 |Administration basée sur des rôles|Ce modèle de sécurité central dans System Center Configuration Manager offre une gestion et une sécurité pour toute la hiérarchie, qui correspondent à vos exigences administratives et opérationnelles.|  
 
 > [!NOTE]  
->  Compte tenu de l’évolution de la conception amorcée par System Center 2012 Configuration Manager, vous ne pouvez pas mettre à niveau une infrastructure Configuration Manager 2007 vers System Center Configuration Manager. En revanche, la mise à niveau sur place de System Center 2012 Configuration Manager vers System Center Configuration Manager est prise en charge.  
+>  Compte tenu de l’évolution de la conception amorcée par System Center 2012 Configuration Manager, vous ne pouvez pas mettre à niveau une infrastructure Configuration Manager 2007 vers System Center Configuration Manager. En revanche, la mise à niveau sur place de System Center 2012 Configuration Manager vers System Center Configuration Manager est prise en charge.  
 
 ### <a name="migration-from-configuration-manager-2012-or-another-system-center-configuration-manager-hierarchy"></a>Migration à partir d’une hiérarchie Configuration Manager 2012 ou d’une autre hiérarchie System Center Configuration Manager  
- Le processus de migration de données d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager est identique. Vous pouvez notamment migrer les données de plusieurs hiérarchies sources vers une seule et même hiérarchie de destination, par exemple quand votre société fait l’acquisition de ressources supplémentaires qui sont déjà gérées par Configuration Manager. Par ailleurs, vous pouvez migrer des données d’un environnement de test vers votre environnement de production Configuration Manager. Vous pérennisez ainsi les investissements liés à l’environnement de test Configuration Manager.  
+ Le processus de migration de données d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager est identique. Vous pouvez notamment migrer les données de plusieurs hiérarchies sources vers une seule et même hiérarchie de destination, par exemple quand votre société fait l’acquisition de ressources supplémentaires qui sont déjà gérées par Configuration Manager. Par ailleurs, vous pouvez migrer des données d’un environnement de test vers votre environnement de production Configuration Manager. Vous pérennisez ainsi les investissements liés à l’environnement de test Configuration Manager.  
 
 ## <a name="additional-topics-for-migration"></a>Rubriques supplémentaires relatives à la migration :  
 
@@ -112,6 +112,6 @@ Après avoir migré les données d’une hiérarchie source Configuration Manage
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

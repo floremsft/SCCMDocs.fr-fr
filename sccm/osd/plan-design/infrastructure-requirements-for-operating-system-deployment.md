@@ -1,6 +1,6 @@
 ---
-title: "Configuration requise de l’infrastructure pour le déploiement de système d’exploitation | Configuration Manager"
-description: "Prenez connaissance de toutes les dépendances externes et internes au produit avant d’utiliser System Center 2012 Configuration Manager pour le déploiement de système d’exploitation."
+title: "Configuration requise de l’infrastructure pour le déploiement de système d’exploitation | Microsoft Docs"
+description: "Prenez connaissance de toutes les dépendances externes et internes au produit avant d’utiliser System Center 2012 Configuration Manager pour le déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,22 +16,22 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e78cc0d45127df521e362e4cd96b492ddc110a2a
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 77ac69cecab7aa460001a8d2800e61f20a8565ed
 
 
 ---
 # <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Configuration requise de l’infrastructure pour le déploiement de système d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Le déploiement de système d’exploitation dans System Center 2012 Configuration Manager présente des dépendances externes et internes au produit. Utilisez les sections suivantes pour vous aider à préparer le déploiement de système d’exploitation.  
+Le déploiement de système d’exploitation dans System Center 2012 Configuration Manager présente des dépendances externes et internes au produit. Utilisez les sections suivantes pour vous aider à préparer le déploiement de système d’exploitation.  
 
 ##  <a name="a-namebkmkexternaldependenciesa-dependencies-external-to-configuration-manager"></a><a name="BKMK_ExternalDependencies"></a> Dépendances externes à Configuration Manager  
  Vous trouverez ci-dessous des informations sur les outils externes, les kits d’installation et les systèmes d’exploitation nécessaires au déploiement des systèmes d’exploitation dans Configuration Manager.  
 
 ### <a name="windows-adk-for-windows-10"></a>Windows ADK pour Windows 10  
- Windows ADK regroupe des outils et des documents permettant de configurer et de déployer des systèmes d'exploitation Windows. Configuration Manager utilise Windows ADK pour automatiser les installations de Windows, capturer des images Windows, migrer des données et profils utilisateur, et effectuer diverses autres opérations.  
+ Windows ADK regroupe des outils et des documents permettant de configurer et de déployer des systèmes d'exploitation Windows. Configuration Manager utilise Windows ADK pour automatiser les installations de Windows, capturer des images Windows, migrer des données et profils utilisateur, et effectuer diverses autres opérations.  
 
  Les composants suivants de Windows ADK doivent être installés sur le serveur de site du site de niveau supérieur de la hiérarchie, sur le serveur de site de chaque site principal de la hiérarchie et sur le serveur de système de site du fournisseur SMS :  
 
@@ -44,7 +44,7 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurati
  <sup>1</sup> USMT n'est pas requis sur le serveur de système de site du fournisseur SMS.  
 
 > [!NOTE]  
->  Avant d’installer le site Configuration Manager, vous devez installer manuellement Windows ADK sur tous les ordinateurs qui hébergeront un serveur de site d’administration centrale ou un serveur de site principal.  
+>  Avant d’installer le site Configuration Manager, vous devez installer manuellement Windows ADK sur tous les ordinateurs qui hébergeront un serveur de site d’administration centrale ou un serveur de site principal.  
 
  Pour plus d'informations, voir :  
 
@@ -53,7 +53,7 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurati
 -   [Télécharger le kit Windows ADK pour Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
 
 ### <a name="user-state-migration-tool-usmt"></a>Outil de migration de l'état utilisateur (USMT)  
- Configuration Manager utilise un package USMT qui contient les fichiers sources USMT 10 pour capturer et restaurer l’état utilisateur dans le cadre du déploiement de votre système d’exploitation. Quand le programme d’installation de Configuration Manager est exécuté sur le site de niveau supérieur, il crée automatiquement le package USMT. USMT 10 peut capturer l’état utilisateur auprès de Windows 7, Windows 8, Windows 8.1 et Windows 10. USMT 10 est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  
+ Configuration Manager utilise un package USMT qui contient les fichiers sources USMT 10 pour capturer et restaurer l’état utilisateur dans le cadre du déploiement de votre système d’exploitation. Quand le programme d’installation de Configuration Manager est exécuté sur le site de niveau supérieur, il crée automatiquement le package USMT. USMT 10 peut capturer l’état utilisateur auprès de Windows 7, Windows 8, Windows 8.1 et Windows 10. USMT 10 est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  
 
  Pour plus d'informations, voir :  
 
@@ -62,31 +62,31 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurati
 -   [Gérer l’état utilisateur](../get-started/manage-user-state.md)  
 
 ### <a name="windows-pe"></a>Windows PE  
- Windows PE est utilisé pour les images de démarrage pour démarrer un ordinateur. C’est un système d’exploitation Windows offrant des services limités, qui est utilisé au cours de la pré-installation et du déploiement de systèmes d’exploitation Windows. Vous trouverez ci-dessous des informations sur la version de Configuration Manager, la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à la version spécifiée de Configuration Manager.  
+ Windows PE est utilisé pour les images de démarrage pour démarrer un ordinateur. C’est un système d’exploitation Windows offrant des services limités, qui est utilisé au cours de la pré-installation et du déploiement de systèmes d’exploitation Windows. Vous trouverez ci-dessous des informations sur la version de Configuration Manager, la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à la version spécifiée de Configuration Manager.  
 
 #### <a name="configuration-manager-version-1511"></a>Configuration Manager version 1511  
- Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
+ Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
 
 -   **Version de Windows ADK**  
 
      Windows ADK pour Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
--   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
+-   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 3.1<sup>1</sup> et Windows PE 5  
 
-     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](../get-started/customize-boot-images.md). Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](../get-started/customize-boot-images.md). Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 ### <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)  
-Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
+Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
   - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) est nécessaire pour la maintenance de Windows 10, qui utilise l’infrastructure des mises à jour logicielles pour obtenir les mises à niveau des fonctionnalités de Windows 10. Si vous avez WSUS 3.2, vous devez utiliser des séquences de tâches pour mettre à niveau Windows 10. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).  
-  - Le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) est nécessaire si vous souhaitez utiliser la fonctionnalité de maintenance de Windows 10 pour mettre à niveau des ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).
+  - Le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) est nécessaire si vous souhaitez utiliser la fonctionnalité de maintenance de Windows 10 pour mettre à niveau des ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).
 
 
 ### <a name="internet-information-services-iis-on-the-site-system-servers"></a>Internet Information Services (IIS) sur les serveurs de système de site  
@@ -163,7 +163,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
  Utilisez des étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder aux objets sécurisables utilisés dans les déploiements de système d'exploitation, tels que des images du système d'exploitation et de démarrage, des packages de pilotes et des packages de séquences de tâches. Pour plus d’informations, consultez [Sécurité et audit](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope).  
 
 ##  <a name="a-namebkmkwdsa-windows-deployment-services"></a><a name="BKMK_WDS"></a> Services de déploiement Windows  
- Les Services de déploiement Windows (WDS) doivent être installés sur le même serveur que les points de distribution que vous configurez pour prendre en charge PXE ou la multidiffusion. WDS est inclus dans le système d’exploitation du serveur. Pour les déploiements PXE, WDS est le service qui effectue le démarrage PXE. Lorsque le point de distribution est installé et activé pour PXE, Configuration Manager installe un fournisseur dans WDS qui utilise les fonctions de démarrage PXE de WDS.  
+ Les Services de déploiement Windows (WDS) doivent être installés sur le même serveur que les points de distribution que vous configurez pour prendre en charge PXE ou la multidiffusion. WDS est inclus dans le système d’exploitation du serveur. Pour les déploiements PXE, WDS est le service qui effectue le démarrage PXE. Lorsque le point de distribution est installé et activé pour PXE, Configuration Manager installe un fournisseur dans WDS qui utilise les fonctions de démarrage PXE de WDS.  
 
 > [!NOTE]  
 >  L'installation de WDS peut échouer si le serveur requiert un redémarrage.  
@@ -240,6 +240,6 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

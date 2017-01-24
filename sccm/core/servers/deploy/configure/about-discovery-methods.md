@@ -1,5 +1,5 @@
 ---
-title: "Méthodes de découverte | System Center Configuration Manager"
+title: "Méthodes de découverte | Microsoft Docs"
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -15,22 +15,22 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 8bb71e477bb9a265b3485bd3ef8232f6e9933a37
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 223ebc3009b33c43818636a9e19b9b482619550b
 
 ---
 # <a name="about-discovery-methods-for-system-center-configuration-manager"></a>À propos des méthodes de découverte pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Chaque méthode de découverte de System Center Configuration Manager permet de rechercher des appareils différents sur votre réseau, ou encore des appareils et des utilisateurs dans Active Directory. Pour utiliser efficacement une méthode de découverte, vous devez en comprendre les configurations disponibles et les limitations.  
 
 ##  <a name="a-namebkmkaboutforesta-active-directory-forest-discovery"></a><a name="bkmk_aboutForest"></a> Découverte de forêts Active Directory  
- **Configurable :** Oui  
+ **Configurable :** Oui  
 
- **Activée par défaut :** Non  
+ **Activée par défaut :** Non  
 
- **Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+ **Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte de découverte de forêts Active Directory** (défini par l’utilisateur)  
 
@@ -40,21 +40,21 @@ Chaque méthode de découverte de System Center Configuration Manager permet de 
 
 Lorsque cette méthode est exécutée, elle effectue une recherche dans la forêt Active Directory locale, chaque forêt approuvée et chaque forêt supplémentaire que vous configurez dans le nœud **Forêts Active Directory** de la console Configuration Manager.  
 
-Utilisez la découverte de forêts Active Directory pour :  
+Utilisez la découverte de forêts Active Directory pour :  
 
 -   Découvrir les sites et sous-réseaux Active Directory, puis créer les limites de Configuration Manager en fonction de ces emplacements réseau  
 
--   Identifier les sur-réseaux qui sont affectés à un site Active Directory et convertir le sur-réseau en limite de plage d’adresses IP  
+-   Identifier les sur-réseaux qui sont affectés à un site Active Directory et convertir le sur-réseau en limite de plage d’adresses IP  
 
 -   Publier dans les services de domaine Active Directory d'une forêt lorsque la publication est activée pour cette forêt, et le compte de forêt Active Directory spécifié dispose d'autorisations sur cette forêt  
 
-Vous pouvez gérer la découverte de forêts Active Directory dans la console Active Directory à partir des nœuds suivants sous **Configuration de la hiérarchie** dans l'espace de travail **Administration** :  
+Vous pouvez gérer la découverte de forêts Active Directory dans la console Active Directory à partir des nœuds suivants sous **Configuration de la hiérarchie** dans l'espace de travail **Administration** :  
 
 -   **Méthodes de découverte**: À partir d'ici, vous pouvez activer la découverte de forêts Active Directory pour l'exécution sur le site de niveau supérieur de votre hiérarchie. Vous pouvez également spécifier un calendrier simple pour exécuter la découverte, et la configurer pour créer automatiquement des limites à partir des sous-réseaux IP et des sites Active Directory qui sont découverts. La découverte de forêts Active Directory ne peut pas s'exécuter sur un site principal enfant ou un site secondaire.  
 
 -   **Forêts Active Directory**: À partir d'ici, vous configurez les forêts Active Directory supplémentaires que vous souhaitez découvrir, spécifiez le compte à utiliser comme compte de forêt Active Directory pour chaque forêt et configurez la publication de chaque forêt. En outre, vous pouvez surveiller le processus de découverte et ajouter des sous-réseaux IP, ainsi que des sites Active Directory à Configuration Manager en tant que limites et membres des groupes de limites.  
 
-Pour configurer la publication pour les forêts Active Directory pour chaque site de votre hiérarchie, connectez votre console Configuration Manager au site de niveau supérieur de votre hiérarchie. L'onglet **Publication** dans la boîte de dialogue **Propriétés** d'un site Active Directory peut uniquement afficher le site actuel et ses sites enfants. Quand la publication est activée pour une forêt et que le schéma de cette forêt est étendu pour Configuration Manager, les informations suivantes sont publiées pour chaque site autorisé à publier dans cette forêt Active Directory :  
+Pour configurer la publication pour les forêts Active Directory pour chaque site de votre hiérarchie, connectez votre console Configuration Manager au site de niveau supérieur de votre hiérarchie. L'onglet **Publication** dans la boîte de dialogue **Propriétés** d'un site Active Directory peut uniquement afficher le site actuel et ses sites enfants. Quand la publication est activée pour une forêt et que le schéma de cette forêt est étendu pour Configuration Manager, les informations suivantes sont publiées pour chaque site autorisé à publier dans cette forêt Active Directory :  
 
 -    **SMS-Site-&lt;code_site>**
 
@@ -70,7 +70,7 @@ Pour configurer la publication pour les forêts Active Directory pour chaque sit
 > [!CAUTION]  
 >  Si vous décochez l'option de publication d'un site vers une forêt Active Directory, toutes les informations publiées précédemment pour ce site, notamment des rôles de systèmes de site disponibles, sont supprimées d'Active Directory de cette forêt.  
 
-Les actions de la découverte de forêts Active Directory sont enregistrées dans les journaux suivants :  
+Les actions de la découverte de forêts Active Directory sont enregistrées dans les journaux suivants :  
 
 -   Toutes les actions, à l'exception des actions liées à la publication, sont enregistrées dans le fichier **ADForestDisc.Log** du dossier **&lt;Chemin_installation>\Logs** sur le serveur de site.  
 
@@ -79,11 +79,11 @@ Les actions de la découverte de forêts Active Directory sont enregistrées dan
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 ##  <a name="a-namebkmkaboutgroupa-active-directory-group-discovery"></a><a name="bkmk_aboutGroup"></a> Découverte de groupes Active Directory  
-**Configurable :** Oui  
+**Configurable :** Oui  
 
-**Activée par défaut :** Non  
+**Activée par défaut :** Non  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte de découverte de groupes Active Directory** (défini par l’utilisateur)  
 
@@ -92,7 +92,7 @@ Pour plus d'informations sur la configuration de cette méthode de découverte, 
 > [!TIP]  
 >  Pour plus d’informations,voir la section [Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory](#bkmk_shared).  
 
-Utilisez cette méthode pour effectuer une recherche dans les Services de domaine Active Directory (AD DS) et identifier :  
+Utilisez cette méthode pour effectuer une recherche dans les Services de domaine Active Directory (AD DS) et identifier :  
 
 -   Les groupes de sécurité local, global et universel  
 
@@ -104,7 +104,7 @@ Cette méthode de découverte est prévue pour identifier les groupes et les rel
 
 La découverte de groupes Active Directory ne prend pas en charge les attributs Active Directory étendus qui peuvent être identifiés à l'aide de la découverte de systèmes Active Directory ou de la découverte d'utilisateurs Active Directory. Puisque cette méthode de découverte n'est pas optimisée pour la découverte des ressources d'ordinateur et d'utilisateur, envisagez de l'exécuter après avoir exécuté la découverte de systèmes Active Directory et la découverte d'utilisateurs Active Directory En effet, cette méthode crée un enregistrement de données de découverte complet pour les groupes, mais seulement un enregistrement de données de découverte limité pour les ordinateurs et les utilisateurs qui appartiennent à des groupes.  
 
-Vous pouvez configurer les étendues de découverte suivantes, qui contrôlent la manière dont cette méthode recherche des informations :  
+Vous pouvez configurer les étendues de découverte suivantes, qui contrôlent la manière dont cette méthode recherche des informations :  
 
 -   **Emplacement**: Utilisez un emplacement si vous souhaitez rechercher un ou plusieurs conteneurs Active Directory. Cette option d'étendue prend en charge une recherche récursive des conteneurs Active Directory spécifiés et recherche également chaque conteneur enfant sous le conteneur spécifié. Ce processus continue jusqu'à ne plus trouver de conteneur enfant.  
 
@@ -121,11 +121,11 @@ Les actions de la découverte de groupes Active Directory sont enregistrées dan
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 ##  <a name="a-namebkmkaboutsystema-active-directory-system-discovery"></a><a name="bkmk_aboutSystem"></a> Découverte de systèmes Active Directory  
-**Configurable :** Oui  
+**Configurable :** Oui  
 
-**Activée par défaut :** Non  
+**Activée par défaut :** Non  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte de découverte de systèmes Active Directory** (défini par l’utilisateur)  
 
@@ -136,7 +136,7 @@ Pour plus d'informations sur la configuration de cette méthode de découverte, 
 
 Utilisez cette méthode de découverte pour rechercher dans les emplacements des services de domaine Active Directory (AD DS) spécifiés des ressources d'ordinateurs pouvant être utilisées pour créer des regroupements et des requêtes. Vous pouvez également installer le client Configuration Manager sur un appareil détecté à l’aide de l’installation Push du client.  
 
-Par défaut, cette méthode découvre des informations de base sur l'ordinateur, notamment :  
+Par défaut, cette méthode découvre des informations de base sur l'ordinateur, notamment :  
 
 -   Nom de l'ordinateur  
 
@@ -159,11 +159,11 @@ Les actions de la découverte de systèmes Active Directory sont enregistrées d
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 ##  <a name="a-namebkmkaboutusera-active-directory-user-discovery"></a><a name="bkmk_aboutUser"></a> Découverte d’utilisateurs Active Directory  
-**Configurable :** Oui  
+**Configurable :** Oui  
 
-**Activée par défaut :** Non  
+**Activée par défaut :** Non  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte de découverte d’utilisateurs Active Directory** (défini par l’utilisateur)  
 
@@ -172,7 +172,7 @@ Pour plus d'informations sur la configuration de cette méthode de découverte, 
 > [!TIP]  
 >  Pour plus d’informations,voir la section [Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory](#bkmk_shared).  
 
-Utilisez cette méthode de découverte pour rechercher dans les services de domaine Active Directory (AD DS) des comptes d’utilisateur et les attributs associés.  Par défaut, cette méthode découvre des informations de base sur le compte d’utilisateur, notamment :  
+Utilisez cette méthode de découverte pour rechercher dans les services de domaine Active Directory (AD DS) des comptes d’utilisateur et les attributs associés.  Par défaut, cette méthode découvre des informations de base sur le compte d’utilisateur, notamment :  
 
 -   Nom d'utilisateur  
 
@@ -189,11 +189,11 @@ Les actions de la découverte d’utilisateurs Active Directory sont enregistré
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 ##  <a name="a-namebkmkaboutheartbeata-heartbeat-discovery"></a><a name="bkmk_aboutHeartbeat"></a> Découverte par pulsations d’inventaire  
-**Configurable :** Oui  
+**Configurable :** Oui  
 
-**Activée par défaut :** Oui  
+**Activée par défaut :** Oui  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte d'ordinateur** du serveur de site  
 
@@ -201,7 +201,7 @@ La découverte par pulsations d'inventaire diffère des autres méthodes de déc
 
 La découverte par pulsations d'inventaire est exécutée selon un calendrier configuré pour tous les clients de la hiérarchie ou, si elle est appelée manuellement, sur un client spécifique en exécutant le **Cycle de collecte de données de découverte** dans l'onglet **Action** du programme Configuration Manager d'un client. Le calendrier par défaut pour la découverte par pulsations d'inventaire est défini sur tous les 7 jours. Si vous modifiez l'intervalle de découverte par pulsations d'inventaire, assurez-vous qu'il est exécuté plus fréquemment que la tâche de maintenance de site **Supprimer les données de découverte anciennes**, qui supprime les enregistrements de clients inactifs de la base de données de site. Vous pouvez configurer la tâche **Supprimer les données de découverte anciennes** uniquement pour les sites principaux.  
 
-Lors de son exécution, la découverte par pulsations d’inventaire crée un enregistrement de données de découverte (DDR) contenant les informations actuelles du client. Le client copie ensuite ce petit fichier (d’environ 1 Ko) sur un point de gestion afin qu’il puisse être traité par un site principal.  Le fichier contient les informations suivantes :  
+Lors de son exécution, la découverte par pulsations d’inventaire crée un enregistrement de données de découverte (DDR) contenant les informations actuelles du client. Le client copie ensuite ce petit fichier (d’environ 1 Ko) sur un point de gestion afin qu’il puisse être traité par un site principal.  Le fichier contient les informations suivantes :  
 
 -   Emplacement réseau  
 
@@ -216,7 +216,7 @@ La découverte par pulsations d'inventaire est la seule méthode de découverte 
 > [!NOTE]  
 >  Même lorsque la découverte par pulsations d'inventaire est désactivée, les enregistrements de découverte de données sont toujours créés et soumis pour les clients d’appareils mobiles actifs. Cela garantit que la tâche **Supprimer les données de découverte anciennes** n'affecte pas les appareils mobiles actifs. En effet, lorsque la tâche **Supprimer les données de découverte anciennes** supprime un enregistrement de base de données pour un appareil mobile, elle révoque également le certificat de l’appareil et empêche l’appareil mobile de se connecter aux points de gestion.  
 
-Les actions de la découverte par pulsations d'inventaire sont consignées aux emplacements suivants :  
+Les actions de la découverte par pulsations d'inventaire sont consignées aux emplacements suivants :  
 
 -   Pour les ordinateurs clients, les actions de la découverte par pulsations d'inventaire sont enregistrées sur le client dans le fichier **InventoryAgent.log** du dossier *%Windir%\CCM\Logs*.  
 
@@ -225,11 +225,11 @@ Les actions de la découverte par pulsations d'inventaire sont consignées aux e
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
 ##  <a name="a-namebkmkaboutnetworka-network-discovery"></a><a name="bkmk_aboutNetwork"></a> Découverte du réseau  
-**Configurable :** Oui  
+**Configurable :** Oui  
 
-**Activée par défaut :** Non  
+**Activée par défaut :** Non  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
 
 -   **Compte d'ordinateur** du serveur de site  
 
@@ -237,13 +237,13 @@ Utilisez cette méthode pour découvrir la topologie de votre réseau et les app
 
 Pour utiliser la découverte du réseau, vous devez spécifier le **niveau** de découverte à exécuter. Vous configurez également un ou plusieurs mécanismes de découverte qui permettent à la découverte du réseau d'interroger des segments ou périphériques réseau. Vous pouvez également configurer des paramètres qui permettent de contrôler des actions de découverte sur le réseau. Enfin, vous définissez un ou plusieurs calendriers d'exécution de la découverte du réseau.  
 
-Pour que cette méthode découvre avec succès une ressource, elle doit identifier l'adresse IP et le masque de sous-réseau de la ressource. Les méthodes suivantes sont utilisées pour identifier le masque de sous-réseau d'un objet :  
+Pour que cette méthode découvre avec succès une ressource, elle doit identifier l'adresse IP et le masque de sous-réseau de la ressource. Les méthodes suivantes sont utilisées pour identifier le masque de sous-réseau d'un objet :  
 
--   **Mémoire cache ARP de routeur :** La découverte du réseau interroge la mémoire cache ARP d'un routeur pour rechercher des informations de sous-réseau. En règle générale, les données situées dans la mémoire cache ARP d'un routeur ont une courte durée de vie. Par conséquent, quand la découverte du réseau interroge la mémoire cache ARP, celle-ci peut ne plus contenir d'informations sur l'objet demandé.  
+-   **Mémoire cache ARP de routeur :** La découverte du réseau interroge la mémoire cache ARP d'un routeur pour rechercher des informations de sous-réseau. En règle générale, les données situées dans la mémoire cache ARP d'un routeur ont une courte durée de vie. Par conséquent, quand la découverte du réseau interroge la mémoire cache ARP, celle-ci peut ne plus contenir d'informations sur l'objet demandé.  
 
--   **DHCP :** La découverte du réseau interroge chaque serveur DHCP que vous spécifiez pour découvrir les appareils pour lesquels le serveur DHCP a fourni un bail. La découverte du réseau prend en charge uniquement les serveurs DHCP qui exécutent l'implémentation Microsoft du protocole DHCP.  
+-   **DHCP :** La découverte du réseau interroge chaque serveur DHCP que vous spécifiez pour découvrir les appareils pour lesquels le serveur DHCP a fourni un bail. La découverte du réseau prend en charge uniquement les serveurs DHCP qui exécutent l'implémentation Microsoft du protocole DHCP.  
 
--   **Unités SNMP :** La découverte du réseau peut interroger directement une unité SNMP. Pour que la découverte du réseau puisse interroger un périphérique, celui-ci doit avoir un agent SNMP local installé. Vous devez également configurer la découverte du réseau pour utiliser le nom de communauté utilisé par l'agent SNMP.  
+-   **Unités SNMP :** La découverte du réseau peut interroger directement une unité SNMP. Pour que la découverte du réseau puisse interroger un périphérique, celui-ci doit avoir un agent SNMP local installé. Vous devez également configurer la découverte du réseau pour utiliser le nom de communauté utilisé par l'agent SNMP.  
 
 Lorsque la découverte identifie un objet IP et peut déterminer le masque de sous-réseau des objets, elle crée un enregistrement de données de découverte pour cet objet. Étant donné que différents types d’appareils peuvent se connecter au réseau, la découverte du réseau peut découvrir des ressources qui ne peuvent pas prendre en charge le logiciel client Configuration Manager. Par exemple, parmi les périphériques qui peuvent être découverts mais qui ne peuvent pas être gérés, citons les imprimantes et les routeurs.  
 
@@ -287,7 +287,7 @@ Pour permettre à la découverte du réseau de rechercher des appareils avec adr
 > [!NOTE]  
 >  La découverte du réseau est exécutée dans le contexte du compte d'ordinateur du serveur de site qui exécute la découverte. Si le compte d'ordinateur ne dispose pas d'autorisation vers un domaine non approuvé, les configurations du domaine et du serveur DHCP peuvent ne pas réussir à découvrir des ressources.  
 
-**DHCP :**  
+**DHCP :**  
 
 Spécifiez chaque serveur DHCP que la découverte du réseau devra interroger. (La découverte du réseau prend en charge uniquement les serveurs DHCP qui exécutent l'implémentation Microsoft du protocole DHCP.)  
 
@@ -307,7 +307,7 @@ Spécifiez chaque serveur DHCP que la découverte du réseau devra interroger. (
 
 -   Lorsque la découverte du réseau énumère un serveur DHCP, elle ne découvre pas toujours des adresses IP statiques. La découverte du réseau ne trouve pas d'adresses IP appartenant à une plage exclue d'adresses IP sur le serveur DHCP et elle ne découvre pas d'adresses IP réservées à l'attribution manuelle.  
 
-**Domaines :**  
+**Domaines :**  
 
 Spécifiez chaque domaine que la découverte du réseau devra interroger.  
 
@@ -319,7 +319,7 @@ Spécifiez chaque domaine que la découverte du réseau devra interroger.
 
 -   La découverte du réseau récupère l'adresse IP, puis utilise une demande d'écho ICMP (Internet Control Message Protocol) pour effectuer un test ping sur chaque périphérique qu'elle trouve. La commande **ping** permet de déterminer quels ordinateurs sont actuellement actifs.  
 
-**Unités SNMP :**  
+**Unités SNMP :**  
 
 Spécifiez chaque unité SNMP que la découverte du réseau devra interroger.  
 
@@ -332,7 +332,7 @@ Spécifiez chaque unité SNMP que la découverte du réseau devra interroger.
 ###  <a name="a-namebkmklimitnetdisca-limiting-network-discovery"></a><a name="BKMK_LimitNetDisc"></a> Limitation de la découverte du réseau  
 Lorsque la découverte du réseau interroge un périphérique SNMP sur le bord de votre réseau, elle peut identifier des informations sur les sous-réseaux et les périphériques SNMP qui sont en dehors de votre réseau immédiat. Utilisez les informations suivantes pour limiter la découverte du réseau en configurant les unités SNMP avec lesquelles la découverte peut communiquer et en spécifiant les segments réseau à interroger.  
 
-**Sous-réseaux :**  
+**Sous-réseaux :**  
 
 Configurez les sous-réseaux que la découverte du réseau interroge lorsqu'elle utilise les options DHCP et SNMP. Ces deux options cherchent uniquement les sous-réseaux activés.  
 
@@ -341,11 +341,11 @@ Par exemple, une requête DHCP peut renvoyer des périphériques à partir d'emp
 > [!NOTE]  
 >  Les configurations de sous-réseau ne limitent pas les objets que l'option de découverte de domaines découvre.  
 
-**Noms de communautés SNMP :**  
+**Noms de communautés SNMP :**  
 
 Pour permettre à la découverte du réseau d'interroger avec succès un périphérique SNMP, configurez la découverte du réseau avec le nom de communauté du périphérique. Si la découverte du réseau n'est pas configurée à l'aide du nom de communauté du périphérique SNMP, le périphérique rejette la requête.  
 
-**Nombre maximal de sauts :**  
+**Nombre maximal de sauts :**  
 
 Lorsque vous configurez le nombre maximal de sauts de routeur, vous limitez le nombre de segments réseau et de routeurs que la découverte du réseau peut interroger à l'aide du protocole SNMP.  
 
@@ -367,20 +367,20 @@ Le diagramme suivant illustre le résultat d'une découverte du réseau pour la 
 
  L'exécution d'une découverte du réseau pour la topologie uniquement à partir du serveur 1 avec un saut de routeur permet de découvrir les éléments suivants :  
 
--   Routeur 1 et sous-réseau 10.1.10.0 (détectés avec zéro saut).  
+-   Routeur 1 et sous-réseau 10.1.10.0 (détectés avec zéro saut).  
 
--   Sous-réseaux 10.1.20.0 et 10.1.30.0, sous-réseau A et routeur 2 (détectés sur le premier saut).  
+-   Sous-réseaux 10.1.20.0 et 10.1.30.0, sous-réseau A et routeur 2 (détectés sur le premier saut).  
 
 > [!WARNING]  
 >  Chaque augmentation du nombre de sauts de routeur peut considérablement augmenter le nombre de ressources à découvrir et augmenter la bande passante réseau utilisée par la découverte du réseau.  
 
 ##  <a name="a-namebkmkaboutservera-server-discovery"></a><a name="bkmk_aboutServer"></a> Découverte de serveurs  
-**Configurable :** Non  
+**Configurable :** Non  
 
 Outre ces méthodes de découverte pouvant être configurées par l’utilisateur, Configuration Manager utilise un processus appelé **découverte de serveurs** (SMS_WINNT_SERVER_DISCOVERY_AGENT). Cette méthode de découverte crée des enregistrements de ressources pour les ordinateurs qui sont des systèmes de site, tels qu'un ordinateur configuré en tant que point de gestion.  
 
 ##  <a name="a-namebkmkshareda-common-features-of-active-directory-group-system-and-user-discovery"></a><a name="bkmk_shared"></a> Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory  
-Cette section fournit des informations sur les fonctionnalités qui sont communes aux méthodes de découverte suivantes :  
+Cette section fournit des informations sur les fonctionnalités qui sont communes aux méthodes de découverte suivantes :  
 
 -   Découverte de groupes Active Directory  
 
@@ -407,7 +407,7 @@ Si vous configurez l'exécution d'une même méthode de découverte dans différ
 
 De nombreuses configurations de méthode de découverte sont intuitives. Utilisez les sections suivantes pour en savoir plus sur les options de découverte qui requièrent plus d'informations préalables à la configuration.  
 
-Les options suivantes peuvent être utilisées avec plusieurs méthodes de découverte Active Directory :  
+Les options suivantes peuvent être utilisées avec plusieurs méthodes de découverte Active Directory :  
 
 -   [Découverte delta](#bkmk_delta)  
 
@@ -418,7 +418,7 @@ Les options suivantes peuvent être utilisées avec plusieurs méthodes de déco
 -   [Rechercher les attributs Active Directory personnalisés](#bkmk_customAD)  
 
 ###  <a name="a-namebkmkdeltaa-delta-discovery"></a><a name="bkmk_delta"></a> Découverte delta  
-Disponible pour :  
+Disponible pour :  
 
 -   Découverte de groupes Active Directory  
 
@@ -447,7 +447,7 @@ Bien que la découverte delta puisse détecter de nouvelles ressources et des mo
 Vous configurez la découverte delta à partir de l'onglet **Calendrier d'interrogation** dans les propriétés de chaque méthode de découverte.  
 
 ###  <a name="a-namebkmkstalelogona-filter-stale-computer-records-by-domain-logon"></a><a name="bkmk_stalelogon"></a> Filtrer les enregistrements d’ordinateurs obsolètes par connexion au domaine  
-Disponible pour :  
+Disponible pour :  
 
 -   Découverte de groupes Active Directory  
 
@@ -455,11 +455,11 @@ Disponible pour :
 
 Vous pouvez configurer la découverte de manière à exclure les ordinateurs ayant un enregistrement d’ordinateur obsolète en fonction de la dernière connexion de l'ordinateur au domaine. Lorsque cette option est activée, la découverte de systèmes Active Directory évalue chaque ordinateur identifié. La découverte de groupes Active Directory évalue chaque ordinateur membre d'un groupe qui est découvert.  
 
-Pour utiliser cette option :  
+Pour utiliser cette option :  
 
 -   Les ordinateurs doivent être configurés pour mettre à jour l’attribut **lastLogonTimeStamp** dans les services de domaine Active Directory.  
 
--   Le niveau fonctionnel du domaine Active Directory doit être défini sur Windows Server 2003 ou version ultérieure.  
+-   Le niveau fonctionnel du domaine Active Directory doit être défini sur Windows Server 2003 ou version ultérieure.  
 
 Lors de la configuration du délai entre la dernière connexion et l’utilisation de ce paramètre, prenez en compte l'intervalle de réplication entre les contrôleurs de domaine.  
 
@@ -469,7 +469,7 @@ Vous configurez le filtrage à partir de l'onglet **Option** dans les boîtes de
 >  Lorsque vous configurez ce filtre et **Filtrer les enregistrements obsolètes par mot de passe de l'ordinateur**, les ordinateurs qui répondent aux critères de l'un des filtres sont exclus de la découverte.  
 
 ###  <a name="a-namebkmkstalepassworda-filter-stale-records-by-computer-password"></a><a name="bkmk_stalepassword"></a> Filtrer les enregistrements obsolètes par mot de passe de l’ordinateur  
-Disponible pour :  
+Disponible pour :  
 
 -   Découverte de groupes Active Directory  
 
@@ -477,7 +477,7 @@ Disponible pour :
 
 Vous pouvez configurer la découverte de manière à exclure les ordinateurs ayant un enregistrement d’ordinateur obsolète en fonction de la dernière mise à jour du mot de passe du compte d'ordinateur par l'ordinateur. Lorsque cette option est activée, la découverte de systèmes Active Directory évalue chaque ordinateur identifié. La découverte de groupes Active Directory évalue chaque ordinateur membre d'un groupe qui est découvert.  
 
-Pour utiliser cette option :  
+Pour utiliser cette option :  
 
 -   Les ordinateurs doivent être configurés pour mettre à jour l’attribut **pwdLastSet** dans les services de domaine Active Directory.  
 
@@ -489,7 +489,7 @@ Vous configurez le filtrage à partir de l'onglet **Option** dans les boîtes de
 >  Lorsque vous configurez ce filtre et **Filtrer les enregistrements obsolètes par connexion au domaine**, les ordinateurs qui répondent aux critères de l'un des filtres sont exclus de la découverte.  
 
 ###  <a name="a-namebkmkcustomada-search-customized-active-directory-attributes"></a><a name="bkmk_customAD"></a> Rechercher les attributs Active Directory personnalisés  
- Disponible pour :  
+ Disponible pour :  
 
 -   Découverte de systèmes Active Directory  
 
@@ -501,6 +501,6 @@ Vous pouvez afficher et configurer les liste des attributs personnalisés sous l
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

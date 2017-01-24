@@ -1,5 +1,5 @@
 ---
-title: "Configurer la sécurité dans System Center Configuration Manager"
+title: "Configurer la sécurité dans System Center Configuration Manager | Microsoft Docs"
 description: "Configurez les options de sécurité pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,16 +16,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 2e43979e1c5cdf9559b8a9f11c8f8de4008ae406
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: c486c196335174290a925ca59fe42b806d50889d
 
 
 ---
 # <a name="configure-security-in-system-center-configuration-manager"></a>Configurer la sécurité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Aidez-vous des informations de cette rubrique pour configurer les options de sécurité suivantes pour System Center Configuration Manager :  
+Aidez-vous des informations de cette rubrique pour configurer les options de sécurité suivantes pour System Center Configuration Manager :  
 
 -   [Configurer les paramètres de certificat client PKI](#BKMK_ConfigureClientPKI)  
 
@@ -97,7 +97,7 @@ Répétez cette procédure pour tous les sites principaux de la hiérarchie.
 ##  <a name="a-namebkmkconfigurerbaa-configure-role-based-administration"></a><a name="BKMK_ConfigureRBA"></a> Configurer l’administration basée sur des rôles  
 L'administration basée sur des rôles combine des rôles de sécurité, des étendues de sécurité et des regroupements attribués pour définir l'étendue administrative de chaque utilisateur administratif. L’étendue administrative inclut les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les tâches associées à ces objets que cet utilisateur est autorisé à exécuter. Les configurations d'administration basée sur des rôles s'appliquent à chaque site dans une hiérarchie.  
 
-Les liens suivants renvoient vers les sections correspondantes de la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md) :  
+Les liens suivants renvoient vers les sections correspondantes de la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md) :  
 
 -   [Créer des rôles de sécurité personnalisés](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole)  
 
@@ -138,6 +138,6 @@ Utilisez la procédure suivante pour afficher les comptes qui sont configurés p
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

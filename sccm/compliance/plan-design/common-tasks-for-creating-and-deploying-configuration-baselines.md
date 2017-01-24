@@ -1,5 +1,5 @@
 ---
-title: "Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager | System Center Configuration Manager"
+title: "Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez comment créer et déployer des bases de référence de configuration System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 0d66240408dcd65576954ffb27395d3f05f5a41e
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 8e1736d6a523ae864be9e8dbfcfdbc2ac93dfdf9
 
 
 ---
 # <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique inclut des scénarios courants pour vous permettre de vous familiariser avec la création et le déploiement de bases de référence de configuration System Center Configuration Manager.  
 
@@ -33,7 +33,7 @@ Cette rubrique inclut des scénarios courants pour vous permettre de vous famili
  Avant de commencer, lisez [Bien démarrer avec les paramètres de compatibilité dans System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md) pour apprendre les notions de base sur les paramètres de compatibilité, et lisez également [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) pour implémenter tous les prérequis.  
 
 ## <a name="create-a-configuration-baseline"></a>Créer une base de référence de configuration  
- Dans cet exemple, vous avez créé un élément de configuration uniquement pour les ordinateurs Windows 10 qui exécutent le client Configuration Manager.  
+ Dans cet exemple, vous avez créé un élément de configuration uniquement pour les ordinateurs Windows 10 qui exécutent le client Configuration Manager.  
 
  Cet élément de configuration met en œuvre un mot de passe obligatoire d’au moins 6 caractères sur les ordinateurs Windows 10. L’élément de configuration est nommé **Mise en œuvre de mot de passe Windows 10**.  
 
@@ -72,7 +72,7 @@ Dans la procédure suivante, vous allez apprendre à ajouter cet élément de co
 
     -   **Lignes de base de configuration sélectionnées** : vérifiez que la base de référence de configuration **Mots de passe Windows 10** a été automatiquement ajoutée à cette liste.  
 
-    -   **Résoudre les règles non conformes lorsqu’elles sont prises en charge** : cochez cette case pour veiller à ce que, si les paramètres appropriés ne sont pas présents sur les appareils ciblés, ils soient corrigés par Configuration Manager.  
+    -   **Résoudre les règles non conformes lorsqu’elles sont prises en charge** : cochez cette case pour veiller à ce que, si les paramètres appropriés ne sont pas présents sur les appareils ciblés, ils soient corrigés par Configuration Manager.  
 
     -   **Regroupement** : cliquez sur **Parcourir** pour choisir le regroupement d’ordinateurs sur lequel la base de référence de configuration est évaluée et corrigée à des fins de compatibilité. Dans cet exemple, la base de référence de configuration a été déployée sur le regroupement **Tous les clients bureau et serveur** intégré.  
 
@@ -93,6 +93,6 @@ Dans la procédure suivante, vous allez apprendre à ajouter cet élément de co
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

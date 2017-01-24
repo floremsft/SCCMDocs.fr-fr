@@ -1,5 +1,5 @@
 ---
-title: Prise en charge des domaines Active Directory | System Center Configuration Manager
+title: Prise en charge des domaines AD | Microsoft Docs
 description: "Prenez connaissance de la configuration requise pour l’appartenance d’un système de site System Center Configuration Manager à un domaine Active Directory."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: fdcd1b3b59dbe2b5bd82499e8d29230b3d8ca5cd
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: 2da3da29eb4dcd3886254c506bd29f38b3ef0ab5
 
 
 ---
 # <a name="support-for-active-directory-domains-for-system-center-configuration-manager"></a>Prise en charge des domaines Active Directory pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Tous les systèmes de site System Center Configuration Manager doivent être membres d’un domaine Microsoft Active Directory pris en charge. Les ordinateurs clients Configuration Manager peuvent être membres du domaine ou membres d’un groupe de travail.  
 
@@ -72,7 +72,7 @@ Le tableau suivant identifie les scénarios pris en charge pour un espace de nom
 >  Lorsque vous référencez un ordinateur dans Configuration Manager, entrez-le à l’aide de son suffixe DNS principal. Ce suffixe doit correspondre au nom de domaine complet inscrit en tant qu'attribut **dnsHostName** dans le domaine Active Directory et au nom principal de service associé au système.  
 
 ##  <a name="a-namebkmkslda-single-label-domains"></a><a name="bkmk_SLD"></a> Noms de domaine en une seule partie  
- Configuration Manager prend en charge les systèmes de site et les clients dans un nom domaine en une seule partie quand les critères suivants sont remplis :  
+ Configuration Manager prend en charge les systèmes de site et les clients dans un nom domaine en une seule partie quand les critères suivants sont remplis :  
 
 -   Le nom de domaine en une seule partie dans les services de domaine Active Directory doit être configuré avec un espace de noms DNS disjoint qui a un domaine de plus haut niveau valide.  
 
@@ -82,6 +82,6 @@ Le tableau suivant identifie les scénarios pris en charge pour un espace de nom
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

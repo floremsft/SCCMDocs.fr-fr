@@ -1,5 +1,5 @@
 ---
-title: "Outil de vérification des conditions préalables | System Center Configuration Manager"
+title: "Outil de vérification des prérequis | Microsoft Docs"
 description: "Apprenez à utiliser l’outil de vérification des conditions préalables pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 4c2322ed0805b5f087409ec487ebec9d7c4f10d5
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: f30d7a451f47a3ab1efe6f7ac9c3e0151b8cda96
 
 ---
 # <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Outil de vérification des conditions préalables pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, ou avant d’installer un rôle de système de site sur un nouveau serveur, vous pouvez utiliser cette application autonome (**Prereqchk.exe**) de la version de Configuration Manager que vous voulez utiliser pour vérifier l’état de préparation du serveur. L’outil de vérification des conditions préalables permet d’identifier et de résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site.  
@@ -30,7 +30,7 @@ ms.openlocfilehash: 4c2322ed0805b5f087409ec487ebec9d7c4f10d5
 > [!NOTE]  
 >  L’outil de vérification des conditions préalables s’exécute toujours dans le cadre de l’installation.  
 
-Par défaut, quand l’outil de vérification des conditions préalables s’exécute :  
+Par défaut, quand l’outil de vérification des conditions préalables s’exécute :  
 
 -   Il valide le serveur sur lequel il s’exécute.  
 
@@ -91,7 +91,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
 2.  Entrez  **prereqchk.exe /LOCAL** pour démarrer l’outil de vérification des conditions préalables et effectuer toutes les vérifications requises sur le serveur.  
 
-## <a name="run-prerequisite-checker-from-a-command-prompt-for-specified-options"></a>Exécuter l’outil de vérification des conditions préalables à partir d’une invite de commandes pour les options spécifiées  
+## <a name="run-prerequisite-checker-from-a-command-prompt--for-specified-options"></a>Exécuter l’outil de vérification des conditions préalables à partir d’une invite de commandes pour les options spécifiées  
 
 1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
@@ -105,7 +105,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
     -   **prereqchk.exe [/NOUI] /PRI /SQL &lt;Nom de domaine complet de SQL Server\> /SDK &lt;Nom de domaine complet du fournisseur SMS\> [/JOIN &lt;Nom de domaine complet du site d’administration centrale\>] [/MP &lt;Nom de domaine complet du point de gestion\>] [/DP &lt;Nom de domaine complet du point de distribution\>]**  
 
-    **Serveur de site d’administration centrale** :  
+    **Serveur de site d’administration centrale** :  
 
     -   **/NOUI**  
 
@@ -131,7 +131,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
          Non obligatoire - Vérifie l’espace disque minimum requis pour l’installation du site.  
 
-    **Serveur de site principal** :  
+    **Serveur de site principal** :  
 
     -   **/NOUI**  
 
@@ -169,7 +169,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
          Non obligatoire - Vérifie l’espace disque minimum requis pour l’installation du site.  
 
-    **Serveur de site secondaire** :  
+    **Serveur de site secondaire** :  
 
     -   **/NOUI**  
 
@@ -181,7 +181,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
     -   **/INSTALLSQLEXPRESS**  
 
-         Non obligatoire - Vérifie que SQL Server Express peut être installé sur l’ordinateur spécifié.  
+         Non obligatoire - Vérifie que SQL Server Express peut être installé sur l’ordinateur spécifié.  
 
     -   **/Ssbport**  
 
@@ -190,7 +190,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
     -   **/Sqlport**  
 
-         Non obligatoire - Vérifie qu’une exception de pare-feu est configurée pour permettre la communication pour le port de service SQL Server et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
+         Non obligatoire - Vérifie qu’une exception de pare-feu est configurée pour permettre la communication pour le port de service SQL Server et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
 
     -   **Rép_Install&lt;*Chemin_Installation_ConfigMgr*>**  
 
@@ -200,7 +200,7 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
          Non obligatoire - Vérifie que le compte d’ordinateur du site secondaire peut accéder au dossier hébergeant les fichiers sources d’installation.  
 
-     **Console Configuration Manager** :  
+     **Console Configuration Manager** :  
 
     -   **/Adminui**  
 
@@ -216,6 +216,6 @@ Pour plus d’informations sur les vérifications effectuées par l’outil de v
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configuration d’une infrastructure de certificats | System Center Configuration Manager"
+title: "Configuration de l’infrastructure de certificats | Microsoft Docs"
 description: "Découvrez comment configurer l’inscription de certificats dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/10/2016
@@ -17,13 +17,13 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fbce476b8a9b91a88354fb4abfadfd2526ca5e8
-ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
+ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
+ms.openlocfilehash: 56e0a1923305c5134386623b1e306b8ebd013d53
 
 ---
 # <a name="certificate-infrastructure"></a>Infrastructure de certificats
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
  Voici les étapes, détails et informations complémentaires relatifs à la configuration de l’inscription de certificats dans System Center Configuration Manager. Avant de commencer, examinez les conditions requises répertoriées dans [Configuration requise pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md).  
@@ -31,10 +31,10 @@ ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
  Lorsque vous avez terminé ces étapes et vérifié l'installation, vous pouvez configurer et déployer des profils de certificat. Pour plus d’informations, consultez [Comment créer des profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
 
-**Étape 1 :** Installer et configurer le service d’inscription d’appareils réseau et les dépendances. Le service de rôle du service d'inscription d'appareils réseau pour les services de certificats Active Directory (AD CS) doivent s'exécuter sur le système d'exploitation Windows Server 2012 R2.
-     **Important :** Vous devez suivre des étapes de configuration supplémentaires pour pouvoir utiliser le service d’inscription d’appareils réseau avec System Center Configuration Manager.
-**Étape 2 :** Installer et configurer le point d’enregistrement de certificat. Vous devez installer au moins un point d'enregistrement de certificat. Ce point d'enregistrement peut être sur un site d'administration centrale ou un site principal.
-**Étape 3 :** Installer le module de stratégie de System Center Configuration Manager. Installez le module de stratégie sur le serveur exécutant le service d'inscription d'appareils réseau.
+**Étape 1 :** Installer et configurer le service d’inscription d’appareils réseau et les dépendances. Le service de rôle du service d'inscription d'appareils réseau pour les services de certificats Active Directory (AD CS) doivent s'exécuter sur le système d'exploitation Windows Server 2012 R2.
+     **Important :** Vous devez suivre des étapes de configuration supplémentaires pour pouvoir utiliser le service d’inscription d’appareils réseau avec System Center Configuration Manager.
+**Étape 2 :** Installer et configurer le point d’enregistrement de certificat. Vous devez installer au moins un point d'enregistrement de certificat. Ce point d'enregistrement peut être sur un site d'administration centrale ou un site principal.
+**Étape 3 :** Installer le module de stratégie de System Center Configuration Manager. Installez le module de stratégie sur le serveur exécutant le service d'inscription d'appareils réseau.
 
 ## <a name="supplemental-procedures-to-configure-certificate-enrollment-in-configuration-manager"></a>Procédures supplémentaires relatives à la configuration de l'inscription de certificats dans Configuration Manager  
  Utilisez les informations suivantes lorsque les étapes décrites dans le tableau précédent nécessitent des procédures supplémentaires.  
@@ -51,7 +51,7 @@ ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
 
 2.  Vérifiez et, si nécessaire, modifiez les autorisations de sécurité des modèles de certificat utilisés par le service d'inscription d'appareils réseau :  
 
-    -   Pour le compte qui exécute la console System Center Configuration Manager : droit d’accès en **lecture**.  
+    -   Pour le compte qui exécute la console System Center Configuration Manager : droit d’accès en **lecture**.  
 
          Cette autorisation est requise afin que vous puissiez rechercher et sélectionner le modèle de certificat à utiliser pour créer un profil de paramètres SCEP lorsque vous exécutez l'Assistant de création d'un profil de certificat. La sélection d'un modèle de certificat signifie que certains paramètres dans l'Assistant sont automatiquement renseignés pour vous. Les tâches de configuration sont réduites, ainsi que les risques de sélection de paramètres non compatibles avec les modèles de certificat utilisés par le service d'inscription d'appareils réseau.  
 
@@ -65,10 +65,10 @@ ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
     > [!NOTE]  
     >  Ces autorisations de sécurité sont les valeurs par défaut appropriées pour la plupart des environnements. Toutefois, vous pouvez utiliser une autre configuration de sécurité. Pour plus d’informations, consultez [Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
 
-3.  Déployez vers ce serveur un certificat PKI prenant en charge l'authentification du client. Vous disposez peut-être déjà d'un certificat adapté installé sur l'ordinateur, que vous pouvez utiliser, ou vous devez (ou préférez) déployer un certificat spécifique. Pour plus d’informations sur la configuration requise de ce certificat, consultez « Serveurs exécutant le module de stratégie de Configuration Manager avec le service de rôle du service d’inscription d’appareils réseau » dans la section **Certificats PKI pour serveurs** de la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
+3.  Déployez vers ce serveur un certificat PKI prenant en charge l'authentification du client. Vous disposez peut-être déjà d'un certificat adapté installé sur l'ordinateur, que vous pouvez utiliser, ou vous devez (ou préférez) déployer un certificat spécifique. Pour plus d’informations sur la configuration requise de ce certificat, consultez « Serveurs exécutant le module de stratégie de Configuration Manager avec le service de rôle du service d’inscription d’appareils réseau » dans la section **Certificats PKI pour serveurs** de la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
 
     > [!TIP]  
-    >  Pour obtenir de l’aide pour le déploiement de ce certificat, suivez les instructions dans la section [Déploiement du certificat client pour les points de distribution](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), car les exigences relatives au certificat sont identiques, à une exception près :  
+    >  Pour obtenir de l’aide pour le déploiement de ce certificat, suivez les instructions dans la section [Déploiement du certificat client pour les points de distribution](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), car les exigences relatives au certificat sont identiques, à une exception près :  
     >   
     >  -   N'activez pas la case à cocher **Autoriser l'exportation de la clé privée** dans l'onglet **Traitement de la demande** des propriétés du modèle de certificat.  
     >   
@@ -157,11 +157,11 @@ ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
  Maintenant que le point d’enregistrement de certificat est installé et configuré, vous êtes prêt à installer le module de stratégie de System Center Configuration Manager pour le service d’inscription d’appareils réseau.  
 
 ###  <a name="step-3-install-the-configuration-manager-policy-module"></a>Étape 3 : Installer le module de stratégie de Configuration Manager  
- Vous devez installer et configurer le module de stratégie de System Center Configuration Manager sur chaque serveur que vous avez spécifié à l’**étape 2 : Installer et configurer le point d’enregistrement de certificat** en tant qu’**URL du service d’inscription d’appareils réseau** dans les propriétés du point d’enregistrement de certificat.  
+ Vous devez installer et configurer le module de stratégie de System Center Configuration Manager sur chaque serveur que vous avez spécifié à l’**étape 2 : Installer et configurer le point d’enregistrement de certificat** en tant qu’**URL du service d’inscription d’appareils réseau** dans les propriétés du point d’enregistrement de certificat.  
 
 ##### <a name="to-install-the-policy-module"></a>Pour installer le module de stratégie  
 
-1.  Sur le serveur qui exécute le service d’inscription d’appareils réseau, connectez-vous en tant qu’administrateur de domaine et copiez les fichiers suivants du dossier <support_installation_ConfigMgr\>\SMSSETUP\POLICYMODULE\X64 sur le support d’installation System Center Configuration Manager vers un dossier temporaire :  
+1.  Sur le serveur qui exécute le service d’inscription d’appareils réseau, connectez-vous en tant qu’administrateur de domaine et copiez les fichiers suivants du dossier <support_installation_ConfigMgr\>\SMSSETUP\POLICYMODULE\X64 sur le support d’installation System Center Configuration Manager vers un dossier temporaire :  
 
     -   PolicyModule.msi  
 
@@ -194,6 +194,6 @@ ms.openlocfilehash: 9af69a813a1fe2a07e3b7b289e258b2d0b51a6f7
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’état utilisateur | Configuration Manager"
+title: "Gérer l’état utilisateur | Microsoft Docs"
 description: "System Center Configuration Manager utilise l’outil de migration de l’état utilisateur pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9269c9a9730409253016126a875755edc617a558
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 65ebfd385a27ebda8d5057f503c01b8b33628a72
 
 
 ---
 # <a name="manage-user-state-in-system-center-configuration-manager"></a>Gérer l’état utilisateur dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Exemple :  
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
 -   Déploiements de mise à jour dans lesquels vous voulez capturer et restaurer l'état utilisateur sur le même ordinateur.  
 
- Configuration Manager utilise la version 10.0 de l’outil de migration de l’état utilisateur (USMT) pour gérer la migration des données d’état utilisateur d’un ordinateur source vers un ordinateur de destination après l’installation du système d’exploitation. Pour plus d’informations sur les scénarios de migration courants pour la version 10.0 de l’outil USMT, consultez  [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
+ Configuration Manager utilise la version 10.0 de l’outil de migration de l’état utilisateur (USMT) pour gérer la migration des données d’état utilisateur d’un ordinateur source vers un ordinateur de destination après l’installation du système d’exploitation. Pour plus d’informations sur les scénarios de migration courants pour la version 10.0 de l’outil USMT, consultez  [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
 
  Aidez-vous des informations des sections suivantes pour capturer et restaurer les données d’état utilisateur.
 
@@ -61,7 +61,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
 2.  [Create a computer association](#BKMK_ComputerAssociation) entre l’ordinateur source et l’ordinateur de destination. Vous devez créer cette association avant de capturer l'état utilisateur sur l'ordinateur source.  
 
-3.  [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur, stocker les données utilisateur sur un point de migration, puis restaurer les données utilisateur sur un ordinateur :  
+3.  [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur, stocker les données utilisateur sur un point de migration, puis restaurer les données utilisateur sur un ordinateur :  
 
     -   [Demandez le magasin d’état](../understand/task-sequence-steps.md#BKMK_RequestStateStore) pour demander l’accès à un point de migration d’état dans le cadre d’une capture d’état d’un ordinateur ou d’une restauration de l’état sur un ordinateur.  
 
@@ -133,6 +133,6 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

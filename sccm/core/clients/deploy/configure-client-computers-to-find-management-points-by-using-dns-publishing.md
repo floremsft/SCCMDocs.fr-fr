@@ -1,5 +1,5 @@
 ---
-title: "Configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS | System Center Configuration Manager"
+title: "Configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS | Microsoft Docs"
 description: "Définissez des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 03cec407-0f9f-454f-a360-b005af738d29
 caps.latest.revision: 6
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c6470a39519bc25357ba5d9721afe9c39a28c348
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 9eadb91a575323b4c36af14962f370046ea513ce
 
 
 ---
 # <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Comment configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les clients de System Center Configuration Manager doivent localiser un point de gestion pour terminer l’affectation de site et, dans le cadre d’un processus continu, pour continuer d’être gérés. Les services de domaine Active Directory offrent la méthode la plus sûre pour que les clients sur l'intranet trouvent leurs points de gestion. Toutefois, si les clients ne peuvent pas utiliser cette méthode d'emplacement des services (par exemple, parce que vous n'avez pas étendu le schéma Active Directory ou que les clients font partie d'un groupe de travail), utilisez la publication DNS comme alternative principale à cette méthode.  
 
@@ -60,6 +60,6 @@ Les clients de System Center Configuration Manager doivent localiser un point de
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

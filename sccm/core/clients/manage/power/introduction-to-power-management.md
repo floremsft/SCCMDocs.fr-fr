@@ -1,5 +1,5 @@
 ---
-title: "Présentation de la gestion de l’alimentation | System Center Configuration Manager"
+title: "Présentation de la gestion de l’alimentation | Microsoft Docs"
 description: "Obtenez une présentation de la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 14f83f6f0c96bcd6af09ab75f35d697b594b8a96
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: f46c9479021c814b1102d72c7d493f21a7243bf1
 
 
 ---
 # <a name="introduction-to-power-management-in-system-center-configuration-manager"></a>Présentation de la gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La gestion de l’alimentation dans System Center Configuration Manager répond au besoin de nombreuses organisations de contrôler et réduire la consommation d’énergie de leurs ordinateurs. Cette fonctionnalité tire parti des fonctionnalités de la gestion de l'alimentation intégrée à Windows pour appliquer les paramètres pertinents et cohérents aux ordinateurs de l'organisation. Vous pouvez appliquer différents paramètres d'alimentation aux ordinateurs pendant les heures de bureau et les heures creuses. Par exemple, vous pouvez souhaiter appliquer un mode d'alimentation plus restrictif aux ordinateurs pendant les heures creuses. Dans les cas où les ordinateurs doivent toujours rester allumés, vous pouvez empêcher l'application des paramètres de gestion de l'alimentation.  
 
@@ -52,6 +52,6 @@ La gestion de l’alimentation dans System Center Configuration Manager répond 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

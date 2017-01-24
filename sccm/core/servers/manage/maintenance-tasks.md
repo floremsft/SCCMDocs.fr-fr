@@ -1,5 +1,5 @@
 ---
-title: "Tâches de maintenance | System Center Configuration Manager"
+title: "Tâches de maintenance | Microsoft Docs"
 description: "Comprenez quelles tâches de maintenance effectuer les sites et les hiérarchies Configuration Manager, et à quel moment les effectuer."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ac47f1b88a89a42bb51b87b36147b731e37a5824
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: 46a24145d28111d7611f393f5806d0d7cc47ed71
 
 
 ---
 # <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Tâches de maintenance pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les sites et hiérarchies System Center Configuration Manager exigent une maintenance et une surveillance régulières pour fournir en permanence des services efficaces. Une maintenance régulière garantit que le matériel, les logiciels et la base de données Configuration Manager fonctionnent toujours correctement et efficacement. Lorsque les performances sont optimales, les risques de défaillance sont considérablement réduits.  
 
@@ -142,6 +142,6 @@ Après l’installation d’un site Configuration Manager, passez en revue les t
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

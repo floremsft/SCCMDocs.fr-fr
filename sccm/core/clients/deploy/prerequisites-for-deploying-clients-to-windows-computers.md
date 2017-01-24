@@ -1,5 +1,5 @@
 ---
-title: "Configuration requise pour le déploiement de clients sur des ordinateurs Windows | System Center Configuration Manager"
+title: "Prérequis au déploiement de clients Windows | Microsoft Docs"
 description: "Découvrez la configuration requise pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.assetid: 1a2a9b48-a95b-4643-b00c-b3079584ae2e
 caps.latest.revision: 16
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 03ae6de34742ed0030e42c13639ef853d6b2bedc
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: cbcffea0fe2b4c8a05d3a835ff1193b528e55762
 
 
 ---
 # <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Configuration requise pour le déploiement de clients sur des ordinateurs Windows dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Le déploiement de clients Configuration Manager dans votre environnement présente des dépendances externes et internes au produit, comme décrit ci-dessous. En outre, chaque méthode de déploiement client possède ses propres dépendances qui doivent être respectées pour le bon déroulement des installations clients.  
 
@@ -44,7 +44,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 |-|-|  
 |Windows Installer version 3.1.4000.2435|Obligatoire pour prendre en charge l'utilisation des fichiers de mise à jour (.msp) Windows Installer pour les packages et les mises à jour logicielles.|  
 |[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Installez ce correctif sur les serveurs de site exécutant Windows Server 2008 R2 quand l’installation Push du client est activée.|  
-|Service Microsoft BITS (Background Intelligent Transfer Service) version 2.5|Requis pour autoriser le transfert contrôlé des données entre l’ordinateur client et les systèmes de site Configuration Manager. BITS n'est pas automatiquement téléchargé lors de l'installation du client. Lorsque le service BITS est installé sur les ordinateurs, un redémarrage est généralement nécessaire pour terminer l'installation.<br /><br /> La plupart des systèmes d’exploitation intègrent le service BITS. Si cela n’est pas le cas, comme Windows Server 2003 R2 SP2, par exemple, vous devez installer ce service avant d’installer le client Configuration Manager.|  
+|Service Microsoft BITS (Background Intelligent Transfer Service) version 2.5|Requis pour autoriser le transfert contrôlé des données entre l’ordinateur client et les systèmes de site Configuration Manager. BITS n'est pas automatiquement téléchargé lors de l'installation du client. Lorsque le service BITS est installé sur les ordinateurs, un redémarrage est généralement nécessaire pour terminer l'installation.<br /><br /> La plupart des systèmes d’exploitation intègrent le service BITS. Si cela n’est pas le cas, comme Windows Server 2003 R2 SP2, par exemple, vous devez installer ce service avant d’installer le client Configuration Manager.|  
 |Planificateur de tâches Microsoft|Activez ce service sur le client pour accomplir l’installation du client.|  
 
 ### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Dépendances extérieures à Configuration Manager et téléchargées automatiquement lors de l'installation  
@@ -58,20 +58,20 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 |Microsoft Core XML Services (MSXML) version 6.20.5002 ou supérieure|Obligatoire pour prendre en charge le traitement des documents XML dans Windows.|  
 |Microsoft Remote Differential Compression (RDC)|Requis pour optimiser la transmission de données sur le réseau.|  
 |Microsoft Visual C++ 2013 Redistributable version 12.0.21005.1|Requis pour prendre en charge les opérations de clients. Lorsque cette mise à jour est installée sur les ordinateurs clients, un redémarrage peut être nécessaire pour terminer l'installation.|  
-|Microsoft Visual C++ 2005 Redistributable version 8.0.50727.42|Requis pour prendre en charge les opérations de Microsoft SQL Server Compact.|  
+|Microsoft Visual C++ 2005 Redistributable version 8.0.50727.42|Pour la version 1606 et les versions antérieures, exigé pour prendre en charge les opérations de Microsoft SQL Server Compact.|  
 |API d'image Windows 6.0.6001.18000|Requis pour permettre à Configuration Manager de gérer les fichiers image Windows (.wim).|  
 |Microsoft Policy Platform 1.2.3514.0|Requis pour autoriser les clients à évaluer les paramètres de conformité.|  
-|Microsoft Silverlight 5.1.41212.0 (à compter de Configuration Manager version 1602)|Requis pour prendre en charge l'expérience utilisateur du site Web du catalogue d'applications.|  
+|Microsoft Silverlight 5.1.41212.0 (à compter de Configuration Manager version 1602)|Requis pour prendre en charge l'expérience utilisateur du site Web du catalogue d'applications.|  
 |Microsoft .NET Framework version 4.5.2.|Requis pour prendre en charge les opérations de clients. Installé automatiquement sur l’ordinateur client si le Microsoft .NET Framework 4.5 ou version ultérieure n’est pas installé. Pour plus d’informations, consultez [Détails supplémentaires sur Microsoft .NET Framework version 4.5.2](#dotNet).|  
 |Composants Microsoft SQL Server Compact 3.5 SP2|Requis pour conserver les informations liées aux opérations du client.|  
 |Microsoft Windows Imaging Components|Requis par Microsoft .NET Framework 4.0 pour Windows Server 2003 ou Windows XP SP2 pour les ordinateurs 64 bits.|  
 
-####  <a name="a-namedotneta-additional-details-about-microsoft-net-framework-version-452"></a><a name="dotNet"></a> Informations supplémentaires sur Microsoft .NET Framework version 4.5.2  
+####  <a name="a-namedotneta-additional-details-about-microsoft-net-framework-version-452"></a><a name="dotNet"></a> Informations supplémentaires sur Microsoft .NET Framework version 4.5.2  
 
 > [!NOTE]  
->  Le 12 janvier 2016, la prise en charge de .NET 4.0, 4.5 et 4.5.1 a expiré. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
+>  Le 12 janvier 2016, la prise en charge de .NET 4.0, 4.5 et 4.5.1 a expiré. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
 
- Un redémarrage peut être nécessaire pour achever l’installation de Microsoft .NET Framework version 4.5.2. Une notification **Redémarrage requis** sera affichée dans la barre d’état système.  Scénarios courants qui nécessitent le redémarrage des ordinateurs clients :  
+ Un redémarrage peut être nécessaire pour achever l’installation de Microsoft .NET Framework version 4.5.2. Une notification **Redémarrage requis** sera affichée dans la barre d’état système.  Scénarios courants qui nécessitent le redémarrage des ordinateurs clients :  
 
 -   Des services ou des applications .NET sont en cours d’exécution sur l’ordinateur.  
 
@@ -108,7 +108,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 
     -   L'ordinateur client doit être capable de contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge.  
 
-     Vous devez disposer des autorisations de sécurité suivantes pour installer le client Configuration Manager à l’aide de l’installation push du client :  
+     Vous devez disposer des autorisations de sécurité suivantes pour installer le client Configuration Manager à l’aide de l’installation push du client :  
 
     -   Pour configurer le compte d’installation poussée du client : autorisation **Modifier** et Lire pour l’objet **Site** .  
 
@@ -238,6 +238,6 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

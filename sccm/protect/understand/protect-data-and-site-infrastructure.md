@@ -1,8 +1,8 @@
 ---
-title: "Protéger l’infrastructure de site et les données | System Center Configuration Manager"
+title: "Protéger les données et l’infrastructure des sites | Microsoft Docs"
 description: "Découvrez comment protéger les ressources de votre organisation contre toute exposition ou attaque malveillante grâce à System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/27/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,17 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 366a3626e2ab4894bbb515176890d508761b6561
+ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
+ms.openlocfilehash: c80750358d64cf87f8a3ce3a4c4f4030a9dfd742
 
 
 ---
 # <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Protéger les données et l’infrastructure des sites avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux ressources de votre organisation, pour que votre infrastructure et vos données soient protégées contre toute exposition ou attaque malveillante. Les informations dans ces rubriques décrivent comment activer cet accès et aider à protéger les ressources de votre organisation.  
+Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux ressources de votre organisation, pour que votre infrastructure et vos données soient protégées contre toute exposition ou attaque malveillante. Les informations dans ces rubriques décrivent comment utiliser System Center Configuration Manager (également appelé ConfigMgr ou SCCM) pour activer cet accès et aider à protéger les ressources de votre organisation.  
 
 -   Vous pouvez réduire les efforts de vos utilisateurs pour se connecter aux ressources d’entreprise en activant la connectivité VPN à l’aide de profils VPN. Pour plus d’informations, consultez [Profils VPN dans System Center Configuration Manager](../deploy-use/vpn-profiles.md).  
 
@@ -44,6 +44,6 @@ Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux re
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

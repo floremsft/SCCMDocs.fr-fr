@@ -1,5 +1,5 @@
 ---
-title: Comptes | System Center Configuration Manager
+title: "Comptes utilisés par Configuration Manager | Microsoft Docs"
 description: "Identifier et gérer les groupes Windows ainsi que les comptes dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,19 +17,19 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: c3e19bd216523cc75b9a22672d030bb528b32555
+ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
+ms.openlocfilehash: fe573ebce2868686dd3156f4a3661dc8b85bc948
 
 
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Comptes utilisés dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les informations suivantes pour identifier les groupes Windows et les comptes utilisés dans System Center Configuration Manager, savoir comment ils sont utilisés et connaître les exigences associées.  
 
 ## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Groupes Windows créés et utilisés par Configuration Manager  
- Configuration Manager crée automatiquement et, très souvent, gère automatiquement les groupes Windows suivants :  
+ Configuration Manager crée automatiquement et, très souvent, gère automatiquement les groupes Windows suivants :  
 
 > [!NOTE]  
 >  Lorsque que Configuration Manager crée un groupe sur un ordinateur qui est membre d'un domaine, ce groupe est un groupe de sécurité local. Si l'ordinateur est un contrôleur de domaine, ce groupe est un groupe de domaine local qui est partagé entre tous les contrôleurs de domaine du domaine.  
@@ -72,7 +72,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 |------------|----------------------|  
 |Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d'un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n'est pas supprimé automatiquement et doit être supprimé manuellement.|  
 |Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, chaque utilisateur administratif d'une hiérarchie et le compte d'ordinateur du serveur de site sont membres du groupe Administrateurs SMS sur chaque ordinateur du fournisseur SMS d'un site.|  
-|Autorisations|La définition des autorisations et des droits des administrateurs SMS s'effectue dans le composant logiciel enfichable MMC Contrôle WMI. Par défaut, les autorisations **Enable Account** et **Remote Enable** sont accordées au groupe Administrateurs SMS sur l'espace de noms Root\SMS. Les Utilisateurs authentifiés disposent des autorisations **Execute Methods**, **Provider Write**et **Enable Account**<br /><br /> Les administrateurs qui utiliseront une console Configuration Manager distante doivent posséder des autorisations DCOM d'activation à distance à la fois sur le serveur de site et sur l'ordinateur du fournisseur SMS. Il est recommandé d'accorder ces droits aux Administrateurs SMS pour simplifier l'administration plutôt que d'accorder ces droits directement aux utilisateurs ou groupes. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Autorisations|La définition des autorisations et des droits des administrateurs SMS s'effectue dans le composant logiciel enfichable MMC Contrôle WMI. Par défaut, les autorisations **Enable Account** et **Remote Enable** sont accordées au groupe Administrateurs SMS sur l'espace de noms Root\SMS. Les Utilisateurs authentifiés disposent des autorisations **Execute Methods**, **Provider Write**et **Enable Account**<br /><br /> Les administrateurs qui utiliseront une console Configuration Manager distante doivent posséder des autorisations DCOM d'activation à distance à la fois sur le serveur de site et sur l'ordinateur du fournisseur SMS. Il est recommandé d'accorder ces droits aux Administrateurs SMS pour simplifier l'administration plutôt que d'accorder ces droits directement aux utilisateurs ou groupes. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
 
 ### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;code_site\>  
  Ce groupe est utilisé par les points de gestion Configuration Manager qui sont distants du serveur de site pour se connecter à la base de données du site. Ce groupe fournit un accès au point de gestion pour les dossiers Boîte de réception sur le serveur de site et la base de données du site.  
@@ -119,7 +119,7 @@ Le tableau suivant répertorie des détails supplémentaires pour ce groupe :
 |Autorisations|Par défaut, ce groupe dispose du **contrôle intégral** pour le dossier **%path%\Microsoft Configuration Manager\inboxes\despoolr.box\receive** .|  
 
 ## <a name="accounts-that-configuration-manager-uses"></a>Comptes utilisés par Configuration Manager  
- Vous pouvez utiliser les comptes suivants pour Configuration Manager :  
+ Vous pouvez utiliser les comptes suivants pour Configuration Manager :  
 
 ### <a name="active-directory-group-discovery-account"></a>Compte de découverte de groupes Active Directory  
  Le **compte de découverte de groupes Active Directory** permet de détecter les groupes de sécurité locaux, globaux et universels, l’appartenance au sein de ces groupes et l’appartenance au sein des groupes de distribution à partir des emplacements spécifiés dans les services de domaine Active Directory. Les groupes de distribution ne sont pas découverts en tant que ressources de groupe.  
@@ -285,7 +285,7 @@ Ce compte doit être un administrateur local sur l'ordinateur sur lequel WSUS es
 ### <a name="source-site-account"></a>Compte du site source  
  Le **compte de site source** est utilisé par le processus de migration pour accéder au fournisseur SMS du site source. Ce compte nécessite des autorisations en **Lecture** vers les objets de site du site source pour collecter des données pour les tâches de migration.  
 
- Si vous mettez à niveau les points de distribution Configuration Manager 2007 ou les sites secondaires ayant des points de distribution au même emplacement vers des points de distribution System Center Configuration Manager, ce compte doit également disposer d'autorisations en **Suppression** sur la classe **Site** pour pouvoir supprimer le point de distribution du site Configuration Manager 2007 au cours de la mise à niveau.  
+ Si vous mettez à niveau les points de distribution Configuration Manager 2007 ou les sites secondaires ayant des points de distribution au même emplacement vers des points de distribution System Center Configuration Manager, ce compte doit également disposer d'autorisations en **Suppression** sur la classe **Site** pour pouvoir supprimer le point de distribution du site Configuration Manager 2007 au cours de la mise à niveau.  
 
 > [!NOTE]  
 >  Le compte du site source et le compte de base de données du site source sont identifiés comme **Gestionnaire de migration** dans le nœud **Comptes** de l'espace de travail **Administration** dans la console Configuration Manager.  
@@ -294,11 +294,11 @@ Ce compte doit être un administrateur local sur l'ordinateur sur lequel WSUS es
  Le **compte de base de données de site source** est utilisé par le processus de migration pour accéder à la base de données SQL Server pour le site source. Pour collecter des données à partir de la base de données SQL Server du site source, le compte de base de données du site source doit disposer d'autorisations en **Lecture** et en **Exécution** vers la base de données SQL Server du site source.  
 
 > [!NOTE]  
->  Si vous utilisez le compte d'ordinateur System Center Configuration Manager, assurez-vous que toutes les conditions suivantes sont remplies pour ce compte :  
+>  Si vous utilisez le compte d'ordinateur System Center Configuration Manager, assurez-vous que toutes les conditions suivantes sont remplies pour ce compte :  
 >   
->  -   Il est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où le site Configuration Manager 2007 réside.  
+>  -   Il est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où le site Configuration Manager 2007 réside.  
 > -   Il est membre du groupe de sécurité **Administrateurs SMS** .  
-> -   Il possède l’autorisation **Lecture** sur tous les objets de Configuration Manager 2007.  
+> -   Il possède l’autorisation **Lecture** sur tous les objets de Configuration Manager 2007.  
 
 > [!NOTE]  
 >  Le compte du site source et le compte de base de données du site source sont identifiés comme **Gestionnaire de migration** dans le nœud **Comptes** de l'espace de travail **Administration** dans la console Configuration Manager.  
@@ -347,6 +347,6 @@ Ce compte doit être un administrateur local sur l'ordinateur sur lequel WSUS es
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

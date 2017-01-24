@@ -1,5 +1,5 @@
 ---
-title: "Bonnes pratiques de gestion de l’alimentation | System Center Configuration Manager"
+title: "Bonnes pratiques pour la gestion de l’alimentation | Microsoft Docs"
 description: "Obtenez les bonnes pratiques de gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: f5ddb52585166a3855d18f06aa13e31ea3483c44
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: d3cc24c7923141f039dcda26ac27489cb0143e89
 
 
 ---
 # <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Meilleures pratiques de gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Utilisez les bonnes pratiques de gestion de l’alimentation suivantes dans System Center Configuration Manager.  
 
@@ -77,14 +77,14 @@ Utilisez les bonnes pratiques de gestion de l’alimentation suivantes dans Syst
      Pour plus d’informations, consultez [Ordinateurs avec plusieurs modes de gestion de l’alimentation](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) dans la rubrique [Guide pratique pour surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Pour plus d’informations sur la manière dont la gestion de l’alimentation résout les conflits, consultez [Guide pratique pour créer et appliquer des modes de gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
 ## <a name="save-or-export-power-management-information-during-the-monitoring-and-planning-phase-of-power-management"></a>Enregistrer ou exporter les informations de gestion de l’alimentation pendant la phase de surveillance et de planification de la gestion de l’alimentation  
- Les informations de gestion de l’alimentation utilisées par les rapports quotidiens sont conservées dans la base de données du site Configuration Manager pendant 31 jours.  
+ Les informations de gestion de l’alimentation utilisées par les rapports quotidiens sont conservées dans la base de données du site Configuration Manager pendant 31 jours.  
 
- Les informations de gestion de l’alimentation utilisées par les rapports mensuels sont conservées dans la base de données du site Configuration Manager pendant 13 mois.  
+ Les informations de gestion de l’alimentation utilisées par les rapports mensuels sont conservées dans la base de données du site Configuration Manager pendant 13 mois.  
 
  Quand vous exécutez des rapports pendant les phases de surveillance, de planification et de conformité de la gestion de l’alimentation, enregistrez ou exportez les résultats de tous les rapports pour lesquels vous souhaitez conserver les données afin de les comparer ultérieurement au cas où ils seraient ensuite supprimés par Configuration Manager.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

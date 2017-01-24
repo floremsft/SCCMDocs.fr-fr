@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’inventaire logiciel | System Center Configuration Manager"
+title: "Configurer l’inventaire logiciel | Microsoft Docs"
 description: "Configurez l’inventaire logiciel et un dossier d’exclusion de l’inventaire dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 5f30eb754832fcc259caf853dc33ccfcb82cf8bc
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 7ba943bee7faf417099cde0388649e4907525738
 
 
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Guide pratique pour configurer l’inventaire logiciel dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez créer un fichier masqué appelé **Skpswi.dat** et le placer à la racine du disque dur d’un client pour l’exclure de l’inventaire logiciel System Center Configuration Manager. Vous pouvez également placer ce fichier à la racine de n'importe quelle structure de dossiers que vous souhaitez exclure de l'inventaire logiciel. Cette procédure peut être utilisée pour désactiver l'inventaire logiciel sur une station de travail unique ou sur un client de serveur, tel qu'un serveur de fichiers volumineux.  
 
@@ -41,6 +41,6 @@ Vous pouvez créer un fichier masqué appelé **Skpswi.dat** et le placer à la 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Scénarios de déploiement de systèmes d’exploitation d’entreprise | Configuration Manager"
+title: "Scénarios pour déployer des systèmes d’exploitation d’entreprise | Microsoft Docs"
 description: "En savoir plus sur différents scénarios de déploiement de systèmes d’exploitation d’entreprise avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,24 +16,24 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 0e20ef1fbb6e6447482caa0b936ae968c7250312
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: b1bea8b1b890f7c96a432835d28ad840a9b6873d
 
 
 ---
 # <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Scénarios pour déployer des systèmes d’exploitation d’entreprise avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les scénarios de déploiement de système d’exploitation suivants sont disponibles dans System Center Configuration Manager :  
+Les scénarios de déploiement de système d’exploitation suivants sont disponibles dans System Center Configuration Manager :  
 
--   [Mettre à niveau Windows vers la dernière version](upgrade-windows-to-the-latest-version.md) : ce scénario met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement Windows 7, Windows 8, Windows 8.1 ou Windows 10. Le processus de mise à niveau conserve les applications, les paramètres et les données utilisateur sur l’ordinateur. Il n’existe aucune dépendance externe, telle que Windows ADK, et ce processus est plus rapide et plus fiable que les déploiements de système d’exploitation traditionnels.  
+-   [Mettre à niveau Windows vers la dernière version](upgrade-windows-to-the-latest-version.md) : ce scénario met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement Windows 7, Windows 8, Windows 8.1 ou Windows 10. Le processus de mise à niveau conserve les applications, les paramètres et les données utilisateur sur l’ordinateur. Il n’existe aucune dépendance externe, telle que Windows ADK, et ce processus est plus rapide et plus fiable que les déploiements de système d’exploitation traditionnels.  
 
--   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md) : ce scénario partitionne et formate (efface) un ordinateur existant, et installe un nouveau système d’exploitation sur l’ordinateur. Vous pouvez migrer les données et paramètres utilisateur une fois le système d’exploitation installé.  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md) : ce scénario partitionne et formate (efface) un ordinateur existant, et installe un nouveau système d’exploitation sur l’ordinateur. Vous pouvez migrer les données et paramètres utilisateur une fois le système d’exploitation installé.  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (nu)](install-new-windows-version-new-computer-bare-metal.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Il s’agit d’une nouvelle installation du système d’exploitation. Elle n’inclut pas de paramètres ou de migration des données utilisateur.  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (nu)](install-new-windows-version-new-computer-bare-metal.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Il s’agit d’une nouvelle installation du système d’exploitation. Elle n’inclut pas de paramètres ou de migration des données utilisateur.  
 
--   [Remplacer un ordinateur existant et transférer les paramètres](replace-an-existing-computer-and-transfer-settings.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Si vous le souhaitez, vous pouvez migrer des données et des paramètres utilisateur de l’ancien ordinateur vers le nouvel ordinateur.  
+-   [Remplacer un ordinateur existant et transférer les paramètres](replace-an-existing-computer-and-transfer-settings.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Si vous le souhaitez, vous pouvez migrer des données et des paramètres utilisateur de l’ancien ordinateur vers le nouvel ordinateur.  
 
 ## <a name="things-to-consider-before-you-deploy-operating-system-images"></a>Éléments à prendre en compte avant de déployer des images de système d’exploitation  
  Vous devez prendre en compte certains éléments avant de déployer un système d’exploitation.  
@@ -53,7 +53,7 @@ Les scénarios de déploiement de système d’exploitation suivants sont dispon
  Pour plus d'informations, voir [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
 ## <a name="task-sequence-deployments"></a>Déploiements de séquences de tâches  
- La séquence de tâches que vous créez peut déployer l'image du système d'exploitation sur un ordinateur client Configuration Manager selon l'une des manières suivantes :  
+ La séquence de tâches que vous créez peut déployer l'image du système d'exploitation sur un ordinateur client Configuration Manager selon l'une des manières suivantes :  
 
 -   Téléchargez d'abord l'image et son contenu dans le cache du client Configuration Manager à partir d'un point de distribution, puis installez-le.  
 
@@ -67,6 +67,6 @@ Les scénarios de déploiement de système d’exploitation suivants sont dispon
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

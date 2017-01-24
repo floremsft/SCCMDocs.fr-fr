@@ -1,5 +1,5 @@
 ---
-title: "Préparer les rôles de système de site pour les déploiements de système d’exploitation | Configuration Manager"
+title: "Préparer les rôles de système de site pour les déploiements de système d’exploitation | Microsoft Docs"
 description: "Configurez les rôles de système de site avant de déployer des systèmes d’exploitation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: a9e682c855d5e1fb26f772b2af5066280e01851f
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 1069a18eecbc5f53b74ad89e166e6f2c7b180693
 
 
 ---
 # <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Préparer les rôles de système de site pour les déploiements de système d’exploitation avec System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour déployer des systèmes d’exploitation dans System Center Configuration Manager, vous devez d’abord préparer les rôles de système de site suivants qui appellent des configurations et des considérations spécifiques.
 
@@ -98,7 +98,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 11. Cliquez sur **OK** pour mettre à jour les propriétés du point de distribution.  
 
 ###  <a name="a-namebkmkramdisktftpa-customize-the-ramdisk-tftp-block-size-and-window-size-on-pxe-enabled-distribution-points"></a><a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
-Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
+Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
 Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
 
 -   **Taille de bloc TFTP**: la taille de bloc est la taille des paquets de données que le serveur envoie au client qui télécharge le fichier (comme indiqué dans RFC 2347). Plus la taille de bloc est importante, moins le serveur envoie de paquets. Il y a donc moins de délais d’aller et retour entre le serveur et le client. Toutefois, une taille de bloc importante entraîne une fragmentation des paquets, incompatible avec la plupart des implémentations du client PXE.  
@@ -115,7 +115,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
      **Type**: REG_DWORD  
 
-     **Valeur** : <taille de fenêtre personnalisée\>  
+     **Valeur** : <taille de fenêtre personnalisée\>  
 
  La valeur par défaut est 1 (1 bloc de données remplit la fenêtre).  
 
@@ -128,7 +128,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
      **Type**: REG_DWORD  
 
-     **Valeur** : <taille de bloc personnalisée\>  
+     **Valeur** : <taille de bloc personnalisée\>  
 
  La valeur par défaut est 4096 (4k).  
 
@@ -164,7 +164,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
         > [!IMPORTANT]  
         >  Ces ports doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Cela signifie que les routeurs et pare-feu entre l'ordinateur de destination et le serveur de site doivent être configurés pour autoriser le trafic de multidiffusion.  
 
-    -   **Multidiffusion planifiée activée** : indiquez comment Configuration Manager contrôle le lancement du déploiement des systèmes d’exploitation sur les ordinateurs de destination. Cliquez sur **Multidiffusion planifiée activée**, puis sélectionnez les options suivantes.  
+    -   **Multidiffusion planifiée activée** : indiquez comment Configuration Manager contrôle le lancement du déploiement des systèmes d’exploitation sur les ordinateurs de destination. Cliquez sur **Multidiffusion planifiée activée**, puis sélectionnez les options suivantes.  
 
          Dans la zone **Délai de démarrage de session**, indiquez le temps de réponse en minutes de Configuration Manager à la première demande de déploiement.  
 
@@ -183,7 +183,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
  La taille de l'état utilisateur affecte directement le stockage sur disque sur le point de migration d'état, ainsi que les performances réseau au cours de la migration. Réfléchissez à la taille de l'état utilisateur et au nombre d'ordinateurs à migrer. Pensez également aux paramètres à migrer à partir de l'ordinateur. Par exemple, si le dossier **Mes documents** est déjà sauvegardé sur un serveur, peut-être n’avez-vous pas besoin de le migrer dans le cadre du déploiement d’image. Évitez les migrations inutiles afin de réduire la taille globale de l'état utilisateur et diminuer les effets que cela aurait autrement sur les performances réseau et le stockage sur disque sur le point de migration d'état.  
 
 ### <a name="user-state-migration-tool"></a>Outil de migration de l'état utilisateur  
- Pour capturer et restaurer l'état utilisateur pendant le déploiement des systèmes d'exploitation, vous devez utiliser un package de l'outil de migration de l'état utilisateur (USMT) qui pointe vers les fichiers sources USMT. Configuration Manager crée automatiquement ce package dans la console Configuration Manager dans **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**. Configuration Manager utilise USMT 10.0, qui est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK), pour capturer l’état utilisateur d’un système d’exploitation et le restaurer sur un autre système d’exploitation.  
+ Pour capturer et restaurer l'état utilisateur pendant le déploiement des systèmes d'exploitation, vous devez utiliser un package de l'outil de migration de l'état utilisateur (USMT) qui pointe vers les fichiers sources USMT. Configuration Manager crée automatiquement ce package dans la console Configuration Manager dans **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**. Configuration Manager utilise USMT 10.0, qui est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK), pour capturer l’état utilisateur d’un système d’exploitation et le restaurer sur un autre système d’exploitation.  
 
  Pour obtenir une description de différents scénarios de migration pour USMT 10.0, consultez [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
 
@@ -222,6 +222,6 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

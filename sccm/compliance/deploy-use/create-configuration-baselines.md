@@ -1,5 +1,5 @@
 ---
-title: "Créer des bases de référence de configuration | System Center Configuration Manager"
+title: "Créer des bases de référence de configuration | Microsoft Docs"
 description: "Créez des bases de référence de configuration dans System Center Configuration Manager pour les déployer ensuite dans un regroupement."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,21 +17,21 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 9494524b68586d34b93b323a16829949b416c035
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: 649942d3d468ec35c7246e08f741cdebd22fb3ac
 
 
 ---
 # <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Créer des bases de référence de configuration dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Les bases de référence de configuration System Center Configuration Manager contiennent des éléments de configuration prédéfinis et, éventuellement, d’autres bases de référence de configuration. Après avoir créé une base de référence de configuration, vous pouvez la déployer vers un regroupement afin que les périphériques de ce regroupement puissent la télécharger et évaluer leur compatibilité avec elle.  
 
  Les bases de référence de configuration dans Configuration Manager peuvent contenir des révisions spécifiques des éléments de configuration, ou être configurées pour toujours utiliser la dernière version d’un élément de configuration. Pour plus d’informations sur les révisions des éléments de configuration, consultez [Tâches de gestion des données de configuration](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
- Vous pouvez créer des bases de référence de configuration selon deux méthodes différentes :  
+ Vous pouvez créer des bases de référence de configuration selon deux méthodes différentes :  
 
 -   Importer des données de configuration depuis un fichier. Pour démarrer l’ **Assistant Importer des données de configuration**, dans le nœud **Éléments de configuration** ou **Lignes de base de configuration** de l’espace de travail **Biens et conformité** , cliquez sur **Importer des données de configuration**.  
 
@@ -53,7 +53,7 @@ Les bases de référence de configuration System Center Configuration Manager co
 
     -   **Lignes de base de configuration**  
       > [!IMPORTANT]
-      > Vous devez limiter chaque base de référence de configuration à 1 000 mises à jour logicielles.
+      > Vous devez limiter chaque base de référence de configuration à 1 000 mises à jour logicielles.
 6.  Utilisez la liste **Changer d’objet** pour spécifier le comportement d’un élément de configuration que vous avez sélectionné dans la liste **Données de configuration** . Vous pouvez choisir parmi les options suivantes  
 
     -   **Obligatoire** La base de référence de configuration est évaluée comme non compatible si l’élément de configuration n’est pas détecté sur un périphérique client. S’il est détecté, sa conformité est évaluée.  
@@ -73,6 +73,6 @@ Les bases de référence de configuration System Center Configuration Manager co
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

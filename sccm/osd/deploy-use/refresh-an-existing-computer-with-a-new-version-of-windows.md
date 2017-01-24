@@ -1,5 +1,5 @@
 ---
-title: Actualiser un ordinateur existant avec une nouvelle version de Windows | Configuration Manager
+title: Actualiser un ordinateur existant avec une nouvelle version de Windows | Microsoft Docs
 description: "Vous pouvez utiliser plusieurs méthodes dans Configuration Manager pour partitionner et formater (réinitialiser) un ordinateur existant afin d’y installer un nouveau système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ae331ee9f1cc276f64b7f6501b383c67648f72f3
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: b247cbb68ed63a8eb99715a248686d68a28c53e2
 
 
 ---
 # <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Actualiser un ordinateur existant avec une nouvelle version de Windows à l’aide de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Cette rubrique indique les étapes générales à effectuer dans System Center Configuration Manager pour partitionner et formater (réinitialiser) un ordinateur existant afin d’y installer un nouveau système d’exploitation. Pour ce scénario, vous pouvez choisir parmi de nombreuses méthodes de déploiement différentes, telles que PXE, média de démarrage ou Centre logiciel. Vous pouvez aussi choisir d’installer un point de migration d’état pour stocker les paramètres, puis les restaurer sur le nouveau système d’exploitation après son installation. Pour vous aider à déterminer si ce scénario de déploiement de système d’exploitation est adapté à votre cas, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md).  
 
@@ -90,6 +90,6 @@ Cette rubrique indique les étapes générales à effectuer dans System Center C
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

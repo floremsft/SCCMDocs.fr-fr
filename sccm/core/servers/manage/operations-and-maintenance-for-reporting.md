@@ -1,5 +1,5 @@
 ---
-title: "Opérations et maintenance pour les rapports | Configuration Manager"
+title: "Opérations et maintenance pour les rapports | Microsoft Docs"
 description: "Découvrez les détails de la gestion des rapports et des abonnements aux rapports dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,19 +16,19 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 2473aef3b5c9be51f45039735e975d1c0ca86277
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: f5a58ba9ecd9b0998c2859b6d3f45e493d7ef3cb
 
 
 ---
 # <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Opérations et maintenance pour les rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Une fois l’infrastructure en place pour la création de rapports dans System Center Configuration Manager, il existe un certain nombre d’opérations que vous pouvez généralement effectuer pour gérer les rapports et les abonnements aux rapports.  
 
 ##  <a name="a-namebkmkmanagereportsa-manage-configuration-manager-reports"></a><a name="BKMK_ManageReports"></a> Gérer les rapports Configuration Manager  
- Configuration Manager offre plus de 400 rapports prédéfinis qui vous aident à recueillir, organiser et présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Vous pouvez utiliser les rapports prédéfinis comme ils sont, ou vous pouvez modifier un rapport pour qu'il réponde à vos besoins. Vous pouvez également créer des rapports personnalisés basés sur des modèles ou sur SQL qui répondent à vos besoins. Utilisez les sections suivantes pour mieux gérer les rapports Configuration Manager.  
+ Configuration Manager offre plus de 400 rapports prédéfinis qui vous aident à recueillir, organiser et présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Vous pouvez utiliser les rapports prédéfinis comme ils sont, ou vous pouvez modifier un rapport pour qu'il réponde à vos besoins. Vous pouvez également créer des rapports personnalisés basés sur des modèles ou sur SQL qui répondent à vos besoins. Utilisez les sections suivantes pour mieux gérer les rapports Configuration Manager.  
 
 ###  <a name="a-namebkmkrunreporta-run-a-configuration-manager-report"></a><a name="BKMK_RunReport"></a> Exécuter un rapport Configuration Manager  
  Rapports dans le Gestionnaire de Configuration sont stockés dans SQL Server Reporting Services et les données affichées dans le rapport sont récupérées à partir de la base de données de site Configuration Manager. Vous pouvez accéder aux rapports dans la console Configuration Manager ou à l'aide du Gestionnaire de rapports dans un navigateur web. Les rapports peuvent être ouverts depuis n'importe quel ordinateur disposant d'un accès à l'ordinateur exécutant SQL Server Reporting Services, si vous possédez les droits vous permettant de consulter les rapports. Lorsque vous exécutez un rapport, le titre du rapport, la description et la catégorie sont affichés dans la langue du système d'exploitation local.  
@@ -133,7 +133,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 4.  Sur la page **Informations** , configurez les paramètres suivants :  
 
-    -   **Type** : Sélectionnez **Rapport basé sur un modèle** pour créer un rapport dans le Générateur de rapports en utilisant un modèle de Reporting Services.  
+    -   **Type** : Sélectionnez **Rapport basé sur un modèle** pour créer un rapport dans le Générateur de rapports en utilisant un modèle de Reporting Services.  
 
     -   **Nom**: Spécifiez le nom du rapport.  
 
@@ -178,7 +178,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 4.  Sur la page **Informations** , configurez les paramètres suivants :  
 
-    -   **Type** : Sélectionnez **Rapport basé sur SQL** pour créer un rapport dans le Générateur de rapports en utilisant une instruction SQL.  
+    -   **Type** : Sélectionnez **Rapport basé sur SQL** pour créer un rapport dans le Générateur de rapports en utilisant une instruction SQL.  
 
     -   **Nom**: Spécifiez le nom du rapport.  
 
@@ -201,14 +201,14 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 9. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
 
 ##  <a name="a-namebkmkmanagereportsubscriptionsa-manage-report-subscriptions"></a><a name="BKMK_ManageReportSubscriptions"></a> Gérer les abonnements aux rapports  
- Les abonnements aux rapports dans SQL Server Reporting Services permettent de configurer la remise automatique des rapports spécifiés par courrier électronique ou vers une solution de partage de fichiers, à des intervalles de temps planifiés. Utilisez l’**Assistant Création d’abonnement** dans System Center 2012 Configuration Manager pour configurer les abonnements aux rapports.  
+ Les abonnements aux rapports dans SQL Server Reporting Services permettent de configurer la remise automatique des rapports spécifiés par courrier électronique ou vers une solution de partage de fichiers, à des intervalles de temps planifiés. Utilisez l’**Assistant Création d’abonnement** dans System Center 2012 Configuration Manager pour configurer les abonnements aux rapports.  
 
 ###  <a name="a-namebkmkreportsubscriptionfilesharea-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a><a name="BKMK_ReportSubscriptionFileShare"></a> Créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers  
  Lorsque vous créez un abonnement aux rapports pour remettre un rapport à un partage de fichiers, le rapport est copié au format spécifié pour le partage de fichiers que vous avez indiqué. Vous ne pouvez vous abonner et demander la remise que pour un seul rapport à la fois.  
 
  À la différence des rapports qui sont hébergés et gérés par un serveur de rapports, les rapports qui sont remis à un dossier partagé sont des fichiers statiques. Les fonctionnalités interactives définies pour le rapport ne fonctionnent pas pour les rapports qui sont stockés sous forme de fichiers sur le système de fichiers. Les fonctionnalités d'interaction sont représentées comme des éléments statiques. Si le rapport comprend des graphiques, la présentation par défaut est utilisée. Si le rapport contient des liens renvoyant à un autre rapport, le lien est restitué sous forme de texte statique. Si vous souhaitez conserver les fonctionnalités interactives dans un rapport remis, utilisez plutôt la remise par courrier électronique. Pour plus d’informations sur la remise de courrier électronique, consultez la section [Créer un abonnement aux rapports pour remettre un rapport par courrier électronique](#BKMK_ReportSubscriptionEmail) plus loin dans cette rubrique.  
 
- Lorsque vous créez un abonnement qui utilise la remise par partage de fichiers, vous devez spécifier un dossier existant comme dossier de destination. Le serveur de rapports ne crée pas de dossiers sur le système de fichiers. Le dossier que vous spécifiez doit être accessible via une connexion réseau. Lorsque vous spécifiez le dossier de destination dans un abonnement, utilisez un chemin UNC et n'incluez pas de barres obliques inverses à la fin du chemin du dossier. Voici un exemple de chemin UNC valide pour le dossier de destination : \\\\&lt;nom_serveur\>\\reportfiles\\operations\\2011.  
+ Lorsque vous créez un abonnement qui utilise la remise par partage de fichiers, vous devez spécifier un dossier existant comme dossier de destination. Le serveur de rapports ne crée pas de dossiers sur le système de fichiers. Le dossier que vous spécifiez doit être accessible via une connexion réseau. Lorsque vous spécifiez le dossier de destination dans un abonnement, utilisez un chemin UNC et n'incluez pas de barres obliques inverses à la fin du chemin du dossier. Voici un exemple de chemin UNC valide pour le dossier de destination : \\\\&lt;nom_serveur\>\\reportfiles\\operations\\2011.  
 
  Les rapports peuvent être rendus dans une variété de formats de fichier, tels que MHTML ou Excel. Pour enregistrer le rapport dans un format de fichier spécifique, sélectionnez ce format de rendu lors de la création de votre abonnement. Par exemple, choisir Excel enregistre le rapport sous forme de fichier Microsoft Excel. Même s'il est possible de sélectionner n'importe quel format de rendu pris en charge, certains formats fonctionnent mieux que d'autres lors du rendu d'un fichier.  
 
@@ -228,7 +228,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
     -   **Nom du fichier**: Spécifiez le nom de fichier du rapport. Par défaut, le fichier de rapport n'inclut pas d'extension de nom de fichier. Sélectionnez **Ajouter une extension de fichier à la création** pour ajouter automatiquement une extension de nom de fichier à ce rapport, en fonction du format de rendu.  
 
-    -   **Chemin** : Spécifiez un chemin UNC vers un dossier existant, dans lequel vous souhaitez remettre ce rapport \(par exemple, \\\\&lt;nom_serveur\>\\&lt;partage_serveur\>\\&lt;dossier_rapport\>\).  
+    -   **Chemin** : Spécifiez un chemin UNC vers un dossier existant, dans lequel vous souhaitez remettre ce rapport \(par exemple, \\\\&lt;nom_serveur\>\\&lt;partage_serveur\>\\&lt;dossier_rapport\>\).  
 
         > [!NOTE]  
         >  Le nom d'utilisateur spécifié ultérieurement sur cette page doit avoir accès à ce partage de serveur et disposer des autorisations d'écriture sur le dossier de destination.  
@@ -237,20 +237,20 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
         -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
 
-        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
+        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
 
         -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
 
-        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
+        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
 
         -   **HTML 4.0**: Enregistre le rapport sous la forme d'une page Web affichable uniquement dans les navigateurs qui prennent en charge le langage HTML 4.0. Internet Explorer 5 et versions ultérieures prennent en charge le langage HTML 4.0.  
 
             > [!NOTE]  
             >  Si votre rapport contient des images, le format HTML 4.0 ne les inclut pas dans le fichier.  
 
-        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
+        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
 
-        -   **Convertisseur RPL** : Enregistre le rapport au format RPL \(Report Page Layout\).  
+        -   **Convertisseur RPL** : Enregistre le rapport au format RPL \(Report Page Layout\).  
 
         -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
 
@@ -289,7 +289,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 -   Envoyer une notification et un lien hypertexte vers le rapport généré.  
 
--   Envoyer un rapport incorporé ou joint au message. Le format de rendu et le navigateur déterminent si le rapport est incorporé ou joint. Si votre navigateur prend en charge HTML 4.0 et MHTML et que vous sélectionnez le format de rendu MHTML \(archive web\), le rapport est incorporé dans le corps du message. Tous les autres formats de rendu \(CSV, PDF, Word, etc.\) sont ajoutés au message sous forme de pièces jointes. Reporting Services ne vérifie pas la taille de la pièce jointe ni du message avant d'envoyer le rapport. Si le message ou la pièce jointe dépasse la limite maximale autorisée par votre serveur de messagerie, le rapport n'est pas remis.  
+-   Envoyer un rapport incorporé ou joint au message. Le format de rendu et le navigateur déterminent si le rapport est incorporé ou joint. Si votre navigateur prend en charge HTML 4.0 et MHTML et que vous sélectionnez le format de rendu MHTML \(archive web\), le rapport est incorporé dans le corps du message. Tous les autres formats de rendu \(CSV, PDF, Word, etc.\) sont ajoutés au message sous forme de pièces jointes. Reporting Services ne vérifie pas la taille de la pièce jointe ni du message avant d'envoyer le rapport. Si le message ou la pièce jointe dépasse la limite maximale autorisée par votre serveur de messagerie, le rapport n'est pas remis.  
 
 > [!IMPORTANT]  
 >  Vous devez configurer les paramètres de courrier électronique dans Reporting Services pour que l'option de remise **Courrier électronique** soit disponible. Pour plus d'informations sur la configuration des paramètres de courrier électronique dans Reporting Services, voir [Configuration d'un serveur de rapport pour la remise par courrier électronique](http://go.microsoft.com/fwlink/p/?LinkId=226668) dans la documentation en ligne de SQL Server.  
@@ -306,7 +306,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 -   Sur la page **Remise d'abonnement** , configurez les paramètres suivants :  
 
-    -   **Rapport remis par** : Sélectionnez **E\-mail** pour remettre le rapport en tant que pièce jointe dans un message électronique.  
+    -   **Rapport remis par** : Sélectionnez **E\-mail** pour remettre le rapport en tant que pièce jointe dans un message électronique.  
 
     -   **À**: Spécifiez une adresse de messagerie valide du destinataire du rapport.  
 
@@ -329,19 +329,19 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
     -   **Inclure un lien**: Inclut une URL au rapport d'abonnement dans le corps du message électronique.  
 
-    -   **Inclure un rapport** : Spécifiez que le rapport est joint au message électronique. Le format à utiliser pour joindre le rapport est indiqué dans la liste **Format de rendu** .  
+    -   **Inclure un rapport** : Spécifiez que le rapport est joint au message électronique. Le format à utiliser pour joindre le rapport est indiqué dans la liste **Format de rendu** .  
 
     -   **Format de rendu**: Sélectionnez l'un des formats suivants pour le rapport joint :  
 
         -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
 
-        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
+        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
 
         -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
 
-        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
+        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
 
-        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
+        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
 
         -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
 
@@ -361,6 +361,6 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

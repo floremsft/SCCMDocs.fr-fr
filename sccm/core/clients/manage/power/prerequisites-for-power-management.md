@@ -1,5 +1,5 @@
 ---
-title: "Prérequis pour la gestion de l’alimentation | System Center Configuration Manager"
+title: "Prérequis pour la gestion de l’alimentation | Microsoft Docs"
 description: "Prenez connaissance des prérequis pour la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: e83b57997c702779dfa2a198a60c99c7205d7b51
+ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
+ms.openlocfilehash: 711ef491899846b86bfed0355ac7fd0f9d509c4f
 
 
 ---
 # <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Configuration requise pour la gestion de l’alimentation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La gestion de l’alimentation dans System Center Configuration Manager comporte des dépendances externes et des dépendances au sein du produit.  
 
@@ -45,6 +45,6 @@ La gestion de l’alimentation dans System Center Configuration Manager comporte
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

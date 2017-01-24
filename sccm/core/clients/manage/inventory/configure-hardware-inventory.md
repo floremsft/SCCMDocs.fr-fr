@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’inventaire matériel | System Center Configuration Manager"
+title: "Configurer l’inventaire matériel | Microsoft Docs"
 description: "Configurez l’inventaire matériel pour l’ensemble des clients ou pour un regroupement dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 41bf42228e41785a05359c08e8dfedae48d50e30
+ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
+ms.openlocfilehash: f39714e53e1b38c162e2c0418356d223432fdd87
 
 
 ---
 # <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel dans Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Exécutez les étapes suivantes pour configurer l’inventaire matériel System Center Configuration Manager pour votre site.  
 
@@ -49,9 +49,9 @@ Exécutez les étapes suivantes pour configurer l’inventaire matériel System 
 
     -   **Activer l'inventaire matériel sur les clients** : dans la liste déroulante, sélectionnez **Vrai**.  
 
-    -   **Calendrier de l’inventaire matériel** : indiquez l’intervalle auquel les clients collectent l’inventaire matériel. Utilisez la valeur par défaut, à savoir **7 jours** , ou cliquez sur **Calendrier** pour configurer un intervalle personnalisé.  
+    -   **Calendrier de l’inventaire matériel** : indiquez l’intervalle auquel les clients collectent l’inventaire matériel. Utilisez la valeur par défaut, à savoir **7 jours** , ou cliquez sur **Calendrier** pour configurer un intervalle personnalisé.  
 
-7.  Configurez tous les autres paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client d’inventaire matériel que vous pouvez configurer, consultez la section [Inventaire matériel](../../../../core/clients/deploy/about-client-settings.md#BKMK_HardwareInventoryDeviceSettings) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
+7.  Configurez tous les autres paramètres client dont vous avez besoin. Pour obtenir la liste des paramètres client d’inventaire matériel que vous pouvez configurer, consultez la section [Inventaire matériel](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
 
 8.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .  
 
@@ -59,6 +59,6 @@ Exécutez les étapes suivantes pour configurer l’inventaire matériel System 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Sécurité et confidentialité des clients | System Center Configuration Manager"
+title: "Sécurité et confidentialité des clients | Microsoft Docs"
 description: "En savoir plus sur la sécurité et la confidentialité pour les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -13,20 +13,20 @@ ms.topic: get-started-article
 ms.assetid: c1d71899-308f-49d5-adfa-3a3ec0163ed8
 caps.latest.revision: 10
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: ce7bb5194b6cca7ab0fa3829655c4b51f6725097
+ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
+ms.openlocfilehash: 6e76c3ae104c0561a5c7b178823b7a48761518fe
 
 
 ---
 # <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les clients dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cet article contient des informations de sécurité et de confidentialité pour les clients de System Center Configuration Manager et pour les appareils mobiles qui sont gérés par le connecteur Exchange Server :  
+Cet article contient des informations de sécurité et de confidentialité pour les clients de System Center Configuration Manager et pour les appareils mobiles qui sont gérés par le connecteur Exchange Server :  
 
 ##  <a name="a-namebkmksecuritycliientsa-security-best-practices-for-clients"></a><a name="BKMK_Security_Cliients"></a> Bonnes pratiques de sécurité pour les clients  
  Quand Configuration Manager accepte les données provenant d'appareils qui exécutent le client Configuration Manager, il existe un risque que les clients attaquent le site. Par exemple, ils pourraient envoyer un inventaire incorrect ou tenter de surcharger les systèmes de site. Déployez le client Configuration Manager uniquement sur les appareils auxquels vous faites confiance. En outre, utilisez les meilleures pratiques de sécurité suivantes pour contribuer à protéger le site des appareils non autorisés ou compromis :  
@@ -57,7 +57,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour plus d’informations, voir [Déterminer si des clients doivent être bloqués dans System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-whether-to-block-clients.md).  
 
- **Utilisez les méthodes d'installation de client plus sécurisées qui sont pratiques pour votre environnement :**  
+ **Utilisez les méthodes d'installation de client plus sécurisées qui sont pratiques pour votre environnement :**  
 
 -   Pour les ordinateurs du domaine, les méthodes d'installation du client de la stratégie de groupe et les méthodes d'installation du client basé sur des mises à jour sont plus sûres que l'installation poussée du client.  
 
@@ -69,7 +69,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  De plus, dans la mesure du possible, sélectionnez une méthode d'installation du client qui nécessite le moins d'autorisations de sécurité dans Configuration Manager et limitez les utilisateurs administratifs auxquels sont affectés des rôles de sécurité qui incluent des autorisations pouvant être utilisées à d'autres fins que le déploiement du client. Par exemple, la mise à niveau automatique du client nécessite le rôle de sécurité **Administrateur complet** , qui accorde à un utilisateur administratif toutes les autorisations de sécurité.  
 
- Pour plus d’informations sur les dépendances et les autorisations de sécurité requises pour chaque méthode d’installation du client, voir « Dépendances liées aux méthodes d'installation » dans [Configuration requise pour les clients d'ordinateurs](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md#BKMK_prereqs_computers).  
+ Pour plus d’informations sur les dépendances et les autorisations de sécurité requises pour chaque méthode d’installation du client, voir « Dépendances liées aux méthodes d'installation » dans [Configuration requise pour les clients d'ordinateurs](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md#BKMK_prereqs_computers).  
 
  **Si vous devez utiliser l'installation Push du client, prenez des mesures supplémentaires pour sécuriser le compte d'installation Push du client**  
 
@@ -83,7 +83,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour plus d'informations sur l'utilisation de Sysprep pour préparer un ordinateur à l'acquisition d'images, voir la documentation de votre déploiement Windows.  
 
- **Assurez-vous que les clients d'ordinateur Configuration Manager obtiennent une copie autorisée de ces certificats :**  
+ **Assurez-vous que les clients d'ordinateur Configuration Manager obtiennent une copie autorisée de ces certificats :**  
 
 -   La clé racine approuvée de Configuration Manager  
 
@@ -101,7 +101,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  **Ne pas utiliser l'attribution automatique de site si le client envisage de télécharger la clé racine approuvée à partir du premier point de gestion qu'il contacte**  
 
- Cette pratique recommandée en termes de sécurité est liée à l'entrée précédente. Pour éviter le risque qu'un nouveau client télécharge la clé racine approuvée à partir d'un point de gestion factice, utilisez l'attribution automatique de site dans les scénarios suivants uniquement :  
+ Cette pratique recommandée en termes de sécurité est liée à l'entrée précédente. Pour éviter le risque qu'un nouveau client télécharge la clé racine approuvée à partir d'un point de gestion factice, utilisez l'attribution automatique de site dans les scénarios suivants uniquement :  
 
 -   Le client peut accéder aux informations de site Configuration Manager publiées dans les services de domaine Active Directory.  
 
@@ -124,7 +124,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Vous pouvez configurer des fenêtres de maintenance pour les regroupements d'appareils afin de limiter les périodes où Configuration Manager peut installer des logiciels sur ces appareils. Si vous configurez une fenêtre de maintenance trop petite, le client peut ne pas installer les mises à jour logicielles critiques et se retrouver vulnérable à l'attaque qui aurait été contrée par la mise à jour logicielle.  
 
- **Dans le cas d'appareils Windows Embedded avec des filtres d'écriture, prendre des précautions de sécurité supplémentaires pour réduire la surface d'attaque si Configuration Manager désactive les filtres d'écriture dans le but de conserver les installations logicielles et les modifications**  
+ **Dans le cas d'appareils Windows Embedded avec des filtres d'écriture, prendre des précautions de sécurité supplémentaires pour réduire la surface d'attaque si Configuration Manager désactive les filtres d'écriture dans le but de conserver les installations logicielles et les modifications**  
 
  Lorsque des filtres d'écriture sont activés sur des appareils Windows Embedded, les installations logicielles ou les modifications sont apportées dans le segment de recouvrement uniquement et ne sont pas conservées après le redémarrage de l'appareil. Si vous utilisez Configuration Manager pour désactiver temporairement les filtres d'écriture dans le but de conserver les installations logicielles et les modifications, pendant cette période, l'appareil intégré est vulnérable aux modifications apportées à tous les volumes, y compris les dossiers partagés.  
 
@@ -136,7 +136,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Si vous installez une version ultérieure du client sur le site, par exemple, vous mettez le site à niveau, la mise à jour logicielle pour le déploiement de client qui est publiée sur le point de mise à jour logicielle n'est pas exécutée automatiquement. Vous devez republier le client Configuration Manager sur le point de mise à jour logicielle et cliquer sur **Oui** pour mettre à jour le numéro de version.  
 
- Pour plus d’informations, voir la procédure « Pour publier le client Configuration Manager dans le point de mise à jour logicielle » dans [Comment installer des clients Configuration Manager à l'aide d'une installation basée sur les mises à jour logicielles](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP).  
+ Pour plus d’informations, voir la procédure « Pour publier le client Configuration Manager dans le point de mise à jour logicielle » dans [Comment installer des clients Configuration Manager à l'aide d'une installation basée sur les mises à jour logicielles](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP).  
 
  **Configurez le paramètre de l’appareil client de l’Agent ordinateur Interrompre l’entrée du code confidentiel BitLocker au redémarrage sur Toujours uniquement pour les ordinateurs auxquels vous faites confiance et qui ont un accès physique limité**  
 
@@ -147,7 +147,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
  Ce paramètre client permet au client Configuration Manager d'exécuter des scripts PowerShell non signés, ce qui peut autoriser l'exécution de programmes malveillants sur des ordinateurs clients. Si vous devez sélectionner cette option, utilisez un paramètre client personnalisé et affectez-le uniquement aux ordinateurs clients qui doivent exécuter des scripts PowerShell non signés.  
 
 ##  <a name="a-namebkmkmobilea-security-best-practices-for-mobile-devices"></a><a name="bkmk_mobile"></a> Bonnes pratiques de sécurité pour les appareils mobiles  
- **Pour les appareils mobiles que vous inscrivez à Configuration Manager et qui seront pris en charge sur Internet : Installer le point proxy d'inscription dans un réseau de périmètre et le point d'inscription dans l'Intranet**  
+ **Pour les appareils mobiles que vous inscrivez à Configuration Manager et qui seront pris en charge sur Internet : Installer le point proxy d'inscription dans un réseau de périmètre et le point d'inscription dans l'Intranet**  
 
  Cette séparation des rôles permet de protéger le point d'inscription contre une attaque. Si le point d'inscription est compromis, un attaquant peut obtenir des certificats pour authentification et voler les informations d'identification des utilisateurs qui inscrivent leurs appareils mobiles.  
 
@@ -155,25 +155,25 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour les appareils mobiles qui sont inscrits par Configuration Manager: Utilisez un élément de configuration d'appareil mobile pour configurer la complexité du mot de passe comme étant le code confidentiel et au moins la longueur par défaut pour la longueur minimale du mot de passe.  
 
- Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server  : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server, de sorte que la complexité du mot de passe soit le code confidentiel et spécifier au moins la longueur par défaut pour la longueur minimale du mot de passe.  
+ Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server  : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server, de sorte que la complexité du mot de passe soit le code confidentiel et spécifier au moins la longueur par défaut pour la longueur minimale du mot de passe.  
 
- **Pour les appareils mobiles : Empêchez la falsification des informations d'inventaire et des informations d'état en autorisant l'exécution des applications uniquement lorsqu'elles sont signées par des entreprises approuvées et ne pas autoriser l'installation de fichiers non signés**  
+ **Pour les appareils mobiles : Empêchez la falsification des informations d'inventaire et des informations d'état en autorisant l'exécution des applications uniquement lorsqu'elles sont signées par des entreprises approuvées et ne pas autoriser l'installation de fichiers non signés**  
 
- Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utilisez un élément de configuration d'appareil mobile pour configurer le paramètre de sécurité **Applications non signée**s comme **Interdites** et configurez les **Installations de fichiers non signés** comme une source approuvée.  
+ Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utilisez un élément de configuration d'appareil mobile pour configurer le paramètre de sécurité **Applications non signée**s comme **Interdites** et configurez les **Installations de fichiers non signés** comme une source approuvée.  
 
- Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres d'application** pour le connecteur Exchange Server, de sorte que l'**Installation de fichiers non signés** et les **Applications non signées** soient configurées comme **Interdites**.  
+ Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres d'application** pour le connecteur Exchange Server, de sorte que l'**Installation de fichiers non signés** et les **Applications non signées** soient configurées comme **Interdites**.  
 
  **Pour les appareils mobiles : Empêchez l'élévation des attaques de privilège en verrouillant l'appareil mobile lorsqu'il n'est pas autorisé**  
 
- Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utiliser un élément de configuration d'appareil mobile pour configurer le paramètre de mot de passe **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
+ Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utiliser un élément de configuration d'appareil mobile pour configurer le paramètre de mot de passe **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
 
- Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile **.  
+ Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile **.  
 
- **Pour les appareils mobiles : Empêchez l'élévation de privilèges en limitant les utilisateurs qui peuvent inscrire leurs appareils mobiles**  
+ **Pour les appareils mobiles : Empêchez l'élévation de privilèges en limitant les utilisateurs qui peuvent inscrire leurs appareils mobiles**  
 
  Utilisez un paramètre client personnalisé plutôt que les paramètres clients par défaut, pour que seuls les utilisateurs autorisés puissent inscrire leurs appareils mobiles.  
 
- **Pour les appareils mobiles : Ne déployez pas d’applications pour les utilisateurs qui possèdent des appareils mobiles inscrits par Configuration Manager ou Microsoft Intune dans les cas suivants :**  
+ **Pour les appareils mobiles : Ne déployez pas d’applications pour les utilisateurs qui possèdent des appareils mobiles inscrits par Configuration Manager ou Microsoft Intune dans les cas suivants :**  
 
 -   Lorsque l'appareil mobile est utilisé par plusieurs personnes.  
 
@@ -183,24 +183,24 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Une relation d'affinité entre appareil et utilisateur est créée lors de l'inscription, qui mappe l'utilisateur effectuant l'inscription à l'appareil mobile. Si un autre utilisateur utilise l'appareil mobile, il pourra exécuter les applications que vous déployez sur l'utilisateur d'origine, ce qui peut entraîner une élévation de privilèges. De même, si un autre administrateur inscrit l'appareil mobile pour un utilisateur, les applications déployées sur l'utilisateur ne sont pas installées sur l'appareil mobile, mais les applications déployées sur l'administrateur peuvent être installées.  
 
- Contrairement à l'affinité entre appareil et utilisateur pour les ordinateurs Windows, vous ne pouvez pas définir manuellement les informations d'affinité entre appareil et utilisateur pour les appareils mobiles qui sont inscrits par Microsoft Intune.  
+ Contrairement à l'affinité entre appareil et utilisateur pour les ordinateurs Windows, vous ne pouvez pas définir manuellement les informations d'affinité entre appareil et utilisateur pour les appareils mobiles qui sont inscrits par Microsoft Intune.  
 
  Si vous transférez la propriété d'un appareil mobile inscrit par Intune, retirez l'appareil mobile de Intune pour supprimer l'affinité entre appareil et utilisateur, puis demandez à l'utilisateur actuel de réinscrire l'appareil.  
 
- **Pour les appareils mobiles : Assurez-vous que les utilisateurs inscrivent leurs appareils mobiles pour Microsoft Intune**  
+ **Pour les appareils mobiles : Assurez-vous que les utilisateurs inscrivent leurs appareils mobiles pour Microsoft Intune**  
 
  Dans la mesure où une relation d'affinité entre appareil et utilisateur est créée lors de l'inscription qui mappe l'utilisateur effectuant l'inscription sur l'appareil mobile, si un administrateur inscrit l'appareil mobile pour un utilisateur, les applications déployées sur l'utilisateur ne sont pas installées sur l'appareil mobile, mais les applications déployées sur l'administrateur peuvent être installées.  
 
- **Pour le connecteur Exchange Server : Assurez-vous que la connexion entre le serveur de site Configuration Manager et l'ordinateur Exchange Server est protégée**  
+ **Pour le connecteur Exchange Server : Assurez-vous que la connexion entre le serveur de site Configuration Manager et l'ordinateur Exchange Server est protégée**  
 
  Utiliser IPsec si le serveur Exchange Server est sur le site ; Exchange hébergé sécurise automatiquement la connexion par SSL.  
 
- **Pour le connecteur Exchange Server : Utilisez le principe des privilèges minimum pour le connecteur**  
+ **Pour le connecteur Exchange Server : Utilisez le principe des privilèges minimum pour le connecteur**  
 
  Pour obtenir la liste des applets de commande dont le connecteur Exchange Server a besoin au minimum, voir [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
 ##  <a name="a-namebkmkmacsa-security-best-practices-for-macs"></a><a name="bkmk_macs"></a> Bonnes pratiques de sécurité pour les ordinateurs Mac  
- **Pour les ordinateurs Mac : Stockez et accédez aux fichiers sources du client à partir d'un emplacement sécurisé.**  
+ **Pour les ordinateurs Mac : Stockez et accédez aux fichiers sources du client à partir d'un emplacement sécurisé.**  
 
  Configuration Manager ne vérifie pas si ces fichiers source du client ont été falsifiés avant d'installer ou d'inscrire le client sur un ordinateur Mac. Téléchargez ces fichiers à partir d'une source digne de confiance, enregistrez-les et accédez-y en toute sécurité.  
 
@@ -210,11 +210,11 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour plus d’informations sur le renouvellement du certificat, voir [Renouvellement manuel du certificat client Mac](../../../../core/clients/deploy/deploy-clients-to-macs.md#BKMK_Man).  
 
- **Pour les ordinateurs Mac : Envisagez de configurer le certificat d’Autorité de certification racine approuvé de manière à ce qu’il soit approuvé pour le protocole SSL uniquement afin d’empêcher une élévation des privilèges.**  
+ **Pour les ordinateurs Mac : Envisagez de configurer le certificat d’Autorité de certification racine approuvé de manière à ce qu’il soit approuvé pour le protocole SSL uniquement afin d’empêcher une élévation des privilèges.**  
 
  Lorsque vous inscrivez des ordinateurs Mac, un certificat utilisateur destiné à gérer le client Configuration Manager est automatiquement installé, ainsi que le certificat racine approuvé auquel est lié le certificat utilisateur. Si vous voulez limiter l'approbation de ce certificat racine au protocole SSL uniquement, vous pouvez procéder comme suit.  
 
- Une fois cette procédure exécutée, le certificat racine n'est pas approuvé pour valider les protocoles autres que SSL : par exemple, Courrier sécurisé (S/MIME), Protocole EAP (Extensible Authentication), ou la signature de code.  
+ Une fois cette procédure exécutée, le certificat racine n'est pas approuvé pour valider les protocoles autres que SSL : par exemple, Courrier sécurisé (S/MIME), Protocole EAP (Extensible Authentication), ou la signature de code.  
 
 > [!NOTE]  
 >  Vous pouvez également utiliser cette procédure si vous avez installé le certificat client indépendamment de Configuration Manager.  
@@ -308,6 +308,6 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Prérequis pour les rapports | Configuration Manager"
+title: "Prérequis pour la création de rapports | Microsoft Docs"
 description: "Comprenez les diverses dépendances qui ont un impact sur l’utilisation des rapports dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,14 +17,14 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 8554221bc3aede86a255b7f0aa45948fe312b43d
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: ae750188b0258122d8561b163a5ecd85c4179f18
 
 
 ---
 # <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Configuration requise pour la création de rapports dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La création de rapports dans System Center Configuration Manager comporte des dépendances externes et des dépendances au sein du produit.  
 
@@ -65,6 +65,6 @@ La création de rapports dans System Center Configuration Manager comporte des d
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

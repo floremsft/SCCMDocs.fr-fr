@@ -1,5 +1,5 @@
 ---
-title: "Prérequis pour les sites | System Center Configuration Manager"
+title: "Prérequis pour les sites | Microsoft Docs"
 description: "Découvrez les différents prérequis liés à l’installation des différents types de sites System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,13 +16,13 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: bf3b1e4d87a972f530590bf94e38a5ec66c4fc9a
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: d39c8acca79c97c3979020c284616038b897d7cf
 
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Prérequis à l’installation de sites System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 Les sections suivantes fournissent des informations sur les différents prérequis liés à l’installation des différents types de sites System Center Configuration Manager.
@@ -46,7 +46,7 @@ Les prérequis suivants s’appliquent à l’installation d’un site d’admin
         > [!IMPORTANT]  
         >  Une fois l'installation terminée, le compte d'utilisateur qui exécute le programme d'installation et le compte d'ordinateur du serveur de site doivent tous deux conserver des droits d'administrateur système sur SQL Server. La suppression des droits d'administrateur système de ces comptes n'est pas prise en charge.  
 
--   Lors de l’installation d’un site principal, les autorisations supplémentaires suivantes sont nécessaires :  
+-   Lors de l’installation d’un site principal, les autorisations supplémentaires suivantes sont nécessaires :  
     -  **Administrateur local** sur les autres ordinateurs où vous allez installer le point de gestion initial et le point de distribution (si ce n’est pas sur le serveur de site)  
 
 -   Pour installer un nouveau site principal enfant sous un site d’administration centrale, les autorisations supplémentaires suivantes sont nécessaires :  
@@ -57,7 +57,7 @@ Les prérequis suivants s’appliquent à l’installation d’un site d’admin
 
 -   Vous devez utiliser le média d’installation correct (fichiers sources) et exécutez le programme d’installation à partir de cet emplacement. Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
 
--   L’ordinateur serveur de site doit avoir accès aux fichiers d’installation mis à jour de Microsoft :
+-   L’ordinateur serveur de site doit avoir accès aux fichiers d’installation mis à jour de Microsoft :
     -  Avant de commencer l’installation, vous pouvez télécharger et stocker une copie de ces fichiers sur votre réseau local à l’aide du [téléchargeur d’installation](../../../../core/servers/deploy/install/setup-downloader.md).
     -  Si une copie locale de ces fichiers n’est pas disponible, le serveur de site doit avoir accès à Internet afin de pouvoir télécharger ces fichiers depuis Microsoft lors de l’installation.
 
@@ -69,13 +69,13 @@ Les prérequis suivants s’appliquent à l’installation d’un site d’admin
 Un site principal autonome doit remplir les conditions préalables suivantes pour pouvoir être développé dans une hiérarchie constituée d'un site d'administration centrale :
 
 
--   **Vous devez installer le nouveau site d’administration centrale à l’aide du support d’installation (fichiers sources) qui correspond à la version du site principal autonome :**  
+-   **Vous devez installer le nouveau site d’administration centrale à l’aide du support d’installation (fichiers sources) qui correspond à la version du site principal autonome :**  
      Pour garantir la correspondance de la version, installez le nouveau site en utilisant les fichiers sources figurant dans le [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) sur le site principal autonome.
 
      Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
 
 
--   **Le site principal autonome ne peut pas être configuré pour faire migrer les données d’une autre hiérarchie Configuration Manager :**  
+-   **Le site principal autonome ne peut pas être configuré pour faire migrer les données d’une autre hiérarchie Configuration Manager :**  
 
      Vous devez arrêter la migration active vers le site principal autonome, depuis d’autres hiérarchies Configuration Manager, puis supprimer toutes les configurations pour la migration. Sont incluses les tâches de migration qui ne sont pas terminées, la collecte des données et la configuration de la hiérarchie source active.  
 
@@ -83,15 +83,15 @@ Un site principal autonome doit remplir les conditions préalables suivantes pou
 
      Après avoir développé le site principal autonome, si vous reconfigurez la migration sur le site principal, c'est le site d'administration centrale qui assure les opérations liées à la migration. Pour plus d’informations sur la configuration de la migration, consultez [Configuration des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
 
--   **Le compte de l’ordinateur appelé à héberger le nouveau site d’administration centrale doit être membre du groupe Administrateurs sur le site principal autonome :**  
+-   **Le compte de l’ordinateur appelé à héberger le nouveau site d’administration centrale doit être membre du groupe Administrateurs sur le site principal autonome :**  
 
      Pour développer correctement le site principal autonome, le compte d'ordinateur du nouveau site d'administration centrale doit être membre du groupe **Administrateurs** du site principal autonome. Cela est nécessaire uniquement pendant le développement du site. Le compte peut être supprimé du groupe du site principal dès lors que le développement du site est terminé.  
 
--   **Le compte d’utilisateur qui exécute le programme d’installation pour installer le nouveau site d’administration centrale doit disposer des autorisations d’administration basée sur les rôles au niveau du site principal autonome :**  
+-   **Le compte d’utilisateur qui exécute le programme d’installation pour installer le nouveau site d’administration centrale doit disposer des autorisations d’administration basée sur les rôles au niveau du site principal autonome :**  
 
      Pour installer un site d'administration centrale dans le cadre d'un scénario d'extension de site, le compte d'utilisateur qui exécute le programme d'installation pour installer le site d'administration centrale doit être défini dans une administration basée sur les rôles sur le site principal autonome en tant que **Administrateur complet** ou **Administrateur d'infrastructure**.  
 
--   **Pour pouvoir développer le site, vous devez désinstaller les rôles système de site suivants du site principal autonome :**  
+-   **Pour pouvoir développer le site, vous devez désinstaller les rôles système de site suivants du site principal autonome :**  
 
     -   Point de synchronisation Asset Intelligence  
 
@@ -103,13 +103,13 @@ Un site principal autonome doit remplir les conditions préalables suivantes pou
 
     Tous les autres rôles de système de site peuvent rester installés sur le site principal.  
 
--   **Le port pour SQL Server Service Broker doit être ouvert entre le site principal autonome et l’ordinateur qui va installer le site administration centrale :**  
+-   **Le port pour SQL Server Service Broker doit être ouvert entre le site principal autonome et l’ordinateur qui va installer le site administration centrale :**  
 
      Pour répliquer correctement des données entre un site d’administration centrale et un site principal, Configuration Manager requiert qu’un port qui sera utilisé par SQL Server Service Broker soit ouvert entre les deux sites. Lorsque vous installez une administration centrale et développez un site principal autonome, la vérification des prérequis n'établit pas que le port que vous spécifiez pour SQL Server Service Broker est ouvert sur le site principal.  
 
 
 ## <a name="a-namebkmksecondarya-secondary-sites"></a><a name="bkmk_secondary"></a> Sites secondaires
-Voici les prérequis à l’installation des sites secondaires :
+Voici les prérequis à l’installation des sites secondaires :
 -   L’utilisateur administratif qui configure l’installation du site secondaire dans la console Configuration Manager doit posséder des droits d’administration basés sur des rôles qui équivalent au rôle de sécurité **Administrateur d’infrastructure** ou **Administrateur complet**.  
 
 -   Le compte d’ordinateur du site principal parent doit avoir des droits **Administrateur local** sur l’ordinateur serveur du site secondaire.  
@@ -127,6 +127,6 @@ Voici les prérequis à l’installation des sites secondaires :
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Planification de l’interopérabilité des déploiements de systèmes d’exploitation | Configuration Manager"
+title: "Planification de l’interopérabilité des déploiements de systèmes d’exploitation | Microsoft Docs"
 description: "Découvrez les problèmes d’interopérabilité qui peuvent se poser quand différents sites System Center Configuration Manager d’une même hiérarchie utilisent des versions distinctes."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,18 +16,18 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 1bcd81122c04b4f754326300365ff2c13ce7759d
+ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
+ms.openlocfilehash: 50a4b75b8c8c1cb6f7a8e696abad285f99080fcd
 
 
 ---
 # <a name="planning-for-operating-system-deployment-interoperability-in-system-center-configuration-manager"></a>Planification de l’interopérabilité des déploiements de systèmes d’exploitation dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Quand différents sites System Center Configuration Manager d’une même hiérarchie utilisent des versions distinctes, certaines fonctionnalités de Configuration Manager ne sont pas disponibles. En règle générale, les fonctionnalités de la version la plus récente de Configuration Manager ne sont pas accessibles sur les sites ou par les clients qui exécutent une version antérieure. Pour plus d'informations, consultez [Interopérabilité entre les différentes versions de System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
- Tenez compte des éléments suivants quand vous mettez à niveau le site de niveau supérieur de votre hiérarchie, et que d’autres sites de cette hiérarchie exécutent une version antérieure de Configuration Manager :  
+ Tenez compte des éléments suivants quand vous mettez à niveau le site de niveau supérieur de votre hiérarchie, et que d’autres sites de cette hiérarchie exécutent une version antérieure de Configuration Manager :  
 
 -   Package d'installation du client  
 
@@ -37,7 +37,7 @@ Quand différents sites System Center Configuration Manager d’une même hiéra
 
 -   Images de démarrage  
 
-    -   Quand vous mettez à niveau le site de niveau supérieur vers la dernière version de Configuration Manager, les images de démarrage par défaut (x86 et x64) sont mises à jour automatiquement vers Windows ADK pour les images de démarrage Windows 10, qui utilisent Windows PE 10. Les fichiers associés aux images de démarrage par défaut sont mis à jour vers la version Configuration Manager la plus récente des fichiers. Les images de démarrage personnalisées ne sont pas mises à jour automatiquement. Vous devez mettre manuellement à jour les images de démarrage personnalisées, notamment les versions antérieures de Windows PE.  
+    -   Quand vous mettez à niveau le site de niveau supérieur vers la dernière version de Configuration Manager, les images de démarrage par défaut (x86 et x64) sont mises à jour automatiquement vers Windows ADK pour les images de démarrage Windows 10, qui utilisent Windows PE 10. Les fichiers associés aux images de démarrage par défaut sont mis à jour vers la version Configuration Manager la plus récente des fichiers. Les images de démarrage personnalisées ne sont pas mises à jour automatiquement. Vous devez mettre manuellement à jour les images de démarrage personnalisées, notamment les versions antérieures de Windows PE.  
 
     -   Évitez d’utiliser des médias dynamiques quand votre hiérarchie de site contient des sites avec des versions distinctes de Configuration Manager. Utilisez plutôt un média basé sur site pour contacter un point de gestion spécifique tant que tous les sites ne sont pas mis à niveau vers la même version de Configuration Manager.  
 
@@ -74,6 +74,6 @@ Quand différents sites System Center Configuration Manager d’une même hiéra
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

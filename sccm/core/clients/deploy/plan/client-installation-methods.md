@@ -1,8 +1,8 @@
 ---
-title: "Méthodes d’installation du client | System Center Configuration Manager"
+title: "Méthodes d’installation du client | Microsoft Docs"
 description: "Découvrez les méthodes d’installation du client pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 11/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,22 +13,20 @@ ms.topic: get-started-article
 ms.assetid: 51b5964b-374d-4abc-8619-414a9fffad2d
 caps.latest.revision: 9
 caps.handback.revision: 0
-author: Mtillman
-ms.author: mtillman
+author: nbigman
+ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 169e7871bc1fbc83964ecb17e277d64ce4fd472c
+ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
+ms.openlocfilehash: a7d5a04cf34c49246f768f9a4757c5da3b4db31a
 
 
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Méthodes d’installation du client dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez utiliser différentes méthodes pour installer le logiciel client System Center Configuration Manager sur les appareils Windows, les serveurs UNIX et Linux et les ordinateurs Mac de votre entreprise. Vous pouvez utiliser une seule ou une combinaison de ces méthodes, selon vos exigences.  
-
- Les sections ci-dessous présentent les avantages et inconvénients de chaque méthode d’installation du client pour vous aider à déterminer celle qui convient le mieux pour votre organisation.  
+Différentes méthodes sont disponibles pour installer le logiciel client Configuration Manager (également appelé ConfigMgr ou SCCM). Vous pouvez utiliser une méthode ou une combinaison de méthodes. Passez en revue cette rubrique pour déterminer la méthode la mieux adaptée à votre organisation.  
 
 ## <a name="client-push-installation"></a>Installation poussée du client  
 
@@ -54,7 +52,7 @@ Vous pouvez utiliser différentes méthodes pour installer le logiciel client Sy
 
 -   Le Pare-feu Windows doit être configuré sur les ordinateurs clients avec des exceptions permettant d'effectuer l'installation poussée du client.  
 
--   Il n'est pas possible d'annuler une installation poussée du client. Lorsque vous utilisez cette méthode d’installation du client pour un site, Configuration Manager tente d’installer le client sur toutes les ressources découvertes et tente à nouveau toutes les opérations ayant échoué pendant 7 jours.  
+-   Il n'est pas possible d'annuler une installation poussée du client. Lorsque vous utilisez cette méthode d’installation du client pour un site, Configuration Manager tente d’installer le client sur toutes les ressources découvertes et tente à nouveau toutes les opérations ayant échoué pendant 7 jours.  
 
  Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
@@ -126,7 +124,7 @@ Vous pouvez utiliser différentes méthodes pour installer le logiciel client Sy
  Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 ## <a name="manual-installation"></a>Installation manuelle  
- **Plateformes clientes prises en charge :** Windows, UNIX/Linux, Mac OS X  
+ **Plateformes clientes prises en charge :** Windows, UNIX/Linux, Mac OS X  
 
  **Avantages :**  
 
@@ -140,7 +138,7 @@ Vous pouvez utiliser différentes méthodes pour installer le logiciel client Sy
 
 -   Aucune automatisation, peut prendre du temps.  
 
- Pour plus d’informations sur la façon d’installer manuellement le client sur chaque plateforme, voir les rubriques suivantes :  
+ Pour plus d’informations sur la façon d’installer manuellement le client sur chaque plateforme, voir les rubriques suivantes :  
 
 -   [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
@@ -150,6 +148,6 @@ Vous pouvez utiliser différentes méthodes pour installer le logiciel client Sy
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

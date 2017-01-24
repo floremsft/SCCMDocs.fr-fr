@@ -1,5 +1,5 @@
 ---
-title: "Notions de base de la sécurité | System Center Configuration Manager"
+title: "Notions de base de la sécurité | Microsoft Docs"
 description: "En savoir plus sur les couches de sécurité pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,28 +16,28 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: cb84efcaac281aa8c9338cd69ce32054ea775de3
+ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
+ms.openlocfilehash: b4d12eaadaf0324515f6ae595a737f576bd5076c
 
 
 ---
 # <a name="fundamentals-of-security-for-system-center-configuration-manager"></a>Notions de base de la sécurité pour System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 La sécurité pour System Center Configuration Manager se compose de plusieurs couches. La première couche est fournie par les fonctionnalités de sécurité Windows tant pour le système d’exploitation que pour le réseau, qui incluent :  
 
--   le partage de fichiers pour transférer les fichiers entre des composants Configuration Manager ;  
+-   le partage de fichiers pour transférer les fichiers entre des composants Configuration Manager ;  
 
--   des listes de contrôle d'accès pour sécuriser les fichiers et les clés de Registre ;  
+-   des listes de contrôle d'accès pour sécuriser les fichiers et les clés de Registre ;  
 
--   le protocole IPsec pour sécuriser les communications ;  
+-   le protocole IPsec pour sécuriser les communications ;  
 
--   une stratégie de groupe pour définir une stratégie de sécurité ;  
+-   une stratégie de groupe pour définir une stratégie de sécurité ;  
 
--   les autorisations DCOM pour les applications distribuées, telles que la console Configuration Manager ;  
+-   les autorisations DCOM pour les applications distribuées, telles que la console Configuration Manager ;  
 
--   des services de domaine Active Directory pour stocker les entités de sécurité ;  
+-   des services de domaine Active Directory pour stocker les entités de sécurité ;  
 
 -   la sécurité de compte Windows, notamment certains groupes qui sont créés pendant la configuration de Configuration Manager.  
 
@@ -45,7 +45,7 @@ Des composants de sécurité supplémentaires (pare-feu, fonctionnalité de dét
 
 Outre la sécurité fournie par l’infrastructure réseau et de serveur Windows, Configuration Manager contrôle l’accès à la console Configuration Manager et à ses ressources de plusieurs façons. Par défaut, seuls les administrateurs locaux disposent des droits d’accès aux fichiers et aux clés de Registre nécessaires à l’exécution de la console Configuration Manager sur les ordinateurs où elle est installée.  
 
-La couche de sécurité suivante est basée sur l’accès à l’aide de WMI (Windows Management Instrumentation), en particulier le **fournisseur SMS**. Le fournisseur SMS est un composant Configuration Manager qui octroie un accès à un utilisateur pour interroger la base de données du site afin d’obtenir des informations. Par défaut, l’accès au fournisseur est restreint aux membres du groupe **Administrateurs SMS** local. À l’origine, ce groupe contient uniquement l’utilisateur qui a installé Configuration Manager. Pour accorder d'autres autorisations de compte à l'emplacement de stockage CIM (Common Information Model) et au fournisseur SMS, ajoutez les autres comptes au groupe Administrateurs SMS.  
+La couche de sécurité suivante est basée sur l’accès à l’aide de WMI (Windows Management Instrumentation), en particulier le **fournisseur SMS**. Le fournisseur SMS est un composant Configuration Manager qui octroie un accès à un utilisateur pour interroger la base de données du site afin d’obtenir des informations. Par défaut, l’accès au fournisseur est restreint aux membres du groupe **Administrateurs SMS** local. À l’origine, ce groupe contient uniquement l’utilisateur qui a installé Configuration Manager. Pour accorder d'autres autorisations de compte à l'emplacement de stockage CIM (Common Information Model) et au fournisseur SMS, ajoutez les autres comptes au groupe Administrateurs SMS.  
 
 Les autorisations d'accès aux objets de la base de données de site constituent la dernière couche de sécurité. Par défaut, le compte système local et le compte d’utilisateur que vous utilisez pour installer Configuration Manager peuvent administrer tous les objets de la base de données du site. Vous pouvez accorder et limiter les autorisations à des utilisateurs administratifs supplémentaires à partir de la console Configuration Manager à l’aide de l’**administration basée sur des rôles**.  
 
@@ -73,6 +73,6 @@ Le reste de cette rubrique traite des aspects de la sécurité liés à Configur
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

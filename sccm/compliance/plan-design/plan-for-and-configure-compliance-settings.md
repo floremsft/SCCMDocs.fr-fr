@@ -1,5 +1,5 @@
 ---
-title: "Planifier et configurer les paramètres de compatibilité | System Center Configuration Manager"
+title: "Planifier et configurer les paramètres de compatibilité | Microsoft Docs"
 description: "Découvrez les prérequis et les tâches de configuration pour l’utilisation des paramètres de compatibilité dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,14 +16,14 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1134bb2f04152288e72d40b1b1083f415cb4e900
-ms.openlocfilehash: 43bbbacfcd0e873974c517f1cb870ebc4d5e003d
+ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
+ms.openlocfilehash: d26ac3de58d2f0ef447725e63fc2d8adda6ea06c
 
 
 ---
 # <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 Avant de commencer à utiliser les paramètres de compatibilité System Center Configuration Manager, vous devez prendre connaissance de certains prérequis et de certaines tâches à effectuer.  
 
@@ -46,15 +46,15 @@ Cette procédure définit les paramètres de compatibilité client par défaut e
 2.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 3.  Dans la boîte de dialogue **Paramètres par défaut** , cliquez sur **Paramètres de compatibilité**.  
 4.  Définissez les paramètres client suivants pour les paramètres de compatibilité :
-    - **Activer l’évaluation de compatibilité sur les clients** : Affectez la valeur **Vrai** si vous souhaitez évaluer la compatibilité sur les appareils clients.
-    - **Planifier l’évaluation de compatibilité** : Cliquez sur **Calendrier** si vous souhaitez modifier la planification d’évaluation de compatibilité par défaut sur les appareils clients.
-    - **Activer les données et profils utilisateurs** : Activez cette option si vous souhaitez créer et déployer des éléments de configuration de profils et données utilisateur sur les ordinateurs Windows. Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-remote-connection-profiles).
+    - **Activer l’évaluation de compatibilité sur les clients** : Affectez la valeur **Vrai** si vous souhaitez évaluer la compatibilité sur les appareils clients.
+    - **Planifier l’évaluation de compatibilité** : Cliquez sur **Calendrier** si vous souhaitez modifier la planification d’évaluation de compatibilité par défaut sur les appareils clients.
+    - **Activer les données et profils utilisateurs** : Activez cette option si vous souhaitez créer et déployer des éléments de configuration de profils et données utilisateur sur les ordinateurs Windows. Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-remote-connection-profiles).
 5. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .  
 
 Les ordinateurs clients sont configurés avec ces paramètres la prochaine fois qu’ils téléchargent la stratégie du client.  
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
