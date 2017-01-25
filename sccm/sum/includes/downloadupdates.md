@@ -81,6 +81,6 @@
 9. Dans la page **Dernière étape**, vérifiez que les mises à jour logicielles ont été téléchargées avec succès, puis cliquez sur **Fermer**.  
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
