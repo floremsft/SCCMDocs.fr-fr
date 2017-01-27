@@ -2,7 +2,7 @@
 title: Endpoint Protection | Microsoft Docs
 description: "Apprenez à gérer les stratégies de logiciel anti-programme malveillant et la sécurité du Pare-feu Windows pour les ordinateurs clients de votre hiérarchie Configuration Manager."
 ms.custom: na
-ms.date: 12/9/2016
+ms.date: 01/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9fcbc0bb9c8ccd4265381ca4db7a363c8ae3b54a
-ms.openlocfilehash: 59313bd6f76433782a79ab3ee9d6240f767fbd76
+ms.sourcegitcommit: f66288f1c2e0566d5de8686a005624dd81557563
+ms.openlocfilehash: addb315afe3775722a58a16b00d41cbe32a5009c
 
 
 ---
@@ -108,10 +108,20 @@ Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestio
 
  Ces produits ne peuvent pas être gérés à partir de la console Configuration Manager. Toutefois, un pack d’administration System Center Operations Manager, fourni avec les fichiers d’installation, vous permet de gérer le client pour Linux à l’aide d’Operations Manager.  
 
+### <a name="how-to-get-the-endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Guide pratique pour obtenir le client Endpoint Protection pour les ordinateurs Mac et les serveurs Linux
+
+Procédez comme suit pour télécharger le fichier image contenant le logiciel client Endpoint Protection et la documentation pour les ordinateurs Mac et les serveurs Linux.
+1. Connectez-vous au [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/licensing/servicecenter/default.aspx).
+2. Sélectionnez l’onglet **Downloads and Keys** (Téléchargements et clés) situé en haut du site web.
+3. Filtrez sur le produit **System Center Endpoint Protection (Current Branch)**.
+4. Cliquez sur le lien vers **Télécharger**
+5. Cliquez sur **Continue**(Continuer). Vous devez voir plusieurs fichiers, dont un nommé : **System Center Endpoint Protection (current branch - version 1606) for Linux OS and Macintosh OS Multilanguage   32/64 bit   1507 MB ISO**.
+6. Cliquez sur l’icône de flèche pour télécharger le fichier. Le nom de fichier est **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21-30777.ISO**.
+
  Pour plus d’informations sur l’installation et la gestion des clients Endpoint Protection sur les ordinateurs Mac et Linux, utilisez la documentation qui accompagne ces produits, disponible dans le dossier **Documentation** .
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
