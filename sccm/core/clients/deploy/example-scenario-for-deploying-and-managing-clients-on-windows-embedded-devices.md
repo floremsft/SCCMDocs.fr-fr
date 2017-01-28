@@ -2,7 +2,7 @@
 title: "Exemple de scénario : Déployer des clients Windows Embedded | Microsoft Docs"
 description: "Consultez un exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/12/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 7b5cd35b22b610902628142d9cc52b8f3d54069d
+ms.sourcegitcommit: a650ad8e7b1f9468dd04165a3e43a89387b5d696
+ms.openlocfilehash: b07af49e2fecf6cc41258c87794ca7952206bb8a
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: 7b5cd35b22b610902628142d9cc52b8f3d54069d
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded activés pour les filtres d’écriture en utilisant System Center Configuration Manager. Si vos appareils incorporés ne prennent pas en charge les filtres d’écriture, ils se comportent comme des clients Configuration Manager standard et vous n’êtes pas tenu d’effectuer les étapes incluses dans ce scénario nécessaires à la gestion des filtres d’écriture.  
+Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded activés pour les filtres d’écriture avec Configuration Manager. Si vos appareils incorporés ne prennent pas en charge les filtres d’écriture, ils se comportent comme des clients Configuration Manager standard et ces procédures ne s’appliquent pas.  
 
- Coho Vineyard & Winery ouvre un centre d'accueil et s'intéresse aux bornes qui exécutent Windows Embedded pour exécuter des présentations interactives. Le bâtiment du nouveau centre d'accueil n'est pas proche du département informatique, donc il est important que les bornes puissent être gérées à distance. Outre l'installation du logiciel qui exécute les présentations interactives, ces appareils doivent exécuter des logiciels anti-programmes malveillants actualisés pour se conformer aux stratégies de sécurité de l'entreprise. Pour veiller à ce que les présentations interactives soient toujours disponibles pour les visiteurs, les bornes doivent fonctionner 7 jours sur 7, sans interruption pendant les heures d'ouverture du centre d'accueil.  
+Coho Vineyard & Winery ouvre un centre d’accueil et a besoin de bornes qui utilisent Windows Embedded pour exécuter des présentations interactives. Le bâtiment du nouveau centre d’accueil n’étant pas proche du service informatique, les bornes doivent être gérées à distance. Outre le logiciel qui exécute les présentations, ces appareils doivent exécuter des logiciels anti-programmes malveillants actualisés pour se conformer aux stratégies de sécurité de l’entreprise. Les bornes doivent fonctionner 7 jours par semaine, sans interruption pendant les heures d’ouverture du centre d’accueil.  
 
- Coho Vineyard & Winery utilise déjà Configuration Manager pour gérer les appareils de son réseau. Configuration Manager est configuré pour exécuter Endpoint Protection et pour installer les mises à jour logicielles et les applications. Or, sachant que l’équipe informatique n’a jamais géré d’appareils Windows Embedded auparavant, Jane, administratrice de Configuration Manager, a mis en place un pilote pour gérer deux bornes situées dans le hall de réception de l’entreprise. Si le pilote permet de gérer ces appareils à distance avec succès, le bon de commande des bornes du centre d'accueil peut être approuvé.  
+ Coho utilise déjà Configuration Manager pour gérer les appareils de son réseau. Configuration Manager est configuré pour exécuter Endpoint Protection et pour installer les mises à jour logicielles et les applications. Toutefois, sachant que l’équipe informatique n’a jamais géré d’appareils Windows Embedded auparavant, Jane, administratrice de Configuration Manager, a mis en place un pilote pour gérer deux bornes situées dans le hall de réception.   
 
  Pour gérer ces appareils Windows Embedded à filtre d’écriture, Jane effectue les étapes suivantes pour installer le client Configuration Manager, le protéger à l’aide d’Endpoint Protection et installer le logiciel de présentation interactive.  
 
@@ -70,7 +70,7 @@ Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded ac
 
      Jane sait qu'il faut toujours un certain temps pour que les clients s'installent et renvoient leur état au site. Par conséquent, elle patiente avant de confirmer l'installation correcte des clients, leur affectation au site et leur affichage en tant que clients dans le regroupement qu'elle a créé pour les appareils Windows Embedded.  
 
-     En guise de vérification supplémentaire, sur les appareils Windows Embedded, elle vérifie les propriétés de Configuration Manager dans le Panneau de configuration et les compare aux ordinateurs Windows standard gérés par le site. Par exemple, sous l'onglet **Composants** , l'élément **Agent de l'inventaire matériel** affiche **Activé**et sous l'onglet **Actions** figurent 11 actions disponibles, notamment **Cycle d'évaluation du déploiement de l'application** et **Cycle de collecte de données de découverte**.  
+     Comme contrôle supplémentaire, elle vérifie les propriétés de Configuration Manager dans le Panneau de configuration sur les appareils et les compare aux ordinateurs Windows standard gérés par le site. Par exemple, sous l'onglet **Composants** , l'élément **Agent de l'inventaire matériel** affiche **Activé**et sous l'onglet **Actions** figurent 11 actions disponibles, notamment **Cycle d'évaluation du déploiement de l'application** et **Cycle de collecte de données de découverte**.  
 
      Certaine que les clients sont correctement installés et affectés, et que le point de gestion leur envoie la stratégie client, Jane active ensuite manuellement les filtres d'écriture en suivant les instructions du fabricant.  
 
@@ -182,6 +182,6 @@ Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded ac
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

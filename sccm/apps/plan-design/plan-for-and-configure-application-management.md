@@ -1,8 +1,8 @@
 ---
-title: Planifier et configurer la gestion des applications | Documents Microsoft
+title: Planifier et configurer la gestion des applications | Microsoft Docs
 description: "Implémentez et configurez les dépendances nécessaires au déploiement d’applications dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/13/2016
+ms.date: 01/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 7634d5326265d7947a01e5b83374f65911e33aeb
-ms.openlocfilehash: 3ab905192c091cb5ad013c8e0c8590597fb0422a
+ms.sourcegitcommit: d2a12edcc6bc7413558e25b694b69133c2496019
+ms.openlocfilehash: 0a38ea116e589425048f6c46378df46ecc0d375b
 
 
 ---
@@ -33,7 +33,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 |------------------|----------------------|  
 |Internet Information Services (IIS) est nécessaire sur les serveurs de système de site qui exécutent le point du site web du catalogue des applications, le point de service web du catalogue des applications, le point de gestion et le point de distribution.|Pour plus d’informations sur cette condition, consultez [Configurations prises en charge](../../core/plan-design/configs/supported-configurations.md).|  
 |Appareils mobiles inscrits par Configuration Manager|Quand vous signez le code des applications à déployer sur des appareils mobiles, n’utilisez pas de certificat généré par un modèle Version 3 (**Windows Server 2008, Enterprise Edition**). Ce modèle de certificat crée un certificat qui n’est pas compatible avec les applications Configuration Manager pour appareils mobiles.<br /><br /> Si vous utilisez les services de certificat Active Directory pour signer le code des applications pour les applications d’appareils mobiles, n’utilisez pas de modèle de certificat Version 3.|  
-|Les clients doivent être configurés pour auditer les événements de connexion si vous voulez créer automatiquement des affinités entre les utilisateurs et les appareils.|Configuration Manager lit les deux paramètres suivants dans la stratégie de sécurité locale des ordinateurs clients pour déterminer les affinités automatiques entre utilisateurs et appareils :<br /><br /><ul><li> **Auditer les événements d'ouverture de session de compte**</li><li>**Auditer les événements d'ouverture de session**</li></ul> Pour créer automatiquement des relations entre utilisateurs et appareils, vérifiez que ces deux paramètres sont activés sur les ordinateurs clients. Vous pouvez utiliser la stratégie de groupe Windows pour configurer ces paramètres.|  
+|Les clients doivent être configurés pour auditer les événements de connexion si vous voulez créer automatiquement des affinités entre les utilisateurs et les appareils.|Le client Configuration Manager lit les événements d’ouverture de session de type **Opération réussie** du journal des événements de sécurité des PC afin de déterminer les affinités automatiques entre les utilisateurs et les appareils.  Ces événements sont activés par les deux stratégies d’audit suivantes :<br>**Auditer les événements d'ouverture de session de compte**<br>**Auditer les événements d'ouverture de session**<br>Pour créer automatiquement des relations entre utilisateurs et appareils, vérifiez que ces deux paramètres sont activés sur les ordinateurs clients. Vous pouvez utiliser la stratégie de groupe Windows pour configurer ces paramètres.|  
 
 ## <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager   
 
@@ -79,7 +79,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 |Étapes|Détails|Plus d'informations|  
 |-----------|-------------|----------------------|  
 |**Étape 1 :** si vous souhaitez utiliser des connexions HTTPS, assurez-vous d'avoir déployé un certificat de serveur web sur les serveurs de système de site.|Déployez un certificat de serveur Web sur les serveurs de système de site qui exécuteront le point de site Web du catalogue d'applications et le point de service Web du catalogue d'applications.<br /><br /> De plus, si vous voulez que les clients puissent utiliser le catalogue des applications depuis Internet, déployez un certificat de serveur Web sur au moins un serveur de système de site du point de gestion et configurez-le pour les connexions client depuis Internet.|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
-|**Étape 2 :** si vous souhaitez utiliser un certificat client PKI pour les connexions à des points de gestion, déployez un certificat d'authentification client sur les ordinateurs clients.|Même si les clients ne disposent pas d'un certificat client PKI pour se connecter au catalogue d'applications, ils doivent se connecter à un point de gestion afin d'utiliser le catalogue d'applications. Vous devez déployer un certificat d'authentification client sur les ordinateurs clients dans les cas suivants :<br /><br /><ul><li>Tous les points de gestion sur l'intranet n'acceptent que les connexions client HTTPS.</li><li>Les clients se connecteront au catalogue d'applications depuis Internet.</li></ul>|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
+|**Étape 2 :** si vous souhaitez utiliser un certificat client PKI pour les connexions à des points de gestion, déployez un certificat d'authentification client sur les ordinateurs clients.|Même si les clients n’utilisent pas un certificat PKI client pour se connecter au catalogue d’applications, ils doivent se connecter à un point de gestion afin d’utiliser le catalogue d’applications. Vous devez déployer un certificat d'authentification client sur les ordinateurs clients dans les cas suivants :<br /><br /><ul><li>Tous les points de gestion sur l'intranet n'acceptent que les connexions client HTTPS.</li><li>Les clients se connecteront au catalogue d'applications depuis Internet.</li></ul>|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
 |**Étape 3 :** installez et configurez le point de service web du catalogue d'applications et le site web du catalogue d'applications.|Vous devez installer les deux rôles de système de site sur le même site. Vous n'êtes pas obligé de les installer sur le même serveur de système de site ni dans la même forêt Active Directory. Cependant, le point de service web du catalogue des applications doit se trouver dans la même forêt que la base de données du site.|Pour plus d’informations sur le positionnement des rôles de système de site, consultez [Planification des serveurs de système de site et rôles système de site](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).<br /><br /> Pour configurer le point de service web du catalogue des applications et le point de site web du catalogue des applications, consultez **Étape 3 : installation et configuration des rôles de système de site du catalogue des applications**.|  
 |**Étape 4 :** configurez les paramètres client pour le catalogue des applications et le Centre logiciel.|Configurez les paramètres client par défaut si vous souhaitez que tous les utilisateurs aient le même paramètre. Vous pouvez aussi configurer des paramètres client personnalisés pour des regroupements spécifiques.|Pour plus d’informations sur les paramètres client, consultez [À propos des paramètres client](../../core/clients/deploy/about-client-settings.md).<br /><br /> Pour plus d’informations sur la configuration de ces paramètres client, consultez **Étape 4 : configuration des paramètres client pour le catalogue des applications et le Centre logiciel**.|  
 |**Étape 5 :** vérifiez que le catalogue des applications est opérationnel.|Vous pouvez utiliser le catalogue des applications directement à partir d’un navigateur ou du Centre logiciel.|Voir **Étape 5 : vérifier que le catalogue des applications est opérationnel**.|  
@@ -228,6 +228,6 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

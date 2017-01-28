@@ -1,64 +1,67 @@
----
-title: Sauvegarde et restauration | Microsoft Docs
-description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
-ms.custom: na
-ms.date: 10/06/2016
-ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f
-caps.latest.revision: 22
-author: Brenduns
-ms.author: brenduns
-manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
-ms.openlocfilehash: ce73be3a9fa3876c587bbd7b7cb05acd36c2687e
-
 
 ---
-# <a name="backup-and-recovery-for-system-center-configuration-manager"></a>Sauvegarde et récupération pour System Center Configuration Manager
+title: "Sauvegarde et récupération | Microsoft Docs" description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
+ms.custom: na ms.date: 1/3/2017 ms.prod: configuration-manager ms.reviewer: na ms.suite: na ms.technology:
+  - configmgr-other ms.tgt_pltfrm: na ms.topic: article ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f -caps.latest.revision: 22 -author: Brenduns ms.author: brendunsmanager: angrobe
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+----
 
-Préparez les approches de sauvegarde et de récupération pour éviter la perte de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données. Utilisez les sections de cette rubrique pour vous aider à sauvegarder vos sites et à récupérer un site en cas de défaillance ou de perte de données.  
 
--   [Sauvegarde d'un site Configuration Manager](#BKMK_SiteBackup)  
+-# Sauvegarde et récupération pour System Center Configuration Manager*S’applique à : System Center Configuration Manager (Current Branch)*
 
-    -   [Tâche de maintenance de sauvegarde](#BKMK_BackupMaintenanceTask)  
+-Préparez les approches de sauvegarde et de récupération pour éviter les pertes de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données. Utilisez les sections de cette rubrique pour vous aider à sauvegarder vos sites et à récupérer un site en cas de défaillance ou de perte de données.   
 
-    -   [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup)  
+- [Sauvegarde d'un site Configuration Manager](#BKMK_SiteBackup)   
 
-    -   [Archivage de l'instantané de sauvegarde](#BKMK_ArchivingBackupSnapshot)  
+  - [Tâche de maintenance de sauvegarde](#BKMK_BackupMaintenanceTask)   
 
-    -   [Utilisation du fichier AfterBackup.bat](#BKMK_UsingAfterBackup)  
+  - [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup)   
 
-    -   [Tâches de sauvegarde supplémentaires](#BKMK_SupplementalBackup)  
+  -  [Archivage de l'instantané de sauvegarde](#BKMK_ArchivingBackupSnapshot)   
 
--   [Récupération d'un site Configuration Manager](#BKMK_RecoverSite)  
+  -  [Archivage de l'instantané de sauvegarde](#BKMK_ArchivingBackupSnapshot)   
 
-    -   [Détermination de vos options de récupération](#BKMK_DetermineRecoveryOptions)  
+  -  [Utilisation du fichier AfterBackup.bat](#BKMK_UsingAfterBackup)   
 
-        -   [Options de récupération de serveur de site](#BKMK_SiteServerRecoveryOptions)  
+  -  [Utilisation du fichier AfterBackup.bat](#BKMK_UsingAfterBackup)   
 
-        -   [Options de récupération de base de données de site](#BKMK_SiteDatabaseRecoveryOption)  
+  -  [Tâches de sauvegarde supplémentaires](#BKMK_SupplementalBackup)   
 
-        -   [Période de rétention du suivi des modifications SQL Server](#bkmk_SQLretention)  
+-  [Récupération d'un site Configuration Manager](#BKMK_RecoverSite)   
 
-        -   [Processus de réinitialisation de site ou de données globales](#bkmk_reinit)  
+  -   [Détermination de vos options de récupération](#BKMK_DetermineRecoveryOptions)   
 
-        -   [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios)  
+         -   [Options de récupération de serveur de site](#BKMK_SiteServerRecoveryOptions)   
 
-    -   [Clés du fichier de script de récupération de site sans assistance](#BKMK_UnattendedSiteRecoveryKeys)  
+         -   [Options de récupération de serveur de site](#BKMK_SiteServerRecoveryOptions)   
 
-    -   [Tâches postérieures à la récupération](#BKMK_PostRecovery)  
+         -   [Options de récupération de base de données de site](#BKMK_SiteDatabaseRecoveryOption)   
 
-    -   [Récupération d'un site secondaire](#BKMK_RecoverSecondarySite)  
+         -  [Options de récupération de base de données de site](#BKMK_SiteDatabaseRecoveryOption)   
 
+         -   [Période de rétention du suivi des modifications SQL Server](#bkmk_SQLretention)   
+
+         -   [Période de rétention du suivi des modifications SQL Server](#bkmk_SQLretention)   
+
+         -   [Processus de réinitialisation de site ou de données globales](#bkmk_reinit)   
+
+         -   [Processus de réinitialisation de site ou de données globales](#bkmk_reinit)   
+
+         -   [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios)  
+
+         -   [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios)  
+
+  -   [Clés du fichier de script de récupération de site sans assistance](#BKMK_UnattendedSiteRecoveryKeys)  
+
+  -   [Clés du fichier de script de récupération de site sans assistance](#BKMK_UnattendedSiteRecoveryKeys)  
+
+  -   [Tâches postérieures à la récupération](#BKMK_PostRecovery)  
+
+  -   [Tâches postérieures à la récupération](#BKMK_PostRecovery)  
+
+  -   [Récupération d'un site secondaire](#BKMK_RecoverSecondarySite)  
+
+  -   [Récupération d'un site secondaire](#BKMK_RecoverSecondarySite)  
 -   [Service Enregistreur SMS](#BKMK_SMSWriterService)  
 
 > [!NOTE]  
@@ -119,7 +122,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
     > - Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
 
 
-6.  Configurez une planification pour la tâche de sauvegarde de site. Comme meilleure pratique, considérez une planification de sauvegarde en dehors des heures de travail. Si vous disposez d'une hiérarchie, pensez à une planification qui s'exécute au moins deux fois par semaine pour assurer une conservation maximale des données en cas de défaillance du site.  
+6.  Configurez une planification pour la tâche de sauvegarde de site. Comme bonne pratique, considérez une planification de sauvegarde en dehors des heures de travail. Si vous disposez d'une hiérarchie, pensez à une planification qui s'exécute au moins deux fois par semaine pour assurer une conservation maximale des données en cas de défaillance du site.  
 
     Lorsque vous exécutez la console Configuration Manager sur le même serveur de site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise l'heure locale pour la planification. Lorsque vous exécutez la console Configuration Manager à partir d'un ordinateur distant du site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise le temps universel coordonné (UTC) pour la planification.  
 
@@ -214,16 +217,16 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 3.  Sélectionnez le système de site qui héberge le rôle de migration d'état, puis choisissez **Point de migration de l'état** dans **Rôles de système de site**.  
 
-4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
+4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 5.  Les dossiers qui stockent les données de migration d'état utilisateur sont répertoriés dans la section **Détails du dossier** de l'onglet **Général** .  
 
-##  <a name="a-namebkmkrecoversitea-recover-a-configuration-manager-site"></a><a name="BKMK_RecoverSite"></a> Récupération d'un site Configuration Manager  
+
  La récupération d'un site Configuration Manager est nécessaire à chaque défaillance d'un site Configuration Manager ou perte de données dans la base de données d'un site. La réparation et la resynchronisation des données constituent les principales tâches de récupération d'un site et elles sont nécessaires pour éviter l'interruption des opérations.  
 
 > [!IMPORTANT]  
 >  Quand vous récupérez la base de données pour un site :  
->   
+
 >  -   Vous devez utiliser la même version et la même édition de SQL Server. Par exemple, la restauration d’une base de données qui s’exécutait sur SQL Server 2012 vers SQL Server 2014 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2014 vers une édition Enterprise de SQL Server 2014.  
 > -   SQL Server ne doit pas être configuré en **mode mono-utilisateur**.  
 > -   Vérifiez que les fichiers .MDF et .LDF sont valides. Quand vous récupérez un site, l’état des fichiers que vous restaurez n’est pas vérifié.  
@@ -233,7 +236,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 > [!IMPORTANT]  
 >  Si vous exécutez le programme d'installation de Configuration Manager à partir du menu **Démarrer** sur le serveur de site, l'option **Récupérer un site** n'est pas disponible.  
->   
+
 >  Si vous avez installé des mises à jour à partir de la console Configuration Manager avant d’effectuer votre sauvegarde, vous ne pouvez pas réinstaller correctement le site en utilisant le programme d’installation à partir du support d’installation ou du chemin d’installation de Configuration Manager.  
 
 > [!NOTE]  
@@ -243,7 +246,6 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Il existe deux zones principales que vous devez prendre en compte pour la récupération d'un site principal Configuration Manager et d'un site d'administration centrale : le serveur de site et la base de données de site. Utilisez les sections suivantes pour vous aider à déterminer les options que vous devez sélectionner pour votre scénario de récupération.  
 
 > [!NOTE]  
->  En cas d'échec de récupération d'un site précédent ou lorsque vous essayez de récupérer un site qui n'est pas complètement désinstallé, vous devez sélectionner **Désinstaller un site Configuration Manager** à partir du programme d'installation avant de pouvoir récupérer le site. Si le site défaillant possède des sites enfants et s'il est nécessaire de désinstaller le site, vous devez supprimer manuellement la base de données de site du site défaillant avant de sélectionner l'option **Désinstaller un site Configuration Manager** ; dans le cas contraire, le processus de désinstallation échouera.  
 
 ####  <a name="a-namebkmksiteserverrecoveryoptionsa-site-server-recovery-options"></a><a name="BKMK_SiteServerRecoveryOptions"></a> Options de récupération de serveur de site  
  Vous devez démarrer le programme d’installation à partir d’une copie du dossier CD.Latest que vous créez en dehors du dossier d’installation de Configuration Manager. Vous sélectionnez ensuite l’option **Récupérer un site** . Lorsque vous exécutez le programme d'installation, vous disposez des options de récupération suivantes pour le serveur de site défaillant :  
@@ -275,7 +277,11 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 -   **Ignorer la récupération de base de données** : utilisez cette option quand aucune perte de données ne s’est produite sur le serveur de base de données de site Configuration Manager. Cette option est valide uniquement lorsque la base de données de site se trouve sur un ordinateur différent du serveur de site que vous récupérez.  
 
 ####  <a name="a-namebkmksqlretentiona-sql-server-change-tracking-retention-period"></a><a name="bkmk_SQLretention"></a> Période de rétention du suivi des modifications SQL Server  
- Le suivi des modifications est activé pour la base de données de site dans SQL Server. Le suivi des modifications permet à Configuration Manager de demander des informations sur les modifications qui ont été apportées aux tables de base de données après un moment précis. La période de rétention spécifie la durée de conservation des informations de suivi des modifications. Par défaut, la période de rétention de la base de données de site est définie sur 5 jours. Lorsque vous récupérez une base de données de site, le processus de récupération se déroule différemment si votre sauvegarde a lieu pendant ou en dehors de la période de rétention. Par exemple, en cas d'échec de votre serveur de base de données de site, si votre dernière sauvegarde remonte à 7 jours, elle se situe en dehors de la période de rétention.  
+ Le suivi des modifications est activé pour la base de données de site dans SQL Server. Le suivi des modifications permet à Configuration Manager de demander des informations sur les modifications qui ont été apportées aux tables de base de données après un moment précis. La période de rétention spécifie la durée de conservation des informations de suivi des modifications. Par défaut, la période de rétention de la base de données de site est définie sur 5 jours. Lorsque vous récupérez une base de données de site, le processus de récupération se déroule différemment si votre sauvegarde a lieu pendant ou en dehors de la période de rétention. Par exemple, en cas d'échec de votre serveur de base de données de site, si votre dernière sauvegarde remonte à 7 jours, elle se situe en dehors de la période de rétention.
+
+ Pour plus d’informations sur les éléments internes du suivi des modifications SQL Server, consultez les blogs de l’équipe SQL Server suivants : [Nettoyage du suivi des modifications - partie 1](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-1) et [Nettoyage du suivi des modifications - partie 2](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-2).
+
+
 
 ####  <a name="a-namebkmkreinita-process-to-reinitialize-site-or-global-data"></a><a name="bkmk_reinit"></a> Processus de réinitialisation de site ou de données globales  
  Le processus de réinitialisation de site ou de données globales remplace les données existantes dans la base de données de site par les données d'une autre base de données de site. Par exemple, lorsque le site ABC réinitialise les données du site XYZ, les étapes suivantes se produisent :  
@@ -839,7 +845,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Après une récupération de serveur de site, vous devez saisir à nouveau les clés de chargement de version test Windows spécifiées pour le site, car elles sont réinitialisées lors de la récupération de site. Une fois que vous avez de nouveau entré les clés de chargement de version test, la valeur de la colonne **Activations utilisées** pour les clés de chargement de version test Windows est réinitialisée dans la console Configuration Manager. Par exemple, avant la défaillance du site, la valeur du champ **Total activations** est définie sur **100** et **Activations utilisées** sur **90** pour le nombre de clés qui ont été utilisées par les appareils. Après la récupération du site, la colonne **Total activations** affiche toujours **100**, mais la colonne **Activations utilisées** affiche la valeur erronée de **0**. Cependant, une fois que 10 nouveaux appareils auront utilisé une clé de chargement de version test, il ne restera aucune clé de chargement de version test et l'appareil suivant ne parviendra pas à appliquer une clé de chargement de version test.  
 
 #### <a name="recreate-the-microsoft-intune-subscription"></a>Recréer l’abonnement Microsoft Intune  
- Si vous récupérez un serveur de site Configuration Manager après que l’ordinateur serveur de site a été ré-imagé, l’abonnement Microsoft Intune n’est pas restauré. Vous devez recréer l’abonnement après avoir récupéré le site. Pour plus d’informations, voir [Configuration de l’abonnement Microsoft Intune](../../mdm/deploy-use/setup-hybrid-mdm.md#step-3-configure-intune-subscription).  
+ Si vous récupérez un serveur de site Configuration Manager après que l’ordinateur serveur de site a été ré-imagé, l’abonnement Microsoft Intune n’est pas restauré. Vous devez reconnecter l’abonnement après avoir récupéré le site.  Ne créez pas de demande APN. À la place, chargez le fichier .pem valide actuel qui a été chargé la dernière fois que la gestion iOS a été configurée ou renouvelée. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](../../mdm/deploy-use/setup-hybrid-mdm.md#step-3-configure-intune-subscription).  
 
 #### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>Configurer SSL pour les rôles de système de site qui utilisent IIS  
  Lorsque vous récupérez des systèmes de site qui exécutent IIS et qui ont été configurés pour le protocole HTTPS avant la panne, vous devez reconfigurer IIS pour utiliser le certificat de serveur Web.  
@@ -912,7 +918,6 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Le service de cliché instantané du volume (VSS) est un ensemble d'API COM qui implémente une structure permettant de réaliser des sauvegardes de volumes en même temps que les applications sur un système continuent d'écrire dans les volumes. Le service VSS fournit une interface cohérente pour la coordination entre les applications de l'utilisateur qui mettent à jour des données sur le disque (le service Enregistreur SMS) et celles qui sauvegardent des applications (le service Gestionnaire de sauvegarde). Pour plus d'informations sur le service VSS, voir la rubrique [Volume Shadow Copy Service (Service de cliché instantané du volume)](http://go.microsoft.com/fwlink/p/?LinkId=241968) dans Windows Server TechCenter.  
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
