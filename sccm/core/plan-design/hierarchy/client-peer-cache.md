@@ -2,7 +2,7 @@
 title: "Cache d’homologue du client | System Center Configuration Manager"
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 1/9/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: e2a72fd9fb9ae5e64b7eb92e1d2106162fc7ea5d
-ms.openlocfilehash: 599ba03a1934b9feb030f27c827625c2c9471d8e
+ms.sourcegitcommit: f3e8cb3a7a4c1de9b8e9866ed192a8a0a7aec106
+ms.openlocfilehash: 86129a7fd5bfac676b5f03336cf97d07747b48d1
 
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache d’homologue pour les clients Configuration Manager
@@ -48,6 +48,8 @@ Pour vous aider à comprendre l’utilisation du cache d’homologue, vous pouve
 
 
 ## <a name="requirements-and-considerations-for-peer-cache"></a>Exigences et considérations relatives au cache d’homologue
+- Le cache d’homologue est pris en charge sur tout système d’exploitation Windows pris en charge en tant que client Configuration Manager. Les systèmes d’exploitation autres que Windows ne sont pas pris en charge pour le cache d’homologue.
+
 - Vous devez configurer votre site avec un **compte d’accès réseau** ayant le **contrôle total** du dossier de cache sur chaque client. Par défaut, il s’agit de ***%windir%\ccmcache***.
 
 - Des clients ne peuvent transférer du contenu qu’à partir de clients de cache d’homologue qui se trouvent dans leur groupe de limites actuel.
@@ -67,6 +69,6 @@ Sur chaque ordinateur activé pour le cache d’homologue, si le Pare-feu Window
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
