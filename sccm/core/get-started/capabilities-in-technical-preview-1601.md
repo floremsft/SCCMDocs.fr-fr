@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager | Microsoft Docs"
+title: "Fonctionnalités de Technical Preview 1601 Configuration Manager"
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
-ms.openlocfilehash: 7321645f17a143afe2fd848f45511a374de78c4b
+ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
+ms.openlocfilehash: 4da12425382c5d64602b2728e0e661c8cb89a5e4
 
 ---
 # <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager
@@ -30,7 +30,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 -   quand vous gérez les **Options de mise à jour des clients** pour promouvoir un client de préproduction en production, le texte de la case à cocher affiche zéro (0) pour la version du client, au lieu du numéro réel de la build du client. La version du client de préproduction correcte est affichée sur la zone située au-dessus de cette option : il s’agit de la version du client qui est promue en production quand vous sélectionnez cette option.  
 
--   Lorsque vous opérez une mise à jour vers la version d’évaluation technique 1601 et choisissez de tester le client Configuration Manager dans un regroupement de préproduction, le package du client pour le regroupement n’est pas mis à niveau. Ce problème concerne uniquement Technical Preview 1601.  
+-   Quand vous effectuez une mise à jour vers Technical Preview 1601  et que vous choisissez de tester le client Configuration Manager dans un regroupement de préproduction, le package du client pour le regroupement n’est pas mis à niveau. Ce problème concerne uniquement Technical Preview 1601.  
 
      Pour contourner ces problèmes, procédez de l’une des façons suivantes :  
 
@@ -55,7 +55,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
         ```  
 
-    -   Ajoutez un nouveau rôle système de site de point de distribution à votre site de laboratoire. Le nouveau point de distribution met à niveau le regroupement de pré-production avec le nouveau package du client.  
+    -   Ajoutez un nouveau rôle système de site de point de distribution à votre site de laboratoire. Le nouveau point de distribution met à niveau le regroupement de préproduction avec le nouveau package du client.  
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
@@ -220,6 +220,6 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

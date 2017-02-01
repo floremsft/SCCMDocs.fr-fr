@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1612 pour System Center Configuration Manager | Microsoft Docs"
+title: "Fonctionnalités de Technical Preview 1612 Configuration Manager"
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1612 pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 15d442ba52b991ea7888d0113610fe4800424f8d
-ms.openlocfilehash: f0421efbc01443288d3591fa9748a8f71fef8a0d
+ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
+ms.openlocfilehash: cd970dacd29916c2de2db3dd5498b1949f5174e6
 
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1612 pour System Center Configuration Manager
@@ -67,6 +67,7 @@ Outre l’installation et la configuration de la base de données de l’entrep�
   - Sur une instance par défaut ou nommée.
   - Sur un *cluster SQL Server*. Même si cette configuration doit fonctionner, elle n’a pas été testée et une assistance est conseillée.
   - Quand elle est colocalisée avec la base de données de site ou du point de Reporting Services. Toutefois, nous recommandons de l’installer sur un serveur distinct.  
+- Le compte qui est utilisé comme *compte du point de Reporting Services* doit avoir l’autorisation **db_datareader** sur la base de données de l’entrepôt de données.  
 - La base de données n’est pas prise en charge sur un *groupe de disponibilité SQL Server AlwaysOn*.
 
 ### <a name="install-the-data-warehouse"></a>Installer l’entrepôt de données
@@ -100,6 +101,8 @@ Page **Paramètres de synchronisation** :
   - **Intervalle de synchronisation (minutes)** : spécifiez une valeur en minutes. Une fois que l’intervalle est atteint, une nouvelle synchronisation démarre. La plage prise en charge est comprise entre 60 et 1 440 minutes (24 heures).
   - **Planification** : spécifiez les jours où la synchronisation doit être exécutée.
 
+**Accès au point de rapport** :   
+Une fois le rôle d’entrepôt de données installé, vérifiez que le compte qui est utilisé comme *compte du point de Reporting Services* a l’autorisation **db_datareader** sur la base de données de l’entrepôt de données.
 
 #### <a name="troubleshoot-installation-and-data-synchronization"></a>Résoudre les problèmes d’installation et de synchronisation des données
 Utilisez les journaux suivants pour examiner les problèmes d’installation du point de service de l’entrepôt de données ou de synchronisation des données :
@@ -240,7 +243,8 @@ Vous pouvez désormais revenir à une page précédente quand vous exécutez une
 Nous avons ajouté la prise en charge des fichiers d’installation rapide dans Configuration Manager pour les mises à jour de Windows 10. Quand vous utilisez une version prise en charge de Windows 10, vous pouvez maintenant utiliser les paramètres Configuration Manager pour télécharger uniquement le delta entre la mise à jour cumulative de Windows 10 du mois en cours et la mise à jour du mois précédent. Actuellement dans Configuration Manager Current Branch, l’intégralité de la mise à jour cumulative de Windows 10 (notamment toutes les mises à jour des mois précédents) est téléchargée chaque mois. L’utilisation de fichiers d’installation rapide permet des téléchargements plus petits et des durées d’installation plus courtes sur les clients.
 
 > [!IMPORTANT]
-> Alors que les paramètres pour prendre en charge l’utilisation de fichiers d’installation rapide sont disponibles dans Configuration Manager, cette fonctionnalité n’est prise en charge que dans Windows 10 version 1607 avec une mise à jour qui sera publiée au début de 2017 et les versions ultérieures de Windows. Windows 10 version 1607 sans la mise à jour et les versions antérieures ne gèrent pas les fichiers d’installation rapide.
+> Les paramètres pour la prise en charge de l’utilisation de fichiers d’installation rapide sont disponibles dans Configuration Manager, mais cette fonctionnalité est prise en charge uniquement dans Windows 10 version 1607 incluant la mise à jour de l’agent Windows Update qui a été fournie avec les mises à jour publiées le 10 janvier 2017 (Patch Tuesday). Pour plus d’informations sur ces mises à jour, consultez l’[article de support 3213986](https://support.microsoft.com/help/4009938/january-10-2017-kb3213986-os-build-14393-693). Vous pourrez utiliser les fichiers d’installation rapide après la publication du prochain ensemble de mises à jour, le 14 février 2017. Windows 10 version 1607 sans la mise à jour et les versions antérieures ne gèrent pas les fichiers d’installation rapide.
+
 
 ### <a name="to-enable-the-download-of-express-installation-files-for-windows-10-updates-on-the-server"></a>Pour activer le téléchargement des fichiers d’installation rapide pour les mises à jour de Windows 10 sur le serveur
 Pour démarrer la synchronisation des métadonnées pour les fichiers d’installation rapide Windows 10, vous devez l’activer dans les propriétés du point de mise à jour logicielle.
@@ -313,6 +317,6 @@ Maintenant que vous pouvez configurer l’authentification multifacteur pour l�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

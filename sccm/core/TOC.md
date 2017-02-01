@@ -4,6 +4,7 @@
 ### [Fonctionnalités d’accessibilité](understand/accessibility-features.md)
 ##  [Principes de base de Configuration Manager](understand/fundamentals.md)
 ### [Notions de base des sites et des hiérarchies](understand/fundamentals-of-sites-and-hierarchies.md)
+#### [À propos de la mise à niveau, de la mise à jour et de l’installation pour l’infrastructure de site et de hiérarchie](understand/upgrade-update-install.md)
 ### [Notions de base de la gestion des appareils](understand/fundamentals-of-managing-devices.md)
 ### [Notions de base de la gestion des clients](understand/fundamentals-of-client-management-tasks.md)
 ### [Notions de base de la sécurité](understand/fundamentals-of-security.md)
@@ -60,7 +61,7 @@
 ###  [Sécurité et confidentialité pour l’administration de site](plan-design/hierarchy/security-and-privacy-for-site-administration.md)
 
 ##   [Planifier l’infrastructure réseau](plan-design/network/configure-firewalls-ports-domains.md)
-###  [Étendre le schéma Active Directory](plan-design/network/extend-the-active-directory-schema.md)
+###  [Préparer le schéma Active Directory](plan-design/network/extend-the-active-directory-schema.md)
 ###  [Préparer les serveurs Windows à prendre en charge les systèmes de site](plan-design/network/prepare-windows-servers.md)
 ###  [Sites web pour les serveurs de système de site](plan-design/network/websites-for-site-system-servers.md)
 ###  [Configuration requise des certificats PKI](plan-design/network/pki-certificate-requirements.md)
@@ -87,7 +88,8 @@
 ##   [Évaluer Configuration Manager dans un laboratoire](get-started/evaluate-with-lab-environment.md)
 ###  [Configurer votre laboratoire](get-started/set-up-your-lab.md)
 
-##   [Préversion technique](get-started/technical-preview.md) 
+##   [Préversion technique](get-started/technical-preview.md)
+###  [Fonctionnalités dans 1701](get-started/capabilities-in-technical-preview-1701.md)
 ###  [Fonctionnalités dans 1612](get-started/capabilities-in-technical-preview-1612.md)
 ###  [Fonctionnalités dans 1611](get-started/capabilities-in-technical-preview-1611.md)
 ###  [Fonctionnalités dans 1610](get-started/capabilities-in-technical-preview-1610.md)
@@ -122,7 +124,8 @@
 #    [Déployer des serveurs et des rôles](servers/deploy/start-using.md)
 
 ##   Installer l’infrastructure
-###  [Avant d’exécuter le programme d’installation](servers/deploy/install/setup-downloader.md)
+###  [Obtenir le média d’installation](servers/deploy/install/get-install-media.md)
+###  Avant d’exécuter le programme d’installation
 #### [Téléchargeur d’installation](servers/deploy/install/setup-downloader.md)
 #### [Outil de vérification de la configuration requise](servers/deploy/install/prerequisite-checker.md)
 ###  [Installation de sites](servers/deploy/install/installing-sites.md)
@@ -167,6 +170,7 @@
 ###  [Installer des mises à jour dans la console](servers/manage/install-in-console-updates.md)
 #### [Organigramme - Téléchargement des mises à jour](servers/manage/download-updates-flowchart.md)
 #### [Organigramme - Réplication de mise à jour](servers/manage/update-replication-flowchart.md)
+###  [Fenêtres de maintenance pour les serveurs de site](servers/manage/service-windows.md)
 ###  [Utiliser l’outil de connexion de service](servers/manage/use-the-service-connection-tool.md)
 ###  [Utiliser l’outil Inscription de la mise à jour](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Utiliser le programme d’installation de correctif logiciel](servers/manage/use-the-hotfix-installer-to-install-updates.md)
@@ -218,6 +222,7 @@
 ###  [Guide pratique pour configurer Wake On LAN](clients/deploy/configure-wake-on-lan.md)
 ###  [Guide pratique pour déployer des clients sur des ordinateurs Windows](clients/deploy/deploy-clients-to-windows-computers.md)
 ###  [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux](clients/deploy/deploy-clients-to-unix-and-linux-servers.md)
+###  [Préparer le déploiement des clients sur des ordinateurs Mac](clients/deploy/prepare-to-deploy-mac-clients.md)
 ###  [Guide pratique pour déployer des clients sur des ordinateurs Mac](clients/deploy/deploy-clients-to-macs.md)
 ###  [Guide pratique pour attribuer des clients à un site](clients/deploy/assign-clients-to-a-site.md)
 ###  [Guide pratique pour configurer l’état du client](clients/deploy/configure-client-status.md)
@@ -231,6 +236,7 @@
 ###  [Guide pratique pour gérer les clients](clients/manage/manage-clients.md)
 ###  [Guide pratique pour gérer les clients Linux et UNIX](clients/manage/manage-clients-for-linux-and-unix-servers.md)
 ###  [Synchroniser des données avec OMS](clients/manage/sync-data-microsoft-operations-management-suite.md)
+###  [Gérer les clients Mac](clients/manage/maintain-mac-clients.md)
 
 ##   [Gérer des clients sur Internet](clients/manage/manage-clients-internet.md)
 ###  [Planifier la passerelle de gestion cloud](clients/manage/plan-cloud-management-gateway.md)
@@ -260,7 +266,6 @@
 
 ##   Inventaire logiciel
 ###  [Présentation de l’inventaire logiciel](clients/manage/inventory/introduction-to-software-inventory.md)
-###  [Guide pratique pour exclure des dossiers de l’inventaire logiciel](clients/manage/inventory/exclude-folders-from-software-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire logiciel](clients/manage/inventory/configure-software-inventory.md)
 ###  [Guide pratique pour utiliser l’Explorateur de ressources pour consulter l’inventaire logiciel](clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md)
 ###  [Sécurité et confidentialité pour l’inventaire logiciel](clients/manage/inventory/security-and-privacy-for-software-inventory.md)
@@ -301,6 +306,6 @@
 ###  [Mettre à niveau l’analyse](clients/manage/upgrade/upgrade-analytics.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

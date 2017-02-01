@@ -1,5 +1,5 @@
 ---
-title: Notes de publication | Microsoft Docs
+title: "Notes de publication - Configuration Manager | Microsoft Docs"
 description: "Consultez ces notes pour les problèmes urgents qui ne sont pas encore résolus dans le produit ou traités dans un article de la Base de connaissances Microsoft."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: ea723a6694feb2c9584b35498aa9c3519383f08d
-ms.openlocfilehash: a9dc046a54c15d9d299664cd1f2a149383f53489
+ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
+ms.openlocfilehash: 9e853c8fda236125717c3912f6f3cb02d6dd1058
 
 
 ---
@@ -247,6 +247,12 @@ Par défaut, l’Assistant Créer un plan de maintenance s’exécute actuelleme
 **Solution de contournement** :    
 après avoir créé un plan de maintenance, ouvrez les propriétés de celui-ci, accédez à l’onglet **Calendrier d’évaluation**, sélectionnez **Exécuter la règle dans un calendrier**, cliquez sur **Personnaliser**, puis créez un calendrier personnalisé. Par exemple, vous pouvez faire en sorte que le plan de maintenance s’exécute tous les 60 jours.  
 
+### <a name="when-a-high-risk-deployment-dialog-is-visible-to-a-user-subsequent-high-risk-dialogs-with-a-sooner-deadline-are-not-displayed"></a>Quand une boîte de dialogue de déploiement à haut risque est visible pour l’utilisateur, les boîtes de dialogue à haut risque ultérieures avec une échéance plus courte ne sont pas affichées
+Une fois que vous avez créé et déployé un déploiement de tâches à haut risque sur les utilisateurs, une boîte de dialogue à haut risque s’affiche pour l’utilisateur. Si l’utilisateur ne ferme pas la boîte de dialogue et que vous créez et déployez un autre déploiement à haut risque avec une échéance plus courte que la première, l’utilisateur ne reçoit pas de boîte de dialogue mise à jour tant qu’il ne ferme pas la boîte de dialogue d’origine. Les déploiements continuent de s’exécuter selon les échéances configurées.
+
+**Solution de contournement** :  
+L’utilisateur doit fermer la boîte de dialogue pour que le premier déploiement à haut risque affiche la boîte de dialogue du déploiement à haut risque suivant.
+
 ## <a name="mobile-device-management"></a>Gestion des appareils mobiles  
 
 ### <a name="cannot-create-an-enrollment-profile-on-a-primary-site"></a>Impossible de créer un profil d’inscription sur un site principal  
@@ -291,6 +297,6 @@ Ce problème affecte l’accès conditionnel de System Center Configuration Mana
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

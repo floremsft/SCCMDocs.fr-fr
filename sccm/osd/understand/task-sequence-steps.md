@@ -1,8 +1,8 @@
 ---
-title: "Étapes de séquence de tâches | Microsoft Docs"
+title: "Étapes de séquence de tâches - Configuration Manager | Microsoft Docs"
 description: "Découvrez les différentes étapes de séquence de tâches que vous pouvez ajouter à une séquence de tâches Configuration Manager."
 ms.custom: na
-ms.date: 12/07/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
-ms.openlocfilehash: 6e324eb97c0e803d382371ace541a4b9f96e6ba3
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 94eeddd161448aff6e1c7afa542b0cbef1ad4d77
 
 
 ---
@@ -867,7 +867,7 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
 
 -   Si la valeur d'une variable contient d'autres informations que le nom de l'application. Cette application n'est pas installée et la séquence de tâches continue.  
 
--   Si aucune variable avec le nom de base et le suffixe « 01 » spécifiés n'est détectée, aucune application n'est installée. Quand vous sélectionnez **Continuer en cas d’erreur** sous l’onglet Options de l’étape de séquence de tâches, la séquence de tâches se poursuit quand l’installation d’une application échoue. Lorsque le paramètre n'est pas sélectionné, la séquence de tâches échoue et n'installe pas les autres applications.  
+-   Si aucune variable avec le nom de base et le suffixe «&01; » spécifiés n'est détectée, aucune application n'est installée. Quand vous sélectionnez **Continuer en cas d’erreur** sous l’onglet Options de l’étape de séquence de tâches, la séquence de tâches se poursuit quand l’installation d’une application échoue. Lorsque le paramètre n'est pas sélectionné, la séquence de tâches échoue et n'installe pas les autres applications.  
 
  **Si l’installation d’une application échoue, continuer d’installer les autres applications de la liste**  
  Ce paramètre spécifie que l'étape se poursuit si l'installation d'une application individuelle échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
@@ -976,7 +976,7 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
 
 -   Si l'ID de package contient des caractères en minuscules, l'installation de ce logiciel échoue.  
 
--   Si aucune variable avec le nom de base et le suffixe « 001 » spécifiés n'est détectée, aucun package n'est installé et la séquence de tâches continue.  
+-   Si aucune variable avec le nom de base et le suffixe «&001; » spécifiés n'est détectée, aucun package n'est installé et la séquence de tâches continue.  
 
  **Si l’installation d’un package logiciel échoue, continuer d’installer les autres packages de la liste**  
  Ce paramètre spécifie que l'étape se poursuit si l'installation d'un package logiciel individuel échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
@@ -1167,7 +1167,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
  Si vous avez demandé l'accès à un point de migration de l'état pour restaurer l'état utilisateur dans l'étape de la séquence de tâches **Demander le magasin d'état** , cette étape informe le point de migration de l'état que le processus de restauration est terminé. À ce stade, les paramètres de conservation que vous avez définis pour le point de migration de l'état sont activés.  
 
 > [!IMPORTANT]  
->  Une meilleure pratique consiste à définir **Continuer en cas d'erreur** pour toutes les étapes de séquence de tâches situées entre les étapes **Demander le magasin d'état** et **Libérer le magasin d'état** afin que chaque action de séquence de tâches **Demander le magasin d'état** corresponde à une action de séquence de tâches **Libérer le magasin d'état** .  
+>  Une bonne pratique consiste à définir **Continuer en cas d'erreur** pour toutes les étapes de séquence de tâches situées entre les étapes **Demander le magasin d'état** et **Libérer le magasin d'état** afin que chaque action de séquence de tâches **Demander le magasin d'état** corresponde à une action de séquence de tâches **Libérer le magasin d'état** .  
 
  Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Libérer le magasin d’état](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
 
@@ -1271,7 +1271,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
  Entrez un message de notification qui s'affiche à l'attention de l'utilisateur avant le redémarrage de l'ordinateur de destination.  
 
  **Délai d’affichage du message**  
- Indiquez la durée en secondes dont dispose l'utilisateur avant le redémarrage de l'ordinateur de destination. Elle est de 60 (soixante) secondes par défaut.  
+ Indiquez la durée en secondes dont dispose l'utilisateur avant le redémarrage de l'ordinateur de destination. Elle est de&60; (soixante) secondes par défaut.  
 
 ##  <a name="a-namebkmkrestoreuserstatea-restore-user-state"></a><a name="BKMK_RestoreUserState"></a> Restaurer l’état utilisateur  
  Utilisez l'étape de séquence de tâches **Restaurer l'état utilisateur** pour lancer l'outil de migration de l'état utilisateur (USMT) afin de restaurer l'état et les paramètres utilisateur sur l'ordinateur de destination. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Capturer l'état utilisateur** .  
@@ -1377,7 +1377,7 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
  Quand, sur la ligne de commande, vous spécifiez des fichiers ou des programmes qui ne sont pas déjà présents sur l’ordinateur de destination, sélectionnez cette option pour spécifier le package Configuration Manager qui contient les fichiers appropriés. Le package n'exige pas de programme. Cette option n'est pas nécessaire si le fichier spécifié existe sur l'ordinateur de destination.  
 
  **Délai**  
- Permet de spécifier une valeur qui représente le délai d’exécution de la ligne de commande autorisé par Configuration Manager. Cette valeur est comprise entre 10 minutes et 999 minutes. La valeur par défaut est 15 minutes.  
+ Permet de spécifier une valeur qui représente le délai d’exécution de la ligne de commande autorisé par Configuration Manager. Cette valeur est comprise entre 1 et 999 minutes. La valeur par défaut est 15 minutes.  
 
  Cette option est désactivée par défaut.  
 
@@ -1696,6 +1696,6 @@ Après avoir sélectionné les variables pour une règle, vous devez fournir une
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

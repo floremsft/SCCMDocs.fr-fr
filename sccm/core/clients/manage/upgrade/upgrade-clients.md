@@ -1,8 +1,8 @@
 ---
-title: "Mettre à niveau les clients | Microsoft Docs"
+title: "Mettre à niveau des clients - Configuration Manager | Microsoft Docs"
 description: "Obtenez des informations sur la mise à niveau des clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: c9794b9770e6fa5665af547d6b36559f85ade691
+ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
+ms.openlocfilehash: 56a3ec8ddfaaa233b41347da0ff853fdf92c275c
 
 
 ---
@@ -25,10 +25,10 @@ ms.openlocfilehash: c9794b9770e6fa5665af547d6b36559f85ade691
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel client System Center Configuration Manager sur les ordinateurs Windows, les serveurs UNIX et Linux et les ordinateurs Mac de votre entreprise. Les sections ci-dessous présentent les avantages et les inconvénients de chaque méthode de mise à niveau des clients pour vous aider à déterminer celle qui est la mieux adaptée à votre entreprise.  
+Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel client System Center Configuration Manager sur les ordinateurs Windows, les serveurs UNIX et Linux ainsi que les ordinateurs Mac. Les avantages et les inconvénients de chaque méthode sont présentés ci-dessous.  
 
 > [!TIP]  
->  Si vous mettez à niveau votre infrastructure de serveur à partir d’une version précédente de Configuration Manager \(comme Configuration Manager 2007 ou System Center 2012 Configuration Manager\), nous vous recommandons d’effectuer les mises à niveau du serveur, dont l’installation de toutes les mises à jour de Current Branch, avant la mise à niveau des clients.   La dernière mise à jour de Current Branch contenant la dernière version du client, il est préférable d’effectuer les mises à niveau des clients après avoir installé toutes les mises à jour de Configuration Manager que vous souhaitez utiliser.  
+>  Si vous mettez à niveau votre infrastructure de serveur à partir d’une version précédente de Configuration Manager \(comme Configuration Manager 2007 ou System Center 2012 Configuration Manager\), nous vous recommandons d’effectuer les mises à niveau du serveur, dont l’installation de toutes les mises à jour de Current Branch, avant la mise à niveau des clients. De cette façon, vous disposez également de la version la plus récente du logiciel client.  
 
 ## <a name="group-policy-installation"></a>Installation via la stratégie de groupe  
  **Plateforme cliente prise en charge :** Windows  
@@ -45,11 +45,10 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
  **Inconvénients**  
 
--   Peut occasionner un trafic réseau intense s’il y a beaucoup de clients à mettre à niveau.  
+-   Peut occasionner un trafic réseau intense si vous effectuez la mise à niveau d’un grand nombre de clients.  
 
--   Si le schéma Active Directory n’est pas étendu pour Configuration Manager, vous devez utiliser les paramètres de stratégie de groupe pour ajouter les propriétés d’installation du client sur les ordinateurs de votre site.  
+-   Si le schéma Active Directory n’est pas étendu pour Configuration Manager, vous devez utiliser les [paramètres de stratégie de groupe](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) pour ajouter les propriétés d’installation du client aux ordinateurs de votre site.  
 
- Pour plus d’informations, consultez [Comment installer des clients Configuration Manager à l’aide de la stratégie de groupe](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP).  
 
 ## <a name="logon-script-installation"></a>Installation via un script d'ouverture de session  
  **Plateforme cliente prise en charge :** Windows  
@@ -64,7 +63,7 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
  **Inconvénients**  
 
--   Peut occasionner un trafic réseau intense s’il y a beaucoup de clients à mettre à niveau sur une courte période.  
+-   Peut occasionner un trafic réseau intense si vous effectuez la mise à niveau d’un grand nombre de clients sur une courte période.  
 
 -   La mise à niveau de tous les ordinateurs clients peut prendre beaucoup de temps si les utilisateurs ne se connectent pas souvent au réseau.  
 
@@ -105,7 +104,7 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
  **Inconvénients**  
 
--   Peut entraîner un trafic réseau excessif lors de la distribution du client vers des regroupements volumineux.  
+-   Peut occasionner un trafic réseau intense si vous distribuez le client vers des regroupements volumineux.  
 
 -   Peut être utilisée uniquement pour mettre à niveau le logiciel client sur les ordinateurs ayant été découverts et attribués au site.  
 
@@ -122,7 +121,7 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
 -   Peut être utilisée pour que les clients du site disposent automatiquement de la dernière version.  
 
--   Nécessite une administration minimale de la part de l'utilisateur administratif.  
+-   Nécessite une administration minimale.  
 
  **Inconvénients**  
 
@@ -149,10 +148,10 @@ Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel cl
 
 -   Ne peut être utilisée que pour mettre le logiciel client à niveau et ne peut pas être utilisée pour installer un nouveau client.  
 
- [Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  
+ [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

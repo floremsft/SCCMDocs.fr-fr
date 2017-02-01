@@ -1,8 +1,8 @@
 ---
-title: "Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager | Microsoft Docs"
+title: "Créer des éléments de configuration pour des appareils Macs gérés par le client - Configuration Manager | Microsoft Docs"
 description: "L’élément de configuration System Center Configuration Manager Mac OS X permet de gérer les paramètres des appareils Mac OS X."
 ms.custom: na
-ms.date: 11/18/2016
+ms.date: 12/27/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: f3d08d7f8efb592383e1099850665a2e9f3b2b5f
+ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
+ms.openlocfilehash: 60d147986425e7a3048d57b5b7412feab12efafd
 
 
 ---
@@ -54,7 +54,11 @@ Utilisez l’élément de configuration System Center Configuration Manager **Ma
 
              Par exemple, si vous souhaitez modifier les paramètres du navigateur Web Safari, vous pouvez utiliser **com.apple.Safari.plist**.  
 
-        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante : */<dictionnaire>\>/<nom_clé\>*.  
+        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante :
+
+            ```
+            */<dictionary\>/<keyname\>*.  
+            ```     
 
             > [!IMPORTANT]  
             >  Le nom de clé respecte la casse et il n’est pas évalué s’il diffère de celui indiqué sur l’ordinateur Mac. De plus, vous ne pouvez pas modifier le nom de clé une fois que vous l’avez spécifié. Si vous devez modifier le nom de clé, supprimez, puis recréez le paramètre.  
@@ -173,6 +177,6 @@ Si vous voulez à présent ajouter cet élément de configuration à une base de
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

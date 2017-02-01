@@ -1,8 +1,8 @@
 ---
-title: "Créer un média de démarrage | Microsoft Docs"
+title: "Créer un média de démarrage - Configuration Manager | Microsoft Docs"
 description: "Un média de démarrage dans Configuration Manager facilite l’installation d’une nouvelle version de Windows ou le remplacement d’un ordinateur et le transfert de paramètres."
 ms.custom: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 03722ff4f480cd26842e395fe1f7ec8359e2b33e
-ms.openlocfilehash: a7bdad82dc55b4c0fe7d892ef34cc6aa0dfbf476
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
 
 
 ---
@@ -47,7 +47,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
  Pour créer un média de démarrage, procédez comme suit.  
 
-#### <a name="to-create-bootable-media"></a>Pour créer un média de démarrage  
+### <a name="to-create-bootable-media"></a>Pour créer un média de démarrage  
 
 1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
@@ -101,7 +101,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
     -   Activez la case à cocher **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média de démarrage.  
 
         > [!IMPORTANT]  
-        >  Une meilleure pratique de sécurité consiste à toujours attribuer un mot de passe pour contribuer à protéger les médias de démarrage.  
+        >  Une bonne pratique de sécurité consiste à toujours attribuer un mot de passe pour contribuer à protéger les médias de démarrage.  
 
     -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
 
@@ -146,11 +146,18 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
 10. Effectuez toutes les étapes de l'Assistant.  
 
+## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Créer un média de démarrage sur un lecteur USB à partir d’un partage réseau
+Les informations fournies dans cette section indiquent comment créer un média de démarrage sur un lecteur flash USB qui n’est pas connecté à l’ordinateur exécutant la console Configuration Manager. Pour créer le média de démarrage sur le lecteur USB, vous pouvez créer le média de démarrage de séquence de tâches, monter l’image ISO, puis transférer les fichiers de l’image ISO sur le lecteur USB.
+
+1. [Créez le média de démarrage de séquence de tâches](#to-create-task-boobable-media). Dans la page **Type de média**, sélectionnez **Ensemble CD/DVD**. L’Assistant écrit les fichiers de sortie à l’emplacement que vous spécifiez. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**.  
+2. Préparez le lecteur USB amovible. Le lecteur doit être formaté, vide et démarrable.
+3. Montez l’image ISO à partir de l’emplacement du partage, puis transférez les fichiers de l’image ISO sur le lecteur USB.
+
 ## <a name="next-steps"></a>Étapes suivantes  
 [Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
