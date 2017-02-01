@@ -16,8 +16,8 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 808327495c66f4e6ad86ab144455014171a453b2
+ms.sourcegitcommit: d242c9ae0ca6e3a3f3bee3a93176b9ab802319ae
+ms.openlocfilehash: a75cba2a6bb280c29f300c8ef2d3fbfbc7a558d2
 
 
 ---
@@ -75,6 +75,8 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows�
 ### <a name="create-dns-alias-for-device-enrollment"></a>Créer un alias DNS pour l’inscription d’appareils  
  Un alias DNS (type d’enregistrement CNAME) permet aux utilisateurs d’inscrire leurs appareils avec plus de facilité grâce au renseignement automatique du nom du serveur pendant l’inscription d’appareils. Pour créer un alias DNS (type d’enregistrement CNAME), vous devez configurer un enregistrement CNAME dans les enregistrements DNS de votre entreprise, qui redirige les demandes envoyées à une URL dans le domaine de votre entreprise aux serveurs de service cloud Microsoft.  Par exemple, si le domaine de votre entreprise est contoso.com, vous devez créer un enregistrement CNAME dans DNS, qui redirige EnterpriseEnrollment.contoso.com vers EnterpriseEnrollment-s.manage.microsoft.com.  
 
+ La création d’entrées CNAME dans DNS est facultative, mais les enregistrements CNAME facilitent l’inscription pour les utilisateurs. Si aucun enregistrement CNAME d’inscription n’est trouvé, les utilisateurs sont invités à taper le nom du serveur de gestion des appareils mobiles ([https://enrollment.manage.microsoft.com](https://enrollment.manage.microsoft.com)).
+
 |Type|Nom de l'hôte|Pointe vers|  
 |----------|---------------|---------------|  
 |CNAME|enterpriseenrollment.domaine_entreprise.com|EnterpriseEnrollment-s.manage.microsoft.com|  
@@ -118,6 +120,6 @@ L’inscription automatique permet aux utilisateurs d’inscrire des PC Windows�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
