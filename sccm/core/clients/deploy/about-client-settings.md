@@ -17,8 +17,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 21eeba4d35f19930f26ed820295d6f142adae1ac
-ms.openlocfilehash: 6c63d63c5b5a7fc1406027dd9380ea799c1aa318
+ms.sourcegitcommit: d7265aec46474ba7fc317ddb5e20b91b7b134585
+ms.openlocfilehash: 36f6eb3fe48e904adf4d04450906fada9b477246
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -251,7 +251,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
      Ce paramètre détermine si le client utilise un délai d’activation pouvant aller jusqu’à deux heures pour installer les mises à jour logicielles nécessaires quand la date limite est atteinte. Par défaut, le délai d'activation est désactivé.  
 
-     Pour les scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), ce délai peut permettre de distribuer le traitement par le processeur et le transfert de données pour un ordinateur doté de plusieurs ordinateurs virtuels qui exécutent le client Configuration Manager. Même si vous n’utilisez pas d’infrastructure VDI, si de nombreux clients installent les même mises à jour en même temps, cela peut augmenter l’utilisation du processeur de manière négative sur le serveur de site. Cela peut également ralentir les points de distribution et réduire considérablement la bande passante réseau disponible.  
+     Pour les scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), ce délai peut permettre de distribuer le traitement par le processeur et le transfert de données pour un ordinateur doté de plusieurs machines virtuelles qui exécutent le client Configuration Manager. Même si vous n’utilisez pas d’infrastructure VDI, si de nombreux clients installent les même mises à jour en même temps, cela peut augmenter l’utilisation du processeur de manière négative sur le serveur de site. Cela peut également ralentir les points de distribution et réduire considérablement la bande passante réseau disponible.  
 
      Si les mises à jour logicielles nécessaires doivent être installées sans délai quand la date limite configurée est atteinte, choisissez **Oui** pour ce paramètre.  
 
@@ -328,7 +328,11 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
     -   Les fichiers NOIDMIF doivent être dans le dossier Windows\System32\CCM\Inventory\Noidmif.  
 
     > [!NOTE]  
-    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut.  
+    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut. 
+
+-   **Délai aléatoire maximal**
+
+    La collecte d’informations matérielles s’effectue dans un délai aléatoire pouvant atteindre deux heures. L’opération n’a donc pas lieu simultanément sur tous les clients. Vous pouvez définir le délai maximal pour limiter la durée pendant laquelle l’opération a lieu.      
 
 ##  <a name="metered-internet-connections"></a>Connexions Internet facturées à l’usage  
  Vous pouvez gérer la manière dont les ordinateurs clients Windows 8 communiquent avec les sites Configuration Manager quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
@@ -640,6 +644,6 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -2,7 +2,7 @@
 title: Planifier la migration des clients | Microsoft Docs
 description: "Découvrez les tâches de migration des clients depuis une hiérarchie source vers une hiérarchie de destination System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,16 +16,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
-ms.openlocfilehash: 11da338af9d7dd4d6f9c5fc1c6c62e277139f852
+ms.sourcegitcommit: ac4576035fda943e38d960dd425d44b7a6ef6a01
+ms.openlocfilehash: b52ca4059dfeed08cabf1f75319da40d6499622f
 
 
 ---
-# <a name="planning-a-client-migration-strategy-in-system-center-configuration-manager"></a>Planification d’une stratégie de migration de clients dans System Center Configuration Manager
+# <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Planifier une stratégie de migration de clients dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Pour migrer des clients depuis la hiérarchie source vers une hiérarchie de destination System Center Configuration Manager, vous devez effectuer deux tâches. Vous devez migrer les objets qui sont associés au client et vous devez réinstaller ou réaffecter les clients depuis la hiérarchie source à la hiérarchie de destination. Vous migrez tout d'abord les objets pour qu'ils soient disponibles lorsque les clients sont migrés. Les objets associés au client sont migrés à l'aide de tâches de migration. Pour plus d’informations sur la migration des objets associés au client, consultez [Planification d’une stratégie pour les tâches de migration dans System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
+Pour migrer des clients de la hiérarchie source vers une hiérarchie de destination System Center Configuration Manager, vous devez effectuer deux tâches. Vous devez migrer les objets qui sont associés au client et vous devez réinstaller ou réaffecter les clients depuis la hiérarchie source à la hiérarchie de destination. Vous migrez tout d'abord les objets pour qu'ils soient disponibles lorsque les clients sont migrés. Les objets associés au client sont migrés à l'aide de tâches de migration. Pour plus d’informations sur la migration des objets associés au client, consultez [Planification d’une stratégie pour les tâches de migration dans System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
 
  Utilisez les sections suivantes pour planifier la migration des clients vers la hiérarchie de destination.  
 
@@ -36,38 +36,38 @@ Pour migrer des clients depuis la hiérarchie source vers une hiérarchie de des
 -   [Planifier les données d’inventaire et de compatibilité pendant la migration](#Planning_for_Inventory_data_migration)  
 
 ##  <a name="a-nameplanningforclientagentmigrationa-plan-to-migrate-clients-to-the-destination-hierarchy"></a><a name="Planning_for_Client_Agent_Migration"></a> Planifier la migration des clients vers la hiérarchie de destination  
- Lorsque vous migrez des clients depuis une hiérarchie source, le logiciel client sur l'ordinateur client se met à jour pour correspondre à la version du produit de la hiérarchie de destination :  
+ Quand vous migrez des clients d’une hiérarchie source, le logiciel client sur l’ordinateur client est mis à niveau avec la version du produit de la hiérarchie de destination.  
 
 -   **Hiérarchie source Configuration Manager 2007** : quand vous migrez des clients à partir d’une hiérarchie source qui exécute une version prise en charge de Configuration Manager, le logiciel client est mis à niveau vers la version cliente de la hiérarchie de destination.  
 
 -   **Hiérarchie source System Center 2012 Configuration Manager ou version ultérieure** : quand vous migrez des clients entre des hiérarchies avec la même version de produit, le logiciel client ne change pas ou ne se met pas à niveau. Le client est simplement réaffecté depuis la hiérarchie source vers un site de la hiérarchie de destination.  
 
     > [!NOTE]  
-    >  Lorsque la version de produit d'une hiérarchie n'est pas prise en charge pour migration vers votre hiérarchie de destination, mettez à niveau tous les sites et les clients dans la hiérarchie source vers une version de produit compatible. Une fois la hiérarchie source mise à niveau vers une version de produit prise en charge, vous pouvez effectuer la migration entre hiérarchies. Pour plus d’informations, consultez la section [Versions de Configuration Manager prises en charge pour la migration](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) dans la rubrique [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+    >  Lorsque la version de produit d'une hiérarchie n'est pas prise en charge pour migration vers votre hiérarchie de destination, mettez à niveau tous les sites et les clients dans la hiérarchie source vers une version de produit compatible. Une fois la hiérarchie source mise à niveau vers une version de produit prise en charge, vous pouvez effectuer la migration entre hiérarchies. Pour plus d’informations, consultez [Versions de Configuration Manager prises en charge pour la migration](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) dans [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
 Tenez compte des informations suivantes pour planifier la migration des clients :  
 
 -   Pour mettre à niveau ou réaffecter des clients d'un site source vers un site de destination, vous pouvez utiliser une méthode de déploiement client prise en charge pour le déploiement de clients dans la hiérarchie de destination. Les méthodes de déploiement client classiques comprennent l'installation poussée du client, la distribution de logiciels, la stratégie de groupe et l'installation du logiciel client basé sur la mise à jour. Pour plus d’informations, consultez [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
--   Assurez-vous que l’appareil qui exécute le logiciel client dans la hiérarchie source répond à la configuration matérielle minimale requise et qu’il exécute un système d’exploitation pris en charge par la version de Configuration Manager dans la hiérarchie de destination.  
+-   Assurez-vous que l’appareil sur lequel s’exécute le logiciel client dans la hiérarchie source présente la configuration matérielle minimale requise et exécute un système d’exploitation pris en charge par la version de Configuration Manager utilisée dans la hiérarchie de destination.  
 
--   Avant de migrer un client, exécutez une tâche de migration pour migrer les informations qui seront utilisées par le client dans la hiérarchie de destination.  
+-   Avant de migrer un client, exécutez une tâche de migration pour migrer les informations que le client va utiliser dans la hiérarchie de destination.  
 
--   Les clients mis à niveau conservent leur historique d'exécution des déploiements pour éviter de ré exécuter les déploiements inutilement dans la hiérarchie de destination :  
+-   Les clients mis à niveau conservent leur historique d’exécution pour les déploiements. Cela évite d’avoir à réexécuter inutilement des déploiements dans la hiérarchie de destination.  
 
     -   Pour les clients Configuration Manager 2007, l’historique d’exécution de publication est conservé.  
 
-    -   Avec les clients à partir de System Center 2012 Configuration Manager ou System Center Configuration Manager, l’historique d’exécution des déploiements est conservé.  
+    -   Pour les clients à partir de System Center 2012 Configuration Manager ou System Center Configuration Manager, l’historique d’exécution des déploiements est conservé.  
 
 -   Vous pouvez migrer les clients à partir de sites de la hiérarchie source dans l'ordre de votre choix. Toutefois, migrez un nombre limité de clients en plusieurs étapes au lieu de migrer un grand nombre de clients simultanément. Une migration progressive réduit les besoins en bande passante et le traitement du serveur lorsque chaque client qui vient d'être mis à niveau envoie son inventaire complet initial et ses données de compatibilité au site qui lui est affecté.  
 
--   Quand vous migrez des clients Configuration Manager 2007, le logiciel client existant est désinstallé de l’ordinateur client et le nouveau logiciel client est installé.  
+-   Quand vous migrez des clients Configuration Manager 2007, le logiciel client existant est désinstallé de l’ordinateur client et le nouveau logiciel client y est installé.  
 
--   Configuration Manager ne peut pas migrer un client Configuration Manager 2007 sur lequel est installé le client App-V, sauf si la version de ce dernier est la version 4.6 SP1 ou une version ultérieure.  
+-   Configuration Manager ne peut pas migrer un client Configuration Manager 2007 sur lequel est installé le client App-V, sauf si la version de ce dernier est la version 4.6 SP1 ou une version ultérieure.  
 
 Vous pouvez surveiller le processus de migration du client dans le nœud **Migration** de l’espace de travail **Administration** dans la console Configuration Manager.  
 
-Après la migration du client vers la hiérarchie de destination, vous ne pouvez plus gérer ce périphérique à l'aide de votre hiérarchie source et vous devriez envisager la suppression du client de la hiérarchie source. Bien que cette action ne soit pas obligatoire dans le cadre du processus de migration des hiérarchies, elle peut empêcher l'identification d'un client migré dans un rapport de hiérarchie source ou un nombre incorrect de ressources entre les deux hiérarchies au cours de la migration. Par exemple, lorsqu'un client migré reste dans la base de données du site source, vous pourriez exécuter un rapport de mises à jour logicielles qui identifie incorrectement l'ordinateur comme ressource non gérée alors qu'il est géré par la hiérarchie de destination.  
+Après la migration du client vers la hiérarchie de destination, vous ne pouvez plus gérer cet appareil dans votre hiérarchie source et vous devez supprimer le client de la hiérarchie source. Bien que cette action ne soit pas obligatoire dans le cadre du processus de migration des hiérarchies, elle peut empêcher l'identification d'un client migré dans un rapport de hiérarchie source ou un nombre incorrect de ressources entre les deux hiérarchies au cours de la migration. Par exemple, lorsqu'un client migré reste dans la base de données du site source, vous pourriez exécuter un rapport de mises à jour logicielles qui identifie incorrectement l'ordinateur comme ressource non gérée alors qu'il est géré par la hiérarchie de destination.  
 
 ##  <a name="a-nameplanningforclientdatamigrationa-plan-to-handle-data-maintained-on-clients-during-migration"></a><a name="Planning_for_Client_Data_Migration"></a> Planifier la gestion des données conservées sur les clients pendant la migration  
 Lorsque vous migrez un client de sa hiérarchie source vers la hiérarchie de destination, certaines informations sont conservées sur le périphérique, alors que d'autres ne sont pas disponibles sur le périphérique après la migration.  
@@ -105,6 +105,6 @@ Les données d'inventaire et de compatibilité client ne sont pas enregistrées 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

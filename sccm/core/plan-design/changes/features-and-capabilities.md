@@ -2,7 +2,7 @@
 title: "Fonctions et fonctionnalités | Microsoft Docs"
 description: "Découvrez les principales fonctionnalités de gestion de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 851029368d97312ef2766505f933eac72d6950e5
+ms.sourcegitcommit: 53b27dcb5c8bb670556fe4cee9e990619a9a63e9
+ms.openlocfilehash: 4691f43dccdf73936107f4635321897b9779bead
 
 
 ---
@@ -40,7 +40,7 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
  **Paramètres de compatibilité**  
 
- Fournit un ensemble d'outils et de ressources susceptibles de vous aider à évaluer, suivre et corriger la compatibilité de la configuration des appareils clients de l'entreprise.  De plus, vous pouvez utiliser les paramètres de compatibilité pour configurer tout un éventail de fonctionnalités et de paramètres de sécurité sur les appareils que vous gérez. Consultez [Garantir la conformité des appareils avec System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+ Fournit un ensemble d'outils et de ressources susceptibles de vous aider à évaluer, suivre et corriger la compatibilité de la configuration des appareils clients de l'entreprise. De plus, vous pouvez utiliser les paramètres de compatibilité pour configurer tout un éventail de fonctionnalités et de paramètres de sécurité sur les appareils que vous gérez. Consultez [Garantir la conformité des appareils avec System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
 
  **Endpoint Protection**  
 
@@ -58,17 +58,17 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
 **Gestion des appareils mobiles avec Microsoft Intune**  
 
- Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (y compris Samsung KNOX Standard), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
+ Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (dont Samsung KNOX Standard), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
 
  Même si vous utilisez le service Intune, les tâches de gestion s’effectuent à l’aide du rôle de système de site de point de connexion de service, disponible via la console Configuration Manager. Consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
  **Gestion des appareils mobiles locale**  
 
- Inscrit et gère les PC et les appareils mobiles en utilisant l’infrastructure Configuration Manager locale et les fonctionnalités de gestion intégrées aux plateformes d’appareils (au lieu d’utiliser un client Configuration Manager installé séparément). Prend actuellement en charge la gestion des appareils Windows 10 Entreprise et Windows 10 Mobile.  Consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+ Inscrit et gère les PC et les appareils mobiles en utilisant l’infrastructure Configuration Manager locale et les fonctionnalités de gestion intégrées aux plateformes d’appareils (au lieu d’utiliser un client Configuration Manager installé séparément). Prend actuellement en charge la gestion des appareils Windows 10 Entreprise et Windows 10 Mobile. Consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
  **Déploiement de systèmes d’exploitation**  
 
- Fournit un outil pour créer des images de système d'exploitation. Vous pouvez ensuite utiliser ces images pour les déployer sur des ordinateurs gérés par Configuration Manager et sur des ordinateurs non gérés, à l’aide du démarrage PXE ou d’un média de démarrage, tel qu’un jeu de CD, un DVD ou des lecteurs flash USB. Consultez [Introduction au déploiement de système d’exploitation dans System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
+ Fournit un outil pour créer des images de système d'exploitation. Vous pouvez ensuite utiliser ces images pour déployer les systèmes d’exploitation sur des ordinateurs, à l’aide du démarrage PXE ou d’un média de démarrage, tel qu’un jeu de CD, un DVD ou des lecteurs flash USB. Notez que cela s’applique aux ordinateurs qui sont gérés par Configuration Manager ainsi qu’aux ordinateurs non gérés. Consultez [Introduction au déploiement de système d’exploitation dans System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
 
  **Gestion de l’alimentation**  
 
@@ -76,11 +76,11 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
  **Requêtes**  
 
- Fournit un outil pour récupérer des informations sur les ressources de votre hiérarchie et des informations sur les données d'inventaire et les messages d'état. Vous pouvez ensuite utiliser ces informations pour établir des rapports ou pour définir des regroupements d'appareils ou d'utilisateurs pour les paramètres de déploiement et de configuration de logiciels. Consultez [Présentation des requêtes dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
+ Fournit un outil pour récupérer des informations sur les ressources de votre hiérarchie et des informations sur les données d'inventaire et les messages d'état. Vous pouvez ensuite utiliser ces informations pour établir des rapports ou pour définir des regroupements d’appareils ou d’utilisateurs pour les paramètres de déploiement et de configuration de logiciels. Consultez [Présentation des requêtes dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
 
  **Profils de connexion à distance**  
 
- Fournit un ensemble d'outils et de ressources pour vous aider à créer, déployer et surveiller les paramètres de connexion à distance vers des appareils de votre organisation. En déployant ces paramètres, vous réduisez l'effort fourni par l'utilisateur pour se connecter à son ordinateur sur le réseau d'entreprise. Consultez [Utilisation de profils de connexion à distance dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+ Fournit un ensemble d’outils et de ressources pour vous aider à créer, déployer et surveiller les paramètres de connexion à distance vers des appareils de votre organisation. En déployant ces paramètres, vous réduisez l’effort fourni par les utilisateurs pour se connecter à leurs ordinateurs sur le réseau d’entreprise. Consultez [Utilisation de profils de connexion à distance dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
  **Éléments de configuration des données et profils utilisateur**  
 
@@ -104,6 +104,6 @@ Les principales fonctionnalités de gestion de System Center Configuration Manag
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

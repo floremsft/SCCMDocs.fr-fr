@@ -2,7 +2,7 @@
 title: "Sécurité et confidentialité pour System Center Configuration Manager | Microsoft Docs"
 description: "Recherchez des ressources concernant la sécurité et la confidentialité pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: a0cc96d1bde1ab895a4560d89dbc162f34a8443b
+ms.sourcegitcommit: b470aee50669bcded176d55d8b1496768d1f3cde
+ms.openlocfilehash: de9df79c7adc24b415fd1be6e45a42aec7e16f9a
 
 
 ---
@@ -25,11 +25,11 @@ ms.openlocfilehash: a0cc96d1bde1ab895a4560d89dbc162f34a8443b
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique inclut des ressources concernant la sécurité et la confidentialité pour System Center Configuration Manager.  
+Cet article inclut des ressources concernant la sécurité et la confidentialité pour System Center Configuration Manager.  
 
- Avant de poursuivre, assurez-vous de comprendre les [principes de base de System Center Configuration Manager](../../../core/understand/fundamentals.md). Si vous avez déjà installé System Center Configuration Manager, examinez les décisions de conception de votre mise en œuvre. Le calendrier et le contenu de déploiement de Configuration Manager pourront vous être utiles.  
+ Avant de poursuivre, assurez-vous de connaître les [principes de base de System Center Configuration Manager](../../../core/understand/fundamentals.md). Si vous avez déjà installé System Center Configuration Manager, examinez les décisions de conception de votre mise en œuvre. Le calendrier et le contenu de déploiement de Configuration Manager pourront vous être utiles.  
 
- Consultez les rubriques suivantes pour en savoir plus sur les fonctionnalités liées à la sécurité dans le produit :  
+ Consultez les articles suivants pour en savoir plus sur les fonctionnalités liées à la sécurité dans le produit :  
 
 -   [Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
@@ -59,7 +59,7 @@ Cette rubrique inclut des ressources concernant la sécurité et la confidential
 
 
 
- **Rubriques relatives à la sécurité et la confidentialité :**  
+ **Articles relatifs à la sécurité et à la confidentialité :**  
 
 -   [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
@@ -76,6 +76,6 @@ Cette rubrique inclut des ressources concernant la sécurité et la confidential
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

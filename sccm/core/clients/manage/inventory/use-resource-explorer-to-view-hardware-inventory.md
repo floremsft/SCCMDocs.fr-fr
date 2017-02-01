@@ -2,7 +2,7 @@
 title: "Afficher l’inventaire matériel | Microsoft Docs | Explorateur de ressources"
 description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: 2cd138b3bbb437d84f0ff7c2aeef869518bd817d
+ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
+ms.openlocfilehash: 6265ee70b70a715862b1651d2f3760bef096ee8a
 
 
 ---
@@ -30,11 +30,11 @@ Utilisez l’Explorateur de ressources de System Center Configuration Manager po
 > [!NOTE]  
 >  L'Explorateur de ressources n'affichera pas de données d'inventaire avant qu'un cycle d'inventaire matériel ait été exécuté sur le client auquel vous êtes connecté.  
 
- L'Explorateur de ressources de Configuration Manager contient les sections suivantes relatives à l'inventaire matériel :  
+ L’Explorateur de ressources contient les sections suivantes relatives à l’inventaire matériel :  
 
--   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client Configuration Manager spécifié. Vous pouvez consulter l'article en stock **état de la station de travail** pour découvrir l'heure et la date lorsque le périphérique de la dernière exécution de l'inventaire matériel.  
+-   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client indiqué.  **État de la station de travail** : indique l’heure et la date du dernier inventaire matériel effectué par l’appareil.  
 
--   **Historique du matériel** : contient un historique des éléments d'inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément de la liste contient un nœud **En cours** et un ou plusieurs nœuds de *<date\>*. Vous pouvez comparer les informations du nœud en cours à l'un des nœuds historiques pour découvrir les éléments qui ont été modifiés dans l'inventaire de matériel des ordinateurs client.  
+-   **Historique du matériel** : contient un historique des éléments d’inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément contient un nœud **En cours** et un ou plusieurs nœuds *<date\>*. Vous pouvez comparer les informations du nœud en cours à l’un des nœuds historiques pour découvrir les éléments qui ont été modifiés.  
 
     > [!NOTE]  
     >  Configuration Manager conserve l'historique de l'inventaire matériel pendant le nombre de jours que vous spécifiez dans la tâche de maintenance du site **Supprimer les historiques d'inventaire anciens**.  
@@ -44,18 +44,15 @@ Utilisez l’Explorateur de ressources de System Center Configuration Manager po
 
 ### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Comment exécuter l’Explorateur de ressources à partir de la console Configuration Manager  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Appareils**, ou ouvrez un regroupement qui affiche des appareils.  
 
-2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Périphériques** ou ouvrez un regroupement qui affiche des périphériques.  
+3.  Choisissez l’ordinateur contenant l’inventaire que vous souhaitez afficher puis, dans l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** >  **Explorateur de ressources**.   
 
-3.  Cliquez sur l'ordinateur contenant l'inventaire que vous souhaitez afficher, puis, dans l'onglet **Accueil** , dans le groupe **Périphériques** , cliquez sur **Démarrer** , puis sur **Explorateur de ressources**. La fenêtre **Explorateur de ressources** s'ouvre.  
-
-4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre **Explorateur de ressources**, puis cliquer sur **Propriétés** pour ouvrir la boîte de dialogue **Propriétés** de *<nom_élément\>* pour visualiser les informations d’inventaire recueillies dans un format plus lisible.  
-
-5.  Lorsque vous avez terminé, fermez la fenêtre **Explorateur de ressources** .  
+4.  Cliquez avec le bouton droit sur un élément dans le volet droit de la fenêtre **Explorateur de ressources**, puis choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés de** *<nom_élément\>* et visualiser les informations d’inventaire recueillies sous un format plus lisible.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Jan17_HO1-->
 
 
