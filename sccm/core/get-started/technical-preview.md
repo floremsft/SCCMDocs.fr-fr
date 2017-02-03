@@ -1,8 +1,8 @@
 ---
-title: "Version d’évaluation technique pour System Center Configuration Manager | Microsoft Docs"
+title: Version Technical Preview pour System Center Configuration Manager | Microsoft Docs
 description: "Découvrez la version Technical Preview qui vous permet de tester les nouvelles fonctions et fonctionnalités de System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/16/2016
+ms.date: 1/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4b1b925a50d08d90e4e1250967e19c0bc5aac4d3
-ms.openlocfilehash: faef3537eed740a6177f00991615c978659e06c7
+ms.sourcegitcommit: 916c39133ec3796b9cff97c3c3bdb49dcbb6d7e7
+ms.openlocfilehash: defff3d720363cfb066b120e2b8f58d643a87699
 
 
 ---
@@ -135,6 +135,13 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnaltiés de cha
 
  |Fonctionnalité|Version Technical Preview|Version Current Branch|  
  |----------------|---------------------|--------------------|
+ |Améliorations des groupes de limites pour les points de mise à jour logicielle | [Tech Preview 1701](capabilities-in-technical-preview-1701.md#boundary-groups-improvements-for-software-update-points)    |![Non ajouté](media/Red_X.gif)  |
+ |L’inventaire matériel collecte des informations UEFI | [Tech Preview 1701](capabilities-in-technical-preview-1701.md#hardware-inventory-collects-uefi-information)|![Non ajouté](media/Red_X.gif)  |
+ |Améliorations apportées au déploiement des systèmes d’exploitation| [Tech Preview 1701](capabilities-in-technical-preview-1701.md#improvements-to-operating-system-deployment)|![Non ajouté](media/Red_X.gif)  |
+ |Héberger des mises à jour logicielles sur des points de distribution cloud| [Tech Preview 1701](capabilities-in-technical-preview-1701.md#host-software-updates-on-cloud-based-distribution-points)|![Non ajouté](media/Red_X.gif) |
+ |Valider les données de l’attestation d’intégrité de l’appareil via des points de gestion| [Tech Preview 1701](capabilities-in-technical-preview-1701.md#validate-device-health-attestation-data-via-management-points)|![Non ajouté](media/Red_X.gif) |
+ |Connecteur OMS pour Microsoft Azure Government Cloud |[Tech Preview 1701](capabilities-in-technical-preview-1701.md#use-the-oms-connector-for-microsoft-azure-government-cloud) |![Non ajouté](media/Red_X.gif) |
+ |Les versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création |[Tech Preview 1701](capabilities-in-technical-preview-1701.md#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm) |![Non ajouté](media/Red_X.gif) |
  |Accès aux données de point de terminaison OData |[Version d’évaluation technique 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|![Non ajouté](media/Red_X.gif)|
  |Point de service de l’entrepôt de données |[Version d’évaluation technique 1612](capabilities-in-technical-preview-1612.md#the-data-warehouse-service-point)|![Non ajouté](media/Red_X.gif)|
  |Outil de nettoyage de la bibliothèque de contenu |[Version d’évaluation technique 1612](capabilities-in-technical-preview-1612.md#content-library-cleanup-tool)|![Non ajouté](media/Red_X.gif)|
@@ -226,6 +233,6 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnaltiés de cha
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
