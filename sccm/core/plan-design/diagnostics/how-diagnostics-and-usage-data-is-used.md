@@ -2,7 +2,7 @@
 title: "Utiliser les données de diagnostic | Microsoft Docs"
 description: "Découvrez comment Microsoft utilise les données de diagnostic et d’utilisation collectées par System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: aa0ee7544e348025a80d32b4a816de6dbec31d7f
+ms.sourcegitcommit: 24a233516058e645df2a43623855665b97b041b0
+ms.openlocfilehash: 9864f6ba7b9a2211c99b1a5d9ebd582e01ccfeb6
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: aa0ee7544e348025a80d32b4a816de6dbec31d7f
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les données d’utilisation et de diagnostic collectées pour System Center Configuration Manager fournissent à Microsoft un retour d’expérience quasi immédiat sur la manière dont le produit fonctionne (ou ne fonctionne pas), et permettent d’améliorer les mises à jour ultérieures. Nous pouvons également voir des données de configuration qui nous aident à concevoir et tester les configurations qui sont en production. Exemple :  
+Les données de diagnostic et d’utilisation que System Center Configuration Manager collecte fournissent à Microsoft un retour d’expérience quasi immédiat sur la manière dont le produit fonctionne, et permettent d’améliorer les mises à jour ultérieures. Nous pouvons également voir des données de configuration qui nous aident à concevoir et tester les configurations qui sont en production. Exemple :  
 
 -   Versions de Windows Server utilisées par les serveurs de site  
 
@@ -35,7 +35,7 @@ Les données d’utilisation et de diagnostic collectées pour System Center Con
 
 Ces données aident l’équipe de conception à planifier les prochains tests visant à garantir la meilleure expérience possible pour les configurations les plus courantes. Les mises à jour de Configuration Manager étant publiées à un rythme plus soutenu (pour mieux prendre en charge les technologies qui évoluent rapidement, telles que Windows 10 et Microsoft Intune), ces données sont cruciales pour une adaptation rapide.  
 
-Il est également important de savoir comment les données d’utilisation et de diagnostic ne sont pas utilisées. Microsoft n’utilise pas ces données pour ce qui suit :  
+Il est également important de savoir à quoi les données de diagnostic et d’utilisation ne sont pas utilisées. Microsoft n’utilise pas ces données pour ce qui suit :  
 
 -   Audits de licence (par exemple, comparer l’utilisation des clients avec les contrats de licence)  
 
@@ -43,19 +43,19 @@ Il est également important de savoir comment les données d’utilisation et de
 
 -   Publicité basée sur des données disponibles, telles que l’utilisation de fonctionnalités ou la géolocalisation (fuseau horaire)  
 
-##  <a name="a-namebkmkimprovea-examples-of-how-diagnostics-and-usage-data-is-improving-the-product"></a><a name="bkmk_improve"></a> Exemples de la manière dont les données d’utilisation et de diagnostic contribuent à l’amélioration du produit  
-Microsoft utilise les données disponibles pour améliorer le produit. Voici quelques exemples de la manière de procéder :  
+##  <a name="a-namebkmkimprovea-examples-of-how-diagnostics-and-usage-data-improves-the-product"></a><a name="bkmk_improve"></a> Exemples de la manière dont les données de diagnostic et d’utilisation contribuent à améliorer le produit  
+Microsoft utilise les données disponibles pour améliorer le produit. Voici quelques exemples :  
 
 -   **Prise en charge révisée pour les systèmes d’exploitation serveur plus anciens :**  
 
-     La prise en charge initiale offerte par System Center Configuration Manager (Current Branch) comprenait une limite quant à la période de prise en charge de Windows Server 2008 R2. Après examen des données d’utilisation de clients qui avaient effectué une mise à niveau vers la version Current Branch de Configuration Manager, nous avons jugé utile de modifier et d’étendre cette période pour prendre en charge les nombreux clients qui continuaient d’utiliser ce système d’exploitation serveur pour héberger des serveurs de site et des rôles de système de site.  
+     La prise en charge initiale offerte par System Center Configuration Manager (Current Branch) limitait la période de prise en charge de Windows Server 2008 R2. Après examen des données d’utilisation de clients qui avaient effectué une mise à niveau vers la version Current Branch de Configuration Manager, nous avons jugé utile de modifier et d’étendre cette période pour prendre en charge les clients qui continuaient d’utiliser ce système d’exploitation serveur pour héberger des serveurs de site et des rôles de système de site.  
 
 -   **Vérifications de configuration requise améliorées :**  
 
-     Sur la base des données d’utilisation, nous avons amélioré les vérifications des conditions requises pour l’installation d’une mise à jour, afin de supprimer des règles obsolètes, de tenir compte de cas supplémentaires et, dans certains cas, de remédier automatiquement à certains problèmes.  
+     Sur la base des données d’utilisation, nous avons amélioré les vérifications des conditions préalables à l’installation d’une mise à jour pour supprimer des règles obsolètes, tenir compte de cas supplémentaires et, dans certains cas, résoudre automatiquement certains problèmes.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

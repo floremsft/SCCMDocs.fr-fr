@@ -1,7 +1,7 @@
 ---
 title: SQL Server AlwaysOn | Microsoft Docs
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/4/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,8 +15,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 9d4d0c741418af29edc586a5d629fc61f86da426
+ms.sourcegitcommit: 4d34a272a93100426cccd2308c5b3b0b0ae94a60
+ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 
 
 ---
@@ -98,9 +98,12 @@ ms.openlocfilehash: 9d4d0c741418af29edc586a5d629fc61f86da426
 
  **Configuration requise pour les groupes de disponibilité AlwaysOn utilisés avec System Center Configuration Manager :**  
 
--   Chaque nœud (ou réplica) du groupe de disponibilité doit exécuter une version de SQL Server prise en charge par System Center Configuration Manager  
+-  *Version* : Chaque nœud (ou réplica) du groupe de disponibilité doit exécuter une version de SQL Server prise en charge par System Center Configuration Manager. Si elle sont prises en charge par SQL Server, les différents nœuds du groupe de disponibilité peuvent exécuter des versions différentes de SQL Server.   
 
--   Le groupe de disponibilité doit avoir un réplica principal et peut avoir jusqu'à deux réplicas secondaires synchrones.  
+- *Édition* : Vous devez utiliser une édition Enterprise de SQL Server.  L’édition Standard de SQL Server 2016 introduit les groupes de disponibilité de base, qui ne sont pas pris en charge par Configuration Manager.
+
+
+-   Le groupe de disponibilité doit avoir un réplica principal et peut avoir jusqu’à deux réplicas secondaires synchrones.  
 
 -  Après avoir ajouté une base de données à un groupe de disponibilité, vous devez basculer le réplica principal vers un réplica secondaire (ce qui fait de celui-ci le nouveau réplica principal), puis configurer la base de données avec les éléments suivants :
     - Activer la propriété Trustworthy : True
@@ -131,7 +134,9 @@ ms.openlocfilehash: 9d4d0c741418af29edc586a5d629fc61f86da426
         >  System Center Configuration Manager prend en charge l’utilisation de réplicas de groupe de disponibilité quand il est configuré pour le basculement automatique. Toutefois, un basculement manuel doit être défini quand vous exécutez le programme d’installation pour spécifier l’utilisation de la base de données du site dans le groupe de disponibilité, ainsi qu’au moment où vous installez des mises à jour de Configuration Manager (et pas seulement des mises à jour qui s’appliquent à la base de données du site).  
 
   **Restrictions pour les groupes de disponibilité**
-   - Les groupes de disponibilité sont pris en charge uniquement pour la base de données du site et non pour la base de données de mise à jour logicielle ou base de données de création de rapports   
+   - Les groupes de disponibilité de base (introduits avec l’édition Standard de SQL Server 2016) ne sont pas pris en charge. La raison en est que les groupes de disponibilité de base ne prennent pas en charge les accès en lecture aux réplicas secondaires, ce qui est obligatoire pour une utilisation avec Configuration Manager. Pour plus d’informations, consultez [Groupes de disponibilité de base (Groupes de disponibilité AlwaysOn)](https://msdn.microsoft.com/en-us/library/mt614935.aspx).
+
+   - Les groupes de disponibilité sont pris en charge uniquement pour la base de données du site, mais pas pour la base de données de mises à jour logicielles ni pour la base de données de création de rapports.   
    - Quand vous utilisez un groupe de disponibilité, vous devez configurer manuellement votre point de rapport pour utiliser le réplica principal actuel et pas l’écouteur de groupe de disponibilité. Si le réplica principal bascule sur un autre réplica, vous devez ensuite reconfigurer le point de rapport pour utiliser le nouveau réplica principal.  
    - Avant d’installer les mises à jour, telles que la version 1606, vérifiez que le groupe de disponibilité est défini pour un basculement manuel. Une fois le site mis à jour, vous pouvez restaurer le basculement automatique.
 
@@ -260,6 +265,6 @@ ms.openlocfilehash: 9d4d0c741418af29edc586a5d629fc61f86da426
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

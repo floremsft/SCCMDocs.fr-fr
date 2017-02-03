@@ -2,7 +2,7 @@
 title: "Principes de base de l’administration basée sur des rôles | Microsoft Docs"
 description: "Utilisez l’administration basée sur les rôles pour contrôler l’accès administratif à Configuration Manager et les objets que vous gérez."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6cf3ac76ea3fb9c9b093ed4927255102930bbe26
-ms.openlocfilehash: 5bdfe43c86d5b700c50b4d55d2f3bbb15bb504e9
+ms.sourcegitcommit: 8e0090bd671e2c566447579974a38474c2f898ea
+ms.openlocfilehash: 1ca51e256ea2f406f393e4b0d3634ea0f6f637bc
 
 
 ---
@@ -25,19 +25,19 @@ ms.openlocfilehash: 5bdfe43c86d5b700c50b4d55d2f3bbb15bb504e9
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avec System Center Configuration Manager, l’administration basée sur des rôles vous permet de sécuriser l’accès à l’administration de Configuration Manager et aux objets que vous gérez, tels que les regroupements, les déploiements et les sites.   À présent que vous comprenez les concepts présentés dans cette rubrique, vous pouvez [configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Avec System Center Configuration Manager, l’administration basée sur des rôles vous permet de sécuriser l’accès nécessaire à l’administration de Configuration Manager. Vous sécurisez également l’accès aux objets que vous gérez, tels que les regroupements, les déploiements et les sites. À présent que vous comprenez les concepts présentés dans cette rubrique, vous pouvez [configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
- Le modèle d’administration basée sur des rôles définit et gère de façon centralisée les paramètres d’accès de sécurité à l’échelle de la hiérarchie pour tous les sites ainsi que les paramètres de site à l’aide des éléments suivants :  
+ Le modèle d’administration basée sur des rôles définit et gère de façon centralisée les paramètres d’accès de sécurité à l’échelle de la hiérarchie pour tous les sites ainsi que les paramètres de site à l’aide des éléments suivants :  
 
--   **Rôles de sécurité** attribués aux utilisateurs administratifs pour octroyer à ceux-ci (ou à des groupes d’utilisateurs) des autorisations relatives à différents objets de Configuration Manager, par exemple, celles de créer ou modifier des paramètres client.  
+-   Les *rôles de sécurité* sont attribués aux utilisateurs administratifs pour octroyer à ceux-ci (ou à des groupes d’utilisateurs) des autorisations relatives à différents objets Configuration Manager, par exemple, celles de créer ou modifier des paramètres client.  
 
--   **Étendues de sécurité** regroupant des instances d’objets spécifiques qu’un utilisateur administratif est chargé de gérer, par exemple, une application qui installe Microsoft Office 2010.  
+-   Les *étendues de sécurité* permettent de regrouper des instances d’objets spécifiques qu’un utilisateur administratif est chargé de gérer, par exemple une application qui installe Microsoft Office 2010.  
 
--   **Regroupements** permettant de spécifier des groupes d’utilisateurs et d’appareils que l’utilisateur administratif peut gérer.  
+-   Les *regroupements* permettent de spécifier des groupes de ressources d’utilisateurs et d’appareils que l’utilisateur administratif peut gérer.  
 
- L’utilisation combinée de rôles de sécurité, d’étendues de sécurité et de regroupements permet de séparer les attributions administratives répondant aux besoins de votre organisation, ainsi que de définir l’étendue administrative d’un utilisateur (ce qu’il peut afficher et gérer dans votre déploiement Configuration Manager).  
+ L’utilisation combinée de rôles de sécurité, d’étendues de sécurité et de regroupements permet de séparer les attributions administratives répondant aux besoins de votre organisation, ainsi que de définir l’étendue administrative d’un utilisateur, autrement dit ce qu’il peut afficher et gérer dans votre déploiement de Configuration Manager.  
 
-**L'administration basée sur les rôles présente les avantages suivants :**  
+## <a name="benefits-of-role-based-administration"></a>Avantages de l’administration basée sur des rôles  
 
 -   Les sites ne sont pas utilisés comme limites administratives.  
 
@@ -45,13 +45,13 @@ Avec System Center Configuration Manager, l’administration basée sur des rôl
 
 -   Toutes les attributions de sécurité sont répliquées et disponibles dans la hiérarchie.  
 
--   Il existe des rôles de sécurité intégrés permettent d’attribuer les tâches d’administration classiques, mais vous pouvez aussi créer des rôles de sécurité personnalisés pour vos besoins spécifiques.  
+-   Il existe des rôles de sécurité intégrés permettent d’attribuer les tâches d’administration classiques, mais vous pouvez aussi créer vos propres rôles de sécurité personnalisés en fonction des besoins propres à votre activité.  
 
--   Les utilisateurs administratifs voient uniquement les objets qu’ils sont autorisés à gérer.  
+-   Les utilisateurs administratifs voient uniquement les objets qu'ils sont autorisés à gérer.  
 
 -   Vous pouvez auditer des actions administratives de sécurité.  
 
-Quand vous concevez et implémentez la sécurité administrative pour Configuration Manager, créez une **étendue administrative** pour un utilisateur administratif à l’aide des éléments suivants :  
+Quand vous concevez et implémentez la sécurité administrative pour Configuration Manager, créez une *étendue administrative* pour un utilisateur administratif à l’aide des éléments suivants :  
 
 -   [Rôles de sécurité](#bkmk_Planroles)  
 
@@ -59,28 +59,31 @@ Quand vous concevez et implémentez la sécurité administrative pour Configurat
 
 -   [Étendues de sécurité](#bkmk_PlanScope)  
 
+
  L’étendue administrative contrôle les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les autorisations dont dispose cet utilisateur sur ces objets. Les configurations d'administration basées sur des rôles sont répliquées sur chaque site de la hiérarchie en tant que données globales, puis sont appliquées à toutes les connexions administratives.  
 
 > [!IMPORTANT]  
 >  Les retards de réplication intersite peuvent empêcher un site de recevoir des modifications pour l'administration basée sur les rôles. Pour plus d’informations sur la manière de surveiller la réplication intersite de base de données, consultez la rubrique [Transfert de données entre sites dans System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md).  
 
 ##  <a name="a-namebkmkplanrolesa-security-roles"></a><a name="bkmk_Planroles"></a> Rôles de sécurité  
- Utilisez des rôles de sécurité pour accorder des autorisations de sécurité aux utilisateurs administratifs. Les rôles de sécurité sont des groupes d'autorisations de sécurité que vous affectez aux utilisateurs administratifs afin qu'ils puissent effectuer leurs tâches administratives. Ces autorisations de sécurité définissent les actions administratives réalisables par un utilisateur administratif ainsi que les autorisations sont accordées pour des types d'objet particulier. Comme meilleure pratique de sécurité, affectez les rôles de sécurité qui fournissent des autorisations minimales.  
+ Utilisez des rôles de sécurité pour accorder des autorisations de sécurité aux utilisateurs administratifs. Les rôles de sécurité sont des groupes d'autorisations de sécurité que vous affectez aux utilisateurs administratifs afin qu'ils puissent effectuer leurs tâches administratives. Ces autorisations de sécurité définissent les actions administratives réalisables par un utilisateur administratif ainsi que les autorisations sont accordées pour des types d'objet particulier. Comme bonne pratique de sécurité, affectez les rôles de sécurité qui fournissent des autorisations minimales.  
 
  Configuration Manager possède plusieurs rôles de sécurité intégrés pour prendre en charge des regroupements typiques de tâches administratives et vous pouvez créer vos propres rôles de sécurité personnalisés pour prendre en charge vos besoins professionnels spécifiques. Exemples de rôles de sécurité intégrés :  
 
--   **Administrateur complet** : ce rôle de sécurité accorde toutes les autorisations dans Configuration Manager.  
+-   *Administrateur complet* : accorde toutes les autorisations dans Configuration Manager.  
 
--   **Analyste des biens**: ce rôle de sécurité permet aux utilisateurs administratifs d’afficher les données collectées par Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et le contrôle de logiciel. Les utilisateurs administratifs peuvent créer des règles de contrôle ainsi que des catégories, des familles et des étiquettes Asset Intelligence.  
+-   *Analyste des biens* : accorde aux utilisateurs administratifs l’autorisation d’afficher les données collectées par Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et le contrôle de logiciel. Les utilisateurs administratifs peuvent créer des règles de contrôle ainsi que des catégories, des familles et des étiquettes Asset Intelligence.  
 
--   **Gestionnaire des mises à jour logicielles**: ce rôle de sécurité accorde des autorisations pour définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements, des modèles et peuvent activer les mises à jour logicielles pour la protection d'accès au réseau (NAP).  
+-   *Gestionnaire des mises à jour logicielles* : accorde les autorisations de définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements et des modèles, et peuvent configurer les mises à jour logicielles pour la protection d’accès réseau.  
 
 > [!TIP]  
->  Vous pouvez afficher la liste des rôles de sécurité intégrés et les rôles de sécurité personnalisés que vous créez, ainsi que leurs descriptions, dans la console Configuration Manager. Pour ce faire, dans l'espace de travail **Administration** , développez **Sécurité**et sélectionnez **Rôles de sécurité**.  
+>  Vous pouvez afficher la liste des rôles de sécurité intégrés et les rôles de sécurité personnalisés que vous créez, ainsi que leurs descriptions, dans la console Configuration Manager. Pour afficher les rôles, dans l’espace de travail **Administration**, développez **Sécurité**, puis sélectionnez **Rôles de sécurité**.  
 
- Chaque rôle de sécurité dispose d'autorisations spécifiques à différents types d'objets. Par exemple, le rôle de sécurité **Application MMM** dispose des autorisations suivantes pour les applications : **Approuver**, **Créer**, **Supprimer**, **Modifier**, **Modifier un dossier**, **Déplacer un objet**, **Lire/Déployer**, **Définir l’étendue de sécurité**. Vous ne pouvez pas modifier les autorisations pour les rôles de sécurité intégrés, mais vous pouvez copier le rôle, y apporter des modifications, puis enregistrer ces modifications sous un nouveau rôle de sécurité personnalisé. Vous pouvez également importer des rôles de sécurité que vous avez exportés depuis une autre hiérarchie (par exemple depuis un réseau de test). Passez en revue les rôles de sécurité et leurs autorisations pour déterminer si vous allez utiliser les rôles de sécurité intégrés ou vous devez créer vos propres rôles de sécurité personnalisés.  
+ Chaque rôle de sécurité dispose d'autorisations spécifiques à différents types d'objets. Par exemple, le rôle de sécurité *Application MMM* dispose des autorisations suivantes pour les applications : Approuver, Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire/Déployer et Définir l’étendue de sécurité.
 
- **Pour faciliter la planification des rôles de sécurité, procédez comme suit :**  
+ Vous ne pouvez pas modifier les autorisations pour les rôles de sécurité intégrés, mais vous pouvez copier le rôle, y apporter des modifications, puis enregistrer ces modifications sous un nouveau rôle de sécurité personnalisé. Vous pouvez également importer des rôles de sécurité que vous avez exportés depuis une autre hiérarchie, par exemple depuis un réseau de test. Passez en revue les rôles de sécurité et leurs autorisations pour déterminer si vous allez utiliser les rôles de sécurité intégrés ou devoir créer vos propres rôles de sécurité personnalisés.  
+
+ ### <a name="to-help-you-plan-for-security-roles"></a>Pour faciliter la planification des rôles de sécurité  
 
 1.  Identifiez les tâches que les utilisateurs administratifs effectuent dans Configuration Manager. Ces tâches peuvent concerner un ou plusieurs groupes de tâches de gestion, tels que le déploiement d'applications et de packages, le déploiement de systèmes d'exploitation et de paramètres pour la conformité, la configuration de sites et de la sécurité, l'audit, le contrôle d'ordinateurs à distance et le recueil de données d'inventaire.  
 
@@ -110,11 +113,11 @@ Pour plus d’informations sur la façon de créer et de configurer des rôles d
 Pour plus d’informations sur la façon de configurer des regroupements pour l’administration basée sur des rôles, consultez [Configurer des regroupements pour gérer la sécurité](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
 ##  <a name="a-namebkmkplanscopea-security-scopes"></a><a name="bkmk_PlanScope"></a> Étendues de sécurité  
- Utilisez les étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder à des objets sécurisables. Les étendues de sécurité font référence à un ensemble d'objets sécurisables attribués aux utilisateurs administratifs en tant que groupe. Tous les objets sécurisables doivent être affectés à une ou plusieurs étendues de sécurité. Configuration Manager possède deux étendues de sécurité intégrées :  
+ Utilisez les étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder à des objets sécurisables. Une étendue de sécurité est un ensemble nommé d’objets sécurisables attribués aux utilisateurs administratifs en tant que groupe. Tous les objets sécurisables doivent être affectés à une ou plusieurs étendues de sécurité. Configuration Manager possède deux étendues de sécurité intégrées :  
 
--   **Toutes**: cette étendue de sécurité intégrée accorde l’accès à toutes les étendues. Vous ne pouvez pas attribuer d'objets à cette étendue de sécurité.  
+-   L’étendue de sécurité intégrée *Toutes* accorde l’accès à toutes les étendues. Vous ne pouvez pas attribuer d'objets à cette étendue de sécurité.  
 
--   **Par défaut**: cette étendue de sécurité intégrée est utilisée pour tous les objets, par défaut. Lorsque vous installez Configuration Manager pour la première fois, tous les objets sont attribués à cette étendue de sécurité.  
+-   L’étendue de sécurité intégrée *Par défaut* est utilisée pour tous les objets, par défaut. Lorsque vous installez Configuration Manager pour la première fois, tous les objets sont attribués à cette étendue de sécurité.  
 
 Si vous souhaitez restreindre les objets que les utilisateurs administratifs peuvent voir et gérer, vous devez créer et utiliser vos propres étendues de sécurité personnalisées. Les étendues de sécurité ne prennent pas en charge une structure hiérarchique et ne peuvent pas être imbriquées. Les étendues de sécurité peuvent contenir un ou plusieurs types d'objet, dont les suivants :  
 
@@ -158,7 +161,7 @@ Si vous souhaitez restreindre les objets que les utilisateurs administratifs peu
 
 -   Éléments et packages des paramètres de l'appareil Windows CE  
 
-Certains objets ne peuvent pas être ajoutés aux étendues de sécurité, car ils ne sont sécurisés que par les rôles de sécurité. L'accès administratif à ceux-ci ne peut pas être limité à un sous-ensemble des objets disponibles. Par exemple, vous pouvez être un utilisateur administratif et créer des groupes de limites qui sont utilisés pour un site spécifique. Comme l'objet de la limite ne prend pas en charge les étendues de sécurité, vous ne pouvez pas attribuer à cet utilisateur une étendue de sécurité ne lui accordant que l'accès aux limites qui pourraient être associées à ce site. Comme l'objet de la limite ne peut pas être associé à une étendue de sécurité, lorsque vous attribuez un rôle de sécurité qui comprend l'accès aux objets de la limite à un utilisateur, celui-ci peut accéder à toutes les limites de la hiérarchie.  
+Certains objets ne peuvent pas être ajoutés aux étendues de sécurité, car ils ne sont sécurisés que par les rôles de sécurité. L’accès administratif à ces objets ne peut pas être limité à un sous-ensemble des objets disponibles. Par exemple, vous pouvez être un utilisateur administratif et créer des groupes de limites qui sont utilisés pour un site spécifique. Comme l'objet de la limite ne prend pas en charge les étendues de sécurité, vous ne pouvez pas attribuer à cet utilisateur une étendue de sécurité ne lui accordant que l'accès aux limites qui pourraient être associées à ce site. Comme l'objet de la limite ne peut pas être associé à une étendue de sécurité, lorsque vous attribuez un rôle de sécurité qui comprend l'accès aux objets de la limite à un utilisateur, celui-ci peut accéder à toutes les limites de la hiérarchie.  
 
 Parmi les objets qui ne sont pas limités par des étendues de sécurité, on compte les objets suivants :  
 
@@ -206,12 +209,12 @@ Créez des étendues de sécurité lorsque vous devez limiter l'accès à des in
 
 -   Vous disposez d'un groupe d'utilisateurs administratifs qui doit être capable de consulter les applications de production, mais pas les applications de test. Créer une étendue de sécurité pour les applications de production et une autre pour les applications de test.  
 
--   Différents utilisateurs administratifs nécessitent différents accès pour certaines instances d'un type d'objet. Par exemple, un groupe d'utilisateurs administratifs requiert une autorisation de **Lecture** pour des groupes de mises à jour logicielles spécifiques et un autre groupe d'utilisateurs administratifs requiert les autorisations **Modifier** et **Supprimer** pour d'autres groupes de mises à jour logicielles. Créez différentes étendues de sécurité pour ces groupes de mises à jour logicielles.  
+-   Différents utilisateurs administratifs nécessitent différents accès pour certaines instances d'un type d'objet. Par exemple, un groupe d’utilisateurs administratifs requiert l’autorisation Lire pour des groupes de mises à jour logicielles spécifiques et un autre groupe d’utilisateurs administratifs requiert les autorisations Modifier et Supprimer pour d’autres groupes de mises à jour logicielles. Créez différentes étendues de sécurité pour ces groupes de mises à jour logicielles.  
 
 Pour plus d’informations sur la façon de configurer des étendues de sécurité pour l’administration basée sur des rôles, consultez [Configurer des étendues de sécurité pour un objet](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

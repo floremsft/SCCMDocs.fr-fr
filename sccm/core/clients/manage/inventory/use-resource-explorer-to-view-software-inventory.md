@@ -2,7 +2,7 @@
 title: "Afficher l’inventaire logiciel | Microsoft Docs | Explorateur de ressources"
 description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/26/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: a15c593bed4fe7ecce22990bbdcecc8dc2ed2962
+ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
+ms.openlocfilehash: 6189726bbcade8229e0b2e929ebedeefdbf266a4
 
 
 ---
@@ -29,37 +29,33 @@ ms.openlocfilehash: a15c593bed4fe7ecce22990bbdcecc8dc2ed2962
 Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire logiciel collecté auprès des ordinateurs de votre hiérarchie.  
 
 > [!NOTE]  
->  L'Explorateur de ressources n'affiche pas de données d'inventaire tant qu'aucun cycle d'inventaire logiciel n'a été exécuté sur le client auquel vous vous connectez.  
+>  L’Explorateur de ressources n’affiche pas de données d’inventaire tant qu’un cycle d’inventaire logiciel n’a pas été exécuté sur le client.  
 
- L’Explorateur de ressources de Configuration Manager contient les sections suivantes relatives à l’inventaire logiciel :  
+ L’Explorateur de ressources fournit les informations d’inventaire matériel et logiciel suivantes :  
 
--   **Logiciels** : cette section de l’Explorateur de ressources contient quatre sections :  
+-   **Logiciels** :  
 
-    -   **Fichiers collectés** : affiche des informations sur les fichiers collectés lors de l’inventaire logiciel.  
+    -   **Fichiers collectés** : fichiers collectés lors de l’inventaire logiciel.  
 
-    -   **Détails du fichier** : affiche des informations sur les fichiers qui ont été inventoriés pendant l’inventaire logiciel et qui ne sont pas associés à un produit ou un fabricant.  
+    -   **Détails du fichier** : fichiers qui ont été inventoriés pendant l’inventaire logiciel, et qui ne sont pas associés à un produit ou un fabricant spécifique.  
 
-    -   **Dernière analyse logicielle** : affiche la date et l’heure de la dernière collecte d’inventaire logiciel et de fichiers exécutée sur l’ordinateur client.  
+    -   **Dernière analyse logicielle** : date et heure de la dernière collecte d’inventaire logiciel et de fichiers pour l’ordinateur client.  
 
-    -   **Détails du produit** : affiche des informations sur les produits logiciels qui ont été inventoriés par l’inventaire logiciel, regroupés par fabricant.  
+    -   **Détails du produit** : produits logiciels qui ont été inventoriés par l’inventaire logiciel, regroupés par fabricant.  
 
 ## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Pour exécuter l'Explorateur de ressources à partir de la console Configuration Manager  
- Procédez comme suit pour exécuter l’Explorateur de ressources dans Configuration Manager.  
 
-#### <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Pour exécuter l'Explorateur de ressources à partir de la console Configuration Manager  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Appareils** ou ouvrez un regroupement qui affiche des appareils.  
 
-2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Périphériques** ou ouvrez un regroupement qui affiche des périphériques.  
+3.  Choisissez l’ordinateur contenant l’inventaire que vous voulez afficher puis, sous l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** > **Explorateur de ressources**.
 
-3.  Cliquez sur l'ordinateur contenant l'inventaire que vous souhaitez afficher, puis, dans l'onglet **Accueil** , dans le groupe **Périphériques** , cliquez sur **Démarrer** , puis sur **Explorateur de ressources**. La fenêtre **Explorateur de ressources** s'ouvre.  
-
-4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre Explorateur de ressources, puis cliquer sur **Propriétés** pour ouvrir la boîte de dialogue *Propriétés de ***<nom_élément\>** pour visualiser les informations d’inventaire recueillies dans un format plus lisible.  
-
-5.  Lorsque vous avez terminé, fermez la fenêtre **Explorateur de ressources** .  
+4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre Explorateur de ressources, puis choisir **Propriétés** pour visualiser les informations d’inventaire collectées dans un format plus lisible.  
+ 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

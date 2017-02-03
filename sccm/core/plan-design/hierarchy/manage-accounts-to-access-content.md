@@ -2,7 +2,7 @@
 title: "Comptes pour accéder au contenu | Microsoft Docs"
 description: "En savoir plus sur les comptes où les clients accèdent au contenu System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/4/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 4bf8dbd007f2ff122d1447ffcb2a963579034033
+ms.sourcegitcommit: 4d34a272a93100426cccd2308c5b3b0b0ae94a60
+ms.openlocfilehash: ee83aa6fdbd1a82384a4684055ed72620a3f474e
 
 ---
 # <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
@@ -30,7 +30,7 @@ Avant de déployer du contenu dans System Center Configuration Manager, vous dev
 
      Ce compte est également utilisé par les points de distribution d’extraction pour obtenir le contenu d’un point de distribution source dans une forêt distante.  
 
--   **Compte d’accès au package** : par défaut, Configuration Manager permet aux utilisateurs et aux administrateurs de comptes d’accès génériques d’accéder au contenu d’un point de distribution. Toutefois, vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
+-   **Compte d’accès au package** : par défaut, Configuration Manager permet aux comptes intégrés appelés **Utilisateurs** et **Administrateurs** d’accéder au contenu d’un point de distribution. Vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
 
 -   **Compte de connexion multidiffusion** : compte utilisé pour les déploiements de système d’exploitation.  
 
@@ -120,6 +120,6 @@ Si vous créez ce compte, créez-le en tant que compte local doté de droits lim
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

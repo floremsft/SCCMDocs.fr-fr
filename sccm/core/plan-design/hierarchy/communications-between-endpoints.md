@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
-ms.openlocfilehash: 7ab79fb69188fa5fe6b89b070829ec0f918137b9
+ms.sourcegitcommit: 2ac9f98dc7b455d3b72d794d4311863186ed53ef
+ms.openlocfilehash: cd94f9ccc7e196b30e5dc7ae9368d073b7cff5d2
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 7ab79fb69188fa5fe6b89b070829ec0f918137b9
 
 
 ##  <a name="a-nameplanningintra-sitecoma-communications-between-site-systems-in-a-site"></a><a name="Planning_Intra-site_Com"></a> Communications entre les systèmes d’un site  
- Quand des systèmes de site ou des composants Configuration Manager communiquent via le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
+ Quand des systèmes de site ou des composants Configuration Manager communiquent sur le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
 
 -   SMB (Server Message Block)  
 
@@ -35,11 +35,11 @@ ms.openlocfilehash: 7ab79fb69188fa5fe6b89b070829ec0f918137b9
 
 -   HTTPS  
 
-À l’exception de la communication depuis le serveur de site vers un point de distribution, ces communications de serveur à serveur dans un site peuvent avoir lieu à tout moment et n’utilisent aucun mécanisme de contrôle de la bande passante réseau. Étant donné que vous ne pouvez pas contrôler la communication entre les systèmes de site, veillez à installer des serveurs de système de site à des emplacements qui disposent de réseaux rapides et bien connectés.  
+À l’exception de la communication depuis le serveur de site vers un point de distribution, ces communications de serveur à serveur dans un site peuvent avoir lieu à tout moment et n’utilisent aucun mécanisme de contrôle de la bande passante réseau. Comme vous ne pouvez pas contrôler la communication entre systèmes de site, vérifiez que vous installez des serveurs de système de site à des emplacements dotés de réseaux rapides et bien connectés.  
 
 Pour gérer plus facilement le transfert de contenu depuis le serveur de site vers des points de distribution :  
 
--   Configurez le point de distribution pour la planification et le contrôle de la bande passante réseau. Ces contrôles ressemblent aux configurations utilisées par des adresses intersites et vous pouvez souvent utiliser cette configuration plutôt que d’installer un autre site Configuration Manager lorsque le transfert de contenu vers des emplacements réseau distincts est votre principale considération en matière de bande passante.  
+-   Configurez le point de distribution pour la planification et le contrôle de la bande passante réseau. Ces contrôles ressemblent aux configurations utilisées par les adresses intersites et vous pouvez souvent utiliser cette configuration au lieu d’installer un autre site Configuration Manager quand le transfert de contenu vers des emplacements réseau distants est votre préoccupation principale en ce qui concerne la bande passante.  
 
 -   Vous pouvez installer un point de distribution comme un point de distribution préparé. Un point de distribution préparé vous permet d'utiliser du contenu qui est placé manuellement sur le serveur de point de distribution et supprime la nécessité de transférer des fichiers de contenu sur le réseau.  
 
@@ -49,38 +49,38 @@ Pour plus d’informations, consultez [Gérer la bande passante réseau pour la 
 ##  <a name="a-nameplanningclienttositesystema-communications-from-clients-to-site-systems-and-services"></a><a name="Planning_Client_to_Site_System"></a> Communications depuis les clients vers les systèmes de site et les services  
 Les clients lancent des communications vers les rôles de système de site, les services de domaine Active Directory et les services en ligne. Pour activer ces communications, les pare-feu doivent autoriser le trafic réseau entre les clients et le point de terminaison de leurs communications. Les points de terminaison sont les suivants :  
 
--   **Point du site web du catalogue des applications** (prend en charge les communications HTTP et HTTPS)  
+-   **Point du site web du catalogue des applications** : Prend en charge les communications HTTP et HTTPS
 
--   **Ressources cloud** telles que Microsoft Azure et Microsoft Intune  
+-   **Ressources cloud** : Inclut Microsoft Azure et Microsoft Intune  
 
--   **Module de stratégie de Configuration Manager pour NDES** (prend en charge les communications HTTP et HTTPS)  
+-   **Module de stratégie de Configuration Manager (NDES)** : Prend en charge les communications HTTP et HTTPS
 
--   **Points de distribution** (prend en charge les communications HTTP et HTTPS ; les points de distribution cloud nécessitent HTTPS)  
+-   **Points de distribution** : Prennent en charge les communications HTTP et HTTPS. HTTPS est obligatoire pour les points de distribution cloud  
 
--   **Point d’état de secours** (prend en charge les communications HTTP)  
+-   **Point d’état de secours** : Prend en charge les communications HTTP  
 
--   **Point de gestion** (prend en charge les communications HTTP et HTTPS)  
+-   **Point de gestion** : Prend en charge les communications HTTP et HTTPS  
 
 -   **Microsoft Update**  
 
--   **Points de mise à jour logicielle** (prennent en charge les communications HTTP et HTTPS)  
+-   **Points de mise à jour logicielle** : Prennent en charge les communications HTTP et HTTPS  
 
--   **Points de migration d’état** (prennent en charge les communications HTTP et HTTPS)  
+-   **Points de migration d’état** : Prennent en charge les communications HTTP et HTTPS  
 
 -   **Divers services de domaine**  
 
-Avant qu’un client puisse communiquer avec un rôle de système de site, le client utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition :  
+Avant qu’un client puisse communiquer avec un rôle de système de site, le client utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition :  
 
 -   Pour utiliser le protocole HTTPS, vous devez disposer d'une infrastructure à clé publique (PKI) et installer des certificats PKI sur des clients et serveurs. Pour plus d’informations sur la façon d’utiliser des certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
--   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planification de la signature et du chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans la rubrique [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planification de la signature et du chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
 Pour plus d’informations sur l’emplacement de service par les clients, consultez  [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
 Pour plus d’informations sur les ports et protocoles utilisés par les clients pour communiquer avec ces points de terminaison, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
 ###  <a name="a-namebkmkclientspana-considerations-for-client-communications-from-the-internet-or-an-untrusted-forest"></a><a name="BKMK_clientspan"></a> Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée  
-Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, tels qu'Internet ou une forêt non approuvée (les sites secondaires ne prennent pas en charge les connexions client à partir d'emplacements non approuvés) :  
+Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, comme Internet ou une forêt non approuvée. (Les sites secondaires ne prennent pas en charge les connexions du client à partir d’emplacements non approuvés) :  
 
 -   Point du site web du catalogue des applications  
 
@@ -96,8 +96,8 @@ Les rôles de système de site suivants installés sur les sites principaux pren
 
 -   Point de mise à jour logicielle  
 
-**À propos des systèmes de site accessibles sur Internet :**   
-Même s’il n’est pas nécessaire de disposer d’une relation de confiance entre la forêt d’un client et celle d’un serveur de système de site, quand la forêt qui contient un système de site accessible sur Internet approuve la forêt qui contient les comptes d’utilisateurs, cette configuration prend en charge les stratégies utilisateur pour les appareils sur Internet quand vous activez le paramètre client **Autoriser les demandes de stratégie utilisateur depuis des clients Internet** de la **Stratégie client**.  
+**À propos des systèmes de site accessibles sur Internet :**   
+Vous n’avez pas besoin d’une relation d’approbation entre la forêt d’un client et celle du serveur de système de site. Toutefois, quand la forêt qui contient un système de site accessible sur Internet approuve la forêt qui contient les comptes d’utilisateurs, cette configuration prend en charge les stratégies utilisateur pour les appareils sur Internet quand vous activez le paramètre client **Autoriser les demandes de stratégie utilisateur depuis des clients Internet** de la **Stratégie client**.  
 
 Par exemple, les configurations suivantes illustrent la prise en charge par la gestion des clients basés sur Internet des stratégies utilisateur pour les appareils situés sur Internet :  
 
@@ -110,15 +110,15 @@ Par exemple, les configurations suivantes illustrent la prise en charge par la g
 > [!NOTE]  
 >  Si l'authentification Kerberos échoue, l'authentification NTLM est ensuite automatiquement utilisée.  
 
-Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site basés sur Internet dans l'Intranet lorsqu'ils sont publiés sur Internet à l'aide d'un serveur proxy Web, tel que ISA Server et Forefront Threat Management Gateway. Ces systèmes de site peuvent être configurés pour la connexion client à partir d'Internet uniquement ou les connexions client à partir d'Internet et Intranet. Lorsque vous utilisez un serveur proxy Web, vous pouvez le configurer pour le pontage SSL (Secure Sockets Layer) vers SSL (plus sécurisé) ou le tunnel SSL :  
+Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site basés sur Internet dans l'Intranet lorsqu'ils sont publiés sur Internet à l'aide d'un serveur proxy Web, tel que ISA Server et Forefront Threat Management Gateway. Ces systèmes de site peuvent être configurés pour la connexion du client à partir d’Internet uniquement, ou pour les connexions du client à partir d’Internet et d’un intranet. Quand vous utilisez un serveur proxy web, vous pouvez le configurer pour le pontage SSL (Secure Sockets Layer) vers SSL (plus sécurisé) ou le tunnel SSL, comme suit :  
 
 -   **Pontage SSL vers SSL :**   
     La configuration recommandée quand vous utilisez des serveurs web proxy pour la gestion de clients sur Internet est le pontage SSL vers SSL, qui utilise une terminaison SSL avec authentification. Les ordinateurs clients doivent être authentifiés à l'aide de l'authentification de l'ordinateur et les clients hérités de l'appareil mobile sont authentifiés à l'aide de l'authentification utilisateur. Les appareils mobiles inscrits par Configuration Manager ne prennent pas en charge le pontage SSL.  
 
-     La terminaison SSL au niveau du serveur Web proxy présente l'avantage que les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet. Quand les clients Configuration Manager utilisent un serveur web proxy, leur identité (GUID client) est contenue en toute sécurité dans la charge utile du paquet pour éviter que le point de gestion prenne le serveur web proxy pour le client. Le pontage n’est pas pris en charge dans Configuration Manager de HTTP vers HTTPS, ni de HTTPS vers HTTP.  
+     La terminaison SSL au niveau du serveur Web proxy présente l'avantage que les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet. Quand les clients Configuration Manager utilisent un serveur web proxy, leur identité (GUID client) est contenue en toute sécurité dans la charge utile du paquet pour éviter que le point de gestion prenne le serveur web proxy pour le client. Le pontage n’est pas pris en charge dans Configuration Manager de HTTP vers HTTPS ou de HTTPS vers HTTP.  
 
--   **Tunnelisation :**:   
-    Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est également pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
+-   **Tunneling** :   
+    Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est aussi pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
 
 ##  <a name="a-nameplancomx-foresta-communications-across-active-directory-forests"></a><a name="Plan_Com_X-Forest"></a> Communications dans les forêts Active Directory  
 System Center Configuration Manager prend en charge des sites et des hiérarchies qui recouvrent des forêts Active Directory.  
@@ -129,12 +129,12 @@ Configuration Manager prend également en charge les ordinateurs de domaine qui 
 
     -   Installez des rôles de système de site dans cette forêt non approuvée, en activant l’option de publication des informations de site dans cette forêt Active Directory.  
 
-    -   Gérez ces ordinateurs comme s’il s’agissait d’ordinateurs de groupe de travail.  
+    -   Gérez ces ordinateurs comme des ordinateurs de groupe de travail.  
 
-  Quand vous installez des serveurs de système de site dans une forêt Active Directory non approuvée, les communications avec les serveurs à partir des clients de cette forêt restent internes à cette forêt, ce qui permet à Configuration Manager d’authentifier l’ordinateur avec Kerberos. Lorsque vous publiez des informations de site dans la forêt du client, le client a l’avantage de pouvoir extraire des informations de site, notamment la liste des points de gestion disponibles, depuis sa forêt Active Directory, plutôt que de télécharger ces informations depuis son point de gestion attribué.  
+  Quand vous installez des serveurs de système de site dans une forêt Active Directory non approuvée, les communications des clients de cette forêt vers le serveur restent internes à cette forêt, ce qui permet à Configuration Manager d’authentifier l’ordinateur avec Kerberos. Quand vous publiez des informations de site dans la forêt du client, le client peut récupérer les informations de site, notamment la liste des points de gestion disponibles, à partir de sa forêt Active Directory, au lieu de télécharger ces informations à partir de son point de gestion attribué.  
 
   > [!NOTE]  
-  >  Pour gérer les appareils qui se trouvent sur Internet, vous pouvez installer des rôles système de site de type Internet dans votre réseau de périmètre lorsque des serveurs de système de site se trouvent dans une forêt Active Directory. Ce scénario ne nécessite pas une approbation bidirectionnelle entre le réseau de périmètre et la forêt du serveur de site.  
+  >  Pour gérer les appareils qui se trouvent sur Internet, vous pouvez installer des rôles système de site de type Internet dans votre réseau de périmètre lorsque des serveurs de système de site se trouvent dans une forêt Active Directory. Ce scénario ne nécessite pas d’approbation bidirectionnelle entre le réseau de périmètre et la forêt du serveur de site.  
 
 -   **Pour prendre en charge des ordinateurs situés dans un groupe de travail**, vous devez effectuer les opérations suivantes :  
 
@@ -142,29 +142,29 @@ Configuration Manager prend également en charge les ordinateurs de domaine qui 
 
     -   Configurez les clients du groupe de travail avec le compte d’accès réseau pour permettre à ces ordinateurs de récupérer le contenu à partir des points de distribution.  
 
-    -   Fournir aux clients du groupe de travail une méthode de remplacement pour rechercher les points de gestion. Vous pouvez utiliser la publication DNS ou WINS, ou attribuer directement un point de gestion. Cela est dû au fait que ces clients ne peuvent pas récupérer les informations de site à partir des services de domaine Active Directory.  
+    -   Fournir aux clients du groupe de travail une méthode de remplacement pour rechercher les points de gestion. Vous pouvez utiliser la publication DNS, WINS, ou attribuer directement un point de gestion. Cela est dû au fait que ces clients ne peuvent pas récupérer les informations de site à partir des services de domaine Active Directory.  
 
     Ressources connexes dans cette bibliothèque de contenu :  
 
     -   [Gérer les conflits d’enregistrement pour les clients Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
 
-    -   [Compte d’accès réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
+    -   [Compte d’accès au réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
 
     -   [Installer des clients Configuration Manager sur des ordinateurs de groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
 
 ###  <a name="a-namebkmkspana-scenarios-to-support-a-site-or-hierarchy-that-spans-multiple-domains-and-forests"></a><a name="bkmk_span"></a> Scénarios de prise en charge d’un site ou d’une hiérarchie qui s’étend sur plusieurs domaines et forêts  
 
 #### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Communication entre les sites d’une hiérarchie qui s’étend sur des forêts  
-Ce scénario nécessite une approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos.  Si vous ne disposez pas d’une approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos, Configuration Manager ne prend pas en charge de site enfant dans la forêt distante.  
+Ce scénario nécessite une approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos.  Si vous n’avez pas d’approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos, Configuration Manager ne prend pas en charge de site enfant dans la forêt distante.  
 
  **Configuration Manager prend en charge l’installation d’un site enfant dans une forêt distante qui possède l’approbation bidirectionnelle requise avec la forêt du site parent.**  
 
--   Par exemple, vous pouvez placer un site secondaire dans une forêt différente de son site parent principal tant que l’approbation requise existe.  
+-   Par exemple, vous pouvez placer un site secondaire dans une autre forêt de son site parent principal tant que l’approbation nécessaire existe.  
 
 > [!NOTE]  
->  Un site enfant peut être un site principal (où le site d'administration centrale est le site parent) ou un site secondaire.  
+>  Un site enfant peut être un site principal (où le site d’administration centrale est le site parent) ou un site secondaire.  
 
-Les communications intersite dans Configuration Manager utilisent la réplication de base de données et les transferts basés sur des fichiers. Lorsque vous installez un site, vous devez spécifier un compte pour installer le site sur le serveur indiqué. Ce compte établit et conserve également la communication entre les sites.  
+Les communications intersite dans Configuration Manager utilisent la réplication de base de données et les transferts basés sur des fichiers. Quand vous installez un site, vous devez spécifier un compte à utiliser pour installer le site sur le serveur indiqué. Ce compte établit et conserve également la communication entre les sites.  
 
 Une fois que le site a installé et lancé avec succès les transferts basés sur des fichiers et la réplication de base de données, il est inutile de configurer autre chose pour la communication vers le site.  
 
@@ -191,17 +191,17 @@ Ce scénario ne nécessite aucune approbation de forêt bidirectionnelle.
 
 -   Le point de service web du catalogue des applications est la seule exception.  Il est uniquement pris en charge dans la même forêt que le serveur de site.  
 
-Si le rôle de système de site accepte les connexions depuis Internet, comme meilleure pratique de sécurité, installez ces rôles de système de site dans un emplacement où la limite de forêt fournit une protection pour le serveur de site (par exemple, dans un réseau de périmètre).  
+-   Si le rôle de système de site accepte les connexions depuis Internet, comme bonne pratique de sécurité, installez ces rôles de système de site dans un emplacement où la limite de forêt fournit une protection pour le serveur de site (par exemple, dans un réseau de périmètre).  
 
 **Pour installer un rôle de système de site sur un ordinateur situé dans une forêt non approuvée :**  
 
--   Vous devez spécifier un **Compte d'installation du système de site** , utilisé pour installer le rôle de système de site. Ce compte doit disposer d'informations d'identification administratives locales auxquelles se connecter, puis installer des rôles de système de site sur l'ordinateur spécifié.  
+-   Vous devez spécifier un **Compte d’installation du système de site**, utilisé pour installer le rôle de système de site. (Ce compte doit disposer d’informations d’identification administratives locales pour la connexion.) Ensuite, installez les rôles de système de site sur l’ordinateur spécifié.  
 
--   Vous devez sélectionner l'option de système de site **Exiger que le serveur de site établisse des connexions vers ce système de site**. Pour cela, le serveur de site doit établir des connexions au serveur de système de site pour transférer des données. De cette manière, l'ordinateur qui se trouve dans l'emplacement non approuvé ne peut pas établir de contact avec le serveur de site au sein de votre réseau approuvé. Ces connexions utilisent le **Compte d'installation du système de site**.  
+-   Vous devez sélectionner l'option de système de site **Exiger que le serveur de site établisse des connexions vers ce système de site**. Pour cela, le serveur de site doit établir des connexions au serveur de système de site pour transférer des données. De cette manière, l’ordinateur qui se trouve dans l’emplacement non approuvé ne peut pas établir de contact avec le serveur de site au sein de votre réseau approuvé. Ces connexions utilisent le **Compte d'installation du système de site**.  
 
 **Pour utiliser un rôle de système de site installé dans une forêt non approuvée,** les pare-feu doivent autoriser le trafic réseau, même quand le serveur de site lance le transfert de données.  
 
-Par ailleurs, les rôles de système de site suivants requièrent un accès direct à la base de données de site. Par conséquent, les pare-feu doivent autoriser le trafic applicable de la forêt non approuvée vers les sites SQL Server :  
+Par ailleurs, les rôles de système de site suivants requièrent un accès direct à la base de données de site. Par conséquent, les pare-feu doivent autoriser le trafic applicable de la forêt non approuvée vers les sites SQL Server :  
 
 -   Point de synchronisation Asset Intelligence  
 
@@ -213,7 +213,7 @@ Par ailleurs, les rôles de système de site suivants requièrent un accès dire
 
 -   Point du service de rapport  
 
--   Points de migration d’état  
+-   Point de migration d'état  
 
 Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
@@ -233,22 +233,22 @@ Si vous configurez un compte d’utilisateur de domaine comme compte de connexio
 
 Lorsque vous planifiez des rôles de système de site dans d'autres forêts, tenez compte des informations supplémentaires suivantes :  
 
--   si vous exécutez un pare-feu Windows, configurez les profils de pare-feu applicables pour transmettre les communications entre le serveur de base de données de site et les ordinateurs qui sont installés avec des rôles de système de site distants. Pour plus d'informations sur les profils de pare-feu, voir [Comprendre les profils de pare-feu](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
+-   Si vous exécutez un pare-feu Windows, configurez les profils de pare-feu applicables pour transmettre les communications entre le serveur de base de données du site et les ordinateurs qui sont installés avec des rôles de système de site distants. Pour plus d’informations sur les profils de pare-feu, consultez [Présentation des profils de Pare-feu](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
 
 -   Lorsque le point de gestion basé sur Internet approuve la forêt contenant les comptes d'utilisateur, les stratégies utilisateur sont prises en charge. Lorsqu'il n'existe aucune relation d'approbation, seules les stratégies d'ordinateur sont prises en charge.  
 
 #### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Communication entre les clients et les rôles de système de site quand les clients ne se trouvent pas dans la même forêt Active Directory que leur serveur de site  
 Configuration Manager prend en charge les scénarios suivants pour les clients qui ne se trouvent pas dans la même forêt que le serveur de site de leur site :  
 
--   il existe une relation d'approbation de forêt bidirectionnelle entre la forêt du client et celle du serveur du site  
+-   Il existe une relation d’approbation de forêt bidirectionnelle entre la forêt du client et celle du serveur du site.  
 
--   le serveur de rôle de système de site se trouve dans la même forêt que le client  
+-   Le serveur de rôle de système de site se trouve dans la même forêt que le client.  
 
--   le client se trouve sur un ordinateur de domaine qui ne possède pas d'approbation de forêt bidirectionnelle avec le serveur de site et les rôles système de site ne sont pas installés dans la forêt du client.  
+-   Le client se trouve sur un ordinateur de domaine sans approbation de forêt bidirectionnelle avec le serveur de site, et les rôles de système de site ne sont pas installés dans la forêt du client.  
 
 -   Le client se trouve sur un ordinateur de groupe de travail.  
 
-Les clients se trouvant sur un ordinateur de domaine joint peuvent utiliser les services de domaine Active Directory pour l’emplacement du service si leur site est publié dans leur forêt Active Directory.  
+Les clients se trouvant sur un ordinateur joint à un domaine peuvent utiliser les services de domaine Active Directory pour l’emplacement du service si leur site est publié dans leur forêt Active Directory.  
 
 Pour publier des informations de site dans une autre forêt Active Directory, vous devez effectuer les opérations suivantes :  
 
@@ -261,6 +261,6 @@ Pour prendre en charge ce scénario, assurez-vous que la résolution de noms fon
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

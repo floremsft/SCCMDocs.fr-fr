@@ -1,8 +1,8 @@
 ---
 title: Principes de base de la gestion de clients | Microsoft Docs
-description: "Découvrez les tâches que vous pouvez exécuter pour gérer les clients System Center Configuration Manager."
+description: "Découvrez les tâches que vous exécutez pour gérer les clients System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 9648fc831e21f8a5ee6e12cfe7754933ba9f6239
+ms.sourcegitcommit: 86b90b8e591e1ae4f58cb361a5e544db6b09cce1
+ms.openlocfilehash: 0fee4f4ba462e59859ac93c4218b67cb26bdd6f6
 
 
 ---
@@ -25,16 +25,16 @@ ms.openlocfilehash: 9648fc831e21f8a5ee6e12cfe7754933ba9f6239
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Après avoir installé des clients System Center Configuration Manager, vous pouvez les gérer en exécutant plusieurs tâches.  Vous pouvez en démarrer certaines à partir de la console Configuration Manager, tandis que d’autres peuvent être démarrées ou affichées sur un client à partir des applications Configuration Manager clientes dans le Panneau de configuration Windows.  
+Après avoir installé les clients System Center Configuration Manager, vous les gérez en exécutant plusieurs tâches.  Certaines tâches sont exécutées à partir de la console Configuration Manager. D’autres sont exécutées à partir de l’application cliente Configuration Manager. L’application cliente Configuration Manager est installée avec le logiciel client Configuration Manager.
 
-## <a name="the-console"></a>La console  
- À partir de la console Configuration Manager, vous pouvez effectuer diverses tâches de gestion de clients, notamment :  
+## <a name="configuration-manager-console-tasks"></a>Tâches de la console Configuration Manager
+ Dans la console Configuration Manager, vous pouvez effectuer diverses tâches de gestion de clients :  
 
--   Déployer des applications, des mises à jour logicielles, des scripts de maintenance et des systèmes d'exploitation. Vous pouvez faire en sorte que ces éléments soient installés à une date et heure spécifiées, ou les mettre à la disposition des utilisateurs pour que ceux-ci puissent les installer à la demande. Vous pouvez également configurer des applications en vue de les désinstaller.  
+-   Déployer des applications, des mises à jour logicielles, des scripts de maintenance et des systèmes d'exploitation. Configurer l’installation à une date et une heure précises, rendre le logiciel disponible pour que les utilisateurs l’installent sur demande ou configurer la désinstallation des applications.  
 
 -   Protéger les ordinateurs contre les logiciels malveillants et menaces de sécurité, et recevoir un avertissement lorsque des problèmes sont détectés.  
 
--   Définir les paramètres de configuration client que vous voulez surveiller et corriger s'ils ne sont pas conformes.  
+-   Définir les paramètres de configuration client que vous voulez surveiller et corriger s’ils ne sont pas conformes.  
 
 -   Recueillir des informations d'inventaire matériel et logiciel, qui comprennent la surveillance et le rapprochement des informations de licence de Microsoft.  
 
@@ -42,23 +42,23 @@ Après avoir installé des clients System Center Configuration Manager, vous pou
 
 -   Implémenter des paramètres de gestion de l'alimentation pour gérer et surveiller la consommation d'énergie des ordinateurs.  
 
-Pour surveiller ces opérations en quasi-temps réel, vous devez utiliser la console Configuration Manager pour voir les alertes et les informations d’état. Pour capturer des données et des tendances historiques, vous pouvez utiliser les fonctions de rapport intégrées de SQL Reporting Services.  Les clients envoient des détails au site en tant qu’état du client.  Les informations d’état du client fournissent des indications sur l’intégrité et l’activité du client ; elles peuvent être consultées dans la console ou à l’aide de rapports intégrés pour Configuration Manager. Ces données permettent d'identifier les ordinateurs qui ne répondent pas. Dans certains cas, les problèmes peuvent être résolus automatiquement.  
+La console Configuration Manager surveille les tâches précédentes presqu’en temps réel. Les informations sur l’état et les notifications pour chaque tâche sont disponibles dans la console Configuration Manager. Pour capturer des données et des tendances historiques, utilisez les fonctions de rapport intégrées de SQL Server Reporting Services. Les clients envoient des détails au site en tant qu’état du client.  Les informations d’état du client fournissent des indications sur l’intégrité et l’activité du client ; elles sont visibles dans la console ou à l’aide de rapports intégrés pour Configuration Manager. Ces données permettent d’identifier les ordinateurs qui ne répondent pas. Dans certains cas, les problèmes sont résolus automatiquement.  
 
  Pour plus d’informations sur les tâches de gestion pour les clients, consultez [Comment gérer les clients dans System Center Configuration Manager](../../core/clients/manage/manage-clients.md) et [Comment gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md). Pour en savoir plus sur l’utilisation de rapports, consultez   
             [Présentation des rapports dans System Center Configuration Manager](../../core/servers/manage/introduction-to-reporting.md).  
 
-## <a name="the-windows-control-panel-app"></a>L’application Panneau de configuration de Windows  
- Quand vous installez le logiciel client Configuration Manager, l’application cliente **Configuration Manager** est installée dans le Panneau de configuration. Contrairement au Centre logiciel, cette application s'adresse plus au service de support technique qu'aux utilisateurs finaux. Certaines options de configuration nécessitent des autorisations administratives locales et la plupart des options requièrent des connaissances techniques sur le fonctionnement de Configuration Manager. Vous pouvez utiliser cette application pour effectuer les tâches suivantes sur un client :  
+## <a name="configuration-manager-client-application"></a>Application cliente Configuration Manager  
+ Quand vous installez le logiciel client Configuration Manager, l’application cliente Configuration Manager est également installée. Contrairement au Centre logiciel, l’application cliente Configuration Manager s’adresse plus au service de support technique qu’aux utilisateurs finaux. Certaines options de configuration nécessitent des autorisations administratives locales et la plupart des options requièrent des connaissances techniques sur le fonctionnement de l’application cliente Configuration Manager. Vous pouvez utiliser cette application pour effectuer les tâches suivantes sur un client :  
 
--   Consulter les propriétés du client : numéro de version, site attribué, point de gestion avec lequel il communique, certificat utilisé (PKI ou auto-signé), etc.  
+-   Consulter les propriétés sur le client : numéro de version, site attribué, point de gestion avec lequel il communique et certificat utilisé, à savoir certificat d’infrastructure à clé publique (PKI) ou certificat auto-signé.  
 
--   Vérifier que le client a correctement téléchargé la stratégie client après son installation initiale et que les paramètres client sont activés ou désactivés comme prévu, en fonction des paramètres client configurés dans la console Configuration Manager.  
+-   Vérifier que le client a correctement téléchargé une stratégie client après son installation initiale. Vérifier également que les paramètres client sont activés ou désactivés comme prévu, en fonction des paramètres client configurés dans la console Configuration Manager.  
 
--   Démarrer les actions du client, par exemple pour télécharger la stratégie client si une modification a été récemment apportée à la configuration dans la console Configuration Manager et que vous ne souhaitez pas attendre la prochaine planification.  
+-   Démarrer les actions du client, par exemple télécharger la stratégie client si une modification a été récemment apportée à la configuration dans la console Configuration Manager et que vous ne souhaitez pas attendre la prochaine heure planifiée.  
 
--   Affecter manuellement un client à un site Configuration Manager ou essayer de trouver un site et spécifier le suffixe DNS pour les points de gestion qui publient sur DNS.  
+-   Affecter manuellement un client à un site Configuration Manager ou essayer de trouver un site. Spécifier ensuite le suffixe DNS pour les points de gestion qui publient sur DNS.  
 
--   Configurer le cache du client qui stocke temporairement les fichiers et supprimer des fichiers du cache si vous avez besoin de plus d'espace disque pour installer les logiciels.  
+-   Configurer le cache du client qui stocke temporairement les fichiers. Supprimer ensuite les fichiers du cache si vous avez besoin de plus d’espace disque pour installer les logiciels.  
 
 -   Configurer les paramètres de gestion des clients basés sur Internet.  
 
@@ -66,6 +66,6 @@ Pour surveiller ces opérations en quasi-temps réel, vous devez utiliser la con
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

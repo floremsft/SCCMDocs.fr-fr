@@ -2,7 +2,7 @@
 title: "Prise en charge des fonctionnalités de Windows | Microsoft Docs"
 description: "Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 29e4f8a70b56b772a54ee858a392533780ccbaf9
+ms.sourcegitcommit: 086efdd180ba3de12f84cabfa6c2abca1fe57537
+ms.openlocfilehash: 3315098f271a5b365914772943094c33f63f25c4
 
 
 ---
@@ -32,9 +32,11 @@ Cette rubrique porte sur la prise en charge par System Center Configuration Mana
 ##  <a name="a-namebkmkbranchcachea-branchcache"></a><a name="bkmk_branchcache"></a> BranchCache  
 Windows BranchCache est intégré à Configuration Manager. Vous pouvez configurer les paramètres de BranchCache sur un type de déploiement pour les applications, sur le déploiement d'un package et pour des séquences de tâches.  
 
-Lorsque toutes les conditions requises pour BranchCache sont satisfaites, cette fonctionnalité permet aux clients situés à des emplacements distants d'obtenir le contenu à partir de clients locaux qui ont un cache du contenu en cours.  
+Quand toutes les exigences pour BranchCache sont satisfaites, cette fonctionnalité permet aux clients situés à des emplacements distants d’obtenir le contenu à partir de clients locaux qui ont un cache du contenu en cours.  
 
-Par exemple, quand le premier ordinateur client compatible BranchCache demande du contenu à partir d’un point de distribution configuré en tant que serveur BranchCache, l’ordinateur client télécharge et met en cache le contenu. Ce contenu est ensuite mis à la disposition des clients sur le même sous-réseau qui demandent ce même contenu, et ces clients mettent également le contenu en cache. De cette façon, les clients successifs sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients pour des transferts futurs.  
+Par exemple, quand le premier ordinateur client compatible BranchCache demande du contenu à partir d’un point de distribution configuré en tant que serveur BranchCache, l’ordinateur client télécharge et met en cache le contenu. Ce contenu est ensuite rendu disponible pour les clients sur le même sous-réseau qui celui qui a demandé ce contenu.
+
+Ces clients mettent également en cache le contenu. De cette façon, les clients successifs sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients pour des transferts futurs.  
 
 **Pour prendre en charge BranchCache avec Configuration Manager :**  
 
@@ -50,7 +52,7 @@ Par exemple, quand le premier ordinateur client compatible BranchCache demande d
 
 -   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.  
 
-**Les systèmes d’exploitation clients pris en charge avec Windows BranchCache sont les suivants :**  
+**Configuration Manager prend en charge les systèmes d’exploitation clients suivants avec Windows BranchCache :**  
 
 |Système d'exploitation|Détails de la prise en charge|  
 |----------------------|---------------------|  
@@ -58,7 +60,7 @@ Par exemple, quand le premier ordinateur client compatible BranchCache demande d
 |Windows 8|Pris en charge par défaut|  
 |Windows 8.1|Pris en charge par défaut|  
 |Windows 10|Pris en charge par défaut|  
-|Windows Server 2008 avec SP2|**Requiert BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations sur BITS 4.0, consultez [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979).<br /><br /> Sur ce système d’exploitation, la fonctionnalité cliente BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
+|Windows Server 2008 avec SP2|**Nécessite BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations sur BITS 4.0, consultez [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979).<br /><br /> Sur ce système d’exploitation, la fonctionnalité cliente BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
 |Windows Server 2008 R2|Pris en charge par défaut|  
 |Windows Server 2012|Pris en charge par défaut|  
 |Windows Server 2012 R2|Pris en charge par défaut|  
@@ -82,20 +84,20 @@ Configuration Manager prend en charge l’utilisation de la déduplication des d
 -   Windows Server 2012 R2  
 
 > [!IMPORTANT]  
->  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. En effet, la déduplication des données utilise des points d’analyse, et Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  
+>  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. En effet, la déduplication des données utilise des points d’analyse et Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  
 
 Pour plus d’informations, consultez [Points de distribution Configuration Manager et déduplication des données de Windows Server 2012](http://blogs.technet.com/b/configmgrteam/archive/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication.aspx) sur le blog de l’équipe Configuration Manager et [Vue d’ensemble de la déduplication des données](http://technet.microsoft.com/library/hh831602.aspx) dans la bibliothèque TechNet de Windows Server.  
 
 ##  <a name="a-namebkmkdaa-directaccess"></a><a name="bkmk_DA"></a> DirectAccess  
 Configuration Manager prend en charge la fonctionnalité DirectAccess dans Windows Server 2008 R2 pour la communication entre les serveurs et les clients du système de site.  
 
--   Quand toutes les conditions requises pour DirectAccess sont satisfaites, grâce à cette fonctionnalité, les clients Configuration Manager sur Internet peuvent communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
+-   Quand toutes les exigences pour DirectAccess sont satisfaites, DirectAccess permet aux clients Configuration Manager sur Internet de communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
 
 -   Pour les actions effectuées par le serveur, telles que le contrôle à distance ou l'installation poussée de client, l'ordinateur concerné (tel que le serveur de site) doit exécuter IPv6 et ce protocole doit être supporté sur tous les périphériques réseau impliqués.  
 
 Configuration Manager ne prend pas en charge les éléments suivants sur DirectAccess :  
 
--   Déploiement de systèmes d'exploitation  
+-   Le déploiement de systèmes d’exploitation  
 
 -   Communication entre les sites Configuration Manager  
 
@@ -104,7 +106,7 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 ##  <a name="a-namebkmkdualboota-dual-boot-computers"></a><a name="bkmk_dualboot"></a> Ordinateurs à double démarrage  
  Configuration Manager ne peut pas gérer plusieurs systèmes d’exploitation sur un seul ordinateur. Si plusieurs systèmes d’exploitation sont présents sur un ordinateur à gérer, ajustez les méthodes de découverte et d’installation utilisées, pour garantir que le client Configuration Manager est installé uniquement sur le système d’exploitation qui doit être géré.  
 
-##  <a name="a-namebkmkipv6a-internet-protocol-version-6"></a><a name="bkmk_IPv6"></a> Protocole Internet version 6  
+##  <a name="a-namebkmkipv6a-internet-protocol-version-6"></a><a name="bkmk_IPv6"></a> Protocole Internet version 6  
  En plus du protocole Internet version 4 (IPv4), Configuration Manager prend en charge le protocole Internet version 6 (IPv6) avec les exceptions suivantes :  
 
 |Fonction|Exception à la prise en charge IPv6|  
@@ -120,7 +122,9 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
  La traduction d’adresses réseau n’est pas prise en charge dans Configuration Manager, sauf si le site prend en charge les clients qui se trouvent sur Internet et que le client détecte qu’ils sont connectés à Internet. Pour plus d’informations sur la gestion des clients Internet, consultez [Planifier la gestion des clients Internet dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
 
 ##  <a name="a-namebkmkstoragea-specialized-storage-technology"></a><a name="bkmk_storage"></a> Technologie de stockage spécialisée  
- Configuration Manager est conçu pour fonctionner avec tout matériel approuvé dans la liste de conformité matérielle de Windows pour la version du système d’exploitation sur laquelle le composant Configuration Manager est installé. Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin que les autorisations sur les répertoires et les fichiers puissent être définies. Comme Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique, les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
+ Configuration Manager est conçu pour fonctionner avec tout matériel approuvé dans la liste de conformité matérielle de Windows pour la version du système d’exploitation sur laquelle le composant Configuration Manager est installé.
+
+Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin que les autorisations sur les répertoires et les fichiers puissent être définies. Comme Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique, les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
 
  **Considérations relatives à la prise en charge :**  
 
@@ -134,6 +138,6 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: Installation de sites | Microsoft Docs
-description: "Consultez la liste des rubriques d’aide sur l’installation de votre premier site System Center Configuration Manager ou l’ajout de sites à votre hiérarchie."
+title: "Ressources d’installation de sites | Microsoft Docs"
+description: "Consultez une liste de rubriques d’aide sur l’installation de System Center Configuration Manager ou l’ajout de sites à votre hiérarchie."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,41 +17,43 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 973daaa168aea64944563c69d13ef44a6e319809
+ms.sourcegitcommit: 9fa9a9b2f57106e36c45248feb400ec125adcad1
+ms.openlocfilehash: 75511c744d7d2bae960273c845ce68f06a82b697
 
 
 ---
-# <a name="installing-system-center-configuration-manager-sites"></a>Installation de sites System Center Configuration Manager
+# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Ressources d’installation de sites System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
+Les rubriques suivantes peuvent vous aider à installer System Center Configuration Manager ou à ajouter des sites à votre hiérarchie Configuration Manager existante.
 
-Une fois que vous êtes prêt à installer votre premier site System Center Configuration Manager ou à ajouter des sites supplémentaires à votre hiérarchie, n’hésitez pas à vous aider des sections suivantes.
+- [Préparer l’installation des sites](prepare-to-install-sites.md)
+
+  Cette rubrique contient des informations essentielles destinées à vous aider à installer un site dans une hiérarchie nouvelle ou existante. Elle indique notamment les cas où vous devez utiliser d’autres fichiers sources que ceux par défaut, les limitations qui s’appliquent à tous les sites, et les actions facultatives que vous pouvez effectuer pour simplifier l’installation de plusieurs sites.
+
+- [Conditions préalables à l’installation d’un site](prerequisites-for-installing-sites.md)
+
+  Découvrez quels sont les droits d’utilisateur et les autorisations que votre compte doit avoir pour installer un site, et quelles sont les conditions préalables à vérifier pour chaque type de site que vous pouvez installer.
+
+- [Installer des sites à l’aide de l’Assistant Installation](use-the-setup-wizard-to-install-sites.md)
+
+  Cette rubrique vous guide tout au long de l’Assistant Installation de site. Il fournit des détails sur des options qui peuvent ne pas être suffisamment claires dans l’interface utilisateur de l’Assistant.  
+
+- [Installer des sites à l’aide d’une ligne de commande et d’un script](use-a-command-line-to-install-sites.md)
+
+  Découvrez comment obtenir un script d’installation de site et comment l’utiliser pour installer un site sans assistance.
+
+- [Installer la console Configuration Manager](install-consoles.md)
+
+  Cette rubrique offre des conseils sur la façon d’installer la console Configuration Manager sur un ordinateur sur lequel vous n’installez pas de site.
+
+- [Mettre à niveau une installation d’évaluation vers une installation complète](upgrade-an-evaluation-install-to-a-full-install.md)
+
+  Lisez cette rubrique quand vous êtes prêt à mettre à niveau votre site d’évaluation vers un site Configuration Manager sous licence complète.
 
 
-[Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md)    
-Informations essentielles pour vous aider à installer un site dans une hiérarchie nouvelle ou existante. Cela comprend l’utilisation de fichiers sources différents, les limitations qui s’appliquent à tous les sites, et des actions facultatives qui peuvent simplifier les tâches quand vous devez installer plusieurs sites.
 
-
-[Prérequis à l’installation d’un site](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)   
-En savoir plus sur les autorisations dont votre compte doit disposer pour installer un site, et sur les composants requis associés pour chaque type de site que vous pouvez installer.
-
-
-[Installer un site à l’aide de l’Assistant Installation](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md)    
-Cette rubrique présente l’Assistant Installation de site et fournit des détails sur les options qui peuvent ne pas être claires dans l’interface utilisateur de l’Assistant.  
-
-[Installer des sites à l’aide d’une ligne de commande et d’un script](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md)   
-Découvrez comment obtenir un script d’installation de site et comment l’utiliser pour installer un site sans assistance.
-
-[Installer des consoles Configuration Manager](../../../../core/servers/deploy/install/install-consoles.md)     
-Cette rubrique fournit des conseils sur la façon d’installer une console Configuration Manager sur un ordinateur sur lequel vous n’installez pas de site.
-
-[Mettre à niveau une installation d’évaluation vers une installation complète](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md)   
-Lisez cette rubrique quand vous êtes prêt à mettre à niveau votre site d’évaluation vers un site Configuration Manager sous licence complète.
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

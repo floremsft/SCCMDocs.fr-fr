@@ -2,7 +2,7 @@
 title: "Serveurs de système de site pris en charge | Microsoft Docs"
 description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,12 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d23b98b362fb016c53974f851c48fa7200d2b2e3
-ms.openlocfilehash: b7c24dee94bca4ce69e0ba8f33129a0b21819d13
+ms.sourcegitcommit: bebbeebba76ab5cf0c517fcb00b7b6a516a08e3e
+ms.openlocfilehash: 12fe730d924979eec2ef55ea80a1fa90b7b47464
 
 
 ---
-# <a name="supported-operating-systems-for-system-center-configuration-manager--site-system-servers"></a>Systèmes d’exploitation pris en charge pour les serveurs de système de site System Center Configuration Manager
+# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Systèmes d’exploitation pris en charge pour les serveurs de système de site System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -36,8 +36,8 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 
 
-## <a name="windows-server-2016-----standard-datacenter"></a>Windows Server 2016 – Standard, Datacenter
-Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606 assortie du correctif cumulatif KB3186654 (ou version de référence 1606 publiée en octobre 2016).
+## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016 : Standard et Datacenter
+Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de référence 1606 publiée en octobre 2016).
 
 **Serveurs de site :**  
 
@@ -59,7 +59,7 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de distribution  
 
-     Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Point Endpoint Protection  
 
@@ -83,9 +83,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d’état
+-   Point de migration d'état
 
-## <a name="windows-server-2012-r2-x64---standard-datacenter"></a>Windows Server 2012 R2 (x64) – Standard, Datacenter  
+## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
 **Serveurs de site :**  
 
 -   Site d'administration centrale  
@@ -106,7 +106,7 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de distribution  
 
-     Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Point Endpoint Protection  
 
@@ -130,9 +130,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d’état  
+-   Point de migration d'état  
 
-## <a name="windows-server-2012-x64---standard-datacenter"></a>Windows Server 2012 (x64) – Standard, Datacenter  
+## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
 **Serveurs de site :**  
 
 -   Site d'administration centrale  
@@ -153,7 +153,7 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de distribution  
 
-     Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Point Endpoint Protection  
 
@@ -177,10 +177,10 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d’état  
+-   Point de migration d'état  
 
-## <a name="windows-server-2008-r2-with-sp1-x64-----standard-enterprise-datacenter"></a>Windows Server 2008 R2 SP1 (x64) – Standard, Entreprise, Datacenter  
- Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation en tant que serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise et Datacenter  
+ Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
 **Serveurs de site :**  
 
@@ -202,7 +202,7 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de distribution  
 
-     Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Point Endpoint Protection  
 
@@ -226,10 +226,10 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d’état  
+-   Point de migration d'état  
 
-## <a name="windows-server-2008-with-sp2-x86-x64---standard-enterprise-datacenter"></a>Windows Server 2008 avec SP2 (x86, x64) – Standard, Entreprise, Datacenter  
- Windows Server 2008 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation en tant que serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise et Datacenter  
+ Windows Server 2008 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
 **Serveurs de site :**  
 
@@ -255,7 +255,7 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution sur ce système d’exploitation sont pris en charge pour PXE, mais ne prennent pas en charge le démarrage réseau des ordinateurs clients en mode EFI. Les ordinateurs clients avec un démarrage BIOS ou EFI en mode hérité sont pris en charge.  
 
-    -   Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Point Endpoint Protection  
 
@@ -279,9 +279,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Point de mise à jour logicielle  
 
--   Point de migration d’état  
+-   Point de migration d'état  
 
-## <a name="windows-10-x86-x64---pro-enterprise"></a>Windows 10 (x86, x64) – Professionnel, Entreprise  
+## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64) : Professionnel et Entreprise  
 **Serveurs de système de site :**  
 
 -   Point de distribution  
@@ -290,9 +290,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
 
-    -   Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="windows-81-x86-x64---professional-enterprise"></a>Windows 8.1 (x86, x64) – Professionnel, Entreprise  
+## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64) : Professionnel et Entreprise  
 **Serveurs de système de site :**  
 
 -   Point de distribution  
@@ -301,9 +301,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
 
-    -   Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="windows-8-x86-x64---professional-enterprise-distribution-point"></a>Windows 8 (x86, x64) – Point de distribution Professionnel, Entreprise  
+## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64) : Professionnel et Entreprise
 **Serveurs de système de site :**  
 
 -   Point de distribution  
@@ -312,9 +312,9 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
 
-    -   Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="windows-7-with-sp1-x86-x64---professional-enterprise-ultimate"></a>Windows 7 avec SP1 (x 86, x 64) – Professionnel, Entreprise, Édition Intégrale  
+## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise et Édition Intégrale  
 **Serveurs de système de site :**  
 
 -   Point de distribution  
@@ -323,24 +323,24 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
 
-    -   Les points de distribution prennent en charge diverses configurations ayant chacune des conditions requises différentes. Dans certains cas, ils prennent également en charge l’installation non seulement sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="the-server-core-installation-of-windows-server-2012"></a>Installation minimale de Windows Server 2012  
- Outre les systèmes d’exploitation antérieurs, l’installation minimale de Windows Server 2012 est prise en charge pour une utilisation en tant que point de distribution avec les limitations suivantes :  
+ Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 est également prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
 
--   Seul x64 est pris en charge.  
+-   Seule la version 64 bits est prise en charge.  
 
--   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
+-   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.
 
 ## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>Installation minimale de Windows Server 2012 R2  
- Outre les systèmes d’exploitation antérieurs, l’installation minimale de Windows Server 2012 R2 est prise en charge pour une utilisation en tant que point de distribution avec les limitations suivantes :  
+ Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 R2 est prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
 
--   Seul x64 est pris en charge.  
+-   Seule la version&64; bits est prise en charge.
 
 -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

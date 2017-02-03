@@ -2,7 +2,7 @@
 title: Surveiller le contenu | Microsoft Docs
 description: "Apprenez à surveiller le contenu distribué à l’aide de la console Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/4/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: 9a5d2c3a3c6bdca05b5b00fa4d746c437a56ef89
+ms.sourcegitcommit: 4d34a272a93100426cccd2308c5b3b0b0ae94a60
+ms.openlocfilehash: 60f30fd6477f1ee8755e50ceb9cc17d43ef8ea68
 
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Surveiller le contenu que vous avez distribué avec System Center Configuration Manager
@@ -156,12 +156,21 @@ Pour afficher l'état de configuration du point de distribution, procédez comme
 > [!TIP]  
 > Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
-Dans la console, accédez à **Analyse** > **État du client** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.  
+Dans la console, accédez à **Analyse** > **État du client** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.
+
+Détails :  
+- **Sources de contenu pour les clients** : affiche les sources à partir desquelles les clients ont obtenu du contenu.
+- **Points de distribution** : affiche le nombre de points de distribution qui font partie du groupe de limites sélectionné.
+- **Clients ayant utilisé un point de distribution** : affiche le nombre de clients membres du groupe de limites sélectionné qui ont utilisé un point de distribution pour obtenir du contenu.
+- **Sources de mise en cache d’homologue** : pour le groupe de limites sélectionné, affiche le nombre de sources de mise en cache d’homologue qui ont fourni un historique de téléchargement.
+- **Clients ayant utilisé un homologue** : affiche le nombre de clients membres du groupe de limites sélectionné qui ont utilisé une source de mise en cache d’homologue pour obtenir du contenu.
+
+
 
 Vous pouvez également utiliser un nouveau rapport, **Sources de données du client - Résumé**, pour afficher une synthèse des sources de données du client pour chaque groupe de limites.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -2,7 +2,7 @@
 title: "Sécurité et confidentialité des profils de messagerie | Microsoft Docs"
 description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils de messagerie des appareils dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/28/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: d4977a592d9d49a93b974c129d2729d626ed9280
+ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
+ms.openlocfilehash: 17707f931a4fa58b225ce14f04c2a19648585bc4
 
 
 ---
@@ -26,22 +26,20 @@ ms.openlocfilehash: d4977a592d9d49a93b974c129d2729d626ed9280
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour les profils de messagerie dans System Center Configuration Manager.  
+## <a name="security-best-practices-for-email-profiles"></a>Bonnes pratiques de sécurité pour les profils de messagerie  
+ Utilisez les bonnes pratiques de sécurité suivantes quand vous gérez les profils de messagerie sur les appareils.  
 
-## <a name="security-best-practices-for-email-profiles"></a>Meilleures pratiques de sécurité pour les profils de messagerie  
- Utilisez les meilleures pratiques de sécurité suivantes quand vous gérez les profils de messagerie sur les appareils.  
-
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Bonnes pratiques de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Dans la mesure du possible, choisissez les options les plus sécurisées prises en charge par votre infrastructure de messagerie et les systèmes d'exploitation client.|Les profils de messagerie fournissent une méthode pratique pour distribuer et gérer des paramètres de messagerie que vos appareils prennent déjà en charge de manière centralisée. System Center Configuration Manager n’ajoute pas de fonctionnalités de messagerie.<br /><br /> Identifiez, implémentez et appliquez les meilleures pratiques de sécurité recommandées pour vos appareils et votre infrastructure de messagerie.|  
+|Dans la mesure du possible, choisissez les options les plus sécurisées prises en charge par votre infrastructure de messagerie et les systèmes d'exploitation client.|Les profils de messagerie fournissent une méthode pratique pour distribuer et gérer des paramètres de messagerie que vos appareils prennent déjà en charge de manière centralisée. Configuration Manager n’ajoute pas de fonctionnalité de messagerie.<br /><br /> Identifiez, implémentez et appliquez les bonnes pratiques de sécurité recommandées pour vos appareils et votre infrastructure de messagerie.|  
 
 ## <a name="privacy-information-for-email-profiles"></a>Informations sur la confidentialité des profils de messagerie  
- Par défaut, les appareils n'évaluent pas les profils de messagerie. Par ailleurs, vous devez configurer les profils de messagerie, puis les déployer auprès des utilisateurs.  
+ Par défaut, les appareils n'évaluent pas les profils de messagerie. Par ailleurs, vous devez configurer les profils de messagerie, puis les déployer pour des utilisateurs.  
 
  Avant de configurer les profils de messagerie, tenez compte de vos exigences en matière de confidentialité.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

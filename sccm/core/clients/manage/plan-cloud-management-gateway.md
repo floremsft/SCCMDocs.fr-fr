@@ -1,7 +1,7 @@
 ---
 title: Planifier la passerelle de gestion cloud | Microsoft Docs
 description: 
-ms.date: 11/22/2016
+ms.date: 12/19/2016
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,8 +10,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1f8fbd8a16548ab2c34f5d3dac2b439f3908cea9
-ms.openlocfilehash: e6befef692518a5622250af1c71d517b435f9058
+ms.sourcegitcommit: 1df2d8bcd73633ac1d37cc3ef31343be9c5bc95d
+ms.openlocfilehash: 6e2895565e868eb80a8f4f4b46b8a28eb4961e28
 
 ---
 
@@ -19,11 +19,11 @@ ms.openlocfilehash: e6befef692518a5622250af1c71d517b435f9058
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-À compter de la version 1610, la passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Le service de passerelle de gestion cloud, qui est déployé sur Microsoft Azure et nécessite un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé « point de connexion de la passerelle de gestion cloud ». Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
+À compter de la version 1610, la passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Le service de passerelle de gestion cloud est déployé sur Microsoft Azure et nécessite un abonnement Azure. Il se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé point de connexion de la passerelle de gestion cloud. Une fois le service déployé et configuré, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils se trouvent sur le réseau privé interne ou sur Internet.
 
-Vous utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point de connexion de la passerelle de gestion cloud et configurer les rôles de système de site pour autoriser le trafic de la passerelle de gestion cloud. La passerelle de gestion cloud ne prend actuellement en charge que les rôles de point de gestion et de point de mise à jour logicielle.
+Utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point de connexion de la passerelle de gestion cloud et configurer les rôles de système de site pour autoriser le trafic de la passerelle de gestion cloud. La passerelle de gestion cloud ne prend actuellement en charge que les rôles de point de gestion et de point de mise à jour logicielle.
 
-Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. En plus de ces deux types de certificats, vous devez également configurer un certificat de gestion sur Azure pour permettre à Configuration Manager de déployer le service de passerelle de gestion cloud.
+Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. Vous devez également configurer un certificat de gestion sur Azure pour permettre à Configuration Manager de déployer le service de passerelle de gestion cloud.
 
 ## <a name="requirements-for-cloud-management-gateway"></a>Exigences pour la passerelle de gestion cloud
 
@@ -35,36 +35,25 @@ Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis
 
 -   Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
 
-## <a name="limitations-of-cloud-management-gateway"></a>Limitations de la passerelle de gestion cloud
+## <a name="specifications-for-cloud-management-gateway"></a>Spécifications de la passerelle de gestion cloud
 
--   La passerelle de gestion cloud ne prend en charge que les rôles de point de gestion et de point de mise à jour logicielle.
-
+- Chaque instance de la passerelle de gestion cloud prend en charge 4 000 clients.
+- Nous vous recommandons de créer au moins deux instances de la passerelle de gestion cloud pour améliorer la disponibilité.
+- La passerelle de gestion cloud ne prend en charge que les rôles de point de gestion et de point de mise à jour logicielle.
 -   Les fonctionnalités de Configuration Manager suivantes ne sont pas actuellement prises en charge pour la passerelle de gestion cloud :
 
     -   Mise à niveau et déploiement du client par le biais de l’installation Push du client
-
     -   Attribution automatique du site
-
     -   Stratégies utilisateur
-
     -   Catalogue d’applications (notamment les demandes d’approbation de logiciels)
-
     -   Déploiement de système d’exploitation (OSD) complet
-
     -   Console Configuration Manager
-
     -   outils de contrôle à distance.
-
     -   Site web de création de rapports
-
     -   Éveil par appel réseau
-
     -   Clients Mac, Linux et UNIX
-
     -   Azure Resource Manager
-
     -   Cache d’homologue
-
     -   Gestion des appareils mobiles (MDM) locale
 
 ## <a name="cost-of-cloud-management-gateway"></a>Coût de la passerelle de gestion cloud

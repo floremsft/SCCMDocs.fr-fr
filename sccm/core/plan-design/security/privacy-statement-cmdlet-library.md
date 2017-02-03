@@ -1,8 +1,8 @@
 ---
 title: "Déclaration de confidentialité de System Center Configuration Manager - Bibliothèque d’applets de commande de Configuration Manager | Microsoft Docs"
-description: "Découvrez comment Microsoft collecte et utilise les données relatives à la bibliothèque d’applets de commande System Center Configuration Manager."
+description: "Découvrez comment Microsoft collecte et utilise les données relatives à la bibliothèque d’applets de commande de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 767d0594eb871462df038997ea3b7e29615e05f7
-ms.openlocfilehash: 10d8e8948d66a6b9b74e16a02cfbfc4ced66596c
+ms.sourcegitcommit: 3d6799ad46e0fe69333aba0662f18c9153c17bda
+ms.openlocfilehash: 3936075555cc0bb370ea6e42c7e720b864d565f7
 
 
 ---
@@ -29,17 +29,17 @@ ms.openlocfilehash: 10d8e8948d66a6b9b74e16a02cfbfc4ced66596c
 Cette déclaration de confidentialité couvre les fonctionnalités de la bibliothèque d’applets de commande de System Center Configuration Manager.  
 
 ## <a name="usage-data"></a>Données d’utilisation  
- **Ce que permet cette fonctionnalité :**   
-La bibliothèque d’applets de commande de System Center Configuration Manager vous permet de gérer une hiérarchie Configuration Manager à l’aide d’applets de commande et de scripts Windows PowerShell. La bibliothèque d’applets de commande collecte des informations sur l’utilisation des applets de commande de la bibliothèque afin d’identifier des tendances et des modèles d’utilisation.  La bibliothèque d’applets de commande collecte également les types et le nombre d’erreurs que vous rencontrez lors de l’utilisation des applets de commande.  
+ **Descriptif de cette fonctionnalité :**   
+La bibliothèque d’applets de commande de System Center Configuration Manager vous permet de gérer une hiérarchie Configuration Manager à l’aide d’applets de commande et de scripts Windows PowerShell. La bibliothèque d’applets de commande collecte des informations sur l’utilisation des applets de commande dans la bibliothèque pour identifier des tendances et des modèles d’utilisation. La bibliothèque d’applets de commande collecte également les types et le nombre d’erreurs que vous rencontrez quand vous utilisez les applets de commande.  
 
- **Informations collectées, traitées ou transmises :**   
-Les données d’utilisation collectées comprennent le démarrage, l’arrêt et l’interruption des applets de commande, l’exécution d’applets de commande déconseillées et des mesures d’activité pour les opérations du fournisseur SMS en relation avec les applets de commande. Ces informations ne permettent pas de vous identifier personnellement.  Les informations collectées sur les erreurs comprennent les erreurs retournées par les applets de commande et le détail des erreurs d’exception. Certains rapports détaillés sur les erreurs peuvent contenir par inadvertance des identificateurs individuels, par exemple, le numéro de série d’un appareil connecté à votre ordinateur. La bibliothèque d’applets de commande filtre et rend anonymes les informations contenues dans les rapports d’erreur pour supprimer tous les identificateurs individuels avant leur transmission à Microsoft.  
+ **Informations collectées, traitées ou transmises :**   
+Les données d’utilisation collectées comprennent le démarrage, l’arrêt et l’interruption des applets de commande, l’exécution d’applets de commande déconseillées, et des mesures d’activité pour les opérations du fournisseur Systems Management Server (SMS) qui sont liées aux applets de commande. Ces informations ne permettent pas de vous identifier personnellement.  Les informations collectées sur les erreurs comprennent les erreurs que les applets de commande renvoient ainsi que les détails des erreurs d’exception. Certains rapports détaillés sur les erreurs peuvent contenir par inadvertance des identificateurs individuels, comme le numéro de série d’un appareil connecté à votre ordinateur. La bibliothèque d’applets de commande filtre et rend anonymes les informations dans les rapports d’erreur pour supprimer les identificateurs individuels avant leur transmission à Microsoft.  
 
- **Utilisation des informations :**   
+ **Utilisation des informations :**   
 Nous utilisons ces informations pour améliorer la qualité, la sécurité et l’intégrité des produits et services que nous proposons.  
 
- **Choix/contrôle :**   
-Cette fonctionnalité Données d’utilisation est activée par défaut. La bibliothèque d’applets de commande de System Center Configuration Manager inclut deux clés de Registre pour contrôler cette fonctionnalité.  
+ **Choix/contrôle :**   
+Cette fonctionnalité de données d’utilisation est activée par défaut. La bibliothèque d’applets de commande de System Center Configuration Manager a deux clés de Registre qui contrôlent cette fonctionnalité.  
 
  Pour la désactiver complètement, vous devez définir les deux valeurs de clé de Registre suivantes, une pour chacun des fournisseurs de suivi d’événements pour Windows (ETW) :  
 
@@ -49,10 +49,10 @@ Cette fonctionnalité Données d’utilisation est activée par défaut. La bibl
 
  Les modifications des paramètres de données d’utilisation sont spécifiques de l’ordinateur sur lequel elles ont été effectuées.  
 
- Pour plus d’informations sur la configuration des données d’utilisation (collecte), consultez la [Documentation de la bibliothèque d’applets de commande de System Center Configuration Manager](https://technet.microsoft.com/en-us/library/dn958404.aspx).   
+ Pour en savoir plus sur la configuration des données d’utilisation (collecte), consultez la [Documentation de la bibliothèque d’applets de commande de System Center Configuration Manager](https://technet.microsoft.com/en-us/library/dn958404.aspx).   
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
