@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 12/16/2016
+ms.date: 1/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6cf3ac76ea3fb9c9b093ed4927255102930bbe26
-ms.openlocfilehash: d4e6a4c128ae077d2a3cb2883d80b6bf71b7f458
+ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
+ms.openlocfilehash: 27d18a7c5b13f488cafb36ace2e437fe6a50c598
 
 
 ---
@@ -29,6 +29,8 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
 
  Avant de procéder à la mise à niveau à partir de System Center 2012 Configuration Manager, vous devez préparer les sites en supprimant des configurations spécifiques qui peuvent empêcher la réussite de l’opération et en suivant la séquence de mise à niveau quand plusieurs sites sont concernés.  
 
+ > [!TIP]
+ > Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="a-namebkmkpatha-in-place-upgrade-paths"></a><a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 **Mettre à niveau vers la version 1606**  
@@ -386,6 +388,6 @@ Après avoir mis à niveau un site vers un nouveau Service Pack, vous pouvez êt
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

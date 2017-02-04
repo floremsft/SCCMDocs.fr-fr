@@ -2,7 +2,7 @@
 title: Configuration Manager dans Azure | Microsoft Docs
 description: "Informations sur l’utilisation de Configuration Manager dans un environnement Azure."
 ms.custom: na
-ms.date: 10/21/2016
+ms.date: 01/04/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 5866c1d9ad88e49b69fa0c863b1ef8748a8c8111
+ms.sourcegitcommit: 6638d6e17d0eaeef731cce45e8cf5c827d6e0dfe
+ms.openlocfilehash: 4d953eedc7d5cceb8767dab8850cacb1e007194d
 
 ---
 # <a name="configuration-manager-on-azure---frequently-asked-questions"></a>Configuration Manager dans Azure – Forum Aux Questions
@@ -139,9 +139,11 @@ L’approche de la gestion de contenu est très similaire à celui pour les serv
 
 
 ### <a name="while-i-am-ok-with-the-limitations-of-cloud-based-distribution-points-i-dont-want-to-put-my-management-point-into-a-dmz-even-though-that-is-needed-to-support-my-internet-based-clients-do-i-have-any-other-options"></a>Les limitations des points de distribution cloud ne me posent pas de problème, mais je ne souhaite pas placer mon point de gestion dans une zone DMZ, même si cela est nécessaire pour prendre en charge mes clients basés sur Internet. Y a-t-il d’autres options à ma disposition ?
-Ce sera bientôt le cas ! Avec la version d’évaluation technique de Configuration Manager 1606, nous avons introduit le [service de proxy cloud](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet). Le service de proxy cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et requiert un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle nommé le point de connecteur de proxy cloud. Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
+Oui ! Dans Configuration Manager version 1610, nous avons introduit la fonctionnalité de préversion [Passerelle de gestion cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway). (Cette fonctionnalité a d’abord été proposée dans la version Technical Preview 1606 sous le nom [Service de proxy cloud](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet).) 
 
-Vous pouvez commencer à tester le proxy du service cloud dans votre environnement de test et nous envoyer vos commentaires pour l’améliorer.
+La fonctionnalité **Passerelle de gestion cloud** fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et nécessite un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé « point de connexion de passerelle de gestion cloud ». Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
+
+Vous pouvez commencer à utiliser la passerelle de gestion cloud dans votre environnement et nous envoyer vos commentaires pour nous aider à améliorer cette fonctionnalité. Pour plus d’informations sur les fonctionnalités de préversions, consultez [Utiliser des fonctionnalités de préversions de mises à jour](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkprereleasea-use-pre-release-features-from-updates).
 
 ### <a name="i-also-heard-that-you-have-another-new-feature-called-peer-cache-in-the-technical-preview-version-1604-is-that-different-than-branchcache-which-one-should-i-choose"></a>J’ai également entendu que vous avez introduit une nouvelle fonctionnalité, appelée Cache d’homologue, dans la version d’évaluation technique 1604. Est-elle différente de BranchCache ? Laquelle choisir ?
 Oui, totalement différente. La fonctionnalité [Cache d’homologue](/sccm/core/get-started/capabilities-in-technical-preview-1604#bkmk_peercache) est une technologie 100 % native de Configuration Manager, alors que BranchCache est une fonctionnalité de Windows. Les deux peuvent vous être utiles. BranchCache utilise une diffusion pour rechercher le contenu requis alors que le cache d’homologue utilise les paramètres de groupe de limites et de flux de travail de distribution standard de Configuration Manager.
@@ -180,6 +182,6 @@ Cela est difficile à dire puisque chaque environnement est différent. La meill
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -2,7 +2,7 @@
 title: "Mises à jour dans la console | Microsoft Docs"
 description: "System Center Configuration Manager se synchronise avec le cloud Microsoft pour obtenir les mises à jour que vous pouvez installer dans la console."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
-ms.openlocfilehash: 1b7063d45c6dc9b42e5002f684043a8e846416a2
+ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
+ms.openlocfilehash: 00d9738a271ba47abcbf3c4b427a05910a0c2355
 
 
 ---
@@ -162,7 +162,7 @@ Par la suite, lorsque vous installez une mise à jour, vous pouvez configurer la
 
  Nous vous recommandons de planifier l’installation de la mise à jour en dehors des heures de bureau normales pour chaque site, lorsque le processus d’installation de la mise à jour et ses actions pour réinstaller les composants du site et les rôles système de site auront le moins d’effet sur les opérations de votre entreprise.  
 
--   Les sites principaux enfants démarrent la mise à jour automatiquement après que le site d’administration centrale a installé la mise à jour. Il s’agit du processus par défaut et recommandé. Néanmoins, vous pouvez utiliser des [fenêtres de maintenance pour les serveurs de site](#bkmk_ServiceWindow) pour contrôler à quel moment le site principal installe les mises à jour.  
+-   Les sites principaux enfants démarrent la mise à jour automatiquement après que le site d’administration centrale a installé la mise à jour. Il s’agit du processus par défaut et recommandé. Vous pouvez cependant utiliser des [fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows) pour contrôler à quel moment le site principal installe les mises à jour.  
 
 -   Après la mise à jour du site principal parent, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.  
 
@@ -186,7 +186,7 @@ L’Assistant Mises à jour affiche la liste des zones de produit auxquelles s�
 
 
 
--   Quand une mise à jour s’applique au client Configuration Manager, une option vous est proposée pour tester la mise à jour du client avec un ensemble limité de clients. Pour plus d’informations, consultez [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+-   Quand une mise à jour s’applique au client Configuration Manager, une option vous est proposée pour tester la mise à jour du client avec un ensemble limité de clients. Pour plus d’informations, consultez [Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
 **2. Pendant l’installation de la mise à jour**  
 Au cours de l’installation de la mise à jour, Configuration Manager :  
@@ -355,16 +355,6 @@ Si vous avez donné votre consentement sur un site principal autonome, puis que 
 
 
 
-
-##  <a name="a-namebkmkservicewindowa-service-windows-for-site-servers"></a><a name="bkmk_ServiceWindow"></a> fenêtres de maintenance pour les serveurs de site  
-Sur un serveur de site, vous pouvez configurer des fenêtres de maintenance pour contrôler à quel moment les mises à jour de l’infrastructure pour Configuration Manager peuvent être appliquées à ce serveur de site.  Chaque serveur de site prend en charge plusieurs fenêtres, avec la fenêtre autorisée pour l’installation des mises à jour de l’infrastructure, déterminée par une combinaison de toutes les fenêtres configurées pour ce serveur de site.  
-
-**Pour configurer une fenêtre de service :**  
-
-1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le serveur de site sur lequel vous voulez configurer une fenêtre de maintenance.  
-
-2.  Ensuite, modifiez les **Propriétés** des serveurs de site et sélectionnez l’onglet **Fenêtre de service** , où vous pouvez ensuite définir une ou plusieurs fenêtres de service pour ce serveur de site.  
-
 ##  <a name="a-namebkmkfaqa-why-dont-i-see-certain-updates-in-my-console"></a><a name="bkmk_faq"></a> Pourquoi certaines mises à jour ne s’affichent pas dans ma console ?  
  Si vous ne trouvez une mise à jour spécifique ou des mises à jour quelconques dans votre console après une synchronisation réussie avec le service cloud Microsoft, les causes possibles sont les suivantes :  
 
@@ -378,6 +368,6 @@ Sur un serveur de site, vous pouvez configurer des fenêtres de maintenance pour
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

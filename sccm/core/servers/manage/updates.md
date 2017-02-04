@@ -2,7 +2,7 @@
 title: "Mises à jour | Microsoft Docs"
 description: "Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6e964f015d5f007311f46f51126b31e181abd0ec
-ms.openlocfilehash: e7b19b6e1f4720c0bdc69ef7f78366fd5d3414d0
+ms.sourcegitcommit: 5314bcb434b5b540f80cdfe32002df7b8fed6195
+ms.openlocfilehash: 52d5ad7a348e0489f43ac6cb46af930499ef6cf2
 
 
 ---
@@ -26,7 +26,11 @@ ms.openlocfilehash: e7b19b6e1f4720c0bdc69ef7f78366fd5d3414d0
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la localisation et l’installation des mises à jour recommandées pour votre infrastructure Configuration Manager. Cette méthode de maintenance dans la console est complétée par des mises à jour hors bande, telles que des correctifs logiciels, qui s’adressent aux clients qui ont besoin de résoudre des problèmes qui peuvent être propres à leur environnement.  
+System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la détection et l’installation des mises à jour recommandées pour votre infrastructure Configuration Manager. Cette méthode de maintenance dans la console est complétée par des mises à jour hors bande, telles que des correctifs logiciels, qui s’adressent aux clients qui ont besoin de résoudre des problèmes qui peuvent être propres à leur environnement.  
+
+> [!TIP]
+> Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
+
 
  **Les rubriques suivantes peuvent vous aider à comprendre comment rechercher et installer les différents types de mise à jour pour System Center Configuration Manager :**  
 
@@ -38,17 +42,18 @@ System Center Configuration Manager utilise une méthode de service dans la cons
 
 -   [Utiliser le programme d’installation de correctif logiciel pour installer des mises à jour pour System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
 
-> [!TIP]  
-> Si vous utilisez l’édition Technical Preview, consultez [Technical Preview pour System Center Configuration Manager](/sccm/core/get-started/technical-preview) pour plus d’informations sur cette édition.
+
+Si vous utilisez l’édition Technical Preview, consultez [Technical Preview pour System Center Configuration Manager](/sccm/core/get-started/technical-preview) pour plus d’informations sur cette édition.
+
 
 ##  <a name="a-namebkmkbaselinesa-baseline-and-update-versions"></a><a name="bkmk_Baselines"></a> Versions de base et de mise à jour  
- La version initiale de System Center Configuration Manager CB (Current Branch) est la version 1511. Il s’agit d'une version de base :  
+ La version initiale Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Plus récemment, la version 1606 a été publiée comme base de référence :  
 
 -   La dernière version de base est à utiliser quand il s’agit d’installer un nouveau site dans une nouvelle hiérarchie.  
 
 -   Vous devez utiliser une version de base pour effectuer une mise à niveau à partir de System Center 2012 Configuration Manager.  
 
--   De nouvelles versions de base sont régulièrement publiées. Quand vous installez une nouvelle hiérarchie à partir d’une version de base plus récente, évitez d’installer la version de base 1511 d’origine suivie d’une mise à niveau de votre infrastructure.  
+-   D’autres versions de base de référence seront régulièrement publiées. Quand vous utilisez la dernière version de base de référence pour installer une nouvelle hiérarchie, vous évitez d’installer une version obsolète de Configuration Manager, suivie d’une mise à niveau de votre infrastructure pour la mettre à jour.  
 
 Après avoir installé une version de base, d’autres versions de Configuration Manager sont disponibles sous forme de mises à jour dans la console. Les mises à jour dans la console mettent à jour votre infrastructure vers la dernière version de Configuration Manager.  
 
@@ -115,7 +120,7 @@ Points à noter pendant l’installation d’une mise à jour dans la console :
 
 -   Elle procède automatiquement à une vérification de la configuration requise. Vous pouvez aussi effectuer cette vérification avant de démarrer l’installation.  
 
--   Elle s’installe automatiquement sur le site d’administration centrale (si vous en avez un) et sur les sites principaux. Vous pouvez contrôler à quel moment chaque serveur de site principal est autorisé à mettre à jour son infrastructure à l’aide des [fenêtres de service pour les serveurs de site](../../../core/servers/manage/install-in-console-updates.md#bkmk_ServiceWindow).  
+-   Elle s’installe automatiquement sur le site d’administration centrale (si vous en avez un) et sur les sites principaux. Vous pouvez contrôler à quel moment chaque serveur de site principal est autorisé à mettre à jour son infrastructure à l’aide des [fenêtres de service pour les serveurs de site](../../../core/servers/manage/service-windows.md).  
 
 -   Après la mise à jour d’un serveur de site, tous les rôles de système de site affectés (notamment les instances du fournisseur SMS) se mettent automatiquement à jour. Par ailleurs, la console Configuration Manager invite son utilisateur à la mettre à jour, après que le site a installé la mise à jour.  
 
@@ -143,6 +148,6 @@ Pour installer ces correctifs manuellement, deux méthodes sont disponibles :
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

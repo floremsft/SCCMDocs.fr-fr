@@ -2,7 +2,7 @@
 title: "Liste de contrôle pour 1606 | Microsoft Docs"
 description: "Découvrez les mesures à prendre avant d’effectuer la mise à jour de System Center Configuration Manager version 1511 ou 1602 vers la version 1606."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/11/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: ba087244ad52087f32acbe413b1e56c7478e4db6
+ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
+ms.openlocfilehash: ca0916791ccfba921866ebed7da0e2dc365f933b
 
 ---
 # <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1606 pour System Center Configuration Manager
@@ -34,7 +34,7 @@ Pour plus d’informations sur les versions de base de référence, consultez [V
 
 En tant que *mise à jour*, vous ne pouvez installer la version 1606 que sur le site de niveau supérieur de votre hiérarchie. Cela signifie que vous lancez l’installation à partir de votre site d’administration centrale si en avez un, ou à partir de votre site principal autonome.  
 
--   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](../../../core/servers/manage/install-in-console-updates.md#bkmk_ServiceWindow).  
+-   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
 -   Après que le site parent principal a installé la mise à jour, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.  
 
@@ -124,13 +124,13 @@ Configuration Manager ne prend en charge ni la sauvegarde des sites secondaires 
 L'exécution d'un test de mise à niveau de base de données sur la base de données de site de production n'est pas prise en charge. Cette opération met à jour la base de données du site et pourrait rendre celui-ci inutilisable. Pour plus d’informations, consultez la section [Tester la mise à niveau de base de données de site](../../../core/servers/deploy/install/upgrade-to-configuration-manager.md#bkmk_test) dans [Mettre à niveau vers System Center Configuration Manager](../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
 
  **Planifiez un test du client :** quand vous installez une mise à jour qui affecte le client, vous pouvez la tester en mode préproduction avant de procéder au déploiement et à la mise à niveau de votre client actif.   
- Pour tirer parti de cette option, avant de commencer l’installation de la mise à jour, vous devez configurer votre site afin qu’il prenne en charge les mises à niveau automatiques à des fins de pré-production. Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) et   
+ Pour tirer parti de cette option, avant de commencer l’installation de la mise à jour, vous devez configurer votre site pour qu’il prenne en charge les mises à niveau automatiques à des fins de préproduction. Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) et   
 [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md)  
 
  **Planifier l’utilisation des fenêtres de service**  
  **pour contrôler le moment où les serveurs de site installent les mises à jour :** vous pouvez utiliser les fenêtres de service pour définir une période applicable à un serveur de site principal, au cours de laquelle des mises à jour de ce site peuvent être installées.   
 Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour.
-Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](../../../core/servers/manage/install-in-console-updates.md#bkmk_ServiceWindow).  
+Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
  **Exécutez l’outil de vérification de la configuration requise du programme d’installation :** avant d’installer la mise à jour 1606, vous pouvez exécuter l’outil de vérification de la configuration requise indépendamment de l’installation de la mise à jour. Lorsque vous installez la mise à jour sur le site, l’outil de vérification de la configuration requise s’exécute à nouveau.  
 Pour plus d’informations, consultez **Étape 3 : exécuter l’Outil de vérification des conditions préalables avant d’installer une mise à jour** dans la rubrique [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
@@ -143,6 +143,6 @@ Pour plus d’informations, consultez **Étape 3 : exécuter l’Outil de vér
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -2,7 +2,7 @@
 title: "Gérer les points de distribution | Microsoft Docs"
 description: "Hébergez le contenu (fichiers et logiciels) que vous déployez pour les appareils et les utilisateurs à l’aide de points de distribution. Voici comment les installer et les configurer."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/9/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: 8684bf1231ff9d663717b4c9874dac98d50e3647
+ms.sourcegitcommit: cae118d2f28eea3bc47e344ca6f2ba8192f031c2
+ms.openlocfilehash: 160c3c94c822bc78e2d61b7a51d130b47f4c204e
 
 ---
 # <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installer et configurer des points de distribution pour System Center Configuration Manager
@@ -175,6 +175,8 @@ Les sections suivantes décrivent les configurations que vous pouvez sélectionn
 
     > [!NOTE]  
     >  Cette option est disponible uniquement lorsque vous installez un nouveau point de distribution.  
+
+- **Activer et configurer BranchCache pour ce point de distribution** : sélectionnez ce paramètre pour permettre à Configuration Manager de configurer Windows BranchCache sur le serveur de point de distribution.  Pour plus d’informations sur l’utilisation de Windows BranchCache avec System Center Configuration Manager, consultez [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#a-namebkmkbranchcachea-branchcache) dans *Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager*.
 
 -   **Configurez la manière dont les appareils clients communiquent avec le point de distribution** : l’utilisation de HTTP et de HTTPS présente des avantages et des inconvénients. Pour plus d’informations, consultez *Bonnes pratiques de sécurité pour la gestion de contenu* dans [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
@@ -379,6 +381,6 @@ Spécifiez si vous souhaitez configurer des limites du taux de transfert pour co
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

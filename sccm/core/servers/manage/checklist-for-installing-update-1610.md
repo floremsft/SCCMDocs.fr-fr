@@ -2,7 +2,7 @@
 title: "Liste de contrôle pour 1610 | System Center Configuration Manager"
 description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour vers System Center Configuration Manager version 1610."
 ms.custom: na
-ms.date: 11/18/2016
+ms.date: 1/7/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,15 +16,15 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0c7d32a80559a4aa684ea1533cd36d0ef977fbfc
-ms.openlocfilehash: 25bffa256cbe70fb590eccb641c94f572f618ef3
+ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
+ms.openlocfilehash: 3ad5ca180759769bc22300eb406df4f606bfbd13
 
 ---
 # <a name="checklist-for-installing-update-1610-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1610 pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Quand vous utilisez Current Branch de System Center Configuration Manager, vous pouvez installer la mise à jour dans la console de la version 1610 pour mettre à jour votre hiérarchie depuis la version 1606. Si votre hiérarchie exécute la version 1511, 1602 ou 1606, vous pouvez effectuer la mise à jour vers la version 1610. 
+Quand vous utilisez Current Branch de System Center Configuration Manager, vous pouvez installer la mise à jour dans la console de la version 1610 pour mettre à jour votre hiérarchie depuis la version 1606. Si votre hiérarchie exécute la version 1511, 1602 ou 1606, vous pouvez effectuer la mise à jour vers la version 1610.
 
 Pour obtenir la mise à jour de la version 1610, vous devez utiliser un rôle de système de site de point de connexion de service sur le site de niveau supérieur de votre hiérarchie. Cela peut être en mode en ligne ou hors connexion. Une fois que votre hiérarchie a téléchargé le package de mises à jour de Microsoft, vous le trouverez dans la console sous **Administration &gt; Vue d’ensemble &gt; Services cloud &gt; Mises à jour et maintenance**.
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur les versions de Current Branch, consultez [Versio
 **Sites :**  
 Vous ne pouvez installer la mise à jour 1610 que sur le site de niveau supérieur de votre hiérarchie. Cela signifie que vous lancez l’installation à partir de votre site d’administration centrale si en avez un, ou à partir de votre site principal autonome. Après l’installation de la mise à jour sur le site de niveau supérieur, les sites enfants ont le comportement de mise à jour suivant :
 
--   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](https://docs.microsoft.com/en-us/sccm/core/servers/manage/install-in-console-updates#bkmk_ServiceWindow).
+-   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).
 
 -   Après que le site parent principal a installé la mise à jour, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.
 
@@ -136,14 +136,14 @@ L'exécution d'un test de mise à niveau de base de données sur la base de donn
 **Planifiez un test du client :**   
 quand vous installez une mise à jour qui affecte le client, vous pouvez la tester en mode préproduction avant de procéder au déploiement et à la mise à niveau de votre client actif.
 
-Pour tirer parti de cette option, avant de commencer l’installation de la mise à jour, vous devez configurer votre site afin qu’il prenne en charge les mises à niveau automatiques à des fins de pré-production.
+Pour tirer parti de cette option, avant de commencer l’installation de la mise à jour, vous devez configurer votre site pour qu’il prenne en charge les mises à niveau automatiques pour la préproduction.
 
 Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) et [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
 **Planifiez l’utilisation des fenêtres de service pour contrôler le moment auquel les serveurs de site installent les mises à jour :**   
 vous pouvez utiliser les fenêtres de service pour définir une période applicable à un serveur de site principal, au cours de laquelle des mises à jour de ce site peuvent être installées.
 
-Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de service pour les serveurs de site](/sccm/core/servers/manage/install-in-console-updates#bkmk_servicewindow).
+Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).
 
 **Exécutez l’outil de vérification de la configuration requise du programme d’installation :**   
 quand la mise à jour est répertoriée dans la console comme **disponible**, vous pouvez exécuter l’outil de vérification de la configuration requise indépendamment de l’installation de la mise à jour. (Quand vous installez la mise à jour sur le site, l’outil de vérification de la configuration requise s’exécute à nouveau.)
@@ -162,6 +162,6 @@ Nous vous recommandons de planifier l’installation de la mise à jour en dehor
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

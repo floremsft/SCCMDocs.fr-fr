@@ -2,7 +2,7 @@
 title: "Préparer l’installation de sites | Microsoft Docs"
 description: "Lisez les informations ci-dessous pour gagner du temps durant l’installation de plusieurs sites et éviter des erreurs."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 1/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 0534d1eb587cb01f35d811d72ddfe6ceb07e5b7c
+ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
+ms.openlocfilehash: 42a7ae3b3c1064fe7cc7def9fdc3649e0d0829b2
 
 ---
 # <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Préparer l’installation de sites System Center Configuration Manager
@@ -25,11 +25,11 @@ ms.openlocfilehash: 0534d1eb587cb01f35d811d72ddfe6ceb07e5b7c
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 Pour préparer dans les meilleures conditions le déploiement d’un ou plusieurs sites System Center Configuration Manager, prenez connaissance des informations contenues dans cet article. Ces étapes peuvent vous faire gagner du temps durant l’installation de plusieurs sites et vous éviter des faux pas qui pourraient vous contraindre à réinstaller un ou plusieurs sites.
- > [!TIP]
- >  Bien que similaires, les scénarios suivants se distinguent de l’installation d’un site System Center Configuration Manager Current Branch :
- > -  **Mise à niveau** : installez System Center Configuration Manager pour effectuer une **mise à niveau** à partir de System Center 2012 Configuration Manager (consultez [Effectuer une mise à niveau vers System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md)).
- > -  **Mise à jour** : utilisez les mises à jour dans la console pour installer une nouvelle **version de mise à jour** sur un site System Center Configuration Manager existant (consultez [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md)).
- > -  **Migration** : pour **migrer des données** d’une autre hiérarchie Configuration Manager vers une hiérarchie System Center Configuration Manager active, consultez [Planification de la migration vers System Center Configuration Manager](../../../../core/migration/planning-for-migration.md).
+
+> [!TIP]
+> Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
+
+
 
 
 
@@ -148,6 +148,6 @@ Si l’ordinateur sur lequel vous voulez exécuter le programme d’installation
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
