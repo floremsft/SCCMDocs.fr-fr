@@ -1,8 +1,8 @@
 ---
-title: "Créer un média de capture | Microsoft Docs"
+title: "Créer un média de capture - Configuration Manager | Microsoft Docs"
 description: "Utilisez l’Assistant Création d’un média de séquence de tâches pour créer un média de capture dans Configuration Manager pour capturer une image de système d’exploitation à partir d’un ordinateur de référence."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: f948c993099786432b76d1486bbb5eded4ec38eb
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 5acf800ff5aebd849e294393337755145a60cca5
 
 
 ---
@@ -83,6 +83,6 @@ Vous créez des média de capture à l'aide de l'Assistant Création d'un média
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

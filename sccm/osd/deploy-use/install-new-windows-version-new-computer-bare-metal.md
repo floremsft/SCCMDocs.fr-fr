@@ -1,8 +1,8 @@
 ---
-title: "Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu) avec System Center Configuration Manager | Documents Microsoft"
-description: "Effectuez ces étapes dans System Center Configuration Manager pour installer un système d’exploitation sur un nouvel ordinateur à l’aide d’un média PXE, OEM ou autonome."
+title: Installer Windows sur un nouvel ordinateur - Configuration Manager | Microsoft Docs
+description: "Utilisez Configuration Manager pour installer un système d’exploitation sur un nouvel ordinateur (système nu) à l’aide d’un média PXE, OEM ou autonome."
 ms.custom: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 06ade037c580d64503e6b8b5c3bf31004ab0650b
-ms.openlocfilehash: 93b3d99e7391feefc3d706f15f0fe8f8df3b75ac
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 584dad7d8b05a2da9f7a66b73028ae99ff1a594f
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 93b3d99e7391feefc3d706f15f0fe8f8df3b75ac
 
 Cette rubrique indique les étapes générales à suivre dans System Center Configuration Manager pour installer un système d’exploitation sur un nouvel ordinateur. Pour ce scénario, vous pouvez choisir parmi de nombreuses méthodes de déploiement différentes, telles que PXE, OEM ou média autonome. Pour vous aider à déterminer si ce scénario de déploiement de système d’exploitation est adapté à votre cas, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md).  
 
- Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
+Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
 
 ##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
 
@@ -81,6 +81,6 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

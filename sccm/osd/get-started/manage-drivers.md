@@ -1,8 +1,8 @@
 ---
-title: "Gérer les pilotes | Microsoft Docs"
+title: "Gérer des pilotes - Configuration Manager | Microsoft Docs"
 description: "Le catalogue de pilotes Configuration Manager permet d’importer des pilotes de périphérique, de les regrouper dans des packages et de distribuer ces packages à des points de distribution."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 361a18b7da8249fc6cccc333f39313a52dd8ab88
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 87ab9925717a307cbda3cea1f2e470ae012fa067
 
 
 ---
@@ -154,7 +154,7 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
     -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
 
-    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
+    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x&64;.  
 
         > [!NOTE]  
         >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
@@ -216,7 +216,7 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
     -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
 
-    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
+    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x&64;.  
 
         > [!NOTE]  
         >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
@@ -278,6 +278,6 @@ System Center Configuration Manager propose un catalogue de pilotes qui permet d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

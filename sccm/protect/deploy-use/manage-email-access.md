@@ -1,5 +1,5 @@
 ---
-title: "Gérer l’accès à la messagerie | Microsoft Docs"
+title: "Gérer l’accès à la messagerie Exchange avec Configuration Manager | Microsoft Docs"
 description: "Apprenez à utiliser l’accès conditionnel System Center Configuration Manager pour gérer l’accès à la messagerie Exchange."
 ms.custom: na
 ms.date: 10/04/2016
@@ -16,12 +16,12 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
-ms.openlocfilehash: 0bbe25598f38f9cf3c15375748fee09c43dfb928
+ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
+ms.openlocfilehash: 26179c0c92773dc0b69be500c165a52e15afc6fd
 
 
 ---
-# <a name="manage-email-access-in-system-center-configuration-manager"></a>Gérer l’accès à la messagerie dans System Center Configuration Manager
+# <a name="manage-email-access"></a>Gérer l'accès à la messagerie 
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -237,7 +237,7 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 6.  Sous **Accès à l’application**, pour Outlook et d’autres applications utilisant une authentification moderne, vous pouvez choisir de restreindre l’accès aux appareils conformes pour chaque plateforme.  Les appareils Windows doivent être soit joints à un domaine, soit inscrits dans Intune et conformes.  
 
     > [!TIP]  
-    > L' **authentification moderne** permet aux clients Office de bénéficier de la connexion basée sur la bibliothèque ADAL (Active Directory Authentication Library).  
+    >  L'**authentification moderne** permet aux clients Office de bénéficier de la connexion basée sur la bibliothèque ADAL (Active Directory Authentication Library).  
     >   
     >  -   L'authentification ADAL permet aux clients Office de procéder à une authentification basée sur un navigateur (également appelée authentification passive).  Pour s'authentifier, l'utilisateur est dirigé vers une page web de connexion.  
     > -   Cette nouvelle méthode de connexion autorise de nouveaux scénarios tels que l'accès conditionnel basé sur la **compatibilité des appareils** et sur l'exécution préalable de l' **authentification multifacteur** .  
@@ -363,6 +363,6 @@ Les navigateurs non pris en charge seront bloqués. Les applications OWA pour iO
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

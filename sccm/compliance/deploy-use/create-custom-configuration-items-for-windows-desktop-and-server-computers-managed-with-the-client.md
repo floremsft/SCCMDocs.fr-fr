@@ -1,5 +1,5 @@
 ---
-title: "Créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager | Microsoft Docs"
+title: "Créer des éléments de configuration pour des ordinateurs Windows gérés par un client - Configuration Manager | Microsoft Docs"
 description: "Gérer les paramètres des ordinateurs et des serveurs Windows avec un élément de configuration Ordinateurs de bureau et serveurs Windows."
 ms.custom: na
 ms.date: 11/18/2016
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: f5509d1ffb88bc128f7be6c74e6b65dc33605c9e
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: e55883471fde63036c91b315ed6db6dceb315207
 
 
 ---
@@ -149,7 +149,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
             -   **Nom de fichier ou dossier** -spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez aussi utiliser les caractères génériques * et ? dans le nom du fichier.  
 
                 > [!NOTE]  
-                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center 2012 Configuration Manager.  
+                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center&2012; Configuration Manager.  
 
             -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
 
@@ -355,10 +355,10 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 Dans la page **Plateformes prises en charge** de l’ **Assistant Création d’élément de configuration**, dans la liste, sélectionnez les versions Windows sur lesquelles vous voulez évaluer la compatibilité de l’élément de configuration ou cliquez sur **Sélectionner tout**.  
 
 ## <a name="complete-the-wizard"></a>Effectuer toutes les étapes de l'Assistant  
- Dans la page **Résumé** de l’Assistant, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouvel élément de configuration est affiché dans le **des éléments de Configuration** nœud dans le **biens et conformité** espace de travail.  
+ Dans la page **Résumé** de l’Assistant, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouvel élément de configuration est affiché dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité**.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1610 pour System Center Configuration Manager | Microsoft Docs"
+title: "Fonctionnalités de Technical Preview 1610 Configuration Manager"
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1610."
 ms.custom: na
-ms.date: 10/21/2016
+ms.date: 01/23/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
-ms.openlocfilehash: 6ffcb33e94f942fc9400457d3f16b65e12332956
+ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
+ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
 
 ---
 # <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1610 de System Center Configuration Manager
@@ -128,7 +128,7 @@ Plus précisément, vous pouvez configurer les paramètres suivants de Windows D
 
 ### <a name="try-it-out"></a>Essayez !
 
-1.  Dans la console de Configuration Manager, cliquez sur **Actifs et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Éléments de configuration**, puis créez un **Élément de configuration**.
+1.  Dans la console de Configuration Manager, cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Éléments de configuration**, puis créez un **Élément de configuration**.
 2.  Entrez un nom, sélectionnez **Windows 8.1 et Windows 10** sous **Paramètres pour les appareils gérés sans le client Configuration Manager**, puis cliquez sur **Suivant**.
 3.  Vérifiez que les options **Tout Windows 10 (64 bits)** et **Tout Windows 10 (32 bits)** sont sélectionnées dans la page **Plateformes prises en charge**, puis cliquez sur **Suivant**.
 4.  Sélectionnez le groupe de paramètres **Windows Defender**, puis cliquez sur **Suivant**.
@@ -145,7 +145,7 @@ Vous pouvez désormais demander une synchronisation de la stratégie pour un app
 
 ### <a name="try-it-out"></a>Essayez !
 
-1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > Appareils.
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > Appareils.
 2.  Dans le menu **Actions de l’appareil à distance**, sélectionnez **Envoyer une demande de synchronisation**.
 
 La synchronisation peut prendre de cinq à dix minutes. Les modifications apportées à la stratégie sont synchronisées avec l’appareil. Vous pouvez suivre l’état de la demande de synchronisation dans la colonne **État de la synchronisation à distance** de la vue **Appareils** ou dans la boîte de dialogue **Propriétés** de l’appareil.
@@ -165,6 +165,6 @@ Vous pouvez maintenant exiger que les appareils Windows 10 inscrits dans Azure 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

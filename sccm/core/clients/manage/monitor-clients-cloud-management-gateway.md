@@ -1,5 +1,5 @@
 ---
-title: Surveiller les clients | passerelle de gestion cloud | Microsoft Docs
+title: Surveiller la passerelle de gestion cloud - Configuration Manager | Microsoft Docs
 description: 
 ms.date: 11/18/2016
 ms.prod: configuration-manager
@@ -10,8 +10,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 2753efaca58447417cf0671645e737d052f0849b
+ms.sourcegitcommit: ef12c9b966a1b83b61243311b30e1a925c20d2e3
+ms.openlocfilehash: 4475205c37c20631a189e0c315dc48e288c15ba6
 
 ---
 
@@ -19,7 +19,7 @@ ms.openlocfilehash: 2753efaca58447417cf0671645e737d052f0849b
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Depuis la version 1610, une fois que le service de passerelle de gestion cloud est en cours d’exécution et que les clients se connectent par son intermédiaire, vous pouvez surveiller le trafic réseau et les clients pour vérifier que le service fonctionne comme vous pensez qu’il fontionne.
+Depuis la version 1610, une fois que le service de passerelle de gestion cloud est en cours d’exécution et que les clients se connectent par son intermédiaire, vous pouvez surveiller le trafic réseau et les clients pour vérifier que le service fonctionne comme vous pensez qu’il fonctionne.
 
 ## <a name="monitor-clients"></a>Surveiller les clients
 
@@ -59,6 +59,6 @@ Pour plus d’informations, consultez [Fichiers journaux dans System Center Conf
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Gérer les images de démarrage | Microsoft Docs"
+title: "Gérer les images de démarrage - Configuration Manager | Microsoft Docs"
 description: "Découvrez comment utiliser Configuration Manager pour gérer les images de démarrage Windows PE que vous utilisez pendant un déploiement de système d’exploitation."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 8c41c39a7f984be2612ae882d3bc08d92278dba6
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: 3b7125e782b60853e750aeb7ba923490e46a76b0
 
 
 ---
@@ -251,6 +251,6 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (W
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

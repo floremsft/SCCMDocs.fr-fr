@@ -1,5 +1,5 @@
 ---
-title: "Créer des éléments de configuration pour les appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager | Microsoft Docs"
+title: "Créer des éléments de configuration pour un appareil Windows 10 sans client - Configuration Manager | Microsoft Docs"
 description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10."
 ms.custom: na
 ms.date: 12/08/2016
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8f6e6fd1d2a9a6352c9191ea7e2a1f9c6f6e2199
-ms.openlocfilehash: 7efde8dda724d71775313290b13a6aad2f9a7d6c
+ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
+ms.openlocfilehash: 4c34ace72905b286c3582f09993bd897a87cce45
 
 
 ---
@@ -69,12 +69,12 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 
 12. Effectuez toutes les étapes de l'Assistant.  
 
- Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité** .  
+ Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité**.  
 
 ##  <a name="windows-81-and-windows-10-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Windows 8.1 et Windows 10  
 
 ### <a name="password"></a>Mot de passe  
- 
+
 |Paramètre|Détails|  
 |-------------|-------------|  
 |**Exiger des paramètres de mot de passe sur les appareils**|Exigez un mot de passe sur les appareils pris en charge.|  
@@ -83,7 +83,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
 |**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.|  
 |**Durée d’inactivité avant le verrouillage de l’appareil**|Spécifiez la durée pendant laquelle un appareil peut rester inactif (sans interaction de l’utilisateur) avant d’être verrouillé.|  
-|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.<br>(Windows 10 uniquement)|  
+|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que «&1234; » ou si vous devez fournir un mot de passe fort.<br>(Windows 10 uniquement)|  
 |**Complexité du mot de passe** - **Nombre de jeux de caractères complexes requis dans le mot de passe**|Si vous avez sélectionné un mot de passe **Fort**, utilisez ce paramètre pour configurer le nombre de jeux de caractères complexes requis. Pour un mot de passe fort, ce paramètre doit avoir au moins la valeur **3**, ce qui signifie qu’il doit comporter à la fois des chiffres et des lettres. Sélectionnez **4** si vous souhaitez exiger un mot de passe qui contienne des caractères spéciaux comme **(% $**.<br>(Windows 10 uniquement)|
 |**Envoyer le code PIN de récupération du mot de passe au serveur Exchange Server**|Défini sur **Activé** ou **Désactivé**.<br>(Windows 10 uniquement)|  
 
@@ -100,8 +100,8 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**BlueTooth**|Autorisez l'utilisation de la fonctionnalité Bluetooth des appareils.|  
 |**Mode découvrable Bluetooth**|Autorisez la découverte de l’appareil par d’autres appareils Bluetooth.<br>(Windows 10 uniquement)|  
 |**Publicité Bluetooth**|Autoriser l’utilisation de la publicité Bluetooth.<br> (Windows 10 uniquement)|  
-|**Enregistrement vocal**|Autorisez l’utilisation des fonctionnalités d’enregistrement de la voix de l’appareil.<br>(Windows 10 uniquement)| 
-|**Cortana**|Activer ou désactiver l’Assistant vocal Cortana.| 
+|**Enregistrement vocal**|Autorisez l’utilisation des fonctionnalités d’enregistrement de la voix de l’appareil.<br>(Windows 10 uniquement)|
+|**Cortana**|Activer ou désactiver l’Assistant vocal Cortana.|
 
 ### <a name="email-management"></a>Gestion de la messagerie  
 
@@ -153,7 +153,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Accéder à un site intranet pour une entrée à mot unique**|Active ou désactive le paramètre qui permet à Internet Explorer d'accéder automatiquement à un site Intranet si un nom de site valide est entré sans être précédé de HTTP :|  
 |**Option de menu du mode entreprise**|Autorisez les utilisateurs à activer et désactiver le mode Entreprise à partir du menu **Outils** d’Internet Explorer.|  
 |**Emplacement du rapport de journalisation (URL)**|Spécifiez une URL où les sites web visités sont enregistrés quand le Mode entreprise est actif.|  
-|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l'emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.| 
+|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l'emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.|
 
 ### <a name="microsoft-edge"></a>Microsoft Edge  
  Ces paramètres concernent les appareils exécutant Windows 10 et versions ultérieures.  
@@ -175,7 +175,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
  Ces paramètres concernent les appareils exécutant la mise à jour de novembre de Windows 10 (1511) et ultérieure.  
 
 |Nom du paramètre|Détails|  
-|------------------|-------------| 
+|------------------|-------------|
 |**Autoriser la surveillance en temps réel**|Active l’analyse en temps réel pour les logiciels malveillants, les logiciels espions et d’autres logiciels indésirables.|
 |**Autoriser la surveillance du comportement**|Permet à Defender de rechercher certains modèles connus d’activité suspecte sur les appareils.|
 |**Activer le système NIS (Network Inspection System)**|Le système NIS (Network Inspection System) vous aide à protéger les appareils contre les attaques réseau à l’aide de signatures de vulnérabilités connues provenant de Microsoft Endpoint Protection Center pour détecter et bloquer le trafic malveillant.|
@@ -201,7 +201,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Exclusions des extensions de fichier**|Ajoute une ou plusieurs extensions de fichier, comme jpg ou txt, à la liste des exclusions. Les fichiers avec ces extensions ne sont pas inclus dans les analyses en temps réel ou planifiées.|
 |**Exclusions des processus**|Ajoute un ou plusieurs processus du type .exe, .com ou .scr à la liste des exclusions. Ces processus ne sont pas inclus dans les analyses en temps réel ou planifiées.|
 
- 
+
 
 ###  <a name="cloud"></a>Cloud  
 
@@ -244,9 +244,9 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Gestion des appareils en itinérance**|Permet à l’appareil d’être géré par Configuration Manager en phase d’itinérance.<br>(Windows 10 uniquement)|  
 |**Téléchargement de logiciel en itinérance**|Permet de télécharger des applications et des logiciels lors de l'itinérance.<br>(Windows 10 uniquement)|  
 |**Téléchargement d'e-mails en itinérance**|Autorise les téléchargements de courrier électronique lors de l'itinérance.<br>(Windows 10 uniquement)|  
-|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.| 
+|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|
 |**VPN sur réseau de téléphonie mobile**|Contrôle si l’appareil peut accéder aux connexions VPN quand il est connecté à un réseau de téléphonie mobile.<br>(Windows 10 uniquement)|
-|**Itinérance VPN sur réseau de téléphonie mobile**|Contrôle si l’appareil peut accéder aux connexions VPN quand il est en itinérance sur un réseau de téléphonie mobile.<br>(Windows 10 uniquement)| 
+|**Itinérance VPN sur réseau de téléphonie mobile**|Contrôle si l’appareil peut accéder aux connexions VPN quand il est en itinérance sur un réseau de téléphonie mobile.<br>(Windows 10 uniquement)|
 
 ###  <a name="encryption"></a>Chiffrement  
 
@@ -287,7 +287,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Paramètres du serveur proxy**|Spécifiez si nécessaire les paramètres **Serveur** et **Port** pour **HTTP**, **WAP** et **Sockets**.|  
 |**Activer l'accès réseau 802.1X**|Sélectionnez cette option si vous souhaitez sécuriser la connexion en spécifiant un type EAP.|  
 |**Type EAP**|Choisissez le type EAP à utiliser :<br>- **PEAP**<br>- **Carte à puce ou certificat**|  
- 
+
 
 ### <a name="certificates"></a>Certificats  
  Vous permet d’importer les certificats à installer sur les appareils mobiles.  
@@ -349,18 +349,18 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |------------------|-------------|  
 |**URL des dossiers de travail**|Configure l'emplacement d'un dossier de travail Windows Server auquel les utilisateurs peuvent se connecter à partir de leur appareil.|  
 
-### <a name="windows-10-team"></a>Équipe Windows 10  
+### <a name="windows-10-team"></a>Windows 10 Collaboration  
  Ces paramètres concernent uniquement les appareils exécutant Windows 10 Collaboration.  
 
 |Nom du paramètre|Détails|  
 |------------------|-------------|  
 |**Autoriser l’écran à sortir de veille automatiquement quand les capteurs détectent la présence d’une personne dans la pièce**|Permet à l’appareil de sortir automatiquement quand son capteur détecte la présence d’une personne dans la pièce.|  
 |**Code PIN exigé pour la projection sans fil**|Indique si vous devez entrer un code confidentiel avant de pouvoir utiliser les fonctionnalités de projection sans fil de l’appareil.|  
-|**Fenêtre de maintenance**|Configure la fenêtre quand des mises à jour peuvent avoir lieu sur l’appareil. Vous pouvez configurer l’heure de début de la fenêtre et la durée (de 1 à 5 heures).| 
+|**Fenêtre de maintenance**|Configure la fenêtre quand des mises à jour peuvent avoir lieu sur l’appareil. Vous pouvez configurer l’heure de début de la fenêtre et la durée (de 1 à 5 heures).|
 |**Azure Operational Insights**|Azure Operational Insights, qui fait partie de la suite Microsoft Operations Manager, collecte, stocke et analyse les données des fichiers journaux provenant des appareils Windows 10 Collaboration.<br>Pour vous connecter à Azure Operational insights, vous devez spécifier un **ID d’espace de travail** et une **Clé d’espace de travail**.|
 |**Projection sans fil Miracast**|Activez cette option si vous voulez permettre à l’appareil Windows 10 Collaboration d’utiliser des appareils compatibles Miracast pour la projection.<br>Si vous activez cette option, dans **Choisir un canal Miracast**, sélectionnez le canal Miracast utilisé projeter du contenu.|
 |**Informations sur la réunion affichées sur l’écran d’accueil**|Si vous activez cette option, vous pouvez choisir les informations qui sont affichées sur la vignette **Réunions** de l’écran d’accueil. Vous pouvez :<br>- **Afficher uniquement l’organisateur et l’heure**<br>- **Afficher l’organisateur, l’heure et l’objet (objet masqué pour les réunions privées)**|
-|**URL de l’image d’arrière-plan de l’écran de verrouillage**|Activez ce paramètre pour afficher un arrière-plan personnalisé sur l’écran **Bienvenue** des appareils Windows 10 Collaboration à partir de l’URL que vous spécifiez.<br>L’image doit être au format PNG et l’URL doit commencer par **https://**.| 
+|**URL de l’image d’arrière-plan de l’écran de verrouillage**|Activez ce paramètre pour afficher un arrière-plan personnalisé sur l’écran **Bienvenue** des appareils Windows 10 Collaboration à partir de l’URL que vous spécifiez.<br>L’image doit être au format PNG et l’URL doit commencer par **https://**.|
 
 ### <a name="windows-information-protection"></a>Protection des informations Windows
  Ces paramètres concernent uniquement les appareils exécutant Windows 10.
@@ -393,7 +393,6 @@ Pour plus d’informations sur la Protection des informations Windows avec Confi
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

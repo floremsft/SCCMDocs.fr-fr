@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager | Microsoft Docs"
+title: "Fonctionnalités de Technical Preview 1602 Configuration Manager"
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3bf44f850722afdb8dfe5922c8ceff11c9b56d08
-ms.openlocfilehash: da69e2363114faa4f2e701f2784c90ec23537e42
+ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
+ms.openlocfilehash: 6e737d06563b256010f302af4e805eb6812524e2
 
 ---
 # <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager
@@ -33,11 +33,11 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 ### <a name="ios-activation-lock"></a>Verrou d’activation iOS  
  System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Une fois qu’il est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour pouvoir :  
 
--   désactiver Rechercher mon iPhone ;  
+-   Désactiver Rechercher mon iPhone  
 
--   effacer l'appareil ;  
+-   Effacer l'appareil  
 
--   réactiver l'appareil.  
+-   Réactiver l'appareil  
 
  Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Intune peut récupérer le code de contournement du verrou d’activation et l’émettre directement à l’appareil.  
 
@@ -61,6 +61,6 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

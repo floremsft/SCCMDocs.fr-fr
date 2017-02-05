@@ -1,5 +1,5 @@
 ---
-title: "Tâches courantes de gestion de la compatibilité des appareils sur les appareils n’exécutant pas le client System Center Configuration Manager | Microsoft Docs"
+title: "Tâches courantes de gestion de la compatibilité pour les appareils sans client - Configuration Manager | Microsoft Docs"
 description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
-ms.openlocfilehash: e24ef149e2a2648c9a7acaedfaa8f0b5bb173ab3
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: c206c1ff2258e0e7f0c42fe5f6a6327e850261c4
 
 
 ---
@@ -126,6 +126,6 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

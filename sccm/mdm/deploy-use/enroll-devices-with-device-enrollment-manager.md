@@ -1,5 +1,5 @@
 ---
-title: "Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager | Microsoft Docs"
+title: "Inscrire des appareils avec un gestionnaire d’inscription des appareils - Configuration Manager | Microsoft Docs"
 description: "Inscrivez les appareils d’entreprise avec le compte du gestionnaire d’inscription d’appareil à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,8 +16,8 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: ed60b23f7e7a194676cd7b055da9bc3517af8026
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: b356d2351b8a28bdca78176fdf0ff3c913a36bd3
 
 
 ---
@@ -92,6 +92,6 @@ Un restaurant souhaite que son personnel de service utilise des tablettes et com
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités de la version d’évaluation technique 1607 pour System Center Configuration Manager | Microsoft Docs"
+title: "Fonctionnalités de Technical Preview 1607 Configuration Manager"
 description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1607 pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f6e34e39d267f3bba26d6aa6a912eb4ba4aa3ab2
-ms.openlocfilehash: 1f91cda68204346913bee382a8bbf52b5a58e227
+ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
+ms.openlocfilehash: 54fc16c104ab25f3650ad1c38a2044abaee96a31
 
 ---
 # <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1607 pour System Center Configuration Manager
@@ -79,6 +79,6 @@ Pour plus d’informations sur ce problème, consultez le [blog de l’équipe d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

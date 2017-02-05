@@ -1,6 +1,6 @@
 ---
-title: "Déployer l’application Lookout for Work | System Center Configuration Manager"
-description: "Configurez et déployez les applications Lookout for Work."
+title: "Configurer et déployer des applications Lookout for Work | Microsoft Docs"
+description: "Instructions sur la configuration et le déploiement de l’application Lookout for Work pour les appareils Android et iOS."
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
@@ -16,12 +16,12 @@ author: nathbarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
-ms.openlocfilehash: 947393796043dcc3916a5f8e09898bb8a7cd347d
+ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
+ms.openlocfilehash: 5e7d67855dc7929b19ec1ae32457aa11700be56e
 
 
 ---
-# <a name="configure-and-deploy-lookout-for-work-apps"></a>Configurer et déployer les applications Lookout for Work
+# <a name="deploy-lookout-for-work-apps"></a>Déployer des applications Lookout for Work
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -92,6 +92,6 @@ Quand l’utilisateur ouvre l’application Lookout for Work sur l’appareil, i
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

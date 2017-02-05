@@ -17,8 +17,8 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
-ms.openlocfilehash: cc5b04dc41b13993fca35f202437b71e96bc9cdd
+ms.sourcegitcommit: cec595d473ca2459e43a7fa1c70b7668a8a48986
+ms.openlocfilehash: d529a058968cf99dce77997844b33ff5dc7c0004
 
 
 ---
@@ -43,8 +43,8 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 ##  <a name="a-namebkmkintunea-use-of-the--microsoft-intune-subscription"></a><a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
  Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  
 
-> [!IMPORTANT]  
->  Configuration Manager ne prend pas en charge l’utilisation conjuguée et simultanée de Microsoft Intune et de l’infrastructure Configuration Manager locale en tant qu’autorités de gestion. Ainsi, quand vous configurez l’abonnement Intune pour la gestion locale, vous désactivez de fait la gestion Intune.  
+ > [!NOTE]  
+ > À compter de la version 1610, Configuration Manager prend en charge l’utilisation simultanée de Microsoft Intune et de l’infrastructure Configuration Manager locale pour gérer les appareils mobiles.   
 
  Si votre site comporte des appareils dotés d’une connectivité Internet, vous pouvez utiliser le service Intune pour que les appareils vérifient l’existence de mises à jour de la stratégie par le biais du point de gestion d’appareil. Cette utilisation d’Intune est réservée uniquement à la notification des appareils exposés à Internet. Les appareils sans connexion Internet (ne pouvant pas être contactés par Intune) se fient à l’intervalle d’interrogation configuré pour vérifier les fonctions de gestion auprès des rôles système de site.  
 
@@ -122,6 +122,6 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune | Microsoft Docs
+title: Gestion hybride des appareils mobiles - Configuration Manager et Microsoft Intune | Microsoft Docs
 description: "Découvrez la gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,8 +17,8 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
-ms.openlocfilehash: caedfa2f89daf9ebad72602161dd618f0d18b4ab
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: ceeccab158cd23267ccd05cfbff82ef772f97fbc
 
 ---
 # <a name="hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune
@@ -117,6 +117,6 @@ La gestion des appareils mobiles (MDM) hybride avec Configuration Manager permet
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

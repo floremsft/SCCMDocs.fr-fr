@@ -1,5 +1,5 @@
 ---
-title: 'Surveiller les clients |System Center Configuration Manager | Linux UNIX '
+title: Surveiller des clients Linux/UNIX - Configuration Manager | Microsoft Docs
 description: Surveillez les clients sur des serveurs Linux et UNIX dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 11/23/2016
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 620c1caf50b4859afc8f32490ab7945df810aefd
-ms.openlocfilehash: b2b7c88784eed6fbee6ac1f6348d7d6991df1fbb
+ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
+ms.openlocfilehash: e9965373db17a752c8ae7fddb5f91fa1df912d49
 
 
 ---
@@ -38,7 +38,7 @@ Vous pouvez afficher des informations sur les serveurs Linux et UNIX dans la con
  Les sections suivantes décrivent comment obtenir ces informations à partir de l’Explorateur de ressources et des rapports.  
 
 ##  <a name="a-namebkmkuseresourceexpforlnua-use-resource-explorer-to-view-inventory-for-linux-and-unix-servers"></a><a name="BKMK_UseResourceExpforLnU"></a> Utiliser l’Explorateur de ressources pour afficher l’inventaire des serveurs Linux et UNIX  
- 
+
  Quand un client Configuration Manager envoie un inventaire matériel au site Configuration Manager, vous pouvez par la suite utiliser l’Explorateur de ressources pour consulter ces informations. Le client Configuration Manager pour Linux et UNIX n’ajoute pas de nouvelles classes ou vues d’inventaire dans l’Explorateur de ressources. Les données d’inventaire Linux et UNIX sont mappées aux classes WMI existantes. Vous pouvez afficher les détails d’inventaire de vos serveurs Linux et UNIX dans des classifications Windows à l’aide de l’Explorateur de ressources.  
 
  Par exemple, vous pouvez collecter la liste de tous les programmes installés en mode natif sur vos serveurs Linux et UNIX, tels que les programmes **.rpms** dans Linux ou **.pkgs** dans Solaris. Une fois que l’inventaire a été envoyé par un client UNIX ou Linux, vous pouvez afficher la liste de tous les programmes UNIX ou Linux installés en mode natif dans l’Explorateur de ressources de la console Configuration Manager.  
@@ -56,6 +56,6 @@ Vous pouvez afficher des informations sur les serveurs Linux et UNIX dans la con
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

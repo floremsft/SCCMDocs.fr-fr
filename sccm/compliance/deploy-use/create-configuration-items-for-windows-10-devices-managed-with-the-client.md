@@ -1,5 +1,5 @@
 ---
-title: "Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager | Microsoft Docs"
+title: "Créer des éléments de configuration pour un appareil Windows 10 géré par un client - Configuration Manager | Microsoft Docs"
 description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager."
 ms.custom: na
 ms.date: 11/18/2016
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: 2b24570aa2e9d9aa45584842011dcd49c6e5e8cc
+ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
+ms.openlocfilehash: 030cc33d98c81f3a6d5dff2d4c011e03fff12dc2
 
 
 ---
@@ -39,7 +39,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 
 3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
 
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et éventuellement une description pour l’élément de configuration.  
 
 5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Windows 10**.  
 
@@ -87,7 +87,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **Wi
 |**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe précédents.|  
 |**Nombre d’échecs de tentative de connexion avant la réinitialisation du périphérique**|Réinitialise le périphérique si la connexion échoue ce nombre de fois.|  
 |**Durée d'inactivité avant que l'appareil mobile soit verrouillé**|Indique le nombre de minutes pendant lequel le périphérique doit être inactif avant d’être automatiquement bloqué.|  
-|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|  
+|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que «&1234; » ou si vous devez fournir un mot de passe fort.|  
 
 ###  <a name="device"></a>Appareil  
 
@@ -137,6 +137,6 @@ Pour plus d’informations sur la Protection des informations Windows avec Confi
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

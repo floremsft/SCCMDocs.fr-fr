@@ -1,8 +1,8 @@
 ---
-title: "Gérer Windows en tant que service | Documents Microsoft"
-description: "Dans System Center Configuration Manager, certaines fonctionnalités vous permettent d’afficher l’état de Windows as a Service dans votre environnement pour vous aider à maintenir votre système à jour."
+title: "Gérer Windows as a Service (WaaS) - Configuration Manager | Microsoft Docs"
+description: "Affichez l’état de Windows as a Service à l’aide de Configuration Manager, créez des plans de maintenance pour former des anneaux de déploiement et affichez des alertes lorsque la fin du support est proche pour les clients Windows 10."
 ms.custom: na
-ms.date: 12/21/2016
+ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 66cd6d099acdd9db2bc913a69993aaf5e17237fe
-ms.openlocfilehash: 79e13074db18a617c7e3fceedaa143dbece90a3d
+ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
+ms.openlocfilehash: b3859bc01c37dab04275028585e892f927606025
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 79e13074db18a617c7e3fceedaa143dbece90a3d
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des boucles de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
+ Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des anneaux de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
 
  Pour plus d’informations sur les options de maintenance de Windows 10, consultez  [Options de maintenance de Windows 10 pour les mises à jour et les mises à niveau](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
@@ -39,7 +39,7 @@ ms.openlocfilehash: 79e13074db18a617c7e3fceedaa143dbece90a3d
 
 -   WSUS 4.0 avec le [correctif logiciel 3095113](https://support.microsoft.com/kb/3095113) doit être installé sur les points de mise à jour logicielle et les serveurs de site. Ceci ajoute la classification des mises à jour logicielles **Mises à niveau** . Pour plus d’informations, consultez [Prérequis pour les mises à jour logicielles](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
--   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Mobilité et sécurité d’entreprise](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
+-   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
 -   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
 
@@ -65,7 +65,7 @@ ms.openlocfilehash: 79e13074db18a617c7e3fceedaa143dbece90a3d
 
 -   **Vignette Boucles Windows 10**: fournit une vue détaillée de Windows 10 par branche et état de préparation. Le segment LTSB correspond à toutes les versions LTSB (tandis que la première vignette répartit les informations d’après les versions spécifiques. Par exemple, Windows 10 LTSB 2015. Le segment **Release Ready** correspond à CB et le segment **Business Ready** correspond à CBB.  
 
--   **Vignette Créer un plan de maintenance**: permet de créer rapidement un plan de maintenance. Vous spécifiez le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation. Des valeurs par défaut sont utilisées pour les autres paramètres. Cliquez sur **Paramètres avancés** pour démarrer l’Assistant Créer un plan de maintenance, dans lequel vous pouvez configurer tous les paramètres du plan de maintenance.  
+-   **Vignette Créer un plan de maintenance**: permet de créer rapidement un plan de maintenance. Vous spécifiez le nom, le regroupement (seuls les&10; principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les&10; derniers packages modifiés sont affichés) et l’état de préparation. Des valeurs par défaut sont utilisées pour les autres paramètres. Cliquez sur **Paramètres avancés** pour démarrer l’Assistant Créer un plan de maintenance, dans lequel vous pouvez configurer tous les paramètres du plan de maintenance.  
 
 -   **Vignette Expiré**: affiche le pourcentage d’appareils qui utilisent une build de Windows 10 qui est au-delà de sa fin de vie. Configuration Manager détermine ce pourcentage à partir des métadonnées téléchargées par le point de connexion de service et le compare aux données de découverte. Une build qui est au-delà de sa fin de vie ne reçoit plus de mises à jour cumulatives mensuelles, qui comprennent des mises à jour de sécurité. Vous devez mettre à niveau les ordinateurs de cette catégorie vers la version de build suivante. Configuration Manager arrondit au nombre entier supérieur. Par exemple, si vous avez 10 000 ordinateurs et qu’un seul d’entre eux utilise une build qui a expiré, la vignette affiche 1 %.  
 
@@ -98,7 +98,7 @@ Les plans de maintenance utilisent seulement la classification des mises à jour
 > [!NOTE]  
 >  Vous pouvez utiliser une séquence de tâches pour déployer une mise à niveau pour chaque build de Windows 10, mais cela nécessite davantage d’opérations manuelles. Il vous faudrait importer les fichiers sources mis à jour en tant que package de mise à niveau du système d’exploitation, puis créer et déployer la séquence de tâches sur l’ensemble d’ordinateurs approprié. Toutefois, une séquence de tâches fournit des options personnalisées supplémentaires, telles que les actions de prédéploiement et de post-déploiement.  
 
- Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
+ Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les&10; principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les&10; derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
 
 > [!NOTE]  
 >  À partir de Configuration Manager version 1602, vous pouvez gérer le comportement pour les déploiements à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches ayant comme objectif **Obligatoire** qui déploie Windows 10 est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
@@ -277,6 +277,6 @@ Pour modifier les propriétés d’un plan de maintenance, appliquez la procédu
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

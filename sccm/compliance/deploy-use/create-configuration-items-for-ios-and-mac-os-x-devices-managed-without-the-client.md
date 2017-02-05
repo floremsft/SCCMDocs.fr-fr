@@ -1,5 +1,5 @@
 ---
-title: "Créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager | Microsoft Docs"
+title: "Créer des éléments de configuration pour les appareils iOS et Mac sans client - Configuration Manager | Microsoft Docs"
 description: "L’élément de configuration System Center Configuration Manager iOS et Mac OS X permet de gérer les paramètres des appareils iOS et Mac OS X."
 ms.custom: na
 ms.date: 12/14/2016
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d023df79e0bcb7d5583224802976a5059c4ee753
-ms.openlocfilehash: ea4024aaa07d40781663725127d64388055c6501
+ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
+ms.openlocfilehash: 0614753a68e98675ccae99b792b03481f4ca7ab1
 
 
 ---
@@ -80,7 +80,7 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 |**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
 |**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
 |**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.<br>(iOS uniquement)| 
+|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.<br>(iOS uniquement)|
 |**Durée d’inactivité avant le verrouillage de l’appareil**|Spécifie le nombre de minutes d’inactivité avant que l’appareil soit automatiquement verrouillé.|
 |**Complexité du mot de passe**|Indiquez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|
 |**Autoriser les mots de passe simples**|Spécifie que des mots de passe simples comme « 0000 » et « 1234 » peuvent être utilisés.|
@@ -370,6 +370,6 @@ Utilisez l’élément de configuration System Center Configuration Manager **iO
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

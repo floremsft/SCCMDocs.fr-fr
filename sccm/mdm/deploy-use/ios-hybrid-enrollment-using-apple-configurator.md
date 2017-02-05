@@ -1,5 +1,5 @@
 ---
-title: "Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
+title: "Inscrire des appareils iOS dans Apple Configurator - Configuration Manager | Microsoft Docs"
 descriptions: Pre-enroll iOS devices by using Apple Configurator with Configuration Manager.
 ms.custom: na
 ms.date: 12/16/2016
@@ -16,8 +16,8 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fd410a6572acce685dc6cdb954c1c2d97d5ed8b
-ms.openlocfilehash: 33aebbbe0dc59fc9dcc8bee79d1465566403d204
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: 6c6e9edbc7b2fca3d1be4feabb238efab80465fa
 
 
 ---
@@ -41,7 +41,7 @@ La procédure qui suit est recommandée pour les appareils iOS dédiés utilisé
 
 ## <a name="step-1-add-a-corporate-owned-device-enrollment-profile"></a>Étape 1 : Ajouter un profil d’inscription des appareils d’entreprise
 
-1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**. Cliquez sur **Créer un profil** pour ouvrir l’Assistant Création d’un profil. Configurez les paramètres des pages suivantes :  
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**. Cliquez sur **Créer un profil** pour ouvrir l’Assistant Création d’un profil. Configurez les paramètres des pages suivantes :  
 
 2.  Sur la page **Général** , spécifiez informations suivantes :  
 
@@ -69,7 +69,7 @@ Pour plus d’informations, consultez [Prédéclarer des appareils avec des num�
 
 ## <a name="step-3-export-the-profile-to-deploy-to-ios-devices"></a>Étape 3 : Exporter le profil à déployer sur les appareils iOS
 
-1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**.
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**.
 
 2.  Sélectionnez le profil d’inscription à déployer sur les appareils mobiles, puis cliquez sur **Exporter**.
 
@@ -139,6 +139,6 @@ Les appareils sont désormais prêts pour l’inscription d’entreprise. Éteig
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

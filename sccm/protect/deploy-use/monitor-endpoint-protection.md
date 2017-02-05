@@ -1,5 +1,5 @@
 ---
-title: Surveiller Endpoint Protection | Microsoft Docs
+title: "Surveiller l’état d’Endpoint Protection | Microsoft Docs"
 description: "Découvrez comment surveiller Endpoint Protection dans votre hiérarchie System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/9/2016
@@ -16,12 +16,12 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9fcbc0bb9c8ccd4265381ca4db7a363c8ae3b54a
-ms.openlocfilehash: 590d95f82a30167dcc0d5191feaa39ecab2b3136
+ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
+ms.openlocfilehash: 99e266e44f718d97c2a6e61e8e6816752751ed7b
 
 
 ---
-# <a name="how-to-monitor-endpoint-protection-in-system-center-configuration-manager"></a>Comment surveiller Endpoint Protection dans System Center Configuration Manager
+# <a name="how-to-monitor-endpoint-protection-status"></a>Guide pratique pour surveiller l’état d’Endpoint Protection
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -42,7 +42,7 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
     > -   Quand vous déployez une stratégie de logiciel anti-programme malveillant Endpoint Protection sur le regroupement.  
     > -   Quand vous activez et déployez les paramètres client Endpoint Protection sur le regroupement.  
 
-4.  Examinez les informations affichées dans le **état de sécurité** et **état opérationnel** sections. Vous pouvez cliquer sur n'importe quel lien d'état pour créer un regroupement temporaire dans le nœud **Périphériques** de l'espace de travail **Biens et conformité** . Le regroupement temporaire contient les ordinateurs dont l'état est sélectionné.  
+4.  Examinez les informations affichées dans le **état de sécurité** et **état opérationnel** sections. Vous pouvez cliquer sur n'importe quel lien d'état pour créer un regroupement temporaire dans le nœud **Périphériques** de l'espace de travail **Ressources et Conformité**. Le regroupement temporaire contient les ordinateurs dont l'état est sélectionné.  
 
     > [!IMPORTANT]  
     >  Les informations affichées dans le nœud **État Endpoint Protection** se basent sur les dernières données de synthèse de la base de données Configuration Manager et peuvent ne pas être actualisées. Si vous voulez récupérer les dernières données, sous l’onglet **Accueil** , cliquez sur **Exécuter le résumé**ou cliquez sur **Planifier le résumé** pour régler l’intervalle de résumé.  
@@ -51,7 +51,7 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Dans l'espace de travail **Biens et conformité** , exécutez l'une des actions suivantes :  
+2.  Dans l'espace de travail **Ressources et Conformité**, exécutez l'une des actions suivantes :  
 
     -   Cliquez sur **Périphériques**. Dans la liste **Périphériques** , sélectionnez un ordinateur, puis cliquez sur l'onglet **Détail du programme malveillant** .  
 
@@ -84,6 +84,6 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
