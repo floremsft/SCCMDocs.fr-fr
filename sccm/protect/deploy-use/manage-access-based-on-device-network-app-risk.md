@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4c0e6824-2dfe-4700-b817-d5631e0eb872
 caps.latest.revision: 
-author: nathbarn
-ms.author: nathbarn
+author: andredm7
+ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
@@ -93,11 +93,11 @@ Détectez les menaces pour votre réseau, telles que les attaques de l’interce
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voici les principales étapes à effectuer pour implémenter cette solution :
-1.  [Configurer votre abonnement avec Lookout Mobile Threat Protection](set-up-your-subscription-with-lookout.md)
-2.  [Activer la connexion à Lookout MTP dans Intune](enable-lookout-connection-in-intune.md)
+1.    [Configurer votre abonnement avec Lookout Mobile Threat Protection](set-up-your-subscription-with-lookout.md)
+2.    [Activer la connexion à Lookout MTP dans Intune](enable-lookout-connection-in-intune.md)
 3.  [Configurer et déployer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md)
-4.  [Configurer une stratégie de conformité](enable-device-threat-protection-rule-compliance-policy.md)
-5.  [Résoudre les problèmes liés à l’intégration de Lookout](troubleshoot-lookout-integration.md)
+4.    [Configurer une stratégie de conformité](enable-device-threat-protection-rule-compliance-policy.md)
+5.    [Résoudre les problèmes liés à l’intégration de Lookout](troubleshoot-lookout-integration.md)
 
 
 
