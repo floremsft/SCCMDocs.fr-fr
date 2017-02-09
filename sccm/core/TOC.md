@@ -259,7 +259,6 @@
 ###  [Guide pratique pour étendre l’inventaire matériel](clients/manage/inventory/extend-hardware-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire matériel](clients/manage/inventory/configure-hardware-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire matériel pour des appareils mobiles dans un déploiement hybride](clients/manage/inventory/mobile-device-hardware-inventory-hybrid.md)
-<!--- ###  [Operations and maintenance for hardware inventory](clients/manage/inventory/hardware-inventory.md) --->
 ###  [Guide pratique pour utiliser l’Explorateur de ressources pour consulter l’inventaire matériel](clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md)
 ###  [Inventaire matériel pour Linux et UNIX](clients/manage/inventory/hardware-inventory-for-linux-and-unix.md)
 ###  [Sécurité et confidentialité pour l’inventaire matériel](clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)
