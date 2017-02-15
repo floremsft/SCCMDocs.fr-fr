@@ -2,7 +2,7 @@
 title: "Définitions de programmes malveillants Endpoint Protection | Microsoft Docs"
 description: "Apprenez à configurer les mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
