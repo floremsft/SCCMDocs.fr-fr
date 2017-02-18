@@ -1,5 +1,5 @@
 ---
-title: "Inscrire des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
+title: "Inscrire des appareils d’entreprise - Configuration Manager | Microsoft Docs"
 description: "Découvrez les différentes méthodes d’inscription des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,8 +16,8 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 490b89f8174667d232a2ca3729d36ead8fc4d46c
+ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
+ms.openlocfilehash: b797bf2c180478f6a9ee5a7228e8eb94194285ff
 
 
 ---
@@ -51,6 +51,6 @@ Vous pouvez identifier des appareils d’entreprise en important leur numéro IM
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
