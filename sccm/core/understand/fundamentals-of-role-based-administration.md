@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8e0090bd671e2c566447579974a38474c2f898ea
-ms.openlocfilehash: 1ca51e256ea2f406f393e4b0d3634ea0f6f637bc
+ms.sourcegitcommit: a8cb3c9850b183eec156c37a181c04088b71805e
+ms.openlocfilehash: 40837306816639ff8cea8930fec75b05edc5164a
 
 
 ---
@@ -72,9 +72,9 @@ Quand vous concevez et implémentez la sécurité administrative pour Configurat
 
 -   *Administrateur complet* : accorde toutes les autorisations dans Configuration Manager.  
 
--   *Analyste des biens* : accorde aux utilisateurs administratifs l’autorisation d’afficher les données collectées par Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et le contrôle de logiciel. Les utilisateurs administratifs peuvent créer des règles de contrôle ainsi que des catégories, des familles et des étiquettes Asset Intelligence.  
+-   *Gestionnaire de biens* : accorde des autorisations permettant de gérer le point de synchronisation Asset Intelligence, les classes de création de rapports Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et les règles de contrôle.  
 
--   *Gestionnaire des mises à jour logicielles* : accorde les autorisations de définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements et des modèles, et peuvent configurer les mises à jour logicielles pour la protection d’accès réseau.  
+-   *Gestionnaire des mises à jour logicielles* : accorde les autorisations de définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements et des modèles.  
 
 > [!TIP]  
 >  Vous pouvez afficher la liste des rôles de sécurité intégrés et les rôles de sécurité personnalisés que vous créez, ainsi que leurs descriptions, dans la console Configuration Manager. Pour afficher les rôles, dans l’espace de travail **Administration**, développez **Sécurité**, puis sélectionnez **Rôles de sécurité**.  
@@ -215,6 +215,6 @@ Pour plus d’informations sur la façon de configurer des étendues de sécurit
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

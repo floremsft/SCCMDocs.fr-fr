@@ -2,7 +2,7 @@
 title: Configuration Manager dans Azure | Microsoft Docs
 description: "Informations sur l’utilisation de Configuration Manager dans un environnement Azure."
 ms.custom: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6638d6e17d0eaeef731cce45e8cf5c827d6e0dfe
-ms.openlocfilehash: 4d953eedc7d5cceb8767dab8850cacb1e007194d
+ms.sourcegitcommit: 264e009952db34a6f4929ecb70dc6857117ce4fe
+ms.openlocfilehash: e8798adc0e479417c682450d181611284c148e6d
 
 ---
 # <a name="configuration-manager-on-azure---frequently-asked-questions"></a>Configuration Manager dans Azure – Forum Aux Questions
@@ -92,7 +92,7 @@ Configuration Manager n’a pas été testé avec les équilibreurs de charge Az
 En règle générale, votre puissance de calcul (UC et mémoire) doit correspondre au [matériel recommandé pour System Center Configuration Manager](/sccm/core/plan-design/configs/recommended-hardware). Toutefois, il existe certaines différences entre le matériel informatique standard et les machines virtuelles Azure, notamment en ce qui concerne les disques que ces machines virtuelles utilisent.  La taille des machines virtuelles que vous utilisez dépend de la taille de votre environnement. Voici quelques recommandations :
 - Pour les déploiements en production d’une taille importante, nous recommandons des machines virtuelles Azure de classe « **S** ». Cela tient au fait qu’elles peuvent tirer parti des disques de stockage Premium.  Les machines virtuelles de classe autre que « S » utilisent le stockage d’objets blob et, en général, ne respectent pas les exigences de performances nécessaires pour un environnement de production acceptable.
 - Plusieurs disques de stockage Premium doivent être utilisés pour une échelle supérieure et agrégés par bandes dans la console Windows Disk Management pour un nombre maximal d’E/S par seconde.  
-- Nous vous recommandons d’utiliser de meilleurs disques premium ou plusieurs disques premium pendant votre déploiement initial de site (comme P30 à la place de P20, et 2xP30 à la place de 1xP30). Ensuite, si votre site a besoin d’augmenter ultérieurement la taille des machines virtuelles en raison d’une charge supplémentaire, vous pouvez tirer parti de l’UC et de la mémoire supplémentaires qu’une plus grande taille de machine virtuelle fournit. Vous aurez également des disques déjà en place, susceptibles de tirer parti du débit d’E/S par seconde supplémentaire que permet la plus grande taille de machine virtuelle.
+- Nous vous recommandons d’utiliser de meilleurs disques premium ou plusieurs disques premium pendant votre déploiement initial de site (comme P30 à la place de P20, et 2xP30 dans un volume agrégé par bandes à la place de 1xP30). Ensuite, si votre site a besoin d’augmenter ultérieurement la taille des machines virtuelles en raison d’une charge supplémentaire, vous pouvez tirer parti de l’UC et de la mémoire supplémentaires qu’une plus grande taille de machine virtuelle fournit. Vous aurez également des disques déjà en place, susceptibles de tirer parti du débit d’E/S par seconde supplémentaire que permet la plus grande taille de machine virtuelle.
 
 
 
@@ -102,18 +102,18 @@ Les tableaux suivants répertorient les nombres de disques suggérés initiaux �
 
 | Clients bureau    |Taille de machine virtuelle recommandée|Disques recommandés|
 |--------------------|-------------------|-----------------|
-|**Jusqu’à 25 000**       |   DS4_V2          |2xP30            |
-|**de 25 000 à 50 000**      |   DS13_V2         |2xP30            |
-|**de 50 000 à 100 000**     |   DS14_V2         |3xP30            |
+|**Jusqu’à 25 000**       |   DS4_V2          |2xP30 (agrégé par bandes)  |
+|**de 25 000 à 50 000**      |   DS13_V2         |2xP30 (agrégé par bandes)  |
+|**de 50 000 à 100 000**     |   DS14_V2         |3xP30 (agrégé par bandes)  |
 
 
 **Base de données de site distant** : site d’administration centrale ou site principal avec la base de données de site sur le serveur de site :
 
 | Clients bureau    |Taille de machine virtuelle recommandée|Disques recommandés |
 |--------------------|-------------------|------------------|
-|**Jusqu’à 25 000**       | Serveur de site : F4S </br>Serveur de base de données : DS12_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 |
-|**de 25 000 à 50 000**      | Serveur de site : F4S </br>Serveur de base de données : DS13_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 |
-|**de 50 000 à 100 000**     | Serveur de site : F8S </br>Serveur de base de données : DS14_V2 | Serveur de site : 2xP30 </br>Serveur de base de données : 3xP30 |
+|**Jusqu’à 25 000**       | Serveur de site : F4S </br>Serveur de base de données : DS12_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 (agrégé par bandes)  |
+|**de 25 000 à 50 000**      | Serveur de site : F4S </br>Serveur de base de données : DS13_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 (agrégé par bandes)   |
+|**de 50 000 à 100 000**     | Serveur de site : F8S </br>Serveur de base de données : DS14_V2 | Serveur de site : 2xP30 (agrégé par bandes)   </br>Serveur de base de données : 3xP30 (agrégé par bandes)   |
 
 Voici un exemple de configuration pour 50 000 à 100 000 clients sur DS14_V2 avec 3 disques P30 dans un volume agrégé par bandes avec des volumes logiques distincts pour les fichiers d’installation de Configuration Manager et les fichiers de base de données :  ![VM)disks](media/vm_disks.png)  
 
@@ -139,7 +139,7 @@ L’approche de la gestion de contenu est très similaire à celui pour les serv
 
 
 ### <a name="while-i-am-ok-with-the-limitations-of-cloud-based-distribution-points-i-dont-want-to-put-my-management-point-into-a-dmz-even-though-that-is-needed-to-support-my-internet-based-clients-do-i-have-any-other-options"></a>Les limitations des points de distribution cloud ne me posent pas de problème, mais je ne souhaite pas placer mon point de gestion dans une zone DMZ, même si cela est nécessaire pour prendre en charge mes clients basés sur Internet. Y a-t-il d’autres options à ma disposition ?
-Oui ! Dans Configuration Manager version 1610, nous avons introduit la fonctionnalité de préversion [Passerelle de gestion cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway). (Cette fonctionnalité a d’abord été proposée dans la version Technical Preview 1606 sous le nom [Service de proxy cloud](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet).) 
+Oui ! Dans Configuration Manager version 1610, nous avons introduit la fonctionnalité de préversion [Passerelle de gestion cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway). (Cette fonctionnalité a d’abord été proposée dans la version Technical Preview 1606 sous le nom [Service de proxy cloud](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet).)
 
 La fonctionnalité **Passerelle de gestion cloud** fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et nécessite un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé « point de connexion de passerelle de gestion cloud ». Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
 
@@ -182,6 +182,6 @@ Cela est difficile à dire puisque chaque environnement est différent. La meill
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 
