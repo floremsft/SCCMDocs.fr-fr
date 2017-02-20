@@ -2,7 +2,7 @@
 title: Endpoint Protection | Microsoft Docs
 description: "Apprenez à gérer les stratégies de logiciel anti-programme malveillant et la sécurité du Pare-feu Windows pour les ordinateurs clients de votre hiérarchie Configuration Manager."
 ms.custom: na
-ms.date: 01/17/2017
+ms.date: 02/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
-ms.openlocfilehash: dd08e9ae6827e5f59eaf3414adbcc8667bc75140
+ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
+ms.openlocfilehash: 90e6d82e7fd1ff0ad4f1d616cc23201769fe26e2
 
 
 ---
@@ -38,7 +38,7 @@ Endpoint Protection dans System Center Configuration Manager vous permet de gér
 
 -   Envoi de notifications par courrier électronique, utilisation de la surveillance dans la console et affichage de rapports pour informer les utilisateurs administratifs qu’un logiciel malveillant a été détecté sur des ordinateurs clients  
 
-Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestion d’Endpoint Protection. Sur les ordinateurs Windows 8.1 et antérieurs, Endpoint Protection installe son propre client en plus du client Configuration Manager. Endpoint Protection a des capacités de gestion. Le client Endpoint Protection offre les possibilités suivantes :  
+À compter de Windows 10 et de Windows Server 2016, les ordinateurs n’ont besoin d’aucun autre client pour la gestion d’Endpoint Protection. Sur les ordinateurs Windows 8.1 et antérieurs, Endpoint Protection installe son propre client en plus du client Configuration Manager. Le client Endpoint Protection offre les possibilités suivantes :  
 
 -   Détection des logiciels malveillants et des logiciels espions et mesures correctives  
 
@@ -112,16 +112,16 @@ Les ordinateurs Windows 10 n’ont besoin d’aucun autre client pour la gestio
 
 Procédez comme suit pour télécharger le fichier image contenant le logiciel client Endpoint Protection et la documentation pour les ordinateurs Mac et les serveurs Linux.
 1. Connectez-vous au [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/licensing/servicecenter/default.aspx).
-2. Sélectionnez l’onglet **Downloads and Keys** (Téléchargements et clés) situé en haut du site web.
+2. Sélectionnez l’onglet **Téléchargements et clés** situé en haut du site web.
 3. Filtrez sur le produit **System Center Endpoint Protection (Current Branch)**.
 4. Cliquez sur le lien vers **Télécharger**
-5. Cliquez sur **Continue**(Continuer). Vous devez voir plusieurs fichiers, dont un nommé : **System Center Endpoint Protection (current branch - version 1606) for Linux OS and Macintosh OS Multilanguage   32/64 bit   1507 MB ISO**.
+5. Cliquez sur **Continuer**. Vous devez voir plusieurs fichiers, dont un nommé : **System Center Endpoint Protection (current branch - version 1606) for Linux OS and Macintosh OS Multilanguage   32/64 bit   1507 MB ISO**.
 6. Cliquez sur l’icône de flèche pour télécharger le fichier. Le nom de fichier est **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21-30777.ISO**.
 
  Pour plus d’informations sur l’installation et la gestion des clients Endpoint Protection sur les ordinateurs Mac et Linux, utilisez la documentation qui accompagne ces produits, disponible dans le dossier **Documentation** .
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

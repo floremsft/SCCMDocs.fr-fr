@@ -2,7 +2,7 @@
 title: Infrastructure de contenu | Microsoft Docs
 description: "Apprenez à déployer et à gérer votre infrastructure de gestion de contenu pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 35247425252cb3724de2871d713f08469e72555a
+ms.sourcegitcommit: e30538ed925af66e8b7459eb4add9dd992c1ae19
+ms.openlocfilehash: b0f297fddca4252f106dee9d3d5d8911a347825b
 
 
 ---
@@ -26,16 +26,16 @@ ms.openlocfilehash: 35247425252cb3724de2871d713f08469e72555a
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Quand vous êtes prêt à déployer et à gérer votre infrastructure de gestion de contenu pour System Center Configuration Manager, aidez-vous des informations fournies dans les rubriques suivantes :  
+Quand vous êtes prêt à configurer et à gérer votre infrastructure de gestion de contenu pour System Center Configuration Manager, aidez-vous des informations dans les rubriques suivantes :  
 
--   [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) : avant de pouvoir déployer du contenu, vous devez installer et configurer des points de distribution. Vous pouvez ensuite configurer des groupes de points de distribution pour simplifier la gestion de contenu dans votre infrastructure. Les informations de cette rubrique peuvent vous aider à effectuer ces tâches, et détaillent les paramètres approfondis et variés pris en charge par les points de distribution individuels.  
+-   [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md). Avant de déployer du contenu, vous devez installer et configurer des points de distribution. Vous pouvez ensuite configurer des groupes de points de distribution pour simplifier la gestion de contenu dans votre infrastructure. Les informations de cette rubrique peuvent vous aider à effectuer ces tâches, et détaillent les paramètres approfondis et variés pris en charge par les points de distribution individuels.  
 
--   [Déployer et gérer du contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md) : le déploiement de contenu transfère des fichiers et des logiciels sur les serveurs de point de distribution à l’échelle de votre réseau. En plus du transfert proprement dit, vous avez la possibilité de préparer le contenu, ce qui permet d’éviter une utilisation excessive de la bande passante réseau. Les informations contenues dans cette rubrique peuvent vous aider à exécuter les tâches de base liées à l’envoi de ce contenu ou à l’utilisation efficace d’un contenu préparé.  
+-   [Déployer et gérer du contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Le déploiement de contenu transfère des fichiers et logiciels aux serveurs de point de distribution sur le réseau. En plus du transfert proprement dit, vous pouvez préparer le contenu, ce qui permet d’éviter une utilisation excessive de la bande passante réseau. Les informations contenues dans cette rubrique peuvent vous aider à exécuter les tâches de base liées à l’envoi de ce contenu ou à l’utilisation efficace d’un contenu préparé.  
 
--   [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md) : vous pouvez surveiller l’état du contenu à mesure que vous le déployez dans votre infrastructure. Vous pouvez également redistribuer du contenu qui n’atteint pas des points de distribution, ou annuler les distributions en cours. Les informations contenues dans cette rubrique vous aideront à comprendre ce qu’est l’analyse de contenu et comment l’effectuer, ainsi que la manière de résoudre certains problèmes en cas d’échec du transfert de contenu.  
+-   [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). À mesure que vous déployez du contenu, vous pouvez analyser son état dans votre infrastructure. Vous pouvez également redistribuer du contenu qui n’atteint pas des points de distribution, ou annuler les distributions en cours. Les informations contenues dans cette rubrique vous aident à comprendre comment analyser votre contenu et comment résoudre certains problèmes en cas d’échec du transfert de contenu.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

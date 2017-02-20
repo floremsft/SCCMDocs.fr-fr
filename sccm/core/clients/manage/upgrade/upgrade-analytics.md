@@ -2,10 +2,10 @@
 title: Upgrade Analytics | System Center Configuration Manager
 description: "Intégrez Upgrade Analytics à Configuration Manager. Accédez aux données de compatibilité de mise à niveau dans votre console d’administration. Ciblez des appareils pour la mise à niveau ou la mise à jour."
 keywords: 
-author: nbigman
-ms.author: nbigman
+author: brenduns
+ms.author: brenduns
 manager: angerobe
-ms.date: 11/23/2016
+ms.date: 12/3/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -13,8 +13,8 @@ ms.technology:
 - configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
 translationtype: Human Translation
-ms.sourcegitcommit: bf28164fc2594d2557db5626a6f52c32ad99a1fe
-ms.openlocfilehash: fa90fa0da348e7cca186ff8066c7a9fa98c57cf5
+ms.sourcegitcommit: 831d8a66c827d246069c7415cdce7a7c4bb95b33
+ms.openlocfilehash: 07747b86bad0d1ce6302521093fc3c4433c59325
 
 
 ---
@@ -73,13 +73,13 @@ Le script de déploiement Upgrade Analytics effectue les tâches suivantes :
 - Définit la clé ID commercial et les clés CommercialDataOptIn et RequestAllAppraiserVersions.  
 - Vérifie que les ordinateurs des utilisateurs peuvent envoyer des données à Microsoft.  
 - Vérifie si l’ordinateur a un redémarrage en attente.   
-- Vérifie que la dernière version du package de bases de connaissances 10.0.x est installée (nécessite la version 10.0.14348 ou ultérieure).  
+- Vérifie que la dernière version du package de bases de connaissances 10.0.x est installée (nécessite la version 10.0.14913 ou ultérieure).  
 - S’il est activé, active le mode détaillé pour la résolution des problèmes.  
 - Lance la collecte des données de télémétrie dont Microsoft a besoin pour évaluer l’état de préparation de votre organisation pour la mise à niveau.  
 - S’il est activé, affiche la progression du script dans une fenêtre de commande, ce qui vous apporte une visibilité sur les problèmes (réussite ou échec de chaque étape), et/ou écrit dans le fichier journal.  
-  
+
 ### <a name="to-run-the-upgrade-analytics-deployment-script"></a>Pour utiliser le script de déploiement Upgrade Analytics :  
-  
+
 1. Téléchargez le [script de déploiement Upgrade Analytics](https://go.microsoft.com/fwlink/?LinkID=822966&clcid=0x409) et extrayez UpgradeAnalytics.zip. Les fichiers du dossier **Diagnostics** sont nécessaires uniquement si vous projetez d’exécuter le script en mode de résolution de problèmes.  
 2. Modifiez ces paramètres dans RunConfig.bat :  
 - Emplacement de stockage des informations du journal. Exemple : %SystemDrive%\UADiagnostics. Vous pouvez stocker les informations du journal dans un partage de fichiers distant ou un répertoire local. Si le script ne peut pas créer le fichier journal dans le chemin indiqué, il crée les fichiers journaux dans le lecteur contenant le répertoire Windows.  
@@ -90,12 +90,12 @@ Le script de déploiement Upgrade Analytics effectue les tâches suivantes :
     - logMode = 2 écrit les informations dans le fichier uniquement  
     - Pour la résolution des problèmes, définissez **isVerboseLogging** avec la valeur **$true** pour générer des informations de journal pouvant faciliter le diagnostic des problèmes. Par défaut, **isVerboseLogging** a la valeur **$false**. Vérifiez que le dossier Diagnostics est installé dans le même répertoire que le script pour utiliser ce mode.  
     - Informez les utilisateurs s’ils doivent redémarrer leur ordinateur. Par défaut, ce paramètre est désactivé.  
-  
+
 3. Une fois que vous avez modifié les paramètres dans RunConfig.bat, exécutez le script en tant qu’administrateur.  
-  
-  
+
+
 ## <a name="view-microsoft-upgrade-analytics-properties-in-configuration-manager"></a>Afficher les propriétés de Microsoft Upgrade Analytics dans Configuration Manager  
-  
+
 1.  Dans la console Configuration Manager, accédez à **Services cloud**, puis choisissez **Connecteur OMS** pour ouvrir la page **Propriétés de connexion OMS**.  
 
 2.  Cette page contient deux onglets :
@@ -113,6 +113,6 @@ Une fois que vous avez intégré Upgrade Analytics à Configuration Manager, vou
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

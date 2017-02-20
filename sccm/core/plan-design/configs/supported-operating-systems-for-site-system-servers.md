@@ -2,7 +2,7 @@
 title: "Serveurs de système de site pris en charge | Microsoft Docs"
 description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 2/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: bebbeebba76ab5cf0c517fcb00b7b6a516a08e3e
-ms.openlocfilehash: 12fe730d924979eec2ef55ea80a1fa90b7b47464
+ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
+ms.openlocfilehash: bb017e575e0318b73cc5ea4e27fd33b1e9c2a02a
 
 
 ---
@@ -37,7 +37,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
 
 ## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016 : Standard et Datacenter
-Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de référence 1606 publiée en octobre 2016).
+À compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016), ce système d’exploitation est pris en charge pour les éléments suivants :
 
 **Serveurs de site :**  
 
@@ -325,12 +325,12 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
     -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-## <a name="the-server-core-installation-of-windows-server-2012"></a>Installation minimale de Windows Server 2012  
- Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 est également prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
 
--   Seule la version 64 bits est prise en charge.  
+## <a name="the-server-core-installation-of-windows-server-2016"></a>Installation minimale de Windows Server 2016
+À compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016), ce système d’exploitation est pris en charge comme point de distribution avec les restrictions suivantes :  
+  -   Seule la version&64; bits est prise en charge.
+  -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
 
--   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.
 
 ## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>Installation minimale de Windows Server 2012 R2  
  Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 R2 est prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
@@ -339,8 +339,15 @@ Windows Server 2016 est pris en charge à compter de Configuration Manager vers
 
 -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
 
+## <a name="the-server-core-installation-of-windows-server-2012"></a>Installation minimale de Windows Server 2012  
+ Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 est également prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
+
+-   Seule la version 64 bits est prise en charge.  
+
+-   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.
 
 
-<!--HONumber=Jan17_HO1-->
+
+<!--HONumber=Feb17_HO1-->
 
 

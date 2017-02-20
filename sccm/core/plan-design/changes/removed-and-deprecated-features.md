@@ -1,8 +1,8 @@
 ---
-title: "Fonctionnalités dépréciées | Documents Microsoft"
+title: "Fonctionnalités dépréciées | Microsoft Docs"
 description: "Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge."
 ms.custom: na
-ms.date: 12/29/2016
+ms.date: 1/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 16781e281676c8c1092108d16beaf7e0b16d45a7
-ms.openlocfilehash: e788a3c54e3620db92f1cc3e8246e5469189a802
+ms.sourcegitcommit: 1948e2914fff91f156dd8956c018ff0fabcda2f9
+ms.openlocfilehash: 3a1edd1b59676e59d4bfcd4c01a23f7a04f91f4f
 
 
 ---
@@ -50,8 +50,10 @@ Pour plus d'informations, voir :
 |-|-|-|  
 |Protection d’accès réseau (NAP) : telle que dans System Center 2012 Configuration Manager|10 juillet 2015|Version 1511|  
 |Gestion hors bande : telle que dans System Center 2012 Configuration Manager|16 octobre 2015|Version 1511|
+|Séquences de tâches : <br /> - OSDPreserveDriveLetter  <br /><br /> Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. |20 juin 2016 |Version 1606 |
 |Séquences de tâches : <br /> - Convertir en disque dynamique <br /> - Installer les outils de déploiement |18 novembre 2016|La prise en charge de ces séquences de tâches prend fin avec la première mise à jour publiée après le 1er juin 2017.|
 |Le Centre logiciel a été modernisé. Les applications qui seraient apparues uniquement dans le catalogue des applications dépendant de Silverlight (applications accessibles à l’utilisateur) apparaissent désormais dans le Centre logiciel, sous l’onglet **Applications**. Il est toujours possible d’accéder au catalogue des applications via le lien situé sous l’onglet **État de l’installation** du Centre logiciel.<br><br>Dans les prochains mois, la version précédente du Centre logiciel ne sera plus disponible.<br><br>Vous pouvez configurer les clients pour qu’ils utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 décembre 2016|Annoncé prochainement|
+|Gestion de disques durs virtuels avec Configuration Manager. </br></br>Cela inclut la suppression des options permettant de créer un nouveau disque dur virtuel ou de gérer un disque dur virtuel à l’aide d’une séquence de tâches, ainsi que la suppression du nœud Disques durs virtuels dans la console Configuration Manager. </br></br>Une fois cette prise en charge supprimée, les disques durs virtuels existants ne seront pas supprimés, mais ils ne seront plus accessibles à partir de la console Configuration Manager.  |6 janvier 2017 |La prise en charge des disques durs virtuels prend fin avec la première mise à jour publiée après le 1er juin 2017.|
 
 
 Informations supplémentaires sur les fonctionnalités supprimées avec la version 1511 de System Center Configuration Manager :
@@ -111,7 +113,6 @@ Informations supplémentaires sur les fonctionnalités supprimées avec la versi
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,8 +1,8 @@
 ---
-title: "Nouveautés de la version 1610 | Microsoft Docs"
+title: "Nouvelle version 1610 | Microsoft Docs"
 description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1610 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 
+ms.date: 11/23/2016
 ms.reviewer: na
 ms.suite: na
 ms.technology:
@@ -16,15 +16,15 @@ ms.author: brenduns
 manager: angrobe
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
-ms.openlocfilehash: 5121073a335f6722ea1e6cf7669edbf13ba3f9db
+ms.sourcegitcommit: 831d8a66c827d246069c7415cdce7a7c4bb95b33
+ms.openlocfilehash: 19e3099773f887129374413482702de3f4b0a36f
 
 ---
 # <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>Nouveautés dans la version 1610 de System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-La mise à jour 1610 de la version Current Branch de System Center Configuration Manager est une mise à jour dans la console des sites déjà installés qui exécutent la version 1511, 1602 ou 1606.
+La mise à jour 1610 de la version Current Branch de System Center Configuration Manager est une mise à jour dans la console des sites déjà installés qui exécutent la version 1511, 1602 ou 1606.
 
 
 > [!TIP]  
@@ -47,7 +47,7 @@ Vous pouvez empêcher la mise à niveau de clients Windows avec les nouvelles ve
 
 ## <a name="improvements-for-boundary-groups"></a>Améliorations pour les groupes de limites
 La version 1610 apporte des modifications importantes aux groupes de limites et à leur fonctionnement avec les points de distribution. Ces modifications permettent de simplifier la conception de votre infrastructure de contenu tout en vous donnant davantage de contrôle sur quand et comment les clients doivent se tourner vers d’autres points de distribution comme emplacements sources de contenu. Cela inclut à la fois les points de distribution cloud et locaux.
-Ces améliorations remplacent les concepts et les comportements qui peuvent vous être familiers aujourd’hui (comme la configuration des points de distribution pour être rapides ou lents) par un nouveau modèle qui doit être plus facile à configurer et à gérer. Ces modifications sont également un point de départ pour les futurs changements qui vont améliorer les autres rôles de système de site que vous associez à des groupes de limites.
+Ces améliorations remplacent des concepts et des comportements que vous connaissez peut-être déjà, comme la configuration de la vitesse des points de distribution. Le nouveau modèle est plus facile à configurer et à gérer. Ces modifications servent aussi de base aux futurs changements qui vont améliorer les autres rôles de système de site que vous associez à des groupes de limites.
 
 Quand vous effectuez la mise à jour vers la version 1610, cette dernière convertit les configurations de votre groupe de limites actuel pour les adapter au nouveau modèle, afin que ces modifications ne perturbent pas les configurations de distribution de contenu existantes.
 
@@ -55,7 +55,7 @@ Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/de
 
 
 ## <a name="peer-cache-for-content-distribution-to-clients"></a>Cache d’homologue pour la distribution de contenu aux clients
-À partir de la version 1610, le **cache d’homologue** vous permet de gérer le déploiement de contenu sur les clients distants. Le cache d’homologue est une solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local.
+À partir de la version 1610, le **cache d’homologue** vous permet de gérer le déploiement de contenu sur les clients distants. Le cache de pair est une solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local.
 
 Une fois que vous avez déployé des paramètres du client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme source de contenu homologue pour d’autres clients du même groupe de limites.
 
@@ -64,7 +64,7 @@ Vous pouvez également utiliser le nouveau tableau de bord **Sources de données
 > [!TIP]  
 > Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
-Pour plus d’informations, consultez [Cache d’homologue pour les clients Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache) et [Tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
+Pour plus d’informations, consultez [Cache de pair pour les clients Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache) et [Tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
 
 
 ## <a name="migrate-multiple-shared-distribution-points-at-the-same-time"></a>Migrer plusieurs points de distribution partagés en même temps
@@ -81,10 +81,10 @@ Dans cette version, les améliorations suivantes ont été apportées à ce type
 - Vous pouvez effectuer la mise à niveau à partir de Windows 10 Professionnel vers l’une des plateformes de l’Assistant qui sont compatibles avec votre matériel.
 
 ## <a name="manage-hardware-identifiers"></a>Gérer les identificateurs de matériel
-Vous pouvez désormais fournir la liste des ID de matériel ignorés par Configuration Manager dans le cadre du démarrage PXE et de l’inscription des clients. Deux problèmes courants bénéficient de cette fonctionnalité.
+Vous pouvez désormais fournir la liste des ID de matériel que Configuration Manager doit ignorer dans le cadre du démarrage PXE et de l’inscription des clients. Cette fonctionnalité permet de résoudre deux problèmes courants :
 
-1. De nombreux nouveaux appareils, comme la Surface Pro 3, ne comprennent pas de port Ethernet intégré. Un adaptateur USB-Ethernet est généralement utilisé pour établir une connexion filaire afin de déployer le système d’exploitation. Toutefois, il s’agit souvent de cartes partagées pour des questions de coût et de facilité d’utilisation. Étant donné que l’adresse MAC de cette carte est utilisée pour identifier l’appareil, la réutilisation de cette carte nécessite l’intervention supplémentaire d’un administrateur entre chaque déploiement. L’édition Current Branch version 1610 de Configuration Manager permet désormais d’exclure l’adresse MAC de cette carte pour faciliter sa réutilisation dans ce scénario.
-2. Tandis que l’ID SMBIOS est supposé être un identificateur de matériel unique, certains appareils spécialisés sont créés avec des ID dupliqués. La liste des ID de matériel peut être utilisée pour résoudre ce problème également, même s’il s’agit d’un scénario plus rare que l’utilisation d’un adaptateur USB-Ethernet ci-dessus.
+1. De nombreux appareils, comme la Surface Pro 3, n’intègrent pas de port Ethernet. Une carte USB-Ethernet est généralement utilisée pour établir une connexion filaire afin de déployer un système d’exploitation. Toutefois, en raison du coût et de la facilité d’utilisation, il s’agit souvent de cartes partagées. Étant donné que l’adresse MAC de cette carte est utilisée pour identifier l’appareil, la réutilisation de cette carte nécessite l’intervention supplémentaire d’un administrateur entre chaque déploiement. La version 1610 de Configuration Manager permet désormais d’exclure l’adresse MAC de cette carte pour faciliter sa réutilisation dans ce scénario.
+2. L’ID SMBIOS est supposé être un identificateur de matériel unique, mais certains appareils spécialisés sont créés avec des ID dupliqués. Ce problème n’est peut-être pas aussi fréquent que le scénario relatif à l’adaptateur USB-Ethernet décrit ci-dessus, mais vous pouvez le résoudre à l’aide de la liste des ID de matériel exclus.
 
 Pour plus d’informations, consultez [Gérer les identificateurs de matériel dupliqués](/sccm/core/clients/manage/manage-clients#manage-duplicate-hardware-identifiers).
 
@@ -92,20 +92,20 @@ Pour plus d’informations, consultez [Gérer les identificateurs de matériel d
 Modifications de cette version :
 - Auparavant, vous pouviez uniquement déployer des applications gratuites à partir du Windows Store pour Entreprises. Configuration Manager prend maintenant aussi en charge le déploiement d’applications sous licence en ligne payantes (pour les appareils Intune inscrits uniquement).
 - Vous pouvez désormais lancer une synchronisation immédiate entre le Windows Store pour Entreprises et Configuration Manager.
-- Vous pouvez maintenant modifier la clé secrète du client que vous avez obtenue à partir d’Azure Active Directory
-- Vous pouvez supprimer un abonnement au Windows Store
+- Vous pouvez maintenant modifier la clé secrète du client que vous avez obtenue à partir d’Azure Active Directory.
+- Vous pouvez supprimer un abonnement au Windows Store.
 
-Pour plus d’informations, consultez [Gérer les applications du Windows Store pour Entreprises avec System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+Pour plus d’informations, consultez [Gérer les applications à partir du Windows Store pour Entreprises avec System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 
 ## <a name="policy-sync-for-intune-enrolled-devices"></a>Synchronisation de la stratégie pour les appareils inscrits dans Intune
-Vous pouvez désormais demander une synchronisation de la stratégie pour un appareil inscrit dans Intune à partir de la console Configuration Manager au lieu de demander une synchronisation dans l’application Portail d’entreprise sur l’appareil. Les informations sur l’état de la demande de synchronisation sont disponibles dans une nouvelle colonne des affichages d’appareil, appelée **État de la synchronisation à distance**, ainsi que dans la section des données de découverte de la boîte de dialogue **Propriétés** de chaque appareil.
-Pour plus d’informations, consultez [Synchroniser à distance la stratégie sur des appareils inscrits dans Intune à partir de la console Configuration Manager](/sccm/mdm/deploy-use/sync-intune-device)
+Vous pouvez désormais demander une synchronisation de la stratégie pour un appareil inscrit dans Intune à partir de la console Configuration Manager au lieu de demander une synchronisation dans l’application Portail d’entreprise sur l’appareil. Les informations sur l’état de la demande de synchronisation sont disponibles dans une nouvelle colonne, appelée **État de la synchronisation à distance** dans la vue des appareils. Les informations sont également disponibles dans la section de données de découverte de la boîte de dialogue **Propriétés** pour chaque appareil.
+Pour plus d’informations, consultez [Synchroniser à distance la stratégie sur des appareils inscrits dans Intune à partir de la console Configuration Manager](/sccm/mdm/deploy-use/sync-intune-device).
 
 
 ## <a name="use-compliance-settings-to-configure-windows-defender-settings"></a>Utiliser les paramètres de compatibilité pour configurer les paramètres de Windows Defender
 Vous pouvez maintenant configurer les paramètres du client Windows Defender sur des ordinateurs Windows 10 inscrits auprès d’Intune à l’aide d’éléments de configuration de la console Configuration Manager.
-Pour plus d’informations, consultez la section **Windows Defender** dans [Créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client)
+Pour plus d’informations, consultez la section **Windows Defender** dans [Créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client).
 
 
 
@@ -122,34 +122,34 @@ Une marque personnalisée pour le Centre logiciel a été introduite dans Config
 
 Une marque personnalisée pour le Centre logiciel est appliquée selon les règles suivantes :
 
-1. Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** **Nom d’organisation affiché dans le Centre logiciel**. Pour obtenir des instructions, consultez [Guide pratique pour configurer les paramètres client](../../clients/deploy/configure-client-settings.md).
+- Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** **Nom d’organisation affiché dans le Centre logiciel**. Pour obtenir des instructions, consultez [Guide pratique pour configurer les paramètres client](../../clients/deploy/configure-client-settings.md).
 
-2. Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#Application-Catalog-website-point).
+- Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#Application-Catalog-website-point).
 
-3. Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de la société spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+- Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de l’entreprise spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
 
 
 ## <a name="enforcement-grace-period-for-required-application-and-software-update-deployments"></a>Période de grâce d’application pour les déploiements de mises à jour logicielles et d’applications obligatoires
-Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez définies. Par exemple, cela peut être nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement. 
 
 Pour configurer la période de grâce, procédez comme suit :
 1.      Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
-2.      Dans un nouveau déploiement d’application obligatoire, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**. Tous les déploiements pour lesquels cette case est cochée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utilisent la période de grâce de mise en œuvre.
+2.      Dans un nouveau déploiement d’application exigé, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**. Tous les déploiements pour lesquels cette case est cochée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utilisent la période de grâce de mise en œuvre.
 
 Si vous configurez une période de grâce de mise en œuvre et cochez la case, une fois que l’échéance d’installation d’application est atteinte, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée jusqu’à cette période de grâce. Toutefois, l’utilisateur peut toujours ouvrir le Centre logiciel et installer l’application à tout moment, s’il le souhaite. Une fois que la période de grâce a expiré, le comportement de mise en œuvre redevient normal pour les déploiements en retard. Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés.
 
 
 
-## <a name="improved-functionality-for-required-software-dialogs"></a>Fonctionnalité améliorée pour les boîtes de dialogue des logiciels requis
-Quand un utilisateur reçoit des logiciels requis, dans le paramètre **Répéter et me le rappeler :**, il peut choisir parmi les valeurs suivantes de la liste déroulante :
-- Ultérieurement : Spécifie que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
-- Heure fixe : Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée. Par exemple, si un utilisateur sélectionne 30 minutes, la notification s’affichera de nouveau après 30 minutes.
+## <a name="improved-functionality-in-dialog-boxes-about-required-software"></a>Fonctionnalités améliorées dans les boîtes de dialogue concernant les logiciels exigés
+Quand un utilisateur reçoit des logiciels exigés, dans le paramètre **Répéter et me le rappeler**, il peut choisir parmi les valeurs suivantes de la liste déroulante : 
+- **Ultérieurement**. Indique que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
+- **Heure fixe**. Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée (par exemple, dans les 30 minutes).
 
 ![Page Agent ordinateur dans les paramètres de l’agent du client](media/client-notification-settings.png)
 
-L’intervalle de répétition maximal est toujours basé sur les valeurs de notification configurées dans les paramètres de l’agent du client à tout instant le long de la chronologie du déploiement. Par exemple, si le paramètre **Échéance du déploiement supérieure à 24 heures, effectuer un rappel à l’utilisateur toutes les (heures)** sur la page Agent ordinateur est configuré pour 10 heures et qu’il reste plus de 24 heures avant l’échéance du lancement de la boîte de dialogue, l’utilisateur se voit proposer un ensemble d’options de répétition toujours inférieures ou égales à 10 heures. Au fur et à mesure que l’échéance approche, la boîte de dialogue affiche moins d’options, conformément aux paramètres appropriés de l’agent du client, pour chaque composant de la chronologie du déploiement.
+L’heure de répétition maximale est basée sur les valeurs de notification dans les paramètres de l’agent du client. Par exemple, si le paramètre **Échéance du déploiement supérieure à 24 heures, effectuer un rappel à l’utilisateur toutes les (heures)** dans la page Agent ordinateur est configuré pour 10 heures et qu’il reste plus de 24 heures avant l’échéance, l’utilisateur se voit proposer un ensemble d’options de répétition toujours inférieures ou égales à 10 heures. Au fur et à mesure que l’échéance approche, le nombre d’options disponibles diminue, conformément aux paramètres appropriés de l’agent du client, pour chaque composant de la chronologie du déploiement.
 
-En outre, pour un déploiement à haut risque, tel qu’une séquence de tâches déployant un système d’exploitation, l’expérience de notification de l’utilisateur final est désormais plus intrusive. Au lieu d’une notification temporaire sur la barre des tâches, chaque fois que l’utilisateur est averti qu’une maintenance logicielle critique est nécessaire, une boîte de dialogue similaire à la suivante s’affiche sur l’ordinateur de l’utilisateur :
+Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâches déployant un système d’exploitation, l’expérience de notification à l’utilisateur final est désormais plus intrusive. Au lieu d’une notification temporaire sur la barre des tâches, chaque fois que l’utilisateur est averti qu’une maintenance logicielle critique est nécessaire, une boîte de dialogue similaire à la suivante s’affiche sur l’ordinateur de l’utilisateur :
 
 ![Boîte de dialogue Logiciel requis](media/client-toast-notification.png)
 
@@ -159,22 +159,24 @@ Pour plus d’informations :
 - [Guide pratique pour configurer les paramètres client](../../clients/deploy/configure-client-settings.md)
 
 ## <a name="software-updates-dashboard"></a>Tableau de bord des mises à jour logicielles
-Vous pouvez utiliser le nouveau tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils vulnérables. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Tableau de bord des mises à jour logicielles**.
+Utilisez le nouveau tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils vulnérables. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Tableau de bord des mises à jour logicielles**.
 
 Pour plus d’informations, consultez [Surveiller les mises à jour logicielles](/sccm/sum/deploy-use/monitor-software-updates).
 
 
 ## <a name="improvements-to-the-application-request-process"></a>Améliorations apportées au processus de demande d’application
-Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager (précédemment, ce bouton était grisé après l’approbation).
+Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager. Avant, ce bouton était grisé après l’approbation.
+
 Cette action n’entraîne pas la désinstallation de l’application de tous les appareils. Toutefois, elle empêche les utilisateurs d’installer de nouvelles copies de l’application à partir du Centre logiciel.
 
 ## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filtrer par taille de contenu dans les règles de déploiement automatique
-Vous pouvez désormais filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048** pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses pour une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée lorsque la bande passante du réseau est limitée. Pour plus d’informations, consultez :
-- [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
+Vous pouvez désormais filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048**. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses, d’où une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée quand la bande passante du réseau est limitée. Pour plus d’informations, consultez :
+- [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/)
 - [Déployer automatiquement des mises à jour logicielles](/sccm/sum/deploy-use/automatically-deploy-software-updates)
 
-#### <a name="to-configure-the-content-size-field"></a>Pour configurer le champ Taille du contenu
-Pour configurer le champ **Taille du contenu (Ko)**, accédez à la page **Mises à jour logicielles** dans l’Assistant Création d’une règle de déploiement automatique, lorsque vous créez une règle ADR ou accédez à l’onglet **Mises à jour logicielles** dans les propriétés pour une règle ADR existante.
+Pour configurer le champ **Taille du contenu (Ko)**, effectuez l’une des opérations suivantes :
+- Quand vous créez une règle de déploiement automatique, dans l’Assistant Création d’une règle de déploiement automatique, accédez à la page **Mises à jour logicielles**.
+- Dans les propriétés d’une règle de déploiement automatique existante, accédez à l’onglet **Mises à jour logicielles**.
 
 ## <a name="office-365-client-management-dashboard"></a>Tableau de bord Gestion des clients Office 365
 Le tableau de bord de gestion des clients Office 365 est désormais disponible dans la console Configuration Manager. Pour afficher le tableau de bord, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365**.
@@ -186,13 +188,13 @@ Le tableau de bord affiche des graphiques pour les éléments suivants :
 - Langues du client Office 365
 - Canaux du client Office 365     
 
-Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates)
+Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
 ## <a name="task-sequence-steps-to-manage-bios-to-uefi-conversion"></a>Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI
 Vous pouvez maintenant personnaliser une séquence de tâches de déploiement de système d’exploitation avec une nouvelle variable, TSUEFIDrive, afin que l’étape **Redémarrer l’ordinateur** prépare une partition FAT32 sur le disque dur pour la transition vers UEFI. La procédure suivante fournit un exemple de création des étapes de séquence de tâches pour préparer le disque dur pour la conversion du BIOS en UEFI. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion).
 
-##  <a name="improvements-to-the-prepare-configmgr-client-for-capture-task-sequence-step"></a>Améliorations apportées à l’étape de séquence de tâches Préparer le client ConfigMgr pour capture  
-L’étape de préparation du client ConfigMgr va désormais supprimer complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois. Pour plus d’informations, consultez [Étapes de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture).
+##  <a name="improvements-to-the-task-sequence-step-prepare-configmgr-client-for-capture"></a>Améliorations apportées à l’étape de séquence de tâches : Préparer le client ConfigMgr pour capture  
+L’étape de préparation du client ConfigMgr va désormais supprimer complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Quand la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois. Pour plus d’informations, consultez [Étapes de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture).
 
 
 
@@ -203,12 +205,12 @@ Vous pouvez désormais obtenir un aperçu rapide de la conformité globale des a
 ## <a name="lookout-integration-for-hybrid-implementations-to-protect-ios-and-android-devices"></a>Intégration de Lookout pour les implémentations hybrides afin de protéger les appareils iOS et Android
 Microsoft intègre la solution Mobile Threat Protection de Lookout pour protéger les appareils mobiles iOS et Android en détectant les programmes malveillants, les applications présentant des risques, et bien plus encore, sur les appareils. La solution de Lookout vous permet de déterminer le niveau de menace, qui est configurable. Vous pouvez créer une règle de stratégie de conformité dans System Configuration Manager pour déterminer la conformité des appareils en fonction de l’évaluation des risques par Lookout. À l’aide de stratégies d’accès conditionnel, vous pouvez autoriser ou bloquer l’accès aux ressources d’entreprise en fonction de l’état de conformité de l’appareil. Pour en savoir plus sur l’intégration et son fonctionnement, consultez [Gérer l’accès en fonction de l’appareil, du réseau et du risque encouru au niveau de l’application](/sccm/protect/deploy-use/manage-access-based-on-device-network-app-risk).
 
-Les utilisateurs finaux d’appareils iOS non conformes sont invités à s’inscrire et doivent installer l’application Lookout for Work sur leurs appareils, l’activer et corriger les menaces signalées dans l’application pour avoir accès aux données de la société. Découvrez comment [Configurer et déployer les applications Lookout for Work](/sccm/protect/deploy-use/configure-and-deploy-lookout-for-work-apps).
+Les utilisateurs finaux d’appareils iOS non conformes sont invités à s’inscrire. Ils doivent installer l’application Lookout for Work sur leurs appareils, l’activer et corriger les menaces signalées dans l’application pour avoir accès aux données de la société. Découvrez comment [Configurer et déployer les applications Lookout for Work](/sccm/protect/deploy-use/configure-and-deploy-lookout-for-work-apps).
 
 
 
 ## <a name="new-compliance-settings-for-configuration-items"></a>Nouveaux paramètres de compatibilité pour les éléments de configuration
-Nous avons ajouté de nombreux nouveaux paramètres que vous pouvez utiliser dans vos éléments de configuration pour diverses plateformes d’appareils. Il s’agit de paramètres qui existaient précédemment dans Microsoft Intune dans une configuration autonome et qui sont maintenant disponibles quand vous utilisez Intune avec Configuration Manager.
+Il existe de nombreux nouveaux paramètres que vous pouvez utiliser dans vos éléments de configuration pour diverses plateformes d’appareils. Il s’agit de paramètres qui existaient précédemment dans Microsoft Intune dans une configuration autonome et qui sont maintenant disponibles quand vous utilisez Intune avec Configuration Manager.
 Pour plus d’informations, consultez [Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/configuration-items-for-devices-managed-without-the-client).
 
 ### <a name="new-settings-for-android-devices"></a>Nouveaux paramètres pour les appareils Android
@@ -315,6 +317,6 @@ Pour plus d’informations, consultez [Éléments de configuration pour les appa
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

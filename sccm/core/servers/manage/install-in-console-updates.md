@@ -2,7 +2,7 @@
 title: "Mises à jour dans la console | Microsoft Docs"
 description: "System Center Configuration Manager se synchronise avec le cloud Microsoft pour obtenir les mises à jour que vous pouvez installer dans la console."
 ms.custom: na
-ms.date: 1/11/2017
+ms.date: 2/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
-ms.openlocfilehash: 00d9738a271ba47abcbf3c4b427a05910a0c2355
+ms.sourcegitcommit: 2f90f3204b3c31caaed1359e11451285b21eef50
+ms.openlocfilehash: b3a58503ea4d49825e93ea3a2e9bfedf975145e6
 
 
 ---
@@ -354,8 +354,9 @@ Si vous avez donné votre consentement sur un site principal autonome, puis que 
 |Accès conditionnel pour les PC gérés par System Center Configuration Manager | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)                        |
 
 
+## <a name="known-issues"></a>Problèmes connus
 
-##  <a name="a-namebkmkfaqa-why-dont-i-see-certain-updates-in-my-console"></a><a name="bkmk_faq"></a> Pourquoi certaines mises à jour ne s’affichent pas dans ma console ?  
+###  <a name="a-namebkmkfaqa-why-dont-i-see-certain-updates-in-my-console"></a><a name="bkmk_faq"></a> Pourquoi certaines mises à jour ne s’affichent pas dans ma console ?  
  Si vous ne trouvez une mise à jour spécifique ou des mises à jour quelconques dans votre console après une synchronisation réussie avec le service cloud Microsoft, les causes possibles sont les suivantes :  
 
 -   La mise à jour requiert une configuration que votre infrastructure n’utilise pas, ou votre version actuelle du produit ne remplit pas une condition préalable pour la réception de la mise à jour.  
@@ -366,8 +367,21 @@ Si vous avez donné votre consentement sur un site principal autonome, puis que 
 
     Pour plus d’informations sur les autorisations requises pour afficher les mises à jour et activer les fonctionnalités à partir de la console, consultez [Autorisations de gérer les mises à jour](../../../core/servers/manage/install-in-console-updates.md#permissions-to-view-and-manage-updates-and-features) dans cette rubrique.
 
+### <a name="why-do-i-see-two-updates-for-version-1610"></a>Pourquoi deux mises à jour sont-elles proposées pour la version 1610 ?
+Il peut arriver que deux mises à jour vers la version 1610 soient répertoriées dans la console. Les mises à jour ont des dates différentes. Ce cas de figure se présente si l’une des conditions suivantes est remplie :   
+-   Après la publication de la version 1610, vous avez installé une version antérieure (par exemple, la version 1606).
+
+-   Votre hiérarchie exécute la version 1511 ou 1602 et vous n’avez pas pu télécharger la version 1606.
+
+Il existe deux mises à jour vers la version 1610, car des modifications mineures ont été apportées à certains binaires de fichier après la publication de la première mise à jour. Ces modifications n’affectent pas les fonctionnalités de Configuration Manager ni la mise à jour.
+
+Si les deux mises à jour sont disponibles dans la console, nous vous recommandons d’installer la plus récente. Toutefois, étant donné que les mises à jour offrent les mêmes fonctionnalités, aucune action de votre part n’est nécessaire si l’une d’entre elles est déjà installée.
+-   Si vous avez installé l’ancienne mise à jour, il est inutile d’installer la mise à jour plus récente. Toutefois, si vous installez la mise à jour la plus récente après l’installation de la première mise à jour, les binaires en question sont mis à jour, mais aucune modification supplémentaire n’est apportée et aucune action supplémentaire de votre part n’est nécessaire.
+
+-   Si vous avez installé la dernière mise à jour et que vous installez ensuite l’ancienne, aucune action supplémentaire n’est nécessaire. Cela est dû au fait que les derniers binaires qui sont déjà installés ne sont pas remplacés par les mêmes binaires de la mise à jour d’origine.
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,8 +1,8 @@
 ---
 title: "Mettre à niveau Windows vers la dernière version | Microsoft Docs"
-description: "Découvrez comment utiliser le média autonome ou le Centre logiciel dans Configuration Manager pour mettre à niveau un système d’exploitation depuis Windows 7 ou version ultérieure vers Windows 10."
+description: "Découvrez comment utiliser Configuration Manager pour mettre à niveau un système d’exploitation Windows 7 ou ultérieur vers Windows 10."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 147841212dbb85dd9d4ee7c8a79ca7869584fd99
+ms.sourcegitcommit: 288a4c649f371d9701fe7249449356aa222bf372
+ms.openlocfilehash: 35f04e237efffbdb12893f658950a99dc0b98b85
 
 
 ---
@@ -69,6 +69,9 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
      Utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour automatiser la mise à niveau du système d’exploitation.  
 
+    > [IMPORTANT] Quand vous utilisez un média autonome, vous devez inclure une image de démarrage dans la séquence de tâches pour qu’elle soit disponible dans l’Assistant Création d’un média de séquence de tâches.
+
+
     > [!NOTE]  
     >  En général, vous utiliserez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour créer une séquence de tâches pour mettre à niveau un système d’exploitation Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
 
@@ -88,6 +91,6 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

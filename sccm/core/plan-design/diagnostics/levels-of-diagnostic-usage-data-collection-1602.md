@@ -2,7 +2,7 @@
 title: "Données de diagnostic pour 1602 | Microsoft Docs"
 description: "En savoir plus sur les niveaux de données de diagnostic et d’utilisation collectés par System Center Configuration Manager version 1602."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -34,8 +34,8 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: 0f1be7aec8b15c4c61a325f2afb2caa2332cd31a
+ms.sourcegitcommit: ebbc2b250d651aa8befd7f2458d67bf0f4a8ff10
+ms.openlocfilehash: e54ed320ce95876d29e6dd889dcba2f1f964164c
 
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1602 de System Center Configuration Manager
@@ -47,38 +47,38 @@ System Center Configuration Manager version 1602 collecte trois niveaux de donn
 Les modifications par rapport aux versions précédentes sont indiquées par ***[Nouveau]*** ou ***[Mis à jour]***.
 
 > [!IMPORTANT]
->  Configuration Manager ne collecte pas les codes de sites ou noms de sites, les adresses IP, les noms d’utilisateur ou d’ordinateur, les adresses physiques ni les adresses e-mail aux niveaux De base et Étendu. Les informations au niveau Complet ne sont pas collectées dans un but précis (elles peuvent être incluses dans des informations de diagnostic avancées telles que des fichiers journaux ou des instantanés de la mémoire) et ne sont pas utilisées par Microsoft pour vous identifier, vous contacter ou à des fins publicitaires.
+>  Configuration Manager ne collecte pas les codes de sites, noms de sites, adresses IP, noms d’utilisateur ou d’ordinateur, adresses physiques ni adresses e-mail aux niveaux De base et Étendu. Toute collecte de ces informations au niveau Complet n’est pas intentionnelle : elles peuvent être incluses dans des informations de diagnostic avancées comme des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.
 
 ##  <a name="a-namebkmkchangea-how-to-change-the-level"></a><a name="bkmk_change"></a> Modification du niveau
- Les administrateurs disposant d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
+ Les administrateurs qui disposent d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
 
-  Pour cela, dans la console, accédez à l’onglet Backstage (onglet gauche supérieur avec flèche déroulante). Sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
+  Pour cela, dans la console, accédez à l’onglet Backstage (onglet supérieur gauche avec flèche déroulante), sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
 
 ##  <a name="a-namebkmklevel1a-level-1---basic"></a><a name="bkmk_level1"></a> Niveau 1 - De base
- Le niveau De base comprend les données relatives à votre hiérarchie. Il est nécessaire pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que pour aider à déterminer quelles mises à jour Configuration Manager s’appliquent à votre hiérarchie.
+ Le niveau De base comprend les données relatives à votre hiérarchie, qui sont nécessaires pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que des données pour aider à identifier les mises à jour Configuration Manager qui s’appliquent à votre hiérarchie.
 
  À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
 
  -   Informations d’installation :
-    - Build, type d’installation, modules linguistiques et fonctionnalités que vous avez activés  
+     - Build, type d’installation, modules linguistiques, fonctionnalités que vous avez activées  
 
-    - ***[Mis à jour]***  État et erreurs du déploiement du package de mise à jour, progression du téléchargement et erreurs au niveau des conditions préalables   
+     - ***[Mis à jour]*** État et erreurs du déploiement du package de mise à jour, progression du téléchargement, et erreurs au niveau des conditions préalables     
 
-    - ***[Nouveau]*** Version du script après mise à niveau
+     - ***[Nouveau]*** Version du script après mise à niveau
 
-    - ***[Nouveau]*** Utilisation de l’anneau rapide de mise à jour
+     - ***[Nouveau]*** Utilisation de l’anneau rapide de mise à jour
 
 -   Métriques de performances de base de données (informations sur le traitement de la réplication, procédures stockées SQL Server les plus utilisées par processeur et utilisation des disques)
 
--   Configuration de base de données simple (processeurs, configuration du cluster, configuration des vues distribuées)
+-   Configuration de base de données simple (processeurs, configuration du cluster et configuration des vues distribuées)
 
 -   Schéma de base de données Configuration Manager (hachage de toutes les définitions d’objet)
 
 -   Nombre de versions du client Configuration Manager et de versions du système d’exploitation
 
--   Nombre et système d’exploitation des appareils gérés et stratégies définies par le connecteur Exchange
+-   Nombre de systèmes d’exploitation des appareils gérés et stratégies définies par le connecteur Exchange
 
 -   Nombre de paramètres régionaux et de langues du client
 
@@ -88,37 +88,37 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 
 -   Informations de serveur de système de site de base (rôles de système de site utilisés, état SSL et Internet, système d’exploitation, processeurs, ordinateur physique ou machine virtuelle)
 
--   Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs, tailles minimale/maximale/moyenne de groupe)
+-   Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs et tailles minimale/maximale/moyenne de groupe)
 
--   Informations de protection de point de terminaison de base (versions du client de logiciel anti-programme malveillant)
+-   Informations Endpoint Protection de base (versions du client de logiciel anti-programme malveillant)
 
 -   Nombres de types d’application et de déploiement de base (nombre total d’applications, nombre total d’applications avec plusieurs types de déploiement, nombre total d’applications avec des dépendances, nombre total d’applications remplacées, nombre de technologies de déploiement en cours d’utilisation)
 
--   Nombres d’OSD de base (images)
+-   Nombre de déploiements de systèmes d’exploitation de base (images)
 
--   Types de point de distribution et de point de gestion et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)
+-   Types de point de distribution et de point de gestion, et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)
 
--   Statistiques de télémétrie (à l’exécution, runtime, erreurs)
+-   Statistiques de télémétrie (à l’exécution, runtime et erreurs)
 
 - ***[Nouveau]*** Niveau de télémétrie configuré, mode (en ligne ou hors connexion) et configuration de la mise à jour rapide
 
 - ***[Nouveau]*** Utilisation de la découverte du réseau (activée ou désactivée)
 - ***[Nouveau]*** Console d’administration :
 
-    -  Statistiques sur les connexions de la console (version, langue, référence (SKU) et architecture du SE ; mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
+    -  Statistiques sur les connexions de la console (version, langue, SKU et architecture du système d’exploitation, mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
 
 ##  <a name="a-namebkmklevel2a-level-2---enhanced"></a><a name="bkmk_level2"></a> Niveau 2 – Étendu
 Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données propres aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres tels que les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.
 
-Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations des objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes nécessitant des mises à jour logicielles.
+Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations sur les objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes qui nécessitent des mises à jour logicielles.
 
 À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
 -   **Gestion des applications :**
 
-  -   ***[Mis à jour]*** Informations de base d’utilisation/de ciblage pour les types de déploiement utilisés au sein de l’organisation (ciblé utilisateur ou appareil, nécessaire ou disponible, applications universelles)  
+  -   ***[Mis à jour]*** Informations de base d’utilisation/de ciblage pour les types de déploiement utilisés au sein de l’organisation (ciblé utilisateur ou appareil, nécessaire ou disponible et applications universelles)  
 
-  -  ***[Mis à jour]*** Informations de déploiement d’application (installation/désinstallation, approbation requise, interaction utilisateur activée/désactivée, dépendance, remplacement)  
+  -  ***[Mis à jour]*** Informations de déploiement d’application (installation/désinstallation, approbation requise, interaction utilisateur activée/désactivée, dépendance et remplacement)  
 
   -   Statistiques de demande d’application disponibles  
 
@@ -152,31 +152,31 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Informations de la ligne de base de configuration de base (nombre, nombre de déploiements et nombre de références)
 
-    -   Nombre de déploiements faisant référence à des paramètres intégrés (la valeur du paramètre n’est pas capturée)
+    -   Nombre de déploiements qui font référence à des paramètres intégrés (la valeur du paramètre n’est pas capturée)
 
-    -   Nombre de règles et de déploiements créés pour les paramètres personnalisés
+    -   Nombre de règles et de déploiements qui sont créés pour les paramètres personnalisés
 
-    -   ***[Mis à jour]*** Nombre de modèles SCEP (Simple Certificate Enrollment Protocol), VPN, Wi-Fi, de certificat (.pfx) et de stratégie de conformité déployés   
+    -   ***[Mis à jour]*** Nombre de modèles Simple Certificate Enrollment Protocol, VPN, Wi-Fi, de certificat (.pfx) et de stratégie de conformité déployés   
 
-    -  ***[Nouveau]*** Nombre de déploiements de certificat SCEP, VPN, Wi-Fi, certificat (.pfx) et stratégie de conformité par plateforme
+    -  ***[Nouveau]*** Nombre de déploiements de certificat Simple Certificate Enrollment Protocol (SCEP), VPN, Wi-Fi, certificat (.pfx) et stratégie de conformité par plateforme
 
 -   **Contenu :**
 
     -   Nombre de limites par type
 
-    -   Informations sur les groupes de limites (nombre de limites et de systèmes de site attribués à chaque groupe de limites)
+    -   Informations sur les groupes de limites (nombre de limites et de systèmes de site qui sont attribués à chaque groupe de limites)
 
-    -   Informations sur les groupes de points de distribution (nombre de packages et de points de distribution attribués à chaque groupe de points de distribution)
+    -   Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont attribués à chaque groupe de points de distribution)
 
-    -   Informations sur la configuration des point de distribution (utilisation de la fonction Branch Cache, surveillance des points de distribution)
+    -   Informations sur la configuration des points de distribution (utilisation de BranchCache et surveillance des points de distribution)
 
-    -   Informations de configuration du gestionnaire de distribution (threads, délai de nouvelle tentative, nombre de nouvelles tentatives, paramètres de point de distribution d’extraction)
+    -   Informations sur la configuration du gestionnaire de distribution (threads, délai de nouvelle tentative, nombre de nouvelles tentatives et paramètres de point de distribution d’extraction)
 
 -   **Endpoint Protection :**
 
-    -   Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques attribuées au groupe, ne comprend pas les informations sur les paramètres inclus dans la stratégie)
+    -   Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques attribuées au groupe)<br /><br />Cela ne comprend pas les informations sur les paramètres inclus dans la stratégie.
 
-    -   Erreurs de déploiement Endpoint protection (nombre de codes d’erreur de déploiement de stratégie Endpoint Protection)
+    -   Erreurs de déploiement Endpoint Protection (nombre de codes d’erreur de déploiement de stratégie Endpoint Protection)
 
     -   Nombre de regroupements sélectionnés pour être affichés dans le tableau de bord Endpoint Protection
 
@@ -184,29 +184,29 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
 -   **Gestion des applications mobiles (MAM) :**
 
-    -   Nombre d’applications métier et de bureau compatibles MAM et stratégie par système d’exploitation
+    -   Nombre d’applications métier et d’applications Office compatibles GAM, et stratégies par système d’exploitation
 
     -   Nombre de déploiements de stratégie/application MAM
 
-    -   Nombre de règles créées par paramètre MAM
+    -   Nombre de règles créées par paramètre GAM
 
 -   **Gestion des appareils mobiles (MDM) :**
 
-    -   Nombre de commandes émises (verrouiller, réinitialiser, mettre hors service) d’actions d’appareil mobile
+    -   Nombre de commandes (verrouiller, réinitialiser, mettre hors service) d’actions d’appareil mobile émises
 
-    -   Nombre d’appareils mobiles gérés par Configuration Manager et Microsoft Intune et méthode d’inscription (en bloc, basée sur l’utilisateur)
+    -   Nombre d’appareils mobiles gérés par Configuration Manager et Microsoft Intune, et méthode d’inscription (en bloc ou basée sur l’utilisateur)
 
-    -   Vérification dans la durée des appareils mobiles quant aux statistiques et au calendrier d’interrogation des appareils mobiles
+    -   Statistiques et calendrier d’interrogation des appareils mobiles pour la vérification dans la durée des appareils mobiles
 
     -   Nombre de stratégies d’appareil mobile
 
-    -   Nombre d’utilisateurs avec plusieurs appareils mobiles inscrits
+    -   Nombre d’utilisateurs qui ont plusieurs appareils mobiles inscrits
 
 -   **Dépannage de Microsoft Intune :**
 
-    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de compatibilité téléchargés à partir de Microsoft Intune
+    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de conformité qui sont téléchargés à partir de Microsoft Intune
 
-    -   Nombre et taille des messages d’actions d’appareil (réinitialiser, mettre hors service, verrouiller), de télémétrie et de données répliqués vers Microsoft Intune
+    -   Nombre et taille des messages d’actions d’appareil (réinitialiser, mettre hors service, verrouiller), de télémétrie et de données qui sont répliqués vers Microsoft Intune
 
     -   Statistiques de synchronisation utilisateur complète et différentielle pour Microsoft Intune
 
@@ -216,31 +216,31 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre de profils et de packages d’inscription en bloc Windows 10
 
--   **Déploiement du système d'exploitation :**
+-   **Déploiement du système d’exploitation :**
 
     -   Nombre d’images de démarrage, de pilotes, de packages de pilotes, de points de distribution en multidiffusion, de points de distribution compatibles PXE et de séquences de tâches
 
--   **Mises à jour logicielles :**
+-   **Mises à jour logicielles :**
 
-    -   Nombre total/moyen de regroupements comportant des déploiements de mises à jour logicielles et le nombre maximal/moyen de mises à jour déployées
+    -   Nombre total/moyen de regroupements comportant des déploiements de mises à jour logicielles et nombre maximal/moyen de mises à jour déployées
 
-    -   Nombre de règles de déploiement automatique liées à la synchronisation
+    -   Nombre de règles de déploiement automatique qui sont liées à la synchronisation
 
     -   Nombre de règles de déploiement automatique qui créent de nouvelles mises à jour ou ajoutent des mises à jour à un groupe existant
 
-    -   Différentiels de disponibilité et d’échéance utilisés dans les règles de déploiement automatique
+    -   Différentiels de disponibilité et d’échéance qui sont utilisés dans les règles de déploiement automatique
 
     -   Nombre moyen et maximal d’attributions par mise à jour
 
-    -   Nombre de mises à jour créées et déployées à l’aide de System Center Update Publisher
+    -   Nombre de mises à jour créées et déployées avec System Center Update Publisher
 
     -   Nombre de groupes et d’attributions de mises à jour
 
-    -   Nombre de packages de mises à jour et nombre maximal/minimal/moyen de points de distribution ciblés par les packages
+    -   Nombre de packages de mises à jour et nombre maximal/minimal/moyen de points de distribution qui sont ciblés par les packages
 
     -   Nombre de groupes de mises à jour et nombre minimal/maximal/moyen de mises à jour par groupe
 
-    -   Nombre de mises à jour et pourcentage de mises à jour déployées, expirées, remplacées, téléchargées et contenant des CLUF
+    -   Nombre de mises à jour et pourcentage de mises à jour qui sont déployées, expirées, remplacées, téléchargées et qui contiennent des CLUF
 
     -   Codes d’erreur d’analyse des mises à jour et nombre d’ordinateurs
 
@@ -250,17 +250,17 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre de règles de déploiement automatique avec plusieurs déploiements
 
-    -   Configurations utilisées pour les plans de maintenance actifs de Windows 10
+    -   Configurations qui sont utilisées pour les plans de maintenance actifs de Windows 10
 
     -   Versions de contenu du tableau de bord Windows 10
 
-    -   Nombre de clients Windows 10 qui utilisent Windows Update for Business
+    -   Nombre de clients Windows 10 qui utilisent Windows Update for Business
 
     -   Statistiques d’application de correctifs logiciels au cluster
 
     -   Nombre de mises à jour Office 365 déployées
 
-    -   ***[Nouveau]*** Classifications synchronisées par le point de mise à jour logicielle
+    -   ***[Nouveau]*** Classifications qui sont synchronisées par le point de mise à jour logicielle
 
 -   **Données de performances/SQL :**
 
@@ -270,7 +270,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre de regroupements par type
 
-    -   ***[Mis à jour]*** Statistiques d’évaluation des regroupements (temps de requête, nombre de regroupements attribués vs non attribués, nombres par type, substitution d’ID et utilisation des règles)
+    -   ***[Mis à jour]*** Statistiques d’évaluation des regroupements (temps de requête, nombre de regroupements attribués et non attribués, nombres par type, substitution d’ID et utilisation des règles)
 
     - ***[Nouveau]*** Période de rétention du suivi des modifications SQL
 
@@ -279,7 +279,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
     - ***[Nouveau]*** Versions des correctifs logiciels Configuration Manager installés
 
 ##  <a name="a-namebkmklevel3a-level-3---full"></a><a name="bkmk_level3"></a> Niveau 3 – Complet
-Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle.  Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
+Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle. Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
 
 À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
 
@@ -295,13 +295,13 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 
 -   Informations sur le calendrier d’évaluation de règle de déploiement automatique
 
--   Nombre de clients avec une stratégie de protection d’accès réseau
+-   Nombre de clients avec des stratégies de protection d’accès réseau
 
 -   Nombres et codes d’erreur de déploiement de mise à jour logicielle
 
 -   Nombre minimal/maximal/moyen de clients inactifs dans les regroupements de déploiements de mise à jour logicielle
 
--   Nombre de groupes avec des mises à jour logicielles ayant expiré
+-   Nombre de groupes avec des mises à jour logicielles expirées
 
 -   Nombre minimal/maximal/moyen de mises à jour logicielles par package
 
@@ -316,6 +316,6 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

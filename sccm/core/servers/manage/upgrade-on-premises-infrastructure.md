@@ -2,7 +2,7 @@
 title: "Mettre à niveau l’infrastructure locale | Microsoft Docs"
 description: "Découvrez comment mettre à niveau l’infrastructure, telles que SQL Server et le système d’exploitation de site des systèmes de site."
 ms.custom: na
-ms.date: 10/28/2016
+ms.date: 2/2/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4a8d98addcd463eb82d8b7100b44254a10d21992
-ms.openlocfilehash: b79346968edf88443f8e30691aa4baec7b81699f
+ms.sourcegitcommit: 83c8492191f40fc4d582562268db0d58a0f9cdde
+ms.openlocfilehash: a5d8496d98bd7f202ffbe8859981e94457ffa5c4
 
 
 ---
@@ -32,7 +32,7 @@ Utilisez les informations de cette rubrique pour mettre à niveau l’infrastruc
 
 - Si vous voulez mettre à jour votre infrastructure System Center Configuration Manager vers une nouvelle version, consultez [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="a-namebkmksupconfigupgradesitesrva-upgrade-site-operating-system-of-site-systems"></a><a name="BKMK_SupConfigUpgradeSiteSrv"></a> Mettre à niveau le système d’exploitation de site des systèmes de site  
+##  <a name="a-namebkmksupconfigupgradesitesrva-upgrade-the-operating-system-of-site-systems"></a><a name="BKMK_SupConfigUpgradeSiteSrv"></a> Mettre à niveau le système d’exploitation des systèmes de site  
  Configuration Manager prend en charge la mise à niveau sur place du système d’exploitation de serveurs qui hébergent un serveur de site et des serveurs distants hébergeant un rôle de système de site, dans les situations suivantes :  
 
 -   Mise à niveau sur place vers un Service Pack Windows Server ultérieur si le niveau du Service Pack de Windows qui en résulte est pris en charge par Configuration Manager.  
@@ -213,6 +213,6 @@ Pour identifier le niveau de compatibilité SQL Server CE en cours d’utilisati
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

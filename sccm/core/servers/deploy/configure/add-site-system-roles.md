@@ -1,8 +1,8 @@
 ---
 title: "Ajouter des rôles de système de site | Microsoft Docs"
-description: "Comprenez les rôles système de site Configuration Manager et comment les ajouter pour étendre les fonctionnalités et la capacité de votre site."
+description: "Découvrez les rôles de système de site Configuration Manager et apprenez à les ajouter pour étendre les fonctionnalités de votre site."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: e0cc69baa2fdc5bb9c1327c89840e28d0f885608
+ms.sourcegitcommit: 7fa191ce37a68f604673fe9b9724f76c3ff10032
+ms.openlocfilehash: 1ad4abf1f06ed24bd1d505648280b5e5d80220c7
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: e0cc69baa2fdc5bb9c1327c89840e28d0f885608
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Chaque site System Center Configuration Manager prend en charge plusieurs rôles système de site qui étendent chacun les fonctionnalités de votre site, ainsi que sa capacité à fournir des services et à gérer des appareils et des utilisateurs. Tous les rôles de système de site sur un serveur de système de site doivent être membres du même site.   
+Chaque site System Center Configuration Manager prend en charge plusieurs rôles de système de site. Chaque rôle étend les fonctionnalités de votre site, ainsi que sa capacité à fournir des services au site et à gérer des appareils et des utilisateurs. Tous les rôles de système de site sur un serveur de système de site doivent être membres du même site.   
 
 Configuration Manager ne prend pas en charge les rôles système de site pour plusieurs sites sur un serveur de système de site unique.  
 
@@ -37,7 +37,7 @@ Configuration Manager ne prend pas en charge les rôles système de site pour pl
 
 -   [Installer des rôles système de site pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-site-system-roles.md)  
 
-     Cette rubrique fournit des conseils de base sur l’utilisation des deux Assistants dans la console, qui permettent d’installer de nouveaux rôles système de site.  
+     Cette rubrique fournit des conseils de base sur l’utilisation des deux Assistants dans la console, qui permettent d’installer de nouveaux rôles de système de site.  
 
 -   [Installer des points de distribution cloud dans Microsoft Azure pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md)  
 
@@ -45,14 +45,14 @@ Configuration Manager ne prend pas en charge les rôles système de site pour pl
 
 -   [Installer des rôles système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
 
-     Cette rubrique va vous aider à configurer correctement vos rôles système de site pour prendre en charge la gestion d’appareils modernes à l’aide de la gestion des appareils mobiles locale de Configuration Manager.  
+     Cette rubrique va vous aider à configurer correctement vos rôles de système de site pour prendre en charge la gestion d’appareils modernes à l’aide de la gestion des appareils mobiles locale de Configuration Manager.  
 
 -   [Options de configuration pour les rôles système de site pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md)  
 
-     Certains rôles système de site prennent en charge des configurations qui nécessitent plus de détails que ce qui peut être expliqué dans l’interface utilisateur. Cette rubrique fournit ces détails.  
+     Certains rôles de système de site prennent en charge des configurations qui nécessitent plus de détails que ce qui peut être expliqué dans l’interface utilisateur. Cette rubrique fournit ces détails.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

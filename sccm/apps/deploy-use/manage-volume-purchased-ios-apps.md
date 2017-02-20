@@ -2,7 +2,7 @@
 title: "Gérer les applications iOS achetées en volume | Microsoft Docs"
 description: "Déployez, gérez et suivez les licences d’applications que vous avez achetées via l’App Store iOS."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/08/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
-ms.openlocfilehash: cd9edf61d151ac8334ace0bf668fa4c919d8c75b
+ms.sourcegitcommit: 191e01f6b8a1ef2b9e193abd62d7981e6c977c1d
+ms.openlocfilehash: fb771bc94f49f25cfe01ff67c88572c8f2b18909
 
 
 ---
@@ -91,7 +91,7 @@ Vous pouvez à tout moment synchroniser entièrement les données détenues par 
 1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Informations de licence pour les applications du Store**.  
 
 3.  Choisissez l’application que vous voulez déployer puis, sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.
-L’application Configuration Manager qui est créée contient l’application du Windows Store pour Entreprises. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.
+L’application Configuration Manager créée contient l’application iOS achetée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.
 
     > [!IMPORTANT]  
     > Vous devez choisir l’objectif de déploiement **Obligatoire**. Les installations disponibles ne sont pas prises en charge actuellement.
@@ -111,6 +111,6 @@ L’application Configuration Manager qui est créée contient l’application d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

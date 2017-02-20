@@ -2,7 +2,7 @@
 title: "Sites web pour les systèmes de site | Microsoft Docs"
 description: "Découvrez les sites web personnalisés et par défaut pour les serveurs de système de site dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 005c9f33367f173993d9626f10a72dd5b0141fbc
+ms.sourcegitcommit: 26bbec1e8d6c53ce297689ba4390b9347229eb15
+ms.openlocfilehash: 886ff3b8e867fc340c79648a57feae81653b0ccd
 
 
 ---
@@ -52,7 +52,7 @@ Plusieurs rôles de système de site Configuration Manager nécessitent l’util
 
 -   Configurez le site web personnalisé pour répondre sur le même port que celui configuré pour la communication client Configuration Manager (port de demande client).  
 
--   Pour chaque site web personnalisé ou site web par défaut qui utilise un dossier personnalisé, placez une copie du type de document par défaut que vous utilisez dans le dossier racine qui héberge le site web. Par exemple, sur un ordinateur Windows Server 2008 R2 avec des configurations par défaut, **iisstart.htm** est l'un des types de documents par défaut disponibles. Ce fichier se trouve à la racine du site web par défaut. Vous pouvez en placer une copie (ou une copie du type de document par défaut que vous utilisez) dans le dossier racine qui héberge le site web personnalisé SMSWEB. Pour plus d’informations sur les types de documents par défaut, consultez [Document par défaut &lt;defaultDocument\> pour IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
+-   Pour chaque site web personnalisé ou site web par défaut qui utilise un dossier personnalisé, placez une copie du type de document par défaut que vous utilisez dans le dossier racine qui héberge le site web. Par exemple, sur un ordinateur Windows Server 2008 R2 avec des configurations par défaut, **iisstart.htm** est l’un des types de documents par défaut disponibles. Ce fichier se trouve à la racine du site web par défaut. Vous pouvez en placer une copie (ou une copie du type de document par défaut que vous utilisez) dans le dossier racine qui héberge le site web personnalisé SMSWEB. Pour plus d’informations sur les types de documents par défaut, consultez [Document par défaut &lt;defaultDocument\> pour IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
 
 **À propos de la configuration requise pour IIS :**
 **Les rôles de système de site suivants nécessitent IIS et un site web pour héberger les services de système de site :**  
@@ -79,16 +79,16 @@ Autres éléments à prendre en considération
 
 -   Quand un site principal comporte des sites web personnalisés activés, les clients attribués à ce site sont configurés pour communiquer avec les sites web personnalisés plutôt qu’avec les sites web par défaut sur les serveurs de système de site concernés.  
 
--   Si vous activez des sites web personnalisés pour un site principal, envisagez d’utiliser des sites web personnalisés pour tous les sites principaux de votre hiérarchie afin d’assurer la bonne itinérance des clients dans la hiérarchie. (L’itinérance désigne le déplacement d’un ordinateur client vers un nouveau segment de réseau qui est géré par un autre site. L’itinérance peut avoir une incidence sur les ressources auxquelles le client peut accéder localement au lieu d’y accéder via une liaison WAN).  
+-   Si vous activez des sites web personnalisés pour un site principal, envisagez d’utiliser des sites web personnalisés pour tous les sites principaux de votre hiérarchie afin d’assurer la bonne itinérance des clients dans la hiérarchie. (L’itinérance désigne le déplacement d’un ordinateur client vers un nouveau segment de réseau qui est géré par un autre site. L’itinérance peut avoir une incidence sur les ressources auxquelles un client peut accéder localement au lieu d’y accéder sur une liaison WAN).  
 
--   Les rôles de système de site qui utilisent les services IIS mais n’acceptent pas les connexions clientes, par exemple, le point de Reporting Services, utilisent également le site web SMSWEB au lieu du site web par défaut.  
+-   Les rôles de système de site qui utilisent les services IIS mais n’acceptent pas les connexions clientes, comme le point de Reporting Services, utilisent également le site web SMSWEB au lieu du site web par défaut.  
 
 -   Les sites web personnalisés vous permettent d’attribuer des numéros de port différents de ceux utilisés par le site web par défaut des ordinateurs. Un site web par défaut et le site web personnalisé ne peuvent pas s’exécuter simultanément s’ils tentent tous les deux d’utiliser les mêmes ports TCP/IP.  
 
 -   Les ports TCP/IP que vous configurez dans IIS pour le site web personnalisé doivent correspondre aux ports de demande client pour le site.  
 
-## <a name="switching-between-default-and-custom-websites"></a>Changement de configuration entre les sites web par défaut et les sites web personnalisés  
-Vous pouvez sélectionner ou désélectionner la case à cocher pour l’utilisation de sites web personnalisés sur un site principal à tout moment (la case à cocher en question est située sous l’onglet Général des propriétés des sites), mais effectuez cette modification avec prudence. Si cette configuration est modifiée, tous les rôles de système de site applicables sur le site principal et sur les sites secondaires enfants doivent être désinstallés, puis réinstallés :  
+## <a name="switch-between-default-and-custom-websites"></a>Basculer entre un site web par défaut et un site web personnalisé  
+Vous pouvez cocher ou décocher la case relative à l’utilisation de sites web personnalisés sur un site principal à tout moment (la case à cocher se trouve sous l’onglet Général des propriétés des sites), mais effectuez cette modification avec prudence. Si cette configuration est modifiée, tous les rôles de système de site applicables sur le site principal et sur les sites secondaires enfants doivent être désinstallés, puis réinstallés :  
 
 Les rôles suivants sont **réinstallés automatiquement**:  
 
@@ -116,25 +116,25 @@ En outre :
 
 -   Quand vous utilisez un site web personnalisé à la place du site web par défaut, Configuration Manager ne supprime pas les anciens répertoires virtuels. Si vous souhaitez supprimer les fichiers utilisés par Configuration Manager, vous devez supprimer manuellement les répertoires virtuels créés sous le site web par défaut.  
 
--   Si vous modifiez le site pour utiliser des sites web personnalisés, les clients qui sont déjà attribués au site doivent ensuite être reconfigurés pour utiliser les nouveaux ports de demande client pour les sites web personnalisés. Consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
+-   Si vous modifiez le site pour utiliser des sites web personnalisés, les clients qui sont déjà attribués au site doivent ensuite être reconfigurés pour utiliser les nouveaux ports de demande client pour les sites web personnalisés. Consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-## <a name="configure-custom-websites"></a>Configurer des sites web personnalisés  
+## <a name="set-up-custom-websites"></a>Configurer des sites web personnalisés  
 Du fait que les procédures de création d’un site web personnalisé varient selon la version du système d’exploitation, reportez-vous à la documentation de votre version de système d’exploitation pour connaître les procédures exactes à suivre. Toutefois, suivez les indications ci-dessous, le cas échéant :  
 
 -   Le site web doit être appelé **SMSWEB**.  
 
 -   Si vous configurez le protocole HTTPS, vous devez spécifier un certificat SSL pour pouvoir enregistrer la configuration.  
 
--   Après avoir créé le site web personnalisé, supprimez les ports de sites web personnalisés que vous utilisez à partir d’autres sites web dans IIS :  
+-   Après avoir créé le site web personnalisé, supprimez les ports de sites web personnalisés que vous utilisez à partir d’autres sites web dans IIS :  
 
-    1.  Modifiez les **liaisons** des autres sites web pour supprimer les ports qui correspondent à ceux attribués au site web **SMSWEB** .  
+    1.  Modifiez les **liaisons** des autres sites web pour supprimer les ports qui correspondent à ceux attribués au site web **SMSWEB**.  
 
-    2.  Démarrez le site web **SMSWEB** .  
+    2.  Démarrez le site web **SMSWEB**.  
 
     3.  Redémarrez le service **SMS_SITE_COMPONENT_MANAGER** sur le serveur de site du site.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

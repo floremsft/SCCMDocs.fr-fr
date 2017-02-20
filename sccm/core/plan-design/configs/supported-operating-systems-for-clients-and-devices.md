@@ -2,7 +2,7 @@
 title: Clients et appareils pris en charge | Microsoft Docs
 description: "Découvrez les systèmes d’exploitation que System Center Configuration Manager prend en charge pour les clients et les appareils."
 ms.custom: na
-ms.date: 01/06/2017
+ms.date: 2/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 591a43d2243724cd784b5a3eb4779ceaf86a2ecb
-ms.openlocfilehash: 65e995c7e72dd3602ea6b19af8563aeb155bd86c
+ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
+ms.openlocfilehash: d2d888edf51d46a2dd13ef6b7ed39c066179a088
 
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager
@@ -39,7 +39,7 @@ ms.openlocfilehash: 65e995c7e72dd3602ea6b19af8563aeb155bd86c
 **Systèmes d’exploitation pris en charge** :  
 
 -  **Windows Server 2016** : Standard, Datacenter <sup>1</sup>
-  - Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de référence 1606 publiée en octobre 2016).  
+  - Ce système d’exploitation est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016).  
 
 
 -   **Windows Server 2012 R2** (x64) : Standard, Datacenter <sup>1</sup>    
@@ -65,6 +65,10 @@ ms.openlocfilehash: 65e995c7e72dd3602ea6b19af8563aeb155bd86c
 -   **Windows 8** (x86, x64) : Professionnel, Entreprise    
 
 -   **Windows 7 avec SP1** (x86, x64) : Professionnel, Entreprise et Édition Intégrale    
+
+-   **Installation minimale de Windows Server 2016** (x64) <sup>2</sup>
+  - Ce système d’exploitation est pris en charge à compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016). Toutefois, ce système d’exploitation ne prend pas en charge Endpoint Protection.
+
 
 -   **Installation minimale de Windows Server 2012 R2** (x64) <sup>2</sup>    
 
@@ -348,6 +352,6 @@ Configuration Manager prend en charge une gestion limitée des appareils qui se 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

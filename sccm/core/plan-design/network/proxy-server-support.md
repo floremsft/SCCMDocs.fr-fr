@@ -2,7 +2,7 @@
 title: Prise en charge du serveur proxy | Microsoft Docs
 description: "En savoir plus sur la prise en charge de System Center Configuration Manager pour les serveurs proxy utilisés par les clients et les serveurs de système de site."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 97f9cc792d1fea20c32f38bc98cbdfb9ba90640d
+ms.sourcegitcommit: c4f30e4839709722b216262b21d7b51c07d24d1e
+ms.openlocfilehash: dc36be47310d2c2178c974a2b503d0b5f9f6e2ec
 
 
 ---
@@ -31,23 +31,23 @@ Les clients aussi bien que les serveurs de système de site System Center Config
 ## <a name="site-system-servers"></a>Serveurs de système de site  
 Quand les rôles de système de site doivent se connecter à Internet, vous pouvez les configurer pour qu’ils utilisent un serveur proxy.  
 
--   Un ordinateur qui héberge un serveur de système de site prend en charge une configuration de serveur proxy unique partagée par tous les rôles de système de site sur cet ordinateur. Si vous avez besoin de serveurs proxy distincts pour les différents rôles ou les différentes instances d’un rôle, vous devez placer ces rôles sur des serveurs de système de site distincts.  
+-   Un ordinateur qui héberge un serveur de système de site prend en charge une configuration de serveur proxy unique partagée par tous les rôles de système de site sur ce même ordinateur. Si vous avez besoin de serveurs proxy distincts pour les différents rôles ou les différentes instances d’un rôle, vous devez placer ces rôles sur des serveurs de système de site distincts.  
 
 -   Quand vous configurez de nouveaux paramètres de serveur proxy pour un serveur de système de site qui possède déjà une configuration de serveur proxy, la configuration d’origine est remplacée.  
 
 -   Les connexions au serveur proxy utilisent le compte **Système** de l’ordinateur qui héberge le rôle de système de site.  
 
-Les rôles de système de site suivants se connectent à internet et peuvent nécessiter un serveur proxy.  À une exception près, les rôles de système de site qui peuvent utiliser un proxy le font sans aucune configuration supplémentaire. Cette exception concerne le point de mise à jour logicielle. La liste suivante contient des informations sur les configurations supplémentaires que nécessite un point de mise à jour logicielle.  
+Les rôles de système de site suivants se connectent à Internet et peuvent nécessiter un serveur proxy.  À une exception près, les rôles de système de site qui peuvent utiliser un proxy le font sans aucune configuration supplémentaire. Cette exception concerne le point de mise à jour logicielle. La liste suivante contient des informations sur les configurations supplémentaires exigées par un point de mise à jour logicielle :  
 
 **Point de synchronisation Asset Intelligence** : ce rôle de système de site se connecte à Microsoft et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le point de synchronisation Asset Intelligence.  
 
-**Point de distribution cloud** : pour configurer un serveur proxy pour un point de distribution cloud, vous configurez le proxy sur le site principal qui gère le point de distribution cloud.  
+**Point de distribution cloud** : pour configurer un serveur proxy pour un point de distribution cloud, configurez le proxy sur le site principal qui gère le point de distribution cloud.  
 
 Pour cette configuration, le serveur de site principal :  
 
--   doit pouvoir se connecter à Microsoft Azure pour configurer le contenu, le surveiller et le distribuer au point de distribution ;  
+-   doit pouvoir se connecter à Microsoft Azure pour configurer le contenu, le surveiller et le distribuer au point de distribution ;  
 
--   utilise le compte Système de cet ordinateur pour établir la connexion ;  
+-   utilise le compte Système de cet ordinateur pour établir la connexion ;  
 
 -   utilise le navigateur web par défaut de cet ordinateur.  
 
@@ -55,18 +55,17 @@ Vous ne pouvez pas configurer un serveur proxy sur le point de distribution clou
 
 **Point de connexion cloud** : ce rôle de système de site se connecte au service cloud de Configuration Manager pour télécharger des mises à jour de version de Configuration Manager, et utilise un serveur proxy configuré sur l’ordinateur hébergeant le point de connexion de service.  
 
-**Connecteur du serveur Exchange Server** : ce rôle de système de site se connecte à un serveur Exchange Server et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le connecteur Exchange Server.  
+**Connecteur du serveur Exchange Server** : ce rôle de système de site se connecte à un serveur Exchange Server et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le connecteur Exchange Server.  
 
 **Point de connexion de service** : ce rôle de système de site se connecte à Microsoft Intune et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le point de connexion de service.  
 
-**Point de mise à jour logicielle** : ce rôle de système de site peut utiliser le proxy quand il se connecte à Microsoft Update pour télécharger des correctifs et synchroniser les informations sur les mises à jour.   
-Les points de mise à jour logicielle utilisent un proxy uniquement pour les deux options suivantes, lorsque vous activez cette option au moment de la configuration du point de mise à jour logicielle :  
+**Point de mise à jour logicielle** : ce rôle de système de site peut utiliser le proxy quand il se connecte à Microsoft Update pour télécharger des correctifs et synchroniser les informations sur les mises à jour. Les points de mise à jour logicielle utilisent un proxy uniquement pour les options suivantes, quand vous activez cette option au moment de la configuration du point de mise à jour logicielle :  
 
 -   **Utiliser un serveur proxy lors de la synchronisation des mises à jour logicielles**  
 
--   **Utiliser un serveur proxy lors du téléchargement du contenu avec des règles de déploiement automatiques** (Bien que disponible, ce paramètre n’est pas utilisé par les points de mise à jour logicielle sur des sites secondaires)  
+-   **Utiliser un serveur proxy lors du téléchargement du contenu avec des règles de déploiement automatiques** (Bien que disponible, ce paramètre n’est pas utilisé par les points de mise à jour logicielle sur des sites secondaires).  
 
-Configurez les paramètres du serveur proxy dans la page Point de mise à jour logicielle actif de l’Assistant Ajout des rôles de système de site ou sous l’onglet Général des Propriétés du composant du point de mise à jour logicielle.  
+Configurez les paramètres du serveur proxy dans la page Point de mise à jour logicielle actif de l’Assistant Ajout des rôles de système de site ou sous l’onglet **Général** des **Propriétés du composant du point de mise à jour logicielle**.  
 
 -   Les paramètres du serveur proxy sont associés uniquement au point de mise à jour logicielle au niveau du site.  
 
@@ -77,18 +76,18 @@ Configurez les paramètres du serveur proxy dans la page Point de mise à jour l
 >   
 >  Si ce compte n’a pas accès à Internet, les mises à jour logicielles ne peuvent pas être téléchargées et l’entrée suivante est consignée dans le fichier ruleengine.log : **Échec du téléchargement de la mise à jour sur Internet. Erreur = 12007.**  
 
-#### <a name="to-configure-the-proxy-server-for-a-site-system-server"></a>Pour configurer le serveur proxy d'un serveur de système de site  
+#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Pour configurer le serveur proxy d’un serveur de système de site  
 
-1.  Dans la console Configuration Manager, cliquez sur Administration, développez Configuration du site, puis cliquez sur Serveurs et rôles de système de site.  
+1.  Dans la console Configuration Manager, choisissez **Administration**, développez **Configuration du site**, puis choisissez **Serveurs et rôles de système de site**.  
 
-2.  Sélectionnez le serveur de système de site à modifier, puis dans le volet d’informations, cliquez avec le bouton droit sur Système de site, puis cliquez sur Propriétés.  
+2.  Sélectionnez le serveur de système de site à modifier, puis dans le volet d’informations, cliquez avec le bouton droit sur **Système de site**, puis choisissez **Propriétés**.  
 
-3.  Dans Propriétés du système de site, sélectionnez l’onglet Proxy, puis configurez les paramètres de proxy de ce serveur de site principal.  
+3.  Dans Propriétés du système de site, sélectionnez l’onglet **Proxy**, puis configurez les paramètres de proxy de ce serveur de site principal.  
 
-4.  Cliquez sur OK pour enregistrer la nouvelle configuration de serveur proxy.  
+4.  Cliquez sur **OK** pour enregistrer la nouvelle configuration de serveur proxy.  
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

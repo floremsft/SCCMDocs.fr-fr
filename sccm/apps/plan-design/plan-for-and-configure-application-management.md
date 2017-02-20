@@ -2,7 +2,7 @@
 title: Planifier et configurer la gestion des applications | Microsoft Docs
 description: "Implémentez et configurez les dépendances nécessaires au déploiement d’applications dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 01/17/2017
+ms.date: 02/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d2a12edcc6bc7413558e25b694b69133c2496019
-ms.openlocfilehash: 0a38ea116e589425048f6c46378df46ecc0d375b
+ms.sourcegitcommit: 50c08d63e7220a47d21dcbdcd7abafba7c7f5f75
+ms.openlocfilehash: 4eca69f54ec0bca5f1f972d3814ceb87d4a30d67
 
 
 ---
@@ -112,7 +112,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 
 1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Serveurs et rôles de système de site**, puis sélectionnez le serveur à utiliser pour le catalogue des applications.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Ajouter des rôles de système de site**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Serveur**, choisissez **Ajouter des rôles de système de site**.  
 
 4.  Dans la page **Général**, spécifiez les paramètres généraux du système de site, puis choisissez **Suivant**.  
 
@@ -228,6 +228,6 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

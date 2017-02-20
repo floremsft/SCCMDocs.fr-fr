@@ -5,7 +5,7 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 01/04/2017
+ms.date: 02/03/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -13,8 +13,8 @@ ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
 translationtype: Human Translation
-ms.sourcegitcommit: 6bb2bf0a029bc21e9420ac0ba782e8ea21291896
-ms.openlocfilehash: df9ad09c4ce0c2a18ee012cd3ace7b1a850df7b4
+ms.sourcegitcommit: 5ab49481a78eda044350addab86ee6f8ef1c0946
+ms.openlocfilehash: fe8bf45970e34af0795a5a9a4c3aa985e446784d
 
 ---
 
@@ -67,8 +67,7 @@ Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Ge
 
 1.  [Vérifiez la configuration requise](https://technet.microsoft.com/library/mt628083.aspx) pour utiliser Configuration Manager en vue de gérer les mises à jour du client Office 365 dans la section **Configuration requise pour utiliser Configuration Manager afin de gérer les mises à jour du client Office 365** de la rubrique.  
 
-2.  [Configurez les points de mise à jour logicielle](../get-started/configure-classifications-and-products.md) pour synchroniser les mises à jour du client Office 365. Définissez **Mises à jour** en guise de classification et sélectionnez **Office 365 Client** en guise de produit. Vous pouvez être amené à synchroniser les mises à jour logicielles au moins une fois avant que le produit Office 365 Client puisse être sélectionné. Vous devez synchroniser les mises à jour logicielles après avoir configuré les points de mise à jour logicielle pour utiliser la classification **Mises à jour**.  
-
+2.  [Configurez les points de mise à jour logicielle](../get-started/configure-classifications-and-products.md) pour synchroniser les mises à jour du client Office 365. Définissez **Mises à jour** en guise de classification et sélectionnez **Office 365 Client** en guise de produit. Vous pouvez être amené à synchroniser les mises à jour logicielles au moins une fois avant que le produit Office 365 Client puisse être sélectionné. Vous devez synchroniser les mises à jour logicielles après avoir configuré les points de mise à jour logicielle pour utiliser la classification **Mises à jour**.
 3.  Habilitez les clients Office 365 à recevoir des mises à jour de Configuration Manager. Pour cela, vous pouvez utiliser les paramètres du client Configuration Manager ou la stratégie de groupe. Employez l’une des méthodes suivantes pour activer le client :  
     - Méthode 1 : à compter de Configuration Manager version 1606, vous pouvez utiliser le paramètre du client Configuration Manager pour gérer l’agent Office 365 Client. Après avoir configuré ce paramètre et déployé les mises à jour d’Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client de façon à télécharger les mises à jour d’Office 365 à partir d’un point de distribution et ensuite à les installer. Configuration Manager dresse l’inventaire des paramètres du client Office 365 ProPlus.
       1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**.  
@@ -79,47 +78,54 @@ Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Ge
 
     - Méthode 2 : [Habilitez les clients Office 365 à recevoir les mises à jour](https://technet.microsoft.com/library/mt628083.aspx#BKMK_EnableClient) de Configuration Manager via l’outil Déploiement d’Office ou la stratégie de groupe.  
 
-4. [Déployez les mises à jour d’Office 365](deploy-software-updates.md) sur les clients.  
+4. [Déployez les mises à jour d’Office 365](deploy-software-updates.md) sur les clients.   
 
-<!--  ## Add other languages for Office 365 update downloads
-Beginning in Configuration Manager version 1610, you can add support for Configuration Manager to download updates for any languages supported by Office 365 regardless of whether they are supported in Configuration Manager.
+## <a name="add-other-languages-for-office-365-update-downloads"></a>Télécharger des mises à jour Office 365 dans des langues supplémentaires
+À compter de la version 1610, vous pouvez configurer Configuration Manager pour qu’il télécharge des mises à jour dans toutes les langues prises en charge par Office 365, que celles-ci soient prises en charge ou non par Configuration Manager.
+> [!IMPORTANT]  
+> La configuration de langues supplémentaires pour les mises à jour Office 365 est un paramètre qui s’étend au niveau du site. Une fois les langues ajoutées à l’aide de la procédure suivante, toutes les mises à jour Office 365 sont téléchargées dans ces langues, ainsi que dans celles sélectionnées dans la page Sélection de la langue de l’Assistant Téléchargement des mises à jour logicielles ou de l’Assistant Déploiement des mises à jour logicielles.
 
-### To add support to download updates for additional languages
-Use the following procedure on the central administration site, or stand-alone primary site, where the software update point site system role is installed.
-1. From a command prompt, type *wbemtest* as an administrative user to open the Windows Management Instrumentation Tester.
-2. Click **Connect**, and then type *root\sms\site_<siteCode>*.
-3. Click **Query**, and then run the following query:
-   *select &#42; from SMS_SCI_Component where componentname ="SMS_WSUS_CONFIGURATION_MANAGER"*
-4. Double-click the object with the site code for the central administration site or stand-alone primary site.
+### <a name="to-add-support-to-download-updates-for-additional-languages"></a>Pour télécharger des mises à jour dans des langues supplémentaires
+Utilisez la procédure suivante sur le site d’administration centrale ou sur le site principal autonome sur lequel le rôle de système de site du point de mise à jour logicielle est installé.
+1. À partir d’une invite de commande, tapez *wbemtest* avec des droits d’administration pour ouvrir le testeur WMI.
+2. Cliquez sur **Connexion**, puis tapez *root\sms\site_&lt;siteCode&gt;*.
+3. Cliquez sur **Requête**, puis exécutez la requête suivante : *select &#42; from SMS_SCI_Component where componentname ="SMS_WSUS_CONFIGURATION_MANAGER"*  
+   ![Requête WMI](..\media\1-wmiquery.png)
+4. Dans le volet des résultats, double-cliquez sur l’objet avec le code de site pour le site d’administration centrale ou le site principal autonome.
+5. Sélectionnez la propriété **Props**, cliquez sur **Modifier la propriété**, puis cliquez sur **Vue incorporée**.
+![Éditeur de propriétés](..\media\2-propeditor.png)
+6. En commençant par le premier résultat de la requête, ouvrez chaque objet jusqu’à ce que vous trouviez celui dont la propriété **PropertyName** a la valeur **AdditionalUpdateLanguagesForO365**.
+7. Sélectionnez **Value2**, puis cliquez sur **Modifier la propriété**.  
+![Modifier la propriété Value2](..\media\3-queryresult.png)
+8. Ajoutez des langues supplémentaires à la propriété **Value2**, puis cliquez sur **Enregistrer la propriété**.  
+Par exemple : pt-pt (Portugais - Portugal), af-za (Afrikaans - Afrique du Sud), nn-no (Norvégien [Nynorsk] - Norvège), etc.  
+![Ajouter des langues dans l’Éditeur de propriétés](..\media\4-props.png)  
+9. Cliquez sur **Fermer**, sur **Fermer**, sur **Enregistrer la propriété**, puis sur **Enregistrer l’objet** (si vous cliquez sur **Fermer** ici, les valeurs sont ignorées). Cliquez ensuite sur **Fermer**, puis sur **Quitter** pour quitter le testeur WMI.
+10. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des clients Office 365** > **Mises à jour Office 365**.
+11. Désormais, quand vous téléchargez des mises à jour Office 365, celles-ci sont téléchargées dans la langue sélectionnée dans l’Assistant et dans celles configurées durant cette procédure. Pour vérifier que les mises à jour ont été téléchargées dans ces langues, accédez à la source du package de la mise à jour et recherchez les fichiers dont le nom comprend le code de langue.  
+![Noms de fichiers avec des langues supplémentaires](..\media\5-verification.png)
 
-5. Browse the properties for View Embedded.
-3). Find the SMS_EmbeddedProperty instance with the PropertyName of "AdditionalUpdateLanguagesForO365"
-4). Set Value2 to be additional languages, e.g.:  pt-pt,af-za,nn-no, and save
-5). Right click to download an O365 update, choose languages from UI
-6). Verify that the language packs got downloaded including the UI specified ones plus the SDK specified ones. Admin can check the content package share specified to verify this.
--->
 
-<!-- ## Change the update channel after you enable Office 365 clients to receive updates from Configuration Manager
-To change the update channel after you enable Office 365 clients to receive updates from Configuration Manager, you must distribute a registry key value change to Office 365 clients using group policy. Change the **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** registry key to use one of the following values:
+## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Modifier le canal de mise à jour une fois les clients Office 365 habilités à recevoir des mises à jour de Configuration Manager
+Pour modifier le canal de mise à jour une fois que les clients Office 365 sont habilités à recevoir des mises à jour de Configuration Manager, vous pouvez utiliser une stratégie de groupe pour distribuer un changement de valeur de clé de Registre aux clients Office 365. Modifiez la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** pour qu’elle utilise l’une des valeurs suivantes :
 
-- Current Channel:  
-  **CDNBaseUrl** = http://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60
+- Canal actuel :  
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60
 
-- Deferred Channel:  
-  **CDNBaseUrl** = http://officecdn.microsoft.com/pr/7ffbc6bf-bc32-4f92-8982-f9dd17fd3114
+- Canal différé :  
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/7ffbc6bf-bc32-4f92-8982-f9dd17fd3114
 
-- First Release for Current Channel:  
-  **CDNBaseUrl** = http://officecdn.microsoft.com/pr/64256afe-f5d9-4f86-8936-8840a6a4f5be
+- Groupe First Release pour le canal actuel :  
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/64256afe-f5d9-4f86-8936-8840a6a4f5be
 
-- First Release for Deferred Channel:  
-  **CDNBaseUrl** = http://officecdn.microsoft.com/pr/b8f9b850-328d-4355-9145-c59439a0c4cf
--->
+- Groupe First Release pour le canal différé :  
+  **CDNBaseUrl** = http&#58;//officecdn.microsoft.com/pr/b8f9b850-328d-4355-9145-c59439a0c4cf
 
 <!--- ## Next steps
 Use the Office 365 Client Management dashboard in Configuration Manager to review Office 365 client information and deploy Office 365 apps. For details, see [Manage Office 365 apps](manage-office-365-apps.md). --->
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
