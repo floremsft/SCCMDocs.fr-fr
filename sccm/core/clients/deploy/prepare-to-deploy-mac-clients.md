@@ -28,7 +28,7 @@ ms.openlocfilehash: 9f51c15adaa850eb8343601ddcd13046480fc9c0
 
 Procédez comme suit pour vérifier que vous êtes prêt à [déployer le client Configuration Manager sur les ordinateurs Mac](/sccm/core/clients/deploy/deploy-clients-to-macs). 
 
-## <a name="mac-prerequisites"></a>Conditions préalables relatives aux ordinateurs Mac
+## <a name="mac-prerequisites"></a>Prérequis des ordinateurs Mac
 
 Le package d’installation de client Mac n’est pas fourni avec le support d’installation de Configuration Manager. Téléchargez les **clients pour d’autres systèmes d’exploitation** à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
 
@@ -68,7 +68,7 @@ Pour plus d’informations sur le certificat client Mac requis et sur les autres
 Les clients Mac sont attribués automatiquement au site Configuration Manager qui les gère. Les clients Mac s'installent en tant que clients Internet uniquement, même si la communication est limitée à l'intranet. Cette configuration de client signifie qu'ils communiquent avec les rôles de système de site (points de gestion et points de distribution) sur le site qui leur est attribué si vous configurez ces rôles pour autoriser les connexions client depuis Internet. Les ordinateurs Mac ne communiquent pas avec les rôles de système de site extérieurs au site qui leur est attribué.  
 
 > [!IMPORTANT]  
->  Le client Mac Configuration Manager ne peut pas être utilisé pour se connecter à un point de gestion configuré pour utiliser un [réplica de base de données](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  Vous ne pouvez pas utiliser le client Mac Configuration Manager pour vous connecter à un point de gestion configuré pour utiliser un [réplica de base de données](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 
 ## <a name="deploy-a-web-server-certificate-to-site-system-servers"></a>Déployer un certificat de serveur web sur des serveurs de système de site  
@@ -168,7 +168,7 @@ Les rôles de système de site doivent se trouver dans un site principal.
 
 6.  Dans la page **Point proxy d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires.  
 
-7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, terminez l’Assistant.  
+7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, exécutez l’Assistant.  
 
 ### <a name="existing-site-system-server"></a>Serveur de système de site existant  
 
@@ -182,7 +182,7 @@ Les rôles de système de site doivent se trouver dans un site principal.
 
 6.  Dans la page **Point proxy d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires.  
 
-7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, terminez l’Assistant.  
+7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, exécutez l’Assistant.  
 
 ## <a name="install-the-reporting-services-point"></a>Installez le point de Reporting Services.  
  [Installez le point de Reporting Services](../../../core/servers/manage/configuring-reporting.md) si vous voulez exécuter des rapports pour les ordinateurs Mac.  
