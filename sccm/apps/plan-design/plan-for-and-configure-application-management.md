@@ -2,7 +2,7 @@
 title: Planifier et configurer la gestion des applications | Microsoft Docs
 description: "Implémentez et configurez les dépendances nécessaires au déploiement d’applications dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 02/03/2017
+ms.date: 02/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 50c08d63e7220a47d21dcbdcd7abafba7c7f5f75
-ms.openlocfilehash: 4eca69f54ec0bca5f1f972d3814ceb87d4a30d67
+ms.sourcegitcommit: 1c43c4968f93985515249ddb117269f8ed61302a
+ms.openlocfilehash: 46cc3fcfd9516cf1c124e24b50d0aac0cb0025dc
 
 
 ---
@@ -44,8 +44,8 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 |Paramètres du client|De nombreux paramètres client contrôlent la manière dont les applications sont installées sur le client, ainsi que l’expérience utilisateur offerte par ce dernier. En voici quelques-uns :<br /><br /><ul><li>Agent ordinateur</li><li>Redémarrage de l'ordinateur</li><li>Déploiement logiciel</li><li>Affinité entre utilisateur et appareil</li></ul> Pour plus d’informations sur ces paramètres client, consultez [À propos des paramètres client](../../core/clients/deploy/about-client-settings.md).<br /><br /> Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).|  
 |Pour le catalogue d'applications :<br /><br /> Comptes d'utilisateur découverts|Configuration Manager doit d’abord découvrir les utilisateurs avant qu’ils puissent afficher et demander des applications du catalogue des applications. Pour plus d’informations, consultez [Exécuter la découverte](/sccm/core/servers/deploy/configure/run-discovery).|  
 |Client App-V 4.6 SP1 ou version supérieure, pour l'exécution des applications virtuelles|Pour pouvoir créer des applications virtuelles dans Configuration Manager, les ordinateurs clients doivent disposer du client App-V 4.6 SP1 ou ultérieur.<br /><br /> Vous devez également mettre à jour le client App-V avec le correctif décrit dans l’[article 2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322) de la Base de connaissances avant de pouvoir déployer des applications virtuelles.|  
-|Point de service Web du catalogue des applications|Le point de service Web du catalogue des applications est un rôle de système de site qui fournit au site Web du catalogue des applications des informations sur les logiciels disponibles auprès de la bibliothèque de logiciels.<br /><br /> Pour plus d’informations sur la configuration de ce rôle de système de site, consultez [Configurer le Centre logiciel et le catalogue des applications (PC Windows uniquement)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) dans cet article.|  
-|Point du site web du catalogue des applications|Le point du site Web du catalogue des applications est un rôle de système de site fournissant aux utilisateurs une liste des logiciels disponibles.<br /><br /> Pour plus d’informations sur la configuration de ce rôle de système de site, consultez [Configurer le Centre logiciel et le catalogue des applications (PC Windows uniquement)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) dans cet article.|  
+|Point de service web du catalogue des applications|Le point de service web du catalogue des applications est un rôle de système de site qui fournit au site web du catalogue des applications des informations sur les logiciels disponibles auprès de la bibliothèque de logiciels.<br /><br /> Pour plus d’informations sur la configuration de ce rôle de système de site, consultez [Configurer le Centre logiciel et le catalogue des applications (PC Windows uniquement)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) dans cet article.|  
+|Point du site web du catalogue des applications|Le point du site web du catalogue des applications est un rôle de système de site fournissant aux utilisateurs une liste des logiciels disponibles.<br /><br /> Pour plus d’informations sur la configuration de ce rôle de système de site, consultez [Configurer le Centre logiciel et le catalogue des applications (PC Windows uniquement)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) dans cet article.|  
 |Point de Reporting Services|Pour pouvoir utiliser les rapports dans Configuration Manager pour la gestion d’applications, vous devez d’abord installer et configurer un point de Reporting Services.<br /><br /> Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).|  
 |Autorisations de sécurité pour la gestion d'applications|Pour pouvoir gérer des applications, vous devez disposer des autorisations de sécurité ci-dessous.<br /><br /> Le rôle de sécurité **Auteur d’application** inclut les autorisations mentionnées ci-dessus, qui sont nécessaires pour créer, modifier et mettre hors service des applications dans Configuration Manager.<br /><br /> **Pour déployer des applications :**<br /><br /> Le rôle de sécurité **Gestionnaire de déploiement d’application** intègre les autorisations mentionnées ci-dessus, qui sont nécessaires au déploiement d’applications dans Configuration Manager.<br /><br /> Le rôle de sécurité **Administrateur d’application** a toutes les autorisations des rôles de sécurité **Auteur d’application** et **Gestionnaire de déploiement d’application**.<br /><br /> Pour plus d’informations, consultez [Configurer l’administration basée sur des rôles](../../core/servers/deploy/configure/configure-role-based-administration.md).|  
 
@@ -78,7 +78,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 
 |Étapes|Détails|Plus d'informations|  
 |-----------|-------------|----------------------|  
-|**Étape 1 :** si vous souhaitez utiliser des connexions HTTPS, assurez-vous d'avoir déployé un certificat de serveur web sur les serveurs de système de site.|Déployez un certificat de serveur Web sur les serveurs de système de site qui exécuteront le point de site Web du catalogue d'applications et le point de service Web du catalogue d'applications.<br /><br /> De plus, si vous voulez que les clients puissent utiliser le catalogue des applications depuis Internet, déployez un certificat de serveur Web sur au moins un serveur de système de site du point de gestion et configurez-le pour les connexions client depuis Internet.|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
+|**Étape 1 :** si vous souhaitez utiliser des connexions HTTPS, assurez-vous d'avoir déployé un certificat de serveur web sur les serveurs de système de site.|Déployez un certificat de serveur web sur les serveurs de système de site qui exécuteront le point de site web du catalogue d'applications et le point de service web du catalogue d'applications.<br /><br /> De plus, si vous voulez que les clients puissent utiliser le catalogue des applications depuis Internet, déployez un certificat de serveur web sur au moins un serveur de système de site du point de gestion et configurez-le pour les connexions client depuis Internet.|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
 |**Étape 2 :** si vous souhaitez utiliser un certificat client PKI pour les connexions à des points de gestion, déployez un certificat d'authentification client sur les ordinateurs clients.|Même si les clients n’utilisent pas un certificat PKI client pour se connecter au catalogue d’applications, ils doivent se connecter à un point de gestion afin d’utiliser le catalogue d’applications. Vous devez déployer un certificat d'authentification client sur les ordinateurs clients dans les cas suivants :<br /><br /><ul><li>Tous les points de gestion sur l'intranet n'acceptent que les connexions client HTTPS.</li><li>Les clients se connecteront au catalogue d'applications depuis Internet.</li></ul>|Pour plus d’informations sur les spécifications des certificats, consultez [Spécifications des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
 |**Étape 3 :** installez et configurez le point de service web du catalogue d'applications et le site web du catalogue d'applications.|Vous devez installer les deux rôles de système de site sur le même site. Vous n'êtes pas obligé de les installer sur le même serveur de système de site ni dans la même forêt Active Directory. Cependant, le point de service web du catalogue des applications doit se trouver dans la même forêt que la base de données du site.|Pour plus d’informations sur le positionnement des rôles de système de site, consultez [Planification des serveurs de système de site et rôles système de site](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).<br /><br /> Pour configurer le point de service web du catalogue des applications et le point de site web du catalogue des applications, consultez **Étape 3 : installation et configuration des rôles de système de site du catalogue des applications**.|  
 |**Étape 4 :** configurez les paramètres client pour le catalogue des applications et le Centre logiciel.|Configurez les paramètres client par défaut si vous souhaitez que tous les utilisateurs aient le même paramètre. Vous pouvez aussi configurer des paramètres client personnalisés pour des regroupements spécifiques.|Pour plus d’informations sur les paramètres client, consultez [À propos des paramètres client](../../core/clients/deploy/about-client-settings.md).<br /><br /> Pour plus d’informations sur la configuration de ces paramètres client, consultez **Étape 4 : configuration des paramètres client pour le catalogue des applications et le Centre logiciel**.|  
@@ -127,7 +127,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 
     Messages d'état : Utiliser les composants **SMS_PORTALWEB_CONTROL_MANAGER** et **SMS_AWEBSVC_CONTROL_MANAGER**.  
 
-    Par exemple, l'ID d'état **1015** pour **SMS_PORTALWEB_CONTROL_MANAGER** confirme que le Gestionnaire de composants de site a correctement installé le point de site Web du catalogue des applications.  
+    Par exemple, l'ID d'état **1015** pour **SMS_PORTALWEB_CONTROL_MANAGER** confirme que le Gestionnaire de composants de site a correctement installé le point de site web du catalogue d'applications.  
 
     Fichiers journaux : Rechercher **SMSAWEBSVCSetup.log** et **SMSPORTALWEBSetup.log**.  
 
@@ -146,7 +146,7 @@ Utilisez les informations de cette article pour savoir comment implémenter les 
 
         -   **Point de site Web du catalogue d'applications par défaut**  
 
-        -   **Ajoute un site Web du catalogue d'applications par défaut à la zone des sites de confiance d'Internet Explorer**  
+        -   **Ajoute un site web du catalogue d'applications par défaut à la zone des sites de confiance d'Internet Explorer**  
 
         -   **Nom d'organisation affiché dans le Centre logiciel**  
 
@@ -228,6 +228,6 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
