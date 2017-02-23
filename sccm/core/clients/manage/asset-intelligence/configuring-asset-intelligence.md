@@ -2,7 +2,7 @@
 title: Configurer Asset Intelligence | Microsoft Docs
 description: Configurez Asset Intelligence dans System Center Configuration Manager.
 ms.custom: na
-ms.date: 12/28/2016
+ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,8 +13,8 @@ ms.topic: get-started-article
 ms.assetid: 08e0382d-de05-4a76-ba5c-7223173f7066
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: andredm7
+ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
@@ -224,7 +224,7 @@ Asset Intelligence fait correspondre les produits que vous spécifiez dans la d�
 
 4.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Maintenance de site**. Sélectionnez une tâche, puis choisissez **Modifier** pour modifier les paramètres. 
 
-    Nous vous recommandons de définir la période aux heures creuses d’utilisation du site. La période représente l'intervalle de temps au cours duquel la tâche peut être exécutée. Elle est définie par les paramètres **Démarrer après** et **Heure de début au plus tard** spécifiés dans la boîte de dialogue **Propriétés de la tâche** .  
+      Nous vous recommandons de définir la période aux heures creuses d’utilisation du site. La période représente l'intervalle de temps au cours duquel la tâche peut être exécutée. Elle est définie par les paramètres **Démarrer après** et **Heure de début au plus tard** spécifiés dans la boîte de dialogue **Propriétés de la tâche** .  
 
     Vous pouvez lancer immédiatement la tâche en sélectionnant le jour actuel et en réglant la valeur **Démarrer après** quelques minutes après le moment présent.  
 
