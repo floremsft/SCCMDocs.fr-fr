@@ -2,7 +2,7 @@
 title: Aide du client Endpoint Protection | Microsoft Docs
 description: "Découvrez les fonctionnalités et améliorations dans Endpoint Protection qui vous aident à protéger votre ordinateur contre les menaces."
 ms.custom: na
-ms.date: 01/03/2017
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1432568286605d29683416885d7aa522c649016e
-ms.openlocfilehash: ef2d8b540856b395575b99de79fa463de5d133ac
+ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
+ms.openlocfilehash: 212c73fcb947c3b56da6055bf47fe078301ad90d
 
 
 ---
@@ -29,14 +29,12 @@ ms.openlocfilehash: ef2d8b540856b395575b99de79fa463de5d133ac
 Cette version de Windows Defender ou d’Endpoint Protection inclut les fonctionnalités suivantes pour mieux protéger votre ordinateur contre les menaces :  
 
 -   **Intégration du Pare-feu Windows** Le programme d’installation de Endpoint Protection vous permet d’activer ou de désactiver le Pare-feu Windows.  
-
 -   **Système d'inspection réseau.** Cette fonctionnalité améliore la protection en temps réel en inspectant le trafic réseau pour mieux bloquer de façon proactive les attaques visant les failles de sécurité connues du réseau.  
-
 -   **Moteur de protection.** La protection en temps réel détecte les logiciels malveillants et les empêche de s’installer ou de s’exécuter sur votre PC. Le moteur mis à jour offre des fonctions de nettoyage et de détection améliorées avec de meilleures performances.  
 
 Windows Defender est fourni comme composant du système d’exploitation Windows 10.  Dans les versions antérieures de Windows, votre administrateur peut fournir Windows Defender ou Endpoint Protection à l’aide du logiciel de gestion.
 
-Pour obtenir de l’aide sur la résolution des problèmes, consultez [Résolution des problèmes du client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md). Pour obtenir une liste des nouvelles fonctionnalités, consultez [Nouveautés de Windows Defender](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
+Vous y trouverez également une liste de [questions fréquentes sur Windows Defender et Endpoint Protection](endpoint-protection-client-faq.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez [Résolution des problèmes du client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md). Pour obtenir une liste des nouvelles fonctionnalités, consultez [Nouveautés de Windows Defender](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
 
 ## <a name="windows-firewall-integration"></a>Intégration du Pare-feu Windows  
  Le Pare-feu Windows peut permettre d'empêcher les personnes ou logiciels malveillants d'accéder à votre ordinateur via Internet ou un réseau. Quand vous installez Endpoint Protection, l’Assistant Installation vérifie que le Pare-feu Windows est activé. Si vous avez volontairement désactivé le Pare-feu Windows, vous pouvez éviter de l'activer en désactivant une case à cocher. Vous pouvez modifier les paramètres du Pare-feu Windows à tout moment via les paramètres Système et sécurité dans le Panneau de configuration.  
@@ -60,11 +58,10 @@ Pour afficher les paramètres de Windows Defender, recherchez `Windows Defender`
 
 ### <a name="see-also"></a>Voir aussi  
  [Forum aux questions sur le client Endpoint Protection](endpoint-protection-client-faq.md)   
-
  [Résolution des problèmes du client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
