@@ -2,7 +2,7 @@
 title: "Préparer des serveurs Windows | Microsoft Docs"
 description: "Vérifiez qu’un ordinateur remplit les conditions préalables pour l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: bd89f97f4252ddea2d1bf7ab329417477c77868d
+ms.sourcegitcommit: dd102603356864add4084c6881c39bebcbd635f2
+ms.openlocfilehash: 9b97dedb5d2be0bd2e47260033e6e4361467dc4e
 
 
 ---
@@ -26,35 +26,35 @@ ms.openlocfilehash: bd89f97f4252ddea2d1bf7ab329417477c77868d
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avant de pouvoir utiliser comme prévu un ordinateur Windows comme serveur de système de site ou de serveur de site pour System Center Configuration Manager, vous devez vérifier qu’il remplit bien les conditions préalables à cet usage.  
+Pour pouvoir l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager, l’ordinateur doit remplir les conditions requises.  
 
--   Ces conditions incluent souvent plusieurs fonctionnalités ou rôles Windows qui sont activés à l’aide du Gestionnaire de serveur des ordinateurs.  
+-   Ces conditions incluent souvent un ou plusieurs rôles ou fonctionnalités Windows, qui sont activés à l’aide du Gestionnaire de serveur des ordinateurs.  
 
--   Étant donné que la méthode d’activation des fonctionnalités et rôles Windows diffère en fonction des systèmes d’exploitation, reportez-vous à la documentation de votre système d’exploitation pour plus d’informations sur la configuration appropriée.  
+-   Étant donné que la méthode d’activation des rôles et fonctionnalités Windows varie selon les systèmes d’exploitation, consultez la documentation de votre système d’exploitation pour en savoir plus sur la configuration appropriée.  
 
-Les informations contenues dans cet article offrent une vue d’ensemble des différents types de configurations Windows nécessaires à la prise en charge des systèmes de site Configuration Manager. Pour plus d’informations sur la configuration des rôles de système de site spécifiques, consultez [Prérequis des sites et systèmes de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+Les informations contenues dans cet article offrent une vue d’ensemble des différents types de configurations Windows nécessaires à la prise en charge des systèmes de site Configuration Manager. Pour plus d’informations sur la configuration de certains rôles de système de site, consultez [Prérequis des sites et systèmes de site pour System Center Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
 ##  <a name="a-namebkmkwinfeaturesa-windows-features-and-roles"></a><a name="BKMK_WinFeatures"></a> Rôles et fonctionnalités Windows  
- Quand vous configurez des rôles et fonctionnalités Windows sur un ordinateur, il se peut que vous deviez redémarrer l’ordinateur pour terminer la configuration. Par conséquent, avant d’installer un site ou serveur de système de site Configuration Manager, nous vous recommandons de déterminer sur quels ordinateurs les différents rôles de système de site seront hébergés.
+ Quand vous configurez des rôles et des fonctionnalités Windows sur un ordinateur, il se peut que vous deviez redémarrer l’ordinateur pour terminer la configuration. Il est donc judicieux d’identifier les ordinateurs qui hébergeront certains rôles de système de site avant d’installer un site ou un serveur de système de site Configuration Manager.
 ### <a name="features"></a>Fonctionnalités  
- Les fonctionnalités Windows suivantes sont nécessaires sur certains serveurs de système de site et doivent être configurées avant l’installation d’un rôle de système de site sur cet ordinateur.  
+ Les fonctionnalités Windows suivantes sont nécessaires sur certains serveurs de système de site et doivent être configurées pour pouvoir installer un rôle de système de site sur cet ordinateur.  
 
 -   **.NET Framework** : incluant  
 
     -   ASP.NET  
     -   Activation HTTP  
     -   Activation non-HTTP  
-    -   Services WCF  
+    -   Services WCF (Windows Communication Foundation)  
 
-    Différentes versions de .NET Framework sont requises par les différents rôles de système de site.  
+    Différents rôles de système de site requièrent différentes versions de .NET Framework.  
 
-    Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures. Si différentes versions sont répertoriées comme requises, vous devez donc prévoir d’activer chaque version sur le même ordinateur.  
+    Comme Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures, si différentes versions sont requises, vous devez prévoir d’activer chaque version sur le même ordinateur.  
 
 -   **Service de transfert intelligent en arrière-plan (BITS)** : les points de gestion ont besoin du service BITS (et des options sélectionnées automatiquement) pour prendre en charge la communication avec les appareils gérés.  
 
--   **BranchCache** : les points de distribution peuvent être configurés avec BranchCache pour prendre en charge les clients qui utilisent BranchCache.  
+-   **BranchCache** : vous pouvez configurer les points de distribution avec BranchCache pour prendre en charge les clients qui utilisent cette fonctionnalité.  
 
--   **Déduplication des données** : les points de distribution peuvent être configurés avec la déduplication des données et en tirer parti.  
+-   **Déduplication des données** : vous pouvez configurer les points de distribution avec la déduplication des données pour tirer parti de cette fonctionnalité.  
 
 -   **Compression différentielle à distance (RDC)** : chaque ordinateur qui héberge un serveur de site ou un point de distribution a besoin de la compression différentielle à distance.   
     Celle-ci est utilisée pour générer des signatures de package et effectuer des comparaisons de signatures.  
@@ -62,7 +62,7 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
 ### <a name="roles"></a>Rôles  
  Les rôles Windows suivants sont requis pour prendre en charge des fonctionnalités spécifiques, telles que les mises à jour logicielles et les déploiements de système d’exploitation. IIS est requis par les principaux rôles de système de site.  
 
- -   **Service d’inscription de périphérique réseau** (relevant des services de certificats Active Directory) : ce rôle Windows est une condition préalable à l’utilisation de profils de certificat dans Configuration Manager.  
+ -   **Service d’inscription de périphérique réseau** (sous Services de certificats Active Directory) : ce rôle Windows est requis pour pouvoir utiliser des profils de certificat dans Configuration Manager.  
 
  -   **Serveur web (IIS)**, avec notamment :  
     -   Fonctionnalités HTTP communes >  
@@ -75,7 +75,7 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
     -   Outils de gestion >  
         -   IIS 6 Management Compatibility  
         -   Compatibilité avec la métabase de données IIS 6  
-        -   Compatibilité WMI d'IIS 6  
+        -   Compatibilité avec IIS 6 Windows Management Instrumentation (WMI)  
     -   Sécurité >  
         -   Filtrage des demandes  
         -   Authentification Windows  
@@ -93,24 +93,24 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
 
     La version minimale d’IIS requise est la version fournie avec le système d’exploitation du serveur de site.  
 
-    En plus de ces configurations IIS, il se peut que vous deviez configurer [Filtrage des demandes IIS pour les points de distribution](#BKMK_IISFiltering).  
+    En plus de ces configurations IIS, il se peut que vous deviez configurer le [Filtrage des demandes IIS pour les points de distribution](#BKMK_IISFiltering).  
 
 -   **Services de déploiement Windows** : ce rôle est utilisé pour le déploiement de système d’exploitation.  
 -   **Windows Server Update Services** : ce rôle est nécessaire pour le déploiement de mises à jour logicielles.  
 
 ##  <a name="a-namebkmkiisfilteringa-iis-request-filtering-for-distribution-points"></a><a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
- Par défaut, IIS utilise le filtrage des demandes pour bloquer l’accès via la communication HTTP ou HTTPS à plusieurs extensions de nom de fichier et emplacements de dossier. Sur un point de distribution, cela empêche les clients de télécharger des packages qui contiennent des extensions ou des emplacements de dossier bloqués.  
+ Par défaut, IIS utilise le filtrage des demandes pour bloquer l’accès par HTTP ou HTTPS à plusieurs extensions de nom de fichier et emplacements de dossier. Sur un point de distribution, cela empêche les clients de télécharger des packages contenant des extensions ou des emplacements de dossier bloqués.  
 
- Si vos fichiers sources de package contiennent des extensions qui sont bloquées dans IIS par votre configuration de filtrage des demandes, vous devez configurer le filtrage des demandes pour les autoriser. Pour cela, vous devez [configurer le filtrage des demandes](https://technet.microsoft.com/library/hh831621.aspx) dans le Gestionnaire des services IIS sur vos ordinateurs de point de distribution.  
+ Si vos fichiers sources de package contiennent des extensions qui sont bloquées dans IIS par votre configuration de filtrage des demandes, vous devez les autoriser dans le filtrage des demandes. Pour cela, vous devez [configurer le filtrage des demandes](https://technet.microsoft.com/library/hh831621.aspx) dans le Gestionnaire des services IIS sur vos ordinateurs de point de distribution.  
 
- Par ailleurs, Configuration Manager utilise les extensions de nom de fichier suivantes pour les packages et les applications. Vérifiez que vos configurations de filtrage des demandes ne bloquent pas ces extensions de fichier :  
+ Par ailleurs, Configuration Manager utilise les extensions de nom de fichier suivantes pour les packages et les applications. Vérifiez que vos configurations de filtrage des demandes ne bloquent pas les extensions de fichier suivantes :  
 
 -   .PCK  
 -   .PKG  
 -   .STA  
 -   .TAR  
 
-Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des fichiers sources incluant un dossier nommé **bin**ou contenant un fichier avec l’extension **.mdb** .  
+Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des fichiers sources incluant un dossier nommé **bin** ou contenant un fichier avec l’extension **.mdb**.  
 
 -   Par défaut, le filtrage des demandes IIS bloque l’accès à ces éléments (**bin** est bloqué en tant que segment masqué et **.mdb** est bloqué en tant qu’extension de nom de fichier).  
 
@@ -127,22 +127,22 @@ Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des f
 >  La bonne pratique à suivre sur le plan de la sécurité consiste à exécuter Configuration Manager sur un serveur web dédié. Si vous devez exécuter d’autres applications sur le serveur web, utilisez un site web personnalisé pour Configuration Manager. Pour plus d’informations, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
 
 ## <a name="http-verbs"></a>Verbes HTTP
-**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
+**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
  - GET
  - POST
  - CCM_POST
  - HEAD
  - PROPFIND
 
-**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
+**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
  - GET
  - HEAD
  - PROPFIND
 
-Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire qui vaut pour la version de Windows Server qui héberge votre point de gestion.
+Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire applicable à la version de Windows Server qui héberge votre point de gestion.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

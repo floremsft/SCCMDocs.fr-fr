@@ -1,15 +1,33 @@
+---
+title: Sauvegarde et restauration | Microsoft Docs
+description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
+ms.custom: na
+ms.date: 1/3/2017
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-other
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f
+caps.latest.revision: 22
+author: Brenduns
+ms.author: brenduns
+manager: angrobe
+translationtype: Human Translation
+ms.sourcegitcommit: 3aa9f2e4d3f7210981b5b84942485de11fe15cb2
+ms.openlocfilehash: a7e052bc0e1c354b75a7f95afdd266ed742ce689
 
 ---
-title: "Sauvegarde et récupération | Microsoft Docs" description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
-ms.custom: na ms.date: 1/3/2017 ms.prod: configuration-manager ms.reviewer: na ms.suite: na ms.technology:
-  - configmgr-other ms.tgt_pltfrm: na ms.topic: article ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f -caps.latest.revision: 22 -author: Brenduns ms.author: brendunsmanager: angrobe
 
-----
+# <a name="backup-and-recovery"></a>Sauvegarde et récupération
+
+*S’applique à : System Center Configuration Manager (Current Branch)*
+
+Préparez les approches de sauvegarde et de récupération pour éviter la perte de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données. Utilisez les sections de cette rubrique pour vous aider à sauvegarder vos sites et à récupérer un site en cas de défaillance ou de perte de données.  
 
 
--# Sauvegarde et récupération pour System Center Configuration Manager*S’applique à : System Center Configuration Manager (Current Branch)*
-
--Préparez les approches de sauvegarde et de récupération pour éviter les pertes de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données. Utilisez les sections de cette rubrique pour vous aider à sauvegarder vos sites et à récupérer un site en cas de défaillance ou de perte de données.   
 
 - [Sauvegarde d'un site Configuration Manager](#BKMK_SiteBackup)   
 
@@ -18,10 +36,6 @@ ms.custom: na ms.date: 1/3/2017 ms.prod: configuration-manager ms.reviewer: na m
   - [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup)   
 
   -  [Archivage de l'instantané de sauvegarde](#BKMK_ArchivingBackupSnapshot)   
-
-  -  [Archivage de l'instantané de sauvegarde](#BKMK_ArchivingBackupSnapshot)   
-
-  -  [Utilisation du fichier AfterBackup.bat](#BKMK_UsingAfterBackup)   
 
   -  [Utilisation du fichier AfterBackup.bat](#BKMK_UsingAfterBackup)   
 
@@ -33,35 +47,20 @@ ms.custom: na ms.date: 1/3/2017 ms.prod: configuration-manager ms.reviewer: na m
 
          -   [Options de récupération de serveur de site](#BKMK_SiteServerRecoveryOptions)   
 
-         -   [Options de récupération de serveur de site](#BKMK_SiteServerRecoveryOptions)   
-
          -   [Options de récupération de base de données de site](#BKMK_SiteDatabaseRecoveryOption)   
 
-         -  [Options de récupération de base de données de site](#BKMK_SiteDatabaseRecoveryOption)   
-
          -   [Période de rétention du suivi des modifications SQL Server](#bkmk_SQLretention)   
-
-         -   [Période de rétention du suivi des modifications SQL Server](#bkmk_SQLretention)   
-
-         -   [Processus de réinitialisation de site ou de données globales](#bkmk_reinit)   
 
          -   [Processus de réinitialisation de site ou de données globales](#bkmk_reinit)   
 
          -   [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios)  
 
-         -   [Scénarios de récupération de base de données de site](#BKMK_SiteDBRecoveryScenarios)  
-
   -   [Clés du fichier de script de récupération de site sans assistance](#BKMK_UnattendedSiteRecoveryKeys)  
-
-  -   [Clés du fichier de script de récupération de site sans assistance](#BKMK_UnattendedSiteRecoveryKeys)  
-
-  -   [Tâches postérieures à la récupération](#BKMK_PostRecovery)  
 
   -   [Tâches postérieures à la récupération](#BKMK_PostRecovery)  
 
   -   [Récupération d'un site secondaire](#BKMK_RecoverSecondarySite)  
 
-  -   [Récupération d'un site secondaire](#BKMK_RecoverSecondarySite)  
 -   [Service Enregistreur SMS](#BKMK_SMSWriterService)  
 
 > [!NOTE]  
@@ -90,7 +89,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 >  Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous avez créée avec un autre processus. Par exemple, vous pouvez restaurer la base de données de site à partir d'une sauvegarde créée dans le cadre du plan de maintenance de Microsoft SQL Server. Vous pouvez restaurer la base de données de site à partir d’une sauvegarde créée à l’aide de System Center 2012 Data Protection Manager (DPM). Pour plus d’informations, consultez [Utilisation de Data Protection Manager pour sauvegarder votre base de données de site](#BKMK_DPMBackup).  
 
 ###  <a name="a-namebkmkbackupmaintenancetaska-backup-maintenance-task"></a><a name="BKMK_BackupMaintenanceTask"></a> Tâche de maintenance de sauvegarde  
- Il est possible d'automatiser la sauvegarde des sites Configuration Manager en planifiant une tâche de maintenance de sauvegarde du serveur de site prédéfinie. Vous pouvez sauvegarder un site d'administration centrale et un site principal, mais il n'existe pas de prise en charge de la sauvegarde des sites secondaires ou des serveurs de système de site. Quand le service de sauvegarde de Configuration Manager est en cours d’exécution, il suit les instructions définies dans le fichier de contrôle de la sauvegarde (**<dossier_installation_ConfigMgr\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). Vous pouvez apporter des modifications à ce fichier de contrôle de la sauvegarde afin de changer le comportement du service de sauvegarde. Les informations sur l’état de la sauvegarde du site sont enregistrées dans le fichier **Smsbkup.log** . Ce fichier est créé dans le dossier de destination spécifié dans les propriétés de la tâche de maintenance de sauvegarde du serveur de site.  
+ Il est possible d'automatiser la sauvegarde des sites Configuration Manager en planifiant une tâche de maintenance de sauvegarde du serveur de site prédéfinie. Vous pouvez sauvegarder un site d'administration centrale et un site principal, mais il n'existe pas de prise en charge de la sauvegarde des sites secondaires ou des serveurs de système de site. Quand le service de sauvegarde de Configuration Manager est en cours d’exécution, il suit les instructions définies dans le fichier de contrôle de sauvegarde (**&lt;dossier_installation_ConfigMgr\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). Vous pouvez apporter des modifications à ce fichier de contrôle de la sauvegarde afin de changer le comportement du service de sauvegarde. Les informations sur l’état de la sauvegarde du site sont enregistrées dans le fichier **Smsbkup.log** . Ce fichier est créé dans le dossier de destination spécifié dans les propriétés de la tâche de maintenance de sauvegarde du serveur de site.  
 
 
 ##### <a name="to-enable-the-site-backup-maintenance-task"></a>Pour activer la tâche de maintenance de sauvegarde de site  
@@ -117,7 +116,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
     -   **Lecteurs locaux sur le serveur de site et SQL Server**: spécifie que les fichiers de sauvegarde pour le site sont stockés dans le chemin spécifié sur le disque local du serveur de site, et les fichiers de sauvegarde pour la base de données de site sont stockés sur le chemin spécifié sur le disque local du serveur de base de données de site. Vous devez créer les dossiers locaux avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de site. Le compte d'ordinateur de SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de base de données de site. Cette option est disponible uniquement lorsque la base de données de site n'est pas installée sur le serveur de site.  
 
     > [!NOTE]  
-    >   - L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
+    >    - L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
 
     > - Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
 
@@ -140,7 +139,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   Lorsque la tâche de maintenance de sauvegarde du serveur de site est configurée pour créer une alerte en cas d'échec de la sauvegarde, vous pouvez vérifier les échecs de sauvegarde dans le nœud **Alertes** de l'espace de travail **Surveillance** .  
 
-    -   Dans <*dossier_installation_ConfigMgr*>\Logs, recherchez les avertissements et les erreurs dans le fichier smsbkup.log. Une fois la sauvegarde de site terminée, `Backup completed` s'affiche avec un horodateur et un ID de message `STATMSG: ID=5035`.  
+    -   Dans &lt;*dossier_installation_ConfigMgr*>\Logs, recherchez les avertissements et les erreurs dans le fichier smsbkup.log. Une fois la sauvegarde de site terminée, `Backup completed` s'affiche avec un horodateur et un ID de message `STATMSG: ID=5035`.  
 
     > [!TIP]  
     >  Lorsque la tâche de maintenance de la sauvegarde échoue, vous pouvez redémarrer la tâche de sauvegarde en arrêtant, puis en redémarrant le service SMS_SITE_BACKUP.  
@@ -165,7 +164,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 -   Le site ne dispose peut-être d'aucun instantané de sauvegarde si, par exemple, la tâche de maintenance de sauvegarde du serveur de site échoue. Comme la tâche de sauvegarde supprime l'instantané de sauvegarde précédent avant de démarrer la sauvegarde des données en cours, aucun instantané de sauvegarde valide ne sera disponible.  
 
 ###  <a name="a-namebkmkusingafterbackupa-using-the-afterbackupbat-file"></a><a name="BKMK_UsingAfterBackup"></a> Utilisation du fichier AfterBackup.bat  
- Après avoir sauvegardé le site, la tâche de sauvegarde du serveur de site tente automatiquement d'exécuter un fichier nommé AfterBackup.bat. Vous devez créer manuellement le fichier AfterBackup.bat dans <*dossier_installation_ConfigMgr*>\Inboxes\Smsbkup. Si un fichier AfterBackup.bat existe et est stocké dans le dossier approprié, il est exécuté automatiquement à l'issue de l'exécution de la tâche de sauvegarde. Le fichier AfterBackup.bat permet d'archiver l'instantané de sauvegarde à la fin de chaque opération de sauvegarde, et d'effectuer automatiquement d'autres tâches postérieures à la sauvegarde, qui ne font pas partie de la tâche de maintenance de sauvegarde du serveur de site. Le fichier AfterBackup.bat intègre les opérations d'archivage et de sauvegarde, permettant ainsi d'archiver chaque nouvel instantané de sauvegarde. Lorsque le fichier AfterBackup.bat n'est pas présent, la tâche de sauvegarde l'ignore sans effet sur l'opération de sauvegarde. Pour vérifier que la tâche de sauvegarde de site a exécuté avec succès le fichier AfterBackup.bat, consultez le nœud **État du composant** dans l'espace de travail **Surveillance** et vérifiez les messages d'état pour SMS_SITE_BACKUP. Lorsque la tâche démarre avec succès le fichier de commande AfterBackup.bat, le message ID 5040 s'affiche.  
+ Après avoir sauvegardé le site, la tâche de sauvegarde du serveur de site tente automatiquement d'exécuter un fichier nommé AfterBackup.bat. Vous devez créer manuellement le fichier AfterBackup.bat dans &lt;*dossier_installation_ConfigMgr*>\Inboxes\Smsbkup. Si un fichier AfterBackup.bat existe et est stocké dans le dossier approprié, il est exécuté automatiquement à l'issue de l'exécution de la tâche de sauvegarde. Le fichier AfterBackup.bat permet d'archiver l'instantané de sauvegarde à la fin de chaque opération de sauvegarde, et d'effectuer automatiquement d'autres tâches postérieures à la sauvegarde, qui ne font pas partie de la tâche de maintenance de sauvegarde du serveur de site. Le fichier AfterBackup.bat intègre les opérations d'archivage et de sauvegarde, permettant ainsi d'archiver chaque nouvel instantané de sauvegarde. Lorsque le fichier AfterBackup.bat n'est pas présent, la tâche de sauvegarde l'ignore sans effet sur l'opération de sauvegarde. Pour vérifier que la tâche de sauvegarde de site a exécuté avec succès le fichier AfterBackup.bat, consultez le nœud **État du composant** dans l'espace de travail **Surveillance** et vérifiez les messages d'état pour SMS_SITE_BACKUP. Lorsque la tâche démarre avec succès le fichier de commande AfterBackup.bat, le message ID 5040 s'affiche.  
 
 > [!TIP]  
 >  Pour créer le fichier AfterBackup.bat afin d'archiver vos fichiers de sauvegarde de serveur de site, vous devez utiliser un outil de commande de copie, tel que Robocopy, dans le fichier de commandes. Par exemple, vous pouvez créer le fichier AfterBackup.bat et, sur la première ligne, ajouter une instruction similaire à la suivante : `Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`. Pour plus d'informations sur Robocopy, consultez la page web de référence de ligne de commande [Robocopy](http://go.microsoft.com/fwlink/p/?LinkId=228408) .  
@@ -221,7 +220,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 5.  Les dossiers qui stockent les données de migration d'état utilisateur sont répertoriés dans la section **Détails du dossier** de l'onglet **Général** .  
 
-
+## <a name="recover-a-configuration-manager-site"></a>Récupération d'un site Configuration Manager
  La récupération d'un site Configuration Manager est nécessaire à chaque défaillance d'un site Configuration Manager ou perte de données dans la base de données d'un site. La réparation et la resynchronisation des données constituent les principales tâches de récupération d'un site et elles sont nécessaires pour éviter l'interruption des opérations.  
 
 > [!IMPORTANT]  
@@ -434,7 +433,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <FQDN_site_référence\>  
+    -   **Valeurs :** &lt;nom_domaine_complet_site_référence\>  
 
     -   **Détails :** spécifie le site principal de référence que le site d’administration centrale utilise pour récupérer des données globales si la sauvegarde de la base de données est antérieure à la période de rétention du suivi des modifications ou quand vous récupérez le site sans sauvegarde.  
 
@@ -448,7 +447,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
+    -   **Valeurs :** &lt;chemin_vers_jeu_sauvegarde_serveur_site\>  
 
     -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -456,7 +455,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
+    -   **Valeurs :** &lt;chemin_vers_jeu_sauvegarde_base_de_données_site\>  
 
     -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site. La clé **BackupLocation** est requise lorsque vous configurez une valeur de **1** ou **4** pour la clé **ServerRecoveryOptions** , et une valeur de **10** pour la clé **DatabaseRecoveryOptions** .  
 
@@ -478,7 +477,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <code_de_site\>  
+    -   **Valeurs :** &lt;code_de_site\>  
 
     -   **Détails :** trois caractères alphanumériques identifiant le site de façon univoque dans votre hiérarchie. Vous devez définir le code de site utilisé par le site avant la défaillance.  
 
@@ -494,7 +493,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*chemin_installation_ConfigMgr*>  
+    -   **Valeurs :** &lt;*CheminInstallationConfigMgr*>  
 
     -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
@@ -505,7 +504,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*FQDN du fournisseur SMS*>  
+    -   **Valeurs :** &lt;*nom de domaine complet du fournisseur SMS*>  
 
     -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
 
@@ -527,7 +526,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*chemin_vers_fichiers_installation_prérequis*>  
+    -   **Valeurs :** &lt;*chemin_fichiers_requis_programme_installation*>  
 
     -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
@@ -559,9 +558,9 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** oui  
+    -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
+    -   **Valeurs :** *&lt;nom_SQLServer\>*  
 
     -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
@@ -575,7 +574,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          ou  
 
-         *<nom_instance\>*\\*< nom_base_de_données_site\>*  
+         *&lt;nom_instance\>*\\*&lt;nom_base_de_données_site\>*  
 
     -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
@@ -586,7 +585,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <*numéro_port_SSB*>  
+    -   **Valeurs :** &lt;*numéro_port_SSB*>  
 
     -   **Détails :** spécifiez le port SQL Server Service Broker (SSB) utilisé par SQL Server. Généralement, SSB est configuré pour utiliser le port TCP 4022, mais d'autres ports sont pris en charge. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
@@ -647,7 +646,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_site\>  
+    -   **Valeurs :** &lt;chemin_vers_jeu_sauvegarde_serveur_site\>  
 
     -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
@@ -655,7 +654,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <chemin_vers_jeu_sauvegarde_base_de_données_site\>  
+    -   **Valeurs :** &lt;chemin_vers_jeu_sauvegarde_base_de_données_site\>  
 
     -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site. La clé **BackupLocation** est requise lorsque vous configurez une valeur de **1** ou **4** pour la clé **ServerRecoveryOptions** , et une valeur de **10** pour la clé **DatabaseRecoveryOptions** .  
 
@@ -677,7 +676,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <code_de_site\>  
+    -   **Valeurs :** &lt;code_de_site\>  
 
     -   **Détails :** trois caractères alphanumériques identifiant le site de façon univoque dans votre hiérarchie. Vous devez définir le code de site utilisé par le site avant la défaillance.  
 
@@ -693,7 +692,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*chemin_installation_ConfigMgr*>  
+    -   **Valeurs :** &lt;*CheminInstallationConfigMgr*>  
 
     -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
@@ -704,7 +703,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*FQDN du fournisseur SMS*>  
+    -   **Valeurs :** &lt;*nom de domaine complet du fournisseur SMS*>  
 
     -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
 
@@ -726,7 +725,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** <*chemin_vers_fichiers_installation_prérequis*>  
+    -   **Valeurs :** &lt;*chemin_fichiers_requis_programme_installation*>  
 
     -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
@@ -758,9 +757,9 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
 -   **Nom de clé :** SQLServerName  
 
-    -   **Obligatoire :** oui  
+    -   **Obligatoire :** Oui  
 
-    -   **Valeurs :** *< nom_serveur_SQLServer\>*  
+    -   **Valeurs :** *&lt;nom_SQLServer\>*  
 
     -   **Détails :** nom du serveur ou nom de l’instance en cluster exécutant SQL Server, et devant héberger la base de données de site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
@@ -774,7 +773,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
          ou  
 
-         *<nom_instance\>*\\*< nom_base_de_données_site\>*  
+         *&lt;nom_instance\>*\\*&lt;nom_base_de_données_site\>*  
 
     -   **Détails :** nom de la base de données SQL Server à créer ou à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
@@ -785,7 +784,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <*numéro_port_SSB*>  
+    -   **Valeurs :** &lt;*numéro_port_SSB*>  
 
     -   **Détails :** spécifiez le port SQL Server Service Broker (SSB) utilisé par SQL Server. Généralement, SSB est configuré pour utiliser le port TCP 4022, mais d'autres ports sont pris en charge. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
@@ -795,7 +794,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** peut-être  
 
-    -   **Valeurs :** <*code_site_pour_site_administration_centrale*>  
+    -   **Valeurs :** &lt;*code_site_pour_site_administration_centrale*>  
 
     -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
 
@@ -803,7 +802,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <*intervalle*>  
+    -   **Valeurs :** &lt;*intervalle*>  
 
     -   **Détails :** spécifie l’intervalle (en minutes) avant une nouvelle tentative de connexion au site d’administration centrale après un échec de connexion. Par exemple, en cas d'échec de la connexion au site d'administration centrale, le site principal attend le nombre de minutes que vous avez spécifié pour CASRetryInterval et essaie de nouveau d'établir une connexion.  
 
@@ -811,7 +810,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Obligatoire :** non  
 
-    -   **Valeurs :** <*délai_attente*>  
+    -   **Valeurs :** &lt;*délai d’attente*>  
 
     -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, si un site principal ne parvient pas à se connecter à un site d'administration centrale, le site principal essaie de nouveau d'établir une connexion selon la valeur de CASRetryInterval jusqu'à ce que le délai WaitForCASTimeout soit atteint. Vous pouvez spécifier une valeur de 0 à 100.  
 
@@ -904,7 +903,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  L'Enregistreur SMS est un service qui interagit avec le service de cliché instantané du volume (VSS, Volume Shadow copy Service) pendant le processus de sauvegarde. Le service Enregistreur SMS doit être en cours d'exécution pour mener à bien la sauvegarde de site Configuration Manager.  
 
 ### <a name="purpose"></a>Fonction  
- L'Enregistreur SMS s'enregistre auprès du service VSS et établit une liaison à ses interfaces et événements. Lorsque le service VSS diffuse des événements, ou s'il envoie une notification spécifique à l'Enregistreur SMS, ce dernier répond à la notification et entreprend les mesures appropriées. L’Enregistreur SMS lit le fichier de contrôle de sauvegarde (smsbkup.ctl), qui se trouve dans <*chemin_installation_ConfigMgr*>\inboxes\smsbkup.box, puis détermine les fichiers et les données à sauvegarder. L'Enregistreur SMS génère des métadonnées, consistant de différents composants, en se basant sur ces informations ainsi que sur des données spécifiques à partir de la clé de Registre SMS et des sous-clés. Il envoie les métadonnées vers le service VSS lorsqu'elles sont demandées. Le service VSS envoie ensuite les métadonnées à l'application faisant la demande ; le Gestionnaire de sauvegarde Configuration Manager. sélectionne les données à sauvegarder et les envoie à l'Enregistreur SMS via le service VSS. L'Enregistreur SMS prend les mesures appropriées pour préparer la sauvegarde. Plus tard, lorsque le service VSS est prêt à prendre l'instantané, il envoie un événement ; l'Enregistreur SMS arrête tous les services Configuration Manager et s'assure que toutes les activités Configuration Manager sont figées pendant la création de l'instantané. Une fois le processus d'instantané terminé, l'Enregistreur SMS redémarre les services et les activités.  
+ L'Enregistreur SMS s'enregistre auprès du service VSS et établit une liaison à ses interfaces et événements. Lorsque le service VSS diffuse des événements, ou s'il envoie une notification spécifique à l'Enregistreur SMS, ce dernier répond à la notification et entreprend les mesures appropriées. L’Enregistreur SMS lit le fichier de contrôle de sauvegarde (smsbkup.ctl), situé dans &lt;*chemin_installation_ConfigMgr*>\inboxes\smsbkup.box, puis détermine les fichiers et les données à sauvegarder. L'Enregistreur SMS génère des métadonnées, consistant de différents composants, en se basant sur ces informations ainsi que sur des données spécifiques à partir de la clé de Registre SMS et des sous-clés. Il envoie les métadonnées vers le service VSS lorsqu'elles sont demandées. Le service VSS envoie ensuite les métadonnées à l'application faisant la demande ; le Gestionnaire de sauvegarde Configuration Manager. sélectionne les données à sauvegarder et les envoie à l'Enregistreur SMS via le service VSS. L'Enregistreur SMS prend les mesures appropriées pour préparer la sauvegarde. Plus tard, lorsque le service VSS est prêt à prendre l'instantané, il envoie un événement ; l'Enregistreur SMS arrête tous les services Configuration Manager et s'assure que toutes les activités Configuration Manager sont figées pendant la création de l'instantané. Une fois le processus d'instantané terminé, l'Enregistreur SMS redémarre les services et les activités.  
 
  Le service Enregistreur SMS est installé automatiquement. Il doit être en cours d'exécution lorsque l'application VSS demande une sauvegarde ou une restauration.  
 
@@ -918,6 +917,7 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
  Le service de cliché instantané du volume (VSS) est un ensemble d'API COM qui implémente une structure permettant de réaliser des sauvegardes de volumes en même temps que les applications sur un système continuent d'écrire dans les volumes. Le service VSS fournit une interface cohérente pour la coordination entre les applications de l'utilisateur qui mettent à jour des données sur le disque (le service Enregistreur SMS) et celles qui sauvegardent des applications (le service Gestionnaire de sauvegarde). Pour plus d'informations sur le service VSS, voir la rubrique [Volume Shadow Copy Service (Service de cliché instantané du volume)](http://go.microsoft.com/fwlink/p/?LinkId=241968) dans Windows Server TechCenter.  
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

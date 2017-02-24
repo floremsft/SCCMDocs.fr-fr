@@ -2,7 +2,7 @@
 title: "Point de distribution d’extraction | Microsoft Docs"
 description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: f94d928244699c1c926dca05823f0029c588c7f1
+ms.sourcegitcommit: 9b366262ae59a8cb57c0f1760b961194d17bcf52
+ms.openlocfilehash: db5039ff6cb93e3099b096196d49a1f06c315a6b
 
 
 ---
@@ -27,20 +27,20 @@ ms.openlocfilehash: f94d928244699c1c926dca05823f0029c588c7f1
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Un point de distribution d’extraction pour System Center Configuration Manager est un point de distribution standard qui obtient le contenu distribué en le téléchargeant à partir d’un emplacement source tel qu’un client, au lieu que le contenu lui soit envoyé à partir du serveur de site.  
+Un point de distribution d’extraction pour System Center Configuration Manager est un point de distribution standard qui obtient le contenu distribué en le téléchargeant à partir d’un emplacement source tel qu’un client, au lieu de recevoir le contenu du serveur de site.  
 
- Lorsque vous déployez du contenu sur un grand nombre de points de distribution au niveau d'un site, les points de distribution d'extraction peuvent contribuer à réduire la charge de traitement du serveur de site et accélérer le transfert du contenu sur chaque point de distribution. Pour cela, vous devez décharger le processus de transfert du contenu sur chaque point de distribution à partir du processus du gestionnaire de distribution sur le serveur de site.  
+ Lorsque vous déployez du contenu sur un grand nombre de points de distribution au niveau d’un site, les points de distribution d’extraction contribuent à réduire la charge de traitement du serveur de site et accélèrent le transfert du contenu vers chaque point de distribution. Pour cela, vous devez décharger le processus de transfert du contenu sur chaque point de distribution à partir du processus du gestionnaire de distribution sur le serveur de site.  
 
--   Vous pouvez configurer des points de distribution comme points de distribution d’extraction.  
+-   Vous configurez des points de distribution comme des points de distribution d’extraction.  
 
--   Pour chaque point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels il peut obtenir des déploiements (un point de distribution d’extraction peut obtenir du contenu uniquement à partir d’un point de distribution spécifié en tant que point de distribution source).  
+-   Pour chaque point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels il peut obtenir des déploiements. (Un point de distribution d’extraction ne peut obtenir du contenu qu’à partir d’un point de distribution spécifié comme point de distribution source.)  
 
--   Quand vous distribuez du contenu vers un point de distribution d’extraction, le serveur de site notifie ce point de distribution qui démarre ensuite le téléchargement (transfert) du contenu à partir d’un point de distribution source. Chaque point de distribution d’extraction gère individuellement le transfert du contenu en téléchargeant le contenu à partir d’un point de distribution qui possède déjà une copie du contenu.  
+-   Quand vous distribuez du contenu vers un point de distribution d’extraction, le serveur de site avertit ce point de distribution, qui lance alors le téléchargement (transfert) du contenu à partir d’un point de distribution source. Chaque point de distribution d’extraction gère individuellement le transfert du contenu en téléchargeant le contenu à partir d’un point de distribution qui possède déjà une copie du contenu.  
 
 Les points de distribution d’extraction prennent en charge les mêmes configurations et fonctionnalités que les points de distribution classiques de Configuration Manager. Par exemple, un point de distribution configuré en tant que point de distribution d'extraction prend en charge l'utilisation de configurations de multidiffusion et PXE, la validation de contenu et la distribution de contenu à la demande. Un point de distribution d'extraction prend en charge les communications des clients HTTP ou HTTPS, gère les mêmes options de certificat que les autres points de distribution et peut être géré individuellement ou en tant que membre d'un groupe de points de distribution.  
 
 > [!IMPORTANT]
-> Bien qu’un point de distribution d’extraction prenne en charge les communications via les protocoles HTTP et HTTPS, lorsque vous utilisez Configuration Manager, vous pouvez spécifier uniquement des points de distribution sources configurés pour le protocole HTTP. Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS.  
+> Bien qu’un point de distribution d’extraction prenne en charge les communications par HTTP et HTTPS, lorsque vous utilisez Configuration Manager, vous ne pouvez spécifier que des points de distribution sources configurés pour HTTP. Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS.  
 
  **Quand vous distribuez du contenu vers un point de distribution d’extraction, la séquence d’événements est la suivante :**  
 
@@ -48,11 +48,11 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   Une fois la disponibilité du contenu confirmée par Package Transfer Manager, une notification est adressée au point de distribution d'extraction pour télécharger le contenu. Après avoir reçu cette notification, le point de distribution d'extraction tente de télécharger le contenu auprès de ses points de distribution source.  
 
--   Une fois le téléchargement du contenu terminé, le point de distribution d'extraction soumet cet état à un point de gestion. Toutefois, si l'état n'est pas reçu après 60 minutes, Package Transfer Manager sort de veille et vérifie auprès du point de distribution d'extraction pour confirmer si le contenu a été téléchargé. Si le téléchargement du contenu est en cours, Package Transfer Manager se met en veille pendant 60 minutes avant de vérifier de nouveau auprès du point de distribution d'extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
+-   Une fois le téléchargement du contenu terminé, le point de distribution d'extraction soumet cet état à un point de gestion. Toutefois, si l’état n’est pas reçu après 60 minutes, Package Transfer Manager sort de veille et vérifie auprès du point de distribution d’extraction si le contenu a été téléchargé. Si le téléchargement du contenu est en cours, Package Transfer Manager se met en veille pendant 60 minutes avant de vérifier de nouveau auprès du point de distribution d'extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
 
 **Vous pouvez configurer un point de distribution d’extraction** pendant l’installation du point de distribution ou après son installation en modifiant les propriétés du rôle de système de site du point de distribution.  
 
-**Vous pouvez supprimer la configuration de point de distribution d’extraction** en modifiant les propriétés du point de distribution. Lorsque vous supprimez la configuration de point de distribution d'extraction, le point de distribution reprend un fonctionnement normal et les transferts de contenu vers le point de distribution sont dès lors gérés par le serveur de site.  
+**Vous pouvez supprimer la configuration de point de distribution d’extraction** en modifiant les propriétés du point de distribution. Lorsque vous supprimez la configuration de point de distribution d’extraction, le point de distribution reprend un fonctionnement normal et les prochains transferts de contenu vers le point de distribution sont alors gérés par le serveur de site.  
 
 ## <a name="limitations-for-pull-distribution-points"></a>Limitations des points de distribution d’extraction  
 
@@ -60,18 +60,18 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   Un point de distribution sur un serveur de site ne peut pas être configuré en tant que point de distribution d'extraction.  
 
--   **La configuration de contenu préparé se substitue à la configuration du point de distribution d’extraction**. Un point de distribution d'extraction configuré pour du contenu préparé attend le contenu. Il n'extrait pas de contenu auprès d'un point de distribution source, et de même qu'un point de distribution standard avec la configuration de contenu préparé, il ne reçoit pas de contenu du serveur de site.  
+-   **La configuration de contenu préparé se substitue à la configuration du point de distribution d’extraction**. Un point de distribution d'extraction configuré pour du contenu préparé attend le contenu. Il n’extrait pas de contenu d’un point de distribution source et, comme un point de distribution standard avec la configuration de contenu préparé, il ne reçoit pas de contenu du serveur de site.  
 
--   **Un point de distribution d’extraction n’utilise pas les limites de taux de transfert configurées** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé en tant que point de distribution d'extraction, les limites de taux configurées sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d'extraction, les limites de taux configurées sont implémentées selon la configuration précédente.  
+-   **Un point de distribution d’extraction n’utilise pas les limites de taux de transfert configurées** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé en tant que point de distribution d'extraction, les limites de taux configurées sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d’extraction, les limites de taux configurées sont implémentées selon la configuration précédente.  
 
     > [!NOTE]  
     >  Lorsqu'un point de distribution est configuré en tant que point de distribution d'extraction, l'onglet **Limites du taux de transfert** n'est pas disponible dans les propriétés du point de distribution.  
 
--   Un point de distribution d’extraction n’utilise pas les **paramètres de nouvelle tentative** pour la distribution de contenu. Les**Paramètres de nouvelle tentative** peuvent être configurés dans le cadre des **Propriétés du composant de distribution de logiciels** pour chaque site. Pour afficher ou configurer ces propriétés, dans l’espace de travail **Administration** de la console Configuration Manager, développez **Configuration du site**, puis sélectionnez **Sites**. Ensuite, dans le volet des résultats, sélectionnez un site et dans l'onglet **Accueil** , sélectionnez **Configurer les composants de site**, puis cliquez sur **Distribution de logiciels**.  
+-   Un point de distribution d’extraction n’utilise pas les **paramètres de nouvelle tentative** pour la distribution de contenu. Les**Paramètres de nouvelle tentative** peuvent être configurés dans le cadre des **Propriétés du composant de distribution de logiciels** pour chaque site. Pour afficher ou configurer ces propriétés, dans l’espace de travail **Administration** de la console Configuration Manager, développez **Configuration du site**, puis sélectionnez **Sites**. Ensuite, dans le volet des résultats, sélectionnez un site puis, dans l’onglet **Accueil**, sélectionnez **Configurer les composants de site**. Enfin, sélectionnez **Distribution de logiciels**.  
 
--   Pour transférer du contenu à partir d’un point de distribution source situé dans une forêt distante, l’ordinateur qui héberge le point de distribution d’extraction doit disposer d’un client Configuration Manager installé, et un compte d’accès réseau pouvant accéder au point de distribution source doit être configuré pour être utilisé.  
+-   Pour transférer du contenu depuis un point de distribution source dans une forêt distante, un client Configuration Manager doit être installé sur l’ordinateur qui héberge le point de distribution d’extraction. Un compte d'accès réseau qui peut accéder au point de distribution source doit être configuré.  
 
--   Sur un ordinateur configuré en tant que point de distribution d’extraction et qui exécute un client Configuration Manager, la version du client doit correspondre à celle du site Configuration Manager qui installe le point de distribution d’extraction. Le point de distribution d’extraction doit impérativement utiliser le composant CCMFramework qui est commun au point de distribution d’extraction et au client Configuration Manager.  
+-   Sur un ordinateur configuré comme point de distribution d’extraction et exécutant un client Configuration Manager, la version du client doit correspondre à celle du site Configuration Manager qui installe le point de distribution d’extraction. Le point de distribution d’extraction doit impérativement utiliser le composant CCMFramework qui est commun au point de distribution d’extraction et au client Configuration Manager.  
 
 ## <a name="about-source-distribution-points"></a>À propos des points de distribution sources  
  Quand vous configurez le point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources :  
@@ -80,7 +80,7 @@ Les points de distribution d’extraction prennent en charge les mêmes configur
 
 -   Un point de distribution d'extraction peut être spécifié en tant que point de distribution source d'un autre point de distribution d'extraction.  
 
--   Si vous utilisez Configuration Manager, seuls des points de distribution prenant en charge le protocole HTTP peuvent être spécifiés en tant que points de distribution sources.  
+-   Si vous utilisez Configuration Manager, seuls les points de distribution prenant en charge le protocole HTTP peuvent être spécifiés comme des points de distribution sources.  
 
 -   Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS. Pour utiliser un point de distribution source configuré pour le protocole HTTPS, le point de distribution d’extraction doit se trouver sur l’ordinateur qui exécute le client Configuration Manager.  
 
@@ -98,12 +98,12 @@ Une priorité peut être attribuée à chaque point de distribution figurant dan
 
 Quand un point de distribution d’extraction télécharge du contenu à partir d’un point de distribution source, il est considéré comme un client dans la colonne **Client consulté (unique)** du rapport **Résumé de l’utilisation des points de distribution** .  
 
- Par défaut, un point de distribution d’extraction utilise son **compte d’ordinateur** pour transférer le contenu d’un point de distribution source. Toutefois, lorsque le point de distribution d'extraction transfère du contenu à partir d'un point de distribution source qui se trouve dans une forêt distante, le point de distribution d'extraction utilise toujours le compte d'accès réseau. Ce processus nécessite que le client Configuration Manager soit installé sur l’ordinateur et qu’un compte d’accès réseau soit configuré pour utiliser le point de distribution source et ait accès à celui-ci.  
+ Par défaut, un point de distribution d’extraction utilise son **compte d’ordinateur** pour transférer le contenu d’un point de distribution source. Toutefois, lorsque le point de distribution d’extraction transfère du contenu à partir d’un point de distribution source qui se trouve dans une forêt distante, il utilise toujours le compte d’accès réseau. Ce processus nécessite que le client Configuration Manager soit installé sur l’ordinateur et qu’un compte d’accès réseau soit configuré pour utiliser le point de distribution source et ait accès à celui-ci.  
 
 ## <a name="about-content-transfers"></a>À propos des transferts de contenu  
  Pour gérer le transfert de contenu, les points de distribution d’extraction utilisent le composant **CCMFramework** du logiciel client Configuration Manager.  
 
--   Ce framework étant installé par **Pulldp.msi** quand vous configurez le point de distribution en tant que point de distribution d’extraction, il ne nécessite pas l’installation du client Configuration Manager.  
+-   Cette infrastructure est installée par **Pulldp.msi** lors de la configuration du point de distribution comme point de distribution d’extraction. Elle n’a pas besoin du client Configuration Manager.  
 
 -   Une fois le point de distribution d'extraction installé, le service CCMExec doit être opérationnel sur l'ordinateur du point de distribution pour permettre au point de distribution d'extraction de fonctionner.  
 
@@ -114,6 +114,6 @@ Quand un point de distribution d’extraction télécharge du contenu à partir 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

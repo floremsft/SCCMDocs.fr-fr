@@ -2,7 +2,7 @@
 title: "Nouveautés de la gestion hybride des appareils mobiles | Documents Microsoft"
 description: "Découvrez les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec System Center Configuration Manager et Intune."
 ms.custom: na
-ms.date: 01/12/2017
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 07578e3aaa93a06a2fa90e72de2b7c71ce2a14b9
-ms.openlocfilehash: f405514402d7140e26bff6da5e8c2759a80b8a7f
+ms.sourcegitcommit: 7972aa2c39f5b86e69087b1ed5a1c3b50ba69940
+ms.openlocfilehash: f74bd019b5403f3f5702795279759270261ce4db
 
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
@@ -35,6 +35,20 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 |**Nouveautés de Microsoft Intune** | En général, toutes les fonctionnalités répertoriées dans cette catégorie doivent fonctionner avec toutes les versions de Configuration Manager, notamment les versions de System Center 2012 R2 Configuration Manager, dans la mesure où ces fonctionnalités nécessitent seulement le service Intune mais aucune fonctionnalité supplémentaire dans Configuration Manager.|
 |**Nouveautés de Configuration Manager Technical Preview**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version d’évaluation technique spécifiée. Pour tester ces fonctionnalités, vous devez installer la version d’évaluation technique spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nouveautés de Configuration Manager (Current Branch)**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version spécifiée de Configuration Manager (Current Branch), comme la version 1511 ou 1602. Si vous utilisez une version antérieure de Configuration Manager pour votre déploiement hybride, vous devez effectuer la mise à niveau vers la version de Configuration Manager (Current Branch) spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="new-hybrid-features-in-february-2017"></a>Nouvelles fonctionnalités hybrides disponibles à partir de février 2017
+
+### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
+
+Les fonctionnalités Intune suivantes introduites en février 2017 fonctionnent dans les déploiements hybrides :
+
+- **Modernisation du site web du portail d’entreprise**
+
+  Le site web du portail d’entreprise prend en charge les applications destinées aux utilisateurs ne disposant pas d’appareils gérés. Le site web s’aligne sur les autres produits et services Microsoft grâce à un nouveau jeu de couleurs contrastées, des illustrations dynamiques et un « menu hamburger » qui fournit les coordonnées du support technique et des informations sur les appareils gérés existants. La nouvelle page d’accueil réorganisée met en évidence les applications disponibles aux utilisateurs, avec des tapis roulants pour les applications proposées et les applications récemment mises à jour. Vous pouvez trouver des images antérieures et postérieures sur la page [Mises à jour de l’interface utilisateur](/intune/whats-new/whats-new-in-intune-app-ui).
+
+- **Nouvelle adresse du serveur MDM pour les appareils Windows**
+
+  L’adresse du serveur MDM utilisée pour inscrire des appareils Windows et Windows Phone est maintenant enrollment.manage.microsoft.com (au lieu de manage.microsoft.com ). Demandez à votre utilisateur d’employer enrollment.manage.microsoft.com comme adresse du serveur MDM, lors de l’inscription d’un appareil Windows ou Windows Phone. Cette mise à jour requiert également le remplacement d’un enregistrement CNAME DNS qui redirige EnterpriseEnrollment.contoso.com vers manage.microsoft.com, par un enregistrement CNAME DNS qui redirige EnterpriseEnrollment.contoso.com vers EnterpriseEnrollment-s.manage.microsoft.com. Pour plus d’informations sur cette modification, consultez la page http://aka.ms/intuneenrollsvrchange. 
 
 ## <a name="new-hybrid-features-in-january-2017"></a>Nouvelles fonctionnalités hybrides en janvier 2017
 
@@ -71,20 +85,20 @@ Les fonctionnalités Intune suivantes introduites en décembre 2016 fonctionnen
 
   L’application Portail d’entreprise pour Android est maintenant disponible en Chine. En raison de l’absence de Google Play Store en Chine, les appareils Android doivent obtenir les applications des places de marché d’applications chinoises. L’application Portail d’entreprise pour Android est disponible pour téléchargement sur les magasins suivants :
 
-  - [Baidu](https://go.microsoft.com/fwlink/?linkid=836946)
-  - [Huawei](https://go.microsoft.com/fwlink/?linkid=836948)
-  - [Tencent](https://go.microsoft.com/fwlink/?linkid=836949)
-  - [Wandoujia](https://go.microsoft.com/fwlink/?linkid=836950)
-  - [Xiaomi](https://go.microsoft.com/fwlink/?linkid=836947)
+  -    [Baidu](https://go.microsoft.com/fwlink/?linkid=836946)
+  -    [Huawei](https://go.microsoft.com/fwlink/?linkid=836948)
+  -    [Tencent](https://go.microsoft.com/fwlink/?linkid=836949)
+  -    [Wandoujia](https://go.microsoft.com/fwlink/?linkid=836950)
+  -    [Xiaomi](https://go.microsoft.com/fwlink/?linkid=836947)
 
   L’application Portail d’entreprise pour Android utilise Google Play Services pour communiquer avec le service Microsoft Intune. Comme Google Play Services n’est pas encore disponible en Chine, la réalisation des tâches suivantes peut prendre jusqu’à 8 heures.
 
   | Configuration de la console d’administration de Configuration Manager | Application Portail d’entreprise Intune pour Android | Site web du portail d’entreprise Intune |
-  |----|----|----|      
-  | Mettre hors service/réinitialiser (supprimer toutes les données)   | Supprimer un appareil distant | Supprimer un appareil (local et distant) |
-  | Mettre hors service/réinitialiser (supprimer les données d’entreprise)   | Réinitialiser un appareil | Réinitialiser un appareil|
+  |----|----|----|        
+  | Mettre hors service/réinitialiser (supprimer toutes les données)    | Supprimer un appareil distant | Supprimer un appareil (local et distant) |
+  | Mettre hors service/réinitialiser (supprimer les données d’entreprise)    | Réinitialiser un appareil | Réinitialiser un appareil|
   | Déploiements d’applications nouvelles ou mises à jour | Installer des applications métier disponibles | Réinitialisation du code secret d’un appareil|
-  | Verrouillage à distance | | |
+  | Verrouillage à distance    | | |
   | Réinitialiser le code secret | | |        
 
 
@@ -153,9 +167,9 @@ La prise en charge de System Center 2012 Configuration Manager SP1 et de System 
 Si vous exécutez un déploiement hybride avec Configuration Manager 2012 SP1 ou R2 RTM, nous vous recommandons de mettre à niveau vers Configuration Manager (Current Branch) ou vers le dernier service pack pris en charge pour Configuration Manager 2012 (R2 SP1 ou SP2) avant le 10 avril 2017 afin d’éviter toute interruption du service.
 
 Ressources supplémentaires :
--   [Mettre à niveau vers System Center Configuration Manager (Current Branch)](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager)
--   [Planification de la mise à niveau vers System Center 2012 R2 Configuration Manager SP1](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningR2SP1Upgrade)
--   [Planification de la mise à niveau vers System Center 2012 Configuration Manager SP2](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningSP2Upgrade)
+-    [Mettre à niveau vers System Center Configuration Manager (Current Branch)](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager)
+-    [Planification de la mise à niveau vers System Center 2012 R2 Configuration Manager SP1](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningR2SP1Upgrade)
+-    [Planification de la mise à niveau vers System Center 2012 Configuration Manager SP2](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningSP2Upgrade)
 
 ### <a name="windows-phone-8-company-portal-upload-deprecated"></a>Chargement du portail d’entreprise Windows Phone 8 obsolète
 *25 octobre 2016*
@@ -170,6 +184,6 @@ La possibilité de charger une application Portail d’entreprise signée a ét�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -2,7 +2,7 @@
 title: Configurer Endpoint Protection | Microsoft Docs
 description: "Découvrez comment configurer Configuration Manager pour mettre à jour et distribuer les définitions de programmes malveillants pour Windows Defender."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9db108fb2d4d16013f416b8ee87a57ff1c91e21f
-ms.openlocfilehash: 3b0092c203201fefa51d1f9d9fea7180e10735b0
+ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
+ms.openlocfilehash: 92ab3f7470fd977e5f849bea54aca1a7ef460562
 
 
 ---
@@ -39,14 +39,14 @@ Pour utiliser Endpoint Protection pour gérer la sécurité et les programmes ma
 
 |Étapes|Détails|  
 |-----------|-------------|  
-|**Étape 1** : Créer un rôle de système de site de point Endpoint Protection|Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome. Consultez [Étape 1 : Créer un rôle de système de site de point Endpoint Protection](../../protect/deploy-use/configure-endpoint-protection.md).|  
-|**Étape 2** : Configurer des alertes pour Endpoint Protection|Les alertes signalent à l'administrateur des événements spécifiques qui se produisent, tels qu'une infection par un logiciel malveillant. Les alertes s'affichent dans le nœud **Alertes** de l'espace de travail **Surveillance** ou éventuellement elles peuvent être envoyées par courrier électronique à des utilisateurs donnés. Consultez [Étape 2 : Configurer des alertes pour Endpoint Protection](../../protect/deploy-use/configure-endpoint-protection.md).|  
-|**Étape 3** : Configurer les sources des mises à jour des définitions pour les clients Endpoint Protection|Endpoint Protection peut être configuré pour utiliser diverses sources de téléchargement des mises à jour des définitions. Consultez [Étape 3 : Configurer les sources des mises à jour des définitions pour les clients Endpoint Protection](../../protect/deploy-use/configure-endpoint-protection.md).|  
-|**Étape 4 :** Configurer la stratégie de logiciel anti-programme malveillant par défaut et créer des stratégies de logiciel anti-programme malveillant personnalisées.|La stratégie de logiciel anti-programme malveillant par défaut est appliquée au moment de l’installation du client Endpoint Protection. Les stratégies personnalisées que vous avez déployées sont appliquées par défaut dans les 60 minutes consécutives au déploiement du client. Assurez-vous d’avoir configuré des stratégies de logiciel anti-programme malveillant avant de déployer le client Endpoint Protection. Consultez [Comment créer et déployer des stratégies anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](../../protect/deploy-use/endpoint-antimalware-policies.md).|  
-|**Étape 5 :** Configurer des paramètres client personnalisés pour Endpoint Protection.|Utilisez des paramètres client personnalisés pour appliquer les paramètres configurés pour Endpoint Protection à certains regroupements d’ordinateurs dans la hiérarchie.<br /><br /> Remarque : configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. Consultez [Étape 5 : Configurer des paramètres client personnalisés pour Endpoint Protection](../../protect/deploy-use/configure-endpoint-protection.md).|  
+|**Étape 1** : [Créer un rôle de système de site de point Endpoint Protection](endpoint-protection-site-role.md)|Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome. |  
+|**Étape 2** : [Configurer des alertes pour Endpoint Protection](endpoint-configure-alerts.md)|Les alertes signalent à l'administrateur des événements spécifiques qui se produisent, tels qu'une infection par un logiciel malveillant. Les alertes s'affichent dans le nœud **Alertes** de l'espace de travail **Surveillance** ou éventuellement elles peuvent être envoyées par courrier électronique à des utilisateurs donnés. |  
+|**Étape 3** : [Configurer les sources de mise à jour des définitions pour les clients Endpoint Protection](endpoint-definition-updates.md)|Endpoint Protection peut être configuré pour utiliser diverses sources de téléchargement des mises à jour des définitions. |  
+|**Étape 4 :** [Configurer la stratégie de logiciel anti-programme malveillant par défaut et créer des stratégies de logiciel anti-programme malveillant personnalisées](endpoint-antimalware-policies.md)|La stratégie de logiciel anti-programme malveillant par défaut est appliquée au moment de l’installation du client Endpoint Protection. Les stratégies personnalisées que vous avez déployées sont appliquées par défaut dans les 60 minutes consécutives au déploiement du client. Vérifiez que vous avez configuré des stratégies anti-programme malveillant avant de déployer le client Endpoint Protection. |  
+|**Étape 5 **: [Configurer des paramètres client personnalisés pour Endpoint Protection](endpoint-protection-configure-client.md)|Utilisez des paramètres client personnalisés pour appliquer les paramètres configurés pour Endpoint Protection à certains regroupements d’ordinateurs dans la hiérarchie.<br /><br /> Remarque : configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. |  
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 
