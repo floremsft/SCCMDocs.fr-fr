@@ -2,7 +2,7 @@
 title: Forum aux questions sur le client Endpoint Protection | Microsoft Docs
 description: "Obtenez des réponses aux questions fréquemment posées sur Windows Defender et Endpoint Protection."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: f0352e59390ade7212a64cf0de883bbb1ca28bab
+ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
+ms.openlocfilehash: b88bc5f734b85527b81e5848deb0617db4c8dfbc
 
 
 ---
@@ -29,39 +29,23 @@ ms.openlocfilehash: f0352e59390ade7212a64cf0de883bbb1ca28bab
 Ce forum aux questions est destiné aux utilisateurs dont l’administrateur informatique a déployé Windows Defender ou Endpoint Protection sur leur ordinateur. Les informations fournies ci-après peuvent ne pas s’appliquer aux autres logiciels anti-programme malveillant. Microsoft System Center Endpoint Protection gère Windows Defender sur Windows 10. Il peut également déployer et gérer le client Endpoint Protection sur des ordinateurs exécutant une version antérieure à Windows 10. Windows Defender est décrit dans cet article, mais les informations qui le concernent s’appliquent également à Endpoint Protection.  
 
 -   [Pourquoi ai-je besoin d’un logiciel antivirus et anti-espion ?](#why-do-i-need-antivirus-and-antispyware-software)  
-
--   [Comment savoir si mon ordinateur est infecté par un logiciel malveillant ?](#how-can-i-tell-if-my-computer-is-infected-with-malicious-software)  
-
+-   [Comment savoir si mon ordinateur est infecté par un logiciel malveillant ?](#how-can-i-tell-if-my-computer-is-infected-with-malicious-software)
+-   [Comment puis-je trouver la version de Windows Defender ?](#how-can-i-find-the-version-of-windows-defender)
 -   [Que faire si Windows Defender ou Endpoint Protection détecte un logiciel malveillant sur mon ordinateur ?](#what-should-i-do-if-windows-defender-or-endpoint-protection-detects-software-on-my-computer)  
-
 -   [Qu’est-ce qu’un virus ?](#what-is-a-virus)  
-
 -   [Qu’est-ce qu’un logiciel espion ?](#what-is-spyware)  
-
 -   [Quelle est la différence entre les virus, les logiciels espions et autres logiciels potentiellement dangereux ?](#hat-s-the-difference-between-viruses-spyware-and-other-potentially-harmful-software)  
-
 -   [D’où viennent les virus, les logiciels espions et les autres logiciels potentiellement indésirables ?](#where-do-viruses-spyware-and-other-potentially-unwanted-software-come-from)  
-
 -   [Puis-je recevoir un logiciel malveillant sans le savoir ?](#can-i-get-malicious-software-without-knowing-it)  
-
 -   [Pourquoi est-il important de lire les contrats de licence avant d’installer des logiciels ?](#why-is-it-important-to-review-license-agreements-before-installing-software)  
-
 -   [Quelle est la différence entre Endpoint Protection et Windows Defender ?](#what-s-the-difference-between-endpoint-protection-and-windows-defender)  
-
 -   [Pourquoi Windows Defender ne détecte-t-il pas les cookies ?](#why-doesn-t-windows-defender-detect-cookies)  
-
 -   [Comment me protéger contre les programmes malveillants ?](#how-can-i-prevent-malware)  
-
 -   [Que sont les définitions de virus et de logiciels espions ?](#what-are-virus-and-spyware-definitions)  
-
 -   [Comment maintenir à jour les définitions de virus et de logiciels espions ?](#how-do-i-keep-virus-and-spyware-definitions-up-to-date)  
-
 -   [Comment supprimer ou restaurer des éléments mis en quarantaine par Windows Defender ou Endpoint Protection ?](#how-do-i-remove-or-restore-items-quarantined-by-windows-defender-or-endpoint-protection)  
-
 -   [Qu’est-ce que la protection en temps réel ?](#what-is-real-time-protection)  
-
 -   [Comment savoir si Windows Defender ou Endpoint Protection est en cours d’exécution sur mon ordinateur ?](#how-do-i-know-that-windows-defender-or-endpoint-protection-is-running-on-my-computer)
-
 -   [Comment configurer les alertes envoyées par Windows Defender ou Endpoint Protection ?](#how-to-set-up-windows-defender-or-endpoint-protection-alerts)  
 
 ##  <a name="why-do-i-need-antivirus-and-antispyware-software"></a>Pourquoi ai-je besoin d’un logiciel antivirus et anti-espion ?  
@@ -79,7 +63,7 @@ Ce forum aux questions est destiné aux utilisateurs dont l’administrateur inf
     |Surveiller l’activité des programmes et des fichiers sur votre ordinateur|Cette option surveille le démarrage de l’exécution des fichiers ou programmes sur votre ordinateur, et vous avertit des actions effectuées par ou sur ces fichiers et programmes. Ceci est important, car les logiciels malveillants peuvent exploiter les vulnérabilités des programmes que vous avez installés pour exécuter à votre insu des logiciels malveillants ou indésirables. Par exemple, un logiciel espion peut s’exécuter lui-même en arrière-plan quand vous démarrez un programme que vous utilisez fréquemment. Windows Defender surveille vos programmes et vous avertit s’il détecte une activité suspecte.|  
     |Activer la surveillance du comportement|Cette option surveille les ensembles de comportements de types suspects qui peuvent ne pas être détectés par les méthodes de détection antivirus traditionnelles.|  
 
-    |Activer le système NIS (Network Inspection System)|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
+    |Activer le système d’inspection du réseau|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
 
 -   **Options d’analyse** : vous pouvez utiliser Windows Defender pour rechercher les menaces potentielles, notamment des virus, des logiciels espions et d’autres logiciels malveillants susceptibles de mettre votre ordinateur en danger. Il vous permet également de planifier des analyses régulières et de supprimer les logiciels malveillants qu'il détecte au cours d'une analyse.  
 
@@ -104,6 +88,9 @@ Ce forum aux questions est destiné aux utilisateurs dont l’administrateur inf
 -   votre ordinateur fonctionne subitement plus lentement que d’habitude. Tous les problèmes de performances des ordinateurs ne sont pas provoqués par des logiciels malveillants, mais les logiciels malveillants, et notamment les logiciels espions, peuvent provoquer un changement notable.  
 
 Des logiciels malveillants peuvent être présents sur votre ordinateur, même si vous ne voyez pas de symptômes. Ce type de logiciel peut collecter à votre insu des informations sur vous et votre ordinateur. Pour protéger votre confidentialité et votre ordinateur, vous devez exécuter en permanence Windows Defender ou Endpoint Protection.  
+
+## <a name="how-can-i-find-the-version-of-windows-defender"></a>Comment puis-je trouver la version de Windows Defender ?
+ Pour afficher la version de Windows Defender en cours d’exécution sur votre ordinateur, ouvrez Windows Defender (cliquez sur **Démarrer**, puis recherchez **Windows Defender**), cliquez sur **Paramètres** et faites défiler vers le bas les paramètres Windows Defender jusqu’à **Informations de version**.
 
 ##  <a name="what-should-i-do-if-windows-defender-or-endpoint-protection-detects-malicious-software-on-my-computer"></a>Que faire si Windows Defender ou Endpoint Protection détecte un logiciel malveillant sur mon ordinateur ?  
 
@@ -216,7 +203,7 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
 
 ##  <a name="what-is-real-time-protection"></a>Qu’est-ce que la protection en temps réel ?  
 
- La protection en temps réel permet à Windows Defender d’analyser votre ordinateur en permanence et de vous avertir quand des menaces potentielles, notamment des virus et des logiciels espions, essayent de s’installer eux-mêmes ou de s’exécuter sur votre ordinateur. Comme cette fonctionnalité est un élément important de la façon dont Windows Defender contribue à protéger votre ordinateur, vérifiez que la protection en temps réel est toujours activée. Si la protection en temps réel est désactivée, Windows Defender vous en avertit et change l’état de votre ordinateur en « Risqué ».  
+ La protection en temps réel permet à Windows Defender d’analyser votre ordinateur en permanence et de vous avertir quand des menaces potentielles, notamment des virus et des logiciels espions, essayent de s’installer eux-mêmes ou de s’exécuter sur votre ordinateur. Comme cette fonctionnalité est un élément important de la façon dont Windows Defender contribue à protéger votre ordinateur, vérifiez que la protection en temps réel est toujours activée. Si la protection en temps réel est désactivée, Windows Defender vous en avertit et change l’état de votre ordinateur en « Risqué ».  
 
  Chaque fois que la protection en temps réel détecte une menace ou une menace potentielle, Windows Defender affiche une notification. Vous pouvez maintenant choisir parmi les options suivantes :  
 
@@ -232,7 +219,7 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
 |Analyser tous les téléchargements|Cette option surveille les fichiers et programmes qui sont téléchargés, y compris les fichiers qui sont téléchargés automatiquement via Windows Internet Explorer et Microsoft Outlook® Express, comme les contrôles ActiveX® et les programmes d’installation de logiciel. Ces fichiers peuvent être téléchargés, installés ou exécutés par le navigateur lui-même. Des logiciels malveillants, notamment des virus, des logiciels espions et des autres logiciels potentiellement indésirables, peuvent être inclus dans ces fichiers et installés à votre insu.<br /><br /> Avec l’option de protection en temps réel, Windows Defender surveille votre ordinateur en permanence, et recherche les fichiers ou les programmes malveillants que vous pourriez avoir téléchargés. Cette fonctionnalité de surveillance signifie que Windows Defender n’a pas besoin de ralentir votre navigation ou votre utilisation de la messagerie électronique en imposant une vérification des fichiers ou des programmes que vous voulez télécharger.|  
 |Surveiller l'activité des programmes et des fichiers sur votre ordinateur|Cette option surveille le démarrage de l’exécution des fichiers ou des programmes, puis vous avertit des actions qu’ils effectuent et des actions entreprises sur ces fichiers et programmes. Ceci est important, car les logiciels malveillants peuvent exploiter les vulnérabilités des programmes que vous avez installés pour exécuter à votre insu des logiciels malveillants ou indésirables. Par exemple, un logiciel espion peut s’exécuter lui-même en arrière-plan quand vous démarrez un programme que vous utilisez fréquemment. Windows Defender surveille vos programmes et vous avertit s’il détecte une activité suspecte.|  
 |Activer l'analyse du comportement|Cette option surveille les ensembles de comportements de types suspects qui peuvent ne pas être détectés par les méthodes de détection antivirus traditionnelles.|  
-|Activer le système NIS (Network Inspection System)|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
+|Activer le système NIS (Network Inspection System)|Cette option permet de protéger votre ordinateur contre les attaques « zero-day » de vulnérabilités connues, en réduisant le délai entre la découverte d’une vulnérabilité et l’application d’une mise à jour.|  
 
 ### <a name="to-turn-off-real-time-protection"></a>Pour désactiver la protection en temps réel  
 
@@ -279,6 +266,6 @@ Pour supprimer rapidement et facilement tous les éléments indésirables ou pot
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
