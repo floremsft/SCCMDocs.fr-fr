@@ -2,7 +2,7 @@
 title: Point de distribution cloud | Microsoft Docs
 description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution cloud avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/14/2017
+ms.date: 2/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8800a497a8c1e26b89ad3817ee2c15258bd1d5c5
-ms.openlocfilehash: f9164eeb19027366525ebc41640c82de3a606e4d
+ms.sourcegitcommit: 97051d9c65ef5ea28c94468b24863120624e8de0
+ms.openlocfilehash: b78b3b20a8b317a242cd06f9fda6326f41673915
 
 
 ---
@@ -185,9 +185,7 @@ Pour effectuer des demandes d’emplacement de contenu, les clients qui utilisen
 
 3.  Lorsqu'un point de distribution préféré ou un point de distribution distant n'est pas disponible, le client cherche alors à obtenir le contenu auprès d'un point de distribution cloud.  
 
-    > [!NOTE]  
-        >  Les clients connectés via Internet qui reçoivent à la fois un point de distribution basé sur Internet et un point de distribution cloud en tant qu'emplacements de contenu pour un déploiement essaient uniquement de récupérer le contenu auprès du point de distribution basé sur Internet. Si le client connecté via Internet ne parvient pas à récupérer le contenu auprès du point de distribution basé sur Internet, il n'essaie pas ensuite d'accéder au point de distribution cloud.  
-
+    
 
   Lorsqu'un client utilise un point de distribution cloud comme emplacement de contenu, il s'authentifie auprès du point de distribution cloud en utilisant un jeton d'accès Configuration Manager. Si le client approuve le certificat de point de distribution cloud Configuration Manager, il peut ensuite télécharger le contenu demandé.  
 
@@ -217,6 +215,6 @@ Pour effectuer des demandes d’emplacement de contenu, les clients qui utilisen
 
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 
