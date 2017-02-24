@@ -1,3 +1,4 @@
+
 ---
 title: "Cache d’homologue du client | System Center Configuration Manager"
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
@@ -16,8 +17,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6aaa833c1301cf82f7d8df3bc13f0a6936fc6e9d
-ms.openlocfilehash: 96b3a72a7beb31396813ae468ae3eeacc845b582
+ms.sourcegitcommit: 2dd898c9b022c6f0bc243623835af0eece94128f
+ms.openlocfilehash: 95d1671501f672e1d5abe3f0fbbd7d2dfb21e0a3
 
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache d’homologue pour les clients Configuration Manager
@@ -51,8 +52,6 @@ Pour vous aider à comprendre l’utilisation du cache d’homologue, vous pouve
 ## <a name="requirements-and-considerations-for-peer-cache"></a>Exigences et considérations relatives au cache d’homologue
 - Le cache d’homologue est pris en charge sur tout système d’exploitation Windows pris en charge en tant que client Configuration Manager. Les systèmes d’exploitation autres que Windows ne sont pas pris en charge pour le cache d’homologue.
 
-- Vous devez configurer votre site avec un **compte d’accès réseau** ayant le **contrôle total** du dossier de cache sur chaque client. Par défaut, il s’agit de ***%windir%\ccmcache***.
-
 - Des clients ne peuvent transférer du contenu qu’à partir de clients de cache d’homologue qui se trouvent dans leur groupe de limites actuel.
 
 -     Étant donné que la limite actuelle d’une source de contenu de cache d’homologue est déterminée par la soumission de l’inventaire matériel de ces clients, un client qui se déplace vers un emplacement réseau et qui se trouve dans un autre groupe de limites peut toujours être considéré comme un membre de son précédent groupe de limites pour les besoins du cache d’homologue. En conséquence, un client peut se voir proposer une source de contenu de cache d’homologue qui ne se trouve pas dans son emplacement réseau immédiat. Nous vous recommandons d’empêcher les clients qui adoptent souvent cette configuration de participer à une source de cache d’homologue.
@@ -70,6 +69,6 @@ Sur chaque ordinateur activé pour le cache d’homologue, si le Pare-feu Window
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
