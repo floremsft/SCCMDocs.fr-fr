@@ -16,8 +16,9 @@ author: nbigman
 ms.author: nbigman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
-ms.openlocfilehash: d2d888edf51d46a2dd13ef6b7ed39c066179a088
+ms.sourcegitcommit: bdd7961d9126dc6f3c1ae1fec1842c862e8a7c6d
+ms.openlocfilehash: 12633a7b9f799ffc74e0ee657e091595ed7eaf67
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager
@@ -34,13 +35,13 @@ ms.openlocfilehash: d2d888edf51d46a2dd13ef6b7ed39c066179a088
 -   L’installation ou l’exécution du client Configuration Manager pour Linux ou UNIX, ou du client pour Mac sur des ordinateurs sous un autre compte que le compte racine n’est pas prise en charge. Cela peut empêcher l’exécution correcte de certains services clés.  
 
 ##  <a name="windows-computers"></a>Ordinateurs Windows  
- Vous pouvez gérer les ordinateurs Windows avec le client Configuration Manager fourni avec Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+ Vous pouvez utiliser le client Configuration Manager inclus dans Configuration Manager pour gérer les systèmes d’exploitation Windows suivants. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 **Systèmes d’exploitation pris en charge** :  
 
+
 -  **Windows Server 2016** : Standard, Datacenter <sup>1</sup>
   - Ce système d’exploitation est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016).  
-
 
 -   **Windows Server 2012 R2** (x64) : Standard, Datacenter <sup>1</sup>    
 
@@ -56,9 +57,8 @@ ms.openlocfilehash: d2d888edf51d46a2dd13ef6b7ed39c066179a088
 
 -   **Windows Server 2008 avec SP2** (x86, x64) : Standard, Enterprise, Datacenter <sup>1</sup>    
 
--   **Windows 10 Entreprise LTSB** (x86, x64) <sup>3</sup>    
-
--   **Windows 10** (x86, x64) : Professionnel, Entreprise    
+-   **Windows 10** : Professionnel, Entreprise  
+   Consultez [Prise en charge des versions de Windows 10](/sccm/core/plan-design/configs/support-for-windows-10) pour plus d’informations sur les différentes versions commerciales de Windows 10 qui sont prises en charge par les différentes versions de Configuration Manager.
 
 -   **Windows 8.1** (x86, x64) : Professionnel, Entreprise    
 
@@ -83,7 +83,6 @@ ms.openlocfilehash: d2d888edf51d46a2dd13ef6b7ed39c066179a088
 
  <sup>2</sup> Pour prendre en charge l’installation Push du client, l’ordinateur exécutant cette version du système d’exploitation doit exécuter le service de rôle Serveur de fichiers pour le rôle serveur Services de fichiers et de stockage. Pour plus d’informations sur l’installation des fonctionnalités Windows sur un ordinateur Server Core, consultez [Installer des rôles et fonctionnalités de serveur sur un serveur en mode d’installation minimale](http://go.microsoft.com/fwlink/p/?LinkId=299359) dans la bibliothèque TechNet de Windows Server 2012.  
 
- <sup>3</sup> L’utilisation de ce système d’exploitation nécessite la version 1602 de Configuration Manager ou ultérieure.  
 
 ##  <a name="windows-embedded-computers"></a>Ordinateurs Windows Embedded  
  Vous pouvez gérer les appareils Windows Embedded en installant le logiciel client Configuration Manager sur ceux-ci.  Pour plus d’informations, consultez [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
@@ -349,9 +348,4 @@ Configuration Manager prend en charge une gestion limitée des appareils qui se 
 -   **Exchange Server 2013**  
 
 -   **Exchange Online (Office 365)** : Inclut Business Productivity Online Standard Suite  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

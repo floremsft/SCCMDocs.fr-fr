@@ -2,7 +2,7 @@
 title: "Déployer des applications virtuelles App-V | Documents Microsoft"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications virtuelles."
 ms.custom: na
-ms.date: 11/07/2016
+ms.date: 02/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0469aad1482c0619794c91bc530d8ec981e8f136
-ms.openlocfilehash: bc79cd157003cc7dcb63f925293c79fe477dd809
+ms.sourcegitcommit: c73373e6f2f28f8ddc197695e4b4e3488c9c1f5b
+ms.openlocfilehash: 0808edbb9a0433dd658d37e8d005c89a4778735c
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -66,7 +67,13 @@ En plus des autres exigences et procédures System Center Configuration Manager 
      Pour pouvoir déployer correctement des applications virtuelles, vous devez également mettre à jour le client App-V 4.6 SP1 avec le correctif décrit dans l’article [2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322) de la Base de connaissances.  
 
 -   **App-V 5, App-V 5.0 SP1, App-V 5.0 SP2, App-V 5.0 SP3 et App-V 5.1** : pour App-V 5.0 SP2, vous devez installer le [correctif logiciel 5](https://support.microsoft.com/en-us/kb/2963211) ou utiliser App-V 5.0 SP3.  
--   **App-V 5.2** : il est intégré à Windows 10 (mise à jour anniversaire et versions ultérieures).
+-   **App-V 5.2** : il est intégré à Windows 10 Entreprise (mise à jour anniversaire et versions ultérieures).
+
+Pour plus d’informations sur App-V dans Windows 10, consultez les rubriques suivantes :
+
+- [Nouveautés d’App-V](https://technet.microsoft.com/itpro/windows/manage/appv-about-appv)
+- [Bien démarrer avec App-V pour Windows 10](https://technet.microsoft.com/itpro/windows/manage/appv-getting-started)
+- [Mise à niveau vers App-V pour Windows 10 à partir d’une installation existante](https://technet.microsoft.com/itpro/windows/manage/appv-upgrading-to-app-v-for-windows-10-from-an-existing-installation)
 
 ##  <a name="steps-to-manage-app-v-virtual-applications"></a>Étapes de gestion des applications virtuelles App-V  
  Pour gérer les applications virtuelles App-V, procédez comme suit :  
@@ -206,9 +213,4 @@ Vous pouvez utiliser les rapports suivants pour surveiller App-V dans votre envi
 Configuration Manager enregistre dans des fichiers journaux diverses informations sur les déploiements d’applications virtuelles. Pour plus d’informations sur les fichiers journaux utilisés par les applications virtuelles et la gestion d’applications Configuration Manager, consultez [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).  
 
 Pour Windows Vista, Windows 7 et Windows 8, les journaux du client App-V sont disponibles dans C:\ProgramData\Microsoft\Application Virtualization Client.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

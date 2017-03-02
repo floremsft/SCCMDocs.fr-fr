@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0c084e9f630a96c7b22c3dbdd72e18ad4a86926d
-ms.openlocfilehash: 9631b5622fec19e0248eb919bc8bd876152f66d7
+ms.sourcegitcommit: 1a3460143628ef297c99c364ded7ebea86d270dd
+ms.openlocfilehash: c266bb753ea69785b674508647c3857b2218cb77
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -29,7 +30,7 @@ Utilisez cette rubrique pour en savoir plus sur l’exécution du programme d’
 
 Quand vous utilisez le média de la base de référence de la version 1606, le site que vous installez (ou vers lequel vous effectuez la mise à niveau) est le suivant :
 - Un *site Current Branch* qui équivaut à un site initialement installé à l’aide du média de la base de référence 1511, puis mis à jour vers la version 1606 plus le correctif cumulatif 1606 (KB3186654).
--   Un *site LTSB* qui équivaut au site Current Branch exécutant la version 1606 plus le correctif cumulatif 1606 (KB3186654). Le média de la base de référence contient déjà le correctif cumulatif.  Toutefois, le site LTSB ne prend pas en charge toutes les fonctionnalités disponibles avec Current Branch, comme cela est indiqué dans [Présentation de Long-Term Servicing Branch dans System Center Configuration Manager](introduction-to-the-ltsb.md).
+-    Un *site LTSB* qui équivaut au site Current Branch exécutant la version 1606 plus le correctif cumulatif 1606 (KB3186654). Le média de la base de référence contient déjà le correctif cumulatif.  Toutefois, le site LTSB ne prend pas en charge toutes les fonctionnalités disponibles avec Current Branch, comme cela est indiqué dans [Présentation de Long-Term Servicing Branch dans System Center Configuration Manager](introduction-to-the-ltsb.md).
 
 Si vous ne connaissez pas déjà les différentes branches de System Center Configuration Manager, consultez [Déterminer la branche de Configuration manager à utiliser](which-branch-should-i-use.md).
 
@@ -70,7 +71,7 @@ Le média de la base de référence de la version 1606 prend en charge une nouv
 Quand vous utilisez un script sans assistance pour installer une branche sous licence, vous devez ajouter la section, les noms de clés et les valeurs ci-dessous dans la section Options de votre script. Vous n’avez pas besoin d’utiliser ces valeurs pour l’installation par script d’une version d’évaluation de Current Branch :  
 
  **SABranchOptions**
--   **Nom de clé : SSActive**
+-     **Nom de clé : SAActive**
   - Valeurs : 0 ou 1.  
   - Détails : 0 installe une édition d’évaluation sans licence de Current Branch et 1 installe une édition sous licence.   
 
@@ -97,7 +98,7 @@ Pour plus d’informations, consultez [Utiliser une ligne de commande pour insta
 Quand vous utilisez le support de la base de référence 1606 pour installer un nouveau site de l’une des deux branches, utilisez les procédures de planification, préparation et installation de sites décrites dans la rubrique [Installation de sites System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites) en tenant également compte des points suivants :
 
 - Pendant l’installation, vous devez choisir la branche de Configuration Manager à installer et vous pouvez spécifier les détails de votre contrat Software Assurance.
--   Nouvelle installation par script. Pour plus d’informations, consultez « Nouvelles options d’installation par script », plus haut dans cet article.
+-    Nouvelle installation par script. Pour plus d’informations, consultez « Nouvelles options d’installation par script », plus haut dans cet article.
 
 ## <a name="expand-a-stand-alone-primary-site"></a>Étendre un site principal autonome
 Vous pouvez développer un site principal autonome qui exécute LTSB.  Le processus n’est pas différent de celui utilisé pour un site Current Branch avec tout de même une particularité :
@@ -111,7 +112,7 @@ Quand vous effectuez une mise à niveau à partir de System Center 2012 Configu
 
 **Mise à niveau vers Current Branch :**
 - Pendant l’installation, vous devez choisir Current Branch et vous pouvez spécifier les détails de votre contrat Software Assurance.
--   Nouvelle installation par script. Pour plus d’informations, consultez « Nouvelles options d’installation par script », plus haut dans cet article.
+-     Nouvelle installation par script. Pour plus d’informations, consultez « Nouvelles options d’installation par script », plus haut dans cet article.
 
 **Mise à niveau vers LTSB :**  
 - Autres étapes à suivre incluses dans la liste de vérification préalable à la mise à niveau.
@@ -147,9 +148,4 @@ Pour plus d’informations, consultez [Dossier CD.Latest](/sccm/core/servers/man
 Pour sauvegarder ou récupérer un site qui exécute LTSB, ou en effectuer la maintenance, suivez les instructions et procédures décrites dans [Sauvegarde et récupération pour System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
 
 Utilisez le programme d’installation de Configuration Manager à partir du dossier CD.Latest de la sauvegarde de votre site LTSB.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

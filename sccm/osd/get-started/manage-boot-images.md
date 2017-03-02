@@ -17,8 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
-ms.openlocfilehash: 3b7125e782b60853e750aeb7ba923490e46a76b0
+ms.sourcegitcommit: 4edf7d09d39fa22fb5812aecc88febd763001eba
+ms.openlocfilehash: 369aa062d0f38eedebc0a7c351a7ce67b53d199b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -29,9 +30,9 @@ ms.openlocfilehash: 3b7125e782b60853e750aeb7ba923490e46a76b0
 Une image de démarrage dans Configuration Manager est une image [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows.  Aidez-vous des informations des sections suivantes pour gérer les images de démarrage.
 
 ##  <a name="a-namebkmkbootimagedefaulta-default-boot-images"></a><a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut  
- Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64 ou i386*.  
+ Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64*> ou <*i386*>.  
 
- Quand vous mettez à niveau Configuration Manager vers une nouvelle version, Configuration Manager remplace parfois les images de démarrage par défaut, et les images de démarrage personnalisées basées sur ces images de démarrage par défaut, situées à cet emplacement par des fichiers mis à jour. Les options que vous configurez sur les images de démarrage par défaut au niveau du site (par exemple, des composants facultatifs) sont transmises lors de la mise à jour des images de démarrage, dont les pilotes. Les objets pilotes de source doivent être valides, notamment les fichiers sources de pilotes. Autrement, les pilotes ne seront pas ajoutés aux images de démarrage mises à jour sur le site. Les autres images de démarrage non basées sur les images de démarrage par défaut, même si elles sont basées sur la même version de Windows ADK, ne sont pas mises à jour. Une fois les images de démarrage mises à jour, vous devez les redistribuer aux points de distribution. Tout support utilisant les images de démarrage doit être recréé. Si vous ne souhaitez pas que vos images de démarrage par défaut personnalisées soient mises à jour automatiquement, vous devez les stocker à un autre emplacement.  
+ Quand vous mettez à niveau Configuration Manager vers une nouvelle version, Configuration Manager remplace parfois les images de démarrage par défaut, et les images de démarrage personnalisées basées sur ces images de démarrage par défaut, situées à cet emplacement par des fichiers mis à jour. Les options que vous configurez sur les images de démarrage par défaut au niveau du site (par exemple, des composants facultatifs) sont transmises lors de la mise à jour des images de démarrage, dont les pilotes. Les objets pilotes de source doivent être valides, notamment les fichiers sources de pilotes. Autrement, les pilotes ne seront pas ajoutés aux images de démarrage mises à jour sur le site. Les autres images de démarrage non basées sur les images de démarrage par défaut, même si elles sont basées sur la même version de Windows ADK, ne sont pas mises à jour. Une fois les images de démarrage mises à jour, vous devez les redistribuer aux points de distribution. Tout support utilisant les images de démarrage doit être recréé. Si vous ne souhaitez pas que vos images de démarrage par défaut/personnalisées soient automatiquement mises à jour, vous devez les stocker à un autre emplacement.  
 
  L’outil Journal de suivi de Configuration Manager est ajouté à toutes les images de démarrage que vous ajoutez à la **bibliothèque de logiciels**. Quand vous êtes dans WinPE, vous pouvez démarrer l’outil Journal de suivi de Configuration Manager en tapant **CMTrace** à partir d’une invite de commandes.  
 
@@ -248,9 +249,4 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (W
 1.  Avant de mettre à jour l'image de démarrage, vérifiez que le fichier de ressources de la séquence de tâche appropriée (tsres.dll) se trouve bien dans le dossier de langue correspondant sur le serveur de site. Par exemple, le fichier de ressources anglais se trouve à l’emplacement suivant : <*dossier_installation_ConfigMgr*> \OSD\bin\x64\00000409\tsres.dll.  
 
 2.  Dans le cadre de votre commande de prédémarrage, affectez l'ID de langue approprié à la variable d'environnement SMSTSLanguageFolder. Vous devez spécifier l'ID de langue au format décimal, et non hexadécimal. Par exemple, pour configurer l'ID de langue sur l'anglais, vous devez spécifier la valeur décimale 1033 au lieu de la valeur hexadécimale 00000409 utilisée comme nom de dossier.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

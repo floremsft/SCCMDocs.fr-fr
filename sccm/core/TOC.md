@@ -304,4 +304,4 @@
 ###  [Mettre à niveau les clients Windows](clients/manage/upgrade/upgrade-clients-for-windows-computers.md)
 ###  [Mettre à niveau les clients Linux et UNIX](clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)
 ###  [Mettre à niveau les clients Mac](clients/manage/upgrade/upgrade-clients-on-mac-computers.md)
-###  [Mettre à niveau l’analyse](clients/manage/upgrade/upgrade-analytics.md)
+###  [Disponibilité pour la mise à niveau](clients/manage/upgrade/upgrade-analytics.md)
