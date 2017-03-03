@@ -13,11 +13,16 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
 translationtype: Human Translation
-ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
-ms.openlocfilehash: b89cec7cebb5342da32ec8e11a049edad12f1231
+ms.sourcegitcommit: af5f58dd5fe1f19d7a70cb9516af159c6682d194
+ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
+ms.lasthandoff: 01/07/2017
 
 
 ---
+>[!IMPORTANT]
+>Il s’agit d’une fonctionnalité préliminaire disponible dans Configuration Manager version 1606 et version 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+
+
 # <a name="service-a-server-group"></a>Maintenance de groupe de serveurs
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -85,9 +90,4 @@ Quand un ordinateur ne parvient pas à libérer un verrou de déploiement, vous 
 1.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, puis cliquez sur le regroupement pour désactiver les verrous de déploiement.  
 
 2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Supprimer les verrous de déploiement du groupe de serveurs**. Quand des clients ne parviennent pas à installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles, les verrous de déploiement peuvent être désactivés manuellement.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
