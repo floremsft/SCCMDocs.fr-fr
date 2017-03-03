@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: c13c6268fa76ade7feb0981f9c4a6e325e393aca
 ms.openlocfilehash: f29d5834b82dd8888cff56fb0ad8024629f829ab
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -129,9 +130,4 @@ Le service Lookout de protection des appareils contre les menaces classe les dif
 Une fois la configuration terminée, le service Lookout de protection des appareils contre les menaces commence à interroger Azure AD pour rechercher les appareils qui correspondent aux groupes d’inscription spécifiés.  Les informations sur les appareils inscrits se trouvent dans le module Appareils.  Les appareils s’affichent dans l’état initial En attente.  L’état de l’appareil change une fois que l’application Lookout for Work est installée, ouverte et activée sur l’appareil.  Pour plus d’informations sur le transfert (pushing) de l’application Lookout for Work sur l’appareil, consultez la rubrique [Configurer et déployer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md).
 ## <a name="next-steps"></a>Étapes suivantes
 [Activer la connexion à Lookout MTP dans Intune](enable-lookout-connection-in-intune.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

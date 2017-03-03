@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 30ae794381c6894e11b21a8167d0af60463c5279
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -79,9 +80,4 @@ Vous pouvez utiliser un média autonome dans les scénarios de déploiement de s
 
 ## <a name="install-the-operating-system-from-stand-alone-media"></a>Installer le système d’exploitation à partir d’un média autonome  
  Insérez le média autonome dans un lecteur de démarrage sur l’ordinateur, puis mettez-le sous tension pour installer le système d’exploitation.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
