@@ -11,12 +11,9 @@
 # Déployer et utiliser
 
 ## [Créer des applications](deploy-use/create-applications.md)
-### [Créer des applications iOS](get-started/creating-ios-applications.md)
 ### [Créer des applications pour ordinateurs Mac](get-started/creating-mac-computer-applications.md)
 ### [Créer des applications Windows](get-started/creating-windows-applications.md)
-### [Créer des applications Windows Phone](get-started/creating-windows-phone-applications.md)
 ### [Créer des applications serveur Linux et UNIX](get-started/creating-linux-and-unix-server-applications.md)
-### [Créer des applications Android](get-started/creating-android-applications.md)
 ### [Créer des applications Windows Embedded](get-started/creating-windows-embedded-applications.md)
 ### [Créer des conditions globales](deploy-use/create-global-conditions.md)
 ### [Packages et programmes](deploy-use/packages-and-programs.md)
@@ -33,21 +30,10 @@
 ## Gérer des applications
 ### [Tâches de gestion](deploy-use/management-tasks-applications.md)
 ### [Affinité entre appareil et utilisateur](deploy-use/link-users-and-devices-with-user-device-affinity.md)
-### [Stratégies de configuration d’applications iOS](deploy-use/configure-ios-apps-with-app-configuration-policies.md)
-### [Applications iOS achetées en volume](deploy-use/manage-volume-purchased-ios-apps.md)
 ### [Applications achetées en volume à partir du Windows Store pour Entreprises](deploy-use/manage-apps-from-the-windows-store-for-business.md)
 ### [Environnements virtuels App-V](deploy-use/create-app-v-virtual-environments.md)
-
-## Protéger les applications
-### [Stratégies de gestion des applications mobiles](deploy-use/protect-apps-using-mam-policies.md)
-### [Stratégies Managed Browser](deploy-use/manage-internet-access-using-managed-browser-policies.md)
 
 ## Mettre à jour et mettre hors service des applications
 ### [Mettre à jour et mettre hors service des applications](deploy-use/update-and-retire-applications.md)
 ### [Modifier et remplacer des applications](deploy-use/revise-and-supersede-applications.md)
 ### [Désinstaller des applications](deploy-use/uninstall-applications.md)
-
-
-<!--HONumber=Dec16_HO3-->
-
-
