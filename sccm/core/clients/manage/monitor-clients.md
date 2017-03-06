@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2c8f57cf-1968-48de-87fb-4897432ed6e0
 caps.latest.revision: 23
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
 ms.openlocfilehash: 85afe010e734d20ae1f1479b3edd166c54cc8fd2
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -109,9 +110,4 @@ ms.openlocfilehash: 85afe010e734d20ae1f1479b3edd166c54cc8fd2
 |Vérifier l'intégrité du fournisseur WMI du client|Redémarrer le service WMI (Windows Management Instrumentation)|La correction de cette intégrité du client est effectuée uniquement sur les ordinateurs qui exécutent Windows Server 2003, Windows XP (64 bits) ou des versions antérieures.|  
 |Vérifier que le service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est en cours d'exécution|Démarrer le service de proxy de mise en éveil ConfigMgr|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
 |Vérifier que le type de démarrage du service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est automatique|Réinitialiser le type de démarrage du service de proxy de mise en éveil ConfigMgr sur automatique|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

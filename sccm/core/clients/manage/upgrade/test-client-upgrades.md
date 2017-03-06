@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 49ef2ed2-2e15-4637-8b63-1d5b7f9c17e1
 caps.latest.revision: 10
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
 ms.openlocfilehash: 250c9312b932670c408554f3968ae43ae4f3dbaa
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -79,9 +80,4 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 2.  Examinez les versions du client en production et préproduction, vérifiez que le regroupement de préproduction approprié est spécifié, et cliquez sur **Promouvoir**, puis sur **Oui**.  
 
 3.  Une fois la boîte de dialogue fermée, la version du client mise à jour remplace la version du client en cours d’utilisation dans votre hiérarchie. Vous pouvez ensuite mettre à niveau les clients pour l’ensemble du site. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

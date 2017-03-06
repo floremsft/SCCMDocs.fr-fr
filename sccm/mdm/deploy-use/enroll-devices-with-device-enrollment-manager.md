@@ -2,7 +2,7 @@
 title: "Inscrire des appareils avec un gestionnaire d’inscription des appareils - Configuration Manager | Microsoft Docs"
 description: "Inscrivez les appareils d’entreprise avec le compte du gestionnaire d’inscription d’appareil à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
 ms.openlocfilehash: b356d2351b8a28bdca78176fdf0ff3c913a36bd3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,9 +90,4 @@ Un restaurant souhaite que son personnel de service utilise des tablettes et com
 -   la suppression du gestionnaire d'inscription d'appareil n'entraîne pas la réinitialisation ou la mise hors service des appareils ;  
 
 -   il existe toujours une relation entre le compte du gestionnaire d'inscription d'appareil supprimé et les appareils inscrits, mais aucun appareil supplémentaire ne peut être inscrit.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

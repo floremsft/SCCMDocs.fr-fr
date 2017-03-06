@@ -2,7 +2,7 @@
 title: "Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager | Microsoft Docs"
 description: "Configurez l’affinité utilisateur pour les appareils gérés dans Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: 74dcc0f4e680893db804956615248b7e1230d2b5
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager
@@ -53,9 +54,4 @@ Quand vous configurez des profils pour des appareils d’entreprise, l’adminis
 
 ##  <a name="a-namebkmknouaa-managed-devices-without-user-affinity"></a><a name="BKMK_noUA"></a> Appareils gérés sans affinité utilisateur  
  Des appareils configurés avec **Pas d’affinité utilisateur** ne prennent pas en charge le Portail d’entreprise et ne doivent pas installer l’application. Le Portail d’entreprise est conçu pour les utilisateurs détenteurs d’informations d’identification d’entreprise, qui ont besoin d’accéder à des ressources d’entreprise personnalisées (par exemple, au courrier électronique). Les appareils inscrits avec **Pas d’affinité utilisateur** ne sont pas destinés à un utilisateur dédié. Une borne, un point de vente (PDV) ou un appareil de démonstration partagé sont des exemples caractéristiques d’utilisation d’appareils inscrits sans aucune affinité utilisateur. Si une affinité utilisateur est requise, vérifiez qu’une **affinité utilisateur** est sélectionnée pour le profil d’inscription de l’appareil avant d’inscrire celui-ci. Pour modifier l’état d’affinité sur un appareil, vous devez le mettre hors service, puis le réinscrire.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

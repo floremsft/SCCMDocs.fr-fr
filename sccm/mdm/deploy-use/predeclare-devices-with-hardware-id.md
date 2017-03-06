@@ -2,7 +2,7 @@
 title: "Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS | Microsoft Docs"
 description: "Prédéclarez vos appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS."
 ms.custom: na
-ms.date: 12/16/2016
+ms.date: 03/05/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0fd410a6572acce685dc6cdb954c1c2d97d5ed8b
 ms.openlocfilehash: 2aa9c8c65904e573b6a81ac865e09d1cf2458509
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
@@ -28,17 +29,17 @@ Vous pouvez identifier des appareils d’entreprise en important leur numéro IM
 
 ## <a name="how-to-predeclare-corporate-owned-devices"></a>Comment prédéclarer des appareils d’entreprise
 
-1.  Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **Predeclared devices** (Appareils prédéclarés).
+1.    Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **Predeclared devices** (Appareils prédéclarés).
 
 2.  Cliquez sur **Create Predeclared Devices** (Créer des appareils prédéclarés). L’Assistant Create Predeclared Devices (Création d’appareils prédéclarés) s’ouvre.
 
-3.  Choisissez la façon dont vous souhaitez ajouter les informations sur les appareils :
+3.    Choisissez la façon dont vous souhaitez ajouter les informations sur les appareils :
 
-     -  **Charger un fichier CSV contenant des numéros IMEI ou numéros de série et des informations détaillées**
+     -    **Charger un fichier CSV contenant des numéros IMEI ou numéros de série et des informations détaillées**
 
         Pour cette option, cliquez sur **Parcourir** pour spécifier le fichier .csv contenant les informations à utiliser pour prédéclarer les appareils d’entreprise. Le fichier .csv doit être formaté correctement. Pour plus d’informations, consultez [Format pour le chargement des fichiers .csv](#format-for-uploading-csv-files).
 
-     -  **Ajouter manuellement des numéros IMEI ou numéros de série et des informations détaillées**
+     -    **Ajouter manuellement des numéros IMEI ou numéros de série et des informations détaillées**
 
         Pour entrer manuellement les informations, tapez le numéro IMEI ou le numéro de série iOS ainsi que les informations détaillées pour les appareils. Corrigez les éventuels avertissements ou erreurs avant de continuer.
 
@@ -63,10 +64,10 @@ Le fichier .csv que vous utilisez pour identifier des appareils par numéro IMEI
 | IMEI #  | No de série iOS #  | SE | Détails |
 |------------ |---------------|-----|-----|
 | 123456789012345    |   | WINDOWS | Appareil d’entreprise Windows|
-|   | A1B2C3D4E5C6 | IOS |  Appareil d’entreprise iOS|
-| 223456789012345 | E6D5C4B3A210 |   IOS |  Autre appareil iOS|
-| 323456789012345 |        |   IOS |    Troisième appareil iOS|
-| 123456789012346 |         |   ANDROID |   Appareil d’entreprise Android|
+|   | A1B2C3D4E5C6 | IOS |     Appareil d’entreprise iOS|
+| 223456789012345 | E6D5C4B3A210 |   IOS |     Autre appareil iOS|
+| 323456789012345 |        |   IOS |     Troisième appareil iOS|
+| 123456789012346 |         |   ANDROID |     Appareil d’entreprise Android|
 
 N’incluez pas de ligne d’en-tête dans votre fichier .csv. L’exemple suivant montre les mêmes données au format CSV :
 
@@ -83,9 +84,4 @@ Les colonnes du fichier .csv acceptent les valeurs suivantes :
 | Colonne 1 | Colonne 2 | Colonne 3 | Colonne 4 |
 |---|---|---|---|
 |Numéro IMEI sans espace | Numéro de série iOS | IOS, WINDOWS ou ANDROID | Détails facultatifs sur l’appareil (1 024 caractères au maximum) |
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

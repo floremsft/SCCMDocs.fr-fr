@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 948664f2-239d-47a8-92fc-f8efeebd5796
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
 ms.openlocfilehash: 7a5ff0e75b8cdac68e3854c4f5aba01a7d423e9b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -79,9 +80,4 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 |importPFX|Utilisez cette option pour spécifier un certificat pour remplacer le certificat actuellement utilisé par un client.<br /><br /> Quand vous utilisez **-importPFX**, vous devez également utiliser le paramètre de ligne de commande **-password** pour fournir le mot de passe associé au fichier PKCS#12.<br /><br /> Utilisez **-rootcerts** pour spécifier des exigences de certificat racine supplémentaires.<br /><br /> Exemple : **certutil -importPFX &lt;chemin du certificat PKCS#12> -mot de passe &lt;mot de passe de certificat\> [-rootcerts &lt;liste de certificats séparés par des virgules>]**|  
 |-importsitecert|Utilisez cette option pour mettre à jour le certificat de signature du serveur de site qui se trouve sur le serveur d’administration.<br /><br /> Exemple : **certutil -importsitecert &lt;chemin du certificat DER\>**|  
 |-importcrl|Utilisez cette option pour mettre à jour la liste de révocation de certificats sur le client avec un ou plusieurs chemins d’accès de fichiers CRL.<br /><br /> Exemple : **certutil -importcrl &lt;liste de chemins de fichier CRL séparés par des virgules\>**|  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

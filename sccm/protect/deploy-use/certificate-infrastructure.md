@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: Nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: 56e0a1923305c5134386623b1e306b8ebd013d53
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="certificate-infrastructure"></a>Infrastructure de certificats
@@ -191,9 +192,4 @@ ms.openlocfilehash: 56e0a1923305c5134386623b1e306b8ebd013d53
  Maintenant que vous avez terminé les étapes de configuration pour installer le service d’inscription d’appareils réseau et les dépendances, le point d’enregistrement de certificat et le module de stratégie de System Center Configuration Manager, vous êtes prêt à déployer les certificats sur les utilisateurs et les appareils en créant et en déployant des profils de certificat. Pour plus d’informations sur la création de profils de certificat, consultez [Comment créer des profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
  Si vous souhaitez désinstaller le module de stratégie de System Center Configuration Manager, utilisez **Programmes et fonctionnalités** dans le Panneau de configuration.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

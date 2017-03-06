@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 15a4e323-9f42-4fea-bb14-f2b905d1f77c
 caps.latest.revision: 9
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: 0e5f65552045e9cef06f5286b0087153751c79b0
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -237,9 +238,4 @@ Chaque package d'installation du client contient tous les fichiers nécessaires 
  Le client Configuration Manager pour Linux et UNIX contacte ce point de gestion au moment de l’installation du client. Si le client ne parvient pas à contacter le point de gestion, le logiciel client renouvelle les tentatives jusqu’à ce que le contact soit établi.  
 
  Pour plus d’informations sur la manière dont les clients localisent les points de gestion, consultez [Locating Management Points](../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_LocatingMPs).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

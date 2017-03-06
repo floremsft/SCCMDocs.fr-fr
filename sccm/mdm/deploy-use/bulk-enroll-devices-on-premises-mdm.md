@@ -3,7 +3,7 @@
 title: Inscrire en bloc des appareils | Microsoft Docs | Gestion des appareils mobiles locale
 description: "Inscrivez en bloc des appareils de manière automatisée avec la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -20,6 +20,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
 ms.openlocfilehash: ef68a9f998ea6ff9628e01f6ac622711de68375d
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -165,9 +166,4 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 -   Démarrez la console Configuration Manager.  
 
 -   Cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**. L’appareil inscrit apparaît dans la liste.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

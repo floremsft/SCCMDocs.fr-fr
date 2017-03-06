@@ -2,7 +2,7 @@
 title: "Gérer le verrou d’activation iOS | Microsoft Docs"
 description: "Découvrez comment gérer le verrou d’activation iOS avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/15/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: a25c6b409ea6501ead762fabb8cc11c62c84885d
 ms.openlocfilehash: cf98bbb9dee6142e8b085dbffcadb3ed712adcb9
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -104,9 +105,4 @@ Vous ne pouvez contourner le verrou d’activation ou récupérer le code de con
     - les données de découverte de l’appareil dans la boîte de dialogue des propriétés de l’appareil ;
     - la colonne **État de contournement du verrou d’activation** dans la vue **Appareils** (cette colonne est masquée par défaut) ;
     - la section d’ **informations sur les actions de l’appareil à distance** sous l’onglet **Résumé** du volet d’informations (quand un appareil est sélectionné).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

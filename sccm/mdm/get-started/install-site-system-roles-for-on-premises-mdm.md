@@ -2,7 +2,7 @@
 title: "Installer des rôles pour la gestion des appareils mobiles locale - Configuration Manager | Microsoft Docs"
 description: "Installez des rôles système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
 ms.openlocfilehash: 916b971f851f968f6534ac834bd3182cc61614aa
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -71,9 +72,4 @@ La gestion des appareils mobiles locale de System Center Configuration Manager n
      Le point de gestion est alors converti en point de gestion d’appareil.  
 
  Une fois que les rôles de système de site ont été ajoutés et configurés pour la gestion des appareils récents, vous devez configurer les serveurs hébergeant les rôles en tant que points de terminaison approuvés pour inscrire les appareils gérés et communiquer avec ces derniers. Pour plus d’informations, consultez [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

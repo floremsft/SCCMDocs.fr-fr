@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2bca3db9-115a-451d-8c93-f073ceefe0c7
 caps.latest.revision: 6
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: a71e37060937f40bcb1bdb1c6165b7799fc72675
 ms.openlocfilehash: a9847e67ab1935fb66824945637ff683c006bdbe
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -99,9 +100,4 @@ Le schéma ci-dessous montre comment créer et appliquer des paramètres client 
  Un lien disponible dans le **Centre logiciel** permet aux utilisateurs de se connecter au **catalogue d’applications**, où ils peuvent parcourir, installer et demander des logiciels. Le **catalogue d’applications** est également utilisé pour configurer les paramètres de préférence, pour réinitialiser des appareils mobiles et, quand il est configuré, pour spécifier un appareil principal pour l’affinité entre appareil et utilisateur.   
 
  Les utilisateurs peuvent également accéder au **catalogue d’applications** par le biais d’un intranet de navigateur ou une session Internet.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

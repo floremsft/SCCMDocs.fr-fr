@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3986a992-c175-4b6f-922e-fc561e3d7cb7
 caps.latest.revision: 17
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 19e111e0cb174f11ad08f98d2516e52c4c183d86
 ms.openlocfilehash: a079824ba96897bbd3f9475efcaea81804858171
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -408,9 +409,4 @@ Vous pouvez lancer une récupération de stratégie en utilisant :
     -   Ouvrez une invite de commandes et tapez **cscript &lt;chemin\nom_fichier.vbs>**.  
 
 5.  Cliquez sur **OK** dans la boîte de dialogue **Environnement d’exécution de scripts WSH (Windows Script Host)**.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

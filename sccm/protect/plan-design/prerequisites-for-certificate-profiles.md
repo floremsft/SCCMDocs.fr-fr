@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 0317fd02-3721-4634-b18b-7c976a4e92bf
 caps.latest.revision: 9
-author: Nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
 ms.openlocfilehash: 08fb30da2060728142648f13846be737f98f2276
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -46,9 +47,4 @@ Les profils de certificat dans System Center Configuration Manager (aussi appel�
 |Module de stratégie System Center Configuration Manager installé sur le serveur exécutant le service de rôle du service d’inscription de périphériques réseau pour les services de certificats Active Directory|Pour déployer des profils de certificat, vous devez installer le module de stratégie System Center Configuration Manager. Vous le trouverez sur le média d’installation System Center Configuration Manager.|  
 |Données de découverte|Les valeurs pour l’objet de certificat et l’autre nom d’objet sont fournies par System Center Configuration Manager et extraites des informations recueillies par la découverte :<br /><br /> Pour les certificats utilisateur : découverte d’utilisateurs Active Directory<br /><br /> Pour les certificats d’ordinateur : découverte de systèmes et découverte de réseau Active Directory|  
 |Autorisations de sécurité spécifiques pour gérer les profils de certificat|Vous devez disposer des autorisations de sécurité suivantes pour gérer les paramètres d'accès aux ressources de l'entreprise, par exemple, les profils de certificat, les profils Wi-Fi et les profils VPN :<br /><br /> Pour afficher et gérer les alertes et les rapports pour les profils de certificat : **Créer**, **Supprimer**, **Modifier**, **Modifier le rapport**, **Lecture**et **Exécuter le rapport** pour l’objet **Alertes** .<br /><br /> Pour créer et gérer des profils de certificat : **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de certificat** .<br /><br /> Pour gérer les déploiements de profil Wi-Fi, VPN et de certificat : **Déployer des stratégies de configuration**, **Modifier l’alerte relative à l’état du client**, **Lecture**et **Lire la ressource** pour l’objet **Regroupement** .<br /><br /> Pour gérer toutes les stratégies de configuration : **Créer**, **Supprimer**, **Modifier**, **Lecture** et **Définir l’étendue de sécurité** pour l’objet **Stratégie de configuration** .<br /><br /> Pour exécuter des requêtes liées aux profils de certificat : autorisation **Lecture** pour l’objet **Requête** .<br /><br /> Pour afficher les informations sur les profils de certificat dans la console System Center Configuration Manager : autorisation **Lecture** pour l’objet **Site**.<br /><br /> Pour afficher les messages d’état pour les profils de certificat : autorisation **Lecture** pour l’objet **Messages d’état** .<br /><br /> Pour créer et modifier le profil de certificat d’Autorité de certification approuvé : **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de certificat d’Autorité de certification approuvé** .<br /><br /> Pour créer et gérer les profils VPN : **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil VPN** .<br /><br /> Pour créer et gérer les profils Wi-Fi : **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil Wi-Fi** .<br /><br /> Le rôle de sécurité **Gestionnaire d’accès aux ressources de l’entreprise** intègre les autorisations permettant de gérer les profils de certificat dans System Center Configuration Manager. Pour plus d'informations, voir la section **Configure role-based administration** dans la rubrique [Configure security in System Center Configuration Manager](../../core/plan-design/security/configure-security.md) .|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

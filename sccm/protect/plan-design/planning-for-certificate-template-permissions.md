@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.assetid: eab0e09d-b09e-4c14-ab14-c5f87472522e
 caps.latest.revision: 5
 caps.handback.revision: 0
-author: Nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
 ms.openlocfilehash: 3c3725678561c32fce316ed1209ac8fe73a0eed1
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -62,9 +63,4 @@ Les informations suivantes peuvent vous aider à prévoir comment configurer des
     -   Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 1 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheckOnlyIfAccountAccessDenied  
 
 3.  Sur l'autorité de certification émettrice, dans l'onglet **Sécurité** des propriétés du modèle de certificat, ajoutez un ou plusieurs groupes de sécurité afin d'accorder aux comptes d'utilisateur ou de périphérique des autorisations Lecture et Inscription.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

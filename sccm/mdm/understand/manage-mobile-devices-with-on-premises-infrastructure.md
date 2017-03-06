@@ -2,7 +2,7 @@
 title: Gestion des appareils mobiles locale | Microsoft Docs
 description: "Découvrez comment utiliser la gestion des appareils mobiles locale, une méthode de gestion d’appareils disponible dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
 ms.openlocfilehash: cbd33bf3cf7d623d9ba7a657d4ca7d746d7e79da
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -50,9 +51,4 @@ La gestion des appareils mobiles (MDM) locale est une solution de gestion d’ap
 -   [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
 
      Découvrez comment se produit l’inscription, comment les utilisateurs peuvent inscrire leurs propres appareils et comment inscrire des appareils en bloc avec un package d’inscription.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

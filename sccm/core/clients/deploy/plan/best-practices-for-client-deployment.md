@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a933d69c-5feb-4b2b-84e8-56b3b64d5947
 caps.latest.revision: 11
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
 ms.openlocfilehash: 9c2fd7cea178716f81571856608ce517049a3e8d
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -78,9 +79,4 @@ Nous vous recommandons d’installer les modules linguistiques client avant de d
  Si vous avez le choix du type de filtre d’écriture à activer, choisissez des filtres d’écriture basés sur des fichiers et configurez des exceptions pour conserver l’état du client et les données d’inventaire entre redémarrages d’appareil et préserver l’efficacité du réseau et du processeur sur le client Configuration Manager. Pour plus d’informations sur les filtres d’écriture, consultez   [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
  Pour plus d’informations sur le nombre maximal de clients Windows Embedded pris en charge par un site principal, consultez [Systèmes d’exploitation pris en charge pour les clients et les appareils](../../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

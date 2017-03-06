@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 45affc27-aa11-4249-9493-082ac23a3a3d
 caps.latest.revision: 4
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
 ms.openlocfilehash: 20c28a625adb69f239b9c0e7673e57dd39e8d561
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -67,9 +68,4 @@ Pour activer la traduction du clavier, dans **Contrôle à distance de Configura
 |Alt+Suppr|Affiche le menu Windows.|  
 |Ctrl+Alt+Signe moins (sur le pavé numérique)|Copie la fenêtre active de l’ordinateur local vers le Presse-papiers de l’ordinateur distant.|  
 |Ctrl+Alt+Signe plus (sur le pavé numérique)|Copie la zone entière de la fenêtre de l’ordinateur local dans le Presse-papiers de l’ordinateur distant.|  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

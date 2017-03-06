@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52ee82b2-0b91-4829-89df-80a6abc0e63a
 caps.latest.revision: 6
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: 12ee719a6a8b072fab27d083aeb2b8439484058d
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Planifier la sortie de veille des clients dans System Center Configuration Manager
@@ -96,9 +97,4 @@ Vous devez également décider d’utiliser ou non des paquets de diffusions dir
 
 > [!WARNING]  
 >  Il existe des risques de sécurité associés aux diffusions dirigées vers le sous-réseau : Une personne malveillante pourrait envoyer des flux continus de demandes d'écho ICMP (Internet Control Message Protocol) à partir d'une adresse source falsifiée vers l'adresse de diffusion dirigée, obligeant tous les hôtes à répondre à cette adresse source. Ce type d'attaque par déni de service est généralement appelé attaque de réflexion et est traité en rejetant les diffusions dirigées vers le sous-réseau.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

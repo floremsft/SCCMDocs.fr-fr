@@ -2,7 +2,7 @@
 title: "Gérer des appareils mobiles | Microsoft Docs"
 description: "Découvrez comment gérer des appareils mobiles à l’aide du connecteur Exchange Server dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
 ms.openlocfilehash: 4a2b60d893e8d430b107a5bc43ec0748177c27c3
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -135,9 +136,4 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
     -   Pour vérifier que le Gestionnaire de composants de site a bien installé le connecteur Exchange Server, recherchez l'ID de l'état **1015** pour le composant **SMS_EXCHANGE_CONNECTOR** . Si Configuration Manager ne peut pas installer correctement le connecteur (parce que l’ordinateur du serveur d’accès au client spécifié est hors connexion, par exemple), Configuration Manager effectue une nouvelle tentative d’installation toutes les 60 minutes jusqu’à ce que l’opération réussisse ou que vous supprimiez le connecteur Exchange Server.  
 
     -   Sur l'ordinateur du serveur de site, recherchez le fichier SiteComp.log, puis dans le fichier journal, recherchez `Component SMS_EXCHANGE_CONNECTOR flagged for installation`. Quand l'installation s'effectue correctement, elle est enregistrée avec le texte suivant : `STATMSG: ID=1015`.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
