@@ -84,7 +84,7 @@
 ###  [Autres informations sur la confidentialité](plan-design/security/additional-privacy.md)
 ###  [Configurer la sécurité](plan-design/security/configure-security.md)
 
-#    Prise en main
+#    Bien démarrer
 
 ##   [Évaluer Configuration Manager dans un laboratoire](get-started/evaluate-with-lab-environment.md)
 ###  [Configurer votre laboratoire](get-started/set-up-your-lab.md)
@@ -120,8 +120,7 @@
 #### [Planification de la surveillance de la migration](migration/planning-to-monitor-migration-activity.md)
 #### [Planification de l’exécution de la migration](migration/planning-to-complete-migration.md)
 ###  [Configurer les hiérarchies sources et les sites sources](migration/configuring-source-hierarchies-and-source-sites-for-migration.md)
-###  [Opérations de migration](migration/operations-for-migration.md)
-###  [Sécurité et confidentialité pour la migration](migration/security-and-privacy-for-migration.md)
+###  [Opérations de migration](migration/operations-for-migration.md)###  [Sécurité et confidentialité de la migration](migration/security-and-privacy-for-migration.md)
 
 #    [Déployer des serveurs et des rôles](servers/deploy/start-using.md)
 
@@ -172,14 +171,20 @@
 ###  [Installer des mises à jour dans la console](servers/manage/install-in-console-updates.md)
 #### [Organigramme - Téléchargement des mises à jour](servers/manage/download-updates-flowchart.md)
 #### [Organigramme - Réplication de mise à jour](servers/manage/update-replication-flowchart.md)
+###  [Fonctionnalités de la version préliminaire](servers/manage/pre-release-features.md)
 ###  [Fenêtres de maintenance pour les serveurs de site](servers/manage/service-windows.md)
 ###  [Utiliser l’outil de connexion de service](servers/manage/use-the-service-connection-tool.md)
 ###  [Utiliser l’outil Inscription de la mise à jour](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Utiliser le programme d’installation de correctif logiciel](servers/manage/use-the-hotfix-installer-to-install-updates.md)
+<!-- 
+###  [Checklist for installing update 1702](servers/manage/checklist-for-installing-update-1702.md)
+-->
 ###  [Liste de contrôle pour l’installation de la mise à jour 1610](servers/manage/checklist-for-installing-update-1610.md)
 ###  [Liste de contrôle pour l’installation de la mise à jour 1606](servers/manage/checklist-for-installing-update-1606.md)
-###  [Liste de contrôle pour l’installation de la mise à jour 1602](servers/manage/checklist-for-installing-update-1602.md)
-###  [Prise en charge pour les versions Current Branch](servers/manage/current-branch-versions-supported.md)
+<!-- Deprecated from Content:
+###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
+###  [Support for current branch versions](servers/manage/current-branch-versions-supported.md)  
+-->
 
 ##   Surveiller l’infrastructure
 ###  [Utiliser des alertes et le système d’état](servers/manage/use-alerts-and-the-status-system.md)
@@ -202,6 +207,7 @@
 #### [Opérations et maintenance pour les rapports](servers/manage/operations-and-maintenance-for-reporting.md)
 #### [Création de modèles de rapport personnalisés](servers/manage/creating-custom-report-models-in-sql-server-reporting-services.md)
 #### [Sécurité et confidentialité pour les rapports](servers/manage/security-and-privacy-for-reporting.md)
+###  [Entrepôt de données](servers/manage/data-warehouse.md)
 
 #    Déployer des clients
 ##   Planification du déploiement du client
@@ -260,7 +266,6 @@
 ###  [Présentation de l’inventaire matériel](clients/manage/inventory/introduction-to-hardware-inventory.md)
 ###  [Guide pratique pour étendre l’inventaire matériel](clients/manage/inventory/extend-hardware-inventory.md)
 ###  [Guide pratique pour configurer l’inventaire matériel](clients/manage/inventory/configure-hardware-inventory.md)
-###  [Guide pratique pour configurer l’inventaire matériel pour des appareils mobiles dans un déploiement hybride](clients/manage/inventory/mobile-device-hardware-inventory-hybrid.md)
 ###  [Guide pratique pour utiliser l’Explorateur de ressources pour consulter l’inventaire matériel](clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md)
 ###  [Inventaire matériel pour Linux et UNIX](clients/manage/inventory/hardware-inventory-for-linux-and-unix.md)
 ###  [Sécurité et confidentialité pour l’inventaire matériel](clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)
