@@ -2,7 +2,7 @@
 title: Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale - Configuration Manager | Microsoft Docs
 description: Comprendre comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
-ms.openlocfilehash: 43a30709473939829d82d822503537d448159a1c
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: 7d852843d0d3fe7c9ab0947c4b396cee0a92c754
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -45,7 +46,7 @@ Les tâches suivantes expliquent comment inscrire des ordinateurs et des apparei
 
 -   [Vérifier l’inscription d’appareil](#bkmk_verify)  
 
-##  <a name="a-namebkmkenrolldeska-enroll-a-windows-10-computer"></a><a name="bkmk_enrollDesk"></a> Inscrire un ordinateur Windows 10  
+##  <a name="bkmk_enrollDesk"></a> Inscrire un ordinateur Windows 10  
 
 1.  Sur un ordinateur Windows 10, accédez aux **Paramètres**.  
 
@@ -59,7 +60,7 @@ Les tâches suivantes expliquent comment inscrire des ordinateurs et des apparei
 
 6.  Cliquez sur **Ignorer** pour mémoriser les informations de connexion. L’appareil est alors connecté au bout d’un bref laps de temps.  
 
-##  <a name="a-namebkmkenrollmoba-enroll-a-windows-10-mobile-device"></a><a name="bkmk_enrollMob"></a> Inscrire un appareil Windows 10 Mobile  
+##  <a name="bkmk_enrollMob"></a> Inscrire un appareil Windows 10 Mobile  
 
 1.  Sur un appareil Windows 10 Mobile, accédez à **Paramètres**.  
 
@@ -71,18 +72,10 @@ Les tâches suivantes expliquent comment inscrire des ordinateurs et des apparei
 
 5.  Dans l’écran suivant, entrez votre adresse de messagerie professionnelle et le mot de passe, puis cliquez sur **Connexion**. L’appareil est inscrit après un bref laps de temps. Cliquez sur **Terminé**.  
 
-##  <a name="a-namebkmkverifya-verify-device-enrollment"></a><a name="bkmk_verify"></a> Vérifier l’inscription d’appareil  
+##  <a name="bkmk_verify"></a> Vérifier l’inscription d’appareil  
  Vous pouvez vérifier que les appareils ont été inscrits correctement dans la console Configuration Manager.  
 
 1.  Démarrez la console Configuration Manager.  
 
 2.  Cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**. L’appareil inscrit apparaît dans la liste.  
-
-## <a name="see-also"></a>Voir aussi  
- [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

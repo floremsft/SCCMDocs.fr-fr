@@ -17,8 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 7be9abadeb51d4f9e862f69c332756b19ce3e110
-ms.openlocfilehash: a52bef3c8d12ffe2d9b13dc79cbc8950d3f36aea
+ms.sourcegitcommit: cb42b6f324dc0019c2109be4d91e0eab4dca4d70
+ms.openlocfilehash: 8c54bc455828712c7f9ea297f26c98c41848cf9c
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -84,8 +85,8 @@ Il n'est pas possible de modifier l'action d'un déploiement après sa création
 
     > [!NOTE]
     >  Les demandes d'approbation d'application sont affichées dans le nœud **Demandes d'approbation** , sous **Gestion d'applications** dans l'espace de travail **Bibliothèque de logiciels** . Si une demande ne reçoit pas d’approbation dans les 45 jours, elle est supprimée. En outre, la réinstallation du client Configuration Manager pourrait annuler des demandes d’approbation en attente.
-    > Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager (précédemment, ce bouton était grisé après l’approbation).
-    > Cette action n’entraîne pas la désinstallation de l’application sur tous les appareils, mais elle empêche les utilisateurs d’installer de nouvelles copies de l’application à partir du Centre logiciel.
+    >  Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager (précédemment, ce bouton était grisé après l’approbation).
+    >  Cette action n’entraîne pas la désinstallation de l’application sur tous les appareils, mais elle empêche les utilisateurs d’installer de nouvelles copies de l’application à partir du Centre logiciel.
 
 
 
@@ -116,8 +117,7 @@ Lorsque vous déployez des applications sur des appareils Windows Embedded dont 
 
 >[!NOTE]
     >  Lorsque vous déployez une application sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée. Pour plus d’informations sur l’utilisation de fenêtres de maintenance pendant le déploiement d’applications sur des appareils Windows Embedded, consultez [Créer des applications Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).
-
-    >  The options **Software Installation** and **System restart (if required to complete the installation)** are not used if the deployment purpose is set to **Available**. You can also configure the level of notification a user sees when the application is installed.
+    > Les options **Installation du logiciel** et **Redémarrage du système (si nécessaire pour terminer l'installation)** ne sont pas utilisées si l'objet du déploiement est défini sur **Disponible**. Vous pouvez également configurer le niveau de notification qu'un utilisateur peut voir lorsque l'application est installée.
 
 ### <a name="specify-alert-options-for-the-deployment"></a>Spécifier les options d’alerte pour le déploiement
 
@@ -159,9 +159,4 @@ Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâche
 ## <a name="for-more-information"></a>Pour plus d’informations :
 - [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md)
 - [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
