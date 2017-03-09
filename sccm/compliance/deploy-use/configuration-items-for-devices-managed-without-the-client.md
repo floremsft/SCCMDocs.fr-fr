@@ -1,43 +1,10 @@
 ---
-title: "Éléments de configuration pour les appareils sans client - Configuration Manager | Microsoft Docs"
-description: "Créez des éléments de configuration pour Windows, Mac, et d’autres appareils qui ne sont pas gérés par le client System Center Configuration Manager."
-ms.custom: na
-ms.date: 10/06/2016
-ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.assetid: 5ab94b85-ac63-45b1-a4f6-17b0113920fd
-caps.latest.revision: 5
-caps.handback.revision: 0
-author: robstackmsft
-ms.author: robstack
-manager: angrobe
+redirect_url: /sccm/mdm/deploy-use/manage-compliance-settings
+redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
-ms.openlocfilehash: 6f0cd1532385f40feaac424877cfcb5f31d35868
-
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: 1b054b11b0589db7d890b4429bd27a8485d737ff
+ms.lasthandoff: 03/04/2017
 
 ---
-# <a name="configuration-items-for-devices-managed-without-the-system-center-configuration-manager-client"></a>Éléments de configuration des périphériques gérés sans le client System Center Configuration Manager
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-Cette rubrique répertorie les types d’éléments de configuration System Center Configuration Manager disponibles pour les appareils qui ne sont pas gérés par le client Configuration Manager, par exemple les appareils inscrits auprès de Microsoft Intune.  
-
--   [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
-
--   [Comment créer des éléments de configuration pour des appareils Windows Phone gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
-
--   [Comment créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
-
--   [Guide pratique pour créer des éléments de configuration pour des appareils Android et Samsung KNOX Standard gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
