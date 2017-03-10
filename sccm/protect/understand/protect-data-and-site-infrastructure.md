@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2117f786-d521-4790-9e8d-ec096c63c9d7
 caps.latest.revision: 8
-author: Nbigman
-ms.author: nbigman
+author: Robstack
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
-ms.openlocfilehash: c80750358d64cf87f8a3ce3a4c4f4030a9dfd742
+ms.sourcegitcommit: 8679df3f8a3b692391537bacd6144a4f2fae357b
+ms.openlocfilehash: d527cb4bfb55ca50c8d2a0fed7c427af5747fe99
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -30,7 +31,7 @@ Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux re
 
 -   Vous pouvez réduire les efforts de vos utilisateurs pour se connecter aux ressources d’entreprise en activant la connectivité VPN à l’aide de profils VPN. Pour plus d’informations, consultez [Profils VPN dans System Center Configuration Manager](../deploy-use/vpn-profiles.md).  
 
--   Les profils Wi-Fi fournissent un ensemble d’outils et de ressources qui vous aident à créer, à déployer et à surveiller les paramètres de réseau sans fil sur les appareils de votre organisation. En déployant ces paramètres, vous réduisez l'effort fourni par l'utilisateur pour se connecter aux réseaux sans fil d'entreprise. Pour plus d’informations, consultez [Profils Wi-Fi dans System Center Configuration Manager](../deploy-use/introduction-to-wifi-profiles.md).  
+-   Les profils Wi-Fi fournissent un ensemble d’outils et de ressources qui vous aident à créer, à déployer et à surveiller les paramètres de réseau sans fil sur les appareils de votre organisation. En déployant ces paramètres, vous réduisez l'effort fourni par l'utilisateur pour se connecter aux réseaux sans fil d'entreprise. Pour plus d’informations, consultez [Profils Wi-Fi dans System Center Configuration Manager](/sccm/protect/deploy-use/create-wifi-profiles).  
 
 -   [Profils de certificat dans System Center Configuration Manager](../deploy-use/introduction-to-certificate-profiles.md) décrit comment approvisionner les appareils de vos utilisateurs avec les certificats dont ils ont besoin pour se connecter aux ressources de l’entreprise.  
 
@@ -41,9 +42,4 @@ Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux re
 -   Les profils de messagerie fournissent un ensemble d’outils et de ressources pour vous aider à créer, à déployer et à surveiller les paramètres de messagerie électronique sur les appareils. Cela permet aux utilisateurs d'accéder au courrier électronique d'entreprise sur leurs appareils personnels sans qu'aucune installation ne soit nécessaire de leur part. Pour plus d’informations, consultez [Profils de messagerie dans System Center Configuration Manager](../deploy-use/introduction-to-email-profiles.md).  
 
 -   Configuration Manager vous permet d’adopter Windows Hello Entreprise (anciennement Microsoft Passport for Work), qui est une méthode de connexion alternative qui utilise Active Directory ou un compte Azure Active Directory en remplacement d’un mot de passe, d’une carte à puce ou d’une carte à puce virtuelle. Pour plus d’informations, consultez [Paramètres Windows Hello Entreprise dans System Center Configuration Manager](../deploy-use/windows-hello-for-business-settings.md).  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

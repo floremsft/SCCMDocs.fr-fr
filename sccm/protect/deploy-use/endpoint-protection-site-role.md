@@ -4,7 +4,7 @@ description: "Apprenez à configurer Endpoint Protection de façon à gérer la 
 defintion: 
 definition: 
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 02/14/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,8 +18,9 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9db108fb2d4d16013f416b8ee87a57ff1c91e21f
-ms.openlocfilehash: 25ce24d16bd55366d23a176b21b38ed53aa40644
+ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
+ms.openlocfilehash: 884b5f2ec3f1aa273128dfeaaf88d969c9d8669d
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -60,11 +61,6 @@ ms.openlocfilehash: 25ce24d16bd55366d23a176b21b38ed53aa40644
 
 8.  Effectuez toutes les étapes de l'Assistant.
 
-> [!div class="button"]
-[Étape suivante >](endpoint-configure-alerts.md)
-
-> [!div class="button"]
-[Retour >](endpoint-protection-configure.md)
 
 ## <a name="existing-site-system-server"></a>Serveur de système de site existant
 
@@ -89,15 +85,4 @@ ms.openlocfilehash: 25ce24d16bd55366d23a176b21b38ed53aa40644
     >  Cette option configure les paramètres Cloud Protection Service (anciennement MAPS) utilisés par défaut. Vous pouvez configurer des paramètres personnalisés pour chaque stratégie anti-programme malveillant que vous configurez. Pour plus d’informations, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
 
 8.  Effectuez toutes les étapes de l'Assistant.
-
-> [!div class="button"]
-[Étape suivante >](endpoint-configure-alerts.md)
-
-> [!div class="button"]
-[Retour >](endpoint-protection-configure.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
