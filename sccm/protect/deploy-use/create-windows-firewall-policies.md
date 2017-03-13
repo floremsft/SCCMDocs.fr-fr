@@ -2,7 +2,7 @@
 title: "Stratégies de pare-feu Windows pour Endpoint Protection | Microsoft Docs"
 description: "Découvrez comment créer et déployer des stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: 7a02ae3fb102ab85f98d3b7453fc0736e5a11200
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -62,7 +63,7 @@ Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Co
 
 7.  Vérifiez que la nouvelle stratégie de pare-feu Windows s'affiche dans la liste **Stratégies de pare-feu Windows** .  
 
-##  <a name="a-namebkmkassigna-to-deploy-a-windows-firewall-policy"></a><a name="BKMK_Assign"></a> Pour déployer une stratégie de pare-feu Windows  
+##  <a name="BKMK_Assign"></a> Pour déployer une stratégie de pare-feu Windows  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -78,9 +79,4 @@ Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Co
 
     > [!IMPORTANT]  
     >  Lorsque vous déployez une stratégie de pare-feu Windows vers un regroupement, cette stratégie s'applique aux ordinateurs dans un ordre aléatoire pendant une période de 2 heures pour éviter d'inonder le réseau.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
