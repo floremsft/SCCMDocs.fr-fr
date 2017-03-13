@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 97051d9c65ef5ea28c94468b24863120624e8de0
-ms.openlocfilehash: b78b3b20a8b317a242cd06f9fda6326f41673915
+ms.sourcegitcommit: 3eab8e62ace29c0fcb24d47ec7e398d807347a38
+ms.openlocfilehash: a1d701c77afb4d6317d8a137fdf46422063df085
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -62,7 +63,7 @@ Les points de distribution cloud offrent les autres avantages suivants :
 
 Un point de distribution cloud présente les limitations suivantes :  
 
--   Vous ne pouvez pas utiliser un point de distribution cloud pour héberger des packages de mises à jour logicielles.  
+-  Avant d’utiliser la version 1610 avec le correctif KB4010155, vous ne pouvez pas utiliser un point de distribution cloud pour héberger des packages de mises à jour logicielles. La prochaine version Current Branch après la version 1610 prendra en charge cette option sans qu’il soit nécessaire d’installer ce correctif.  
 
 -   Vous ne pouvez pas utiliser un point de distribution cloud pour PXE ou les déploiements en multidiffusion.  
 
@@ -76,7 +77,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
 -   Un point de distribution cloud ne peut pas être configuré en tant que point de distribution d'extraction.  
 
-##  <a name="a-namebkmkprereqsclouddpa-prerequisites-for-cloud-based-distribution-points"></a><a name="BKMK_PrereqsCloudDP"></a> Conditions préalables pour les points de distribution cloud  
+##  <a name="BKMK_PrereqsCloudDP"></a> Conditions préalables pour les points de distribution cloud  
  Un point de distribution cloud requiert les conditions préalables suivantes pour son utilisation :  
 
 -   Un abonnement à Azure (consultez [À propos des abonnements et des certificats](#BKMK_CloudDPCerts) dans cette rubrique.).
@@ -91,7 +92,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
 -   Un client doit pouvoir accéder à Internet pour utiliser le point de distribution cloud.  
 
-##  <a name="a-namebkmkclouddpcosta-cost-of-using-cloud-based-distribution"></a><a name="BKMK_CloudDPCost"></a> Coût d’utilisation d’une distribution cloud  
+##  <a name="BKMK_CloudDPCost"></a> Coût d’utilisation d’une distribution cloud  
  Lorsque vous utilisez un point de distribution cloud, planifiez le coût du stockage de données et des téléchargements que les clients Configuration Manager effectuent.  
 
  Configuration Manager inclut des options facilitant le contrôle des coûts et de l’accès aux données :  
@@ -139,7 +140,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
      Pour arrêter un service cloud, dans la console Configuration Manager, sélectionnez le point de distribution dans le nœud **Points de distribution cloud**, sous **Services cloud**dans l'espace de travail **Administration**. Ensuite, cliquez sur **Arrêter le service** pour arrêter le service cloud qui s’exécute dans Azure.  
 
-##  <a name="a-namebkmkclouddpcertsa-about-subscriptions-and-certificates-for-cloud-based-distribution-points"></a><a name="BKMK_CloudDPCerts"></a> À propos des abonnements et certificats pour les points de distribution cloud  
+##  <a name="BKMK_CloudDPCerts"></a> À propos des abonnements et certificats pour les points de distribution cloud  
  Les points de distribution cloud ont besoin de certificats pour permettre à Configuration Manager de gérer le service cloud qui héberge le point de distribution et aux clients d'accéder au contenu à partir du point de distribution. Vous trouverez ci-dessous des informations générales sur ces certificats. Pour plus d’informations, consultez [Configuration requise des certificats PKI pour Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
  **Certificats**  
@@ -163,7 +164,7 @@ Un point de distribution cloud présente les limitations suivantes :
 
    Pour obtenir un exemple de déploiement de ce certificat, consultez la section **Déployer le certificat de service pour les points de distribution cloud** dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="a-namebkmktasksa-common-management-tasks-for-cloud-based-distribution-points"></a><a name="bkmk_Tasks"></a> Tâches de gestion courantes pour les points de distribution cloud  
+##  <a name="bkmk_Tasks"></a> Tâches de gestion courantes pour les points de distribution cloud  
 
 -   **Communication entre un serveur de site et un point de distribution cloud**: quand vous installez un point de distribution cloud, vous devez affecter un site principal pour gérer le transfert de contenu vers le service cloud. Le principe est le même que lorsque vous installez le rôle de système de site du point de distribution sur un site spécifique.  
 
@@ -185,7 +186,7 @@ Pour effectuer des demandes d’emplacement de contenu, les clients qui utilisen
 
 3.  Lorsqu'un point de distribution préféré ou un point de distribution distant n'est pas disponible, le client cherche alors à obtenir le contenu auprès d'un point de distribution cloud.  
 
-    
+
 
   Lorsqu'un client utilise un point de distribution cloud comme emplacement de contenu, il s'authentifie auprès du point de distribution cloud en utilisant un jeton d'accès Configuration Manager. Si le client approuve le certificat de point de distribution cloud Configuration Manager, il peut ensuite télécharger le contenu demandé.  
 
@@ -212,9 +213,4 @@ Pour effectuer des demandes d’emplacement de contenu, les clients qui utilisen
 -   **Désinstaller un point de distribution cloud** : pour désinstaller un point de distribution cloud, sélectionnez-le dans la console Configuration Manager, puis sélectionnez **Supprimer**.  
 
     Lorsque vous supprimez un point de distribution cloud d’une hiérarchie, Configuration Manager supprime le contenu du service cloud dans Azure.  
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -2,7 +2,7 @@
 title: "Évaluer Configuration Manager | Microsoft Docs"
 description: "Créez un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 2/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
-ms.openlocfilehash: ad3c849bd3ebfc6c0aa795e5b49a4850371cda47
+ms.sourcegitcommit: 0ea90d3f3bef80b8acf9018a1338ae05fc948af4
+ms.openlocfilehash: d7ea785ab1beee09b9adda735a87f89bc9481620
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,50 +27,44 @@ ms.openlocfilehash: ad3c849bd3ebfc6c0aa795e5b49a4850371cda47
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Découvrez comment créer un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation.  
+ Découvrez comment créer un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation.  
 
-## <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Évaluer System Center Configuration Manager en créant votre propre environnement lab  
- System Center Configuration Manager est un outil complexe et puissant pour gérer vos utilisateurs, logiciels et appareils. Nous vous recommandons de procéder à une évaluation approfondie de System Center Configuration Manager avant de procéder à un déploiement complet de façon à combiner vos connaissances conceptuelles à des exercices pratiques.  
+ System Center Configuration Manager est un outil complexe et puissant qui permet de gérer vos utilisateurs, logiciels et appareils. Il est judicieux de procéder à une évaluation approfondie de System Center Configuration Manager avant de procéder à un déploiement complet de façon à combiner vos connaissances conceptuelles à des exercices pratiques.  
 
- Ce guide s’adresse principalement aux administrateurs qui évaluent l’utilisation de Configuration Manager dans des environnements d’entreprise.  
+ Ce guide s’adresse principalement aux administrateurs qui évaluent l’utilisation de Configuration Manager dans des environnements d’entreprise :  
 
 -   Administrateurs à la recherche d’une solution de gestion complète de PC, serveurs et appareils mobiles  
 
--   Administrateurs dans les secteurs de haute sécurité qui exigent la sécurité liée à la gestion locale des appareils et la souplesse liée à la gestion des appareils basée sur le cloud  
+-   Administrateurs dans les secteurs de haute sécurité qui exigent la sécurité liée à la gestion locale des appareils et la souplesse liée à la gestion des appareils dans le cloud  
 
--   Administrateurs souhaitant gérer la montée en puissance de leur architecture de serveurs locale  
+-   Administrateurs qui souhaitent gérer la montée en puissance de leur architecture de serveurs locale  
 
-### <a name="what-this-lab-does"></a>Ce que fait ce lab  
- L’objectif principal de la création de cet environnement est de vous fournir les connaissances générales pour vous permettre de commencer à travailler avec Configuration Manager et d’améliorer vos connaissances de cet outil. Nous allons pour cela décrire pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
+## <a name="what-this-lab-does"></a>Ce que fait ce lab  
+ L’objectif principal sous-tendant la création de cet environnement lab est de vous fournir les connaissances générales qui vous permettront de commencer à utiliser Configuration Manager et d’améliorer votre connaissance de cet outil. Vous allez examiner pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
 
--   L’un hébergeant Active Directory, le contrôleur de domaine et le serveur DNS.  
+-   L’un hébergeant Active Directory, le contrôleur de domaine et le serveur DNS  
 
--   Un autre hébergeant Configuration Manager et tous les composants SQL Server associés.  
+-   Un autre hébergeant Configuration Manager et tous les composants SQL Server associés  
 
--   Les ordinateurs clients sont installés sur Hyper-V. Le lab proprement dit peut aussi être exécuté en tant que système entièrement virtualisé sur un seul serveur.  
+Les ordinateurs clients sont installés sur Hyper-V. Le lab proprement dit peut aussi être exécuté en tant que système entièrement virtualisé sur un seul serveur.  
 
-### <a name="what-this-lab-does-not-do"></a>Ce que ne fait pas ce lab  
- Ce lab ne décrit pas tous les scénarios Configuration Manager et n’est pas destiné à être migré immédiatement dans un environnement actif.  
+## <a name="what-this-lab-does-not-do"></a>Ce que ne fait pas ce lab  
+ Ce lab ne vous guidera pas dans tous les scénarios de Configuration Manager possibles. Il n’est pas conçu pour être migré immédiatement dans un environnement actif.  
 
- Une fois ce lab généré, vous disposerez d’un environnement de travail opérationnel. Toutefois, cet environnement ne sera pas optimisé pour les performances du système, la gestion de l’espace disque dur, le stockage SQL Server, et ainsi de suite.  
+ Une fois ce lab généré, vous disposerez d’un environnement de travail opérationnel. Toutefois, cet environnement ne sera pas optimisé pour des facteurs tels que les performances du système, la gestion de l’espace sur disque dur et le stockage SQL Server.  
 
-###  <a name="a-namebkmkevalreca-recommended-reading-prior-to-beginning-the-lab"></a><a name="BKMK_EvalRec"></a> Lecture recommandée avant de commencer le lab  
- La [documentation de System Center Configuration Manager](http://docs.microsoft.com/sccm/) propose un contenu très riche. Une sélection de rubriques tirées de cette bibliothèque ont été incluses ci-dessous. Nous conseillons à tous les administrateurs travaillant sur des labs de les lire avant de commencer ces exercices.  
+##  <a name="BKMK_EvalRec"></a>Lecture recommandée avant d’élaborer le lab  
+ La [documentation de System Center Configuration Manager](http://docs.microsoft.com/sccm/) propose un contenu très riche. Nous vous recommandons de lire les rubriques suivantes de cette bibliothèque avant de commencer le lab :  
 
--   Découvrez les concepts de base concernant la console Configuration Manager, les portails d’utilisateurs finaux, ainsi que des exemples de scénarios dans la [présentation de System Center Configuration Manager](../../core/understand/introduction.md).  
+-   Découvrez les concepts de base concernant la console Configuration Manager, les portails d’utilisateurs finaux, ainsi que des exemples de scénarios dans [Présentation de System Center Configuration Manager](../../core/understand/introduction.md).  
 
 -   Découvrez les principales fonctionnalités de gestion de Configuration Manager dans [Fonctions et fonctionnalités de System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
 
--   Approfondissez vos connaissances avec le document [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Approfondissez vos connaissances avec [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
 -   Découvrez l’importance des rôles de sécurité dans [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) décrit certains concepts spécifiques relatifs à la gestion de contenu.  
+-   Découvrez la gestion de contenu dans [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) peut vous aider à prendre correctement en charge les opérations quotidiennes tout au long de votre déploiement.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+-   Apprenez à traiter correctement les opérations quotidiennes tout au long de votre déploiement dans [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 

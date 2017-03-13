@@ -2,7 +2,7 @@
 title: Choisir entre Intune autonome et la gestion des appareils mobiles hybride | Microsoft Docs
 description: "Choisissez de déployer la gestion des appareils mobiles hybride avec Intune et Configuration Manager ou d’exécuter Intune de façon autonome."
 ms.custom: na
-ms.date: 11/07/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: a5c9e312641d91ff297fbcfa6066a93c2a0e1ee0
-ms.openlocfilehash: 3480484a96e96a191b4f02208fcf838db5cb6ba7
+ms.sourcegitcommit: 84e3896dd05a8c157f4e94625b0eca60aacc11d3
+ms.openlocfilehash: 8f2625aadfd0aed92d9922c7e3c0d3d166a78cdd
+ms.lasthandoff: 02/25/2017
 
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Choisir entre Intune autonome et la gestion des appareils mobiles hybride avec System Center Configuration Manager
@@ -44,16 +45,11 @@ Si vous devez choisir entre Intune autonome et la gestion des appareils mobiles 
 
 -   Contrôle d’accès en fonction du rôle : restriction de l’accès aux fonctions d’administration en fonction des rôles affectés
 
--   Mise à l’échelle : déploiement et gestion de plus de 50 000 appareils mobiles
+-   Mise à l’échelle : déploiement et gestion de plus de 100 000 appareils mobiles
 
 -   Contrôle unifié : gestion des PC clients traditionnels et des appareils gérés par Intune dans la même console
 
 Si vous commencez à planifier votre déploiement Intune aujourd’hui et que vous disposez d’une fenêtre de plusieurs mois pour le pilotage, les tests d’acceptation et le déploiement, vous pouvez envisager de choisir Intune autonome compte tenu des nouvelles fonctionnalités qui seront introduites dans le service cloud. Durant le premier semestre de l’année 2017, Intune autonome fera l’objet de mises à jour pour recevoir la plupart des fonctionnalités avancées d’un déploiement hybride avec Configuration Manager. Intune autonome sera bientôt hébergé sur la plateforme cloud Microsoft Azure où il bénéficiera, outre d’une scalabilité accrue, des fonctionnalités suivantes : accès en fonction du rôle par le biais du portail Azure, création de rapports personnalisés et accès par programmation par le biais de l’API Graph Azure.
 
 Vous pouvez passer de la gestion hybride à Intune autonome et vice versa, mais cette opération nécessite l’intervention du support technique de Microsoft. Vous devez aussi désinscrire et réinscrire tous les appareils après la modification de l’autorité de gestion.  Microsoft s’efforce actuellement d’optimiser l’expérience associée au changement de configuration. Les améliorations seront incluses dans une future mise à jour du service.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
