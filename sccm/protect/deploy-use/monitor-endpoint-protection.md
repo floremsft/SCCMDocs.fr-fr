@@ -2,7 +2,7 @@
 title: "Surveiller l’état d’Endpoint Protection | Microsoft Docs"
 description: "Découvrez comment surveiller Endpoint Protection dans votre hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/9/2016
+ms.date: 03/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
 ms.openlocfilehash: 99e266e44f718d97c2a6e61e8e6816752751ed7b
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 99e266e44f718d97c2a6e61e8e6816752751ed7b
 
 Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft System Center Configuration Manager à l’aide du nœud **État Endpoint Protection** sous **Sécurité** dans l’espace de travail **Surveillance**, à l’aide du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité** et à l’aide de rapports.  
 
-##  <a name="a-namebkmk1a-how-to-monitor-endpoint-protection-by-using-the-endpoint-protection-status-node"></a><a name="BKMK_1"></a> Guide pratique pour surveiller Endpoint Protection à l’aide du nœud État Endpoint Protection  
+##  <a name="BKMK_1"></a> Guide pratique pour surveiller Endpoint Protection à l’aide du nœud État Endpoint Protection  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
@@ -47,7 +48,7 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
     > [!IMPORTANT]  
     >  Les informations affichées dans le nœud **État Endpoint Protection** se basent sur les dernières données de synthèse de la base de données Configuration Manager et peuvent ne pas être actualisées. Si vous voulez récupérer les dernières données, sous l’onglet **Accueil** , cliquez sur **Exécuter le résumé**ou cliquez sur **Planifier le résumé** pour régler l’intervalle de résumé.  
 
-##  <a name="a-namebkmk2a-how-to-monitor-endpoint-protection-in-the-assets-and-compliance-workspace"></a><a name="BKMK_2"></a> Guide pratique pour surveiller Endpoint Protection dans l’espace de travail Ressources et Conformité  
+##  <a name="BKMK_2"></a> Guide pratique pour surveiller Endpoint Protection dans l’espace de travail Ressources et Conformité  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -59,7 +60,7 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 
 3.  Dans la liste *<Nom_regroupement\>*, sélectionnez un ordinateur, puis cliquez sur l’onglet **Détail du programme malveillant**.  
 
-##  <a name="a-namebkmk3a-how-to-monitor-endpoint-protection-by-using-reports"></a><a name="BKMK_3"></a> Guide pratique pour surveiller Endpoint Protection à l’aide de rapports  
+##  <a name="BKMK_3"></a> Guide pratique pour surveiller Endpoint Protection à l’aide de rapports  
  Utilisez les rapports suivants pour obtenir des informations sur Endpoint Protection dans votre hiérarchie. Vous pouvez aussi vous servir de ces rapports pour résoudre les problèmes liés à Endpoint Protection. Pour plus d’informations sur la configuration de la création de rapports dans Configuration Manager, consultez [Création de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md) et [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Les rapports Endpoint Protection sont dans le dossier Endpoint Protection.  
 
 |Nom du rapport|Description|  
@@ -81,9 +82,4 @@ Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft Syst
 |**Autorisé**|Un utilisateur administratif est activée, le logiciel qui contient le logiciel malveillant de s'exécuter.|  
 |**Aucune Action**|Endpoint Protection n’a pris aucune mesure contre le logiciel malveillant. Cela peut se produire si l'ordinateur est redémarré une fois le logiciel malveillant est détecté et le logiciel malveillant n'est plus détecté ; par exemple, si un réseau mappé lecteur sur le logiciel malveillant est détecté n'est pas reconnecté lorsque l'ordinateur redémarre.|  
 |**Bloqué**|Endpoint Protection a empêché le logiciel malveillant de s’exécuter. Cela peut se produire si un processus sur l'ordinateur se trouve à contenir des logiciels malveillants.|
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
