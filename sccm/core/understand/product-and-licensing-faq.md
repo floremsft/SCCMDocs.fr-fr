@@ -2,7 +2,7 @@
 title: Forum aux questions sur le produit et les licences | Microsoft Docs
 description: "Trouvez des réponses aux questions courantes sur le produit et les licences pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/17/2017
+ms.date: 2/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 81689631899b626bd33df8853cf82646d7e57afc
-ms.openlocfilehash: 47e35018902c424dc492025bb08bd4df4d81fcbe
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: d8f1a1a5757bbc3e2b0c17b1a89fbd56bbae6019
+ms.openlocfilehash: c1a276ad1ed6d10d286ab389ab3f05ec780c4e58
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -32,16 +32,15 @@ Ce forum aux questions répond à des questions courantes sur la gestion des lic
 Pour plus d’informations sur les fonctionnalités de System Center Configuration Manager, reportez-vous à la page sur le produit Microsoft [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)
 
 
-## <a name="details"></a>Détails
-System Center Configuration Manager est...
 
-## <a name="faq"></a>Forum aux questions
+
+## <a name="system-center-configuration-manager-licensing-faq"></a>Forum aux questions sur les licences System Center Configuration Manager
 
 1.    **Qu’est-ce que Current Branch (CB) ?**   
 Il s’agit de la build prête pour la production de System Center Configuration Manager qui fournit un modèle de maintenance actif. Ce modèle de maintenance ressemble à l’expérience avec Windows 10 ou l’option d’installation de Windows Server 2016 Nano Server. Cette approche prend en charge les clients qui évoluent à une « cadence cloud » et souhaitent innover plus rapidement. Avec le modèle de maintenance Current Branch, les clients System Center Configuration Manager continuent de recevoir de nouvelles fonctionnalités. Pour cette raison, seuls les clients dotés d’une Software Assurance active sur des licences System Center Configuration Manager, ou dotés de droits d’abonnement équivalents, peuvent installer et utiliser Current Branch de System Center Configuration Manager.
 
 2.    **Qu’est-ce que Long Term Servicing Branch (LTSB) ?**  
-Il s’agit d’une build prête pour la production de System Center Configuration Manager destinée aux clients qui autorisent l’expiration de la Software Assurance ou des droits d’abonnement équivalents. Par rapport à Current Branch, LTSB a des [fonctionnalités réduites](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Les clients qui autorisent l’expiration de la Software Assurance ou des droits d’abonnement équivalents doivent désinstaller Current Branch de System Center Configuration Manager. Les clients dotés de droits de licence perpétuels sur System Center Configuration Manager peuvent ensuite installer et utiliser la build LTSB de la version de System Center Configuration Manager qui est en vigueur au moment de l’expiration.
+Long Term Servicing Branch est une build prête pour la production de System Center Configuration Manager destinée aux clients qui autorisent l’expiration de Software Assurance ou des droits d’abonnement équivalents. Par rapport à Current Branch, LTSB a des [fonctionnalités réduites](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Les clients qui autorisent l’expiration de Software Assurance ou des droits d’abonnement équivalents doivent désinstaller Current Branch de System Center Configuration Manager. Les clients dotés de droits de licence perpétuels sur System Center Configuration Manager peuvent ensuite installer et utiliser la build LTSB de la version de System Center Configuration Manager qui est en vigueur au moment de l’expiration.
 
 3.    **J’ai vu les termes SA et L&SA utilisés dans le contenu des licences. Quelle est leur signification concernant System Center Configuration Manager ?**    
 SA (Software Assurance) et L&SA (Licence et Software Assurance) sont des options de licence qui accordent des droits d’utilisation de System Center Configuration Manager. SA est une option qui s’adresse à un client qui renouvelle la SA suite à un contrat précédent. L&SA est une option qui s’adresse à un client qui achète une nouvelle licence et la SA.

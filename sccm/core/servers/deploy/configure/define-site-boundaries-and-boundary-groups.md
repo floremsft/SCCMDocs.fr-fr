@@ -2,7 +2,7 @@
 title: "Définir des limites de site | Microsoft Docs"
 description: "Découvrez comment définir les emplacements réseau sur votre intranet pouvant contenir des appareils que vous souhaitez gérer."
 ms.custom: na
-ms.date: 12/15/2016
+ms.date: 2/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: edc406adf1fdfab8e821b63dc02f37a30504ecd3
-ms.openlocfilehash: 6135a94e30e8cce8ed4b8d08e5de26c15988b195
+ms.sourcegitcommit: 6d83570e3210709c5ef39b50d9c483f99017664b
+ms.openlocfilehash: 13b79c920a64698660ee1c041b9166646789634c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -43,7 +44,7 @@ Les clients intranet évaluent leur emplacement réseau actuel, puis utilisent c
 Les clients Internet ou les clients configurés en tant que clients Internet uniquement n’utilisent pas les informations sur les limites. Ces clients ne peuvent pas utiliser l’attribution automatique de site. Ils peuvent toujours télécharger le contenu de n’importe quel point de distribution sur leur site attribué quand le point de distribution est configuré pour autoriser les connexions clientes depuis Internet.  
 
 
-##  <a name="a-namebkmkboundariesa-boundaries"></a><a name="BKMK_Boundaries"></a> Limites  
+##  <a name="BKMK_Boundaries"></a> Limites  
  Vous pouvez créer manuellement des limites individuelles. En outre, vous pouvez configurer la [découverte de forêts Active Directory](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) afin de détecter automatiquement et de créer des limites pour chaque sous-réseau IP et site Active Directory ainsi découverts.  
 
 -   Chaque limite représente un emplacement réseau et est disponible de n’importe quel site de la hiérarchie.  
@@ -106,7 +107,7 @@ Quand vous créez une limite, elle reçoit automatiquement un nom basé sur son 
 
 7.  Cliquez sur **OK** pour fermer les propriétés de la limite et enregistrer la configuration.  
 
-##  <a name="a-namebkmkboundarygroupsa-boundary-groups"></a><a name="BKMK_BoundaryGroups"></a> Boundary groups
+##  <a name="BKMK_BoundaryGroups"></a> Boundary groups
 > [!IMPORTANT]  
 >  **Les informations contenues dans cette section sur les groupes de limites et ses sections enfants s’appliquent à la version 1610 ou ultérieure.** Ce contenu a été modifié pour refléter les modifications de conception appliquées aux groupes de limites dans cette version de mise à jour.
 >
@@ -126,7 +127,7 @@ Quand vous configurez un groupe de limites, vous ajoutez une ou plusieurs limite
 Vous trouverez des [procédures de gestion des groupes de limites](#procedures-for-boundary-groups) plus loin dans cette rubrique.
 
 
-###  <a name="a-namebkmkboundarysiteassignmenta-about-site-assignment"></a><a name="BKMK_BoundarySiteAssignment"></a> À propos de l’attribution de site  
+###  <a name="BKMK_BoundarySiteAssignment"></a> À propos de l’attribution de site  
  Vous pouvez configurer chaque groupe de limites avec un site attribué pour les clients.  
 
 -   Quand un client récemment installé utilise l’attribution automatique de site, il rejoint le site attribué d’un groupe de limites qui englobe l’emplacement réseau actuel du client.  
@@ -137,7 +138,7 @@ Vous trouverez des [procédures de gestion des groupes de limites](#procedures-f
 
 Pour plus d’informations sur l’attribution de site client, consultez [Utilisation de l’attribution automatique de site pour les ordinateurs](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
-###  <a name="a-namebkmkboundarycontentlocationa-about-content-location"></a><a name="BKMK_BoundaryContentLocation"></a> À propos de l’emplacement du contenu  
+###  <a name="BKMK_BoundaryContentLocation"></a> À propos de l’emplacement du contenu  
 Quand vous configurez des groupes de limites, vous associez des limites (emplacements réseau) et des rôles de système de site, comme les points de distribution, au groupe de limites. Cela permet de lier les clients aux serveurs de système de site tels que les points de distribution qui se trouvent près des clients sur le réseau.
 
 Vous pouvez attribuer la même limite à plusieurs groupes de limites, et les serveurs de système de site, comme les points de distribution, peuvent être associés à plusieurs groupes de limites. Cela les rend disponibles pour un grand nombre d’emplacements réseau.
@@ -151,33 +152,31 @@ Quand vous configurez un groupe de limites, qui est le groupe de limites **actue
 
 Quand un client ne peut pas trouver le contenu et commence à effectuer des recherches dans des emplacements de groupes de limites voisins, il augmente le pool des points de distribution disponibles pour ce client de manière contrôlée.
 
--   Un groupe de limites peut avoir plusieurs relations. Cela vous permet de configurer le secours sur différents voisins pour qu’il intervienne après différentes périodes de temps.
--   Les clients vont uniquement utiliser en secours un groupe de limites qui est un voisin direct de leur groupe de limites actuel.
--   Quand un client est membre de plusieurs groupes de limites, le groupe de limites actuel est défini en tant qu’union de tous les groupes de limites de ce client. Ce client peut ensuite utiliser en secours un voisin de n’importe lequel de ces groupes de limites d’origine.
+-    Un groupe de limites peut avoir plusieurs relations. Cela vous permet de configurer le secours sur différents voisins pour qu’il intervienne après différentes périodes de temps.
+-     Les clients vont uniquement utiliser en secours un groupe de limites qui est un voisin direct de leur groupe de limites actuel.
+-    Quand un client est membre de plusieurs groupes de limites, le groupe de limites actuel est défini en tant qu’union de tous les groupes de limites de ce client. Ce client peut ensuite utiliser en secours un voisin de n’importe lequel de ces groupes de limites d’origine.
 
 Outre les liens que vous définissez, il existe un lien implicite qui est créé automatiquement entre les groupes de limites que vous créez et le groupe de limites par défaut qui est automatiquement créé pour chaque site. Ce lien automatique :
--   Est utilisé par les clients qui ne sont pas dans une limite associée à un groupe de limites de votre hiérarchie. Les clients utilisent automatiquement le groupe de limites par défaut de leur site attribué pour identifier les emplacements sources de contenu valides.
--   est une option de secours par défaut entre le groupe de limites actuel et le groupe de limites de site par défaut qui est utilisé après 120 minutes.
+-     Est utilisé par les clients qui ne sont pas dans une limite associée à un groupe de limites de votre hiérarchie. Les clients utilisent automatiquement le groupe de limites par défaut de leur site attribué pour identifier les emplacements sources de contenu valides.
+-     est une option de secours par défaut entre le groupe de limites actuel et le groupe de limites de site par défaut qui est utilisé après 120 minutes.
 
 **Quand le contenu n’est pas disponible dans un groupe de limites actuel :**  
-Quand le contenu demandé par un client n’est pas disponible à partir d’une source de contenu valide dans un groupe de limites actuel, le client utilise le recours immédiat pour rechercher le contenu à partir d’un point de distribution dans un groupe de limites voisin :   
-- Le recours immédiat s’applique aux groupes de limites voisins qui sont configurés avec la plus petite durée de secours. Il peut s’agir du groupe de limites de site par défaut quand aucun groupe de limites voisin n’a de durée de secours plus courte.
-- Après le recours immédiat au premier ensemble de groupes de limites voisins, le recours à des groupes de limites supplémentaires s’effectue en fonction de la durée de secours configurée pour ces groupes.
+Lorsque le contenu demandé par un client n’est pas disponible à partir d’une source de contenu valide dans un groupe de limites actuel, le client doit attendre que la période de secours pour un groupe de limites voisin ou le groupe de limites par défaut du site soit atteinte avant de pouvoir rechercher d’autres sources de contenu.
 
-Si le contenu est distribué à la demande, mais qu’il n’est pas disponible quand il est demandé par un client, le processus de transfert du contenu commence vers un point de distribution dans la limite actuelle. Toutefois, étant donné que le contenu n’est pas disponible à ce moment, le client utilise le recours immédiat au groupe de limites voisin avec la durée de secours la plus courte. Une fois que le contenu est disponible dans le groupe de limites actuel, les clients supplémentaires n’utilisent plus le recours immédiat aux groupes voisins.
+Si le contenu est distribué à la demande, mais qu’il n’est pas disponible quand il est demandé par un client, le processus de transfert du contenu commence vers un point de distribution dans la limite actuelle.  
 
 
 
 **Exemple d’utilisation du nouveau modèle :**   
 Vous créez trois groupes de limites qui ne partagent pas de limites ni de serveurs de système de site :
--   Groupe BG_A avec les points de distribution DP_A1 et DP_A2 associés au groupe
--   Groupe BG_B avec les points de distribution DP_B1 et DP_B2 associés au groupe
--   Groupe BG_C avec les points de distribution DP_C1 et DP_C2 associés au groupe
+-    Groupe BG_A avec les points de distribution DP_A1 et DP_A2 associés au groupe
+-    Groupe BG_B avec les points de distribution DP_B1 et DP_B2 associés au groupe
+-    Groupe BG_C avec les points de distribution DP_C1 et DP_C2 associés au groupe
 
 Vous ajoutez les emplacements réseau de vos clients en tant que limites uniquement au groupe de limites BG_A, puis vous configurez des relations à partir de ce groupe de limites vers les deux autres groupes de limites :
--   Vous configurez des points de distribution pour le premier groupe *voisin* (BG_B) à utiliser après 10 minutes. Ce groupe contient les points de distribution DP_B1 et DP_B2. Les deux sont correctement connectés aux emplacements des premiers groupes de limites.
--   Vous configurez le deuxième groupe *voisin* (BG_C) à utiliser après 20 minutes. Ce groupe contient les points de distribution DP_C1 et DP_C2. Les deux se trouvent sur un réseau étendu à distance des deux autres groupes de limites.
--   Vous ajoutez également un point de distribution supplémentaire qui se trouve sur le serveur de site au groupe de limites de site par défaut du site. Il s’agit de l’emplacement source de contenu que vous préférez le moins, mais il se trouve au milieu de tous les groupes de limites.
+-    Vous configurez des points de distribution pour le premier groupe *voisin* (BG_B) à utiliser après 10 minutes. Ce groupe contient les points de distribution DP_B1 et DP_B2. Les deux sont correctement connectés aux emplacements des premiers groupes de limites.
+-    Vous configurez le deuxième groupe *voisin* (BG_C) à utiliser après 20 minutes. Ce groupe contient les points de distribution DP_C1 et DP_C2. Les deux se trouvent sur un réseau étendu à distance des deux autres groupes de limites.
+-    Vous ajoutez également un point de distribution supplémentaire qui se trouve sur le serveur de site au groupe de limites de site par défaut du site. Il s’agit de l’emplacement source de contenu que vous préférez le moins, mais il se trouve au milieu de tous les groupes de limites.
 
     Exemple de groupes de limites et de durées de secours :
 
@@ -185,10 +184,10 @@ Vous ajoutez les emplacements réseau de vos clients en tant que limites uniquem
 
 
 Avec cette configuration :
--   Le client commence la recherche de contenu dans les points de distribution de son groupe de limites *actuel* (BG_A), en passant deux minutes dans chaque point avant de passer au suivant dans le groupe. Le pool des emplacements sources de contenu valides du client inclut DP_A1 et DP_A2.
--   Si le client ne parvient pas à trouver le contenu dans son groupe de limites *actuel* après une recherche de 10 minutes, il ajoute alors les points de distribution du groupe de limites BG_B à sa recherche. Il continue ensuite à rechercher le contenu dans un point de distribution de son pool combiné de points de distribution qui inclut maintenant ceux des groupes de limites BG_A et BG_B. Le client continue de contacter chaque point de distribution pendant deux minutes avant de passer au point de distribution suivant de son pool. Le pool des emplacements sources de contenu valides du client inclut DP_A1, DP_A2, DP_B1 et DP_B2.
--   Après 10 minutes supplémentaires (20 minutes au total), si le client n’a toujours pas trouvé un point de distribution avec du contenu, il étend son pool de points de distribution disponibles pour inclure ceux du deuxième groupe *voisin*, le groupe de limites BG_C. Le client dispose désormais de 6 points de distribution pour sa recherche (DP_A1, DP_A2, DP_B1, DP_B2, DP_C1 et DP_C2) et continue de changer de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
--   Si le client n’a pas trouvé le contenu après un total de 120 minutes, il revient en arrière pour inclure le *groupe de limites de site par défaut* dans le cadre de sa recherche continue. Le pool des points de distribution inclut désormais tous les points de distribution des trois groupes de limites configurés et le point de distribution final situé sur l’ordinateur serveur de site.  Le client continue alors sa recherche de contenu, en changeant de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
+-    Le client commence la recherche de contenu dans les points de distribution de son groupe de limites *actuel* (BG_A), en passant deux minutes dans chaque point avant de passer au suivant dans le groupe. Le pool des emplacements sources de contenu valides du client inclut DP_A1 et DP_A2.
+-    Si le client ne parvient pas à trouver le contenu dans son groupe de limites *actuel* après une recherche de 10 minutes, il ajoute alors les points de distribution du groupe de limites BG_B à sa recherche. Il continue ensuite à rechercher le contenu dans un point de distribution de son pool combiné de points de distribution qui inclut maintenant ceux des groupes de limites BG_A et BG_B. Le client continue de contacter chaque point de distribution pendant deux minutes avant de passer au point de distribution suivant de son pool. Le pool des emplacements sources de contenu valides du client inclut DP_A1, DP_A2, DP_B1 et DP_B2.
+-    Après 10 minutes supplémentaires (20 minutes au total), si le client n’a toujours pas trouvé un point de distribution avec du contenu, il étend son pool de points de distribution disponibles pour inclure ceux du deuxième groupe *voisin*, le groupe de limites BG_C. Le client dispose désormais de 6 points de distribution pour sa recherche (DP_A1, DP_A2, DP_B1, DP_B2, DP_C1 et DP_C2) et continue de changer de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
+-    Si le client n’a pas trouvé le contenu après un total de 120 minutes, il revient en arrière pour inclure le *groupe de limites de site par défaut* dans le cadre de sa recherche continue. Le pool des points de distribution inclut désormais tous les points de distribution des trois groupes de limites configurés et le point de distribution final situé sur l’ordinateur serveur de site.  Le client continue alors sa recherche de contenu, en changeant de point de distribution toutes les deux minutes jusqu’à ce qu’il trouve le contenu.
 
 En configurant les différents groupes voisins pour être disponibles à différents moments, vous contrôlez quand des points de distribution spécifiques sont ajoutés en tant qu’emplacement source de contenu et quand, ou si, le client utilise le secours sur le groupe de limites de site par défaut comme filet de protection pour le contenu qui n’est pas disponible à partir de tout autre emplacement.
 
@@ -197,12 +196,12 @@ En configurant les différents groupes voisins pour être disponibles à différ
 
 ### <a name="update-existing-boundary-groups-to-the-new-model"></a>Mettre à jour des groupes de limites existants vers le nouveau modèle
 Quand vous effectuez une mise à jour vers la version 1610, les configurations suivantes sont automatiquement effectuées. Elles sont destinées à vérifier que votre comportement de secours actuel reste disponible jusqu’à ce que vous configuriez de nouvelles relations et de nouveaux groupes de limites.
--   Un groupe de limites de site par défaut est créé pour chaque site principal, le nom est ***Groupe-de-limites-de-site-par-défaut&lt;code_de_site>.***
--   Les points de distribution pour lesquels la case *Autoriser l’emplacement source de secours pour le contenu* est cochée et qui sont associés à des points de migration d’état sur les sites principaux sont ajoutés au groupe de limites *Groupe-de-limites-de-site-par-défaut&lt;code_de_site>* de ce site.
--   Une copie de chaque groupe de limites existant qui inclut un serveur de site configuré avec une connexion lente est créée. Le nom du nouveau groupe est ***&lt;nom du groupe de limites d’origine>-&lt;ID du groupe de limites d’origine>*** :  
-    -   Les systèmes de site qui disposent d’une connexion rapide restent dans le groupe de limites d’origine.
-    -   Une copie des systèmes de site (points de distribution, points de gestion et points de migration d’état) qui ont une connexion lente est ajoutée à la copie du groupe de limites. Les systèmes de site d’origine configurés comme lents restent dans leurs groupes de limites d’origine pour la compatibilité descendante, mais ne sont pas utilisés à partir de ces groupes de limites.
-    -   Cette copie du groupe de limites n’a pas de limites associées. Toutefois, un lien de secours est créé entre le groupe d’origine et la nouvelle copie du groupe de limites dont la durée de secours a la valeur zéro.  
+-    Un groupe de limites de site par défaut est créé pour chaque site principal, le nom est ***Groupe-de-limites-de-site-par-défaut&lt;code_de_site>.***
+-    Les points de distribution pour lesquels la case *Autoriser l’emplacement source de secours pour le contenu* est cochée et qui sont associés à des points de migration d’état sur les sites principaux sont ajoutés au groupe de limites *Groupe-de-limites-de-site-par-défaut&lt;code_de_site>* de ce site.
+-    Une copie de chaque groupe de limites existant qui inclut un serveur de site configuré avec une connexion lente est créée. Le nom du nouveau groupe est ***&lt;nom du groupe de limites d’origine>-&lt;ID du groupe de limites d’origine>*** :  
+    -    Les systèmes de site qui disposent d’une connexion rapide restent dans le groupe de limites d’origine.
+    -    Une copie des systèmes de site (points de distribution, points de gestion et points de migration d’état) qui ont une connexion lente est ajoutée à la copie du groupe de limites. Les systèmes de site d’origine configurés comme lents restent dans leurs groupes de limites d’origine pour la compatibilité descendante, mais ne sont pas utilisés à partir de ces groupes de limites.
+    -     Cette copie du groupe de limites n’a pas de limites associées. Toutefois, un lien de secours est créé entre le groupe d’origine et la nouvelle copie du groupe de limites dont la durée de secours a la valeur zéro.  
 
 
 - **Propre aux sites secondaires :**
@@ -218,7 +217,7 @@ Configuration du déploiement d’origine pour « Ne pas exécuter le programme
 Sélectionnée     |  Sélectionnée    |  **Pas de secours** : utilisez uniquement les points de distribution dans le groupe de limites actuel       
 Sélectionnée     |  Non sélectionnée|  **Pas de secours** : utilisez uniquement les points de distribution dans le groupe de limites actuel       
 Non sélectionnée |  Non sélectionnée|  **Secours sur le voisin** : utilisez les points de distribution dans le groupe de limites actuel, puis ajoutez les points de distribution du groupe de limites voisin. Sauf si un lien explicite vers le groupe de limites de site par défaut est configuré, les clients ne vont pas utiliser ce groupe en secours.    
-Non sélectionnée | Sélectionnée     |   **Secours normal** : utilisez les points de distribution dans le groupe de limites actuel, puis ceux des groupes de limites de site par défaut et voisin
+Non sélectionnée | Sélectionnée        |   **Secours normal** : utilisez les points de distribution dans le groupe de limites actuel, puis ceux des groupes de limites de site par défaut et voisin
 
  Toutes les autres configurations de déploiement entraînent un comportement de **secours normal**.  
 
@@ -228,15 +227,15 @@ Non sélectionnée | Sélectionnée     |   **Secours normal** : utilisez les p
 Voici les principales modifications apportées dans la version 1610 aux groupes de limites et à la façon dont les clients recherchent le contenu. La plupart de ces modifications et concepts fonctionnent ensemble.
 
 
--   **Les configurations rapides ou lentes sont supprimées :** vous ne configurez plus des points de distribution individuels pour être rapides ou lents.  Au lieu de cela, chaque système de site associé à un groupe de limites est traité de la même façon. En raison de cette modification, l’onglet **References** (Références) des propriétés du groupe de limites ne prend plus en charge la configuration rapide ou lente.
--   **Nouveau groupe de limites par défaut sur chaque site :** chaque site principal possède un nouveau groupe de limites par défaut nommé ***Groupe-limites-site-défaut&lt;code_site>***.  Quand un client n’est pas à un emplacement réseau qui est affecté à un groupe de limites, ce client utilise les systèmes de site associés au groupe par défaut à partir de son site affecté. Envisagez d’utiliser ce groupe de limites en remplacement de la notion d’emplacement de secours pour le contenu.      
- -  **Allow fallback source locations for content** (Autoriser les emplacements sources de secours pour le contenu) est supprimé : vous ne configurez plus explicitement un point de distribution de secours à utiliser, et les options associées sont supprimées de l’interface utilisateur.
+-    **Les configurations rapides ou lentes sont supprimées :** vous ne configurez plus des points de distribution individuels pour être rapides ou lents.  Au lieu de cela, chaque système de site associé à un groupe de limites est traité de la même façon. En raison de cette modification, l’onglet **References** (Références) des propriétés du groupe de limites ne prend plus en charge la configuration rapide ou lente.
+-     **Nouveau groupe de limites par défaut sur chaque site :** chaque site principal possède un nouveau groupe de limites par défaut nommé ***Groupe-limites-site-défaut&lt;code_site>***.  Quand un client n’est pas à un emplacement réseau qui est affecté à un groupe de limites, ce client utilise les systèmes de site associés au groupe par défaut à partir de son site affecté. Envisagez d’utiliser ce groupe de limites en remplacement de la notion d’emplacement de secours pour le contenu.      
+ -    **Allow fallback source locations for content** (Autoriser les emplacements sources de secours pour le contenu) est supprimé : vous ne configurez plus explicitement un point de distribution de secours à utiliser, et les options associées sont supprimées de l’interface utilisateur.
 
     En outre, le résultat de la définition du paramètre **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** sur un type de déploiement pour les applications a changé. Ce paramètre sur un type de déploiement permet maintenant à un client d’utiliser le groupe de limites de site par défaut comme emplacement source de contenu.
 
- -  **Relations de groupes de limites :** chaque groupe de limites peut être lié à un ou plusieurs groupes de limites supplémentaires. Ces liens forment des relations qui sont configurées sous le nouvel onglet des propriétés du groupe de limites nommé **Relations** :
-    -   Chaque groupe de limites auquel un client est directement associé est appelé groupe de limites **actuel**.  
-    -   Tout groupe de limites qu’un client peut utiliser en raison d’une association entre le groupe de limites *actuel* de ce client et un autre groupe est appelé groupe de limites **voisin**.
+ -    **Relations de groupes de limites :** chaque groupe de limites peut être lié à un ou plusieurs groupes de limites supplémentaires. Ces liens forment des relations qui sont configurées sous le nouvel onglet des propriétés du groupe de limites nommé **Relations** :
+     -    Chaque groupe de limites auquel un client est directement associé est appelé groupe de limites **actuel**.  
+    -     Tout groupe de limites qu’un client peut utiliser en raison d’une association entre le groupe de limites *actuel* de ce client et un autre groupe est appelé groupe de limites **voisin**.
     -  Vous ajoutez des groupes de limites qui peuvent être utilisés comme groupe de limites *voisin* sous l’onglet **Relations**. Vous pouvez également configurer une durée en minutes qui détermine quand un client qui ne parvient pas à trouver le contenu à partir d’un point de distribution dans le groupe *actuel* doit commencer à effectuer des recherches dans les emplacements de contenu de ces groupes de limites *voisins*.
 
         Quand vous ajoutez ou modifiez la configuration d’un groupe de limites, vous avez la possibilité de bloquer le secours sur ce groupe de limites spécifique à partir du groupe actuel que vous configurez.
@@ -248,7 +247,7 @@ Voici les principales modifications apportées dans la version 1610 aux groupes
     Ce comportement remplace ce qui était précédemment désigné sous le nom de secours pour le contenu.  Vous pouvez remplacer ce comportement par défaut de 120 minutes en associant explicitement le groupe de limites de site par défaut à un groupe *actuel* et en définissant une durée spécifique en minutes ou en bloquant totalement le secours pour empêcher son utilisation.
 
 
--   **Les clients tentent d’obtenir le contenu à partir de chaque point de distribution pendant 2 minutes au maximum :** quand un client recherche un emplacement source de contenu, il tente d’accéder à chaque point de distribution pendant 2 minutes avant d’essayer ensuite un autre point de distribution. Il s’agit d’un changement par rapport aux versions précédentes où les clients tentaient de se connecter à un point de distribution pendant 2 heures au maximum.
+-     **Les clients tentent d’obtenir le contenu à partir de chaque point de distribution pendant 2 minutes au maximum :** quand un client recherche un emplacement source de contenu, il tente d’accéder à chaque point de distribution pendant 2 minutes avant d’essayer ensuite un autre point de distribution. Il s’agit d’un changement par rapport aux versions précédentes où les clients tentaient de se connecter à un point de distribution pendant 2 heures au maximum.
 
     - Le premier point de distribution qu’un client tente d’utiliser est sélectionné au hasard dans le pool des points de distribution disponibles du groupe (ou des groupes) de limites *actuel(s)* du client.
 
@@ -265,7 +264,7 @@ Voici les principales modifications apportées dans la version 1610 aux groupes
 
 
 
-###  <a name="a-namebkmkpreferredmpa-about-preferred-management-points"></a><a name="BKMK_PreferredMP"></a> À propos des points de gestion préférés  
+###  <a name="BKMK_PreferredMP"></a> À propos des points de gestion préférés  
  Les points de gestion préférés permettent à un client d’identifier un point de gestion associé à son emplacement réseau actuel (limite) avec celui-ci.  
 
 -   Un client essaie d’utiliser un point de gestion préféré de son site attribué avant d’en utiliser un qui n’est pas configuré comme préféré.  
@@ -275,7 +274,7 @@ Voici les principales modifications apportées dans la version 1610 aux groupes
 > [!NOTE]  
 >  Quand un client est en itinérance (pour changer d’emplacement réseau, comme dans le cas d’un ordinateur portable déplacé vers un emplacement de bureau distant), il peut utiliser un point de gestion (ou un point de gestion proxy) du site local à son nouvel emplacement avant d’essayer d’utiliser un point de gestion de son site attribué (qui comprend les points de gestion préférés).  Consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) pour plus d’informations.  
 
-###   <a name="a-namebkmkboundaryoverlapa-about-overlapping-boundaries"></a><a name="BKMK_BoundaryOverlap"></a> À propos du chevauchement des limites  
+###   <a name="BKMK_BoundaryOverlap"></a> À propos du chevauchement des limites  
  Configuration Manager prend en charge les configurations de limites se chevauchant pour l’emplacement du contenu :  
 
 -   **Quand un client demande du contenu** et que l’emplacement réseau du client appartient à plusieurs groupes de limites, Configuration Manager envoie au client une liste de tous les points de distribution qui disposent du contenu.  
@@ -383,7 +382,7 @@ Les procédures suivantes s’appliquent à la version 1610 ou ultérieure. Si 
 
 
 
-##  <a name="a-namebkmkboundarybestpracticesa-best-practices-for-boundaries"></a><a name="BKMK_BoundaryBestPractices"></a> Meilleures pratiques en matière de limites  
+##  <a name="BKMK_BoundaryBestPractices"></a> Meilleures pratiques en matière de limites  
 
 -   **Utilisez une combinaison du plus petit nombre de limites qui répondent à vos besoins :**  
    Dans le passé, nous vous avons conseillé d’utiliser certains types de limites plus que d’autres. Compte-tenu des modifications apportées pour améliorer les performances, nous vous conseillons dorénavant d’utiliser le ou les types de votre choix qui fonctionnent dans votre environnement et qui vous permettent d’utiliser le plus petit nombre de limites possible pour simplifier vos tâches de gestion.      
@@ -398,9 +397,4 @@ Les procédures suivantes s’appliquent à la version 1610 ou ultérieure. Si 
     -   Un client sur une limite qui est membre de deux groupes de limites ayant des attributions de site différentes sélectionne au hasard un site auquel se joindre, site qui n’est pas nécessairement le site que vous avez prévu à cet effet.  Cette configuration est appelée chevauchement des limites.  
 
      Le chevauchement des limites n’est pas un problème pour l’emplacement du contenu. Il s’agit souvent d’une configuration souhaitée qui fournit aux clients des ressources ou emplacements de contenu supplémentaires qu’ils peuvent utiliser.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

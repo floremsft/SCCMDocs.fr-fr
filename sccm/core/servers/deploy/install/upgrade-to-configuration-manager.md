@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 1/11/2017
+ms.date: 2/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
-ms.openlocfilehash: 27d18a7c5b13f488cafb36ace2e437fe6a50c598
+ms.sourcegitcommit: 30af3326578d39c6d995672071705bcaeb877e4d
+ms.openlocfilehash: 8af2a797ad4e87d870bb27873a7428e96f63b76d
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -32,7 +33,7 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
  > [!TIP]
  > Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
-##  <a name="a-namebkmkpatha-in-place-upgrade-paths"></a><a name="bkmk_path"></a> Chemins de mise à niveau sur place  
+##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 **Mettre à niveau vers la version 1606**  
 Le 15 décembre 2016, le média de base de la version 1606 a été republié afin d’ajouter la prise en charge d’autres scénarios de mise à niveau. Cette nouvelle version prend en charge la mise à niveau des produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :  
 -   Une installation d’évaluation de System Center Configuration Manager version 1606
@@ -69,7 +70,7 @@ Si vous avez un média de base de la version 1511, vous pouvez mettre à niveau
 
 -   La migration d’une version Technical Preview vers une version sous licence complète n’est pas pris en charge.  
 
-##  <a name="a-namebkmkchecklista-upgrade-checklists"></a><a name="bkmk_checklist"></a> Listes de vérification de mise à niveau  
+##  <a name="bkmk_checklist"></a> Listes de vérification de mise à niveau  
  Les listes de vérification suivantes peuvent vous aider à planifier une mise à niveau vers System Center Configuration Manager.  
 
 ### <a name="before-you-upgrade"></a>Avant la mise à niveau :  
@@ -154,9 +155,9 @@ Pour plus d’informations, consultez [Téléchargeur d’installation pour Syst
 **Planifier la gestion des langues client et serveur**:  
 Quand vous mettez à niveau un site, la mise à niveau de site installe uniquement les versions des modules linguistiques que vous sélectionnez pendant la mise à niveau.  
 
--   Le programme d’installation examine la configuration de langue actuelle de votre site et identifie les modules linguistiques disponibles dans le dossier où vous avez stocké les fichiers requis téléchargés précédemment.  
+-   Le programme d’installation examine la configuration de langue actuelle de votre site et identifie les modules linguistiques disponibles dans le dossier où vous avez stocké les fichiers prérequis téléchargés précédemment.  
 -   Vous pouvez alors confirmer la sélection des modules linguistiques serveur et client actifs ou modifier les sélections pour ajouter ou supprimer la prise en charge de langues.  
--   Vous pouvez sélectionner uniquement les modules linguistiques qui sont disponibles quand vous exécutez le programme d’installation (que vous obtenez avec les fichiers requis téléchargés).  
+-   Vous pouvez sélectionner uniquement les modules linguistiques qui sont disponibles quand vous exécutez le programme d’installation (que vous obtenez avec les fichiers prérequis téléchargés).  
 
 > [!NOTE]  
 >  Vous ne pouvez pas utiliser les modules linguistiques de System Center 2012 Configuration Manager pour activer des langues pour un site System Center Configuration Manager.  
@@ -227,7 +228,7 @@ Lorsque vous migrez un client, le logiciel client existant est désinstallé et 
 
 Pour plus d’informations sur la mise à niveau de clients existants et sur la façon d’installer de nouveaux clients, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
-##  <a name="a-namebkmkconsiderationsa-considerations-for-upgrading"></a><a name="bkmk_considerations"></a> Considérations sur la mise à niveau  
+##  <a name="bkmk_considerations"></a> Considérations sur la mise à niveau  
 **Actions automatiques** :  
 Quand vous effectuez la mise à niveau vers System Center Configuration Manager, les actions suivantes se produisent automatiquement :  
 
@@ -255,7 +256,9 @@ Quand un site est mis à niveau vers System Center Configuration Manager, certai
 -   **Calendriers de synthèse des mises à jour logicielles :**  
      Les calendriers de synthèse personnalisés des mises à jour logicielles ou des groupes de mises à jour logicielles sont réinitialisés à la valeur par défaut (1 heure). Au terme de la mise à niveau, réinitialisez les valeurs de synthèse personnalisées sur la fréquence requise.  
 
-##  <a name="a-namebkmktesta-test-the-site-database-upgrade"></a><a name="bkmk_test"></a> Tester la mise à niveau de base de données de site  
+##  <a name="bkmk_test"></a> Tester la mise à niveau de base de données de site  
+Les informations suivantes s’appliquent uniquement lorsque vous mettez à niveau une version antérieure telle que System Center 2012 Configuration Manager vers System Center Configuration Manager. Si votre site exécute déjà System Center Configuration Manager et que vous installez une nouvelle mise à jour, consultez la section [Étape 2 : tester la mise à niveau de base de données avant d’installer une mise à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) dans la rubrique **Avant d’installer une mise à jour dans la console**.
+
 Avant de mettre à niveau un site, testez une copie de la base de données de ce site pour la mise à niveau.  
 
 Pour tester la base de données en vue d’une mise à niveau, vous devez dans un premier temps restaurer une copie de la base de données du site sur une instance de SQL Server qui n’héberge pas de site Configuration Manager. La version de SQL Server que vous utilisez pour héberger la copie de la base de données doit être prise en charge par la version de Configuration Manager, qui est la source de la copie de la base de données.  
@@ -298,7 +301,7 @@ Utilisez la procédure suivante sur chaque site d'administration centrale et sit
 
 Après avoir mis à niveau une copie de la base de données du site, procédez à la mise à niveau du site Configuration Manager et de sa base de données.  
 
-##  <a name="a-namebkmkupgradea-upgrade-sites"></a><a name="bkmk_upgrade"></a> Effectuez la mise à niveau des sites.  
+##  <a name="bkmk_upgrade"></a> Effectuez la mise à niveau des sites.  
 Dès lors que vous avez mené à bien les tâches de configuration préalables à la mise à niveau de votre site, testé la mise à niveau de la base de données du site sur une copie de la base de données, puis téléchargé les fichiers et les modules linguistiques prérequis pour la version du Service Pack que vous prévoyez d’installer, vous êtes prêt à mettre à niveau votre site Configuration Manager.  
 
 Lorsque vous mettez à niveau un site qui fait partie d'une hiérarchie, vous mettez d'abord à niveau le site situé le plus haut dans la hiérarchie. Ce site de niveau supérieur est soit un site d'administration centrale, soit un site principal autonome. Après avoir effectué la mise à niveau d'un site d'administration centrale, vous pouvez mettre à niveau les sites principaux enfants dans l'ordre que vous voulez. Une fois que vous avez mis à niveau un site principal, vous pouvez mettre à niveau les sites secondaires enfants de ce site ou mettre à niveau d’autres sites principaux avant de mettre à niveau des sites secondaires.  
@@ -354,9 +357,9 @@ Utilisez les procédures suivantes pour mettre à niveau des sites Configuration
     > [!IMPORTANT]  
     >  Chaque version de Configuration Manager ne peut pas utiliser les modules linguistiques d’une version antérieure de Configuration Manager. Pour activer la prise en charge d’une langue sur un site Configuration Manager que vous mettez à niveau, vous devez utiliser la version du module linguistique de cette nouvelle version. Pour exemple, pendant la mise à niveau de System Center 2012 Configuration Manager vers System Center Configuration Manager, si la version System Center Configuration Manager d’un module linguistique n’est pas disponible avec les fichiers prérequis que vous téléchargez, la prise en charge de cette langue ne peut pas être installée.  
 
-12. Sur la page **Résumé des paramètres** , cliquez sur **Suivant** pour démarrer l'outil de vérification de la configuration requise pour vérifier si le serveur est prêt pour une mise à niveau du site.  
+12. Sur la page **Résumé des paramètres** , cliquez sur **Suivant** pour démarrer l'outil de vérification des prérequis et vérifier si le serveur est prêt pour une mise à niveau du site.  
 
-13. Sur la page **Vérification de l'installation préalable** , si aucun problème n'est répertorié, cliquez sur **Suivant** pour mettre à niveau le site et les rôles de système de site. Lorsque l'outil de vérification de la configuration requise détecte un problème, cliquez sur un élément dans la liste pour plus d'informations sur la résolution du problème. Résolvez tous les éléments de la liste dont l'état est **Erreur** avant de poursuivre l'installation. Après avoir résolu le problème, cliquez sur **Vérifier** pour relancer la vérification de la configuration requise. Vous pouvez également ouvrir le fichier ConfigMgrPrereq.log à la racine du lecteur système pour passer en revue les résultats de l'outil de vérification de la configuration requise. Le fichier journal peut contenir des informations supplémentaires qui ne s'affichent pas dans l'interface utilisateur. Pour obtenir la liste des règles et descriptions relatives aux prérequis de l’installation, consultez [Outil de vérification de la configuration requise](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+13. Sur la page **Vérification de l'installation préalable** , si aucun problème n'est répertorié, cliquez sur **Suivant** pour mettre à niveau le site et les rôles de système de site. Lorsque l’outil de vérification des prérequis détecte un problème, cliquez sur un élément dans la liste pour plus d'informations sur la résolution du problème. Résolvez tous les éléments de la liste dont l'état est **Erreur** avant de poursuivre l'installation. Après avoir résolu le problème, cliquez sur **Vérifier** pour relancer la vérification des prérequis. Vous pouvez également ouvrir le fichier ConfigMgrPrereq.log à la racine du lecteur système pour passer en revue les résultats de l'outil de vérification des prérequis. Le fichier journal peut contenir des informations supplémentaires qui ne s'affichent pas dans l'interface utilisateur. Pour obtenir la liste des règles et descriptions relatives aux prérequis de l’installation, consultez [Outil de vérification des prérequis](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
 Sur la page **Mettre à niveau** , le programme d'installation affiche l'état de la progression globale. Lorsque le programme d'installation a terminé l'installation du serveur de site principal et du système de site, vous pouvez fermer l'Assistant. La configuration du site se poursuit en arrière-plan.  
 
@@ -378,16 +381,11 @@ Sur la page **Mettre à niveau** , le programme d'installation affiche l'état d
 
 La mise à niveau du site secondaire progresse en arrière-plan. Une fois la mise à niveau terminée, vous pouvez vérifier l’état de la console Configuration Manager. Pour ce faire, sélectionnez le serveur du site secondaire puis, sous l'onglet **Accueil** , dans le groupe **Site** , cliquez sur **Afficher l'état d'installation**.  
 
-##  <a name="a-namebkmkpostupgradea-perform-post-upgrade-tasks"></a><a name="BKMK_PostUpgrade"></a> Exécuter les étapes de post-mise à niveau  
+##  <a name="BKMK_PostUpgrade"></a> Exécuter les étapes de post-mise à niveau  
 Après avoir mis à niveau un site vers un nouveau Service Pack, vous pouvez être amené à effectuer des tâches supplémentaires pour finaliser la mise à niveau ou reconfigurer le site. Ces tâches peuvent consister notamment à mettre à niveau des clients Configuration Manager ou des consoles Configuration Manager, à réactiver des réplicas de base de données pour des points de gestion ou à restaurer des paramètres pour la fonctionnalité Configuration Manager que vous utilisez et qui ne subsiste pas après la mise à niveau du Service Pack.  
 
 **Problèmes connus pour les sites secondaires :**  
 - **Quand vous effectuez la mise à niveau vers la version 1511 :** Pour vérifier que les clients sur les sites secondaires peuvent trouver le point de gestion à partir du site secondaire (point de gestion proxy), ajoutez manuellement le point de gestion aux groupes de limites qui incluent également les points de distribution du site secondaire.  
 
 - **Quand vous effectuez la mise à niveau vers la version 1606 ou ultérieure :** Des points de gestion proxy sont automatiquement ajoutés aux groupes de limites qui incluent les points de distribution du site secondaire.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

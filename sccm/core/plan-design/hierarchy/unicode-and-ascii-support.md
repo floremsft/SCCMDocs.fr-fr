@@ -2,7 +2,7 @@
 title: Prise en charge Unicode et ASCII | Microsoft Docs
 description: "Découvrez la prise en charge des caractères ASCII et Unicode dans les objets System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 1888ce257232b63e4671aa619da190ea570b8a57
+ms.sourcegitcommit: b35e747c8c297d61bb549b9767c4318f51e5fdb4
+ms.openlocfilehash: 18f1c64c1f27001a0fdfbab4236d09a5bc279272
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -36,7 +37,7 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
 -   [Objets Configuration Manager non localisés](#BKMK_LangNonLocalize)  
 
-##  <a name="a-namebkmkasciichara-objects-that-use-ascii-characters"></a><a name="BKMK_ASCIIchar"></a> Objets qui utilisent des caractères ASCII  
+##  <a name="BKMK_ASCIIchar"></a> Objets qui utilisent des caractères ASCII  
  Configuration Manager prend en charge le jeu de caractères ASCII uniquement lorsque vous créez les objets suivants :  
 
 -   Code de site  
@@ -46,9 +47,9 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 -   Les comptes de Configuration Manager suivants :  
 
     > [!NOTE]  
-    >  Ces comptes prennent en charge les caractères ASCII et RUS sur un site qui s'exécute dans la langue russe.  
+    >  Ces comptes prennent en charge les caractères ASCII et RUS sur un site qui s’exécute en russe.  
 
-    -   Compte d'installation poussée du client  
+    -   Compte d’installation Push du client  
 
     -   Compte de publication de la référence d'état d'intégrité  
 
@@ -56,13 +57,13 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
     -   Compte de connexion à la base de données du point de gestion  
 
-    -   Compte d'accès au réseau  
+    -   Compte d'accès réseau  
 
     -   Compte d'accès au package  
 
     -   Compte expéditeur standard  
 
-    -   Compte d'installation du système de site  
+    -   Compte d’installation du système de site  
 
     -   Compte de connexion de point de mise à jour logicielle  
 
@@ -71,9 +72,9 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
     > [!NOTE]  
     >  Les comptes que vous spécifiez pour l'administration basée sur des rôles prennent en charge Unicode.  
     >   
-    >  Le compte du point de Reporting Services prend en charge Unicode, à l'exception des caractères RUS.  
+    >  Le compte du point de Reporting Services prend en charge Unicode, à l’exception des caractères RUS.  
 
--   Nom de domaine complet des serveurs de site et des systèmes de site  
+-   Nom de domaine complet (FQDN) pour les serveurs de site et les systèmes de site  
 
 -   Chemin d'installation de Configuration Manager  
 
@@ -101,9 +102,9 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
     -   Le dossier qui stocke la sauvegarde de Configuration Manager  
 
-    -   Le dossier qui stocke les fichiers sources d'installation pour la configuration de site  
+    -   Le dossier qui stocke les fichiers sources d’installation pour la configuration de site  
 
-    -   Le dossier qui stocke les téléchargements requis par le programme d'installation  
+    -   Le dossier qui stocke les téléchargements requis par le programme d’installation  
 
 -   Le chemin d'accès pour les objets suivants :  
 
@@ -113,7 +114,7 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
     -   Nom de l'application virtuelle  
 
--   Les objets suivants pour AMT et la gestion hors bande :  
+-   Les objets suivants pour AMT et la gestion hors bande :  
 
     -   Le nom de domaine complet de l'ordinateur basé sur AMT  
 
@@ -131,22 +132,17 @@ System Center Configuration Manager crée la plupart des objets à l’aide de c
 
     -   Le contenu du stockage de données AMT  
 
--   Le nom des fichiers .ISO des supports de démarrage  
+-   Les noms des fichiers ISO des supports de démarrage  
 
-##  <a name="a-namebkmkothercharlimitationsa-additional-limitations"></a><a name="BKMK_OtherCharLimitations"></a> Limitations supplémentaires  
+##  <a name="BKMK_OtherCharLimitations"></a> Limitations supplémentaires  
  Voici les limitations supplémentaires pour les versions de langue et les jeux de caractères pris en charge :  
 
 -   Configuration Manager ne prend pas en charge la modification des paramètres régionaux de l’ordinateur serveur de site.  
 
 -   Une autorité de certification (CA) d'entreprise ne gère pas les noms des ordinateurs clients qui utilisent des jeux de caractères codés sur deux octets (DBCS). Les noms d'ordinateur client que vous pouvez utiliser sont limités par la limitation PKI du jeu de caractères IA5. En outre, Configuration Manager ne prend pas en charge les noms d’autorité de certification ou les valeurs de nom d’objet qui utilisent un jeu de caractères DBCS.  
 
-##  <a name="a-namebkmklangnonlocalizea-configuration-manager-objects-that-are-not-localized"></a><a name="BKMK_LangNonLocalize"></a> Objets Configuration Manager non localisés  
+##  <a name="BKMK_LangNonLocalize"></a> Objets Configuration Manager non localisés  
  La base de données Configuration Manager prend en charge le format Unicode pour la plupart des objets qu’elle stocke, et lorsque cela est possible, elle affiche ces informations dans la langue du système d’exploitation correspondant aux paramètres régionaux d’un ordinateur. Pour que l’interface client ou la console Configuration Manager affichent des informations dans la langue du système d’exploitation de l’ordinateur, les paramètres régionaux de l’ordinateur doivent correspondre à la langue du client ou du serveur que vous installez sur un site.  
 
  Toutefois, plusieurs objets Configuration Manager ne prennent pas en charge le format Unicode et ils sont stockés dans la base de données à l’aide du jeu de caractères ASCII, ou bien les langues supplémentaires sont limitées. Ces informations s'affichent toujours à l'aide du jeu de caractères ASCII défini ou dans la langue utilisée lors de la création de l'objet.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

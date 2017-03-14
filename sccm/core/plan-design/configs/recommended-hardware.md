@@ -2,7 +2,7 @@
 title: "Matériel recommandé | Microsoft Docs"
 description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
 ms.custom: na
-ms.date: 12/30/2016
+ms.date: 2/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d61c726d9690a1ec512b8dbab74b0f760012c880
-ms.openlocfilehash: 7caee70c327d84f1e016c689f824d843ccdb3b42
+ms.sourcegitcommit: 63ee782a718cf4a66ffe25b022aa317f3e45784c
+ms.openlocfilehash: 6701d5f21e8511ec9cf4fe7bc5804b3e2fdc4c71
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -31,7 +32,7 @@ Les recommandations suivantes sont des indications destinées à vous aider à a
  Aidez-vous des informations des sections suivantes pour prévoir le matériel capable de répondre aux charges de traitement des clients et des sites qui utilisent les fonctionnalités de Configuration Manager disponibles avec les configurations par défaut.  
 
 
-##  <a name="a-namebkmkscalesiesystemsa-site-systems"></a><a name="bkmk_ScaleSieSystems"></a> Systèmes de site  
+##  <a name="bkmk_ScaleSieSystems"></a> Systèmes de site  
  Cette section présente les configurations matérielles recommandées pour les systèmes de site Configuration Manager pour les déploiements prenant en charge le nombre maximal de clients et utilisant la plupart ou l’ensemble des fonctionnalités de Configuration Manager. Les déploiements qui ne prennent pas en charge le nombre maximal de clients et qui n’utilisent pas toutes les fonctionnalités disponibles nécessitent généralement moins de ressources informatiques. En règle générale, les facteurs clés qui limitent les performances de l'ensemble du système sont les suivants, par ordre d'importance :  
 
 1.  Performances d'E/S du disque  
@@ -42,24 +43,24 @@ Les recommandations suivantes sont des indications destinées à vous aider à a
 
 Pour des performances optimales, utilisez des configurations RAID 10 pour tous les lecteurs de données et une connectivité réseau Ethernet 1 Gbit/s.  
 
-###  <a name="a-namebkmkscalesiteservera-site-servers"></a><a name="bkmk_ScaleSiteServer"></a> Serveurs de site  
+###  <a name="bkmk_ScaleSiteServer"></a> Serveurs de site  
 
 |Site principal autonome|Cœurs de processeur|Mémoire (Go)|% d’allocation de mémoire pour SQL Server|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
 |Serveur de site principal autonome avec un rôle site de base de données sur le même serveur<sup>1</sup>|16|96|80|  
 |Serveur de site principal autonome avec une base de données de site distante|8|16|-|  
 |Serveur de bases de données distant pour un site principal autonome|16|64|90|  
-|Serveur de site d’administration centrale avec un rôle site de base de données sur le même serveur<sup>1</sup>|16|96|80|  
+|Serveur de site d’administration centrale avec un rôle site de base de données sur le même serveur<sup>1</sup>|20|128|80|  
 |Serveur de site d’administration centrale avec une base de données de site distante|8|16|-|  
 |Serveur de bases de données distant pour un site d’administration centrale|16|96|90|  
 |Site principal enfant avec un rôle site de base de données sur le même serveur|16|96|80|  
 |Serveur de site principal enfant avec une base de données de site distante|8|16|-|  
-|Serveur de bases de données distant pour un site principal enfant|16|64|90|  
+|Serveur de bases de données distant pour un site principal enfant|16|72|90|  
 |Serveur de site secondaire|8|16|-|  
 
  <sup>1</sup> Quand le serveur de site et SQL Server sont installés sur le même ordinateur, le déploiement prend en charge les [tailles et échelles](/sccm/core/plan-design/configs/size-and-scale-numbers) maximales pour les sites et les clients. Toutefois, cette configuration peut limiter les [options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options), comme l’utilisation d’un cluster SQL Server. De plus, en raison d’un plus grand nombre d’E/S nécessaire pour prendre en charge l’exécution de SQL Server et du serveur de site Configuration Manager sur le même ordinateur, nous vous conseillons d’utiliser une configuration avec une machine SQL Server distante dans les déploiements de plus grande taille.  
 
-###  <a name="a-namebkmkremotesitesystema-remote-site-system-servers"></a><a name="bkmk_RemoteSiteSystem"></a> Serveurs de système de site distants  
+###  <a name="bkmk_RemoteSiteSystem"></a> Serveurs de système de site distants  
  Les indications ci-dessous concernent les ordinateurs qui ont un seul rôle de système de site. Ajustez les valeurs indiquées si vous installez plusieurs rôles de système de site sur le même ordinateur.  
 
 |Rôle de système de site|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
@@ -76,7 +77,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 
 -   Multiplier par quatre la **limite de mémoire privée WsusPool**, ou lui affecter la valeur **0** (illimitée).  
 
-###  <a name="a-namebkmkdiskspacea-disk-space-for-site-systems"></a><a name="bkmk_DiskSpace"></a> Espace disque pour les systèmes de site  
+###  <a name="bkmk_DiskSpace"></a> Espace disque pour les systèmes de site  
  L’allocation et la configuration de disque contribuent aux performances de Configuration Manager. Comme chaque environnement Configuration Manager est différent, ajustez les valeurs indiquées ci-dessous en fonction de vos besoins.  
 
  Pour des performances optimales, placez chaque objet sur un volume RAID séparé et dédié. Pour tous les volumes de données (Configuration Manager et ses fichiers de base de données), utilisez RAID 10 pour des performances optimales.  
@@ -109,7 +110,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 
     -   SQL Server 2014 Express : 10 Go  
 
-##  <a name="a-namebkmkscaleclienta-clients"></a><a name="bkmk_ScaleClient"></a> Clients  
+##  <a name="bkmk_ScaleClient"></a> Clients  
  Cette section présente les configurations matérielles recommandées pour les ordinateurs que vous gérez à l’aide du logiciel client Configuration Manager.  
 
 ### <a name="client-for-windows-computers"></a>Client pour les ordinateurs Windows  
@@ -147,7 +148,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 |Espace disque|500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager.|  
 |Connectivité réseau|Les ordinateurs clients Configuration Manager doivent disposer d’une connexion réseau aux systèmes de site Configuration Manager pour en permettre la gestion.|  
 
-##  <a name="a-namebkmkscaleconsolea-configuration-manager-console"></a><a name="bkmk_ScaleConsole"></a> Console Configuration Manager  
+##  <a name="bkmk_ScaleConsole"></a> Console Configuration Manager  
  La configuration requise indiquée dans le tableau ci-dessous s’applique à chaque ordinateur qui exécute la console Configuration Manager.  
 
  **Configuration matérielle minimale :**  
@@ -176,7 +177,7 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 En plus de PowerShell, les versions 3.0 et 4.0 de Windows Management Framework (WMF) sont prises en charge.   
 Vous pouvez installer PowerShell avant ou après l’installation de la console Configuration Manager.  
 
-##  <a name="a-namebkmkscalelaba-lab-deployments"></a><a name="bkmk_ScaleLab"></a> Déploiements de laboratoire  
+##  <a name="bkmk_ScaleLab"></a> Déploiements de laboratoire  
  Utilisez les recommandations de configuration matérielle suivantes pour les déploiements de laboratoire et de test de Configuration Manager. Ces recommandations s’appliquent à tous les types de sites, avec un maximum de 100 clients :  
 
 |Rôle|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
@@ -184,9 +185,4 @@ Vous pouvez installer PowerShell avant ou après l’installation de la console 
 |Serveur de site et de bases de données|2 - 4|7 - 12|100|  
 |Serveur de système de site|1 - 4|2 - 4|50|  
 |Client|1 - 2|1 - 3|30|  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

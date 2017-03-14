@@ -1,5 +1,5 @@
 ---
-title: Utiliser des services cloud | Microsoft Docs
+title: Utiliser des services cloud avec Configuration Manager | Microsoft Docs
 description: "Configurer des ressources cloud pour System Center Configuration Manager afin de compléter votre infrastructure locale."
 ms.custom: na
 ms.date: 10/06/2016
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: 539ad555b85b7517507c21718dab0b79fdf4dfb8
+ms.sourcegitcommit: 0d7ddd48cc4e75b12f893e686b847d66058441e1
+ms.openlocfilehash: 52f7c63d155d5c34f0f12e13020767dec1867dab
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,13 +27,13 @@ ms.openlocfilehash: 539ad555b85b7517507c21718dab0b79fdf4dfb8
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager prend en charge plusieurs options de cloud qui complètent votre infrastructure locale et peuvent aider à résoudre certains problèmes comme :  
+System Center Configuration Manager prend en charge plusieurs options de cloud. Celles-ci peuvent compléter votre infrastructure locale et vous aider à résoudre certains problèmes d’entreprise comme :  
 
--   Gérer les appareils BYOD (en utilisant Intune pour la gestion des appareils mobiles)  
+-   Gérer les appareils BYOD (en utilisant Intune pour gérer les appareils mobiles).  
 
--   Fournir des ressources de contenu à des clients isolés ou des ressources de l’intranet à l’extérieur du pare-feu de l’entreprise (utilisation de points de distribution cloud)  
+-   Fournir des ressources de contenu à des clients isolés ou des ressources de l’intranet à l’extérieur de votre pare-feu d’entreprise (en utilisant des points de distribution cloud).  
 
--   Monter en charge l’infrastructure quand le matériel physique n’est pas disponible ou placé de façon logique pour répondre à vos besoins (utilisation de machines virtuelles Microsoft Azure)  
+-   Monter en charge l’infrastructure quand le matériel physique n’est pas disponible ou n’est pas placé de façon logique pour répondre à vos besoins (en utilisant des machines virtuelles Microsoft Azure).  
 
 La configuration de ressources cloud n’est pas indispensable avant de déployer Configuration Manager, mais il peut être utile de comprendre ces options avant d’aller plus en avant dans un plan de conception de hiérarchie. L’utilisation de ressources cloud peut vous faire gagner du temps et économiser de l’argent, mais aussi résoudre des problèmes qu’une infrastructure locale ne peut pas résoudre.  
 
@@ -41,35 +42,35 @@ La configuration de ressources cloud n’est pas indispensable avant de déploye
 
 -   Pour plus d'informations sur les points de distribution cloud, voir [Installer des points de distribution cloud](/sccm/core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure).
 
--   Pour plus d'informations sur Windows Azure, voir [Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=262965) dans la bibliothèque MSDN.  
+-   Pour plus d’informations sur Azure, consultez [Azure](http://go.microsoft.com/fwlink/p/?LinkId=262965) dans la bibliothèque MSDN.  
 
-### <a name="microsoft-azure-virtual-machines-for-cloud-based-infrastructure"></a>Machines virtuelles Microsoft Azure (pour infrastructure cloud)  
- Configuration Manager prend en charge l’utilisation d’ordinateurs exécutés en tant que machines virtuelles Azure, de la même manière que les ordinateurs exécutés localement dans votre réseau physique d’entreprise. Vous pouvez utiliser des machines virtuelles Azure dans les scénarios suivants :  
+### <a name="azure-virtual-machines-for-cloud-based-infrastructure"></a>Machines virtuelles Azure (pour infrastructure cloud)  
+ Configuration Manager prend en charge l’utilisation d’ordinateurs qui s’exécutent en tant que machines virtuelles Azure, de la même manière que les ordinateurs qui s’exécutent localement dans votre réseau physique d’entreprise. Vous pouvez utiliser des machines virtuelles Azure dans les scénarios suivants :  
 
 -   **Scénario 1** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients installés sur d’autres machines virtuelles.  
 
 -   **Scénario 2** : vous pouvez exécuter Configuration Manager sur une machine virtuelle et l’utiliser pour gérer des clients qui ne s’exécutent pas dans Azure.  
 
--   **Scénario 3** : vous pouvez exécuter différents rôles de système de site Configuration Manager sur des machines virtuelles tout en exécutant d’autres rôles sur votre réseau physique d’entreprise (avec une connectivité réseau appropriée pour les communications).  
+-   **Scénario 3** : vous pouvez exécuter différents rôles de système de site Configuration Manager sur des machines virtuelles, tout en exécutant d’autres rôles sur votre réseau physique d’entreprise (avec une connectivité réseau appropriée pour les communications).  
 
-La configuration requise en matière de réseaux, de systèmes d’exploitation et de matériel qui s’applique à l’installation de Configuration Manager sur votre réseau physique d’entreprise est la même que celle qui s’applique à l’installation de Configuration Manager dans Microsoft Azure.  
+Les exigences en matière de réseaux, de systèmes d’exploitation et de matériel qui s’appliquent à l’installation de Configuration Manager sur votre réseau physique d’entreprise s’appliquent également à l’installation de Configuration Manager dans Azure.  
 
-L’utilisation de machines virtuelles Azure nécessite de disposer d’un abonnement Azure et peut occasionner des frais en fonction du nombre et de la configuration de vos machines virtuelles, ainsi que du niveau d’utilisation des ressources cloud.  
+Un abonnement Azure est requis pour utiliser les machines virtuelles Azure. Vous occasionnez des frais en fonction du nombre et de la configuration de vos machines virtuelles, et du niveau d’utilisation des ressources cloud.  
 
-En outre, les sites et les clients Configuration Manager qui s'exécutent sur des machines virtuelles Azure sont soumis aux mêmes exigences de licence que les installations locales.  
+En outre, les sites et les clients Configuration Manager qui s’exécutent sur des machines virtuelles Azure sont soumis aux mêmes exigences de licence que les installations locales.  
 
-### <a name="microsoft-azure-services-for-cloud-based-distribution-points"></a>Services Microsoft Azure (pour points de distribution cloud)  
- Vous pouvez utiliser un service Azure pour héberger un point de distribution Configuration Manager, appelé point de distribution cloud.  Vous pouvez [utiliser un point de distribution cloud avec System Center Configuration Manager](../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) en même temps que des points de distribution locaux et des points de distribution déployés sur des machines virtuelles Azure.  
+### <a name="azure-services-for-cloud-based-distribution-points"></a>Services Azure (pour les points de distribution cloud)  
+ Vous pouvez utiliser un service Azure pour héberger un point de distribution Configuration Manager, appelé point de distribution cloud. Vous pouvez [utiliser un point de distribution cloud avec System Center Configuration Manager](../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) en même temps que des points de distribution locaux et des points de distribution déployés sur des machines virtuelles Azure.  
 
  Cela diffère de l’utilisation d’une machine virtuelle Azure sur laquelle vous déployez un rôle de système de site. Points de distribution cloud :  
 
--   Ils s’exécutent comme service dans Microsoft Azure, et non sur une machine virtuelle.  
+-   Ils s’exécutent en tant que service dans Azure, et non sur une machine virtuelle.  
 
--   Ils se mettent automatiquement à l’échelle pour répondre à l’augmentation des demandes de contenu des clients.  
+-   Ils sont mis automatiquement à l’échelle pour répondre à l’augmentation des demandes de contenu des clients.  
 
 -   Ils prennent en charge les clients sur Internet et l’intranet.  
 
-Pour pouvoir héberger des points de distribution sur Azure, vous avez besoin d’un abonnement Azure et les frais qui vous sont facturés varient en fonction de la quantité de données qui transitent par le service.  
+Un abonnement Azure est requis pour utiliser Azure afin d’héberger des points de distribution. Les frais dépendent de la quantité de données qui circule vers et depuis le service.  
 
 ### <a name="microsoft-intune-for-mobile-device-management"></a>Microsoft Intune (pour gestion des appareils mobiles)  
  Vous pouvez intégrer votre abonnement Microsoft Intune avec Configuration Manager pour permettre la gestion des appareils à l’aide du service Intune. Cette intégration présente les caractéristiques suivantes :  
@@ -78,34 +79,29 @@ Pour pouvoir héberger des points de distribution sur Azure, vous avez besoin d�
 
 -   Elle requiert le rôle de système de site Connecteur Microsoft Intune.  
 
--   Elle nécessite que vous disposiez d’un abonnement Intune distinct avec un nombre suffisant de licences pour les appareils que vous voulez gérer avec Intune.  
+-   Elle nécessite que vous disposiez d’un abonnement Intune distinct avec des licences suffisantes pour les appareils que vous voulez gérer avec Intune.  
 
-Même si Intune utilise Microsoft Azure, vous n’êtes pas tenu de configurer Azure de façon indépendante, et vous ne vous exposez pas à des coûts en supplément de ceux de l’abonnement Intune.  
+Même si Intune utilise Azure, vous n’êtes pas tenu de configurer Azure de façon indépendante, et vous ne vous exposez pas à des coûts en supplément de ceux de l’abonnement Intune.  
 
 ### <a name="additional-configuration-manager-capabilities"></a>Fonctionnalités supplémentaires de Configuration Manager  
  Certaines fonctionnalités de Configuration Manager peuvent se connecter à des services cloud, par exemple :  
 
--   Windows Server Update Services (WSUS)  
+-   Windows Server Update Services (WSUS).  
 
--   Le cloud du service Configuration Manager pour télécharger les mises à jour de Configuration Manager  
+-   Le service cloud Configuration Manager, pour télécharger les mises à jour de Configuration Manager.  
 
-Pour utiliser ces fonctionnalités supplémentaires, vous n’avez pas besoin d’avoir un abonnement Azure, ni de configurer des connexions, certificats ou services particuliers dans le cloud. En effet, ces fonctionnalités sont automatiquement gérées par Configuration Manager à votre place.  Vous devez seulement veiller à ce que les systèmes de site et les appareils puissent accéder aux URL Internet.  
+Ces fonctions supplémentaires ne nécessitent pas d’avoir un abonnement Azure. Vous n’êtes pas tenu de configurer des connexions, des certificats ou des services spécifiques dans le cloud. En effet, ces fonctionnalités sont automatiquement gérées par Configuration Manager à votre place. Vous devez seulement veiller à ce que les systèmes de site et les appareils puissent accéder aux URL Internet.  
 
-##  <a name="a-namebkmkcloudseca-security-for-cloud-based-services"></a><a name="BKMK_CloudSec"></a> Sécurité des services cloud  
- Configuration Manager utilise des certificats pour configurer votre contenu dans Microsoft Azure et y accéder, et pour gérer les services que vous utilisez. Configuration Manager chiffre les données que vous stockez dans Microsoft Azure, mais n’introduit pas de contrôles de données ou de sécurité en plus de ceux fournis par Microsoft Azure.  
+##  <a name="BKMK_CloudSec"></a> Sécurité des services cloud  
+ Configuration Manager utilise des certificats pour configurer votre contenu dans Azure et y accéder, et pour gérer les services que vous utilisez. Configuration Manager chiffre les données que vous stockez dans Microsoft Azure, mais n’introduit pas de contrôles de données ou de sécurité en plus de ceux fournis par Microsoft Azure.  
 
- Pour plus d’informations, consultez les détails des différents scénarios de ressources cloud. Vous pouvez également consulter les rubriques suivantes sur la sécurité dans Microsoft Azure :  
+ Pour plus d’informations, consultez les détails des différents scénarios de ressources cloud. Vous pouvez également consulter les rubriques suivantes sur la sécurité dans Azure :  
 
--   [Microsoft Azure : Comprendre la gestion des comptes de sécurité dans Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
+-   [Azure : Présentation de la gestion des comptes de sécurité dans Azure](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
 
--   [Windows Azure Security Overview (Présentation des fonctionnalités de sécurité de Windows Azure)](http://go.microsoft.com/fwlink/p/?LinkId=262970)  
+-   [Azure Security Overview (Présentation des fonctionnalités de sécurité Azure)](http://go.microsoft.com/fwlink/p/?LinkId=262970)  
 
 -   [Get Past the Security Crossroads in Your Cloud Migration (Franchir les barrières de sécurité dans le cadre d'une migration vers le cloud)](http://go.microsoft.com/fwlink/p/?LinkId=262971)  
 
 -   [La sécurité des données avec Azure - partie 1 sur 2](http://go.microsoft.com/fwlink/p/?LinkId=262974)  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

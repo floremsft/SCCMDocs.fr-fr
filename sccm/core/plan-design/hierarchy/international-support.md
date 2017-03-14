@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6ed317d45d90758832d4157985dd95d5e253c6fc
-ms.openlocfilehash: 37e45e604e89d3ce280bb2bff47d4a55b6cdfaf8
+ms.sourcegitcommit: 40e018084dd2703327ff653f962f488432b1ec98
+ms.openlocfilehash: 3bab51be96445f766e8f5bbf54eee854e5d09cee
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 37e45e604e89d3ce280bb2bff47d4a55b6cdfaf8
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les sections suivantes fournissent des détails techniques pour vous aider à configurer System Center Configuration Manager pour en assurer la conformité à des exigences internationales spécifiques.  
+Les sections suivantes fournissent des détails techniques qui vous aideront à mettre System Center Configuration Manager en conformité avec des exigences internationales spécifiques.  
 
 ## <a name="gb18030-requirements"></a>Normes GB18030  
  Configuration Manager respecte les normes GB18030 pour permettre son utilisation en Chine. Un déploiement de Configuration Manager doit disposer des configurations suivantes pour respecter les exigences des normes GB18030 :  
@@ -40,12 +41,7 @@ Les sections suivantes fournissent des détails techniques pour vous aider à co
     -   Chinese_Simplified_Stroke_Order_100_CI_AI  
 
     > [!NOTE]  
-    >  Ces classements de base de données constituent une exception à la configuration requise décrite dans [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+    >  Ces classements de bases de données constituent une exception aux exigences décrites dans [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
 -   Vous devez placer un fichier portant le nom **GB18030.SMS** dans le dossier racine du volume du système de chaque ordinateur du serveur de site dans la hiérarchie. Ce fichier ne contient pas de données et peut être un fichier texte vide, nommé pour répondre à cette exigence.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

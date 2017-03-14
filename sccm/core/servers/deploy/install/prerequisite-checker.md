@@ -1,8 +1,8 @@
 ---
 title: "Outil de vérification des prérequis | Microsoft Docs"
-description: "Apprenez à utiliser l’outil de vérification des conditions préalables pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site."
+description: "Découvrez comment utiliser l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,206 +16,185 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: f30d7a451f47a3ab1efe6f7ac9c3e0151b8cda96
+ms.sourcegitcommit: d5cc318eaf097cb3cfbfde730f7573d27af25648
+ms.openlocfilehash: f0d44f82a0b6068f8cecc5808774677eccb0f8d9
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Outil de vérification des conditions préalables pour System Center Configuration Manager
+# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Outil de vérification des prérequis pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-
- Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, ou avant d’installer un rôle de système de site sur un nouveau serveur, vous pouvez utiliser cette application autonome (**Prereqchk.exe**) de la version de Configuration Manager que vous voulez utiliser pour vérifier l’état de préparation du serveur. L’outil de vérification des conditions préalables permet d’identifier et de résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site.  
+ Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, ou avant d’installer un rôle de système de site sur un nouveau serveur, vous pouvez utiliser cette application autonome (**Prereqchk.exe**) de la version de Configuration Manager que vous voulez utiliser pour vérifier l’état de préparation du serveur. Utilisez l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site.  
 
 > [!NOTE]  
->  L’outil de vérification des conditions préalables s’exécute toujours dans le cadre de l’installation.  
+>  L’Outil de vérification des prérequis s’exécute toujours pendant l’installation.  
 
-Par défaut, quand l’outil de vérification des conditions préalables s’exécute :  
+Par défaut, quand l’Outil de vérification des prérequis s’exécute :  
 
 -   Il valide le serveur sur lequel il s’exécute.  
+-   Il recherche un serveur de site sur l’ordinateur local et exécute uniquement les vérifications applicables au site.  
+-   Si aucun site existant n'est détecté, toutes les règles de vérification des prérequis sont exécutées.  
+-   Il vérifie les règles pour s’assurer de la présence des logiciels et des paramètres nécessaires à l’installation. Il est possible qu’un logiciel requis nécessite des configurations ou des mises à jour logicielles supplémentaires qui ne sont pas vérifiées par l’Outil de vérification des prérequis.  
+-   Il enregistre ses résultats dans le fichier journal **ConfigMgrPrereq.log** sur le lecteur système de l’ordinateur. Le fichier journal peut contenir des informations supplémentaires qui n’apparaissent pas dans l’interface de l’application.  
 
--   Il recherche la présence d’un serveur de site sur l’ordinateur local et il exécute uniquement les vérifications applicables au site.  
+Quand vous exécutez l’Outil de vérification des prérequis à l’invite de commandes et spécifiez des options de ligne de commande :  
 
--   S’il ne détecte aucun site existant, il exécute toutes les règles de vérification des conditions préalables.  
+-   L’Outil de vérification des prérequis effectue uniquement les vérifications associées au serveur de site ou aux systèmes de site que vous spécifiez sur la ligne de commande.  
+-   Pour vérifier un ordinateur distant, votre compte d’utilisateur doit disposer des droits d’administrateur sur cet ordinateur.  
 
--   Il vérifie les règles pour s’assurer de la présence des logiciels et des paramètres nécessaires à l’installation. Il est possible qu’un logiciel requis nécessite des configurations ou des mises à jour logicielles supplémentaires qui ne sont pas vérifiées par l’outil de vérification des conditions préalables.  
+Pour plus d’informations sur les vérifications effectuées par l’Outil de vérification des prérequis, consultez [Liste des vérifications des prérequis pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
--   Il enregistre ses résultats dans le fichier journal **ConfigMgrPrereq.log** sur le lecteur système de l’ordinateur. Le fichier journal peut contenir des informations supplémentaires qui ne s'affichent pas dans l'interface utilisateur.  
+## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Copier les fichiers de l’Outil de vérification des prérequis sur un autre ordinateur  
 
-Quand vous exécutez l’outil de vérification des conditions préalables à l’invite de commandes et spécifiez des options de ligne de commande :  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
--   L’outil de vérification des conditions préalables effectue uniquement les vérifications associées au serveur de site ou aux systèmes de site que vous avez spécifiés dans la ligne de commande.  
-
--   Pour vérifier un ordinateur distant, votre compte d’utilisateur doit disposer des droits d’administration sur cet ordinateur.  
-
-Pour plus d’informations sur les vérifications effectuées par l’outil de vérification des conditions préalables, consultez [Liste des vérifications des conditions préalables pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
-
-## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Copier les fichiers de l’outil de vérification des conditions préalables vers un autre ordinateur  
-
-1.  Dans l'Explorateur Windows, accédez à l'un des emplacements suivants :  
-
-    -   **&lt;Média_Installation_ConfigMgr\>\SMSSETUP\BIN\X64**  
-
-    -   **&lt;Chemin_Installation_ConfigMgr\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
 2.  Copiez les fichiers suivants vers le dossier de destination sur l'autre ordinateur :  
 
     -   Prereqchk.exe  
-
     -   Prereqcore.dll  
-
     -   Basesql.dll  
-
     -   Basesvr.dll  
-
     -   Baseutil.dll  
 
-##  <a name="run-prerequisite-checker-with-default-checks"></a>Exécuter l’outil de vérification des conditions préalables avec les vérifications par défaut  
+##  <a name="run-prerequisite-checker-with-default-checks"></a>Exécuter l’Outil de vérification des prérequis avec les vérifications par défaut  
 
-1.  Dans l'Explorateur Windows, accédez à l'un des emplacements suivants :  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
-    -   **&lt;Média_Installation_ConfigMgr\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-    -   **&lt;Chemin_Installation_ConfigMgr\>\BIN\X64**  
+2.  Exécutez **prereqchk.exe** pour démarrer l’Outil de vérification des prérequis.   
+    L’Outil de vérification des prérequis détecte les sites existants et, une fois identifiés, vérifie s'ils sont prêts pour une mise à niveau. Si aucun site n'est trouvé, toutes les vérifications sont effectuées. La colonne **Type de site** fournit des informations sur le serveur de site ou le système de site auquel la règle est associée.  
 
-2.  Exécutez **prereqchk.exe** pour démarrer l’outil de vérification des conditions préalables.   
-    L'outil de vérification des conditions préalables détecte les sites existants et, une fois identifiés, vérifie s'ils sont prêts pour une mise à niveau. Si aucun site n'est trouvé, toutes les vérifications sont effectuées. La colonne **Type de site** fournit des informations sur le serveur de site ou le système de site auquel la règle est associée.  
-
-##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Exécuter l’outil de vérification des conditions préalables à partir d’une invite de commandes pour toutes les vérifications par défaut  
-
-1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
-
-    -   **&lt;Média_Installation_ConfigMgr\>\SMSSETUP\BIN\X64**  
-
-    -   **&lt;Chemin_Installation_ConfigMgr\>\BIN\X64**  
-
-2.  Entrez  **prereqchk.exe /LOCAL** pour démarrer l’outil de vérification des conditions préalables et effectuer toutes les vérifications requises sur le serveur.  
-
-## <a name="run-prerequisite-checker-from-a-command-prompt--for-specified-options"></a>Exécuter l’outil de vérification des conditions préalables à partir d’une invite de commandes pour les options spécifiées  
+##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour toutes les vérifications par défaut  
 
 1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
-    -   **&lt;Média_Installation_ConfigMgr\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-    -   **&lt;Chemin_Installation_ConfigMgr\>\BIN\X64**  
+2.  Entrez  **prereqchk.exe /LOCAL** pour démarrer l’Outil de vérification des prérequis et effectuer toutes les vérifications des prérequis sur le serveur.  
+
+## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour utiliser des options  
+
+1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
+
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
 2.  Entrez **prereqchk.exe** en ajoutant une ou plusieurs des options de ligne de commande suivantes.  
 
-    Par exemple, pour vérifier un site principal, vous pouvez entrer la ligne de commande suivante :  
+    Par exemple, pour vérifier un site principal, vous pouvez spécifier ce qui suit :  
 
-    -   **prereqchk.exe [/NOUI] /PRI /SQL &lt;Nom de domaine complet de SQL Server\> /SDK &lt;Nom de domaine complet du fournisseur SMS\> [/JOIN &lt;Nom de domaine complet du site d’administration centrale\>] [/MP &lt;Nom de domaine complet du point de gestion\>] [/DP &lt;Nom de domaine complet du point de distribution\>]**  
+       **prereqchk.exe [/NOUI] /PRI /SQL &lt;Nom de domaine complet de SQL Server\> /SDK &lt;Nom de domaine complet du fournisseur SMS\> [/JOIN &lt;Nom de domaine complet du site d’administration centrale\>] [/MP &lt;Nom de domaine complet du point de gestion\>] [/DP &lt;Nom de domaine complet du point de distribution\>]**  
 
     **Serveur de site d’administration centrale** :  
 
     -   **/NOUI**  
 
-         Non obligatoire - Démarre l’outil de vérification des conditions préalables sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l'interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
     -   **/CAS**  
 
-         Obligatoire - Vérifie que l’ordinateur local présente la configuration requise pour le site d’administration centrale.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site d'administration centrale.  
 
     -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
+         Obligatoire. À l’aide du nom de domaine complet, vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
     -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour le fournisseur SMS.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
     -   **/Ssbport**  
 
-         Non obligatoire - Vérifie qu’une exception de pare-feu est configurée pour permettre la communication sur le port SSB. La valeur par défaut est le port numéro 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour autoriser la communication sur le port SQL Server Service Broker (SSB). Le port SSB par défaut est 4022.  
 
-    -   **Rép_Install&lt;*Chemin_Installation_ConfigMgr*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Non obligatoire - Vérifie l’espace disque minimum requis pour l’installation du site.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
     **Serveur de site principal** :  
 
     -   **/NOUI**  
 
-        Non obligatoire - Démarre l’outil de vérification des conditions préalables sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
+        Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l'interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
     -   **/PRI**  
 
-         Obligatoire - Vérifie que l’ordinateur local présente la configuration requise pour le site principal.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site principal.  
 
     -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
+         Obligatoire. Vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
     -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour le fournisseur SMS.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
     -   **/JOIN &lt;*Nom de domaine complet du site d’administration centrale*>**  
 
-         Non obligatoire - Vérifie que l’ordinateur local présente la configuration requise pour se connecter au serveur de site d’administration centrale.  
+         Non obligatoire. Vérifie que l'ordinateur local est conforme à la configuration requise pour se connecter au serveur de site d'administration centrale.  
 
     -   **/MP &lt;*Nom de domaine complet du point de gestion*>**  
 
-         Non obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour le rôle système de site de point de gestion. Cette option est prise en charge uniquement avec l’option **/PRI** .  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de gestion. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
     -   **/DP &lt;*Nom de domaine complet du point de distribution*>**  
 
-         Non obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour le rôle système de site de point de distribution. Cette option est prise en charge uniquement avec l’option **/PRI** .  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de distribution. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
     -   **/Ssbport**  
 
-         Non obligatoire - Vérifie qu’une exception de pare-feu est configurée pour permettre la communication sur le port SSB. La valeur par défaut est le port numéro 4022.  
+         Non obligatoire. Vérifie qu'une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
-    -   **Rép_Install&lt;*Chemin_Installation_ConfigMgr*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Non obligatoire - Vérifie l’espace disque minimum requis pour l’installation du site.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
     **Serveur de site secondaire** :  
 
     -   **/NOUI**  
 
-         Non obligatoire - Démarre l’outil de vérification des conditions préalables sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
     -   **/SEC &lt;*Nom de domaine complet du serveur de site secondaire*>**  
 
-         Obligatoire - Vérifie que l’ordinateur spécifié présente la configuration requise pour le site secondaire.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond aux exigences pour le site secondaire.  
 
     -   **/INSTALLSQLEXPRESS**  
 
-         Non obligatoire - Vérifie que SQL Server Express peut être installé sur l’ordinateur spécifié.  
+         Non obligatoire. Vérifie que SQL Server Express peut être installé sur l'ordinateur spécifié.  
 
     -   **/Ssbport**  
 
-         Non obligatoire -      
-        Vérifie qu'une exception de pare-feu est en place pour autoriser la communication pour le port SQL Server Service Broker (SSB). La valeur par défaut est le port numéro 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
     -   **/Sqlport**  
 
-         Non obligatoire - Vérifie qu’une exception de pare-feu est configurée pour permettre la communication pour le port de service SQL Server et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication pour le port de service SQL Server, et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
 
-    -   **Rép_Install&lt;*Chemin_Installation_ConfigMgr*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Non obligatoire - Vérifie l’espace disque minimum requis pour l’installation du site.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
     -   **/SourceDir**  
 
-         Non obligatoire - Vérifie que le compte d’ordinateur du site secondaire peut accéder au dossier hébergeant les fichiers sources d’installation.  
+         Non obligatoire. Vérifie que le compte d'ordinateur du site secondaire peut accéder au dossier qui héberge les fichiers sources d'installation.  
 
-     **Console Configuration Manager** :  
+   **Console Configuration Manager** :  
 
     -   **/Adminui**  
 
-         Obligatoire - Vérifie que l’ordinateur local présente la configuration requise pour l’installation de Configuration Manager.  
+         Obligatoire. Vérifie que l’ordinateur local présente la configuration requise pour l’installation de Configuration Manager.  
 
-3.  L’interface utilisateur de l’outil de vérification des conditions préalables affiche la liste des problèmes détectés dans la section **Résultat de la vérification de configuration requise** .  
+3.  L’interface utilisateur de l’Outil de vérification des prérequis affiche la liste des problèmes détectés dans la section **Résultat de la vérification de configuration requise** .  
 
     -   Cliquez sur un élément de la liste pour obtenir plus d'informations sur la façon de résoudre le problème.  
-
     -   Vous devez résoudre tous les éléments de la liste qui présentent un état **Erreur** avant d’installer le serveur de site, le système de site ou la console Configuration Manager.  
-
-    -   Vous pouvez également ouvrir le fichier **ConfigMgrPrereq.log** à la racine du lecteur système pour examiner les résultats de l’outil de vérification des conditions préalables. Le fichier journal peut contenir des informations supplémentaires qui ne s'affichent pas dans l'interface utilisateur.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+    -   Vous pouvez également ouvrir le fichier **ConfigMgrPrereq.log** à la racine du lecteur système pour examiner les résultats de l’Outil de vérification des prérequis. Le fichier journal peut contenir des informations supplémentaires qui ne sont pas affichées dans l’interface utilisateur de l’Outil de vérification des prérequis.  
 
