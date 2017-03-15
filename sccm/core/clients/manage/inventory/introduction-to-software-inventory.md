@@ -17,8 +17,9 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
-ms.openlocfilehash: c9956dd4ef94a1b109d761e44e42f512c42eb8d2
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: 969f2d28649853ddc95860fe72597d6d2c9a94e9
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -36,7 +37,7 @@ Une fois que l’inventaire logiciel est activé et que les clients exécutent u
 
 -   Créez des [regroupements basés sur une requête](../../../../core/clients/manage/collections/introduction-to-collections.md) qui incluent les appareils avec des fichiers spécifiés.   
 
--   [Exécutez des rapports](../../../../core/servers/manage/reporting.md) qui fournissent des détails sur les fichiers présents sur les appareils. 
+-   [Exécutez des rapports](../../../../core/servers/manage/reporting.md) qui fournissent des détails sur les fichiers présents sur les appareils.
 
 -   Utiliser l’[Explorateur de ressources](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md) pour examiner les informations détaillées sur les fichiers qui ont été inventoriés et collectés sur les appareils clients.   
 
@@ -44,27 +45,5 @@ Une fois que l’inventaire logiciel est activé et que les clients exécutent u
 
  Configuration Manager peut détecter les ordinateurs à double démarrage, mais retourne uniquement les informations d’inventaire du système d’exploitation qui était actif au moment de l’inventaire.  
 
-## <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune  
- Vous pouvez collecter un inventaire des applications installées sur des appareils mobiles. La liste des applications inventoriées varie selon que l'appareil appartient à l'entreprise ou à l'utilisateur. Pour les appareils personnels, les seules applications inventoriées sont celles qui sont gérées par Microsoft Intune.  
-
-> [!NOTE]  
->  L’inventaire sur les applications installées sur les appareils mobiles est collecté dans le cadre du processus d’[inventaire matériel](../../../../core/clients/manage/inventory/mobile-device-hardware-inventory-hybrid.md).  
-
- Voici les applications inventoriées pour les appareils personnels ou d’entreprise.  
-
-|Plate-forme|Pour les appareils personnels|Pour les appareils d’entreprise|  
-|--------------|---------------------------------|--------------------------------|  
-|Windows 10 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées| 
-|Windows 8.1 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|  
-|Windows Phone 8|Uniquement les applications gérées|Uniquement les applications gérées|  
-|Windows RT|Uniquement les applications gérées|Uniquement les applications gérées|  
-|iOS|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
-|Android|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
-
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
+**Appareils mobiles :** pour en savoir plus sur la collecte de l’inventaire des applications installées sur les appareils mobiles, voir [Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune](../../../../mdm/deploy-use/software-inventory-mobile-devices.md).
 

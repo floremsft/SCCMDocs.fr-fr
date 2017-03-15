@@ -1,8 +1,8 @@
 ---
-title: "Configurer l’inscription d’appareils | Microsoft Docs | Gestion des appareils mobiles locale"
+title: "Configurer l’inscription d’appareils | Microsoft Docs"
 description: "Accordez aux utilisateurs l’autorisation d’inscrire leurs appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
-ms.openlocfilehash: ee2bfd1b0bdd51322819cfef9fb6185642bd8796
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: 1b32d755e23e1b1db2162bb117f45791a95b139b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -35,7 +36,7 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 
 -   [Stocker le certificat racine sur les appareils à inscrire](#bkmk_storeCert)  
 
-##  <a name="a-namebkmkcreateprofa-create-an-enrollment-profile-that-allows-users-to-enroll-modern-devices"></a><a name="bkmk_createProf"></a> Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents  
+##  <a name="bkmk_createProf"></a> Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents  
  Pour transmettre en mode push les paramètres nécessaires pour permettre aux utilisateurs d’inscrire des appareils récents, vous pouvez ajouter un nouveau profil d’inscription aux paramètres client par défaut, qui est appliqué à tous les utilisateurs détectés dans le site Configuration Manager.  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**, ouvrez **Paramètres client par défaut**, puis sélectionnez **Inscription**.  
@@ -51,7 +52,7 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 > [!NOTE]  
 >  Si vous souhaitez déployer le profil d’inscription vers une partie des utilisateurs découverts, vous pouvez utiliser un regroupement d’utilisateurs et créer des paramètres client personnalisés à déployer dans ce regroupement. Pour plus d’informations sur la création de paramètres client personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
-##  <a name="a-namebkmkaddclienta-set-up-additional-client-settings-for-enrolled-devices"></a><a name="bkmk_addClient"></a> Définir des paramètres du client supplémentaires pour des périphériques inscrits  
+##  <a name="bkmk_addClient"></a> Définir des paramètres du client supplémentaires pour des périphériques inscrits  
  En plus de définir le profil d’inscription pour des périphériques modernes, vous pouvez définir des paramètres du client supplémentaires pour la configuration de périphériques quand ils sont inscrits.  Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
  Tous les paramètres client ne sont pas disponibles pour la gestion des appareils mobiles locale. La version Current Branch de Configuration Manager prend en charge les paramètres client suivants pour la gestion des appareils mobiles locale :  
@@ -65,10 +66,10 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
     > [!NOTE]  
     >  Pour la gestion des appareils mobiles locale, les paramètres de déploiement de logiciels peuvent uniquement servir comme paramètres client par défaut. Vous ne pouvez pas utiliser les paramètres de déploiement de logiciels avec des paramètres client personnalisés dans la version Current Branch de Configuration Manager.  
 
-##  <a name="a-namebkmkenableusersa-enable-users-to-receive-the-modern-device-enrollment-profile"></a><a name="bkmk_enableUsers"></a> Permettre aux utilisateurs de recevoir le profil d’inscription des appareils récents  
+##  <a name="bkmk_enableUsers"></a> Permettre aux utilisateurs de recevoir le profil d’inscription des appareils récents  
  Pour que les utilisateurs reçoivent les paramètres client modifiés avec le profil d’inscription pour la gestion des appareils mobiles locale, ils doivent être découverts par le biais de la méthode de découverte Active Directory. Pour vous assurer que toute personne ayant besoin du profil d’inscription l’obtient, exécutez la découverte des utilisateurs Active Directory. Pour obtenir des instructions sur la façon de découvrir des utilisateurs, consultez [Exécuter la découverte pour System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
 
-##  <a name="a-namebkmkstorecerta-store-the-root-certificate-on-devices-to-be-enrolled"></a><a name="bkmk_storeCert"></a> Stocker le certificat racine sur les appareils à inscrire  
+##  <a name="bkmk_storeCert"></a> Stocker le certificat racine sur les appareils à inscrire  
  Les utilisateurs d’appareils appartenant à un domaine auront probablement déjà le certificat racine requis pour établir des communications fiables avec les serveurs hébergeant les rôles de système de site, car la racine a été émise dans le cadre du processus de jonction de domaine Active Directory. Vous devez installer manuellement le certificat racine sur les ordinateurs et les appareils mobiles qui ne sont pas joints à un domaine pour que l’inscription ait lieu. Ces appareils n’auront pas automatiquement le certificat racine nécessaire.  
 
  Vous devez fournir le fichier de certificat exporté à l’appareil pour l’installation manuelle via e-mail, OneDrive, carte SD, clé USB ou toute autre méthode qui répond le mieux à vos besoins.  
@@ -88,9 +89,4 @@ Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des
 6.  Cliquez sur **Autorités de certification racine de confiance**, sur **OK**, puis sur **Suivant**.  
 
 7.  Cliquez sur **Terminer**.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

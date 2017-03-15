@@ -2,7 +2,7 @@
 title: "Conditions générales de System Center Configuration Manager | Microsoft Docs"
 description: "Déployez les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,13 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 2f8b14bef14d82584fd2bf6cdd05018bdd463ce4
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: d8235db376fc62a7ac00d6e5a27823710630eca6
+ms.lasthandoff: 03/06/2017
 
 
 ---
-# <a name="terms-and-conditions-in-system-center-configuration-manager"></a>Conditions générales de System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Ajouter des conditions générales dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -120,8 +121,6 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
      Nous vous recommandons d’incrémenter le numéro de version et d’exiger l’acceptation chaque fois que vous apportez des modifications majeures à vos conditions générales. Conservez le numéro de version actuel si vous corrigez des fautes de frappe ou si vous modifiez la mise en forme, par exemple.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+> [!div class="button"]
+ [< Étape précédente](configure-intune-subscription.md) [Étape suivante >](create-service-connection-point.md)
 

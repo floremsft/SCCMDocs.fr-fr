@@ -1,8 +1,8 @@
 ---
-title: Configurer des certificats | Microsoft Docs | Gestion des appareils mobiles locale
+title: "Configurer des certificats | Microsoft Docs"
 description: "Configurez des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
-ms.openlocfilehash: d7aaad9298308b588f1bc13027082bf07066a3c2
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: ef35e98ccae0c708cd12767eef9f923f211849fb
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -49,7 +50,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 -   [Exporter le certificat ayant la même racine que le certificat de serveur web](#bkmk_exportCert)  
 
-##  <a name="a-namebkmkconfigcaa-configure-the-certification-authority-ca-for-crl-publishing"></a><a name="bkmk_configCa"></a> Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats  
+##  <a name="bkmk_configCa"></a> Configurer l’autorité de certification (AC) pour la publication de listes de révocation de certificats  
  Par défaut, l’autorité de certification (AC) utilise des listes de révocation de certificats (CRL) LDAP qui autorisent les connexions pour des appareils joints au domaine. Vous devez ajouter des listes de révocation de certificats basées sur HTTP à l’autorité de certification pour permettre que des appareils non joints au domaine soient approuvés avec des certificats émis par l’autorité de certification. Ces certificats sont nécessaires aux communications SSL entre les serveurs hébergeant les rôles de système de site Configuration Manager et les appareils inscrits pour la gestion des appareils mobiles locale.  
 
  Procédez de la manière décrite ci-dessous pour configurer l’autorité de certification afin qu’elle publie automatiquement les informations de liste de révocation de certificats pour l’émission de certificats qui autorisent des connexions approuvées pour des appareils joints et non joints au domaine :  
@@ -76,7 +77,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 8.  Dans la boîte de dialogue Publier la liste de révocation de certificats, sélectionnez **Liste de révocation de certificats delta uniquement**, puis cliquez sur **OK**.  
 
-##  <a name="a-namebkmkcerttempla-create-the-web-server-certificate-template-on-the-ca"></a><a name="bkmk_certTempl"></a> Créer le modèle de certificat de serveur web sur l’autorité de certification  
+##  <a name="bkmk_certTempl"></a> Créer le modèle de certificat de serveur web sur l’autorité de certification  
  Après publication de la nouvelle liste de révocation de certificats sur l’autorité de certification, l’étape suivante consiste à créer un modèle de certificat de serveur web. Ce modèle est requis pour émettre des certificats pour les serveurs hébergeant les rôles système de site point d’inscription, point proxy d’inscription, point de distribution et point de gestion d’appareil. Ces serveurs sont des points de terminaison SSL pour les communications approuvées entre les rôles système de site et les appareils inscrits.    Procédez de la manière décrite ci-dessous pour créer le modèle de certificat :  
 
 1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr MDM**, contenant les serveurs exécutant les systèmes de site qui nécessitent des communications approuvées avec les appareils inscrits.  
@@ -113,7 +114,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 12. Dans la boîte de dialogue **Activer les modèles de certificat**, sélectionnez le modèle que vous venez de créer, **Serveur web ConfigMgr MDM**, puis cliquez sur **OK**.  
 
-##  <a name="a-namebkmkrequestcerta-request-the-web-server-certificate-for-each-site-system-role"></a><a name="bkmk_requestCert"></a> Demander le certificat de serveur web pour chaque rôle de système de site  
+##  <a name="bkmk_requestCert"></a> Demander le certificat de serveur web pour chaque rôle de système de site  
  Les appareils inscrits pour la gestion des appareils mobiles locale doivent approuver les points de terminaison SSL hébergeant le point d’inscription, le point proxy d’inscription, le point de distribution et le point de gestion d’appareil.  Les étapes ci-dessous décrivent comment demander le certificat de serveur web pour IIS. Vous devez faire cela pour chaque serveur (point de terminaison SSL) hébergeant l’un des rôles de système de site nécessaires à la gestion des appareils mobiles locale.  
 
 1.  Sur le serveur de site principal, ouvrez une invite de commandes avec des droits d’administrateur, tapez **MMC** et appuyez sur **Entrée**.  
@@ -132,7 +133,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
  Étant donné que chaque serveur a besoin d’un certificat de serveur web unique, vous devez répéter ce processus pour chaque serveur hébergeant l’un des rôles de système de site nécessaire à la gestion des appareils mobiles locale.  Si un serveur héberge tous les rôles système de site, vous ne devez demander qu’un seul certificat de serveur web.  
 
-##  <a name="a-namebkmkbindcerta-bind-the-certificate-to-the-web-server"></a><a name="bkmk_bindCert"></a> Lier le certificat au serveur web  
+##  <a name="bkmk_bindCert"></a> Lier le certificat au serveur web  
  Le nouveau certificat doit maintenant être lié au serveur web de chaque serveur de système de site hébergeant les rôles de système de site nécessaires à la gestion des appareils mobiles locale. Procédez de la manière décrite ci-dessous pour chaque serveur hébergeant les rôles système de site point d’inscription et point proxy d’inscription. Si un serveur héberge tous les rôles système de site, vous ne devez suivre ces étapes qu’une seule fois. Vous n’avez pas à effectuer cette tâche pour les rôles système de site point de distribution et point de gestion d’appareil, car ils reçoivent automatiquement le certificat requis lors de l’inscription.  
 
 1.  Sur le serveur hébergeant le point d’inscription, le point proxy d’inscription, le point de distribution ou le point de gestion d’appareil, cliquez sur **Démarrer** > **Outils d’administration** > **Gestionnaire des services Internet**.  
@@ -145,7 +146,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 5.  Dans la console Gestionnaire des services Internet, sous Connexions, sélectionnez le serveur web et, dans le volet Actions à droite, cliquez sur **Redémarrer**.  
 
-##  <a name="a-namebkmkexportcerta-export-the-certificate-with-the-same-root-as-the-web-server-certificate"></a><a name="bkmk_exportCert"></a> Exporter le certificat ayant la même racine que le certificat de serveur web  
+##  <a name="bkmk_exportCert"></a> Exporter le certificat ayant la même racine que le certificat de serveur web  
  Les Services de certificats Active Directory installent généralement le certificat requis de l’autorité de certification sur tous les appareils joints au domaine. En revanche, les appareils non joints au domaine ne sont pas en mesure de communiquer avec les rôles système de site sans certificat de l’autorité de certification racine. Pour obtenir le certificat requis pour que les appareils puissent communiquer avec les rôles système de site, vous pouvez l’exporter à partir du certificat lié au serveur web.  
 
  Pour exporter le certificat racine du certificat du serveur web, procédez comme suit.  
@@ -171,9 +172,4 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
      Cliquez sur **Suivant**.  
 
 9. Vérifiez les paramètres, puis cliquez sur **Terminer**.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

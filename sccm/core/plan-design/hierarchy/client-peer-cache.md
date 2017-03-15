@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2dd898c9b022c6f0bc243623835af0eece94128f
-ms.openlocfilehash: 95d1671501f672e1d5abe3f0fbbd7d2dfb21e0a3
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: 895b8ae58a9fda3fd22f58d77129053df09c4ccb
+ms.lasthandoff: 03/04/2017
 
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache d’homologue pour les clients Configuration Manager
@@ -28,7 +29,7 @@ ms.openlocfilehash: 95d1671501f672e1d5abe3f0fbbd7d2dfb21e0a3
 À compter de System Center Configuration Manager version 1610, vous pouvez utiliser le **cache d’homologue** pour faciliter la gestion du déploiement de contenu sur des clients dans des emplacements distants. Le cache d’homologue est une solution Configuration Manager intégrée qui permet aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local.   
 
 > [!TIP]  
-> Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+> Depuis la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
  -     Vous utilisez des paramètres du client pour permettre aux clients d’utiliser le cache d’homologue.
  -     Pour partager du contenu, les clients du cache d’homologue doivent être membres du groupe de limites actuel du client qui recherche le contenu. Les clients du cache d’homologue dans les groupes de limites voisins ne sont pas inclus dans le pool des emplacements sources de contenu disponibles quand un client utilise une action de secours pour rechercher du contenu à partir d’un groupe de limites voisin. Pour plus d’informations sur les groupes de limites actuels et voisins, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
@@ -66,9 +67,4 @@ Pour vous aider à comprendre l’utilisation du cache d’homologue, vous pouve
   -  **Port pour le téléchargement de contenu à partir d’un homologue (HTTP/HTTPS)**
 
 Sur chaque ordinateur activé pour le cache d’homologue, si le Pare-feu Windows est en cours d’utilisation, Configuration Manager le configure pour autoriser l’utilisation des ports que vous configurez.
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

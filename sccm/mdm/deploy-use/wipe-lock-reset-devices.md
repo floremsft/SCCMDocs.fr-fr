@@ -2,7 +2,7 @@
 title: "Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager | Microsoft Docs"
 description: "Protégez les données des appareils à l’aide de la réinitialisation complète, de la réinitialisation sélective, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
-ms.openlocfilehash: d3dd55b496a124c478f1cf2880a096e2fbdd9145
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: 3aa4c2ad3568cc6ced70a65141a2c103af8b740f
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
@@ -241,12 +242,6 @@ Configuration Manager propose des fonctionnalités de réinitialisation sélecti
 
 3.  Cliquez sur **Actions de l'appareil à distance** dans le **Groupe d'appareils**, puis sélectionnez **Afficher l'état du verrouillage à distance**.  
 
-## <a name="see-also"></a>Voir aussi  
- [réinitialisation sélective de Windows pour la gestion des données d'appareil](http://technet.microsoft.com/library/dn486874.aspx)   
- [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../mdm/understand/hybrid-mobile-device-management.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+### <a name="see-also"></a>Voir aussi  
+ [Réinitialisation sélective de Windows pour la gestion des données d’appareil](http://technet.microsoft.com/library/dn486874.aspx)   
 

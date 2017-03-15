@@ -2,7 +2,7 @@
 title: "Référence des tâches de maintenance | Microsoft Docs"
 description: "Lisez les détails de chaque tâche de maintenance de site de System Center Configuration Manager, et déterminez si ces tâches sont activées par défaut."
 ms.custom: na
-ms.date: 2/7/2017
+ms.date: 3/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6e19d1239cb61b570203fdd13563d5f8c5afc6ad
-ms.openlocfilehash: d2e53e7c0cd0dd1a97d3620a14a15369e1d7e0ec
+ms.sourcegitcommit: dcbcd57b95f304f007e92ebe2b9aeefb4b579662
+ms.openlocfilehash: 92d3c215569916a5557309d7f488aa88f387da92
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -52,6 +53,11 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site principal ** : activé    
 -   Site secondaire : non disponible  
 
+**Supprimer l’historique de téléchargement de clients anciens** : utilisez cette tâche pour supprimer les données historiques relatives à la source de téléchargement utilisée par les clients. Les informations relatives à la source du téléchargement permettent de remplir le [tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).  
+-  Site d’administration centrale : non disponible
+-     **Site principal ** - Activée
+-  Site secondaire - Non disponible
+
 **Supprimer les anciennes opérations des clients** : cette tâche permet de supprimer de la base de données de site toutes les anciennes données pour les opérations des clients. Cela comprend par exemple les données pour les notifications des clients anciennes ou ayant expiré (comme les demandes de téléchargement pour les stratégies utilisateur ou ordinateur) et pour Endpoint Protection (comme les demandes effectuées par un utilisateur administratif pour que les clients exécutent une analyse ou téléchargent des définitions mises à jour).
 
 -   **Site d’administration centrale** : activé    
@@ -63,6 +69,12 @@ Cette rubrique répertorie les détails de chaque tâche de maintenance de site 
 -   **Site d’administration centrale** : activé   
 -   **Site principal ** : activé    
 -   Site secondaire : non disponible  
+
+**Supprimer les anciennes données de trafic de la passerelle de gestion cloud** : cette tâche permet de supprimer toutes les anciennes données sur le trafic de la base de données du site qui transite via la [passerelle de gestion cloud](/sccm/core/clients/manage/plan-cloud-management-gateway). Cela inclut par exemple les données sur le nombre de demandes, le nombre total d’octets des demandes et des réponses, ainsi que le nombre de demandes ayant échoué et le nombre maximum de demandes simultanées.  
+- **Site d’administration centrale** - Activée
+- **Site principal ** - Activée
+- Site secondaire - Non disponible
+
 
 **Supprimer les fichiers collectés anciens** : cette tâche permet de supprimer de la base de données d’anciennes informations sur les fichiers collectés. Cette tâche supprime également les fichiers collectés à partir de la structure de dossier du serveur de site sur le site sélectionné. Par défaut, les cinq copies les plus récentes des fichiers collectés sont stockées sur le serveur de site dans le répertoire **Inboxes\sinv.box\FileCol**. Pour plus d’informations, consultez [Présentation de l’inventaire logiciel dans System Center Configuration Manager](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
 
@@ -227,6 +239,11 @@ Cette tâche ne fonctionne que sur les ressources qui des clients Configuration 
 -   **Site principal ** : activé    
 -   Site secondaire : non disponible  
 
+**Supprimer les enregistrements d’état du déploiement des clients orphelins** : cette tâche permet de purger régulièrement la table qui contient les informations sur l’état du déploiement d’un client. Cette tâche nettoie les enregistrements associés aux appareils obsolètes ou désactivés.  
+-   **Site d’administration centrale** : activé    
+-   **Site principal ** : activé    
+-   Site secondaire : non disponible 
+
 **Supprimer les révisions d’application inutilisées** : cette tâche permet de supprimer les révisions d’application qui ne sont plus référencées. Pour plus d’informations, consultez [Comment modifier et remplacer des applications dans System Center Configuration Manager](../../../apps/deploy-use/revise-and-supersede-applications.md).  
 
 -   Site d’administration centrale : non disponible    
@@ -288,9 +305,4 @@ Ces mappages sont stockés dans une table à des fins de référence rapide. Qua
 -   Site d’administration centrale : non disponible    
 -   **Site principal ** : activé    
 -   Site secondaire : non disponible  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

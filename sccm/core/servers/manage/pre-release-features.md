@@ -1,0 +1,58 @@
+---
+title: "Fonctionnalités en préversion| Microsoft Docs"
+description: "Fonctionnalités en préversion dans System Center Configuration Manager"
+ms.custom: na
+ms.date: 3/27/2017
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-other
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 6bce416b-761d-4b23-bd33-5b7c30edb10d
+caps.latest.revision: 36
+author: Brenduns
+ms.author: brenduns
+manager: angrobe
+translationtype: Human Translation
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: c164ae7ca17a3a7d96b010f41b5ecf72ab34976b
+ms.lasthandoff: 03/04/2017
+
+
+---
+# <a name="pre-release-feaures-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
+*S’applique à : System Center Configuration Manager (Current Branch)*
+
+ Les fonctionnalités en préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités peuvent être utilisées dans un environnement de production, mais ne sont pas prêtes pour la production.
+
+ Pour pouvoir sélectionner et utiliser ces fonctions, vous devez d’abord donner votre consentement via la console Configuration Manager.  
+
+Le consentement est une action à effectuer une seule fois par hiérarchie ; elle ne peut pas être annulée. Tant que vous n’avez pas accepté de les utiliser, vous ne pouvez pas activer les fonctions en préversion incluses avec les mises à jour.
+
+Pour donner votre consentement, accédez à la console, sélectionnez **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**. Sous l’onglet **Général**, choisissez **Accepter d’utiliser les fonctionnalités en préversion**.
+
+ > [!NOTE]
+ > Si vous avez activé des fonctionnalités en préversion à compter de la mise à jour 1602 avant d’installer une mise à jour ultérieure, ces fonctionnalités restent activées, même si vous ne donnez pas votre consentement pour utiliser les fonctionnalités en préversion.
+
+Lorsque vous installez une mise à jour qui comprend des fonctionnalités de préversion, ces dernières sont affichées dans l’Assistant Maintenance et mises à jour, avec les fonctionnalités standard incluses dans la mise à jour :
+  - **Si vous avez donné votre consentement :** vous pouvez activer les fonctionnalités à partir de l’Assistant Maintenance et mises à jour quand vous installez la mise à jour. Pour ce faire, sélectionnez les fonctionnalités de préversion, comme vous le feriez pour toute autre fonctionnalité.     
+
+    Si vous le souhaitez, vous pouvez attendre pour activer une fonctionnalité en préversion par la suite à partir du nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** > **Fonctionnalités** de la console. Dans le nœud **Fonctionnalités**, sélectionnez la fonctionnalité, puis choisissez **Activer**. (Cette option est grisée jusqu’à ce que vous donniez votre consentement.)  
+  -   **Si vous n’avez pas donné votre consentement :** lorsque vous installez une mise à jour, les fonctionnalités en préversion sont visibles dans l’Assistant Mises à jour et maintenance, mais elles sont grisées et ne peuvent pas être activées. Après l’installation de la mise à jour, vous pouvez afficher ces fonctionnalités dans le nœud **Fonctionnalités**, mais vous ne pouvez pas les activer tant que vous n’avez pas donné votre consentement dans **Paramètres de hiérarchie**.
+
+Si vous avez donné votre consentement sur un site principal autonome, et si vous développez ensuite la hiérarchie en installant un nouveau site d’administration centrale, vous devez redonner votre consentement sur ce dernier.
+
+**Les fonctionnalités en préversion disponibles sont les suivantes** :
+
+ |Fonctionnalité          |Ajoutée en préversion | Ajoutée en version complète|  
+|------------------|---------------------|---------------------|
+| Point de service de l’entrepôt de données  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Cache d’homologue pour la distribution de contenu aux clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Passerelle de gestion cloud |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Tableau de bord Sources de données du client |  [Version 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Connecteur Microsoft Operations Management Suite  | [Version 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Maintenance d’un regroupement prenant en charge les clusters (maintenance d’un groupe de serveurs)| [Version 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+|Accès conditionnel pour les PC gérés par System Center Configuration Manager | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)                        |
+

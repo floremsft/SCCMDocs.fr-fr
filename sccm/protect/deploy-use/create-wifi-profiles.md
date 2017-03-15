@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 321b19b2-a093-4b8f-995f-41f74b886eb5
 caps.latest.revision: 13
 caps.handback.revision: 0
-author: Nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
-ms.openlocfilehash: 7d42ec89300d4eb6b02bafb3f83d341f8e3ca0c0
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: f1ae976899de1fd3efcbde0c7268f071a5d0218b
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -39,15 +40,9 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
 
 -   Appareils qui exécutent Windows RT 8.1  
 
--   Appareils qui exécutent Windows Phone 8.1  
-
 -   Appareils qui exécutent Windows 10 Desktop ou Mobile  
 
--   Appareils IPhone qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
-
--   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
-
--   Appareils Android qui exécutent la version 4 ou ultérieure
+La section relative à la [création de profils Wi-Fi pour les appareils mobiles](../../mdm/deploy-use/create-wifi-profiles.md) fournit des informations sur l’utilisation des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs d’appareils mobiles.
 
 > [!IMPORTANT]  
 >  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
@@ -92,7 +87,7 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
     >  Types de sécurité : **WPA2-Entreprise** ou **WPA2-Personnel**  
     > Types de chiffrement : **AES** ou **TKIP**  
     > Types EAP : **Carte à puce ou autre certificat** ou **PEAP**  
-  
+
     > Pour les appareils Android, les types de sécurité **WPA - Personnel**, **WPA2 - Personnel** et **WEP** ne sont pas pris en charge.  
 
 2.  sélectionnez la méthode de chiffrement utilisée par le réseau sans fil.  
@@ -133,9 +128,4 @@ Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déploy
 
 ### <a name="next-steps"></a>Étapes suivantes
  Pour plus d’informations sur le déploiement du profil Wi-Fi, consultez [Comment déployer des profils Wi-Fi dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

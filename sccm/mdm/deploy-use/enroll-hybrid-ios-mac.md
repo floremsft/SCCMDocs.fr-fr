@@ -2,7 +2,7 @@
 title: Configurer la gestion des appareils iOS et Mac hybride avec System Center Configuration Manager et Microsoft Intune | Microsoft Docs
 description: Configurez la gestion des appareils iOS avec System Center Configuration Manager et Microsoft Intune.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 74c75653e69154ced18d5bc713b1d9b89e88ae64
+ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
+ms.openlocfilehash: 2288be606d7d586de5dc18d640f295e823daf266
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -68,8 +69,6 @@ Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’ap
 
  Une fois la configuration effectuée, vous devez faire savoir aux utilisateurs comment inscrire leurs appareils. Consultez [Ce qu’il faut dire aux utilisateurs sur l’inscription de leurs appareils](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Ces informations s’appliquent aux appareils mobiles gérés par Microsoft Intune et Configuration Manager.
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+ > [!div class="button"]
+ [< Étape précédente](create-service-connection-point.md) [Étape suivante >](set-up-additional-management.md)
 
