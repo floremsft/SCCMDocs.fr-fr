@@ -2,7 +2,7 @@
 title: Point de distribution cloud | Microsoft Docs
 description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution cloud avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/24/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3eab8e62ace29c0fcb24d47ec7e398d807347a38
-ms.openlocfilehash: a1d701c77afb4d6317d8a137fdf46422063df085
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: 489f38d3f88391e42b5271c03151203d22b26d9e
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -63,7 +63,7 @@ Les points de distribution cloud offrent les autres avantages suivants :
 
 Un point de distribution cloud présente les limitations suivantes :  
 
--  Avant d’utiliser la version 1610 avec le correctif KB4010155, vous ne pouvez pas utiliser un point de distribution cloud pour héberger des packages de mises à jour logicielles. La prochaine version Current Branch après la version 1610 prendra en charge cette option sans qu’il soit nécessaire d’installer ce correctif.  
+-  Avant d’utiliser la version 1610 avec le correctif KB4010155, vous ne pouvez pas utiliser un point de distribution cloud pour héberger des packages de mises à jour logicielles. Ce problème est résolu dans la version 1702 et les versions ultérieures.  
 
 -   Vous ne pouvez pas utiliser un point de distribution cloud pour PXE ou les déploiements en multidiffusion.  
 

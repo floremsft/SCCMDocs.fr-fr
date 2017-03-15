@@ -2,7 +2,7 @@
 title: "Mises à jour dans la console | Microsoft Docs"
 description: "System Center Configuration Manager se synchronise avec le cloud Microsoft pour obtenir les mises à jour que vous pouvez installer dans la console."
 ms.custom: na
-ms.date: 2/23/2017
+ms.date: 3/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: a0d4eb601948aa3abb12409f3475d69cacf4a6aa
-ms.openlocfilehash: a2bf28c724f8e07f32a30ab5e0b832b46cf362bb
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
+ms.openlocfilehash: eafa95922485066632a5da522e6c3de69b45050f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -33,7 +33,7 @@ Seules les mises à jour qui s’appliquent à votre infrastructure et à votre 
 
 -   En **mode en ligne**, le point de connexion de service se connecte automatiquement au service cloud Microsoft et télécharge les mises à jour applicables.  
 
-     Par défaut, Configuration Manager vérifie la disponibilité de nouvelles mises à jour toutes les 24 heures. À compter de la version 1602, vous pouvez également rechercher des mises à jour immédiatement en choisissant **Rechercher les mises à jour** dans le nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** de la console Configuration Manager.  
+     Par défaut, Configuration Manager vérifie la disponibilité de nouvelles mises à jour toutes les 24 heures. Vous pouvez également rechercher des mises à jour immédiatement en choisissant **Rechercher les mises à jour** dans le nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** de la console Configuration Manager.  
 
 -   En **mode hors connexion**, le point de connexion de service ne se connecte pas au service cloud Microsoft. Vous devez manuellement [utiliser l’outil de connexion de service pour System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md) pour télécharger et importer les mises à jour disponibles.  
 
@@ -44,7 +44,7 @@ Une fois les mises à jour synchronisées, vous pouvez les afficher dans la cons
 
 -   Les mises à jour que vous n’avez pas installées apparaissent **Disponibles**.
 
--   Les mises à jour que vous avez installées apparaissent **Installées**.  À compter de la version 1606, seule la mise à jour installée le plus récemment s’affiche. Vous pouvez choisir le bouton **Historique** sur le ruban pour afficher les mises à jour installées précédemment.
+-   Les mises à jour que vous avez installées apparaissent **Installées**.  Seule la mise à jour installée le plus récemment s’affiche. Vous pouvez choisir le bouton **Historique** sur le ruban pour afficher les mises à jour installées précédemment.
 
 
 
@@ -61,7 +61,7 @@ Pour mieux comprendre ce qui se passe quand des mises à jour sont téléchargé
 -   [Organigramme - Réplication des mises à jour pour System Center Configuration Manager](../../../core/servers/manage/update-replication-flowchart.md)  
 
 ## <a name="assign-permissions-to-view-and-manage-updates-and-features"></a>Attribuer les autorisations d’afficher et de gérer les mises à jour et les fonctionnalités
-Avant d’installer la mise à jour 1606, pour pouvoir afficher les mises à jour sur la console, un utilisateur doit avoir un rôle de sécurité incluant l’autorisation **Lecture** dans le groupe d’autorisations **Site**, et l’étendue de sécurité **Tous**. À compter de la mise à jour 1606, une classe de sécurité d’administration basée sur les rôles, nommée **Packages de mise à jour**, accorde l’autorisation d’afficher et de gérer les mises à jour dans la console Configuration Manager.    
+Pour qu’un utilisateur puisse afficher les mises à jour dans la console, un rôle de sécurité d’administration incluant la classe de sécurité nommée **Packages de mise à jour** doit lui être affecté. Cette classe accorde l’autorisation d’afficher et de gérer les mises à jour dans la console Configuration Manager.    
 
 **À propos de la classe Packages de mise à jour :**  
 Par défaut, **Packages de mise à jour** (SMS_CM_Updatepackages) fait partie des rôles de sécurité intégrés suivants avec les autorisations répertoriées :
@@ -95,13 +95,10 @@ Par défaut, **Packages de mise à jour** (SMS_CM_Updatepackages) fait partie de
 ###  <a name="bkmk_step1"></a> Étape 1 : consulter la liste de contrôle de mise à jour  
 Passez en revue la liste de contrôle de mise à jour applicable pour connaître les actions à entreprendre avant de lancer la mise à jour :
 
--   Mise à niveau vers la version 1511 :consultez [Mettre à niveau vers System Center Configuration Manager](../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).    
+- Mise à jour vers la version 1606 : consultez [Liste de contrôle pour l’installation de la mise à jour 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
 
--   Mise à jour de la version 1511 vers la version 1602 : consultez [Liste de contrôle pour l’installation de la mise à jour 1602](../../../core/servers/manage/checklist-for-installing-update-1602.md).
-
-- Mise à jour de la version 1511 ou 1602 vers la version 1606 : consultez [Liste de contrôle pour l’installation de la mise à jour 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
-
-- Mise à jour de la version 1511, 1602 ou 1606 vers la version 1610 : consultez [Liste de contrôle pour l’installation de la mise à jour 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+- Mise à jour de la version 1606 vers la version 1610 : consultez [Liste de contrôle pour l’installation de la mise à jour 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+<!--- Update to 1702 from either 1606 or 1610: See [Checklist for installing update 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md). -->  
 
 ###  <a name="bkmk_step2"></a> Étape 2 : tester la mise à niveau de base de données avant d’installer une mise à jour  
 Les informations de cette étape s’appliquent uniquement à l’installation d’une *mise à jour* pour un site System Center Configuration Manager. Si vous effectuez une *mise à niveau* d’un site System Center 2012 Configuration Manager vers System Center Configuration Manager, consultez [Tester la mise à niveau de base de données de site](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager#a-namebkmktesta-test-the-site-database-upgrade).
@@ -172,7 +169,7 @@ Par la suite, lorsque vous installez la mise à jour, vous pouvez configurer la 
 
 -   Quand vous utilisez une console Configuration Manager, vous êtes invité à mettre à jour la console après la mise à jour du site.  
 
--  Après avoir mené à bien l’installation d’une mise à jour, le serveur de site met automatiquement à jour tous les rôles de système de site applicables.  Le seul inconvénient concerne les points de distribution. Quand vous installez une mise à jour sur un site qui exécute déjà la version 1606 ou une version ultérieure, l’ensemble des points de distribution ne se mettent plus en mode hors connexion pour se mettre à jour en même temps. Au lieu de cela, le serveur de site utilise les paramètres de distribution de contenu du site pour distribuer la mise à jour à un sous-ensemble de points de distribution à la fois. Résultat : seuls certains points de distribution passent en mode hors connexion pour l’installation de la mise à jour. Ainsi, les points de distribution dont la mise à jour n’a pas encore commencé ou est terminée restent en ligne et peuvent fournir du contenu aux clients.
+-  Après avoir mené à bien l’installation d’une mise à jour, le serveur de site met automatiquement à jour tous les rôles de système de site applicables.  Le seul inconvénient concerne les points de distribution. Lors de l’installation d’une mise à jour, tous les points de distribution ne sont pas réinstallés et mis hors connexion pour être mis à jour simultanément. Au lieu de cela, le serveur de site utilise les paramètres de distribution de contenu du site pour distribuer la mise à jour à un sous-ensemble de points de distribution à la fois. Résultat : seuls certains points de distribution passent en mode hors connexion pour l’installation de la mise à jour. Ainsi, les points de distribution dont la mise à jour n’a pas encore commencé ou est terminée restent en ligne et peuvent fournir du contenu aux clients.
 
 
 ###  <a name="bkmk_overview"></a> Vue d’ensemble de l’installation d’une mise à jour dans la console  
@@ -185,7 +182,7 @@ L’Assistant Mises à jour affiche la liste des zones de produit auxquelles s�
     -   Des avertissements de configuration requise peuvent également bloquer l’installation de la mise à jour. Vous devez corriger les avertissements avant de réessayer d’installer la mise à jour. Pour plus d’informations, consultez [Nouvelle tentative d’installation d’une mise à jour ayant échoué](#bkmk_retry) .  
     -   L’option **Ignorer les avertissements relatifs aux conditions requises et installer cette mise à jour sans tenir compte des manquements à la configuration requise** définit une condition pour l’installation de la mise à jour qui ignore les avertissements relatifs aux prérequis. Cela permet de poursuivre l’installation de la mise à jour. Si vous ne sélectionnez pas cette option, l’installation de la mise à jour s’arrête en cas d’avertissement. Si vous n’avez pas exécuté la vérification des prérequis et corrigé les avertissements relatifs aux prérequis pour un site, nous vous déconseillons d’utiliser cette option.  
 
-      À compter de la version 1606, dans les espaces de travail **Administration** et **Surveillance**, le nœud Mises à jour et maintenance comprend un bouton sur le ruban nommé **Ignorer les avertissements de configuration requise**. Ce bouton devient disponible quand l’installation d’un package de mise à jour n’arrive pas à terme en raison d’avertissements de vérification des prérequis. Par exemple, si vous installez une mise à jour sans utiliser l’option Ignorer les avertissements de configuration requise (dans l’Assistant Mises à jour) et que l’installation de la mise à jour s’arrête avec un état d’avertissement de configuration requise mais sans erreur, vous pouvez ultérieurement choisir **Ignorer les avertissements de configuration requise** dans le ruban pour déclencher la poursuite automatique de cette installation de mise à jour qui ignorera ensuite les avertissements relatifs aux prérequis. Quand vous utilisez cette option, l’installation de la mise à jour se poursuit automatiquement après quelques minutes.
+      Dans les espaces de travail **Administration** et **Surveillance**, le nœud Mises à jour et maintenance affiche un bouton **Ignorer les avertissements de configuration requise** sur le ruban. Ce bouton devient disponible quand l’installation d’un package de mise à jour n’arrive pas à terme en raison d’avertissements de vérification des prérequis. Par exemple, si vous installez une mise à jour sans utiliser l’option Ignorer les avertissements de configuration requise (dans l’Assistant Mises à jour) et que l’installation de la mise à jour s’arrête avec un état d’avertissement de configuration requise mais sans erreur, vous pouvez ultérieurement choisir **Ignorer les avertissements de configuration requise** dans le ruban pour déclencher la poursuite automatique de cette installation de mise à jour qui ignorera ensuite les avertissements relatifs aux prérequis. Quand vous utilisez cette option, l’installation de la mise à jour se poursuit automatiquement après quelques minutes.
 
 
 
@@ -211,7 +208,7 @@ Pour surveiller l’état d’avancement, procédez comme suit :
 
 -   Dans la console Configuration Manager, accédez au nœud **Administration** > **Vue d’ensemble** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation uniquement du package de mise à jour en cours d’installation.  
 
-    À compter de la version 1606, l’installation du pack de mise à jour est décomposée selon les phases suivantes pour faciliter la surveillance. Pour chaque phase, des détails supplémentaires indiquent le fichier journal à consulter pour obtenir plus d’informations :  
+  L’installation du pack de mise à jour est décomposée selon les phases suivantes pour faciliter la surveillance. Pour chaque phase, des détails supplémentaires indiquent le fichier journal à consulter pour obtenir plus d’informations :  
     -   **Téléchargement** (cette phase s’applique uniquement au site de niveau supérieur où est installé le rôle de système de site de point de connexion de service)
     -   **Réplication**
     -   **Vérification des prérequis**
@@ -323,36 +320,7 @@ Pour afficher les fonctionnalités disponibles et leur état, dans la console, a
 Quand une fonctionnalité n’est pas facultative, elle est installée automatiquement et n’apparaît pas dans le nœud **Fonctionnalités**.  
 
 ##  <a name="bkmk_prerelease"></a> Utiliser des fonctionnalités de préversions de mises à jour
-Des fonctionnalités en version préliminaire sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. À compter de la version 1606, vous devez donner votre consentement pour utiliser les fonctionnalités de préversion de System Center Configuration Manager avant de pouvoir les sélectionner et permettre leur utilisation.  
-
-Le consentement est une action à effectuer une seule fois par hiérarchie et elle ne peut pas être annulée. Tant que vous n’avez pas donné votre consentement, vous ne pouvez pas activer les nouvelles fonctionnalités de préversion fournies avec la mise à jour version 1606 ou ultérieure.
-
-Pour donner votre consentement, dans la console, accédez à **Administration** > **Configuration du site** > **Sites**, puis choisissez **Paramètres de hiérarchie**. Sous l’onglet **Général**, choisissez **Accepter d’utiliser les fonctionnalités en préversion**.
-
- > [!NOTE]
- > Si vous avez activé des fonctionnalités en préversion de la mise à jour 1602 avant d’installer la mise à jour 1606, ces fonctionnalités restent activées après l’installation de la mise à jour 1606, même si vous ne donnez pas votre consentement pour utiliser les fonctionnalités en préversion.
-
-Quand votre hiérarchie exécute la version 1606 ou ultérieure et que vous installez une mise à jour qui comprend des fonctionnalités de préversion, ces fonctionnalités sont visibles dans l’Assistant Maintenance et mises à jour avec les fonctionnalités standard incluses dans la mise à jour :
-  - **Si vous avez donné votre consentement :** vous pouvez activer les fonctionnalités à partir de l’Assistant Maintenance et mises à jour quand vous installez la mise à jour. Pour ce faire, sélectionnez les fonctionnalités de préversion, comme vous le feriez pour toute autre fonctionnalité.     
-
-    Si vous le souhaitez, vous pouvez attendre pour activer une fonctionnalité en préversion par la suite à partir du nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** > **Fonctionnalités** de la console. Dans le nœud **Fonctionnalités**, choisissez la fonctionnalité puis choisissez **Activer**. (Cette option est grisée jusqu’à ce que vous donniez votre consentement.)  
-  -   **Si vous n’avez pas donné votre consentement :** quand vous installez une mise à jour, les fonctionnalités en préversion sont visibles dans l’Assistant Mises à jour et maintenance, mais elles sont grisées et ne peuvent pas être activées. Après l’installation de la mise à jour, vous pouvez afficher ces fonctionnalités dans le nœud **Fonctionnalités**, mais vous ne pouvez pas les activer tant que vous n’avez pas donné votre consentement dans **Paramètres de hiérarchie**.
-
- > [!TIP]
- > Quand vous installez la mise à jour 1606, les fonctionnalités de préversion qui sont fournies dans la mise à jour 1606 ne sont pas visibles dans l’Assistant Maintenance et mises à jour et ne peuvent pas être activées à ce moment-là. Après l’installation de la mise à jour 1606, vous pouvez afficher les fonctionnalités en préversion qu’elle contient dans le nœud **Fonctionnalités**.
-
-Si vous avez donné votre consentement sur un site principal autonome et développez ensuite la hiérarchie en installant un nouveau site d’administration centrale, vous devez redonner votre consentement sur le site d’administration centrale.
-
-**Les fonctionnalités en préversion disponibles sont les suivantes** :
-
- |Fonctionnalité                    |Ajoutée en préversion |Ajoutée en version complète |  
-|----------------------------|---------------------|------------------------|
-| Cache d’homologue pour la distribution de contenu aux clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Passerelle de gestion cloud |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Tableau de bord Sources de données du client |  [Version 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Connecteur Microsoft Operations Management Suite  | [Version 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Maintenance d’un regroupement prenant en charge les clusters (maintenance d’un groupe de serveurs)| [Version 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-|Accès conditionnel pour les PC gérés par System Center Configuration Manager | [Version 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)                        |
+Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités peuvent être utilisées dans un environnement de production, mais ne doivent pas être considérées comme prêtes pour la production. Pour en savoir plus sur les fonctionnalités de préversion, y compris sur la façon de les activer dans votre environnement, consultez [Fonctionnalités de préversion](/sccm/core/servers/manage/pre-release-features).                |
 
 
 ## <a name="known-issues"></a>Problèmes connus

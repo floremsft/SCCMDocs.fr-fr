@@ -16,9 +16,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: b90519f6f6e3599cd34f5cf93b476739ec17847b
-ms.openlocfilehash: 64ed5982cfd1de6ec135f02c84b9396266001b42
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: dcbcd57b95f304f007e92ebe2b9aeefb4b579662
+ms.openlocfilehash: 991bf551899d810a55a30f1a833de28db6295cf4
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -33,8 +33,11 @@ Les certificats d’infrastructure à clé publique (PKI) dont vous pouvez avoir
 -   Pour Windows Server 2008 : [Services de certificats Active Directory dans Windows Server 2008](http://go.microsoft.com/fwlink/p/?LinkId=115018)  
 
 > [!IMPORTANT]  
->  À compter du 14 février 2017, Windows ne fait plus confiance à certains certificats signés avec SHA-1. Pour en savoir plus, consultez ce document relatif à l’[application Windows des certificats SHA1](http://social.technet.microsoft.com/wiki/contents/articles/32288.windows-enforcement-of-sha1-certificates.aspx). En général, nous vous recommandons d’émettre de nouveaux certificats d’authentification serveur et client signés avec SHA-2 (qui inclut entre autres SHA-256 et SHA-512).
-> Nous vous recommandons aussi d’utiliser un certificat SHA-2 pour tout service Internet. Par exemple, si vous achetez un certificat public pour une utilisation avec une passerelle de gestion cloud, vérifiez qu’il s’agit d’un certificat SHA-2.
+> À compter du 14 février 2017, Windows ne fait plus confiance à certains certificats signés avec SHA-1. System Center Configuration Manager prend en charge les certificats SHA-2 et l’utilisation de ces certificats apporte un avantage de sécurité important. Par conséquent, nous vous recommandons :
+> - d’émettre de nouveaux certificats d’authentification serveur et client signés avec SHA-2 (qui inclut entre autres SHA-256 et SHA-512) ;
+> - de faire en sorte que tous les services avec accès à Internet utilisent un certificat SHA-2. Par exemple, si vous achetez un certificat public pour une utilisation avec une passerelle de gestion cloud, vérifiez qu’il s’agit d’un certificat SHA-2.  
+>
+> Dans la plupart des cas, le passage à des certificats SHA-2 n’a pas d’impact sur les opérations. Pour plus d’informations, consultez cet article sur l’[application Windows des certificats SHA1](http://social.technet.microsoft.com/wiki/contents/articles/32288.windows-enforcement-of-sha1-certificates.aspx).
 
  À l’exception des certificats clients inscrits par System Center Configuration Manager sur les appareils mobiles et les ordinateurs Mac, des certificats créés automatiquement par Windows Intune pour la gestion des appareils mobiles et des certificats installés par System Center Configuration Manager sur les ordinateurs AMT, vous pouvez utiliser n’importe quelle infrastructure PKI pour créer, déployer et gérer les certificats suivants. Toutefois, lorsque vous utilisez des services de certificats Active Directory et des modèles de certificat, cette solution d'infrastructure à clé publique Microsoft peut faciliter la gestion des certificats. Utilisez la colonne **Modèle de certificat Microsoft à utiliser** des tableaux ci-dessous pour identifier le modèle de certificat qui correspond le plus aux spécifications du certificat. Les certificats basés sur des modèles ne peuvent être édités que par une autorité de certification d'entreprise exécutée sur l'édition Enterprise ou Datacenter du système d'exploitation serveur, par exemple Windows Server 2008 Enterprise et Windows Server 2008 Datacenter.  
 

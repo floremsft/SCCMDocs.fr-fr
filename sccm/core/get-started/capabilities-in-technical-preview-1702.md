@@ -16,16 +16,14 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 619899aaf8bde36e2bd62b5ba8a037b8580df198
-ms.openlocfilehash: 58b343aed6ea1d846801aca5e0a95200df1acc94
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: ee7f69bd65152deffb2456d9807e1e8fee8802ec
+ms.openlocfilehash: dd28c8218c77686884bdcff508080185cae97489
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1702 pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Technical Preview)*
-
-
 
 Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
@@ -323,7 +321,7 @@ Vous verrez le nom du compte et le nom de l’organisation dans le portail Intun
 #### <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
 Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
 
-1. Ouvrez un navigateur et accédez à http://www.play.com/work.
+1. Ouvrez un navigateur et accédez à https://play.google.com/work.
 2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
 3. Recherchez les applications que vous souhaitez déployer dans votre environnement et cliquez sur **Approuver** pour chacune d’elles.
 4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et cliquez sur **Synchroniser**.
