@@ -8,7 +8,7 @@ ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
 ms.technology:
-- configmgr-client
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: b36f5e4a-2b57-4d18-83f6-197081ac2a0a
@@ -54,14 +54,14 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 
 -   [Vérifier l’inscription d’un appareil](#bkmk_verifyEnroll)  
 
-##  <a name="a-namebkmkcreatecerta-create-a-certificate-profile"></a><a name="bkmk_createCert"></a> Créer un profil de certificat  
+##  <a name="bkmk_createCert"></a> Créer un profil de certificat  
  Le composant principal du package d’inscription est un profil de certificat, qui est utilisé pour configurer automatiquement un certificat racine approuvé sur l’appareil à inscrire.  Ce certificat racine est obligatoire pour la fiabilité des communications entre les appareils et les rôles de système de site nécessaires pour la gestion des appareils mobiles locale. Sans le certificat racine, l’appareil ne serait pas approuvé lors des connexions HTTPS entre lui-même et les serveurs hébergeant les rôles de système de site de point d’inscription, point proxy d’inscription, point de distribution et point de gestion des appareils.  
 
  Pendant la préparation du système pour la gestion des appareils mobiles locale, vous exportez un certificat racine que vous pouvez utiliser dans le profil de certificat du package d’inscription. Pour obtenir des instructions sur la façon d’obtenir le certificat racine approuvé, consultez [Exporter le certificat avec la même racine que le certificat de serveur web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
  Utilisez le certificat racine exporté pour créer un profil de certificat. Pour obtenir des instructions, consultez [Comment créer des profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
-##  <a name="a-namecreatewifia-create-a-wi-fi-profile"></a><a name="CreateWifi"></a> Créer un profil Wi-Fi  
+##  <a name="CreateWifi"></a> Créer un profil Wi-Fi  
  L’autre composant du package utilisé pour l’inscription en bloc est un profil Wi-Fi. Certains appareils peuvent ne pas disposer de la connectivité réseau nécessaire pour prendre en charge l’inscription jusqu’à ce que les paramètres réseau soient configurés. Le fait d’inclure un profil Wi-Fi dans le package d’inscription fournit un moyen d’établir une connectivité réseau pour l’appareil.  
 
  Pour créer un profil Wi-Fi dans Configuration Manager, suivez les instructions fournies dans [Comment créer des profils Wi-Fi dans System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
@@ -78,7 +78,7 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 >
 > - Bien que Configuration Manager dispose d’un paramètre pour les informations du serveur proxy dans le profil Wi-Fi, il ne configure pas le serveur proxy quand l’appareil est inscrit. Si vous devez configurer un serveur proxy avec vos appareils inscrits, vous pouvez déployer les paramètres à l’aide des éléments de configuration une fois que les appareils sont inscrits ou créer le deuxième package à l’aide du Concepteur de configuration et d’acquisition d’images Windows pour un déploiement à côté du package d’inscription en bloc.
 
-##  <a name="a-namebkmkcreateenrolla-create-an-enrollment-profile"></a><a name="bkmk_createEnroll"></a> Créer un profil d’inscription  
+##  <a name="bkmk_createEnroll"></a> Créer un profil d’inscription  
  Le profil d’inscription vous permet de spécifier les paramètres nécessaires à l’inscription des appareils, notamment un profil de certificat qui configure de manière dynamique un certificat racine approuvé sur l’appareil et un profil Wi-Fi qui configure les paramètres réseau si nécessaire.  
 
  Avant de créer un profil d’inscription, veillez à créer un profil de certificat et un profil Wi-Fi (si nécessaire). Pour plus d'informations, consultez [Créer un profil de certificat](#bkmk_createCert) et [Créer un profil Wi-Fi](#CreateWifi)  
@@ -104,7 +104,7 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 
 8.  Vérifiez les paramètres du profil d’inscription, puis cliquez sur **Suivant**. Cliquez sur **Fermer** pour quitter l'Assistant.  
 
-##  <a name="a-namebkmkcreateppkga-create-an-enrollment-package-ppkg-file"></a><a name="bkmk_createPpkg"></a> Créer un fichier de package d’inscription (ppkg)  
+##  <a name="bkmk_createPpkg"></a> Créer un fichier de package d’inscription (ppkg)  
  Le package d’inscription est le fichier que vous utilisez pour inscrire en bloc des appareils pour la gestion des appareils mobiles locale.  Ce fichier doit être créé avec Configuration Manager. Vous pouvez créer des types de packages similaires à l’aide du Concepteur de configuration et d’acquisition d’images Windows, mais seuls les packages que vous créez dans Configuration Manager peuvent être utilisés pour inscrire des appareils pour la gestion des appareils mobiles locale du début à la fin. Les packages créés avec Windows ICD peuvent uniquement fournir le nom d’utilisateur principal (UPN) nécessaire à l’inscription. Ils ne peuvent pas exécuter le processus d’inscription proprement dit.  
 
  Le processus de création du package d’inscription exige l’utilisation du Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  Sur le serveur exécutant la console Configuration Manager, vérifiez que la version 1511 de Windows ADK est installée. Pour plus d’informations, consultez la section ADK dans [Télécharger le kit Windows ADK](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
@@ -125,7 +125,7 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 
 4.  Cliquez sur **OK**.  
 
-##  <a name="a-namebkmkgetppkga-use-the-package-to-bulk-enroll-a-device"></a><a name="bkmk_getPpkg"></a> Utiliser le package pour l’inscription en bloc d’un appareil  
+##  <a name="bkmk_getPpkg"></a> Utiliser le package pour l’inscription en bloc d’un appareil  
  Vous pouvez utiliser le package pour inscrire des appareils avant ou après que l’appareil a été approvisionné par le biais du processus OOBE (Out-Of-Box experience).   Le package d’inscription peut également être inclus dans le cadre d’un package d’approvisionnement d’un fabricant d’ordinateurs OEM.  
 
  Le package doit être physiquement remis à l’appareil pour qu’il l’utilise pour l’inscription en bloc. Vous pouvez remettre le package d’inscription à l’appareil de différentes manières en fonction de vos besoins, notamment :  
@@ -160,7 +160,7 @@ Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des
 
 6.  Cliquez sur le compte, puis sur **Synchroniser** pour démarrer la gestion avec Configuration Manager.  
 
-##  <a name="a-namebkmkverifyenrolla-verify-enrollment-of-device"></a><a name="bkmk_verifyEnroll"></a> Vérifier l’inscription d’un appareil  
+##  <a name="bkmk_verifyEnroll"></a> Vérifier l’inscription d’un appareil  
  Vous pouvez vérifier que les appareils ont été inscrits correctement dans la console Configuration Manager.  
 
 -   Démarrez la console Configuration Manager.  

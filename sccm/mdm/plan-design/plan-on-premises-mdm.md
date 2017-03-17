@@ -7,7 +7,7 @@ ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
 ms.technology:
-- configmgr-client
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 02979fb8-ea7e-4ec6-b7e0-ecbfda73e52d
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/21/2017
 
 Tenez compte des conditions requises suivantes avant de préparer l’infrastructure Configuration Manager à la gestion des appareils mobiles locale.
 
-##  <a name="a-namebkmkdevicesa-supported-devices"></a><a name="bkmk_devices"></a> Appareils pris en charge  
+##  <a name="bkmk_devices"></a> Appareils pris en charge  
  La gestion des appareils mobiles locale vous permet de gérer des appareils mobiles à l’aide des fonctions de gestion intégrées aux systèmes d’exploitation des appareils.  La fonctionnalité de gestion est basée sur la norme Open Mobile Alliance (OMA) Device Management (DM), et de nombreuses plateformes d’appareils utilisent cette norme pour autoriser la gestion des appareils.  Nous les appelons **appareils modernes** (dans la documentation et l’interface utilisateur de la console Configuration Manager) pour les différencier des autres appareils dont la gestion nécessite le client Configuration Manager.  
 
  > [!NOTE]  
@@ -41,7 +41,7 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Entreprise   
 
-##  <a name="a-namebkmkintunea-use-of-the--microsoft-intune-subscription"></a><a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
+##  <a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
  Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  
 
  > [!NOTE]  
@@ -54,7 +54,7 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 
  Pour plus d’informations sur la façon de configurer l’abonnement Intune, consultez [Configurer un abonnement Microsoft Intune pour la gestion locale des appareils mobiles dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
-##  <a name="a-namebkmkrolesa-required-site-system-roles"></a><a name="bkmk_roles"></a> Rôles système de site nécessaires  
+##  <a name="bkmk_roles"></a> Rôles système de site nécessaires  
  La gestion des appareils mobiles locale nécessite au moins un rôle système de site parmi chacun des suivants :  
 
 -   **Point proxy d’inscription** pour prendre en charge les demandes d’inscription.  
@@ -73,7 +73,7 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 
  Pour plus d’informations sur l’ajout des rôles de système de site obligatoires, consultez [Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
 
-##  <a name="a-namebkmktrustedcomsa-required-trusted-communications"></a><a name="bkmk_trustedComs"></a> Communications fiables requises  
+##  <a name="bkmk_trustedComs"></a> Communications fiables requises  
  La gestion des appareils mobiles locale exige que des rôles système de site soient activés pour les communications HTTPS. En fonction de vos besoins, vous pouvez utiliser l’autorité de certification de votre entreprise pour établir les connexions approuvées entre les serveurs et les appareils, ou vous pouvez utiliser une autorité de certification publique comme autorité de confiance.  Dans les deux cas, vous devez configurer un certificat de serveur web avec IIS sur les serveurs de système de site hébergeant les rôles de système de site nécessaires, et vous devez installer le certificat racine de cette autorité de certification sur les appareils qui doivent se connecter à ces serveurs.  
 
  Si vous utilisez l’autorité de certification de votre entreprise pour établir des communications approuvées, vous devez effectuer les tâches suivantes :  
@@ -106,7 +106,7 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
 
  Pour plus d'informations, consultez [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
 
-##  <a name="a-namebkmkenrollmenta-enrollment-considerations"></a><a name="bkmk_enrollment"></a> Considérations relatives à l’inscription  
+##  <a name="bkmk_enrollment"></a> Considérations relatives à l’inscription  
  Pour permettre l’inscription des appareils à la gestion des appareils mobiles locale, vous devez autoriser les utilisateurs à inscrire leurs appareils et ceux-ci doivent pouvoir établir des communications approuvées avec les serveurs de système de site hébergeant les rôles système de site nécessaires.  
 
  Pour accorder aux utilisateurs l’autorisation d’inscrire des appareils, vous pouvez configurer un profil d’inscription dans les paramètres client de Configuration Manager. Vous pouvez utiliser les paramètres client par défaut pour envoyer le profil d’inscription à tous les utilisateurs découverts, ou vous pouvez configurer le profil d’inscription dans les paramètres client personnalisés et envoyer les paramètres à un ou plusieurs regroupements d’utilisateurs.  
