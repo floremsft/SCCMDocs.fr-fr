@@ -36,6 +36,7 @@ translation.priority.ht:
 translationtype: Human Translation
 ms.sourcegitcommit: 34a4c3d0d641c4ab03e068c6dad78300057861bd
 ms.openlocfilehash: 4c7717e4f5a20c5c8d20fef21d0c67172b3198bd
+ms.lasthandoff: 03/16/2017
 
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1511-of-system-center-configuration-manager"></a>Niveaux de collecte des données de diagnostic et d’utilisation pour la version 1511 de System Center Configuration Manager
@@ -45,15 +46,15 @@ ms.openlocfilehash: 4c7717e4f5a20c5c8d20fef21d0c67172b3198bd
 System Center Configuration Manager version 1511 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.  
 
 > [!IMPORTANT]  
->  Configuration Manager ne collecte pas les codes de sites, noms de sites, adresses IP, noms d’utilisateur ou d’ordinateur, adresses physiques ni adresses e-mail aux niveaux De base et Étendu. Les informations au niveau Complet ne sont pas collectées dans un but précis, autrement dit elles peuvent être incluses dans des informations de diagnostic avancées telles que des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.  
+>  Configuration Manager ne collecte pas les codes de sites, noms de sites, adresses IP, noms d’utilisateur ou d’ordinateur, adresses physiques ni adresses e-mail aux niveaux De base et Étendu. Toute collecte de ces informations au niveau Complet n’est pas intentionnelle : elles peuvent être incluses dans des informations de diagnostic avancées comme des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.  
 
-##  <a name="a-namebkmkchangea-how-to-change-the-level"></a><a name="bkmk_change"></a> Modification du niveau  
+##  <a name="bkmk_change"></a> Modification du niveau  
  Les administrateurs qui disposent d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
  Pour cela, dans la console, accédez à l’onglet Backstage (onglet supérieur gauche avec flèche déroulante), sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
 
 
-##  <a name="a-namebkmklevel1a-level-1---basic"></a><a name="bkmk_level1"></a> Niveau 1 - De base  
+##  <a name="bkmk_level1"></a> Niveau 1 - De base  
  Le niveau De base comprend les données relatives à votre hiérarchie, qui sont nécessaires pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que des données pour aider à identifier les mises à jour Configuration Manager qui s’appliquent à votre hiérarchie.  
 
  À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
@@ -82,19 +83,19 @@ System Center Configuration Manager version 1511 collecte trois niveaux de donn�
 
 -   Informations de serveur de système de site de base (rôles de système de site utilisés, état SSL et Internet, système d’exploitation, processeurs, ordinateur physique ou machine virtuelle)  
 
--   Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs et tailles minimale/maximale/moyenne de groupe)  
+-   Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs et tailles minimale/maximale/moyenne des groupes)  
 
 -   Informations Endpoint Protection de base (versions du client de logiciel anti-programme malveillant)  
 
--   Nombres de types d’application et de déploiement de base (nombre total d’applications, nombre total d’applications avec plusieurs types de déploiement, nombre total d’applications avec des dépendances, nombre total d’applications remplacées, nombre de technologies de déploiement en cours d’utilisation)  
+-   Nombres de types d’application et de déploiement de base (nombre total d’applications, nombre total d’applications avec plusieurs types de déploiement, nombre total d’applications avec des dépendances, nombre total d’applications remplacées, nombre de technologies de déploiement utilisées)  
 
 -   Nombre de déploiements de systèmes d’exploitation de base (images)  
 
--   Types de point de distribution et de point de gestion et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)  
+-   Types de point de distribution et de point de gestion, et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)  
 
 -   Statistiques de télémétrie (à l’exécution, runtime et erreurs)  
 
-##  <a name="a-namebkmklevel2a-level-2---enhanced"></a><a name="bkmk_level2"></a> Niveau 2 – Étendu  
+##  <a name="bkmk_level2"></a> Niveau 2 – Étendu  
 Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données propres aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres tels que les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.  
 
 Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations sur les objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes qui nécessitent des mises à jour logicielles.  
@@ -151,7 +152,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont attribués à chaque groupe de points de distribution)  
 
-    -   Informations sur la configuration des point de distribution (utilisation du cache de filiale et surveillance des points de distribution)  
+    -   Informations sur la configuration des points de distribution (utilisation de BranchCache et surveillance des points de distribution)  
 
     -   Informations sur la configuration du gestionnaire de distribution (threads, délai de nouvelle tentative, nombre de nouvelles tentatives et paramètres de point de distribution d’extraction)  
 
@@ -187,7 +188,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
 -   **Dépannage de Microsoft Intune :**  
 
-    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de compatibilité qui sont téléchargés à partir de Microsoft Intune  
+    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de conformité qui sont téléchargés à partir de Microsoft Intune  
 
     -   Nombre et taille des messages d’actions d’appareil (réinitialiser, mettre hors service, verrouiller), de télémétrie et de données qui sont répliqués vers Microsoft Intune  
 
@@ -251,7 +252,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     -   Nombre de regroupements par type  
 
-##  <a name="a-namebkmklevel3a-level-3---full"></a><a name="bkmk_level3"></a> Niveau 3 – Complet  
+##  <a name="bkmk_level3"></a> Niveau 3 – Complet  
 Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle. Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.  
 
 À compter de System Center Configuration Manager version 1511, ce niveau inclut les éléments suivants :  
@@ -262,7 +263,7 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 
 -   Configuration de la stratégie Endpoint Protection  
 
--   Informations de déploiement de mise à jour logicielle (pourcentage de déploiements ciblés avec le client ou l’heure UTC, suppression du démarrage nécessaire, facultative ou en mode silencieux)  
+-   Informations de déploiement de mise à jour logicielle (pourcentage de déploiements ciblés avec le client ou l’heure UTC, obligatoire/facultatif/en mode silencieux, et suppression du redémarrage)  
 
 -   Compatibilité globale des déploiements de mise à jour logicielle  
 
@@ -274,16 +275,11 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 
 -   Nombre minimal/maximal/moyen de clients inactifs dans les regroupements de déploiements de mise à jour logicielle  
 
--   Nombre de groupes avec des mises à jour logicielles ayant expiré  
+-   Nombre de groupes avec des mises à jour logicielles expirées  
 
 -   Nombre minimal/maximal/moyen de mises à jour logicielles par package  
 
 -   Pourcentages de réussite d’analyse des mises à jour logicielles  
 
 -   Nombre minimal/maximal/moyen d’heures depuis la dernière analyse des mises à jour logicielles  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
