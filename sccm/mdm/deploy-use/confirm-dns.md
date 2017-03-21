@@ -2,7 +2,7 @@
 title: "Confirmer les exigences relatives aux noms de domaine via System Center Configuration Manager | Microsoft Docs"
 description: "Confirmez les exigences relatives aux noms de domaine via System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,8 +13,8 @@ ms.topic: article
 ms.assetid: 522c2e82-20eb-4f38-859b-d55640b24e32
 caps.latest.revision: 18
 caps.handback.revision: 0
-author: mtillman
-ms.author: mtillman
+author: nathbarn
+ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
@@ -51,6 +51,6 @@ Si nécessaire, procédez comme suit pour satisfaire les éventuelles dépendanc
 
      Si vous n'utilisez pas AD FS, vous devez définir un mot de passe Microsoft Online pour chaque utilisateur.
 
-     > [!div class="button"]
-     [< Étape précédente](create-mdm-collection.md) [Étape suivante >](configure-intune-subscription.md)
+> [!div class="button"]
+[< Étape précédente](create-mdm-collection.md) [Étape suivante >](configure-intune-subscription.md)
 
