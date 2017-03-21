@@ -2,7 +2,7 @@
 title: "Serveurs de système de site pris en charge | Microsoft Docs"
 description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/1/2017
+ms.date: 3/9/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
-ms.openlocfilehash: bb017e575e0318b73cc5ea4e27fd33b1e9c2a02a
+ms.sourcegitcommit: 477ffa5d61d2dfaedf8a3a1f5687e2d72698ad28
+ms.openlocfilehash: f175e11d9402e7c57c45edb4d5bbe969de5dcdf7
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -231,24 +232,9 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 ## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise et Datacenter  
  Windows Server 2008 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-**Serveurs de site :**  
-
--   Site d'administration centrale  
-
--   Site principal  
-
--   Site secondaire  
+Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 **Serveurs de système de site :**  
-
--   Point de service Web du catalogue des applications  
-
--   Point du site web du catalogue des applications  
-
--   Point de synchronisation Asset Intelligence  
-
--   Point d'enregistrement de certificat  
-
 -   Point de distribution  
 
     -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge la multidiffusion.  
@@ -257,29 +243,7 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 
     -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   Point Endpoint Protection  
 
--   Point d'inscription  
-
--   Point proxy d'inscription  
-
--   Point d’état de secours  
-
--   Point de gestion
-
--   Point de Reporting Services  
-
--   Point de connexion de service  
-
--   Serveur de bases de données du site  
-
-     Les serveurs de bases de données du site ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d'informations, voir [Vous pouvez rencontrer des problèmes lors de l'installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft. En outre, les serveurs de site secondaire ne sont pris en charge sur aucun contrôleur de domaine.  
-
--   SMS_Provider  
-
--   Point de mise à jour logicielle  
-
--   Point de migration d'état  
 
 ## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64) : Professionnel et Entreprise  
 **Serveurs de système de site :**  
@@ -345,9 +309,4 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 -   Seule la version 64 bits est prise en charge.  
 
 -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

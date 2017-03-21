@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: ee7f69bd65152deffb2456d9807e1e8fee8802ec
-ms.openlocfilehash: dd28c8218c77686884bdcff508080185cae97489
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
+ms.openlocfilehash: 3bdbcd1a3c64a1d50f2f6219b2a5e17d60979864
+ms.lasthandoff: 03/13/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1702 pour System Center Configuration Manager
@@ -313,6 +313,10 @@ Les sections suivantes décrivent la gestion Android for Work.
   - **Gérer tous les appareils comme Android** - (Désactivé) Tous les appareils Android, notamment ceux qui prennent en charge Android for Work, sont inscrits comme appareils Android conventionnels.
   - **Gérer les appareils pris en charge comme Android for Work** - (Activé) Tous les appareils qui prennent en charge Android for Work sont inscrits comme appareils Android for Work. Tout appareil Android qui ne prend pas en charge Android for Work est inscrit comme appareil Android conventionnel.
   - **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work** - (Test) Vous permet de cibler la gestion Android for Work à un ensemble limité d’utilisateurs. Seuls les membres des groupes sélectionnés qui inscrivent un appareil qui prend en charge Android for Work sont inscrits comme appareils Android for Work. Tous les autres sont inscrits comme appareils Android.
+  
+> [!NOTE]
+> Un problème connu empêche le bon fonctionnement de l’option **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work**. Les appareils des utilisateurs dans les groupes Azure AD spécifiés sont inscrits en tant qu’appareils Android et non en tant qu’appareils Android for Work. Pour tester Android for Work, vous devez utiliser **Gérer les appareils pris en charge comme Android for Work**.
+
 
   Pour activer l’inscription Android for Work, vous devez choisir la deuxième ou la troisième option. L’option **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work** exige que vous configuriez d’abord des groupes de sécurité Azure Active Directory.
 
@@ -350,4 +354,7 @@ Pour essayer cela, créez un élément de configuration par l’intermédiaire d
 Les appareils inscrits comme Android for Work peuvent uniquement être réinitialisés de manière sélective, car vous gérez uniquement le profil professionnel. Cela empêche que le profil personnel ne soit réinitialisé. La réinitialisation sélective sur un appareil Android for Work supprime le profil professionnel, notamment toutes les applications et données, et désinscrit l’appareil.
 
 Pour effectuer une réinitialisation sélective d’un appareil Android for Work, appliquez le [processus de réinitialisation sélective](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe) normal dans la console Configuration Manager.
+
+#### <a name="known-issues-for-android-for-work"></a>Problèmes connus liés à Android for Work
+**Échec du déploiement des profils e-mail Android for Work à la suite de la configuration d’une planification de la synchronisation** L’interface utilisateur de Configuration Manager pour les profils e-mail Android for Work comprend une option « Planification ». Sur d’autres plateformes, cette option permet à l’administrateur de configurer une planification pour synchroniser les e-mails et les autres données de comptes e-mail avec les appareils mobiles ciblés par le déploiement. Toutefois, cette option ne fonctionne pas pour les profils e-mail Android for Work. Si vous sélectionnez une option autre que « Non configuré », tout déploiement du profil sur un appareil échoue.
 

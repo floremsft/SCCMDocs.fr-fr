@@ -2,7 +2,7 @@
 title: Principes de base de la gestion de contenu | Microsoft Docs
 description: "Utilisez les outils et les options de System Center Configuration Manager pour gérer le contenu que vous déployez."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 83020f532edd7a640f0087aad40789e026f75913
-ms.openlocfilehash: 00751cd03a3dd49718994e31bc396e4e7d29ed2b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 766120f5ca79f279a513b62c35a2374c859b253a
+ms.openlocfilehash: 079be3c97e4239f8c5293bed5a2ce13abfbe7798
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -63,7 +63,7 @@ Pour plus d’informations sur ces comptes, consultez [Gérer les comptes pour a
 -   Configuration Manager prend en charge jusqu’à cinq versions incrémentielles d’un jeu de contenus avant de renvoyer le jeu de contenus entier. Après la cinquième mise à jour, la modification suivante du jeu de contenus amène Configuration Manager à créer une nouvelle version du jeu de contenus. Configuration Manager distribue ensuite la nouvelle version du jeu de contenus pour remplacer le jeu précédent et toutes ses versions incrémentielles. Après la distribution du jeu de contenus, les modifications incrémentielles ultérieures apportées aux fichiers sources sont de nouveau répliquées en utilisant la réplication différentielle binaire.  
 
 
-La réplication différentielle binaire est prise en charge entre chaque site parent et enfant dans une hiérarchie. Au sein d’un site, elle est prise en charge entre le serveur de site et ses points de distribution. Cette prise en charge inclut les points de distribution d’extraction, mais n’inclut pas les points de distribution cloud. Les points de distribution cloud ne prennent pas en charge la réplication différentielle binaire pour le transfert de contenu.  
+La réplication différentielle binaire est prise en charge entre chaque site parent et enfant dans une hiérarchie. Au sein d’un site, elle est prise en charge entre le serveur de site et ses points de distribution standard. Toutefois, les points de distribution d’extraction et les points de distribution cloud ne prennent pas en charge la réplication différentielle binaire pour le transfert de contenu. Les points de distribution d’extraction prennent en charge les deltas de niveau fichier et le transfert de nouveaux fichiers, mais pas les blocs au sein d’un fichier.
 
 Les applications utilisent toujours la réplication différentielle binaire. La réplication différentielle binaire est facultative pour les packages, et n'est pas activée par défaut. Pour utiliser la réplication différentielle binaire pour les packages, vous devez activer cette fonctionnalité pour chaque package. Pour cela, sélectionnez l'option **Activer la réplication différentielle binaire** lorsque vous créez un package ou lorsque vous modifiez l'onglet **Source de données** des propriétés du package.  
 

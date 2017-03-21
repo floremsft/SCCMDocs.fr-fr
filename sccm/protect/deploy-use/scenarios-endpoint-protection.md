@@ -2,7 +2,7 @@
 title: "Scénario - Endpoint Protection protège les ordinateurs contre les programmes malveillants | Microsoft Docs"
 description: "Découvrez comment implémenter Endpoint Protection dans Configuration Manager pour protéger les ordinateurs contre les attaques de programmes malveillants."
 ms.custom: na
-ms.date: 12/9/2016
+ms.date: 03/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,8 +15,9 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9fcbc0bb9c8ccd4265381ca4db7a363c8ae3b54a
-ms.openlocfilehash: 2cdc57b766b18a6fdf21ec8748172c12b11b08db
+ms.sourcegitcommit: af0aafb4b7209d840676d16723509f399c662aad
+ms.openlocfilehash: b98684d44874ff246e4d675039c6e443aee82a62
+ms.lasthandoff: 03/13/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 2cdc57b766b18a6fdf21ec8748172c12b11b08db
 
 Cette rubrique fournit un exemple de scénario sur la manière d’implémenter Endpoint Protection dans Configuration Manager pour protéger les ordinateurs d’une organisation contre les attaques de programmes malveillants.  
 
- John est l’administrateur de Configuration Manager à la Woodgrove Bank. La banque utilise actuellement Microsoft Forefront Endpoint Protection 2010 pour protéger les ordinateurs contre les attaques de programmes malveillants. Elle utilise également la stratégie de groupe Windows pour s’assurer que le Pare-feu Windows est activé sur tous les ordinateurs de l’entreprise et que les utilisateurs sont avertis quand il bloque un nouveau programme.  
+ John est l’administrateur de Configuration Manager à la Woodgrove Bank. La banque utilise actuellement System Center Endpoint Protection pour protéger les ordinateurs contre les attaques de programmes malveillants. Elle utilise également la stratégie de groupe Windows pour s’assurer que le Pare-feu Windows est activé sur tous les ordinateurs de l’entreprise et que les utilisateurs sont avertis quand il bloque un nouveau programme.  
 
  John est chargé de mettre à niveau le logiciel anti-programme malveillant de Woodgrove Bank vers System Center Endpoint Protection pour que la banque puisse tirer parti des fonctionnalités les plus récentes contre les programmes malveillants et qu’elle puisse gérer de manière centralisée la solution anti-programme malveillant à partir de la console Configuration Manager. Les impératifs de cette implémentation sont les suivants :  
 
@@ -75,9 +76,4 @@ Cette rubrique fournit un exemple de scénario sur la manière d’implémenter 
 |John utilise les méthodes suivantes pour surveiller l’état de Endpoint Protection et ses actions :<br /><br /> 1) Utilisation du nœud **État Endpoint Protection** sous **Sécurité** dans l’espace de travail **Surveillance**.<br /><br /> 2) Utilisation du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité**.<br /><br /> 3) Utilisation des rapports Configuration Manager intégrés.|Voir [Guide pratique pour surveiller Endpoint Protection dans System Center Configuration Manager](monitor-endpoint-protection.md).|  
 
  John signale à son responsable que l’implémentation de Endpoint Protection a réussi, et il confirme que les ordinateurs de la Woodgrove Bank sont maintenant protégés contre les programmes malveillants conformément aux exigences spécifiées.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

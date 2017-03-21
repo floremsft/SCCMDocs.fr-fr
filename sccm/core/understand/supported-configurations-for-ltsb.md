@@ -2,7 +2,7 @@
 title: Configurations prises en charge pour LTSB | Microsoft Docs
 description: "Découvrez quels systèmes d’exploitation et produits dépendants fonctionnent avec la branche Long-Term Servicing Branch de System Center Configuration Manager."
 ms.custom: na
-ms.date: 1/12/2017
+ms.date: 3/9/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 12aa9f0a1ad4ce8acf0b914e9911bb50ba887919
-ms.openlocfilehash: 5b2ab25d7f645ea9eada81d241ef14168b017304
+ms.sourcegitcommit: 477ffa5d61d2dfaedf8a3a1f5687e2d72698ad28
+ms.openlocfilehash: 78dcbf76f21a286506b9c605e2c176714736935b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -38,7 +39,7 @@ En outre, les produits et versions de produits non répertoriés dans les rubriq
 **Windows :**
 - Seules les mises à jour de qualité et de sécurité pour Windows sont prises en charge.
 - Aucune prise en charge n’est ajoutée pour les branches CB (Current Branch), CBB (Current Branch For Business) ou LTSB de Windows 10.
--   Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de Windows Server.
+-    Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de Windows Server.
 
 **SQL Server :**
 - Seules les mises à jour de qualité et de sécurité, ou les mises à niveau mineures comme les Service Packs, sont prises en charge pour SQL Server.
@@ -51,13 +52,15 @@ LTSB prend en charge l’utilisation des systèmes d’exploitation Windows suiv
 - Windows Server 2016
 - Windows Server 2012 (x64) : Standard, Datacenter
 - Windows Server 2008 R2 avec SP1 (x64) : Standard, Entreprise, Datacenter
-- Windows Server 2008 avec SP2 (x86, x64) : Standard, Entreprise, Datacenter
+- Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise, Datacenter *(voir la remarque 1)*
 - Windows 10 Entreprise 2015 LTSB (x86, x64)
 - Windows 10 Entreprise 2016 LTSB (x86, x64)
 - Windows 8.1 (x86, x64) : Professionnel, Entreprise
 - Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise, Édition Intégrale
 - Installation minimale de Windows Server 2012
-- Installation minimale de Windows Server 2012 R2  
+- Installation minimale de Windows Server 2012 R2    
+
+*Remarque 1* : Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 ## <a name="client-management"></a>Gestion des clients
 Les sections suivantes identifient les systèmes d’exploitation clients que vous pouvez gérer à l’aide de LTSB. LTSB ne prend pas en charge l’ajout de nouveaux systèmes d’exploitation comme clients pris en charge.
@@ -332,9 +335,4 @@ Les informations contenues dans les rubriques Current Branch suivantes s’appli
 - [Matériel recommandé](/sccm/core/plan-design/configs/recommended-hardware)
 - [Prise en charge des fonctionnalités et réseaux Windows](/sccm/core/plan-design/configs/support-for-windows-features-and-networks)
 - [Prise en charge des environnements de virtualisation](/sccm/core/plan-design/configs/support-for-virtualization-environments)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

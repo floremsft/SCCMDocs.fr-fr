@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 30af3326578d39c6d995672071705bcaeb877e4d
-ms.openlocfilehash: 8af2a797ad4e87d870bb27873a7428e96f63b76d
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
+ms.openlocfilehash: 49e3a9d6f4b8e1afbb76fcba33a7fb58e5a6b13f
+ms.lasthandoff: 03/13/2017
 
 
 ---
@@ -60,7 +60,7 @@ Si vous avez un média de base de la version 1511, vous pouvez mettre à niveau
 
 
 > [!TIP]  
->  Une mise à niveau à partir d’une version de System Center 2012 Configuration Manager peut vous permettre de simplifier votre processus de mise à niveau. Pour plus d'informations, consultez :  
+>  Une mise à niveau à partir d’une version de System Center 2012 Configuration Manager vers Current Branch peut vous permettre de simplifier votre processus de mise à niveau. Pour plus d'informations, consultez :  
 >   
 >  -   La section [Versions de base et de mise à jour](../../../../core/servers/manage/updates.md#bkmk_Baselines) dans [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
 >  -   [Dossier CD.Latest pour System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  

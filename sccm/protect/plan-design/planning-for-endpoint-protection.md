@@ -1,7 +1,7 @@
 ---
 title: Planifier Endpoint Protection | Microsoft Docs
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,8 +14,9 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 927732150b99bbe362a3ed36976b49a716efc14c
+ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
+ms.openlocfilehash: 6c4273dae99ec8db2cf827f463b973e876d0d35b
+ms.lasthandoff: 03/13/2017
 
 
 ---
@@ -92,11 +93,7 @@ Endpoint Protection dans Configuration Manager vous permet de créer des straté
  ![Flux de travail Endpoint Protection](../media/Endpoint-Protection-Workflow.gif)
 
 ## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Client Endpoint Protection pour les ordinateurs Mac et les serveurs Linux  
- System Center 2012 inclut un client Endpoint Protection pour Linux et pour les ordinateurs Mac. Ces clients ne sont pas fournis avec Configuration Manager. Vous devez donc télécharger les produits suivants à partir du [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
-
--   System Center 2012 Endpoint Protection pour Mac  
-
--   System Center 2012 Endpoint Protection pour Linux  
+ System Center inclut un client Endpoint Protection pour Linux et pour les ordinateurs Mac. Ces clients ne sont pas fournis avec Configuration Manager. Vous devez télécharger les produits suivants à partir du [Centre de gestion des licences en volume Microsoft](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
 
 > [!IMPORTANT]  
 >  Vous devez être client d’une licence en volume Microsoft pour télécharger les fichiers d’installation d’Endpoint Protection pour Linux et Mac.  
@@ -114,16 +111,9 @@ Endpoint Protection dans Configuration Manager vous permet de créer des straté
  Lorsque vous configurez les paramètres client personnalisés, vous pouvez effectuer les opérations suivantes :  
 
 -   Personnalisez les paramètres de sécurité et de logiciels anti-programmes malveillants pour les différentes parties de votre organisation.  
-
 -   Testez les conséquences liées à l’exécution d’Endpoint Protection sur un petit groupe d’ordinateurs avant de le déployer sur l’ensemble de la hiérarchie.  
-
 -   Ajoutez des clients supplémentaires au regroupement au fil du temps pour échelonner votre déploiement du client Endpoint Protection.  
 
 ### <a name="distributing-definition-updates-by-using-software-updates"></a>Distribution mises à jour de définitions à l'aide de mises à jour logicielles  
  Si vous utilisez les mises à jour logicielles de Configuration Manager pour distribuer des mises à jour de définitions, placez les mises à jour de définitions dans un package qui ne contient pas d’autres mises à jour logicielles. Cela permet de conserver la taille du package de mise à jour de définition inférieure qui lui permet de répliquer vers plus rapidement les points de distribution.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

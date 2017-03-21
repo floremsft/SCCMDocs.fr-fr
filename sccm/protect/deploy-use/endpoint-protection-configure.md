@@ -16,8 +16,9 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
-ms.openlocfilehash: 92ab3f7470fd977e5f849bea54aca1a7ef460562
+ms.sourcegitcommit: a8218e23743dafaf8ff1166142cf2dcca1212133
+ms.openlocfilehash: 6917644d6719a1ca636713aa5aebf277927123c8
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -43,10 +44,5 @@ Pour utiliser Endpoint Protection pour gérer la sécurité et les programmes ma
 |**Étape 2** : [Configurer des alertes pour Endpoint Protection](endpoint-configure-alerts.md)|Les alertes signalent à l'administrateur des événements spécifiques qui se produisent, tels qu'une infection par un logiciel malveillant. Les alertes s'affichent dans le nœud **Alertes** de l'espace de travail **Surveillance** ou éventuellement elles peuvent être envoyées par courrier électronique à des utilisateurs donnés. |  
 |**Étape 3** : [Configurer les sources de mise à jour des définitions pour les clients Endpoint Protection](endpoint-definition-updates.md)|Endpoint Protection peut être configuré pour utiliser diverses sources de téléchargement des mises à jour des définitions. |  
 |**Étape 4 :** [Configurer la stratégie de logiciel anti-programme malveillant par défaut et créer des stratégies de logiciel anti-programme malveillant personnalisées](endpoint-antimalware-policies.md)|La stratégie de logiciel anti-programme malveillant par défaut est appliquée au moment de l’installation du client Endpoint Protection. Les stratégies personnalisées que vous avez déployées sont appliquées par défaut dans les 60 minutes consécutives au déploiement du client. Vérifiez que vous avez configuré des stratégies anti-programme malveillant avant de déployer le client Endpoint Protection. |  
-|**Étape 5 **: [Configurer des paramètres client personnalisés pour Endpoint Protection](endpoint-protection-configure-client.md)|Utilisez des paramètres client personnalisés pour appliquer les paramètres configurés pour Endpoint Protection à certains regroupements d’ordinateurs dans la hiérarchie.<br /><br /> Remarque : configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. |  
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+|**Étape 5**: [Configurer des paramètres client personnalisés pour Endpoint Protection](endpoint-protection-configure-client.md)|Utilisez des paramètres client personnalisés pour appliquer les paramètres configurés pour Endpoint Protection à certains regroupements d’ordinateurs dans la hiérarchie.<br /><br /> Remarque : configurez les paramètres client par défaut pour Endpoint Protection uniquement si vous voulez les appliquer à l’ensemble des ordinateurs de la hiérarchie. |  
 

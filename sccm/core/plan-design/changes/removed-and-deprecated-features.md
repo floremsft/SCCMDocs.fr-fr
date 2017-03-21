@@ -2,7 +2,7 @@
 title: "Fonctionnalités dépréciées | Microsoft Docs"
 description: "Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge."
 ms.custom: na
-ms.date: 1/5/2017
+ms.date: 3/9/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1948e2914fff91f156dd8956c018ff0fabcda2f9
-ms.openlocfilehash: 3a1edd1b59676e59d4bfcd4c01a23f7a04f91f4f
+ms.sourcegitcommit: 477ffa5d61d2dfaedf8a3a1f5687e2d72698ad28
+ms.openlocfilehash: cb57a8699081415af7e2e9dc29b0a321f100823d
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -58,30 +59,30 @@ Pour plus d'informations, voir :
 
 Informations supplémentaires sur les fonctionnalités supprimées avec la version 1511 de System Center Configuration Manager :
 
-###  <a name="a-namebkmkamta-out-of-band-management"></a><a name="bkmk_amt"></a> Gestion hors bande  
+###  <a name="bkmk_amt"></a> Gestion hors bande  
  Avec Configuration Manager, la prise en charge native des ordinateurs AMT à partir de la console Configuration Manager est supprimée.  
 
 -   Les ordinateurs AMT restent entièrement gérés quand vous utilisez le [module complémentaire Intel SCS pour Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html). Ce module complémentaire vous permet d’accéder aux dernières fonctionnalités permettant de gérer AMT tout en supprimant les limitations introduites jusqu’à ce que Configuration Manager puisse intégrer ces changements.  
 
 -   La gestion hors bande dans System Center 2012 Configuration Manager n’est pas affectée par cette modification.  
 
-###  <a name="a-namebkmknapa-network-access-protection"></a><a name="bkmk_nap"></a> Protection d’accès au réseau  
+###  <a name="bkmk_nap"></a> Protection d’accès au réseau  
  System Center Configuration Manager ne prend pas en charge la protection d’accès réseau. La fonctionnalité est dépréciée dans Windows Server 2012 R2 et a été supprimée dans Windows 10.  
 
  Pour les solutions de protection d'accès réseau, consultez la section *Fonctionnalités déconseillées* dans [Vue d'ensemble des services de stratégie et d'accès réseau](https://technet.microsoft.com/library/hh831683.aspx).  
 
 
 ## <a name="deprecated-operating-systems"></a>Systèmes d’exploitation dépréciés
-### <a name="server-operating-systems"></a>Systèmes d'exploitation serveur  
+### <a name="server-operating-systems"></a>Systèmes d’exploitation serveur  
 
 |**Systèmes d’exploitation**|**Première annonce de dépréciation**|**Support supprimé** |  
 |-|-|-|  
-|Windows Server 2008|10 juillet 2015|La prise en charge prend fin avec la première mise à jour publiée après le 31 décembre 2016 (voir la remarque 1).|  
-|Windows Server 2008 R2|10 juillet 2015|La prise en charge prend fin avec la première mise à jour publiée après le 31 décembre 2016 (voir la remarque 2).|  
+|Windows Server 2008|10 juillet 2015|1511 </br></br>Le support prend fin quand un système de site est supprimé (voir la remarque 1).|  
+|Windows Server 2008 R2|10 juillet 2015|Le support prend fin avec la première mise à jour publiée après le 31 décembre 2016 (voir la remarque 2).|  
 
--   Remarque 1 : après la fin de la prise en charge, ce système d’exploitation ne sera plus pris en charge pour les serveurs de site ou la plupart des rôles système de site. Cependant, ce système d’exploitation continue d’être pris en charge pour le rôle système de site de point de distribution (dont le point de distribution d’extraction) jusqu’à ce que cette prise en charge soit annoncée comme dépréciée ou que la période étendue de prise en charge de ce système d’exploitation expire.  
+-   Remarque 1 : Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095). 
 
--   Remarque 2 : après la fin de la prise en charge, ce système d’exploitation ne sera plus pris en charge pour les serveurs de site ou la plupart des rôles système de site. Cependant, ce système d’exploitation continue d’être pris en charge pour le point de migration d’état et le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion) jusqu’à ce que cette prise en charge soit annoncée comme dépréciée ou que la période étendue de prise en charge de ce système d’exploitation expire. Depuis la version 1602, vous pouvez mettre à niveau sur place le système d’exploitation d’un serveur de site à partir de Windows Server 2008 R2 vers Windows Server 2012 R2.  
+-   Remarque 2 : Après la fin du support, ce système d’exploitation ne sera plus pris en charge pour les serveurs de site ou la plupart des rôles système de site. Cependant, ce système d’exploitation continue d’être pris en charge pour le point de migration d’état et le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion) jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Depuis la version 1602, vous pouvez mettre à niveau sur place le système d’exploitation d’un serveur de site à partir de Windows Server 2008 R2 vers Windows Server 2012 R2.  
 
      Pour plus d’informations sur la mise à niveau sur place d’un système d’exploitation de serveurs de site, consultez la section qui traite de la [mise à niveau sur place du système d’exploitation des serveurs de site qui exécutent Windows Server 2008 R2](../../../core/plan-design/changes/whats-new-in-version-1602.md#bkmk_UpgradeOS) dans [Nouveautés de System Center Configuration Manager](../../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md).
 
@@ -89,12 +90,12 @@ Informations supplémentaires sur les fonctionnalités supprimées avec la versi
 
 ### <a name="client-operating-systems"></a>Systèmes d'exploitation client  
 
- Sauf indication contraire, chaque système d’exploitation pris en charge en tant que client Configuration Manager est pris en charge jusqu’à la date de fin de sa prise en charge étendue. Pour plus d’informations sur les dates de fin de prise en charge étendue, consultez la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Si la prise en charge de Configuration Manager pour un système d’exploitation se termine avant la date de fin de prise en charge étendue, une date de dépréciation et une date de suppression du support de ce système d’exploitation seront mentionnées ici.  
+ Sauf indication contraire, chaque système d’exploitation pris en charge en tant que client Configuration Manager est pris en charge jusqu’à sa date de fin de support étendu. Pour plus d’informations sur les dates de fin du support étendu, consultez la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Si la prise en charge de Configuration Manager pour un système d’exploitation se termine avant la date de fin du support étendu, une date de dépréciation et une date de suppression du support de ce système d’exploitation seront mentionnées ici.  
 
 |**Systèmes d’exploitation**|**Première annonce de dépréciation**|**Support supprimé**|  
 |-|-|-|  
 |Windows XP|10 juillet 2015|Version 1511|  
-|Windows XP Embedded|10 juillet 2015|La prise en charge prend fin avec la première mise à jour publiée après le 31 décembre 2016.|  
+|Windows XP Embedded|10 juillet 2015|Le support prend fin avec la première mise à jour publiée après le 31 décembre 2016.|  
 |Windows Server 2003|10 juillet 2015|Version 1511|  
 |Windows Server 2003 R2|10 juillet 2015|Version 1511|  
 |Windows Vista|10 juillet 2015|Version 1511|  
@@ -104,15 +105,10 @@ Informations supplémentaires sur les fonctionnalités supprimées avec la versi
 |Windows CE 5.0 - 6.0|10 juillet 2015|Version 1511|  
 
 
-## <a name="deprecated-support-for-sql-server-versions-as-a-site-database"></a>Prise en charge dépréciée pour les versions de SQL Server en tant que base de données de site  
+## <a name="deprecated-support-for-sql-server-versions-as-a-site-database"></a>Support déprécié pour les versions de SQL Server en tant que base de données de site  
 
 |**Versions de SQL Server**|**Première annonce de dépréciation**|**Support supprimé**|   
 |-|-|-|  
 |SQL Server 2008|10 juillet 2015|Version 1511|  
-|SQL Server 2008 R2|10 juillet 2015|La prise en charge prend fin avec la première mise à jour publiée après le 31 décembre 2016.|  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+|SQL Server 2008 R2|10 juillet 2015|Le support prend fin avec la première mise à jour publiée après le 31 décembre 2016.|  
 

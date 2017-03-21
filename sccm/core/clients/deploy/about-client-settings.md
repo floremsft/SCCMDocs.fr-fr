@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d7265aec46474ba7fc317ddb5e20b91b7b134585
-ms.openlocfilehash: 36f6eb3fe48e904adf4d04450906fada9b477246
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: 289db441899359f3bf3abe5d38896c7acd2045b6
+ms.openlocfilehash: 5eaca19f2b21b1c62b956d2a44d492d3ddd6d10a
+ms.lasthandoff: 03/10/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -333,7 +333,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
 -   **Délai aléatoire maximal**
 
-    La collecte d’informations matérielles s’effectue dans un délai aléatoire pouvant atteindre deux heures. L’opération n’a donc pas lieu simultanément sur tous les clients. Vous pouvez définir le délai maximal pour limiter la durée pendant laquelle l’opération a lieu.      
+    La collecte d’informations matérielles s’effectue dans un délai aléatoire pouvant atteindre quatre heures. L’opération n’a donc pas lieu simultanément sur tous les clients. Vous pouvez définir le délai maximal pour limiter la durée pendant laquelle l’opération a lieu.      
 
 ##  <a name="metered-internet-connections"></a>Connexions Internet facturées à l’usage  
  Vous pouvez gérer la manière dont les ordinateurs clients Windows 8 communiquent avec les sites Configuration Manager quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
@@ -505,7 +505,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
     -   Choisissez l’icône **Nouveau** pour ajouter un nouveau type de fichier à l’inventaire. Ensuite, spécifiez les informations suivantes dans la boîte de dialogue **Propriétés du fichier inventorié** :  
 
-        -   **Nom** : définissez le nom du fichier à inventorier. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n’importe quel caractère. Par exemple, si vous souhaitez inventorier tous les fichiers portant l’extension .doc, spécifiez le nom de fichier **\*.doc**.  
+        -   **Nom** : définissez le nom du fichier à inventorier. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?**pour représenter n’importe quel caractère. Par exemple, si vous souhaitez inventorier tous les fichiers portant l’extension .doc, spécifiez le nom de fichier **\*.doc**.  
 
         -   **Emplacement** : choisissez **Définir** pour ouvrir la boîte de dialogue **Propriétés du chemin d’accès**. Vous pouvez configurer l’inventaire logiciel pour rechercher le fichier défini sur tous les disques durs des clients, effectuer une recherche dans un chemin donné (tel que **C:\Dossier**) ou rechercher une variable (telle que *%windir%*). Vous pouvez également exécuter une recherche dans tous les sous-dossiers du chemin indiqué.  
 
@@ -556,7 +556,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
      Lors d'un inventaire logiciel, les noms des fabricants et des produits sont extraits des informations d'en-tête des fichiers installés sur les clients du site. Du fait que ces noms ne sont pas systématiquement normalisés dans les informations d'en-tête de fichier, lorsque vous affichez les informations de l'inventaire logiciel dans l'Explorateur de ressources ou exécutez des requêtes, différentes versions du même nom de fabricant ou de produit peuvent parfois apparaître. Si vous souhaitez normaliser ces noms d’affichage, choisissez **Définir des noms** et configurez les éléments suivants dans la boîte de dialogue **Configurer le paramètre client** :  
 
-    -   **Type de nom ** : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
+    -   **Type de nom** : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
 
     -   **Nom complet** : spécifiez le nom complet que vous souhaitez utiliser à la place des noms dans la liste **Noms inventoriés**. Vous pouvez choisir l’icône **Nouveau** pour spécifier un nouveau nom complet.  
 
