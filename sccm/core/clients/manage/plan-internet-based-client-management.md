@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.assetid: 83a7c934-3b11-435d-ba22-cbc274951e83
 caps.latest.revision: 7
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 828e2ac9a3f9bcea1571d24145a1021fdf1091f3
 ms.openlocfilehash: 82867e77840e14e9b8170801ea3c4a9f399c9890
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -32,7 +33,7 @@ La gestion des clients basée sur Internet (ou IBCM, Internet-Based Client Manag
 
  Utilisez les sections suivantes pour vous aider à planifier la gestion des clients basés sur Internet.  
 
-##  <a name="a-namebkmkibcmfeaturesnotsupporteda-features-that-are-not-supported-on-the-internet"></a><a name="BKMK_IBCM_FeaturesNotSupported"></a> Fonctionnalités non prises en charge sur Internet  
+##  <a name="BKMK_IBCM_FeaturesNotSupported"></a> Fonctionnalités non prises en charge sur Internet  
  Toutes les fonctionnalités de gestion des clients ne sont pas adaptées à Internet. Par conséquent, elles ne sont pas pris en charge lorsque les clients sont gérés sur Internet. Les fonctionnalités qui ne sont pas prises en charge pour la gestion d'Internet reposent généralement sur les services de domaine Active Directory ou ne conviennent pas à un réseau public, comme par exemple la découverte de réseau et Wake-on-LAN (WOL).  
 
  Les fonctions ci-dessous ne sont pas prises en charge lorsque les clients sont gérés sur Internet :  
@@ -53,7 +54,7 @@ La gestion des clients basée sur Internet (ou IBCM, Internet-Based Client Manag
 
  Lorsque vous disposez d'un point de mise à jour logicielle qui est configuré pour accepter les connexions à partir d'Internet, les clients Configuration Manager basés sur Internet qui se trouvent sur Internet effectuent toujours une analyse par rapport à ce point de mise à jour logicielle afin de déterminer quelles mises à jour logicielles sont requises. Toutefois, lorsque ces clients se trouvent sur Internet, ils commencent par essayer de télécharger les mises à jour logicielles à partir de Microsoft Update, plutôt qu'à partir d'un point de distribution basé sur Internet. Uniquement en cas d'échec, ils tenteront de télécharger les mises à jour logicielles requises à partir d'un point de distribution basé sur Internet. Les clients qui ne sont pas configurés pour la gestion des clients basés sur Internet n’essaient jamais de télécharger les mises à jour logicielles auprès de Microsoft Update, mais utilisent toujours des points de distribution Configuration Manager.  
 
-##  <a name="a-namebkmkplanforinternetsitesystemsa-considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a><a name="BKMK_PlanforInternetSiteSystems"></a> Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée  
+##  <a name="BKMK_PlanforInternetSiteSystems"></a> Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée  
  Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, tels qu'Internet ou une forêt non approuvée (les sites secondaires ne prennent pas en charge les connexions client à partir d'emplacements non approuvés) :  
 
 -   Point du site web du catalogue des applications  
@@ -94,7 +95,7 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
 -   **Tunneling** :   
     Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est aussi pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
 
-##  <a name="a-namebkmkplanforinternetclientsa-planning-for-internet-based-clients"></a><a name="BKMK_PlanforInternetClients"></a> Planification des clients basés sur Internet  
+##  <a name="BKMK_PlanforInternetClients"></a> Planification des clients basés sur Internet  
  Vous devez décider si les ordinateurs clients qui seront gérés sur Internet seront configurés pour la gestion sur l'Intranet et Internet ou pour la gestion des clients sur Internet uniquement. Vous pouvez uniquement configurer l'option de gestion du client pendant l'installation d'un ordinateur client. Si vous changez d'avis ultérieurement, vous devez réinstaller le client.  
 
 > [!NOTE]  
@@ -114,7 +115,7 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
 
  L’avantage de pouvoir basculer automatiquement entre la gestion des clients basée sur Internet et la gestion des clients intranet est que les ordinateurs clients peuvent utiliser automatiquement toutes les fonctionnalités de Configuration Manager chaque fois qu’ils sont connectés à l’intranet et continuer d’être gérés pour les fonctions de gestion essentielles quand ils sont sur Internet. En outre, un téléchargement commencé sur Internet peut reprendre sans interruption sur le réseau Intranet, et inversement.  
 
-##  <a name="a-namebkmkprerequisitsforinternetclientmgmta-prerequisites-for-internet-based-client-management"></a><a name="BKMK_PrerequisitsForInternetClientMgmt"></a> Conditions préalables pour la gestion du client basée sur Internet  
+##  <a name="BKMK_PrerequisitsForInternetClientMgmt"></a> Conditions préalables pour la gestion du client basée sur Internet  
  Dans Configuration, la gestion du client basée sur Internet Manager présente les dépendances externes suivantes :  
 
 -   Les clients qui seront gérés sur Internet doivent être dotés d'une connexion Internet.  
@@ -196,9 +197,4 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
      Pour obtenir des informations de configuration afin de prendre en charge cette configuration requise, reportez-vous à la documentation de votre serveur proxy ou de votre pare-feu.  
 
      Pour obtenir des configurations de communication similaires lorsque vous utilisez le point de mise à jour logicielle pour les connexions client à partir d'Internet, consultez la documentation de WSUS (Windows Server Update Services). Par exemple, dans le cas de WSUS sous Windows Server 2003, voir [Annexe D : paramètres de sécurité](http://go.microsoft.com/fwlink/p/?LinkId=143368), l’annexe de déploiement pour les paramètres de sécurité.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 54ef5fbb-521d-4ca5-a1c5-61e6f538d71e
 caps.latest.revision: 8
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: c1b3b3e7fe756ce3e0c82ffc15693999d8e817d2
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -36,7 +37,7 @@ Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vou
 
  Si vos systèmes de site acceptent les connexions client HTTPS et que votre infrastructure de clé publique (PKI) prend en charge une liste de révocation de certificats, envisagez toujours de définir la révocation de certificat comme première ligne de défense contre les certificats potentiellement compromis. Le blocage des clients dans Configuration Manager fournit une seconde ligne de défense pour protéger votre hiérarchie.  
 
-##  <a name="a-namebkmkblockvscrla-considerations-for-blocking-clients"></a><a name="BKMK_Block_vs_CRL"></a> Éléments à prendre en considération pour le blocage des clients  
+##  <a name="BKMK_Block_vs_CRL"></a> Éléments à prendre en considération pour le blocage des clients  
 
 -   Cette option est disponible pour les connexions client HTTP et HTTPS, mais sa sécurité est limitée lorsque les clients se connectent à des systèmes de site en utilisant le protocole HTTP.  
 
@@ -71,9 +72,4 @@ Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vou
 
     > [!NOTE]  
     >  Il est possible d'améliorer la protection des systèmes de site qui exécutent IIS contre des clients inconnus en configurant une liste de certificats de confiance (CTL) dans IIS.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

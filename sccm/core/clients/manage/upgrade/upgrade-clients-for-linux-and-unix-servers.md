@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 7d2bb377-1005-4a55-bd1f-b80a6d0b22e1
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: eea9faaac579ecafd67eaac05dc7ee7ca7819db7
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -61,9 +62,4 @@ Vous pouvez mettre à niveau la version du client pour Linux et UNIX vers une ve
      Par exemple, utilisez la ligne de commande suivante pour exécuter le script : **at -f /tmp/upgrade.sh -m now + 5 minutes**  
 
  Une fois que le client a correctement planifié l’exécution du script **upgrade.sh** , le client envoie un message d’état indiquant que le déploiement de logiciels s’est terminé avec succès. Toutefois, l’installation du client actuel est ensuite gérée par l’ordinateur, une fois le délai écoulé. Une fois la mise à niveau du client terminée, validez l’installation en consultant le fichier **/var/opt/microsoft/scxcm.log** sur l’ordinateur client. De plus, vous pouvez vérifier que le client est installé et qu’il communique avec le site en affichant les détails relatifs au client dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité** dans la console Configuration Manager.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

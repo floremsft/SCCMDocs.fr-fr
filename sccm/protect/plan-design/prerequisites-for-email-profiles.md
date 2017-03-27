@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.assetid: dccf0b73-43bd-4545-8914-114168ebad36
 caps.latest.revision: 5
 caps.handback.revision: 0
-author: Nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
 ms.openlocfilehash: bdb7f78480f73bc4559c4ff49ecb7b047581780a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -40,9 +41,4 @@ Les profils de messagerie dans System Center Configuration Manager ont des dépe
 |Dépendance|Plus d'informations|  
 |----------------|----------------------|  
 |Attribut de messagerie dans Active Directory|Si vous souhaitez générer l’adresse email des utilisateurs dans un profil de messagerie à l’aide de l’adresse SMTP principale de l’utilisateur, cette adresse doit exister dans l’attribut **mail** dans Active Directory.<br /><br /> Pour plus d'informations, consultez la documentation de Windows Server.|
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

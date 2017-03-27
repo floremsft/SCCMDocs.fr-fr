@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 74c60941-5eae-4905-9e58-252bdb39df96
 caps.latest.revision: 10
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
 ms.openlocfilehash: 6bdc5cca01bf5a79a6177d7cf1de96b8ff2c2305
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -64,7 +65,7 @@ Suivez les étapes générales décrites ci-dessous pour mettre à niveau le cli
 
  Si vous n’utilisez pas l’inscription Configuration Manager, mais que vous installez le certificat client indépendamment de Configuration Manager, consultez [Configurer le client mis à niveau pour qu’il utilise un certificat existant](#BKMK_UpgradingClient_MachineEnrollment).  
 
-##  <a name="a-namebkmkupgradingclientmachineenrollmenta-configure-the-upgraded-client-to-use-an-existing-certificate"></a><a name="BKMK_UpgradingClient_MachineEnrollment"></a> Configure the upgraded client to use an existing certificate  
+##  <a name="BKMK_UpgradingClient_MachineEnrollment"></a> Configure the upgraded client to use an existing certificate  
  Exécutez la procédure suivante pour empêcher l’exécution de l’Assistant Inscription ordinateur et pour configurer le client mis à niveau afin qu’il utilise un certificat client existant.  
 
 -   Dans la console Configuration Manager, créez un élément de configuration du type **Mac OS X**.  
@@ -102,9 +103,4 @@ Suivez les étapes générales décrites ci-dessous pour mettre à niveau le cli
 -   Ajoutez l’élément de configuration à une base de référence de configuration, puis déployez cette dernière sur tous les ordinateurs Mac qui installent un certificat indépendamment de Configuration Manager.  
 
  Pour plus d’informations sur la création et le déploiement d’éléments de configuration pour des ordinateurs Mac, consultez [Comment créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager](../../../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md) et [Comment déployer des bases de référence de configuration dans System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: c1b2057e-b74f-43fa-a293-763a8f866d3d
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: eafa0d85935c2009cc63d17b06ed83a4666d7fac
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -65,9 +66,4 @@ Le contrôle à distance dans System Center Configuration Manager comporte des d
 |Le contrôle à distance doit être activé pour les clients|Par défaut, le contrôle à distance n’est pas activé quand vous installez Configuration Manager. Pour plus d’informations sur l’activation et la configuration du contrôle à distance, consultez [Configuration du contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).|  
 |Point de Reporting Services|Le rôle de système de site du point de Reporting Services doit être installé avant que vous puissiez exécuter des rapports pour le contrôle à distance. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  
 |Autorisations de sécurité pour gérer le contrôle à distance|Pour accéder aux ressources de regroupement et lancer une session de contrôle à distance à partir de la console Configuration Manager : autorisations **Contrôler AMT**, **Lecture**, **Lire la ressource** et **Contrôle à distance** pour l’objet **Regroupement**.<br /><br /> Le rôle de sécurité **Opérateur d’outils à distance** inclut ces autorisations qui sont nécessaires pour gérer le contrôle à distance dans Configuration Manager.<br /><br /> Pour plus d’informations, consultez [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-role-based-administration.md).<br /><br /> Vous devez également ajouter les utilisateurs auxquels vous souhaitez accorder l’autorisation d’utiliser le contrôle à distance et l’assistance à distance dans la liste des vues autorisées de contrôle à distance et d’assistance à distance à l’aide de l’option **Observateurs autorisés des options de contrôle à distance et d’assistance à distance** dans les paramètres client **Outils de contrôle à distance** .|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

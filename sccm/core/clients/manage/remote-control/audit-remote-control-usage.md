@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 5c975e69-0cc0-4afd-b7fb-b7182162a933
 caps.latest.revision: 5
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: e3082e1d608f60a539fc58b0129132e33c8af833
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -61,9 +62,4 @@ Vous pouvez utiliser les rapports System Center Configuration Manager pour affic
 4.  Sélectionnez le rapport **Contrôle à distance - Toutes les informations de contrôle à distance**, puis, sous l’onglet **Accueil** , dans **Groupe de rapports**, cliquez sur **Exécuter** pour ouvrir la fenêtre **Contrôle à distance - Toutes les informations de contrôle à distance** .  
 
 5.  Une fois que vous avez terminé de consulter les données du rapport, fermez la fenêtre du rapport.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

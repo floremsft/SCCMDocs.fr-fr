@@ -13,12 +13,13 @@ ms.topic: article
 ms.assetid: 272ee86b-d3d9-4fd9-b5c4-73e490e1a1e4
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: 342a58d2b7439f721381beb43188594b5278043d
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 342a58d2b7439f721381beb43188594b5278043d
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
 
-##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-remote-control"></a><a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
+##  <a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
  Utilisez les meilleures pratiques de sécurité suivantes lorsque vous gérez des ordinateurs client à l'aide du contrôle à distance.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  
@@ -54,7 +55,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
      Les messages d’audit ne sont pas envoyés si vous copiez les fichiers binaires pour le contrôle à distance au lieu d’installer la console Configuration Manager, puis exécutez le contrôle à distance à partir de l’invite de commandes.  
 
-##  <a name="a-namebkmkprivacyhardwareinventorya-privacy-information-for-remote-control"></a><a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le contrôle à distance  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le contrôle à distance  
  Le contrôle à distance vous permet d’afficher les sessions actives sur les ordinateurs clients Configuration Manager et de consulter éventuellement des informations stockées sur ces ordinateurs. Par défaut, le contrôle à distance n’est pas activé.  
 
  Bien que vous puissiez le configurer pour envoyer des avis importants et obtenir le consentement d'un utilisateur avant le début d'une session de contrôle à distance, il peut également surveiller les utilisateurs sans qu'ils le veuillent ou le sachent. Vous pouvez configurer le niveau d'accès Afficher uniquement, de sorte que rien ne puisse être modifié sur le contrôle à distance ou le contrôle intégral. Le compte de l'administrateur de connexion s'affiche dans la session de contrôle à distance pour aider les utilisateurs à savoir qui se connecte à leur ordinateur.  
@@ -62,9 +63,4 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
  Par défaut, Configuration Manager accorde au groupe Administrateurs local des autorisations de contrôle à distance.  
 
  Avant de configurer le contrôle à distance, analysez vos besoins en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

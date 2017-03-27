@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 600086d5-bd9e-4ac1-8ace-c7a62de80dc2
 caps.latest.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 Robots: NOINDEX,NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 30d0177dc7fcc7f39d00c48067130d587435bf2d
+ms.lasthandoff: 12/16/2016
 
 ---
 # <a name="use-the-client-software-from-the-version-1606-baseline-media-for-extended-interoperability-with-future-versions-of-a-current-branch-site"></a>Utiliser le logiciel client issu du support de la base de référence de la version 1606 pour l’interopérabilité étendue avec les futures versions d’un site Current Branch
@@ -42,23 +43,18 @@ Quand vous utilisez le client d’interopérabilité étendue de System Center 
 Envisagez de mettre à jour le client d’interopérabilité étendue sur les appareils que vous gérez avec Current Branch avant que la prise en charge du client n’arrive à expiration. Pour cela, vous téléchargez une nouvelle version du client auprès de Microsoft, puis vous déployez ce logiciel client mis à jour sur vos appareils qui utilisent le client d’interopérabilité étendue actuel.
 
 **Limitations du client d’interopérabilité étendue :**
--   Les mises à jour du logiciel client d’interopérabilité étendue ne sont pas disponibles par le biais des mises à jour dans la console. Des informations supplémentaires pour le déploiement d’un logiciel client mis à jour seront fournies lors de la publication d’un client mis à jour.
+-     Les mises à jour du logiciel client d’interopérabilité étendue ne sont pas disponibles par le biais des mises à jour dans la console. Des informations supplémentaires pour le déploiement d’un logiciel client mis à jour seront fournies lors de la publication d’un client mis à jour.
 
 ## <a name="identify-the-client-version-you-use"></a>Identifier la version du client que vous utilisez
 Voici les principales versions du client disponibles pour Current Branch et LTSB :
 
 |Version du client|Branche et version |  
 |----------------|---------------------|
-|5.00.8325.xxxx |   - Current Branch 1511|
-|5.00.8355.xxxx |- Current Branch 1602|
-|5.00.8412.1307 |- Current Branch 1606 </br> - Current Branch 1606 avec le correctif cumulatif 1606 (KB3186654)</br>- Client d’interopérabilité étendue issu du support de la base de référence de la version 1606|  
+|5.00.8325.xxxx |    - Current Branch 1511|
+|5.00.8355.xxxx    |- Current Branch 1602|
+|5.00.8412.1307    |- Current Branch 1606 </br> - Current Branch 1606 avec le correctif cumulatif 1606 (KB3186654)</br>- Client d’interopérabilité étendue issu du support de la base de référence de la version 1606|  
 
 Sur le client, vous pouvez afficher sa version sous l’onglet **Général** de l’applet du Panneau de configuration de Configuration Manager.
 
 Sous l’onglet **Composants** de l’applet, certains composants affichent des valeurs différentes. Par exemple, pour une version du client 8412.1307, certains composants peuvent comporter une indication 5.00.8412.**1000** ou 5.00.8412.**1006**.  Une différence dans les quatre derniers chiffres de certains composants est normale et n’indique pas une défaillance du composant de mise à jour vers la version actuelle du client.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
