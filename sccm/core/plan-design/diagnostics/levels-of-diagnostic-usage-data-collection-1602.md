@@ -15,6 +15,7 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+robots: noindex,nofollow
 translation.priority.ht:
 - cs-cz
 - de-de
@@ -36,6 +37,7 @@ translation.priority.ht:
 translationtype: Human Translation
 ms.sourcegitcommit: ebbc2b250d651aa8befd7f2458d67bf0f4a8ff10
 ms.openlocfilehash: e54ed320ce95876d29e6dd889dcba2f1f964164c
+ms.lasthandoff: 02/08/2017
 
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1602 de System Center Configuration Manager
@@ -49,13 +51,13 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 > [!IMPORTANT]
 >  Configuration Manager ne collecte pas les codes de sites, noms de sites, adresses IP, noms d’utilisateur ou d’ordinateur, adresses physiques ni adresses e-mail aux niveaux De base et Étendu. Toute collecte de ces informations au niveau Complet n’est pas intentionnelle : elles peuvent être incluses dans des informations de diagnostic avancées comme des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.
 
-##  <a name="a-namebkmkchangea-how-to-change-the-level"></a><a name="bkmk_change"></a> Modification du niveau
+##  <a name="bkmk_change"></a> Modification du niveau
  Les administrateurs qui disposent d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
 
 
   Pour cela, dans la console, accédez à l’onglet Backstage (onglet supérieur gauche avec flèche déroulante), sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
 
-##  <a name="a-namebkmklevel1a-level-1---basic"></a><a name="bkmk_level1"></a> Niveau 1 - De base
+##  <a name="bkmk_level1"></a> Niveau 1 - De base
  Le niveau De base comprend les données relatives à votre hiérarchie, qui sont nécessaires pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que des données pour aider à identifier les mises à jour Configuration Manager qui s’appliquent à votre hiérarchie.
 
  À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
@@ -107,7 +109,7 @@ Les modifications par rapport aux versions précédentes sont indiquées par ***
 
     -  Statistiques sur les connexions de la console (version, langue, SKU et architecture du système d’exploitation, mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
 
-##  <a name="a-namebkmklevel2a-level-2---enhanced"></a><a name="bkmk_level2"></a> Niveau 2 – Étendu
+##  <a name="bkmk_level2"></a> Niveau 2 – Étendu
 Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données propres aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres tels que les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.
 
 Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations sur les objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes qui nécessitent des mises à jour logicielles.
@@ -278,7 +280,7 @@ Ce niveau est recommandé, car il fournit à Microsoft les données minimales re
 
     - ***[Nouveau]*** Versions des correctifs logiciels Configuration Manager installés
 
-##  <a name="a-namebkmklevel3a-level-3---full"></a><a name="bkmk_level3"></a> Niveau 3 – Complet
+##  <a name="bkmk_level3"></a> Niveau 3 – Complet
 Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle. Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
 
 À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
@@ -313,9 +315,4 @@ Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il 
 -   ***[Nouveau]*** Paramètres de compatibilité : détails de configuration des modèles SCEP, VPN, Wi-Fi et stratégie de conformité
 
 -   ***[Nouveau]*** Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les périphériques gérés par Intune
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

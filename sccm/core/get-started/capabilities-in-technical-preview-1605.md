@@ -15,10 +15,11 @@ caps.latest.revision: 36
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-robots: noindex,nofollow
 translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 3af395b84dd6878af9b846b438049e55baf9472e
+ms.lasthandoff: 01/24/2017
+
 
 ---
 # <a name="capabilities-in-technical-preview-1605-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1605 pour System Center Configuration Manager
@@ -35,7 +36,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-##  <a name="a-namebkmkperappvpna-per-app-vpn-for-windows-10-devices"></a><a name="BKMK_PerAppVPN"></a> VPN par application pour les appareils Windows 10  
+##  <a name="BKMK_PerAppVPN"></a> VPN par application pour les appareils Windows 10  
  Pour les appareils Windows 10 gérés à l’aide de Configuration Manager avec Intune, vous pouvez ajouter une liste d’applications qui ouvrent automatiquement une connexion VPN que vous avez configurée via la console d’administration Configuration Manager. Vous avez la possibilité de restreindre le trafic VPN à ces applications ou vous pouvez continuer à autoriser tout le trafic via la connexion VPN.  
 
  **Configuration requise** :  
@@ -44,17 +45,17 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 -   Un profil VPN Windows 10 déployé sur au moins un appareil  
 
-##  <a name="a-namebkmkinstallsua-improvements-to-the-install-software-updates-task-sequence"></a><a name="BKMK_InstallSU"></a> Améliorations apportées à la séquence de tâches Installer les mises à jour logicielles  
+##  <a name="BKMK_InstallSU"></a> Améliorations apportées à la séquence de tâches Installer les mises à jour logicielles  
  Les améliorations suivantes ont été apportées à la séquence de tâches Installer les mises à jour logicielles :  
 
 -   Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, est disponible. Elle vous permet de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape de séquence de tâches Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes.  
 
 -   Des améliorations ont été apportées à la journalisation. Le fichier journal smsts.log contiendra de nouvelles entrées qui référenceront d’autres fichiers journaux qui vous aideront à résoudre les problèmes au cours du processus d’installation des mises à jour logicielles.  
 
-##  <a name="a-namebkmkprepareconfigmgrclienta-improvements-to-the-prepare-configmgr-client-for-capture-task-sequence-step"></a><a name="BKMK_PrepareConfigMgrClient"></a> Améliorations apportées à l’étape de séquence de tâches Préparer le client ConfigMgr pour capture  
+##  <a name="BKMK_PrepareConfigMgrClient"></a> Améliorations apportées à l’étape de séquence de tâches Préparer le client ConfigMgr pour capture  
  L’étape de préparation du client ConfigMgr va désormais supprimer complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
 
-##  <a name="a-namebkmkgracea-grace-period-for-required-application-deployments"></a><a name="BKMK_Grace"></a> Période de grâce pour les déploiements d’applications obligatoires  
+##  <a name="BKMK_Grace"></a> Période de grâce pour les déploiements d’applications obligatoires  
  Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Il peut toutefois encore installer l’application immédiatement ou dès qu’il le souhaite.  
 
  Pour résoudre ce problème, vous pouvez désormais définir une **période de grâce** en déployant des paramètres du client Configuration Manager sur un regroupement.  
@@ -71,7 +72,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés. Toutefois, celles-ci ne sont pas actuellement implémentées dans cette version d’évaluation technique.  
 
-##  <a name="a-namebkmkremotea-new-experience-for-remote-device-actions"></a><a name="BKMK_Remote"></a> Nouvelle expérience pour les actions des appareils à distance  
+##  <a name="BKMK_Remote"></a> Nouvelle expérience pour les actions des appareils à distance  
  L’expérience relative à l’exécution des actions des appareils à distance à partir de la console Configuration Manager a été améliorée.  
 Des actions courantes telles que **Mettre hors service/réinitialiser**, **Réinitialisation du code secret**, **Verrouillage à distance** et **Contourner le verrou d’activation** figurent désormais dans le menu **Actions de l’appareil à distance**, accessible à partir de l’espace de travail **Ressources et Conformité**.  
 
@@ -87,7 +88,7 @@ Des actions courantes telles que **Mettre hors service/réinitialiser**, **Réin
 
  Pour plus d’informations sur le contournement du verrou d’activation iOS, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation pour Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock) et notamment la section **Problèmes connus actuels liés au contournement du verrou d’activation dans la version d’évaluation technique de Configuration Manager**.  
 
-##  <a name="a-namebkmkwsfba-windows-store-for-business-apps"></a><a name="BKMK_WSFB"></a> Applications du Windows Store pour Entreprises  
+##  <a name="BKMK_WSFB"></a> Applications du Windows Store pour Entreprises  
  Le [Windows Store pour Entreprises](https://www.microsoft.com/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
 
 -   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
@@ -158,7 +159,7 @@ Des actions courantes telles que **Mettre hors service/réinitialiser**, **Réin
 >   
 >  Vous ne pouvez pas déployer actuellement des applications en ligne sous licence à l’aide de Configuration Manager.  
 
-##  <a name="a-namebkmkvpp2a-general-improvements-for-volume-purchased-apps"></a><a name="BKMK_VPP2"></a> Améliorations générales pour les applications achetées en volume  
+##  <a name="BKMK_VPP2"></a> Améliorations générales pour les applications achetées en volume  
 
 -   Dans cette version, les applications achetées en volume dans le Windows Store pour Entreprises et App Store iOS ont été consolidées dans une même vue, **Informations de licence pour les applications du Store**.  
 
@@ -170,14 +171,14 @@ Des actions courantes telles que **Mettre hors service/réinitialiser**, **Réin
 
 -   L’emplacement que vous utilisez pour obtenir et télécharger un jeton Apple VPP pour les applications achetées en volume dans la console Configuration Manager a changé. Vous pouvez désormais effectuer cette opération dans l’espace de travail **Admin** sous le nœud **Services cloud** > **Jetons du programme d’achat en volume (VPP) Apple**.  
 
-##  <a name="a-namebkmkvppa-enterprise-data-protection-edp"></a><a name="BKMK_VPP"></a> Protection des données d’entreprise  
+##  <a name="BKMK_VPP"></a> Protection des données d’entreprise  
  Vous pouvez créer des éléments de configuration qui vous permettent de déployer vos stratégies de protection des données d’entreprise (PDE), notamment de choisir vos applications protégées, de définir le niveau de protection PDE et de rechercher des données d’entreprise sur le réseau. Pour plus d’informations sur PDE, consultez les rubriques suivantes :  
 
 -   [Protéger vos données d’entreprise à l’aide de la protection des données d’entreprise (PDE)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-edp)  
 
 -   [Créer et déployer une stratégie de protection des données d’entreprise (PDE) à l’aide de System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-edp-policy-using-sccm)  
 
-##  <a name="a-namebkmkenda-end-users-can-install-apps-from-the-company-portal"></a><a name="BKMK_End"></a> Les utilisateurs finaux peuvent installer des applications à partir du portail d’entreprise  
+##  <a name="BKMK_End"></a> Les utilisateurs finaux peuvent installer des applications à partir du portail d’entreprise  
  La gestion des appareils mobiles locale a été introduite dans la version 1511 de System Center Configuration Manager. Dans les versions précédentes, vous pouviez déployer des applications sur des appareils Windows 10 gérés par la gestion des appareils mobiles avec un objet de déploiement **Installation requise** pour les appareils gérés par la gestion des appareils mobiles locale.  
 
  Dans cette version, vous pouvez désormais déployer des applications avec un objet de déploiement **Disponible** pour les utilisateurs d’ordinateurs Windows 10 gérés par la gestion des appareils mobiles locale, et les utilisateurs peuvent désormais installer eux-mêmes ces applications à partir du portail d’entreprise.
@@ -268,12 +269,12 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
 
      Après avoir ouvert le portail d’entreprise, vous voyez une boîte de dialogue d’authentification nommée **System Center Configuration Manager**. Spécifiez les informations d’identification Active Directory de l’utilisateur (sous la forme de user@domain ou de domaine\utilisateur) pour vous connecter.  
 
-##  <a name="a-namebkmksw1a-new-tabs-for-updates-and-operating-systems-in-software-center"></a><a name="BKMK_SW1"></a> Nouveaux onglets pour les mises à jour et les systèmes d’exploitation dans le Centre logiciel  
+##  <a name="BKMK_SW1"></a> Nouveaux onglets pour les mises à jour et les systèmes d’exploitation dans le Centre logiciel  
  Dans cette version, les modifications suivantes ont été apportées pour améliorer la disposition de l’application Centre logiciel :  
 
 -   L’onglet **Applications** a été divisé en trois onglets distincts : **Mises à jour**, **Systèmes d’exploitation** (auparavant accessibles dans la liste **Filtres**) et **Applications**.  
 
-##  <a name="a-namebkmkservergroupsa-service-a--server-group"></a><a name="BKMK_ServerGroups"></a> Assurer la maintenance d’un groupe de serveurs  
+##  <a name="BKMK_ServerGroups"></a> Assurer la maintenance d’un groupe de serveurs  
  La version d’évaluation technique 1511 de System Center Configuration Manager incluait la possibilité de créer un regroupement dans lequel tous les appareils composaient un groupe de serveurs. Ensuite, vous pouviez configurer les paramètres du groupe de serveurs à utiliser pour déployer des mises à jour logicielles sur le groupe de serveurs, contrôler le pourcentage d’ordinateurs qui étaient mis à jour à un moment donné, et configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.  
 
  La version d’évaluation technique 1605 de System Center Configuration Manager ajoute la possibilité de mettre à jour les ordinateurs dans le groupe de serveurs, dans un ordre spécifié que vous définissez. Elle ajoute une surveillance améliorée pour afficher l’état des ordinateurs dans le groupe de serveurs et elle offre la possibilité de supprimer les verrous de déploiement, ce qui s’avère utile lorsque les clients n’ont pas pu installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles.  
@@ -340,7 +341,7 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
 
 2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Supprimer les verrous de déploiement du groupe de serveurs**. Quand des clients ne parviennent pas à installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles, les verrous de déploiement peuvent être désactivés manuellement.  
 
-##  <a name="a-namebkmkatpa-support-for-windows-defender-advanced-threat-protection-service"></a><a name="BKMK_ATP"></a> Prise en charge du service Windows Defender Advanced Threat Protection  
+##  <a name="BKMK_ATP"></a> Prise en charge du service Windows Defender Advanced Threat Protection  
  Protection avancée contre les menaces Windows Defender est un nouveau service qui aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. En savoir plus sur [Protection avancée contre les menaces Windows Defender](https://blogs.windows.com/windowsexperience/2016/03/01/announcing-windows-defender-advanced-threat-protection). Configuration Manager peut vous aider à intégrer et surveiller des appareils clients Windows 10 Édition anniversaire gérés.  
 
 ### <a name="try-it-now"></a>Essayez maintenant !  
@@ -407,7 +408,7 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
 
         -   **Non intégré** : la stratégie a été appliquée, mais l’agent n’a pas signalé de stratégie intégrée.  
 
-##  <a name="a-namebkmkdhaa-on-premises-device-health-attestation"></a><a name="BKMK_DHA"></a> Attestation d’intégrité de l’appareil en local  
+##  <a name="BKMK_DHA"></a> Attestation d’intégrité de l’appareil en local  
  L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale. Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales. Si l’option sur site est sélectionnée pour la création de rapports d’attestation d’intégrité, vous pouvez spécifier une URL pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
 
 ### <a name="enable-health-attestation-for-on-premises-devices"></a>Activation de l’attestation d’intégrité pour les appareils locaux  
@@ -417,10 +418,10 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
 
 2.  Spécifiez l’ **URL du service d’attestation d’intégrité local**, puis cliquez sur **OK**.  
 
-##  <a name="a-namebkmkrestartoptionsa-new-restart-options-for-windows-10-clients-after-software-update-installation"></a><a name="BKMK_RestartOptions"></a> Nouvelles options de redémarrage pour les clients Windows 10 après l’installation de mises à jour logicielles  
+##  <a name="BKMK_RestartOptions"></a> Nouvelles options de redémarrage pour les clients Windows 10 après l’installation de mises à jour logicielles  
  Quand une mise à jour logicielle nécessitant un redémarrage est déployée à l’aide de Configuration Manager et installée sur un ordinateur, un redémarrage en attente est planifié et une boîte de dialogue de redémarrage s’affiche. Actuellement, pour Windows 8 et versions ultérieures, si vous arrêtez ou redémarrez l’ordinateur à l’aide des options d’alimentation de Windows (et non pas à partir de la boîte de dialogue de redémarrage), la boîte de dialogue de redémarrage reste affichée après le redémarrage de l’ordinateur et celui-ci devra redémarrer à l’échéance configurée. Dans cette version d’évaluation technique, les options **Mettre à jour et redémarrer** et **Mettre à jour et arrêter** sont disponibles sur les ordinateurs Windows 10 dans les options d’alimentation de Windows chaque fois qu’un redémarrage est en attente pour une mise à jour logicielle Configuration Manager. Après l’utilisation de l’une de ces options, la boîte de dialogue de redémarrage ne s’affiche pas quand l’ordinateur redémarre.  
 
-##  <a name="a-namebkmkimeia-pre-declare-corporate-owned-devices-with-imei-or-ios-serial-number"></a><a name="BKMK_IMEI"></a> Prédéclarer des appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS  
+##  <a name="BKMK_IMEI"></a> Prédéclarer des appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS  
  Vous pouvez désormais identifier des appareils d’entreprise en important leurs numéros IMEI (International Mobile Equipment Identity). Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) contenant les numéros IMEI des appareils ou saisir manuellement les informations sur les appareils.  Vous pouvez également importer les numéros de série des appareils iOS.  Les informations importées définissent l’appartenance des appareils inscrits sur « Entreprise ».  Une licence Intune reste nécessaire pour chaque utilisateur qui accède au service.  
 
 ### <a name="try-it-out"></a>Essayez !  
@@ -469,9 +470,4 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
      Cliquez sur **Suivant**.  
 
 4.  Vérifiez les résultats de l’importation du fichier. Les informations détaillées des numéros IMEI ou de série précédemment importés seront mises à jour avec de nouvelles informations.  Cliquez sur **Suivant** pour continuer ou sur **Précédent** pour conserver les détails modifiés, puis terminez l’Assistant.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

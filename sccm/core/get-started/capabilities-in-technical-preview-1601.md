@@ -15,9 +15,11 @@ caps.latest.revision: 7
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+robots: noindex,nofollow
 translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 4da12425382c5d64602b2728e0e661c8cb89a5e4
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager
@@ -59,7 +61,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-##  <a name="a-namebkmkhybrid1a-improvements-to-microsoft-intune-integration"></a><a name="bkmk_hybrid1"></a> Améliorations apportées à l’intégration de Microsoft Intune  
+##  <a name="bkmk_hybrid1"></a> Améliorations apportées à l’intégration de Microsoft Intune  
 Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
 ### <a name="improvements-to-conditional-access"></a>Améliorations apportées à l’accès conditionnel  
@@ -125,7 +127,7 @@ Dans la version Technical Preview 1601, nous avons ajouté la prise en charge d
 
      Pour utiliser cette option, accédez à la page **Général** de l’**Assistant Configuration de la stratégie d’accès conditionnel** pour Exchange sur site.  
 
-##  <a name="a-namebkmkclientstatusa-client-online-status"></a><a name="bkmk_clientStatus"></a> État de connexion du client  
+##  <a name="bkmk_clientStatus"></a> État de connexion du client  
 Depuis la version d’évaluation technique 1601, vous pouvez identifier rapidement dans la console Configuration Manager si un client est en ligne ou hors connexion. Avec des icônes et des colonnes mises à jour dans les listes d’appareils de la console, vous pouvez évaluer l’état des clients dans votre environnement pour identifier les zones à problème et d’autres problèmes nécessitant votre attention.  
 
 Un client est en ligne s’il est actuellement connecté à un rôle de système de site du point de gestion Configuration Manager. Tant que le point de gestion reçoit des messages de type test ping du client, son état est en ligne. Si la gestion ne reçoit pas de message pendant environ 5 minutes, l’état du client devient hors connexion.  
@@ -158,7 +160,7 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 
  Pour afficher les modifications récentes apportées à l’état du client, actualisez la console.  
 
-##  <a name="a-namebkmkappmgmt1601a-improvements-to-application-management"></a><a name="bkmk_appmgmt1601"></a> Améliorations de la gestion d’applications  
+##  <a name="bkmk_appmgmt1601"></a> Améliorations de la gestion d’applications  
  Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
 ### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gérer les applications pour appareils iOS achetées en volume  
@@ -194,7 +196,7 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
 
 -   Dans l’**Assistant Déploiement logiciel**, dans la page **Stratégie de configuration des applications**, associez la stratégie de configuration d’application que vous avez créée à un type de déploiement compatible de l’application.  
 
-##  <a name="a-namebkmkcompliance1601a-improvements-to-compliance-settings"></a><a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de conformité  
+##  <a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de conformité  
  Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
 ### <a name="microsoft-edge-browser-settings"></a>Paramètres du navigateur Microsoft Edge  
@@ -217,9 +219,4 @@ Un client est en ligne s’il est actuellement connecté à un rôle de système
  Pour afficher les nouveaux paramètres, choisissez **Mode plein écran - Samsung KNOX** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
 
  Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

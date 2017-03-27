@@ -2,7 +2,7 @@
 title: "Afficher les données de diagnostic | Microsoft Docs"
 description: "Affichez les données d’utilisation et de diagnostic pour vérifier que votre hiérarchie System Center Configuration Manager ne contient aucune information sensible."
 ms.custom: na
-ms.date: 12/29/2016
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 688e05aae0e0b15b54835f8d64a98487f4d7b64d
 ms.openlocfilehash: fcd7ac43f7b2d2c92d6aadd7c490f198ac99e5e6
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -36,7 +37,7 @@ Utilisez la commande SQL suivante pour voir le contenu de cette table et affiche
 
 Quand le point de connexion de service est en mode hors connexion, vous pouvez utiliser l’outil de connexion de service pour exporter les données d’utilisation et de diagnostic actives dans un fichier de valeurs séparées par des virgules (CSV). Exécutez l’outil de connexion de service sur le point de connexion de service en utilisant le paramètre **-Export**.  
 
-##  <a name="a-namebkmkhashesa-one-way-hashes"></a><a name="bkmk_hashes"></a> Hachages unidirectionnels  
+##  <a name="bkmk_hashes"></a> Hachages unidirectionnels  
 Certaines données se composent de chaînes de caractères alphanumériques aléatoires. Configuration Manager utilise l’algorithme SHA-256, qui utilise le hachage à sens unique, pour garantir que nous ne collectons pas de données potentiellement sensibles. L’algorithme laisse les données dans un état où elles peuvent encore être utilisées à des fins de comparaison et de corrélation. Par exemple, au lieu de collecter les noms des tables dans la base de données de site, un hachage unidirectionnel est capturé pour chaque nom de table. Ceci garantit que les noms de tables personnalisés que vous avez créés ou que des modules complémentaires d’un produit ont créés ne sont pas visibles. Nous pouvons ensuite effectuer le même hachage à sens unique des noms des tables SQL fournis par défaut dans le produit et comparer les résultats de deux requêtes pour déterminer l’écart de votre schéma de base de données par rapport aux paramètres par défaut du produit. Cet écart est ensuite utilisé pour améliorer les mises à jour qui nécessitent des modifications du schéma SQL.  
 
 Lorsque vous affichez les données brutes, une valeur hachée apparaît dans chaque ligne de données. Il s’agit de l’ID de hiérarchie. Cette valeur hachée est utilisée pour garantir que les données sont corrélées avec la même hiérarchie, sans identification du client ou de la source.  
@@ -66,9 +67,4 @@ Lorsque vous affichez les données brutes, une valeur hachée apparaît dans cha
     $result = [Convert]::ToBase64String($hashedBytes)    
     return $result   
     ```  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

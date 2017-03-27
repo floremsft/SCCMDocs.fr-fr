@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+robots: noindex,nofollow
 translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 1d3adcf3310d88b1266388aa03ae5ea03e23f2a5
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1603 pour System Center Configuration Manager
@@ -34,7 +36,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-##  <a name="a-namebkmksc1603a-improvements-to-software-center"></a><a name="BKMK_SC1603"></a> Améliorations apportées au Centre logiciel  
+##  <a name="BKMK_SC1603"></a> Améliorations apportées au Centre logiciel  
 
 ### <a name="new-tiled-view-for-apps"></a>Nouvel affichage en mode Mosaïque pour les applications  
  Les utilisateurs finaux ont désormais le choix entre une liste d’applications ou un affichage en mode Mosaïque des applications sous l’onglet **Applications** du Centre logiciel.  
@@ -42,7 +44,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 ### <a name="select-multiple-updates-in-software-center"></a>Sélection de plusieurs mises à jour dans le Centre logiciel  
  Sous l’onglet **Mises à jour** du Centre logiciel, vous pouvez désormais sélectionner plusieurs mises à jour ou sélectionner **Tout mettre à jour** pour commencer à installer plusieurs mises à jour simultanément.  
 
-##  <a name="a-namebkmkrc1603a-improvements-to-remote-control"></a><a name="BKMK_RC1603"></a> Améliorations apportées au contrôle à distance  
+##  <a name="BKMK_RC1603"></a> Améliorations apportées au contrôle à distance  
 
 ### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Limitation de l’accès au Presse-papiers partagé dans une session de contrôle à distance  
  Vous pouvez désormais activer le nouveau paramètre du client pour les outils à distance, **Inviter l’utilisateur à accorder une autorisation de transfert de fichier de Presse-papiers partagé**, pour limiter l’accès au Presse-papiers partagé dans une session de contrôle à distance.  
@@ -51,7 +53,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  Cela ajoute une couche de protection pour l’utilisateur final car, précédemment, si le spectateur recevait le contrôle total de l’ordinateur de l’utilisateur final, il était en mesure d’utiliser le Presse-papiers partagé pour transférer des fichiers de la session sur son ordinateur local d’une manière totalement transparente pour l’utilisateur final.  
 
-##  <a name="a-namebkmkramdisktftpa-customize-the-ramdisk-tftp-block-size-and-window-size-on-pxe-enabled-distribution-points"></a><a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
+##  <a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
  Dans Technical Preview 1603, vous pouvez personnaliser les tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
 Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
 
@@ -91,9 +93,4 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
      **Valeur** : &lt;taille de bloc personnalisée\>  
 
  La valeur par défaut est 4096 (4k).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

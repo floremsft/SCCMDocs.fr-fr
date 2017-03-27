@@ -15,9 +15,11 @@ caps.latest.revision: 6
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+robots: noindex,nofollow
 translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 7fff6f2807a679b621b736b8ad0b6561fb37affe
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1512 de System Center Configuration Manager
@@ -28,7 +30,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="a-namebkmkdevicehealtha-device-health-attestation"></a><a name="bkmk_devicehealth"></a> Attestation de l’intégrité des appareils  
+##  <a name="bkmk_devicehealth"></a> Attestation de l’intégrité des appareils  
  À partir de la version d’évaluation technique 1512, les administrateurs peuvent afficher l’état de l’attestation de l’intégrité des appareils Windows 10 dans la console Configuration Manager.  Cette fonctionnalité est disponible pour Configuration Manager et Configuration Manager avec Microsoft Intune. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les ordinateurs clients ont des configurations de BIOS, de Module de plateforme sécurisée (TPM) et de logiciel de démarrage dignes de confiance. Pour prendre en charge l’attestation de l’intégrité des appareils, les appareils clients doivent exécuter Windows 10 avec le Module de plateforme sécurisée (TPM) 2 activé. L’attestation de l’intégrité des appareils affiche le nombre d’appareils activés pour chacun des éléments suivants :  
 
 -   Logiciel anti-programme malveillant à lancement anticipé  
@@ -43,7 +45,7 @@ La console affiche également les principaux paramètres d’attestation de l’
 
 Pour afficher l’attestation d’intégrité de l’appareil, dans la console Configuration Manager, accédez à l’espace de travail **Surveillance**, cliquez sur le nœud **Sécurité**, puis cliquez sur **Attestation d’intégrité**.  
 
-##  <a name="a-namebkmkviewtermsa-in-console-monitoring-for-terms-and-conditions"></a><a name="bkmk_viewterms"></a> Surveillance des conditions générales dans la console  
+##  <a name="bkmk_viewterms"></a> Surveillance des conditions générales dans la console  
 À compter de la version d’évaluation technique 1512, quand vous intégrez Configuration Manager avec Microsoft Intune, vous pouvez utiliser la console Configuration Manager pour afficher la liste des utilisateurs qui ont accepté les conditions générales configurées par votre service informatique et la liste de ceux qui ne les ont pas acceptées.  
 
 **Pour afficher des informations de synthèse :**  
@@ -56,7 +58,7 @@ Pour afficher l’attestation d’intégrité de l’appareil, dans la console C
 
 2.  En bas de la console, sélectionnez l’onglet **Déploiements**, sélectionnez le déploiement, puis cliquez sur **Afficher l’état**.  
 
-##  <a name="a-namebkmkeppolicya-improvements-to-endpoint-protection-policy-settings"></a><a name="bkmk_EPpolicy"></a> Améliorations apportées aux paramètres de stratégie Endpoint Protection  
+##  <a name="bkmk_EPpolicy"></a> Améliorations apportées aux paramètres de stratégie Endpoint Protection  
 Dans Technical Preview 1512, nous avons ajouté les nouveaux paramètres de stratégie de logiciel anti-programme malveillant Endpoint Protection suivants :  
 
 -   Protection en temps réel : **Bloquer les applications potentiellement indésirables au téléchargement et avant l’installation**  
@@ -90,9 +92,4 @@ Dans Technical Preview 1512, nous avons ajouté les nouveaux paramètres de str
 **Configuration requise pour l’utilisation de stratégies Endpoint Protection :**  
 
 Pour pouvoir utiliser des stratégies Endpoint Protection, vous devez d’abord installer et gérer le client Endpoint Protection à l’aide des paramètres client Endpoint Protection. Cette opération s’effectue à l’aide du client System Center Endpoint Protection pour Windows 7, Windows 8, Windows 8.1 ou de Windows Defender managé pour Windows 10. Consultez [Endpoint Protection dans System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

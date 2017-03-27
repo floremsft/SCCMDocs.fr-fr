@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+robots: noindex,nofollow
 translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: d36de897e6407ec7431d4dbe24ad04423aee2ca1
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager
@@ -28,7 +30,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
  Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="a-namebkmkwindowsvppa-manage-volume-purchased-apps-from-the-windows-store-for-business"></a><a name="BKMK_WindowsVPP"></a> Gérer les applications achetées en volume à partir du Windows Store pour Entreprises  
+##  <a name="BKMK_WindowsVPP"></a> Gérer les applications achetées en volume à partir du Windows Store pour Entreprises  
  Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
 
 -   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
@@ -91,10 +93,10 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 3.  Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.  
 
-##  <a name="a-namebkmkpfwa-improvements-to-microsoft-passport-for-work-management"></a><a name="BKMK_PFW"></a> Améliorations apportées à la gestion de Microsoft Passport for Work  
+##  <a name="BKMK_PFW"></a> Améliorations apportées à la gestion de Microsoft Passport for Work  
  Vous pouvez désormais déployer des stratégies Microsoft Passport for Work sur des appareils Windows 10 joints au domaine et gérés par le client Configuration Manager.  
 
-##  <a name="a-namebkmkswitchsupa-option-for-clients-to-switch-to-a-new-software-update-point"></a><a name="bkmk_switchsup"></a> Option permettant aux clients de basculer vers un nouveau point de mise à jour logicielle  
+##  <a name="bkmk_switchsup"></a> Option permettant aux clients de basculer vers un nouveau point de mise à jour logicielle  
  Dans la version d’évaluation technique 1604, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle quand des problèmes se posent au niveau du point de mise à jour logicielle actif. Pour utiliser cette option, vous devez disposer de plusieurs points de mise à jour logicielle sur un site principal. Vous activez cette option sur un regroupement d’appareils et, une fois activée, les clients du regroupement recherchent un autre point de mise à jour logicielle lors de l’analyse suivante quand le client ne parvient pas à se connecter au point de mise à jour logicielle actif. En fonction des paramètres de configuration WSUS (classifications des mises à jour, produits, etc.), le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Par conséquent, vous ne devez utiliser cette option qu’en cas de nécessité.  
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>Pour activer l’option de basculement vers des points de mise à jour logicielle  
@@ -106,7 +108,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 > [!NOTE]  
 >  Cette option est disponible uniquement sur les sites qui ont plusieurs points de mise à jour logicielle.  
 
-##  <a name="a-namebkmkpeercachea-client-settings-to-manage-client-cache-settings-and-client-peer-cache"></a><a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client  
+##  <a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client  
  La version d’évaluation technique 1604 introduit deux nouveaux paramètres client d’appareil qui affectent l’utilisation du cache d’un client. Les deux paramètres peuvent être utilisés séparément, mais sont configurés sur la même feuille de propriétés des paramètres du client, et ils se combinent pour vous aider à gérer le déploiement de contenu sur vos clients dans des emplacements distants.  
 
 -   Le premier nouveau paramètre est celui du **cache d’homologue du client**, solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local. Pour pouvoir partager du contenu, les clients du cache d’homologue doivent être membres du même groupe de limites. Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en parallèle afin de vous offrir davantage d’options pour étendre les solutions de déploiement de contenu traditionnelles telles que des points de distribution.  
@@ -146,7 +148,7 @@ Pour vous aider à comprendre l’utilisation du cache d’homologue du client, 
     > [!NOTE]  
     >  Pour achever cette tâche avec la version d’évaluation technique et un point de distribution unique, configurez celui-ci de façon à ce qu’il soit lent pour l’emplacement réseau de tous vos clients. Ensuite, distribuez le contenu à un seul client.  Une fois que le client a obtenu le contenu, vous pouvez distribuer le contenu à des clients supplémentaires qui doivent trouver des homologues locaux à utiliser comme source de contenu avant d’utiliser le point de distribution qui est considéré comme lent à partir de l’emplacement du client.  
 
-##  <a name="a-namebkmkpassporta-support-for-passport-for-work-as-a-ksp"></a><a name="bkmk_passport"></a> Prise en charge de Passport for Work en tant que fournisseur KSP  
+##  <a name="bkmk_passport"></a> Prise en charge de Passport for Work en tant que fournisseur KSP  
  Vous pouvez intégrer System Center Configuration Manager à Microsoft Passport for Work, et disposer ainsi d’une autre méthode de connexion qui utilise Active Directory ou un compte Azure Active Directory pour remplacer un mot de passe, une carte à puce ou une carte à puce virtuelle.  
 Passport vous permet d’utiliser un geste utilisateur au lieu d’un mot de passe pour vous connecter. Un geste utilisateur peut être un simple code confidentiel, une authentification biométrique telle que Windows Hello ou un appareil externe tel qu’un lecteur d’empreintes digitales.  
 
@@ -156,7 +158,7 @@ Passport vous permet d’utiliser un geste utilisateur au lieu d’un mot de pas
 
 Quand un utilisateur crée un code confidentiel Passport, Windows envoie une notification que Configuration Manager écoute.  Cela permet à Configuration Manager de déterminer rapidement quels utilisateurs ont créé un code confidentiel Passport. Ensuite, Configuration Manager peut également émettre de nouveaux certificats pour les utilisateurs si Passport est utilisé comme fournisseur de stockage de clés dans un profil de certificat.  
 
-##  <a name="a-namebkmkonpremdhaa-on-premises-device-health-attestation"></a><a name="bkmk_onpremdha"></a> Attestation d’intégrité de l’appareil en local  
+##  <a name="bkmk_onpremdha"></a> Attestation d’intégrité de l’appareil en local  
  L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale.  Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales.  Si l’option **local** est sélectionnée pour le rapport d’attestation d’intégrité, vous pouvez spécifier un URI pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
 
 #### <a name="enable-health-attestation-for-on-premises-devices"></a>Activation de l’attestation d’intégrité pour les appareils locaux  
@@ -167,11 +169,6 @@ Quand un utilisateur crée un code confidentiel Passport, Windows envoie une not
 
 Pour l’essayer, configurez le service d’attestation d’intégrité local à l’aide des paramètres de l’agent client.  
 
-##  <a name="a-namebkmksmarta-smartlock-setting-for-android-devices"></a><a name="BKMK_Smart"></a> Paramètre SmartLock pour les appareils Android  
+##  <a name="BKMK_Smart"></a> Paramètre SmartLock pour les appareils Android  
  Un nouveau paramètre, **Allow SmartLock and other trust agents** (Autoriser SmartLock et d’autres agents de confiance) a été ajouté à l’élément de configuration **Android et Samsung KNOX**, qui vous permet de contrôler la fonctionnalité SmartLock sur les appareils Android compatibles. Cette fonctionnalité du téléphone, parfois appelée agents de confiance, vous permet de désactiver ou de contourner le mot de passe de l’écran de verrouillage de l’appareil si celui-ci se trouve dans un emplacement approuvé, comme quand il est connecté à un appareil Bluetooth spécifique, ou quand il se trouve à proximité d’une balise NFC. Vous pouvez utiliser ce paramètre pour empêcher des utilisateurs finaux de configurer SmartLock.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
