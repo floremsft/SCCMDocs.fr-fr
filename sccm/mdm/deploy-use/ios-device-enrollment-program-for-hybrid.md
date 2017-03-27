@@ -16,9 +16,9 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
-ms.openlocfilehash: 4222ca27e19ade46d53f8cd4598643ddd4fd5c8f
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
+ms.openlocfilehash: 2ace86cc842d6a3a5b2114c4e4c33c2d65c2f256
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager
@@ -35,7 +35,7 @@ Les entreprises peuvent acheter des appareils iOS via le programme d’inscripti
 ###  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Activer l’inscription DEP (Device Enrollment Program) dans Configuration Manager avec Intune  
 
 1.  **Commencer à gérer des appareils iOS avec Configuration Manager**   
-    Avant de pouvoir inscrire des appareils IOS via le programme DEP, vous devez effectuer la procédure de [configuration de la gestion des appareils mobiles hybrides](../../mdm/deploy-use/setup-hybrid-mdm.md), notamment la [procédure de prise en charge de l’inscription iOS](../deploy-use/setup-hybrid-mdm.md#ios-and-mac-enrollment-setup).
+    Avant de pouvoir inscrire des appareils IOS via le programme DEP, vous devez effectuer la procédure de [configuration de la gestion des appareils mobiles hybrides](../../mdm/deploy-use/setup-hybrid-mdm.md), notamment la [procédure de prise en charge de l’inscription iOS](../deploy-use/enroll-hybrid-ios-mac.md).
 
 2.  **Créer une demande de jeton DEP**   
     Dans la console Configuration Manager, dans l’espace de travail **Administration**, développez **Configuration de la hiérarchie**, développez **Services cloud**, puis cliquez sur **Abonnements Windows Intune**. Cliquez sur **Créer une demande de jeton DEP** sous l’onglet **Accueil** , sur **Parcourir** pour spécifier l’emplacement de téléchargement de la demande de jeton DEP, puis sur **Télécharger**. Enregistrez le fichier de demande de jeton DEP (.pem) localement. Le fichier .pem est utilisé pour demander un jeton approuvé (.p7m) au portail du programme d’inscription d’appareils d’Apple.  

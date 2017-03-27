@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9e170271e1b690289085e80eeff453219bc24010
-ms.openlocfilehash: 9a61162cb992c1947a4ad52b51710740a1b6c4c6
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
+ms.openlocfilehash: 83550fbf0ef1f9adb0bb2c51a4f3c26a7500d352
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -69,7 +69,7 @@ Sur chaque site System Center Configuration Manager, vous pouvez configurer des 
     -   Les noms de domaine complets spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (enregistrements A ou AAA) dans DNS.  
 
     > [!WARNING]  
-    >  Pour que les clients trouvent des points de gestion publiés dans DNS, vous devez affecter les clients à un site spécifique (plutôt qu’utiliser l’attribution automatique de site). Configurez ces clients pour qu’ils utilisent le code de site avec le suffixe du domaine de leur point de gestion. Pour plus d’informations, consultez [Localisation de points de gestion](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_LocatingMPs) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
+    >  Pour que les clients trouvent des points de gestion publiés dans DNS, vous devez affecter les clients à un site spécifique (plutôt qu’utiliser l’attribution automatique de site). Configurez ces clients pour qu’ils utilisent le code de site avec le suffixe du domaine de leur point de gestion. Pour plus d’informations, consultez [Localisation de points de gestion](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
 
      Si les clients Configuration Manager ne peuvent pas utiliser les services de domaine Active Directory ou DNS pour rechercher des points de gestion sur l’intranet, ils peuvent utiliser [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). Le premier point de gestion installé pour le site est automatiquement publié dans WINS lorsqu’il est configuré pour accepter les connexions client HTTP sur l’intranet.  
 

@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.assetid: c1d71899-308f-49d5-adfa-3a3ec0163ed8
 caps.latest.revision: 10
 caps.handback.revision: 0
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 6e76c3ae104c0561a5c7b178823b7a48761518fe
+ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
+ms.openlocfilehash: 192c3685092df6310b7129877c7fb5dfd9ef7ad5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 6e76c3ae104c0561a5c7b178823b7a48761518fe
 
 Cet article contient des informations de sécurité et de confidentialité pour les clients de System Center Configuration Manager et pour les appareils mobiles qui sont gérés par le connecteur Exchange Server :  
 
-##  <a name="a-namebkmksecuritycliientsa-security-best-practices-for-clients"></a><a name="BKMK_Security_Cliients"></a> Bonnes pratiques de sécurité pour les clients  
+##  <a name="BKMK_Security_Cliients"></a> Bonnes pratiques de sécurité pour les clients  
  Quand Configuration Manager accepte les données provenant d'appareils qui exécutent le client Configuration Manager, il existe un risque que les clients attaquent le site. Par exemple, ils pourraient envoyer un inventaire incorrect ou tenter de surcharger les systèmes de site. Déployez le client Configuration Manager uniquement sur les appareils auxquels vous faites confiance. En outre, utilisez les meilleures pratiques de sécurité suivantes pour contribuer à protéger le site des appareils non autorisés ou compromis :  
 
  **Utilisez des certificats d’infrastructure à clé publique (PKI) pour les communications client avec les systèmes de site exécutant IIS.**  
@@ -146,7 +147,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Ce paramètre client permet au client Configuration Manager d'exécuter des scripts PowerShell non signés, ce qui peut autoriser l'exécution de programmes malveillants sur des ordinateurs clients. Si vous devez sélectionner cette option, utilisez un paramètre client personnalisé et affectez-le uniquement aux ordinateurs clients qui doivent exécuter des scripts PowerShell non signés.  
 
-##  <a name="a-namebkmkmobilea-security-best-practices-for-mobile-devices"></a><a name="bkmk_mobile"></a> Bonnes pratiques de sécurité pour les appareils mobiles  
+##  <a name="bkmk_mobile"></a> Bonnes pratiques de sécurité pour les appareils mobiles  
  **Pour les appareils mobiles que vous inscrivez à Configuration Manager et qui seront pris en charge sur Internet : Installer le point proxy d'inscription dans un réseau de périmètre et le point d'inscription dans l'Intranet**  
 
  Cette séparation des rôles permet de protéger le point d'inscription contre une attaque. Si le point d'inscription est compromis, un attaquant peut obtenir des certificats pour authentification et voler les informations d'identification des utilisateurs qui inscrivent leurs appareils mobiles.  
@@ -167,7 +168,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utiliser un élément de configuration d'appareil mobile pour configurer le paramètre de mot de passe **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
 
- Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile **.  
+ Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
 
  **Pour les appareils mobiles : Empêchez l'élévation de privilèges en limitant les utilisateurs qui peuvent inscrire leurs appareils mobiles**  
 
@@ -199,7 +200,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour obtenir la liste des applets de commande dont le connecteur Exchange Server a besoin au minimum, voir [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-##  <a name="a-namebkmkmacsa-security-best-practices-for-macs"></a><a name="bkmk_macs"></a> Bonnes pratiques de sécurité pour les ordinateurs Mac  
+##  <a name="bkmk_macs"></a> Bonnes pratiques de sécurité pour les ordinateurs Mac  
  **Pour les ordinateurs Mac : Stockez et accédez aux fichiers sources du client à partir d'un emplacement sécurisé.**  
 
  Configuration Manager ne vérifie pas si ces fichiers source du client ont été falsifiés avant d'installer ou d'inscrire le client sur un ordinateur Mac. Téléchargez ces fichiers à partir d'une source digne de confiance, enregistrez-les et accédez-y en toute sécurité.  
@@ -208,7 +209,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Pour garantir la pérennité des activités, surveillez et effectuez le suivi de la période de validité des certificats que vous utilisez pour les ordinateurs Mac. Configuration Manager ne prend pas en charge le renouvellement automatique de ce certificat et ne vous avertit pas que le certificat est sur le point d'expirer. La période de validité type est de 1 an.  
 
- Pour plus d’informations sur le renouvellement du certificat, voir [Renouvellement manuel du certificat client Mac](../../../../core/clients/deploy/deploy-clients-to-macs.md#BKMK_Man).  
+ Pour plus d’informations sur le renouvellement du certificat, voir [Renouvellement manuel du certificat client Mac](../../../../core/clients/deploy/deploy-clients-to-macs.md#renewing-the-mac-client-certificate).  
 
  **Pour les ordinateurs Mac : Envisagez de configurer le certificat d’Autorité de certification racine approuvé de manière à ce qu’il soit approuvé pour le protocole SSL uniquement afin d’empêcher une élévation des privilèges.**  
 
@@ -237,7 +238,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
 6.  Fermez la boîte de dialogue et lorsque vous y êtes invité, entrez le mot de passe de l'administrateur, puis cliquez sur **Mettre à jour les paramètres**.  
 
-##  <a name="a-namebkmksecurityissuesclientsa-security-issues-for-configuration-manager-clients"></a><a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour les clients Configuration Manager  
+##  <a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour les clients Configuration Manager  
  Les problèmes de sécurité suivants ne peuvent pas être atténués :  
 
 -   Les messages de statut ne sont pas authentifiés  
@@ -282,7 +283,7 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
      Si l’appareil Windows Embedded exécute un système d’exploitation antérieur à Windows 7, et qu’un utilisateur tente de se connecter alors que les filtres d’écriture sont désactivés pour valider des modifications apportées par Configuration Manager, le nombre de tentatives de connexion incorrectes permis avant le verrouillage du compte est réduit de moitié. Par exemple, si le **Seuil de verrouillage de compte** est configuré sur 6, et que l'utilisateur entre son mot de passe incorrectement 3 fois, le compte est bloqué, ce qui crée une situation de déni de service.  Si les utilisateurs doivent se connecter aux appareils intégrés dans ce scénario, avertissez-les du risque d'un seuil de verrouillage réduit.  
 
-##  <a name="a-namebkmkprivacycliientsa-privacy-information-for-configuration-manager-clients"></a><a name="BKMK_Privacy_Cliients"></a> Informations de confidentialité pour les clients Configuration Manager  
+##  <a name="BKMK_Privacy_Cliients"></a> Informations de confidentialité pour les clients Configuration Manager  
  Lorsque vous déployez le client Configuration Manager, vous activez des paramètres clients afin de pouvoir utiliser les fonctionnalités de gestion de Configuration Manager. Les paramètres que vous utilisez pour configurer les fonctionnalités peuvent s'appliquer à tous les clients de la hiérarchie Configuration Manager, qu'ils soient directement connectés au réseau d'entreprise, connectés via une session distante ou connectés à Internet mais pris en charge par Configuration Manager.  
 
  Les informations sur le client sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations sont conservées dans la base de données jusqu'à leur suppression par les tâches de maintenance du site **Supprimer les données de découverte anciennes** , tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
@@ -299,15 +300,10 @@ Cet article contient des informations de sécurité et de confidentialité pour 
 
  Avant d'installer le client Configuration Manager avec vérification de l'état du client, pensez à vos besoins en matière de confidentialité.  
 
-##  <a name="a-namebkmkprivacyexchangeconnectora-privacy-information-for-mobile-devices-that-are-managed-with-the-exchange-server-connector"></a><a name="BKMK_Privacy_ExchangeConnector"></a> Informations de confidentialité pour les appareils mobiles qui sont gérés à l’aide du connecteur Exchange Server  
+##  <a name="BKMK_Privacy_ExchangeConnector"></a> Informations de confidentialité pour les appareils mobiles qui sont gérés à l’aide du connecteur Exchange Server  
  Le connecteur Exchange Server détecte et gère les appareils qui se connectent à Exchange Server (hébergés ou sur site) en utilisant le protocole ActiveSync. Les enregistrements trouvés par le connecteur Exchange Server sont stockés dans la base de données Configuration Manager. Les informations sont collectées à partir d'Exchange Server. Elles ne contiennent pas d'informations supplémentaires par rapport à ce que les appareils mobiles envoient à Exchange Server.  
 
  Les informations de l'appareil mobile ne sont pas envoyées à Microsoft. Ensuite, les informations de compatibilité sont stockées dans la base de données de Configuration Manager. Les informations sont conservées dans la base de données jusqu'à leur suppression par les tâches de maintenance du site **Supprimer les données de découverte anciennes** , tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
 
  Avant d'installer et de configurer le connecteur Exchange Server, pensez à vos besoins en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
