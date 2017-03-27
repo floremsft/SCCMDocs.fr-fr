@@ -13,8 +13,8 @@ ms.topic: get-started-article
 ms.assetid: 5eae4400-58ca-4c71-804c-6a585cd3df5d
 caps.latest.revision: 10
 caps.handback.revision: 0
-author: mtillman
-ms.author: mtillman
+author: nathbarn
+ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
@@ -69,6 +69,6 @@ Avec Configuration Manager et Intune, vous pouvez activer l’inscription d’ap
 
  Une fois la configuration effectuée, vous devez faire savoir aux utilisateurs comment inscrire leurs appareils. Consultez [Ce qu’il faut dire aux utilisateurs sur l’inscription de leurs appareils](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Ces informations s’appliquent aux appareils mobiles gérés par Microsoft Intune et Configuration Manager.
 
- > [!div class="button"]
- [< Étape précédente](create-service-connection-point.md) [Étape suivante >](set-up-additional-management.md)
+> [!div class="button"]
+[< Étape précédente](create-service-connection-point.md) [Étape suivante >](set-up-additional-management.md)
 
