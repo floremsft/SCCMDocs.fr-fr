@@ -17,9 +17,9 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 32190ec39af2cf1568b3d57c2c2f25d9ff2f9e20
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 8c7bf901caa49c8585a9ed3913d4a5a2aac57013
+ms.openlocfilehash: 82f7db908f83d69a86c82ed97b845ff84e78f8b3
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Utilisation de profils VPN sur des appareils mobiles dans System Center Configuration Manager
@@ -32,8 +32,8 @@ Découvrez comment utiliser des profils VPN dans System Center Configuration�
 
  Quand vous créez un profil VPN, vous pouvez inclure de nombreux paramètres de sécurité, notamment des certificats pour la validation du serveur et l’authentification du client, configurés à l’aide de profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/introduction-to-certificate-profiles.md).  
 
- ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Profils VPN si Configuration Manager est utilisé en association avec Intune 
- 
+ ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Profils VPN si Configuration Manager est utilisé en association avec Intune
+
  Pour déployer des profils sur des appareils iOS, Android, Windows Phone et Windows 8.1, ces appareils doivent être inscrits dans Microsoft Intune. Les appareils sur d’autres plateformes peuvent également être inscrits auprès Intune. Pour plus d’informations sur la procédure d’inscription, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Ce tableau présente le type de connexion pris en charge pour chaque plateforme d’appareil :  
 
  |Type de connexion|iOS et Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop et Mobile|  
@@ -91,7 +91,7 @@ La section [Guide pratique pour créer des profils VPN dans System Center Con
 
         -   **Conserver les informations d’identification de l’utilisateur à chaque ouverture de session** : les informations d’identification sont mémorisées pour que l’utilisateur n’ait pas à les entrer chaque fois qu’une connexion est établie.  
 
-        -   **Sélectionner un certificat client pour l’authentification du client** : sélectionnez le [certificat SCEP](introduction-to-certificate-profiles.md) client que vous avez créé précédemment et qui sera utilisé pour authentifier la connexion VPN.   
+        -   **Sélectionner un certificat client pour l’authentification du client** : sélectionnez le [certificat SCEP](create-pfx-certificate-profiles.md) client que vous avez créé précédemment et qui sera utilisé pour authentifier la connexion VPN.   
 
             > [!NOTE]  
             >  Pour les appareils iOS, le profil SCEP que vous sélectionnez sera incorporé au profil VPN. Pour les autres plateformes, une règle de mise en application est ajoutée pour s'assurer que le profil VPN n'est pas installé si le certificat n'est pas présent ou non conforme.  
