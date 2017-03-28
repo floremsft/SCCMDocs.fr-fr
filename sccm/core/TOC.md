@@ -25,9 +25,12 @@
 ###  [Fonctions et fonctionnalités](plan-design/changes/features-and-capabilities.md)
 ###  [Nouveautés par rapport à Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Nouveautés dans les versions incrémentielles](plan-design/changes/whats-new-incremental-versions.md)
+###  [Nouveautés dans la version 1702](plan-design/changes/whats-new-in-version-1702.md)
 ###  [Nouveautés dans la version 1610](plan-design/changes/whats-new-in-version-1610.md)
 ###  [Nouveautés dans la version 1606](plan-design/changes/whats-new-in-version-1606.md)
-###  [Nouveautés dans la version 1602](plan-design/changes/whats-new-in-version-1602.md)
+<!--
+###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
+-->
 ###  [Fonctionnalités supprimées et dépréciées](plan-design/changes/removed-and-deprecated-features.md)
 
 ##   [Configurations prises en charge](plan-design/configs/supported-configurations.md)
@@ -52,6 +55,7 @@
 #### [Utiliser un point de distribution cloud](plan-design/hierarchy/use-a-cloud-based-distribution-point.md)
 #### [Utiliser un point de distribution d’extraction](plan-design/hierarchy/use-a-pull-distribution-point.md)
 #### [Bibliothèque de contenu](plan-design/hierarchy/the-content-library.md)
+#### [Outil de nettoyage de la bibliothèque de contenu](plan-design/hierarchy/content-library-cleanup-tool.md)
 #### [Gérer les comptes pour accéder au contenu](plan-design/hierarchy/manage-accounts-to-access-content.md)
 #### [Cache d’homologue pour les clients Configuration Manager](plan-design/hierarchy/client-peer-cache.md)
 #### [Scénarios d’emplacement source du contenu](plan-design/hierarchy/content-source-location-scenarios.md)
@@ -69,10 +73,13 @@
 
 ##   [Données de diagnostic et d’utilisation](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Utilisation des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
-###  [Données de diagnostic pour 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
-###  [Données de diagnostic pour 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
-###  [Données de diagnostic pour 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+###  [Données de diagnostic pour 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md) 
 ###  [Données de diagnostic pour 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
+###  [Données de diagnostic pour 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+<!--
+###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+###  [Diagnostic data for 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
+-->
 ###  [Mode de collecte des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)
 ###  [Mode d’affichage des données de diagnostic et d’utilisation](plan-design/diagnostics/view-diagnostics-and-usage-data.md)
 ###  [Programme d’amélioration de l’expérience utilisateur (CEIP)](plan-design/diagnostics/customer-experience-improvement-program-ceip.md)
@@ -102,10 +109,12 @@
 ###  [Fonctionnalités dans 1605](get-started/capabilities-in-technical-preview-1605.md)
 ###  [Fonctionnalités dans 1604](get-started/capabilities-in-technical-preview-1604.md)
 ###  [Fonctionnalités dans 1603](get-started/capabilities-in-technical-preview-1603.md)
-###  [Fonctionnalités dans 1602](get-started/capabilities-in-technical-preview-1602.md)
-###  [Fonctionnalités dans 1601](get-started/capabilities-in-technical-preview-1601.md)
-###  [Fonctionnalités dans 1512](get-started/capabilities-in-technical-preview-1512.md)
-###  [Fonctionnalités dans 1511](get-started/capabilities-in-technical-preview-1511.md)
+<!--
+###  [Capabilities in 1602](get-started/capabilities-in-technical-preview-1602.md)
+###  [Capabilities in 1601](get-started/capabilities-in-technical-preview-1601.md)
+###  [Capabilities in 1512](get-started/capabilities-in-technical-preview-1512.md)
+###  [Capabilities in 1511](get-started/capabilities-in-technical-preview-1511.md)
+-->
 
 ##   [Faire migrer des données entre des hiérarchies](migration/migrate-data-between-hierarchies.md)
 ###  [Planification de la migration](migration/planning-for-migration.md)
@@ -120,7 +129,8 @@
 #### [Planification de la surveillance de la migration](migration/planning-to-monitor-migration-activity.md)
 #### [Planification de l’exécution de la migration](migration/planning-to-complete-migration.md)
 ###  [Configurer les hiérarchies sources et les sites sources](migration/configuring-source-hierarchies-and-source-sites-for-migration.md)
-###  [Opérations de migration](migration/operations-for-migration.md)###  [Sécurité et confidentialité de la migration](migration/security-and-privacy-for-migration.md)
+###  [Opérations de migration](migration/operations-for-migration.md)
+###  [Sécurité et confidentialité pour la migration](migration/security-and-privacy-for-migration.md)
 
 #    [Déployer des serveurs et des rôles](servers/deploy/start-using.md)
 
@@ -134,6 +144,7 @@
 #### [Prérequis à l’installation des sites](servers/deploy/install/prerequisites-for-installing-sites.md)
 #### [Utiliser l’Assistant Installation](servers/deploy/install/use-the-setup-wizard-to-install-sites.md)
 #### [Utiliser une ligne de commande](servers/deploy/install/use-a-command-line-to-install-sites.md)
+##### [Options de ligne de commande](servers/deploy/install/command-line-options-for-setup.md)
 #### [Installer des consoles](servers/deploy/install/install-consoles.md)
 #### [Mettre à niveau une installation d’évaluation](servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md)
 #### [Mettre à niveau vers System Center Configuration Manager](servers/deploy/install/upgrade-to-configuration-manager.md)
@@ -157,6 +168,8 @@
 #### [Sélectionner des méthodes de découverte](servers/deploy/configure/select-discovery-methods-to-use.md)
 #### [Configurer des méthodes de découverte](servers/deploy/configure/configure-discovery-methods.md)
 ###  [Limites de site et groupes de limites](servers/deploy/configure/define-site-boundaries-and-boundary-groups.md)
+#### [Limites](servers/deploy/configure/boundaries.md)
+#### [Groupes de limites](servers/deploy/configure/boundary-groups.md)
 ###  [Utiliser SQL Server AlwaysOn](servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md)
 ###  [Utiliser un cluster SQL Server](servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md)
 ###  [Emplacements personnalisés pour les fichiers de base de données](servers/deploy/configure/custom-locations-for-site-database-files.md)
@@ -164,6 +177,7 @@
 
 #    Gérer l’infrastructure
 ##   [Tâches de maintenance](servers/manage/maintenance-tasks.md)
+###  [Référence des tâches de maintenance](servers/manage/reference-for-maintenance-tasks.md)
 ##   [Modifier votre infrastructure](servers/manage/modify-your-infrastructure.md)
 ###  [Dossier CD.Latest](servers/manage/the-cd.latest-folder.md)
 ##   [Mettre à niveau l’infrastructure locale](servers/manage/upgrade-on-premises-infrastructure.md)
@@ -176,14 +190,11 @@
 ###  [Utiliser l’outil de connexion de service](servers/manage/use-the-service-connection-tool.md)
 ###  [Utiliser l’outil Inscription de la mise à jour](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Utiliser le programme d’installation de correctif logiciel](servers/manage/use-the-hotfix-installer-to-install-updates.md)
-<!--
-###  [Checklist for installing update 1702](servers/manage/checklist-for-installing-update-1702.md)
--->
+###  [Liste de contrôle pour l’installation de la mise à jour 1702](servers/manage/checklist-for-installing-update-1702.md)
 ###  [Liste de contrôle pour l’installation de la mise à jour 1610](servers/manage/checklist-for-installing-update-1610.md)
 ###  [Liste de contrôle pour l’installation de la mise à jour 1606](servers/manage/checklist-for-installing-update-1606.md)
-<!-- Deprecated from Content:
+<!-- Deprecated from Content - still published but out of TOC:
 ###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
-###  [Support for current branch versions](servers/manage/current-branch-versions-supported.md)  
 -->
 ###  [Prise en charge pour les versions Current Branch](servers/manage/current-branch-versions-supported.md)  
 
