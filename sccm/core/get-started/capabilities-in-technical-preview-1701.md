@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 34dded3a8caf8c2be0313bc012cbd8ad2a909fad
-ms.openlocfilehash: 20bcc1cd909eec13eaca0a6de66806bd496f729d
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: b330c97a0853d1673f1cf7e0691891b72407fa51
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1701-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1701 System Center Configuration Manager
@@ -40,23 +41,23 @@ Avec cette préversion, vous pouvez désormais utiliser le nouveau comportement 
 - Les clients qui recherchent un nouveau point de mise à jour logicielle tentent d’utiliser celui qui est associé à leur groupe de limites actuel.
 - Lorsqu’un client ne parvient pas à contacter le point de mise à jour logicielle auquel il est associé, ni à trouver un autre point appartenant à son groupe de limites actuel, il utilise le comportement de secours afin d’élargir le pool des points de mise à jour logicielle qu’il peut utiliser.    
 
-Pour plus d’informations sur les groupes de limites, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#BKMK_BoundaryGroups) dans le contenu concernant la version Current Branch.
+Pour plus d’informations sur les groupes de limites, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) dans le contenu concernant la version Current Branch.
 
 Toutefois, avec cette préversion, les groupes de limites des points de mise à jour logicielle ne sont que partiellement implémentés. Vous pouvez ajouter des points de mise à jour logicielle et configurer des groupes de limites voisins contenant des points de mise à jour logicielle. Cependant, étant donné qu’il n’est pas encore possible de définir un délai avant utilisation du comportement de secours pour les points de mise à jour logicielle, les clients attendent deux heures avant de lancer le comportement de secours.
 
 Les points suivants décrivent le comportement des points de mise à jour logicielle dans cette préversion :  
 
--   **Les nouveaux clients utilisent des groupes de limites pour sélectionner des points de mise à jour logicielle**. Si vous installez un client après avoir installé la version 1701, celui-ci sélectionnera l’un des points de mise à jour logicielle associés à son groupe de limites.
+-    **Les nouveaux clients utilisent des groupes de limites pour sélectionner des points de mise à jour logicielle**. Si vous installez un client après avoir installé la version 1701, celui-ci sélectionnera l’un des points de mise à jour logicielle associés à son groupe de limites.
 
   Ce comportement vient remplacer celui qui consistait, pour les clients, à sélectionner un point de mise à jour logicielle de manière aléatoire dans la liste des points partageant la même forêt de clients.   
 
--   **Les clients déjà installés continuent d’utiliser leur point de mise à jour logicielle actuel jusqu’à ce qu’ils en recherchent un nouveau une fois le comportement de secours lancé.**
+-    **Les clients déjà installés continuent d’utiliser leur point de mise à jour logicielle actuel jusqu’à ce qu’ils en recherchent un nouveau une fois le comportement de secours lancé.**
 Les clients déjà installés qui disposent déjà d’un point de mise à jour logicielle continueront d’utiliser ce point jusqu’à ce que le comportement de secours soit lancé. Cela comprend les points de mise à jour logicielle qui ne sont pas associés au groupe de limites actuel du client. Ils ne tentent pas immédiatement de rechercher et d’utiliser un point de mise à jour logicielle appartenant à leur groupe de limites actuel.
 
   Un client qui dispose déjà d’un point de mise à jour logicielle ne commencera à utiliser ce nouveau comportement de groupe de limites qu’après avoir échoué à contacter son point de mise à jour logicielle actuel et lancé le comportement de secours.
 Le délai de basculement vers le nouveau comportement est voulu. En effet, le changement de point de mise à jour logicielle peut entraîner une utilisation importante de la bande passante, car le client synchronise ses données avec le nouveau point de mise à jour logicielle. Ce délai se révèle donc utile. Le délai de transition peut permettre d’éviter la saturation du réseau, si tous vos clients devaient basculer vers le nouveau point de mise à jour logicielle en même temps.
 
--   **Configuration du délai de basculement vers le comportement de secours**. Cette préversion ne permet pas de configurer quand les clients peuvent commencer à basculer vers le comportement de secours et rechercher un nouveau point de mise à jour logicielle. Elle comprend les options **Durées du secours (en minutes)** et **Ne jamais activer le secours**, que vous pouvez configurer pour différentes relations de groupes de limites.
+-    **Configuration du délai de basculement vers le comportement de secours**. Cette préversion ne permet pas de configurer quand les clients peuvent commencer à basculer vers le comportement de secours et rechercher un nouveau point de mise à jour logicielle. Elle comprend les options **Durées du secours (en minutes)** et **Ne jamais activer le secours**, que vous pouvez configurer pour différentes relations de groupes de limites.
 
   Au lieu de cela, les clients conservent leur comportement actuel qui consiste à tenter de se connecter à leur point de mise à jour logicielle actuel pendant deux heures, avant de basculer vers le comportement de secours pour rechercher un nouveau point de mise à jour logicielle.
 
@@ -132,9 +133,9 @@ Pour cela, vous modifiez un fichier de configuration pour qu’il pointe vers Az
     &lt;nom du paramètre="FairFaxAuthorityResource" serializeAs="String">   
     &lt;value>https://login.microsoftonline.com/&lt;/value>
 
-2.  Après avoir apporté ces deux modifications et enregistré le fichier, redémarrez la console Configuration Manager sur le même ordinateur, puis utilisez cette console pour installer le connecteur OMS. Pour installer le connecteur, utilisez les informations situées sous [Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), puis sélectionnez l’**Espace de travail Operations Management Suite** qui se trouve dans Microsoft Azure Government Cloud.
+2.    Après avoir apporté ces deux modifications et enregistré le fichier, redémarrez la console Configuration Manager sur le même ordinateur, puis utilisez cette console pour installer le connecteur OMS. Pour installer le connecteur, utilisez les informations situées sous [Synchroniser les données de System Center Configuration Manager vers Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), puis sélectionnez l’**Espace de travail Operations Management Suite** qui se trouve dans Microsoft Azure Government Cloud.
 
-3.  Une fois le connecteur OMS installé, une connexion à Azure Government Cloud est disponible lorsque vous utilisez une console se connectant au site.
+3.    Une fois le connecteur OMS installé, une connexion à Azure Government Cloud est disponible lorsque vous utilisez une console se connectant au site.
 
 ## <a name="android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm"></a>Les versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création pour la gestion MDM hybride
 
@@ -157,9 +158,4 @@ Cette modification affecte les Assistants de création des éléments suivants 
 Grâce à cette modification, les déploiements hybrides peuvent prendre en charge plus rapidement les nouvelles versions Android et iOS sans avoir besoin d’une nouvelle version de Configuration Manager ou d’une extension. Quand une nouvelle version est prise en charge dans Intune autonome, les utilisateurs peuvent mettre à niveau leurs appareils mobiles avec cette version.
 
 Pour éviter tout problème lors de la mise à niveau de versions antérieures de Configuration Manager, les versions des systèmes d’exploitation des appareils mobiles restent disponibles dans les pages de propriétés de ces éléments. Si vous avez encore besoin de cibler une version spécifique, créez l’élément, puis spécifiez la version ciblée dans la page de propriétés du nouvel élément.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

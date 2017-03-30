@@ -18,9 +18,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
-ms.openlocfilehash: ef68a9f998ea6ff9628e01f6ac622711de68375d
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
+ms.openlocfilehash: be9596537e9c80a6d78aa0685d33382bfd242afe
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -31,14 +31,15 @@ ms.lasthandoff: 12/16/2016
 
 L’inscription en bloc dans la gestion des appareils mobiles locale dans System Center Configuration Manager est un mécanisme d’inscription d’appareils plus automatisé que l’inscription d’utilisateur, qui nécessite que les utilisateurs entrent leurs informations d’identification pour inscrire l’appareil.  L’inscription en bloc utilise un package d’inscription pour authentifier l’appareil lors de l’inscription. Le package (un fichier .ppkg) contient un profil de certificat et éventuellement un profil Wi-Fi si l’appareil a besoin d’une connectivité intranet pour prendre en charge l’inscription.  
 
- > [!NOTE]  
+> [!NOTE]  
 >  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
->  -   Windows 10 Entreprise  
+> -  Windows 10 Entreprise  
 > -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
+> -   Windows 10 Collaboration  
 > -   Windows 10 Mobile  
 > -   Windows 10 Mobile Entreprise
+> -   Windows 10 IoT Entreprise   
 
 Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des appareils pour la gestion des appareils mobiles locale :  
 

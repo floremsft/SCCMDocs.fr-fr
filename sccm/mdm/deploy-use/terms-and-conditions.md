@@ -16,9 +16,9 @@ author: nathbarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
-ms.openlocfilehash: c27d9129b261b166ad7b21aff468d47eba116d67
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
+ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -72,7 +72,7 @@ Vous pouvez déployer les conditions générales de System Center Configuration 
 
 ## <a name="to-monitor-terms-and-conditions"></a>Pour surveiller des conditions générales  
 
-1.  Depuis la version 1602, vous pouvez surveiller les déploiements de conditions générales dans la console Configuration Manager. Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
+1.  Vous pouvez surveiller les déploiements de conditions générales dans la console Configuration Manager. Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
 
 2.  Sélectionnez le déploiement de conditions générales dans la liste des déploiements.  
 

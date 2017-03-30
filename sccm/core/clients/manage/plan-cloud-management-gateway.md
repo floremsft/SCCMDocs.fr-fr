@@ -1,7 +1,7 @@
 ---
 title: Planifier la passerelle de gestion cloud | Microsoft Docs
 description: 
-ms.date: 12/19/2016
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,9 +10,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1df2d8bcd73633ac1d37cc3ef31343be9c5bc95d
-ms.openlocfilehash: 6e2895565e868eb80a8f4f4b46b8a28eb4961e28
-ms.lasthandoff: 12/19/2016
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: c61769cc97c320452c9ee27a924cb01480e6f33d
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -43,7 +43,7 @@ Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis
 - La passerelle de gestion cloud ne prend en charge que les rôles de point de gestion et de point de mise à jour logicielle.
 -   Les fonctionnalités de Configuration Manager suivantes ne sont pas actuellement prises en charge pour la passerelle de gestion cloud :
 
-    -   Mise à niveau et déploiement du client par le biais de l’installation Push du client
+    -   Déploiement des clients
     -   Attribution automatique du site
     -   Stratégies utilisateur
     -   Catalogue d’applications (notamment les demandes d’approbation de logiciels)
