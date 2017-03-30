@@ -34,7 +34,7 @@ Membre de la suite Microsoft System Center de solutions de gestion, System Cente
 
 **Configuration Manager vous permet d’offrir des services informatiques plus efficaces en prenant en charge :**  
 
--   le déploiement de logiciels sécurisés et évolutifs ;  
+-   le déploiement sécurisé et évolutif de logiciels ;  
 -   la gestion des paramètres de conformité ;  
 -   la gestion complète des actifs des serveurs, ordinateurs de bureau, ordinateurs portables et appareils mobiles.  
 
@@ -46,7 +46,7 @@ Par exemple, Configuration Manager s’intègre aux éléments suivants :
 -   Windows Server Update Services (WSUS) pour gérer les mises à jour logicielles  
 -   Services de certificats  
 -   Exchange Server et Exchange Online  
--   Stratégie de groupe Windows
+-   Stratégie de groupe Windows (GPO)
 -   DNS   
 -   Kit de déploiement et d’évaluation Windows (Windows ADK) et Outil de migration utilisateur (USMT)  
 -   Services de déploiement Windows (WDS)  
@@ -79,21 +79,21 @@ Configuration Manager utilise également :
 
  Elle peut également exécuter des consoles secondaires pour prendre en charge des tâches spécifiques de gestion de client. Par exemple :  
 
--   l’**Explorateur de ressources**pour afficher des informations sur l’inventaire matériel et logiciel ;  
--   le**Contrôle à distance**pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
+-   l’**Explorateur de ressources** pour afficher des informations sur l’inventaire matériel et logiciel ;  
+-   le **Contrôle à distance** pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
 
- Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide d’une administration basée sur des rôles de Configuration Manager.  
+ Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide de l'administration basée sur des rôles de Configuration Manager.  
 
  Pour plus d’informations, consultez [Installer des consoles System Center Configuration Manager](../../core/servers/deploy/install/install-consoles.md).
 
 ##  <a name="a-namebkmkapplicationcataloga-the-application-catalog-software-center-and-the-company-portal"></a><a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
  Le **catalogue d’applications** est un site web sur lequel les utilisateurs peuvent rechercher et demander des logiciels pour leurs PC Windows. Pour utiliser le catalogue d'applications, vous devez installer le point de service Web du catalogue d'applications et le point de site Web du catalogue d'applications pour le site.  
 
- Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels qui leur sont déployés à l'aide de Configuration Manager. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
+ Le **Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels qui leur sont déployés à l'aide de Configuration Manager. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
 
 -   rechercher et installer des logiciels à partir du catalogue d’applications ;  
 -   afficher leur historique de demande de logiciels ;  
--   configurer à quel moment Configuration Manager peut installer le logiciel sur l’appareil des utilisateurs ;  
+-   configurer à quel moment Configuration Manager peut installer des logiciels sur leurs équipements ;  
 -   configurer les paramètres d’accès pour le contrôle à distance (si un utilisateur administratif a activé le contrôle à distance).  
 
  **Le portail d'entreprise** est une application ou un site web qui propose des fonctions similaires au catalogue d'applications, mais pour les appareils mobiles qui sont inscrits par Windows Intune.  
