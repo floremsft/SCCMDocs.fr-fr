@@ -17,9 +17,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: cec595d473ca2459e43a7fa1c70b7668a8a48986
-ms.openlocfilehash: d529a058968cf99dce77997844b33ff5dc7c0004
-ms.lasthandoff: 01/21/2017
+ms.sourcegitcommit: 507bad02c6e028f09a8b0c8a566ac55f7c3942a5
+ms.openlocfilehash: 544c3bea0c7df96887ee1717f061c39c64b82d01
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -35,11 +35,12 @@ Tenez compte des conditions requises suivantes avant de préparer l’infrastruc
  > [!NOTE]  
 >  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
 >   
->  -   Windows 10 Entreprise  
+> -  Windows 10 Entreprise  
 > -   Windows 10 Professionnel  
 > -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Entreprise   
+> -   Windows 10 Mobile Entreprise
+> -   Windows 10 IoT Entreprise   
 
 ##  <a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
  Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  

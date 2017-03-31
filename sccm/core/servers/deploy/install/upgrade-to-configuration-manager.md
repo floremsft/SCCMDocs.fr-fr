@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 2/23/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
-ms.openlocfilehash: 49e3a9d6f4b8e1afbb76fcba33a7fb58e5a6b13f
-ms.lasthandoff: 03/13/2017
+ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
+ms.openlocfilehash: ca07b46db0967ca03cc5e858b835d2c2108f1210
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -34,6 +34,7 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
  > Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
+
 **Mettre à niveau vers la version 1606**  
 Le 15 décembre 2016, le média de base de la version 1606 a été republié afin d’ajouter la prise en charge d’autres scénarios de mise à niveau. Cette nouvelle version prend en charge la mise à niveau des produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :  
 -   Une installation d’évaluation de System Center Configuration Manager version 1606
@@ -78,8 +79,8 @@ Si vous avez un média de base de la version 1511, vous pouvez mettre à niveau
 
 Passez en revue les systèmes d’exploitation de serveur utilisés pour héberger les rôles de système de site :  
 
--   Certains anciens systèmes d’exploitation pris en charge par System Center 2012 Configuration Manager ne sont pas pris en charge par System Center Configuration Manager, et les rôles système de site sur ces systèmes d’exploitation doivent être déplacés ou supprimés avant la mise à niveau.  
--   L’outil de vérification de la configuration requise pour Configuration Manager ne vérifie pas les prérequis pour les rôles système de site sur le serveur de site ou les ordinateurs distants.  
+-   Certains anciens systèmes d’exploitation pris en charge par System Center 2012 Configuration Manager ne sont pas pris en charge par System Center Configuration Manager, et les rôles système de site sur ces systèmes d’exploitation doivent être déplacés ou supprimés avant la mise à niveau. Consultez la documentation [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).   
+-   L’outil de vérification des conditions préalables pour Configuration Manager ne vérifie pas les prérequis pour les rôles de système de site sur le serveur de site ou sur les systèmes de site distants.  
 
 Passez en revue les conditions préalables requises pour chaque ordinateur qui héberge un rôle de système de site :  
 

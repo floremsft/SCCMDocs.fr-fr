@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: 54fc16c104ab25f3650ad1c38a2044abaee96a31
+ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
+ms.openlocfilehash: 4717e0f8eef01501fb5b5790e855c476c1ca4590
+ms.lasthandoff: 03/21/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1607 pour System Center Configuration Manager
@@ -29,7 +30,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="a-namedmpeditionaimprovements-to-the-windows-10-edition-upgrade-policy"></a><a name="dmp_edition"></a>Améliorations apportées à la stratégie de mise à niveau de l’édition Windows 10
+## <a name="dmp_edition"></a>Améliorations apportées à la stratégie de mise à niveau de l’édition Windows 10
 
 Dans cette version, les améliorations suivantes ont été apportées à cette stratégie :
 
@@ -59,7 +60,7 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 2. Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md#BKMK_ApplicationCatalog_Website).
 
-3. Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de la société spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](../../mdm/deploy-use/setup-hybrid-mdm.md#step-3-configure-intune-subscription).
+3. Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de la société spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/mdm/deploy-use/configure-intune-subscription).
 
 ## <a name="use-the-same-network-adapter-for-multiple-pxe-initiated-deployments"></a>Utiliser la même carte réseau pour plusieurs déploiements établis par PXE
 Dans la version d’évaluation technique 1607, quand vous utilisez une carte Ethernet pour mettre en image plusieurs appareils (par exemple, une carte Ethernet USB que vous utilisez sur plusieurs appareils), vous pouvez activer un nouveau paramètre qui vous permet d’entrer des identificateurs de matériel pour les cartes Ethernet. Configuration Manager ignore les identificateurs de matériel dans la liste lors de l’installation PXE et pour l’inscription des clients.
@@ -76,9 +77,4 @@ Pour plus d’informations sur ce problème, consultez le [blog de l’équipe d
 2. Dans l'onglet **Accueil** , dans le groupe **Sites** , cliquez sur **Paramètres de hiérarchie**.
 3. Accédez à l’onglet **Approbation client et enregistrements en conflit**.
 4. Cliquez sur **Ajouter** dans la section **Identificateurs de matériel dupliqués** pour ajouter de nouveaux identificateurs de matériel.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,8 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
-ms.openlocfilehash: c0648c8c6ca3b36e2c2cf311bc4ae9edc7e8f906
+ms.sourcegitcommit: 9e850bdbdf91d3b40a2044e5d5c04f468ed4809f
+ms.openlocfilehash: 093d24951e8d741bfcf2cedb7618ecf75300e035
+ms.lasthandoff: 03/20/2017
 
 
 ---
@@ -26,16 +27,11 @@ ms.openlocfilehash: c0648c8c6ca3b36e2c2cf311bc4ae9edc7e8f906
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique répertorie les types d’éléments de configuration System Center Configuration Manager disponibles pour les appareils qui sont gérés par le client Configuration Manager, par exemple, des ordinateurs Windows et Mac.  
+Cette rubrique répertorie les types d’éléments de configuration de System Center Configuration Manager disponibles pour les appareils qui sont gérés par le client Configuration Manager, par exemple des PC Windows et des ordinateurs Mac.  
 
 -   [Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client.md)  
 
 -   [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md)  
 
 -   [Guide pratique pour créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md)  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

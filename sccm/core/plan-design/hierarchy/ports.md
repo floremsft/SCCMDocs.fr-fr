@@ -2,7 +2,7 @@
 title: "Ports utilisés par Configuration Manager | Microsoft Docs"
 description: "Découvrez les ports requis et personnalisables qu’utilise System Center Configuration Manager pour les connexions."
 ms.custom: na
-ms.date: 3/1/2017
+ms.date: 3/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6bfc5c0e3c0bdc8408ad2dd2a7807ef3e018ef60
-ms.openlocfilehash: 8cd1c5363ba05dbb35ca5a0daf32979dd8b51b19
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 4c2906c2a963e0ae92e3c0d223afb7a47377526a
+ms.openlocfilehash: ffc2adb34427aa62f4a377e887c2ff54d47abeff
+ms.lasthandoff: 03/20/2017
 
 
 ---
@@ -603,6 +603,14 @@ Pour plus d’informations, consultez [Conditions requises pour l’accès Inter
     -   Service SQL Server, qui utilise par défaut le port TCP 1433.  
 
 -   Les communications intrasites entre le moteur de base de données SQL Server et divers rôles de système de site Configuration Manager utilisent par défaut le port TCP 1433.  
+
+- Configuration Manager utilise les mêmes ports et protocoles pour communiquer avec chaque réplica du groupe de disponibilité SQL qui héberge la base de données comme si le réplica était une instance SQL Server autonome.
+
+Quand vous utilisez Azure et que la base de données de site se trouve derrière un équilibreur de charge interne ou externe, configurez les exceptions de pare-feu suivantes sur chaque réplica et ajoutez des règles d’équilibrage de charge pour les ports suivants :
+ - SQL sur TCP : TCP 1433
+ - SQL Server Service Broker : TCP 4022
+ - Server Message Block (SMB) : TCP 445
+ - Mappeur de point de terminaison RPC : TCP 135
 
 > [!WARNING]  
 >  Configuration Manager ne prend pas en charge les ports dynamiques. Étant donné que les instances nommées de SQL Server utilisent par défaut des ports dynamiques pour les connexions au moteur de base de données, lorsque vous utilisez une instance nommée, vous devez configurer manuellement le port statique que vous souhaitez utiliser pour la communication intrasite.  

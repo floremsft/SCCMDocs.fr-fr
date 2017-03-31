@@ -16,8 +16,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 77ac69cecab7aa460001a8d2800e61f20a8565ed
+ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
+ms.openlocfilehash: 562e81df12e46a2332aa5e4de8b7c9e5819bde80
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 77ac69cecab7aa460001a8d2800e61f20a8565ed
 
 Le déploiement de système d’exploitation dans System Center 2012 Configuration Manager présente des dépendances externes et internes au produit. Utilisez les sections suivantes pour vous aider à préparer le déploiement de système d’exploitation.  
 
-##  <a name="a-namebkmkexternaldependenciesa-dependencies-external-to-configuration-manager"></a><a name="BKMK_ExternalDependencies"></a> Dépendances externes à Configuration Manager  
+##  <a name="BKMK_ExternalDependencies"></a> Dépendances externes à Configuration Manager  
  Vous trouverez ci-dessous des informations sur les outils externes, les kits d’installation et les systèmes d’exploitation nécessaires au déploiement des systèmes d’exploitation dans Configuration Manager.  
 
 ### <a name="windows-adk-for-windows-10"></a>Windows ADK pour Windows 10  
@@ -104,7 +105,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 ### <a name="windows-device-drivers"></a>Pilotes de périphérique Windows  
  Des pilotes de périphérique Windows peuvent être utilisés lorsque vous installez le système d'exploitation sur l'ordinateur de destination et lorsque vous exécutez Windows PE à partir d'une image de démarrage. Pour plus d’informations sur les pilotes de périphérique, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
-##  <a name="a-namebkmkinternaldependenciesa-configuration-manager-dependencies"></a><a name="BKMK_InternalDependencies"></a> Dépendances de Configuration Manager  
+##  <a name="BKMK_InternalDependencies"></a> Dépendances de Configuration Manager  
  Vous trouverez ci-dessous des informations sur la configuration requise pour le déploiement de système d’exploitation dans Configuration Manager.  
 
 ### <a name="operating-system-image"></a>Image du système d'exploitation  
@@ -124,10 +125,10 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
  Pour plus d’informations sur l’installation de points de distribution et sur la gestion de contenu, consultez [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ### <a name="pxe-enabled-distribution-point"></a>Point de distribution PXE  
- Pour déployer des déploiements initiés par PXE, vous devez configurer un point de distribution pour accepter les demandes PXE des clients. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurations de points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#a-namebkmkconfigsa-distribution-point-configurations) et recherchez la catégorie de configuration PXE dans le tableau.  
+ Pour déployer des déploiements initiés par PXE, vous devez configurer un point de distribution pour accepter les demandes PXE des clients. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#pxe).  
 
 ### <a name="multicast-enabled-distribution-point"></a>Point de distribution multidiffusion  
- Pour optimiser vos déploiements de système d'exploitation en utilisant la multidiffusion, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurations de points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#a-namebkmkconfigsa-distribution-point-configurations) et recherchez la catégorie de configuration Multidiffusion dans le tableau.  
+ Pour optimiser vos déploiements de système d'exploitation en utilisant la multidiffusion, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
 
 ### <a name="state-migration-point"></a>Point de migration d'état  
  Lorsque vous capturez et restaurez des données d'état utilisateur pour les déploiements côte à côte et d'actualisation, vous devez configurer un point de migration d'état pour stocker les données d'état utilisateur sur un autre ordinateur.  
@@ -162,7 +163,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 ### <a name="security-scopes-for-operating-system-deployments"></a>Étendues de sécurité pour les déploiements de système d'exploitation  
  Utilisez des étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder aux objets sécurisables utilisés dans les déploiements de système d'exploitation, tels que des images du système d'exploitation et de démarrage, des packages de pilotes et des packages de séquences de tâches. Pour plus d’informations, consultez [Sécurité et audit](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope).  
 
-##  <a name="a-namebkmkwdsa-windows-deployment-services"></a><a name="BKMK_WDS"></a> Services de déploiement Windows  
+##  <a name="BKMK_WDS"></a> Services de déploiement Windows  
  Les Services de déploiement Windows (WDS) doivent être installés sur le même serveur que les points de distribution que vous configurez pour prendre en charge PXE ou la multidiffusion. WDS est inclus dans le système d’exploitation du serveur. Pour les déploiements PXE, WDS est le service qui effectue le démarrage PXE. Lorsque le point de distribution est installé et activé pour PXE, Configuration Manager installe un fournisseur dans WDS qui utilise les fonctions de démarrage PXE de WDS.  
 
 > [!NOTE]  
@@ -176,7 +177,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 
 -   Si le fournisseur est installé sur un serveur distant, vous devez installer WDS sur le serveur de site et le fournisseur distant.  
 
-###  <a name="a-namebkmkwdsanddhcpa-considerations-when-you-have-wds-and-dhcp-on-the-same-server"></a><a name="BKMK_WDSandDHCP"></a> Considérations quand vous avez WDS et DHCP sur le même serveur  
+###  <a name="BKMK_WDSandDHCP"></a> Considérations quand vous avez WDS et DHCP sur le même serveur  
  Tenez compte des problèmes de configuration suivants si vous envisagez de faire cohabiter le point de distribution sur un serveur exécutant DHCP.  
 
 -   Vous devez disposer d'un serveur DHCP opérationnel avec une étendue active. Les Services de déploiement Windows utilisent PXE, qui nécessite un serveur DHCP.  
@@ -208,10 +209,10 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
     > [!NOTE]  
     >  En outre, si une autorisation DHCP est requise sur le serveur, vous devez ouvrir sur le serveur le port 68 du client DHCP.  
 
-##  <a name="a-namebkmksupportedosa-supported-operating-systems"></a><a name="BKMK_SupportedOS"></a> Systèmes d’exploitation pris en charge  
+##  <a name="BKMK_SupportedOS"></a> Systèmes d’exploitation pris en charge  
  Tous les systèmes d’exploitation Windows répertoriés comme systèmes d’exploitation clients pris en charge dans [Systèmes d’exploitation pris en charge pour les clients et appareils](../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) sont pris en charge pour les déploiements de système d’exploitation.  
 
-##  <a name="a-namebkmksupporteddiskconfiga-supported-disk-configurations"></a><a name="BKMK_SupportedDiskConfig"></a> Configurations de disque prises en charge  
+##  <a name="BKMK_SupportedDiskConfig"></a> Configurations de disque prises en charge  
  Le tableau suivant présente les combinaisons de configurations de disque dur sur les ordinateurs de référence et de destination qui sont prises en charge pour le déploiement de système d’exploitation dans Configuration Manager.  
 
 |Configuration de disque dur de l'ordinateur de référence|Configuration de disque dur de l'ordinateur de destination|  
@@ -237,9 +238,4 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Préparer un déploiement de système d’exploitation](../get-started/prepare-for-operating-system-deployment.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
