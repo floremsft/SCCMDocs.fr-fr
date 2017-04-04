@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: a93ea730c39cce9dc46036f5aa6ece4a62679d0f
 ms.openlocfilehash: 0d16d362b798c194645f987088ba8a95a7be3f19
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -28,14 +29,14 @@ ms.openlocfilehash: 0d16d362b798c194645f987088ba8a95a7be3f19
 Chaque site System Center Configuration Manager que vous installez comprend un serveur de site qui est un **serveur de système de site**. Le site peut également inclure des serveurs de système de site supplémentaires sur des ordinateurs distants par rapport au serveur de site. Les serveurs de système de site (serveur de site ou serveur de système de site distant) prennent en charge les **rôles de système de site**.
 
 
-##  <a name="a-namebkmksiteserversa-site-system-servers"></a><a name="bkmk_siteservers"></a> Serveurs de système de site  
+##  <a name="bkmk_siteservers"></a> Serveurs de système de site  
  Lorsque vous installez un rôle de système de site sur un ordinateur, celui-ci devient un serveur de système de site. Sur chaque site, vous pouvez installer un ou plusieurs serveurs de système de site supplémentaires. Vous pouvez également décider de ne pas installer de serveurs de système de site supplémentaires et exécuter tous les rôles de système de site directement sur l’ordinateur serveur de site. Chaque serveur de système de site prend en charge un ou plusieurs rôles de système de site. Les serveurs supplémentaires permettent d’augmenter les fonctionnalités et capacités d’un site en partageant la charge de traitement du processeur que les rôles de système de site font peser sur un serveur.  
 
  Lorsque vous envisagez l’ajout d’un serveur de système de site, assurez-vous que le serveur répond aux conditions requises pour l’utilisation prévue. Il est également judicieux de l’ajouter à un emplacement réseau bénéficiant d’une bande passante suffisante pour communiquer avec les points de terminaison attendus, y compris le serveur de site, les ressources de domaine, un emplacement cloud, les serveurs de système de site et les clients).  
 
  Si vous configurez le serveur de système de site avec un proxy pour une utilisation par des rôles de système de site, consultez [Rôles système de site pouvant utiliser un serveur proxy](#bkmk_proxy).  
 
-##  <a name="a-namebkmkplanrolesa-site-system-roles"></a><a name="bkmk_planroles"></a> Rôles système de site  
+##  <a name="bkmk_planroles"></a> Rôles système de site  
  Des rôles système de site sont installés sur un ordinateur pour fournir au site des fonctionnalités supplémentaires. En voici quelques exemples :  
 
 -   Points de gestion supplémentaires permettant au site de prendre en charge davantage d’appareils, jusqu’à sa capacité maximale.  
@@ -118,7 +119,7 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
 -   **Point du programme de validation d’intégrité système**. Ce rôle de système de site est toujours visible dans la console Configuration Manager, mais il n’est plus utilisé.  
 
-###  <a name="a-namebkmkproxya-site-system-roles-that-can-use-a-proxy-server"></a><a name="bkmk_proxy"></a> Rôles système de site pouvant utiliser un serveur proxy  
+###  <a name="bkmk_proxy"></a> Rôles système de site pouvant utiliser un serveur proxy  
  Certains rôles de système de site Configuration Manager requièrent des connexions à Internet et utilisent un serveur proxy quand le serveur de système de site hébergeant le rôle est configuré pour cela. En règle générale, cette connexion est établie dans le **système** de l’ordinateur sur lequel le rôle de système de site est installé. La connexion ne peut pas utiliser une configuration proxy pour les comptes d’utilisateurs standard. Quand un serveur proxy est requis pour établir une connexion à Internet, vous devez configurer l’ordinateur pour qu’il utilise un serveur proxy :  
 
 -   Vous pouvez configurer un serveur proxy lors de l’installation d’un rôle de système de site.  
@@ -152,9 +153,4 @@ Les rôles système de site pouvant utiliser un serveur proxy sont les suivants 
  Pour plus d’informations sur les serveurs proxy associés aux points de mise à jour logicielle, consultez la section Paramètres du serveur proxy dans la rubrique [Installer et configurer un point de mise à jour logicielle](../../../sum/get-started/install-a-software-update-point.md).  
 
 -   **Point de connexion de service**. Lorsque ce rôle de système de site est configuré pour être en ligne (et non hors connexion), il se connecte à Microsoft Intune et au service cloud Microsoft.  
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

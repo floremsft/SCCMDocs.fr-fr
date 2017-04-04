@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 916aac9a8f724e37044884cd73de5fea1f1a8f97
 ms.openlocfilehash: 76f907b17df0dd2f102e34ca3cfb3ffc813c0004
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -74,38 +75,38 @@ Utilisez les rubriques suivantes et les autres sections de cette rubrique pour e
 -   [Trouver de l’aide pour l’utilisation de System Center Configuration Manager](../../core/understand/find-help.md)  
 -   [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../core/plan-design/changes/removed-and-deprecated-features.md)  
 
-##  <a name="a-namebkmkconsolea-the-configuration-manager-console"></a><a name="BKMK_Console"></a> Console Configuration Manager  
+##  <a name="BKMK_Console"></a> Console Configuration Manager  
  Après l'installation de Configuration Manager, utilisez la console Configuration Manager pour configurer les sites et les clients, ainsi que pour exécuter et surveiller les tâches de gestion. Cette console est le principal point d'administration et vous permet de gérer plusieurs sites.  
 
  Elle peut également exécuter des consoles secondaires pour prendre en charge des tâches spécifiques de gestion de client. Par exemple :  
 
--   l’**Explorateur de ressources**pour afficher des informations sur l’inventaire matériel et logiciel ;  
--   le**Contrôle à distance**pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
+-   l’**Explorateur de ressources**pour afficher des informations sur la parc matériel et logiciel ;  
+-   le**Contrôle à distance** pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
 
-Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide d’une administration basée sur des rôles de Configuration Manager.  
+Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide de l'administration basée sur des rôles de Configuration Manager.  
 
 Pour plus d’informations, consultez [Installer des consoles System Center Configuration Manager](../../core/servers/deploy/install/install-consoles.md).
 
-##  <a name="a-namebkmkapplicationcataloga-the-application-catalog-software-center-and-the-company-portal"></a><a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
+##  <a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
  Le **catalogue d’applications** est un site web sur lequel les utilisateurs peuvent rechercher et demander des logiciels pour leurs PC Windows. Pour utiliser le catalogue d'applications, vous devez installer le point de service Web du catalogue d'applications et le point de site Web du catalogue d'applications pour le site.  
 
  Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels que Configuration Manager déploie à leur intention. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
 
 -   rechercher et installer des logiciels à partir du catalogue d'applications ;  
 -   afficher leur historique de demande de logiciels ;  
--   configurer à quel moment Configuration Manager peut installer des logiciels sur l’appareil des utilisateurs ;  
+-   configurer à quel moment Configuration Manager peut installer des logiciels sur leurs équipements ;  
 -   configurer les paramètres d'accès pour le contrôle à distance, si un utilisateur administratif a activé le contrôle à distance.  
 
 **Le portail d’entreprise** est une application ou un site web qui offre des fonctions similaires au catalogue d’applications, mais pour les appareils mobiles qui sont inscrits par Windows Intune.  
 
 Pour plus d’informations, consultez [Présentation de la gestion d’applications dans System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
 
-###  <a name="a-namebkmkclienta-configuration-manager-properties-on-windows-pcs"></a><a name="BKMK_Client"></a> Propriétés de Configuration Manager (sur les PC Windows)  
+###  <a name="BKMK_Client"></a> Propriétés de Configuration Manager (sur les PC Windows)  
  Lorsque le client Configuration Manager est installé sur les ordinateurs Windows, Configuration Manager est installé dans le Panneau de configuration. En règle générale, vous n’avez pas à configurer cette application, car la configuration du client est effectuée dans la console Configuration Manager. Cette application aide les utilisateurs administratifs et le support technique à résoudre les problèmes avec des clients individuels.  
 
  Pour plus d’informations sur le déploiement de clients, consultez [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
-##  <a name="a-namebkmkexamplescenariosa-example-scenarios-for-configuration-manager"></a><a name="BKMK_ExampleScenarios"></a> Exemples de scénarios de Configuration Manager  
+##  <a name="BKMK_ExampleScenarios"></a> Exemples de scénarios de Configuration Manager  
  Les exemples de scénarios suivants montrent comment une entreprise nommée Trey Research utilise Configuration Manager pour permettre aux utilisateurs :  
 
 -   d’être plus productifs ;  
@@ -114,7 +115,7 @@ Pour plus d’informations, consultez [Présentation de la gestion d’applicati
 
 Dans tous les scénarios, Adam est l'administrateur principal de Configuration Manager.  
 
-###  <a name="a-namebkmkscenarioempowera-example-scenario-empower-users-by-ensuring-access-to-applications-from-any-device"></a><a name="BKMK_ScenarioEmpower"></a> Exemple de scénario : donner aux utilisateurs plus d’autonomie en permettant l’accès aux applications à partir de tous les appareils  
+###  <a name="BKMK_ScenarioEmpower"></a> Exemple de scénario : donner aux utilisateurs plus d’autonomie en permettant l’accès aux applications à partir de tous les appareils  
  Trey Research veut s’assurer que les employés peuvent accéder aux applications dont ils ont besoin, et aussi efficacement que possible. Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
 
 |Situation|État actuel de la gestion du client|État futur de la gestion du client|  
@@ -142,7 +143,7 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 
  Ces étapes et résultats de configuration permettent à Trey Research de donner plus d'autonomie à ses employés en assurant leur accès aux applications à partir de n'importe quel appareil.  
 
-###  <a name="a-namebkmkscenariounifya-example-scenario-unify-compliance-management-for-devices"></a><a name="BKMK_ScenarioUnify"></a> Exemple de scénario : unifier la gestion de la conformité pour les appareils  
+###  <a name="BKMK_ScenarioUnify"></a> Exemple de scénario : unifier la gestion de la conformité pour les appareils  
  Trey Research souhaite appliquer une solution de gestion client unifiée pour assurer que les ordinateurs exécutent un logiciel antivirus automatiquement mis à jour. Plus précisément :  
 
 -   Le Pare-feu Windows est activé.  
@@ -182,7 +183,7 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 
  Ces étapes et résultats de configuration permettent à Trey Research d'unifier la gestion de la compatibilité des appareils.  
 
-###  <a name="a-namebkmkscenariosimplifya-example-scenario-simplify-client-management-for-devices"></a><a name="BKMK_ScenarioSimplify"></a> Exemple de scénario : simplifier la gestion des clients pour les appareils  
+###  <a name="BKMK_ScenarioSimplify"></a> Exemple de scénario : simplifier la gestion des clients pour les appareils  
  Trey Research souhaite que tous les nouveaux ordinateurs installent automatiquement l'image d'ordinateur de base de l'entreprise qui exécute Windows 7. Une fois l’image du système d’exploitation installée sur ces ordinateurs, ceux-ci doivent être gérés et surveillés pour détecter tout autre logiciel que les utilisateurs installent. Les ordinateurs qui stockent des informations hautement confidentielles nécessitent des stratégies de gestion plus limitées que les autres ordinateurs. Par exemple, les ingénieurs du support technique ne doivent pas établir une connexion à distance à ces ordinateurs, un code confidentiel BitLocker doit être utilisé pour les redémarrages et uniquement les administrateurs locaux sont autorisés à installer un logiciel.  
 
  Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
@@ -212,16 +213,11 @@ Il implémente ces fonctionnalités en effectuant les étapes de configuration d
 
  Ces étapes et résultats de configuration permettent à Trey Research de simplifier la gestion des clients pour les appareils.  
 
-##  <a name="a-namebkmknextstepsa-next-steps"></a><a name="BKMK_NextSteps"></a> Étapes suivantes  
+##  <a name="BKMK_NextSteps"></a> Étapes suivantes  
  Avant d'installer Configuration Manager, familiarisez-vous avec certains concepts de base et les termes qui sont spécifiques à Configuration Manager.  
 
 -   Si vous connaissez déjà System Center 2012 Configuration Manager, consultez [Changements dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) pour comprendre les nouvelles fonctionnalités.  
 -   Pour obtenir une vue d’ensemble technique globale de System Center Configuration Manager, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
 Quand vous êtes familiarisé avec les concepts de base, aidez-vous de la documentation de System Center Configuration Manager pour déployer et utiliser correctement Configuration Manager.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
