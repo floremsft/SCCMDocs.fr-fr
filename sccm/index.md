@@ -4,9 +4,9 @@ hide_bc: true
 title: Documentation System Center Configuration Manager
 description: "Découvrez comment utiliser System Center Configuration Manager."
 translationtype: Human Translation
-ms.sourcegitcommit: cc2df80d3da39fd8c7810db8ed3515b6c0b9b948
-ms.openlocfilehash: b925c758139d3e4d62d0acd41085b8b4d249b153
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 9b31fab8fa93195c60e9026e2df99311aa6e328f
+ms.openlocfilehash: bc760899e054b60ad6e2f404f0408b2b55cccacd
+ms.lasthandoff: 04/03/2017
 
 ---
 <div id="main" class="v2">
@@ -630,11 +630,11 @@ ms.lasthandoff: 02/28/2017
                 </ul>
             </li>
             <li>
-                <a href="#social">Réseaux sociaux</a>
-                <ul id="social">
+                <a href="#community">Communauté</a>
+                <ul id="community">
                     <li>
-                        <a href="#social-all">Tous</a>
-                        <ul id="social-all" class="cardsF">
+                        <a href="#community-all">Tous</a>
+                        <ul id="community-all" class="cardsF">
                             <li>
                                 <div class="cardSize">
                                     <div class="cardPadding">
@@ -727,3 +727,4 @@ ms.lasthandoff: 02/28/2017
         </ul>
     </div>
 </div>
+
