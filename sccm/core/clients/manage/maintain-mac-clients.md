@@ -128,7 +128,7 @@ Voici des procédures relatives à la désinstallation de clients Mac et au reno
 
     -   **Paramètre sélectionné :** Choisissez **Parcourir**, puis sélectionnez le script de découverte que vous avez spécifié précédemment.  
 
-    -   Dans **les valeurs suivantes** , entrez **The domain/default pair of (com.microsoft.ccmclient, SMSID) does not exist**.  
+    -   Dans **les valeurs suivantes** , entrez **la paire domaine/par défaut (com.microsoft.ccmclient, ID SMS) n'existe pas**.  
 
     -   Activez l'option **Exécuter le script de correction spécifié lorsque ce paramètre n'est pas compatible**.  
 
