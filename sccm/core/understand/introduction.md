@@ -47,7 +47,7 @@ Par exemple, Configuration Manager s’intègre aux éléments suivants :
 -   Windows Server Update Services (WSUS), pour gérer les mises à jour logicielles.  
 -   Services de certificats.  
 -   Exchange Server et Exchange Online.  
--   Stratégie de groupe Windows.
+-   Stratégie de groupe Windows (GPO)
 -   DNS.   
 -   Kit de déploiement et d’évaluation Windows (Windows ADK) et outil de migration utilisateur (USMT).  
 -   Services de déploiement Windows (WDS).  
