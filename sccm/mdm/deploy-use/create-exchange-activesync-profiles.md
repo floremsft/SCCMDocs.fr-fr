@@ -2,7 +2,7 @@
 title: "Créer des profils de messagerie Exchange ActiveSync | Microsoft Docs"
 description: "Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8c7bf901caa49c8585a9ed3913d4a5a2aac57013
-ms.openlocfilehash: 74083f65d906fde967081229b244df24e9e08e0a
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aa8924a013ebdbee888cab33001fddbe7ad2d67e
+ms.openlocfilehash: a0353c49360cd99bc92b4546e12a52c3d13d1d14
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -32,39 +32,37 @@ Les profils de messagerie fonctionnent avec Microsoft Intune pour vous permettre
 
  Vous pouvez configurer les types d'appareils suivants avec des profils de messagerie :  
 
--   Appareils exécutant Windows Phone 8  
+- Windows 10
+- Windows Phone 8.1
+- Windows Phone 8.0
+- iPhones exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
+- iPads exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
+- Samsung KNOX Standard (4 et versions supérieures)
+- Android for Work
 
--   Appareils exécutant Windows Phone 8.1  
+Pour déployer des profils de messagerie sur des appareils, ceux-ci doivent être inscrits dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
 
--   Appareils exécutant Windows 10 Mobile  
-
--   Appareils iPhone exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
-
--   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
-
-> [!IMPORTANT]  
->  Pour déployer des profils sur des appareils iOS, Android Samsung KNOX Standard, Windows Phone, Windows 8.1 ou Windows 10, ces appareils doivent être inscrits dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+>[!NOTE]
+>Intune propose deux profils de messagerie Android for Work, un pour chacune des applications de messagerie Gmail et Nine Work. Ces applications sont disponibles dans Google Play Store et prennent en charge les connexions à Exchange. Pour activer la connectivité de la messagerie, déployez l’une de ces applications de messagerie sur les appareils de vos utilisateurs, puis créez et déployez le profil approprié. Les applications de messagerie telles que Nine Work peuvent être payantes. Si vous avez des questions, consultez les détails de la licence de l’application ou contactez le fabricant de l’application.
 
  En plus de configurer un compte de messagerie sur l'appareil, vous pouvez également configurer des paramètres de synchronisation pour les contacts, les calendriers et les tâches.  
 
- Quand vous créez un profil de messagerie, vous pouvez inclure de nombreux paramètres de sécurité, notamment des certificats pour l’identité, le chiffrement et la signature configurés à l’aide de profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](create-pfx-certificate-profiles.md).    
-
+ Quand vous créez un profil de messagerie, vous pouvez inclure de nombreux paramètres de sécurité, notamment des certificats pour l’identité, le chiffrement et la signature configurés à l’aide de profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).    
 
 ## <a name="create-a-new-exchange-activesync-email-profile"></a>Créer un profil de messagerie Exchange ActiveSync  
 
 Démarrer l’Assistant Création d’un profil de messagerie Exchange ActiveSync  
 
-1.  Dans la console System Center Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
 2.  Dans l'espace de travail **Ressources et Conformité** , développez **Paramètres de compatibilité**, puis **Accès aux ressources de l'entreprise**et cliquez sur **Profils de messagerie**.  
 
-3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil Exchange ActiveSync**.
-
-4.  Suivez les instructions de l’Assistant   
-
-### <a name="to-configure-exchange-activesync-settings-for-the-exchange-activesync-email-profile"></a>Pour configurer les paramètres Exchange ActiveSync du profil de messagerie Exchange ActiveSync  
-
-1.  Dans la page **Exchange ActiveSync** de l'Assistant Création d'un profil de messagerie Exchange ActiveSync, indiquez les informations suivantes :  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer un profil d’e-mail Exchange ActiveSync**.
+4.  Sur la page Général de l’assistant, configurez les éléments suivants :
+    - **Nom** : fournissez un nom descriptif pour le profil de d’e-mail.
+    - **Description** : si vous le souhaitez, entrez une description du profil d’e-mail pour en faciliter l’identification dans la console Configuration Manager.
+    - **Ce profil de messagerie est pour Android for Work** : sélectionnez cette option si vous ne déployez ce profil de messagerie que sur des appareils Android for Work. Si vous cochez cette case, la page **Plateformes prises en charge** de l’assistant ne s’affiche pas. Seuls les profils de messagerie Android for Work sont configurés.
+4.  Dans la page **Exchange ActiveSync** de l'Assistant Création d'un profil de messagerie Exchange ActiveSync, indiquez les informations suivantes :  
 
     -   **Hôte Exchange ActiveSync :** Spécifiez le nom d’hôte de l’instance Exchange Server d’entreprise qui héberge les services Exchange ActiveSync.  
 
@@ -74,7 +72,7 @@ Démarrer l’Assistant Création d’un profil de messagerie Exchange ActiveSyn
 
         -   **Nom principal de l'utilisateur** : utiliser le nom principal complet de l'utilisateur pour se connecter à Exchange.  
 
-        -   Utiliser**sAMAccountName**   
+        -   **Nom du compte** : utilisez le nom complet du compte utilisateur à partir d’Active Directory
 
         -   **Adresse SMTP principale** : utiliser l'adresse SMTP principale des utilisateurs pour se connecter à Exchange.  
 
@@ -101,25 +99,22 @@ Démarrer l’Assistant Création d’un profil de messagerie Exchange ActiveSyn
     -   **Certificat d’identité :** Cliquez sur **Sélectionner** , puis sélectionnez un certificat à utiliser pour l’identité.  
 
         > [!NOTE]  
-        >  Avant de pouvoir sélectionner le certificat d'identité, vous devez d'abord le configurer en tant que profil de certificat SCEP (Simple Certificate Enrollment Protocol). Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](create-pfx-certificate-profiles.md).  
+        >  Avant de pouvoir sélectionner le certificat d'identité, vous devez d'abord le configurer en tant que profil de certificat SCEP (Simple Certificate Enrollment Protocol). Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
          Cette option est disponible uniquement si vous avez sélectionné **Certificats** sous **Méthode d'authentification**.  
 
-    -   **Utiliser S/MIME** : envoyer le courrier électronique sortant à l'aide du chiffrement S/MIME. Cette option s'applique aux appareils iOS uniquement.  
+    -   **Utiliser S/MIME** (pour les appareils iOS uniquement) : envoyer le courrier électronique sortant à l’aide du chiffrement S/MIME. Choisissez parmi les options suivantes :
 
-    -   **Certificats de chiffrement :** Cliquez sur **Sélectionner** , puis sélectionnez un certificat à utiliser pour le chiffrement. Cette option s'applique aux appareils iOS uniquement.  
 
-        > [!NOTE]  
-        >  Avant de pouvoir sélectionner le certificat de chiffrement, vous devez d'abord le configurer en tant que profil de certificat SCEP (Simple Certificate Enrollment Protocol). Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](create-pfx-certificate-profiles.md).  
+        -   **Certificats de chiffrement :** Cliquez sur **Sélectionner** , puis sélectionnez un certificat à utiliser pour le chiffrement. Cette option s'applique aux appareils iOS uniquement. Vous pouvez uniquement sélectionner un certificat PFX pour l’utiliser en tant que certificat de chiffrement.
 
-         Cette option est disponible uniquement si vous avez sélectionné **Utiliser S/MIME**.  
-
-    -   **Certificats de signature :** Cliquez sur **Sélectionner** , puis sélectionnez un certificat à utiliser pour la signature. Cette option s'applique aux appareils iOS uniquement.  
+        Si vous sélectionnez un certificat de chiffrement et un certificat de signature, ils doivent tous deux être au format PFX.
 
         > [!NOTE]  
-        >  Avant de pouvoir sélectionner le certificat de signature, vous devez d'abord le configurer en tant que profil de certificat SCEP (Simple Certificate Enrollment Protocol). Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](create-pfx-certificate-profiles.md).  
+        >  Avant de pouvoir sélectionner des certificats, vous devez d’abord les configurer en tant que profil de certificat SCEP (Simple Certificate Enrollment Protocol) ou PFX. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-         Cette option est disponible uniquement si vous avez sélectionné **Utiliser S/MIME**.  
+
+
 
 ###   <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>configurer les paramètres de synchronisation du profil de messagerie Exchange ActiveSync.  
 
