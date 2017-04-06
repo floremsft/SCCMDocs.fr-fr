@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 06cafc8f7934cde738a87ac1a1da585a9d4e2a99
-ms.openlocfilehash: 534a15279bff96d93ffb6564eeac2835f57f5645
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 3eb48942c1259d2aa1b3c200fad73b39b11c0b8c
+ms.openlocfilehash: 9989ea1bf4cb74a6286ebae9de7614ed622de5b6
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -36,7 +36,7 @@ System Center Configuration Manager (également appelé ConfgMgr or SCCM) offre 
 
 ###  <a name="manage-devices-with-the-configuration-manager-client"></a>Gérer les appareils avec le client Configuration Manager  
 
-Cette option, qui nécessite l’installation de l’application cliente Configuration Manager sur les appareils, offre la gamme de fonctionnalités la plus étendue pour gérer les PC, les serveurs et les autres appareils de votre environnement. Pour plus d’informations, consultez [Méthodes d’installation du client dans System Center Configuration Manager](/sccm/core/client/deploy/plan/client-installation-methods).  
+Cette option, qui nécessite l’installation de l’application cliente Configuration Manager sur les appareils, offre la gamme de fonctionnalités la plus étendue pour gérer les PC, les serveurs et les autres appareils de votre environnement. Pour plus d’informations, consultez [Méthodes d’installation du client dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/client-installation-methods).  
 
 ###  <a name="manage-devices-with-on-premises-configuration-manager-infrastructure"></a>Gérer les appareils mobiles avec une infrastructure Configuration Manager locale  
 
@@ -76,7 +76,7 @@ Vous pouvez utiliser ces solutions de gestion des appareils par elles-mêmes ou 
 
  Pour obtenir la liste complète des plateformes prises en charge, consultez [Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager](configs\supported-operating-systems-for-clients-and-devices.md).
 
-##  <a name="a-namebkmkcomp2a-compare-mobile-device-management-solutions-based-on-management-functionality"></a><a name="bkmk_comp2"></a> Comparer les solutions de gestion des appareils mobiles en fonction des fonctionnalités de gestion  
+##  <a name="bkmk_comp2"></a> Comparer les solutions de gestion des appareils mobiles en fonction des fonctionnalités de gestion  
 
 |Fonctionnalité de gestion|Avec le client Configuration Manager|Configuration Manager avec Microsoft Intune (hybride)|Gestion locale des appareils mobiles|Configuration Manager avec Exchange|  
 |------------------------------|-------------------------------------------|-------------------------------------------------------------------|-------------------------------|-----------------------------------------|  

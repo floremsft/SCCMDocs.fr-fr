@@ -17,8 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 59e63cf223424f9930524e3ed3833c30dc9ca9a7
-ms.openlocfilehash: f43764acd13b0257481614fc79aebecac75542d7
+ms.sourcegitcommit: 70034213442f4c3d5a28ab65c2ceb51aa64320ad
+ms.openlocfilehash: 2e624eb2ea061a4eb7d92365410fada335640224
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -58,14 +59,9 @@ La création de rapports dans System Center Configuration Manager comporte des d
 |SQL Server Express 2008 R2 avec SP2|Non pris en charge|  
 |SQL Server 2012 avec au minimum la mise à jour cumulative 2<br /><br /> -   Standard<br />-   Enterprise|Oui|  
 |SQL Server 2012 avec SP1 et aucune mise à jour cumulative minimum<br /><br /> -   Standard<br />-   Enterprise|Oui|  
-|SQL Server 2016<br /><br /> -   Standard<br />-   Enterprise|Oui|
+|SQL Server 2014<br /><br /> -   Standard<br />-   Enterprise|Oui|
 |SQL Server 2016<br /><br /> -   Standard<br />-   Enterprise|Oui|
 |SQL Server 2016 avec SP1<br /><br /> -   Standard<br />-   Enterprise|Oui|
 ## <a name="next-steps"></a>Étapes suivantes
 [Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
