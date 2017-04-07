@@ -2,7 +2,7 @@
 title: "Présentation des profils de certificat | Microsoft Docs"
 description: "Découvrez le fonctionnement des profils de certificat dans System Center Configuration Manager avec les services de certificats Active Directory."
 ms.custom: na
-ms.date: 12/28/2016
+ms.date: 03/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,13 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
-ms.openlocfilehash: d51670b47aab77cc4e630a6aeaa0744f916bf3b9
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: ba1d5b04cb0cb0284525e295a6086a3c0ac67e9f
+ms.lasthandoff: 03/27/2017
 
 
 ---
+
 # <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Présentation des profils de certificat dans System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -49,7 +50,7 @@ Les profils de certificat fournissent les fonctionnalités de gestion suivantes�
 -   **Certificat d'Autorité de certification approuvé** : vous permet de déployer un certificat d'autorité de certification racine ou intermédiaire approuvé pour former une chaîne d'approbation des certificats lorsque l'appareil doit authentifier un serveur.  
 
 -   **Protocole SCEP (Simple Certificate Enrollment Protocol)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription d’appareil réseau sur un serveur exécutant Windows Server 2012 R2.
--   -   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat .pfx (également appelé PKCS #12) pour un appareil ou un utilisateur.
+-   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat .pfx (également appelé PKCS #12) pour un appareil ou un utilisateur.
 
     > [!NOTE]  
     >  Vous devez créer un profil de certificat du type **Certificat d’autorité de certification approuvé** avant de pouvoir créer un profil de certificat du type **Protocole SCEP (Simple Certificate Enrollment Protocol)**.  
@@ -100,4 +101,3 @@ Vous pouvez surveiller les déploiements de profil de certificat en affichant le
 -   L’appareil est bloqué depuis la hiérarchie System Center Configuration Manager.  
 
  Pour révoquer les certificats, le serveur de site envoie une commande de révocation à l'autorité de certification émettrice. Le motif de révocation est la **cessation de fonctionnement**.  
-

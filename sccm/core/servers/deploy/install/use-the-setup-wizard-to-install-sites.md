@@ -1,7 +1,7 @@
 ---
 title: Assistant Installation | Microsoft Docs
 ms.custom: na
-ms.date: 2/28/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,9 +15,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 37865f1f3dc959ee8acf8ab06df5cae6e07e4257
-ms.openlocfilehash: 97eb95c1c6ac31ce9bca22df13bcc4f248026298
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 2f1bc62a4695d60dc4679e479797ee84cd4ddee4
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilisez l’Assistant Installation pour installer des sites System Center Configuration Manager.
@@ -240,7 +240,7 @@ Pour étendre le site, utilisez l’Assistant Installation de System Center Conf
 
 -   Dans la page **Installation de site**, sélectionnez l’option de développement du site principal autonome.  
 
-Pour développer un site principal autonome, utilisez la procédure *[Pour installer un site principal ou un site d’administration centrale](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, décrite précédemment dans cet article.
+Pour développer un site principal autonome, consultez tout d’abord la [configuration requise pour développer un site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), puis utilisez la procédure *[Pour installer un site principal ou un site d’administration centrale](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, décrite précédemment dans cet article.
 
 
 ## <a name="bkmk_secondary"></a> Installer un site secondaire

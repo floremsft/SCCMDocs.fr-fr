@@ -2,7 +2,7 @@
 title: Fichiers journaux pour Configuration Manager | Microsoft Docs
 description: "Utilisez des fichiers journaux pour résoudre des problèmes dans une hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 1/12/2017
+ms.date: 3/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: be5fd67e37b6ac7b20903e2e0678c1880715ab07
-ms.openlocfilehash: 1e7706156c9226aacf70e6dedb26a0edc93720d1
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: b991b4ea27e66c233b04f8e65a412404521d89a6
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -114,12 +115,12 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 
     -   [Serveur WSUS](#BKMK_WSUSLog)  
 
-##  <a name="a-namebkmkaboutlogsa-about-configuration-manager-log-files"></a><a name="BKMK_AboutLogs"></a> À propos des fichiers journaux de Configuration Manager  
+##  <a name="BKMK_AboutLogs"></a> À propos des fichiers journaux de Configuration Manager  
  La plupart des processus dans Configuration Manager consignent des informations sur les opérations dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par des extensions de fichier **.log** ou **.lo_**. Configuration Manager écrit dans un fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .log est copié vers un fichier portant le même nom mais avec l’extension .lo_, et le processus ou le composant continue à écrire dans le fichier .log. Quand le fichier .log atteint à nouveau sa taille maximale, le fichier .lo_ est remplacé et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal, et en conservant l’extension .log. Le client pour Linux et UNIX constitue une exception à la taille maximale et à l’utilisation du fichier .lo_. Pour plus d’informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez [Gérer des fichiers journaux dans le client pour Linux et UNIX](#BKMK_ManageLinuxLogs) dans cette rubrique.  
 
  Pour afficher les journaux, utilisez la visionneuse du journal Configuration Manager, CMTrace, qui se trouve dans le dossier \\\SMSSetup\\Tools du média source de Configuration Manager. Il est ajouté à toutes les images de démarrage ajoutées à la Bibliothèque de logiciels.  
 
-###  <a name="a-namebkmklogoptionsa-configure-logging-options-by-using-configuration-manager-service-manager"></a><a name="BKMK_LogOptions"></a> Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration Manager  
+###  <a name="BKMK_LogOptions"></a> Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration Manager  
  Dans Configuration Manager, vous pouvez changer l’emplacement de stockage des fichiers journaux, ainsi que la taille du fichier journal.  
 
  Pour modifier la taille des fichiers journaux, changer le nom et l’emplacement du fichier journal, ou forcer plusieurs composants à écrire dans un même fichier journal, procédez comme suit.  
@@ -135,13 +136,13 @@ Dans System Center Configuration Manager, les composants des clients et des serv
 7.  Dans la boîte de dialogue **Enregistrement du composant Configuration Manager** , choisissez les options de configuration disponibles pour votre sélection.  
 8.  Cliquez sur **OK** pour enregistrer la configuration.  
 
-###  <a name="a-namebkmkloglocationa-find-configuration-manager-logs"></a><a name="BKMK_LogLocation"></a> Localiser les fichiers journaux de Configuration Manager  
+###  <a name="BKMK_LogLocation"></a> Localiser les fichiers journaux de Configuration Manager  
 Les fichiers journaux de Configuration Manager sont stockés à différents emplacements, qui dépendent du processus qui crée le fichier journal et de la configuration de vos systèmes de site. L’emplacement du fichier journal pouvant varier sur un ordinateur, utilisez la fonction de recherche pour localiser les fichiers journaux appropriés sur votre ordinateur Configuration Manager si vous devez résoudre les problèmes pour un scénario spécifique.  
 
-##  <a name="a-namebkmkclientlogsa-configuration-manager-client-logs"></a><a name="BKMK_ClientLogs"></a> Journaux du client Configuration Manager  
+##  <a name="BKMK_ClientLogs"></a> Journaux du client Configuration Manager  
 Les sections suivantes répertorient les fichiers journaux liés aux opérations et à l’installation du client.  
 
-###  <a name="a-namebkmkclientoplogsa-client-operations"></a><a name="BKMK_ClientOpLogs"></a> Opérations du client  
+###  <a name="BKMK_ClientOpLogs"></a> Opérations du client  
 Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le client Configuration Manager.  
 
 |Nom du fichier journal|Description|  
@@ -204,7 +205,7 @@ Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le clie
 |wakeprxy-install.log|Enregistre les informations liées à l’installation quand les clients reçoivent l’option du paramètre client d’activation du proxy de mise en éveil.|  
 |wakeprxy-uninstall.log|Enregistre les informations liées à la désinstallation du proxy de mise en éveil quand les clients reçoivent l’option de désactivation du paramètre client du proxy de mise en éveil, si ce proxy a été précédemment activé.|  
 
-###  <a name="a-namebkmkclientinstallloga-client-installation-log-files"></a><a name="BKMK_ClientInstallLog"></a> Fichiers journaux de l’installation du client  
+###  <a name="BKMK_ClientInstallLog"></a> Fichiers journaux de l’installation du client  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’installation du client Configuration Manager.  
 
 |Nom du fichier journal|Description|  
@@ -214,7 +215,7 @@ Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le clie
 |CcmRepair.log|Enregistre les activités de réparation de l'agent du client.|  
 |client.msi.log|Enregistre les tâches d'installation exécutées par client.msi. Permet de dépanner les problèmes d'installation ou de suppression du client.|  
 
-###  <a name="a-namebkmklogfilesforlnua-client-for-linux-and-unix"></a><a name="BKMK_LogFilesforLnU"></a> Client pour Linux et UNIX  
+###  <a name="BKMK_LogFilesforLnU"></a> Client pour Linux et UNIX  
  Le client Configuration Manager pour Linux et UNIX enregistre les informations dans les fichiers journaux suivants.  
 
 > [!TIP]  
@@ -253,14 +254,14 @@ Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le clie
 
 Dans des conditions de fonctionnement normales, utilisez le niveau de journalisation ERROR. Ce niveau de journalisation crée le fichier journal le plus petit. Au fil de l’augmentation du niveau de journalisation d’ERROR à WARNING, à INFO, puis à TRACE, un fichier journal à chaque fois plus volumineux est créé car plus de données sont écrites dans le fichier journal.  
 
-####  <a name="a-namebkmkmanagelinuxlogsa-manage-log-files-for-the-linux-and-unix-client"></a><a name="BKMK_ManageLinuxLogs"></a> Gérer les fichiers journaux du client Linux et UNIX  
+####  <a name="BKMK_ManageLinuxLogs"></a> Gérer les fichiers journaux du client Linux et UNIX  
 Le client pour Linux et UNIX ne limite pas la taille maximale des fichiers journaux du client. Il ne copie pas non plus automatiquement le contenu de ses fichiers .log dans un autre fichier, comme un fichier .lo_. Si vous voulez contrôler la taille maximale des fichiers journaux, implémentez un processus pour gérer les fichiers journaux indépendamment du client Configuration Manager pour Linux et UNIX.  
 
 Par exemple, vous pouvez utiliser la commande Linux et UNIX standard **logrotate** pour gérer la taille et la rotation des fichiers journaux du client. Le client Configuration Manager pour Linux et UNIX a une interface qui permet à **logrotate** de signaler au client le moment où la rotation des journaux est terminée. Le client peut ainsi reprendre la journalisation dans le fichier journal.  
 
 Pour plus d'informations sur **logrotate**, consultez la documentation des distributions Linux et UNIX que vous utilisez.  
 
-###  <a name="a-namebkmklogfilesformaca-client-for-mac-computers"></a><a name="BKMK_LogfilesforMac"></a> Client pour ordinateurs Mac  
+###  <a name="BKMK_LogfilesforMac"></a> Client pour ordinateurs Mac  
 Le client Configuration Manager pour ordinateurs Mac enregistre les informations dans les fichiers journaux suivants.  
 
 |Nom du fichier journal|Détails|  
@@ -272,10 +273,10 @@ Le client Configuration Manager pour ordinateurs Mac enregistre les informations
 
 Le fichier journal SMS_DM.log sur le serveur de système de site enregistre aussi les communications entre les ordinateurs Mac et le point de gestion configuré pour les appareils mobiles et les ordinateurs Mac.  
 
-##  <a name="a-namebkmkserverlogsa-configuration-manager-site-server-log-files"></a><a name="BKMK_ServerLogs"></a> Fichiers journaux du serveur de site Configuration Manager  
+##  <a name="BKMK_ServerLogs"></a> Fichiers journaux du serveur de site Configuration Manager  
  Les sections suivantes répertorient les fichiers journaux qui se trouvent sur le serveur de site ou qui sont liés à des rôles de système de site spécifiques.  
 
-###  <a name="a-namebkmksitesiteserverloga-site-server-and-site-system-server-logs"></a><a name="BKMK_SiteSiteServerLog"></a> Journaux de serveur de site et de serveur de système de site  
+###  <a name="BKMK_SiteSiteServerLog"></a> Journaux de serveur de site et de serveur de système de site  
  Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le serveur de site et les serveurs de système de site Configuration Manager.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -350,7 +351,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |statmgr.log|Enregistre l'écriture de tous les messages d'état dans la base de données.|Serveur de site|  
 |swmproc.log|Enregistre le traitement des fichiers et des paramètres de contrôle.|Serveur de site|  
 
-###  <a name="a-namebkmksiteinstallloga-site-server-installation-log-files"></a><a name="BKMK_SiteInstallLog"></a> Fichiers journaux de l’installation du serveur de site  
+###  <a name="BKMK_SiteInstallLog"></a> Fichiers journaux de l’installation du serveur de site  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à l'installation du site.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -361,7 +362,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |SMS_BOOTSTRAP.log|Enregistre des informations sur l'avancement du lancement du processus d'installation de site secondaire. Les détails du processus d'installation proprement dit sont donnés dans ConfigMgrSetup.log.|Serveur de site|  
 |smstsvc.log|Enregistre des informations sur l’installation, l’utilisation et la suppression d’un service Windows utilisé pour tester la connectivité du réseau et les autorisations entre les serveurs, en utilisant le compte d’ordinateur du serveur à l’origine de la connexion.|Serveur de site et serveur de système de site|  
 
-###  <a name="a-namebkmkfsploga-fallback-status-point-log-files"></a><a name="BKMK_FSPLog"></a> Fichiers journaux du point d’état de secours  
+###  <a name="BKMK_FSPLog"></a> Fichiers journaux du point d’état de secours  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations sur le point d'état de secours.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -370,7 +371,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |fspMSI.log|Enregistre les messages générés par l'installation d'un point d'état de secours.|Serveur de système de site|  
 |fspmgr.log|Enregistre les activités du rôle de système de site d'un point d'état de secours.|Serveur de système de site|  
 
-###  <a name="a-namebkmkmploga-management-point-log-files"></a><a name="BKMK_MPLog"></a> Fichiers journaux du point de gestion  
+###  <a name="BKMK_MPLog"></a> Fichiers journaux du point de gestion  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations sur le point de gestion.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -395,7 +396,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |mpMSI.log|Enregistre des détails sur l’installation du point de gestion.|Serveur de site|  
 |MPSetup.log|Enregistre le processus de wrapper d'installation du point de gestion.|Serveur de site|  
 
-###  <a name="a-namebkmksuploga-software-update-point-log-files"></a><a name="BKMK_SUPLog"></a> Fichiers journaux du point de mise à jour logicielle  
+###  <a name="BKMK_SUPLog"></a> Fichiers journaux du point de mise à jour logicielle  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au point de mise à jour logicielle.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -409,10 +410,10 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de système de site|  
 |WUSSyncXML.log|Enregistre les détails concernant l’outil d’inventaire pour le processus de synchronisation de Microsoft Updates.|Ordinateur client configuré comme hôte de synchronisation pour l’outil d’inventaire de Microsoft Updates|  
 
-##  <a name="a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality"></a><a name="BKMK_FunctionLogs"></a> Fichiers journaux pour les fonctionnalités de Configuration Manager  
+##  <a name="BKMK_FunctionLogs"></a> Fichiers journaux pour les fonctionnalités de Configuration Manager  
  Les sections suivantes répertorient les fichiers journaux liés aux fonctions de Configuration Manager.  
 
-###  <a name="a-namebkmkappmanageloga-application-management"></a><a name="BKMK_AppManageLog"></a> Gestion des applications  
+###  <a name="BKMK_AppManageLog"></a> Gestion des applications  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion d’applications.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -441,7 +442,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |colleval.log|Enregistre des détails concernant la création, la modification et la suppression de regroupements par l'Évaluateur de regroupements.|Serveur de site|  
 |execmgr.log|Enregistre des détails concernant les packages et les séquences de tâches qui s'exécutent.|Client|  
 
-###  <a name="a-namebkmkailoga-asset-intelligence"></a><a name="BKMK_AILog"></a> Asset Intelligence  
+###  <a name="BKMK_AILog"></a> Asset Intelligence  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à Asset Intelligence.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -454,7 +455,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |ManagedProvider.log|Enregistre des détails concernant la découverte de logiciels avec une balise d'identification logicielle associée. Enregistre également les activités liées à l’inventaire matériel.|Serveur de système de site|  
 |MVLSImport.log|Enregistre des détails concernant le traitement de fichiers de licence importés.|Serveur de système de site|  
 
-###  <a name="a-namebkmkbnrloga-backup-and-recovery"></a><a name="BKMK_BnRLog"></a> Sauvegarde et récupération  
+###  <a name="BKMK_BnRLog"></a> Sauvegarde et récupération  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux actions de sauvegarde et de restauration, notamment la réinitialisation de site, et aux modifications apportées au fournisseur SMS.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -464,7 +465,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 |smssqlbkup.log|Enregistre les résultats du processus de sauvegarde de la base de données de site quand SQL Server est installé sur un serveur qui n’est pas le serveur de site.|Serveur de bases de données du site|  
 |Smswriter.log|Enregistre les informations sur l’état de l’enregistreur VSS Configuration Manager utilisé par le processus de sauvegarde.|Serveur de site|  
 
-###  <a name="a-namebkmkcertificateenrollmenta-certificate-enrollment"></a><a name="BKMK_CertificateEnrollment"></a> Inscription de certificats  
+###  <a name="BKMK_CertificateEnrollment"></a> Inscription de certificats  
  Le tableau suivant répertorie les fichiers journaux de Configuration Manager qui contiennent des informations relatives à l’inscription de certificats. L’inscription de certificats utilise le point d’inscription de certificats et le module de stratégie de Configuration Manager sur le serveur qui exécute le service d’inscription de périphérique réseau.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -486,7 +487,7 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
     > [!NOTE]  
     >  Ce fichier se trouve dans le dossier du profil de compte du service d'inscription de périphériques réseau, par exemple, dans C:\Users\SCEPSvc. Pour plus d'informations sur l'activation de la journalisation pour le service d'inscription de périphériques réseau, consultez la section [Enable Logging (Activer la journalisation)](http://go.microsoft.com/fwlink/?LinkId=320576) dans l'article Network Device Enrollment Service (NDES) in Active Directory Certificate Services (AD CS) (Service d'inscription de périphériques réseau (NDES) dans les services de certificat Active Directory (AD CS)) sur le TechNet Wiki.  
 
-###  <a name="a-namebkmkbgba-client-notification"></a><a name="BKMK_BGB"></a> Notification du client  
+###  <a name="BKMK_BGB"></a> Notification du client  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la notification du client.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -502,12 +503,22 @@ Le fichier journal SMS_DM.log sur le serveur de système de site enregistre auss
 
 Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la passerelle de gestion cloud.
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
-|--------------|-----------------|----------------------------|  
-|CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.|Serveur de système de site|
+||||
+|-|-|-|
+|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|
+|CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.<br>Vous pouvez configurer le niveau de journalisation en modifiant le Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**|Le dossier **SMS/Logs** sur le serveur de système de site|
+|CMGSetup.log ou CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Enregistre des détails concernant la 2ème phase du déploiement de la passerelle de gestion cloud (déploiement local dans Azure)<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
+|CMGHttpHandler.log ou CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Enregistre des détails concernant la liaison du gestionnaire http de la passerelle de gestion cloud avec Internet Information Services dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
+|CMGService.log ou CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Enregistre des détails concernant le composant principal du service de passerelle de gestion cloud dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |SMS_Cloud_ProxyConnector.log|Enregistre des détails sur la configuration des connexions entre le service de passerelle de gestion cloud et le point de connexion de passerelle de gestion cloud.|Serveur de système de site|
 
-###  <a name="a-namebkmkcompsettingsloga-compliance-settings-and-company-resource-access"></a><a name="BKMK_CompSettingsLog"></a> Paramètres de conformité et accès aux ressources d’entreprise  
+<sup>1</sup> Il s’agit des fichiers journaux Configuration Manager locaux que le gestionnaire de service cloud synchronise toutes les 5 minutes à partir du stockage Azure. La passerelle de gestion cloud pousse les journaux vers le stockage Azure toutes les 5 minutes. Le délai maximal est donc de 10 minutes. Les commutateurs Verbose affecteront les journaux locaux et distants.
+
+- Pour résoudre les problèmes de déploiement, utilisez **CloudMgr.log** et **CMGSetup.log**
+- Pour la résolution des problèmes d’intégrité du service, utilisez **CMGService.log** et **SMS_Cloud_ProxyConnector.log**.
+- Pour résoudre les problèmes de trafic client, utilisez **CMGHttpHandler.log**, **CMGService.log** et **SMS_Cloud_ProxyConnector.log**.
+
+###  <a name="BKMK_CompSettingsLog"></a> Paramètres de conformité et accès aux ressources d’entreprise  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux paramètres de compatibilité et à l'accès aux ressources de l'entreprise.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -518,7 +529,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |DCMReporting.log|Enregistre des informations sur les rapports des résultats de la plateforme de stratégie sous forme de messages d'état pour les éléments de configuration.|Client|  
 |DcmWmiProvider.log|Enregistre des informations sur la lecture des synclets d’élément de configuration provenant de WMI.|Client|  
 
-###  <a name="a-namebkmkconsoleloga-configuration-manager-console"></a><a name="BKMK_ConsoleLog"></a> Console Configuration Manager  
+###  <a name="BKMK_ConsoleLog"></a> Console Configuration Manager  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la console Configuration Manager.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -527,7 +538,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |SmsAdminUI.log|Enregistre des informations relatives au fonctionnement de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
 |SMSProv.log|Enregistre les activités effectuées par le fournisseur SMS. Les activités de la console Configuration Manager utilisent le fournisseur SMS.|Serveur de site ou serveur de système de site|  
 
-###  <a name="a-namebkmkcontentloga-content-management"></a><a name="BKMK_ContentLog"></a> Gestion de contenu  
+###  <a name="BKMK_ContentLog"></a> Gestion de contenu  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion de contenu.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -541,7 +552,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |smsdpprov.log|Enregistre des détails concernant l'extraction des fichiers compressés reçus à partir d'un site principal. Ce journal est généré par le fournisseur WMI du point de distribution distant.|Ordinateur de point de distribution n’est pas au même emplacement que le serveur de site|  
 
 
-###  <a name="a-namebkmkdiscoveryloga-discovery"></a><a name="BKMK_DiscoveryLog"></a> Découverte  
+###  <a name="BKMK_DiscoveryLog"></a> Découverte  
 Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la détection.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -554,7 +565,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |InventoryAgent.log|Enregistre les activités de l'inventaire matériel et logiciel et les actions de découverte par pulsations effectuées sur le client.|Client|  
 |netdisc.log|Enregistre les actions de découverte du réseau.|Serveur de site|  
 
-###  <a name="a-namebkmkeploga-endpoint-protection"></a><a name="BKMK_EPLog"></a> Endpoint Protection  
+###  <a name="BKMK_EPLog"></a> Endpoint Protection  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à Endpoint Protection.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -564,7 +575,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |EPMgr.log|Surveille l'état du rôle de système de site Endpoint Protection.|Serveur de système de site|  
 |EPSetup.log|Fournit des informations sur l'installation du rôle de système de site Endpoint Protection.|Serveur de système de site|  
 
-###  <a name="a-namebkmkextensionsa-extensions"></a><a name="BKMK_Extensions"></a> Extensions  
+###  <a name="BKMK_Extensions"></a> Extensions  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées aux extensions.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -573,7 +584,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |FeatureExtensionInstaller.log|Enregistre des informations sur l’installation et la suppression d’extensions individuelles quand elles sont activées ou désactivées dans la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
 |SmsAdminUI.log|Enregistre l’activité de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
 
-###  <a name="a-namebkmkinventoryloga-inventory"></a><a name="BKMK_InventoryLog"></a> Inventaire  
+###  <a name="BKMK_InventoryLog"></a> Inventaire  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au traitement des données d'inventaire.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -582,24 +593,24 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |invproc.log|Enregistre le transfert des fichiers MIF d'un site secondaire vers son site parent.|Serveur de site secondaire|  
 |sinvproc.log|Enregistre des informations sur le traitement des données d'inventaire logiciel vers la base de données de site.|Serveur de site|  
 
-###  <a name="a-namebkmkmeteringloga-metering"></a><a name="BKMK_MeteringLog"></a> Contrôle  
+###  <a name="BKMK_MeteringLog"></a> Contrôle  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées au contrôle.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |mtrmgr.log|Surveille tous les processus de contrôle des logiciels.|Serveur de site|  
 
-###  <a name="a-namebkmkmigrationloga-migration"></a><a name="BKMK_MigrationLog"></a> Migration  
+###  <a name="BKMK_MigrationLog"></a> Migration  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la migration.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |migmctrl.log|Enregistre des informations sur les actions de migration qui impliquent des tâches de migration, des points de distribution partagés et des mises à niveau des points de distribution.|Site de plus haut niveau dans la hiérarchie Configuration Manager et chaque site principal enfant.<br /><br /> Dans une hiérarchie comportant des sites principaux multiples, utilisez le fichier journal créé sur le site d'administration centrale.|  
 
-###  <a name="a-namebkmkmdmloga-mobile-devices"></a><a name="BKMK_MDMLog"></a> Appareils mobiles  
+###  <a name="BKMK_MDMLog"></a> Appareils mobiles  
  Les sections suivantes répertorient les fichiers journaux qui contiennent des informations relatives à la gestion des appareils mobiles.  
 
-####  <a name="a-namebkmkenrollmentloga-enrollment"></a><a name="BKMK_EnrollmentLog"></a> Inscription  
+####  <a name="BKMK_EnrollmentLog"></a> Inscription  
  Le tableau suivant répertorie les journaux qui contiennent des informations relatives à l'inscription d'appareils mobiles.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -613,14 +624,14 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |enrollmentservice.log|Enregistre la communication entre un point proxy d'inscription et un point d'inscription.|Serveur de système de site|  
 |SMS_DM.log|Enregistre les communications entre les appareils mobiles, les ordinateurs Mac et le point de gestion activé pour les appareils mobiles et les ordinateurs Mac.|Serveur de système de site|  
 
-####  <a name="a-namebkmkexchsrvloga-exchange-server-connector"></a><a name="BKMK_ExchSrvLog"></a> Connecteur Exchange Server  
+####  <a name="BKMK_ExchSrvLog"></a> Connecteur Exchange Server  
  Les journaux suivants contiennent des informations relatives au connecteur Exchange Server.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |easdisc.log|Enregistre les activités et l'état du connecteur Exchange Server.|Serveur de site|  
 
-####  <a name="a-namebkmkmdlegloga-mobile-device-legacy"></a><a name="BKMK_MDLegLog"></a> Client hérité d’appareil mobile  
+####  <a name="BKMK_MDLegLog"></a> Client hérité d’appareil mobile  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au client hérité de l'appareil mobile.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -644,7 +655,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |DmSvc.log|Enregistre les communications provenant de clients hérités d'appareils mobiles avec un point de gestion activé pour les appareils mobiles.|Client|  
 |FspIsapi.log|Enregistre des détails concernant les communications au point d'état de secours à partir de clients hérités d'appareils mobiles et d'ordinateurs clients.|Serveur de système de site|  
 
-###  <a name="a-namebkmkosdloga-operating-system-deployment"></a><a name="BKMK_OSDLog"></a> Déploiement du système d’exploitation  
+###  <a name="BKMK_OSDLog"></a> Déploiement du système d’exploitation  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au déploiement du système d'exploitation.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -681,21 +692,21 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |loadstate.log|Enregistre des détails concernant l'outil de migration de l'état utilisateur (USMT) et la restauration des données d'état de l'utilisateur.|Client|  
 |scanstate.log|Enregistre des détails concernant l'outil de migration de l'état utilisateur (USMT) et la capture des données d'état de l'utilisateur.|Client|  
 
-###  <a name="a-namebkmkpowermgmtloga-power-management"></a><a name="BKMK_PowerMgmtLog"></a> Gestion de l’alimentation  
+###  <a name="BKMK_PowerMgmtLog"></a> Gestion de l’alimentation  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion de l'alimentation.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |Pwrmgmt.log|Enregistre les détails concernant les activités de gestion de l’alimentation sur l’ordinateur client, notamment la surveillance et l’application de paramètres par l’agent du client de gestion de l’alimentation.|Client|  
 
-###  <a name="a-namebkmkrcloga-remote-control"></a><a name="BKMK_RCLog"></a> Contrôle à distance  
+###  <a name="BKMK_RCLog"></a> Contrôle à distance  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au contrôle à distance.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |CMRcViewer.log|Enregistre des détails concernant l'activité de l'observateur de contrôle à distance.|Dans le dossier %temp% sur l’ordinateur qui exécute l’observateur de contrôle à distance|  
 
-###  <a name="a-namebkmkreportloga-reporting"></a><a name="BKMK_ReportLog"></a> Rapports  
+###  <a name="BKMK_ReportLog"></a> Rapports  
  Le tableau suivant répertorie les fichiers journaux de Configuration Manager qui contiennent des informations relatives à la création de rapports.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -704,7 +715,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |srsrpMSI.log|Enregistre les résultats détaillés du processus d'installation du point de Reporting Services à partir des données fournies par MSI.|Serveur de système de site|  
 |srsrpsetup.log|Enregistre les résultats du processus d'installation du point de Reporting Services.|Serveur de système de site|  
 
-###  <a name="a-namebkmkrbaloga-role-based-administration"></a><a name="BKMK_RBALog"></a> Administration basée sur des rôles  
+###  <a name="BKMK_RBALog"></a> Administration basée sur des rôles  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la gestion de l'administration basée sur des rôles.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -712,7 +723,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |hman.log|Enregistre les informations concernant les modifications de la configuration du site et la publication d’informations du site sur les services de domaine Active Directory.|Serveur de site|  
 |SMSProv.log|Enregistre les accès du fournisseur WMI à la base de données du site.|Ordinateur sur lequel le fournisseur SMS est installé|  
 
-###  <a name="a-namebkmkwitloga-service-connection-point"></a><a name="BKMK_WITLog"></a> Point de connexion de service  
+###  <a name="BKMK_WITLog"></a> Point de connexion de service  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au point de connexion de service.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -735,7 +746,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |SrvBoot.log|Enregistre les détails du service d’installation du point de connexion de service.|Ordinateur avec le point de connexion de service|  
 |Statesys.log|Enregistre le traitement des messages de gestion d'appareil mobile.|Site principal et site d'administration centrale|  
 
-###  <a name="a-namebkmksunaploga-software-updates"></a><a name="BKMK_SU_NAPLog"></a> Mises à jour logicielles  
+###  <a name="BKMK_SU_NAPLog"></a> Mises à jour logicielles  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux mises à jour logicielles.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -758,7 +769,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de site|  
 |WUAHandler.log|Enregistre des détails concernant l'agent Windows Update sur le client, lors de la recherche des mises à jour logicielles.|Client|  
 
-###  <a name="a-namebkmkwolloga-wake-on-lan"></a><a name="BKMK_WOLLog"></a> Wake On LAN  
+###  <a name="BKMK_WOLLog"></a> Wake On LAN  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’utilisation de Wake On LAN.  
 
 > [!NOTE]  
@@ -769,7 +780,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |wolcmgr.log|Enregistre des détails concernant les clients auxquels des paquets de mise en éveil doivent être envoyés, le nombre de paquets de mise en éveil envoyés et le nombre de nouvelles tentatives.|Serveur de site|  
 |wolmgr.log|Enregistre des détails concernant les procédures de mise en éveil, notamment le moment opportun pour déclencher le réveil des déploiements configurés pour Wake On LAN.|Serveur de site|  
 
-###  <a name="a-namebkmkwindowsservicinglogawindows-10-servicing"></a><a name="BKMK_WindowsServicingLog"></a>Maintenance de Windows 10  
+###  <a name="BKMK_WindowsServicingLog"></a>Maintenance de Windows 10  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la maintenance de Windows 10.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
@@ -794,23 +805,18 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 |wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de site|  
 |WUAHandler.log|Enregistre des détails concernant l'agent Windows Update sur le client, lors de la recherche des mises à jour logicielles.|Client|  
 
-###  <a name="a-namebkmkwuloga-windows-update-agent"></a><a name="BKMK_WULog"></a> Agent Windows Update  
+###  <a name="BKMK_WULog"></a> Agent Windows Update  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l'agent Windows Update.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |WindowsUpdate.log|Enregistre les détails concernant les connexions de l’agent Windows Update au serveur WSUS et la récupération des mises à jour logicielles pour l’évaluation de la conformité, et s’il existe des mises à jour pour les composants de l’agent.|Client|  
 
-###  <a name="a-namebkmkwsusloga-wsus-server"></a><a name="BKMK_WSUSLog"></a> Serveur WSUS  
+###  <a name="BKMK_WSUSLog"></a> Serveur WSUS  
  Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au serveur WSUS.  
 
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
 |--------------|-----------------|----------------------------|  
 |Change.log|Enregistre les détails concernant les informations de la base de données du serveur WSUS qui ont été modifiées.|Serveur WSUS|  
 |SoftwareDistribution.log|Enregistre les détails concernant les mises à jour logicielles qui sont synchronisées depuis la source de mise à jour configurée vers la base de données du serveur WSUS.|Serveur WSUS|  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

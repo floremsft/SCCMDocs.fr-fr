@@ -2,7 +2,7 @@
 title: "Créer des applications Android | Documents Microsoft"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Android."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 3d90b2cb1e255b9e8827a991779024ccecde9646
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 45dbf119ed5eaf875293f4eb3d89b986af6019e5
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
@@ -37,7 +37,7 @@ Une application System Center Configuration Manager inclut un ou plusieurs ty
 
 Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes lorsque vous créez et déployez des applications pour des appareils Android.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte
+## <a name="general-considerations-for-android-apps"></a>Éléments généraux à prendre en compte pour les applications Android
 
 Configuration Manager prend en charge le déploiement des types d’applications suivants pour Android :
 
@@ -50,4 +50,20 @@ Les actions de déploiement suivantes sont prises en charge :
 |Type d'appareil|Actions prises en charge|
 |-|-|
 |Android|**Disponible**, **Obligatoire**. L’utilisateur doit donner son consentement pour l’installation et la désinstallation.
+
+## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
+En tant qu’administrateur de Configuration Manager, vous pouvez également approuver et déployer des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
+
+Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
+
+1. Ouvrez un navigateur et accédez à https://play.google.com/work.
+2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
+3. Recherchez les applications que vous souhaitez déployer dans votre environnement et cliquez sur **Approuver** pour chacune d’elles afin de les rendre disponibles pour Android for Work.
+4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et cliquez sur **Synchroniser**.
+5. Patientez jusqu’à 10 minutes que les applications soient synchronisées, puis accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Informations de licence pour les applications du Store**.
+6. Cliquez sur une application synchronisée à partir de Play for Work, puis cliquez sur **Créer une application**.
+7. Terminez l’Assistant, puis cliquez sur **Fermer**.
+8. Accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**, sélectionnez une application Android for Work et déployez-la normalement.
+
+Pour synchroniser des applications Play for Work avec Configuration Manager, vous devez d’abord approuver au moins une application sur le site web Play for Work.
 

@@ -2,7 +2,7 @@
 title: "Créer un média autonome avec System Center Configuration Manager | Documents Microsoft"
 description: "Utilisez un média autonome pour déployer le système d’exploitation sur un ordinateur sans connexion à un site Configuration Manager ou utilisant le réseau."
 ms.custom: na
-ms.date: 12/21/2016
+ms.date: 03/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: ee7f69bd65152deffb2456d9807e1e8fee8802ec
-ms.openlocfilehash: 708525604c3f40cf75b5408c3666193186b7cf50
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: d4689545ce2be5c16a65b24489f30028a0f90f94
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -97,32 +97,37 @@ Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin
 
     -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
-         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
+         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.   
 
-        > [!IMPORTANT]  
-        >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
+         > [!IMPORTANT]  
+         >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
 
      Cliquez sur **Suivant**.  
 
-6.  Sur la page **Sécurité** , entrez un mot de passe fort pour protéger le média, puis cliquez sur **Suivant**. Si vous spécifiez un mot de passe, celui-ci est requis pour utiliser le média.  
+6.  Sur la page **Sécurité**, choisissez parmi les paramètres suivants, puis cliquez sur **Suivant** :
+    - **Protéger le média à l’aide d’un mot de passe** : entrez un mot de passe fort pour protéger le média. Si vous spécifiez un mot de passe, celui-ci est requis pour utiliser le média.  
 
-    > [!IMPORTANT]  
-    >  Sur un média autonome, seules les étapes de séquence de tâches et leurs variables sont chiffrées. Le reste du contenu du média n'est pas chiffré, donc n'incluez pas d'informations sensibles dans les scripts de séquence de tâches. Stockez et mettez en œuvre toutes les informations sensibles en utilisant des variables de séquence de tâches.  
+        > [!IMPORTANT]  
+        >  Sur un média autonome, seules les étapes de séquence de tâches et leurs variables sont chiffrées. Le reste du contenu du média n'est pas chiffré, donc n'incluez pas d'informations sensibles dans les scripts de séquence de tâches. Stockez et mettez en œuvre toutes les informations sensibles en utilisant des variables de séquence de tâches.  
 
+    - **Sélectionner une plage de dates pour que le média autonome soit valide** (à partir de la version 1702) : définissez des dates de début et d’expiration facultatives sur le média. Ces paramètres sont désactivés par défaut. Les dates sont comparées à l’heure système de l’ordinateur avant l’exécution du support autonome. Lorsque l’heure du système est antérieure à l’heure de début ou ultérieure à l’heure d’expiration, le support autonome n’est pas démarré. Ces options sont également disponibles avec l’applet de commande New-CMStandaloneMedia PowerShell.
 7.  Sur la page **CD/DVD autonome** , spécifiez la séquence de tâches qui déploie le système d'exploitation, puis cliquez sur **Suivant**. Choisissez **Détecter les dépendances d’application associées et les ajouter à ce média** afin d’ajouter du contenu au média autonome pour les dépendances d’application.
-> [!TIP]
-> Si les dépendances d’application attendues ne s’affichent pas, désélectionnez, puis sélectionnez à nouveau le paramètre **Détecter les dépendances d’application associées et les ajouter à ce média** pour actualiser la liste.
+    > [!TIP]
+    > Si les dépendances d’application attendues ne s’affichent pas, désélectionnez, puis sélectionnez à nouveau le paramètre **Détecter les dépendances d’application associées et les ajouter à ce média** pour actualiser la liste.
 
-L'Assistant vous permet de sélectionner uniquement les séquences de tâches qui sont associées à une image de démarrage.  
+    L'Assistant vous permet de sélectionner uniquement les séquences de tâches qui sont associées à une image de démarrage.  
 
-8.  Dans la page **Points de distribution** , spécifiez les points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
+8. Sur la page **Sélectionner une application** (disponible à partir de la version 1702), spécifiez le contenu d’application à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+9. Sur la page **Sélectionner un package** (disponible à partir de la version 1702), spécifiez le contenu de package à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+10. Sur la page **Sélectionner le package de pilotes** (disponible à partir de la version 1702), spécifiez le contenu de package de pilotes à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+11.  Dans la page **Points de distribution** , spécifiez les points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
 
      Configuration Manager n’affiche que les points de distribution qui disposent du contenu. Vous devez distribuer tout le contenu associé à la séquence de tâches (image de démarrage, image du système d’exploitation, etc.) sur au moins un point de distribution avant de continuer. Une fois le contenu distribué, vous pouvez redémarrer l’Assistant ou supprimer des points de distribution que vous avez déjà sélectionnés dans cette page, aller à la page précédente, puis revenir à la page **Points de distribution** pour actualiser la liste des points de distribution. Pour plus d’informations sur la distribution de contenu, consultez [Distribuer du contenu référencé par une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS). Pour plus d’informations sur les points de distribution et la gestion de contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
     > [!NOTE]  
     >  Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur les points de distribution.  
 
-9. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+12. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
     -   Spécifiez les variables que la séquence de tâches utilise pour déployer le système d'exploitation.  
 
@@ -133,7 +138,7 @@ L'Assistant vous permet de sélectionner uniquement les séquences de tâches qu
         > [!TIP]  
         >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, dont la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
 
-10. Effectuez toutes les étapes de l'Assistant.  
+13. Effectuez toutes les étapes de l'Assistant.  
 
  Les fichiers de média autonome (.iso) sont créés dans le dossier de destination. Si vous avez sélectionné **CD/DVD autonome**, vous pouvez maintenant copier les fichiers de sortie sur un ensemble de CD ou DVD.  
 

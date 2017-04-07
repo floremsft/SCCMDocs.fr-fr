@@ -2,7 +2,7 @@
 title: "Paramètres client | Microsoft Docs"
 description: "Choisissez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/12/2016
+ms.date: 03/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 289db441899359f3bf3abe5d38896c7acd2045b6
-ms.openlocfilehash: 5eaca19f2b21b1c62b956d2a44d492d3ddd6d10a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: bd2cf7b0df4a1f50c006e8280bf59ea91f1b4477
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -329,7 +329,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
     -   Les fichiers NOIDMIF doivent être dans le dossier Windows\System32\CCM\Inventory\Noidmif.  
 
     > [!NOTE]  
-    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut. 
+    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut.
 
 -   **Délai aléatoire maximal**
 
@@ -601,6 +601,12 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 -   **Durée pendant laquelle tous les déploiements en attente avec une échéance dans cette période seront également installés**  
 
      Utilisez ce paramètre pour spécifier le laps de temps pour le paramètre précédent. Vous pouvez entrer une valeur comprise entre 1 et 23 heures et entre 1 et 365 jours. Par défaut, ce paramètre est configuré pour 7 jours.  
+
+-   **Activer l’installation des fichiers d’installation rapide sur les clients**
+
+-   **Port utilisé pour télécharger du contenu pour les fichiers d’installation rapide**
+
+-   **Activer la gestion de l’agent client Office 365** Utilisez ce paramètre pour activer la gestion de l’agent client Office 365. Si vous choisissez **Oui**, vous avez la possibilité de configurer les paramètres d’installation Office 365, de télécharger des fichiers à partir de réseaux de distribution de contenu (CDN) Office et de déployer les fichiers en tant qu’application dans Configuration Manager.
 
 ##  <a name="user-and-device-affinity"></a>Affinité entre utilisateur et appareil  
 

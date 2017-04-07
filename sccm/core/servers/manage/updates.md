@@ -2,7 +2,7 @@
 title: "Mises à jour | Microsoft Docs"
 description: "Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées."
 ms.custom: na
-ms.date: 1/11/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 816c6bd33e42b70bbafed0dea7624bc5a5421544
-ms.openlocfilehash: 55d4f1805937405c4101f5b814875818d2aa72c0
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: bd72d17e463cb65e79b78613b631b0267b2b26a0
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -46,8 +47,8 @@ System Center Configuration Manager utilise une méthode de service dans la cons
 Si vous utilisez l’édition Technical Preview, consultez [Technical Preview pour System Center Configuration Manager](/sccm/core/get-started/technical-preview) pour plus d’informations sur cette édition.
 
 
-##  <a name="a-namebkmkbaselinesa-baseline-and-update-versions"></a><a name="bkmk_Baselines"></a> Versions de base et de mise à jour  
- La version initiale Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Plus récemment, la version 1606 a été publiée comme base de référence :  
+##  <a name="bkmk_Baselines"></a> Versions de base et de mise à jour  
+ La première version Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Une version plus récente de la base de référence est 1606.
 
 -   La dernière version de base est à utiliser quand il s’agit d’installer un nouveau site dans une nouvelle hiérarchie.  
 
@@ -73,22 +74,25 @@ Certaines mises à jour de Configuration Manager sont disponibles à la fois com
 
 Les versions suivantes de Configuration Manager sont disponibles sous forme de version de base, de mise à jour ou les deux à la fois :  
 
-|Version|Date de disponibilité|[Date de fin de support](/sccm/core/servers/manage/current-branch-versions-supported) |De base|Mise à jour dans la console|  
+|Version |Date de disponibilité|[Date de fin de support](/sccm/core/servers/manage/current-branch-versions-supported) |De base|Mise à jour dans la console|  
 |-------------|-----------|------------|--------------|------------------------|  
-| 1511 <br /><br /> 5.00.8325.1000|08/12/2015| 12/8/2016|Oui|Non|  
-|[1602](/sccm/core/plan-design/changes/whats-new-in-version-1602)<br /><br /> 5.00.8355.1000|11/03/2016| 3/11/2017|Non|Oui|
+|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|3/27/2017| 3/27/2018|Non|Oui|
+|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|11/18/2016| 11/18/2017|Non|Oui|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|7/22/2016| 7/22/2017|Non|Oui|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) avec le correctif cumulatif 1606 (KB3186654) </br></br>5.00.8412.1307 *(Note 1)* |10/12/2016| 7/22/2017|Oui|Non|
-|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|11/18/2016| 11/18/2017|Non|Oui|
+| 1602<br /><br /> 5.00.8355.1000|11/03/2016| 3/11/2017|Non|Oui|
+| 1511 <br /><br /> 5.00.8325.1000|08/12/2015| 12/8/2016|Oui|Non|  
+
+
 *(Note 1)* Ce support de la base de référence 1606 est disponible dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606).
 
 Pour vérifier la version de votre site Configuration Manager, dans la console, accédez à **À propos de System Center Configuration Manager** dans le coin supérieur gauche de la console où sont affichées la nouvelle version du site et de la console.  
 
-##  <a name="a-namebkmkinconsolea-in-console-updates-and-servicing"></a><a name="bkmk_inconsole"></a> Mises à jour et maintenance dans la console  
+##  <a name="bkmk_inconsole"></a> Mises à jour et maintenance dans la console  
  Quand vous utilisez une installation de System Center Configuration Manager prête pour la production, aussi appelée « Current Branch », la plupart des mises à jour que vous installez sont disponibles via le canal Mises à jour et maintenance. Cette méthode identifie, télécharge et met à disposition les mises à jour qui s’appliquent à la version et à la configuration actuelles de votre infrastructure et propose uniquement les mises à jour que Microsoft recommande à tous les clients,   
  à savoir :  
 
--   Les nouvelles versions comme la version 1602  
+-   Les nouvelles versions comme la version 1610  
 
 -   Les mises à jour qui comprennent de nouveaux composants pour votre version actuelle  
 
@@ -131,7 +135,7 @@ Points à noter pendant l’installation d’une mise à jour dans la console :
 > [!NOTE]  
 >  La version de production de System Center Configuration Manager (Current Branch), la branche LTSB (Long Term Servicing Branch) et la préversion Technical Preview pour System Center Configuration Manager sont des versions différentes. Par conséquent, les mises à jour qui s’appliquent à une branche ne sont pas disponibles en tant que mises à jour dans la console pour les autres branches. Pour plus d’informations sur les branches disponibles, consultez [Quelle branche de Configuration Manager dois-je utiliser ?](/sccm/core/understand/which-branch-should-i-use)
 
-##  <a name="a-namebkmkoutofbanda-out-of-band-hotfixes"></a><a name="bkmk_outofband"></a> Correctifs logiciels hors bande  
+##  <a name="bkmk_outofband"></a> Correctifs logiciels hors bande  
 Certains correctifs logiciels sont publiés pour une durée limitée dans le but de résoudre certains problèmes spécifiques, ou bien ils s’appliquent à tous les clients, mais ne peuvent pas être installés avec la méthode dans la console. Ces correctifs logiciels sont fournis hors bande et ne sont pas détectés à partir du service cloud Microsoft.  
 
 En règle générale, quand vous cherchez à corriger ou à résoudre un problème lié à votre déploiement de Configuration Manager, vous apprenez l’existence de correctifs hors bande par l’intermédiaire des services clientèle de Microsoft, via un article de la Base de connaissances ou sur le [blog de l’équipe System Center Configuration Manager](https://blogs.technet.microsoft.com/configmgrteam).  
@@ -145,9 +149,4 @@ Pour installer ces correctifs manuellement, deux méthodes sont disponibles :
 -   **Programme d’installation de correctifs logiciels :** cet outil permet d’installer manuellement un correctif logiciel qui ne peut pas être installé via la méthode dans la console. Cette méthode s’applique aux correctifs qui utilisent la structure de nom de fichier suivante : **&lt;Produit\>-&lt;version du produit\>-&lt;ID d’article de la base de connaissances\>-&lt;plateforme\>-&lt;langue\>.exe**.
 
      Pour plus d’informations, consultez [Utiliser le programme d’installation de correctif logiciel pour installer les mises à jour de System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

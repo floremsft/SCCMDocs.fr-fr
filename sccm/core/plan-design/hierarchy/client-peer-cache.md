@@ -1,9 +1,8 @@
-
 ---
 title: "Cache d’homologue du client | System Center Configuration Manager"
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/13/2017
+ms.date: 3/27/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -17,11 +16,12 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: 895b8ae58a9fda3fd22f58d77129053df09c4ccb
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 5298f1c836c1a872862b0e972180ac0c99c59751
+ms.lasthandoff: 03/27/2017
 
 ---
+
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache d’homologue pour les clients Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
@@ -31,11 +31,14 @@ ms.lasthandoff: 03/04/2017
 > [!TIP]  
 > Depuis la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
+## <a name="overview"></a>Vue d'ensemble
  -     Vous utilisez des paramètres du client pour permettre aux clients d’utiliser le cache d’homologue.
  -     Pour partager du contenu, les clients du cache d’homologue doivent être membres du groupe de limites actuel du client qui recherche le contenu. Les clients du cache d’homologue dans les groupes de limites voisins ne sont pas inclus dans le pool des emplacements sources de contenu disponibles quand un client utilise une action de secours pour rechercher du contenu à partir d’un groupe de limites voisin. Pour plus d’informations sur les groupes de limites actuels et voisins, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
  - Les clients non activés pour le cache d’homologue mais qui font partie du groupe de limites actuel avec des clients activés pour le cache d’homologue peuvent obtenir du contenu de la part du client activé pour le cache d’homologue.  
  - Chaque type de contenu conservé dans le cache d’un client Configuration Manager peut être fourni à d’autres clients à l’aide du cache d’homologue.
  -    Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en association avec lui afin de vous offrir davantage d’options pour l’extension de solutions de déploiement de contenu traditionnelles telles que des points de distribution. Il s’agit d’une solution personnalisée sans recours à BranchCache. Par conséquent, si vous n’activez pas ou n’utilisez pas Windows BranchCache, elle fonctionne quand même.
+
+### <a name="operations"></a>Opérations
 
 Après avoir déployé des paramètres du client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme source de contenu homologue pour d’autres clients du même groupe de limites :
  -    Un client qui agit en tant que source de contenu homologue envoie une liste des contenus mis en cache disponibles à son point de gestion.
@@ -45,9 +48,42 @@ Après avoir déployé des paramètres du client qui activent le cache d’homol
 > [!NOTE]
 > En cas de recours à un groupe de limites voisin pour le contenu, les emplacements sources de contenu de cache d’homologue à partir du groupe de limites voisin ne sont pas ajoutés au pool des emplacements de sources de contenu potentiels du client.  
 
-Même si vous pouvez faire participer tous les clients au cache d’homologue, il est recommandé de choisir uniquement les clients les mieux adaptés pour être des sources de cache d’homologue.  L’adéquation des clients peut être évaluée en fonction du type de châssis d’un client, de l’espace disque, de la connectivité réseau, et bien plus encore. Pour plus d’informations vous permettant de sélectionner les meilleurs clients à utiliser pour le cache d’homologue, consultez [ce blog rédigé par un consultant Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
 
+Même si vous pouvez faire participer tous les clients comme sources de cache d’homologue, il est recommandé de choisir uniquement les clients les mieux adaptés pour être des sources de cache d’homologue.  L’adéquation des clients peut être évaluée en fonction du type de châssis d’un client, de l’espace disque, de la connectivité réseau, et bien plus encore. Pour plus d’informations vous permettant de sélectionner les meilleurs clients à utiliser pour le cache d’homologue, consultez [ce blog rédigé par un consultant Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
+
+**Accès limité à une source de cache d’homologue**  
+À partir de la version 1702, un ordinateur source de cache d’homologue rejette une demande de contenu quand il remplit l’une des conditions suivantes :  
+  -  Il est en mode de batterie faible.
+  -  La charge de l’UC dépasse 80 % au moment où le contenu est demandé.
+  -  Les E/S disque ont une valeur *AvgDiskQueueLength* supérieure à 10.
+  -  Il n’y a plus de connexion disponible vers l’ordinateur.   
+
+Vous pouvez configurer ces paramètres à l’aide de la classe WMI du serveur de configuration du client pour la fonctionnalité de source d’homologue (*SMS_WinPEPeerCacheConfig*) quand vous utilisez le SDK System Center Configuration Manager.
+
+Quand l’ordinateur rejette une demande de contenu, l’ordinateur demandeur continue à rechercher le contenu dans d’autres sources de son pool d’emplacements de sources de contenu disponibles.   
+
+
+
+### <a name="monitoring"></a>monitoring   
 Pour vous aider à comprendre l’utilisation du cache d’homologue, vous pouvez afficher le tableau de bord Sources de données du client. Consultez la section relative au [tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
+
+À partir de la version 1702, vous pouvez utiliser trois rapports pour afficher l’utilisation du cache d’homologue. Dans la console, accédez à **Surveillance** > **Comptes rendus** > **Rapports**. Tous les rapports ont le type **Contenu de distribution de logiciels** :
+1.  **Rejet du contenu de la source de cache d’homologue** :  
+Utilisez ce rapport pour comprendre la fréquence à laquelle les sources de cache d’homologue d’un groupe de limites ont rejeté une demande de contenu.
+ - **Problème connu :** lorsque vous descendez dans la hiérarchie pour accéder à des résultats comme *MaxCPULoad* ou *MaxDiskIO*, il se peut que vous receviez une erreur qui indique que le rapport ou les détails sont introuvables. Pour contourner ce problème, utilisez les deux rapports suivants, qui montrent directement les résultats. 
+
+2. **Rejet conditionnel du contenu de la source de cache d’homologue** :  
+Utilisez ce rapport pour comprendre les détails du rejet pour un groupe de limites ou un type de rejet donné. Vous pouvez spécifier :
+
+  - **Problème connu :** vous ne pouvez pas choisir parmi une liste de paramètres disponibles ; vous devez les entrer manuellement. Entrez les valeurs *Nom de groupe de limites* et *Type de rejet* comme dans le premier rapport. Par exemple, pour *Type de rejet*, vous pouvez entrer *MaxCPULoad* ou *MaxDiskIO*.
+
+3. **Détails du rejet du contenu de la source de cache d’homologue** :   
+  Utilisez ce rapport pour comprendre quel était le contenu demandé au moment du rejet.
+
+ - **Problème connu :** vous ne pouvez pas choisir parmi une liste de paramètres disponibles ; vous devez les entrer manuellement. Entrez la valeur *Type de rejet* qui s’affiche dans le premier rapport (Rejet du contenu de la source de cache d’homologue) et entrez *l’ID de ressource* de la source de contenu sur laquelle vous souhaitez obtenir des informations.  Pour trouver l’ID de ressource de la source de contenu :  
+
+    1. Recherchez le nom de l’ordinateur qui s’affiche comme *Source de cache d’homologue* dans les résultats du deuxième rapport (Rejet conditionnel du contenu de la source de cache d’homologue).  
+    2. Ensuite, accédez à **Biens et conformité** > **Appareils**, puis recherchez ce nom d’ordinateur. Utilisez la valeur de la colonne ID de ressource.  
 
 
 ## <a name="requirements-and-considerations-for-peer-cache"></a>Exigences et considérations relatives au cache d’homologue

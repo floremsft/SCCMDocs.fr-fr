@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 26a362b4e5f25414178cae6843869a54eb99028c
-ms.openlocfilehash: b190b6116fba8080ad4e144e4e349e0926d1340b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: ef044af5f6b32e4161d54c0ab1fb2ef2d245264b
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ Pour plus d’informations, consultez [Prise en charge des versions Current Bran
 ##  <a name="long-term-servicing-branch-of-system-center-configuration"></a>Long-Term Servicing Branch de System Center Configuration
 Il s’agit d’une branche sous licence à utiliser en production pour les clients Configuration Manager qui utilisent Current Branch et ont autorisé Configuration Manager Software Assurance (SA) ou leurs droits d’abonnement équivalents à expirer après le 1er octobre 2016. Pour plus d’informations sur la Software Assurance et les options de licence, consultez [Licences et branches pour System Center Configuration Manager](learn-more-editions.md).
 
-La branche LTSB ne reçoit pas de mises à jour dans la console fournissant de nouvelles fonctionnalités ou mettant à jour les fonctionnalités existantes. Toutefois, des correctifs de sécurité critiques sont fournis.
+La branche LTSB est basée sur la version 1606. Cette branche ne reçoit pas de mises à jour dans la console fournissant de nouvelles fonctionnalités ou mettant à jour les fonctionnalités existantes. Toutefois, des correctifs de sécurité critiques sont fournis. Pour installer la branche LTSB, vous devez utiliser le [média de base](/sccm/core/servers/manage/updates#baseline-and-update-versions) de la version 1606 que vous obtenez sous forme de DVD avec System Center 2016 ou System Center Configuration Manager.
 
 Pour installer la branche LTSB sous la forme d’un nouveau site ou d’une mise à niveau à partir d’un site Configuration Manager 2012 pris en charge, utilisez le [média de référence](/sccm/core/servers/manage/updates#baseline-and-update-versions) de la version 1606, que vous obtenez sous forme de DVD avec la version System Center 2016 ou System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606). Vous pouvez utiliser le média de référence pour installer un nouveau site qui exécute la version 1606 de Current Branch ou un nouveau site qui exécute Long-Term Servicing Branch.
 

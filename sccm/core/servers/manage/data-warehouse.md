@@ -2,7 +2,7 @@
 title: "Entrepôt de données | Microsoft Docs"
 description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 3/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: 176d1116c910306f70d9acf934ad90340bcc4fcd
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
+ms.openlocfilehash: 9239f6e749c368835e8594ca2d07378d8555b99e
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -54,6 +54,13 @@ Une fois installé, le rôle de système de site installe et configure la base d
   - Groupe de disponibilité SQL Server AlwaysOn : cette configuration n’est pas prise en charge.
   - Cluster SQL Server : les clusters de basculement SQL Server ne sont pas pris en charge. En effet, la base de données de l’entrepôt de données n’a pas été testée en profondeur sur les clusters de basculement SQL Server.
   - Lorsque la base de données de l’entrepôt de données ne se trouve pas au même emplacement que la base de données du serveur de site, vous devez disposer d’une licence distincte pour l’instance SQL Server qui héberge la base de données.
+
+> [!IMPORTANT]  
+> L’entrepôt de données n’est pas pris en charge lorsque l’ordinateur qui exécute le point de service de l’entrepôt de données ou qui héberge la base de données de l’entrepôt de données exécute l’une des langues suivantes :
+> - JPN – Japonais
+> - KOR – Coréen
+> - CHS – Chinois simplifié
+> - CHT – Chinois traditionnel Ce problème sera résolu dans une version à venir.
 
 
 ## <a name="install-the-data-warehouse"></a>Installer l’entrepôt de données

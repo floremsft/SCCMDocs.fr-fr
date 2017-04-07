@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3c8f968276cb6d412a4a06cb70f1c8e45e91c605
-ms.openlocfilehash: cd53f093056fbaa2ef6fd88d5451b7698f296569
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: bcb14a2be312d4d8a4a9c235652c7bf971a7a976
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1612 pour System Center Configuration Manager
@@ -120,7 +121,7 @@ Après avoir installé un rôle de système de site de l’entrepôt de données
 | **Rapport sur l’inventaire logiciel général**  | Affiche tout l’inventaire logiciel pour un ordinateur spécifique.|
 | **Vue d’ensemble de l’intégrité de l’infrastructure**  |Affiche une vue d’ensemble de l’intégrité de votre infrastructure Configuration Manager.|
 | **Liste des programmes malveillants détectés**  |Affiche les programmes malveillants qui ont été détectés dans l’organisation.|
-|** Rapport sur la synthèse de distribution de logiciels** | Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.|
+|**Rapport sur la synthèse de distribution de logiciels** | Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.|
 
 ### <a name="move-the-data-warehouse-database"></a>Déplacer la base de données de l’entrepôt de données
 Procédez comme suit pour déplacer la base de données de l’entrepôt de données vers un nouveau serveur SQL Server :
@@ -182,9 +183,15 @@ Quand l’outil de nettoyage de la bibliothèque de contenu s’exécute dans l�
 
 
 ### <a name="run-the-tool"></a>Exécution de l'outil
-Pour exécuter l’outil, ouvrez une invite de commandes d’administration dans un dossier qui contient **ContentLibraryCleanup.exe**.  
+Pour exécuter l’outil :
+1. Ouvrez une invite de commandes d’administration dans un dossier qui contient **ContentLibraryCleanup.exe**.  
+2. Entrez ensuite une ligne de commande qui inclut les commutateurs de ligne de commande obligatoires ainsi que les commutateurs facultatifs que vous souhaitez utiliser.
 
-Entrez ensuite une ligne de commande qui inclut les commutateurs de ligne de commande obligatoires ainsi que les commutateurs facultatifs que vous souhaitez utiliser.
+**Problème connu** : lorsque l’outil s’exécute, une erreur de ce type peut être renvoyée si un package ou un déploiement, quel qu’il soit, a échoué ou est en cours :
+-  *System.InvalidOperationException: This content library cannot be cleaned up right now because package <packageID> is not fully installed.*
+
+**Solution de contournement :** aucune. L’outil ne peut pas identifier de façon fiable les fichiers orphelins lorsque du contenu est en cours de déploiement ou n’a pas pu être déployé. Par conséquent, l’outil ne vous autorisera pas à nettoyer le contenu tant que ce problème ne sera pas résolu.
+
 
 
 ### <a name="command-line-switches"></a>Commutateurs de ligne de commande  
@@ -257,7 +264,7 @@ Pour activer la prise en charge des fichiers d’installation rapide sur les cli
 1.    Activez la prise en charge des fichiers d’installation rapide dans les propriétés du composant du point de mise à jour logicielle (procédure précédente).
 2.    Dans la console Configuration Manager, accédez à **Administration** > **Paramètres du client**.
 3.    Sélectionnez les paramètres du client appropriés, puis cliquez sur **Propriétés** sous l’onglet **Accueil**.
-4.    Sélectionnez la page **Mises à jour logicielles **, configurez **Oui** pour le paramètre **Enable installation of Express Updates on clients** (Activer l’installation des mises à jour rapides sur les clients) et configurez le port utilisé par l’écouteur HTTP sur le client pour le paramètre **Port used to download content for Express Updates** (Port utilisé pour télécharger le contenu des mises à jour rapides).
+4.    Sélectionnez la page **Mises à jour logicielles**, configurez **Oui** pour le paramètre **Enable installation of Express Updates on clients** (Activer l’installation des mises à jour rapides sur les clients) et configurez le port utilisé par l’écouteur HTTP sur le client pour le paramètre **Port used to download content for Express Updates** (Port utilisé pour télécharger le contenu des mises à jour rapides).
 
 
 ## <a name="odata-endpoint-data-access"></a>Accès aux données de point de terminaison OData
@@ -314,9 +321,4 @@ Après avoir apporté ces modifications à la configuration, vous pouvez créer 
 ## <a name="change-to-configuring-multi-factor-authentication-for-device-enrollment"></a>Modification de la configuration de l’authentification multifacteur pour l’inscription d’appareils
 
 Maintenant que vous pouvez configurer l’authentification multifacteur pour l’inscription d’appareils dans le portail Azure, cette option a été supprimée de la console Configuration Manager. Vous trouverez d’autres informations sur la configuration de l’authentification multifacteur pour l’inscription [dans cette rubrique Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/multi-factor-authentication-azure-active-directory).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

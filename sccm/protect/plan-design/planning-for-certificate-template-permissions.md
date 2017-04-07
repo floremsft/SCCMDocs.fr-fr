@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
-ms.openlocfilehash: 3c3725678561c32fce316ed1209ac8fe73a0eed1
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 832be8c9fda727804f57e83768cd8799db722c67
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ Les informations suivantes peuvent vous aider à prévoir comment configurer des
 
 -   Lecture pour le compte qui exécute la console System Center Configuration Manager  
 
- Pour plus d’informations sur ces autorisations de sécurité, consultez [Étape 1 : Installer et configurer le service d’inscription d’appareils réseau et les dépendances](../deploy-use/certificate-infrastructure.md#step-1-install-and-configure-the-network-device-enrollment-service-and-dependencies).  
+ Pour plus d’informations sur ces autorisations de sécurité, consultez [Configuration de l’infrastructure des certificats](../deploy-use/certificate-infrastructure.md).  
 
  Lorsque vous utilisez cette configuration par défaut, les utilisateurs et les périphériques ne peuvent pas demander directement des certificats depuis les modèles de certificat et toutes les demandes doivent être lancées par le service d'inscription de périphériques réseau. Il s'agit d'une restriction importante car ces modèles de certificat doivent être configurés avec **Fourni dans la demande** comme objet de certificat, ce qui signifie qu'il existe un risque d'emprunt d'identité si un utilisateur non autorisé ou un périphérique compromis a demandé un certificat. Dans la configuration par défaut, le service d'inscription de périphériques réseau doit lancer une telle demande. Toutefois, ce risque d'emprunt d'identité demeure si le service qui exécute le service d'inscription de périphériques réseau est compromis. Afin d'éviter ce risque, suivez toutes les meilleures pratiques de sécurité pour le service d'inscription de périphériques réseau et l'ordinateur qui exécute ce service de rôle.  
 

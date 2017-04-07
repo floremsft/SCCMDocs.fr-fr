@@ -2,7 +2,7 @@
 title: Point de connexion de service | Microsoft Docs
 description: "Découvrez ce rôle système de site Configuration Manager, puis comprenez et planifiez sa plage d’utilisations."
 ms.custom: na
-ms.date: 2/7/2017
+ms.date: 3/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3a24fe53cc243294694b779fad4c3ab83ca2ecb7
-ms.openlocfilehash: ae2cc7030c1fc404dcc7392b8c3067fc0f8cafc0
+ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
+ms.openlocfilehash: ad6df047beff670411d203220576b87f7d56d50c
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -42,17 +43,18 @@ Le point de connexion de service System Center Configuration Manager est un rôl
 
   Pour plus d’informations sur les données collectées par chaque niveau et sur la façon de modifier le niveau de regroupement après l’installation du rôle, consultez [Données d’utilisation et de diagnostics](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data), puis suivez le lien correspondant à la version de Configuration Manager que vous utilisez.  
 
-    Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+  Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
 -   **Télécharger les mises à jour applicables à votre infrastructure Configuration Manager** : seules les mises à jour appropriées pour votre infrastructure sont disponibles, en fonction des données d’utilisation que vous chargez.  
 
- **Chaque hiérarchie prend en charge une seule instance de ce rôle :**  
+- **Chaque hiérarchie prend en charge une seule instance de ce rôle :**  
 
-    -   Ce rôle de système de site ne peut être installé que sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome).  
+ -   Ce rôle de système de site ne peut être installé que sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome).  
 
-    -   Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale.  
+  -   Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal pour pouvoir l’installer ensuite sur le site d’administration centrale.  
 
-##  <a name="a-namebkmkmodesa-modes-of-operation"></a><a name="bkmk_modes"></a> Modes opératoires  
+
+##  <a name="bkmk_modes"></a> Modes opératoires  
  Le point de connexion de service prend en charge deux modes de fonctionnement :  
 
 -   En **mode en ligne**, le point de connexion de service vérifie automatiquement l’existence de mises à jour toutes les 24 heures et télécharge dans la console Configuration Manager les mises à jour disponibles pour la version actuelle de vos infrastructure et produits.  
@@ -82,7 +84,7 @@ Pour utiliser le Gestionnaire de service de Configuration Manager, dans la conso
 
 -   Le gestionnaire de distribution sur le serveur de site le compte d’installation du système de site pour transférer les mises à jour à partir du point de connexion de service.
 
-##  <a name="a-namebkmkurlsa-internet-access-requirements"></a><a name="bkmk_urls"></a> Conditions requises pour l’accès Internet  
+##  <a name="bkmk_urls"></a> Conditions requises pour l’accès Internet  
 L’ordinateur qui héberge le point de connexion de service et les éventuels pare-feu entre cet ordinateur et Internet doivent transmettre les communications par le biais du **port TCP 443** et du **port TCP 443** aux emplacements Internet suivants. Le point de connexion de service prend également en charge l’utilisation d’un proxy web (avec ou sans authentification) pour utiliser ces emplacements.  Si vous devez configurer un compte de proxy web, consultez [rise en charge du serveur proxy dans System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
 **Mises à jour et maintenance**  
@@ -119,8 +121,10 @@ Quand vous exécutez le **programme d’installation** pour installer le site de
 
 Après l’exécution du programme d’installation ou si vous réinstallez le rôle de système de site, utilisez l’Assistant **Ajout des rôles de système de site** ou l’Assistant **Créer un serveur de système de Site** pour installer le système de site sur un serveur au plus haut niveau de votre hiérarchie (c’est-à-dire le site d’administration centrale ou un site principal autonome). Les deux Assistants se trouvent sous l’onglet **Accueil** dans la console, dans **Administration** > **Configuration du site** > **Serveurs et rôles de système de Site**.
 
+## <a name="log-files-used-by-the-service-connection-point"></a>Fichiers journaux utilisés par le point de connexion de service
+Pour consulter des informations sur les chargements vers Microsoft, affichez **Dmpuploader.log** sur l’ordinateur qui exécute le point de connexion de service.  Pour voir les téléchargements, y compris la progression du téléchargement des mises à jour, affichez **Dmpdownloader.log**. Pour obtenir la liste complète des journaux liés au point de connexion de service, consultez la page [Point de connexion de service](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) dans la rubrique de fichiers journaux de Configuration Manager.
 
-
-<!--HONumber=Feb17_HO3-->
-
+Vous pouvez également utiliser les organigrammes suivants pour comprendre le flux des processus et les entrées du journal principales pour le téléchargement et la réplication des mises à jour vers d’autres sites :
+ - [Organigramme - Téléchargement des mises à jour](/sccm/core/servers/manage/download-updates-flowchart)
+ - [Organigramme - Réplication de mise à jour](/sccm/core/servers/manage/update-replication-flowchart)
 

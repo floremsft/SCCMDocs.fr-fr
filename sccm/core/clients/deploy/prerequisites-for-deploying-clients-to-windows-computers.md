@@ -2,7 +2,7 @@
 title: "Prérequis au déploiement de clients Windows | Microsoft Docs"
 description: "Découvrez la configuration requise pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: cbcffea0fe2b4c8a05d3a835ff1193b528e55762
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 7ed1b9e6802cc20defcb92a8e536983fd757bd29
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 > [!NOTE]  
 >  Les numéros de version de logiciel mentionnés dans cet article indiquent uniquement les numéros de version minimale requise.  
 
-##  <a name="a-namebkmkprereqscomputersa-prerequisites-for-computer-clients"></a><a name="BKMK_prereqs_computers"></a> Conditions préalables pour les clients d’ordinateurs  
+##  <a name="BKMK_prereqs_computers"></a> Conditions préalables pour les clients d’ordinateurs  
  Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des ordinateurs.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
@@ -65,9 +65,10 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 |Microsoft Silverlight 5.1.41212.0 (à compter de Configuration Manager version 1602)|Requis pour prendre en charge l'expérience utilisateur du site Web du catalogue d'applications.|  
 |Microsoft .NET Framework version 4.5.2.|Requis pour prendre en charge les opérations de clients. Installé automatiquement sur l’ordinateur client si le Microsoft .NET Framework 4.5 ou version ultérieure n’est pas installé. Pour plus d’informations, consultez [Détails supplémentaires sur Microsoft .NET Framework version 4.5.2](#dotNet).|  
 |Composants Microsoft SQL Server Compact 3.5 SP2|Requis pour conserver les informations liées aux opérations du client.|  
-|Microsoft Windows Imaging Components|Requis par Microsoft .NET Framework 4.0 pour Windows Server 2003 ou Windows XP SP2 pour les ordinateurs 64 bits.|  
+|Microsoft Windows Imaging Components|Requis par Microsoft .NET Framework 4.0 pour Windows Server 2003 ou Windows XP SP2 pour les ordinateurs 64 bits.|
+|Client logiciel PC Microsoft Intune|Vous ne pouvez pas exécuter le client logiciel Intune PC et le client Configuration Manager sur le même ordinateur. Assurez-vous que le client Intune a été supprimé avant d’installer le client Configuration Manager.|
 
-####  <a name="a-namedotneta-additional-details-about-microsoft-net-framework-version-452"></a><a name="dotNet"></a> Informations supplémentaires sur Microsoft .NET Framework version 4.5.2  
+####  <a name="dotNet"></a> Informations supplémentaires sur Microsoft .NET Framework version 4.5.2  
 
 > [!NOTE]  
 >  Le 12 janvier 2016, la prise en charge de .NET 4.0, 4.5 et 4.5.1 a expiré. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
@@ -162,7 +163,7 @@ Le déploiement de clients Configuration Manager dans votre environnement prése
 ### <a name="firewall-requirements"></a>Configuration requise du pare-feu  
  S’il existe un pare-feu entre les serveurs du système de site et les ordinateurs sur lesquels vous souhaitez installer le client Configuration Manager, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
-##  <a name="a-namebkmkprereqsmobiledevicesa-prerequisites-for-mobile-device-clients"></a><a name="BKMK_prereqs_mobiledevices"></a> Conditions préalables pour les clients d’appareils mobiles  
+##  <a name="BKMK_prereqs_mobiledevices"></a> Conditions préalables pour les clients d’appareils mobiles  
  Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des appareils mobiles et pour inscrire ces appareils à l’aide de Configuration Manager.  
 
 ### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  

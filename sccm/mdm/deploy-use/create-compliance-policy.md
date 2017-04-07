@@ -17,9 +17,9 @@ ms.author: andredm
 manager: angrobe
 robots: noindex
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 58375a7f23109bbb2e304c17312f3438aa683cb2
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 6832bb6c6a26be76720938154942a5eb99022785
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -48,17 +48,12 @@ ms.lasthandoff: 03/06/2017
     * **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.
     * **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est aussi enregistré comme événement Windows dans le journal des événements des applications.|      
 
-5.  Dans la page **Plateformes prises en charge** , choisissez les plateformes d'appareils qui seront évaluées par cette stratégie de conformité, ou cliquez sur **Sélectionner tout** pour choisir toutes les plateformes d'appareils.
+5.  Dans la page **Plateformes prises en charge** , choisissez les plateformes d'appareils qui seront évaluées par cette stratégie de conformité, ou cliquez sur **Sélectionner tout** pour choisir toutes les plateformes d'appareils. Les plateformes prises en charge sont les suivantes : Windows 7, 8.1, 10, Windows Server 2008 R2, 2012, 2012 R2 et 2016.
 
 6.  Dans la page **Règles** , vous définissez une ou plusieurs règles qui définissent la configuration dont les appareils doivent disposer pour être évalués comme étant conformes. Quand vous créez une stratégie de conformité, certaines règles sont activées par défaut, mais vous pouvez les modifier ou les supprimer. Pour obtenir la liste complète de toutes les règles, consultez la section **Règles de stratégie de conformité** plus loin dans cette rubrique.
 
 > [!NOTE]  
->  Sur les PC Windows, la version du système d’exploitation Windows 8.1 apparaît comme étant la version 6.3 au lieu de 8.1.    Si la règle de la version du système d’exploitation est définie sur Windows 8.1 pour Windows, l’appareil sera signalé comme non conforme, même si l’appareil a le système d’exploitation Windows 8.1. Assurez-vous que vous définissez la version **signalée** correcte de Windows pour les règles de version minimale et maximale du système d’exploitation. Le numéro de version doit correspondre à la version retournée par la commande winver. Les téléphones Windows Phone n’ont pas ce problème, car la version signalée est 8.1 comme prévu.  
->   
->  Pour les PC Windows avec le système d’exploitation Windows 10, la version doit être définie comme étant « 10.0 » + le numéro de version du système d’exploitation retourné par la commande winver. Par exemple, il peut s’agir de 10.0.10586.  
-> Windows 10 Mobile n’a pas ce problème.  
->   
->  ![CA&#95;Win10OSversion](media/CA_Win10OSversion.png)  
+>  Sur les PC Windows, la version du système d’exploitation Windows 8.1 apparaît comme étant la version 6.3 au lieu de 8.1.    Si la règle de la version du système d’exploitation est définie sur Windows 8.1 pour Windows, l’appareil sera signalé comme non conforme, même si l’appareil a le système d’exploitation Windows 8.1. Assurez-vous que vous définissez la version **signalée** correcte de Windows pour les règles de version minimale et maximale du système d’exploitation. Le numéro de version doit correspondre à la version retournée par la commande winver. Les téléphones Windows Phone n’ont pas ce problème, car la version signalée est 8.1 comme prévu. Pour les PC Windows avec le système d’exploitation Windows 10, la version doit être définie comme étant « 10.0 » + le numéro de version du système d’exploitation renvoyé par la commande **winver**.
 
 7.  Dans la page **Résumé** de l'Assistant, passez en revue les paramètres que vous avez définis, puis fermez l'Assistant.
 
@@ -100,6 +95,36 @@ ms.lasthandoff: 03/06/2017
 
     -   **Inconnu**: affiche une liste de tous les utilisateurs et appareils qui n’ont pas signalé leur conformité pour le déploiement de stratégie sélectionné, ainsi que l’état du client actuel des appareils.
 
+### <a name="to-monitor-the-individual-compliance-status"></a>Pour surveiller l’état de conformité individuel
+
+Vous pouvez également afficher l’état de chaque appareil :
+
+1.  Dans la console Configuration Manager, cliquez sur l’espace de travail **Actifs et conformité**.
+
+2.  Cliquez sur **Appareils**.
+3.  Cliquez avec le bouton droit sur une des colonnes pour en ajouter d’autres.
+
+Vous pouvez ajouter les colonnes suivantes :
+
+- **ID de l’appareil Azure Active Directory :** identificateur unique de l’appareil dans AAD.
+
+- **Détails de l’erreur de conformité :** détails du message d’erreur en cas de problème avec le processus de bout en bout. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé.
+
+- **Emplacement de l’erreur de conformité :** fournit des informations détaillées sur l’emplacement où la conformité a échoué. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé. Exemples d’emplacements où le processus de conformité est susceptible d’échouer : 
+    - Client ConfigMgr
+    - Point de gestion
+    - Intune
+    - Azure Active Directory
+<br></br>
+- **Heure d’évaluation de la conformité :** heure de la dernière vérification de la conformité.
+
+- **Heure définie de la conformité :** dernière fois où la conformité a été mise à jour vers Azure Active Directory.
+
+- **Conforme à l’accès conditionnel :** indique si l’ordinateur est conforme ou non aux stratégies d’accès conditionnel.
+
+> [!IMPORTANT]
+> Par défaut, ces colonnes ne sont pas affichées.
+
 ### <a name="to-view-intune-compliance-policies-charts"></a>Pour afficher les graphiques de stratégies de conformité Intune
 1. À compter de la version 1610 de Configuration Manager, dans la console Configuration Manager, cliquez sur **Analyse**.
 2. Dans l’espace de travail **Analyse**, accédez à **Vue d’ensemble** > **Paramètres de compatibilité** >  **Stratégies de conformité**.
@@ -132,7 +157,7 @@ ms.lasthandoff: 03/06/2017
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Minutes d’inactivité avant qu’un mot de passe soit demandé (mise à jour&1602;)** : indique la durée d’inactivité avant que l’utilisateur soit contraint d’entrer à nouveau son mot de passe. Choisissez l’une des valeurs suivantes : **1 minute**, **5 minutes**, **15 minutes**, **30 minutes**, **1 heure**.
+* **Minutes d’inactivité avant qu’un mot de passe soit demandé (mise à jour 1602)** : indique la durée d’inactivité avant que l’utilisateur soit contraint d’entrer à nouveau son mot de passe. Choisissez l’une des valeurs suivantes : **1 minute**, **5 minutes**, **15 minutes**, **30 minutes**, **1 heure**.
 
   Cette règle doit être utilisée avec l’option **Exiger un mot de passe pour déverrouiller un appareil inactif**. La valeur définie ici détermine à quel moment l’appareil est considéré comme inactif et verrouillé, et à quel moment l’option  **Exiger un mot de passe pour déverrouiller un appareil inactif** est définie sur **True**et exige donc que l’utilisateur entre un mot de passe pour accéder à l’appareil verrouillé.
 
@@ -222,4 +247,29 @@ ms.lasthandoff: 03/06/2017
   Pour plus d’informations sur le fonctionnement du service HAS, consultez [Health Attestation CSP](https://msdn.microsoft.com/library/dn934876.aspx)(Fournisseur de services de configuration pour l’attestation de l’intégrité).
   **Pris en charge sur :**
   * Windows 10 et Windows 10 Mobile
+
+- **Applications qui ne peuvent pas être installées sur l’appareil :** si les utilisateurs installent une application à partir de la liste des applications non conformes de l’administrateur, ils seront bloqués lorsqu’ils tenteront d’accéder à la messagerie de l’entreprise et à d’autres ressources de l’entreprise qui prennent en charge l’accès conditionnel. Cette règle requiert le nom de l’application et l’ID de l’application lors de l’ajout d’une application à la liste des applications non conformes définies par l’administrateur. L’éditeur de l’application peut également être ajouté, mais ce n’est pas obligatoire.
+    - **Pris en charge sur :**
+      * iOS 6+
+      * Android 4.0+
+      * Samsung KNOX Standard 4.0+
+
+#### <a name="whats-app-id"></a>Qu’est-ce que l’ID de l’application ?
+
+L’ID de l’application est un identificateur qui identifie de façon unique l’application dans les services d’application Apple et Google. Par exemple, com.contoso.myapp.
+
+#### <a name="find-app-ids"></a>Trouver les ID d’applications
+
+- **Android**
+    - Vous trouverez l’ID de l’application dans l’URL Google Play Store utilisée pour créer l’application :
+        - Exemple d’ID de l’application : ***…?id=com.companyname.appname&hl=en***
+
+- **iOS**
+    - Dans l’URL iTunes Store, recherchez le **numéro d’ID**, par exemple : ***/id875948587?mt=8***.
+    - Dans un navigateur web, accédez à l’URL suivante, en remplaçant le nombre par le numéro d’ID trouvé : 
+        - https://itunes.apple.com/lookup?id=875948587
+    - Téléchargez et ouvrez le fichier texte.
+    - Recherchez le texte « *bundleid* ».
+    - Exemple d’ID de l’application : « *bundleId*":"*com.companyname.appname* » 
+
 

@@ -15,8 +15,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4d34a272a93100426cccd2308c5b3b0b0ae94a60
-ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: aaaab003ddd22f18160d4be63cfeab3a7e7f6b03
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -25,18 +26,28 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-
  À partir de System Center Configuration Manager version 1602, vous pouvez utiliser des [groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230\(v=sql.120\).aspx) SQL Server pour héberger la base de données du site sur les sites principaux, et le site d’administration centrale en tant que solution de récupération d’urgence à haute disponibilité. Le groupe de disponibilité peut être hébergé localement ou dans Microsoft Azure.  
 
  Quand vous utilisez Microsoft Azure pour héberger le groupe de disponibilité, vous pouvez encore augmenter la disponibilité de la base de données de votre site en utilisant des groupes de disponibilité AlwaysOn SQL Server avec des groupes à haute disponibilité Azure. Pour plus d’informations sur les groupes à haute disponibilité Azure, consultez [Gestion de la disponibilité des machines virtuelles](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).  
 
- Voici des scénarios pris en charge avec les groupes de disponibilité :  
+ Configuration Manager prend en charge l’hébergement de la base de données de site sur un groupe de disponibilité SQL qui se trouve derrière un équilibreur de charge interne ou externe. En plus de configurer des exceptions de pare-feu sur chaque réplica, vous devez ajouter des règles d’équilibrage de charge pour les ports suivants :
+  - SQL sur TCP : TCP 1433
+  - SQL Server Service Broker : TCP 4022
+  - Server Message Block (SMB) : TCP 445
+  - Mappeur de point de terminaison RPC : TCP 135
+
+
+Voici des scénarios pris en charge avec les groupes de disponibilité :  
 
 -   Vous pouvez déplacer votre base de données de site vers l’instance par défaut d’un groupe de disponibilité  
 
 -   Vous pouvez ajouter ou supprimer des membres réplicas dans un groupe de disponibilité qui héberge une base de données de site  
 
 -   Vous pouvez déplacer votre base de données de site à partir d’un groupe de disponibilité vers une instance par défaut ou nommée d’un serveur SQL Server autonome  
+
+> [!Important]  
+> Lorsque vous utilisez Microsoft Intune avec Configuration Manager dans une configuration hybride, le déplacement de la base de données de site vers ou depuis un groupe de disponibilité déclenche une resynchronisation des données avec le cloud. Cette opération est inévitable. 
+
 
 
 > [!NOTE]  
@@ -78,7 +89,7 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
     - **autoriser toute connexion en lecture seule**
 
 
-##  <a name="a-namebkmkbnra-changes-for-backup-and-recovery-when-you-use-a-sql-server-alwayson-availability-group"></a><a name="bkmk_BnR"></a> Modifications de la sauvegarde et de la récupération lorsque vous utilisez un groupe de disponibilité AlwaysOn SQL Server  
+##  <a name="bkmk_BnR"></a> Modifications de la sauvegarde et de la récupération lorsque vous utilisez un groupe de disponibilité AlwaysOn SQL Server  
  **Sauvegarde :**  
 
  Quand une base de données du site s’exécute dans un groupe de disponibilité, vous devez continuer à exécuter la tâche intégrée de maintenance de serveur **Sauvegarder le site** pour sauvegarder les paramètres et fichiers Configuration Manager courants. Toutefois, évitez d’utiliser les fichiers .MDF ou .LDF créés par cette sauvegarde. Au lieu de cela, envisagez d’effectuer des sauvegardes directes de la base de données du site à l’aide de SQL Server.  
@@ -89,11 +100,11 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 
  Durant la récupération d’un site, aussi longtemps qu’un nœud du groupe de disponibilité reste fonctionnel, vous pouvez utiliser l’option de récupération de site **Ignorer la récupération de base de données (Utiliser cette option si la base de données de site n’était pas affectée)**.  
 
- Toutefois, si tous les nœuds d’un groupe de disponibilité ont été perdus, avant de pouvoir récupérer le site, vous devez recréer le groupe de disponibilité (System Center Configuration Manager ne peut pas régénérer, ni restaurer le nœud de disponibilité.)  Une fois le groupe recréé avec une sauvegarde restaurée et reconfigurée, vous pouvez utiliser l’option de récupération de site ** Ignorer la récupération de base de données (Utiliser cette option si la base de données de site n’était pas affectée)**.  
+ Toutefois, si tous les nœuds d’un groupe de disponibilité ont été perdus, avant de pouvoir récupérer le site, vous devez recréer le groupe de disponibilité (System Center Configuration Manager ne peut pas régénérer, ni restaurer le nœud de disponibilité.)  Une fois le groupe recréé avec une sauvegarde restaurée et reconfigurée, vous pouvez utiliser l’option de récupération de site **Ignorer la récupération de base de données (Utiliser cette option si la base de données de site n’était pas affectée)**.  
 
  Pour plus d’informations sur la sauvegarde et la récupération, consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
 
-##  <a name="a-namebkmkcreatea-configure-an-availability-group-for-use-with-configuration-manager"></a><a name="bkmk_create"></a> Configuration d’un groupe de disponibilité pour une utilisation avec Configuration Manager  
+##  <a name="bkmk_create"></a> Configuration d’un groupe de disponibilité pour une utilisation avec Configuration Manager  
  Avant de débuter la procédure suivante, prenez connaissance des procédures SQL Server nécessaires pour effectuer cette configuration, ainsi que des détails suivants applicables aux groupes de disponibilité que vous configurez pour une utilisation avec Configuration Manager.  
 
  **Configuration requise pour les groupes de disponibilité AlwaysOn utilisés avec System Center Configuration Manager :**  
@@ -118,8 +129,7 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
     >     ALTER DATABASE cm_ABC SET TRUSTWORTHY ON;  
     >     USE cm_ABC  
     >     EXEC sp_changedbowner 'sa'  
-    >     Exec sp_configure 'max text repl size (B)', 2147483647
-    >     reconfigure
+    >     Exec sp_configure 'max text repl size (B)', 2147483647 reconfigure
 
 
 
@@ -185,7 +195,7 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 
 
 
-##  <a name="a-namebkmkdirecta-move-a-site-database-to-an-availability-group"></a><a name="bkmk_direct"></a> Déplacer une base de données de site vers un groupe de disponibilité  
+##  <a name="bkmk_direct"></a> Déplacer une base de données de site vers un groupe de disponibilité  
  Vous pouvez déplacer une base de données pour un site précédemment installé vers un groupe de disponibilité. Vous devez tout d’abord créer le groupe de disponibilité, puis configurer la base de données pour fonctionner dans le groupe de disponibilité.  
 
  Pour effectuer cette procédure, le compte d’utilisateur exécutant le programme d’installation de Configuration Manager doit être membre du groupe **Administrateurs locaux** sur chaque ordinateur membre du groupe de disponibilité.  
@@ -208,7 +218,7 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 
 5.  Après avoir fourni les informations relatives au nouvel emplacement de la base de données, exécutez le programme d’installation avec vos processus et configurations normaux.  
 
-##  <a name="a-namebkmkchangea-add-or-remove-members-of-an-active-availability-group"></a><a name="bkmk_change"></a> Ajout ou suppression de membres d’un groupe de disponibilité actif  
+##  <a name="bkmk_change"></a> Ajout ou suppression de membres d’un groupe de disponibilité actif  
  Une fois que Configuration Manager utilise une base de données de site hébergée dans un groupe de disponibilité, vous pouvez supprimer ou ajouter un membre réplica (sans dépasser un nœud principal et deux nœuds secondaires).  
 
 #### <a name="to-add-a-new-replica-member"></a>Pour ajouter un nouveau membre réplica  
@@ -229,7 +239,7 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 
 -   Utilisez les informations de [Supprimer un réplica secondaire d’un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/hh213149\(v=sql.120\).aspx) dans la documentation de SQL Server.  
 
-##  <a name="a-namebkmkremovea-move-the-site-database-from-an-availability-group-back-to-a-single-instance-sql-server"></a><a name="bkmk_remove"></a> Replacement de la base de données du site à partir d’un groupe de disponibilité dans une instance SQL Server unique  
+##  <a name="bkmk_remove"></a> Replacement de la base de données du site à partir d’un groupe de disponibilité dans une instance SQL Server unique  
  Lorsque vous ne souhaitez plus héberger la base de données de votre site dans un groupe de disponibilité, procédez comme suit.  
 
 #### <a name="to-move-the-site-database-from-an-availability-group-back-to-a-single-instance-sql-server"></a>Pour replacer la base de données du site à partir d’un groupe de disponibilité dans une instance SQL Server unique  
@@ -262,9 +272,4 @@ ms.openlocfilehash: 5fb6bc0bca5ee590000fd30bd46c765871cf5220
 9. Après avoir fourni les informations relatives au nouvel emplacement de la base de données, exécutez le programme d’installation avec vos processus et configurations normaux. Une fois l’exécution du programme d’installation terminée, le site redémarre et commence à utiliser le nouvel emplacement de la base de données.  
 
 10. Pour nettoyer les serveurs qui étaient membres du groupe de disponibilité, suivez les instructions de [Supprimer un groupe de disponibilité (SQL Server)](https://msdn.microsoft.com/library/ff878113\(v=sql.120\).aspx) dans la documentation de SQL Server.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

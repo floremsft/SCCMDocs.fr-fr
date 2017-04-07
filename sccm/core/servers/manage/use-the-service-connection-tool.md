@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: b4642186e42745640f088b7046e70019616935ea
-ms.openlocfilehash: 9a5cd5ce3ce6868b44768d3cbe7b7c594f44d42c
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 7a9c5bb9890b00cf3485998aa46286c890429cc0
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -148,9 +149,11 @@ Vous pouvez utiliser les paramètres facultatifs suivants pour spécifier un ser
 
 8.  Une fois l’importation terminée, vous pouvez fermer l’invite de commandes. (Seules les mises à jour pour la hiérarchie applicable sont importées.)  
 
-9. Ouvrez la console Configuration Manager, puis accédez à **Administration** >**Cloud Services** > **Mises à jour et maintenance**. Les mises à jour qui ont été importées peuvent désormais être installées. Pour plus d’informations, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+9. Ouvrez la console Configuration Manager, puis accédez à **Administration** > **Mises à jour et maintenance**. Les mises à jour qui ont été importées peuvent désormais être installées. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
-## <a name="a-namebkmkcmda-command-line-options"></a><a name="bkmk_cmd"></a> Options de ligne de commande  
+ Pour plus d’informations, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+
+## <a name="bkmk_cmd"></a> Options de ligne de commande  
  Pour afficher de l’aide sur l’outil de point de connexion de service, ouvrez une invite de commandes dans le dossier contenant l’outil, puis exécutez la commande suivante :  **serviceconnectiontool.exe**.  
 
 |Options de ligne de commande|Détails|  
@@ -159,9 +162,4 @@ Vous pouvez utiliser les paramètres facultatifs suivants pour spécifier un ser
 |**-connect -usagedatasrc [lecteur:][chemin] -updatepackdest [lecteur:][chemin] -proxyserveruri [nom_domaine_complet_serveur_proxy] -proxyusername [nom_utilisateur]** <br /> <br /> Si vous utilisez une version de Configuration Manager antérieure à la version 1606, vous devez spécifier le nom du fichier .cab et vous ne pouvez pas utiliser les options d’un serveur proxy.  Les paramètres de commande pris en charge sont les suivants : <br /> **-connect -usagedatasrc [lecteur:][chemin][nom_fichier] -updatepackdest [lecteur:][chemin]** |Cette commande se connecte au service cloud Configuration Manager pour charger les fichiers .cab de données d’utilisation à partir de l’emplacement spécifié et pour télécharger le contenu de console et les packs de mise à jour disponibles. Les options pour les serveurs proxy sont facultatives.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur un ordinateur capable de se connecter à Internet.<br /><br /> Exemple de connexion sans serveur proxy : **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Exemple de connexion quand vous utilisez un serveur proxy : **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> Si vous utilisez une version antérieure à la version 1606, vous devez spécifier un nom de fichier pour le fichier .cab et vous ne pouvez pas spécifier de serveur proxy. Utilisez l’exemple de ligne de commande suivant : **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**|      
 |**-import -updatepacksrc [lecteur:][chemin]**|Cette commande importe les packages de mise à jour et le contenu de la console que vous avec précédemment téléchargés dans la console Configuration Manager.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur le serveur qui héberge le point de connexion de service.<br /><br /> Exemple :  **-import -updatepacksrc D:\USB\UpdatePacks**|  
 |**-export -dest [lecteur:][chemin][nom_fichier.csv]**|Cette commande exporte les données d’utilisation dans un fichier .csv que vous pouvez ensuite afficher.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur le serveur qui héberge le point de connexion de service.<br /><br /> Exemple : **-export -dest D:\USB\usagedata.csv**|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

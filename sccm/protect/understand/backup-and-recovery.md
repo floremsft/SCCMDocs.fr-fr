@@ -2,7 +2,7 @@
 title: Sauvegarde et restauration | Microsoft Docs
 description: "Découvrez comment sauvegarder et récupérer vos sites en cas de défaillance ou de perte de données dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
-ms.openlocfilehash: 67441d0c19114f628e8b4308f58165ba67c738df
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: ea6668ee7ee6b209b659426a0dc2c0be605ceaf1
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -110,9 +110,9 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
     > [!IMPORTANT]  
     >  Pour empêcher la falsification des fichiers de sauvegarde, stockez les fichiers dans un emplacement sécurisé. Le chemin de sauvegarde vers un lecteur local est le plus sûr pour pouvoir définir des autorisations de système de fichiers NTFS sur le dossier. Quelle que soit l'option que vous sélectionnez, Configuration Manager ne chiffre pas les données de sauvegarde stockées dans le chemin de sauvegarde.  
 
-    -   **Lecteur local sur le serveur de site pour les données de site et la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin spécifié sur le disque local du serveur de site. Vous devez créer le dossier local avant d'exécuter la tâche de sauvegarde.   Le compte système local sur le serveur de site doit disposer des autorisations de système de fichiers NTFS en **écriture** sur le dossier local pour la sauvegarde de serveur de site. Le compte système local sur l'ordinateur qui exécute SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier pour la sauvegarde de base de données de site.  
+    -   **Lecteur local sur le serveur de site pour les données de site et la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin spécifié sur le disque local du serveur de site. Vous devez créer le dossier local avant d'exécuter la tâche de sauvegarde. Le compte système local sur le serveur de site doit disposer des autorisations de système de fichiers NTFS en **écriture** sur le dossier local pour la sauvegarde de serveur de site. Le compte système local sur l'ordinateur qui exécute SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier pour la sauvegarde de base de données de site.  
 
-    -   **Chemin d’accès réseau (nom UNC) aux données de site et à la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin UNC spécifié. Vous devez créer le partage avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site et le compte d'ordinateur de SQL Server (si SQL server est installé sur un autre ordinateur) doivent disposer des autorisations NTFS en **écriture** et de partage sur le dossier réseau partagé.  
+    -   **Chemin d’accès réseau (nom UNC) aux données de site et à la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin UNC spécifié. Vous devez créer le partage avant l'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site et le compte d'ordinateur de SQL Server, si SQL server est installé sur un autre ordinateur, doivent disposer des autorisations NTFS en **écriture** et de partage sur le dossier réseau partagé.  
 
     -   **Lecteurs locaux sur le serveur de site et SQL Server**: spécifie que les fichiers de sauvegarde pour le site sont stockés dans le chemin spécifié sur le disque local du serveur de site, et les fichiers de sauvegarde pour la base de données de site sont stockés sur le chemin spécifié sur le disque local du serveur de base de données de site. Vous devez créer les dossiers locaux avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de site. Le compte d'ordinateur de SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de base de données de site. Cette option est disponible uniquement lorsque la base de données de site n'est pas installée sur le serveur de site.  
 
@@ -390,6 +390,14 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
 
     -   **Détails :** récupère un site d’administration centrale  
 
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.  
+
 **RecoveryOptions**  
 
 -   **Nom de clé :** ServerRecoveryOptions  
@@ -602,6 +610,14 @@ Utilisez les sections suivantes pour créer votre stratégie de sauvegarde Confi
     -   **Valeurs :** site_principal_à_récupérer  
 
     -   **Détails :** récupère un site principal  
+
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
 **RecoveryOptions**  
 

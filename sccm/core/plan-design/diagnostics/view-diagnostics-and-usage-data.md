@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 688e05aae0e0b15b54835f8d64a98487f4d7b64d
-ms.openlocfilehash: fcd7ac43f7b2d2c92d6aadd7c490f198ac99e5e6
-ms.lasthandoff: 12/29/2016
+ms.sourcegitcommit: 199096db7a23fb14db98b95e75246ed254848ab7
+ms.openlocfilehash: 0932e2b2a4f3e13c35d6b7b0446083f1c233ce03
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -44,7 +44,7 @@ Lorsque vous affichez les données brutes, une valeur hachée apparaît dans cha
 
 #### <a name="to-see-how-the-one-way-hash-works"></a>Pour voir comment fonctionne le hachage unidirectionnel  
 
-1.  Obtenez l’ID de votre hiérarchie en exécutant l’instruction SQL suivante dans SQL Management Studio sur la base de données Configuration Manager : **select [dbo].[fnGetHierarchyID](\)**  
+1.  Obtenez l’ID de votre hiérarchie en exécutant l’instruction SQL suivante dans SQL Management Studio sur la base de données Configuration Manager : **select [dbo].[fnGetHierarchyID]\(\)**  
 
 2.  Utilisez le script Windows PowerShell suivant pour réaliser le hachage en sens unique du GUID obtenu de la base de données. Vous pouvez alors le comparer à l’ID de hiérarchie dans les données brutes pour voir comment nous masquons ces données.  
 
@@ -52,12 +52,12 @@ Lorsque vous affichez les données brutes, une valeur hachée apparaît dans cha
     Param( [Parameter(Mandatory=$True)] [string]$value )  
       $guid = [System.Guid]::NewGuid()  
       if( [System.Guid]::TryParse($value,[ref] $guid) -eq $true ) {  
-         #many of the values we hash are Guids  
-         $bytesToHash = $guid.ToByteArray()  
+      #many of the values we hash are Guids  
+      $bytesToHash = $guid.ToByteArray()  
     } else {  
-         #otherwise hash as string (unicode)  
-         $ue = New-Object System.Text.UnicodeEncoding  
-         $bytesToHash = $ue.GetBytes($value)   
+      #otherwise hash as string (unicode)  
+      $ue = New-Object System.Text.UnicodeEncoding  
+      $bytesToHash = $ue.GetBytes($value)   
     }  
       # Load Hash Provider (https://en.wikipedia.org/wiki/SHA-2)   
     $hashAlgorithm = [System.Security.Cryptography.SHA256Cng]::Create()    

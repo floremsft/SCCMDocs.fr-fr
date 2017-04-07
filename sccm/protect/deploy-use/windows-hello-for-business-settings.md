@@ -2,7 +2,7 @@
 title: "Paramètres Windows Hello Entreprise | Microsoft Docs"
 description: "Découvrez comment intégrer Windows Hello Entreprise dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/10/2016
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: ec3d130674d606410e6da7babee126e017aff234
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: c9a6842958e6fa3f740caabbaf20aabb9df4e8a8
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -47,13 +47,13 @@ Vous pouvez contrôler les paramètres Windows Hello Entreprise sur les appareil
 
 Notez qu’en plus de cette configuration, vous devez déployer un profil de certificat, comme cela est décrit dans [Configurer un profil de certificat](#configure-a-certificate-profile).
 
-### <a name="recommended-approach----configure-a-windows-hello-for-business-profile"></a>Approche recommandée – Configurer un profil Windows Hello Entreprise  
+## <a name="recommended-approach----configure-a-windows-hello-for-business-profile"></a>Approche recommandée – Configurer un profil Windows Hello Entreprise  
 
-Dans la console d’administration, sous **Accès aux ressources de l’entreprise**, cliquez avec le bouton droit sur **Profils Windows Hello for business** et choisissez **Nouveau** pour démarrer l’Assistant de création de profil. Fournissez les paramètres demandés par l’Assistant, passez en revue et confirmez les paramètres de la dernière page, puis cliquez sur **Fermer**. Voici un exemple de ce à quoi vos paramètres peuvent ressembler :  
+Dans la console de Configuration Manager, sous **Accès aux ressources de l’entreprise**, cliquez avec le bouton droit sur **Profils Windows Hello for business** et choisissez **Nouveau** pour démarrer l’Assistant de création de profil. Fournissez les paramètres demandés par l’Assistant, passez en revue et confirmez les paramètres de la dernière page, puis cliquez sur **Fermer**. Voici un exemple de ce à quoi vos paramètres peuvent ressembler :  
 
 ![Paramètres Windows Hello Entreprise](../media/Hello-for-Business-settings.png)
 
-### <a name="configure-windows-hello-for-business-with-group-policy-in-active-directory"></a>Configurer Windows Hello Entreprise à l’aide d’une stratégie de groupe dans Active Directory  
+## <a name="configure-windows-hello-for-business-with-group-policy-in-active-directory"></a>Configurer Windows Hello Entreprise à l’aide d’une stratégie de groupe dans Active Directory  
 
 Vous pouvez utiliser une stratégie de groupe Active Directory pour configurer vos appareils Windows 10 joints à un domaine afin de fournir les informations d’identification Hello Entreprise des utilisateurs quand ceux-ci se connectent à Windows :
 
@@ -79,12 +79,10 @@ Vous pouvez maintenant lier l’objet de stratégie de groupe que vous venez de 
 
    Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine qui seront automatiquement inscrits auprès d’Azure AD    
 
-#### <a name="configure-windows-hello-for-business-by-deploying-a-powershell-script-with-configuration-manager"></a>Configurer Windows Hello Entreprise en déployant un script PowerShell avec Configuration Manager    
+## <a name="configure-windows-hello-for-business-by-deploying-a-powershell-script-with-configuration-manager"></a>Configurer Windows Hello Entreprise en déployant un script PowerShell avec Configuration Manager    
 Vous pouvez créer et déployer le script PowerShell suivant à l’aide de la gestion d’applications Configuration Manager.    
 
-```    
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"  
-```  
+**powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"** 
 
 Pour plus d’informations sur la gestion d’applications Configuration Manager, consultez [Présentation de la gestion d’applications dans System Center Configuration Manager](/sccm/apps/understand/introduction-to-application-management).  
 
@@ -95,9 +93,25 @@ Pour plus d’informations sur la gestion d’applications Configuration Manager
 
 -   Dans le profil de certificat, sélectionnez un modèle qui recourt à l’utilisation de clé étendue pour l’ouverture de session avec carte à puce.  
 
+-    Si vous envisagez de stocker des profils de certificat dans le conteneur de clés Windows Hello Entreprise et que le profil de certificat utilise l’utilisation améliorée de la clé pour **l’ouverture de session avec carte à puce**, vous devez configurer les autorisations suivantes pour enregistrer cette clé et garantir que le certificat est validé correctement.
+Vous devez avoir au préalable créé le groupe **Administrateurs de clé** et ajouté tous les ordinateurs de point de gestion Configuration Manager comme membres de ce groupe.
+
+    1.    Connectez-vous à un contrôleur de domaine ou à des stations de travail de gestion avec l’administrateur de domaine ou des informations d’identification équivalentes.
+    2.    Ouvrez **Utilisateurs et ordinateurs Active Directory**.
+    3.    Dans le volet de navigation, cliquez avec le bouton droit sur votre nom de domaine, puis cliquez sur **Propriétés**.
+    4.    Sous l’onglet **Sécurité** de la boîte de dialogue **Propriétés** *<domain name>*, cliquez sur **Avancé**. Si l’onglet **Sécurité** n’apparaît pas, activez les **Fonctionnalités avancées** dans le menu **Affichage** de **Utilisateurs et ordinateurs Active Directory**.
+    5.    Cliquez sur **Ajouter**.
+    6.    Dans la boîte de dialogue **Saisie des autorisations pour** *<domain name>*, cliquez sur **Sélectionner un principal**.
+    7.    Dans la boîte de dialogue **Sélectionner un utilisateur, un ordinateur, un compte de service ou un groupe**, tapez **Administrateurs de clé** dans la zone de texte **Entrer le nom de l’objet à sélectionner**.  Cliquez sur **OK**.
+    8.    Dans la liste **S’applique à**, sélectionnez **Objets utilisateur descendants**.
+    9.    Faites défiler jusqu’au bas de la page et cliquez sur **Effacer tout**.
+    10.    Dans la section **Propriétés**, sélectionnez **Lire msDS-KeyCredentialLink**.
+    11.    Cliquez sur **OK** trois fois pour terminer la tâche.
+
+
  Pour plus d’informations, consultez [Profils de certificat](introduction-to-certificate-profiles.md).  
 
-### <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a>Voir aussi  
  [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
 
  [Gérer la vérification d’identité à l’aide de Windows Hello Entreprise](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  

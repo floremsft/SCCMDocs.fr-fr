@@ -2,7 +2,7 @@
 title: "Inscrire des appareils avec un gestionnaire d’inscription des appareils - Configuration Manager | Microsoft Docs"
 description: "Inscrivez les appareils d’entreprise avec le compte du gestionnaire d’inscription d’appareil à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2905f26e-7859-497d-b995-5ff48261efa2
 caps.latest.revision: 8
-author: mtillman
-ms.author: mtillman
+author: nathbarn
+ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
-ms.openlocfilehash: b356d2351b8a28bdca78176fdf0ff3c913a36bd3
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 7573590763c68a4c97d388be1e64054c318da9cc
+ms.openlocfilehash: 8c491636925670732e6af67d8c1c741e4793ef96
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -26,27 +26,23 @@ ms.lasthandoff: 01/24/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les organisations peuvent utiliser System Center Configuration Manager et Intune pour gérer un grand nombre d’appareils mobiles avec un même compte d’utilisateur. Le compte du *gestionnaire d’inscription d’appareil* est un compte Intune spécial autorisé à inscrire plus de cinq appareils.  
+Les organisations peuvent utiliser Intune pour gérer un grand nombre d'appareils mobiles avec un seul compte d'utilisateur. Le compte *Gestionnaire d’inscription d’appareil* (DEM) est un compte d’utilisateur spécial qui permet d’inscrire jusqu’à 1 000 appareils. Vous ajoutez des utilisateurs existants au compte DEM afin de leur accorder des fonctionnalités DEM spéciales. Chaque appareil inscrit utilise une licence unique. Nous vous recommandons d’utiliser les appareils inscrits via ce compte en tant qu’appareils partagés sans affinité utilisateur plutôt qu’en tant qu’appareils personnels et dédiés.  
 
 ## <a name="enroll-corporate-owned-devices-with-the-device-enrollment-manager"></a>Inscrire des appareils d’entreprise avec le gestionnaire d’inscription d’appareil  
  Vous pouvez affecter à un directeur ou responsable de magasin, par exemple, un compte de gestionnaire d'inscription d'appareil pour lui permettre d'effectuer les opérations suivantes :  
 
--   Inscrire des appareils pour la gestion  
-
+-   Inscrire jusqu’à 1 000 appareils pour la gestion  
 -   Utiliser l’application Portail d’entreprise pour installer des applications d’entreprise  
-
--   Installer et désinstaller des logiciels  
-
 -   Configurer l'accès aux données de l'entreprise  
-
 
 Les limitations suivantes s’appliquent aux appareils gérés en utilisant un compte de gestionnaire d’inscription d’appareil :
 
 - Le directeur du magasin ne peut pas réinitialiser l'appareil à partir du portail d'entreprise.  
--  Les appareils ne peuvent pas être joints à un espace de travail ou à Azure Active Directory. Cela empêche les appareils d’utiliser l’accès conditionnel.
+- Les appareils ne peuvent pas être joints à un espace de travail ou à Azure Active Directory. Cela empêche les appareils d’utiliser l’accès conditionnel.
 -  Pour déployer des applications d’entreprise sur des appareils gérés avec le gestionnaire d’inscription d’appareil, déployez l’application Portail d’entreprise en tant qu’**Installation requise** sur le compte d’utilisateur du gestionnaire d’inscription d’appareil. Le gestionnaire d’inscription d’appareil peut alors lancer l’application Portail d’entreprise pour installer des applications supplémentaires.
 - Pour améliorer les performances, l’application Portail d’entreprise affiche uniquement l’appareil local. La gestion à distance des autres appareils DEM ne peut être assurée qu’à partir de la console Configuration Manager et par l’administrateur.
 - Le site web Portail d’entreprise n’est pas accessible aux comptes de gestionnaire d’inscription d’appareil. Utilisez l’application Portail d’entreprise.
+- (iOS uniquement) Si vous utilisez le gestionnaire d’inscription d’appareil pour inscrire des appareils iOS, vous ne pouvez pas utiliser Apple Configurator ou le Programme d'inscription d'appareils Apple (DEP) pour inscrire des appareils.
 
  **Exemples de scénarios faisant intervenir un gestionnaire d’inscription d’appareil :**   
 Un restaurant souhaite que son personnel de service utilise des tablettes et commande des écrans pour le personnel de cuisine. Les employés ne doivent jamais accéder aux données de l’entreprise ni ouvrir de session en tant qu’utilisateur. L'administrateur Intune crée un compte de gestionnaire d'inscription d'appareil et inscrit les appareils d'entreprise à l'aide de ce compte. L'administrateur pourrait également donner les informations d'identification du gestionnaire d'inscription d'appareil au directeur du restaurant, puis lui permettre d'inscrire et de gérer les appareils.  

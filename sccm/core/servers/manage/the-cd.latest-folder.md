@@ -2,7 +2,7 @@
 title: Dossier CD.Latest | Microsoft Docs
 description: "Découvrez le nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: dcf56f6b82f89e81d636ea920f36133e245cbb1e
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 9cbda4db3c8fcd0bc039e9bb0f490af519b7d04b
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -40,11 +41,13 @@ Toutefois, le média de base de référence, comme la version de base de référ
 
 -   Vous exécutez la tâche de sauvegarde intégrée de Configuration Manager : le dossier est créé ou mis à jour à l’emplacement du dossier de sauvegarde désigné.  
 
+-  Depuis la version 1606, le dossier CD.Latest est créé lorsque vous installez un nouveau site en utilisant un support de la base de référence (version 1606 par exemple).
+
 Les fichiers sources du dossier CD.Latest sont pris en charge pour les opérations suivantes :  
 
-1.  **Sauvegarde et récupération :** le dossier CD.Latest contient les fichiers sources permettant de réinstaller votre site dans le cadre d’une récupération de site. Pour récupérer un site Configuration Manager, la sauvegarde de votre site doit inclure le dossier CD.Latest (la tâche de sauvegarde de site intégrée inclut automatiquement ce dossier dans la sauvegarde du site).  
+1.  **Sauvegarde et récupération :** pour récupérer un site, vous devez utiliser les fichiers source d’un dossier CD.Latest correspondant à votre site. Lorsque vous exécutez une sauvegarde de site à l’aide de la tâche de sauvegarde de site intégrée, le dossier CD.Latest est inclus dans le cadre de la sauvegarde.
 
-    -   **Quand vous réinstallez le site dans le cadre d’une récupération de site** , vous installez le site à partir du dossier CD.Latest inclus dans votre sauvegarde. Cette opération installe le site à l’aide des versions de fichier correspondant à la sauvegarde et à la base de données de votre site.  
+    -   **Quand vous réinstallez le site dans le cadre d’une récupération de site** , vous installez le site à partir du dossier CD.Latest inclus dans votre sauvegarde. Cette opération installe le site à l’aide des versions de fichier correspondant à la sauvegarde et à la base de données de votre site.  Si vous n’avez pas accès à la version appropriée du dossier CD.Latest, vous pouvez obtenir un dossier CD.Latest avec les versions de fichiers appropriées en installant un site dans un environnement de laboratoire, puis en mettant à jour ce site afin qu’il corresponde à la version que vous souhaitez récupérer.
 
         > [!IMPORTANT]  
         >  Si le dossier CD.Latest approprié et son contenu ne sont pas disponibles, vous ne pouvez pas récupérer un site et devez le réinstaller.  
@@ -60,9 +63,4 @@ Les fichiers sources du dossier CD.Latest sont pris en charge pour les opératio
 >   
 >  -   installation d’un nouveau site pour une nouvelle hiérarchie ;  
 >  -   Mise à niveau d’un site Microsoft System Center 2012 Configuration Manager vers System Center Configuration Manager
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

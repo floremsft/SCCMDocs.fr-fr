@@ -2,7 +2,7 @@
 title: "Gérer les applications iOS achetées en volume | Microsoft Docs"
 description: "Déployez, gérez et suivez les licences d’applications que vous avez achetées via l’App Store iOS."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: aef92114af913b420a6e96876141a13a855677ea
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
+ms.openlocfilehash: a63acf0d80edba1e965ba8ea99fe90edb8aa2faf
+ms.lasthandoff: 03/28/2017
 
 ---
 # <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Gérer des applications iOS achetées en volume avec System Center Configuration Manager
@@ -35,32 +35,42 @@ ms.lasthandoff: 03/06/2017
 ## <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gérer les applications pour appareils iOS achetées en volume  
  Vous achetez plusieurs licences d’applications iOS via le Programme d’achat en volume (VPP) Apple. Vous devez alors configurer un compte Apple VPP sur le site web Apple et charger le jeton Apple VPP sur Configuration Manager, ce qui offre les possibilités suivantes :  
 
--   Synchronisation des informations sur les achats en volume avec Configuration Manager.  
+-   Synchronisation des informations sur les achats en volume avec Configuration Manager. 
+ 
+- Synchronisation des applications du programme d’achat en volume pour les entreprises et du programme d’achat en volume pour l’éducation d’Apple.
+
+- Association de plusieurs jetons de programme d’achat de volume Apple à Configuration Manager.
 
 -   Affichage des applications achetées dans la console Configuration Manager.  
 
 -   Déploiement et surveillance de ces applications, et suivi du nombre de licences utilisées pour chaque application.  
 
--   Si nécessaire, Configuration Manager peut vous permettre de récupérer des licences en désinstallant les applications achetées en volume que vous avez déployées pour les utilisateurs.  
+-   Si nécessaire, Configuration Manager peut vous permettre de récupérer des licences en désinstallant les applications achetées en volume que vous avez déployées.  
 
 ## <a name="before-you-start"></a>Avant de commencer  
  Avant de commencer, vous devez vous procurer un jeton VPP auprès d’Apple et le charger sur Configuration Manager.  
 
-> [!IMPORTANT]  
->  -   À l’heure actuelle, chaque organisation ne peut avoir qu’un seul compte et jeton VPP.  
-> -   Seul le Programme d’achat en volume Apple pour les entreprises est pris en charge.  
-> -   Une fois que vous associez un compte Apple VPP à Intune, vous ne pouvez pas associer un autre compte. Pour cette raison, vérifiez que plusieurs personnes possèdent les détails du compte que vous utilisez.  
-> -   Si vous avez précédemment utilisé un jeton VPP avec un autre produit MDM dans votre compte Apple VPP existant, vous devez en générer un nouveau pour l’utiliser avec Configuration Manager.  
-> -   Chaque jeton est valide pendant un an.  
-> -   Par défaut, Configuration Manager se synchronise avec le service Apple VPP deux fois par jour pour vérifier que vos licences sont synchronisées avec Configuration Manager.  
->   
->      Seules les modifications apportées à vos licences sont synchronisées. Cependant, une synchronisation complète est assurée une fois tous les sept jours.  
->   
->      Quand vous choisissez **Synchroniser** pour effectuer une synchronisation manuelle, celle-ci est toujours complète.  
-> -   Si vous avez besoin de récupérer ou restaurer votre base de données Configuration Manager, nous vous recommandons d’effectuer une synchronisation manuelle après cette opération pour être certain que vos données de licence synchronisées sont à jour.  
-> -   Même si vous pouvez déployer des applications iOS achetées en volume sur des regroupements d’utilisateurs ou d’appareils, les applications VPP que vous déployez sur un appareil sans utilisateur (par exemple, un appareil que vous avez inscrit sans affinité utilisateur via le Programme d’inscription des appareils (DEP) ou Apple Configurator) ne sont pas installées.  
+-   Si vous avez précédemment utilisé un jeton VPP avec un autre produit MDM dans votre compte Apple VPP existant, vous devez en générer un nouveau pour l’utiliser avec Configuration Manager.  
+-   Chaque jeton est valide pendant un an.  
+-   Par défaut, Configuration Manager se synchronise avec le service Apple VPP deux fois par jour pour vérifier que vos licences sont synchronisées avec Configuration Manager.  
+      Seules les modifications apportées à vos licences sont synchronisées. Cependant, une synchronisation complète est assurée une fois tous les sept jours.  
+      Quand vous choisissez **Synchroniser** pour effectuer une synchronisation manuelle, celle-ci est toujours complète.  
+-   Si vous avez besoin de récupérer ou restaurer votre base de données Configuration Manager, nous vous recommandons d’effectuer une synchronisation manuelle après cette opération pour être certain que vos données de licence synchronisées sont à jour.  
+-   De plus, vous devez avoir importé un certificat du service de notifications Push Apple (APNs) pour pouvoir gérer des appareils iOS, ce qui inclut le déploiement d’applications. Pour plus d’informations, consultez [Configurer la gestion des appareils iOS hybride](enroll-hybrid-ios-mac.md).  
 
- De plus, vous devez avoir importé un certificat du service de notifications Push Apple (APNs) pour pouvoir gérer des appareils iOS, ce qui inclut le déploiement d’applications. Pour plus d’informations, consultez [Configurer la gestion des appareils iOS hybride](enroll-hybrid-ios-mac.md).  
+À partir de System Center Configuration Manager 1702, vous pouvez désormais déployer des applications sous licence sur des appareils ainsi que des utilisateurs. En fonction de la capacité des applications à prendre en charge les licences d’appareils, une licence appropriée sera réclamée lors du déploiement, comme suit :
+
+|||||
+|-|-|-|-|
+|Version de Configuration Manager|L’application prend-elle en charge les licences d’appareil ?|Type de regroupement de déploiement|Licence demandée|
+|Antérieure à 1702|Oui|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Non|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Oui|Appareil|Licence utilisateur|
+|Antérieure à 1702|Non|Appareil|Licence utilisateur|
+|1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
+|1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
 
 ## <a name="step-1---to-get-and-upload-an-apple-vpp-token"></a>Étape 1 : obtenir et charger un jeton Apple VPP  
 
@@ -79,6 +89,8 @@ ms.lasthandoff: 03/06/2017
     -   **Description** : si vous le souhaitez, entrez une description pour faciliter l’identification du jeton VPP dans la console Configuration Manager.  
 
     -   **Catégories attribuées pour améliorer la recherche et le filtrage** : si vous le souhaitez, vous pouvez attribuer des catégories au jeton VPP pour faciliter sa recherche dans la console Configuration Manager.  
+    -   **ID Apple** : entrez l’ID de l’adresse électronique Apple associée au jeton VPP.
+    -   **Type de jeton** : sélectionnez le type de jeton VPP que vous souhaitez utiliser. Vous pouvez choisir les types de jetons **Business** et **EDU**.
 
 5.  Choisissez **Suivant**, puis terminez l’Assistant.  
 
@@ -96,12 +108,14 @@ L’application Configuration Manager qui est créée contient l’application d
     > [!IMPORTANT]  
     > Vous devez choisir l’objectif de déploiement **Obligatoire**. Les installations disponibles ne sont pas prises en charge actuellement.
 
- Quand vous déployez l’application, une licence est utilisée par chaque utilisateur qui installe l’application.  
+ Quand vous déployez l’application, une licence est utilisée par chaque utilisateur, ou pour les installations d’appareils, chaque appareil qui installe l’application.  Si vous ciblez un regroupement d’appareils avec une application prenant en charge les licences d’appareils, une licence d’appareil est demandée.  Si vous ciblez un regroupement d’appareils avec une application ne prenant pas en charge les licences d’appareils, une licence d’utilisateur est demandée. 
+
+ Lorsque vous créez une application à partir du nœud **Informations de licence pour les applications du Windows Store**, l’application est associée à des licences provenant du jeton de l’application que vous avez sélectionnée.  Par exemple, vous pouvez afficher les deux versions de la même application dans le nœud. En effet, chaque version de l’application est associée à un jeton VPP Apple distinct.  Vous pouvez ensuite créer des applications à partir de chaque jeton et les déployer séparément.
 
  Pour récupérer une licence, remplacez l’action de déploiement par **Désinstaller**. La licence est récupérée une fois l’application désinstallée.  
 
 ## <a name="step-3---monitor-ios-vpp-apps"></a>Étape 3 : surveiller les applications VPP iOS  
- Le nœud **Informations de licence pour les applications du Store** de l’espace de travail **Bibliothèque de logiciels** affiche des informations sur vos applications iOS achetées en volume. Celles-ci incluent le nombre total de licences qui vous appartiennent pour chaque application ainsi que le nombre de licences qui ont été déployées.
+ Le nœud **Informations de licence pour les applications du Store** de l’espace de travail **Bibliothèque de logiciels** affiche des informations sur vos applications iOS achetées en volume. Celles-ci incluent le nombre total de licences qui vous appartiennent pour chaque application ainsi que le nombre de licences qui ont été déployées. En outre, la vue indique le jeton VPP auquel l’application est associée et le type du jeton
 
  Vous pouvez aussi surveiller l’utilisation des licences de toutes les applications VPP que vous avez achetées à l’aide du rapport **Applications du programme d’achat en volume (VPP) Apple pour iOS avec les nombres de licences**.  
 

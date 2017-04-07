@@ -2,7 +2,7 @@
 title: "Prise en charge de Windows 10 | Microsoft Docs"
 description: "Découvrez les versions de Windows 10 qui sont prises en charge pour exécuter le client System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/10/2017
+ms.date: 3/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3702993d6cf9644d5aebaadd168749668fbcb62c
-ms.openlocfilehash: 4b90384621dd20475ab9ea33ea062c24f5ecf5fa
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
+ms.openlocfilehash: 188c6b1d7ae7768bb4075688d7d47607ee83be17
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="support-for-windows-10-as-a-client-of-system-center-configuration-manager"></a>Prise en charge de Windows 10 comme client de System Center Configuration Manager
@@ -31,19 +31,24 @@ ms.lasthandoff: 02/22/2017
 - Elle complète [Systèmes d’exploitation pris en charge pour les clients et appareils](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).
 - Si vous utilisez LTSB (Long Term Servicing Branch) de Configuration Manager, consultez [Configurations prises en charge pour Long Term Servicing Branch](/sccm/core/understand/supported-configurations-for-ltsb).
 
-Configuration Manager tente d’assurer la prise en charge de chaque nouvelle version de Windows 10 dès que possible après la publication de cette version de Windows. Étant donné que les produits ont des calendriers de développement et de publication distincts, la prise en charge assurée par Configuration Manager dépend du moment où les versions et les branches de chaque produit sont publiées.  
+Configuration Manager tente d’assurer la prise en charge de chaque nouvelle version de Windows 10 dès que possible après la publication de cette version de Windows. Étant donné que les produits ont des calendriers de développement et de publication distincts, la prise en charge assurée par Configuration Manager dépend du moment où les versions et les branches de chaque produit sont publiées.
+
+Par exemple, une version de Configuration Manager sera supprimée de la matrice lorsque la [prise en charge de cette version](/sccm/core/servers/manage/current-branch-versions-supported) se termine. De même, la prise en charge de versions Windows 10 comme Enterprise 2015 LTSB or 1607 (CBB) sera supprimée de la matrice lorsque ces versions seront supprimées de la liste des configurations Configuration Manager prises en charge. Pour plus d’informations, consultez [Systèmes d’exploitation déconseillés](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems).
 
 
 
-|Versions de Windows 10 |Configuration Manager 1602|Configuration Manager 1606|Configuration Manager 1610|
+|Versions de Windows 10                    |Configuration Manager 1606          |Configuration Manager 1610          |    Configuration Manager 1702 |
 |---------------------|-----|-----|-----|
-|Entreprise 2015 LTSB |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|1507 <br />Entreprise, Professionnel | ![Pris en charge](media/green_check.png)| ![Pris en charge](media/green_check.png)|![Pris en charge](media/green_check.png) |
-|1511 <br />Entreprise, Professionnel <br />(CB), (CBB) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|Entreprise 2016 LTSB    |![Non pris en charge](media/Red_X.png) |![Pris en charge](media/green_check.png) | ![Pris en charge](media/green_check.png)|
-|1607 <br />Entreprise, Professionnel<br /> (CB)    |![Non pris en charge](media/Red_X.png) |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |
-|1607 <br />Entreprise, Professionnel <br />(CBB)    |![Non pris en charge](media/Red_X.png) |![Compatibilité descendante](media/Red_X.png) |![Pris en charge](media/green_check.png) |
+|Entreprise 2015 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1507 <br />(*voir éditions*)            |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1511 (CB), (CBB)<br />(*voir éditions*) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|Entreprise 2016 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1607 (CB)    <br />(*voir éditions*)      |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1607 (CBB)    <br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
 
+
+
+**Éditions :** Entreprise, Professionnel, Éducation, Professionnel Éducation   
 
 |Clé|
 |--|

@@ -2,7 +2,7 @@
 title: "Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager | Microsoft Docs"
 description: "Protégez les données des appareils à l’aide de la réinitialisation complète, de la réinitialisation sélective, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.assetid: 770da7bd-02dd-474a-9604-93ff1ea0c1e4
 caps.latest.revision: 18
 caps.handback.revision: 0
-author: mtillman
-ms.author: mtillman
+author: nathbarn
+ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 3aa4c2ad3568cc6ced70a65141a2c103af8b740f
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: ef020a0409c1f1a68f76ecadc9885801e6c1ad4e
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
@@ -77,19 +77,22 @@ Configuration Manager propose des fonctionnalités de réinitialisation sélecti
 |Agent de gestion|Le privilège d'administrateur d'appareil est révoqué.|Le privilège d'administrateur d'appareil est révoqué.|  
 |Profils de messagerie|Non applicable.|Pour les profils de messagerie configurés par Intune, le compte de messagerie électronique et l’adresse de messagerie sont supprimés.|  
 
+**Android for Work**
+
+Sur un appareil Android for Work, la réinitialisation sélective supprime le profil de travail ainsi que toutes les données, applications et paramètres du profil de travail de l’appareil. Cette opération met l’appareil hors service vis-à-vis de la gestion avec Configuration Manager et Intune. La réinitialisation complète n’est pas prise en charge pour Android for Work.
+
  **Windows 10, Windows 8.1, Windows RT 8.1 et Windows RT**  
 
-|Contenu supprimé lors de la mise hors service d'un appareil|Windows 10, Windows 8.1 et Windows RT 8.1|Windows RT|  
-|---------------------------------|-------------|-----------|
-|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées et les clés de chargement de version test sont supprimées. Les applications utilisant la réinitialisation sélective de Windows verront la clé de chiffrement révoquée et les données ne seront plus accessibles.|Les clés de chargement de version test sont supprimées, mais les applications restent installées.|  
-|Profils VPN et Wi-Fi|Supprimé.|Non applicable.|  
-|Certificats|Supprimé et révoqué.|Non applicable.|  
-|Paramètres|Configuration requise supprimée.||  
-|Agent de gestion|Non applicable. L'agent de gestion est intégré.|Non applicable. L'agent de gestion est intégré.|  
-|Profils de messagerie|Supprime la messagerie électronique compatible avec EFS, ce qui inclut l’application de messagerie pour le courrier électronique et les pièces jointes Windows.|Non applicable.|  
+|Contenu supprimé lors de la mise hors service d'un appareil|Windows 10, Windows 8.1 et Windows RT 8.1|  
+|---------------------------------|-------------|
+|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées et les clés de chargement de version test sont supprimées. Les applications utilisant la réinitialisation sélective de Windows verront la clé de chiffrement révoquée et les données ne seront plus accessibles.|  
+|Profils VPN et Wi-Fi|Supprimé.|  
+|Certificats|Supprimé et révoqué.|  
+|Paramètres|Configuration requise supprimée.|
+|Agent de gestion|Non applicable. L'agent de gestion est intégré.|  
+|Profils de messagerie|Supprime la messagerie électronique compatible avec EFS, ce qui inclut l’application de messagerie pour le courrier électronique et les pièces jointes Windows.|  
 
- **Windows 10 Mobile, Windows Phone 8.0 et Windows Phone 8.1**  
-
+ **Windows 10 Mobile, Windows Phone 8.0 et Windows Phone 8.1**
 
  |Contenu supprimé lors de la mise hors service d'un appareil|Windows 10 Mobile, Windows Phone 8 et Windows Phone 8.1|  
 |-|-|
@@ -102,53 +105,29 @@ Configuration Manager propose des fonctionnalités de réinitialisation sélecti
  Les paramètres suivants sont aussi supprimés des appareils Windows 10 Mobile et Windows Phone 8.1 :  
 
 -   Exiger un mot de passe pour déverrouiller des appareils mobiles  
-
 -   Autoriser les mots de passe simples  
-
 -   Longueur minimale du mot de passe  
-
 -   Type de mot de passe requis  
-
 -   Expiration du mot de passe (jours)  
-
 -   Mémoriser l'historique des mots de passe  
-
 -   Nombre d'échecs de connexion répétée autorisé avant réinitialisation de l'appareil  
-
 -   Minutes d'inactivité avant demande du mot de passe  
-
 -   Type de mot de passe requis - Nombre minimum de jeux de caractères  
-
 -   Autoriser l'appareil photo  
-
 -   Exiger le chiffrement sur l'appareil mobile  
-
 -   Autoriser le stockage amovible  
-
 -   Autoriser le navigateur web  
-
 -   Autoriser la boutique d'applications  
-
 -   Autoriser la capture d'écran  
-
 -   Autoriser la géolocalisation  
-
 -   Autoriser un compte Microsoft  
-
 -   Autoriser la fonction copier-coller  
-
 -   Autoriser la connexion Wi-Fi  
-
 -   Autoriser la connexion automatique aux points d'accès Wi-Fi gratuits  
-
 -   Autoriser l'indication des points d'accès Wi-Fi  
-
 -   Autoriser la réinitialisation aux paramètres d'usine  
-
 -   Autoriser Bluetooth  
-
 -   Autoriser NFC  
-
 -   Autoriser le Wi-Fi  
 
 ### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Pour exécuter une réinitialisation à distance à partir de la console Configuration Manager  
@@ -192,10 +171,11 @@ Configuration Manager propose des fonctionnalités de réinitialisation sélecti
 |Plate-forme|Réinitialisation du code d'accès|  
 |--------------|--------------------|  
 |iOS|Prise en charge de l'effacement du code d'accès d'un appareil. Ne crée pas un nouveau code d'accès temporaire.|  
-|Android|Prise en charge et création d'un nouveau code d'accès temporaire.|  
+|Android|Prise en charge et création d'un nouveau code d'accès temporaire.|
+|Android for Work | Non pris en charge|
 |Windows 10|Non pris en charge pour l’instant.|  
 |Windows Phone 8 et Windows Phone 8.1|Pris en charge|  
-|Windows RT 8.1 et Windows RT|Non pris en charge|  
+|Windows RT 8.1 |Non pris en charge|  
 |Windows 8.1|Non pris en charge|  
 
 ### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Pour réinitialiser le mot de passe sur un appareil mobile à distance dans Configuration Manager  
@@ -223,7 +203,7 @@ Configuration Manager propose des fonctionnalités de réinitialisation sélecti
 |Android|Pris en charge|  
 |Windows 10|Non pris en charge pour l’instant.|  
 |Windows Phone 8 et Windows Phone 8.1|Pris en charge|  
-|Windows RT 8.1 et Windows RT|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+|Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
 |Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
 
 ### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Pour verrouiller un appareil mobile à distance via la console Microsoft Intune  

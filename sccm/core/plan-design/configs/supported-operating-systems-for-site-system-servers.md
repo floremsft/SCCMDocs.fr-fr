@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 477ffa5d61d2dfaedf8a3a1f5687e2d72698ad28
-ms.openlocfilehash: f175e11d9402e7c57c45edb4d5bbe969de5dcdf7
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 86109f7186422c2b29ee933e827a7d14123e5792
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -183,6 +183,11 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise et Datacenter  
  Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
+ Depuis Configuration Manager version 1702, ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais il continue d’être pris en charge pour le point de migration d’état et le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion).
+ 
+ Les versions antérieures à 1702 continuent de prendre en charge son utilisation pour les éléments suivants.
+
+
 **Serveurs de site :**  
 
 -   Site d'administration centrale  
@@ -292,14 +297,14 @@ Ce système d’exploitation n’est pas pris en charge pour les serveurs de sit
 
 ## <a name="the-server-core-installation-of-windows-server-2016"></a>Installation minimale de Windows Server 2016
 À compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016), ce système d’exploitation est pris en charge comme point de distribution avec les restrictions suivantes :  
-  -   Seule la version&64; bits est prise en charge.
+  -   Seule la version 64 bits est prise en charge.
   -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
 
 
 ## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>Installation minimale de Windows Server 2012 R2  
  Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 R2 est prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
 
--   Seule la version&64; bits est prise en charge.
+-   Seule la version 64 bits est prise en charge.
 
 -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
 

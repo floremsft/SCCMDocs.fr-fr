@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 766120f5ca79f279a513b62c35a2374c859b253a
-ms.openlocfilehash: 079be3c97e4239f8c5293bed5a2ce13abfbe7798
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 238e460885b6490b3744690640f9ff040902b35f
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -116,7 +116,8 @@ Pour plus d’informations, consultez [Mise en cache d’homologue Windows PE](.
 ## <a name="content-library"></a>Bibliothèque de contenu  
  La bibliothèque de contenu est le stockage SIS (Single Instance Store) de contenu qu’utilise Configuration Manager pour réduire la taille globale du corps de contenu combiné que vous distribuez.  
 
-En savoir plus sur la [bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).
+- En savoir plus sur la [bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).
+- Utilisez l’[outil de nettoyage de la bibliothèque de contenu](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) pour supprimer le contenu qui n’est plus associé à une application.  
 
 
 ## <a name="distribution-points"></a>Points de distribution  

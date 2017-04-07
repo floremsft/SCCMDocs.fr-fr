@@ -1,17 +1,18 @@
 ---
 title: Surveiller la passerelle de gestion cloud - Configuration Manager | Microsoft Docs
 description: 
-ms.date: 11/18/2016
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
 ms.assetid: 15f72f80-9850-40ce-9c3a-443ba04b6a03
-author: nbigman
-ms.author: nbigman
+author: arob98
+ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: ef12c9b966a1b83b61243311b30e1a925c20d2e3
-ms.openlocfilehash: 4475205c37c20631a189e0c315dc48e288c15ba6
+ms.sourcegitcommit: 199096db7a23fb14db98b95e75246ed254848ab7
+ms.openlocfilehash: df32a7d95799d8ae685fd66e2d9ddf25e32b37d0
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -49,16 +50,5 @@ Les alertes de trafic sortant vous permettent de savoir quand le trafic est proc
 
 ## <a name="monitor-logs"></a>Surveiller les journaux
 
-Le service de passerelle de gestion cloud génère des entrées dans les fichiers journaux suivants :
-
--   **Cloudmgr.log** : contient des entrées pour le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.
-
--   **SMS\_Cloud\_ProxyConnector.log** : contient des entrées pour la configuration des connexions entre le service de passerelle de gestion cloud et le point de connexion de passerelle de gestion cloud.
-
-Pour plus d’informations, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Le service de passerelle de gestion cloud génère des entrées dans plusieurs fichiers journaux. Pour plus d’informations, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).
 

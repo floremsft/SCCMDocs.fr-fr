@@ -2,7 +2,7 @@
 title: Domaines Active Directory pris en charge | Microsoft Docs
 description: "Prenez connaissance de la configuration requise pour l’appartenance d’un système de site System Center Configuration Manager à un domaine Active Directory."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 3/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: a3da133205506ba0463dd3207da5ceb5a5d1ab49
-ms.openlocfilehash: ea527a7767b33eaf495e78522364d8a7a47712ca
+ms.sourcegitcommit: 3f397efe458fd85124d2a83d4a869642015fd4a5
+ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -43,16 +44,23 @@ Tous les systèmes de site System Center Configuration Manager doivent être mem
 Vous devez désinstaller le rôle de système de site (y compris le site s’il s’agit d’un serveur de site) avant d’apporter ces modifications.  
 
 **Les domaines avec les niveaux fonctionnels de domaine suivants sont pris en charge :**  
+- Windows Server 2016
 
--   Windows Server 2008  
+- Windows Server 2012 R2  
 
--   Windows Server 2008 R2  
+- Windows Server 2012
 
--   Windows Server 2012  
+- Windows Server 2008 R2
 
--   Windows Server 2012 R2  
+- Windows Server 2008  
 
-##  <a name="a-namebkmkdisjointa-disjoint-namespace"></a><a name="bkmk_Disjoint"></a> Espace de noms disjoint  
+
+
+
+
+
+
+##  <a name="bkmk_Disjoint"></a> Espace de noms disjoint  
 Configuration Manager prend en charge l’installation de systèmes de site et de clients dans un domaine qui a un espace de noms disjoint.  
 
 Dans un scénario d’espace de noms disjoint, le suffixe du DNS principal d’un ordinateur ne correspond pas au nom de domaine DNS Active Directory où se trouve cet ordinateur. L’ordinateur qui utilise le suffixe DNS principal qui ne correspond pas est dit « disjoint ». Un autre scénario d’espace de noms disjoint se produit si le nom de domaine NetBIOS d’un contrôleur de domaine ne correspond pas au nom de domaine DNS Active Directory.  
@@ -71,7 +79,7 @@ Le tableau suivant identifie les scénarios pris en charge pour un espace de nom
 > [!IMPORTANT]  
 >  Lorsque vous référencez un ordinateur dans Configuration Manager, entrez-le à l’aide de son suffixe DNS principal. Ce suffixe doit correspondre au nom de domaine complet inscrit comme attribut **dnsHostName** dans le domaine Active Directory et au nom de principal du service associé au système.  
 
-##  <a name="a-namebkmkslda-single-label-domains"></a><a name="bkmk_SLD"></a> Noms de domaine en une seule partie  
+##  <a name="bkmk_SLD"></a> Noms de domaine en une seule partie  
  Configuration Manager prend en charge les systèmes de site et les clients dans un nom domaine en une seule partie quand les critères suivants sont remplis :  
 
 -   Le nom de domaine en une seule partie dans les services de domaine Active Directory doit être configuré avec un espace de noms DNS disjoint associé à un domaine de niveau supérieur valide.  
@@ -79,10 +87,4 @@ Le tableau suivant identifie les scénarios pris en charge pour un espace de nom
      **Exemple** : le nom de domaine en une seule partie Contoso est configuré pour avoir un espace de noms disjoint contoso.com dans DNS. Ainsi, quand vous spécifiez le suffixe DNS dans Configuration Manager pour un ordinateur du domaine Contoso, vous spécifiez « Contoso.com » et non pas « Contoso ».  
 
 -   Les connexions DCOM (Distributed Component Object Model) entre serveurs de site dans le contexte système doivent être établies avec l’authentification Kerberos.  
-  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

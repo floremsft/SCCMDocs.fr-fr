@@ -2,7 +2,7 @@
 title: Configuration Manager dans Azure | Microsoft Docs
 description: "Informations sur l’utilisation de Configuration Manager dans un environnement Azure."
 ms.custom: na
-ms.date: 01/30/2017
+ms.date: 03/27/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 264e009952db34a6f4929ecb70dc6857117ce4fe
-ms.openlocfilehash: e8798adc0e479417c682450d181611284c148e6d
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 5276ad999fc871496d79e6efff34d5edc6335380
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="configuration-manager-on-azure---frequently-asked-questions"></a>Configuration Manager dans Azure – Forum Aux Questions
@@ -39,11 +40,11 @@ Non, il s’agit d’un IaaS (infrastructure en tant que service), car vous héb
 
 ### <a name="what-areas-should-i-pay-attention-to-when-considering-a-move-of-my-configuration-manager-infrastructure-to-azure"></a>À quelles zones dois-je faire attention lorsque j’envisage un déplacement de mon infrastructure Configuration Manager vers Azure ?
 Excellente question. Voici les zones les plus importantes quand vous prenez cette décision. Chacune est explorée dans une section distincte de cette rubrique :
-1.  Mise en réseau
-2.  Disponibilité
-3.  Performances
-4.  Coût
-5.  Expérience utilisateur
+1.    Mise en réseau
+2.    Disponibilité
+3.    Performances
+4.    Coût
+5.    Expérience utilisateur
 
 ## <a name="networking"></a>Mise en réseau
 ### <a name="what-about-networking-requirements-should-i-use-expressroute-or-an-azure-vpn-gateway"></a>Qu’en est-il de la configuration réseau requise ? Dois-je utiliser ExpressRoute ou une passerelle VPN Azure ?
@@ -145,8 +146,8 @@ La fonctionnalité **Passerelle de gestion cloud** fournit un moyen simple de g�
 
 Vous pouvez commencer à utiliser la passerelle de gestion cloud dans votre environnement et nous envoyer vos commentaires pour nous aider à améliorer cette fonctionnalité. Pour plus d’informations sur les fonctionnalités de préversions, consultez [Utiliser des fonctionnalités de préversions de mises à jour](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkprereleasea-use-pre-release-features-from-updates).
 
-### <a name="i-also-heard-that-you-have-another-new-feature-called-peer-cache-in-the-technical-preview-version-1604-is-that-different-than-branchcache-which-one-should-i-choose"></a>J’ai également entendu que vous avez introduit une nouvelle fonctionnalité, appelée Cache d’homologue, dans la version d’évaluation technique 1604. Est-elle différente de BranchCache ? Laquelle choisir ?
-Oui, totalement différente. La fonctionnalité [Cache d’homologue](/sccm/core/get-started/capabilities-in-technical-preview-1604#bkmk_peercache) est une technologie 100 % native de Configuration Manager, alors que BranchCache est une fonctionnalité de Windows. Les deux peuvent vous être utiles. BranchCache utilise une diffusion pour rechercher le contenu requis alors que le cache d’homologue utilise les paramètres de groupe de limites et de flux de travail de distribution standard de Configuration Manager.
+### <a name="i-also-heard-that-you-have-another-new-feature-called-peer-cache-introduced-as-a-pre-release-feature-in-version-1610-is-that-different-than-branchcache-which-one-should-i-choose"></a>J’ai également entendu que vous avez introduit une nouvelle fonctionnalité, appelée Cache d’homologue, comme fonctionnalité préliminaire dans la version 1610. Est-elle différente de BranchCache ? Laquelle choisir ?
+Oui, totalement différente. La fonctionnalité [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) est une technologie 100 % native de Configuration Manager, alors que BranchCache est une fonctionnalité de Windows. Les deux peuvent vous être utiles. BranchCache utilise une diffusion pour rechercher le contenu requis alors que le cache d’homologue utilise les paramètres de groupe de limites et de flux de travail de distribution standard de Configuration Manager.
 
 Vous pouvez configurer n’importe quel client comme source de mise en cache d’homologue. Ensuite, lorsque les points de gestion fournissent aux clients des informations sur les emplacements sources de contenu, ils fournissent des détails sur les points de distribution et toutes les sources de mise en cache d’homologue qui disposent du contenu que le client requiert.
 
@@ -179,9 +180,4 @@ Cela est difficile à dire puisque chaque environnement est différent. La meill
  - Plus d’informations sur ExpressRoute : http://azure.microsoft.com/documentation/articles/expressroute-introduction/
 
  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

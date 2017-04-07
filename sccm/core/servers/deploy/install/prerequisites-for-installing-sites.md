@@ -2,7 +2,7 @@
 title: "Prérequis pour les sites | Microsoft Docs"
 description: "Découvrez les prérequis liés à l’installation des différents types de sites System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/1/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: b6c570d8addbe7df5aace461ee725a7df1d35a31
-ms.openlocfilehash: 76c8bb6d0922fad996e27c04a86cb9b4ad32a810
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: ff89d4aea6be871e64e0a788f054ba4cadb3e51d
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Prérequis à l’installation de sites System Center Configuration Manager
@@ -60,14 +60,14 @@ Les prérequis suivants s’appliquent à l’installation d’un site d’admin
 - Le serveur de site et les ordinateurs de base de données du site doivent présenter toutes les configurations prévues dans les conditions préalables. Avant de démarrer le programme d’installation, vous pouvez [exécuter manuellement l’Outil de vérification des prérequis](../../../../core/servers/deploy/install/prerequisite-checker.md) pour identifier et résoudre les problèmes.  
 
 
-### <a name="bkmk_expand"></a> Extension d’un site principal autonome
+### <a name="bkmk_expand"></a> Configuration requise pour développer un site principal autonome
 Un site principal autonome doit remplir les conditions préalables suivantes pour pouvoir être étendu dans une hiérarchie constituée d'un site d'administration centrale :
 
--   **Vous devez installer le nouveau site d’administration centrale à l’aide du support d’installation (qui contient les fichiers sources) qui correspond à la version du site principal autonome**
+-   **Vous devez installer le nouveau site d’administration centrale à l’aide du support d’un dossier CD.Latest (qui contient les fichiers sources) qui correspond à la version du site principal autonome**
 
-     Pour garantir la correspondance de la version, installez le nouveau site en utilisant les fichiers sources figurant dans le [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) sur le site principal autonome.
+ Pour garantir la correspondance de la version, utilisez les fichiers sources figurant dans le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder) sur le site principal autonome.
 
-     Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
+ Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
 
 
 -   **Le site principal autonome ne peut pas être configuré pour faire migrer les données d’une autre hiérarchie Configuration Manager**  

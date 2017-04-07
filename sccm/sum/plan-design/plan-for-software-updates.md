@@ -6,7 +6,7 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 03/01/2017
+ms.date: 03/28/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,9 +14,9 @@ ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: 505c60409d14a1c5617333ab57caa3cd44195dc6
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
+ms.openlocfilehash: 2a4fa6dcf8691875f5b262d6dc7bf1522d91acfd
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -79,9 +79,12 @@ Utilisez les sections suivantes pour déterminer l'infrastructure du point de mi
 -   **Clients basés sur Internet**: reçoivent la liste des points de mise à jour logicielle que vous pouvez configurer pour autoriser les connexions uniquement depuis Internet, ou la liste des points de mise à jour logicielle qui autorisent les connexions client Internet et intranet.  
 
 ###  <a name="BKMK_SUPSwitching"></a> Basculement de point de mise à jour logicielle  
- Si vous avez plusieurs points de mise à jour logicielle sur un site, et que l'un d'eux est en échec ou indisponible, les clients se connectent à un point de mise à jour logicielle différent pour continuer de rechercher les dernières mises à jour logicielles. Quand un client est affecté à un point de mise à jour logiciel, il le reste sauf s'il ne parvient pas à rechercher des mises à jour logicielles sur ce point de mise à jour logicielle.  
+> [!NOTE]
+> Depuis la version 1702, les clients utilisent des groupes de limites pour rechercher un nouveau point de mise à jour logicielle et pour rétablir et trouver un nouveau point de mise à jour logicielle si leur point actuel n’est plus accessible. Vous pouvez ajouter des points de mise à jour logicielle individuels à différents groupes de limites pour contrôler les serveurs qu’un client peut trouver. Pour plus d’informations, consultez la section [Points de mise à jour logicielle](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) dans la rubrique [Configuration des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups).
 
- La recherche des mises à jour logicielles peut échouer avec plusieurs codes de nouvelle tentative et de non-nouvelle tentative différents. Lorsque l'analyse échoue avec un code d'erreur de nouvelle tentative, le client démarre un processus de nouvelle tentative pour rechercher les mises à jour logicielles sur le point de mise à jour logicielle. Les conditions précises qui génèrent un code d'erreur de nouvelle tentative sont généralement dues à l'indisponibilité ou à la surcharge temporaire du serveur WSUS. Le client utilise le processus suivant lorsqu'il ne parvient pas à rechercher les mises à jour logicielles :  
+Si vous avez plusieurs points de mise à jour logicielle sur un site, et que l'un d'eux est en échec ou indisponible, les clients se connectent à un point de mise à jour logicielle différent pour continuer de rechercher les dernières mises à jour logicielles. Quand un client est affecté à un point de mise à jour logiciel, il le reste sauf s'il ne parvient pas à rechercher des mises à jour logicielles sur ce point de mise à jour logicielle.  
+
+La recherche des mises à jour logicielles peut échouer avec plusieurs codes de nouvelle tentative et de non-nouvelle tentative différents. Lorsque l'analyse échoue avec un code d'erreur de nouvelle tentative, le client démarre un processus de nouvelle tentative pour rechercher les mises à jour logicielles sur le point de mise à jour logicielle. Les conditions précises qui génèrent un code d'erreur de nouvelle tentative sont généralement dues à l'indisponibilité ou à la surcharge temporaire du serveur WSUS. Le client utilise le processus suivant lorsqu'il ne parvient pas à rechercher les mises à jour logicielles :  
 
 1.  Le client recherche les mises à jour logicielles soit à l'heure planifiée, soit lorsque la recherche est lancée via le Panneau de configuration sur le client, soit en utilisant le Kit de développement logiciel (SDK). Si l'analyse échoue, le client attend 30 minutes avant d'effectuer une nouvelle tentative d'analyse et il utilise le même point de mise à jour logicielle.  
 
@@ -145,7 +148,8 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
 -   Pour plus d’informations sur les configurations prises en charge pour les systèmes de site Configuration Manager, consultez [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
 ###  <a name="BKMK_PlanningForWSUS"></a> Planifier l’installation de WSUS  
- Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soit installée sur tous les serveurs de système de site que vous configurez pour le rôle de système de site du point de mise à jour logicielle. De plus, lorsque vous n'installez pas le point de mise à jour logicielle sur le serveur de site, vous devez installer la console d'administration WSUS sur le serveur de site si elle n'est pas encore installée. Cela permet au serveur de site de communiquer avec le serveur WSUS qui est exécuté sur le point de mise à jour logicielle.  
+
+Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soit installée sur tous les serveurs de système de site que vous configurez pour le rôle de système de site du point de mise à jour logicielle. De plus, lorsque vous n'installez pas le point de mise à jour logicielle sur le serveur de site, vous devez installer la console d'administration WSUS sur le serveur de site si elle n'est pas encore installée. Cela permet au serveur de site de communiquer avec le serveur WSUS qui est exécuté sur le point de mise à jour logicielle.  
 
  Quand vous utilisez WSUS sur Windows Server 2012, vous devez configurer des autorisations supplémentaires pour permettre au **Configuration Manager WSUS** dans Configuration Manager de se connecter au serveur WSUS pour effectuer des contrôles d’intégrité réguliers. Choisissez l'une des options suivantes pour configurer ces autorisations :  
 
@@ -161,9 +165,9 @@ Activez cette option sur un regroupement d’appareils ou sur un ensemble d’ap
  Lorsque vous installez WSUS, vous avez la possibilité d'utiliser le site web par défaut IIS existant ou de créer un site web WSUS personnalisé. Créez un site web personnalisé pour WSUS afin qu’IIS héberge les services WSUS sur un site web virtuel dédié au lieu de partager le site web utilisé par les autres systèmes de site Configuration Manager ou d’autres applications. Ceci est particulièrement vrai lors de l'installation du rôle de système de site du point de mise à jour logicielle sur le serveur de site. Quand vous exécutez WSUS dans Windows Server 2012, WSUS est configuré par défaut pour utiliser le port 8530 pour HTTP et le port 8531 pour HTTPS. Vous devez spécifier ces paramètres de port lorsque vous créez le point de mise à jour logicielle sur un site.  
 
 ####  <a name="BKMK_WSUSInfrastructure"></a> Utiliser une infrastructure WSUS existante  
- Vous pouvez utiliser un serveur WSUS qui était actif dans votre environnement avant l’installation de Configuration Manager. Quand le point de mise à jour logicielle est configuré, vous devez spécifier les paramètres de synchronisation. Configuration Manager se connecte aux services WSUS qui s’exécutent sur le point de mise à jour logicielle, et configure le serveur WSUS avec les mêmes paramètres. Si le serveur WSUS a été précédemment synchronisé avec des produits ou classifications que vous n'avez pas configurés dans le cadre des paramètres de synchronisation du point de mise à jour logicielle, les métadonnées des mises à jour logicielles de ces produits et classifications sont synchronisées pour toutes les métadonnées des mises à jour logicielles incluses dans la base de données WSUS, quels que soient les paramètres de synchronisation du point de mise à jour logicielle. Cela risque d'inclure des métadonnées de mises à jour logicielles inattendues dans la base de données du site. Vous rencontrez le même comportement lorsque vous ajoutez des produits ou des classifications directement dans la console d'administration WSUS, puis lancez immédiatement la synchronisation. Par défaut, Configuration Manager se connecte toutes les heures aux services WSUS s’exécutant sur le point de mise à jour logicielle, et réinitialise tous les paramètres modifiés hors de Configuration Manager.  
+ Vous pouvez sélectionner un serveur WSUS qui était actif dans votre environnement avant l’installation de Configuration Manager comme point de mise à jour logicielle. Quand le point de mise à jour logicielle est configuré, vous devez spécifier les paramètres de synchronisation. Configuration Manager se connecte au serveur WSUS qui s’exécute sur le serveur de point de mise à jour logicielle, puis configure WSUS avec les mêmes paramètres. Si vous avez synchronisé WSUS avant qu’il soit configuré comme un point de mise à jour logicielle avec des produits ou classifications que vous n'avez pas configurés dans le cadre des paramètres de synchronisation du point de mise à jour logicielle, les métadonnées des mises à jour logicielles de ces produits et classifications sont synchronisées pour toutes les métadonnées des mises à jour logicielles incluses dans la base de données WSUS, quels que soient les paramètres de synchronisation que vous avez configurés pour le point de mise à jour logicielle. Cela risque d'inclure des métadonnées de mises à jour logicielles inattendues dans la base de données du site. Vous rencontrez le même comportement lorsque vous ajoutez des produits ou des classifications directement dans la console d'administration WSUS, puis lancez immédiatement une synchronisation. Par défaut, Configuration Manager se connecte toutes les heures à WSUS sur le point de mise à jour logicielle, et réinitialise tous les paramètres modifiés hors de Configuration Manager. Les mises à jour logicielles qui ne respectent pas les produits et classifications que vous spécifiez dans les paramètres de synchronisation expirent, puis elles sont supprimées de la base de données du site.
 
- Les mises à jour logicielles qui ne respectent pas les produits et classifications que vous spécifiez dans les paramètres de synchronisation expirent, puis elles sont supprimées de la base de données du site.  
+ Lorsqu’un serveur WSUS est configuré comme point de mise à jour logicielle, vous ne pouvez plus l’utiliser comme un serveur WSUS autonome. Si vous avez besoin d’un serveur WSUS autonome distinct qui n’est pas géré par Configuration Manager, vous devez le configurer sur un serveur différent. 
 
 ####  <a name="BKMK_WSUSAsReplica"></a> Configurer WSUS comme serveur réplica  
  Quand vous créez un rôle de système de site du point de mise à jour logicielle sur un serveur de site principal, vous ne pouvez pas utiliser un serveur WSUS qui est configuré comme un réplica. Quand le serveur WSUS est configuré en tant que réplica, la configuration du serveur WSUS par Configuration Manager et la synchronisation de WSUS se soldent par un échec. Quand un point de mise à jour logicielle est créé sur un site secondaire, Configuration Manager configure WSUS pour qu’il devienne un serveur réplica du serveur WSUS s’exécutant sur le point de mise à jour logicielle du site principal parent. Le premier point de mise à jour logicielle que vous installez sur un site principal est le point de mise à jour logicielle par défaut. Les points de mise à jour logicielle supplémentaires sur le site sont configurés en tant que réplicas du point de mise à jour logicielle par défaut.  

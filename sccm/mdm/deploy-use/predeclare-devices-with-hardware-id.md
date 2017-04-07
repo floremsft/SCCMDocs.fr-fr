@@ -2,7 +2,7 @@
 title: "Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS | Microsoft Docs"
 description: "Prédéclarez vos appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/24/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddb4c68e-e7f7-475a-89e2-7379a86e44c4
 caps.latest.revision: 3
-author: mtillman
-ms.author: mtillman
+author: nathbarn
+ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 0fd410a6572acce685dc6cdb954c1c2d97d5ed8b
-ms.openlocfilehash: 2aa9c8c65904e573b6a81ac865e09d1cf2458509
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: 7573590763c68a4c97d388be1e64054c318da9cc
+ms.openlocfilehash: 4fe6741481c79ed4e4496846152902d6d8ca1f96
+ms.lasthandoff: 03/24/2017
 
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
@@ -26,6 +26,8 @@ ms.lasthandoff: 12/16/2016
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 Vous pouvez identifier des appareils d’entreprise en important leur numéro IMEI (International Mobile Equipment Identity) ou leur numéro de série iOS. Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) contenant les numéros IMEI des appareils ou saisir manuellement les informations sur les appareils.  Les informations importées définissent la **propriété** des appareils inscrits sur **Entreprise** dans les listes d’appareils. Une licence Intune reste nécessaire pour chaque utilisateur qui accède au service.  
+
+Lorsque vous téléchargez des numéros de série d’appareils iOS appartenant à l’entreprise, ils doivent être associés à un profil d’inscription d’entreprise. Les appareils doivent être ensuite inscrits à l’aide du programme d’inscription des appareils Apple (DEP) ou d’Apple Configurator pour qu’ils apparaissent comme appartenant à l’entreprise. 
 
 ## <a name="how-to-predeclare-corporate-owned-devices"></a>Comment prédéclarer des appareils d’entreprise
 

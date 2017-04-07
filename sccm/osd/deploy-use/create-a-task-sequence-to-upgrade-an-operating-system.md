@@ -16,8 +16,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 32af7da62bfe767a21a891338bd778ebf45f2685
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 88a72259bca79f2fa985e86cb57ec7a974bad24d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 32af7da62bfe767a21a891338bd778ebf45f2685
 
 Dans System Center Configuration Manager, les séquences de tâches permettent de mettre automatiquement à niveau un système d’exploitation Windows 7 ou version ultérieure vers Windows 10 sur un ordinateur de destination. Vous créez une séquence de tâches qui fait référence à l’image de système d’exploitation que vous souhaitez installer sur l’ordinateur de destination et tout autre contenu supplémentaire, tel que des applications ou des mises à jour logicielles que vous souhaitez installer. La séquence de tâches de mise à niveau d’un système d’exploitation fait partie intégrante du scénario [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md).  
 
-##  <a name="a-namebkmkupgradeosa-create-a-task-sequence-to-upgrade-an-operating-system"></a><a name="BKMK_UpgradeOS"></a> Créer une séquence de tâches pour mettre à niveau un système d’exploitation  
+##  <a name="BKMK_UpgradeOS"></a> Créer une séquence de tâches pour mettre à niveau un système d’exploitation  
  Pour mettre à niveau le système d’exploitation sur des ordinateurs vers Windows 10, vous pouvez créer une séquence de tâches et sélectionner **Mettre à niveau un système d’exploitation à partir du package de mise à niveau** dans l’Assistant Création d’une séquence de tâches. L’Assistant ajoutera les étapes permettant de mettre à niveau le système d’exploitation, d’appliquer des mises à jour logicielles et d’installer des applications. Avant de créer la séquence de tâches, vous devez vous assurer que les conditions suivantes sont remplies :  
 
 -   **Obligatoire**  
@@ -70,6 +71,42 @@ Dans System Center Configuration Manager, les séquences de tâches permettent d
 
 9. Effectuez toutes les étapes de l'Assistant.  
 
+
+
+## <a name="configure-pre-cache-content"></a>Configurer la mise en cache préalable du contenu
+À partir de la version 1702, vous pouvez choisir d’utiliser la fonctionnalité de mise en cache préalable des séquences de tâches et des déploiements disponibles. De cette façon, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
+> [!TIP]  
+> La mise en cache préalable, introduite avec la version 1702, est en version préliminaire. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
+
+Supposons que vous souhaitiez déployer une séquence de tâches de mise à niveau sur place de Windows 10, que vous ne vouliez qu’une seule séquence de tâches pour tous les utilisateurs, et que vous ayez plusieurs architectures et/ou langues. Avant la version 1702, si vous créez un déploiement disponible et que l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est téléchargé à ce moment-là. Ceci a pour effet de retarder la disponibilité de l’installation. Par ailleurs, tout le contenu référencé dans la séquence de tâches est téléchargé. (c’est-à-dire tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture). Si chaque package fait environ 3 Go, le package de téléchargement peut être très volumineux.
+
+La mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local.
+
+### <a name="to-configure-the-pre-cache-feature"></a>Pour configurer la fonctionnalité de mise en cache préalable
+
+1. Créez des packages de mise à niveau du système d’exploitation pour des architectures et des langues spécifiques. Spécifiez l’architecture et la langue sous l’onglet **Source de données** du package. Pour la langue, utilisez la conversion décimale (par exemple, pour l’anglais, 1033 est l’identifiant décimal et 0x0409 l’identifiant hexadécimal). Pour plus d’informations, consultez [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+
+    Les valeurs de l’architecture et de la langue sont mises en correspondance avec les conditions de la séquence de tâches que vous allez créer à l’étape suivante pour déterminer si le package de mise à niveau du système d’exploitation doit être préalablement mis en cache.
+2. Créez une séquence de tâches avec des étapes conditionnelles pour les différentes langues et architectures. Par exemple, pour la version anglaise, vous pouvez créer une étape comme suit :
+
+    ![propriétés de mise en cache préalable](../media/precacheproperties2.png)
+
+    ![options de mise en cache préalable](../media/precacheoptions2.png)  
+
+3. déployer la séquence de tâches. Pour configurer la fonctionnalité de mise en cache préalable, configurez ce qui suit :
+    - Sous l’onglet **Général**, sélectionnez **Prétélécharger le contenu pour cette séquence de tâches**.
+    - Sous l’onglet **Paramètres de déploiement**, configurez la séquence de tâches avec **Disponible** comme **Objectif**. Si vous créez un déploiement **Exigé**, la fonctionnalité de mise en cache préalable ne fonctionne pas.
+    - Sous l’onglet **Planification**, pour le paramètre **Planifier la disponibilité de ce déploiement**, choisissez une heure future qui donne aux clients le temps de mettre préalablement en cache le contenu avant que le déploiement ne soit accessible aux utilisateurs. Par exemple, vous pouvez définir un délai de 3 heures pour allouer suffisamment de temps à la mise en cache préalable du contenu.  
+    - Sous l’onglet **Points de distribution**, configurez les paramètres **Options de déploiement**. Si le contenu n’est pas préalablement mis en cache sur un client avant le démarrage de l’installation, ces paramètres sont utilisés.
+
+
+### <a name="user-experience"></a>Expérience utilisateur
+- Quand le client reçoit la stratégie de déploiement, il commence la mise en cache préalable du contenu. Il s’agit du contenu référencé (tout autre type de package) et du package de mise à niveau du système d’exploitation correspondant au client (en fonction des conditions définies dans la séquence de tâches).
+- Une fois le déploiement accessible aux utilisateurs (paramètre défini sous l’onglet **Planification** du déploiement), une notification s’affiche pour informer les utilisateurs du nouveau déploiement. Le déploiement apparaît alors dans le Centre logiciel. L’utilisateur peut accéder au Centre logiciel et cliquer sur **Installer** pour démarrer l’installation.
+- Si tout le contenu n’est pas préalablement mis en cache, les paramètres spécifiés sous l’onglet **Option de déploiement** du déploiement sont utilisés. Nous vous recommandons de définir un délai suffisant entre la création du déploiement et l’heure à laquelle le déploiement est accessible aux utilisateurs pour que les client aient le temps de mettre préalablement en cache le contenu.
+
+
+
 ## <a name="download-package-content-task-sequence-step"></a>Étape de séquence de tâches Télécharger le contenu du package  
  Vous pouvez exécuter l’étape [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) avant l’étape **Mettre à niveau le système d’exploitation** dans les scénarios suivants :  
 
@@ -91,9 +128,4 @@ Dans System Center Configuration Manager, les séquences de tâches permettent d
 
 ## <a name="folder-and-files-removed-after-computer-restart"></a>Dossier et fichiers supprimés après le redémarrage de l’ordinateur  
  À la fin de la séquence de tâches de mise à niveau d’un système d’exploitation vers Windows 10 et toutes les autres étapes de la séquence de tâches, les scripts de post-traitement et de restauration ne sont pas supprimés tant que l’ordinateur n’a pas redémarré.  Ces fichiers de script ne contiennent pas d’informations sensibles.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

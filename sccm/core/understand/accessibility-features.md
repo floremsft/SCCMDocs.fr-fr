@@ -2,7 +2,7 @@
 title: "Accessibilité | Microsoft Docs"
 description: "Découvrez les fonctionnalités qui rendent System Center Configuration Manager accessible aux personnes en situation de handicap."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/27/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: bf0ca29a68cb8fbbcacc2acd148c06abf08c5cab
-ms.openlocfilehash: ca1207b8d48ca66096d1bbe674541223c033d895
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 98599b3c188c9e9b508fea79ecf9a2b2348e9288
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="accessibility-features-in-system-center-configuration-manager"></a>Fonctionnalités d’accessibilité dans System Center Configuration Manager
@@ -28,7 +29,7 @@ ms.openlocfilehash: ca1207b8d48ca66096d1bbe674541223c033d895
 System Center Configuration Manager inclut des fonctionnalités d’accessibilité pour les personnes en situation de handicap.
 
 
-## <a name="a-namebkmkaconsolea-accessibility-features-for-the-configuration-manager-console"></a><a name="bkmk_aconsole"></a> Fonctionnalités d’accessibilité pour la console Configuration Manager  
+## <a name="bkmk_aconsole"></a> Fonctionnalités d’accessibilité pour la console Configuration Manager  
 -   Pour accéder à un espace de travail, utilisez les raccourcis clavier suivants :  
 
 |Espace de travail|Raccourci clavier|  
@@ -46,14 +47,14 @@ System Center Configuration Manager inclut des fonctionnalités d’accessibilit
 
 -   Pour accéder à la barre d’adresses quand le focus se trouve dans le nœud de l’arborescence, utilisez Maj+Tab à trois reprises.  
 
--   Sur une page d'Assistant ou une page de propriétés, vous pouvez vous déplacer entre les zones à l'aide de raccourcis clavier. Sélectionnez la touche Alt et le caractère souligné (Alt+_) pour sélectionner une zone spécifique.  
+-   Sur une page d'Assistant ou une page de propriétés, vous pouvez vous déplacer entre les zones à l'aide de raccourcis clavier. Sélectionnez la touche Alt et le caractère souligné (Alt+_) pour sélectionner une zone spécifique.     
 
- -  À compter de la version 1606, pour parcourir les différents nœuds d’un espace de travail, entrez la première lettre du nom d’un nœud. Chaque appui sur une touche déplace le curseur au nœud suivant qui commence par cette lettre. Si vous utilisez un lecteur d’écran, le lecteur lit le nom de ce nœud.
+-  Pour parcourir les différents nœuds d’un espace de travail, entrez la première lettre du nom d’un nœud. Chaque appui sur une touche déplace le curseur au nœud suivant qui commence par cette lettre. Si vous utilisez un lecteur d’écran, le lecteur lit le nom de ce nœud.
 
 > [!NOTE]  
 >  Les informations présentes dans cette section ne s’appliquent qu’aux utilisateurs détenteurs de licences de produits Microsoft aux États-Unis. Si vous avez obtenu ce produit en dehors des États-Unis, vous pouvez utiliser la carte d’information de filiale fournie avec le package logiciel ou consulter le [site web Accessibilité de Microsoft](http://go.microsoft.com/fwlink/?LinkId=8431) pour obtenir les coordonnées des services de support technique Microsoft. Vous pouvez contacter votre filiale pour savoir si les types de produits ou de services décrits dans cette section sont disponibles dans votre région. Les informations sur l'accessibilité sont disponibles dans d'autres langues, notamment en japonais et en français.  
 
-##  <a name="a-namebkmkahelpa-accessibility-features-for-configuration-manager-help"></a><a name="bkmk_ahelp"></a> Fonctionnalités d’accessibilité dans l’aide de Configuration Manager  
+##  <a name="bkmk_ahelp"></a> Fonctionnalités d’accessibilité dans l’aide de Configuration Manager  
  L’aide de Configuration Manager intègre des fonctionnalités qui la rendent accessible à un plus grand nombre d’utilisateurs, notamment les personnes présentant une mobilité réduite, une acuité visuelle réduite ou d’autres handicaps.  
 
 |Tâche|Utiliser ce raccourci clavier|  
@@ -108,9 +109,4 @@ System Center Configuration Manager inclut des fonctionnalités d’accessibilit
 
     > [!NOTE]  
     >  Si vous modifiez la police des rubriques d'aide dans la fenêtre de l'Aide, la modification affecte également la police des pages Web dans Windows Internet Explorer.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

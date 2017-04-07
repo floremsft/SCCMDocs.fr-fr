@@ -2,7 +2,7 @@
 title: "Tester les mises à niveau du client dans un regroupement de préproduction | Microsoft Docs"
 description: "Testez les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/12/2016
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: arob98
 ms.author: angrobe
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
-ms.openlocfilehash: 250c9312b932670c408554f3968ae43ae4f3dbaa
-ms.lasthandoff: 01/03/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 533c8e8b30519d83b8fc7a9d204d51e76974c4b1
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -57,7 +57,7 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 
 ##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>Pour installer une mise à jour de Configuration Manager qui inclut une nouvelle version du client  
 
-1.  Dans la console Configuration Manager, ouvrez **Administration** > **Services cloud** > **Mises à jour et services**, sélectionnez une mise à jour avec l’indication **Disponible**, puis choisissez **Installer le pack de mise à jour**.  
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Mises à jour et services**, sélectionnez une mise à jour avec l’indication **Disponible**, puis choisissez **Installer le pack de mise à jour**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
      Pour plus d’informations sur l’installation des mises à jour, consultez [Mises à jour pour System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
 
@@ -72,7 +72,7 @@ Vous pouvez tester une nouvelle version du client Configuration Manager dans un 
 
 ##  <a name="to-promote-the-new-client-to-production"></a>Pour promouvoir le nouveau client en production  
 
-1.  Dans la console Configuration Manager, ouvrez **Administration** > **Services cloud** > **Mises à jour et maintenance**, puis choisissez **Promouvoir le client de préproduction**.
+1.  Dans la console Configuration Manager, ouvrez **Administration** > **Mises à jour et maintenance**, puis choisissez **Promouvoir le client de préproduction**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
     > [!TIP]
     > Le bouton **Promouvoir le client de préproduction** est également disponible quand vous surveillez les déploiements de clients dans la console en utilisant **Surveillance** > **État du client** > **Déploiement des clients en préproduction**.

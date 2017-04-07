@@ -17,9 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: cb42b6f324dc0019c2109be4d91e0eab4dca4d70
-ms.openlocfilehash: 8c54bc455828712c7f9ea297f26c98c41848cf9c
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
+ms.openlocfilehash: 0eaa1d13e9c273a6649f50d73fb357f04464d94c
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -81,6 +81,7 @@ Il n'est pas possible de modifier l'action d'un déploiement après sa création
 
 - **Envoyer des paquets de mise en éveil** : Si l’objet du déploiement est défini sur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement. Ce paquet réveille les ordinateurs à l’échéance de l’installation. Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.
 - **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires** : Cette option est disponible uniquement pour les déploiements dont l’objet est **Obligatoire**.
+- **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** - Pour plus d’informations sur la configuration d’une liste de fichiers exécutables pouvant empêcher l’installation d’une application, consultez **Procédure pour vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application** plus loin dans cette rubrique.
 - **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application** : Si cette option est sélectionnée, l’administrateur doit approuver toutes les demandes d’utilisateur pour l’application avant qu’elle puisse être installée. Cette option est grisée quand l’objet du déploiement est **Obligatoire** ou quand l’application est déployée sur un regroupement d’appareils.
 
     > [!NOTE]
@@ -155,6 +156,27 @@ L’intervalle de répétition maximal est toujours basé sur les valeurs de not
 Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâches déployant un système d’exploitation, l’expérience de notification à l’utilisateur final est désormais plus intrusive. Au lieu d’une notification temporaire sur la barre des tâches, chaque fois que vous êtes averti qu’une maintenance logicielle critique est nécessaire, une boîte de dialogue similaire à la suivante s’affiche sur votre ordinateur :
 
 ![Boîte de dialogue Logiciel requis](media/client-toast-notification.png)
+
+## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Procédure pour vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application
+
+>[!Tip]
+>Cette fonctionnalité, introduite avec la version 1702, est en version préliminaire. Pour l’activer, consultez [Fonctionnalités en version préliminaire dans System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
+
+Dans la boîte de dialogue **Propriétés** d’un type de déploiement, sous l’onglet **Comportement à l’installation**, vous pouvez spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloqueront l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé. Pour configurer cela :
+
+1. Ouvrez la boîte de dialogue **Propriétés** d’un type de déploiement.
+2. Dans l’onglet **Comportement à l’installation** de la boîte de dialogue **Propriétés** de *<deployment type name>*, cliquez sur **Ajouter**.
+3. Dans la boîte de dialogue **Ajouter ou modifier un fichier exécutable**, entrez le nom du fichier exécutable qui, s’il est en cours d’exécution, bloquera l’installation de l’application. Si vous le souhaitez, vous pouvez également entrer un nom convivial pour l’application pour vous aider à l’identifier dans la liste.
+4. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés** de *<deployment type name>*.
+5. Ensuite, lorsque vous déployez une application, sur la page **Paramètres du déploiement** de l’Assistant Déploiement logiciel, sélectionnez **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement**, puis poursuivez le déploiement de l’application.
+
+Une fois que l’application atteint les ordinateurs client, le comportement suivant s’applique :
+
+- Si l’application a été déployée en tant que **Disponible** et qu’un utilisateur final tente de l’installer, il est invité à fermer les fichiers exécutables en cours d’exécution que vous avez spécifiés avant de poursuivre l’installation.
+
+- Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** est sélectionnée, une boîte de dialogue signale à l’utilisateur que les fichiers exécutables que vous avez spécifiés seront fermés automatiquement quand l’installation de l’application arrivera à échéance. Vous pouvez planifier ces boîtes de dialogue dans **Paramètres client** > **Agent ordinateur**. Si vous ne souhaitez pas que l’utilisateur final voit ces messages, sélectionnez **Masquer dans le Centre logiciel et toutes les notifications** sous l’onglet **Expérience utilisateur** des propriétés du déploiement.
+
+- Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** n’est pas sélectionnée, l’installation de l’application échoue si une ou plusieurs des applications spécifiées sont en cours d’exécution.
 
 ## <a name="for-more-information"></a>Pour plus d’informations :
 - [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md)

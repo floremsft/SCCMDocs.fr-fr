@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
-ms.openlocfilehash: de30afa200404d977f56c08d24a9b11e21f9ae88
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 6b1a4584ebcd4dadd983677b714486402c93e190
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -30,29 +31,31 @@ ms.openlocfilehash: de30afa200404d977f56c08d24a9b11e21f9ae88
 
 
 
- La version de décembre 2015 de System Center Configuration Manager (version 1511) est la dernière version du produit Configuration Manager de Microsoft. Elle est généralement désignée sous le nom de « Current Branch » de System Center Configuration Manager. La mention *Current Branch* indique qu’il s’agit d’une version qui prend en charge les mises à jour incrémentielles du produit. Elle représente également un moyen de faire la distinction entre cette version et les versions précédentes de Configuration Manager.  
+ La version de décembre 2015 de System Center Configuration Manager (version 1511) était la version initiale du produit Configuration Manager actuel de Microsoft. Elle est généralement désignée sous le nom de « Current Branch » de System Center Configuration Manager. La mention *Current Branch* indique qu’il s’agit d’une version qui prend en charge les mises à jour incrémentielles du produit. Elle représente également un moyen de faire la distinction entre cette version et les versions précédentes de Configuration Manager.  
 
- Avec cette version, System Center Configuration Manager :  
+ System Center Configuration Manager :  
 
 -   N’utilise pas d’identificateur d’année ni de produit dans le nom du produit, comme c’était le cas dans les versions précédentes telles que Configuration Manager 2007 ou System Center 2012 Configuration Manager.
 
--   Prend en charge les mises à jour incrémentielles dans le produit, aussi appelées versions de mise à jour. La version initiale est la version 1511. Les versions suivantes sont publiées plusieurs fois par an comme mises à jour dans la console, telles que la version 1602 ou 1606.
+-   Prend en charge les mises à jour incrémentielles dans le produit, aussi appelées versions de mise à jour. La version initiale était la version 1511. Les versions suivantes sont publiées plusieurs fois par an comme mises à jour dans la console, telles que la version 1610.
+-   Est installé à l’aide d’une version de base. La version 1511 était la version de base initiale, mais de nouvelles versions de base sont également publiées de temps à autre, comme la version 1606. Les versions de base peuvent être utilisées pour installer un nouveau site System Center Configuration Manager et sa hiérarchie ou pour mettre à niveau à partir d’une version prise en charge de Configuration Manager 2012.
 
 
 
 
-##  <a name="a-namebkmkupdatesa-in-console-updates-for-configuration-manager"></a><a name="bkmk_updates"></a> Mises à jour dans la console pour Configuration Manager  
+##  <a name="bkmk_updates"></a> Mises à jour dans la console pour Configuration Manager  
  System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la localisation et l’installation des mises à jour recommandées.  
 
  Certaines versions disponibles uniquement comme mises à jour pour des sites existants (à partir de la console Configuration Manager) ne peuvent pas être utilisées pour installer de nouveaux sites Configuration Manager.   
-Par exemple, la mise à jour 1602 est disponible uniquement à partir de la console Configuration Manager. Elle est utilisée pour mettre à jour un site exécutant une version de base de référence 1511 vers la version 1602.  
+Par exemple, la mise à jour 1610 est disponible uniquement à partir de la console Configuration Manager. Elle est utilisée pour mettre à jour un site qui exécute déjà une version de System Center Configuration Manager.
 
-Une version de mise à jour est publiée régulièrement comme nouvelle version de base de référence (par exemple, la mise à jour 1606). Ce type de mise à jour peut être utilisée pour installer une nouvelle hiérarchie sans avoir à démarrer avec une ancienne version de base de référence (comme 1511) et à effectuer une mise à niveau vers la version la plus récente.
+Une version de mise à jour est également publiée régulièrement comme nouvelle version de base (par exemple, la mise à jour 1606). Ce type de mise à jour peut être utilisée pour installer une nouvelle hiérarchie sans avoir à démarrer avec une ancienne version de base de référence (comme 1511) et à effectuer une mise à niveau vers la version la plus récente.
 
 
- Pour plus d’informations sur l’utilisation des mises à jour, consultez [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Pour plus d’informations sur l’utilisation des mises à jour, consultez [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Pour plus d’informations sur les versions de base, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
-##  <a name="a-namebkmkservicepointa-new-site-system-role-service-connection-point"></a><a name="bkmk_servicepoint"></a>Nouveau rôle de système de site : point de connexion de service  
+##  <a name="bkmk_servicepoint"></a>Nouveau rôle de système de site : point de connexion de service  
  Le **connecteur Microsoft Intune** est remplacé par un nouveau rôle de système de site qui offre des fonctionnalités supplémentaires, à savoir le **point de connexion de service**. Le point de connexion de service :  
 
 -   remplace le connecteur Microsoft Intune quand vous intégrez Intune à la gestion des appareils mobiles locale System Center Configuration Manager.  
@@ -65,19 +68,19 @@ Une version de mise à jour est publiée régulièrement comme nouvelle version 
 
 Ce rôle de système de site prend en charge à la fois un mode en ligne et hors connexion de fonctionnement. Pour plus d’informations, voir [À propos du point de connexion de service dans System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
-##  <a name="a-namebkmkusagea-usage-data-collection"></a><a name="bkmk_usage"></a> Collecte des données d’utilisation  
+##  <a name="bkmk_usage"></a> Collecte des données d’utilisation  
  System Center Configuration Manager collecte des données d’utilisation sur vos sites et votre infrastructure. Ces informations sont compilées et transmises au service cloud Microsoft par le point de connexion de service. Configuration Manager en a besoin pour télécharger les mises à jour applicables à la version de Configuration Manager que vous utilisez pour votre déploiement. Au moment de configurer le point de connexion de service, vous pouvez définir le niveau des données collectées et si celles-ci sont envoyées automatiquement (mode en ligne) ou manuellement (mode hors connexion).  
 
  Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
-##  <a name="a-namebkmkamta-support-for-intel-active-management-technology-amt"></a><a name="bkmk_AMT"></a> Prise en charge de la technologie Intel AMT (Active Management Technology)  
+##  <a name="bkmk_AMT"></a> Prise en charge de la technologie Intel AMT (Active Management Technology)  
  Avec System Center Configuration Manager, la prise en charge native des ordinateurs AMT à partir de la console Configuration Manager est supprimée. Les ordinateurs AMT restent entièrement gérés quand vous utilisez le [module complémentaire Intel SCS pour Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html). Ce module complémentaire vous permet d’accéder aux dernières fonctionnalités permettant de gérer AMT tout en supprimant les limitations introduites jusqu’à ce que Configuration Manager puisse intégrer ces changements.  
 
 La suppression de la technologie AMT intégrée pour System Center Configuration Manager inclut la gestion hors bande. Le rôle de système de site de point de gestion hors bande n’est plus utilisé, ni disponible.  
 
 Notez que la gestion hors bande dans System Center 2012 Configuration Manager n’est pas affectée par cette modification.
 
-##  <a name="a-namebkmkouta-deprecated-functionality"></a><a name="bkmk_out"></a> Fonctionnalités déconseillées  
+##  <a name="bkmk_out"></a> Fonctionnalités déconseillées  
  Certaines fonctionnalités, telles que la [prise en charge de la technologie Intel AMT (Active Management Technology)](#bkmk_AMT), sont retirées de la console Configuration Manager. D’autres comme la protection d’accès réseau sont entièrement retirées. Par ailleurs, certains produits Microsoft plus anciens comme Windows Vista, Windows Server 2008 et SQL Server 2008 ne sont plus pris en charge.  
 
  Pour obtenir la liste des fonctionnalités dépréciées, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
@@ -165,9 +168,4 @@ Pour plus d’informations sur les fonctionnalités de gestion des appareils mob
  Vous pouvez désormais gérer les appareils mobiles au moyen d’une infrastructure Configuration Manager locale. La gestion des appareils et les données associées sont traitées localement et ne font pas partie de Microsoft Intune ni d’autres services cloud. Ce type de gestion d’appareils ne fait appel à aucun logiciel client. Configuration Manager gère les appareils avec des fonctionnalités qui sont intégrées aux systèmes d’exploitation des appareils.  
 
  Pour en savoir plus, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

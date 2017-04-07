@@ -2,7 +2,7 @@
 title: "Options de ligne de commande du programme d’installation | Microsoft Docs"
 description: "Utilisez les informations de cet article pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande."
 ms.custom: na
-ms.date: 13/2017
+ms.date: 03/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 36b1ab794bb1dc80c673bd41dae11f46053f3be3
-ms.openlocfilehash: 55f9fe5c05cd09b9291b6370200c9fbe15699e7d
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 04fe7b3e674287c4255563ab4a308e54d0b6c3aa
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Options de ligne de commande pour le programme d’installation de System Center Configuration Manager
@@ -27,7 +28,7 @@ ms.openlocfilehash: 55f9fe5c05cd09b9291b6370200c9fbe15699e7d
 
  Utilisez les informations suivantes pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande.  
 
-##  <a name="a-namebkmksetupa-command-line-options-for-setup"></a><a name="bkmk_setup"></a> Options de ligne de commande pour le programme d’installation  
+##  <a name="bkmk_setup"></a> Options de ligne de commande pour le programme d’installation  
  **/DEINSTALL**  
  Désinstalle le site. Vous devez exécuter le programme d'installation à partir de l'ordinateur sur lequel est installé le serveur de site.  
 
@@ -68,7 +69,7 @@ ms.openlocfilehash: 55f9fe5c05cd09b9291b6370200c9fbe15699e7d
  **/MANAGELANGS <*Chemin du script de langue*>**  
  Gère les langues installées sur un site déjà installé. Pour utiliser cette option, vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site et spécifier l’emplacement du fichier de script de langue contenant les paramètres de langue. Pour plus d’informations sur les options de langue disponibles dans le fichier du script d’installation de langue, consultez [Options de ligne de commande pour gérer les langues](#bkmk_Lang) dans cette rubrique.  
 
-##  <a name="a-namebkmklanga-command-line-options-to-manage-languages"></a><a name="bkmk_Lang"></a> Options de ligne de commande pour gérer les langues  
+##  <a name="bkmk_Lang"></a> Options de ligne de commande pour gérer les langues  
  **Identification**  
 
 -   **Nom de clé :** Action  
@@ -145,7 +146,7 @@ ms.openlocfilehash: 55f9fe5c05cd09b9291b6370200c9fbe15699e7d
 
     -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
-##  <a name="a-namebkmkunattendeda-unattended-setup-script-file-keys"></a><a name="bkmk_Unattended"></a> Clés du fichier de script d’installation sans assistance  
+##  <a name="bkmk_Unattended"></a> Clés du fichier de script d’installation sans assistance  
  Utilisez les sections suivantes pour vous aider à créer votre script d’installation sans assistance. Les listes affichent les clés de script d’installation disponibles ainsi que leurs valeurs correspondantes, indiquent si elles sont obligatoires ou non, le type d’installation pour lequel elles sont utilisées, ainsi qu’une brève description de la clé.  
 
 ### <a name="unattended-install-for-a-central-administration-site"></a>Installation sans assistance d’un site d’administration centrale  
@@ -160,6 +161,14 @@ ms.openlocfilehash: 55f9fe5c05cd09b9291b6370200c9fbe15699e7d
     -   **Valeurs :** InstallCAS  
 
     -   **Détails :** installe un site d’administration centrale.  
+
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
 **Options**  
 
@@ -398,6 +407,14 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Valeurs :** InstallPrimarySite  
 
     -   **Détails :** installe un site principal.  
+
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
 **Options**  
 
@@ -717,6 +734,14 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
 
     -   **Détails :** récupère un site d’administration centrale.  
 
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
+
 **RecoveryOptions**  
 
 -   **Nom de clé :** ServerRecoveryOptions  
@@ -978,6 +1003,14 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Valeurs :** <*RecoverPrimarySite*>  
 
     -   **Détails :** récupère un site principal.  
+
+-   **Nom de la clé :** CDLatest  
+
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
+
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
+
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.    
 
 **RecoveryOptions**  
 
@@ -1243,9 +1276,4 @@ Utilisez les détails suivants pour installer un site principal à l’aide d’
     -   **Valeurs :** <*Numéro de port*>  
 
     -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

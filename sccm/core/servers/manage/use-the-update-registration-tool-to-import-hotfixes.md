@@ -2,7 +2,7 @@
 title: "Outil Inscription de la mise à jour | Microsoft Docs"
 description: "Découvrez quand et comment utiliser l’outil Inscription de la mise à jour pour importer manuellement une mise à jour dans la console Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: c729212d38168acfff3f11ea41f3d52b234c70c8
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 35a4c201f73469fdfaa5bb8629e91886f7ae8751
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -59,20 +60,15 @@ Quand vous devez installer une version hors-bande et que le nom de fichier du co
 
     -   **&lt;Produit\>-&lt;version du produit\>-&lt;ID d’article de la Base de connaissances\>-ConfigMgr.Update.exe**  
 
-    Une fois inscrit, le correctif logiciel s’affiche en tant que nouvelle mise à jour dans la console dans les 24 heures.  Vous pouvez accélérer le processus comme suit :  
+    Une fois inscrit, le correctif logiciel s’affiche en tant que nouvelle mise à jour dans la console dans les 24 heures.  Vous pouvez accélérer le processus :
 
-    -   Avec la version 1511 : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis sélectionnez **Start update discovery process immediately** (Démarrer immédiatement le processus de détection des mises à jour).  Cela a pour effet de démarrer l’importation du correctif dès la fin du processus d’inscription, de façon à ce qu’il soit disponible dans la console.  
-
-    -   Avec les versions 1602 et ultérieures : dans la console Configuration Manager, accédez à **Administration > Services cloud > Mises à jour et maintenance**, puis cliquez sur **Rechercher les mises à jour**  
+    - Ouvrez la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance** puis cliquez sur **Rechercher les mises à jour**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.) 
 
     L’outil Inscription de la mise à jour consigne ses actions dans un fichier .log sur l’ordinateur local. Ce fichier journal porte le même nom que le fichier .exe du correctif, et est stocké dans le dossier **%SystemRoot%/Temp**.  
 
      Une fois la mise à jour inscrite, vous pouvez fermer l’outil Inscription de la mise à jour.  
 
-3.  Ouvrez la console Configuration Manager, puis accédez à **Administration** > **Cloud Services** > **Mises à jour et maintenance**. Les correctifs importés peuvent désormais être installés. Pour plus d’informations sur l’installation des mises à jour, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  
+3.  Ouvrez la console Configuration Manager, puis accédez à **Administration** > **Mises à jour et maintenance**. Les correctifs importés peuvent désormais être installés. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+ Pour plus d’informations sur l’installation des mises à jour, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  
 

@@ -2,7 +2,7 @@
 title: "Installation à partir de la ligne de commande | Microsoft Docs"
 description: "Découvrez comment exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour diverses installations de site."
 ms.custom: na
-ms.date: 3/1/2017
+ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 34e24deb90a39bf655a2e24d16cdbe07528e6193
-ms.openlocfilehash: 0fb8ba4bb3d4abe66f71cc83312281cecbb92c41
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: fefa5f3aa12d82b66a251cf0525475496e1e35cf
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utiliser la ligne de commande pour installer des sites System Center Configuration Manager
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/01/2017
 -   **Installer un site d’administration centrale ou un site principal à partir de la ligne de commande**  
   Consultez la rubrique [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).
 
- -  **Modifier les langues utilisées sur un site d’administration centrale ou un site principal**  
+-  **Modifier les langues utilisées sur un site d’administration centrale ou un site principal**  
     Pour modifier les langues installées sur un site à partir de la ligne de commande (y compris les langues des appareils mobiles), effectuez les opérations suivantes :  
 
      -   Exécutez le programme d’installation à partir de **&lt;chemin_installation_Configuraton_Manager\>\Bin\X64** sur le serveur de site.
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/01/2017
 
     Pour créer le fichier de script de langue, utilisez les informations fournies dans [Options de ligne de commande pour gérer les langues](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
 
- -  **Utiliser un fichier de script d’installation pour une installation sans assistance de site ou une récupération de site**  
+-  **Utiliser un fichier de script d’installation pour une installation sans assistance de site ou une récupération de site**  
     Vous pouvez exécuter le programme d’installation à partir d’une invite de commandes en utilisant un script d’installation et en effectuant une installation sans assistance de site. Vous pouvez aussi utiliser cette option pour récupérer un site.    
 
     Pour utiliser un script avec le programme d’installation :  
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/01/2017
     -   Identification    
     -   Options    
     -   SQLConfigOptions    
-    -   HierarchyOptions    
+      -   HierarchyOptions    
     -   CloudConnectorOptions   
 
     Pour récupérer un site, vous devez inclure également les sections suivantes du fichier de script :  
@@ -66,12 +66,11 @@ ms.lasthandoff: 03/01/2017
     -   Identification  
     -   Récupération
 
-    Pour plus d’informations sur la sauvegarde et la récupération, consultez la section [Clés du fichier de script de récupération de site sans assistance](../../../../protect/understand/backup-and-recovery.md#BKMK_UnattendedSiteRecoveryKeys) dans la rubrique [Sauvegarde et récupération dans Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Pour plus d’informations sur la sauvegarde et la récupération, consultez la section [Clés du fichier de script de récupération de site sans assistance](../../../../protect/understand/backup-and-recovery.md#BKMK_UnattendedSiteRecoveryKeys) dans la rubrique [Sauvegarde et récupération dans Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
 
-    Pour obtenir la liste des clés et des valeurs à utiliser dans un fichier de script d’installation sans assistance, consultez [Clés du fichier de script d’installation sans assistance](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
+Pour obtenir la liste des clés et des valeurs à utiliser dans un fichier de script d’installation sans assistance, consultez [Clés du fichier de script d’installation sans assistance](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
 ## <a name="about-the-command-line-script-file"></a>À propos du fichier de script de ligne de commande  
-
  Pour réaliser une installation sans assistance de Configuration Manager, vous pouvez exécuter le programme d’installation avec l’option de ligne de commande **/SCRIPT** et spécifier un fichier de script contenant les options d’installation. Avec cette méthode, vous pouvez effectuer les tâches suivantes :  
 
 -   Installer un site d’administration centrale  
@@ -81,6 +80,18 @@ ms.lasthandoff: 03/01/2017
 
 > [!NOTE]  
 >  Vous ne pouvez pas utiliser le fichier de script d’installation sans assistance pour mettre à niveau un site d’évaluation vers une installation sous licence de Configuration Manager.  
+
+### <a name="the-cdlatest-key-name"></a>Le nom de la clé CDLatest
+Lorsque vous utilisez un média à partir du dossier CD.Latest pour exécuter une installation scriptée des quatre options d’installation suivantes, votre script doit inclure la clé **CDLatest** avec la valeur **1** :
+- Installer un nouveau site d’administration centrale
+- Installer un nouveau site principal
+- Récupérer un site d’administration centrale
+- Récupérer un site principal 
+
+Cette valeur n’est pas prise en charge pour l’utilisation avec le média d’installation que vous obtenez à partir du site de licence en volume de Microsoft.
+Consultez les [options de ligne de commande](/sccm/core/servers/deploy/install/command-line-options-for-setup) pour plus d’informations sur l’utilisation de ce nom de clé dans le fichier de script.
+
+
 
 ### <a name="create-the-script"></a>Créer le script
 Le script d’installation est automatiquement créé lorsque vous [exécutez le programme d’installation pour installer un site à l’aide de l’interface utilisateur](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quand vous confirmez les paramètres dans la page **Résumé** de l’Assistant :  

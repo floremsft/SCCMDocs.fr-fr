@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: eafa95922485066632a5da522e6c3de69b45050f
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 3b50ada9f63e41d1b6f01009c141b8f361f5180e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -33,14 +33,14 @@ Seules les mises à jour qui s’appliquent à votre infrastructure et à votre 
 
 -   En **mode en ligne**, le point de connexion de service se connecte automatiquement au service cloud Microsoft et télécharge les mises à jour applicables.  
 
-     Par défaut, Configuration Manager vérifie la disponibilité de nouvelles mises à jour toutes les 24 heures. Vous pouvez également rechercher des mises à jour immédiatement en choisissant **Rechercher les mises à jour** dans le nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** de la console Configuration Manager.  
+     Par défaut, Configuration Manager vérifie la disponibilité de nouvelles mises à jour toutes les 24 heures. Vous pouvez également rechercher des mises à jour immédiatement en choisissant **Rechercher les mises à jour** dans le nœud **Administration** > **Mises à jour et maintenance** de la console Configuration Manager. (Avant la version 1702, ce nœud se trouvait sous **Administration** > **Services de cloud**.)
 
 -   En **mode hors connexion**, le point de connexion de service ne se connecte pas au service cloud Microsoft. Vous devez manuellement [utiliser l’outil de connexion de service pour System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md) pour télécharger et importer les mises à jour disponibles.  
 
 > [!NOTE]  
 >  Outre les mises à jour que vous obtenez lors de la synchronisation avec le service cloud Microsoft, les correctifs hors bande installés par l’[outil Inscription de la mise à jour](http://technet.microsoft.com/library/mt691544.aspx) sont également importés dans votre console, où vous pouvez ensuite les sélectionner pour les installer.  
 
-Une fois les mises à jour synchronisées, vous pouvez les afficher dans la console Configuration Manager en accédant au nœud **Administration** > **Services cloud** > **Mises à jour et maintenance** :  
+Une fois les mises à jour synchronisées, vous pouvez les afficher dans la console Configuration Manager en accédant au nœud **Administration** > **Mises à jour et maintenance** :  
 
 -   Les mises à jour que vous n’avez pas installées apparaissent **Disponibles**.
 
@@ -98,7 +98,8 @@ Passez en revue la liste de contrôle de mise à jour applicable pour connaître
 - Mise à jour vers la version 1606 : consultez [Liste de contrôle pour l’installation de la mise à jour 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
 
 - Mise à jour de la version 1606 vers la version 1610 : consultez [Liste de contrôle pour l’installation de la mise à jour 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
-<!--- Update to 1702 from either 1606 or 1610: See [Checklist for installing update 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md). -->  
+
+- Mise à jour de la version 1606 ou 1610 vers la version 1702 : consultez [Liste de contrôle pour l’installation de la mise à jour 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
 
 ###  <a name="bkmk_step2"></a> Étape 2 : tester la mise à niveau de base de données avant d’installer une mise à jour  
 Les informations de cette étape s’appliquent uniquement à l’installation d’une *mise à jour* pour un site System Center Configuration Manager. Si vous effectuez une *mise à niveau* d’un site System Center 2012 Configuration Manager vers System Center Configuration Manager, consultez [Tester la mise à niveau de base de données de site](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager#a-namebkmktesta-test-the-site-database-upgrade).
@@ -146,7 +147,7 @@ Par la suite, lorsque vous installez la mise à jour, vous pouvez configurer la 
 
 #### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>Pour exécuter l’Outil de vérification des prérequis avant d’installer une mise à jour  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Services cloud** > **Mises à jour et maintenance**.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance**.   
 
 2.  Cliquez avec le bouton droit sur le package de mise à jour pour lequel vous souhaitez exécuter la vérification des prérequis.  
 
@@ -203,7 +204,7 @@ Au cours de l’installation de la mise à jour, Configuration Manager :
 **3. Surveiller l’état d’avancement de l’installation de mises à jour**  
 Pour surveiller l’état d’avancement, procédez comme suit :  
 
--   Dans la console Configuration Manager, accédez au nœud **Administration** > **Services cloud** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation de tous les packages de mise à jour.
+-   Dans la console Configuration Manager : nœud **Administration** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation de tous les packages de mise à jour.
 
 
 -   Dans la console Configuration Manager, accédez au nœud **Administration** > **Vue d’ensemble** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation uniquement du package de mise à jour en cours d’installation.  
@@ -241,7 +242,7 @@ Nous vous recommandons d’installer la mise à jour immédiatement.
 Une fois la mise à niveau de la console terminée, vous pouvez vérifier que les versions de la console et du site sont correctes. Accédez à **À propos de System Center Configuration Manager** en haut à gauche de la console.  
 
 ###  <a name="bkmk_toptier"></a> Pour démarrer l’installation de la mise à jour sur le site de niveau supérieur  
-Sur le site de niveau supérieur de votre hiérarchie, dans la console Configuration Manager, accédez à **Administration** > **Services cloud** > **Mises à jour et maintenance**, sélectionnez une mise à jour **Disponible**, puis cliquez sur **Installer le package de mise à jour**.  
+Sur le site de niveau supérieur de votre hiérarchie, dans la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance**, sélectionnez une mise à jour **Disponible**, puis cliquez sur **Installer le package de mise à jour**.  
 
 ###  <a name="bkmk_secondary"></a> Pour démarrer l’installation de la mise à jour sur un site secondaire  
 Après la mise à jour du site principal parent d’un site secondaire, vous pouvez mettre à jour ce dernier à partir de la console Configuration Manager.  Pour ce faire, vous utilisez l’ **Assistant Mise à niveau d’un site secondaire**.  
@@ -268,7 +269,7 @@ Vous pouvez réessayer l’installation d’une mise à jour pour l’ensemble d
     -   L’installation a échoué.
     -   La réplication du contenu sur le site a échoué.   
 
-    Accédez à **Administration** > **Services cloud** > **Mises à jour et maintenance**, sélectionnez la mise à jour, puis choisissez l’un des éléments suivants :  
+    Accédez à **Administration** > **Mises à jour et maintenance**, sélectionnez la mise à jour, puis choisissez l’un des éléments suivants :  
 
     -   **Nouvelle tentative** : quand vous exécutez **Nouvelle tentative** à partir de ce nœud, l’installation de la mise à jour redémarre et ignore automatiquement les avertissements relatifs aux prérequis. Elle réplique également à nouveau le contenu pour la mise à jour si la réplication a échoué précédemment.
     - **Ignorer les avertissements de configuration requise** : à compter de la version 1606, si l’installation de la mise à jour s’arrête en raison d’un avertissement, vous pouvez choisir **Ignorer les avertissements de configuration requise**. Cette action permet à l’installation de la mise à jour de continuer (après quelques minutes) et utilise l’option pour ignorer les avertissements de configuration requise.   
@@ -315,7 +316,7 @@ Pour plus d’informations, consultez [Surveiller l’infrastructure de la hiér
 ##  <a name="bkmk_options"></a> Activation de fonctionnalités facultatives de mises à jour  
 Lorsque vous installez une mise à jour incluant une ou plusieurs fonctionnalités facultatives, vous avez la possibilité d’activer celles-ci dans votre hiérarchie.  Vous pouvez le faire au moment de l’installation de la mise à jour ou revenir à la console ultérieurement pour activer les fonctionnalités facultatives.
 
-Pour afficher les fonctionnalités disponibles et leur état, dans la console, accédez à **Administration** > **Services cloud** > **Mises à jour et maintenance** > **Fonctionnalités**.
+Pour afficher les fonctionnalités disponibles et leur état, dans la console, accédez à **Administration** > **Mises à jour et maintenance** > **Fonctionnalités**.
 
 Quand une fonctionnalité n’est pas facultative, elle est installée automatiquement et n’apparaît pas dans le nœud **Fonctionnalités**.  
 

@@ -2,7 +2,7 @@
 title: Configurer les alertes Endpoint Protection | Microsoft Docs
 description: "Découvrez comment configurer les alertes Endpoint Protection dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 9b20b50843cadc478d5b75a276d2a24aea30f2ff
-ms.openlocfilehash: 6e7b080c1e1876c0ccef9ce6568ce88b65dfca87
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 7f4329b289b606dee5bf31aad8207de52667229f
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -90,14 +91,15 @@ ms.openlocfilehash: 6e7b080c1e1876c0ccef9ce6568ce88b65dfca87
 
 9. Cliquez sur **OK** pour fermer la boîte de dialogue *Propriétés de***<Nom du regroupement\>**.  
 
+## <a name="alert-for-outdated-malware-client"></a>Alerte pour les clients contre les programmes malveillants obsolètes
+
+Depuis la version 1702 de Configuration Manager, vous pouvez configurer une alerte pour vous assurer que les clients Endpoint Protection ne sont pas obsolètes. Vous pouvez maintenant afficher **Version du client de logiciel anti-programme malveillant** et **État du déploiement d’Endpoint Protection** en accédant à **Actifs et Conformité** > **Vue d’ensemble** > **Appareils** > **Tous les clients bureau et serveur**. Pour vérifier une alerte, affichez **Alertes** dans l’espace de travail **Surveillance**. Si plus de 20 % des clients gérés exécutent une version de logiciel anti-programme malveillant ayant expiré, l’alerte « La version du client de logiciel anti-programme malveillant est obsolète » s’affiche. Cette alerte n’apparaît pas sous l’onglet **Surveillance** > **Vue d’ensemble**. Pour mettre à jour les clients de logiciel anti-programme malveillant ayant expiré, activez les mises à jour logicielles pour les clients de logiciel anti-programme malveillant.
+
+Pour configurer le pourcentage auquel l’alerte est générée, développez **Surveillance** > **Alertes** > **Toutes les alertes**, double-cliquez sur **Clients de logiciel anti-programme malveillant obsolètes** et modifiez l’option **Générez une alerte si le pourcentage de clients gérés avec une version obsolète du client de logiciel anti-programme malveillant est supérieur à**.
+
 > [!div class="button"]
 [Étape suivante >](endpoint-definition-updates.md)
 
 > [!div class="button"]
 [Retour >](endpoint-protection-site-role.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

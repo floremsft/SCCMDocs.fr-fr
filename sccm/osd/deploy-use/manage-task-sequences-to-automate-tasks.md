@@ -2,7 +2,7 @@
 title: "Gérer les séquences de tâches pour automatiser des tâches | Microsoft Docs"
 description: "Vous pouvez créer, modifier, déployer, importer et exporter des séquences de tâches pour les gérer dans votre environnement System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: d04d28bbd5116a841c0872cf3f9ca18783dddc78
-ms.openlocfilehash: 417b31fa1feb6d0f674f14ef9e5c7cebd7013916
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 113fa73bf0bd1b3b8a4754eb1e96549c520d7995
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -29,7 +30,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Aidez-vous des informations des sections suivantes pour gérer vos séquences de tâches.
 
-##  <a name="a-namebkmkcreatetasksequencea-create-task-sequences"></a><a name="BKMK_CreateTaskSequence"></a> Créer des séquences de tâches  
+##  <a name="BKMK_CreateTaskSequence"></a> Créer des séquences de tâches  
  Créez des séquences de tâches à l'aide de l'Assistant Création d'une séquence de tâches. Cet Assistant peut créer les types de séquences de tâches suivants :  
 
 |Type de séquence de tâches|Plus d'informations|  
@@ -41,7 +42,13 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 |[Séquence de tâches pour gérer des disques durs virtuels](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Ce type de séquence de tâches contient les étapes pour créer un disque dur virtuel, notamment pour installer un système d’exploitation et des applications que vous pouvez publier dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.|  
 |[Séquence de tâches personnalisée](create-a-custom-task-sequence.md)|Ce type de séquence de tâches n’ajoute aucune étape à la séquence de tâches. Vous devez modifier la séquence de tâches et ajouter des étapes à la séquence de tâches après sa création.|  
 
-##  <a name="a-namebkmkmodifytasksequencea-edit-a-task-sequence"></a><a name="BKMK_ModifyTaskSequence"></a> Modifier une séquence de tâches  
+## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Revenir à la page précédente en cas d’échec d’une séquence de tâches
+À partir de Configuration Manager version 1702, vous pouvez revenir à une page précédente quand vous exécutez une séquence de tâches qui échoue. Avant cette version, vous deviez redémarrer la séquence de tâches en cas d’échec. Par exemple, vous pouvez utiliser le bouton **Précédent** dans les scénarios suivants :
+
+- Quand un ordinateur démarre dans Windows PE, la boîte de dialogue d’amorçage de la séquence de tâches peut s’afficher avant que la séquence de tâches ne soit disponible. Quand vous cliquez sur Suivant dans ce scénario, la dernière page de la séquence de tâches s’affiche avec un message indiquant qu’aucune séquence de tâches n’est disponible. À présent, vous pouvez cliquer sur **Précédent** pour relancer la recherche des séquences de tâches disponibles. Vous pouvez répéter ce processus jusqu’à ce que la séquence de tâches soit disponible.
+- Quand vous exécutez une séquence de tâches, mais que les packages de contenu dépendants ne sont pas encore disponibles sur les points de distribution, la séquence de tâches échoue. Vous pouvez désormais distribuer le contenu manquant (s’il ne l’a pas encore été) ou attendre qu’il soit disponible sur les points de distribution, puis cliquer sur **Précédent** pour que la séquence de tâches recherche une nouvelle fois le contenu.
+
+##  <a name="BKMK_ModifyTaskSequence"></a> Modifier une séquence de tâches  
  Vous pouvez modifier une séquence de tâches en ajoutant ou en supprimant des étapes ou des groupes de séquence de tâches, ou bien en modifiant l'ordre des étapes. Pour modifier une séquence de tâches existante, procédez comme suit.  
 
 > [!IMPORTANT]  
@@ -71,7 +78,53 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
 
-##  <a name="a-namebkmkdistributetsa-distribute-content-referenced-by-a-task-sequence"></a><a name="BKMK_DistributeTS"></a> Distribuer du contenu référencé par une séquence de tâches  
+## <a name="configure-high-impact-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches à fort impact
+À partir de Configuration Manager version 1702, vous pouvez définir une séquence de tâches à fort impact et personnaliser les messages envoyés aux utilisateurs lorsqu’ils exécutent la séquence de tâches.
+
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Définir une séquence de tâches comme séquence de tâches à fort impact
+Appliquez la procédure suivante pour définir une séquence de tâches à fort impact.
+> [!NOTE]
+> Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Il s’agit d’une séquence de tâches avec un impact élevé**.
+
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Créer une notification personnalisée pour les déploiements à haut risque
+Utilisez la procédure suivante pour créer une notification personnalisée pour les déploiements à fort impact.
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Utiliser du texte personnalisé**.
+>  [!NOTE]
+>  Vous pouvez définir le texte de notification utilisateur uniquement quand **Il s’agit d’une séquence de tâches avec un impact élevé** est sélectionné.
+
+4. Configurez les paramètres suivants (maximum 255 caractères pour chaque zone de texte) :
+
+  **Texte du titre de la notification utilisateur** : spécifie le texte en bleu qui s’affiche sur la notification utilisateur du Centre logiciel. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Confirmez que vous voulez mettre à niveau le système d’exploitation sur cet ordinateur ».
+
+  **Texte du message de la notification utilisateur** : trois zones de texte fournissent le corps de la notification personnalisée. Toutes les zones de texte nécessitent la saisie d’un texte.
+  - Première zone de texte : spécifie le corps principal du texte, contenant généralement des instructions destinées à l’utilisateur. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « La mise à niveau du système d’exploitation peut prendre un certain temps et entraîner plusieurs redémarrages de votre ordinateur ».
+  - Deuxième zone de texte : spécifie le texte en gras dans le corps principal du texte. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cette mise à niveau sur place installe le nouveau système d’exploitation et migre automatiquement vos applications, vos données et vos paramètres ».
+  - Troisième zone de texte : spécifie la dernière ligne de texte sous le texte en gras. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cliquez sur Installer pour commencer. Sinon, cliquez sur Annuler. ».   
+
+  Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
+
+    ![Notification personnalisée pour une séquence de tâches](..\media\user-notification.png)
+
+    Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
+
+    ![Notification personnalisée pour une séquence de tâches](..\media\user-notification-enduser.png)
+
+### <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
+  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
+  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
+  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
+
+##  <a name="BKMK_DistributeTS"></a> Distribuer du contenu référencé par une séquence de tâches  
  Avant que les clients exécutent une séquence de tâches qui référence du contenu, vous devez distribuer ce contenu aux points de distribution. À tout moment, vous pouvez sélectionner la séquence de tâches et distribuer son contenu pour créer une nouvelle liste de packages de référence pour la distribution. Si vous apportez des modifications à la séquence de tâches avec du contenu mis à jour, vous devez redistribuer le contenu avant de le mettre à la disposition des clients. Pour distribuer le contenu qui est référencé par une séquence de tâches, procédez comme suit.  
 
 #### <a name="to-distribute-referenced-content-to-distribution-points"></a>Pour distribuer le contenu référencé sur des points de distribution  
@@ -97,7 +150,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Vous pouvez préparer le contenu référencé dans la séquence de tâches. Configuration Manager crée un fichier de contenu compressé et préparé qui contient les fichiers, les dépendances associées et les métadonnées associées pour le contenu que vous sélectionnez. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution. Pour plus d’informations sur la façon de préparer des fichiers de contenu, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
 
-##  <a name="a-namebkmkdeploytsa-deploy-a-task-sequence"></a><a name="BKMK_DeployTS"></a> Déployer une séquence de tâches  
+##  <a name="BKMK_DeployTS"></a> Déployer une séquence de tâches  
  Pour déployer une séquence de tâches sur les ordinateurs d'un regroupement, procédez comme suit.  
 
 > [!WARNING]  
@@ -230,7 +283,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
 11. Effectuez toutes les étapes de l'Assistant.  
 
-##  <a name="a-namebkmkexportimporta-export-and-import-task-sequences"></a><a name="BKMK_ExportImport"></a> Exporter et importer des séquences de tâches  
+##  <a name="BKMK_ExportImport"></a> Exporter et importer des séquences de tâches  
  Vous pouvez exporter et importer des séquences de tâches avec ou sans leurs objets liés, tels qu'une image du système d'exploitation, une image de démarrage, un package de l'agent du client, un package de pilotes et des applications qui ont des dépendances.  
 
  Considérez les éléments suivants lorsque vous exportez et importez des séquences de tâches.  
@@ -297,7 +350,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Après avoir importé la séquence de tâches, modifiez-la pour spécifier les mots de passe qui se trouvaient dans la séquence de tâches d'origine. Pour des raisons de sécurité, les mots de passe ne sont pas exportés.  
 
-##  <a name="a-namebkmkcreatetsvariablesa-create-task-sequence-variables-for-computers-and-collections"></a><a name="BKMK_CreateTSVariables"></a> Créer des variables de séquence de tâches pour les ordinateurs et les regroupements  
+##  <a name="BKMK_CreateTSVariables"></a> Créer des variables de séquence de tâches pour les ordinateurs et les regroupements  
  Vous pouvez définir des variables de séquence de tâches personnalisées pour des ordinateurs et des regroupements. Les variables qui sont définies pour un ordinateur sont appelées variables de séquence de tâches par ordinateur. Les variables définies pour un regroupement sont appelées variables de séquence de tâches par regroupement. S'il existe un conflit, les variables par ordinateur ont préséance sur les variables par regroupement. Cela signifie que les variables de séquence de tâches attribuées à un ordinateur spécifique disposent automatiquement d'une priorité plus importante que celles attribuées au regroupement contenant l'ordinateur.  
 
  Par exemple, si une variable est attribuée au regroupement ABC et qu'une variable avec le même nom est attribuée à l'ordinateur XYZ, qui est un membre du regroupement ABC, la variable attribuée à l'ordinateur XYZ reçoit une priorité plus élevée que celle attribuée au regroupement ABC.  
@@ -342,7 +395,7 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
 6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
 
-##  <a name="a-namebkmkadditionalactionstsa-additional-actions-to-manage-task-sequences"></a><a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
+##  <a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
  Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez la séquence de tâches à l'aide de la procédure suivante.  
 
 #### <a name="to-select-a-task-sequence-to-manage"></a>Pour sélectionner une séquence de tâches à gérer  
@@ -366,9 +419,4 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

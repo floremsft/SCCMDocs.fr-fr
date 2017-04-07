@@ -1,8 +1,8 @@
 ---
-title: "Nouveautés de la gestion hybride des appareils mobiles | Microsoft Docs"
-description: "Découvrez les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec System Center Configuration Manager et Intune."
+title: "Nouveautés dans MDM hybride avec Configuration Manager | Microsoft Docs"
+description: "Découvrez les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec Configuration Manager et Intune."
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 58c64b2e02e5e5eb54cb50a468502ba6f1e4f0c1
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
+ms.openlocfilehash: cc3e4055ce6b648e4554773518fc928cfb51c5f3
+ms.lasthandoff: 03/28/2017
 
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
@@ -36,6 +36,93 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 |**Nouveautés de Microsoft Intune** | En général, toutes les fonctionnalités répertoriées dans cette catégorie doivent fonctionner avec toutes les versions de Configuration Manager, notamment les versions de System Center 2012 R2 Configuration Manager, dans la mesure où ces fonctionnalités nécessitent seulement le service Intune mais aucune fonctionnalité supplémentaire dans Configuration Manager.|
 |**Nouveautés de Configuration Manager Technical Preview**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version d’évaluation technique spécifiée. Pour tester ces fonctionnalités, vous devez installer la version d’évaluation technique spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nouveautés de Configuration Manager (Current Branch)**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version spécifiée de Configuration Manager (Current Branch), comme la version 1511 ou 1602. Si vous utilisez une version antérieure de Configuration Manager pour votre déploiement hybride, vous devez effectuer la mise à niveau vers la version de Configuration Manager (Current Branch) spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="new-hybrid-features-in-march-2017"></a>Nouvelles fonctionnalités hybrides en mars 2017
+
+### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
+
+Les fonctionnalités Intune suivantes introduites en mars 2017 fonctionnent dans les déploiements hybrides :
+
+- **Nouvelle expérience utilisateur pour l’application Portail d’entreprise pour Android**
+
+  L’application Portail d’entreprise pour Android a une interface utilisateur d’apparence plus moderne. Les mises à jour importantes sont :
+
+  - Couleurs : les en-têtes des onglets du portail d’entreprise sont de la couleur définie dans la personnalisation.
+  - Applications : dans l’onglet **Applications**, les boutons **Applications à la une** et **Toutes les applications** ont été mis à jour.
+  - Rechercher : Dans l’onglet **Applications**, le bouton **Rechercher** est un bouton d’action flottant.
+  - Navigation dans les applications : la vue **Toutes les applications** montre une vue à onglets avec **À la une**, **Toutes** et **Catégories** pour faciliter la navigation.
+  - Prise en charge : les onglets **Mes appareils** et **Contacter le service informatique** ont été mis à jour de façon à améliorer la lisibilité.
+
+  Pour plus d’informations sur ces modifications, consultez [Mises à jour de l’interface utilisateur pour les applications Intune de l’utilisateur final](/intune/enduser/whats-new-in-intune-app-ui).
+
+- **Script de signature pour le portail d’entreprise Windows 10**
+
+  Si vous avez besoin de télécharger et charger de façon indépendante l’application Portail d’entreprise Windows 10, vous pouvez désormais utiliser un script pour simplifier et fluidifier le processus de signature des applications pour votre organisation.  Pour télécharger le script et les instructions pour son utilisation, consultez [Script de signature Microsoft Intune pour le portail d’entreprise Windows 10](https://aka.ms/win10cpscript) sur la Galerie TechNet. Pour plus d’informations sur cette annonce, consultez [Mise à jour de votre application Portail d’entreprise Windows 10](https://blogs.technet.microsoft.com/intunesupport/2017/03/13/updating-your-windows-10-company-portal-app/) sur le Blog de l’équipe de support technique Intune.
+
+- **Prise en charge améliorée pour les utilisateurs Android basés en Chine**
+
+  En raison de l’absence du Google Play Store en Chine, les appareils Android doivent obtenir des applications des places de marché chinoises. Le portail d’entreprise prend en charge ce flux de travail en redirigeant les utilisateurs Android en Chine pour télécharger les applications Portail d’entreprise et Outlook à partir de magasins d’applications locaux. Ceci améliore l’expérience utilisateur quand les stratégies d’accès conditionnel sont activées, à la fois pour la gestion des appareils mobiles et pour la gestion des applications mobiles. Les applications Portail d’entreprise et Outlook pour Android sont disponibles sur les magasins d’applications chinois suivants :
+
+  - [Baidu](https://go.microsoft.com/fwlink/?linkid=836946)
+  - [Xiaomi](https://go.microsoft.com/fwlink/?linkid=836947)
+  - [Tencent](https://go.microsoft.com/fwlink/?linkid=836949)
+  - [Huawei](https://go.microsoft.com/fwlink/?linkid=836948)
+  - [Wandoujia](https://go.microsoft.com/fwlink/?linkid=836950)
+
+- **Vérifiez que vos applications de portail d’entreprise sont à jour**
+
+  En décembre 2016, nous avons publié une mise à jour qui permettait d’appliquer l’authentification multifacteur (MFA) sur un groupe d’utilisateurs lors de l’inscription d’un appareil iOS, Android, Windows 8.1+ ou Windows Phone 8.1+. Cette fonctionnalité ne peut pas être utilisée sans certaines versions de référence de l’application Portail d’entreprise pour Android (v5.0.3419.0+) et iOS (v2.1.17+).
+
+  Les fonctionnalités de gestion d’Intune sont en constante évolution et de nombreuses améliorations ont nécessité des mises à jour des applications Portail d’entreprise sur toutes les plateformes prises en charge. Par conséquent, nous vous recommandons d’installer les dernières versions des applications Portail d’entreprise sur les appareils pour bénéficier des améliorations d’Intune et d’une expérience utilisateur optimale.
+
+  >[!Tip]
+  > Demandez à vos utilisateurs de configurer la mise à jour automatique des applications sur leurs appareils à partir de l’App Store approprié. Si vous avez rendu l’application Portail d’entreprise Android disponible sur un partage réseau, vous pouvez télécharger la dernière version à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49140).
+
+- **Microsoft Teams est maintenant activé pour la gestion des applications mobiles sur iOS et Android**
+
+  Les applications Microsoft Teams pour iOS et Android sont désormais activées avec les fonctionnalités de gestion des applications mobiles Intune, ce qui permet à vos équipes de changer librement d’appareil tout en garantissant que les conversations et les données d’entreprise sont protégées à chaque changement. Pour plus d’informations, consultez l’[annonce de Microsoft Teams](https://blogs.technet.microsoft.com/enterprisemobility/2017/03/14/microsoft-teams-is-now-generally-available-and-mam-enabled-on-ios-and-android/) sur le blog Enterprise Mobility and Security.
+
+### <a name="new-in-configuration-manager-current-branch"></a>Nouveautés de Configuration Manager (Current Branch)
+
+Les fonctionnalités suivantes qui étaient précédemment disponibles dans les versions Configuration Manager Technical Preview sont maintenant disponibles dans les déploiements hybrides avec Intune et Configuration Manager (Current Branch) version 1702.
+
+- [Prise en charge d’Android for Work](/sccm/core/plan-design/changes/whats-new-in-version-1702##android-for-work-support)
+- [Paramètres de conformité des applications non conformes](/sccm/core/plan-design/changes/whats-new-in-version-1702#conditional-access-device-compliance-policy-improvements)
+- [Création et distribution de certificats PFX et prise en charge de S/MIME](/sccm/core/plan-design/changes/whats-new-in-version-1702#improvements-to-certificate-profiles)
+- [es versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création pour la gestion MDM hybride](/sccm/core/plan-design/changes/whats-new-in-version-1702#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm)
+
+Les fonctionnalités hybrides supplémentaires suivantes sont également incluses dans la version 1702 de Configuration Manager (Current Branch) :
+
+- **Prise en charge améliorée du Programme d’achat en volume Apple (VPP)**
+
+  - Vous pouvez désormais déployer des applications sous licence sur des appareils ainsi que des utilisateurs. En fonction de la capacité des applications à prendre en charge les licences d’appareils, une licence appropriée sera réclamée lors du déploiement, comme suit :
+
+    | Version de Configuration Manager | L’application prend-elle en charge les licences d’appareil ? | Type de regroupement de déploiement | Licence demandée |
+    |-|-|-|-|
+    |Antérieure à 1702|Oui|utilisateur|Licence utilisateur|
+    |Antérieure à 1702|Non|utilisateur|Licence utilisateur|
+    |Antérieure à 1702|Oui|Appareil|Licence utilisateur|
+    |Antérieure à 1702|Non|Appareil|Licence utilisateur|
+    |1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
+    |1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
+    |1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
+    |1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
+
+  - Désormais, vous pouvez également déployer et suivre les applications que vous avez achetées via le Programme d’achat en volume iOS pour l’éducation.
+
+  - Vous pouvez maintenant associer plusieurs jetons de programme d’achat en volume Apple à Configuration Manager.
+
+  Pour plus d’informations sur les applications achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+
+- **Prise en charge des applications métier dans le Windows Store pour Entreprises**
+
+  Vous pouvez désormais synchroniser des applications métier personnalisées à partir du Windows Store pour Entreprises.
+
+- **Nouveaux outils de surveillance de protection contre les menaces mobiles**
+
+    Vous disposez maintenant de nouveaux moyens pour surveiller l’état de conformité avec votre fournisseur de services de protection contre les menaces mobiles.
+
+    Pour plus d’informations, consultez [Comment surveiller la conformité de la protection contre les menaces mobiles](/sccm/mdm/deploy-use/monitor-mobile-threat-defense-compliance).
 
 ## <a name="new-hybrid-features-in-february-2017"></a>Nouvelles fonctionnalités hybrides disponibles à partir de février 2017
 
@@ -55,15 +142,19 @@ Les fonctionnalités Intune suivantes introduites en février 2017 fonctionnent 
 
 - **Prise en charge d’Android for Work**
 
-  Vous pouvez désormais gérer les appareils Android à l’aide d’Android for Work dans les environnements de gestion des appareils mobiles hybrides à l’aide de Configuration Manager Technical Preview 1702. Les appareils Android pris en charge peuvent maintenant être inscrits comme appareils Android for Work, ce qui crée un profil professionnel sur l’appareil sur lequel les applications approuvées dans Play for Work peuvent être déployées. Vous pouvez également configurer et déployer des éléments de configuration, des stratégies de conformité et des profils d’accès aux ressources pour ces appareils.
+  Vous pouvez désormais gérer les appareils Android à l’aide d’Android for Work dans les environnements de gestion des appareils mobiles hybrides à l’aide de Configuration Manager Technical Preview 1702. Les appareils Android pris en charge peuvent maintenant être inscrits comme appareils Android for Work, ce qui crée un profil professionnel sur l’appareil sur lequel les applications approuvées dans Play for Work peuvent être déployées. Vous pouvez également configurer et déployer des éléments de configuration, des stratégies de conformité et des profils d’accès aux ressources pour ces appareils. Pour plus d’informations, consultez [Prise en charge d’Android for Work](/sccm/core/get-started/capabilities-in-technical-preview-1702#android-for-work-support).
 
 - **Paramètres de conformité des applications non conformes**
 
-  Vous pouvez maintenant créer des règles d’applications non conformes pour les applications Android et iOS dans les stratégies de conformité. Si des appareils disposent des applications spécifiées, ils sont marqués « non conformes » et perdent l’accès aux ressources d’entreprise en fonction des stratégies d’accès conditionnel en place.
+  Vous pouvez maintenant créer des règles d’applications non conformes pour les applications Android et iOS dans les stratégies de conformité. Si des appareils disposent des applications spécifiées, ils sont marqués « non conformes » et perdent l’accès aux ressources d’entreprise en fonction des stratégies d’accès conditionnel en place. Pour plus d’informations, consultez [Améliorations apportées aux stratégies de conformité des appareils pour l’accès conditionnel](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
 
 - **Création et distribution de certificats PFX et prise en charge de S/MIME**
 
-  Vous pouvez désormais créer et déployer des certificats PFX sur les utilisateurs dans un environnement hybride. Ces certificats peuvent ensuite être utilisés pour le chiffrement et le déchiffrement S/MIME par les appareils que l’utilisateur a inscrits.
+  Vous pouvez désormais créer et déployer des certificats PFX sur les utilisateurs dans un environnement hybride. Ces certificats peuvent ensuite être utilisés pour le chiffrement et le déchiffrement S/MIME par les appareils que l’utilisateur a inscrits. Pour plus d’informations, consultez [Créer des certificats PFX avec prise en charge S/MIME](/sccm/core/get-started/capabilities-in-technical-preview-1702#create-pfx-certificates-with-s-mime-support).
+
+- **Prise en charge des paramètres de configuration supplémentaires iOS**
+   
+    Vous disposez désormais de 42 paramètres iOS supplémentaires que vous pouvez configurer dans le cadre d’un élément de configuration. La plupart des paramètres (35 au total) ont été ajoutés pour les appareils iOS supervisés. Pour plus d’informations, consultez [Nouveaux paramètres de conformité pour les appareils iOS](/sccm/core/get-started/capabilities-in-technical-preview-1702#new-compliance-settings-for-ios-devices).
 
 ## <a name="new-hybrid-features-in-january-2017"></a>Nouvelles fonctionnalités hybrides en janvier 2017
 

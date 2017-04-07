@@ -2,7 +2,7 @@
 title: "Variables intégrées de séquence de tâches | Microsoft Docs"
 description: "Les variables intégrées de séquence de tâches fournissent des informations sur l’environnement dans lequel la séquence de tâches s’exécute. Elles sont disponibles tout au long de la séquence de tâches."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: c9fb0fa46058c773eec6ac23999357d35d9f970f
-ms.openlocfilehash: a75adebfe2bbec8f6fe5206561530a720c0bfbf1
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: a3e6cca8d58055cc2d54aff3cb70a276fb40e829
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.openlocfilehash: a75adebfe2bbec8f6fe5206561530a720c0bfbf1
 |_SMSTSMachineName|Stocke et spécifie le nom de l'ordinateur. Stocke le nom de l'ordinateur que la séquence de tâches utilisera pour consigner tous les messages d'état. Pour modifier le nom d'ordinateur dans le nouveau système d'exploitation, utilisez la variable **OSDComputerName** .<br /><br /> Exemple :<br /><br /> **ABC**|  
 |_SMSTSMDataPath|Spécifie le chemin d'accès défini par la variable SMSTSLocalDataDrive. Quand que vous définissez SMSTSLocalDataDrive avant le démarrage de la séquence de tâches, notamment en définissant une variable de regroupement, Configuration Manager définit ensuite la variable _SMSTSMDataPath une fois que la séquence de tâches démarre.|  
 |_SMSTSMediaType|Spécifie le type de média qui est utilisé pour démarrer l'installation. Le média de démarrage, le média complet, l'environnement PXE et le média préparé sont des exemples de types de médias.|  
-|_SMSTSMP|Stocke le nom ou l’adresse IP d’un point de gestion Configuration Manager.|  
+|_SMSTSMP|Stocke l’URL ou l’adresse IP d’un point de gestion Configuration Manager.|  
 |_SMSTSMPPort|Stocke le numéro de port d’un point de gestion Configuration Manager.<br /><br /> Exemple :<br /><br /> **80**|  
 |_SMSTSOrgName|Stocke le nom du titre de la marque qui s'affiche dans la boîte de dialogue de l'interface utilisateur de progression d'une séquence de tâches.<br /><br /> Exemple :<br /><br /> **Organisation XYZ**|  
 |_SMSTSOSUpgradeActionReturnCode|Stocke la valeur du code de sortie retourné par le programme d’installation pour indiquer la réussite ou l’échec de l’opération.  Cette variable est définie au cours de l’étape de séquence de tâches Mise à niveau du système d’exploitation des étapes de séquence de tâches. Cela est utile avec l’option de ligne de commande /Compat du programme d’installation de Windows 10.<br /><br /> Exemple :<br /><br /> À l’issue de l’exécution de la commande /Compat, vous pouvez agir dans le cadre d’étapes ultérieures, selon le code de sortie d’échec ou de réussite. En cas de réussite, vous pouvez lancer la mise à niveau. Vous pouvez également définir un indicateur dans l’environnement (par exemple, ajouter un fichier ou définir une clé de Registre), utilisable par la suite pour créer un regroupement d’ordinateurs prêts pour une mise à niveau ou nécessitant une action avant leur mise à niveau.|  
@@ -79,6 +80,7 @@ ms.openlocfilehash: a75adebfe2bbec8f6fe5206561530a720c0bfbf1
 |TSErrorOnWarning|Utilisez cette variable pour spécifier si le moteur de séquence de tâches considère qu'un avertissement détecté constitue une erreur durant l'étape de séquence de tâches Installation de l'application. La séquence de tâches affecte la valeur **Warning** à la variable _TSAppInstallStatus quand une ou plusieurs applications, ou une dépendance nécessaire, n'ont pas été installées car une exigence n'a pas été remplie. Lorsque vous affectez la valeur **True** à la variable TSErrorOnWarning et que la variable _TSAppInstallStatus a la valeur Warning, elle est traitée comme une erreur. La valeur **False** est le comportement par défaut.|  
 |SMSTSLanguageFolder|utilisez cette variable pour modifier la langue d'affichage d'une image de démarrage indépendante de la langue.|  
 |SMSTSLocalDataDrive|Spécifie l'emplacement de stockage des fichiers temporaires sur l'ordinateur de destination lors de l'exécution de la séquence de tâches.<br /><br /> Cette variable doit être définie avant le démarrage de la séquence de tâches, notamment en définissant une variable de regroupement. Une fois que la séquence de tâches démarre, Configuration Manager définit la variable _SMSTSMDataPath.|  
+|SMSTSMP|Utilisez cette variable pour spécifier l’URL ou l’adresse IP du point de gestion Configuration Manager.|  
 |SMSTSMPListRequestTimeout|Cette variable permet de spécifier le délai d’attente (en millisecondes) d’une séquence de tâches avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Par défaut, la séquence de tâches attend 60 000 millisecondes (60 secondes) avant de retenter d'exécuter l'étape et elle effectue jusqu'à trois nouvelles tentatives. Cette variable s’applique uniquement aux étapes de la séquence de tâches d’installation d’application et de mises à jour logicielles.|  
 |SMSTSMPListRequestTimeoutEnabled|Cette variable permet d’activer les demandes MPList répétées pour actualiser le client s’il ne se trouve pas sur l’intranet. <br />Par défaut, cette valeur est définie sur True. Si des clients se trouvent sur Internet, vous pouvez définir cette variable sur False pour éviter des retards inutiles. Cette variable s’applique uniquement aux étapes de la séquence de tâches relatives à l’installation de l’application et à l’installation des mises à jour logicielles.|  
 |SMSTSPeerDownload|Utilisez cette variable pour permettre au client d’utiliser la mise en cache d’homologue Windows PE.<br /><br /> Exemple :<br /><br /> SMSTSPeerDownload = **TRUE** active cette fonctionnalité.|  
@@ -94,9 +96,4 @@ ms.openlocfilehash: a75adebfe2bbec8f6fe5206561530a720c0bfbf1
 |SMSTSSoftwareUpdateScanTimeout| Permet de contrôler le délai d’attente pendant la recherche de mises à jour logicielles à l’étape de la séquence de tâches [Installer les mises à jour logicielles](task-sequence-steps.md#BKMK_InstallSoftwareUpdates). Par exemple, vous pouvez accroître la valeur par défaut si vous avez un grand nombre de mises à jour à installer. La valeur par défaut est de 30 minutes. |
 |SMSTSUDAUsers|Spécifie l'utilisateur principal de l'ordinateur de destination. Spécifiez les utilisateurs en utilisant le format suivant. Séparez plusieurs utilisateurs à l'aide d'une virgule (,).<br /><br /> Exemple :<br /><br /> **domaine\utilisateur1, domaine\utilisateur2, domaine\utilisateur3**<br /><br /> Pour plus d’informations sur l’association d’utilisateurs à l’ordinateur de destination, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).|  
 |SMSTSWaitForSecondReboot|À compter de Configuration Manager version 1602, cette variable de séquence de tâches facultative est disponible pour vous aider à contrôler le comportement du client quand l’installation d’une mise à jour logicielle nécessite deux redémarrages. Cette variable doit être définie avant l’étape [Installer les mises à jour logicielles](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) pour empêcher qu’une séquence de tâches échoue en raison d’un second redémarrage lié à l’installation d’une mise à jour logicielle.<br /><br /> Définissez la valeur de SMSTSWaitForSecondReboot en secondes pour spécifier la durée pendant laquelle la séquence de tâches s’interrompt pendant l’étape d’installation de mises à jour logicielles lors du redémarrage de l’ordinateur afin de prévoir un temps suffisant en cas de deuxième redémarrage. <br />Par exemple, si vous définissez SMSTSWaitForSecondReboot sur 600, la séquence de tâches est suspendue pendant 10 minutes après un redémarrage, avant l’exécution d’étapes supplémentaires de la séquence de tâches. Cela est utile quand des centaines de mises à jour logicielles sont installées en une seule étape de séquence de tâches d’installation de mises à jour logicielles.|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

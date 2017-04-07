@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 139dcf9bc2a9bd253592b969b6f9d814ffcdfd8e
-ms.openlocfilehash: 6b24d775fe4ca78dfba9645b81096f9228864d99
+ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
+ms.openlocfilehash: 640cdc67f301a81a45bf27f95eb03cbc8754a9aa
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -26,10 +27,10 @@ ms.openlocfilehash: 6b24d775fe4ca78dfba9645b81096f9228864d99
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 Les informations contenues dans cette rubrique sont spécifiques à l’utilisation des groupes de limites avec les versions 1511, 1602 et 1606 de System Center Configuration Manager.
-Si vous utilisez la version 1610 ou ultérieure, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#a-namebkmkboundarygroupsa-boundary-group/) dans *Définir des limites de site et les groupes de limites pour System Center Configuration Manager* pour plus d’informations sur l’utilisation de groupes de limites repensés.  
+Si vous utilisez la version 1610 ou une version ultérieure, consultez la page [Configurer des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) pour plus d’informations sur la façon d’utiliser les groupes de limites remaniés.  
 
 
-##  <a name="a-namebkmkboundarygroupsa-boundary-groups"></a><a name="BKMK_BoundaryGroups"></a> Groupes de limites  
+##  <a name="BKMK_BoundaryGroups"></a> Boundary groups  
  Créer des groupes de limites vous permet de regrouper de façon logique des emplacements réseau (limites) pour faciliter la gestion de votre infrastructure. Vous devez attribuer des limites à des groupes de limites avant de pouvoir utiliser le groupe de limites. Les clients utilisent la configuration du groupe de limites pour les opérations suivantes :  
 
 -   Attribution automatique du site  
@@ -122,7 +123,7 @@ Quand vous configurez des groupes de limites, vous ajoutez une ou plusieurs limi
 
  Les sections suivantes fournissent des détails supplémentaires sur les configurations de groupes de limites.  
 
-###  <a name="a-namebkmkboundarysiteassignmenta-about-site-assignment"></a><a name="BKMK_BoundarySiteAssignment"></a> À propos de l’attribution de site  
+###  <a name="BKMK_BoundarySiteAssignment"></a> À propos de l’attribution de site  
  Vous pouvez configurer chaque groupe de limites avec un site attribué pour les clients.  
 
 -   Quand un client récemment installé utilise l’attribution automatique de site, il rejoint le site attribué d’un groupe de limites qui englobe l’emplacement réseau actuel du client.  
@@ -137,7 +138,7 @@ Quand vous configurez des groupes de limites, vous ajoutez une ou plusieurs limi
 
 Pour en savoir plus sur l’attribution de site client, consultez [Utilisation de l’attribution automatique de site pour les ordinateurs](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) dans [Guide pratique pour attribuer des clients à un site dans System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
-###  <a name="a-namebkmkboundarycontentlocationa-about-content-location"></a><a name="BKMK_BoundaryContentLocation"></a> À propos de l’emplacement du contenu  
+###  <a name="BKMK_BoundaryContentLocation"></a> À propos de l’emplacement du contenu  
  Vous pouvez configurer chaque groupe de limites avec un ou plusieurs points de distribution et points de migration d’état, mais aussi associer les mêmes points de distribution et points de migration d’état à plusieurs groupes de limites.  
 
 -   **Lors de la distribution de logiciels**, les clients demandent un emplacement pour le contenu de déploiement. Configuration Manager envoie au client une liste de points de distribution associés à chaque groupe de limites qui inclut l’emplacement réseau actuel du client.  
@@ -146,7 +147,7 @@ Pour en savoir plus sur l’attribution de site client, consultez [Utilisation d
 
 Ce comportement permet au client de sélectionner le serveur le plus proche à partir duquel transférer le contenu ou les informations sur la migration de l’état.  
 
-###  <a name="a-namebkmkpreferredmpa-about-preferred-management-points"></a><a name="BKMK_PreferredMP"></a> À propos des points de gestion préférés  
+###  <a name="BKMK_PreferredMP"></a> À propos des points de gestion préférés  
  Les points de gestion préférés permettent à un client d’identifier un point de gestion associé à son emplacement réseau actuel (limite) avec celui-ci.  
 
 -   Un client essaie d’utiliser un point de gestion préféré de son site attribué avant d’en utiliser un qui n’est pas configuré comme préféré.  
@@ -158,7 +159,7 @@ Ce comportement permet au client de sélectionner le serveur le plus proche à p
 > [!NOTE]  
 >  Quand un client est en itinérance, comme dans le cas d’un ordinateur portable déplacé vers un emplacement de bureau distant, et change d’emplacement réseau, il peut utiliser un point de gestion (ou un point de gestion proxy) du site local à son nouvel emplacement avant d’essayer d’utiliser un point de gestion de son site attribué (qui comprend les points de gestion préférés).  Consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) pour plus d’informations.  
 
-###  <a name="a-namebkmkboundaryoverlapa-about-overlapping-boundaries"></a><a name="BKMK_BoundaryOverlap"></a> À propos du chevauchement des limites  
+###  <a name="BKMK_BoundaryOverlap"></a> À propos du chevauchement des limites  
  Configuration Manager prend en charge les configurations de limites se chevauchant pour l’emplacement du contenu :  
 
 -   **Quand un client demande du contenu** et que l’emplacement réseau du client appartient à plusieurs groupes de limites, Configuration Manager envoie au client une liste de tous les points de distribution qui disposent du contenu.  
@@ -167,15 +168,10 @@ Ce comportement permet au client de sélectionner le serveur le plus proche à p
 
 Ce comportement permet au client de sélectionner le serveur le plus proche à partir duquel transférer le contenu ou les informations sur la migration de l’état.  
 
-###  <a name="a-namebkmkboudnarynetworkspeeda-about-network-connection-speed"></a><a name="BKMK_BoudnaryNetworkSpeed"></a> À propos de la vitesse de connexion réseau  
+###  <a name="BKMK_BoudnaryNetworkSpeed"></a> À propos de la vitesse de connexion réseau  
  Vous pouvez définir la vitesse de connexion réseau pour chaque serveur de système de site dans un groupe de limites. Ce paramètre s’applique aux clients qui se connectent à un système de site basé sur cette configuration de groupes de limites. Le même serveur de système de site peut avoir une autre vitesse de connexion définie dans des groupes de limites différents.  
 
  Par défaut, la vitesse de connexion réseau est **Rapide**, mais vous pouvez sélectionner une vitesse **Lente**. La vitesse de connexion réseau et la configuration de déploiement vérifient si un client peut télécharger du contenu à partir d’un point de distribution quand le client est dans un groupe de limites associé.  
 
  Pour en savoir plus sur les effets de la vitesse de connexion réseau sur l’obtention du contenu par les clients, consultez [Scénarios d’emplacement source de contenu](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
