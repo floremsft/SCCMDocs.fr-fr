@@ -51,7 +51,7 @@ La section relative à la [création de profils Wi-Fi pour les appareils mobile
 
 ## <a name="create-a-wi-fi-profile"></a>Créer un profil Wi-Fi  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Paramètres de compatibilité** >  **Accès aux ressources de l’entreprise ** > **Profils Wi-Fi**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Paramètres de compatibilité** >  **Accès aux ressources de l’entreprise** > **Profils Wi-Fi**.  
 
 3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil Wi-Fi**.  
 
@@ -62,15 +62,15 @@ La section relative à la [création de profils Wi-Fi pour les appareils mobile
 
 3.  Dans **Gravité de non-compatibilité pour les rapports** spécifiez le niveau de gravité signalé en cas de non-compatibilité du profil Wi-Fi sur des appareils clients (par exemple, en cas d’échec de l’installation du profil). Les niveaux de gravité disponibles sont les suivants :  
 
-    -   **Aucun** : les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+    -   **Aucun**: les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
 
-    -   **Informations** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+    -   **Informations**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
 
-    -   **Avertissement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+    -   **Avertissement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
 
-    -   **Critique** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+    -   **Critique**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
 
-    -   **Critique avec événement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+    -   **Critique avec événement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
 
 1.  Dans la page **Profil Wi-Fi**, indiquez le nom qui sera affiché sur les appareils comme nom de réseau.  
 
@@ -105,10 +105,10 @@ La section relative à la [création de profils Wi-Fi pour les appareils mobile
 
 5.  Si vous souhaitez stocker les informations d’identification des utilisateurs pour qu’ils ne soient pas obligés de les entrer à chaque ouverture de session, sélectionnez **Conserver les informations d’identification de l’utilisateur à chaque ouverture de session**.  
 
-6. **Pour les appareils iOS uniquement :**  
+6. **Pour les appareils iOS uniquement:**  
  configurez les informations pour tous les certificats qui sont requis pour la connexion Wi-Fi. Vous devez configurer le certificat client et le nom du certificat de serveur approuvé ou le certificat racine comme suit :  
 
-    -   **Noms de certificat de serveur approuvé** : si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur pour identifier le serveur et sécuriser le canal de communication, entrez le ou les noms sous le nom d’objet de ce certificat ou l’autre nom d’objet de ce certificat. Le ou les noms sont généralement le nom de domaine complet du serveur. Par exemple, si le certificat de serveur est identifié par le nom commun srv1.contoso.com dans l'objet du certificat, entrez **srv1.contoso.com**. Si le certificat de serveur est identifié par plusieurs noms spécifiés dans l'autre nom d'objet, entrez chaque nom, séparé par un point-virgule.  
+    -   **Noms de certificat de serveur approuvé**: si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur pour identifier le serveur et sécuriser le canal de communication, entrez le ou les noms sous le nom d’objet de ce certificat ou l’autre nom d’objet de ce certificat. Le ou les noms sont généralement le nom de domaine complet du serveur. Par exemple, si le certificat de serveur est identifié par le nom commun srv1.contoso.com dans l'objet du certificat, entrez **srv1.contoso.com**. Si le certificat de serveur est identifié par plusieurs noms spécifiés dans l'autre nom d'objet, entrez chaque nom, séparé par un point-virgule.  
 
     > [!TIP]  
     >  Si le certificat client sélectionné pour le protocole EAP ou pour l'authentification client d'un appareil iOS est utilisé à des fins d'authentification sur un serveur RADIUS, tel qu'un serveur exécutant NPS, l'autre nom de l'objet doit être défini sur le nom d'utilisateur principal.  
