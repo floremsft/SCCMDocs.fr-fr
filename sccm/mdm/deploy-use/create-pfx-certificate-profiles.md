@@ -2,7 +2,7 @@
 title: "Créer des profils de certificat PFX | Microsoft Docs"
 description: "Découvrez comment utiliser des fichiers PFX dans System Center Configuration Manager pour générer des certificats spécifiques à l’utilisateur qui prennent en charge l’échange de données chiffrées."
 ms.custom: na
-ms.date: 03/30/2017
+ms.date: 04/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
-ms.openlocfilehash: 2495cef2442706b343bac6d510946c1226b64cfc
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 26feb0b166beb7e48cb800a5077d00dbc3eec51a
+ms.openlocfilehash: 27435316c6e47531ff989bc8956ca0c874131a0e
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -38,7 +38,7 @@ La section sur les [profils de certificat](../../protect/deploy-use/introduction
 - Pour connaître les autres conditions préalables, voir [Configuration requise pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md).
 
 ## <a name="pfx-certificate-profiles"></a>Profils de certificat PFX
-System Center Configuration Manager vous permet de configurer des fichiers d'échange d'informations personnelles (.pfx) sur les appareils des utilisateurs. Vous pouvez utiliser des fichiers PFX pour générer des certificats spécifiques à l'utilisateur pour prendre en charge l'échange de données chiffrées. Vous pouvez créer des certificats PFX dans Configuration Manager ou les importer.
+System Center Configuration Manager vous permet d’importer puis d’approvisionner des fichiers d’échange d’informations personnelles (.pfx) sur les appareils des utilisateurs. Vous pouvez utiliser des fichiers PFX pour générer des certificats spécifiques à l'utilisateur pour prendre en charge l'échange de données chiffrées.
 
 > [!TIP]  
 >  Une procédure pas à pas décrivant ce processus est disponible dans [Comment créer et déployer des profils de certificat PFX dans Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx).  
@@ -59,10 +59,10 @@ System Center Configuration Manager vous permet de configurer des fichiers d'éc
 
     -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Spécifiez le type de profil de certificat que vous voulez créer** : pour les certificats PFX, choisissez l’une des options suivantes :  
+    -   **Spécifiez le type de profil de certificat que vous voulez créer** - Pour les certificats PFX, choisissez :  
 
         -   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Importation** : sélectionnez cette option pour importer un certificat PFX.  
-        -   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Création** : sélectionnez cette option pour créer un certificat PFX.
+       
 
 ### <a name="import-a-pfx-certificate"></a>Importer un certificat PFX
 
@@ -107,28 +107,7 @@ Les variables de script suivantes doivent être modifiées pour votre script :
    -   $ProfileName = nom du profil PFX  
    -   ComputerName = nom de l'ordinateur hôte   
 
-### <a name="create-a-new-pfx-certificate"></a>Créer un certificat PFX
 
-Lorsque vous créez et déployez un certificat PFX, le même certificat est installé sur tous les appareils inscrits par l’utilisateur.
-
-1. Sur la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes des appareils où ce certificat sera installé, puis cliquez sur **Suivant**.
-2. Sur la page **Autorités de certification** de l’Assistant, configurez les éléments suivants :
-    - **Site principal** : sélectionnez le site principal Configuration Manager à partir duquel vous souhaitez sélectionner une autorité de certification.
-    - **Autorités de certification** : après avoir sélectionné un site principal, sélectionnez l’autorité de certification requise dans la liste, puis cliquez sur **Suivant**.
-3. Sur la page **Certificat PFX** de l’Assistant, configurez les valeurs suivantes :
-    - **Seuil de renouvellement (%)** : spécifiez le pourcentage de durée de vie restante du certificat avant que l’appareil ne demande le renouvellement du certificat.
-    - **Nom du modèle de certificat** : cliquez sur **Parcourir** pour sélectionner le nom d’un modèle de certificat qui a été ajouté à une Autorité de certification émettrice. Pour avoir accès aux modèles de certificats, le compte d’utilisateur utilisé pour exécuter la console Configuration Manager doit avoir l’autorisation de **lecture** sur ce modèle de certificat. Vous pouvez également taper le nom du modèle de certificat. 
-    - **Format du nom de l’objet** : dans la liste, sélectionnez de quelle manière Configuration Manager crée automatiquement le nom de l’objet dans la demande de certificat. Si le certificat est pour un utilisateur, vous pouvez également inclure l'adresse de messagerie de cet utilisateur dans le nom de l'objet. Choisissez entre **Nom commun** et **Nom distinctif complet**.
-    - **Autre nom de l’objet** : spécifiez de quelle manière Configuration Manager crée automatiquement les valeurs pour l’autre nom de l’objet dans la demande de certificat. Par exemple, si vous avez sélectionné un type de certificat utilisateur, vous pouvez inclure le nom d'utilisateur principal (UPN) dans l'autre nom de l'objet. Choisissez parmi :
-        - **Adresse de messagerie** 
-        - **Nom d’utilisateur principal (UPN)** 
-    - **Période de validité du certificat** - 
-    - **Fournisseur de stockage de clés (KSP) Windows** (affiché uniquement si vous avez sélectionné Windows comme plateforme prise en charge) : 
-        -     **Installer dans le module de plateforme sécurisée (TPM) s'il existe**  
-        -   **Installer dans le module de plateforme sécurisée (TPM) sinon mettre en échec** 
-        -   **Installer dans Windows Hello Entreprise, sinon mettre en échec** 
-        -   **Installer dans le fournisseur de stockage de la clé du logiciel** 
-4. Cliquez sur **Suivant**.
 
 ### <a name="finish-up"></a>Terminer
 
