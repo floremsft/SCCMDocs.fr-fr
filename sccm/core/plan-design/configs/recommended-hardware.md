@@ -2,7 +2,7 @@
 title: "Matériel recommandé | Microsoft Docs"
 description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
 ms.custom: na
-ms.date: 2/28/2017
+ms.date: 3/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 63ee782a718cf4a66ffe25b022aa317f3e45784c
-ms.openlocfilehash: 6701d5f21e8511ec9cf4fe7bc5804b3e2fdc4c71
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 8d3791bcf737e63308155787ed23c9cc84e7e99c
+ms.openlocfilehash: fd9f5b25a1e40b5f0df823dcbe9c13a77c534c59
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -168,14 +168,12 @@ Pour des performances optimales, utilisez des configurations RAID 10 pour tous 
 
  **Prise en charge de PowerShell :**  
 
- Quand vous installez la prise en charge de PowerShell sur un ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter des applets de commande PowerShell sur cet ordinateur pour gérer Configuration Manager. Les versions minimales suivantes sont prises en charge :  
+ Quand vous installez la prise en charge de PowerShell sur un ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter des applets de commande PowerShell sur cet ordinateur pour gérer Configuration Manager.
 
--   PowerShell 3.0  
+ - PowerShell 3.0 ou ultérieur est pris en charge
 
--   PowerShell 4.0  
+En plus de PowerShell, WMF (Windows Management Framework) version 3.0 ou ultérieure est pris en charge.   
 
-En plus de PowerShell, les versions 3.0 et 4.0 de Windows Management Framework (WMF) sont prises en charge.   
-Vous pouvez installer PowerShell avant ou après l’installation de la console Configuration Manager.  
 
 ##  <a name="bkmk_ScaleLab"></a> Déploiements de laboratoire  
  Utilisez les recommandations de configuration matérielle suivantes pour les déploiements de laboratoire et de test de Configuration Manager. Ces recommandations s’appliquent à tous les types de sites, avec un maximum de 100 clients :  
