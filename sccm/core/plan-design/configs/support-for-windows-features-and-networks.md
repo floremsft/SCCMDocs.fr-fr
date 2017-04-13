@@ -2,7 +2,7 @@
 title: "Prise en charge des fonctionnalités de Windows | Microsoft Docs"
 description: "Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 3/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 086efdd180ba3de12f84cabfa6c2abca1fe57537
-ms.openlocfilehash: 3315098f271a5b365914772943094c33f63f25c4
+ms.sourcegitcommit: 3eb48942c1259d2aa1b3c200fad73b39b11c0b8c
+ms.openlocfilehash: 39361102d77441488bf61c9cbbfb0086774e0c09
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -29,28 +30,30 @@ ms.openlocfilehash: 3315098f271a5b365914772943094c33f63f25c4
 Cette rubrique porte sur la prise en charge par System Center Configuration Manager des fonctionnalités courantes de Windows et des réseaux.  
 
 
-##  <a name="a-namebkmkbranchcachea-branchcache"></a><a name="bkmk_branchcache"></a> BranchCache  
-Windows BranchCache est intégré à Configuration Manager. Vous pouvez configurer les paramètres de BranchCache sur un type de déploiement pour les applications, sur le déploiement d'un package et pour des séquences de tâches.  
+##  <a name="bkmk_branchcache"></a> BranchCache  
+Vous pouvez utiliser Windows BranchCache avec Configuration Manager quand vous activez BranchCache sur des points de distribution, puis configurer les clients pour qu’ils utilisent BranchCache en mode de cache distribué.
 
-Quand toutes les exigences pour BranchCache sont satisfaites, cette fonctionnalité permet aux clients situés à des emplacements distants d’obtenir le contenu à partir de clients locaux qui ont un cache du contenu en cours.  
+Vous pouvez configurer les paramètres de BranchCache sur un type de déploiement d’applications, sur le déploiement d'un package et pour des séquences de tâches.  
+
+Quand les conditions requises de BranchCache sont remplies, cette fonctionnalité permet aux clients situés à des emplacements distants d’obtenir le contenu des clients locaux qui ont un cache actif du contenu.  
 
 Par exemple, quand le premier ordinateur client compatible BranchCache demande du contenu à partir d’un point de distribution configuré en tant que serveur BranchCache, l’ordinateur client télécharge et met en cache le contenu. Ce contenu est ensuite rendu disponible pour les clients sur le même sous-réseau qui celui qui a demandé ce contenu.
 
 Ces clients mettent également en cache le contenu. De cette façon, les clients successifs sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients pour des transferts futurs.  
 
-**Pour prendre en charge BranchCache avec Configuration Manager :**  
+**Conditions requises pour prendre en charge BranchCache avec Configuration Manager :**  
+-   **Configurer des points de distribution**  
+    Ajoutez la fonctionnalité **Windows BranchCache** au serveur de système de site qui est configuré en tant que point de distribution.    
 
--   Ajoutez la fonctionnalité **Windows BranchCache** au serveur de système de site qui est configuré en tant que point de distribution.  
-
-    -   Les points de distribution sur les serveurs configurés pour prendre en charge BranchCache ne nécessitent aucune configuration supplémentaire.  
-
+    -   Les points de distribution sur les serveurs configurés pour prendre en charge BranchCache ne nécessitent aucune configuration supplémentaire.   
     -   Vous ne pouvez pas ajouter Windows BranchCache à un point de distribution cloud, mais les points de distribution cloud prennent en charge le téléchargement de contenu par des clients configurés pour Windows BranchCache.  
 
-**Pour permettre aux clients d’utiliser BranchCache :**  
+-   **Configurer des clients :**    
+    -   Les clients pouvant prendre en charge BranchCache doivent être configurés pour le mode de cache distribué de BranchCache.  
+    -   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.   <br /> <br />
+        
+    Pour plus d’informations sur la configuration des clients pour qu’ils prennent en charge BranchCache, consultez la section [Configurer des clients](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) dans [Configurer BranchCache pour les mises à jour Windows 10](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
 
--   Les clients pouvant prendre en charge BranchCache doivent être configurés pour le mode distribué de BranchCache.  
-
--   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.  
 
 **Configuration Manager prend en charge les systèmes d’exploitation clients suivants avec Windows BranchCache :**  
 
@@ -67,7 +70,7 @@ Ces clients mettent également en cache le contenu. De cette façon, les clients
 
  Pour plus d'informations sur BranchCache, consultez [BranchCache pour Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) dans la documentation de Windows Server.  
 
-##  <a name="a-namebkmkworkgroupsa-computers-in-workgroups"></a><a name="bkmk_Workgroups"></a> Ordinateurs dans des groupes de travail  
+##  <a name="bkmk_Workgroups"></a> Ordinateurs dans des groupes de travail  
 Configuration Manager prend en charge les clients dans des groupes de travail.  
 
 -   Configuration Manager prend en charge le déplacement d’un client depuis un groupe de travail vers un domaine, et inversement. Pour plus d’informations, consultez [Guide pratique pour installer des clients Configuration Manager sur des ordinateurs d’un groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) dans la rubrique [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
@@ -76,7 +79,7 @@ Configuration Manager prend en charge les clients dans des groupes de travail.
 >  Les clients des groupes de travail sont pris en charge, mais tous les systèmes de site doivent être membres d’un domaine Active Directory pris en charge.  
 
 
-##  <a name="a-namebkmmkdatadedupa-data-deduplication"></a><a name="bkmmk_datadedup"></a> Déduplication des données  
+##  <a name="bkmmk_datadedup"></a> Déduplication des données  
 Configuration Manager prend en charge l’utilisation de la déduplication des données avec des points de distribution sur les systèmes d’exploitation suivants :  
 
 -   Windows Server 2012  
@@ -88,7 +91,7 @@ Configuration Manager prend en charge l’utilisation de la déduplication des d
 
 Pour plus d’informations, consultez [Points de distribution Configuration Manager et déduplication des données de Windows Server 2012](http://blogs.technet.com/b/configmgrteam/archive/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication.aspx) sur le blog de l’équipe Configuration Manager et [Vue d’ensemble de la déduplication des données](http://technet.microsoft.com/library/hh831602.aspx) dans la bibliothèque TechNet de Windows Server.  
 
-##  <a name="a-namebkmkdaa-directaccess"></a><a name="bkmk_DA"></a> DirectAccess  
+##  <a name="bkmk_DA"></a> DirectAccess  
 Configuration Manager prend en charge la fonctionnalité DirectAccess dans Windows Server 2008 R2 pour la communication entre les serveurs et les clients du système de site.  
 
 -   Quand toutes les exigences pour DirectAccess sont satisfaites, DirectAccess permet aux clients Configuration Manager sur Internet de communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
@@ -103,13 +106,13 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 
 -   Communication entre les serveurs de système de site Configuration Manager au sein d’un site  
 
-##  <a name="a-namebkmkdualboota-dual-boot-computers"></a><a name="bkmk_dualboot"></a> Ordinateurs à double démarrage  
+##  <a name="bkmk_dualboot"></a> Ordinateurs à double démarrage  
  Configuration Manager ne peut pas gérer plusieurs systèmes d’exploitation sur un seul ordinateur. Si plusieurs systèmes d’exploitation sont présents sur un ordinateur à gérer, ajustez les méthodes de découverte et d’installation utilisées, pour garantir que le client Configuration Manager est installé uniquement sur le système d’exploitation qui doit être géré.  
 
-##  <a name="a-namebkmkipv6a-internet-protocol-version-6"></a><a name="bkmk_IPv6"></a> Protocole Internet version 6  
+##  <a name="bkmk_IPv6"></a> Protocole Internet version 6  
  En plus du protocole Internet version 4 (IPv4), Configuration Manager prend en charge le protocole Internet version 6 (IPv6) avec les exceptions suivantes :  
 
-|Fonction|Exception à la prise en charge IPv6|  
+|Fonction| Exception à la prise en charge IPv6|  
 |--------------|-------------------------------|  
 |Points de distribution cloud|IPv4 est requis pour prendre en charge Microsoft Azure et les points de distribution cloud.|  
 |Appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft|IPv4 est requis pour prendre en charge les appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft.|  
@@ -118,10 +121,10 @@ Configuration Manager ne prend pas en charge les éléments suivants sur DirectA
 |Communication avec le proxy de mise en éveil à distance|IPv4 est requis pour prendre en charge les paquets de proxy de mise en éveil du client.|  
 |Windows CE|IPv4 est requis pour prendre en charge le client Configuration Manager sur les appareils Windows CE.|  
 
-##  <a name="a-namebkmknata-network-address-translation"></a><a name="bkmk_NAT"></a> Traduction d’adresses réseau  
+##  <a name="bkmk_NAT"></a> Traduction d’adresses réseau  
  La traduction d’adresses réseau n’est pas prise en charge dans Configuration Manager, sauf si le site prend en charge les clients qui se trouvent sur Internet et que le client détecte qu’ils sont connectés à Internet. Pour plus d’informations sur la gestion des clients Internet, consultez [Planifier la gestion des clients Internet dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
 
-##  <a name="a-namebkmkstoragea-specialized-storage-technology"></a><a name="bkmk_storage"></a> Technologie de stockage spécialisée  
+##  <a name="bkmk_storage"></a> Technologie de stockage spécialisée  
  Configuration Manager est conçu pour fonctionner avec tout matériel approuvé dans la liste de conformité matérielle de Windows pour la version du système d’exploitation sur laquelle le composant Configuration Manager est installé.
 
 Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin que les autorisations sur les répertoires et les fichiers puissent être définies. Comme Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique, les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
@@ -135,9 +138,4 @@ Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin qu
      En outre, le cache d’un client Configuration Manager n’est pas pris en charge sur un volume SIS.  
 
 -   **Lecteur de disque amovible** : Configuration Manager ne prend pas en charge l’installation d’un système de site ou de clients Configuration Manager sur un lecteur de disque amovible.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 
