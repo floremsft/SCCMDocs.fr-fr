@@ -17,9 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 70034213442f4c3d5a28ab65c2ceb51aa64320ad
-ms.openlocfilehash: 207975538b63390fb5789b19c519db89db62e0a5
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0cf2ac6440588ccf4848baa7a195f78e8675447d
+ms.openlocfilehash: c6a1eb9ccaee45eb242fb320cb6b492d1a39d349
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,18 +29,10 @@ ms.lasthandoff: 03/31/2017
 
 Une image de démarrage dans Configuration Manager est une image [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows.  Aidez-vous des informations des sections suivantes pour gérer les images de démarrage.
 
-##  <a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut  
-À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et qu’ensuite vous mettez à jour Configuration Manager avec la dernière version, les images de démarrage par défaut sont mises à jour. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour et la nouvelle version du client Configuration Manager. Toutes les personnalisations restent inchangées. Les images de démarrage personnalisées ne sont pas mises à jour. Avant la version 1702, vous deviez mettre à jour manuellement l’image de démarrage pour utiliser la nouvelle version du Windows ADK.
-
-Quand vous mettez à niveau Configuration Manager vers une nouvelle version majeure par le biais du processus d’installation, Configuration Manager peut mettre à jour les images de démarrage par défaut, ainsi que les images de démarrage personnalisées basées sur les images de démarrage par défaut stockées dans l’emplacement par défaut.
-
-Les options que vous configurez sur les images de démarrage par défaut au niveau du site (par exemple, des composants facultatifs) sont transmises lors de la mise à jour des images de démarrage, dont les pilotes. Les objets pilotes de source doivent être valides, notamment les fichiers sources de pilotes. Autrement, les pilotes ne seront pas ajoutés aux images de démarrage mises à jour sur le site. Les autres images de démarrage non basées sur les images de démarrage par défaut, même si elles sont basées sur la même version de Windows ADK, ne sont pas mises à jour. Une fois les images de démarrage mises à jour, vous devez les redistribuer aux points de distribution. Tout support utilisant les images de démarrage doit être recréé. Si vous ne souhaitez pas que vos images de démarrage par défaut/personnalisées soient automatiquement mises à jour, vous devez les stocker à un autre emplacement.  
-
-
 ## <a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut
 Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64*> ou <*i386*>. Les images de démarrage par défaut sont mises à jour ou régénérées selon l’action que vous effectuez.
 
-**Utiliser les mises à jour et la maintenance pour installer la dernière version de Configuration Manager** À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, ce dernier régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées. 
+**Utiliser les mises à jour et la maintenance pour installer la dernière version de Configuration Manager** À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, ce dernier régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées.
 
 Avant la version 1702, Configuration Manager mettait à jour l’image de démarrage existante (boot.wim) avec les composants du client, les pilotes, les personnalisations, etc. Toutefois, il n’utilisait pas la dernière version de Windows PE du Windows ADK. Vous deviez modifier manuellement l’image de démarrage pour utiliser la nouvelle version du Windows ADK.
 
