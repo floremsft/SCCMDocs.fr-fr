@@ -2,7 +2,7 @@
 title: "Outil de nettoyage de la bibliothèque de contenu | Microsoft Docs"
 description: "Utilisez l’outil de nettoyage de la bibliothèque de contenu pour supprimer le contenu orphelin qui n’est plus associé à un déploiement de System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 4/7/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
-ms.openlocfilehash: 718e9b9eaa2dace2c72b031c244c72ef5f7e7b2f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 32f7fc4ef9c8e8d3c2ec8eeaf9a3174bad992ffb
+ms.openlocfilehash: 76e6772bdd5cbd32d525e728f6ebc988b045da78
+ms.lasthandoff: 04/08/2017
 
 ---
 # <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>Outil de nettoyage de la bibliothèque de contenu pour System Center Configuration Manager
@@ -74,7 +74,7 @@ Les commutateurs de ligne de commande suivants peuvent être utilisés dans n’
 |**/delete**  |**Facultatif** </br> Utilisez ce commutateur quand vous souhaitez supprimer le contenu à partir du point de distribution. Vous êtes invité à confirmer que le contenu doit être supprimé. </br></br> Quand ce commutateur n’est pas utilisé, l’outil enregistre les résultats sur le contenu qui serait supprimé, mais ne supprime pas de contenu du point de distribution. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
 | **/q**       |**Facultatif** </br> Ce commutateur exécute l’outil dans un mode silencieux qui supprime toutes les invites (telles que les invites pour supprimer du contenu), et n’ouvre pas automatiquement le fichier journal. </br></br> Exemple : ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
 | **/dp &lt;nom de domaine complet du point de distribution>**  | **Obligatoire** </br> Spécifiez le nom de domaine complet du point de distribution que vous souhaitez nettoyer. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
-| **/ps &lt;nom de domaine complet du site principal>**       | **Facultatif** lors du nettoyage du contenu à partir d’un point de distribution sur un site principal.</br>**Obligatoire** lors du nettoyage du contenu à partir d’un point de distribution sur un site secondaire. </br></br> Spécifiez le nom de domaine complet du site principal auquel le point de distribution appartient, ou du site principal parent quand le point de distribution est sur un site secondaire. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
+| **/ps &lt;nom de domaine complet du site principal>**       | **Facultatif** lors du nettoyage du contenu à partir d’un point de distribution sur un site principal.</br>**Obligatoire** lors du nettoyage du contenu à partir d’un point de distribution sur un site secondaire. </br></br>L’outil se connecte au site parent principal pour exécuter des requêtes sur SMS_Provider. Ces requêtes permettent à l’outil de déterminer le contenu qui doit être sur le point de distribution, afin de pouvoir identifier le contenu qui est orphelin et peut être supprimé. Cette connexion au site parent principal doit être établie pour les points de distribution sur un site secondaire, car les détails nécessaires ne sont pas accessibles directement à partir du site secondaire.</br></br> Spécifiez le nom de domaine complet du site principal auquel le point de distribution appartient, ou du site principal parent quand le point de distribution est sur un site secondaire. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
 | **/sc &lt;code du site principal>**  | **Facultatif** lors du nettoyage du contenu à partir d’un point de distribution sur un site principal.</br>**Obligatoire** lors du nettoyage du contenu à partir d’un point de distribution sur un site secondaire. </br></br> Spécifiez le code du site principal auquel le point de distribution appartient, ou du site principal parent quand le point de distribution est sur un site secondaire.</br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
 | **/log <log file directory>**       |**Facultatif** </br> Spécifiez l’emplacement d’écriture du fichier journal par l’outil. Il peut s’agir d’un lecteur local ou d’un emplacement sur un partage réseau.</br></br> Lorsque ce commutateur n’est pas utilisé, le fichier journal est placé dans le dossier temporaire de l’utilisateur, sur l’ordinateur où s’exécute l’outil.</br></br> Exemple de lecteur local : ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemple de partage réseau : ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\&lt;partage>\&lt;dossier>***|
 

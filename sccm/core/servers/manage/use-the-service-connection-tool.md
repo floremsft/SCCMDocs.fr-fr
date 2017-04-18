@@ -2,7 +2,7 @@
 title: Outil de connexion de service | Microsoft Docs
 description: "En savoir plus sur cet outil qui vous permet d’établir une connexion au service cloud Configuration Manager pour charger manuellement les informations d’utilisation."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 4/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 7a9c5bb9890b00cf3485998aa46286c890429cc0
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 32f7fc4ef9c8e8d3c2ec8eeaf9a3174bad992ffb
+ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
+ms.lasthandoff: 04/08/2017
 
 
 ---
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/27/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Utilisez l’ **outil de connexion de service** si vos serveurs de système de site Configuration Manager ne sont pas connectés à Internet, mais que vous souhaitez quand même rester informé des dernières mises à jour de Configuration Manager.  
+Utilisez l’**Outil de connexion de service** quand votre point de connexion de service est en mode hors connexion ou quand vos serveurs de système de site Configuration Manager ne sont pas connectés à Internet. Cet outil peut vous aider à tenir votre site à jour avec les dernières mises à jour pour Configuration Manager.  
 
- L’outil vous permet d’établir une connexion au service cloud Configuration Manager pour charger manuellement les informations d’utilisation de votre hiérarchie et télécharger des mises à jour. Le chargement de données d’utilisation est nécessaire pour que le service cloud vous propose les mises à jour adaptées à votre déploiement.  
+Quand vous l’exécutez, il se connecte manuellement au service cloud Configuration Manager pour charger les informations d’utilisation relatives à votre hiérarchie et pour télécharger des mises à jour. Le chargement de données d’utilisation est nécessaire pour que le service cloud vous propose les mises à jour adaptées à votre déploiement.  
 
 ## <a name="prerequisites-for-using-the-service-connection-tool"></a>Prérequis pour utiliser l’outil de connexion de service
 Voici la liste des prérequis et des problèmes connus.
@@ -85,11 +85,11 @@ Vous devez également copier le dossier ServiceConnectionTool avec tout son cont
 ### <a name="overview"></a>Vue d'ensemble
 **L’utilisation de l’outil de connexion de service nécessite trois étapes principales :**  
 
-1.  **Préparation**: cette étape place les données d’utilisation dans un fichier .cab et les stocke sur un lecteur USB (ou dans un autre emplacement de transfert spécifié).  
+1.  **Préparation** : cette étape doit être exécutée sur l’ordinateur hébergeant le point de connexion de service. Quand vous exécutez l’outil, il place les données d’utilisation dans un fichier .cab et les stocke sur un lecteur USB (ou dans un autre emplacement de transfert spécifié).  
 
-2.  **Connexion**: cette étape vous invite à exécuter l’outil sur un ordinateur distant qui se connecte à Internet pour charger les données et télécharger les mises à jour.  
+2.  **Connexion** : lors de cette étape, vous exécutez l’outil sur un ordinateur distant qui se connecte à Internet pour charger les données d’utilisation puis télécharger les mises à jour.  
 
-3.  **Importation** : cette étape importe les mises à jour pour Configuration Manager dans votre site pour que vous puissiez ensuite les afficher et les installer à partir de la console Configuration Manager.  
+3.  **Importation** : cette étape doit être exécutée sur l’ordinateur hébergeant le point de connexion de service. Quand vous exécutez l’outil, il importe les données que vous avez téléchargées et les ajoute à votre site pour que vous puissiez ensuite afficher et installer ces mises à jour à partir de la console Configuration Manager.  
 
 À compter de la version 1606, quand vous vous connectez à Microsoft, vous pouvez charger plusieurs fichiers .cab à la fois (chacun à partir d’une hiérarchie différente) et spécifier un serveur proxy et un utilisateur du serveur proxy.   
 

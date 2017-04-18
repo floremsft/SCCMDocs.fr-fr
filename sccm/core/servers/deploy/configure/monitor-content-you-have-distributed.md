@@ -16,8 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3b387d78e03cc2d1c535e52016d2de4945328f72
-ms.openlocfilehash: c51cf3b3b7563a82db40405677c2edfb6de47cf1
+ms.sourcegitcommit: d7b13f3dea5a3ae413ca6b8150ec24e1632a4d4d
+ms.openlocfilehash: 7496c8bf11d058c94bc36fd28e9557b6470b61f1
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Surveiller le contenu que vous avez distribué avec System Center Configuration Manager
@@ -35,7 +36,7 @@ Utilisez la console System Center Configuration Manager pour surveiller le conte
 > [!NOTE]  
 >  Configuration Manager surveille uniquement le contenu d’un point de distribution situé dans la bibliothèque de contenu. Le contenu stocké sur le point de distribution au sein de packages ou de partages personnalisés n'est pas surveillé.  
 
-##  <a name="a-namebkmkcontentstatusa-content-status-monitoring"></a><a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
+##  <a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
  Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Dans la console Configuration Manager, vous pouvez examiner les informations suivantes :  
 
 -   Nom du package.  
@@ -151,12 +152,12 @@ Pour afficher l'état de configuration du point de distribution, procédez comme
 4.  Dans le volet des résultats, cliquez sur l'onglet **Détails** . Des informations d'état pour le point de distribution sont affichées.  
 
 ## <a name="client-data-sources-dashboard"></a>Tableau de bord Sources de données du client
-À compter de la version 1610, vous pouvez utiliser le tableau de bord **Sources de données du client** pour comprendre l’utilisation du [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) dans votre environnement. Pour que ce tableau de bord soit visible dans la console, les clients doivent d’abord télécharger le contenu à l’aide du cache de pair et renvoyer ces informations au site. Cette opération peut prendre jusqu’à 24 heures.
+À compter de la version 1610, vous pouvez utiliser le tableau de bord **Sources de données du client** pour comprendre l’utilisation du [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) dans votre environnement. Le tableau de bord commencera à afficher des données une fois que les clients auront téléchargé du contenu, et signalera ces informations au site. Cette opération peut prendre jusqu’à 24 heures.
 
 > [!TIP]  
-> Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+> Avec la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Le tableau de bord **Sources de données du client** est visible uniquement une fois que vous l’avez activé. L’affichage des données peut commencer jusqu’à 24 heures après l’activation du tableau de bord. 
 
-Dans la console, accédez à **Analyse** > **État du client** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.
+Dans la console, accédez à **Surveillance** > **État de distribution** > **Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.
 
 Ces détails incluent :  
 - **Sources de contenu pour les clients** : affiche les sources à partir desquelles les clients ont obtenu du contenu.
@@ -168,9 +169,4 @@ Ces détails incluent :
 
 
 Vous pouvez également utiliser un nouveau rapport, **Sources de données du client - Résumé**, pour afficher une synthèse des sources de données du client pour chaque groupe de limites.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

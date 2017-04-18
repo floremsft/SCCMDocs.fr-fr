@@ -16,9 +16,9 @@ author: brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
-ms.openlocfilehash: 188c6b1d7ae7768bb4075688d7d47607ee83be17
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 2cdd25343cf68a79067a317b820572491a3633a2
+ms.openlocfilehash: 84d6fdcec2c539f0fd3043f01d18e165da8c52c9
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="support-for-windows-10-as-a-client-of-system-center-configuration-manager"></a>Prise en charge de Windows 10 comme client de System Center Configuration Manager
@@ -43,8 +43,9 @@ Par exemple, une version de Configuration Manager sera supprimée de la matrice 
 |1507 <br />(*voir éditions*)            |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
 |1511 (CB), (CBB)<br />(*voir éditions*) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
 |Entreprise 2016 LTSB                   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|1607 (CB)    <br />(*voir éditions*)      |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
-|1607 (CBB)    <br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1607 (CB)    <br />Mise à jour anniversaire<br />(*voir éditions*)      |![Compatibilité descendante](media/blue_compat.png) |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1607 (CBB)    <br />Mise à jour anniversaire<br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Pris en charge](media/green_check.png) |![Pris en charge](media/green_check.png) |
+|1703 (CBB)    <br />Creators Update<br />(*voir éditions*)      |![Non pris en charge](media/Red_X.png)   |![Non pris en charge](media/Red_X.png) |![Compatibilité descendante](media/blue_compat.png) |
 
 
 

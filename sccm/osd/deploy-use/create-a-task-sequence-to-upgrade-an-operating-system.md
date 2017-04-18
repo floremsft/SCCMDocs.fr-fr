@@ -16,9 +16,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 88a72259bca79f2fa985e86cb57ec7a974bad24d
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: d7b13f3dea5a3ae413ca6b8150ec24e1632a4d4d
+ms.openlocfilehash: e63b639836bc38a030a051e80db4b057ab75a0b0
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -74,7 +74,7 @@ Dans System Center Configuration Manager, les séquences de tâches permettent d
 
 
 ## <a name="configure-pre-cache-content"></a>Configurer la mise en cache préalable du contenu
-À partir de la version 1702, vous pouvez choisir d’utiliser la fonctionnalité de mise en cache préalable des séquences de tâches et des déploiements disponibles. De cette façon, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
+À partir de la version 1702, vous pouvez choisir d’utiliser la fonctionnalité de mise en cache préalable pour les déploiements disponibles des séquences de tâches. Ainsi, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
 > [!TIP]  
 > La mise en cache préalable, introduite avec la version 1702, est en version préliminaire. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 

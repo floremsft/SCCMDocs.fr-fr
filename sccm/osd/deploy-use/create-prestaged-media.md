@@ -2,7 +2,7 @@
 title: "Créer un média préparé avec System Center Configuration Manager | Microsoft Docs"
 description: "Créer un média préparé dans System Center Configuration Manager pour simplifier le déploiement de Windows dans plusieurs scénarios."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 56cfc5837adf986e5d2bf4a73ef9de3b1f60b4f9
+ms.sourcegitcommit: ae9488a34c6b1e04397c4875de4b3bc607f7116c
+ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -36,7 +37,7 @@ Un média préparé contient l'image de démarrage utilisée pour démarrer l'or
 
  Quand l’ordinateur démarre pour la première fois après l’application du média préparé, il démarre Windows PE et se connecte à un point de gestion pour localiser la séquence de tâches qui finalise le processus de déploiement du système d’exploitation. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Lorsque vous déployez une séquence de tâches qui fait appel à un média préparé, l'Assistant vérifie tout d'abord que le contenu du cache local de la séquence de tâches est valide. Si ce contenu est introuvable ou a été modifié, l'Assistant télécharge le contenu auprès du point de distribution.  
 
-##  <a name="a-namebkmkcreateprestagedmediaa-how-to-create-prestaged-media"></a><a name="BKMK_CreatePrestagedMedia"></a> Comment créer un média préparé  
+##  <a name="BKMK_CreatePrestagedMedia"></a> Comment créer un média préparé  
  Avant de créer un média préparé à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que toutes les conditions suivantes sont remplies :  
 
 |Tâche|Description|  
@@ -47,7 +48,7 @@ Un média préparé contient l'image de démarrage utilisée pour démarrer l'or
 |Disque dur de l’ordinateur de destination|Le disque dur de l’ordinateur de destination doit être formaté avant que le support préparé soit préparé sur le disque dur de l’ordinateur. Si le disque dur n'est pas formaté lorsque le média est appliqué, la séquence de tâches qui déploie le système d'exploitation échouera lorsqu'elle tentera de démarrer l'ordinateur de destination.|  
 
 > [!NOTE]  
->  L'Assistant Création d'un média de séquence de tâches définit la condition de variable de séquence de tâches suivante sur le média : **_SMSTSMedia = OEMMedia**. Vous pouvez utiliser cette condition dans votre séquence de tâches.  
+>  L’Assistant Création d’un média de séquence de tâches définit la condition de variable de séquence de tâches suivante sur le média : **_SMSTSMediaType = OEMMedia**. Vous pouvez utiliser cette condition dans votre séquence de tâches.  
 
  Pour créer des médias préparés, appliquez la procédure suivante.  
 
@@ -143,9 +144,4 @@ Un média préparé contient l'image de démarrage utilisée pour démarrer l'or
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
