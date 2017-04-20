@@ -2,7 +2,7 @@
 title: "Créer des applications serveur Linux et UNIX | Documents Microsoft"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Linux et Unix."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,8 +16,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: b599a58f25a868c638b7ee00cefff80b2f71244e
-ms.openlocfilehash: f4373c888434aa6cd22e5f9b871e172cc50a7d30
+ms.sourcegitcommit: 4b9261db93c9bf72c492e3c9be5b30f81835134a
+ms.openlocfilehash: 72ebd8bd29b5ecdd817631e447291c04f49d9808
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -145,7 +146,7 @@ Le tableau suivant répertorie les propriétés pour packages et programmes qui 
 
     -   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
 
-    -   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
+    -   **Taux de transfert maximal en dehors de la fenêtre de limitation (Kbit/s)**  
 
 La configuration suivante pour le Transfert intelligent en arrière-plan n'est pas prise en charge et est ignorée par le client pour Linux et UNIX :  
 
@@ -164,9 +165,4 @@ La configuration suivante pour le Transfert intelligent en arrière-plan n'est p
 
 > [!TIP]  
 >  Si le logiciel que vous voulez déployer est situé sur un partage NFS (Network File System) accessible au serveur Linux ou UNIX, vous n'avez pas besoin d'utiliser de point de distribution pour télécharger le package. En revanche, au moment de créer le package, n'activez pas la case à cocher **Ce package contient des fichiers sources**. Ensuite, lors de la configuration du programme, spécifiez la ligne de commande appropriée pour accéder directement au package sur le point de montage NFS.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
