@@ -67,6 +67,7 @@
 
 ##   [Planifier l’infrastructure réseau](plan-design/network/configure-firewalls-ports-domains.md)
 ###  [Préparer le schéma Active Directory](plan-design/network/extend-the-active-directory-schema.md)
+#### [Extensions de schéma](plan-design/network/schema-extensions.md)
 ###  [Préparer les serveurs Windows à prendre en charge les systèmes de site](plan-design/network/prepare-windows-servers.md)
 ###  [Sites web pour les serveurs de système de site](plan-design/network/websites-for-site-system-servers.md)
 ###  [Configuration requise des certificats PKI](plan-design/network/pki-certificate-requirements.md)
@@ -138,8 +139,10 @@
 ##   Installer l’infrastructure
 ###  [Obtenir le média d’installation](servers/deploy/install/get-install-media.md)
 ###  Avant d’exécuter le programme d’installation
+#### [Référence sur l’installation](servers/deploy/install/setup-reference.md)
 #### [Téléchargeur d’installation](servers/deploy/install/setup-downloader.md)
 #### [Outil de vérification de la configuration requise](servers/deploy/install/prerequisite-checker.md)
+#### [Vérification des conditions préalables](servers/deploy/install/list-of-prerequisite-checks.md)
 ###  [Installation de sites](servers/deploy/install/installing-sites.md)
 #### [Préparer l’installation des sites](servers/deploy/install/prepare-to-install-sites.md)
 #### [Prérequis à l’installation des sites](servers/deploy/install/prerequisites-for-installing-sites.md)
@@ -150,6 +153,7 @@
 #### [Mettre à niveau une installation d’évaluation](servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md)
 #### [Mettre à niveau vers System Center Configuration Manager](servers/deploy/install/upgrade-to-configuration-manager.md)
 #### [Scénarios pour rationaliser votre installation](servers/deploy/install/scenarios-to-streamline-your-installation.md)
+#### [Désinstallation des sites et des hiérarchies](servers/deploy/install/uninstall-sites-and-hierarchies.md)
 
 ##   [Configurer des sites et des hiérarchies](servers/deploy/configure/configure-sites-and-hierarchies.md)
 ###  [Ajouter des rôles système de site](servers/deploy/configure/add-site-system-roles.md)
@@ -171,10 +175,24 @@
 ###  [Limites de site et groupes de limites](servers/deploy/configure/define-site-boundaries-and-boundary-groups.md)
 #### [Limites](servers/deploy/configure/boundaries.md)
 #### [Groupes de limites](servers/deploy/configure/boundary-groups.md)
+#### [Groupes de limites pour les versions antérieures à 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
 ###  [Utiliser SQL Server AlwaysOn](servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md)
 ###  [Utiliser un cluster SQL Server](servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md)
 ###  [Emplacements personnalisés pour les fichiers de base de données](servers/deploy/configure/custom-locations-for-site-database-files.md)
 ###  [Configurer l’administration basée sur des rôles](servers/deploy/configure/configure-role-based-administration.md)
+##   Informations techniques de référence
+###  [Comptes](plan-design/hierarchy/accounts.md)
+###  [Communications entre points de terminaison](plan-design/hierarchy/communications-between-endpoints.md)
+###  [Outil Maintenance de la hiérarchie](servers/manage/hierarchy-maintenance-tool-preinst.exe.md)
+###  [Prise en charge internationale](plan-design/hierarchy/international-support.md)
+###  [Interopérabilité entre les différentes versions](plan-design/hierarchy/interoperability-between-different-versions.md)
+###  [Modules linguistiques](servers/deploy/install/language-packs.md)
+###  [Fichiers journaux](plan-design/hierarchy/log-files.md)
+###  [Ports](plan-design/hierarchy/ports.md)
+###  [Prise en charge du serveur proxy](plan-design/network/proxy-server-support.md)
+###  [Notes de publication](servers/deploy/install/release-notes.md)
+###  [Prise en charge Unicode et ASCII](plan-design/hierarchy/unicode-and-ascii-support.md)
+
 
 #    Gérer l’infrastructure
 ##   [Tâches de maintenance](servers/manage/maintenance-tasks.md)
