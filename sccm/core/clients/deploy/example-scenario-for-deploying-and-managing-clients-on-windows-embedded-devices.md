@@ -2,7 +2,7 @@
 title: "Exemple de scénario : Déployer des clients Windows Embedded | Microsoft Docs"
 description: "Consultez un exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded."
 ms.custom: na
-ms.date: 01/12/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na

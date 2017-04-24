@@ -2,7 +2,7 @@
 title: "Sécurité et confidentialité pour la gestion de l’alimentation | Microsoft Docs"
 description: "Obtenir des informations de sécurité et de confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -19,6 +19,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: f72059973057e707f58cb6b7aa495226b6c1962c
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -37,9 +38,4 @@ Cette section contient des informations de sécurité et de confidentialité pou
  Les informations sur la consommation d’énergie sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations détaillées sont conservées dans la base de données pendant 31 jours et les informations résumées sont conservées pendant 13 mois. Vous ne pouvez pas configurer l'intervalle de suppression.  
 
  Avant de configurer la gestion de l'alimentation, pensez à vos besoins en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

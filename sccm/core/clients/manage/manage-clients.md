@@ -2,7 +2,7 @@
 title: "Gérer les clients | Microsoft Docs"
 description: "Découvrez comment gérer les clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 01/04/2017
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3986a992-c175-4b6f-922e-fc561e3d7cb7
 caps.latest.revision: 17
-author: arob98
-ms.author: angrobe
+author: robstackmsft
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 19e111e0cb174f11ad08f98d2516e52c4c183d86
@@ -35,7 +35,7 @@ Une fois qu’un client System Center Configuration Manager a été installé et
 >   
 >  Examinez la colonne **Client** dans la console Configuration Manager pour savoir si le client Configuration Manager est installé et si vous pouvez donc le gérer à partir de la console Configuration Manager.  
 
-##  <a name="a-namebkmkmanagingclientsdevicesnodea-manage-clients-from-the-devices-node"></a><a name="BKMK_ManagingClients_DevicesNode"></a> Gérer les clients à partir du nœud Appareils  
+##  <a name="BKMK_ManagingClients_DevicesNode"></a> Gérer les clients à partir du nœud Appareils  
 
 Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas être disponibles.  
 
@@ -153,7 +153,7 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 
          Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-##  <a name="a-namebkmkmanagingclientsdevicecollectionsnodea-manage-clients-from-the-device-collections-node"></a><a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
+##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
   Un grand nombre des tâches que vous pouvez réaliser sur un seul appareil ou sur plusieurs appareils dans le nœud **Appareils** peuvent être réalisées sur des regroupements. Ceci s’applique automatiquement l’opération à tous les appareils éligibles du regroupement. Notez que ceci génère un grand nombre de paquets réseau et augmente l’utilisation de l’UC sur le serveur de site.  
 
   Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre de périphériques dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les périphériques. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
@@ -186,7 +186,7 @@ Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas �
 
          Les tâches de notification de client s'affichent dans le nœud **Opérations du client** de l'espace de travail **Surveillance** .  
 
-##  <a name="a-namebkmkclientcachea-configure-the-client-cache-for-configuration-manager-clients"></a><a name="BKMK_ClientCache"></a> Configurer le cache du client pour les clients Configuration Manager  
+##  <a name="BKMK_ClientCache"></a> Configurer le cache du client pour les clients Configuration Manager  
 Le cache du client stocke les fichiers temporaires utilisés lors de l’installation d’applications et de programmes par les clients. Les mises à jour logicielles utilisent également le cache du client, mais elles ne sont pas limitées par la taille configurée pour le cache et tenteront toujours de télécharger vers le cache. Vous pouvez configurer les paramètres du cache du client, comme la taille et l’emplacement, quand vous installez manuellement le client Configuration Manager, quand vous utilisez une installation Push du client ou après que le client a été installé.
 
 Depuis Configuration Manager version 1606, vous pouvez spécifier la taille du dossier du cache en utilisant les paramètres client dans la console Configuration Manager.   
@@ -275,7 +275,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 
      Le client Configuration Manager configurera la taille du cache avec ces paramètres lors du téléchargement de la stratégie client suivante.
 
-##  <a name="a-namebkmkuninstalclienta-uninstall-the-configuration-manager-client"></a><a name="BKMK_UninstalClient"></a> Désinstaller le client Configuration Manager  
+##  <a name="BKMK_UninstalClient"></a> Désinstaller le client Configuration Manager  
  Vous pouvez désinstaller le client Configuration Manager d’un ordinateur Windows en exécutant **CCMSetup.exe** avec la propriété **/Uninstall**. Exécutez CCMSetup.exe sur un ordinateur individuel à partir de l'invite de commande ou déployez un package et un programme pour désinstaller le client pour un regroupement d'ordinateurs.  
 
 > [!WARNING]  
@@ -290,7 +290,7 @@ Pour plus d’informations sur l’utilisation de ces propriétés de ligne de c
 > [!NOTE]  
 >  Le processus de désinstallation n’affiche pas de résultats à l’écran. Pour vérifier que la désinstallation du client s’est déroulée correctement, examinez le fichier journal **CCMSetup.log** dans le dossier *%windir%\ ccmsetup* de l’ordinateur client.  
 
-##  <a name="a-namebkmkconflictingrecordsa-manage-conflicting-records-for-configuration-manager-clients"></a><a name="BKMK_ConflictingRecords"></a> Gérer les enregistrements en conflit pour les clients Configuration Manager  
+##  <a name="BKMK_ConflictingRecords"></a> Gérer les enregistrements en conflit pour les clients Configuration Manager  
  Configuration Manager utilise l’ID du matériel pour tenter d’identifier les éventuels clients dupliqués et vous signale les conflits d’enregistrement qu’il trouve. Par exemple, si vous réinstallez un ordinateur, il est possible que l’ID du matériel soit le même, mais que le GUID utilisé par Configuration Manager soit différent.  
 
  Si Configuration Manager peut résoudre un conflit en utilisant l’authentification Windows du compte d’ordinateur ou un certificat PKI émis par une source approuvée, le conflit est résolu automatiquement. Si Configuration Manager ne peut pas résoudre le conflit, il utilise un paramètre de hiérarchie qui fusionne automatiquement les enregistrements avec le même ID de matériel qu’il a détectés (il s’agit du paramètre par défaut) ou qui vous laisse le choix de fusionner ou de bloquer les enregistrements du client, ou d’en créer d’autres. Si vous décidez de gérer manuellement les enregistrements en doublon, vous devez résoudre vous-même les enregistrements en conflit dans la console Configuration Manager.  
@@ -326,7 +326,7 @@ Depuis Configuration Manager version 1610, vous pouvez fournir la liste des ID 
 2. Sous l’onglet **Accueil**, dans le groupe **Sites**, choisissez **Paramètres de hiérarchie**.
 3. Sous l’onglet **Approbation client et enregistrements en conflit**, choisissez **Ajouter** dans la section **Identificateurs de matériel en doublon** pour ajouter de nouveaux identificateurs de matériel.
 
-##  <a name="a-namebkmkpolicyretrievala-initiate-policy-retrieval-for-a-configuration-manager-client"></a><a name="BKMK_PolicyRetrieval"></a> Lancer une récupération de stratégie pour un client Configuration Manager  
+##  <a name="BKMK_PolicyRetrieval"></a> Lancer une récupération de stratégie pour un client Configuration Manager  
  Sur Windows, un client Configuration Manager télécharge sa stratégie client selon un calendrier que vous configurez comme paramètre du client. Il se peut cependant que dans certaines situations vous souhaitiez lancer une récupération de stratégie ad hoc à partir du client, par exemple dans un scénario de résolution de problème ou de test.  
 
 Vous pouvez lancer une récupération de stratégie en utilisant :

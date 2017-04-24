@@ -2,7 +2,7 @@
 title: "Configurer l’état du client | Microsoft Docs"
 description: "Sélectionnez les paramètres d’état du client dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,8 +13,8 @@ ms.topic: get-started-article
 ms.assetid: a2275ba2-c83d-43e7-90ed-418963a707fe
 caps.latest.revision: 6
 caps.handback.revision: 0
-author: arob98
-ms.author: angrobe
+author: robstackmsft
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/16/2016
 
 Afin de surveiller l’état du client System Center Configuration Manager et de corriger les problèmes rencontrés, vous devez configurer votre site pour spécifier les paramètres qui sont utilisés pour marquer des clients comme inactifs et configurer des options pour vous avertir si l’activité du client passe sous un seuil spécifié. Il est également possible de désactiver la résolution automatique par les ordinateurs des problèmes rencontrés par l'état du client.  
 
-##  <a name="a-namebkmk1a-to-configure-client-status"></a><a name="BKMK_1"></a> Pour configurer l’état du client  
+##  <a name="BKMK_1"></a> Pour configurer l’état du client  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
@@ -56,7 +56,7 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
 
 5.  Cliquez sur **OK** pour enregistrer les propriétés et fermer la boîte de dialogue **Propriétés des paramètres d'état des clients** .  
 
-##  <a name="a-namebkmkschedulea-to-configure-the-schedule-for-client-status"></a><a name="BKMK_Schedule"></a> Pour configurer le calendrier de l’état du client  
+##  <a name="BKMK_Schedule"></a> Pour configurer le calendrier de l’état du client  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
@@ -67,7 +67,7 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
     > [!NOTE]  
     >  Lorsque vous modifiez la planification des mises à jour de l'état des clients, la mise à jour ne prend effet que lors de la mise à jour de l'état des clients suivante (selon le calendrier précédemment configuré).  
 
-##  <a name="a-namebkmk2a-to-configure-alerts-for-client-status"></a><a name="BKMK_2"></a> Pour configurer des alertes liées à l’état du client  
+##  <a name="BKMK_2"></a> Pour configurer des alertes liées à l’état du client  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -95,7 +95,7 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
 
 7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de ***&lt;Nom du regroupement\>*.  
 
-##  <a name="a-namebkmk3a-to-exclude-computers-from-automatic-remediation"></a><a name="BKMK_3"></a> Pour exclure des ordinateurs de la résolution automatique  
+##  <a name="BKMK_3"></a> Pour exclure des ordinateurs de la résolution automatique  
 
 1.  Ouvrez l'éditeur du Registre sur l'ordinateur client pour lequel vous souhaitez désactiver la résolution automatique.  
 

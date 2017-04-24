@@ -2,7 +2,7 @@
 title: "Affecter des clients à un site | Microsoft Docs"
 description: "Affecter des clients à un site dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/16/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ba9b623f-6e86-4006-93f2-83d563de0cd0
 caps.latest.revision: 10
-author: arob98
-ms.author: angrobe
+author: robstackmsft
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 08afca8b422474639cbdb860e555fe0da27361a4
@@ -56,7 +56,7 @@ En cas d’échec de l’attribution du client, le logiciel client reste install
 > [!NOTE]  
 >  Si vous attribuez manuellement un ordinateur client à un code de site Configuration Manager qui n'existe pas, l'attribution de site échoue.   
 
-##  <a name="a-namebkmkautomaticassignmenta-using-automatic-site-assignment-for-computers"></a><a name="BKMK_AutomaticAssignment"></a> Utilisation de l'attribution automatique de site pour les ordinateurs  
+##  <a name="BKMK_AutomaticAssignment"></a> Utilisation de l'attribution automatique de site pour les ordinateurs  
  L'attribution automatique de site peut se produire lors du déploiement du client ou lorsque vous cliquez sur **Rechercher un site** sous l'onglet **Avancé** des **Propriétés du Configuration Manager** dans le panneau de configuration. Le client Configuration Manager compare son propre emplacement réseau avec les limites qui sont configurées dans la hiérarchie Configuration Manager. Lorsque l'emplacement réseau du client se situe dans un groupe de limites qui est activé pour l'attribution de site ou lorsque la hiérarchie est configurée pour un site de secours, le client est automatiquement affecté à ce site sans que vous deviez spécifier un code de site.  
 
  Vous pouvez configurer des limites à l'aide de l'un ou de plusieurs des éléments suivants :  

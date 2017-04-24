@@ -2,7 +2,7 @@
 title: Services de composants et leurs commandes sur des clients UNIX/Linux | Microsoft Docs
 description: En savoir plus sur les services de composants et leurs commandes sur des clients Linux et UNIX dans System Center Configuration Manager.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na

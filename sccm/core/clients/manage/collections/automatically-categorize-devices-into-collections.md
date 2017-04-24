@@ -2,7 +2,7 @@
 title: Classer automatiquement des appareils dans des regroupements | Microsoft Docs
 description: Classez automatiquement des appareils dans des regroupements avec System Center Configuration Manager.
 ms.custom: na
-ms.date: 01/07/2016
+ms.date: 04/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -18,6 +18,7 @@ manager: angrobe
 translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: b1bac05e9335dd757b8f499f97daea24e0f4acbd
+ms.lasthandoff: 01/03/2017
 
 ---
 # <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Classer automatiquement des appareils dans des regroupements avec System Center Configuration Manager
@@ -55,9 +56,4 @@ Dans **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**, dans 
 Si la colonne **Catégorie d’appareil** n’est pas affichée, cliquez avec le bouton droit sur l’en-tête de l’une des colonnes dans la liste **Appareils** (comme **Nom**), puis sélectionnez **Catégorie d’appareil**.
 
 Si vous affectez un appareil à une catégorie, puis supprimez par la suite cette catégorie, le rapport **Liste des appareils inscrits par utilisateur dans Microsoft Intune** affichera un GUID dans la colonne **Catégorie d’appareil** au lieu d’un nom de catégorie.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

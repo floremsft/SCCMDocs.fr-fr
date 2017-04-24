@@ -2,7 +2,7 @@
 title: "Tâches de déploiement du client pour System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez comment déployer et configurer les clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
