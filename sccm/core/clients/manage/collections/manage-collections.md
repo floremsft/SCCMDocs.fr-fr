@@ -2,7 +2,7 @@
 title: "Gérer des regroupements | Microsoft Docs"
 description: "Découvrez comment effectuer les principales tâches de gestion des regroupements dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 2/22/2017
+ms.date: 4/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: b41b50c75f1b89c8fc712b53988bd8e24813106d
+ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
+ms.openlocfilehash: 4d44f98eb0755619cdd2101203a13725186b835b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -40,7 +41,7 @@ Aidez-vous des informations générales de cette rubrique pour effectuer les tâ
 |---------------------|-------------|----------------------|  
 |**Afficher les membres**|Affiche toutes les ressources qui sont membres du regroupement sélectionné dans un nœud temporaire sous le nœud **Périphériques** .|Aucune information supplémentaire.|  
 |**Ajouter les éléments sélectionnés**|Fournit les options suivantes pour exécuter l'une des actions suivantes :<br /><br /> - <br />                    **Ajouter des éléments sélectionnés à un regroupement d’appareils existant** : ouvre la boîte de dialogue **Sélectionner un regroupement**, où vous pouvez sélectionner le regroupement auquel vous souhaitez ajouter les membres du regroupement sélectionné. Le regroupement sélectionné est inclus dans ce regroupement grâce à la règle d'adhésion **Inclure des regroupements** .<br /><br /> - **Ajouter des éléments sélectionnés au nouveau regroupement d’appareils** : ouvre l’**Assistant Création d’un regroupement de périphériques** à partir duquel vous pouvez créer un nouveau regroupement. Le regroupement sélectionné est inclus dans ce regroupement grâce à la règle d'adhésion **Inclure des regroupements** .|[Guide pratique pour créer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md)|  
-|**Installer le client**|Ouvre l’**Assistant Installation du client** qui utilise la méthode d’installation push du client pour installer un client Configuration Manager sur tous les ordinateurs du regroupement sélectionné.|[Tâches de déploiement du client pour System Center Configuration Manager](../../../../core/clients/deploy/client-deployment-tasks.md)|  
+|**Installer le client**|Ouvre l’**Assistant Installation du client** qui utilise la méthode d’installation push du client pour installer un client Configuration Manager sur tous les ordinateurs du regroupement sélectionné.|[Guide pratique pour déployer des clients sur des ordinateurs Windows](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)|  
 |**Gérer les demandes d'affinité**|Ouvre la boîte de dialogue **Gérer les demandes d'affinité entre périphérique et utilisateur** où vous pouvez approuver ou rejeter les demandes en attente pour établir des affinités des périphériques d'utilisateur pour les périphériques du regroupement sélectionné.|[Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md)|  
 |**Effacer les déploiements PXE requis**|Efface tous les déploiements de démarrage PXE requis à partir de tous les membres du regroupement sélectionné.|[Introduction au déploiement de systèmes d’exploitation](../../../../osd/understand/introduction-to-operating-system-deployment.md)|  
 |**Mettre à jour l'adhésion**|Évalue l'adhésion pour le regroupement sélectionné. Pour les regroupements comportant de nombreux membres, l'exécution de cette mise à jour peut durer un certain temps. Utilisez l'action **Actualiser** pour mettre à jour l'affichage avec les nouveaux membres des regroupements une fois la mise à jour terminée.|Aucune information supplémentaire.|  
@@ -71,7 +72,7 @@ Aidez-vous des informations générales de cette rubrique pour effectuer les tâ
 |**Simuler un déploiement**|Ouvre l' **Assistant Simuler un déploiement d'application** , qui vous permet de tester les résultats du déploiement d'une application sans installer ou désinstaller l'application.|[Comment simuler des déploiements d’applications avec System Center Configuration Manager](../../../../apps/deploy-use/simulate-application-deployments.md)|  
 |**Déployer**|Affiche les options suivantes :<br /><br /> - **Application** : ouvre l’**Assistant Déploiement logiciel**, où vous pouvez sélectionner et configurer le déploiement d’une application vers le regroupement sélectionné.<br /><br /> - <br />                    **Programme** : ouvre l' **Assistant Déploiement logiciel** , où vous pouvez sélectionner et configurer le déploiement d'un package et d'un programme vers le regroupement sélectionné.<br /><br /> - **Ligne de base de configuration** : ouvre la boîte de dialogue **Déployer des lignes de base de configuration**, dans laquelle vous pouvez configurer le déploiement d’une ou de plusieurs bases de référence de configuration vers le regroupement sélectionné.|[Déployer des applications avec System Center Configuration Manager](../../../../apps/deploy-use/deploy-applications.md)<br /><br /> [Packages et programmes dans System Center Configuration Manager](../../../../apps/deploy-use/packages-and-programs.md)<br /><br /> [Comment déployer des bases de référence de configuration dans System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md)|  
 
-##  <a name="a-namebkmkcollpropa-collection-properties"></a><a name="BKMK_CollProp"></a> Propriétés d’un regroupement  
+##  <a name="BKMK_CollProp"></a> Propriétés d’un regroupement  
  Lorsque vous ouvrez la boîte de dialogue **Propriétés** pour un regroupement, vous pouvez afficher et configurer les propriétés suivantes pour un regroupement  
 
 |Nom de l'onglet|Plus d'informations|  
@@ -85,9 +86,4 @@ Aidez-vous des informations générales de cette rubrique pour effectuer les tâ
 |**Groupes de points de distribution**|Permet d'associer un ou plusieurs groupes de points de distribution aux membres du regroupement sélectionné. Pour plus d’informations, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
 |**Sécurité**|Affiche les utilisateurs administratifs qui disposent d'autorisations pour le regroupement sélectionné à partir de rôles associés et d'étendues de sécurité.|  
 |**Analyse**|Permet de configurer le moment où des alertes sont générées pour l'état du client et Endpoint Protection. Pour plus d’informations, consultez [Guide pratique pour configurer l’état du client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-status.md)et [Guide pratique pour surveiller Endpoint Protection dans System Center Configuration Manager](../../../../protect/deploy-use/monitor-endpoint-protection.md).|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
