@@ -58,14 +58,10 @@
 ### [Créer une séquence de tâches personnalisée](deploy-use/create-a-custom-task-sequence.md)
 ### [Créer une séquence de tâches pour les déploiements autres que les déploiements de système d’exploitation](deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)
 ### [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion.md)
+### [Préparer la mise en service de BitLocker dans Windows PE](deploy-use/preprovision-bitlocker-in-windows-pe.md)
 
 ## [Créer un média de séquence de tâches](deploy-use/create-task-sequence-media.md)
 ### [Créer un média autonome](deploy-use/create-stand-alone-media.md)
 ### [Créer un média préparé](deploy-use/create-prestaged-media.md)
 ### [Créer un média de démarrage](deploy-use/create-bootable-media.md)
 ### [Créer un média de capture](deploy-use/create-capture-media.md)
-
-
-<!--HONumber=Dec16_HO3-->
-
-
