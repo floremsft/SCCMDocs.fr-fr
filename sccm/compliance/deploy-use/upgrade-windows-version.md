@@ -1,8 +1,8 @@
 ---
-title: "Mettre à niveau des appareils Windows vers une nouvelle version | Microsoft Docs"
-description: "Mettre automatiquement à niveau les appareils qui exécutent Windows 10 Desktop, Windows 10 Mobile ou Windows 10 Holographique vers une version plus récente."
+title: "Mettre à niveau des appareils Windows vers une autre version avec Configuration Manager | Microsoft Docs"
+description: "Mettez automatiquement à niveau les appareils qui exécutent Windows 10 Desktop, Windows 10 Mobile ou Windows 10 Holographique vers une autre édition avec Configuration Manager."
 ms.custom: na
-ms.date: 11/18/2016
+ms.date: 04/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,8 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
-ms.openlocfilehash: f14dfb77be7b53e74d53e0c1fc7e7f1731952d40
+ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
+ms.openlocfilehash: cfde0a43947013bbd3a1093688cee19fe309fd03
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: f14dfb77be7b53e74d53e0c1fc7e7f1731952d40
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-La **stratégie de mise à niveau d’édition** de System Center Configuration Manager vous permet de mettre automatiquement à niveau les appareils qui exécutent une des versions suivantes de Windows 10 vers une édition plus récente :
+La **stratégie de mise à niveau d’édition** de System Center Configuration Manager vous permet de mettre automatiquement à niveau les appareils qui exécutent une des versions suivantes de Windows 10 vers une autre édition :
 
 - Windows 10 Desktop
 - Windows 10 Mobile
@@ -92,9 +93,4 @@ La nouvelle stratégie figure dans le nœud **Mise à niveau de l’édition de 
 Vous pouvez surveiller le déploiement que vous venez de créer à partir du nœud **Déploiements** de l’espace de travail **Surveillance** .  
 
  Une fois que la stratégie atteint un PC Windows ciblé et qu’il est évalué, celui-ci est redémarré dans les deux heures suivantes pour appliquer la mise à niveau. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

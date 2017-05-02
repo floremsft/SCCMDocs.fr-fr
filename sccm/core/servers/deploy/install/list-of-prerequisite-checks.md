@@ -2,7 +2,7 @@
 title: "Vérifications des prérequis | Microsoft Docs"
 description: "Passez en revue les vérifications des prérequis pour System Center Configuration Manager. Inclut des vérifications des droits de sécurité."
 ms.custom: na
-ms.date: 3/1/2017
+ms.date: 4/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,16 +16,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 496c1444822a4601fad67f421115a609e976386d
-ms.openlocfilehash: 5a8f4a84ef5b4ccb4434ca8eb260c1c7899207ab
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: dda2f4c01078fbbd174cbcb30357554c24f6abeb
+ms.openlocfilehash: 14834f62ffaa8fcba5ddb7536a0b76e18b557e53
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="list-of-prerequisite-checks-for-system-center-configuration-manager"></a>Liste des vérifications des prérequis pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Les sections suivantes détaillent les vérifications des prérequis disponibles. 
+Les sections suivantes détaillent les vérifications des prérequis disponibles.
 
 Pour obtenir des informations sur l’utilisation de l’Outil de vérification des prérequis, consultez [Outil de vérification des prérequis](prerequisite-checker.md).  
 
@@ -117,7 +117,7 @@ Le tableau suivant présente la liste des vérifications qu’effectue l’Outil
 |**Appartenance au domaine**|Vérifie que l’ordinateur Configuration Manager est membre d’un domaine Windows.|Erreur|Site d’administration centrale, <br>Site principal, <br>Site secondaire, <br>Fournisseur SMS, <br>SQL Server|
 |**Appartenance au domaine**|Vérifie que l’ordinateur Configuration Manager est membre d’un domaine Windows.|Avertissement|Point de gestion, <br>Point de distribution|
 |**Lecteur FAT sur le serveur de site**|Vérifie si le lecteur de disque est formaté avec le système de fichiers FAT. Pour une meilleure sécurité, installez les composants de serveur de site sur des disques formatés avec le système de fichiers NTFS.|Avertissement|Site principal|
-|**Espace disque disponible sur le serveur de site**|Pour installer le serveur de site sur un ordinateur, ce dernier doit disposer d’au moins 5 Go d’espace disque disponible. Vous devez disposer de 1 Go d'espace disponible supplémentaire si vous installez le rôle de système de site de fournisseur SMS sur le même ordinateur.|Erreur|Site d’administration centrale, <br>Site principal, <br>Site secondaire|
+|**Espace disque disponible sur le serveur de site**|Pour installer le serveur de site sur un ordinateur, ce dernier doit disposer d’au moins 15 Go d’espace disque disponible. Vous devez disposer de 1 Go d'espace disponible supplémentaire si vous installez le rôle de système de site de fournisseur SMS sur le même ordinateur.|Erreur|Site d’administration centrale, <br>Site principal, <br>Site secondaire|
 |**Redémarrage du système en attente**|Vérifie si un autre programme requiert le redémarrage du serveur avant d'exécuter le programme d'installation.|Erreur|Site d’administration centrale, <br>Site principal, <br>Site secondaire, <br>Console Configuration Manager, <br>Fournisseur SMS, <br>SQL Server, <br>Point de gestion, <br>Point de distribution|
 |**Contrôleur de domaine en lecture seule**|Les serveurs de base de données de site et les serveurs de site secondaire ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d’informations, consultez [Problèmes lors de l’installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft.|Erreur|Site d’administration centrale, <br>Site principal, <br>Site secondaire|
 |**Extensions de schéma**|Détermine si le schéma des services de domaine Active Directory a été étendu et, le cas échéant, la version des extensions de schéma utilisées. Les extensions de schéma Active Directory de Configuration Manager ne sont pas requises pour installer le serveur de site, mais nous les recommandons pour utiliser pleinement toutes les fonctionnalités de Configuration Manager. Pour plus d’informations sur les avantages d’étendre le schéma, consultez [Préparer Active Directory pour la publication de site](../../../../core/plan-design/network/extend-the-active-directory-schema.md).|Avertissement|Site d’administration centrale, <br>Site principal|

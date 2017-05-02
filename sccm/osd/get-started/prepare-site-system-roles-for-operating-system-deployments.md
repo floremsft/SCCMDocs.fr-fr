@@ -17,8 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 1069a18eecbc5f53b74ad89e166e6f2c7b180693
+ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
+ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -28,12 +29,12 @@ ms.openlocfilehash: 1069a18eecbc5f53b74ad89e166e6f2c7b180693
 
 Pour déployer des systèmes d’exploitation dans System Center Configuration Manager, vous devez d’abord préparer les rôles de système de site suivants qui appellent des configurations et des considérations spécifiques.
 
-##  <a name="a-namebkmkdistributionpointsa-distribution-points"></a><a name="BKMK_DistributionPoints"></a> Points de distribution  
+##  <a name="BKMK_DistributionPoints"></a> Points de distribution  
  Le rôle de système de site du point de distribution contient des fichiers sources que les clients peuvent télécharger, notamment le contenu de l’application, les mises à jour logicielles, les images du système d’exploitation et les images de démarrage. Vous pouvez contrôler la distribution du contenu à l'aide de la bande passante, de la limitation et des options de planification.  
 
  Il est important d’avoir suffisamment de points de distribution pour prendre en charge le déploiement de systèmes d’exploitation sur des ordinateurs. Il est également déterminant de planifier le placement de ces points de distribution dans votre hiérarchie. Vous trouverez la plupart de ces informations de planification dans [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md). Toutefois, d’autres éléments doivent être pris en compte lors de la planification de points de distribution spécifiques au déploiement de systèmes d’exploitation.  
 
-###  <a name="a-namebkmkadditionalplanninga-additional-planning-considerations-for-distribution-points"></a><a name="BKMK_AdditionalPlanning"></a> Considérations de planification supplémentaires concernant les points de distribution  
+###  <a name="BKMK_AdditionalPlanning"></a> Considérations de planification supplémentaires concernant les points de distribution  
  Tenez compte des points supplémentaires suivants dans le cadre de la planification de points de distribution :  
 
 -   **Comment empêcher les déploiements de systèmes d’exploitation indésirables ?**  
@@ -54,7 +55,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 
      Vous pouvez déployer un système d’exploitation sur un point de distribution, mais l’image du système d’exploitation doit être reçue à partir d’un autre point de distribution.  
 
-###  <a name="a-namebkmkpxedistributionpointa-configuring-distribution-points-to-accept-pxe-requests"></a><a name="BKMK_PXEDistributionPoint"></a> Configuration de points de distribution pour accepter des requêtes PXE  
+###  <a name="BKMK_PXEDistributionPoint"></a> Configuration de points de distribution pour accepter des requêtes PXE  
  Pour déployer des systèmes d’exploitation sur des clients Configuration Manager qui effectuent des demandes de démarrage PXE, vous devez configurer un ou plusieurs points de distribution pour accepter les demandes PXE. Une fois le point de distribution configuré, il répond à la demande de démarrage PXE et détermine l’action de déploiement appropriée à prendre.
 
 > [!IMPORTANT]  
@@ -77,7 +78,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 
 5.  Sélectionnez **Autoriser ce point de distribution à répondre aux requêtes PXE entrantes** pour que WDS réponde aux demandes de service PXE entrantes. Vous pouvez utiliser ce paramètre pour activer et désactiver le service sans supprimer la fonctionnalité PXE du point de distribution.  
 
-6.  Pour déployer des systèmes d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager, sélectionnez ** Activer la prise en charge d’ordinateur inconnu**.  
+6.  Pour déployer des systèmes d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager, sélectionnez  **Activer la prise en charge d’ordinateur inconnu**.  
 
 7.  Sélectionnez **Exiger un mot de passe lorsque les ordinateurs utilisent PXE**, puis indiquez un mot de passe fort pour renforcer la sécurité de votre déploiement PXE.  
 
@@ -97,7 +98,7 @@ Pour déployer des systèmes d’exploitation dans System Center Configuration M
 
 11. Cliquez sur **OK** pour mettre à jour les propriétés du point de distribution.  
 
-###  <a name="a-namebkmkramdisktftpa-customize-the-ramdisk-tftp-block-size-and-window-size-on-pxe-enabled-distribution-points"></a><a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
+###  <a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
 Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
 Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
 
@@ -115,7 +116,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
      **Type**: REG_DWORD  
 
-     **Valeur** : <taille de fenêtre personnalisée\>  
+     **Valeur** : &lt;taille de fenêtre personnalisée>  
 
  La valeur par défaut est 1 (1 bloc de données remplit la fenêtre).  
 
@@ -128,12 +129,12 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
      **Type**: REG_DWORD  
 
-     **Valeur** : <taille de bloc personnalisée\>  
+     **Valeur** : &lt;taille de bloc personnalisée>  
 
  La valeur par défaut est 4096 (4k).  
 
 
-###  <a name="a-namebkmkdpmulticasta-configure-distribution-points-to-support-multicast"></a><a name="BKMK_DPMulticast"></a> Configurer des points de distribution pour prendre en charge la multidiffusion  
+###  <a name="BKMK_DPMulticast"></a> Configurer des points de distribution pour prendre en charge la multidiffusion  
  La multidiffusion est une méthode d’optimisation réseau que vous pouvez utiliser sur des points de distribution quand plusieurs clients sont susceptibles de télécharger la même image de système d’exploitation simultanément. En cas d’utilisation de la multidiffusion, plusieurs ordinateurs peuvent télécharger simultanément l’image de système d’exploitation quand elle est multidiffusée par le point de distribution, plutôt que de faire en sorte que le point de distribution envoie une copie des données à chaque client à l’aide d’une connexion distincte. Vous devez configurer au moins un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
  Avant de déployer le système d'exploitation, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour modifier un point de distribution existant afin de prendre en charge la multidiffusion, procédez comme suit. Pour plus d’informations sur l’installation d’un nouveau point de distribution, consultez [Install and configure distribution points](../../core/servers/deploy/configure/install-and-configure-distribution-points.md) (Installer et modifier des points de distribution).
@@ -176,7 +177,7 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 
 6.  Cliquez sur **OK**.  
 
-##  <a name="a-namebkmkstatemigrationpointsa-state-migration-point"></a><a name="BKMK_StateMigrationPoints"></a> Point de migration d'état  
+##  <a name="BKMK_StateMigrationPoints"></a> Point de migration d'état  
  Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez choisir de stocker les données sur le même ordinateur à l’aide de liens physiques ou d’utiliser un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Au moment de planifier le point de migration d'état, tenez compte des facteurs suivants :  
 
 ### <a name="user-state-size"></a>Taille de l’état utilisateur  
@@ -219,9 +220,4 @@ Vous devez tester les paramètres personnalisés dans votre environnement pour d
 -   Si le point de migration d’état répond uniquement aux demandes de restauration des données d’état utilisateur. Lorsque vous activez cette option, vous ne pouvez pas utiliser le point de migration d'état pour stocker les données d'état utilisateur.  
 
  Pour connaître les étapes à suivre pour installer un rôle de système de site, consultez [Ajouter des rôles de système de site](../../core/servers/deploy/configure/add-site-system-roles.md).  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

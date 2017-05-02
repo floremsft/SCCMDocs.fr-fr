@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: aca3525fc143b281f41c3d9bd20bb93b1d91f6ce
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
+ms.openlocfilehash: 44338c705e308896c5203be239c160a8220369a8
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -234,4 +234,11 @@ Cela se produit uniquement quand vous ajoutez le même **regroupement d’utilis
 Ce problème affecte l’accès conditionnel de System Center Configuration Manager pour **Exchange sur site** avec la mise à jour 1602, et devrait être résolu dans une prochaine mise à jour.  
 
 **Solution de contournement :** ajoutez le **regroupement d’utilisateurs** à la page **Regroupements ciblés** avant de sélectionner le **regroupement d’utilisateurs** dans la page **Regroupements exemptés**, ou assurez-vous que vous n’ajoutez pas le même **regroupement d’utilisateurs** aux regroupements ciblés et exemptés.
+
+## <a name="endpoint-protection"></a>Endpoint Protection
+<!--  Product Studio bug 485370 added by Nathbarn 04 19 2017 -->
+### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core
+La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core.  Le code d’erreur est 0x80070002.  Il existe une dépendance manquante pour ConfigSecurityPolicy.exe.
+
+**Solution de contournement :**  aucune.  En tant qu’administrateur, vous pouvez utiliser la stratégie de groupe pour gérer les paramètres de Windows Server 2016 Core.
 

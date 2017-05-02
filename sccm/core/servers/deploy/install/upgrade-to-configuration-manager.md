@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 4/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
-ms.openlocfilehash: ca07b46db0967ca03cc5e858b835d2c2108f1210
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
+ms.openlocfilehash: e75413d0b03681bf7244bd3917cd6099394ee3c9
+ms.lasthandoff: 04/19/2017
 
 
 ---
@@ -75,6 +75,9 @@ Si vous avez un média de base de la version 1511, vous pouvez mettre à niveau
  Les listes de vérification suivantes peuvent vous aider à planifier une mise à niveau vers System Center Configuration Manager.  
 
 ### <a name="before-you-upgrade"></a>Avant la mise à niveau :  
+
+**Passez en revue votre environnement System Center 2012 Configuration Manager** et corrigez les problèmes comme détaillé dans l’article KB4018655 : [Les clients Configuration Manager se réinstallent toutes les cinq heures en raison d’une tâche périodique de nouvelle tentative, ce qui peut provoquer une mise à niveau du client par inadvertance](https://support.microsoft.com/help/4018655).
+
 **Vérifiez que votre environnement informatique répond aux configurations prises en charge** nécessaires à la mise à niveau vers System Center Configuration Manager SP1 :  
 
 Passez en revue les systèmes d’exploitation de serveur utilisés pour héberger les rôles de système de site :  

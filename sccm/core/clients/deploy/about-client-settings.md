@@ -13,13 +13,13 @@ ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 caps.latest.revision: 15
 caps.handback.revision: 0
-author: arob98
-ms.author: angrobe
+author: robstackmsft
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: bd2cf7b0df4a1f50c006e8280bf59ea91f1b4477
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
+ms.openlocfilehash: d1d2ec7c053d13ebaeb00d0dfeb126716b5f7ae5
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -505,7 +505,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
     -   Choisissez l’icône **Nouveau** pour ajouter un nouveau type de fichier à l’inventaire. Ensuite, spécifiez les informations suivantes dans la boîte de dialogue **Propriétés du fichier inventorié** :  
 
-        -   **Nom** : définissez le nom du fichier à inventorier. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?**pour représenter n’importe quel caractère. Par exemple, si vous souhaitez inventorier tous les fichiers portant l’extension .doc, spécifiez le nom de fichier **\*.doc**.  
+        -   **Nom** : définissez le nom du fichier à inventorier. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n'importe quel caractère. Par exemple, si vous souhaitez inventorier tous les fichiers portant l’extension .doc, spécifiez le nom de fichier **\*.doc**.  
 
         -   **Emplacement** : choisissez **Définir** pour ouvrir la boîte de dialogue **Propriétés du chemin d’accès**. Vous pouvez configurer l’inventaire logiciel pour rechercher le fichier défini sur tous les disques durs des clients, effectuer une recherche dans un chemin donné (tel que **C:\Dossier**) ou rechercher une variable (telle que *%windir%*). Vous pouvez également exécuter une recherche dans tous les sous-dossiers du chemin indiqué.  
 
@@ -528,7 +528,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
     -   Dans la boîte de dialogue **Propriétés du fichier collecté** , fournissez les informations suivantes :  
 
-        -   **Nom** : définissez le nom du fichier à collecter. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n’importe quel caractère.  
+        -   **Nom** : définissez le nom du fichier à collecter. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n'importe quel caractère.  
 
         -   **Emplacement** : choisissez **Définir** pour ouvrir la boîte de dialogue **Propriétés du chemin d’accès**. Vous pouvez configurer l’inventaire logiciel pour rechercher le fichier à collecter sur tous les disques durs des clients, effectuer une recherche dans un chemin donné (tel que **C:\Dossier**) ou rechercher une variable (telle que *%windir%*). Vous pouvez également exécuter une recherche dans tous les sous-dossiers du chemin indiqué.  
 
@@ -556,7 +556,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
      Lors d'un inventaire logiciel, les noms des fabricants et des produits sont extraits des informations d'en-tête des fichiers installés sur les clients du site. Du fait que ces noms ne sont pas systématiquement normalisés dans les informations d'en-tête de fichier, lorsque vous affichez les informations de l'inventaire logiciel dans l'Explorateur de ressources ou exécutez des requêtes, différentes versions du même nom de fabricant ou de produit peuvent parfois apparaître. Si vous souhaitez normaliser ces noms d’affichage, choisissez **Définir des noms** et configurez les éléments suivants dans la boîte de dialogue **Configurer le paramètre client** :  
 
-    -   **Type de nom** : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
+    -   **Type de nom**  : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
 
     -   **Nom complet** : spécifiez le nom complet que vous souhaitez utiliser à la place des noms dans la liste **Noms inventoriés**. Vous pouvez choisir l’icône **Nouveau** pour spécifier un nouveau nom complet.  
 

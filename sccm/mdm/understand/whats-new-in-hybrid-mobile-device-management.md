@@ -16,9 +16,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3eb48942c1259d2aa1b3c200fad73b39b11c0b8c
-ms.openlocfilehash: 51560360a0cb7ecb4a2b0d7eaeb4fdd62d6afc13
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
+ms.openlocfilehash: 489defeae18c219fe2f717d5caa1f15bcdaf07cf
+ms.lasthandoff: 04/19/2017
 
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
@@ -37,11 +37,31 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 |**Nouveautés de Configuration Manager Technical Preview**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version d’évaluation technique spécifiée. Pour tester ces fonctionnalités, vous devez installer la version d’évaluation technique spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nouveautés de Configuration Manager (Current Branch)**| Toutes les fonctionnalités répertoriées dans cette catégorie fonctionnent uniquement avec la version spécifiée de Configuration Manager (Current Branch), comme la version 1511 ou 1602. Si vous utilisez une version antérieure de Configuration Manager pour votre déploiement hybride, vous devez effectuer la mise à niveau vers la version de Configuration Manager (Current Branch) spécifiée dans la description de la fonctionnalité. Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
-## <a name="new-hybrid-features-in-march-2017"></a>Nouvelles fonctionnalités hybrides en mars 2017
+## <a name="april-2017"></a>Avril 2017
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
 
-Les fonctionnalités Intune suivantes introduites en mars 2017 fonctionnent dans les déploiements hybrides :
+- **Mes apps disponible pour Managed Browser**
+
+  Mes apps Microsoft bénéficie à présent d’une meilleure prise en charge dans Managed Browser. Les utilisateurs Managed Browser qui ne sont pas ciblés pour la gestion sont directement redirigés vers le service Mes apps, où ils peuvent accéder à leurs applications SaaS configurées par l’administrateur. Les utilisateurs ciblés pour la gestion Intune peuvent toujours accéder à Mes apps à partir du signet Managed Browser intégré.
+
+- **Nouvelles icônes pour Managed Browser et le portail d’entreprise**
+
+  Managed Browser reçoit des icônes mises à jour pour les versions iOS et Android de l’application. La nouvelle icône contient le badge Intune mis à jour qui devient plus cohérent avec les autres applications dans Enterprise Mobility + Security (EM+S). Vous pouvez voir la nouvelle icône Managed Browser dans la page sur les [nouveautés de l’interface utilisateur pour les applications Intune](/intune/whats-new/whats-new-in-intune-app-ui.md).
+
+  Le portail d’entreprise reçoit également des icônes mises à jour pour les versions Android, iOS et Windows de l’application pour améliorer la cohérence avec les autres applications EM+S. Ces icônes seront disponibles progressivement sur les différentes plateformes, sur une période allant d’avril à fin mai.
+
+- **Indicateur de progression de la connexion dans le portail d’entreprise Android**
+
+  Une mise à jour de l’application Portail d’entreprise Android affiche un indicateur de progression de la connexion lorsque l’utilisateur lance ou rouvre l’application. L’indicateur passe par différents états (en commençant par « Connexion en cours... », « Connexion en cours... », puis « Vérification des exigences de sécurité... ») avant d’autoriser l’utilisateur à accéder à l’application. Vous pouvez voir les nouveaux écrans de l’application Portail d’entreprise pour Android dans la page sur les [nouveautés de l’interface utilisateur pour les applications Intune](/intune/whats-new/whats-new-in-intune-app-ui.md).
+
+- **Bloquer l’accès des applications à SharePoint Online**
+
+    Vous pouvez maintenant créer une stratégie d’accès conditionnel basée sur l’application pour empêcher les applications auxquelles aucune stratégie de protection d’application n’a été appliquée d’accéder à [SharePoint Online](/InTune/deploy-use/mam-ca-for-sharepoint-online). Dans le cadre d’un scénario faisant appel à l’accès conditionnel basé sur l’application, vous pouvez spécifier les applications que vous souhaitez autoriser à accéder à SharePoint Online à l’aide du portail Azure.
+
+## <a name="march-2017"></a>Mars 2017
+
+### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
 
 - **Nouvelle expérience utilisateur pour l’application Portail d’entreprise pour Android**
 
@@ -53,7 +73,7 @@ Les fonctionnalités Intune suivantes introduites en mars 2017 fonctionnent dan
   - Navigation dans les applications : la vue **Toutes les applications** montre une vue à onglets avec **À la une**, **Toutes** et **Catégories** pour faciliter la navigation.
   - Prise en charge : les onglets **Mes appareils** et **Contacter le service informatique** ont été mis à jour de façon à améliorer la lisibilité.
 
-  Pour plus d’informations sur ces modifications, consultez [Mises à jour de l’interface utilisateur pour les applications Intune de l’utilisateur final](/intune/enduser/whats-new-in-intune-app-ui).
+  Pour plus d’informations sur ces modifications, consultez [Mises à jour de l’interface utilisateur pour les applications Intune de l’utilisateur final](/intune/whats-new/whats-new-in-intune-app-ui).
 
 - **Script de signature pour le portail d’entreprise Windows 10**
 
@@ -134,11 +154,9 @@ Les fonctionnalités hybrides supplémentaires suivantes sont également incluse
 
     Pour plus d’informations, consultez [Comment surveiller la conformité de la protection contre les menaces mobiles](/sccm/mdm/deploy-use/monitor-mobile-threat-defense-compliance).
 
-## <a name="new-hybrid-features-in-february-2017"></a>Nouvelles fonctionnalités hybrides disponibles à partir de février 2017
+## <a name="february-2017"></a>Février 2017
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
-
-Les fonctionnalités Intune suivantes introduites en février 2017 fonctionnent dans les déploiements hybrides :
 
 - **Modernisation du site web du portail d’entreprise**
 
@@ -166,11 +184,9 @@ Les fonctionnalités Intune suivantes introduites en février 2017 fonctionnent 
    
     Vous disposez désormais de 42 paramètres iOS supplémentaires que vous pouvez configurer dans le cadre d’un élément de configuration. La plupart des paramètres (35 au total) ont été ajoutés pour les appareils iOS supervisés. Pour plus d’informations, consultez [Nouveaux paramètres de conformité pour les appareils iOS](/sccm/core/get-started/capabilities-in-technical-preview-1702#new-compliance-settings-for-ios-devices).
 
-## <a name="new-hybrid-features-in-january-2017"></a>Nouvelles fonctionnalités hybrides en janvier 2017
+## <a name="january-2017"></a>Janvier 2017
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
-
-Les fonctionnalités Intune suivantes introduites en janvier 2017 fonctionnent dans les déploiements hybrides :
 
 - **Prise en charge d'Android 7.1.1**
 
@@ -187,11 +203,9 @@ Les fonctionnalités Intune suivantes introduites en janvier 2017 fonctionnent d
   Depuis Technical Preview 1701, vous n’avez plus besoin de cibler des versions Android et iOS spécifiques quand vous créez des stratégies et des profils pour des appareils gérés par Intune dans le cadre d’une gestion des appareils mobiles (MDM) hybride. Grâce à cette modification, les déploiements hybrides peuvent prendre en charge plus rapidement les nouvelles versions Android et iOS sans avoir besoin d’une nouvelle version de Configuration Manager ou d’une extension. Pour en savoir plus, consultez [Les versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création](/sccm/core/get-started/capabilities-in-technical-preview-1701#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm).
 
 
-## <a name="new-hybrid-features-in-december-2016"></a>Nouvelles fonctionnalités hybrides en décembre 2016
+## <a name="december-2016"></a>Décembre 2016
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
-
-Les fonctionnalités Intune suivantes introduites en décembre 2016 fonctionnent dans les déploiements hybrides :
 
 - **L’authentification multifacteur sur l’inscription est déplacée dans le portail Azure**
 
@@ -218,11 +232,9 @@ Les fonctionnalités Intune suivantes introduites en décembre 2016 fonctionnen
   | Réinitialiser le code secret | | |        
 
 
-## <a name="new-hybrid-features-in-november-2016"></a>Nouvelles fonctionnalités hybrides en novembre 2016
+## <a name="november-2016"></a>Novembre 2016
 
 ### <a name="new-in-microsoft-intune"></a>Nouveautés de Microsoft Intune
-
-Les fonctionnalités Intune suivantes introduites en novembre 2016 fonctionnent dans les déploiements hybrides :
 
 - **Nouveau portail d’entreprise Microsoft Intune disponible pour les appareils Windows 10**
 
