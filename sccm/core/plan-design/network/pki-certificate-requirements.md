@@ -2,7 +2,7 @@
 title: Configuration requise des certificats PKI | Microsoft Docs
 description: "Découvrez la configuration requise pour les certificats PKI dont vous pourriez avoir besoin pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 02/23/2017
+ms.date: 04/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 405540b16b60c42430e884febb942bfbbcbeca32
-ms.openlocfilehash: 7021c079b12f03420565f5633102070e4e0ad7f8
-ms.lasthandoff: 04/19/2017
+ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
+ms.openlocfilehash: a99b58acef7448af2c9576bfa0ec2635f5a4f86f
+ms.lasthandoff: 04/24/2017
 
 
 ---
@@ -36,6 +36,8 @@ Les certificats d’infrastructure à clé publique (PKI) dont vous pouvez avoir
 > System Center Configuration Manager prend en charge les certificats (SHA-2) (Secure Hash Algorithm 2). Les certificats SHA-2 apportent un avantage important en termes de sécurité. Par conséquent, nous vous recommandons ce qui suit :
 > - Émettez de nouveaux certificats d’authentification serveur et client signés avec SHA-2 (qui inclut entre autres SHA-256 et SHA-512).
 > - Tous les services doivent utiliser un certificat SHA-2. Par exemple, si vous achetez un certificat public pour une utilisation avec une passerelle de gestion cloud, vérifiez qu’il s’agit d’un certificat SHA-2.  
+>
+>À compter du 14 février 2017, Windows ne fait plus confiance à certains certificats signés avec SHA-1. En général, nous vous recommandons d’émettre de nouveaux certificats d’authentification serveur et client signés avec SHA-2 (qui inclut entre autres SHA-256 et SHA-512). Nous vous recommandons aussi d’utiliser un certificat SHA-2 pour tout service Internet. Par exemple, si vous achetez un certificat public pour une utilisation avec une passerelle de gestion cloud, vérifiez qu’il s’agit d’un certificat SHA-2.»
 >
 > Dans la plupart des cas, le passage à des certificats SHA-2 n’a pas d’impact sur les opérations. Pour plus d’informations, consultez cet article sur l’[application Windows des certificats SHA1](http://social.technet.microsoft.com/wiki/contents/articles/32288.windows-enforcement-of-sha1-certificates.aspx).
 
