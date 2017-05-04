@@ -14,8 +14,9 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 6d20389a-9de2-4a64-bced-9fc4fa519174
 translationtype: Human Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
-ms.openlocfilehash: ea365491dd334980693375fbb7730653af9cd8e4
+ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
+ms.openlocfilehash: 5df20f3703442de1be6220ca2770e182e330c036
+ms.lasthandoff: 04/26/2017
 
 
 
@@ -41,7 +42,7 @@ Cette rubrique indique les bonnes pratiques à suivre pour les mises à jour log
  Quand les bases de données Configuration Manager et WSUS utilisent le même serveur SQL Server et partagent la même instance de SQL Server, il est difficile de déterminer quelle application utilise quelles ressources. Il est plus facile de dépanner et de diagnostiquer les éventuels problèmes d’utilisation de ressources de chaque application si Configuration Manager et WSUS utilisent différentes instances de SQL Server.  
 
 ### <a name="specify-the-store-updates-locally-setting-for-the-wsus-installation"></a>Spécifier le paramètre « Stocker les mises à jour localement » pour l'installation de WSUS  
- Lorsque vous installez WSUS 3.0, sélectionnez le paramètre **Stocker les mises à jour localement** . Lorsque ce paramètre est sélectionné, les termes du contrat de licence relatif aux mises à jour logicielles sont téléchargés au cours du processus de synchronisation et stockés sur le disque dur local du serveur WSUS. Si ce paramètre n'est pas sélectionné, il se peut que l'analyse de la conformité des mises à jour logicielles pour les mises à jour comportant un contrat de licence échoue sur les ordinateurs clients. Lorsque vous installez le point de mise à jour logicielle, toutes les 60 minutes (intervalle par défaut), le Gestionnaire de synchronisation WSUS vérifie que ce paramètre est activé.  
+ Lorsque vous installez WSUS, sélectionnez le paramètre **Stocker les mises à jour localement** . Lorsque ce paramètre est sélectionné, les termes du contrat de licence relatif aux mises à jour logicielles sont téléchargés au cours du processus de synchronisation et stockés sur le disque dur local du serveur WSUS. Si ce paramètre n'est pas sélectionné, il se peut que l'analyse de la conformité des mises à jour logicielles pour les mises à jour comportant un contrat de licence échoue sur les ordinateurs clients. Lorsque vous installez le point de mise à jour logicielle, toutes les 60 minutes (intervalle par défaut), le Gestionnaire de synchronisation WSUS vérifie que ce paramètre est activé.  
 
 ## <a name="operational-best-practices"></a>Bonnes pratiques concernant le fonctionnement  
  Suivez les bonnes pratiques ci-dessous lorsque vous utilisez des mises à jour logicielles :  
@@ -57,9 +58,4 @@ Cette rubrique indique les bonnes pratiques à suivre pour les mises à jour log
 
 ## <a name="see-also"></a>Voir aussi  
  [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

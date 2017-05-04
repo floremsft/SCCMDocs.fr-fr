@@ -2,7 +2,7 @@
 title: "Méthodes d’installation du client | Microsoft Docs"
 description: "Découvrez les méthodes d’installation du client pour System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 04/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,9 +17,9 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 593fbd0587d54490246f48ae54f666bac6b7830d
-ms.openlocfilehash: a7d5a04cf34c49246f768f9a4757c5da3b4db31a
-ms.lasthandoff: 12/16/2016
+ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
+ms.openlocfilehash: edca31249cc2bb3e0c67265962815c82e3f4711e
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/16/2016
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Différentes méthodes sont disponibles pour installer le logiciel client Configuration Manager (également appelé ConfigMgr ou SCCM). Vous pouvez utiliser une méthode ou une combinaison de méthodes. Passez en revue cette rubrique pour déterminer la méthode la mieux adaptée à votre organisation.  
+Vous pouvez utiliser différentes méthodes pour installer le logiciel client Configuration Manager. Vous pouvez utiliser une méthode ou une combinaison de méthodes. Passez en revue cette rubrique pour déterminer la méthode la mieux adaptée à votre organisation.  
 
 ## <a name="client-push-installation"></a>Installation poussée du client  
 

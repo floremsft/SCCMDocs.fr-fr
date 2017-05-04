@@ -17,9 +17,9 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: a3e6cca8d58055cc2d54aff3cb70a276fb40e829
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: ae008c91a7387ba76f2bfac13f8feb489a0cc558
+ms.openlocfilehash: f5feccc4f810e1a94bb7dcdd5ad507d84b9c3b4a
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -76,6 +76,11 @@ ms.lasthandoff: 03/27/2017
 |SMSTSDownloadProgram|Cette variable permet de spécifier un Autre fournisseur de contenu, un téléchargeur utilisé pour télécharger du contenu à la place du programme de téléchargement Configuration Manager par défaut, pour la séquence tâches. Dans le cadre du processus de téléchargement de contenu, la séquence de tâches examine si la variable indique un programme de téléchargement spécifique. Si c'est le cas, la séquence de tâches l'exécute pour procéder au téléchargement.|  
 |SMSTSDownloadRetryCount|Cette variable permet de spécifier le nombre de fois que Configuration Manager tente de télécharger du contenu à partir d’un point de distribution. Par défaut, le client effectue **2** nouvelles tentatives.|  
 |SMSTSDownloadRetryDelay|Cette variable permet de spécifier le délai d’attente de Configuration Manager (en secondes) avant qu’il tente à nouveau de télécharger du contenu à partir d’un point de distribution. Par défaut, le client attend **15** secondes avant une nouvelle tentative.|  
+|SMSTSDriverReceiveTimeOut|Utilisez cette variable pour spécifier le nombre de secondes avant l’expiration de la connexion au serveur.|
+|SMSTSDriverRequestConnectTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, avant la connexion au serveur HTTP lorsque vous demandez le catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la connexion prend plus de temps que le paramètre de délai d’attente, la demande est annulée. Par défaut, le délai d’expiration est de 60 secondes.|  
+|SMSTSDriverRequestReceiveTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, avant de recevoir une réponse à une demande de catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la connexion prend plus de temps que le paramètre de délai d’attente, la demande est annulée. Par défaut, le délai d’expiration est de 480 secondes.|
+|SMSTSDriverRequestResolveTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, avant une résolution de nom HTTP lorsque vous demandez un catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la connexion prend plus de temps que le paramètre de délai d’attente, la demande est annulée. Par défaut, le délai d’expiration est de 60 secondes.|
+|SMSTSDriverRequestSendTimeOut|Utilisez cette variable pour spécifier le délai d’attente, en secondes, lorsque vous envoyez une demande de catalogue de pilotes pendant l’étape de la séquence de tâches Appliquer automatiquement les pilotes. Si la demande prend plus de temps que le paramètre de délai d’attente, elle est annulée. Par défaut, le délai d’expiration est de 60 secondes.|
 |SMSTSErrorDialogTimeout|Lorsqu'une erreur se produit dans une séquence de tâches, une boîte de dialogue s'affiche et est fermée automatiquement après un nombre de secondes spécifié par cette variable. Par défaut, la boîte de dialogue disparaît automatiquement après **900** secondes (15 minutes).|  
 |TSErrorOnWarning|Utilisez cette variable pour spécifier si le moteur de séquence de tâches considère qu'un avertissement détecté constitue une erreur durant l'étape de séquence de tâches Installation de l'application. La séquence de tâches affecte la valeur **Warning** à la variable _TSAppInstallStatus quand une ou plusieurs applications, ou une dépendance nécessaire, n'ont pas été installées car une exigence n'a pas été remplie. Lorsque vous affectez la valeur **True** à la variable TSErrorOnWarning et que la variable _TSAppInstallStatus a la valeur Warning, elle est traitée comme une erreur. La valeur **False** est le comportement par défaut.|  
 |SMSTSLanguageFolder|utilisez cette variable pour modifier la langue d'affichage d'une image de démarrage indépendante de la langue.|  

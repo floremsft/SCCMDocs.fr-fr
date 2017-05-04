@@ -13,13 +13,13 @@ ms.topic: article
 ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
 caps.latest.revision: 18
 caps.handback.revision: 0
-author: mtillman
-ms.author: mtillman
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 8c7bf901caa49c8585a9ed3913d4a5a2aac57013
-ms.openlocfilehash: 82f7db908f83d69a86c82ed97b845ff84e78f8b3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 699b79b68440b61904a9053e5004318a2a248bfd
+ms.openlocfilehash: 8adc41a30bf12a91a272029db49e50ba003d3e9c
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Utilisation de profils VPN sur des appareils mobiles dans System Center Configuration Manager
@@ -75,10 +75,10 @@ La section [Guide pratique pour créer des profils VPN dans System Center Con
 
     -   **Méthode d’authentification :** sélectionnez la méthode d’authentification qui sera utilisée par la connexion VPN. Les méthodes disponibles peuvent varier selon le type de connexion, comme indiqué dans le tableau suivant.  
 
-        |Méthode d'authentification|Types de connexion pris en charge|  
+        |Méthode d'authentification|Types de&nbsp;connexion&nbsp;pris en charge|  
         |---------------------------|--------------------------------|  
-        |**Certificats**<br /><br /> **Remarque :** si le certificat client est utilisé pour l’authentification auprès d’un serveur RADIUS, tel un serveur NPS (Network Policy Server), l’autre nom de l’objet dans le certificat doit correspondre au nom d’utilisateur principal (UPN).|- <br />                            Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
-        |**Nom d'utilisateur et mot de passe**|- <br />                            Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
+        |**Certificats**<br /><br /> **Remarques** :<br />- Si le certificat client est utilisé pour l'authentification sur un serveur RADIUS, tel qu'un serveur NPS, l'autre nom de l'objet dans le certificat doit être défini sur le nom d'utilisateur principal.<br/><br />- Pour les déploiements Android, sélectionnez l’identificateur EKU et la valeur de hachage de l’empreinte numérique de l’émetteur du certificat.  Sinon, les utilisateurs doivent sélectionner manuellement le certificat approprié.  |- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
+        |**Nom d'utilisateur et mot de passe**|- Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
         |**Microsoft EAP-TTLS**|- Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - PPTP<br /><br /> - IKEv2<br /><br /> - L2TP|  
         |**Microsoft PEAP (Protected EAP)**|- Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - IKEv2<br /><br /> - PPTP<br /><br /> - L2TP|  
         |**Mot de passe sécurisé Microsoft (EAP-MSCHAP v2)**|- Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - IKEv2<br /><br /> - PPTP<br /><br /> - L2TP|  
@@ -109,18 +109,15 @@ La section [Guide pratique pour créer des profils VPN dans System Center Con
 
          ![Configurer l’accès conditionnel pour VPN](media/vpn-conditional-access.png)
 
+         En cas de prise en charge par la version Configuration Manager _et_ la méthode d’autorisation sélectionnée, vous pouvez cliquer sur **Configurer** pour ouvrir la boîte de dialogue des propriétés Windows et configurer les propriétés de la méthode d’authentification.  Si l’option **Configurer** est désactivée, utilisez d’autres moyens pour configurer les propriétés de la méthode d’authentification.
 
-> [!NOTE]  
-> Pour certaines méthodes d’authentification, vous pouvez cliquer sur **Configurer** pour ouvrir la boîte de dialogue Propriétés de Windows (si la version de Windows sur laquelle vous exécutez la console Configuration Manager prend en charge cette méthode d’authentification), dans laquelle vous pouvez configurer les propriétés de la méthode d’authentification.  
-
-
-1.  Sur la page **Paramètres du proxy** de l' **Assistant Création d'un profil VPN**, activez la case à cocher **Configurer les paramètres du proxy pour ce profil VPN** si votre connexion VPN utilise un serveur proxy. Indiquez ensuite les informations sur le serveur proxy. Pour plus d’informations, consultez la documentation de Windows Server.  
+2.  Sur la page **Paramètres du proxy** de l' **Assistant Création d'un profil VPN**, activez la case à cocher **Configurer les paramètres du proxy pour ce profil VPN** si votre connexion VPN utilise un serveur proxy. Indiquez ensuite les informations sur le serveur proxy. Pour plus d’informations, consultez la documentation de Windows Server.  
 
     > [!NOTE]  
     >  Sur les ordinateurs Windows 8.1, le profil VPN n’affiche pas les informations de proxy tant que vous n’êtes pas connecté au VPN avec cet ordinateur.  
 
 
-2. Configurer les paramètres DNS supplémentaires (si nécessaire)  
+3. Configurer les paramètres DNS supplémentaires (si nécessaire)  
  Dans la page **Configurer une connexion VPN automatique**, vous pouvez configurer les paramètres suivants :  
 
     -   **Activer VPN à la demande** : utilisez cette option si vous souhaitez configurer d’autres paramètres DNS pour les appareils Windows Phone 8.1. Ce paramètre s’applique uniquement aux appareils Windows Phone 8.1 et ne doit être activé que sur les profils VPN destinés à être déployés sur des appareils Windows Phone 8.1.
@@ -153,9 +150,9 @@ La section [Guide pratique pour créer des profils VPN dans System Center Con
     >  Si l'option **Envoyer tout le trafic réseau via la connexion VPN** n'est pas sélectionnée et que la connexion VPN utilise le tunneling fractionné, une connexion VPN peut être ouverte automatiquement si vous configurez des itinéraires ou un suffixe DNS spécifique à la connexion.  
 
 
-1. Sur la page **Plates-formes prises en charge** de l' **Assistant Création d'un profil VPN**, sélectionnez les systèmes d'exploitation sur lesquels le profil VPN sera installé ou cliquez sur **Sélectionner tout** pour installer le profil VPN sur tous les systèmes d'exploitation disponibles.  
+4. Sur la page **Plates-formes prises en charge** de l' **Assistant Création d'un profil VPN**, sélectionnez les systèmes d'exploitation sur lesquels le profil VPN sera installé ou cliquez sur **Sélectionner tout** pour installer le profil VPN sur tous les systèmes d'exploitation disponibles.  
 
-2. Effectuez toutes les étapes de l'Assistant. Le nouveau profil VPN figure dans le nœud **Profils VPN** dans l'espace de travail **Ressources et Conformité** .  
+5. Effectuez toutes les étapes de l'Assistant. Le nouveau profil VPN figure dans le nœud **Profils VPN** dans l'espace de travail **Ressources et Conformité** .  
 
 
 **Déploiement :** pour en savoir plus sur le déploiement des profils VPN, voir [Déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).

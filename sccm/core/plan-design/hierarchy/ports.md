@@ -17,9 +17,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 4c2906c2a963e0ae92e3c0d223afb7a47377526a
-ms.openlocfilehash: ffc2adb34427aa62f4a377e887c2ff54d47abeff
-ms.lasthandoff: 03/20/2017
+ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
+ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
+ms.lasthandoff: 04/24/2017
 
 
 ---
@@ -552,13 +552,13 @@ Pour plus d’informations, consultez [Conditions requises pour l’accès Inter
 
 2.  **Autre port disponible** : un autre port peut être défini dans Configuration Manager pour cette valeur. Si un port personnalisé a été défini, remplacez-le lorsque vous définissez les informations de filtre IP pour les stratégies IPsec ou pour configurer les pare-feu.  
 
-3.  **Windows Server Update Services (WSUS)** : WSUS peut être installé sur le site web par défaut (port 80) ou sur un site web personnalisé (port 8530).  
+3.  **Windows Server Update Services (WSUS)** : WSUS peut être installé pour utiliser les ports 80/443 ou 8530/8531 pour la communication client. Quand vous exécutez WSUS dans Windows Server 2012 ou Windows Server 2016, WSUS est configuré par défaut pour utiliser le port 8530 pour HTTP et le port 8531 pour HTTPS.  
 
      Ce port peut être modifié après l'installation. Vous n'avez pas à utiliser le même numéro de port dans l'ensemble de la hiérarchie du site.  
 
     -   Si le numéro de port HTTP est 80, le numéro de port HTTPS doit être 443.  
 
-    -   Si le port HTTP a un autre numéro, le port HTTPS doit avoir le numéro 1 ou plus (par exemple 8530 ou 8531).  
+    -   Si le port HTTP a un autre numéro, le port HTTPS doit avoir le numéro 1 ou plus (par exemple 8530 et 8531).   
 
     > [!NOTE]  
     >  Quand vous configurez le point de mise à jour logicielle pour utiliser HTTPS, le port HTTP doit également être ouvert. Les données non chiffrées, telles que le CLUF pour les mises à jour spécifiques, utilisent le port HTTP.  

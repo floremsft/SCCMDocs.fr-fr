@@ -2,7 +2,7 @@
 title: Surveiller des clients - Configuration Manager | Microsoft Docs
 description: "Obtenez des instructions détaillées sur la façon de surveiller les clients dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2c8f57cf-1968-48de-87fb-4897432ed6e0
 caps.latest.revision: 23
-author: arob98
-ms.author: angrobe
+author: robstackmsft
+ms.author: robstack
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
-ms.openlocfilehash: 85afe010e734d20ae1f1479b3edd166c54cc8fd2
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
+ms.openlocfilehash: 08a4d9b29871b49e3118aef949572cef64940f96
+ms.lasthandoff: 04/24/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/24/2017
 
  Une fois l’application cliente System Center Configuration Manager installée sur les ordinateurs et appareils Windows de votre site, vous pouvez surveiller leur intégrité et leur activité dans la console Configuration Manager.  
 
-##  <a name="a-namebkmkabouta-about-client-status"></a><a name="bkmk_about"></a> À propos du statut du client  
+##  <a name="bkmk_about"></a> À propos du statut du client  
  Configuration Manager présente les types d’informations suivants sous forme d’état du client :  
 
 -   **État en ligne du client** : à compter de la version 1602 de Configuration Manager, cet état indique si l’ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté.  Pour indiquer que le client est en ligne, il envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après environ 5 minutes, le client est considéré comme étant hors connexion.  
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/24/2017
 
      Vous pouvez configurer la mise à jour de manière à ne pas l'exécuter sur des ordinateurs spécifiques, par exemple, sur un serveur essentiel pour l'entreprise. En outre, si vous souhaitez évaluer d’autres éléments, vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour fournir une solution complète de surveillance de l’intégrité, de l’activité et de la conformité globales des ordinateurs de votre organisation. Pour plus d’informations sur les paramètres de compatibilité, consultez [Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
 
-##  <a name="a-namebkmkindstatusa-monitor-the-status-of-individual-clients"></a><a name="bkmk_indStatus"></a> Surveiller le statut de clients individuels  
+##  <a name="bkmk_indStatus"></a> Surveiller le statut de clients individuels  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Appareils** ou choisissez un regroupement sous **Regroupements d’appareils**.  
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/24/2017
 
 3.  Cliquez sur un client individuel dans le volet Liste pour voir plus d’informations sur le statut dans le volet Détails, dont des informations sur l’activité du client et l’intégrité du client.  
 
-##  <a name="a-namebkmkallstatusa-monitor-the-status-of-all-clients"></a><a name="bkmk_allStatus"></a> Surveiller le statut de tous les clients  
+##  <a name="bkmk_allStatus"></a> Surveiller le statut de tous les clients  
 
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **État du client**. Dans cette page de la console, vous pouvez consulter les statistiques générales relatives à l’activité du client et à l’intégrité du client sur le site.  Vous pouvez également modifier l’étendue des informations en choisissant un autre regroupement.  
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 01/24/2017
 
  Vous pouvez configurer des alertes pour vous avertir lorsque les résultats de l'intégrité des clients ou l'activité des clients passent au-dessous d'un pourcentage de clients spécifié dans un enregistrement ou lorsque la mise à jour échoue sur un pourcentage de clients spécifié. Pour plus d’informations sur la configuration de l’état du client, consultez [Comment configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
-##  <a name="a-namebkmkclienthealtha-checks-and-remediations-made-by-client-check"></a><a name="BKMK_ClientHealth"></a> Vérifications et corrections effectuées par la fonction d'intégrité du client  
+##  <a name="BKMK_ClientHealth"></a> Vérifications et corrections effectuées par la fonction d'intégrité du client  
  Les vérifications et corrections suivantes peuvent être effectuées par la fonction d'intégrité du client.  
 
 |Intégrité du client|Action corrective|Plus d'informations|  
@@ -110,4 +110,7 @@ ms.lasthandoff: 01/24/2017
 |Vérifier l'intégrité du fournisseur WMI du client|Redémarrer le service WMI (Windows Management Instrumentation)|La correction de cette intégrité du client est effectuée uniquement sur les ordinateurs qui exécutent Windows Server 2003, Windows XP (64 bits) ou des versions antérieures.|  
 |Vérifier que le service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est en cours d'exécution|Démarrer le service de proxy de mise en éveil ConfigMgr|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
 |Vérifier que le type de démarrage du service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est automatique|Réinitialiser le type de démarrage du service de proxy de mise en éveil ConfigMgr sur automatique|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
+
+## <a name="client-deployment-log-files"></a>Fichiers journaux de déploiement du client
+Pour plus d’informations sur les fichiers journaux utilisés par les opérations de déploiement et de gestion du client, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files#BKMK_ClientLogs).
 

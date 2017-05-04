@@ -16,9 +16,9 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 32f7fc4ef9c8e8d3c2ec8eeaf9a3174bad992ffb
-ms.openlocfilehash: 18c199e78750eadc06b9635fa6104d36c2ac018d
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
+ms.openlocfilehash: 29a55948a1897e1345ba14ec685b9288a844feaa
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -325,7 +325,7 @@ Quand vous activez une nouvelle fonctionnalité ou une fonctionnalité en préve
 
 
 ##  <a name="bkmk_prerelease"></a> Utiliser des fonctionnalités de préversions de mises à jour
-Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités peuvent être utilisées dans un environnement de production, mais ne doivent pas être considérées comme prêtes pour la production. Pour en savoir plus sur les fonctionnalités de préversion, y compris sur la façon de les activer dans votre environnement, consultez [Fonctionnalités de préversion](/sccm/core/servers/manage/pre-release-features).                |
+Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités peuvent être utilisées dans un environnement de production, mais ne doivent pas être considérées comme prêtes pour la production. Pour en savoir plus sur les fonctionnalités de préversion, y compris sur la façon de les activer dans votre environnement, consultez [Fonctionnalités de préversion](/sccm/core/servers/manage/pre-release-features).             
 
 
 ## <a name="known-issues"></a>Problèmes connus
