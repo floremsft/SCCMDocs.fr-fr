@@ -2,7 +2,7 @@
 title: "Fonctionnalités en préversion| Microsoft Docs"
 description: "Fonctionnalités en préversion dans System Center Configuration Manager"
 ms.custom: na
-ms.date: 4/13/2017
+ms.date: 4/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,16 +16,16 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 329de5ffb6eb1403c02cd1db634c32f045e82488
-ms.openlocfilehash: c9896d53061b11f249f32f118620524c6a270ec9
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
+ms.openlocfilehash: b12fcb3c372c34ee47306a9b536c3d0c4764b8be
+ms.lasthandoff: 04/24/2017
 
 
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
- Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités peuvent être utilisées dans un environnement de production, mais ne doivent pas être considérées comme prêtes pour la production.
+Les fonctionnalités de préversion sont des fonctions incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Ces fonctionnalités sont entièrement prises en charge mais sont toujours en cours de développement. Elles peuvent donc être modifiées jusqu'à ce qu’elles passent en pré-version.
 
  Pour pouvoir sélectionner et utiliser ces fonctions, vous devez d’abord donner votre consentement via la console Configuration Manager.  
 

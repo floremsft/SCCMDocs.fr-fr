@@ -2,7 +2,7 @@
 title: "Nouveautés dans MDM hybride avec Configuration Manager | Microsoft Docs"
 description: "Découvrez les nouvelles fonctionnalités de gestion des appareils mobiles disponibles pour les déploiements hybrides avec Configuration Manager et Intune."
 ms.custom: na
-ms.date: 03/28/2017
+ms.date: 04/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,9 +16,9 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 translationtype: Human Translation
-ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
-ms.openlocfilehash: 489defeae18c219fe2f717d5caa1f15bcdaf07cf
-ms.lasthandoff: 04/19/2017
+ms.sourcegitcommit: ae008c91a7387ba76f2bfac13f8feb489a0cc558
+ms.openlocfilehash: 0af5ae68353fcf1db846e2e27f3391fe87dcfc42
+ms.lasthandoff: 04/21/2017
 
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Nouveautés de la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
@@ -57,7 +57,13 @@ Cet article fournit des informations sur les nouvelles fonctionnalités de gesti
 
 - **Bloquer l’accès des applications à SharePoint Online**
 
-    Vous pouvez maintenant créer une stratégie d’accès conditionnel basée sur l’application pour empêcher les applications auxquelles aucune stratégie de protection d’application n’a été appliquée d’accéder à [SharePoint Online](/InTune/deploy-use/mam-ca-for-sharepoint-online). Dans le cadre d’un scénario faisant appel à l’accès conditionnel basé sur l’application, vous pouvez spécifier les applications que vous souhaitez autoriser à accéder à SharePoint Online à l’aide du portail Azure.
+  Vous pouvez maintenant créer une stratégie d’accès conditionnel basée sur l’application pour empêcher les applications auxquelles aucune stratégie de protection d’application n’a été appliquée d’accéder à [SharePoint Online](/InTune/deploy-use/mam-ca-for-sharepoint-online). Dans le cadre d’un scénario faisant appel à l’accès conditionnel basé sur l’application, vous pouvez spécifier les applications que vous souhaitez autoriser à accéder à SharePoint Online à l’aide du portail Azure.
+
+### <a name="new-in-configuration-manager-technical-preview-1704"></a>Nouveautés de Configuration Manager Technical Preview 1704
+
+- **Configurer des applications Android avec des stratégies de configuration des applications**
+
+  Vous pouvez utiliser des stratégies de configuration des applications disponibles dans System Center Configuration Manager (Configuration Manager) pour distribuer les paramètres préconfigurés quand un utilisateur exécute une application sur des appareils Android for Work. Les stratégies de configuration des applications Android sont disponibles uniquement sur les appareils Android for Work et s’appliquent aux applications approuvées du magasin Play for Work. Pour plus d’informations sur la façon de tester cette fonctionnalité, consultez [Configurer des applications Android avec des stratégies de configuration des applications](/sccm/core/get-started/capabilities-in-technical-preview-1704#configure-android-apps-with-app-configuration-policies).
 
 ## <a name="march-2017"></a>Mars 2017
 
