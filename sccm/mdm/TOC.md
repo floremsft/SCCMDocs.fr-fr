@@ -71,13 +71,14 @@
 ### [Gérer l’accès à Dynamics CRM Online](deploy-use/manage-dynamics-crm-online-access.md)
 ### [Gérer l’accès des ordinateurs aux services O365](deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)
 
-## [Gérer l’accès en fonction des risques](deploy-use/manage-access-based-on-device-network-app-risk.md)
-### [Configurer la Protection contre les menaces mobiles pour Lookout](deploy-use/set-up-your-subscription-with-lookout.md)
-### [Activer Lookout dans Intune](deploy-use/enable-lookout-connection-in-intune.md)
-### [Déployer Lookout pour les applications professionnelles](deploy-use/configure-and-deploy-lookout-for-work-apps.md)
-### [Activer la stratégie de protection contre les menaces sur les appareils](deploy-use/enable-device-threat-protection-rule-compliance-policy.md)
-### [Protection contre les menaces mobiles pour Monitor](deploy-use/monitor-mobile-threat-defense-compliance.md)
-### [Résoudre les problèmes liés à l’intégration de Lookout](deploy-use/troubleshoot-lookout-integration.md)
+## [Gérer l’accès basé sur les risques que présente l’appareil](deploy-use/mobile-threat-defense.md)
+### [Lookout dans Configuration Manager](deploy-use/lookout-mobile-threat-defense-in-configuration-manager.md)
+#### [Configurer la Protection contre les menaces mobiles pour Lookout](deploy-use/set-up-your-subscription-with-lookout.md)
+#### [Activer Lookout dans Intune](deploy-use/enable-lookout-connection-in-intune.md)
+#### [Déployer Lookout pour les applications professionnelles](deploy-use/configure-and-deploy-lookout-for-work-apps.md)
+#### [Créer une stratégie de conformité Lookout](deploy-use/enable-device-threat-protection-rule-compliance-policy.md)
+#### [Résoudre les problèmes liés à l’intégration de Lookout](deploy-use/troubleshoot-lookout-integration.md)
+#### [Protection contre les menaces mobiles pour Monitor](deploy-use/monitor-mobile-threat-defense-compliance.md)
 
 # Gestion locale des appareils mobiles
 ## [Qu’est-ce que la gestion MDM locale ?](understand/manage-mobile-devices-with-on-premises-infrastructure.md)
