@@ -16,10 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
-ms.openlocfilehash: 44338c705e308896c5203be239c160a8220369a8
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7a6c89254d01f4074e5c170b20338686178ebdd3
+ms.openlocfilehash: 59946d1328be1606ba7c4dab647e814c1b4e638a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -216,6 +217,12 @@ L’exécution d’une réinitialisation complète sur les appareils Windows 10 
 Quand un administrateur déploie un ensemble de conditions générales dans plusieurs regroupements d’utilisateurs et qu’un utilisateur est membre de plusieurs de ces regroupements, plusieurs copies identiques des conditions générales lui sont présentées quand il ouvre le portail d’entreprise.  Par exemple, si un utilisateur nommé « Exemple_Utilisateur » est membre de deux regroupements d’utilisateurs différents, l’un nommé « EmployésSociétéFTE » et l’autre « EmployésSociétéNA », et que les conditions générales nommées « ConditionsGénérales » sont déployées vers EmployésSociétéFTE et vers EmployésSociétéNA, Exemple_Utilisateur verra deux ensembles identiques de ConditionsGénérales dans la page d’acceptation des conditions générales. Étant donné que les utilisateurs peuvent uniquement accepter ou refuser toutes les conditions générales, il n’existe aucun risque d’être dans un état d’acceptation ambigu (où l’utilisateur aurait à la fois accepté et refusé les conditions générales). Le rapport d’acceptation des conditions générales comprend une seule ligne par ensemble de conditions générales et par utilisateur. Il ne contient donc aucune erreur. La seule conséquence est que l’utilisateur verra deux ensembles de conditions générales dans la page d’acceptation.  
 
 **Solution de contournement**: assurez-vous que chaque utilisateur appartient à un seul regroupement où les conditions générales sont déployées.  
+
+### <a name="android-for-work-email-profiles-that-use-certificate-authentication-are-not-applied-to-devices"></a>Les profils de messagerie Android for Work qui utilisent l’authentification par certificat ne sont pas appliqués aux appareils
+<!--  487657 -->
+Lorsqu’un profil de messagerie Android for Work est créé, deux options d’authentification sont disponibles. L’une utilise le nom d’utilisateur et le mot de passe, et l’autre des certificats. À ce stade, l’option des certificats ne fonctionne pas. Si le profil est créé avec la méthode d’authentification définie sur des **certificats**, le profil n’est pas appliqué à l’appareil et l’utilisateur sera invité à saisir manuellement les détails du compte.
+
+**Solution de contournement** : aucune. Les administrateurs doivent utiliser l’option **Nom d’utilisateur et mot de passe**, ou attendre que le problème soit résolu.
 
 ## <a name="reports-and-monitoring"></a>Rapports et analyse  
 

@@ -2,7 +2,7 @@
 title: "Versions SQL Server prises en charge | Microsoft Docs"
 description: "Découvrez les exigences en matière de version et de configuration de SQL Server pour l’hébergement d’une base de données du site System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 05/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 21
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: ea9edf6392c41e31276900454cd78ce4bc32be7b
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d5a6fdc9a526c4fc3a9027dcedf1dd66a6fff5a7
+ms.openlocfilehash: fa7f232fd385f742bb11c6596c954d87c2da87a8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -54,10 +55,15 @@ Les instances suivantes sont prises en charge :
  SQL Server doit se trouver sur l’ordinateur du serveur de site.  
 
 ##  <a name="bkmk_SQLVersions"></a> Versions SQL Server prises en charge  
- Dans une hiérarchie comprenant plusieurs sites, les sites peuvent utiliser des versions différentes de SQL Server pour héberger la base de données du site, à condition que Configuration Manager prenne en charge les versions de SQL Server que vous utilisez.  
+ Dans une hiérarchie comprenant plusieurs sites, chaque site peut utiliser différentes versions de SQL Server pour héberger la base de données du site, dès lors que les conditions suivantes sont réunies :
+ -  Configuration Manager prend en charge les versions de SQL Server que vous utilisez.
+ -  Les versions SQL Server que vous utilisez restent prises en charge par Microsoft.
+ -  SQL Server prend en charge la réplication entre les deux versions de SQL Server.  Par exemple, [SQL Server ne prend pas en charge la réplication entre SQL Server 2008 R2 et SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/replication/deprecated-features-in-sql-server-replication).
+
+
 
  Sauf indication contraire, les versions suivantes de SQL Server sont prises en charge avec toutes les versions System Center Configuration Manager actives. Si vous ajoutez la prise en charge d’une nouvelle version de SQL Server ou un Service Pack, la version de Configuration Manager qui ajoute cette prise en charge sera indiquée. De même, si la prise en charge est déconseillée, recherchez plus d’informations sur les versions Configuration Manager concernées.   
- 
+
 La prise en charge d’un Service Pack de SQL Server spécifique inclut des mises à jour cumulatives pour ce Service Pack, sauf si une mise à jour cumulative interrompt la compatibilité descendante vers cette version du Service Pack de base. Si aucune version du Service Pack n’est indiquée, la prise en charge s’applique à cette version de SQL Server sans Service Pack. À l’avenir, si un Service Pack est fourni pour cette version, une instruction de prise en charge dinstincte sera déclarée avant que cette version du Service Pack ne soit prise en charge.
 
 

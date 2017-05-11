@@ -2,7 +2,7 @@
 title: "Mises à jour | Microsoft Docs"
 description: "Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: bd72d17e463cb65e79b78613b631b0267b2b26a0
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
+ms.openlocfilehash: a33960fb89b71c0f8128e21a5054f5b63cfc6b17
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -48,7 +49,7 @@ Si vous utilisez l’édition Technical Preview, consultez [Technical Preview po
 
 
 ##  <a name="bkmk_Baselines"></a> Versions de base et de mise à jour  
- La première version Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Une version plus récente de la base de référence est 1606.
+ La première version Current Branch de System Center Configuration Manager était la version 1511, une version de base de référence. Les versions de base de référence les plus récentes sont les versions 1606 et 1702 :
 
 -   La dernière version de base est à utiliser quand il s’agit d’installer un nouveau site dans une nouvelle hiérarchie.  
 
@@ -76,7 +77,7 @@ Les versions suivantes de Configuration Manager sont disponibles sous forme de v
 
 |Version |Date de disponibilité|[Date de fin de support](/sccm/core/servers/manage/current-branch-versions-supported) |De base|Mise à jour dans la console|  
 |-------------|-----------|------------|--------------|------------------------|  
-|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|3/27/2017| 3/27/2018|Non|Oui|
+|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|3/27/2017| 3/27/2018|Oui|Oui|
 |[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|11/18/2016| 11/18/2017|Non|Oui|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|7/22/2016| 7/22/2017|Non|Oui|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) avec le correctif cumulatif 1606 (KB3186654) </br></br>5.00.8412.1307 *(Note 1)* |10/12/2016| 7/22/2017|Oui|Non|

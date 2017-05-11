@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 4/19/2017
+ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 21
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
-ms.openlocfilehash: e75413d0b03681bf7244bd3917cd6099394ee3c9
-ms.lasthandoff: 04/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
+ms.openlocfilehash: 057cd079e452321a51c41797e8dd1a8f5b6a5688
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -35,6 +36,15 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
 
 ##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 
+**Mise à niveau vers la version 1702**   
+Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1702 :   
+-      Une installation d’évaluation de System Center Configuration Manager version 1702
+-      Une installation de version finale (RC) de System Center Configuration Manager
+-      System Center 2012 Configuration Manager avec Service Pack 1
+-      System Center 2012 Configuration Manager avec Service Pack 2
+-      System Center 2012 R2 Configuration Manager
+-      System Center 2012 R2 Configuration Manager avec Service Pack 1
+
 **Mettre à niveau vers la version 1606**  
 Le 15 décembre 2016, le média de base de la version 1606 a été republié afin d’ajouter la prise en charge d’autres scénarios de mise à niveau. Cette nouvelle version prend en charge la mise à niveau des produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :  
 -   Une installation d’évaluation de System Center Configuration Manager version 1606
@@ -49,15 +59,16 @@ Si vous utilisez le média de base de la version 1606 téléchargé avant le 15
 -   System Center 2012 Configuration Manager avec Service Pack 2
 -   System Center 2012 R2 Configuration Manager avec Service Pack 1
 
-**Mettre à niveau vers la version 1511**  
-Si vous avez un média de base de la version 1511, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1511 :  
--   Une installation d’évaluation de System Center Configuration Manager version 1511
--   Une installation de version finale (RC) de System Center Configuration Manager  
--   System Center 2012 Configuration Manager avec Service Pack 1  
--   System Center 2012 Configuration Manager avec Service Pack 2  
+<!-- Version 1511 has now dropped out of support
+**Upgrade to version 1511**  
+When you have version 1511 baseline media, you can upgrade the following to a fully licensed  version of System Center Configuration Manager version 1511:  
+-   An evaluation install of System Center Configuration Manager version 1511
+-   A release candidate install of System Center Configuration Manager  
+-   System Center 2012 Configuration Manager with Service Pack 1  
+-   System Center 2012 Configuration Manager with Service Pack 2  
 -   System Center 2012 R2 Configuration Manager  
--   System Center 2012 R2 Configuration Manager avec Service Pack 1  
-
+-   System Center 2012 R2 Configuration Manager with Service Pack 1  
+-->
 
 
 > [!TIP]  
