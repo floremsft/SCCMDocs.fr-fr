@@ -438,8 +438,3 @@
 ### [Guide pratique pour déterminer l’état d’une publication](core/servers/manage/how-to-determine-advertisement-status.md)
 
 # [Informations de référence sur Configuration Manager](reference/configuration-manager-reference.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
