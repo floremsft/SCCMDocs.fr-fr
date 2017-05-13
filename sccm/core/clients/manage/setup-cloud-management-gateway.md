@@ -4,17 +4,18 @@ description:
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.date: 04/23/2017
+ms.date: 05/01/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology:
 - configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
-translationtype: Human Translation
-ms.sourcegitcommit: 2bcc5d9dde1f1a2d9c33575d6c463e281ac818e8
-ms.openlocfilehash: 61b8cd8458718b9a54edb129739c619f947ac380
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d5a6fdc9a526c4fc3a9027dcedf1dd66a6fff5a7
+ms.openlocfilehash: 97e1bc6585cee0ff433da0ec0b60b9604cb7348f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/01/2017
 
 ---
 
@@ -24,13 +25,27 @@ ms.lasthandoff: 12/16/2016
 
 Depuis la version 1610, le processus de configuration de la passerelle de gestion cloud dans Configuration Manager comprend les étapes suivantes :
 
-## <a name="step-1-create-a-custom-ssl-certificate"></a>Étape 1 : Créer un certificat SSL personnalisé
+## <a name="step-1-configure-required-certificates"></a>Étape 1 : configurer les certificats requis
 
-Vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion cloud de la même façon que vous le feriez pour un point de distribution cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012), mais procédez différemment pour ce qui suit :
+## <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Option 1 (recommandée) : utilisez le certificat d’authentification serveur provenant d’un fournisseur de certificats public et largement approuvé (comme VeriSign)
 
--   Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
+Lorsque vous utilisez cette méthode, les clients approuveront automatiquement le certificat, et vous n’avez pas besoin de créer vous-même un certificat SSL personnalisé.
 
--  Lors de la demande du certificat de serveur web personnalisé, donnez un nom de domaine complet au nom commun du certificat qui se termine par **cloudapp.net** pour utiliser la passerelle de gestion cloud sur le cloud public Azure ou par **usgovcloudapp.net** pour le cloud Secteur public Azure.
+1. Créez un enregistrement de nom canonique (CNAME) dans le service de nom de domaine (DNS) public de votre organisation afin de générer un alias pour le service de passerelle de gestion cloud avec un nom convivial qui sera utilisé dans le certificat public.
+Par exemple, Contoso nomme son service de passerelle de gestion cloud **GraniteFalls** qui, dans Azure, sera **GraniteFalls.CloudApp.Net**. Dans l’espace de noms contoso.com du DNS public de Contoso, l’administrateur DNS crée un enregistrement CNAME pour **GraniteFalls.Contoso.com** pour le nom d’hôte réel, **GraniteFalls.CloudApp.net**.
+2. Ensuite, demandez à un fournisseur public un certificat d’authentification serveur en utilisant le nom commun (CN) de l’alias CNAME.
+Par exemple, Contoso utilise **GraniteFalls.Contoso.com** comme nom commun du certificat.
+3. Créez le service de passerelle de gestion cloud dans la console Configuration Manager à l’aide de ce certificat.
+    - Sur la page **Paramètres** de l’Assistant Création de la passerelle de gestion cloud, lorsque vous ajoutez le certificat de serveur pour ce service cloud (à partir du **fichier de certificat**), l’Assistant extrait le nom d’hôte du nom commun du certificat comme nom de service, puis l’ajoute à **cloudapp.net** (ou **usgovcloudapp.net** pour le cloud Azure US Government) en tant que nom de domaine complet du service pour créer le service dans Azure.
+Par exemple, lors de la création de la passerelle de gestion cloud chez Contoso, le nom d’hôte **GraniteFalls** est extrait du nom commun du certificat afin de créer le service réel dans Azure en tant que **GraniteFalls.CloudApp.net**.
+
+### <a name="option-2---create-a-custom-ssl-certificate-for-cloud-management-gateway-in-the-same-way-as-for-a-cloud-based-distribution-point"></a>Option 2 : vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion cloud de la même façon que pour un point de distribution cloud
+
+Vous pouvez créer un certificat SSL personnalisé pour la passerelle de gestion cloud de la même façon que vous le feriez pour un point de distribution cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates), mais procédez différemment pour ce qui suit :
+
+- Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
+- Lors de la demande du certificat de serveur web personnalisé, donnez un nom de domaine complet au nom commun du certificat qui se termine par **cloudapp.net** pour utiliser la passerelle de gestion cloud sur le cloud public Azure ou par **usgovcloudapp.net** pour le cloud Secteur public Azure.
+
 
 ## <a name="step-2-export-the-client-certificates-root"></a>Étape 2 : Exporter la racine du certificat client
 
@@ -46,11 +61,11 @@ Le moyen le plus simple pour exporter la racine des certificats clients utilisé
 
 3.  Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, choisissez **Certificats** > **Ajouter &gt;**  > **Compte d’ordinateur** > **Suivant** > **Ordinateur Local** > **Terminer**. 
 
-4.  Accédez à **Certificats** &gt;** Personnel** &gt;**Certificats**.
+4.  Accédez à **Certificats** &gt; **Personnel** &gt;**Certificats**.
 
 5.  Double-cliquez sur le certificat pour l’authentification du client sur l’ordinateur, choisissez l’onglet Chemin d’accès de certification et double-cliquez sur l’autorité racine (en haut du chemin).
 
-6.  Sous l’onglet Détails, choisissez **Copier dans un fichier... **.
+6.  Sous l’onglet Détails, choisissez **Copier dans un fichier...** .
 
 7.  Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en aurez besoin pour configurer la passerelle de gestion cloud dans une [étape ultérieure](#step-4-set-up-cloud-management-gateway).
 

@@ -2,7 +2,7 @@
 title: "Définir des groupes de limites | Microsoft Docs"
 description: "Découvrez les groupes de limites qui lient les clients aux systèmes de site dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 10
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 8da48e89e8376cc23109faa1c74b29a64699aa87
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
+ms.openlocfilehash: cb5c8f8f91857bf5f9377a9f871f0d9d9b0cc939
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -111,6 +112,8 @@ Toutefois, si le contenu est distribué à la demande et non disponible sur un p
 À partir de la version 1702, les clients utilisent des groupes de limites pour rechercher un nouveau point de mise à jour logicielle. Vous pouvez ajouter des points de mise à jour logicielle individuels à différents groupes de limites pour contrôler les serveurs qu’un client peut trouver.
 
 Lorsque vous effectuez la mise à jour à partir d’une version antérieure à la version 1702, tous les points de mise à jour logicielle existants sont ajoutés au groupe de limites de site par défaut de chaque site. Cela permet de conserver le comportement d’avant la mise à jour, selon lequel les clients sélectionnent un point de mise à jour logicielle dans le pool de points de mise à jour logicielle disponibles que vous avez configuré pour votre hiérarchie.  Ce comportement est conservé jusqu’à ce que vous choisissiez d’ajouter des points de mise à jour logicielle propres à chaque groupe de limites avec une sélection contrôlée et un comportement de secours.
+
+Si vous installez un nouveau site qui exécute la version 1702 ou une version ultérieure, vous devez affecter des points de mise à jour logicielle à un groupe de limites pour permettre aux clients de les trouver et de les utiliser.
 
 
 Pour les points de mise à jour logicielle, le secours est configuré comme les autres rôles de système de site, mais avec les restrictions suivantes :

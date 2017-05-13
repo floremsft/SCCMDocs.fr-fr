@@ -2,7 +2,7 @@
 title: "Liste de contrôle pour 1702 | System Center Configuration Manager"
 description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour vers System Center Configuration Manager version 1702."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 05/02/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,10 +15,11 @@ caps.latest.revision: 7
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: dd54a5668f8df73b0724f5c15a1a6a83f8fe8496
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
+ms.openlocfilehash: c4ace452d62d4fa08f4457cb1735718ca4bd016d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="checklist-for-installing-update-1702-for-system-center-configuration-manager"></a>Liste de contrôle de l’installation de la mise à jour 1702 pour System Center Configuration Manager
@@ -26,6 +27,9 @@ ms.lasthandoff: 03/27/2017
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 Quand vous utilisez Current Branch de System Center Configuration Manager, vous pouvez installer la mise à jour dans la console de la version 1702 pour mettre à jour votre hiérarchie à partir d’une version antérieure.
+
+> [!TIP]  
+La version 1702 est également disponible en tant que [support de base de référence](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions), vous permettant d’installer le premier site d’une nouvelle hiérarchie.
 
 Pour obtenir la mise à jour de la version 1702, vous devez utiliser un rôle de système de site de point de connexion de service sur le site de niveau supérieur de votre hiérarchie. Cela peut être en mode en ligne ou hors connexion. Une fois que votre hiérarchie a téléchargé le package de mises à jour de Microsoft, celui-se trouve dans la console sous **Administration &gt; Vue d’ensemble &gt; Services cloud &gt; Mises à jour et maintenance**.
 

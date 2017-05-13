@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
-ms.openlocfilehash: e55883471fde63036c91b315ed6db6dceb315207
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
+ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -52,7 +54,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 
  Une méthode de détection dans Configuration Manager contient des règles qui sont utilisées pour déterminer si une application est installée sur un ordinateur. La détection a lieu avant l'évaluation de la compatibilité de l'élément de configuration. Pour déterminer si une application est installée, vous pouvez détecter la présence du Windows Installer de l'application, utiliser un script personnalisé ou sélectionner **Toujours partir du principe que l'application est installée** pour évaluer la compatibilité de l'élément de configuration, que l'application soit installée ou non.  
 
- Utilisez ces procédures pour configurer des méthodes de détection dans System Center 2012 Configuration Manager.  
+ Utilisez ces procédures pour configurer des méthodes de détection dans System Center Configuration Manager.  
 
 ### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Pour détecter une installation d'application en utilisant le fichier Windows Installer  
 
@@ -149,7 +151,7 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
             -   **Nom de fichier ou dossier** -spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez aussi utiliser les caractères génériques * et ? dans le nom du fichier.  
 
                 > [!NOTE]  
-                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center&2012; Configuration Manager.  
+                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center 2012 Configuration Manager.  
 
             -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
 
@@ -356,9 +358,4 @@ Dans la page **Plateformes prises en charge** de l’ **Assistant Création d’
 
 ## <a name="complete-the-wizard"></a>Effectuer toutes les étapes de l'Assistant  
  Dans la page **Résumé** de l’Assistant, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouvel élément de configuration est affiché dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité**.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

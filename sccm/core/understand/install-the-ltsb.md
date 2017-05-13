@@ -1,8 +1,8 @@
 ---
 title: "Installer un site à l’aide du média de base de référence 1606 | Microsoft Docs"
-description: "Découvrez comment utiliser le support de la base de référence 1606 pour installer ou mettre à niveau des sites pour System Center Configuration Manager."
+description: "Installer ou mettre à niveau vers LTSB for System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/12/2016
+ms.date: 05/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 1a3460143628ef297c99c364ded7ebea86d270dd
-ms.openlocfilehash: c266bb753ea69785b674508647c3857b2218cb77
-ms.lasthandoff: 02/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
+ms.openlocfilehash: 39653604ba5fd8e1fe9dd4d42889221d983f9bec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -26,13 +27,18 @@ ms.lasthandoff: 02/18/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch), (Long-Term Servicing Branch)*
 
-Utilisez cette rubrique pour en savoir plus sur l’exécution du programme d’installation de Configuration Manager quand vous utilisez le support de la base de référence de la version 1606 de Microsoft System Center 2016 ou System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606). Vous pouvez utiliser ce support pour installer un nouveau site, ou effectuer une mise à niveau de System Center 2012 Configuration Manager avec Service Pack 2 ou de System Center 2012 R2 Configuration Manager avec Service Pack 1. Pendant l’installation, vous pouvez choisir d’installer Current Branch ou Long-Term Servicing Branch (LTSB).
+Lorsque vous exécutez le programme d’installation à partir du support de la base de référence 1606 pour Configuration Manager, vous pouvez installer Long-Term Servicing Branch ou à un site Current Branch de System Center Configuration Manager.
+
+Le support de la base de référence est disponible sous forme de DVD dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606). Pour en savoir plus sur le support de la base de référence, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#baseline-and-udpate-versions).
+
 
 Quand vous utilisez le média de la base de référence de la version 1606, le site que vous installez (ou vers lequel vous effectuez la mise à niveau) est le suivant :
 - Un *site Current Branch* qui équivaut à un site initialement installé à l’aide du média de la base de référence 1511, puis mis à jour vers la version 1606 plus le correctif cumulatif 1606 (KB3186654).
 -    Un *site LTSB* qui équivaut au site Current Branch exécutant la version 1606 plus le correctif cumulatif 1606 (KB3186654). Le média de la base de référence contient déjà le correctif cumulatif.  Toutefois, le site LTSB ne prend pas en charge toutes les fonctionnalités disponibles avec Current Branch, comme cela est indiqué dans [Présentation de Long-Term Servicing Branch dans System Center Configuration Manager](introduction-to-the-ltsb.md).
 
 Si vous ne connaissez pas déjà les différentes branches de System Center Configuration Manager, consultez [Déterminer la branche de Configuration manager à utiliser](which-branch-should-i-use.md).
+
+
 
 
 ## <a name="changes-to-setup-with-the-1606-baseline-media"></a>Modifications apportées au programme d’installation avec le support de la base de référence 1606
@@ -98,6 +104,7 @@ Pour plus d’informations, consultez [Utiliser une ligne de commande pour insta
 Quand vous utilisez le support de la base de référence 1606 pour installer un nouveau site de l’une des deux branches, utilisez les procédures de planification, préparation et installation de sites décrites dans la rubrique [Installation de sites System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites) en tenant également compte des points suivants :
 
 - Pendant l’installation, vous devez choisir la branche de Configuration Manager à installer et vous pouvez spécifier les détails de votre contrat Software Assurance.
+- Tous les sites d’une même hiérarchie doivent exécuter la même branche. Une hiérarchie ne peut pas comporter un mélange de LTSB et Current Branch sur des sites différents.
 -    Nouvelle installation par script. Pour plus d’informations, consultez « Nouvelles options d’installation par script », plus haut dans cet article.
 
 ## <a name="expand-a-stand-alone-primary-site"></a>Étendre un site principal autonome

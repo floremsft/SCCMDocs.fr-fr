@@ -2,7 +2,7 @@
 title: "Quelle édition utiliser | Microsoft Docs"
 description: "Découvrez les différences entre les branches disponibles de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/12/2016
+ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: ef044af5f6b32e4161d54c0ab1fb2ef2d245264b
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
+ms.openlocfilehash: f791278b0aa8efc734a894da7dab1704bb567ed0
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -29,16 +30,19 @@ ms.lasthandoff: 03/27/2017
 
 Depuis octobre 2016, il existe trois branches disponibles de System Center Configuration Manager. Utilisez cette rubrique pour mieux choisir la branche qui vous convient.
 
+> [!TIP]  
+> Tous les sites d’une hiérarchie doivent exécuter la même branche. Une hiérarchie ne peut pas comporter des branches différentes sur des sites différents.
+
 ## <a name="current-branch-of-system-center-configuration-manager"></a>Branche Current Branch de System Center Configuration Manager
 Il s’agit d’une branche sous licence pour une utilisation dans un environnement de production dans lequel vous souhaitez pouvoir obtenir les dernières fonctionnalités. Il s’agit de la branche à utiliser si vous disposez de l’un des éléments suivants : System Center Datacenter, System Center Standard, System Center Configuration Manager ou les droits d’abonnement équivalents. Pour plus d’informations sur la Software Assurance et les options de licence, consultez [Licences et branches pour System Center Configuration Manager](learn-more-editions.md).
 
 
 >  [!TIP]
-> Vous pouvez aussi installer la branche Current Branch comme édition d’évaluation ne nécessitant pas de licence. Une édition d’évaluation peut être utilisée pendant 180 jours et prend en charge la mise à niveau vers une édition avec licence de Current Branch.
+> Vous pouvez installer la branche Current Branch comme édition d’évaluation ne nécessitant pas de licence. Une édition d’évaluation peut être utilisée pendant 180 jours et prend en charge la mise à niveau vers une édition avec licence de Current Branch.
 
 La branche Current Branch est mise à jour plusieurs fois par an avec de nouvelles fonctionnalités. Chaque version de mise à jour est prise en charge pendant un an après sa publication. Vous devez effectuer la mise à jour vers une version plus récente de Current Branch avant l’expiration de ce délai d’un an. Les mises à jour vers des versions plus récentes sont proposées sous forme de mises à jour dans la console.
 
-Pour installer Current Branch comme nouveau site ou mise à niveau à partir de System Center 2012 Configuration Manager avec Service Pack 2 ou de System Center 2012 R2 Configuration Manager avec Service Pack 1, vous utilisez un [média de référence](/sccm/core/servers/manage/updates#baseline-and-update-versions) pour System Center Configuration Manager, qui se présente sous la forme d’un DVD avec System Center 2016 ou qui est disponible dans le cadre d’une version autonome de System Center Configuration Manager. L’accès à ce média dépend de la manière dont vous avez acquis la licence de System Center Configuration Manager.
+Pour installer Current Branch comme nouveau site ou mise à niveau à partir de System Center 2012 Configuration Manager avec Service Pack 2 ou de System Center 2012 R2 Configuration Manager avec Service Pack 1, vous utilisez un [média de référence](/sccm/core/servers/manage/updates#baseline-and-update-versions) pour System Center Configuration Manager, qui se présente sous la forme d’un DVD avec System Center 2016 ou qui est disponible dans le cadre d’une version autonome de System Center Configuration Manager. L’accès à ce média dépend de la manière dont vous avez acquis la licence de System Center Configuration Manager. Les versions de référence ultérieures, notamment 1702, ne prennent pas en charge l’installation de LTSB.
 
 Vous pouvez également utiliser le média de référence pour installer un nouveau site comme édition d’évaluation de Current Branch. Si vous souhaitez installer uniquement une édition d’évaluation, vous pouvez obtenir le logiciel à partir du site web [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection).
 
@@ -139,4 +143,15 @@ Pour plus d’informations, consultez [Technical Preview pour System Center Conf
 **Options de mise à jour**
 -    Vous pouvez installer toute mise à jour dans la console pour une nouvelle version d’évaluation technique.
 -    Il n’existe aucune option permettant de convertir une version d’évaluation technique en Current Branch ou LTSB.
+
+
+## <a name="identify-your-branch-and-version"></a>Identifier votre branche et votre version
+Quand vous affichez les informations de version d’un site Configuration Manager, vous vérifiez également la branche.
+
+**Version**   
+Pour vérifier la version de votre site, dans la console, accédez à **À propos de System Center Configuration Manager** dans le coin supérieur gauche de la console, où **Version du site** apparaît. Consultez []() pour obtenir la liste des versions de sites.
+
+**Branche**  
+Pour vérifier la branche de votre site (LTSB ou Current Branch), dans la console, accédez à **Administration** > **Configuration du Site** > **Sites**, puis ouvrez **Paramètres de hiérarchie**. Si vous voyez une option de conversion en Current Branch et si elle est active, le site exécute la version LTSB. Si le site exécute Current Branch, cette option est grisée.
+Pour plus d’informations sur les différentes versions de Configuration Manager, consultez « Versions de base et de mise à jour » dans [Mises à jour pour Configuration Manager](/sccm/core/servers/manage/updates).
 
