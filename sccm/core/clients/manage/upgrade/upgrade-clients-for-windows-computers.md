@@ -2,7 +2,7 @@
 title: "Mettre à niveau les clients | Microsoft Docs"
 description: "Mettez à niveau les clients sur des ordinateurs Windows dans System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: a5b59a1d31d897473262edcd0912ef0fcbedd100
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 212628639300e9c361f7cee61b3df6b1cb6874ce
+ms.openlocfilehash: 98b8c92e4dad3cef1ed3701b9c0f9111eb9941ea
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -98,5 +99,8 @@ Pour mettre à niveau le client sur des ordinateurs Windows, vous pouvez utilise
 
 8.  Si vous souhaitez que le package d’installation du client soit copié sur des points de distribution activés pour le contenu préparé, cliquez sur **Distribuer automatiquement le package d’installation du client aux points de distribution activés pour le contenu préparé**.  
 
-9. Cliquez sur **OK** pour enregistrer les paramètres et fermer la boîte de dialogue **Propriétés des paramètres de hiérarchie** . Les clients recevront ces paramètres lors de leur prochain téléchargement de la stratégie.  
+9. Cliquez sur **OK** pour enregistrer les paramètres et fermer la boîte de dialogue **Propriétés des paramètres de hiérarchie** . Les clients recevront ces paramètres lors de leur prochain téléchargement de la stratégie.
+
+>[!NOTE]
+>Les mises à niveau des clients respectent les fenêtres de maintenance Configuration Manager configurées.
 

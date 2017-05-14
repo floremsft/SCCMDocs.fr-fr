@@ -15,10 +15,11 @@ caps.latest.revision:
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: fa5919b72114d71e1fbad74418c662d199827690
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 212628639300e9c361f7cee61b3df6b1cb6874ce
+ms.openlocfilehash: 8edf83a0f761dfc16274ce49c3aa2b878c7fe6cd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -68,10 +69,11 @@ En outre, sur l’écran **Appareils**, vous pouvez sélectionner des appareils 
 |**État de la menace**| Oui | L’état actuel de la menace sur l’appareil. États possibles : **Actif**, **Résolu** ou **Ignoré :** indique que l’utilisateur a ignoré la menace sur son appareil, mais que la menace est toujours présente. |
 |**Type de menace**| Oui | Type de menace pour le partenaire de protection contre les menaces mobiles. Valeurs possibles : **Application**, **Fichier** ou **OS** |
 |**ID de compte AAD**| Non | L’identificateur unique Azure Active Directory. |
-|**Classification**| Oui | Classification des menaces fourni par le partenaire de protection contre les menaces mobiles. Valeurs possibles : **Root Enabler, Riskware, Adware, Chargeware, DataLeak, Trojan, Worm, Virus, Exploit, Backdoor, Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, Vulnerability, Unknown, RootJailbrake, Connectivity, TollFraud, SideloadedApp** |
+|**Classification**| Oui | Classification des menaces fourni par le partenaire de protection contre les menaces mobiles. Valeurs possibles : **Root Enabler, Riskware, Adware, Chargeware, DataLeak, Trojan, Worm, Virus, Exploit, Backdoor, Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, Vulnerability, Unknown, Root Jailbrake, Connectivity, TollFraud, SideloadedApp** |
 |**ID d’appareil**| Non | L’ID d’objet Azure Active Directory qui représente l’appareil associé à un espace de travail avec des informations sur les menaces. |
 |**ID de la menace**| Non | Identificateur unique de la menace généré par le partenaire de protection contre les menaces mobiles. L’ID de la menace est utilisé pour le suivi de la résolution. |
 |**URL de la menace**| Non | Lorsqu’elle est présente, l’URL de la menace pointe vers la vue de cette menace spécifique sur la console de gestion du partenaire de protection contre les menaces mobiles. |
 
 > [!TIP] 
 > Veillez à activer les colonnes qui ne sont pas **visibles par défaut** pour plus de détails sur l’état de conformité de la protection contre les menaces mobiles pour vos appareils.
+

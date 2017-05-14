@@ -15,10 +15,11 @@ caps.latest.revision: 24
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
-ms.openlocfilehash: 562e81df12e46a2332aa5e4de8b7c9e5819bde80
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 065b1fcb25d7c7845b6f26e757b36e7fb97ce013
+ms.openlocfilehash: ef4536578456c13de5afaa5cd1977d2e6b4b6bd1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -52,6 +53,9 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurat
 -   [Windows ADK pour les scénarios Windows 10 pour les informaticiens](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
 
 -   [Télécharger le kit Windows ADK pour Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
+
+-   [Prise en charge pour Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)  
+
 
 ### <a name="user-state-migration-tool-usmt"></a>Outil de migration de l'état utilisateur (USMT)  
  Configuration Manager utilise un package USMT qui contient les fichiers sources USMT 10 pour capturer et restaurer l’état utilisateur dans le cadre du déploiement de votre système d’exploitation. Quand le programme d’installation de Configuration Manager est exécuté sur le site de niveau supérieur, il crée automatiquement le package USMT. USMT 10 peut capturer l’état utilisateur auprès de Windows 7, Windows 8, Windows 8.1 et Windows 10. USMT 10 est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  

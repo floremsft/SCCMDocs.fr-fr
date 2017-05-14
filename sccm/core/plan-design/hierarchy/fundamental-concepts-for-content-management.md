@@ -2,7 +2,7 @@
 title: Principes de base de la gestion de contenu | Microsoft Docs
 description: "Utilisez les outils et les options de System Center Configuration Manager pour gérer le contenu que vous déployez."
 ms.custom: na
-ms.date: 3/15/2017
+ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 238e460885b6490b3744690640f9ff040902b35f
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 212628639300e9c361f7cee61b3df6b1cb6874ce
+ms.openlocfilehash: f73dde64e0e8a0fc49f45b3afb3b8f00c926a820
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -29,9 +30,12 @@ ms.lasthandoff: 03/27/2017
 
 System Center Configuration Manager vous propose un système d’outils et d’options efficace pour gérer le contenu que vous déployez (applications, packages, mises à jour logicielles et déploiements de système d’exploitation).  
 
- Le contenu que vous déployez est stocké à la fois sur des serveurs de site et sur des serveurs de système de site de point de distribution. Le transfert de ce contenu d’un emplacement à un autre peut nécessiter une large bande passante réseau. Pour planifier et utiliser l’infrastructure de gestion de contenu efficacement, nous vous recommandons de vous familiariser avec les différentes options et configurations disponibles, puis de déterminer comment les utiliser au mieux en fonction de votre environnement réseau et de vos besoins en matière de déploiement de contenu.  
+Le contenu que vous déployez est stocké à la fois sur des serveurs de site et sur des serveurs de système de site de point de distribution. Le transfert de ce contenu d’un emplacement à un autre peut nécessiter une large bande passante réseau. Pour planifier et utiliser l’infrastructure de gestion de contenu efficacement, nous vous recommandons de vous familiariser avec les différentes options et configurations disponibles, puis de déterminer comment les utiliser au mieux en fonction de votre environnement réseau et de vos besoins en matière de déploiement de contenu.  
 
-Les concepts clés pour la gestion de contenu sont exposés ci-dessous. Si un concept doit être complété par des informations supplémentaires ou complexes, les liens d’accès à ces informations sont indiqués.  
+> [!TIP]    
+> Pour en savoir plus sur le processus de distribution de contenu et obtenir de l’aide sur le diagnostic et la résolution des problèmes généraux de distribution de contenu, consultez [Compréhension et résolution des problèmes de distribution de contenu dans Microsoft Configuration Manager](https://support.microsoft.com/help/4000401/content-distribution-in-mcm) à l’adresse support.microsoft.com.
+
+Les concepts clés de la gestion de contenu sont exposés ci-dessous. Si un concept doit être complété par des informations supplémentaires ou complexes, les liens d’accès à ces informations sont indiqués.
 
 ## <a name="accounts-used-for-content-management"></a>Comptes utilisés pour la gestion de contenu  
  Les comptes suivants peuvent être utilisés pour la gestion de contenu :  

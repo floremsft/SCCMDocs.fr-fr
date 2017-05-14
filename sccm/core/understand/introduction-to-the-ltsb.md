@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
-ms.openlocfilehash: 90ba9937cf4ea708a3b5fa69c5975fdf906feeaa
+ms.sourcegitcommit: d940fd1bbf96767d44f8c55315e814be55a83897
+ms.openlocfilehash: 91c1ca860069c6ebe0d20230c4620bf3f68735a2
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,6 +32,8 @@ Long-Term Servicing Branch (LTSB) de System Center Configuration Manager est une
 
 À partir de Configuration Manager version 1606, LTSB offre moins de fonctionnalités que la branche actuelle de Configuration Manager.
 
+ > [!TIP]   
+ > Si vous recherchez des informations sur les branches de **Windows Server**, consultez [Nouvelle option de maintenance Current Branch for Business Windows Server 2016]( https://blogs.technet.microsoft.com/windowsserver/2016/07/12/windows-server-2016-new-current-branch-for-business-servicing-option/).
 
 ## <a name="features-that-are-not-available-in-the-ltsb-of-configuration-manager"></a>Fonctionnalités non disponibles dans la branche LTSB de Configuration Manager
 La branche actuelle de Configuration Manager prend en charge les fonctionnalités suivantes, qui ne sont pas disponibles lorsque vous utilisez LTSB :
@@ -67,7 +69,7 @@ Les clients qui ont un contrat Software Assurance (SA) sur les licences de Syste
 
 Les clients dotés de droits perpétuels sur System Center Configuration Manager, ou qui laissent leur contrat SA ou leur abonnement expirer après le 1er octobre, peuvent installer la version LTSB de System Center Configuration Manager qui est en vigueur au moment de l’expiration.
 
-[Les conditions générales des produits que vous achetez par le biais des programmes de licence en volume Microsoft se trouvent ici](http://go.microsoft.com/fwlink/?LinkId=800052)
+[Les conditions générales des produits que vous achetez par le biais des programmes de licence en volume Microsoft se trouvent ici](http://go.microsoft.com/fwlink/?LinkId=800052).
 
 Consultez [Licences et branches pour System Center Configuration Manager](learn-more-editions.md) afin d’obtenir plus d’informations sur les options de licence pour les branches Configuration Manager.
 

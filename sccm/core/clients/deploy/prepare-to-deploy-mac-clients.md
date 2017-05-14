@@ -2,7 +2,7 @@
 title: "Préparer le déploiement du logiciel client pour ordinateurs Mac | Documents Microsoft"
 description: "Tâches de configuration avant le déploiement du client Configuration Manager sur des ordinateurs Mac."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 12
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 0900e45115f02861c33fe2abdb046d11fdef3474
-ms.openlocfilehash: 9f51c15adaa850eb8343601ddcd13046480fc9c0
-ms.lasthandoff: 01/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c6a6137fa978e1ea28aefea2aea4e29ba661efd6
+ms.openlocfilehash: b3bb72f81812705b4654e268025074402e89a7cb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -101,6 +102,9 @@ Pour voir un exemple de déploiement qui crée et installe ce certificat de serv
 
  Pour obtenir un exemple de déploiement qui crée et installe le certificat client pour les points de distribution, consultez [Déploiement du certificat client pour les points de distribution](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_clientdistributionpoint2008_cm2012).  
 
+>[!IMPORTANT]
+>  Pour déployer le client sur des appareils macOS Sierra, vous devez configurer correctement le nom du sujet du certificat de point de gestion, par exemple en utilisant le nom de domaine complet du serveur de point de gestion.
+
 ## <a name="prepare-the-client-certificate-template-for-macs"></a>Préparer le modèle de certificat client pour les ordinateurs Mac  
 
  Le modèle de certificat doit disposer d'autorisations de **lecture** et d' **inscription** pour le compte d'utilisateur appelé à inscrire le certificat sur l'ordinateur Mac.  
@@ -121,7 +125,7 @@ Pour voir un exemple de déploiement qui crée et installe ce certificat de serv
  
 ### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Pour configurer les points de gestion et les points de distribution pour prendre en charge les ordinateurs Mac  
 
-Avant d'entamer cette procédure, assurez-vous que le serveur de système de site exécutant le point de gestion et le point de distribution est configuré avec un nom de domaine Internet complet. Si ces serveurs ne prennent pas en charge la gestion des clients basée sur Internet, vous pouvez spécifier le nom de domaine complet intranet comme valeur du nom de domaine complet Internet. 
+Avant d'entamer cette procédure, assurez-vous que le serveur de système de site exécutant le point de gestion et le point de distribution est configuré avec un nom de domaine Internet complet. Si ces serveurs de système de site ne prennent pas en charge la gestion des clients sur Internet, vous pouvez spécifier le nom de domaine complet intranet comme valeur du nom de domaine complet Internet. 
 
 Les rôles de système de site doivent se trouver dans un site principal.  
 
@@ -144,7 +148,7 @@ Les rôles de système de site doivent se trouver dans un site principal.
 
     -   Choisissez **Importer un certificat**, accédez au fichier du certificat de point de distribution client exporté, puis spécifiez le mot de passe.  
 
-5.  Répétez les étapes 2 à 4 pour tous les points de gestion et points de distribution des sites principaux que vous prévoyez d’utiliser avec des ordinateurs Mac.  
+5.  Répétez les étapes 2 à 4 pour tous les points de gestion et les points de distribution des sites principaux que vous prévoyez d’utiliser avec des ordinateurs Mac.  
 
 ## <a name="configure-the-enrollment-proxy-point-and-the-enrollment-point"></a>Configurer le point proxy d’inscription et le point d’inscription  
  Vous devez installer ces deux rôles de système de site sur le même site, mais il n'est pas nécessaire de les installer sur le même serveur de système de site ni sur la même forêt Active Directory.  

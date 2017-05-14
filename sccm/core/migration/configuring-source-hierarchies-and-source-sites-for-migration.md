@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 96bfa443cd2894bb1c46322cd5f984071916d9a6
-ms.openlocfilehash: 6942f4d74303d8ade8add6cc81da872648f208be
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c5a58d79f81ccdf19ad88dc932e3a52eac2c18ab
+ms.openlocfilehash: 80c43ab93ee5a2de6bf8d7993dfd46f0005d2df8
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -37,7 +39,7 @@ Pour permettre la migration de données vers votre environnement System Center C
 
 -   [Identifier des sites sources supplémentaires dans la hiérarchie source](#BKBM_ConfigSrcSites)  
 
-##  <a name="a-namebkbmconfigsrchierarchya-specify-a-source-hierarchy-for-migration"></a><a name="BKBM_ConfigSrcHierarchy"></a> Spécifier une hiérarchie source pour la migration  
+##  <a name="BKBM_ConfigSrcHierarchy"></a> Spécifier une hiérarchie source pour la migration  
  Pour migrer les données vers votre hiérarchie de destination, vous devez spécifier une hiérarchie source prise en charge qui présente les données à migrer. Par défaut, le site de niveau supérieur de cette hiérarchie devient un site source de la hiérarchie source. Si vous effectuez la migration à partir d’une hiérarchie Configuration Manager 2007, vous pouvez configurer des sites sources supplémentaires pour la migration après avoir collecté les données du site source initial. Si vous effectuez la migration à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, vous n’avez pas besoin de configurer des sites sources supplémentaires pour migrer les données de la hiérarchie source. Ceci est dû au fait que ces versions de Configuration Manager utilisent une base de données partagée qui est disponible sur le site de niveau supérieur dans la hiérarchie source. La base de données partagée présente toutes les informations que vous pouvez migrer.  
 
  Utilisez les procédures suivantes pour spécifier une hiérarchie source pour la migration et pour identifier des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007.  
@@ -58,7 +60,7 @@ Pour permettre la migration de données vers votre environnement System Center C
 
 6.  Spécifiez les comptes d'accès au site source qui disposent des autorisations suivantes :  
 
-    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source.  
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.
 
     -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
@@ -70,7 +72,7 @@ Pour permettre la migration de données vers votre environnement System Center C
 
 9. À la fin de la collecte des données, cliquez sur **Fermer** pour fermer la boîte de dialogue **État de la collecte de données** et terminer la configuration.  
 
-##  <a name="a-namebkbmconfigsrcsitesa-identify-additional-source-sites-of-the-source-hierarchy"></a><a name="BKBM_ConfigSrcSites"></a> Identifier des sites sources supplémentaires dans la hiérarchie source  
+##  <a name="BKBM_ConfigSrcSites"></a> Identifier des sites sources supplémentaires dans la hiérarchie source  
  Lorsque vous configurez une hiérarchie source prise en charge, le site de niveau supérieur de cette hiérarchie est automatiquement configuré comme un site source, et les données sont collectées à partir de celui-ci. L’action suivante à effectuer dépend de la version de Configuration Manager qui est exécutée par la hiérarchie source :  
 
 -   S’il s’agit d’une hiérarchie source Configuration Manager 2007, vous pouvez commencer la migration à partir de ce site source initial ou configurer des sites sources supplémentaires dans la hiérarchie source à la fin de la collecte des données du site source initial. Pour migrer des données qui sont disponibles uniquement sur un site enfant, configurez des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007. Par exemple, vous pouvez configurer des sites sources supplémentaires pour collecter des données relatives au contenu que vous souhaitez migrer quand il est créé sur un site enfant de la hiérarchie source et qu’il n’est pas disponible sur le site de niveau supérieur dans la hiérarchie source.  
@@ -93,7 +95,7 @@ Effectuez la procédure suivante pour configurer des sites sources supplémentai
 
 5.  Dans la boîte de dialogue **Informations d'identification du site source** , pour des comptes d'accès de site source, définissez les comptes qui disposent des autorisations suivantes :  
 
-    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source.  
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.  
 
     -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
@@ -104,9 +106,4 @@ Effectuez la procédure suivante pour configurer des sites sources supplémentai
 7. Cliquez sur **OK** pour enregistrer la configuration. La boîte de dialogue **État de la collecte de données** s'ouvre, et la collecte de données démarre automatiquement.  
 
 8.  À la fin de la collecte des données, cliquez sur **Fermer** pour terminer la configuration.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

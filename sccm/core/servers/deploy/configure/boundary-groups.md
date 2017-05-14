@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
-ms.openlocfilehash: cb5c8f8f91857bf5f9377a9f871f0d9d9b0cc939
+ms.sourcegitcommit: d940fd1bbf96767d44f8c55315e814be55a83897
+ms.openlocfilehash: 5684fd4fbfd0ffb8f3ffbcfa122eef3dafd77327
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -111,7 +111,7 @@ Toutefois, si le contenu est distribué à la demande et non disponible sur un p
 ## <a name="software-update-points"></a>Points de mise à jour logicielle
 À partir de la version 1702, les clients utilisent des groupes de limites pour rechercher un nouveau point de mise à jour logicielle. Vous pouvez ajouter des points de mise à jour logicielle individuels à différents groupes de limites pour contrôler les serveurs qu’un client peut trouver.
 
-Lorsque vous effectuez la mise à jour à partir d’une version antérieure à la version 1702, tous les points de mise à jour logicielle existants sont ajoutés au groupe de limites de site par défaut de chaque site. Cela permet de conserver le comportement d’avant la mise à jour, selon lequel les clients sélectionnent un point de mise à jour logicielle dans le pool de points de mise à jour logicielle disponibles que vous avez configuré pour votre hiérarchie.  Ce comportement est conservé jusqu’à ce que vous choisissiez d’ajouter des points de mise à jour logicielle propres à chaque groupe de limites avec une sélection contrôlée et un comportement de secours.
+Lorsque vous effectuez la mise à jour à partir d’une version antérieure à la version 1702, tous les points de mise à jour logicielle existants sont ajoutés au groupe de limites de site par défaut de chaque site. Cela permet de conserver le comportement d’avant la mise à jour, selon lequel les clients sélectionnent un point de mise à jour logicielle dans le pool de points de mise à jour logicielle disponibles que vous avez configuré pour votre hiérarchie.  Ce comportement est conservé tant que vous ne choisissez pas d’ajouter des points de mise à jour logicielle propres à chaque groupe de limites pour une sélection contrôlée et un comportement de secours.
 
 Si vous installez un nouveau site qui exécute la version 1702 ou une version ultérieure, vous devez affecter des points de mise à jour logicielle à un groupe de limites pour permettre aux clients de les trouver et de les utiliser.
 

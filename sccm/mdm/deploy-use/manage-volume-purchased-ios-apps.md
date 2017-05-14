@@ -2,7 +2,7 @@
 title: "Gérer les applications iOS achetées en volume | Microsoft Docs"
 description: "Déployez, gérez et suivez les licences d’applications que vous avez achetées via l’App Store iOS."
 ms.custom: na
-ms.date: 03/28/2017
+ms.date: 05/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,11 @@ caps.handback.revision: 0
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
-ms.openlocfilehash: a63acf0d80edba1e965ba8ea99fe90edb8aa2faf
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c6a6137fa978e1ea28aefea2aea4e29ba661efd6
+ms.openlocfilehash: 55f1204b088a7b636a90561f20aa41c7de72bc05
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Gérer des applications iOS achetées en volume avec System Center Configuration Manager
@@ -112,7 +113,7 @@ L’application Configuration Manager qui est créée contient l’application d
 
  Lorsque vous créez une application à partir du nœud **Informations de licence pour les applications du Windows Store**, l’application est associée à des licences provenant du jeton de l’application que vous avez sélectionnée.  Par exemple, vous pouvez afficher les deux versions de la même application dans le nœud. En effet, chaque version de l’application est associée à un jeton VPP Apple distinct.  Vous pouvez ensuite créer des applications à partir de chaque jeton et les déployer séparément.
 
- Pour récupérer une licence, remplacez l’action de déploiement par **Désinstaller**. La licence est récupérée une fois l’application désinstallée.  
+ Pour récupérer une licence, vous devez créer un déploiement de l’application avec l’action de déploiement **Désinstaller**. Vous ne pouvez pas changer l’action de déploiement dans le déploiement d’origine. La licence est récupérée une fois l’application désinstallée.  
 
 ## <a name="step-3---monitor-ios-vpp-apps"></a>Étape 3 : surveiller les applications VPP iOS  
  Le nœud **Informations de licence pour les applications du Store** de l’espace de travail **Bibliothèque de logiciels** affiche des informations sur vos applications iOS achetées en volume. Celles-ci incluent le nombre total de licences qui vous appartiennent pour chaque application ainsi que le nombre de licences qui ont été déployées. En outre, la vue indique le jeton VPP auquel l’application est associée et le type du jeton
