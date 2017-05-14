@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
-ms.openlocfilehash: 057cd079e452321a51c41797e8dd1a8f5b6a5688
+ms.sourcegitcommit: d940fd1bbf96767d44f8c55315e814be55a83897
+ms.openlocfilehash: 9e58ab8dd892adf25429564adfd6f86849ddcbdf
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -39,7 +39,6 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
 **Mise à niveau vers la version 1702**   
 Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1702 :   
 -      Une installation d’évaluation de System Center Configuration Manager version 1702
--      Une installation de version finale (RC) de System Center Configuration Manager
 -      System Center 2012 Configuration Manager avec Service Pack 1
 -      System Center 2012 Configuration Manager avec Service Pack 2
 -      System Center 2012 R2 Configuration Manager
