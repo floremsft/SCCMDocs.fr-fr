@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -300,9 +302,4 @@ Chaque version de Configuration Manager prend en charge une version spécifique 
     3.  Cliquez sur l'image de démarrage identifiée à l'étape 3.  
 
     4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

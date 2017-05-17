@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: 6bfbfbcce6ef5c38164e161d197f5a3fb4b4e353
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -28,10 +30,10 @@ ms.openlocfilehash: 6bfbfbcce6ef5c38164e161d197f5a3fb4b4e353
 
 Cette rubrique contient des informations destinées à vous aider à gérer les tâches courantes Asset Intelligence dans votre hiérarchie System Center Configuration Manager :  
 
-##  <a name="a-namebkmkviewinformationa-view-asset-intelligence-information"></a><a name="BKMK_ViewInformation"></a> Afficher les informations Asset Intelligence  
+##  <a name="BKMK_ViewInformation"></a> Afficher les informations Asset Intelligence  
  Vous pouvez afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** et dans les rapports Asset Intelligence.  
 
-###  <a name="a-namebkmkassetintelligencehomepagea-asset-intelligence-home-page"></a><a name="BKMK_AssetIntelligenceHomePage"></a> Page d’accueil d’Asset Intelligence  
+###  <a name="BKMK_AssetIntelligenceHomePage"></a> Page d’accueil d’Asset Intelligence  
  La page d'accueil d' **Asset Intelligence** contient un tableau de bord récapitulant les informations du catalogue Asset Intelligence. Sur la page d'accueil, vous pouvez visualiser des informations sur la synchronisation du catalogue et l'état des logiciels inventoriés. La page d'accueil d' **Asset Intelligence** comporte les sections suivantes :  
 
 -   **Synchronisation de catalogue**: indique si Asset Intelligence est activé, l’état du point de synchronisation Asset Intelligence, la planification de la synchronisation, si la déclaration de licence du client est importée, la date/heure de la dernière mise à jour de l’état et de la prochaine mise à jour planifiée et le nombre de modifications effectuées après l’installation du système de site du point de synchronisation Asset Intelligence.  
@@ -49,7 +51,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**. Les rapports Asset Intelligence s'affichent.  
 
-###  <a name="a-namebkmkassetintelligencereportsa-asset-intelligence-reports"></a><a name="BKMK_AssetIntelligenceReports"></a> Rapports Asset Intelligence  
+###  <a name="BKMK_AssetIntelligenceReports"></a> Rapports Asset Intelligence  
  Il existe plus de 60 rapports Asset Intelligence qui affichent les informations collectées par Asset Intelligence. La plupart de ces rapports renvoient vers des rapports plus spécifiques qui permettent de rechercher des informations générales et d'accéder à des informations plus détaillées. Les rapports Asset Intelligence se trouvent dans la console Configuration Manager, dans l’espace de travail **Surveillance**, sous le nœud **Rapports**. Les rapports fournissent des informations sur les matériels, la gestion des licences et les logiciels. Pour plus d’informations sur les rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
@@ -68,7 +70,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 3.  Sélectionnez le rapport Asset Intelligence à exécuter, puis dans l'onglet **Accueil** , dans le groupe **Groupe de rapports** , cliquez sur **Exécuter**.  
 
-##  <a name="a-namebkmksynchronizethecataloga-synchronize-the-asset-intelligence-catalog"></a><a name="BKMK_SynchronizeTheCatalog"></a> Synchroniser le catalogue Asset Intelligence  
+##  <a name="BKMK_SynchronizeTheCatalog"></a> Synchroniser le catalogue Asset Intelligence  
  Vous pouvez synchroniser le catalogue local Asset Intelligence avec System Center Online pour récupérer la dernière catégorisation de titres de logiciels. Quand vous demandez manuellement la synchronisation du catalogue avec System Center Online, l’achèvement du processus de synchronisation avec System Center Online peut prendre 15 minutes ou plus. Configuration Manager met à jour le paramètre **Dernière mise à jour réussie** dans la page d’accueil d’**Asset Intelligence** avec l’heure à laquelle la synchronisation se termine.  
 
 > [!NOTE]  
@@ -96,7 +98,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 > [!WARNING]  
 >  System Center Online n'accepte qu'une seule demande de synchronisation manuelle sur une période de 12 heures.  
 
-###  <a name="a-namebkmkmanuallysynchronizecataloga-to-manually-synchronize-the-asset-intelligence-catalog"></a><a name="BKMK_ManuallySynchronizeCatalog"></a> Pour synchroniser manuellement le catalogue Asset Intelligence  
+###  <a name="BKMK_ManuallySynchronizeCatalog"></a> Pour synchroniser manuellement le catalogue Asset Intelligence  
 
 1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -104,10 +106,10 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez successivement sur **Synchroniser**, **Synchroniser le catalogue Asset Intelligence**et **OK**.  
 
-##  <a name="a-namebkmkcustomizecataloga-customize-the-asset-intelligence-catalog"></a><a name="BKMK_CustomizeCatalog"></a> Personnaliser le catalogue Asset Intelligence  
+##  <a name="BKMK_CustomizeCatalog"></a> Personnaliser le catalogue Asset Intelligence  
  Les informations de catégorisation du catalogue Asset Intelligence envoyées par System Center Online sont stockées en lecture seule dans la base de données de site et elles ne peuvent donc pas être modifiées, ni supprimées. Toutefois, vous pouvez créer, modifier et supprimer des catégories de logiciels, des familles de logiciels, des légendes logicielles et des informations de configuration matérielle personnalisées dans le catalogue. Ensuite, vous pouvez utiliser les informations de catégorisation personnalisées à la place des informations fournies par System Center Online pour les informations de titres de logiciels définies par l'utilisateur ou existantes. Lorsque vous modifiez ou ajoutez des informations de catégorisation, les informations du catalogue sont considérées avoir été définies par l'utilisateur. Les informations de catégorisation définies par l'utilisateur ne sont pas stockées dans les mêmes tables de base de données que les informations validées du catalogue.  
 
-###  <a name="a-namebkmksoftwarecategoriesa-software-categories"></a><a name="BKMK_SoftwareCategories"></a> Catégories de logiciels  
+###  <a name="BKMK_SoftwareCategories"></a> Catégories de logiciels  
  Les catégories de logiciels Asset Intelligence sont utilisées pour catégoriser de façon large les titres de logiciels inventoriés et pour les regroupements généraux de familles de logiciels plus spécifiques. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des catégories de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des catégories définies par l'utilisateur peuvent être créées pour définir plus précisément les logiciels inventoriés. L'état de validation de toutes les catégories de logiciels prédéfinies est toujours **Validé**, alors que les informations de catégories de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
  Utilisez la procédure suivante pour créer une catégorie de logiciels définie par l'utilisateur.  
@@ -131,7 +133,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="a-namebkmksoftwarefamiliesa-software-families"></a><a name="BKMK_SoftwareFamilies"></a> Familles de logiciels  
+###  <a name="BKMK_SoftwareFamilies"></a> Familles de logiciels  
  Les familles de logiciels Asset Intelligence permettent de définir plus précisément les titres de logiciels dans les catégories de logiciels. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des familles de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des familles additionnelles définies par l'utilisateur peuvent être créées pour définir les logiciels inventoriés. L'état de validation de toutes les familles de logiciels prédéfinies est toujours **Validé**, alors que les informations de familles de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
  Utilisez la procédure suivante pour créer une famille de logiciels définie par l'utilisateur.  
@@ -153,7 +155,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="a-namebkmksoftwarelabelsa-software-labels"></a><a name="BKMK_SoftwareLabels"></a> Légendes logicielles  
+###  <a name="BKMK_SoftwareLabels"></a> Légendes logicielles  
  Les légendes logicielles personnalisées Asset Intelligence permettent de créer des filtres que vous pouvez utiliser pour regrouper les titres de logiciels et les afficher en utilisant des rapports Asset Intelligence. Par exemple, vous pouvez créer une légende logicielle appelée « logiciel à contribution volontaire », l'associer à un certain nombre d'applications, puis exécuter un rapport pour afficher tous les titres ayant la légende logicelle « logiciel à contribution volontaire ». L'état de validation est **Défini par l'utilisateur** pour toutes les légendes logicielles personnalisées que vous ajoutez au catalogue Asset Intelligence.  
 
  Utilisez la procédure suivante pour créer une légende personnalisée définie par l'utilisateur.  
@@ -175,7 +177,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="a-namebkmkhardwarerequirementsa-hardware-requirements"></a><a name="BKMK_HardwareRequirements"></a> Configuration matérielle requise  
+###  <a name="BKMK_HardwareRequirements"></a> Configuration matérielle requise  
  Les informations de configuration matérielle requise permettent de vérifier que les ordinateurs répondent à la configuration matérielle requise pour les titres de logiciels avant d'y déployer les logiciels. La plupart des configurations matérielles requises sont prédéfinies dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle définies par l'utilisateur pour répondre à des besoins spécifiques. L'état de validation de toutes les configurations matérielles requises prédéfinies est toujours **Validé**, tandis que celui des informations de configuration matérielle requise définies par l'utilisateur ajoutées au catalogue Asset Intelligence est **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
@@ -211,7 +213,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="a-namebkmkmodifycategorizationa-modify-categorization-information-for-inventoried-software"></a><a name="BKMK_ModifyCategorization"></a> Modifier les informations de catégorisation des logiciels inventoriés  
+###  <a name="BKMK_ModifyCategorization"></a> Modifier les informations de catégorisation des logiciels inventoriés  
  Le logiciel prédéfini dans le catalogue Asset Intelligence est configuré avec des informations de catégorisation spécifiques, telles que le nom du produit, le fournisseur, la catégorie du logiciel et la famille du logiciel. Lorsque les informations de catégorisation prédéfinies ne répondent pas à vos besoins, vous pouvez modifier les informations dans les propriétés du titre du logiciel. Lorsque vous modifiez les informations de catégorisation des logiciels prédéfinis, l'état de validation **Validé** des modifications de logiciels devient **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
@@ -265,7 +267,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
 
 6.  Lorsque vous restaurez les informations de catégorisation d'un logiciel qui se trouve dans le catalogue Asset Intelligence, l'état de validation passe de **Défini par l'utilisateur** à **Validé**. Lorsque vous restaurez un logiciel qui n'est pas dans le catalogue, l'état de validation passe de **Défini par l'utilisateur** à **Sans catégorie**.  
 
-##  <a name="a-namebkmkrequestcatalogupdatea-request-a-catalog-update-for-uncategorized-software-titles"></a><a name="BKMK_RequestCatalogUpdate"></a> Demander une mise à jour du catalogue pour les logiciels sans catégorie  
+##  <a name="BKMK_RequestCatalogUpdate"></a> Demander une mise à jour du catalogue pour les logiciels sans catégorie  
  Les informations sur les noms de logiciels sans catégorie peuvent être soumises à System Center Online afin d'être examinées et catégorisées. Une fois qu'un logiciel sans catégorie est soumis et s'il existe au moins 4 demandes de catégorisation de la part de clients pour le même logiciel, les fonctions de recherche identifient, classent, puis mettent les informations de catégorisation des logiciels à la disposition de tous les clients qui utilisent le service System Center Online. Microsoft donne la priorité la plus élevée aux logiciels qui possèdent le plus de requêtes de catégorisation. Les logiciels personnalisés et les applications métier sont peu susceptibles de recevoir une catégorie, et nous vous conseillons de ne pas envoyer ces logiciels à Microsoft pour catégorisation.  
 
  Lorsque des informations sur les noms de logiciels sont soumises à System Center Online pour catégorisation, les conditions suivantes s'appliquent :  
@@ -308,7 +310,7 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
     > [!NOTE]  
     >  L'état de validation du logiciel soumis à System Center Online pour catégorisation est **En attente** sur un site d'administration centrale mais sur les sites principaux enfant, l'état de validation affiché pour ces éléments continue d'être **Sans catégorie** .  
 
-##  <a name="a-namebkmkresolvesoftwaredetailsa-resolve-software-details-conflicts"></a><a name="BKMK_ResolveSoftwareDetails"></a> Résoudre les conflits de détails de logiciel  
+##  <a name="BKMK_ResolveSoftwareDetails"></a> Résoudre les conflits de détails de logiciel  
  Suite à la réception par System Center Online de détails de catégorisation de logiciels nouvellement mis à jour et qui entrent en conflit avec des informations détaillées de logiciels existants, vous pouvez choisir la manière dont le conflit sera résolu. L'état de validation d'un logiciel en conflit est **Peut être mis à jour**. Après la résolution d'un conflit de détails de logiciel, les informations de catégorisation de logiciels sont conservées dans le catalogue Asset Intelligence en fonction des paramètres que vous avez définis. Un conflit de détails de logiciel ne peut pas se produire plusieurs fois pour la même valeur de catégorisation de logiciels à moins que la valeur System Center Online soit modifiée après la résolution du conflit.  
 
  Procédez comme suit pour résoudre un conflit de détails de logiciel.  
@@ -336,9 +338,4 @@ Cette rubrique contient des informations destinées à vous aider à gérer les 
     -   **Remplacez la valeur des informations de catalogue modifiées localement par la valeur System Center Online téléchargée**: résout le conflit de détails de logiciel en remplaçant les informations existantes de catégorisation de logiciels du catalogue Asset Intelligence par les nouvelles informations obtenues depuis System Center Online. Lorsque vous sélectionnez ce paramètre, l'état du logiciel passe de **Peut être mis à jour** à **Validé**.  
 
      Cliquez sur **OK** pour enregistrer la résolution du conflit.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

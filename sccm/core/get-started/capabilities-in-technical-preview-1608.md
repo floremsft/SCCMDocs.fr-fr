@@ -15,9 +15,11 @@ caps.latest.revision: 15
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: c22e29da8036d69db917205f28a19a69281a64db
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1608-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1608 pour System Center Configuration Manager
@@ -49,7 +51,7 @@ Nous avons ajouté un champ dans les propriétés pour les logiciels inventorié
 
 ### <a name="filter-the-software-display"></a>Filtrer l’affichage des logiciels
 Après avoir défini des relations parent-enfant, vous pouvez filtrer votre vue pour afficher uniquement les logiciels qui sont parents ou qui n’ont aucune relation définie. Cela masque tout logiciel défini en tant qu’enfant d’un autre logiciel inventorié. Pour cela :
-   1.   Pour le volet de recherche, choisissez **Ajouter des critères**.
+   1.    Pour le volet de recherche, choisissez **Ajouter des critères**.
    2. Sélectionnez **Logiciel parent** et modifiez la valeur du critère en spécifiant **est vide**, puis cliquez sur **Rechercher**.
 
 L’affichage indique à présent uniquement les éléments logiciels parents et les logiciels qui n’ont pas de relations définies. Un logiciel qui n’est qu’un enfant d’un autre titre n’apparaît pas.
@@ -62,9 +64,4 @@ Ce comportement peut être désactivé par l’afficheur s’il préfère taper 
 > [!NOTE]
 >
 > Les touches spéciales, telles que ~!#@$%,, ne seront pas traduites correctement.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

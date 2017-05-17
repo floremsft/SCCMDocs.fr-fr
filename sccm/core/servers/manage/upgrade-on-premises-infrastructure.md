@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2e711cce2435957f3e85dad08f17260e1a224fc2
 ms.openlocfilehash: c6448932e91a02984ca57cef0b75c10ea3f43fa1
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ Utilisez les informations de cette rubrique pour mettre à niveau l’infrastruc
 
 - Si vous voulez mettre à jour votre infrastructure System Center Configuration Manager vers une nouvelle version, consultez [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="a-namebkmksupconfigupgradesitesrva-upgrade-the-operating-system-of-site-systems"></a><a name="BKMK_SupConfigUpgradeSiteSrv"></a> Mettre à niveau le système d’exploitation des systèmes de site  
+##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a> Mettre à niveau le système d’exploitation des systèmes de site  
  Configuration Manager prend en charge la mise à niveau sur place du système d’exploitation de serveurs qui hébergent un serveur de site et des serveurs distants hébergeant un rôle de système de site, dans les situations suivantes :  
 
 -   Mise à niveau sur place vers un Service Pack Windows Server ultérieur si le niveau du Service Pack de Windows résultant est pris en charge par Configuration Manager.  
@@ -148,7 +150,7 @@ Les scénarios de mise à niveau de Windows Server suivants font souvent l’obj
 
 
 
-##  <a name="a-namebkmksupconfigupgradeclienta-upgrade-the-operating-system-of-configuration-manager-clients"></a><a name="BKMK_SupConfigUpgradeClient"></a> Mettre à niveau le système d’exploitation de clients Configuration Manager  
+##  <a name="BKMK_SupConfigUpgradeClient"></a> Mettre à niveau le système d’exploitation de clients Configuration Manager  
  Configuration Manager prend en charge une mise à niveau sur place du système d’exploitation pour les clients Configuration Manager dans les situations suivantes :  
 
 -   La mise à niveau sur place vers un Service Pack Windows ultérieur si le niveau du Service Pack résultant est pris en charge par Configuration Manager.  
@@ -157,7 +159,7 @@ Les scénarios de mise à niveau de Windows Server suivants font souvent l’obj
 
 -   Mises à niveau de la maintenance de build à build de Windows 10.  Pour plus d’informations, consultez [Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
 
-##  <a name="a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server"></a><a name="BKMK_SupConfigUpgradeDBSrv"></a> Mettre à niveau SQL Server sur le serveur de base de données de site  
+##  <a name="BKMK_SupConfigUpgradeDBSrv"></a> Mettre à niveau SQL Server sur le serveur de base de données de site  
   Configuration Manager prend en charge une mise à niveau sur place de SQL Server à partir d’une version prise en charge de SQL sur le serveur de base de données de site. Les scénarios de mise à niveau de SQL Server décrits dans cette section sont pris en charge par Configuration Manager et incluent la configuration requise pour chaque scénario.
 
  Pour plus d’informations sur les versions de SQL Server prises en charge par Configuration Manager, consultez [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
@@ -210,9 +212,4 @@ Pour plus d’informations sur SQL Server, consultez la documentation de SQL Se
 
 > [!NOTE]  
 >  Quand vous changez l'édition de SQL Server utilisée sur le site d'administration centrale d'une édition Standard en une édition Enterprise ou Datacenter, la partition de base de données qui limite le nombre de clients que la hiérarchie prend en charge ne change pas.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

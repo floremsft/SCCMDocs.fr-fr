@@ -15,9 +15,11 @@ caps.latest.revision: 3
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 099345d59891841a336cbada896ec349751fecd3
 ms.openlocfilehash: 54e54409a1792c7e28620a5e3cea3e8d8695c7d4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="package-transfer-manager-in-system-center-configuration-manager"></a>Package Transfer Manager dans System Center Configuration Manager
@@ -87,9 +89,4 @@ Les informations suivantes expliquent comment Package Transfer Manager gère le 
     -   **Point de distribution standard** : une fois que Package Transfer Manager a terminé le transfert de fichiers sur chaque point de distribution distant désigné, il vérifie le hachage du contenu sur le point de distribution. Puis il informe le gestionnaire de distribution que la distribution est terminée.  
 
     -   **Point de distribution d’extraction** : une fois que le point de distribution d’extraction a terminé le téléchargement du contenu, le point de distribution vérifie le hachage du contenu. Puis il envoie un message d’état au point de gestion des sites pour indiquer que l’opération a abouti. Si cet état n’est pas reçu après 60 minutes, Package Transfer Manager ressort du mode veille. Il consulte le point de distribution d’extraction pour déterminer s’il a téléchargé le contenu. Si le téléchargement du contenu est en cours, Package Transfer Manager se remet en veille pendant 60 minutes avant de reconsulter le point de distribution d’extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,9 +15,10 @@ caps.latest.revision: 6
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
 ms.openlocfilehash: 74dcc0f4e680893db804956615248b7e1230d2b5
+ms.contentlocale: fr-fr
 ms.lasthandoff: 12/16/2016
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 12/16/2016
 
 Quand vous configurez des profils pour des appareils d’entreprise, l’administrateur peut spécifier si les appareils gérés peuvent avoir une *affinité utilisateur* qui identifie un utilisateur spécifique avec l’appareil.  
 
-##  <a name="a-namebkmkioscpa-managed-devices-with-user-affinity"></a><a name="BKMK_iOSCP"></a> Appareils gérés avec une affinité utilisateur  
+##  <a name="BKMK_iOSCP"></a> Appareils gérés avec une affinité utilisateur  
  Des appareils configurés avec une **affinité utilisateur** peuvent installer et exécuter l’application Portail d’entreprise pour télécharger des applications et gérer des appareils. Lorsque les utilisateurs reçoivent leurs appareils, ils doivent effectuer un certain nombre d’étapes supplémentaires pour achever l’exécution de l’Assistant Installation et installer l’application Portail d’entreprise.  
 
 #### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Comment inscrire des appareils iOS avec une affinité utilisateur  
@@ -52,6 +53,6 @@ Quand vous configurez des profils pour des appareils d’entreprise, l’adminis
 
 8.  L’inscription est alors terminée. Vous pouvez désormais utiliser cet appareil avec toutes les fonctionnalités.  
 
-##  <a name="a-namebkmknouaa-managed-devices-without-user-affinity"></a><a name="BKMK_noUA"></a> Appareils gérés sans affinité utilisateur  
+##  <a name="BKMK_noUA"></a> Appareils gérés sans affinité utilisateur  
  Des appareils configurés avec **Pas d’affinité utilisateur** ne prennent pas en charge le Portail d’entreprise et ne doivent pas installer l’application. Le Portail d’entreprise est conçu pour les utilisateurs détenteurs d’informations d’identification d’entreprise, qui ont besoin d’accéder à des ressources d’entreprise personnalisées (par exemple, au courrier électronique). Les appareils inscrits avec **Pas d’affinité utilisateur** ne sont pas destinés à un utilisateur dédié. Une borne, un point de vente (PDV) ou un appareil de démonstration partagé sont des exemples caractéristiques d’utilisation d’appareils inscrits sans aucune affinité utilisateur. Si une affinité utilisateur est requise, vérifiez qu’une **affinité utilisateur** est sélectionnée pour le profil d’inscription de l’appareil avant d’inscrire celui-ci. Pour modifier l’état d’affinité sur un appareil, vous devez le mettre hors service, puis le réinscrire.
 

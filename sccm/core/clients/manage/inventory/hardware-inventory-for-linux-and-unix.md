@@ -15,9 +15,11 @@ caps.latest.revision: 6
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: cb1ac4f33b9ef291050a3406291b8cc1f112b586
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -44,7 +46,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 > [!TIP]  
 >  Vous pouvez utiliser la valeur **Caption** pour la classe **Operating System** pour identifier différents systèmes d’exploitation Linux et UNIX dans les requêtes et les regroupements.  
 
-##  <a name="a-namebkmkconfighardwareforlnua-configuring-hardware-inventory-for-linux-and-unix-servers"></a><a name="BKMK_ConfigHardwareforLnU"></a> Configuration de l’inventaire matériel pour les serveurs Linux et UNIX  
+##  <a name="BKMK_ConfigHardwareforLnU"></a> Configuration de l’inventaire matériel pour les serveurs Linux et UNIX  
  Vous pouvez utiliser les paramètres client par défaut ou créer des paramètres d’appareil client personnalisés pour configurer l’inventaire matériel. Quand vous utilisez des paramètres d’appareil client personnalisés, vous pouvez configurer les classes et les propriétés que vous souhaitez collecter uniquement à partir de vos serveurs Linux et UNIX. Vous pouvez également spécifier des planifications personnalisées pour la collecte d’inventaires delta et complets à partir de vos serveurs Linux et UNIX.  
 
  Le client pour Linux et UNIX prend en charge les classes d’inventaire matériel suivantes disponibles sur les serveurs Linux et UNIX :  
@@ -75,7 +77,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
  Les propriétés de ces classes d’inventaire ne sont pas toutes activées pour les ordinateurs Linux et UNIX dans Configuration Manager.  
 
-##  <a name="a-namebkmkoperationsforhardwareforlnua-operations-for-hardware-inventory"></a><a name="BKMK_OperationsforHardwareforLnU"></a> Opérations d’inventaire matériel  
+##  <a name="BKMK_OperationsforHardwareforLnU"></a> Opérations d’inventaire matériel  
  Une fois la collecte de l’inventaire matériel sur vos serveurs Linux et UNIX terminée, vous pouvez afficher et utiliser ces informations comme s’il s’agissait d’autres ordinateurs, et effectuer les opérations suivantes :  
 
 -   Utiliser l’Explorateur de ressources pour afficher des informations détaillées sur l’inventaire matériel collecté à partir de serveurs Linux et UNIX  
@@ -92,7 +94,7 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
  Les actions d’inventaire matériel sont entrées dans le fichier journal du client, **scxcm.log**.  
 
-##  <a name="a-namebkmkcustomhinvforlinuxa-how-to-use-open-management-infrastructure-to-create-custom-hardware-inventory"></a><a name="BKMK_CustomHINVforLinux"></a> Comment utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
+##  <a name="BKMK_CustomHINVforLinux"></a> Comment utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
  Le client pour Linux et UNIX prend en charge l’inventaire matériel personnalisé que vous pouvez créer à l’aide de l’infrastructure OMI. Pour ce faire, vous devez procédez comme suit :  
 
 1.  Créer un fournisseur d’inventaire personnalisé à l’aide de la source OMI  
@@ -101,12 +103,12 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
 3.  Activer Configuration Manager pour prendre en charge le nouveau fournisseur  
 
-###  <a name="a-namebkmklinuxprovidera-create-a-custom-hardware-inventory-provider-for-linux-and-unix-computers"></a><a name="BKMK_LinuxProvider"></a> Créer un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
+###  <a name="BKMK_LinuxProvider"></a> Créer un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
  Pour créer un fournisseur d’inventaire matériel personnalisé pour le client Configuration Manager pour Linux et UNIX, utilisez **OMI Source - v.1.0.6** et suivez les instructions du guide de démarrage OMI. Ce processus comprend la création d’un fichier MOF (Managed Object Format) qui définit le schéma du nouveau fournisseur. Plus tard, vous importez le fichier MOF dans Configuration Manager pour activer la prise en charge de la nouvelle classe d’inventaire personnalisée.  
 
  Vous pouvez télécharger OMI Source - v.1.0.6 et le Guide de prise en main OMI à partir du site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . Ces téléchargements se trouvent sous l’onglet **Documents** de la page web suivante sur le site web OpenGroup.org : [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
 
-###  <a name="a-namebkmkaddprovidertolinuxa-configure-each-computer-that-runs-linux-or-unix-with-the-custom-hardware-inventory-provider"></a><a name="BKMK_AddProvidertoLinux"></a> Configurer chaque ordinateur qui exécute Linux ou UNIX avec le fournisseur d’inventaire matériel personnalisé :  
+###  <a name="BKMK_AddProvidertoLinux"></a> Configurer chaque ordinateur qui exécute Linux ou UNIX avec le fournisseur d’inventaire matériel personnalisé :  
  Après avoir créé un fournisseur d’inventaire personnalisé, vous devez copier puis inscrire le fichier de bibliothèque du fournisseur sur chaque ordinateur dont vous souhaitez recueillir l’inventaire.  
 
 1.  Copiez la bibliothèque du fournisseur sur chaque ordinateur Linux et UNIX dont vous souhaitez recueillir l’inventaire. Le nom de la bibliothèque du fournisseur ressemble à ceci : **XYZ_MyProvider.so**  
@@ -120,13 +122,8 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 > [!TIP]  
 >  Utilisez la distribution de logiciels pour déployer les fournisseurs personnalisés et pour les inscrire sur chaque ordinateur client Linux et UNIX.  
 
-###  <a name="a-namebkmkaddlinuxprovidertocma-enable-the-new-inventory-class-in-configuration-manager"></a><a name="BKMK_AddLinuxProvidertoCM"></a> Activer la nouvelle classe d’inventaire dans Configuration Manager :  
+###  <a name="BKMK_AddLinuxProvidertoCM"></a> Activer la nouvelle classe d’inventaire dans Configuration Manager :  
  Pour que Configuration Manager puisse créer un rapport d’inventaire avec les données fournies par le nouveau fournisseur sur les ordinateurs Linux et UNIX, vous devez importer le fichier MOF qui définit le schéma de votre fournisseur personnalisé.  
 
  Pour importer un fichier MOF personnalisé dans Configuration Manager, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

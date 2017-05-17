@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: a0bd86587669c32377b1eafa6a890d37e10ac3f6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,7 +39,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
  Aidez-vous des informations des sections suivantes pour capturer et restaurer les données d’état utilisateur.
 
 
-##  <a name="a-namebkmkstoringuserdataa-store-user-state-data"></a><a name="BKMK_StoringUserData"></a> Stocker les données d’état utilisateur  
+##  <a name="BKMK_StoringUserData"></a> Stocker les données d’état utilisateur  
  Quand vous capturez l’état utilisateur, vous pouvez stocker les données d’état utilisateur sur l’ordinateur de destination ou sur un point de migration d’état. Pour stocker l’état utilisateur sur un point de migration d’état utilisateur, vous devez utiliser un serveur de système de site Configuration Manager qui héberge le rôle de système de site de point de migration d’état. Pour stocker l'état utilisateur sur l'ordinateur de destination, vous devez configurer votre séquence de tâches pour stocker les données utilisant localement des liens.  
 
 > [!NOTE]  
@@ -54,7 +56,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
 -   Vous pouvez spécifier les liens physiques qui peuvent être utilisés pour restaurer les données utilisateur vers leur emplacement d'origine. Dans ce scénario, les données d'état utilisateur restent sur le lecteur lorsque l'ancien système d'exploitation est supprimé. Ensuite, une fois le nouveau système d’exploitation déployé, la séquence de tâches **Restaurer** utilise les liens physiques pour restaurer les données d’état utilisateur vers leur emplacement d’origine.  
 
-###  <a name="a-namebkmkuserdatasmpa-store-user-data-on-a-state-migration-point"></a><a name="BKMK_UserDataSMP"></a> Stocker des données utilisateur sur un point de migration d’état  
+###  <a name="BKMK_UserDataSMP"></a> Stocker des données utilisateur sur un point de migration d’état  
  Pour stocker les données d’état utilisateur sur un point de migration d’état, vous devez procéder comme suit :  
 
 1.  [Configure a state migration point](#BKMK_StateMigrationPoint) pour stocker les données d’état utilisateur.  
@@ -71,7 +73,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
     -   [Libérez le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) pour signaler au point de migration d’état que l’action de capture ou de restauration est terminée.  
 
-###  <a name="a-namebkmkuserdatadestinationa-store-user-data-locally"></a><a name="BKMK_UserDataDestination"></a> Stocker des données utilisateur localement  
+###  <a name="BKMK_UserDataDestination"></a> Stocker des données utilisateur localement  
  Pour stocker les données d’état utilisateur localement, vous devez procéder comme suit :  
 
 -   [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur et restaurer les données utilisateur sur un ordinateur à l’aide de liens physiques.  
@@ -83,7 +85,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
         > [!NOTE]  
         >  Les données d'état utilisateur auxquelles font référence les liens physiques restent sur l'ordinateur une fois que la séquence de tâches a supprimé l'ancien système d'exploitation. Il s'agit de données qui sont utilisées pour restaurer l'état utilisateur lors du déploiement du nouveau système d'exploitation.  
 
-##  <a name="a-namebkmkstatemigrationpointa-configure-a-state-migration-point"></a><a name="BKMK_StateMigrationPoint"></a> Configure a state migration point  
+##  <a name="BKMK_StateMigrationPoint"></a> Configure a state migration point  
  Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez stocker les données sur le même ordinateur à l’aide de liens physiques ou sur un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Vous pouvez utiliser les méthodes suivantes afin de configurer un point de migration d'état pour stocker les données d'état utilisateur :  
 
 -   Utilisez l' **Assistant Création d'un serveur de système de site** pour créer un nouveau serveur de système de site pour le point de migration d'état.  
@@ -104,7 +106,7 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
  Pour plus d’informations sur le point de migration d’état et les étapes nécessaires pour le configurer, consultez [Point de migration d’état](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="a-namebkmkcomputerassociationa-create-a-computer-association"></a><a name="BKMK_ComputerAssociation"></a> Create a computer association  
+##  <a name="BKMK_ComputerAssociation"></a> Create a computer association  
  Créez une association d’ordinateurs pour définir une relation entre un ordinateur source et un ordinateur de destination quand vous installez un système d’exploitation sur du nouveau matériel et que vous souhaitez capturer et restaurer les paramètres de données utilisateur. L’ordinateur source est un ordinateur existant qui est géré par Configuration Manager. Lorsque vous déployez le nouveau système d'exploitation sur l'ordinateur de destination, l'ordinateur source contient l'état utilisateur qui est migré vers l'ordinateur de destination.  
 
 > [!NOTE]  
@@ -128,11 +130,6 @@ Vous pouvez utiliser des séquences de tâches System Center Configuration Manag
 
     -   **Capturer et restaurer les comptes d’utilisateur spécifiés**: ce paramètre capture et restaure seulement les comptes que vous spécifiez. Vous ne pouvez pas créer plusieurs associations sur le même ordinateur source lorsque vous sélectionnez ce paramètre.  
 
-##  <a name="a-namebkmkmigrationfailsa-restore-user-state-data-when-an-operating-system-deployment-fails"></a><a name="BKMK_MigrationFails"></a> Restaurer des données d’état utilisateur en cas d’échec d’un déploiement de système d’exploitation  
+##  <a name="BKMK_MigrationFails"></a> Restaurer des données d’état utilisateur en cas d’échec d’un déploiement de système d’exploitation  
  Si le déploiement de système d’exploitation échoue, utilisez la fonctionnalité LoadState de l’outil USMT 10.0 pour récupérer les données d’état utilisateur capturées pendant le processus de déploiement. Ces données incluent notamment les données stockées sur un point de migration d'état ou les données enregistrées localement sur l'ordinateur de destination. Pour plus d'informations sur cette fonctionnalité d'USMT, voir [Syntaxe LoadState](https://technet.microsoft.com/library/mt299188\(v=vs.85\).aspx).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

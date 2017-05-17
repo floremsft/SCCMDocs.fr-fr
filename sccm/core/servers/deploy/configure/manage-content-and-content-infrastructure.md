@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e30538ed925af66e8b7459eb4add9dd992c1ae19
 ms.openlocfilehash: b0f297fddca4252f106dee9d3d5d8911a347825b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -33,9 +35,4 @@ Quand vous êtes prêt à configurer et à gérer votre infrastructure de gestio
 -   [Déployer et gérer du contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Le déploiement de contenu transfère des fichiers et logiciels aux serveurs de point de distribution sur le réseau. En plus du transfert proprement dit, vous pouvez préparer le contenu, ce qui permet d’éviter une utilisation excessive de la bande passante réseau. Les informations contenues dans cette rubrique peuvent vous aider à exécuter les tâches de base liées à l’envoi de ce contenu ou à l’utilisation efficace d’un contenu préparé.  
 
 -   [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). À mesure que vous déployez du contenu, vous pouvez analyser son état dans votre infrastructure. Vous pouvez également redistribuer du contenu qui n’atteint pas des points de distribution, ou annuler les distributions en cours. Les informations contenues dans cette rubrique vous aident à comprendre comment analyser votre contenu et comment résoudre certains problèmes en cas d’échec du transfert de contenu.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

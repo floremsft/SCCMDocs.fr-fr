@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
 ms.openlocfilehash: a543b945c4727540faa064c068b175ef63cb5a4b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -55,9 +57,4 @@ Utilisez l’inventaire matériel dans System Center Configuration Manager pour 
 - Utilisez des fichiers IDMIF pour collecter des informations sur les ressources qui ne sont associées à aucun client Configuration Manager ; par exemple, les projecteurs, les photocopieurs et les imprimantes réseau.  
 
  Pour plus d’informations sur l’utilisation de ces méthodes pour étendre l’inventaire matériel de Configuration Manager, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

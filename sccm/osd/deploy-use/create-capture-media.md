@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 5acf800ff5aebd849e294393337755145a60cca5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -30,7 +32,7 @@ Dans Configuration Manager, un média de capture vous permet de capturer une ima
 
 -   [Créer une séquence de tâches pour capturer un système d’exploitation](create-a-task-sequence-to-capture-an-operating-system.md)  
 
-##  <a name="a-namebkmkcreatecapturemediaa-how-to-create-capture-media"></a><a name="BKMK_CreateCaptureMedia"></a> Comment créer un média de capture  
+##  <a name="BKMK_CreateCaptureMedia"></a> Comment créer un média de capture  
  Utilisez un média de capture pour capturer une image de système d'exploitation à partir d'un ordinateur de référence. Un média de capture contient l'image de démarrage qui démarre l'ordinateur de référence et la séquence de tâches qui capture l'image du système d'exploitation.
 
 Vous créez des média de capture à l'aide de l'Assistant Création d'un média de séquence de tâches. Avant d'exécuter l'Assistant, assurez-vous que toutes les conditions suivantes sont remplies :  
@@ -80,9 +82,4 @@ Vous créez des média de capture à l'aide de l'Assistant Création d'un média
         >  Vous devez disposer de droits d'accès en lecture à la bibliothèque de contenu sur le point de distribution.  
 
 7.  Effectuez toutes les étapes de l'Assistant.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

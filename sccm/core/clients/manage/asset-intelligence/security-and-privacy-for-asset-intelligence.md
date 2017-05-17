@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: d577a16725c2b167d1ff9f77096018433a2fa580
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: d577a16725c2b167d1ff9f77096018433a2fa580
 
 Cette rubrique contient des informations sur la sécurité et la confidentialité pour Asset Intelligence dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityaia-security-best-practices-for-asset-intelligence"></a><a name="BKMK_Security_AI"></a> Meilleures pratiques de sécurité pour Asset Intelligence  
+##  <a name="BKMK_Security_AI"></a> Meilleures pratiques de sécurité pour Asset Intelligence  
  Utilisez les meilleures pratiques de sécurité suivantes dans l'optique d'utiliser Asset Intelligence.  
 
 |Meilleure pratique de sécurité|Plus d'informations|  
@@ -36,7 +38,7 @@ Cette rubrique contient des informations sur la sécurité et la confidentialit�
 |Lorsque vous importez un fichier de licence (fichier de licence en volume Microsoft ou fichier de déclaration générale de licence), sécurisez le fichier et le canal de communication.|Utilisez les autorisations du système de fichier pour vous assurer que seuls les utilisateurs autorisés peuvent accéder aux fichiers de licence et utilisez la signature SMB pour garantir l'intégrité des données lors de leur transfert au serveur de site pendant le processus d'importation.|  
 |Utilisez le principe des autorisations minimales pour importer les fichiers de licence.|Utilisez l'administration basée sur les rôles pour accorder l'autorisation Gérer Asset Intelligence à l'utilisateur administratif qui importe des fichiers de licence. Le rôle intégré d'Asset Manager inclut cette autorisation.|  
 
-##  <a name="a-namebkmkprivacyhardwareinventorya-privacy-information-for-asset-intelligence"></a><a name="BKMK_Privacy_HardwareInventory"></a> Informations confidentielles pour Asset Intelligence  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations confidentielles pour Asset Intelligence  
  Asset Intelligence étend les fonctions d’inventaire de Configuration Manager afin de permettre une meilleure visibilité des ressources au sein de l’entreprise. La collecte d'informations Asset Intelligence n'est pas activée automatiquement. Vous pouvez modifier le type d'informations collectées en activant les classes de rapport d'inventaire matériel. Pour plus d’informations, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
  Comme les informations d’inventaire, les informations Asset Intelligence sont stockées dans la base de données Configuration Manager. Lorsque les clients se connectent aux points de gestion à l'aide de HTTPS, les données sont toujours chiffrées lors du transfert vers le point de gestion. Lorsque les clients se connectent à l'aide de HTTP, vous pouvez configurer le transfert de données d'inventaire pour qu'il soit signé et chiffré. Les données d'inventaire ne sont pas stockées au format chiffré dans la base de données. Les informations sont conservées dans la base de données jusqu'à ce que la tâche de maintenance de site **Supprimer les historiques d'inventaire anciens** les supprime par intervalle de 90 jours. Vous pouvez configurer l'intervalle de suppression.  
@@ -58,9 +60,4 @@ Cette rubrique contient des informations sur la sécurité et la confidentialit�
 -   Les données téléchargées ne peuvent pas être rappelées.  
 
  Avant de configurer le regroupement de données Asset Intelligence et de décider de soumettre des informations à System Center Online, pensez aux besoins de votre organisation en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

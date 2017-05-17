@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 11ac851696ce52642412ca29e4873679d50cf398
 ms.openlocfilehash: 547dc39d5659c7c2e6f1ca670caddc127dbf22c4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 547dc39d5659c7c2e6f1ca670caddc127dbf22c4
 Pour gérer System Center Configuration Manager, vous devez utiliser une console Configuration Manager qui se connecte à une instance du **fournisseur SMS**. Par défaut, un fournisseur SMS est installé sur le serveur de site durant l’installation d’un site d’administration centrale ou d’un site principal. 
 
 
-##  <a name="a-namebkmkplansmsprova-about-the-sms-provider"></a><a name="BKMK_PlanSMSProv"></a> À propos du fournisseur SMS  
+##  <a name="BKMK_PlanSMSProv"></a> À propos du fournisseur SMS  
  Le fournisseur SMS est un fournisseur WMI (Windows Management Instrumentation) qui affecte un accès en **lecture** et en **écriture** à la base de données Configuration Manager d’un site :  
 
 -   Chaque site d’administration centrale et site principal doit posséder au moins un fournisseur SMS. Vous pouvez installer d’autres fournisseurs en fonction des besoins.  
@@ -60,7 +62,7 @@ Les utilisateurs administratifs de Configuration Manager utilisent un fournisseu
 
 -   L’ordinateur doit disposer d’au moins 650 Mo d’espace disque libre pour prendre en charge les composants du kit de déploiement automatisé Windows (Windows ADK) qui sont installés avec le fournisseur SMS. Pour plus d’informations sur le kit Windows ADK et sur le fournisseur SMS, consultez [Configuration de déploiement de système d’exploitation requise pour le fournisseur SMS](#BKMK_WAIKforSMSProv) dans cette rubrique.  
 
-##  <a name="a-namebkmklocationa-sms-provider-locations"></a><a name="bkmk_location"></a> Emplacements des fournisseurs SMS  
+##  <a name="bkmk_location"></a> Emplacements des fournisseurs SMS  
  Quand vous installez un site, le premier fournisseur SMS du site est installé automatiquement. Vous pouvez spécifier l'un des emplacements suivants pris en charge pour le fournisseur SMS :  
 
 -   L'ordinateur de serveur de site  
@@ -122,7 +124,7 @@ Pour afficher les emplacements de chaque fournisseur SMS installé sur un site, 
 
     -   Cet emplacement peut utiliser les ressources système qui, dans le cas contraire, seraient dédiées à d'autres services.  
 
-##  <a name="a-namebkmksmsprovlanguagesa-about-sms-provider-languages"></a><a name="BKMK_SMSProvLanguages"></a> À propos des langues du fournisseur SMS  
+##  <a name="BKMK_SMSProvLanguages"></a> À propos des langues du fournisseur SMS  
  Le fournisseur SMS fonctionne indépendamment de la langue d'affichage de l'ordinateur sur lequel il est installé.  
 
  Quand un utilisateur administratif ou un processus Configuration Manager sollicite des données à l’aide du fournisseur SMS, ce dernier tente de retourner les données dans un format correspondant à la langue du système d’exploitation de l’ordinateur émetteur de la requête.
@@ -135,7 +137,7 @@ La méthode utilisée pour tenter de déterminer la langue est indirecte. Le fou
 
 -   Les objets créés par un utilisateur administratif sont stockés dans la base de données à l'aide de la langue utilisée pour créer l'objet. Ces objets s’affichent dans la console Configuration Manager dans la même langue. Ils ne peuvent pas être traduits par le fournisseur SMS et ne possèdent pas plusieurs options de langue.  
 
-##  <a name="a-namebkmkmultismsprova-use-multiple-sms-providers"></a><a name="BKMK_MultiSMSProv"></a> Utiliser plusieurs fournisseurs SMS  
+##  <a name="BKMK_MultiSMSProv"></a> Utiliser plusieurs fournisseurs SMS  
  Après l'installation d'un site, vous pouvez installer des fournisseurs SMS supplémentaires pour ce site. Pour installer des fournisseurs SMS supplémentaires, exécutez le programme d’installation de Configuration Manager sur le serveur de site. Envisagez l'installation de fournisseurs SMS supplémentaires lorsque l'une des affirmations suivantes est vraie :  
 
 -   Un grand nombre d’utilisateurs administratifs exécutent une console Configuration Manager et se connectent à un site en même temps.  
@@ -152,7 +154,7 @@ Quand plusieurs fournisseurs SMS sont installés sur un site et qu’une demande
 
 Par exemple, quand vous connectez une console Configuration Manager à un site pour la première fois, la connexion interroge le service WMI sur le serveur de site pour identifier l’instance du fournisseur SMS à utiliser. Cette instance spécifique du fournisseur SMS reste utilisée par la console Configuration Manager jusqu’à la fin de sa session. Si la session prend fin car l’ordinateur du fournisseur SMS n’est plus disponible sur le réseau, quand vous reconnectez la console Configuration Manager, le site répète simplement la tâche d’identification d’une instance du fournisseur SMS à laquelle se connecter. Il est possible que le même ordinateur du fournisseur SMS non disponible soit attribué. Si cela se produit, vous pouvez tenter de reconnecter la console Configuration Manager jusqu’à ce qu’un ordinateur du fournisseur SMS disponible soit affecté.  
 
-##  <a name="a-namebkmkaboutsmsadminsa-about-the-sms-admins-group"></a><a name="BKMK_AboutSMSAdmins"></a> À propos du groupe Administrateurs SMS  
+##  <a name="BKMK_AboutSMSAdmins"></a> À propos du groupe Administrateurs SMS  
  Le groupe Administrateurs SMS permet de fournir aux utilisateurs administratifs l'accès au fournisseur SMS. Le groupe est créé automatiquement sur le serveur de site au moment de l'installation du site, et sur chaque ordinateur qui installe un fournisseur SMS. Informations supplémentaires concernant le groupe Administrateurs SMS :  
 
 -   Lorsque l'ordinateur est un serveur membre, le groupe Administrateurs SMS est créé en tant que groupe local.  
@@ -172,7 +174,7 @@ Vous pouvez afficher et configurer les autorisations et les droits du groupe Adm
 >  Chaque utilisateur administratif qui utilise une console Configuration Manager distante doit avoir des autorisations DCOM d’activation à distance à la fois sur le serveur de site et sur l’ordinateur du fournisseur SMS. Même si ces droits peuvent être accordés à des utilisateurs ou des groupes, il est conseillé de les accorder au groupe Administrateurs SMS pour simplifier l’administration. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
 
 
-##  <a name="a-namebkmksmsprovnamespacea-about-the-sms-provider-namespace"></a><a name="BKMK_SMSProvNamespace"></a> À propos de l’espace de noms du fournisseur SMS  
+##  <a name="BKMK_SMSProvNamespace"></a> À propos de l’espace de noms du fournisseur SMS  
 La structure du fournisseur SMS est définie par le schéma WMI. Les espaces de noms du schéma décrivent l’emplacement des données Configuration Manager dans le schéma du fournisseur SMS. Le tableau ci-dessous contient certains des espaces de noms communs utilisés par le fournisseur SMS.  
 
 |Espace de noms|Description|  
@@ -183,7 +185,7 @@ La structure du fournisseur SMS est définie par le schéma WMI. Les espaces de 
 |Root\CCM|Stratégies de configuration et données du client Configuration Manager.|  
 |root\CIMv2\SMS|Emplacement des classes de rapports d’inventaire collectées par l’Agent du client d’inventaire. Ces paramètres compilés par des clients au cours de l’évaluation des stratégies de l’ordinateur sont basés sur la configuration des paramètres du client de l’ordinateur.|  
 
-##  <a name="a-namebkmkwaikforsmsprova-operating-system-deployment-requirements-for-the-sms-provider"></a><a name="BKMK_WAIKforSMSProv"></a> Exigences liées au déploiement de système d’exploitation pour le fournisseur SMS  
+##  <a name="BKMK_WAIKforSMSProv"></a> Exigences liées au déploiement de système d’exploitation pour le fournisseur SMS  
 L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version du Windows ADK exigée par la version de Configuration Manager que vous utilisez.  
 
  -   Par exemple, la version 1511 de Configuration Manager exige la version Windows 10 RTM (10.0.10240) du Windows ADK.  
@@ -200,9 +202,4 @@ Quand vous gérez des déploiements de système d’exploitation, le Windows AD
 
 
 L’installation du kit Windows ADK peut nécessiter jusqu’à 650 Mo d’espace disque libre sur chaque ordinateur où le fournisseur SMS est installé. Cet espace disque élevé est nécessaire pour permettre à Configuration Manager d’installer les images de démarrage Windows PE.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

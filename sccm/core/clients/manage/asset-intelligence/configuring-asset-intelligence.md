@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
 ms.openlocfilehash: 27566be49a673bebca6ac3621e692fad65523ca4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -39,7 +41,7 @@ Asset Intelligence permet d’inventorier et de gérer l’utilisation des licen
 - **Étape 6** : [Configurer les tâches de maintenance Asset Intelligence](#BKMK_ConfigureMaintenanceTasks) 
 
 
-###  <a name="a-namebkmkenableassetintelligencea-enable-asset-intelligence-hardware-inventory-reporting-classes"></a><a name="BKMK_EnableAssetIntelligence"></a> Activer les classes de création de rapports d’inventaire matériel Asset Intelligence  
+###  <a name="BKMK_EnableAssetIntelligence"></a> Activer les classes de création de rapports d’inventaire matériel Asset Intelligence  
  Pour activer Asset Intelligence sur les sites Configuration Manager, vous devez activer au moins une des classes de création de rapports d’inventaire matériel Asset Intelligence. Vous pouvez activer les classes sur la page d'accueil **Asset Intelligence** ou, dans l'espace de travail **Administration** , dans le nœud **Paramètres client** , dans les propriétés des paramètres client. Procédez selon l'une des méthodes suivantes :  
 
 ##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-the-asset-intelligence-home-page"></a>Pour activer les classes de création de rapports d'inventaire matériel Asset Intelligence depuis la page d'accueil Asset Intelligence  
@@ -70,7 +72,7 @@ Asset Intelligence permet d’inventorier et de gérer l’utilisation des licen
     >  Les rapports Asset Intelligence qui dépendent des classes d'inventaire matériel que vous activez en utilisant cette procédure n'affichent pas de données tant que les clients n'ont pas établi et retourné un inventaire matériel.  
   
 
-###  <a name="a-namebkmkinstallassetintelligencesynchronizationpointa-install-an-asset-intelligence-synchronization-point"></a><a name="BKMK_InstallAssetIntelligenceSynchronizationPoint"></a> Installer un point de synchronisation Asset Intelligence  
+###  <a name="BKMK_InstallAssetIntelligenceSynchronizationPoint"></a> Installer un point de synchronisation Asset Intelligence  
 
 Le rôle de système de site du point de synchronisation Asset Intelligence permet de connecter des sites Configuration Manager à System Center Online pour synchroniser les informations du catalogue Asset Intelligence. Le point de synchronisation Asset Intelligence peut uniquement être installé sur un système de site de niveau supérieur dans la hiérarchie Configuration Manager. De plus, il a besoin d’un accès Internet pour se synchroniser avec System Center Online via le port TCP 443.
 
@@ -110,7 +112,7 @@ Outre le téléchargement des nouvelles informations du catalogue Asset Intellig
 
 10. Effectuer toutes les étapes de l'Assistant 
 
-###  <a name="a-namebkmkenablesuccesslogoneventsa-enable-auditing-of-success-logon-events"></a><a name="BKMK_EnableSuccessLogonEvents"></a> Activer l’audit des événements de connexion réussie  
+###  <a name="BKMK_EnableSuccessLogonEvents"></a> Activer l’audit des événements de connexion réussie  
  Quatre rapports Asset Intelligence affichent des informations extraites des journaux d'événements de sécurité Windows sur les ordinateurs client. Voici comment configurer les paramètres d’ouverture de session de la stratégie de sécurité des ordinateurs pour activer l’audit des événements associés aux ouvertures de session qui aboutissent.  
 
 ##### <a name="to-enable-success-logon-event-logging-by-using-a-local-security-policy"></a>Pour activer la journalisation des événements associés aux ouvertures de session qui aboutissent en utilisant une stratégie de sécurité locale  
@@ -129,7 +131,7 @@ Outre le téléchargement des nouvelles informations du catalogue Asset Intellig
 
 3.  Dans le volet des résultats, double-cliquez sur **Auditer les événements de connexion**, cochez la case **Succès** et choisissez **OK**.  
 
-###  <a name="a-namebkmkimportsoftwarelicenseinformationa-import-software-license-information"></a><a name="BKMK_ImportSoftwareLicenseInformation"></a> Importer les informations de licence logicielle  
+###  <a name="BKMK_ImportSoftwareLicenseInformation"></a> Importer les informations de licence logicielle  
  Les sections suivantes décrivent les procédures permettant d’importer des informations de licences logicielles Microsoft et générales dans la base de données de site Configuration Manager en utilisant l’Assistant Importer des licences logicielles. Lorsque vous importez des informations de licence de logiciel vers la base de données de site depuis des fichiers de déclaration de licence, le compte de l'ordinateur serveur de site doit disposer des autorisations **Contrôle intégral** pour le système de fichiers NTFS du partage de fichiers utilisé pour importer les informations de licence de logiciel.  
 
 > [!IMPORTANT]  
@@ -153,7 +155,7 @@ Outre le téléchargement des nouvelles informations du catalogue Asset Intellig
 
 6. Effectuez toutes les étapes de l'Assistant.  
 
-###  <a name="a-namebkmkcreategenerallicensestatementa-create-a-general-license-statement-information-file-for-import"></a><a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
+###  <a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
  Une déclaration de licence générale peut également être importée vers le catalogue Asset Intelligence en utilisant un fichier d'importation de licence de format .csv (délimité par des virgules) créé manuellement.  
 
 > [!NOTE]  
@@ -209,7 +211,7 @@ Asset Intelligence fait correspondre les produits que vous spécifiez dans la d�
 |Date d'expiration de la prise en charge|Date au format suivant : MM/JJ/AAAA|Non|Date de fin de la prise en charge achetée|  
 |Commentaires|Jusqu'à 255 caractères|Non|Commentaires facultatifs|  
 
-###  <a name="a-namebkmkconfiguremaintenancetasksa-configure-asset-intelligence-maintenance-tasks"></a><a name="BKMK_ConfigureMaintenanceTasks"></a> Configurer les tâches de maintenance Asset Intelligence  
+###  <a name="BKMK_ConfigureMaintenanceTasks"></a> Configurer les tâches de maintenance Asset Intelligence  
  Les tâches de maintenance suivantes sont disponibles pour Asset Intelligence :  
 
 -   **Vérifier le titre de l’application à l’aide des informations d’inventaire** : vérifie si le nom du logiciel indiqué dans l’inventaire logiciel correspond au nom du logiciel figurant dans le catalogue Asset Intelligence. Par défaut, cette tâche est activée et planifiée pour être exécutée le samedi entre 00 h 00 et 5 h 00. Cette tâche de maintenance est uniquement disponible sur le site de niveau supérieur de la hiérarchie Configuration Manager.  
@@ -232,9 +234,4 @@ Asset Intelligence fait correspondre les produits que vous spécifiez dans la d�
 
     > [!NOTE]  
     >  Si l’exécution d’une tâche échoue à la première tentative, Configuration Manager retente de l’exécuter jusqu’à la réussite de l’opération ou l’expiration de la période d’exécution planifiée.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

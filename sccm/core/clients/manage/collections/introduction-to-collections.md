@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: fd4c6fd85d12592b3d4f57a48cf6da6c7a668615
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -63,10 +65,5 @@ Voici quelques exemples d’utilisation de regroupements :
 
 ### <a name="custom-collections"></a>Regroupements personnalisés  
  Quand vous créez un regroupement personnalisé dans Configuration Manager, l’appartenance de ce regroupement est déterminée par une ou plusieurs règles de regroupement, comme décrit dans [Guide pratique pour créer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md). 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ Un média de démarrage dans Configuration Manager contient l’image de démarr
 
 -   [Remplacement d’un ordinateur existant et transfert des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
 
-##  <a name="a-namebkmkcreatebootablemediaa-create-bootable-media"></a><a name="BKMK_CreateBootableMedia"></a> Créer un média de démarrage  
+##  <a name="BKMK_CreateBootableMedia"></a> Créer un média de démarrage  
  Quand vous démarrez sur le média de démarrage, l’ordinateur de destination démarre, se connecte au réseau, puis récupère la séquence de tâches, l’image du système d’exploitation et tout autre contenu nécessaire à partir du réseau. Étant donné que la séquence de tâches ne se trouve pas sur le média, vous pouvez modifier la séquence de tâches ou le contenu sans avoir à recréer le média. Les packages sur le média de démarrage ne sont pas chiffrés. Vous devez prendre les mesures de sécurité appropriées, telles que l’ajout d’un mot de passe au média, afin de garantir que le contenu du package est protégé contre les utilisateurs non autorisés.  
 
  Avant de créer un média de démarrage à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que toutes les conditions suivantes sont remplies :  
@@ -155,9 +157,4 @@ Les informations fournies dans cette section indiquent comment créer un média 
 
 ## <a name="next-steps"></a>Étapes suivantes  
 [Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

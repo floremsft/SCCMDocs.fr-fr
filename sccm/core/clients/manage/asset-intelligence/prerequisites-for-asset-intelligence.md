@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: 156d6679817b81ca27fbd2b8836431396e1e6b23
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -48,9 +50,4 @@ Dans System Center Configuration Manager, Asset Intelligence est soumis à des d
 |Dépendances de l'agent du client de contrôle des logiciels|Un grand nombre de rapports Asset Intelligence sur les logiciels dépendent des données de l'agent du client de contrôle des logiciels. Pour plus d’informations sur l’activation de l’agent du client d’inventaire matériel, consultez [Surveiller l’utilisation des applications avec le contrôle de logiciel dans System Center Configuration Manager](../../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).<br /><br /> Les rapports Asset Intelligence suivants dépendent des données de l'agent du client de contrôle des logiciels :<br /><br /> -   Logiciel 07A - Fichiers exécutables récemment utilisés par le nombre d’ordinateurs<br />-   Logiciel 07B - Ordinateurs ayant récemment utilisé un fichier exécutable spécifié<br />-   Logiciel 07C - Fichiers exécutables récemment utilisés sur un ordinateur spécifique<br />-   Logiciel 08A - Fichiers exécutables récemment utilisés par le nombre d’utilisateurs<br />-   Logiciel 08B - Utilisateurs ayant récemment utilisé un fichier exécutable spécifié<br />-   Logiciel 08C - Fichiers exécutables récemment utilisés par un utilisateur spécifié|  
 |Conditions requises pour la classe de rapports d'inventaire matériel Asset Intelligence|Dans Configuration Manager, les rapports Asset Intelligence dépendent de classes de rapports d’inventaire matériel spécifiques. Les rapports Asset Intelligence associés ne contiennent aucune donnée tant que les classes de rapport d'inventaire matériel ne sont pas activées et que les clients n'ont pas signalé d'inventaire matériel sur ces classes. Vous pouvez activer les classes de rapport d'inventaire matériel suivantes pour prendre en charge les obligations de rapport Asset Intelligence :<br /><br /> -   SMS_SystemConsoleUsage<sup>1</sup><br />-   SMS_SystemConsoleUser<sup>1</sup><br />-   SMS_InstalledSoftware<br />-   SMS_AutoStartSoftware<br />-   SMS_BrowserHelperObject<br />-   Win32_USBDevice<br />-   SMS_InstalledExecutable<br />-   SMS_SoftwareShortcut<br />-   SoftwareLicensingService<br />-   SoftwareLicensingProduct<br />-   SMS_SoftwareTag<br /><br /> <sup>1</sup> Par défaut, les classes de rapport d'inventaire matériel Asset Intelligence **SMS_SystemConsoleUsage** et **SMS_SystemConsoleUser** sont activées.<br /><br /> Vous pouvez modifier les classes de rapport d’inventaire matériel Asset Intelligence dans la console Configuration Manager, dans l’espace de travail **Ressources et conformité**, quand vous cliquez sur le nœud **Asset Intelligence**. Pour plus d’informations, consultez la section [Activer les classes de création de rapports d’inventaire matériel Asset Intelligence](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md#BKMK_EnableAssetIntelligence) dans la rubrique [Configuration d’Asset Intelligence dans Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).|  
 |Point de Reporting Services|Le rôle de système de site du point de Reporting Services doit être installé avant que vous puissiez afficher les rapports des mises à jour logicielles. Pour plus d'informations sur la création d'un point de Reporting Services, consultez [Configuration des rapports dans Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=232661).|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

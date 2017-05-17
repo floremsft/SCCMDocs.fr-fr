@@ -15,9 +15,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 831d8a66c827d246069c7415cdce7a7c4bb95b33
 ms.openlocfilehash: 19e3099773f887129374413482702de3f4b0a36f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>Nouveautés dans la version 1610 de System Center Configuration Manager
@@ -314,9 +316,4 @@ Pour plus d’informations, consultez [Éléments de configuration pour les appa
 
 #### <a name="device-capability-settings"></a>Paramètres de capacité des appareils
 - **Autoriser la connexion automatique aux points d’accès Wi-Fi gratuits**
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,9 +15,11 @@ caps.latest.revision: 10
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a181171cc1a92ec4519f4e4b34ca3274a0aa0440
 ms.openlocfilehash: 1c9e7ada6a8aa228b30e58865baae0f6e529e6af
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -35,7 +37,7 @@ Les clients System Center Configuration Manager utilisent un processus appelé *
 
 
 
-##  <a name="a-namebkmkfunda-fundamentals-of-service-location"></a><a name="bkmk_fund"></a> Fundamentals of service location  
+##  <a name="bkmk_fund"></a> Fundamentals of service location  
  Quand un client utilise l’emplacement du service pour rechercher un point de gestion avec lequel il peut communiquer, il évalue son emplacement réseau actuel, son protocole de communication préféré et son site attribué.  
 
  **Un client communique avec un point de gestion pour effectuer les opérations suivantes :**  
@@ -56,7 +58,7 @@ Les clients System Center Configuration Manager utilisent un processus appelé *
 
 -   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planifier la signature et le chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans la rubrique [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-##  <a name="a-namebkmkplanservicelocationa-service-location-and-how-clients-determine-their-assigned-management-point"></a><a name="BKMK_Plan_Service_Location"></a> Emplacement du service et façon dont les clients déterminent leur point de gestion attribué  
+##  <a name="BKMK_Plan_Service_Location"></a> Emplacement du service et façon dont les clients déterminent leur point de gestion attribué  
 Quand un client est attribué pour la première fois à un site principal, il sélectionne un point de gestion par défaut pour ce site. Les sites principaux prennent en charge plusieurs points de gestion, et chaque client identifie indépendamment un point de gestion comme son point de gestion par défaut. Ce point de gestion par défaut devient ensuite le point de gestion attribué de ce client. (Vous pouvez également utiliser les commandes d’installation du client pour définir le point de gestion attribué au client lors de l’installation.)  
 
 Un client sélectionne le point de gestion avec lequel communiquer en fonction de son emplacement réseau et de son groupe de limites configurés. Le point de gestion utilisé par le client n’est pas obligatoirement son point de gestion attribué.  
@@ -83,7 +85,7 @@ Par exemple, quand un client Configuration Manager sur Internet se connecte à u
 
 Un client qui n’est pas configuré pour Internet ne reçoit pas de points de gestion exclusivement accessibles sur Internet. Les clients de groupe de travail configurés pour Internet communiquent uniquement avec des points de gestion accessibles sur Internet.  
 
-##  <a name="a-namebkmkmplista-the-mp-list"></a><a name="BKMK_MPList"></a> La liste PG  
+##  <a name="BKMK_MPList"></a> La liste PG  
 La liste PG est la source d’emplacements de service préférés du client. Elle hiérarchise les points de gestion précédemment identifiés par le client. Cette liste est triée par chaque client en fonction de son emplacement réseau au moment où il l'a met à jour, puis stockée localement sur le client dans WMI.  
 
 ### <a name="building-the-initial-mp-list"></a>Création de la liste PG initiale  
@@ -134,7 +136,7 @@ Une fois la communication établie avec un point de gestion, le client continue 
 
 Le client sélectionne de manière aléatoire un nouveau point de gestion à utiliser.  
 
-##  <a name="a-namebkmkada-active-directory"></a><a name="bkmk_ad"></a> Active Directory  
+##  <a name="bkmk_ad"></a> Active Directory  
 Les clients qui appartiennent à un domaine peuvent utiliser les services AD DS pour l'emplacement du service. Pour ce faire, les sites doivent [publier des données dans Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
 
 Un client peut utiliser AD DS comme emplacement du service quand l’une des conditions suivantes est remplie :  
@@ -145,7 +147,7 @@ Un client peut utiliser AD DS comme emplacement du service quand l’une des con
 
 Si un client ne peut pas trouver de point de gestion à utiliser comme emplacement du service dans AD DS, il tente d’utiliser DNS.  
 
-##  <a name="a-namebkmkdnsa-dns"></a><a name="bkmk_dns"></a> DNS  
+##  <a name="bkmk_dns"></a> DNS  
 Les clients se trouvant sur l'intranet peuvent utiliser DNS pour l'emplacement du service. Pour ce faire, au moins un site d'une hiérarchie doit publier des informations sur les points de gestion dans DNS.  
 
 Envisagez d'utiliser DNS pour l'emplacement du service quand l'une des conditions suivantes est remplie :
@@ -243,15 +245,10 @@ Si vous utilisez le DNS Windows Server, vous pouvez utiliser la procédure suiva
 
 Répétez ces étapes pour chaque point de gestion de l'intranet que vous souhaitez publier dans DNS.  
 
-##  <a name="a-namebkmkwinsa-wins"></a><a name="bkmk_wins"></a> WINS  
+##  <a name="bkmk_wins"></a> WINS  
 En cas d'échec d'autres mécanismes d'emplacement de service, les clients peuvent trouver un point de gestion initial en examinant WINS.  
 
 Par défaut, un site principal publie dans WINS le premier point de gestion du site configuré pour le protocole HTTP et le premier point de gestion configuré pour le protocole HTTPS.  
 
 Si vous ne souhaitez pas que les clients trouvent un point de gestion HTTP dans WINS, configurez les clients avec la propriété CCMSetup.exe Client.msi **SMSDIRECTORYLOOKUP=NOWINS**.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

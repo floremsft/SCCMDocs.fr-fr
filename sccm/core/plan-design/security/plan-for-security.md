@@ -16,9 +16,10 @@ caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: af06fb10d905e3fe447c6cd6ed35dac10488161f
 ms.openlocfilehash: 1bf519ad4593f6a08d7dc393f9fab91c70b51b25
+ms.contentlocale: fr-fr
 ms.lasthandoff: 01/05/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/05/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-##  <a name="a-namebkmkplanningforcertificatesa-plan-for-certificates-self-signed-and-pki"></a><a name="BKMK_PlanningForCertificates"></a> Planifier des certificats (auto-signés et PKI)  
+##  <a name="BKMK_PlanningForCertificates"></a> Planifier des certificats (auto-signés et PKI)  
  Configuration Manager utilise une combinaison de certificats auto-signés et de certificats pour infrastructure à clé publique (PKI).  
 
  Comme bonne pratique de sécurité, utilisez des certificats PKI dès que possible. Pour en savoir plus sur la configuration requise pour les certificats PKI, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md). Si Configuration Manager demande des certificats PKI, notamment pendant l’inscription d’appareils mobiles et la configuration Intel Active Management Technology (AMT), vous devez utiliser les services de domaine Active Directory et une autorité de certification d’entreprise. Tous les autres certificats PKI doivent être déployés et gérés indépendamment de Configuration Manager.  
@@ -61,7 +62,7 @@ ms.lasthandoff: 01/05/2017
 
 3.  Installez le client en spécifiant la propriété de Client.msi, **SMSSIGNCERT=***&lt;chemin_complet_et_nom_de_fichier\>*, avec CCMSetup.exe.  
 
-###  <a name="a-namebkmkplanningforcrlsa-plan-for-pki-certificate-revocation"></a><a name="BKMK_PlanningForCRLs"></a> Planifier la révocation de certificats PKI  
+###  <a name="BKMK_PlanningForCRLs"></a> Planifier la révocation de certificats PKI  
 Si vous utilisez des certificats PKI avec Configuration Manager, déterminez si les clients et serveurs doivent utiliser une liste de révocation des certificats (CRL) et, le cas échéant, de quelle manière, pour vérifier le certificat sur l’ordinateur connecté. Le fichier CRL est un fichier créé et signé par une autorité de certification (AC) qui contient une liste des certificats que cette autorité a émis, puis annulés. L’administrateur d’une autorité de certification peut annuler des certificats, par exemple, si un certificat émis est altéré ou suspecté de l’être.  
 
 > [!IMPORTANT]  
@@ -79,7 +80,7 @@ Avec l’aide des administrateurs de votre infrastructure PKI, déterminez si le
 
 -   La nécessité de vérifier la liste de révocation des certificats pour chaque connexion à un système de site qui est configuré pour utiliser un certificat PKI est prioritaire sur celle d’avoir des connexions plus rapides et un traitement efficace sur le client, et au risque d’échec de connexion des clients sur les serveurs si la liste de révocation des certificats est introuvable.  
 
-###  <a name="a-namebkmkplanningforrootcasa-plan-for-the-pki-trusted-root-certificates-and-the-certificate-issuers-list"></a><a name="BKMK_PlanningForRootCAs"></a> Planifier les certificats racine approuvés PKI et la liste des émetteurs de certificats  
+###  <a name="BKMK_PlanningForRootCAs"></a> Planifier les certificats racine approuvés PKI et la liste des émetteurs de certificats  
 Si vos systèmes de site IIS utilisent des certificats clients PKI pour l'authentification du client sur HTTP ou pour le chiffrement et l'authentification du client sur HTTPS, vous pouvez être amené à importer des certificats d'autorités de certification racine comme propriété de site. Voici les deux scénarios :  
 
 -   Vous déployez des systèmes d’exploitation à l’aide de Configuration Manager, et les points de gestion acceptent uniquement les connexions de clients HTTPS.  
@@ -101,7 +102,7 @@ Ces certificats d’autorité de certification racine importés et le certificat
 
 Indépendamment de la configuration du site, vous pouvez également être amené à importer un certificat d’autorité de certification racine quand vous inscrivez des appareils mobiles ou des ordinateurs Mac, et configurez des ordinateurs Intel AMT pour des réseaux sans fil.  
 
-###  <a name="a-namebkmkplanningforclientcertificateselectiona-plan-for-pki-client-certificate-selection"></a><a name="BKMK_PlanningForClientCertificateSelection"></a> Planifier la sélection des certificats clients PKI  
+###  <a name="BKMK_PlanningForClientCertificateSelection"></a> Planifier la sélection des certificats clients PKI  
  Si vos systèmes de site IIS utilisent des certificats clients PKI pour l’authentification des clients sur HTTP ou pour le chiffrement et l’authentification des clients sur HTTPS, planifiez la manière dont les clients Windows vont sélectionner le certificat à utiliser pour Configuration Manager.  
 
 > [!NOTE]  
@@ -175,7 +176,7 @@ Pour identifier facilement un certificat de client unique PKI, vous pouvez égal
 
 Pour plus d’informations sur la configuration des paramètres des certificats clients, consultez la section [Configurer les paramètres des certificats clients PKI](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureClientPKI) dans l’article [Configurer la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/configure-security.md).  
 
-###  <a name="a-namebkmkplanningforpkitransitiona-plan-a-transition-strategy-for-pki-certificates-and-internet-based-client-management"></a><a name="BKMK_PlanningForPKITransition"></a> Planifier une stratégie de transition pour les certificats PKI et la gestion des clients basée sur Internet  
+###  <a name="BKMK_PlanningForPKITransition"></a> Planifier une stratégie de transition pour les certificats PKI et la gestion des clients basée sur Internet  
 Grâce aux options de configuration flexibles de Configuration Manager, vous pouvez effectuer progressivement la transition des clients et du site pour utiliser des certificats PKI et sécuriser ainsi davantage les points de terminaison des clients. Les certificats PKI vous permettent de gérer les clients Internet, tout en renforçant la sécurité.  
 
 Les options et choix de configuration sont multiples dans Configuration Manager. Cela explique pourquoi il n’y a pas une méthode unique recommandée pour effectuer la transition d’un site afin que tous les clients utilisent des connexions HTTPS. Toutefois, vous pouvez suivre ces étapes comme guide :  
@@ -223,7 +224,7 @@ Les options et choix de configuration sont multiples dans Configuration Manager.
 
  En suivant ce plan pour introduire progressivement des certificats PKI, d’abord pour l’authentification uniquement sur HTTP et ensuite pour l’authentification et le chiffrement sur HTTPS, vous réduisez le risque que les clients ne soient plus gérés. En outre, vous bénéficierez de la sécurité maximale prise en charge par Configuration Manager.  
 
-##  <a name="a-namebkmkplanningforrtka-plan-for-the-trusted-root-key"></a><a name="BKMK_PlanningForRTK"></a> Planifier la clé racine approuvée  
+##  <a name="BKMK_PlanningForRTK"></a> Planifier la clé racine approuvée  
 La clé racine approuvée dans Configuration Manager est utilisée par les clients Configuration Manager pour vérifier que les systèmes de site appartiennent à leur hiérarchie. Chaque serveur de site génère une clé d'échange de site pour communiquer avec d'autres sites. La clé d'échange du site de niveau supérieur dans la hiérarchie est appelée clé racine approuvée.  
 
 La clé racine approuvée dans Configuration Manager a un rôle similaire à un certificat racine dans une infrastructure à clé publique en ce sens que tout ce qui est signé par la clé privée de la clé racine approuvée est également approuvé dans le reste de la hiérarchie. Par exemple, en signant le certificat du point de gestion avec la paire clé privée/clé racine approuvée, et en effectuant une copie de la paire clé publique/clé racine approuvée qui leur est accessible, les clients peuvent distinguer les points de gestion qui se trouvent dans leur hiérarchie des points de gestion qui ne sont pas dans leur hiérarchie. Les clients utilisent l’infrastructure Windows Management Instrumentation (WMI) pour stocker une copie de la clé racine approuvée dans l’espace de noms **root\ccm\locationservices**.  
@@ -295,7 +296,7 @@ Vous pouvez supprimer la clé racine approuvée d’un client en utilisant la pr
 
 9. Dans la boîte de dialogue **Éditeur d’objets pour TrustedRootKey=@**, dans la section **Propriétés**, accédez à **TrustedRootKey CIM_STRING**. La chaîne dans la colonne droite correspond à la clé racine approuvée. Vérifiez qu’elle correspond à la valeur **SMSPublicRootKey** dans le fichier, *&lt;répertoire_Configuration_Manager\>***\bin\mobileclient.tcf**.  
 
-##  <a name="a-namebkmkplanningforsigningencryptiona-plan-for-signing-and-encryption"></a><a name="BKMK_PlanningForSigningEncryption"></a> Planifier la signature et le chiffrement  
+##  <a name="BKMK_PlanningForSigningEncryption"></a> Planifier la signature et le chiffrement  
  Lorsque vous utilisez des certificats PKI pour toutes les communications client, vous n'avez pas à planifier la signature et le chiffrement pour contribuer à sécuriser les communications de données client. Toutefois, si vous installez des systèmes de site qui exécutent IIS pour autoriser les connexions client HTTP, vous devez décider comment sécuriser la communication client pour le site.  
 
  Pour contribuer à protéger les données que les clients envoient aux points de gestion, vous pouvez exiger que les données soient signées. En outre, vous pouvez exiger que toutes les données signées provenant de clients qui utilisent le protocole HTTP soient signées à l'aide de l'algorithme SHA-256. Bien qu'il s'agisse d'un paramètre plus sécurisé, n'activez cette option que si tous les clients prennent en charge SHA-256. De nombreux systèmes d'exploitation offrent une prise en charge native de SHA-256, mais les systèmes d'exploitation plus anciens peuvent nécessiter une mise à jour ou un correctif logiciel. Par exemple, les ordinateurs qui exécutent Windows Server 2003 SP2 doivent installer un correctif qui est référencé dans [l'article 938397 de la Base de connaissances Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=226666).  
@@ -304,7 +305,7 @@ Vous pouvez supprimer la clé racine approuvée d’un client en utilisant la pr
 
  Pour en savoir plus sur la configuration des paramètres de signature et de chiffrement, consultez la section [Configurer la signature et le chiffrement](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureSigningEncryption) dans l’article [Configurer la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/configure-security.md).  
 
-##  <a name="a-namebkmkplanningforrbaa-plan-for-role-based-administration"></a><a name="BKMK_PlanningForRBA"></a> Planifier l’administration basée sur des rôles  
+##  <a name="BKMK_PlanningForRBA"></a> Planifier l’administration basée sur des rôles  
  Pour plus d’informations, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md).  
 
 ### <a name="see-also"></a>Voir aussi

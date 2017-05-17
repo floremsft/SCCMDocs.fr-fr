@@ -15,9 +15,11 @@ caps.latest.revision: 15
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5f1efaa776079b21d52b9936273380e9bb8963e9
 ms.openlocfilehash: 862f420c063cb44c419d4904fbb4696efb739758
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -52,9 +54,4 @@ Prenez en compte les remarques suivantes sur la configuration, qui s’appliquen
 |Configurer des réplicas de base de données pour les points de gestion|Configurez un réplica de base de données pour réduire la charge processeur placée sur le serveur de base de données de site par les points de gestion qui traitent les demandes des clients. Pour plus d’informations, consultez [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).|  
 |Configurer un groupe de disponibilité SQL Server AlwaysOn pour héberger la base de données du site|À compter de la version 1602, configurez des groupes de disponibilité comme solutions de haute disponibilité et de récupération d’urgence pour héberger la base de données des sites principaux et du site d’administration centrale. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).|  
 |Modifier la réplication entre sites|Pour en savoir plus sur les sujets suivants, consultez [Transfert de données entre sites dans System Center Configuration Manager](../../../../core/servers/manage/data-transfers-between-sites.md) :<br /><br /> Configurer la [réplication basée sur les fichiers](../../../../core/servers/manage/data-transfers-between-sites.md#bkmk_fileroute) entre sites secondaires<br /><br /> Configurer les [liens de réplication de base de données](../../../../core/servers/manage/data-transfers-between-sites.md#bkmk_Dblinks)<br /><br /> Configurer les [vues distribuées](../../../../core/servers/manage/data-transfers-between-sites.md#bkmk_distviews)|  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

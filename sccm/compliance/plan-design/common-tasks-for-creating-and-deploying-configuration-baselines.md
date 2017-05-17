@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
 ms.openlocfilehash: 5682cacb43af5bf9248446f1c35b08f137bdae9d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -90,9 +92,4 @@ Dans la procédure suivante, vous allez apprendre à ajouter cet élément de co
  Pour examiner rapidement les statistiques de compatibilité de ce déploiement, dans l’espace de travail **Surveillance** , cliquez sur **Déploiements**. Au bas de l’écran, un graphique **Statistiques de compatibilité** est visible.  
 
  Pour plus d’informations sur la surveillance des bases de référence de configuration, consultez [Surveiller les paramètres de compatibilité](../../compliance/deploy-use/monitor-compliance-settings.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

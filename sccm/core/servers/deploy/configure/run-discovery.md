@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7b6674f331c82cc7899b8661cf38b9d3022cf21b
 ms.openlocfilehash: 647826e9d340d3ef97abab0dba51041a3727dedc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -64,7 +66,7 @@ Vous utilisez une ou plusieurs méthodes de découverte dans System Center Confi
 
 -   Déployer des paramètres client et les configurations associées.
 
-##  <a name="a-namebkmkddrsa-about-discovery-data-records"></a><a name="BKMK_DDRs"></a> À propos des enregistrements de données de découverte  
+##  <a name="BKMK_DDRs"></a> À propos des enregistrements de données de découverte  
  Les DDR sont des fichiers créés par une méthode de découverte. Ils contiennent des informations sur une ressource que vous pouvez gérer dans Configuration Manager, comme des ordinateurs, des utilisateurs et, dans certains cas, l’infrastructure réseau. Ils sont traités au niveau des sites principaux ou des sites d'administration centrale. Une fois que les informations sur la ressource contenues dans le DDR ont été entrées dans la base de données, le DDR est supprimé et ces informations sont répliquées sous forme de données globales sur tous les sites de la hiérarchie.  
 
  Le site où un DDR est traité dépend des informations qu'il contient :  
@@ -87,9 +89,4 @@ Les rubriques suivantes peuvent vous aider à utiliser correctement les méthode
 -   [Sélectionner les méthodes de découverte à utiliser pour System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md)  
 
 Dès lors que vous avez déterminé quelles méthodes utiliser, vous pouvez les configurer en vous aidant des conseils fournis dans [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

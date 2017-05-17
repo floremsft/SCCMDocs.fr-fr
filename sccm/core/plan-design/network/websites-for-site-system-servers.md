@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 26bbec1e8d6c53ce297689ba4390b9347229eb15
 ms.openlocfilehash: 886ff3b8e867fc340c79648a57feae81653b0ccd
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -34,7 +36,7 @@ Plusieurs rôles de système de site Configuration Manager nécessitent l’util
 
 
 
-##  <a name="a-namebkmkwhat2knowa-what-to-know-before-choosing-to-use-custom-websites"></a><a name="BKMK_What2Know"></a> Informations à connaître avant d’utiliser des sites web personnalisés  
+##  <a name="BKMK_What2Know"></a> Informations à connaître avant d’utiliser des sites web personnalisés  
  Par défaut, les rôles de système de site utilisent le **site web par défaut** dans IIS. Ceci est automatiquement configuré lors de l’installation du rôle de système de site. Toutefois, sur les sites principaux, vous pouvez choisir d’utiliser des sites web personnalisés à la place. Quand vous utilisez des sites web personnalisés :  
 
 -   Les sites web personnalisés sont activés pour l’ensemble du site, et non pas individuellement pour des serveurs ou rôles du système de site.  
@@ -132,9 +134,4 @@ Du fait que les procédures de création d’un site web personnalisé varient s
     2.  Démarrez le site web **SMSWEB**.  
 
     3.  Redémarrez le service **SMS_SITE_COMPONENT_MANAGER** sur le serveur de site du site.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9555a16d97224a1cf49a426ab225468b07403f60
 ms.openlocfilehash: e28fdeae809cadf78017dd2920e3f1a9484ec8a3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -44,7 +46,7 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 
  Pour plus d’informations sur la création de regroupements pour des ordinateurs qui exécutent Linux et UNIX, consultez [Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
 
-##  <a name="a-namebkmk1a-to-create-a-device-collection"></a><a name="BKMK_1"></a> Pour créer un regroupement d’appareils  
+##  <a name="BKMK_1"></a> Pour créer un regroupement d’appareils  
 
 1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
 
@@ -120,7 +122,7 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 > [!NOTE]  
 >  Vous devez actualiser ou recharger la console Configuration Manager pour voir les membres du regroupement. Toutefois, les membres n’apparaissent pas dans le regroupement tant que la première mise à jour planifiée n’est pas effectuée ou que vous ne sélectionnez pas manuellement **Mettre à jour l’appartenance** pour le regroupement. La mise à jour d’un regroupement peut prendre quelques minutes.  
 
-##  <a name="a-namebkmk2a-to-create-a-user-collection"></a><a name="BKMK_2"></a> Pour créer un regroupement d'utilisateurs  
+##  <a name="BKMK_2"></a> Pour créer un regroupement d'utilisateurs  
 
 1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’utilisateurs**.  
 
@@ -192,7 +194,7 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 > [!NOTE]  
 >  Vous devez actualiser ou recharger la console Configuration Manager pour voir les membres du regroupement. Toutefois, les membres n’apparaissent pas dans le regroupement tant que la première mise à jour planifiée n’est pas effectuée ou que vous ne sélectionnez pas manuellement **Mettre à jour l’adhésion** pour le regroupement. La mise à jour d’un regroupement peut prendre quelques minutes.  
 
-##  <a name="a-namebkmk3a-to-import-a-collection"></a><a name="BKMK_3"></a> Pour importer un regroupement  
+##  <a name="BKMK_3"></a> Pour importer un regroupement  
 
 1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’utilisateurs** ou **Regroupements d’appareils**.  
 
@@ -206,9 +208,4 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
     >  Le fichier à importer doit avoir été exporté à partir d’un site exécutant la même version de Configuration Manager que celui-ci. Pour plus d’informations sur l’exportation de regroupements, consultez [Guide pratique pour gérer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
 
 6.  Terminez l'Assistant pour importer le regroupement. Le nouveau regroupement figure dans le nœud **Regroupements d’utilisateurs** ou **Regroupements de périphériques** de l’espace de travail **Ressources et Conformité** . Actualisez ou rechargez la console Configuration Manager pour afficher les membres du regroupement récemment importé.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

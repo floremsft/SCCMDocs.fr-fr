@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bd20983eeca47bdd63e0385440e6c8d64901b902
 ms.openlocfilehash: 4a2a8f96a900a2c4959ae3ff59232771ece95991
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -34,9 +36,4 @@ Pour préparer votre réseau à prendre en charge System Center Configuration Ma
 |**Domaines et services** que les serveurs et clients de site sont susceptibles d’utiliser.|Certaines fonctionnalités de Configuration Manager peuvent nécessiter que les clients et les serveurs de site accèdent à des services et domaines spécifiques sur Internet, comme Windowsudpate.microsoft.com ou le service Microsoft Intune.<br /><br /> Si vous souhaitez utiliser Microsoft Intune pour gérer des appareils mobiles, vous devez également configurer l’accès aux [ports et domaines exigés par Intune](https://docs.microsoft.com/en-us/intune/get-started/network-infrastructure-requirements-for-microsoft-intune).|  
 |**Serveurs proxy** pour les serveurs de système de site et les communications client. Vous pouvez spécifier des serveurs proxy distincts pour les différents clients et serveurs du système de site.|Étant donné que ces configurations sont effectuées lors de l’installation d’un rôle de système de site ou d’un client, il vous suffit de connaître les configurations de serveur proxy pour référence ultérieure lorsque vous configurerez des rôles de système de site et des clients.<br /><br /> Si vous ne savez pas si votre déploiement nécessite l’utilisation de serveurs proxy, consultez [Prise en charge des serveurs proxy dans System Center Configuration Manager](../../../core/plan-design/network/proxy-server-support.md) pour en savoir plus sur les rôles de système de site et les actions de client susceptibles d’utiliser un serveur proxy.|   
 |  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

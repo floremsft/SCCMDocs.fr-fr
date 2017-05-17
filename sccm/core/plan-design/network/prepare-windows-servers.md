@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dd102603356864add4084c6881c39bebcbd635f2
 ms.openlocfilehash: 9b97dedb5d2be0bd2e47260033e6e4361467dc4e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -34,7 +36,7 @@ Pour pouvoir l’utiliser comme serveur de site ou serveur de système de site p
 
 Les informations contenues dans cet article offrent une vue d’ensemble des différents types de configurations Windows nécessaires à la prise en charge des systèmes de site Configuration Manager. Pour plus d’informations sur la configuration de certains rôles de système de site, consultez [Prérequis des sites et systèmes de site pour System Center Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-##  <a name="a-namebkmkwinfeaturesa-windows-features-and-roles"></a><a name="BKMK_WinFeatures"></a> Rôles et fonctionnalités Windows  
+##  <a name="BKMK_WinFeatures"></a> Rôles et fonctionnalités Windows  
  Quand vous configurez des rôles et des fonctionnalités Windows sur un ordinateur, il se peut que vous deviez redémarrer l’ordinateur pour terminer la configuration. Il est donc judicieux d’identifier les ordinateurs qui hébergeront certains rôles de système de site avant d’installer un site ou un serveur de système de site Configuration Manager.
 ### <a name="features"></a>Fonctionnalités  
  Les fonctionnalités Windows suivantes sont nécessaires sur certains serveurs de système de site et doivent être configurées pour pouvoir installer un rôle de système de site sur cet ordinateur.  
@@ -98,7 +100,7 @@ Les informations contenues dans cet article offrent une vue d’ensemble des dif
 -   **Services de déploiement Windows** : ce rôle est utilisé pour le déploiement de système d’exploitation.  
 -   **Windows Server Update Services** : ce rôle est nécessaire pour le déploiement de mises à jour logicielles.  
 
-##  <a name="a-namebkmkiisfilteringa-iis-request-filtering-for-distribution-points"></a><a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
+##  <a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
  Par défaut, IIS utilise le filtrage des demandes pour bloquer l’accès par HTTP ou HTTPS à plusieurs extensions de nom de fichier et emplacements de dossier. Sur un point de distribution, cela empêche les clients de télécharger des packages contenant des extensions ou des emplacements de dossier bloqués.  
 
  Si vos fichiers sources de package contiennent des extensions qui sont bloquées dans IIS par votre configuration de filtrage des demandes, vous devez les autoriser dans le filtrage des demandes. Pour cela, vous devez [configurer le filtrage des demandes](https://technet.microsoft.com/library/hh831621.aspx) dans le Gestionnaire des services IIS sur vos ordinateurs de point de distribution.  
@@ -140,9 +142,4 @@ Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des f
  - PROPFIND
 
 Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire applicable à la version de Windows Server qui héberge votre point de gestion.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

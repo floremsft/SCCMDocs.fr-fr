@@ -15,9 +15,11 @@ caps.latest.revision: 3
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d1bf0fdc3e735eb31492476fd46f008620150c0b
 ms.openlocfilehash: 8f951805c2fc25059965c15c94934c0f8546735c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="upgrade-an-evaluation-installation-of-system-center-configuration-manager-to-a-full-installation"></a>Mettre à niveau une installation d’évaluation de System Center Configuration Manager vers une installation complète
@@ -52,9 +54,4 @@ Prérequis à la mise à niveau d’une version d’évaluation vers une version
 
     > [!NOTE]  
     >  La barre de titre d’une console Configuration Manager qui reste connectée au site mis à niveau peut indiquer que le site est toujours une version d’évaluation jusqu’à ce que vous reconnectiez la console au site.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

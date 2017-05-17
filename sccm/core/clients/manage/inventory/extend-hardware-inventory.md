@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: 80d5a13ea5d40150ddd537251e837083e649ac52
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -52,7 +54,7 @@ Le fichier Configuration.mof permet de définir les classes de données qui doiv
 ## <a name="procedures-to-extend-hardware-inventory"></a>Procédures pour étendre l’inventaire matériel  
 Ces procédures vous aident à configurer les paramètres client par défaut pour l'inventaire matériel et elles s'appliquent à tous les clients de votre hiérarchie. Pour appliquer ces paramètres à certains clients uniquement, créez un paramètre d’appareil client personnalisé et affectez-le à un regroupement de clients spécifiques. Consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-###  <a name="a-namebkmkenablea-to-enable-or-disable-existing-inventory-classes"></a><a name="BKMK_Enable"></a> Pour activer ou désactiver les classes existantes d'inventaire  
+###  <a name="BKMK_Enable"></a> Pour activer ou désactiver les classes existantes d'inventaire  
 
 1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
@@ -68,7 +70,7 @@ Ces procédures vous aident à configurer les paramètres client par défaut pou
     >  Quand vous ajoutez de nouvelles classes à l’inventaire matériel Configuration Manager, la taille du fichier d’inventaire collecté et envoyé au serveur de site augmente. Cela peut nuire aux performances de votre réseau et du site Configuration Manager. Activez uniquement les classes d'inventaire à collecter.  
 
 
-###  <a name="a-namebkmkadda-to-add-a-new-inventory-class"></a><a name="BKMK_Add"></a> Pour ajouter une nouvelle classe d'inventaire  
+###  <a name="BKMK_Add"></a> Pour ajouter une nouvelle classe d'inventaire  
 
 Vous pouvez uniquement ajouter des classes d'inventaire à partir du serveur de niveau supérieur dans la hiérarchie et en modifiant les paramètres client par défaut. Cette option n'est pas disponible lorsque vous créez des paramètres de périphérique personnalisés.
 
@@ -101,7 +103,7 @@ Vous pouvez uniquement ajouter des classes d'inventaire à partir du serveur de 
      Quand vous avez terminé de configurer les propriétés, cliquez sur **OK** pour fermer la boîte de dialogue **Qualificatifs de classe** et les autres boîtes de dialogue ouvertes. 
 
 
-###  <a name="a-namebkmkimporta-to-import-hardware-inventory-classes"></a><a name="BKMK_Import"></a> Pour importer des classes d'inventaire matériel  
+###  <a name="BKMK_Import"></a> Pour importer des classes d'inventaire matériel  
 
 Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez les paramètres par défaut du client. Toutefois, vous pouvez utiliser des paramètres client personnalisés pour importer des informations qui ne contient pas un changement de schéma, telles que la modification de la propriété d'une classe existante à partir de **True** à **False**.  
 
@@ -117,7 +119,7 @@ Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez l
 
 8.  Dans la boîte de dialogue **Importer**, sélectionnez le fichier MOF (Managed Object Format) à importer, puis choisissez **OK**. Passez en revue les éléments qui seront importés, puis cliquez sur **Importer**.  
 
-###  <a name="a-namebkmkexporta-to-export-hardware-inventory-classes"></a><a name="BKMK_Export"></a> Pour exporter des classes d'inventaire matériel  
+###  <a name="BKMK_Export"></a> Pour exporter des classes d'inventaire matériel  
 
 1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
@@ -140,7 +142,7 @@ Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez l
 > [!IMPORTANT]  
 >  Avant d’ajouter les informations de fichiers MIF à la base de données Configuration Manager, vous devez créer ou importer des informations de classe pour eux. Pour plus d’informations, consultez les sections [Pour ajouter une nouvelle classe d'inventaire](#BKMK_Add) et [Pour importer des classes d'inventaire matériel](#BKMK_Import) de cette rubrique.  
 
-###  <a name="a-namebkmknoidmifa-to-create-noidmif-files"></a><a name="BKMK_NOIDMIF"></a> Pour créer des fichiers NOIDMIF  
+###  <a name="BKMK_NOIDMIF"></a> Pour créer des fichiers NOIDMIF  
  Les fichiers NOIDMIF permettent d’ajouter des informations à un inventaire matériel de client qui normalement ne peut pas être collecté par Configuration Manager et est associé à un appareil client particulier. Par exemple, de nombreuses sociétés affectent à chaque ordinateur de l’organisation un numéro d’inventaire, puis les classent manuellement. Quand vous créez un fichier NOIDMIF, ces informations peuvent être ajoutées à la base de données Configuration Manager et être utilisées pour les requêtes et la génération de rapports. Pour plus d’informations sur la création de fichiers NOIDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
 
 > [!IMPORTANT]  
@@ -148,16 +150,11 @@ Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez l
 
  Après avoir créé un fichier NOIDMIF, stockez-le dans le dossier *%Windir%***\System32\CCM\Inventory\Noidmifs** sur chaque client. Configuration Manager collecte les informations des fichiers NODMIF de ce dossier lors du prochain cycle d’inventaire matériel planifié.  
 
-###  <a name="a-namebkmkidmifa-to-create-idmif-files"></a><a name="BKMK_IDMIF"></a> Pour créer des fichiers IDMIF  
+###  <a name="BKMK_IDMIF"></a> Pour créer des fichiers IDMIF  
  Les fichiers IDMIF permettent d’ajouter à la base de données Configuration Manager des informations sur les ressources qui ne pourraient normalement pas être inventoriées par Configuration Manager et qui ne sont associées à aucun appareil client particulier. Par exemple, vous pouvez utiliser des fichiers IDMIF pour recueillir des informations sur les projecteurs, lecteurs de DVD, photocopieurs ou autres équipements qui ne contiennent pas de client Configuration Manager. Pour plus d’informations sur la création de fichiers IDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
 
  Après avoir créé un fichier IDMIF, stockez-le dans le dossier *%Windir%***\System32\CCM\Inventory\Idmifs** sur les ordinateurs clients. Configuration Manager collecte les informations de ce fichier lors du prochain cycle d’inventaire matériel planifié. Vous devez déclarer de nouvelles classes pour les informations contenues dans le fichier en les ajoutant ou en les important.  
 
 > [!NOTE]
 > Les fichiers MIF peuvent contenir de grandes quantités de données et le regroupement de ces données pourrait affecter négativement les performances de votre site. Activez la collecte de fichiers MIF uniquement quand cela est nécessaire et configurez l’option **Taille maximale du fichier MIF personnalisé (Ko)** dans les paramètres d’inventaire matériel. Pour plus d’informations, consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](introduction-to-hardware-inventory.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

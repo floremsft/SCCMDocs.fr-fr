@@ -15,9 +15,11 @@ caps.latest.revision: 13
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1c43c4968f93985515249ddb117269f8ed61302a
 ms.openlocfilehash: 46cc3fcfd9516cf1c124e24b50d0aac0cb0025dc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -225,9 +227,4 @@ Une marque personnalisée pour le Centre logiciel est appliquée selon les règl
 
 > [!WARNING]  
 >  Après avoir installé les rôles de système de site du catalogue des applications, vous ne voyez pas immédiatement le catalogue des applications quand vous choisissez le lien **Rechercher d’autres applications à partir du catalogue des applications** du Centre logiciel. Le catalogue d'applications n'est disponible depuis le Centre logiciel qu'une fois que le client a téléchargé sa stratégie client ou jusqu'à 25 heures après l'installation des rôles de système de site du catalogue d'applications.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

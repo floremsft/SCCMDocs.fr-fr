@@ -15,9 +15,11 @@ caps.latest.revision: 5
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fff93794afdfa9f890b1f06d6c330d8cffc5796c
 ms.openlocfilehash: b4db5d86cc0ed020ed176feb2e8f1f9dc51a2280
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Options de configuration pour les rôles de système de site pour System Center Configuration Manager
@@ -26,7 +28,7 @@ ms.openlocfilehash: b4db5d86cc0ed020ed176feb2e8f1f9dc51a2280
 
 La plupart des options de configuration pour les rôles de système de site System Center Configuration Manager sont explicites ou décrites dans l’Assistant ou des boîtes de dialogue lors de la configuration. Les sections suivantes expliquent les rôles de système de site dont les paramètres peuvent nécessiter des informations supplémentaires.  
 
-##  <a name="a-namebkmkapplicationcatalogwebsitea-application-catalog-website-point"></a><a name="BKMK_ApplicationCatalog_Website"></a> Point du site web du catalogue des applications  
+##  <a name="BKMK_ApplicationCatalog_Website"></a> Point du site web du catalogue des applications  
  Pour plus d’informations sur la procédure de configuration du point du site web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **Connexions client**  
@@ -45,7 +47,7 @@ La plupart des options de configuration pour les rôles de système de site Syst
 
  Entrez le nom que voient les utilisateurs dans le catalogue d’applications. Ces informations personnalisées aident les utilisateurs à identifier ce site web comme une source approuvée.  
 
-##  <a name="a-namebkmkapplicationcatalogwebservicea-application-catalog-web-service-point"></a><a name="BKMK_ApplicationCatalog_WebService"></a> Point de service web du catalogue des applications  
+##  <a name="BKMK_ApplicationCatalog_WebService"></a> Point de service web du catalogue des applications  
  Pour plus d’informations sur la procédure de configuration du point de service web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **HTTPS**  
@@ -54,10 +56,10 @@ La plupart des options de configuration pour les rôles de système de site Syst
 
  Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="a-namebkmkcertificateregistrationpointa-certificate-registration-point"></a><a name="BKMK_CertificateRegistrationPoint"></a> Point d’enregistrement de certificat  
+##  <a name="BKMK_CertificateRegistrationPoint"></a> Point d’enregistrement de certificat  
  Pour en savoir plus sur la configuration du point d’enregistrement de certificat, consultez [Présentation des profils de certificat](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-##  <a name="a-namebkmkdistributionpointa-distribution-point"></a><a name="BKMK_Distribution_Point"></a> Point de distribution  
+##  <a name="BKMK_Distribution_Point"></a> Point de distribution  
  Pour en savoir plus sur la configuration du point de distribution pour le déploiement de contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
  Pour en savoir plus sur la configuration du point de distribution pour les déploiements PXE, consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
@@ -97,7 +99,7 @@ Cochez cette case pour activer le point de distribution pour le contenu prépar�
  - **Avant la version 1610**, vous pouviez cocher la case **Autoriser un emplacement source de secours pour le contenu** pour permettre aux clients situés en dehors de ces groupes de limites de revenir et d’utiliser le point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
  - **À partir de la version 1610**, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui vérifient quand un client peut commencer à rechercher des emplacements sources pour le contenu valides dans d’autres groupes de limites.
 
-##  <a name="a-namebkmkenrollmentpointa-enrollment-point"></a><a name="BKMK_Enrollment_Point"></a> Point d’inscription  
+##  <a name="BKMK_Enrollment_Point"></a> Point d’inscription  
 Les points d’inscription sont utilisés pour installer les ordinateurs Mac et inscrire les appareils que vous gérez avec la gestion des appareils mobiles locale. Pour plus d'informations, consultez :  
 
 -   [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
@@ -109,7 +111,7 @@ Les points d’inscription sont utilisés pour installer les ordinateurs Mac et 
 
  Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="a-namebkmkenrollmentproxypointa-enrollment-proxy-point"></a><a name="BKMK_Enrollment_Proxy_Point"></a> Point proxy d’inscription  
+##  <a name="BKMK_Enrollment_Proxy_Point"></a> Point proxy d’inscription  
 Pour en savoir plus sur la configuration d’un point proxy d’inscription pour les appareils mobiles, consultez [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
 **Connexions client**  
@@ -117,7 +119,7 @@ Pour en savoir plus sur la configuration d’un point proxy d’inscription pour
 
  Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="a-namebkmkfallbackstatuspointa-fallback-status-point"></a><a name="BKMK_Fallback_Status_Point"></a> Point d’état de secours  
+##  <a name="BKMK_Fallback_Status_Point"></a> Point d’état de secours  
 **Nombre de messages d'état** et **Intervalle d'accélération (en secondes)**  
 Bien que les paramètres par défaut pour ces options (10 000 messages d'état et 3 600 secondes pour l'intervalle d'accélération) suffisent dans la plupart des cas, vous pouvez être amené à les modifier lorsque les deux conditions suivantes sont vraies :  
 
@@ -152,9 +154,4 @@ Réinitialisez les valeurs d'accélération pour le point d'état de secours si 
 -   Vous trouvez que les paramètres d'accélération actuels entraînent une utilisation élevée du processeur sur le serveur de site.  
 
 Ne modifiez pas les paramètres d'accélération du point d'état de secours avant d'en avoir mesuré les conséquences. Par exemple, lorsque vous augmentez les paramètres d'accélération jusqu'à ce qu'ils atteignent un niveau élevé, l'utilisation du processeur sur le serveur de site peut devenir élevée, ce qui ralentit tout le fonctionnement du site.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

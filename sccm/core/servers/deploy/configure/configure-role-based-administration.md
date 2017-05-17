@@ -15,9 +15,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1defe96163f1bb70f586619ad89098c6f0e6c665
 ms.openlocfilehash: 3eea3a6e5f23808570ded4be3bd7412954518b96
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -44,7 +46,7 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
 
 -   [Modifier l’étendue administrative d’un utilisateur administratif](#BKMK_ModAdminUser)  
 
-##  <a name="a-namebkmkcreatesecrolea-create-custom-security-roles"></a><a name="BKMK_CreateSecRole"></a> Créer des rôles de sécurité personnalisés  
+##  <a name="BKMK_CreateSecRole"></a> Créer des rôles de sécurité personnalisés  
  Configuration Manager fournit plusieurs rôles de sécurité intégrés. Si vous avez besoin de rôles de sécurité supplémentaires, vous pouvez créer un rôle de sécurité personnalisé à l'aide d'une copie d'un rôle de sécurité existant, que vous modifiez par la suite. Vous pouvez créer un rôle de sécurité personnalisé pour accorder aux utilisateurs administratifs les autorisations de sécurité supplémentaires dont ils ont besoin et qui ne figurent pas dans le rôle de sécurité actuellement attribué. Un rôle de sécurité personnalisé permet de leur accorder uniquement les autorisations dont ils ont besoin sans pour autant leur attribuer un rôle de sécurité avec plus d'autorisations que nécessaire.  
 
  Pour créer un rôle de sécurité à l'aide d'un rôle de sécurité existant en tant que modèle, procédez comme suit.  
@@ -83,7 +85,7 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
             > [!NOTE]  
             >  Après avoir importé un rôle de sécurité, vous pouvez en modifier les propriétés pour changer les autorisations d'objet associées au rôle de sécurité.  
 
-##  <a name="a-namebkmkconfigsecrolea-configure-security-roles"></a><a name="BKMK_ConfigSecRole"></a> Configurer des rôles de sécurité  
+##  <a name="BKMK_ConfigSecRole"></a> Configurer des rôles de sécurité  
  Les groupes d'autorisations de sécurité définis pour un rôle de sécurité sont appelés des attributions d'opérations de sécurité. Les attributions d'opérations de sécurité représentent une association de types d'objet et d'actions disponibles pour chaque type d'objet. Vous pouvez modifier les opérations de sécurité disponibles pour un rôle de sécurité personnalisé, mais pas modifier les rôles de sécurité prédéfinis par Configuration Manager.  
 
  Utilisez la procédure suivante pour modifier les opérations de sécurité pour un rôle de sécurité.  
@@ -109,7 +111,7 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
 
 8.  Après avoir terminé la configuration des attributions de l’opération de sécurité, choisissez **OK** pour enregistrer le nouveau rôle de sécurité.  
 
-##  <a name="a-namebkmkconfigsecscopea-configure-security-scopes-for-an-object"></a><a name="BKMK_ConfigSecScope"></a> Configurer des étendues de sécurité pour un objet  
+##  <a name="BKMK_ConfigSecScope"></a> Configurer des étendues de sécurité pour un objet  
  L’association d’une étendue de sécurité à un objet est gérée à partir de l’objet et non à partir de l’étendue de sécurité. Les seules configurations directes prises en charge par l'étendue de sécurité sont les modifications apportées à son nom et à sa description. Pour modifier le nom et la description d'une étendue de sécurité lorsque vous affichez les propriétés d'étendue de sécurité, vous devez disposer de l'autorisation **Modifier** pour l'objet sécurisable **Étendues de sécurité** .  
 
  Quand vous créez un objet dans Configuration Manager, il est associé à chaque étendue de sécurité qui est associée aux rôles de sécurité du compte utilisé pour créer l’objet, si ces rôles de sécurité accordent l’autorisation **Créer** ou **Définir l’étendue de sécurité**. Une fois l’objet créé, vous ne pouvez modifier que les étendues de sécurité qui lui sont associées.  
@@ -131,14 +133,14 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
     > [!NOTE]  
     >  Lorsque vous créez un objet, vous pouvez l'attribuer à plusieurs étendues de sécurité. Pour modifier le nombre d’étendues de sécurité associées à l’objet, vous devez effectuer cette opération une fois l’objet créé.  
 
-##  <a name="a-namebkmkconfigcolla-configure-collections-to-manage-security"></a><a name="BKMK_ConfigColl"></a> Configurer des regroupements pour gérer la sécurité  
+##  <a name="BKMK_ConfigColl"></a> Configurer des regroupements pour gérer la sécurité  
  Aucune procédure de configuration de regroupements n'est disponible pour l'administration basée sur des rôles. Il n’existe pas de configuration d’administration basée sur des rôles pour les regroupements. Vous attribuez des regroupements à un utilisateur administratif lorsque vous le configurez. Les opérations de sécurité de regroupement qui sont activées dans les rôles de sécurité attribués aux utilisateurs déterminent les autorisations d’un utilisateur administratif sur les regroupements et les ressources de ces derniers (leurs membres).  
 
  Lorsqu'un utilisateur administratif dispose d'autorisations sur un regroupement, il dispose également d'autorisations sur des regroupements limités à ce regroupement. Par exemple, votre organisation utilise un regroupement nommé Tous les postes de travail, et il existe un regroupement nommé Tous les bureaux en Amérique du Nord qui est limité au regroupement Tous les postes de travail. Si un utilisateur administratif dispose des autorisations sur Tous les postes de travail, il dispose également des mêmes autorisations sur le regroupement Tous les bureaux en Amérique du Nord.
 
  En outre, un utilisateur administratif ne peut pas utiliser l’autorisation **Supprimer** ou **Modifier** sur un regroupement qui lui est attribué directement. Mais il peut utiliser ces autorisations sur les regroupements limités à ce regroupement. Dans l’exemple précédent, l’utilisateur administratif peut supprimer ou modifier le regroupement Tous les bureaux en Amérique du Nord, mais pas supprimer ou modifier le regroupement Tous les postes de travail.  
 
-##  <a name="a-namebkmkcreateadminusera-create-a-new-administrative-user"></a><a name="BKMK_Create_AdminUser"></a> Créer un utilisateur administratif  
+##  <a name="BKMK_Create_AdminUser"></a> Créer un utilisateur administratif  
  Pour accorder aux personnes ou aux membres d’un groupe de sécurité l’accès pour gérer Configuration Manager, créez un utilisateur administratif dans Configuration Manager et spécifiez le compte Windows de l’utilisateur ou du groupe d’utilisateurs. Au moins un rôle de sécurité et une étendue de sécurité doivent être attribués à chaque utilisateur administratif dans Configuration Manager. Vous pouvez également attribuer des regroupements pour limiter l'étendue administrative de l'utilisateur administratif.  
 
  Utilisez les procédures suivantes pour créer de nouveaux utilisateurs administratifs.  
@@ -173,7 +175,7 @@ Dans System Center Configuration Manager, l’administration basée sur des rôl
 
     -   Si vous avez sélectionné **Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés**, choisissez **Ajouter** pour sélectionner des regroupements et des étendues de sécurité supplémentaires. Vous pouvez également sélectionner un ou plusieurs objets dans la liste, puis choisir **Supprimer** pour les supprimer. Choisissez **OK** pour terminer cette procédure.  
 
-##  <a name="a-namebkmkmodadminusera-modify-the-administrative-scope-of-an-administrative-user"></a><a name="BKMK_ModAdminUser"></a> Modifier l’étendue administrative d’un utilisateur administratif  
+##  <a name="BKMK_ModAdminUser"></a> Modifier l’étendue administrative d’un utilisateur administratif  
  Vous pouvez modifier l'étendue administrative d'un utilisateur administratif en ajoutant ou en supprimant des rôles de sécurité, des étendues de sécurité et des regroupements associés à l'utilisateur. Chaque utilisateur administratif doit être associé à au moins un rôle de sécurité et une étendue de sécurité. Vous devrez peut-être affecter un ou plusieurs regroupements à l'étendue administrative de l'utilisateur. La plupart des rôles de sécurité interagissent avec les regroupements et ne fonctionnent pas correctement sans regroupement attribué.  
 
  Lorsque vous modifiez un utilisateur administratif, vous pouvez modifier le comportement des objets sécurisables au niveau de leur association avec les rôles de sécurité attribués. Les trois comportements que vous pouvez sélectionner sont les suivants :  
@@ -300,9 +302,4 @@ Utilisez la procédure suivante pour modifier un utilisateur administratif pour 
 
     > [!CAUTION]  
     >  Lorsqu'un rôle de sécurité accorde aux utilisateurs administratifs l'autorisation de déployer un regroupement, ces utilisateurs administratifs peuvent distribuer des objets depuis n'importe quelle étendue de sécurité pour laquelle il disposent d'autorisations de **Lecture** , même si cette étendue de sécurité est associée à un rôle de sécurité différent.  
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

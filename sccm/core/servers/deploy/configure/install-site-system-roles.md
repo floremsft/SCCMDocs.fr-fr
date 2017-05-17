@@ -15,9 +15,11 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8370e3b102afed518e8154d4944ab420188faccf
 ms.openlocfilehash: 76b070f8e203cc0c751f35e5a4b4904504786c04
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Installer des rôles de système de site pour System Center Configuration Manager
@@ -38,7 +40,7 @@ Juste avant d’installer le rôle système de site, Configuration Manager véri
 
 -   Configuration Manager utilise le **compte d’installation du système de site** pour installer les rôles système de site. Vous spécifiez ce compte lorsque vous exécutez l'Assistant applicable pour créer un nouveau serveur de système de site ou ajouter des rôles de système de site à un serveur de système de site existant. Par défaut, ce compte est le compte de système local de l'ordinateur du serveur de site, mais vous pouvez spécifier un compte d'utilisateur de domaine à utiliser comme le compte d'installation du système de site. Pour plus d’informations, consultez [Comptes utilisés dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
 
-##  <a name="a-namebkmkinstalla-to-install-site-system-roles-on-an-existing-site-system-server"></a><a name="bkmk_Install"></a> Pour installer des rôles système de site sur un serveur de système de site existant  
+##  <a name="bkmk_Install"></a> Pour installer des rôles système de site sur un serveur de système de site existant  
 
 1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
@@ -81,9 +83,4 @@ Juste avant d’installer le rôle système de site, Configuration Manager véri
 
 > [!TIP]  
 >  L'applet de commande Windows PowerShell, New-CMSiteSystemServer, assure la même fonction que cette procédure. Pour plus d’informations, consultez [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) dans la documentation de référence des applets de commande System Center 2012 Configuration Manager SP1.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

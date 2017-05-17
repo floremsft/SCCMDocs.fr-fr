@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: deed112cca011b3b410c1197b7abf0f36a864f3c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -48,9 +50,4 @@ Cette procédure configure les paramètres client par défaut pour l’inventair
 7.  Configurez les autres [paramètres clients d’inventaire matériel](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) dont vous avez besoin.  
 
 Les périphériques client sont configurés en utilisant ces paramètres lors du prochain téléchargement de stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [Comment gérer des clients dans Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

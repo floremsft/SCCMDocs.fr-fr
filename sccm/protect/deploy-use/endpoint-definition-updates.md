@@ -16,9 +16,11 @@ caps.latest.revision: 21
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: 9085a4daed409eeff4c95e5c467f123d0a38147a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 
@@ -73,9 +75,4 @@ ms.openlocfilehash: 9085a4daed409eeff4c95e5c467f123d0a38147a
 -   Mises à jour distribuées à partir du Centre de protection Microsoft contre les programmes malveillants : cette méthode télécharge les mises à jour des définitions à partir du Centre de protection Microsoft contre les programmes malveillants.
 
 -   [Mises à jour à partir de partages de fichiers UNC](endpoint-definitions-network.md) : avec cette méthode, vous pouvez enregistrer les dernières mises à jour du moteur et des définitions dans un partage sur le réseau. Les clients peuvent ensuite accéder au réseau pour installer les mises à jour.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

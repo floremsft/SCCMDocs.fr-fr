@@ -15,9 +15,11 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e592a732259147ee71d404a68982c28e5138e243
 ms.openlocfilehash: 0e982d08d54af39b13f553fc531a200f921e94a6
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
@@ -34,7 +36,7 @@ Avant de déployer du contenu dans System Center Configuration Manager, détermi
 
 -   **Compte de connexion multidiffusion**. Utilisé pour les déploiements de système d’exploitation.  
 
-##  <a name="a-namebkmknaaa-network-access-account"></a><a name="bkmk_NAA"></a> Compte d’accès réseau  
+##  <a name="bkmk_NAA"></a> Compte d’accès réseau  
  Les ordinateurs clients utilisent le compte d’accès réseau quand ils ne peuvent pas utiliser leur compte d’ordinateur local pour accéder au contenu sur les points de distribution. Par exemple, cela s'applique aux clients du groupe de travail et aux ordinateurs de domaines non approuvés. Ce compte peut également être utilisé pendant le déploiement du système d'exploitation si l'ordinateur qui installe le système d'exploitation ne possède pas encore de compte d'ordinateur sur le domaine.  
 
 -   Les clients utilisent le compte d'accès réseau uniquement pour accéder aux ressources du réseau.  
@@ -66,7 +68,7 @@ Accordez les autorisations minimales appropriées à ce compte, pour qu'il puiss
 
 3.  Choisissez l’onglet **Compte d’accès réseau**. Configurez un ou plusieurs comptes, puis choisissez **OK**.  
 
-##  <a name="a-namebkmkpaaa-package-access-accounts"></a><a name="bkmk_Paa"></a> Comptes d’accès aux packages  
+##  <a name="bkmk_Paa"></a> Comptes d’accès aux packages  
  Les comptes d’accès au package vous permettent de définir des autorisations NTFS pour spécifier les utilisateurs et les groupes d’utilisateurs qui peuvent accéder à un contenu de package sur des points de distribution. Par défaut, Configuration Manager n’accorde cet accès qu’aux comptes génériques **Utilisateurs** et **Administrateurs**. Vous pouvez cependant contrôler l’accès pour les ordinateurs clients à l’aide d’autres comptes ou groupes Windows. Les appareils mobiles n’utilisent pas les comptes d’accès au package, car ces appareils récupèrent toujours le contenu du package de façon anonyme.  
 
  Par défaut, quand Configuration Manager copie les fichiers de contenu d’un package sur un point de distribution, il accorde un accès en **Lecture** au groupe **Utilisateurs** local et un **Contrôle intégral** au groupe **Administrateurs** local. Les autorisations requises dépendent du package. Si vous avez des clients dans des groupes de travail ou dans des forêts non approuvées, ceux-ci utiliseront le compte d'accès réseau pour accéder au contenu du package. Assurez-vous que le compte d'accès réseau bénéficie d'autorisations sur le package à l'aide des comptes d'accès au package définis.  
@@ -102,7 +104,7 @@ Accordez les autorisations minimales appropriées à ce compte, pour qu'il puiss
     > [!NOTE]  
     >  Quand vous ajoutez un nom d’utilisateur au compte et que Configuration Manager trouve un compte d’utilisateur local et un compte d’utilisateur de domaine portant ce nom, Configuration Manager définit les droits d’accès du compte d’utilisateur de domaine.  
 
-##  <a name="a-namebkmkmultia-multicast-connection-account"></a><a name="bkmk_multi"></a> Compte de connexion multidiffusion  
+##  <a name="bkmk_multi"></a> Compte de connexion multidiffusion  
  Le compte de connexion multidiffusion est utilisé par des points de distribution qui sont configurés pour la multidiffusion pour lire les informations de la base de données de site.  
 
 -   Vous spécifiez un compte à utiliser quand vous configurez des connexions de base de données Configuration Manager pour la multidiffusion.  
@@ -119,9 +121,4 @@ Si vous créez ce compte, créez-le en tant que compte local doté de droits lim
 
 > [!IMPORTANT]  
 >  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

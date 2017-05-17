@@ -13,9 +13,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 
@@ -108,9 +110,4 @@ ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
 À l’issue de la première synchronisation de mises à jour logicielles ou après la mise à disposition de nouvelles classifications ou de nouveaux produits, vous devez [configurer les nouvelles classifications et les nouveaux produits](configure-classifications-and-products.md) pour synchroniser les mises à jour logicielles avec les nouveaux critères.
 
 Après avoir synchronisé les mises à jour logicielles avec les critères dont vous avez besoin, [gérez les paramètres des mises à jour logicielles](manage-settings-for-software-updates.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

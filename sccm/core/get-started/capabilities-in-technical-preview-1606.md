@@ -15,9 +15,11 @@ caps.latest.revision: 31
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: a84d3ab55066d26c3199ea374d8beb472d66f43f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager
@@ -36,7 +38,7 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
 **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="a-namedmpcategorya-automatically-categorize-devices-into-collections"></a><a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
+## <a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
 Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
 
 **Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
@@ -59,7 +61,7 @@ Quand vous associez un regroupement à une catégorie d’appareils, tous les ap
 2.  Sélectionnez un appareil dans la liste **Appareils** et, sous l’onglet **Accueil**, dans le groupe **Appareil**, cliquez sur **Changer la catégorie**.
 3.  Dans la boîte de dialogue **Modifier la catégorie d’appareils**, choisissez la catégorie à appliquer à cet appareil, puis cliquez sur **OK**.
 
-## <a name="a-namedmpgracea-enforcement-grace-period-for-required-application-and-software-update-deployments"></a><a name="dmp_grace"></a> Période de grâce de mise en œuvre des déploiements d’applications et de mises à jour logicielles obligatoires
+## <a name="dmp_grace"></a> Période de grâce de mise en œuvre des déploiements d’applications et de mises à jour logicielles obligatoires
 
 Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour.
 Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard.
@@ -76,7 +78,7 @@ Tous les déploiements pour lesquels cette case à cocher est activée et qui so
 Si vous configurez une période de grâce de mise en œuvre et cochez la case, une fois que l’échéance d’installation d’application est atteinte, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée jusqu’à cette période de grâce. Toutefois, l’utilisateur peut toujours ouvrir le Centre logiciel et installer l’application à tout moment, s’il le souhaite. Une fois que la période de grâce a expiré, le comportement de mise en œuvre redevient normal pour les déploiements en retard.
 Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés.
 
-##  <a name="a-namedmpdevgausing-configuration-manager-as-a-managed-installer-with-device-guard"></a><a name="dmp_devg"></a>Utilisation de Configuration Manager comme programme d’installation géré avec Device Guard
+##  <a name="dmp_devg"></a>Utilisation de Configuration Manager comme programme d’installation géré avec Device Guard
 
 Device Guard est une fonctionnalité de Windows 10 qui utilise des fonctionnalités matérielles et logicielles pour contrôler de manière stricte ce qui est autorisé à s’exécuter sur l’appareil.
 
@@ -101,7 +103,7 @@ Articles complémentaires :
 - [Compatibilité et certification de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
 - [Guide de déploiement de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
 
- ##  <a name="a-namedmponprema-multiple-device-management-points-for-on-premises-mobile-device-management"></a><a name="dmp_onprem"></a> Points de gestion d’appareils multiples pour la gestion des appareils mobiles locale  
+ ##  <a name="dmp_onprem"></a> Points de gestion d’appareils multiples pour la gestion des appareils mobiles locale  
  Avec la version d’évaluation technique 1606, la gestion des appareils mobiles (MDM) locale prend en charge une nouvelle fonctionnalité de la mise à jour anniversaire de Windows 10, qui configure automatiquement un appareil inscrit pour bénéficier de plusieurs points de gestion d’appareil disponibles. Cette fonctionnalité permet à l’appareil de basculer vers un autre point de gestion d’appareil quand celui qu’il utilise normalement n’est pas disponible. Cette fonctionnalité fonctionne uniquement pour les PC dotés de la mise à jour anniversaire de Windows 10.  
 
 ### <a name="try-it-out"></a>Essayez !  
@@ -112,7 +114,7 @@ Articles complémentaires :
 
 Pour plus d’informations sur la façon de préparer votre site et d’inscrire des appareils pour la gestion des appareils mobiles locale, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
-## <a name="a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet"></a><a name="cloud_proxy"></a>Service proxy cloud pour la gestion des clients sur Internet
+## <a name="cloud_proxy"></a>Service proxy cloud pour la gestion des clients sur Internet
 
 Le service proxy cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et requiert un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle nommé Point du connecteur de proxy cloud. Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
 
@@ -217,7 +219,7 @@ Une fois que le service et les rôles ont été entièrement configurés, les cl
 
 Une fois que les clients possèdent les nouvelles informations d’emplacement pour le service proxy cloud, essayez de vérifier l’état des clients qui ne sont plus sur le réseau privé interne, mais qui ont accès à Internet. Vous pouvez également surveiller le trafic sur le service proxy cloud en accédant à **Administration > Services cloud > Service proxy cloud**, en sélectionnant le service dans le volet Liste et en consultant les informations de trafic dans le volet d’informations.   
 
-## <a name="a-namemanageo365amanage-the-office-365-client-agent-in-configuration-manager"></a><a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
+## <a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
 
 À partir de la version d’évaluation technique 1606, vous pouvez utiliser un paramètre de l’agent client Configuration Manager, à la place d’une stratégie de groupe, pour permettre aux clients Office 365 de recevoir des mises à jour à partir de Configuration Manager. Après avoir configuré ce paramètre et déployé les mises à jour Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client pour télécharger les mises à jour Office 365 à partir d’un point de distribution et les installer. Configuration Manager effectue également l’inventaire du paramètre de l’agent client.
 
@@ -229,13 +231,13 @@ Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProP
 3. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.  
 
 
-## <a name="a-nameosdpreservedriveletterathe-osdpreservedriveletter-task-sequence-variable-has-been-deprecated"></a><a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
+## <a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
 La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination.
 - Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606.
 
 Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination. 
 
-## <a name="a-nameupdatesandservicingachanges-for-the-updates-and-servicing-node"></a><a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
+## <a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
 Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
 - **Changement de nom du nœud :**
 
@@ -264,9 +266,4 @@ Dans la version d’évaluation technique 1606, plusieurs modifications ont ét
 -   **Option renommée pour la pré-production :**
 
     Dans le nœud Mises à jour et maintenance, le bouton qui était appelé **Options du client** a été renommé **Promouvoir le client de préproduction**.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

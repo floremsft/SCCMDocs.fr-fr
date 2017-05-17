@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 584dad7d8b05a2da9f7a66b73028ae99ff1a594f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -29,13 +31,13 @@ Cette rubrique indique les étapes générales à suivre dans System Center Conf
 
 Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
 
-##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
+##  <a name="BKMK_Plan"></a> Plan  
 
 -   **Planifier et implémenter la configuration requise pour l’infrastructure**  
 
      Plusieurs éléments d’infrastructure doivent être installés et configurés avant de déployer des systèmes d’exploitation, tels que Windows ADK, les services de déploiement Windows (WDS, Windows Deployment Services), les configurations de disques durs prises en charge, et ainsi de suite. Pour plus d’informations, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).
 
-##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurer  
+##  <a name="BKMK_Configure"></a> Configurer  
 
 1.  **Préparer une image de démarrage**  
 
@@ -59,7 +61,7 @@ Utilisez les sections suivantes pour actualiser un ordinateur existant avec une 
 
      Utilisez une séquence de tâches pour automatiser l’installation du système d’exploitation sur le réseau. Utilisez les étapes indiquées dans [Créer une séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md) pour créer la séquence de tâches permettant de déployer le système d’exploitation. En fonction de la méthode de déploiement choisie, des considérations supplémentaires peuvent s’appliquer à la séquence de tâches.  
 
-##  <a name="a-namebkmkdeploya-deploy"></a><a name="BKMK_Deploy"></a> Déployer  
+##  <a name="BKMK_Deploy"></a> Déployer  
 
 -   Pour déployer le système d’exploitation, appliquez l’une des méthodes de déploiement suivantes :  
 
@@ -78,9 +80,4 @@ Utilisez les sections suivantes pour actualiser un ordinateur existant avec une 
 -   **Surveiller le déploiement de la séquence de tâches**  
 
      Pour surveiller le déploiement de la séquence de tâches permettant d’installer le système d’exploitation, consultez [Surveiller les déploiements de système d’exploitation](monitor-operating-system-deployments.md).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

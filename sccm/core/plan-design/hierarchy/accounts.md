@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 72263ec5e7104924a1ca46dc2000be9f8568599f
 ms.openlocfilehash: a776667cc9f24bd4a468afea76e466c34ce66864
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -344,9 +346,4 @@ Ce compte doit être un administrateur local sur l’ordinateur où WSUS est ins
 >  Limitez la portée du compte. Par exemple, créez différents comptes d'identification de la séquence de tâches pour chaque séquence de tâches, de sorte que, si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis.  
 >   
 >  Si la ligne de commande requiert un accès administratif sur l’ordinateur, envisagez de créer un compte d’administrateur local réservé au compte d’identification de la séquence de tâches sur tous les ordinateurs qui exécuteront la séquence. Supprimez le compte dès que vous n’en avez plus besoin.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

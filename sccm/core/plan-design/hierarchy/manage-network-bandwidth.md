@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 37e4f27fcea0bbdd39c9fd3ab38aa46e3059f73a
 ms.openlocfilehash: d9dff97126c34a726677de60dd7647370c553b6e
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: d9dff97126c34a726677de60dd7647370c553b6e
 # <a name="manage-network-bandwidth-for-content"></a>Gérer la bande passante réseau pour le contenu
 Pour mieux gérer la bande passante réseau utilisée pour le processus de gestion du contenu de System Center Configuration Manager, vous pouvez utiliser les commandes Configuration Manager intégrées de planification et de limitation de bande passante. Vous pouvez également utiliser le contenu préparé. Les sections suivantes décrivent ces options plus en détail.
 
-##  <a name="a-namebkmkplanningforthrottlingascheduling-and-throttling"></a><a name="BKMK_PlanningForThrottling"></a>Planification et limitation de bande passante  
+##  <a name="BKMK_PlanningForThrottling"></a>Planification et limitation de bande passante  
 
  Lorsque vous créez un package, modifiez le chemin source du contenu ou mettez à jour le contenu sur le point de distribution, les fichiers sont copiés depuis le chemin source vers la bibliothèque de contenu sur le serveur de site. Ensuite, le contenu est copié depuis la bibliothèque de contenu sur le serveur de site vers la bibliothèque de contenu sur les points de distribution. Si des fichiers sources de contenu sont mis à jour et que ces fichiers ont déjà été distribués, Configuration Manager récupère uniquement les fichiers nouveaux ou mis à jour, puis il les envoie au point de distribution.
 
@@ -41,7 +43,7 @@ Pour mieux gérer la bande passante réseau utilisée pour le processus de gesti
 
 Pour plus d’informations, consultez [Installer et configurer des points de distribution pour System Center Configuration Manager](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).  
 
-##  <a name="a-namebkmkprestagingcontentaprestaged-content"></a><a name="BKMK_PrestagingContent"></a>Contenu préparé  
+##  <a name="BKMK_PrestagingContent"></a>Contenu préparé  
  Vous pouvez préparer du contenu pour ajouter les fichiers de contenu à la bibliothèque de contenu sur un serveur de site ou sur un point de distribution avant de distribuer le contenu. Comme les fichiers de contenu figurent déjà dans la bibliothèque de contenu, ils ne sont pas transférés sur le réseau quand vous distribuez le contenu. Vous pouvez préparer des fichiers de contenu pour les applications et les packages.  
 
 Dans la console Configuration Manager, sélectionnez le contenu à préparer, puis utilisez l’**Assistant Création du fichier de contenu préparé**. Cette opération crée un fichier de contenu compressé et préparé qui contient les fichiers et les métadonnées associées pour le contenu. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site ou d'un point de distribution. Notez les points suivants :  
@@ -58,7 +60,7 @@ Vous pouvez éventuellement configurer le point de distribution comme **prépar�
 
 -   Toujours utiliser le processus de distribution de contenu standard pour le contenu du package.  
 
-###  <a name="a-namebkmkdeterminetoprestagecontentadetermine-whether-to-prestage-content"></a><a name="BKMK_DetermineToPrestageContent"></a>Déterminer si vous devez préparer du contenu  
+###  <a name="BKMK_DetermineToPrestageContent"></a>Déterminer si vous devez préparer du contenu  
  Envisagez de préparer du contenu pour les applications et les packages dans les cas suivants :  
 
 -   **Pour résoudre le problème de bande passante réseau limitée entre le serveur de site et un point de distribution.** Si la planification et la limitation de bande passante ne suffisent pas à répondre à vos besoins en matière de bande passante, songez à préparer le contenu sur le point de distribution. Chaque point de distribution est associé au paramètre **Activer ce point de distribution pour le contenu préparé** que vous pouvez choisir dans les propriétés du point de distribution. Lorsque vous activez cette option, le point de distribution est identifié comme un point de distribution préparé et vous pouvez choisir comment gérer le contenu pour chaque package.  
@@ -75,9 +77,4 @@ Vous pouvez éventuellement configurer le point de distribution comme **prépar�
     >  Les options précédentes sont applicables pour chaque package et ne sont utilisées que si un point de distribution est identifié comme préparé. Les points de distribution qui n'ont pas été identifiés comme préparés ignorent ces paramètres. Dans ce cas, le contenu est toujours distribué via le réseau à partir du serveur de site vers les points de distribution.  
 
 -   **Pour restaurer la bibliothèque de contenu sur un serveur de site.** lors de la défaillance d'un serveur de site, les informations sur les packages et applications inclus dans la bibliothèque de contenu sont restaurées vers la base de données de site dans le cadre du processus de restauration, mais les fichiers de la bibliothèque de contenu ne sont pas restaurés dans le cadre du processus. Si vous ne disposez pas d’une sauvegarde du système de fichiers pour restaurer la bibliothèque de contenu, vous pouvez créer un fichier de contenu préparé à partir d’un autre site contenant les packages et applications que vous devez avoir. Vous pouvez ensuite extraire le fichier de contenu préparé sur le serveur de site récupéré. Pour plus d’informations sur la sauvegarde et la récupération du serveur de site, consultez [Sauvegarde et récupération pour System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: c0b4fcda6599ed91fe2393b97bdcec6cdfba9b7c
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -70,9 +72,4 @@ Les fenêtres de maintenance vous permettent de définir une période de temps p
 7.  Effectuez une sélection à partir de la liste déroulante **Appliquer cette planification à**.  
 
 8.  Choisissez **OK**, puis fermez la boîte de dialogue **Propriétés de &lt;nom_regroupement\>**.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -15,9 +15,11 @@ caps.latest.revision: 6
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: b12d4a1592ce4601fa1f0a6cd2a539a3664c0c37
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -27,7 +29,7 @@ ms.openlocfilehash: b12d4a1592ce4601fa1f0a6cd2a539a3664c0c37
 
 Cette rubrique contient des informations de sécurité et de confidentialité pour l’inventaire matériel dans System Center Configuration Manager.  
 
-##  <a name="a-namebkmksecurityhardwareinventorya-security-best-practices-for-hardware-inventory"></a><a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour l’inventaire matériel  
+##  <a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour l’inventaire matériel  
  Utilisez les meilleures pratiques de sécurité suivantes lorsque vous recueillez des données d'inventaire matériel à partir de clients :  
 
 |Meilleure pratique de sécurité|Plus d'informations|  
@@ -48,7 +50,7 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
 
  L'inventaire matériel est activé par défaut comme un paramètre client.  
 
-##  <a name="a-namebkmkprivacyhardwareinventorya-privacy-information-for-hardware-inventory"></a><a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour l’inventaire matériel  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour l’inventaire matériel  
  L’inventaire matériel vous permet de récupérer toutes les informations stockées dans le Registre et dans WMI sur les clients Configuration Manager. L'inventaire logiciel vous permet de découvrir tous les fichiers d'un type donné ou de collecter tous les fichiers spécifiés à partir des clients. Asset Intelligence améliore les capacités de l'inventaire en étendant l'inventaire matériel et logiciel et en ajoutant la nouvelle fonctionnalité de gestion des licences.  
 
  L'inventaire matériel est activé par défaut comme un paramètre client et les informations WMI recueillies sont déterminées par les options que vous sélectionnez. L'inventaire logiciel est activé par défaut, mais les fichiers ne sont pas recueillis par défaut. Le regroupement de données Asset Intelligence est automatiquement activé, bien que vous puissiez sélectionner les classes de rapport d'inventaire matériel à activer.  
@@ -56,9 +58,4 @@ Cette rubrique contient des informations de sécurité et de confidentialité po
  Les informations d'inventaire ne sont pas envoyées à Microsoft. Les informations d’inventaire sont stockées dans la base de données Configuration Manager. Lorsque les clients utilisent HTTPS pour se connecter à des points de gestion, les données d'inventaire qu'ils envoient au site sont chiffrées pendant le transfert. Si les clients utilisent le protocole HTTP pour se connecter à des points de gestion, vous pouvez activer le chiffrement d'inventaire. Les données d'inventaire ne sont pas stockées au format chiffré dans la base de données. Les informations sont conservées dans la base de données jusqu'à ce qu'elles soient supprimées par les tâches de maintenance du site **Supprimer les historiques d'inventaire anciens** ou **Supprimer les fichiers collectés anciens** tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
 
  Avant de configurer l'inventaire matériel, l'inventaire logiciel, le regroupement de fichiers ou la collecte de données Asset Intelligence, tenez compte de vos exigences en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

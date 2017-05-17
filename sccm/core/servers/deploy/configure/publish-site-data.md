@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e7629fdf7fdf615fa27894158c3d101432c95a04
 ms.openlocfilehash: bcfb002c503485f03ba27d7346acb61d0d3c6087
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -71,9 +73,4 @@ Pour plus d’informations sur la façon dont les clients trouvent un point de g
     >  Si vous autorisez les sites à publier sur une forêt, vous devez étendre le schéma Active Directory de cette forêt pour Configuration Manager. Le compte de forêt Active Directory doit avoir des autorisations Contrôle total sur le conteneur système dans cette forêt.  
 
 5.  Lorsque vous terminez la configuration de cette forêt pour une utilisation avec la Découverte de forêts Active Directory, cliquez sur **OK** pour enregistrer la configuration.  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

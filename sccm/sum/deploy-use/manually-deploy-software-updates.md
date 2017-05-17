@@ -13,14 +13,16 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
 ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
 
-#  <a name="a-namebkmkmanualdeploya-manually-deploy-software-updates"></a><a name="BKMK_ManualDeploy"></a> Déployer manuellement des mises à jour logicielles  
+#  <a name="BKMK_ManualDeploy"></a> Déployer manuellement des mises à jour logicielles  
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
 
  Les sections suivantes décrivent les étapes à effectuer pour déployer manuellement des mises à jour logicielles.  
 
-##  <a name="a-namebkmk1searchcriteriaa-step-1-specify-search-criteria-for-software-updates"></a><a name="BKMK_1SearchCriteria"></a> Étape 1 : spécifier les critères de recherche des mises à jour logicielles  
+##  <a name="BKMK_1SearchCriteria"></a> Étape 1 : spécifier les critères de recherche des mises à jour logicielles  
  Des milliers de mises à jour logicielles peuvent potentiellement s’afficher dans la console Configuration Manager. La première étape du flux de travail relatif au déploiement manuel de mises à jour logicielles consiste à identifier les mises à jour logicielles que vous souhaitez déployer. Par exemple, vous pourriez indiquer des critères permettant d'extraire toutes les mises à jour logicielles requises sur plus de 50 appareils clients et dont la classification est **Sécurité** ou **Critique** .  
 
 > [!IMPORTANT]  
@@ -54,7 +56,7 @@ ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
     > [!TIP]  
     >  Vous avez la possibilité d'enregistrer les critères de filtre sur l'onglet **Rechercher** et dans le groupe **Enregistrer** .  
 
-##  <a name="a-namebkmk2updategroupa-step-2-create-a-software-update-group-that-contains-the-software-updates"></a><a name="BKMK_2UpdateGroup"></a> Étape 2 : créer un groupe de mises à jour logicielles contenant les mises à jour logicielles  
+##  <a name="BKMK_2UpdateGroup"></a> Étape 2 : créer un groupe de mises à jour logicielles contenant les mises à jour logicielles  
  Les groupes de mises à jour logicielles permettent d'organiser efficacement les mises à jour logicielles en préparation à des fins de déploiement. Vous pouvez ajouter manuellement des mises à jour logicielles à un groupe de mises à jour logicielles, ou définir une règle ADR pour que Configuration Manager ajoute automatiquement les mises à jour logicielles à un groupe de mises à jour logicielles nouveau ou existant. Pour ajouter manuellement des mises à jour logicielles à un nouveau groupe de mises à jour logicielles, procédez comme suit.  
 
 #### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Pour ajouter manuellement des mises à jour logicielles à un nouveau groupe de mises à jour logicielles  
@@ -73,7 +75,7 @@ ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
 
 7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
 
-##  <a name="a-namebkmk3downloadcontenta-step-3-download-the-content-for-the-software-update-group"></a><a name="BKMK_3DownloadContent"></a> Étape 3 : télécharger le contenu pour le groupe de mises à jour logicielles  
+##  <a name="BKMK_3DownloadContent"></a> Étape 3 : télécharger le contenu pour le groupe de mises à jour logicielles  
  Éventuellement, avant de déployer les mises à jour logicielles, vous pouvez télécharger le contenu de celles qui sont incluses dans le groupe de mises à jour logicielles. Vous pouvez choisir de procéder ainsi afin de vérifier que le contenu est disponible sur les points de distribution avant de déployer les mises à jour logicielles. Cela vous permet d'éviter des problèmes inattendus de remise de contenu. Vous pouvez ignorer cette étape et le contenu sera téléchargé et copié sur les points de distribution dans le cadre du processus de déploiement. Pour télécharger le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles, procédez comme suit.  
 
 
@@ -160,7 +162,7 @@ ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
 
 4. Sous l'onglet **Accueil** , dans le groupe **Contenu** , cliquez sur **Afficher l'état**.  
 
-##  <a name="a-namebkmk4deployupdategroupa-step-4-deploy-the-software-update-group"></a><a name="BKMK_4DeployUpdateGroup"></a> Étape 4 : déployer le groupe de mises à jour logicielles  
+##  <a name="BKMK_4DeployUpdateGroup"></a> Étape 4 : déployer le groupe de mises à jour logicielles  
  Après avoir déterminé quelles mises à jour logicielles vous voulez déployer et après avoir ajouté ces mises à jour logicielles à un groupe de mises à jour logicielles, vous pouvez déployer manuellement les mises à jour logicielles dans le groupe de mises à jour logicielles. Pour déployer manuellement les mises à jour logicielles dans un groupe de mises à jour logicielles, procédez comme suit.  
 
 #### <a name="to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Pour déployer manuellement les mises à jour logicielles dans un groupe de mises à jour logicielles  
@@ -315,9 +317,4 @@ ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Surveiller les mises à jour logicielles](monitor-software-updates.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,9 +15,11 @@ caps.latest.revision: 7
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
 ms.openlocfilehash: 6265ee70b70a715862b1651d2f3760bef096ee8a
+ms.contentlocale: fr-fr
+ms.lasthandoff: 01/03/2017
 
 
 ---
@@ -49,10 +51,5 @@ Utilisez l’Explorateur de ressources de System Center Configuration Manager po
 3.  Choisissez l’ordinateur contenant l’inventaire que vous souhaitez afficher puis, dans l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** >  **Explorateur de ressources**.   
 
 4.  Cliquez avec le bouton droit sur un élément dans le volet droit de la fenêtre **Explorateur de ressources**, puis choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés de** *<nom_élément\>* et visualiser les informations d’inventaire recueillies sous un format plus lisible.  
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

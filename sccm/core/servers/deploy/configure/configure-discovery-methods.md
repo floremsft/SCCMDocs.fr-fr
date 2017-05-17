@@ -15,9 +15,11 @@ caps.latest.revision: 5
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 860815010068422f2d8854ed2d574c24cc386891
 ms.openlocfilehash: 63a3c2ef66c80d1da9b50e67166a2196cf1b081b
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
@@ -44,7 +46,7 @@ Vous configurez les méthodes de découverte à exécuter sur un site System Cen
 4.  Choisissez **OK** pour enregistrer la configuration.  
 
 
-##  <a name="a-namebkmkconfigadforestdisca-configure-active-directory-forest-discovery"></a><a name="BKMK_ConfigADForestDisc"></a> Configurer la découverte de forêts Active Directory  
+##  <a name="BKMK_ConfigADForestDisc"></a> Configurer la découverte de forêts Active Directory  
 Pour finaliser la configuration de la découverte des forêts Active Directory, vous devez configurer des paramètres dans deux emplacements :  
 
 -   Dans le nœud **Méthodes de découverte**, vous pouvez :
@@ -98,7 +100,7 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 4.  Lorsque vous terminez la configuration de cette forêt à utiliser avec la Découverte de forêts Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
-##  <a name="a-namebkmkconfigaddiscgenerala-configure-active-directory-discovery-for-computers-users-or-groups"></a><a name="BKMK_ConfigADDiscGeneral"></a> Configurer la découverte Active Directory pour les ordinateurs, les utilisateurs ou les groupes  
+##  <a name="BKMK_ConfigADDiscGeneral"></a> Configurer la découverte Active Directory pour les ordinateurs, les utilisateurs ou les groupes  
  Utilisez les informations des sections suivantes pour configurer la découverte des ordinateurs, des utilisateurs ou des groupes. Vous allez utiliser les méthodes de découverte suivantes :  
 
 -   Découverte de groupes Active Directory  
@@ -210,7 +212,7 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 8.  Après avoir terminé la configuration de la découverte d’utilisateurs Active Directory, choisissez **OK** pour enregistrer la configuration.  
 
-##  <a name="a-namebkmkconfighbdisca-configure-heartbeat-discovery"></a><a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
+##  <a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
  Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  
 
 > [!NOTE]  
@@ -226,10 +228,10 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 
 4.  Configurez la fréquence de l’envoi d’un enregistrement de données de découverte par pulsations d’inventaire par les clients, puis choisissez **OK** pour enregistrer la configuration.  
 
-##  <a name="a-namebkmkconfignetworkdisca-configure-network-discovery"></a><a name="BKMK_ConfigNetworkDisc"></a> Configurer la découverte du réseau  
+##  <a name="BKMK_ConfigNetworkDisc"></a> Configurer la découverte du réseau  
  Utilisez les informations dans les sections suivantes pour configurer la découverte du réseau.  
 
-###  <a name="a-namebkmkaboutconfignetworkdisca-about-configuring-network-discovery"></a><a name="BKMK_AboutConfigNetworkDisc"></a> À propos de la configuration de la découverte du réseau  
+###  <a name="BKMK_AboutConfigNetworkDisc"></a> À propos de la configuration de la découverte du réseau  
  Avant de configurer la découverte du réseau, vous devez comprendre les points suivants :  
 
 -   Niveaux disponibles de découverte du réseau  
@@ -244,14 +246,14 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
  Vous pouvez, par exemple, vouloir découvrir tous les appareils SNMP (Simple Network Management Protocol) qui utilisent un nom de communauté SNMP spécifique. De plus, vous pouvez désactiver la découverte sur un sous-réseau spécifique pour la même exécution de la découverte. Lors de l'exécution de la découverte, la découverte du réseau ne découvre pas les périphériques SNMP avec le nom de communauté spécifié sur le sous-réseau que vous avez désactivé.  
 
-####  <a name="a-namebkmkdeterminenettopologya-determine-your-network-topology"></a><a name="BKMK_DetermineNetTopology"></a> Déterminer la topologie de votre réseau  
+####  <a name="BKMK_DetermineNetTopology"></a> Déterminer la topologie de votre réseau  
  La découverte pour la topologie uniquement vous permet de mapper votre réseau. Ce type de découverte ne découvre pas les clients potentiels. La découverte du réseau pour la topologie uniquement s'appuie sur SNMP.  
 
  Lors du mappage de la topologie de votre réseau, vous devez configurer le **Nombre maximal de sauts** dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Quelques sauts permettent de contrôler la bande passante du réseau utilisée lors de l'exécution de la découverte. À mesure que vous découvrez votre réseau, vous pouvez augmenter le nombre de sauts pour mieux comprendre la topologie de votre réseau.  
 
  Une fois que vous avez compris la topologie de votre réseau, vous pouvez configurer des propriétés supplémentaires permettant à la découverte du réseau de découvrir des clients potentiels et leurs systèmes d'exploitation, pendant que vous utilisez les configurations disponibles pour limiter le nombre de segments réseau que la découverte du réseau peut rechercher.  
 
-####  <a name="a-namebkmklimitbysubneta-limit-searches-by-using-subnets"></a><a name="BKMK_LimitBySubnet"></a> Limiter les recherches en utilisant des sous-réseaux  
+####  <a name="BKMK_LimitBySubnet"></a> Limiter les recherches en utilisant des sous-réseaux  
  Vous pouvez configurer la découverte du réseau pour rechercher des sous-réseaux spécifiques au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche le sous-réseau du serveur qui exécute la découverte. Tous les sous-réseaux supplémentaires que vous configurez et activez ne s’appliquent qu’aux options de recherche SNMP et DHCP (Dynamic Host Configuration Protocol). Lorsque la découverte du réseau recherche les domaines, elle n'est pas limitée par les configurations des sous-réseaux.  
 
  Si vous spécifiez un ou plusieurs sous-réseaux dans l'onglet **Sous-réseaux** de la boîte de dialogue **Propriétés de la découverte du réseau** , la recherche s'applique uniquement aux sous-réseaux marqués **Activé** .  
@@ -264,7 +266,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
 -   Les requêtes basées sur le domaine peuvent découvrir des ressources situées sur le sous-réseau.  
 
-####  <a name="a-namebkmksearchbydomaina-search-a-specific-domain"></a><a name="BKMK_SearchByDomain"></a> Rechercher dans un domaine spécifique  
+####  <a name="BKMK_SearchByDomain"></a> Rechercher dans un domaine spécifique  
  La découverte du réseau peut être configurée pour rechercher dans un domaine spécifique ou dans plusieurs domaines au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche dans le domaine local du serveur qui exécute la découverte.  
 
  Si vous spécifiez un ou plusieurs domaines sous l'onglet **Domaines** de la boîte de dialogue **Propriétés de la découverte du réseau**, la recherche s'applique uniquement aux domaines marqués **Activé**.  
@@ -277,7 +279,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
 -   Les serveurs DHCP renvoient toujours une liste des ressources situées dans le domaine.  
 
-####  <a name="a-namebkmklimitbysnmpnamea-limit-searches-by-using-snmp-community-names"></a><a name="BKMK_LimitBySNMPname"></a> Limiter les recherches en utilisant des noms de communautés SNMP  
+####  <a name="BKMK_LimitBySNMPname"></a> Limiter les recherches en utilisant des noms de communautés SNMP  
  La découverte du réseau peut être configurée pour rechercher une communauté SNMP spécifique ou plusieurs communautés au cours d'une opération de découverte. Par défaut, le nom de communauté dit **Public** est configuré pour l'utilisation.  
 
  La fonction de découverte du réseau utilise des noms de communautés pour accéder à des routeurs qui constituent des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
@@ -290,7 +292,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 > [!NOTE]  
 >  Outre le nom de communauté SNMP, vous pouvez spécifier l’adresse IP ou le nom pouvant être résolu d’un périphérique SNMP. Pour ce faire, utilisez l’onglet **Périphériques SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**.  
 
-####  <a name="a-namebkmksearchbydhcpa-search-a-specific-dhcp-server"></a><a name="BKMK_SearchByDHCP"></a> Rechercher sur un serveur DHCP spécifique  
+####  <a name="BKMK_SearchByDHCP"></a> Rechercher sur un serveur DHCP spécifique  
  La découverte du réseau peut être configurée pour utiliser un serveur DHCP spécifique ou plusieurs serveurs en vue de découvrir des clients DHCP au cours d'une opération de découverte.  
 
  La découverte du réseau recherche sur chaque serveur DHCP que vous spécifiez sous l'onglet **DHCP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Si le serveur qui exécute la découverte loue son adresse IP à un serveur DHCP, vous pouvez configurer la découverte pour qu’elle effectue la recherche sur ce serveur DHCP en activant la case à cocher **Inclure le serveur DHCP pour lequel le serveur de site est configuré**.  
@@ -298,7 +300,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 > [!NOTE]  
 >  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu'elle utilise un serveur DHCP dans un environnement IPv6 natif.  
 
-###  <a name="a-namebkmkhowtoconfignetdisca-how-to-configure-network-discovery"></a><a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
+###  <a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
  Procédez comme suit pour d'abord découvrir uniquement la topologie de votre réseau, puis configurer la découverte du réseau afin de découvrir des clients potentiels à l'aide de l'une ou de plusieurs options disponibles de découverte du réseau.  
 
 ##### <a name="to-determine-your-network-topology"></a>Pour déterminer la topologie de votre réseau  
@@ -407,7 +409,7 @@ Pour plus d’informations, consultez la section [Découverte du réseau](../../
 
 12. Choisissez **OK** pour enregistrer vos configurations.  
 
-###  <a name="a-namebkmkhowtoverifynetdisca-how-to-verify-that-network-discovery-has-finished"></a><a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
+###  <a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
  La durée d’exécution de la découverte du réseau peut varier selon plusieurs facteurs, dont un ou plusieurs des points suivants :  
 
 -   Taille de votre réseau  
@@ -454,9 +456,4 @@ La découverte du réseau ne génère pas de message d'alerte signalant qu'elle 
     -   Description : **Ce composant a démarré.**  
 
     Ces informations vérifient que la découverte du réseau a démarré. Si ces informations ne s'affichent pas, replanifiez une découverte du réseau.  
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

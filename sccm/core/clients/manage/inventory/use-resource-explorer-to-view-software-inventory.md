@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
 ms.openlocfilehash: 6189726bbcade8229e0b2e929ebedeefdbf266a4
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -53,9 +55,4 @@ Utilisez l’Explorateur de ressources de System Center Configuration Manager po
 
 4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre Explorateur de ressources, puis choisir **Propriétés** pour visualiser les informations d’inventaire collectées dans un format plus lisible.  
  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

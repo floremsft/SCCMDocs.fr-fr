@@ -15,9 +15,11 @@ caps.latest.revision: 8
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
 ms.openlocfilehash: 2012ab5e55da8d707fd668e0163b42fe7d56c72f
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -110,9 +112,4 @@ Cette rubrique vous propose une introduction à l’utilisation des paramètres 
 6.  Terminez l’Assistant pour créer l’élément de configuration.  
 
  Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

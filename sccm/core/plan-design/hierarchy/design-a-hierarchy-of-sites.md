@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
 ms.openlocfilehash: e346e83b0ae0dc7a612cef7a7b9fb1fdb42236bc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -32,7 +34,7 @@ Après avoir étudié les options de gestion de contenu qui peuvent réduire le 
 > [!NOTE]
 > Quand vous planifiez une nouvelle installation de Configuration Manager, tenez compte des [notes de publication]( /sccm/core/servers/deploy/install/release-notes) qui décrivent en détail les problèmes dans les versions actives. Les notes de publication s’appliquent à toutes les branches de Configuration Manager.  Toutefois, quand vous utilisez l’[édition Technical Preview]( /sccm/core/get-started/technical-preview), vous rencontrez des problèmes spécifiques uniquement à cette édition dans la documentation pour chaque version de Technical Preview.  
 
-##  <a name="a-namebkmktopologya-hierarchy-topology"></a><a name="bkmk_topology"></a> Topologie de la hiérarchie  
+##  <a name="bkmk_topology"></a> Topologie de la hiérarchie  
  Les topologies de hiérarchie peuvent aller d’un site principal autonome unique à un groupe de sites principaux et secondaires connectés avec un site d’administration centrale dans le site de niveau supérieur de la hiérarchie.   Le principal facteur qui détermine le type et le nombre de sites que vous utilisez dans une hiérarchie est généralement le nombre et le type d’appareils que vous devez prendre en charge, comme illustré ci-dessous :   
 
  **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
@@ -57,7 +59,7 @@ Après avoir étudié les options de gestion de contenu qui peuvent réduire le 
 
  Les sections suivantes peuvent vous aider à déterminer quand utiliser un site ou une option de gestion de contenu spécifique plutôt qu’un site supplémentaire.  
 
-##  <a name="a-namebkmkchoosecasa-determine-when-to-use-a-central-administration-site"></a><a name="BKMK_ChooseCAS"></a> Déterminer quand utiliser un site d’administration centrale  
+##  <a name="BKMK_ChooseCAS"></a> Déterminer quand utiliser un site d’administration centrale  
  Utilisez un site d'administration centrale pour configurer des paramètres à l'échelle de la hiérarchie et surveiller tous les sites et objets dans la hiérarchie. Ce type de site ne gère pas directement les clients, mais il coordonne la réplication de données inter-site, y compris la configuration de sites et de clients dans toute la hiérarchie.  
 
 **Les informations suivantes peuvent vous aider à déterminer quand installer un site d’administration centrale :**  
@@ -82,7 +84,7 @@ Après avoir étudié les options de gestion de contenu qui peuvent réduire le 
 
 -   Vous pouvez configurer la réplication de fichiers et la réplication de base de données pour contrôler la communication entre les sites de la hiérarchie. Cela consiste notamment à planifier la réplication de base de données pour les données de site et à gérer la bande passante pour le transfert de données basées sur des fichiers entre les sites.  
 
-##  <a name="a-namebkmkchoosepriimarya-determine-when-to-use-a-primary-site"></a><a name="BKMK_ChoosePriimary"></a> Déterminer quand utiliser un site principal  
+##  <a name="BKMK_ChoosePriimary"></a> Déterminer quand utiliser un site principal  
  Utilisez les sites principaux pour gérer les clients. Vous pouvez installer un site principal en tant que site principal enfant sous un site d’administration centrale, ou en tant que premier site d’une nouvelle hiérarchie. Un site principal installé en tant que premier site d’une hiérarchie crée un site principal autonome. Les sites principaux enfants et les sites principaux autonomes prennent en charge les sites secondaires en tant que sites enfants du site principal.  
 
  Utilisez un site principal pour l’une des raisons suivantes :  
@@ -108,7 +110,7 @@ Après avoir étudié les options de gestion de contenu qui peuvent réduire le 
 
 -   Les sites principaux utilisent la réplication de base de données pour communiquer directement avec leur site d’administration centrale (qui est configuré automatiquement lors de l’installation d’un nouveau site).  
 
-##  <a name="a-namebkmkchoosesecondarya-determine-when-to-use-a-secondary-site"></a><a name="BKMK_ChooseSecondary"></a> Déterminer quand utiliser un site secondaire  
+##  <a name="BKMK_ChooseSecondary"></a> Déterminer quand utiliser un site secondaire  
  Utilisez des sites secondaires pour gérer le transfert de contenu de déploiement et de données client dans les réseaux à faible bande passante.  
 
  Vous gérez un site secondaire à partir d’un site d’administration centrale ou du site principal parent direct du site secondaire. Vous devez associer les sites secondaires à un site principal, et vous ne pouvez pas les déplacer vers un autre site parent sans les avoir préalablement désinstallés puis réinstallés en tant que site enfant sous le nouveau site principal.
@@ -138,7 +140,7 @@ Toutefois, vous pouvez acheminer du contenu entre deux sites secondaires homolog
 
 -   Les installations de site secondaire déploient automatiquement un point de gestion et un point de distribution situés sur le serveur de site secondaire.  
 
-##  <a name="a-namebkmkchoosesecondaryordpa-determine-when-to-use-content-management-options"></a><a name="BKMK_ChooseSecondaryorDP"></a> Déterminer quand utiliser les options de gestion de contenu  
+##  <a name="BKMK_ChooseSecondaryorDP"></a> Déterminer quand utiliser les options de gestion de contenu  
  Si vous possédez des clients dans des emplacements réseau distants, envisagez d'utiliser une ou plusieurs options de gestion de contenu plutôt qu'un site principal ou secondaire. Souvent, vous n’avez pas besoin d’installer un site quand vous utilisez Windows BranchCache, quand vous configurez des points de distribution pour le contrôle de la bande passante, ou quand vous copiez manuellement du contenu vers des points de distribution (préparation du contenu).  
 
 
@@ -150,7 +152,7 @@ Toutefois, vous pouvez acheminer du contenu entre deux sites secondaires homolog
 
  Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="a-namebkmkbeyonda-beyond-hierarchy-topology"></a><a name="bkmk_beyond"></a> Au-delà de la topologie de la hiérarchie  
+##  <a name="bkmk_beyond"></a> Au-delà de la topologie de la hiérarchie  
  En plus de la topologie de la hiérarchie initiale, réfléchissez aux services ou aux fonctionnalités qui seront disponibles à partir de différents sites dans la hiérarchie (rôles de système de site), et à la façon dont les fonctionnalités et configurations à l’échelle de la hiérarchie seront gérées dans votre infrastructure. Les considérations courantes suivantes sont traitées dans des rubriques distinctes. Ces éléments sont importants, car ils peuvent influencer la conception de votre hiérarchie ou être influencés par celle-ci :  
 
 -   Quand vous vous préparez à [gérer des ordinateurs et des appareils avec System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), déterminez si les appareils que vous gérez sont locaux, situés dans le cloud ou comptent des appareils appartenant à l’utilisateur (BYOD).  Étudiez également la façon dont vous allez gérer les appareils qui sont pris en charge par plusieurs options de gestion, tels que des ordinateurs Windows 10 pouvant être gérés directement par Configuration Manager ou via l’intégration à Microsoft Intune.  
@@ -186,9 +188,4 @@ Toutefois, vous pouvez acheminer du contenu entre deux sites secondaires homolog
 -   [Transfert de données entre sites dans System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
 
 -   [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,9 +15,11 @@ caps.latest.revision: 13
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 288a4c649f371d9701fe7249449356aa222bf372
 ms.openlocfilehash: 35f04e237efffbdb12893f658950a99dc0b98b85
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,7 +39,7 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
  Suivez les sections ci-dessous pour déployer des systèmes d’exploitation sur le réseau à l’aide d’une séquence de tâches.  
 
-##  <a name="a-namebkmkplana-plan"></a><a name="BKMK_Plan"></a> Plan  
+##  <a name="BKMK_Plan"></a> Plan  
 
 -   **Passer en revue les limitations de la séquence de tâches pour mettre à niveau un système d’exploitation**  
 
@@ -59,7 +61,7 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
      La seule condition préalable pour le scénario de mise à niveau est que vous disposiez d’un point de distribution disponible pour le package de mise à niveau de système d’exploitation et pour les autres packages que vous incluez dans la séquence de tâches. Pour plus d’informations, consultez [Installer ou modifier un point de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
 
-##  <a name="a-namebkmkconfigurea-configure"></a><a name="BKMK_Configure"></a> Configurerr  
+##  <a name="BKMK_Configure"></a> Configurerr  
 
 1.  **Préparer le package de mise à niveau de système d’exploitation**  
 
@@ -75,7 +77,7 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
     > [!NOTE]  
     >  En général, vous utiliserez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour créer une séquence de tâches pour mettre à niveau un système d’exploitation Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
 
-##  <a name="a-namebkmkdeploya-deploy"></a><a name="BKMK_Deploy"></a> Déployer  
+##  <a name="BKMK_Deploy"></a> Déployer  
 
 -   Pour déployer le système d’exploitation, appliquez l’une des méthodes de déploiement suivantes :  
 
@@ -88,9 +90,4 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 -   **Surveiller le déploiement de la séquence de tâches**  
 
      Pour surveiller le déploiement de la séquence de tâches permettant de mettre à niveau le système d’exploitation, consultez [Surveiller les déploiements de système d’exploitation](monitor-operating-system-deployments.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

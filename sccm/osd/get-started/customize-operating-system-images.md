@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,10 +30,10 @@ ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
 
 Dans System Center Configuration Manager, les images de système d’exploitation sont des fichiers WIM qui représentent un regroupement compressé des fichiers et dossiers de référence nécessaires à l’installation et à la configuration d’un système d’exploitation sur un ordinateur. Une image de système d’exploitation personnalisée est créée et capturée à partir d’un ordinateur de référence que vous configurez avec l’ensemble des fichiers de système d’exploitation, fichiers de prise en charge, mises à jour logicielles, outils et autres applications logicielles nécessaires. Il vous revient de décider dans quelle mesure vous voulez configurer manuellement l’ordinateur de référence. Vous pouvez totalement automatiser la configuration de l’ordinateur de référence à l’aide d’une séquence de tâches de création et de capture, vous pouvez configurer manuellement certains aspects de l’ordinateur de référence puis automatiser le reste à l’aide de séquences de tâches ou vous pouvez configurer manuellement l’ordinateur de référence sans utiliser de séquences de tâches. Utilisez les sections suivantes pour personnaliser un système d’exploitation.
 
-##  <a name="a-namebkmkpreparereferencecomputera-prepare-for-the--reference-computer"></a><a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
+##  <a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
  Avant de capturer l’image de système d’exploitation d’un ordinateur de référence, vous devez réfléchir à plusieurs aspects.  
 
-###  <a name="a-namebkmkrefcomputerdecidea-decide-between-an-automated-or-manual-configuration"></a><a name="BKMK_RefComputerDecide"></a> Choisir entre une configuration automatisée ou manuelle  
+###  <a name="BKMK_RefComputerDecide"></a> Choisir entre une configuration automatisée ou manuelle  
  La section suivante décrit les avantages et inconvénients des configurations manuelle et automatisée de l’ordinateur de référence.  
 
 #### <a name="automated-configuration"></a>Configuration automatisée  
@@ -66,7 +68,7 @@ Dans System Center Configuration Manager, les images de système d’exploitatio
 
 -   Requiert qu'une personne soit activement impliquée tout au long du processus.  
 
-###  <a name="a-namebkmkrefcomputerconsiderationsa-considerations-for-the-reference-computer"></a><a name="BKMK_RefComputerConsiderations"></a> Considérations relatives à l’ordinateur de référence  
+###  <a name="BKMK_RefComputerConsiderations"></a> Considérations relatives à l’ordinateur de référence  
  La section suivante répertorie les éléments de base à prendre en compte lorsque vous configurez un ordinateur de référence.  
 
 -   **Système d’exploitation à déployer**  
@@ -110,7 +112,7 @@ Dans System Center Configuration Manager, les images de système d’exploitatio
 
      Vous pouvez configurer l'ordinateur de référence avec les propriétés de personnalisation du bureau que vous souhaitez inclure lorsque vous capturez l'image du système d'exploitation à partir de l'ordinateur de référence. Les propriétés de bureau incluent un fond d’écran, un logo de l’entreprise et un profil utilisateur par défaut standard.  
 
-##  <a name="a-namebkmkmanuallybuildreferencea-manually-build-a-reference-computer"></a><a name="BKMK_ManuallyBuildReference"></a> Créer manuellement un ordinateur de référence  
+##  <a name="BKMK_ManuallyBuildReference"></a> Créer manuellement un ordinateur de référence  
  Utilisez la procédure suivante pour créer manuellement un ordinateur de référence.  
 
 > [!NOTE]  
@@ -133,13 +135,8 @@ Dans System Center Configuration Manager, les images de système d’exploitatio
 
  Une fois que l’ordinateur de référence est prêt, capturez l’image de système d’exploitation de l’ordinateur de référence à l’aide d’une séquence de tâches.  Pour une procédure détaillée, consultez [Capturer une image de système d’exploitation à partir d’un ordinateur de référence existant](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
 
-##  <a name="a-namebkmkusetstobuildreferencea-use-a-task-sequence-to-build-a-reference-computer"></a><a name="BKMK_UseTSToBuildReference"></a> Utiliser une séquence de tâches pour créer un ordinateur de référence  
+##  <a name="BKMK_UseTSToBuildReference"></a> Utiliser une séquence de tâches pour créer un ordinateur de référence  
  Vous pouvez automatiser le processus de création d’un ordinateur de référence en déployant le système d’exploitation, les pilotes, les applications et autres éléments à l’aide d’une séquence de tâches.  Pour créer l’ordinateur de référence et capturer l’image de système d’exploitation à partir de ce même ordinateur de référence, procédez comme suit.  
 
 -   Utilisez une séquence de tâches pour créer et capturer l’image de système d’exploitation à partir de l’ordinateur de référence.  Pour une procédure détaillée, voir [Utiliser une séquence de tâches pour créer et capturer un ordinateur de référence](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

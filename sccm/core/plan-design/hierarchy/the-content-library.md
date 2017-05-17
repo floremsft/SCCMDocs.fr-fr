@@ -15,9 +15,11 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d31fecdb71b498864df2bce7403a4290ea9700ae
 ms.openlocfilehash: 0fa9f431c00476d71b2b08f92f914d76636d1a27
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="the-content-library-in-system-center-configuration-manager"></a>Bibliothèque de contenu System Center Configuration Manager
@@ -64,9 +66,4 @@ Pour plus d’informations sur la configuration des paramètres de lecteur pour 
 -   Pour empêcher l’installation de la bibliothèque de contenu sur un lecteur spécifique, créez un fichier vide nommé **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant la création de la bibliothèque de contenu.  
 
 -   Une fois la bibliothèque de contenu créée, utilisez l’**outil Content Library Transfer** de la boîte à outils System Center 2012 R2 Configuration Manager pour gérer l’emplacement de la bibliothèque de contenu. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

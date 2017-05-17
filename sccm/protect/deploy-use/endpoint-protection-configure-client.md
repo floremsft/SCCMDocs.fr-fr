@@ -15,9 +15,11 @@ caps.latest.revision: 21
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: 2d7ec9cc626f3ccfded990cf8ba392c4979adfee
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -173,9 +175,4 @@ Pour plus d’informations sur le déploiement de système d’exploitation dans
 Après avoir terminé les étapes ci-dessus, vous pouvez préparer l'ordinateur de référence pour l'acquisition d'images. Pour plus d’informations sur le déploiement de système d’exploitation dans Configuration Manager, consultez [Gérer les images de système d’exploitation avec System Center Configuration Manager](/sccm/osd/get-started/manage-operating-system-images).
 
 Quand une image contenant le logiciel client Endpoint Protection est déployée, le client Endpoint Protection envoie automatiquement les informations au site Configuration Manager dont dépend l’ordinateur, et la stratégie applicable à l’ordinateur client est téléchargée et appliquée.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

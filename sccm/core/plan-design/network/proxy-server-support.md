@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c4f30e4839709722b216262b21d7b51c07d24d1e
 ms.openlocfilehash: dc36be47310d2c2178c974a2b503d0b5f9f6e2ec
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -85,9 +87,4 @@ Configurez les paramètres du serveur proxy dans la page Point de mise à jour l
 3.  Dans Propriétés du système de site, sélectionnez l’onglet **Proxy**, puis configurez les paramètres de proxy de ce serveur de site principal.  
 
 4.  Cliquez sur **OK** pour enregistrer la nouvelle configuration de serveur proxy.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
