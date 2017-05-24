@@ -64,7 +64,7 @@ Lorsque vous téléchargez des numéros de série d’appareils iOS appartenant 
 
 Le fichier .csv que vous utilisez pour identifier des appareils par numéro IMEI ou numéro de série doit avoir le format suivant, à l’exception de la ligne supérieure fournie à titre indicatif uniquement. Chaque ligne doit contenir un numéro d’identification : un numéro IMEI ou un numéro de série iOS. Vous pouvez spécifier ces deux numéros. Les numéros IMEI peuvent être utilisés pour les appareils Android, iOS et Windows. Les numéros de série iOS sont également pris en charge.  Ce tableau contient des exemples de données :
 
-| IMEI #  | No de série iOS #  | SE | Détails |
+| Numéro IMEI  | Numéro de série iOS  | SE | Détails |
 |------------ |---------------|-----|-----|
 | 123456789012345    |   | WINDOWS | Appareil d’entreprise Windows|
 |   | A1B2C3D4E5C6 | IOS |     Appareil d’entreprise iOS|

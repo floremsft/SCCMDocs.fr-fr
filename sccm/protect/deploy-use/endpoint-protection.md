@@ -15,9 +15,11 @@ caps.latest.revision: 11
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 4688b4b12a7afa5fcfdc0e42f984271d98f10316
-ms.openlocfilehash: 90e6d82e7fd1ff0ad4f1d616cc23201769fe26e2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
+ms.openlocfilehash: 3c31271f3e3ae7aa45da03b3d75fd78242330646
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -33,21 +35,15 @@ Endpoint Protection dans System Center Configuration Manager vous permet de gér
  L’utilisation d’Endpoint Protection avec Configuration Manager présente les avantages suivants :  
 
 -   Configuration des stratégies de logiciel anti-programme malveillant, des paramètres du Pare-feu Windows et gestion du service Protection avancée contre les menaces Windows Defender sur certains groupes d’ordinateurs  
-
 -   Utilisation des mises à jour logicielles Configuration Manager pour télécharger les derniers fichiers de définitions de logiciel anti-programme malveillant pour tenir à jour les ordinateurs clients  
-
 -   Envoi de notifications par courrier électronique, utilisation de la surveillance dans la console et affichage de rapports pour informer les utilisateurs administratifs qu’un logiciel malveillant a été détecté sur des ordinateurs clients  
 
-À compter de Windows 10 et de Windows Server 2016, les ordinateurs n’ont besoin d’aucun autre client pour la gestion d’Endpoint Protection. Sur les ordinateurs Windows 8.1 et antérieurs, Endpoint Protection installe son propre client en plus du client Configuration Manager. Le client Endpoint Protection offre les possibilités suivantes :  
+Windows Defender est déjà installé sur les ordinateurs Windows 10 et Windows Server 2016. Pour ces systèmes d’exploitation, un client de gestion pour Windows Defender est installé lorsque le client Configuration Manager est installé. Sur les ordinateurs Windows 8.1 et antérieurs, le client Endpoint Protection est installé avec le client Configuration Manager. Windows Defender et le client Endpoint Protection offrent les possibilités suivantes :  
 
 -   Détection des logiciels malveillants et des logiciels espions et mesures correctives  
-
 -   Détection des rootkits et mesures correctives  
-
 -   Évaluation des vulnérabilités critiques et mises à jour automatiques des définitions et du moteur  
-
 -   Détection des vulnérabilités réseau via le système NIS (Network Inspection System)  
-
 -   Intégration à Cloud Protection Service pour signaler les logiciels malveillants à Microsoft. Quand vous rejoignez ces services, le client Endpoint Protection ou Windows Defender peut télécharger les dernières définitions à partir du Centre de protection contre les programmes malveillants lorsqu’un logiciel malveillant non identifié est détecté sur un ordinateur.  
 
 > [!NOTE]  
@@ -119,9 +115,4 @@ Procédez comme suit pour télécharger le fichier image contenant le logiciel c
 6. Cliquez sur l’icône de flèche pour télécharger le fichier. Le nom de fichier est **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21-30777.ISO**.
 
  Pour plus d’informations sur l’installation et la gestion des clients Endpoint Protection sur les ordinateurs Mac et Linux, utilisez la documentation qui accompagne ces produits, disponible dans le dossier **Documentation** .
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

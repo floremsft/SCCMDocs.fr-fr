@@ -15,10 +15,11 @@ caps.latest.revision: 157
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: ae008c91a7387ba76f2bfac13f8feb489a0cc558
-ms.openlocfilehash: 8ffaee12bd826e2f19653b215ee19423ea672433
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
+ms.openlocfilehash: 3a7370fedee417588d219dc7bff46205faf42929
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -45,23 +46,7 @@ ms.lasthandoff: 04/21/2017
 
 -   Chaque installation reste active pendant 90 jours, puis devient inactive.  
 
--   L'anglais est la seule langue prise en charge.  
-
--   Seul un site principal autonome est pris en charge. Il n'existe aucune prise en charge pour un site d'administration centrale, plusieurs sites principaux ou des sites secondaires.  
-
--   Seules les versions suivantes de SQL Server sont prises en charge :  
-
-    -   SQL Server 2016 (sans Service Pack et versions ultérieures)
-    -   SQL Server 2014 (sans Service Pack et versions ultérieures)
-    -   SQL Server 2012 (avec Service Pack 2 ou version ultérieure)
-
-
--   Le site prend en charge jusqu'à 10 clients, qui doivent exécuter l'un des systèmes d'exploitation suivants :  
-
-      -   Windows 10  
-      -   Windows 8.1  
-      -   Windows 8  
-      -   Windows 7  
+-   L'anglais est la seule langue prise en charge.
 
 
 -   Seuls les indicateurs d'installation (commutateurs) suivants sont pris en charge :  
@@ -79,6 +64,23 @@ ms.lasthandoff: 04/21/2017
 -   Il n'existe aucune prise en charge pour la mise à niveau vers cette préversion.  
 
 -   Il n’existe aucune prise en charge de mise à niveau vers une build de production (Current Branch) à partir de cette build de version Preview. Cependant, quand des mises à jour sont disponibles pour une version Preview, vous pouvez les rechercher et les installer à partir du nœud **Mises à jour et maintenance** de la console Configuration Manager. Pour obtenir une vidéo du processus de mise à niveau dans la console, consultez [Installing ConfigMgr Update Packages](https://www.youtube.com/embed/KBd_EGFbUT8) sur youtube.com.  
+-   Seul un site principal autonome est pris en charge. Il n'existe aucune prise en charge pour un site d'administration centrale, plusieurs sites principaux ou des sites secondaires.  
+
+Les produits et technologies suivants sont pris en charge par cette branche de Configuration Manager. Toutefois, leur inclusion dans ce contenu n’implique pas une extension de prise en charge d’un produit ou d’une version au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations sur les politiques de support Microsoft, consultez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) .  
+
+-   Seules les versions suivantes de SQL Server sont prises en charge :  
+
+    -   SQL Server 2016 (sans Service Pack et versions ultérieures)
+    -   SQL Server 2014 (avec Service Pack 1 et version ultérieure)
+    -   SQL Server 2012 (avec Service Pack 3 ou version ultérieure)
+
+
+-   Le site prend en charge jusqu'à 10 clients, qui doivent exécuter l'un des systèmes d'exploitation suivants :  
+
+      -   Windows 10  
+      -   Windows 8.1  
+      -   Windows 8  
+      -   Windows 7  
 
 ##  <a name="bkmk_install"></a> Installer et mettre à jour la version Technical Preview  
  La version Technical Preview de System Center Configuration Manager se distingue de la version actuelle de System Center Configuration Manager.  

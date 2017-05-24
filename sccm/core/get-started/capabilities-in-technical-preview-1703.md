@@ -15,10 +15,11 @@ caps.latest.revision: 5
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 3eb48942c1259d2aa1b3c200fad73b39b11c0b8c
-ms.openlocfilehash: d497bd5a2971315eecdc0900f735ab2cd8b2e7bc
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f4cb711f369698fe8e045f8c83dd96ec6fb29d70
+ms.openlocfilehash: bb1b96a56db68dcea22270855b899ba3a90afd0d
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1703 de System Center Configuration Manager
@@ -41,10 +42,10 @@ Vous pouvez désormais déployer des applications sous licence sur des appareils
 |Antérieure à 1702|Non|utilisateur|Licence utilisateur|
 |Antérieure à 1702|Oui|Appareil|Licence utilisateur|
 |Antérieure à 1702|Non|Appareil|Licence utilisateur|
-|1702 et ultérieure|Oui|utilisateur|Licence utilisateur|
-|1702 et ultérieure|Non|utilisateur|Licence utilisateur|
-|1702 et ultérieure|Oui|Appareil|Licence d’appareil|
-|1702 et ultérieure|Non|Appareil|Licence utilisateur|
+|1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
+|1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
 
 Pour plus d’informations sur les applications iOS achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
@@ -134,35 +135,31 @@ Vous pouvez afficher et réviser les propriétés d’un service cloud pour modi
 Dans la console, accédez à **Administration** > **Présentation** > **Gestion des services cloud** > **Azure** > **Services Azure**, choisissez **Configurer les services Azure**, sélectionnez un service cloud, puis choisissez **Propriétés**.
 
 ## <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Convertir du BIOS en UEFI pendant une mise à niveau sur place
-Windows 10 Creators Update inclut un outil de conversion simple qui automatise le processus de repartitionnement du disque dur pour le matériel compatible UEFI et intègre l’outil de conversion dans le processus de mise à niveau sur place de Windows 7 vers Windows 10. Quand vous combinez cet outil avec la séquence de tâches de mise à niveau du système d’exploitation et l’outil OEM qui convertit le microprogramme du BIOS en UEFI, vous pouvez convertir vos ordinateurs du BIOS en UEFI pendant une mise à niveau sur place vers Windows 10 Creators Update. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
+Windows 10 Creators Update inclut un outil de conversion simple qui automatise le processus de repartitionnement du disque dur pour le matériel compatible UEFI et intègre l’outil de conversion dans le processus de mise à niveau sur place de Windows 7 vers Windows 10. Lorsque vous combinez cet outil avec la séquence de tâches de mise à niveau du système d’exploitation et l’outil OEM qui convertit le microprogramme du BIOS en UEFI, vous pouvez convertir vos ordinateurs du BIOS en UEFI pendant une mise à niveau sur place vers Windows 10 Creators Update. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
 
 ## <a name="collapsible-task-sequence-groups"></a>Groupes de séquences de tâches réductibles
 Cette version permet de développer et réduire des groupes de séquences de tâches. Vous pouvez développer ou réduire des groupes individuels ou tous les groupes à la fois.
 
 
 ## <a name="client-settings-to-configure-windows-analytics-for-upgrade-readiness"></a>Paramètres du client pour configurer Windows Analytics pour Upgrade Readiness
-À compter de cette version, vous pouvez utiliser les paramètres client d’appareil pour simplifier la configuration de Windows Analytics quand vous utilisez [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics) avec Configuration Manager. Windows Analytics collecte des données de télémétrie sur vos clients Configuration Manager et les envoie à votre espace de travail Operations Manager Suite (OMS). Les données de télémétrie collectées peuvent vous aider à hiérarchiser les décisions liées aux mises à niveau de Windows sur vos appareils gérés.
-
-Les données de télémétrie collectées par Configuration Manager se présentent sous la forme de fichiers journaux de suivi d’événements pour Windows (ETW). Ces fichiers journaux sont envoyés au site Configuration Manager quand le client envoie un inventaire matériel. Ces fichiers sont ensuite transférés à votre espace de travail OMS. Les fichiers journaux et leurs données sont supprimés de votre site Configuration Manager après le transfert des journaux vers OMS.
+À compter de cette version, vous pouvez utiliser les paramètres client d’appareil pour simplifier la configuration des données de télémétrie Windows nécessaires pour utiliser des solutions [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) comme [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics) avec Configuration Manager. Configuration Manager peut récupérer les données de Windows Analytics qui fournissent des informations importantes sur l’état actuel de votre environnement en fonction des données de télémétrie Windows transmises par vos ordinateurs clients. Les données de télémétrie Windows sont transmises par les ordinateurs clients au service de télémétrie Windows, puis les informations pertinentes sont transférées aux solutions Windows Analytics hébergées sur un des espaces de travail OMS de votre organisation. Upgrade Readiness est une solution Windows Analytics qui peut vous aider à hiérarchiser les décisions liées aux mises à niveau de Windows sur vos appareils gérés.
 
 Pour plus d’informations sur les paramètres de télémétrie Windows, consultez [Configurer la télémétrie Windows dans votre organisation](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
 
-### <a name="prerequisites"></a>Prérequis
-- Vous devez configurer votre site de façon à ce qu’il utilise Log Analytics à partir d’OMS Upgrade Readiness. Pour plus d’informations, consultez [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics) dans la bibliothèque de contenu de Current Branch.
-- Les clients doivent utiliser l’inventaire matériel pour envoyer les données de télémétrie.
+### <a name="prerequisites"></a>Conditions préalables
+- Vous devez configurer votre site de façon à ce qu’il utilise le service cloud Upgrade Readiness. Pour plus d’informations, consultez [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics)
 
 ### <a name="configure-windows-analytics-client-settings"></a>Configurer les paramètres client Windows Analytics
-Pour configurer Windows Analytics, dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, double-cliquez sur **Paramètres client par défaut**, puis sélectionnez **Windows Analytics**.  
+Pour configurer Windows Analytics, dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, double-cliquez sur **Créer des paramètres client d’appareil personnalisés par défaut**, puis sélectionnez **Windows Analytics**.  
 
-Ensuite, configurez ce qui suit :
+Naviguez vers l’onglet des paramètres **Windows Analytics** puis configurez les éléments suivants :
 - **ID commercial**  
-L’ID commercial mappe les informations des appareils que vous gérez à votre espace de travail OMS. Si vous avez déjà configuré un ID commercial avec Upgrade Readiness en vue d’une utilisation avec Configuration Manager, utilisez cet ID. Si vous ne disposez pas encore d’un ID commercial, consultez [Générer une clé d’ID commercial]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+La clé d’ID commercial mappe les informations des appareils que vous gérez à l’espace de travail OMS qui héberge les données Windows Analytics de votre organisation. Si vous avez déjà configuré une clé d’ID commercial avec Upgrade Readiness, utilisez cet ID. Si vous ne disposez pas encore d’une clé ID commercial, consultez [Générer une clé d’ID commercial]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
 
 - Définir un **Niveau de télémétrie pour les appareils Windows 10**   
-Pour plus d’informations sur les données collectées par chaque niveau de télémétrie Windows 10, consultez [Niveaux de télémétrie]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels) dans la documentation Windows en ligne.
+Pour plus d’informations sur les données collectées par chaque niveau de télémétrie Windows 10, consultez [Configurer la télémétrie Windows dans votre organisation]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
 
 - **Participer à la collecte de données commerciales sur les appareils Windows 7, 8 et 8.1**   
 Pour plus d’informations sur les données collectées à partir de ces systèmes d’exploitation quand vous choisissez de participer, téléchargez le fichier .pdf [Windows 7, Windows 8, and Windows 8.1 appraiser telemetry events and fields](https://go.microsoft.com/fwlink/?LinkID=822965) disponible sur le site web de Microsoft.
 
-- **Configurer la collecte de données dans Internet Explorer**
-
+- **Configurer la collecte de données dans Internet Explorer** Sur les appareils exécutant Windows 8.1 ou version antérieure, Internet la collecte de données dans Internet Explorer permet à Upgrade Readiness de détecter les incompatibilités d’application web qui risquent d’empêcher une mise à niveau sans heurts vers Windows 10. La collecte des données dans Internet Explorer peut être activée pour chaque zone internet. Pour plus d’informations sur les zones internet, consultez [À propos des zones de sécurité des URL](https://msdn.microsoft.com/en-us/library/ms537183(v=vs.85).aspx).

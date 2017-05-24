@@ -2,7 +2,7 @@
 title: "Versions SQL Server prises en charge | Microsoft Docs"
 description: "Découvrez les exigences en matière de version et de configuration de SQL Server pour l’hébergement d’une base de données du site System Center Configuration Manager."
 ms.custom: na
-ms.date: 05/01/2017
+ms.date: 05/10/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d5a6fdc9a526c4fc3a9027dcedf1dd66a6fff5a7
-ms.openlocfilehash: fa7f232fd385f742bb11c6596c954d87c2da87a8
+ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
+ms.openlocfilehash: 4166560602edf6eb299511c8b59dc3903e3bfffc
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -45,14 +45,19 @@ Les instances suivantes sont prises en charge :
 -   Un cluster SQL Server. Consultez [Utiliser un cluster SQL Server pour héberger la base de données de site](../../../core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md).
 -   Un groupe de disponibilité SQL Server AlwaysOn. Cette option nécessite Configuration Manager version 1602 ou ultérieure. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
-> [!NOTE]  
->  L’utilisation d’un cluster SQL Server dans une configuration de cluster d’équilibrage de la charge réseau (NLB) n’est pas prise en charge. La technologie de mise en miroir de base de données SQL Server et la réplication d’égal à égal ne sont pas prises en charge non plus. La réplication transactionnelle standard de SQL Server est prise en charge uniquement pour répliquer des objets sur des points de gestion configurés pour utiliser des [réplicas de base de données](https://technet.microsoft.com/library/mt608546.aspx).  
-
 
  **Sites secondaires :**  
  La base de données du site peut utiliser l’instance par défaut d’une installation complète de SQL Server ou de SQL Server Express.  
 
  SQL Server doit se trouver sur l’ordinateur du serveur de site.  
+
+ **Limitations de la prise en charge**   
+ Les configurations suivantes ne sont pas prises en charge :
+ -   Un cluster SQL Server dans une configuration de cluster d’équilibrage de la charge réseau (NLB)
+ -   Un cluster SQL Server sur un volume partagé de cluster (CSV)
+ -   La technologie de mise en miroir de base de données SQL Server et la réplication d’égal à égal
+
+La réplication transactionnelle de SQL Server est prise en charge uniquement pour répliquer des objets sur des points de gestion configurés pour utiliser des [réplicas de base de données](https://technet.microsoft.com/library/mt608546.aspx).  
 
 ##  <a name="bkmk_SQLVersions"></a> Versions SQL Server prises en charge  
  Dans une hiérarchie comprenant plusieurs sites, chaque site peut utiliser différentes versions de SQL Server pour héberger la base de données du site, dès lors que les conditions suivantes sont réunies :
@@ -109,14 +114,14 @@ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cu
 -   Un serveur de site principal  
 -   Un site secondaire  
 
+<!-- Support for this service pack version has been dropped by Microsoft    
+### SQL Server 2012 SP2: Standard, Enterprise   
+ You can use this version of SQL Server with no minimum cumulative update version for the following:  
 
-### <a name="sql-server-2012-sp2-standard-enterprise"></a>SQL Server 2012 SP2 : Standard, Enterprise   
- Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
-
--   Un site d’administration centrale  
--   Un serveur de site principal  
--   Un site secondaire  
-
+-   A central administration site  
+-   A primary site  
+-   A secondary site  
+-->
 
 ### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3 : Standard, Enterprise, Datacenter     
   Cette version de SQL Server n’est pas prise en charge [depuis la version 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
@@ -155,10 +160,13 @@ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cu
 
 -   Un site secondaire  
 
-### <a name="sql-server-2012-express-sp2"></a>SQL Server 2012 Express SP2   
- Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
+<!-- Support for this service pack version has been dropped by Microsoft   
+### SQL Server 2012 Express SP2   
+ You can use this version of SQL Server with no minimum cumulative update version for the following:  
 
--   Un site secondaire  
+-   A secondary site  
+-->
+
 
 ##  <a name="bkmk_SQLConfig"></a> Configurations requises pour SQL Server  
  Les éléments suivants sont nécessaires pour toutes les installations de SQL Server que vous utilisez pour une base de données de site (y compris SQL Server Express). Quand Configuration Manager installe SQL Server Express dans le cadre d’une installation de site secondaire, ces configurations sont créées automatiquement.  

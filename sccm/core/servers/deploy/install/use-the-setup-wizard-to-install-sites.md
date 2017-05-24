@@ -14,10 +14,11 @@ caps.latest.revision: 3
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 2f1bc62a4695d60dc4679e479797ee84cd4ddee4
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
+ms.openlocfilehash: 14b4172ad713a3981b8a5abe182405e271d78c26
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilisez l’Assistant Installation pour installer des sites System Center Configuration Manager.
@@ -310,7 +311,7 @@ Pour développer un site principal autonome, consultez tout d’abord la [config
     > [!IMPORTANT]  
     > Quand Configuration Manager installe SQL Server Express, il installe SQL Server Express 2012 sans Service Pack :  
 
-    > -   Pour permettre la prise en charge du site secondaire, après son installation, vous devez mettre à niveau SQL Server Express 2012 en installant le Service Pack 2 (ou une version ultérieure).
+    > -   Pour permettre la prise en charge du site secondaire, après son installation, vous devez mettre à niveau SQL Server Express 2012 avec [une version prise en charge](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
     > -   De plus, si l’installation du nouveau site secondaire échoue avant de se terminer, mais achève l’installation de SQL Server Express 2012, vous devez mettre à jour cette instance de SQL Server Express pour que Configuration Manager puisse réessayer d’installer correctement le site secondaire.  
 
      **Utiliser une instance SQL Server existante**  

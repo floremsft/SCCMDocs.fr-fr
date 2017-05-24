@@ -15,9 +15,11 @@ caps.latest.revision: 2
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1610 de System Center Configuration Manager
@@ -63,19 +65,19 @@ En tant qu’administrateur, vous pouvez maintenant refuser une demande d’appl
 #### <a name="try-it-out"></a>Faîtes un essai
 Pour refuser une demande approuvée d’application :
 
-1.  Dans la console Configuration Manager, [créez et déployez une application](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) qui nécessite une approbation.
-2.  Sur un ordinateur client, ouvrez le Centre logiciel et soumettez une demande pour l’application.
-3.  Dans la console Configuration Manager, approuvez la demande d’application.
-4.  Refusez la demande d’application approuvée : Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Demandes d’approbation** et sélectionnez la demande d’application que vous souhaitez refuser.  Dans le ruban, cliquez sur **Refuser**.
+1.    Dans la console Configuration Manager, [créez et déployez une application](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) qui nécessite une approbation.
+2.    Sur un ordinateur client, ouvrez le Centre logiciel et soumettez une demande pour l’application.
+3.    Dans la console Configuration Manager, approuvez la demande d’application.
+4.    Refusez la demande d’application approuvée : Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Demandes d’approbation** et sélectionnez la demande d’application que vous souhaitez refuser.  Dans le ruban, cliquez sur **Refuser**.
 
 ## <a name="exclude-clients-from-automatic-upgrade"></a>Exclure des clients de la mise à niveau automatique
 La version d’évaluation technique 1610 introduit un nouveau paramètre, que vous pouvez utiliser pour empêcher un regroupement de clients d’installer automatiquement les versions mises à jour du client.  Cela s’applique à la mise à niveau automatique ainsi qu’à d’autres méthodes, telles que la mise à niveau de logiciels basée sur la mise à jour, les scripts d’ouverture de session et la stratégie de groupe. Cela peut être utilisé pour un regroupement d’ordinateurs ayant besoin de plus grands soins, lors de la mise à niveau du client. Un client qui se trouve dans un regroupement exclu ignore les demandes d’installation du logiciel client mis à jour.
 
 ### <a name="configure-exclusion-from-automatic-upgrade"></a>Configurer l’exclusion de la mise à niveau automatique
 Pour configurer des exclusions de mise à niveau automatique :
-1.  Dans la console Configuration Manager, ouvrez **Paramètres de hiérarchie** sous **Administration > Configuration du site > Sites**, puis sélectionnez l’onglet **Mise à niveau des clients**.
-2.  Cochez la case **Exclure les clients spécifiés de la mise à niveau**, puis pour **Regroupement à exclure**, sélectionnez le regroupement que vous souhaitez exclure. Vous pouvez sélectionner un seul regroupement à exclure.
-3.  Cliquez sur **OK** pour fermer et enregistrer la configuration. Ensuite, une fois que les clients ont mis à jour la stratégie, les clients figurant dans le regroupement exclu n’installent plus automatiquement les mises à jour du logiciel client.
+1.    Dans la console Configuration Manager, ouvrez **Paramètres de hiérarchie** sous **Administration > Configuration du site > Sites**, puis sélectionnez l’onglet **Mise à niveau des clients**.
+2.    Cochez la case **Exclure les clients spécifiés de la mise à niveau**, puis pour **Regroupement à exclure**, sélectionnez le regroupement que vous souhaitez exclure. Vous pouvez sélectionner un seul regroupement à exclure.
+3.    Cliquez sur **OK** pour fermer et enregistrer la configuration. Ensuite, une fois que les clients ont mis à jour la stratégie, les clients figurant dans le regroupement exclu n’installent plus automatiquement les mises à jour du logiciel client.
 
   ![Paramètres d’exclusion de mise à niveau automatique](media/automatic_upgrade_exclusion.png)
 
@@ -128,13 +130,13 @@ Plus précisément, vous pouvez configurer les paramètres suivants de Windows D
 
 ### <a name="try-it-out"></a>Essayez !
 
-1.  Dans la console de Configuration Manager, cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Éléments de configuration**, puis créez un **Élément de configuration**.
-2.  Entrez un nom, sélectionnez **Windows 8.1 et Windows 10** sous **Paramètres pour les appareils gérés sans le client Configuration Manager**, puis cliquez sur **Suivant**.
-3.  Vérifiez que les options **Tout Windows 10 (64 bits)** et **Tout Windows 10 (32 bits)** sont sélectionnées dans la page **Plateformes prises en charge**, puis cliquez sur **Suivant**.
-4.  Sélectionnez le groupe de paramètres **Windows Defender**, puis cliquez sur **Suivant**.
-5.  Configurez les paramètres souhaités dans cette page, puis cliquez sur **Suivant**.
-6.  Effectuez toutes les étapes de l'Assistant.
-7.  Ajoutez cet élément de configuration à une base de référence de configuration, puis déployez cette base de référence sur les ordinateurs exécutant la mise à jour de novembre de Windows 10 (1511) ou version ultérieure.
+1.    Dans la console de Configuration Manager, cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Éléments de configuration**, puis créez un **Élément de configuration**.
+2.    Entrez un nom, sélectionnez **Windows 8.1 et Windows 10** sous **Paramètres pour les appareils gérés sans le client Configuration Manager**, puis cliquez sur **Suivant**.
+3.    Vérifiez que les options **Tout Windows 10 (64 bits)** et **Tout Windows 10 (32 bits)** sont sélectionnées dans la page **Plateformes prises en charge**, puis cliquez sur **Suivant**.
+4.    Sélectionnez le groupe de paramètres **Windows Defender**, puis cliquez sur **Suivant**.
+5.    Configurez les paramètres souhaités dans cette page, puis cliquez sur **Suivant**.
+6.    Effectuez toutes les étapes de l'Assistant.
+7.    Ajoutez cet élément de configuration à une base de référence de configuration, puis déployez cette base de référence sur les ordinateurs exécutant la mise à jour de novembre de Windows 10 (1511) ou version ultérieure.
 
 > [!NOTE]
 > N’oubliez pas de cocher la case **Résoudre les paramètres non compatibles** durant le déploiement de la base de référence de configuration.
@@ -145,14 +147,14 @@ Vous pouvez désormais demander une synchronisation de la stratégie pour un app
 
 ### <a name="try-it-out"></a>Essayez !
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > Appareils.
-2.  Dans le menu **Actions de l’appareil à distance**, sélectionnez **Envoyer une demande de synchronisation**.
+1.    Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > Appareils.
+2.    Dans le menu **Actions de l’appareil à distance**, sélectionnez **Envoyer une demande de synchronisation**.
 
 La synchronisation peut prendre de cinq à dix minutes. Les modifications apportées à la stratégie sont synchronisées avec l’appareil. Vous pouvez suivre l’état de la demande de synchronisation dans la colonne **État de la synchronisation à distance** de la vue **Appareils** ou dans la boîte de dialogue **Propriétés** de l’appareil.
 
 ## <a name="additional-security-role-support"></a>Prise en charge des rôles de sécurité supplémentaires
 
-Outre le rôle Administrateur complet, les rôles de sécurité intégrés suivants ont maintenant un accès complet aux éléments dans le nœud **Appareils d’entreprise**, notamment **Appareils prédéclarés**, **Profils d’inscription iOS** et **Profils d’inscription Windows** : •   **Gestionnaire de biens** •   **Gestionnaire d’accès aux ressources de l’entreprise**
+Outre le rôle Administrateur complet, les rôles de sécurité intégrés suivants ont maintenant un accès complet aux éléments dans le nœud **Appareils d’entreprise**, notamment **Appareils prédéclarés**, **Profils d’inscription iOS** et **Profils d’inscription Windows** : •   **Gestionnaire de biens** •    **Gestionnaire d’accès aux ressources de l’entreprise**
 
 L’accès en lecture seule à ces zones de la console Configuration Manager est toujours accordé au rôle **Analyste en lecture seule**.
 
@@ -162,9 +164,4 @@ Vous pouvez maintenant exiger que les appareils Windows 10 inscrits dans Azure 
 
 ## <a name="see-also"></a>Voir aussi
 [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -2,7 +2,7 @@
 title: Configurations prises en charge pour LTSB | Microsoft Docs
 description: "Découvrez quels systèmes d’exploitation et produits dépendants fonctionnent avec la branche Long-Term Servicing Branch de System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/9/2017
+ms.date: 5/10/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,10 +15,11 @@ caps.latest.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 477ffa5d61d2dfaedf8a3a1f5687e2d72698ad28
-ms.openlocfilehash: 78dcbf76f21a286506b9c605e2c176714736935b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
+ms.openlocfilehash: ec33d5febcbf7b57e220f7fe27db9671080fecff
+ms.contentlocale: fr-fr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -30,7 +31,7 @@ Utilisez les informations de cette rubrique pour découvrir les systèmes d’ex
 Sauf indication contraire dans cette rubrique (ou les rubriques spécifiques à LTSB), les configurations et limitations qui s’appliquent à la branche Current Branch version 1606 s’appliquent également à la branche LTSB.  En cas de conflits, utilisez les informations qui s’appliquent à l’édition dont vous vous servez. En règle générale, LTSB est plus limité que Current Branch.
 
 ## <a name="general-statement-of-support"></a>Informations  générales sur la prise en charge
-Les produits et technologies détaillés dans les sections suivantes sont pris en charge par Configuration Manager. Toutefois, leur mention dans ce contenu n’implique pas une extension de prise en charge des produits au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations, visitez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) et lisez la page [Politique de support Microsoft - FAQ](http://go.microsoft.com/fwlink/p/?LinkId=31976).
+Les produits et technologies suivants sont pris en charge par cette branche de Configuration Manager. En revanche, leur inclusion dans ce contenu ne signifie pas une extension de prise en charge des produits ou versions au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations, visitez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) et lisez la page [Politique de support Microsoft - FAQ](http://go.microsoft.com/fwlink/p/?LinkId=31976).
 
 En outre, les produits et versions de produits non répertoriés dans les rubriques suivantes ne sont pas pris en charge, sauf s’ils ont été annoncés dans le [Blog Enterprise Mobility + Security](https://blogs.technet.microsoft.com/enterprisemobility/).
 
@@ -310,13 +311,11 @@ LTSB prend en charge les versions suivantes de SQL Server pour héberger la base
 - SQL Server 2014 SP2 : Standard, Enterprise
 - SQL Server 2014 SP1 : Standard, Enterprise
 - SQL Server 2012 SP3 : Standard, Enterprise
-- SQL Server 2012 SP2 : Standard, Enterprise
 - SQL Server 2008 R2 SP3 : Standard, Enterprise, Datacenter
 - SQL Server 2016 Express
 - SQL Server 2014 Express SP2
 - SQL Server 2014 Express SP1
 - SQL Server 2012 Express SP3
-- SQL Server 2012 Express SP2
 
 ## <a name="support-for-active-directory-domains"></a>Prise en charge des domaines Active Directory
 Tous les systèmes de site LTSB doivent être membres d’un domaine Windows Active Directory pris en charge. La prise en charge des domaines Active Directory présente les mêmes exigences et limitations que celles décrites dans [Prise en charge des domaines Active Directory](/sccm/core/plan-design/configs/support-for-active-directory-domains). Toutefois, elle se limite aux niveaux fonctionnels de domaine suivants :

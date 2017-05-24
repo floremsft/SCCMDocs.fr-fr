@@ -17,8 +17,8 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
-ms.openlocfilehash: d1d2ec7c053d13ebaeb00d0dfeb126716b5f7ae5
+ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
+ms.openlocfilehash: 3d90f16eac59b7069ff2f33170eba85d2cde65ef
 ms.contentlocale: fr-fr
 ms.lasthandoff: 05/17/2017
 
@@ -215,9 +215,9 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
      Si l'entrée du code confidentiel BitLocker est configurée sur les ordinateurs, cette option peut contourner la nécessité d'entrer un code confidentiel lorsque l'ordinateur redémarre après l'installation d'un logiciel.  
 
-    -   **Toujours** : Configuration Manager suspend temporairement l’obligation de BitLocker d’entrer un code confidentiel au prochain démarrage de l’ordinateur après l’installation d’un logiciel nécessitant un redémarrage de l’ordinateur. Ce paramètre s'applique uniquement aux redémarrages d'ordinateur qui sont lancés par Configuration Manager et il ne suspend pas l'obligation de saisir le code confidentiel BitLocker lorsque l'utilisateur redémarre l'ordinateur. L'obligation de saisir un code confidentiel BitLocker reprend après le démarrage de Windows.  
+    -   **Toujours**: Configuration Manager suspend temporairement BitLocker après l'installation d'un logiciel nécessitant un redémarrage de l'ordinateur et qu’un redémarrage a été effectué. Ce paramètre s'applique uniquement au redémarrage d’ordinateur qui est lancé par Configuration Manager et il ne suspend pas l'obligation de saisir le code confidentiel BitLocker lorsque l'utilisateur redémarre l'ordinateur. L'obligation de saisir un code confidentiel BitLocker reprend après le démarrage de Windows.
 
-    -   **Jamais**: Configuration Manager ne suspend pas l'obligation de BitLocker de saisir un code confidentiel au prochain démarrage de l'ordinateur après avoir installé un logiciel qui nécessite un redémarrage. Dans ce cas, l’installation du logiciel ne peut être finalisée que si l’utilisateur entre le code confidentiel pour terminer le processus de démarrage standard et charger Windows.  
+    -   **Jamais**: Configuration Manager ne suspend pas BitLocker au prochain démarrage de l'ordinateur après avoir installé un logiciel qui nécessite un redémarrage. Dans ce cas, l'installation du logiciel ne peut être finalisée que lorsque l'utilisateur entre le code confidentiel pour terminer le processus de démarrage standard et charger Windows.
 
 -   **D’autres logiciels gèrent le déploiement d’applications et de mises à jour logicielles**  
 

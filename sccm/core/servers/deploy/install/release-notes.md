@@ -2,7 +2,7 @@
 title: "Notes de publication - Configuration Manager | Microsoft Docs"
 description: "Consultez ces notes pour les problèmes urgents qui ne sont pas encore résolus dans le produit ou traités dans un article de la Base de connaissances Microsoft."
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 05/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a6c89254d01f4074e5c170b20338686178ebdd3
-ms.openlocfilehash: 59946d1328be1606ba7c4dab647e814c1b4e638a
+ms.sourcegitcommit: d5166b16ffbe46af561b1ce98c0494cc4aaa72a8
+ms.openlocfilehash: 9da6f9678a7fb5c76f365a3522f5e5e0fdfec037
 ms.contentlocale: fr-fr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -145,9 +145,16 @@ L’exception est semblable à la suivante :
 -->
 
 
-<!-- No current  Client deployment and upgrade relenotes
-## Client deployment and upgrade  
--->
+
+## <a name="client-deployment-and-upgrade"></a>Mise à niveau et déploiement du client  
+
+### <a name="client-installation-fails-with-error-code-0x8007064c"></a>L’installation du client échoue avec le code d’erreur 0x8007064c
+<!--- SMS 486973 -->
+
+Lorsque vous déployez le client sur des ordinateurs Windows, l’installation échoue. Le fichier ccmsetup.log contient une entrée « File 'C:\WINDOWS\ccmsetup\Silverlight.exe' returned failure exit code 1612. Fail the installation » suivie de "InstallFromManifest failed 0x8007064c ».
+
+**Solution de contournement** Cette erreur est due à une version endommagée de Silverlight, précédemment installée. Vous pouvez essayer d’exécuter l’outil suivant sur l’ordinateur concerné pour résoudre ce problème : [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed) 
+
 
 
 
@@ -247,5 +254,5 @@ Ce problème affecte l’accès conditionnel de System Center Configuration Mana
 ### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core
 La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core.  Le code d’erreur est 0x80070002.  Il existe une dépendance manquante pour ConfigSecurityPolicy.exe.
 
-**Solution de contournement :**  aucune.  En tant qu’administrateur, vous pouvez utiliser la stratégie de groupe pour gérer les paramètres de Windows Server 2016 Core.
+**Solution de contournement :** Ce problème est résolu par [l’article 4019472 de la Base de connaissances](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) publié le 9 mai 2017. 
 
