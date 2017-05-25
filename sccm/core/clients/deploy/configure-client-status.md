@@ -79,7 +79,7 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
     > [!NOTE]  
     >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.  
 
-4.  Sous l’onglet **Alertes** de la boîte de dialogue **Propriétés de ***&lt;Nom du regroupement\>*, cliquez sur **Ajouter**.  
+4.  Sous l’onglet **Alertes** de la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*, cliquez sur **Ajouter**.  
 
     > [!NOTE]  
     >  L'onglet **Alertes** n'est visible que si le rôle de sécurité auquel vous êtes associé dispose d'autorisations pour les alertes.  
@@ -94,7 +94,7 @@ Afin de surveiller l’état du client System Center Configuration Manager et de
 
     -   **Déclencher l’alerte** – Spécifiez le pourcentage seuil pour l’alerte.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de ***&lt;Nom du regroupement\>*.  
+7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*.  
 
 ##  <a name="BKMK_3"></a> Pour exclure des ordinateurs de la résolution automatique  
 
