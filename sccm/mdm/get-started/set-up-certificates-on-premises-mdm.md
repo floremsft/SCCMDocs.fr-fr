@@ -164,7 +164,7 @@ La gestion des appareils mobiles locale System Center Configuration Manager exig
 
 6.  Dans l’Assistant Exportation de certificat, cliquez sur **Suivant**.  
 
-7.  Vérifiez que l’option **X.509 binaire encodé DER (*.cer)** est activée pour le format, puis cliquez sur **Suivant**.  
+7.  Vérifiez que l’option **X.509 binaire encodé DER (.cer)** est activée pour le format, puis cliquez sur **Suivant**.  
 
 8.  Pour le nom du fichier, cliquez sur **Parcourir...**, choisissez un emplacement pour enregistrer le fichier de certificat, nommez le fichier, puis cliquez sur **Enregistrer**.  
 
