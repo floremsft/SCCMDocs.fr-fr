@@ -27,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Avec la publication des versions de mise à jour pour la branche Current Branch de System Center Configuration Manager, de nouveaux scénarios sont apparus pour simplifier l’installation d’une nouvelle hiérarchie sur une version de mise à jour (par exemple, la mise à jour 1610), et pour opérer une mise à niveau à partir de Microsoft System Center 2012 Configuration Manager. 
+Avec la publication des versions de mise à jour pour la branche Current Branch de System Center Configuration Manager, de nouveaux scénarios sont apparus pour simplifier l’installation d’une nouvelle hiérarchie sur une version de mise à jour (par exemple, la mise à jour 1610), et pour opérer une mise à niveau à partir de Microsoft System Center 2012 Configuration Manager.
 
 Les scénarios pris en charge sont les suivants :  
 
@@ -113,9 +113,7 @@ Suivez l’ordre ci-dessous :
     -   Un site principal enfant installe automatiquement les mises à jour que vous installez sur un site d’administration centrale.  
     -   Les sites secondaires n’installent pas automatiquement les nouvelles versions. Vous devez les mettre à niveau manuellement dans la console.  
 
-   
-
-    Après cette étape, lorsque vous installez des mises à jour sur le site d’administration centrale, les sites principaux enfants n’installent ces mises à jour que lorsque leur fenêtre de maintenance les y autorise.  
+  Après cette étape, lorsque vous installez des mises à jour sur le site d’administration centrale, les sites principaux enfants n’installent ces mises à jour que lorsque leur fenêtre de maintenance les y autorise.  
 
 4.  **Installez la version de mise à jour sur votre site de niveau supérieur.** Cela a pour effet de mettre à jour votre site de niveau supérieur. Une fois qu’un site d’administration centrale a installé la version de mise à jour, chaque site principal enfant installe automatiquement cette mise à jour, à moins que l’installation soit bloquée par une fenêtre de maintenance.  
 
