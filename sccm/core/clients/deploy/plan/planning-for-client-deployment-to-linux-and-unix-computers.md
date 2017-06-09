@@ -248,7 +248,7 @@ Vous pouvez installer le client System Center Configuration Manager sur des ordi
 
  **Pare-feu exigences**: Assurez-vous que les pare-feu ne bloquent pas les communications sur les ports que vous spécifiez en tant que ports de demande client. Le client pour Linux et UNIX communique directement avec les points de gestion, les points de distribution et les points d’état de secours.  
 
- Pour plus d’informations sur les ports de demande et de communication client, consultez  [Configure the Client for Linux and UNIX to Locate Management Points](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
+ Pour plus d’informations sur les ports de demande et de communication client, consultez  [Configurer le client pour Linux et UNIX pour qu’il localise des points de gestion](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
 
 ##  <a name="BKMK_PlanningforCommunicationsforLnU"></a> Planification des communications entre les approbations de forêts pour les serveurs Linux et UNIX  
  Les serveurs Linux et UNIX que vous gérez avec Configuration Manager fonctionnent comme des clients de groupe de travail et nécessitent des configurations similaires à celles des clients Windows situés dans un groupe de travail. Pour plus d’informations sur les communications à partir d’ordinateurs qui se trouvent dans des groupes de travail, consultez la section [Communications dans les forêts Active Directory](../../../../core/plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest) dans la rubrique [Communications entre points de terminaison dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
