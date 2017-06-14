@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 132803a1aa9aad5c5462686bd656688418e47d07
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -55,7 +57,7 @@ Pour réduire les risques de défaillance d'un site, si les tâches de contrôle
 
 
 
-##  <a name="a-namebkmkmonintormgmttasksa-monitor--common-management-tasks-for-configuration-manager"></a><a name="BKMK_MonintorMgmtTasks"></a> Surveiller les tâches de gestion courantes pour Configuration Manager  
+##  <a name="BKMK_MonintorMgmtTasks"></a> Surveiller les tâches de gestion courantes pour Configuration Manager  
  Configuration Manager assure une surveillance intégrée à partir de la console Configuration Manager. Vous pouvez surveiller de nombreuses tâches, dont celles liées aux mises à jour logicielles, à la gestion de l'alimentation et au déploiement de contenu au sein de votre hiérarchie.  
 
  Utilisez les informations suivantes pour vous aider à surveiller les tâches Configuration Manager courantes :  
@@ -87,10 +89,10 @@ Consultez [Surveiller l’utilisation des applications avec le contrôle de logi
  Consultez [Surveiller les mises à jour logicielles dans System Center Configuration Manager](../../../sum/deploy-use/monitor-software-updates.md).  
 
 
-##  <a name="a-namebkmkmonitorinfrastructurea-monitor-hierarchy-infrastructure-for-configuration-manager"></a><a name="BKMK_MonitorInfrastructure"></a> Surveiller l’infrastructure de la hiérarchie pour Configuration Manager  
+##  <a name="BKMK_MonitorInfrastructure"></a> Surveiller l’infrastructure de la hiérarchie pour Configuration Manager  
 Configuration Manager fournit plusieurs méthodes pour surveiller l’état et les opérations de votre hiérarchie. Vous pouvez vérifier l'état du système des sites de la hiérarchie, surveiller la réplication intersite à partir d'une hiérarchie de site ou une vue géographique, surveiller les liens de réplication entre sites pour la réplication de base de données et utiliser l'outil Analyseur de lien de réplication pour corriger les problèmes de réplication.  
 
-###  <a name="a-namebkmkshnodea-about-the-site-hierarchy-node"></a><a name="BKMK_SH_Node"></a> À propos du nœud Hiérarchie de site  
+###  <a name="BKMK_SH_Node"></a> À propos du nœud Hiérarchie de site  
 Le nœud **Hiérarchie de site** de l’espace de travail **Surveillance** fournit une vue d’ensemble de votre hiérarchie Configuration Manager et des liens intersites. Vous pouvez utiliser deux vues :  
 
 -   **Diagramme hiérarchique**: Cette vue affiche votre hiérarchie comme une carte topologique qui a été simplifiée pour afficher uniquement les informations vitales.  
@@ -126,13 +128,13 @@ L'option suivante modifie la vue géographique.
 
      Lorsque vous spécifiez un emplacement, vous pouvez utiliser la zone **Emplacement** pour rechercher un site spécifique dans votre hiérarchie. Après avoir sélectionné le site, entrez l'emplacement sous forme de nom de ville ou d'adresse postale dans la colonne **Emplacement** . Configuration Manager utilise Bing Maps pour résoudre l’emplacement.  
 
-###  <a name="a-namebkmkmonitorreplinksandstatussa-how-to-monitor-database-replication-links-and-replication-status"></a><a name="BKMK_MonitorRepLinksAndStatuss"></a> Comment surveiller des liens de réplication de la base de données et l’état de la réplication  
+###  <a name="BKMK_MonitorRepLinksAndStatuss"></a> Comment surveiller des liens de réplication de la base de données et l’état de la réplication  
  En plus des détails approfondis accessibles à partir du nœud **Hiérarchie de site** de l’espace de travail **Surveillance** , vous pouvez également surveiller les détails de la réplication de la base de données quand vous utilisez le nœud **Réplication de la base de données** de l’espace de travail **Surveillance** . À partir de **Réplication de la base de données**, vous pouvez surveiller l’état des liens de réplication entre les sites, ainsi que les détails de l’initialisation et de la réplication des groupes de réplication sur le site auquel votre console Configuration Manager est connectée.  
 
 > [!TIP]  
 >  Un nœud **Réplication de la base de données** apparaît également sous le nœud **Configuration de la hiérarchie** dans l'espace de travail **Administration** , mais vous ne pouvez pas afficher l'état de réplication des liens de réplication de la base de données à partir de cet emplacement.  
 
-####  <a name="a-namebkmkmonitorreplicationlinksa-replication-link-status"></a><a name="BKMK_MonitorReplicationLinks"></a> État des liens de réplication  
+####  <a name="BKMK_MonitorReplicationLinks"></a> État des liens de réplication  
 La réplication de base de données entre sites implique la réplication de plusieurs ensembles d'informations, appelés groupes de réplication. Chaque groupe de réplication est répliqué avec différentes priorités de réplication. Par défaut, les données contenues dans un groupe de réplication et la fréquence de réplication ne peuvent pas être modifiées.  
 
  Lorsqu'un lien de réplication est actif et ne présente pas un état en échec ou détérioré, tous les groupes de réplication répliquent dans un délai raisonnable. Si un ou plusieurs groupes de réplication ne parviennent pas à répliquer dans le délai prévu, le lien s'affiche comme détérioré. Les liens détériorés continuent de fonctionner, mais envisagez de les surveiller pour vous assurer qu'ils repassent à l'état actif ou vérifiez-les pour vous assurer qu'ils ne se détériorent pas davantage et que la réplication n'échoue pas.  
@@ -149,7 +151,7 @@ La réplication de base de données entre sites implique la réplication de plus
 
  Pendant le processus de mise à niveau d'un site parent vers un nouveau Service Pack, l'état du lien s'affiche comme étant actif si vous l'affichez à partir du site enfant. Après la mise à niveau et jusqu'à la mise à niveau du site enfant vers le même Service Pack que le site parent, l'état du lien s'affiche comme étant actif depuis le site parent et comme étant en cours de configuration depuis le site enfant.  
 
-####  <a name="a-namebkmkmonitorreplicationstatusa-replication-status"></a><a name="BKMK_MonitorReplicationStatus"></a> État de la réplication  
+####  <a name="BKMK_MonitorReplicationStatus"></a> État de la réplication  
  Vous pouvez utiliser le nœud **Réplication de la base de données** dans l'espace de travail **Surveillance** pour afficher l'état de réplication d'un lien de réplication et afficher des détails sur la base de données de site sur chaque site se trouvant sur le lien de réplication. Vous pouvez également afficher des détails sur les groupes de réplication. Pour afficher les détails, sélectionnez un lien de réplication, puis sélectionnez l'onglet correspondant à l'état de réplication à afficher. Le tableau suivant fournit des détails sur les différents onglets relatifs à l’état de la réplication.  
 
  **Résumé**  
@@ -190,7 +192,7 @@ La réplication de base de données entre sites implique la réplication de plus
 > [!TIP]  
 >  Les groupes de réplication de données de site sont envoyés uniquement à partir du site enfant vers le site parent. Les groupes de réplication pour les données globales sont répliqués dans les deux directions.  
 
-###  <a name="a-namebkmkrlaa-about-the-replication-link-analyzer"></a><a name="BKMK_RLA"></a> À propos de l'analyseur de lien de réplication  
+###  <a name="BKMK_RLA"></a> À propos de l'analyseur de lien de réplication  
  Configuration Manager inclut l’**analyseur de lien de réplication** que vous utilisez pour analyser et réparer les problèmes de réplication. Vous pouvez utiliser l'analyseur de lien de réplication pour corriger les échecs de lien de réplication en cas d'échec de la réplication et lorsque la réplication cesse de fonctionner mais n'a pas encore été signalée comme ayant échoué. L’analyseur de lien de réplication peut être utilisé pour corriger les problèmes de réplication entre les ordinateurs suivants dans la hiérarchie Configuration Manager (la direction de l’échec de réplication n’a aucune importance) :  
 
 -   Entre un serveur de site et le serveur de base de données de site.  
@@ -229,7 +231,7 @@ Les actions de recherche et de correction ayant réussi et celles ayant échoué
 
 -   Avec la version 1511 de System Center Configuration Manager, l’analyseur de lien de réplication génère des erreurs de certificat SQL Server Service Broker pour les sites principaux mis à niveau à partir de System Center 2012 Configuration Manager. Ces erreurs sont dues à des modifications des noms des certificats introduits dans la version 1511 pour lesquels l’analyseur de lien de réplication n’a pas encore été mis à jour. Vous pouvez ignorer ces erreurs sans risque.  
 
-###  <a name="a-namebkmkprocsformonitoringreplicationa-procedures-for-monitoring-database-replication"></a><a name="BKMK_ProcsforMonitoringReplication"></a> Procédures de surveillance de la réplication de la base de données  
+###  <a name="BKMK_ProcsforMonitoringReplication"></a> Procédures de surveillance de la réplication de la base de données  
 
 ##### <a name="to-monitor-high-level-site-to-site-database-replication-status"></a>Pour surveiller l'état de réplication de base de données entre sites de niveau élevé    
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
@@ -242,9 +244,4 @@ Les actions de recherche et de correction ayant réussi et celles ayant échoué
 1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
 2.  Dans l'espace de travail **Surveillance** , cliquez sur **Réplication de la base de données**, puis sélectionnez le lien de réplication pour le lien que vous souhaitez surveiller. Ensuite, dans l'espace de travail, sélectionnez l'onglet approprié pour afficher différents détails sur l'état de la réplication de ce lien.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
