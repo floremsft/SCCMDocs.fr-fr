@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6e8a18a8fc705c993177b3c5b4113a351a45a4
 ms.openlocfilehash: 36f7c37e4da3f2bce64a25d266dae57d9fe98c36
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 36f7c37e4da3f2bce64a25d266dae57d9fe98c36
 
 Utilisez les listes de contrôle de l’administrateur suivantes pour vous aider à planifier votre stratégie de migration vers System Center Configuration Manager.
 
-##  <a name="a-namechecklistmigraitonplanninga-administrator-checklist-for-migration-planning"></a><a name="Checklist_Migraiton_Planning"></a> Liste de contrôle de l’administrateur pour la planification de la migration  
+##  <a name="Checklist_Migraiton_Planning"></a> Liste de contrôle de l’administrateur pour la planification de la migration  
  Pour les étapes de planification de la prémigration, utilisez la liste de vérification suivante :  
 
 -   **Évaluez l’environnement actuel :**  
@@ -76,7 +78,7 @@ Utilisez les listes de contrôle de l’administrateur suivantes pour vous aider
 
     Décidez à quel moment les objets et les clients seront migrés. Au terme de la migration, vous pouvez envisager de retirer les serveurs de site de la hiérarchie source.  
 
-##  <a name="a-namechecklisthierarchyformigrationa-administrator-checklist-for-hierarchy-migration"></a><a name="Checklist_Hierarchy_for_migration"></a> Liste de contrôle de l’administrateur pour la migration de la hiérarchie  
+##  <a name="Checklist_Hierarchy_for_migration"></a> Liste de contrôle de l’administrateur pour la migration de la hiérarchie  
 Utilisez la liste de vérification suivante pour faciliter la planification d'une hiérarchie de destination avant une migration.  
 
 -   **Identifiez les ordinateurs à utiliser dans la hiérarchie de destination :**  
@@ -113,7 +115,7 @@ Utilisez la liste de vérification suivante pour faciliter la planification d'un
     -   Vérifiez que les clients Configuration Manager que vous installez dans la hiérarchie de destination peuvent communiquer avec le site qui leur a été affecté.  
 
 
-##  <a name="a-namechecklisitmigrationa-administrator-checklist-for-migration"></a><a name="Checklisit_Migration"></a> Liste de contrôle de l’administrateur pour la migration  
+##  <a name="Checklisit_Migration"></a> Liste de contrôle de l’administrateur pour la migration  
 Utilisez la liste de vérification suivante pour migrer les données de la hiérarchie source vers la hiérarchie de destination.  
 
 -   **Activez la migration dans la hiérarchie de destination :**  
@@ -163,10 +165,5 @@ Utilisez la liste de vérification suivante pour migrer les données de la hiér
 
 -   **Terminez la migration :**  
 
-    Une fois que vous avez migré les données et les clients de tous les sites de la hiérarchie source et que vous avez mis à niveau les points de distribution concernés, vous pouvez terminer la migration. Pour cela, vous arrêtez la collecte de données pour tous les sites source de la hiérarchie source. Vous pouvez ensuite supprimer toutes les informations de migration dont vous n'avez pas besoin et retirer l'infrastructure de votre hiérarchie source. Pour plus d’informations, voir [Planification d’une migration complète vers System Center&2012; Configuration Manager](../../core/migration/planning-to-complete-migration.md).  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
+    Une fois que vous avez migré les données et les clients de tous les sites de la hiérarchie source et que vous avez mis à niveau les points de distribution concernés, vous pouvez terminer la migration. Pour cela, vous arrêtez la collecte de données pour tous les sites source de la hiérarchie source. Vous pouvez ensuite supprimer toutes les informations de migration dont vous n'avez pas besoin et retirer l'infrastructure de votre hiérarchie source. Pour plus d’informations, voir [Planification d’une migration complète vers System Center 2012 Configuration Manager](../../core/migration/planning-to-complete-migration.md).  
 

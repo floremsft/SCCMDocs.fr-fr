@@ -15,9 +15,11 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f9c43e26758d5171a6ef56e827b4b054ebc8a5e5
 ms.openlocfilehash: c7ad33339e65e6e00e88f98d6e13baceb98dae77
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/30/2016
 
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
@@ -35,9 +37,9 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 -   [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
 
-Les numéros de support suivants sont basés sur l’utilisation du matériel recommandé pour Configuration Manager et les paramètres par défaut pour toutes les fonctionnalités disponibles de Configuration Manager. Si vous n’utilisez pas le matériel recommandé ou utilisez des paramètres personnalisés plus agressifs (par exemple, que vous exécutez l’inventaire matériel ou logiciel plus d’une fois tous les&7; jours, ce qui est la valeur par défaut), les performances des systèmes de site peuvent être réduites et ne pas atteindre les niveaux de support indiqués.
+Les numéros de support suivants sont basés sur l’utilisation du matériel recommandé pour Configuration Manager et les paramètres par défaut pour toutes les fonctionnalités disponibles de Configuration Manager. Si vous n’utilisez pas le matériel recommandé ou utilisez des paramètres personnalisés plus agressifs (par exemple, que vous exécutez l’inventaire matériel ou logiciel plus d’une fois tous les 7 jours, ce qui est la valeur par défaut), les performances des systèmes de site peuvent être réduites et ne pas atteindre les niveaux de support indiqués.
 
-##  <a name="a-namebkmksitesystemscalea-site-types"></a><a name="bkmk_SiteSystemScale"></a> Types de sites  
+##  <a name="bkmk_SiteSystemScale"></a> Types de sites  
  **Site d’administration centrale :**  
 
 -   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
@@ -67,7 +69,7 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
 
     -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
 
-## <a name="a-namebkmkrolesa-site-system-roles"></a><a name="bkmk_roles"></a> Rôles système de site    
+## <a name="bkmk_roles"></a> Rôles système de site    
 
 **Point de service web du catalogue des applications :**  
 
@@ -125,10 +127,10 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
 
 -   Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Toutefois, vous pouvez utiliser le kit SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster NLB.  
 
-##  <a name="a-namebkmkclientnumbersa-client-numbers-for-sites-and-hierarchies"></a><a name="bkmk_clientnumbers"></a> Nombres de clients pour les hiérarchies et les sites  
+##  <a name="bkmk_clientnumbers"></a> Nombres de clients pour les hiérarchies et les sites  
  Utilisez les informations suivantes pour déterminer le nombre de clients et leurs types que vous pouvez prendre en charge sur un site ou dans une hiérarchie.  
 
-###  <a name="a-namebkmkcasa-hierarchy-with-a-central-administration-site"></a><a name="bkmk_cas"></a> Hiérarchie avec un site d’administration centrale  
+###  <a name="bkmk_cas"></a> Hiérarchie avec un site d’administration centrale  
 Un site d’administration centrale prend en charge un nombre total d’appareils pouvant atteindre le nombre d’appareils répertoriés pour les trois groupes suivants :  
 
 -   700 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
@@ -147,17 +149,17 @@ Un site d’administration centrale prend en charge un nombre total d’appareil
 >  Une hiérarchie où le site d’administration centrale utilise une édition Standard de SQL Server prend en charge un maximum de 50 000 ordinateurs de bureau et appareils. L’édition de SQL Server utilisée sur un site principal autonome ne limite pas la capacité du site consistant à prendre en charge au maximum le nombre indiqué de clients.  
 
 
-###  <a name="a-namebkmkchipria-child-primary-site"></a><a name="bkmk_chipri"></a> Site principal enfant  
+###  <a name="bkmk_chipri"></a> Site principal enfant  
 Chaque site principal enfant dans une hiérarchie avec un site d’administration centrale prend en charge les éléments suivants :  
 
--   Un total de&150; 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie.  
+-   Un total de 150 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie.  
 
 Par exemple, un site principal qui prend en charge 25 000 ordinateurs exécutant des clients Mac et Windows CE 7.0 (la limite d’une hiérarchie) peut prendre en charge 125 000 ordinateurs de bureau supplémentaires. Le nombre total d’appareils pris en charge atteint alors la limite maximale de 150 000 prise en charge par le site principal enfant.
 
-###  <a name="a-namebkmkpria-stand-alone-primary-site"></a><a name="bkmk_pri"></a> Site principal autonome  
+###  <a name="bkmk_pri"></a> Site principal autonome  
 Un site principal autonome prend en charge le nombre suivant d’appareils :  
 
--   Total de&175; 000 clients et appareils, sans dépasser :  
+-   Total de 175 000 clients et appareils, sans dépasser :  
 
     -   150 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
 
@@ -167,19 +169,19 @@ Un site principal autonome prend en charge le nombre suivant d’appareils :
 
         -   50 000 appareils que vous gérez à l’aide de la gestion MDM locale  
 
-        -   150&000; appareils cloud  
+        -   150 000 appareils cloud  
 
 Par exemple, un site principal autonome prenant en charge 150 000 ordinateurs de bureau et 10 000 clients Mac ou Windows CE 7.0 ne peut prendre en charge que 15 000 appareils supplémentaires. Ces appareils peuvent être basés sur le cloud ou gérés à l’aide de la gestion MDM locale.  
 
-###  <a name="a-namebkmkseca-secondary-sites"></a><a name="bkmk_sec"></a> Sites secondaires  
+###  <a name="bkmk_sec"></a> Sites secondaires  
 Les sites secondaires prennent en charge les éléments suivants :  
 
 -   15 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
 
-###  <a name="a-namebkmkmpa-management-points"></a><a name="bkmk_mp"></a> Points de gestion  
+###  <a name="bkmk_mp"></a> Points de gestion  
 Chaque point de gestion peut prendre en charge le nombre suivant d’appareils :  
 
--   Total de&25; 000 clients et appareils, sans dépasser :  
+-   Total de 25 000 clients et appareils, sans dépasser :  
 
     -   25 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
 
@@ -188,9 +190,4 @@ Chaque point de gestion peut prendre en charge le nombre suivant d’appareils 
         -   10 000 appareils que vous gérez à l’aide de la gestion MDM locale  
 
         -   10 000 appareils exécutant des clients Mac et Windows CE 7.0
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

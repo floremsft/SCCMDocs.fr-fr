@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a8959c72608a1531fb323176c33a848a4a669b1c
 ms.openlocfilehash: dface33392c2a2a662522656eabf0936b52b28fc
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -42,7 +44,7 @@ Tenez compte des points suivants quand vous planifiez votre stratégie de migrat
 
 -   Vous pouvez déplacer des données de plusieurs sites sources vers un seul site dans la hiérarchie de destination.  
 
-##  <a name="a-namebkmkmigrationconceptsa-concepts-for-migration"></a><a name="BKMK_MigrationConcepts"></a> Concepts de migration  
+##  <a name="BKMK_MigrationConcepts"></a> Concepts de migration  
  Vous pouvez rencontrer les concepts et les termes suivants quand vous utilisez la migration.  
 
 |Concept ou terme|Plus d'informations|  
@@ -56,7 +58,7 @@ Tenez compte des points suivants quand vous planifiez votre stratégie de migrat
 |Points de distribution partagés|Points de distribution de la hiérarchie source qui sont partagés avec la hiérarchie de destination tout au long de la période de migration.<br /><br /> Pendant la période de migration, les clients attribués aux sites de la hiérarchie de destination peuvent obtenir du contenu auprès des points de distribution partagés.<br /><br /> Pour plus d’informations, consultez [Partager des points de distribution entre une hiérarchie source et une hiérarchie de destination](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) dans [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).|  
 |Surveillance de la migration|Processus de surveillance des activités de migration. Vous surveillez la progression de la migration et son bon déroulement à partir du nœud **Migration** de l’espace de travail **Administration**.<br /><br /> Pour plus d’informations, consultez [Planification de la surveillance de la migration dans System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md).|  
 |Arrêter la collecte de données|Processus consistant à arrêter la collecte de données auprès des sites source. Quand vous n’avez plus de données à migrer à partir d’une hiérarchie source, ou si vous voulez suspendre les activités liées à la migration, vous pouvez configurer la hiérarchie de destination pour arrêter la collecte de données à partir de la hiérarchie source.<br /><br /> Pour plus d’informations, consultez [Collecte de données](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) dans [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Nettoyer les données de migration|Processus de finalisation de la migration à partir d'une hiérarchie source en supprimant les informations relatives à la migration à partir de la base de données des hiérarchies de destination.<br /><br /> Pour plus d’informations, voir [Planification d’une migration complète vers System Center&2012; Configuration Manager](../../core/migration/planning-to-complete-migration.md).|  
+|Nettoyer les données de migration|Processus de finalisation de la migration à partir d'une hiérarchie source en supprimant les informations relatives à la migration à partir de la base de données des hiérarchies de destination.<br /><br /> Pour plus d’informations, voir [Planification d’une migration complète vers System Center 2012 Configuration Manager](../../core/migration/planning-to-complete-migration.md).|  
 
 ## <a name="typical-workflow-for-migration"></a>Flux de travail standard de migration  
 Pour configurer un flux de travail standard de migration :
@@ -75,7 +77,7 @@ Pour configurer un flux de travail standard de migration :
 
 Après avoir migré les données d’une hiérarchie source Configuration Manager que vous n’utiliserez plus pour gérer votre environnement, vous pouvez désactiver cette hiérarchie source et son infrastructure.  
 
-##  <a name="a-namebkmkmigrationscenariosa-migration-scenarios"></a><a name="BKMK_MigrationScenarios"></a> Scénarios de migration  
+##  <a name="BKMK_MigrationScenarios"></a> Scénarios de migration  
  Configuration Manager prend en charge les scénarios de migration ci-suivants.  
 
 > [!NOTE]  
@@ -110,9 +112,4 @@ Après avoir migré les données d’une hiérarchie source Configuration Manage
 
 ## <a name="see-also"></a>Voir aussi  
  [Commencer à utiliser System Center Configuration Manager](../../core/servers/deploy/start-using.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
