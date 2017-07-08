@@ -1,8 +1,8 @@
 ---
 title: "Installer l’éditeur de mise à jour | Microsoft Docs"
-description: "Installer l&quot;éditeur de mise à jour System Center"
+description: "Installer l'éditeur de mise à jour System Center"
 ms.custom: na
-ms.date: 4/29/2017
+ms.date: 07/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
-ms.openlocfilehash: 996766d0bd9ab2a3acb1970414f0ae511d97fbff
+ms.sourcegitcommit: 70772ba7d08560aa66abcce29dc6cc6334aa2032
+ms.openlocfilehash: 63ea0383497a3f06870c0907c732010259d1a809
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/03/2017
 
 ---
 # <a name="install-updates-publisher"></a>Installer l'éditeur de mise à jour
@@ -119,7 +119,7 @@ Comme ce dossier contient tous les fichiers nécessaires pour utiliser l’édit
 Une fois l’installation terminée, exécutez le fichier **UpdatesPublisher.exe** depuis le dossier *UpdatesPublisher* pour démarrer l’éditeur de mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
- Après avoir installé l’éditeur de mise à jour, nous vous recommandons de [configurer ses options](/tools/updates-publisher-options). Vous devez configurer quelques options avant de pouvoir utiliser certaines fonctionnalités de l’éditeur de mise à jour.
+ Après avoir installé l’éditeur de mise à jour, nous vous recommandons de [configurer ses options](updates-publisher-options.md). Vous devez configurer quelques options avant de pouvoir utiliser certaines fonctionnalités de l’éditeur de mise à jour.
 
- Toutefois, si vous souhaitez utiliser les valeurs par défaut et n’envisagez pas de déployer des mises à jour sur un serveur de mise à jour ou sur des appareils gérés, vous pouvez passer directement à la [gestion des catalogues de mises à jour logicielles](/tools/updates-publisher-catalogs) ou à la [création de mises à jour logicielles](/tools/create-updates-with-updates-publisher) et créer vos propres catalogues de mises à jour.
+ Toutefois, si vous souhaitez utiliser les valeurs par défaut et n’envisagez pas de déployer des mises à jour sur un serveur de mise à jour ou sur des appareils gérés, vous pouvez passer directement à la [gestion des catalogues de mises à jour logicielles](updates-publisher-catalogs.md) ou à la [création de mises à jour logicielles](create-updates-with-updates-publisher.md) et créer vos propres catalogues de mises à jour.
 
