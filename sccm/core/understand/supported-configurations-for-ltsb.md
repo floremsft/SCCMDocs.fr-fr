@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
-ms.openlocfilehash: ec33d5febcbf7b57e220f7fe27db9671080fecff
+ms.sourcegitcommit: b0ba955aa7f854c3fa2c06ccf9ccd8ed354758b0
+ms.openlocfilehash: 31bddee83b2365cfa903077ffaa1d7116b194378
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ En outre, les produits et versions de produits non répertoriés dans les rubriq
 **Windows :**
 - Seules les mises à jour de qualité et de sécurité pour Windows sont prises en charge.
 - Aucune prise en charge n’est ajoutée pour les branches CB (Current Branch), CBB (Current Branch For Business) ou LTSB de Windows 10.
--    Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de Windows Server.
+-   Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de Windows Server.
 
 **SQL Server :**
 - Seules les mises à jour de qualité et de sécurité, ou les mises à niveau mineures comme les Service Packs, sont prises en charge pour SQL Server.
@@ -51,6 +51,7 @@ LTSB prend en charge l’utilisation des systèmes d’exploitation Windows suiv
 
 **Systèmes d’exploitation pris en charge** :
 - Windows Server 2016
+- Windows Server 2012 R2 (x64) : Standard, Datacenter
 - Windows Server 2012 (x64) : Standard, Datacenter
 - Windows Server 2008 R2 avec SP1 (x64) : Standard, Entreprise, Datacenter
 - Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise, Datacenter *(voir la remarque 1)*

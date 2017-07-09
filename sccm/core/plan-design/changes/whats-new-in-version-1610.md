@@ -16,10 +16,10 @@ ms.author: brenduns
 manager: angrobe
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 831d8a66c827d246069c7415cdce7a7c4bb95b33
-ms.openlocfilehash: 19e3099773f887129374413482702de3f4b0a36f
+ms.sourcegitcommit: db673277d1cc2d24e8dba2439b2b1891c883ebd0
+ms.openlocfilehash: 8b80f4d14eafa4cbbfb083178a118bc0e71f4019
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>Nouveautés dans la version 1610 de System Center Configuration Manager
@@ -143,7 +143,7 @@ Si vous configurez une période de grâce de mise en œuvre et cochez la case, u
 
 
 ## <a name="improved-functionality-in-dialog-boxes-about-required-software"></a>Fonctionnalités améliorées dans les boîtes de dialogue concernant les logiciels exigés
-Quand un utilisateur reçoit des logiciels exigés, dans le paramètre **Répéter et me le rappeler**, il peut choisir parmi les valeurs suivantes de la liste déroulante : 
+Quand un utilisateur reçoit des logiciels requis, dans le paramètre **Répéter et me le rappeler :**, il peut choisir parmi les valeurs suivantes de la liste déroulante : 
 - **Ultérieurement**. Indique que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
 - **Heure fixe**. Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée (par exemple, dans les 30 minutes).
 
