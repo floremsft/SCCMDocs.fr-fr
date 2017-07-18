@@ -15,27 +15,28 @@ caps.latest.revision: 13
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 288a4c649f371d9701fe7249449356aa222bf372
-ms.openlocfilehash: 35f04e237efffbdb12893f658950a99dc0b98b85
+ms.translationtype: HT
+ms.sourcegitcommit: 1035dbbf944a3a467d637a4a948a75b0946eb711
+ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Mettre à niveau Windows vers la dernière version avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Cette rubrique indique les étapes à suivre dans System Center Configuration Manager pour mettre à niveau un système d’exploitation sur un ordinateur depuis Windows 7 ou version ultérieure vers Windows 10. Vous pouvez choisir parmi différentes méthodes de déploiement, telles qu’un média autonome ou le Centre logiciel. Le scénario de mise à niveau sur place vers Windows 10 :  
+Cette rubrique indique les étapes à suivre dans System Center Configuration Manager pour mettre à niveau un système d’exploitation sur un ordinateur depuis Windows 7 ou version ultérieure vers Windows 10, ou depuis Windows Server 2012 vers Windows Server 2016, sur un ordinateur de destination. Vous pouvez choisir parmi différentes méthodes de déploiement, telles qu’un média autonome ou le Centre logiciel. Le scénario de mise à niveau sur place :  
 
--   Met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement Windows 7, Windows 8 ou Windows 8.1. Vous pouvez également effectuer des mises à niveau de build à build de Windows 10. Par exemple, vous pouvez mettre à niveau Windows 10 RTM vers Windows 10 version 1511.  
+-   Met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement :
+    - Windows 7, Windows 8 ou Windows 8.1. Vous pouvez également effectuer des mises à niveau de build à build de Windows 10. Par exemple, vous pouvez mettre à niveau Windows 10 RTM vers Windows 10 version 1511.  
+    - Windows Server 2012. Vous pouvez également effectuer des mises à niveau de build à build de Windows Server 2016. Pour plus d’informations sur les options de mise à niveau prises en charge, consultez [Options de mise à niveau prises en charge](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths#upgrading-previous-retail-versions-of-windows-server-to-windows-server-2016).    
 
 -   Conserve les applications, les paramètres et les données utilisateur sur l’ordinateur.  
 
 -   N’a aucune dépendance externe, telles que Windows ADK.  
 
--   Est généralement plus rapide et plus fiable que les déploiements de système d’exploitation traditionnels.  
+-   Est plus rapide et plus fiable que les déploiements de système d'exploitation traditionnels.  
 
  Suivez les sections ci-dessous pour déployer des systèmes d’exploitation sur le réseau à l’aide d’une séquence de tâches.  
 
@@ -65,17 +66,17 @@ Cette rubrique indique les étapes à suivre dans System Center Configuration Ma
 
 1.  **Préparer le package de mise à niveau de système d’exploitation**  
 
-     Le package de mise à niveau Windows 10 contient les fichiers sources nécessaires pour mettre à niveau le système d’exploitation sur l’ordinateur de destination. Le package de mise à niveau doit être de la même édition, architecture et langue que les clients que vous mettrez à niveau.  Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
+     Le package de mise à niveau Windows 10 contient les fichiers sources nécessaires pour mettre à niveau le système d’exploitation sur l’ordinateur de destination. Le package de mise à niveau doit être de la même édition, architecture et langue que les clients que vous mettez à niveau.  Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
 
 2.  **Créer une séquence de tâches pour mettre à niveau le système d’exploitation**  
 
      Utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour automatiser la mise à niveau du système d’exploitation.  
 
-    > [IMPORTANT] Quand vous utilisez un média autonome, vous devez inclure une image de démarrage dans la séquence de tâches pour qu’elle soit disponible dans l’Assistant Création d’un média de séquence de tâches.
-
+    > [!IMPORTANT]
+    > Quand vous utilisez un support autonome, vous devez inclure une image de démarrage dans la séquence de tâches pour qu’elle soit disponible dans l’Assistant Support de séquence de tâches.
 
     > [!NOTE]  
-    >  En général, vous utiliserez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour créer une séquence de tâches pour mettre à niveau un système d’exploitation Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
+    > En général, vous utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) afin de créer une séquence de tâches pour mettre à niveau un système d’exploitation vers Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
 
 ##  <a name="BKMK_Deploy"></a> Déployer  
 

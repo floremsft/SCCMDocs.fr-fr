@@ -15,11 +15,11 @@ caps.latest.revision: 6
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 27a92dc1c3710ff55f0b145386319dda371533d9
-ms.openlocfilehash: d3b20a59a9147e09e58f04f83f97fd72ebfef5a1
+ms.translationtype: HT
+ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
+ms.openlocfilehash: 3bfb7364c3de5264a5fa8a684965d9aebeb84719
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
@@ -48,7 +48,8 @@ Les actions de déploiement suivantes sont prises en charge :
 
 |Type d'appareil|Actions prises en charge|
 |-|-|
-|Android|**Disponible**, **Obligatoire**. L’utilisateur doit donner son consentement pour l’installation et la désinstallation.
+|Android|**Disponible**, **Obligatoire** L’utilisateur doit donner son consentement pour l’installation et la désinstallation.|
+|Android for Work | **Obligatoire** |
 
 ## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
 En tant qu’administrateur de Configuration Manager, vous pouvez également approuver et déployer des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
