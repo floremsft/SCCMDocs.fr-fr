@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
-ms.openlocfilehash: f791278b0aa8efc734a894da7dab1704bb567ed0
+ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
+ms.openlocfilehash: 26356a80bd8c78d4517253bae73e53d8d8f3a73a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -81,7 +81,7 @@ Pour installer la branche LTSB sous la forme d’un nouveau site ou d’une mise
 > [!TIP]  
 > Pour en savoir plus sur System Center 2016, consultez la [documentation de System Center 2016](https://technet.microsoft.com/system-center-docs/system-center). Cette documentation indique également comment obtenir System Center 2016, qui requiert un contrat de licence Microsoft ou des droits similaires.
 
-> Pour rechercher la version 1606 de System Center Configuration Manager dans le Centre de gestion des licences en volume (VLSC), accédez à l’onglet **Téléchargements et clés** du centre [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), recherchez « system center config », puis sélectionnez **System Center Config Mgr (Current Branch et LTSB 1606)**.
+> Pour rechercher la version 1606 de System Center Configuration Manager dans le Centre de gestion des licences en volume (VLSC), accédez à l’onglet **Téléchargements et clés** du centre [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), recherchez « system center config », puis sélectionnez **System Center Config Mgr (Current Branch et LTSB)**.
 
 > Vous pouvez également obtenir une version d’évaluation de System Center 2016 à partir du site [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-system-center-technical-preview).
 

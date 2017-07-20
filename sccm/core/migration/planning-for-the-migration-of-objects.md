@@ -16,9 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 45931f60273f3130cca36320770126a36dcc3d1e
-ms.openlocfilehash: 9870ffa6ae5f80db823bfc74a7cc2e67fc8cf21d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
+ms.openlocfilehash: 17f3955aa7c63a13bab03b46002f7de0b0ec38fe
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -48,7 +50,7 @@ Avec System Center Configuration Manager, vous pouvez migrer de nombreux objets 
 
 -   [Planifier la migration des personnalisations des règles de contrôle de logiciel](#Plan_Migrate_SWM_Rules)  
 
-##  <a name="a-nameplanmigratesoftwareupdatesa-plan-to-migrate-software-updates"></a><a name="Plan_migrate_Software_updates"></a> Planifier la migration des mises à jour logicielles  
+##  <a name="Plan_migrate_Software_updates"></a> Planifier la migration des mises à jour logicielles  
  Vous pouvez migrer des objets de mise à jour logicielle, comme des packages de mise à jour logicielle et les déploiements de mise à jour logicielle.  
 
  Pour migrer des objets de mise à jour logicielle, vous devez d’abord configurer votre hiérarchie de destination avec des configurations qui correspondent à l’environnement de votre hiérarchie source. Pour cela, vous devez exécuter les actions suivantes :  
@@ -79,7 +81,7 @@ Quand vous migrez depuis une hiérarchie source Configuration Manager 2007, le 
 
 Quand vous migrez des objets à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, les objets de mise à jour logicielle ne sont pas modifiés.  
 
-##  <a name="a-nameplanmigratecontenta-plan-to-migrate-content"></a><a name="Plan_Migrate_content"></a> Planifier la migration du contenu  
+##  <a name="Plan_Migrate_content"></a> Planifier la migration du contenu  
  Vous pouvez migrer du contenu d'une hiérarchie source prise en charge vers votre hiérarchie de destination. Pour une hiérarchie source Configuration Manager 2007, ce contenu comprend des programmes et des packages de distribution de logiciels, ainsi que des applications virtuelles, comme Microsoft Application Virtualization (App-V). Pour les hiérarchies sources System Center 2012 Configuration Manager et System Center Configuration Manager, ce contenu inclut des applications et des applications virtuelles App-V. Quand vous migrez du contenu entre des hiérarchies, les fichiers sources compressés sont migrés vers la hiérarchie de destination.  
 
 ### <a name="packages-and-programs"></a>Packages et programmes  
@@ -121,12 +123,12 @@ Vous pouvez migrer des publications d’un site source Configuration Manager 20
 ### <a name="applications"></a>Applications  
  Vous pouvez migrer des applications depuis une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager prise en charge vers une hiérarchie de destination. Si vous réattribuez un client de la hiérarchie source à la hiérarchie de destination, le client conserve l'historique des applications installée précédemment pour éviter qu'il réexécute une application migrée.  
 
-##  <a name="a-namebkmkmigratecollectionsa-plan-to-migrate-collections"></a><a name="BKMK_MigrateCollections"></a> Planifier la migration des regroupements  
+##  <a name="BKMK_MigrateCollections"></a> Planifier la migration des regroupements  
  Vous pouvez migrer les critères des regroupements d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager prise en charge. Pour ce faire, vous utilisez une tâche de migration basée sur un objet. Lorsque vous migrez un regroupement, vous migrez les règles du regroupement et non les informations sur les membres du regroupement ni les informations ou les objets associés aux membres du regroupement.  
 
  La migration de l’objet de regroupement n’est pas prise en charge quand vous effectuez une migration à partir d’une hiérarchie source Configuration Manager 2007.  
 
-##  <a name="a-nameplanmigrateosda-plan-to-migrate-operating-system-deployments"></a><a name="Plan_migrate_OSD"></a> Planifier la migration de déploiements de systèmes d’exploitation  
+##  <a name="Plan_migrate_OSD"></a> Planifier la migration de déploiements de systèmes d’exploitation  
 Vous pouvez migrer les objets de déploiement de système d'exploitation suivants à partir d'une hiérarchie source pris en charge :  
 
 -   Images et packages de système d'exploitation Le chemin source des images de démarrage est remplacé par l’emplacement de l’image par défaut pour le kit Windows AIK (Windows Administrative Installation Kit) sur le site de destination. Vous trouverez ci-dessous les exigences et les restrictions liées à la migration d'images et de packages de système d'exploitation :  
@@ -142,9 +144,9 @@ Vous pouvez migrer les objets de déploiement de système d'exploitation suivant
     > [!NOTE]  
     >  Quand vous migrez une séquence de tâches, Configuration Manager peut migrer des objets qui ne sont pas nécessaires dans la hiérarchie de destination. Ces objets incluent les images de démarrage et les packages d’installation du client Configuration Manager 2007.  
 
--   Pilotes et packages de pilotes  
+-   Pilotes et packages de pilotes Lorsque vous migrez des packages de pilotes, le compte d’ordinateur du fournisseur SMS dans la hiérarchie de destination doit avoir un contrôle total sur la source du package.
 
-##  <a name="a-nameplanmigratecompliancesettingsa-plan-to-migrate-desired-configuration-management"></a><a name="Plan_Migrate_Compliance_settings"></a> Planifier la migration de la gestion de configuration souhaitée  
+##  <a name="Plan_Migrate_Compliance_settings"></a> Planifier la migration de la gestion de configuration souhaitée  
 Vous pouvez migrer des éléments de configuration et des lignes de base de configuration.  
 
 > [!NOTE]  
@@ -152,14 +154,14 @@ Vous pouvez migrer des éléments de configuration et des lignes de base de conf
 
 Vous pouvez importer les packs de configuration Configuration Manager 2007. Le processus d’importation convertit automatiquement les packs de configuration pour qu’ils soient compatibles avec System Center Configuration Manager.  
 
-##  <a name="a-nameplanmigrateboundariesa-plan-to-migrate-boundaries"></a><a name="Plan_migrate_Boundaries"></a> Planifier la migration des limites  
+##  <a name="Plan_migrate_Boundaries"></a> Planifier la migration des limites  
  Vous pouvez migrer des limites entre les hiérarchies. Quand vous migrez des limites à partir de Configuration Manager 2007, chaque limite du site source migre simultanément et est ajoutée à un nouveau groupe de limites créé dans la hiérarchie de destination. Quand vous migrez les limites d’une hiérarchie System Center Configuration Manager 2012 ou System Center Configuration Manager, chaque limite sélectionnée est ajoutée à un nouveau groupe de limites dans la hiérarchie de destination.  
 
  Chaque groupe de limites créé automatiquement est activé pour l'emplacement de contenu, mais pas pour l'attribution de site. Cela empêche les limites de se chevaucher pour l'attribution de site entre les hiérarchies source et de destination. Quand vous migrez depuis un site source Configuration Manager 2007, ceci permet d’empêcher que les nouveaux clients Configuration Manager 2007 installés soient affectés de manière incorrecte à la hiérarchie de destination. Par défaut, les clients System Center Configuration Manager ne sont pas affectés automatiquement aux sites Configuration Manager 2007.  
 
  Lors de la migration, si vous partagez un point de distribution avec la hiérarchie de destination, les limites associées à cette distribution migrent automatiquement vers la hiérarchie de destination. Dans la hiérarchie de destination, la migration crée un groupe de limites en lecture seule pour chaque point de distribution partagé. Si vous modifiez les limites du point de distribution de la hiérarchie source, le groupe de limites de la hiérarchie de destination est mis à jour par rapport à ces modifications lors du prochain cycle de collecte de données.  
 
-##  <a name="a-nameplanmigratereportsa-plan-to-migrate-reports"></a><a name="Plan_Migrate_reports"></a> Planifier la migration des rapports  
+##  <a name="Plan_Migrate_reports"></a> Planifier la migration des rapports  
 Configuration Manager ne prend pas en charge la migration des rapports. Utilisez plutôt le Générateur de rapports Microsoft SQL Server Reporting Services pour exporter des rapports à partir de la hiérarchie source, puis importez-les dans la hiérarchie de destination.  
 
 > [!NOTE]  
@@ -167,7 +169,7 @@ Configuration Manager ne prend pas en charge la migration des rapports. Utilisez
 
 Pour plus d’informations sur la création de rapports, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-##  <a name="a-nameplanmigrateorgfoldersa-plan-to-migrate-organizational-and-search-folders"></a><a name="Plan_Migrate_Org_Folders"></a> Planifier la migration des dossiers d’organisation et de recherche  
+##  <a name="Plan_Migrate_Org_Folders"></a> Planifier la migration des dossiers d’organisation et de recherche  
  Vous pouvez migrer des dossiers organisationnels et des dossiers de recherche d'une hiérarchie source prise en charge vers une hiérarchie de destination. De plus, à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous pouvez migrer les critères d’une recherche enregistrée vers une hiérarchie de destination.  
 
  Par défaut, le processus de migration conserve les structures de dossiers de recherche et de dossiers d'administration pour les objets et les regroupements. Cependant, dans l’Assistant Création de tâche de migration, sur la page **Paramètres** , vous pouvez configurer une tâche de migration de sorte que la structure organisationnelle des objets ne soit pas migrée en décochant la case correspondant à cette option. Les structures organisationnelles des regroupements sont toujours gérées.  
@@ -176,19 +178,14 @@ Pour plus d’informations sur la création de rapports, consultez [Génération
 
  Quand vous migrez une recherche enregistrée à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous migrez les critères de la recherche et non les informations relatives aux résultats de la recherche. La migration d’une recherche enregistrée est non applicable à partir d’un site source Configuration Manager 2007.  
 
-##  <a name="a-nameplanmigrateaia-plan-to-migrate-asset-intelligence-customizations"></a><a name="Plan_Migrate_AI"></a> Planifier la migration des personnalisations Asset Intelligence  
+##  <a name="Plan_Migrate_AI"></a> Planifier la migration des personnalisations Asset Intelligence  
  Vous pouvez migrer des personnalisations pour Asset Intelligence d'une hiérarchie source prise en charge vers une hiérarchie de destination. La structure des personnalisations Asset Intelligence n’a pas changé de manière significative entre Configuration Manager 2007 et System Center Configuration Manager.  
 
 > [!NOTE]  
 >  System Center Configuration Manager ne prend pas en charge la migration d’objets Asset Intelligence depuis un site Configuration Manager 2007 utilisant Asset Intelligence Service 2.0 (AIS 2.0).  
 
-##  <a name="a-nameplanmigrateswmrulesa-plan-to-migrate-software-metering-rules-customizations"></a><a name="Plan_Migrate_SWM_Rules"></a> Planifier la migration des personnalisations des règles de contrôle de logiciel  
+##  <a name="Plan_Migrate_SWM_Rules"></a> Planifier la migration des personnalisations des règles de contrôle de logiciel  
  Le contrôle de logiciel n’a pas changé de manière significative entre Configuration Manager 2007 et System Center Configuration Manager. Vous pouvez migrer vos règles de contrôle de logiciel d'une hiérarchie source prise en charge vers une hiérarchie de destination.  
 
  Par défaut, les règles de contrôle de logiciel que vous migrez vers une hiérarchie de destination ne sont associées à aucun site spécifique de la hiérarchie de destination et s'appliquent à tous les clients de la hiérarchie. Pour appliquer une règle de contrôle de logiciel aux clients d'un site spécifique, vous devez modifier la règle de mesure après l'avoir migrée.  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

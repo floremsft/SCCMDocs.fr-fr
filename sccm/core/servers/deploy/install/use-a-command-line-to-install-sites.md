@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: fefa5f3aa12d82b66a251cf0525475496e1e35cf
+ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
+ms.openlocfilehash: 8ff48b08d1abb7481592c0ea076d4efa15c3d8ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/06/2017
 
 ---
 # <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utiliser la ligne de commande pour installer des sites System Center Configuration Manager
@@ -67,7 +67,7 @@ ms.lasthandoff: 05/17/2017
     -   Identification  
     -   Récupération
 
-Pour plus d’informations sur la sauvegarde et la récupération, consultez la section [Clés du fichier de script de récupération de site sans assistance](../../../../protect/understand/backup-and-recovery.md#BKMK_UnattendedSiteRecoveryKeys) dans la rubrique [Sauvegarde et récupération dans Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Pour plus d’informations, consultez [Récupération de site sans assistance pour Configuration Manager](/sccm/protect/understand/unattended-recovery).  
 
 Pour obtenir la liste des clés et des valeurs à utiliser dans un fichier de script d’installation sans assistance, consultez [Clés du fichier de script d’installation sans assistance](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
@@ -87,7 +87,7 @@ Lorsque vous utilisez un média à partir du dossier CD.Latest pour exécuter un
 - Installer un nouveau site d’administration centrale
 - Installer un nouveau site principal
 - Récupérer un site d’administration centrale
-- Récupérer un site principal 
+- Récupérer un site principal
 
 Cette valeur n’est pas prise en charge pour l’utilisation avec le média d’installation que vous obtenez à partir du site de licence en volume de Microsoft.
 Consultez les [options de ligne de commande](/sccm/core/servers/deploy/install/command-line-options-for-setup) pour plus d’informations sur l’utilisation de ce nom de clé dans le fichier de script.

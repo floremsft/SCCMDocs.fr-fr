@@ -2,7 +2,7 @@
 title: "Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager | Microsoft Docs"
 description: "Configurez votre abonnement Microsoft Intune à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 06/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 10cc64ae7e4d91f53201c2896b359e77ef04d32d
+ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
+ms.openlocfilehash: 22d890c972d3166f9c7b583d8d3fa917c1897880
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager
@@ -53,7 +53,7 @@ L’abonnement Intune effectue les opérations suivantes :
 5.  Dans la page **Abonnement** , cliquez sur **Se connecter** , puis connectez-vous en utilisant votre compte professionnel ou scolaire. Dans la boîte de dialogue **Définir l’autorité de gestion des appareils mobiles**, cochez la case permettant de gérer uniquement les appareils mobiles à l’aide de Configuration Manager via la console Configuration Manager. Pour poursuivre la procédure d'abonnement, vous devez sélectionner cette option.
 
     > [!IMPORTANT]
-    >  Une fois que vous avez sélectionné Configuration Manager comme autorité de gestion, vous ne pouvez plus définir Microsoft Intune comme autorité de gestion.
+    >  Lorsque vous sélectionnez Configuration Manager comme autorité de gestion, vous pouvez uniquement remplacer votre autorité de gestion par Microsoft Intune dans Configuration Manager version 1610 ou version ultérieure et Microsoft Intune version 1705 sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](/sccm/mdm/deploy-use/change-mdm-authority).
 
 6.  Pour prendre connaissance de la déclaration de confidentialité, cliquez sur les liens correspondants. Cliquez ensuite sur **Suivant**.
 

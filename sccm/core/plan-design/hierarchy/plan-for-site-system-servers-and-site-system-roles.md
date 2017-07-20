@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a93ea730c39cce9dc46036f5aa6ece4a62679d0f
-ms.openlocfilehash: 0d16d362b798c194645f987088ba8a95a7be3f19
+ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
+ms.openlocfilehash: 0a3704a2d3b75ed7e0a7f718b681448ab6fc078d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -81,7 +81,7 @@ Après l’installation d’un site, vous pouvez déplacer certains rôles de sy
 
 -   **Point de distribution**. Un rôle de système de site qui contient des fichiers sources que les clients peuvent télécharger, notamment le contenu de l'application, les packages logiciels, les mises à jour logicielles, les images du système d'exploitation et les images de démarrage. Par défaut, ce rôle est installé sur l’ordinateur du serveur de site de nouveaux sites principaux et secondaires lors de l’installation du site. Ce rôle n’est pas pris en charge sur un site d’administration centrale. Vous pouvez installer plusieurs instances de ce rôle sur un site pris en charge et sur plusieurs sites dans la même hiérarchie. Pour plus d’informations, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) et [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   **Point d’état de secours**. Ce rôle de système de site vous aide à surveiller l’installation des clients et à identifier ceux qui ne sont pas pris en charge, car ils ne peuvent pas communiquer avec leur point de gestion. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site et sur plusieurs sites dans la même hiérarchie. Pour plus d'informations, voir [Content source location scenarios](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
+-   **Point d’état de secours**. Ce rôle de système de site vous aide à surveiller l’installation des clients et à identifier ceux qui ne sont pas pris en charge, car ils ne peuvent pas communiquer avec leur point de gestion. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site et sur plusieurs sites dans la même hiérarchie.     
 
 
 -   **Point Endpoint Protection.** Configuration Manager utilise ce rôle de système de site pour accepter le contrat de licence Endpoint Protection et configurer l’appartenance par défaut à Microsoft Active Protection Service. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit se trouver sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal, puis l’installer sur le site d’administration centrale. Pour plus d’informations, consultez [Endpoint Protection](../../../protect/deploy-use/endpoint-protection.md).  

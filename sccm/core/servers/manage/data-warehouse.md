@@ -2,7 +2,7 @@
 title: "Entrepôt de données | Microsoft Docs"
 description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
 ms.custom: na
-ms.date: 3/28/2017
+ms.date: 5/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3c2a07f560e0aa3d2beb7cc50e71c98ac45c27e1
-ms.openlocfilehash: 9239f6e749c368835e8594ca2d07378d8555b99e
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: f11a53bbc85b40077b3909568db5ae5552b0456c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -51,6 +51,7 @@ Une fois installé, le rôle de système de site installe et configure la base d
 - Le compte de l’ordinateur sur lequel vous installez le rôle de système de site est utilisé pour synchroniser les données avec la base de données de l’entrepôt de données. Ce compte nécessite les autorisations suivantes :  
   - des autorisations de niveau **administrateur local** sur l’ordinateur qui hébergera la base de données de l’entrepôt de données ;
   - des autorisations **DB_owner** la base de données de l’entrepôt de données.
+  - des autorisations **DB_reader** et **execute** sur la base de données des sites de niveau supérieur.
 -    La base de données de l’entrepôt de données est prise en charge sur une instance par défaut ou nommée de SQL Server version 2012 ou ultérieure. L’édition doit être Enterprise ou Datacenter.
   - Groupe de disponibilité SQL Server AlwaysOn : cette configuration n’est pas prise en charge.
   - Cluster SQL Server : les clusters de basculement SQL Server ne sont pas pris en charge. En effet, la base de données de l’entrepôt de données n’a pas été testée en profondeur sur les clusters de basculement SQL Server.

@@ -6,16 +6,18 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 05/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology:
 - configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
-translationtype: Human Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
-ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: 7d369384d133c90a15e01df50ac53992d61f3873
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/01/2017
 
 
 
@@ -34,6 +36,9 @@ ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
 
 > [!IMPORTANT]  
 >  Vous pouvez installer plusieurs points de mise à jour logicielle sur un site. Le premier point de mise à jour logicielle que vous installez est configuré en tant que source de synchronisation, laquelle synchronise les mises à jour à partir de Microsoft Update ou à partir de la source de synchronisation en amont. Les autres points de mise à jour logicielle sur le site sont configurés en tant que réplicas du premier point de mise à jour logicielle. Par conséquent, certains paramètres ne sont pas disponibles une fois que vous avez installé et configuré le point de mise à jour logicielle initial.  
+
+> [!IMPORTANT]  
+>  Vous ne pouvez pas installer le rôle système de site du point de mise à jour logicielle sur un serveur configuré et utilisé comme serveur WSUS autonome ni utiliser un point de mise à jour logicielle pour gérer directement des clients WSUS. Les serveurs WSUS existants sont uniquement pris en charge en tant que sources de synchronisation en amont pour le point de mise à jour logicielle actif. Consultez [Synchroniser à partir d’un emplacement de source de données en amont](#BKMK_wsussync)
 
  Vous pouvez ajouter le rôle de système de site de point de mise à jour logicielle à un serveur de système de site existant ou en créer un nouveau. Sur la page **Sélection du rôle système** de l' **Assistant Création d'un serveur de système de site** ou l' **Assistant Ajout des rôles de système de site** , selon que vous ajoutez le rôle de système de site à un serveur de site nouveau ou existant, sélectionnez **Point de mise à jour logicielle**, puis configurez les paramètres du point de mise à jour logicielle dans l'Assistant. Les paramètres varient selon la version de Configuration Manager utilisée. Pour plus d’informations sur l’installation de rôles de système de site, consultez [Installer des rôles de système de site](../../core/servers/deploy/configure/install-site-system-roles.md).  
 
@@ -58,7 +63,7 @@ ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
 ## <a name="wsus-settings"></a>Paramètres WSUS  
  Vous devez configurer les paramètres WSUS dans différentes pages de l’**Assistant Création d’un serveur de système de site** ou de l’**Assistant Ajout des rôles de système de site**, selon votre version de Configuration Manager et, dans certains cas, uniquement dans les propriétés du point de mise à jour logicielle (aussi appelées propriétés du composant du point de mise à jour logicielle). Utilisez les informations dans les sections suivantes pour configurer les paramètres WSUS.  
 
-### <a name="a-namebkmkwsusportawsus-port-settings"></a><a name="BKMK_wsusport"></a>Paramètres de port WSUS  
+### <a name="BKMK_wsusport"></a>Paramètres de port WSUS  
  Vous devez configurer les paramètres du port WSUS sur la page Point de mise à jour logicielle de l'Assistant ou dans les propriétés du point de mise à jour logicielle. Utilisez la procédure suivante pour déterminer les paramètres de port utilisés par WSUS.  
 
 #### <a name="to-determine-the-port-settings-used-in-iis"></a>Pour déterminer les paramètres de port dans IIS  
@@ -95,7 +100,7 @@ ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
     > [!NOTE]  
     >  En présence d’un pare-feu entre le point de mise à jour logicielle et Internet, une configuration du pare-feu peut s’avérer nécessaire pour autoriser l’utilisation des ports HTTP et HTTPS pour le site web WSUS. Vous pouvez également choisir de restreindre l'accès sur le pare-feu à des domaines limités. Pour plus d’informations sur la planification d’un pare-feu prenant en charge les mises à jour logicielles, consultez [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
 
--   **Synchroniser à partir d’un emplacement de source de données en amont**: utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de la source de synchronisation en amont. Les sites principaux enfants et les sites secondaires sont automatiquement configurés pour utiliser l'URL du site parent pour ce paramètre. Vous pouvez synchroniser les mises à jour logicielles à partir d’un serveur WSUS existant. Spécifiez une URL, comme https://WSUSServer:8531, où 8531 est le port qui est utilisé pour se connecter au serveur WSUS.  
+-   **<a name="BKMK_wsussync"></a>Synchroniser à partir d’un emplacement de source de données en amont** : utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de la source de synchronisation en amont. Les sites principaux enfants et les sites secondaires sont automatiquement configurés pour utiliser l'URL du site parent pour ce paramètre. Vous pouvez synchroniser les mises à jour logicielles à partir d’un serveur WSUS existant. Spécifiez une URL, comme https://WSUSServer:8531, où 8531 est le port qui est utilisé pour se connecter au serveur WSUS.  
 
 -   **Ne pas synchroniser à partir de Microsoft Update ou de la source de données en amont**: utilisez ce paramètre pour synchroniser manuellement les mises à jour logicielles quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d’Internet. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté](synchronize-software-updates-disconnected.md).  
 
@@ -151,9 +156,4 @@ ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
 Vous avez installé le point de mise à jour logicielle en commençant par le site de premier niveau dans la hiérarchie Configuration Manager. Répétez les procédures décrites dans cette rubrique pour installer le point de mise à jour logicielle sur chaque site enfant.
 
 Une fois que vous avez installé tous les points de mise à jour logicielle, vous pouvez [synchroniser les mises à jour logicielles](synchronize-software-updates.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

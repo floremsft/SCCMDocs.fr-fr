@@ -17,10 +17,10 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
-ms.openlocfilehash: 3d90f16eac59b7069ff2f33170eba85d2cde65ef
+ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
+ms.openlocfilehash: 4a169098f30e4a9d708e41ee25c6a400d5ff0e85
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/19/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -65,7 +65,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
 - **Configurer la taille du cache du client**
 
-  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Sélectionnez **Oui** pour spécifier la **Taille maximale du cache** (en mégaoctets ou en pourcentage du disque). Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
+  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Sélectionnez **Oui** pour spécifier la **Taille maximale du cache** (en mégaoctets ou en pourcentage du disque). La taille du cache du client peut augmenter jusqu’à la taille maximale en Mo ou au pourcentage du disque, **selon la valeur la moins élevée des deux**. Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
 
 ## <a name="client-policy"></a>Stratégie du client  
 
@@ -248,6 +248,10 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
     > -   ID de l’erreur **0X87D00327** et description **Le script n’est pas signé** en tant qu’erreur d’état de déploiement dans l’espace de travail **Surveillance** de la console Configuration Manager.  
     > -   Codes d’erreur et descriptions **0X87D00327** et **Le script n’est pas signé** ou **0X87D00320** et **L’environnement d’exécution de scripts n’a pas encore été installé** avec le type d’erreur **Erreur de découverte** dans les rapports. Par exemple : **Détails des erreurs des éléments de configuration dans la base de référence de configuration d’un composant**.  
     > -   Message **Script is not signed (Error: 87D00327; Source: CCM)** dans le fichier **DcmWmiProvider.log** .  
+
+-   **Afficher les notifications de nouveaux déploiements**  
+
+     Choisissez **Oui** si vous souhaitez afficher une notification pour les déploiements qui ont été disponibles moins d’une semaine.  Ce message s’affiche à chaque démarrage de l’agent du client.
 
 -   **Désactiver la randomisation des échéances**  
 

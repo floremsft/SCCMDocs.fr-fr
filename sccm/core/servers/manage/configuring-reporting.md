@@ -15,9 +15,11 @@ caps.latest.revision: 6
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: aed95333b6509b0aa7061f23969381f1ce8aff7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f62d969dd49fb00b688602128df74b28ff551135
+ms.openlocfilehash: 7ae6bac23e585d6f61aff0f3155d050f1b537620
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,7 +35,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 -   [Planification de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md)  
 
-##  <a name="a-namebkmksqlreportingservicesa-sql-server-reporting-services"></a><a name="BKMK_SQLReportingServices"></a> SQL Server Reporting Services  
+##  <a name="BKMK_SQLReportingServices"></a> SQL Server Reporting Services  
  SQL Server Reporting Services est une plate-forme d'édition de rapport basée sur un serveur qui fournit des fonctionnalités complètes de création de rapports pour une variété de sources de données. Le point de Reporting Services dans Configuration Manager communique avec SQL Server Reporting Services pour copier les rapports Configuration Manager dans un dossier de rapports spécifié, configurer les paramètres de Reporting Services et configurer les paramètres de sécurité de Reporting Services. Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui sont renvoyées quand vous exécutez des rapports.  
 
  Avant d’installer le point de Reporting Services dans un site Configuration Manager, vous devez installer et configurer SQL Server Reporting Services sur le système de site qui héberge le rôle de système de site du point de Reporting Services. Pour plus d'informations sur l'installation de Reporting Services, consultez la [bibliothèque TechNet de SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
@@ -59,7 +61,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 7.  Cliquez sur **Quitter** pour fermer le Gestionnaire de configuration de Reporting Services.  
 
-##  <a name="a-namebkmkreportbuilder3a-configure-reporting-to-use-report-builder-30"></a><a name="BKMK_ReportBuilder3"></a> Configuration de Reporting pour utiliser le Générateur de rapports 3.0  
+##  <a name="BKMK_ReportBuilder3"></a> Configuration de Reporting pour utiliser le Générateur de rapports 3.0  
 
 #### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Pour modifier le nom de manifeste Générateur de rapports en Générateur de rapports 3.0  
 
@@ -73,14 +75,17 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 5.  Fermez l'Éditeur de Registre Windows.  
 
-##  <a name="a-namebkmkinstallreportingservicespointa-install-a-reporting-services-point"></a><a name="BKMK_InstallReportingServicesPoint"></a> Installation d’un point de Reporting Services  
+##  <a name="BKMK_InstallReportingServicesPoint"></a> Installation d’un point de Reporting Services  
  Le point de Reporting Services doit être installé sur un site pour gérer les rapports sur le site. Le point de Reporting Services copie les dossiers de rapports et les rapports vers SQL Server Reporting Services, applique la stratégie de sécurité des rapports et des dossiers, et définit des paramètres de configuration dans Reporting Services. L’affichage des rapports dans la console Configuration Manager et leur gestion dans Configuration Manager passent par la configuration préalable d’un point de Reporting Services. Le point de Reporting Services est un rôle de système de site qui doit être configuré sur un serveur sur lequel Microsoft SQL Server Reporting Services est installé et en cours d'exécution. Pour plus d’informations sur la configuration requise, consultez [Configuration requise pour la création de rapports](prerequisites-for-reporting.md).  
 
 > [!IMPORTANT]  
 >  Lors de la sélection d'un site pour installer le point de Reporting Services, n'oubliez pas que les utilisateurs qui accèderont aux rapports devront se trouver dans la même étendue de sécurité que le site où le point de Reporting Services est installé.  
 
-> [!IMPORTANT]  
+> [!NOTE]  
 >  Après avoir installé un point de Reporting Services sur un système de site, ne modifiez pas l'URL du serveur de rapports. Par exemple, si vous créez le point de Reporting Services, puis que vous modifiez l’URL du serveur de rapports dans le Gestionnaire de configuration de Reporting Services, la console Configuration Manager continuera d’utiliser l’ancienne URL, et vous ne pourrez pas exécuter, modifier ou créer de rapports à partir de la console. Lorsque vous devez modifier une URL du serveur de rapports, supprimez le point de Reporting Services, modifiez l'URL, puis réinstallez le point de Reporting Services.  
+
+> [!IMPORTANT]    
+> Lorsque vous installez un point de Reporting Services, vous devez spécifier un compte du point de Reporting Services. Plus tard, lorsque les utilisateurs d’un autre domaine tenteront d’exécuter un rapport, le rapport ne pourra pas s’exécuter, sauf s’il existe une relation d’approbation bidirectionnelle entre les domaines.
 
  Utilisez la procédure suivante pour installer le point de Reporting Services.  
 
@@ -126,7 +131,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
     -   **Compte du point de Reporting Services** : cliquez sur **Définir**, puis sélectionnez le compte à utiliser quand SQL Server Reporting Services sur le point de Reporting Services se connecte à la base de données de site Configuration Manager pour récupérer les données qui s’affichent dans un rapport. Sélectionnez **Compte existant** pour spécifier un compte d’utilisateur Windows déjà configuré en tant que compte Configuration Manager ou sélectionnez **Nouveau compte** pour spécifier un compte d’utilisateur Windows qui n’est pas actuellement configuré en tant que compte Configuration Manager. Configuration Manager accorde automatiquement l’accès à la base de données du site pour l’utilisateur spécifié. L'utilisateur est affiché dans le sous-dossier **Comptes** du nœud **Sécurité** dans l'espace de travail **Administration** avec le nom de compte **Point Reporting Services ConfigMgr** .  
 
-         Le compte qui exécute Reporting Services doit appartenir au groupe de sécurité de domaine local **Groupe d'accès d'autorisation Windows**et l'autorisation **Read tokenGroupsGlobalAndUniversal** doit être définie sur **Autoriser**.  
+         Le compte qui exécute Reporting Services doit appartenir au groupe de sécurité de domaine local **Groupe d'accès d'autorisation Windows**et l'autorisation **Read tokenGroupsGlobalAndUniversal** doit être définie sur **Autoriser**. Il doit y avoir une relation d’approbation bidirectionnelle pour les utilisateurs d’un domaine différent de celui du compte du Point de Reporting Servicies pour pouvoir exécuter des rapports.
 
          Le compte d'utilisateur Windows et le mot de passe spécifiés sont chiffrés et stockés dans la base de données Reporting Services. Reporting Services récupère les données de rapports à partir de la base de données de site à l'aide de ce compte et de ce mot de passe.  
 
@@ -142,7 +147,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
     > [!NOTE]  
     >  Quand les dossiers de rapports sont créés et que les rapports sont copiés sur le serveur de rapports, Configuration détermine la langue adéquate pour les objets. Si le module linguistique correspondant est installé sur le site, Configuration Manager crée les objets dans la langue du système d’exploitation s’exécutant sur le serveur de rapports du site. Si la langue n'est pas disponible, les rapports sont créés et affichés en anglais. Lorsque vous installez un point de Reporting Services sur un site sans module linguistique, les rapports sont installés en anglais. Si vous installez un module linguistique après avoir installé le point de Reporting Services, vous devez désinstaller et réinstaller ce dernier pour que les rapports soient disponibles dans la langue du module linguistique adéquat. Pour plus d’informations sur les modules linguistiques, consultez [Modules linguistiques dans System Center Configuration Manager](../deploy/install/language-packs.md).  
 
-###  <a name="a-namebkmkfileinstallationandsecuritya-file-installation-and-report-folder-security-rights"></a><a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichier et droits de sécurité du dossier de rapport  
+###  <a name="BKMK_FileInstallationAndSecurity"></a> Installation de fichier et droits de sécurité du dossier de rapport  
  Configuration Manager effectue les actions suivantes pour installer le point de Reporting Services et configurer Reporting Services :  
 
 > [!IMPORTANT]  
@@ -172,14 +177,14 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
      Configuration Manager se connecte à Reporting Services et définit les autorisations pour les utilisateurs sur les dossiers racine de Configuration Manager et Reporting Services, et sur des dossiers de rapports spécifiques. Après l’installation initiale du point de Reporting Services, Configuration Manager se connecte à Reporting Services dans un intervalle de 10 minutes pour vérifier que les droits d’utilisateur configurés sur les dossiers de rapports sont les droits associés définis pour les utilisateurs de Configuration Manager. Quand des utilisateurs sont ajoutés ou que des droits d’utilisateur sont modifiés sur le dossier de rapports via le Gestionnaire de rapports de Reporting Services, Configuration Manager remplace ces modifications en utilisant les attributions basées sur les rôles qui sont stockées dans la base de données de site. De même, Configuration Manager supprime les utilisateurs qui n’ont pas de droits de génération de rapports dans Configuration Manager.  
 
-##  <a name="a-namebkmksecurityrolesa-reporting-services-security-roles-for-configuration-manager"></a><a name="BKMK_SecurityRoles"></a> Rôles de sécurité de Reporting Services pour Configuration Manager  
+##  <a name="BKMK_SecurityRoles"></a> Rôles de sécurité de Reporting Services pour Configuration Manager  
  Quand Configuration Manager installe le point de Reporting Services, les rôles de sécurité suivants sont ajoutés dans Reporting Services :  
 
 -   **Utilisateurs de rapports ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent seulement exécuter des rapports Configuration Manager.  
 
 -   **Administrateurs de rapport ConfigMgr** : les utilisateurs auxquels ce rôle de sécurité est attribué peuvent exécuter toutes les tâches liées à la génération de rapports dans Configuration Manager.  
 
-##  <a name="a-namebkmkverifyreportingservicespointinstallationa-verify-the-reporting-services-point-installation"></a><a name="BKMK_VerifyReportingServicesPointInstallation"></a> Vérifier l’installation du point de Reporting Services  
+##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> Vérifier l’installation du point de Reporting Services  
  Après avoir ajouté le rôle de site de point de Reporting Services, vous pouvez vérifier l'installation en consultant les messages d'état spécifiques et les entrées de fichiers journaux. Utilisez la procédure suivante pour vérifier que l'installation du point de Reporting Services a réussi.  
 
 > [!WARNING]  
@@ -203,7 +208,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 7.  Ouvrez Srsrp.log et parcourez le fichier journal à partir de l'heure à laquelle le point de Reporting Services a été installé avec succès. Vérifiez que les dossiers de rapport ont été créés, que les rapports ont été déployés et que la stratégie de sécurité de chaque dossier a été confirmée. Recherchez la mention **La vérification que le service Web SRS est intègre sur le serveur a réussi** après la dernière ligne des confirmations des stratégies de sécurité.  
 
-##  <a name="a-namebkmkcertificatea-configure-a-self-signed-certificate-for-configuration-manager-console-computers"></a><a name="BKMK_Certificate"></a> Configurer un certificat auto-signé pour les ordinateurs de la console Configuration Manager  
+##  <a name="BKMK_Certificate"></a> Configurer un certificat auto-signé pour les ordinateurs de la console Configuration Manager  
  Il existe de nombreuses options vous permettant de créer des rapports pour SQL Server Reporting Services. Quand vous créez ou modifiez des rapports dans la console Configuration Manager, Configuration Manager ouvre le générateur de rapports pour l’utiliser comme environnement de création. Quelle que soit la façon dont vous créez vos rapports Configuration Manager, un certificat auto-signé est nécessaire à l’authentification sur le serveur de base de données de site. Configuration Manager installe automatiquement le certificat sur le serveur de site et sur les ordinateurs sur lesquels le fournisseur SMS est installé. Par conséquent, vous pouvez créer ou modifier des rapports à partir de la console Configuration Manager quand elle est exécutée sur l’un de ces ordinateurs. En revanche, quand vous créez ou modifiez des rapports à partir d’une console Configuration Manager qui installée sur un autre ordinateur, vous devez exporter le certificat à partir du serveur de site, puis l’ajouter au magasin de certificats **Personnes autorisées** sur l’ordinateur qui exécute la console Configuration Manager.  
 
 > [!NOTE]  
@@ -243,7 +248,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
     5.  Cliquez sur **Terminer** pour fermer l'Assistant et terminer la configuration des certificats sur l'ordinateur.  
 
-##  <a name="a-namebkmkmodifyreportingservicespointa-modify-reporting-services-point-settings"></a><a name="BKMK_ModifyReportingServicesPoint"></a> Modifier les paramètres du point de Reporting Services  
+##  <a name="BKMK_ModifyReportingServicesPoint"></a> Modifier les paramètres du point de Reporting Services  
  Une fois le point de Reporting Services installé, vous pouvez modifier les paramètres de connexion de base de données de site et d'authentification dans les propriétés du point de Reporting Services. Utilisez la procédure suivante pour modifier les paramètres du point de Reporting Services.  
 
 #### <a name="to-modify-reporting-services-point-settings"></a>Pour modifier les paramètres du point de Reporting Services  
@@ -280,7 +285,7 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 ## <a name="upgrading-sql-server"></a>Mise à niveau de SQL Server  
  Après la mise à niveau de SQL Server et de l’instance SQL Server Reporting Services utilisée comme source de données pour un point de Reporting Services, des erreurs peuvent se produire au moment où vous exécutez ou modifiez des rapports à partir de la console Configuration Manager. Pour que la génération de rapports fonctionne correctement à partir de la console Configuration Manager, vous devez supprimer le rôle de système de site du point de Reporting Services du site, puis le réinstaller. Toutefois, après la mise à niveau, vous pouvez continuer à exécuter et à modifier des rapports à partir d'un navigateur Internet.  
 
-##  <a name="a-namebkmkconfigurereportoptionsa-configure-report-options"></a><a name="BKMK_ConfigureReportOptions"></a> Configurer les options de rapport  
+##  <a name="BKMK_ConfigureReportOptions"></a> Configurer les options de rapport  
  Utilisez les options de rapport d’un site Configuration Manager pour sélectionner le point de Reporting Services par défaut à utiliser pour gérer vos rapports. Même si vous pouvez posséder plusieurs points de Reporting Services sur un site, seul le serveur de rapports par défaut sélectionné dans les options de rapport est utilisé pour gérer les rapports. Pour configurer les options de rapport de votre un site, procédez comme suit.  
 
 #### <a name="to-configure-report-options"></a>Pour configurer des options de rapport  
@@ -295,9 +300,4 @@ Avant de créer, modifier et exécuter des rapports dans la console System Cente
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -16,10 +16,10 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 113fa73bf0bd1b3b8a4754eb1e96549c520d7995
+ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
+ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -79,12 +79,70 @@ Utilisez des séquences de tâches pour automatiser des étapes dans votre envir
 
  Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
 
+## <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
+  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
+  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
+  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
+
+## <a name="configure-advanced-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches avancés
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. L’onglet **Avancé** contient les paramètres suivants :
+
+    - **Exécuter un autre programme en premier**    
+    Cochez cette case pour exécuter un autre programme (dans un autre package) avant la séquence de tâches. Par défaut, cette case à cocher est désactivée. Le programme dont vous spécifiez l'exécution préalable n'a pas besoin d'être publié séparément.
+
+        > [!IMPORTANT]     
+        Ce paramètre s'applique uniquement aux séquences de tâches qui s'exécutent dans le système d'exploitation complet. Configuration Manager ignore ce paramètre si la séquence de tâches est démarrée à l’aide de l’environnement PXE ou d’un média de démarrage.
+
+    - **Package**     
+        Si vous activez l'option **Exécuter un autre programme en premier**, entrez ou recherchez le package contenant le programme qui doit s'exécuter avant cette séquence de tâches.
+
+    - **Programme**     
+    Si vous activez l'option **Exécuter un autre programme en premier**, sélectionnez le programme qui doit s'exécuter avant cette séquence de tâches dans la liste déroulante **Programme**.
+
+        > [!NOTE]    
+        > Si l'exécution du programme sélectionné échoue sur un client, la séquence de tâches ne sera pas exécutée. Si l'exécution du programme sélectionné aboutit, il ne sera pas réexécuté, même si la séquence de tâches est exécutée de nouveau sur le même client.
+ 
+    - **Désactiver cette séquence de tâches sur les ordinateurs sur lesquels elle est publiée**    
+    Si vous sélectionnez cette option, tous les déploiements qui contiennent cette séquence de tâches sont temporairement désactivés. La séquence de tâches est supprimée de la liste des publications à exécuter, et elle sera réexécutée uniquement lorsqu'elle aura été réactivée. Par défaut, cette option est désactivée.
+
+    - **Durée maximale d'exécution allouée**    
+    Indique la durée maximale (en minutes) d'exécution de la séquence de tâches sur l'ordinateur de destination. Vous devez utiliser un nombre entier égal ou supérieur à zéro. Par défaut, cette valeur est définie à 120 minutes.
+
+        > [!IMPORTANT]    
+        > Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel cette séquence de tâches est exécutée, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **0**, la séquence de tâches démarre pendant la fenêtre de maintenance et continue son exécution jusqu'à ce qu'elle ait terminé ou échoué après la fermeture de la fenêtre de maintenance. En conséquence, les séquences de tâches dont la durée d'exécution maximale est définie sur **0** peuvent s'exécuter après la fin de leurs fenêtres de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (c’est-à-dire autre que **0**) qui dépasse la durée de toute fenêtre de maintenance disponible, cette séquence de tâches n'est pas exécutée. Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
+ 
+        Si la valeur définie est **0**, Configuration Manager fixe la durée d’exécution maximale autorisée à **12** heures (720 minutes) pour suivre la progression. Toutefois, la séquence de tâches démarre tant que la durée du compte à rebours ne dépasse pas la valeur de la fenêtre de maintenance.
+
+    > [!NOTE]    
+    > Si cette durée maximale est atteinte, Configuration Manager arrête la séquence de tâches s'il est configuré pour s'exécuter avec les droits d'administration et si le paramètre Autoriser les utilisateurs à interagir avec ce programme n'est pas activé. Si la séquence de tâches ne s’arrête pas d’elle-même, Configuration Manager cesse de la surveiller dès que la durée d’exécution maximale autorisée est atteinte. 
+
+    - **Utiliser une image de démarrage**   
+        Activez cette option pour utiliser l'image de démarrage sélectionnée lors de l'exécution de la séquence de tâches. 
+
+        Cliquez sur **Parcourir** pour sélectionner une autre image de démarrage. Désactivez cette option pour désactiver l’utilisation de l’image de démarrage sélectionnée lors de l’exécution de la séquence de tâches.
+
+    - **Cette séquence de tâches peut être exécutée sur toute plateforme**     
+        Si vous sélectionnez cette option, Configuration Manager ne vérifie pas le type de plateforme de l'ordinateur de destination lors du déploiement de la séquence de tâches. Cette option est activée par défaut.
+
+    - **Cette séquence de tâches peut être exécutée uniquement sur les plates-formes clientes spécifiées**    
+        Cette option spécifie les processeurs, les systèmes d'exploitation et les Service Packs sur lesquels cette séquence de tâches peut s'exécuter. Lorsque vous sélectionnez cette option, au moins une plateforme doit être sélectionnée dans la liste. Par défaut, aucune plate-forme n'est sélectionnée. Configuration Manager utilise ces informations pour identifier les ordinateurs de destination d'un regroupement qui reçoivent la séquence de tâches déployée.
+
+        > [!NOTE]    
+        > Lorsqu'une séquence de tâches est exécutée à partir d'un support de démarrage ou via un démarrage PXE, cette option est ignorée et la séquence de tâches ne s'exécutera que lorsque l'option **Ce programme peut être exécuté sur n'importe quelle plateforme** sera activée.
+
 ## <a name="configure-high-impact-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches à fort impact
 À partir de Configuration Manager version 1702, vous pouvez définir une séquence de tâches à fort impact et personnaliser les messages envoyés aux utilisateurs lorsqu’ils exécutent la séquence de tâches.
 
 ### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Définir une séquence de tâches comme séquence de tâches à fort impact
 Appliquez la procédure suivante pour définir une séquence de tâches à fort impact.
-> [!NOTE]
+> [!NOTE]    
 > Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
 1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
@@ -96,7 +154,7 @@ Utilisez la procédure suivante pour créer une notification personnalisée pour
 1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
 2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
 3. Sous l’onglet **Notification utilisateur**, sélectionnez **Utiliser du texte personnalisé**.
->  [!NOTE]
+>  [!NOTE]    
 >  Vous pouvez définir le texte de notification utilisateur uniquement quand **Il s’agit d’une séquence de tâches avec un impact élevé** est sélectionné.
 
 4. Configurez les paramètres suivants (maximum 255 caractères pour chaque zone de texte) :
@@ -107,23 +165,15 @@ Utilisez la procédure suivante pour créer une notification personnalisée pour
   - Première zone de texte : spécifie le corps principal du texte, contenant généralement des instructions destinées à l’utilisateur. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « La mise à niveau du système d’exploitation peut prendre un certain temps et entraîner plusieurs redémarrages de votre ordinateur ».
   - Deuxième zone de texte : spécifie le texte en gras dans le corps principal du texte. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cette mise à niveau sur place installe le nouveau système d’exploitation et migre automatiquement vos applications, vos données et vos paramètres ».
   - Troisième zone de texte : spécifie la dernière ligne de texte sous le texte en gras. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cliquez sur Installer pour commencer. Sinon, cliquez sur Annuler. ».   
+    
+Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
 
-  Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
+![Notification personnalisée pour une séquence de tâches](..\media\user-notification.png)
 
-    ![Notification personnalisée pour une séquence de tâches](..\media\user-notification.png)
+Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
 
-    Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
+![Notification personnalisée pour une séquence de tâches](..\media\user-notification-enduser.png)
 
-    ![Notification personnalisée pour une séquence de tâches](..\media\user-notification-enduser.png)
-
-### <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
-Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
-1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
-2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
-3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
-  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
-  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
-  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
 
 ##  <a name="BKMK_DistributeTS"></a> Distribuer du contenu référencé par une séquence de tâches  
  Avant que les clients exécutent une séquence de tâches qui référence du contenu, vous devez distribuer ce contenu aux points de distribution. À tout moment, vous pouvez sélectionner la séquence de tâches et distribuer son contenu pour créer une nouvelle liste de packages de référence pour la distribution. Si vous apportez des modifications à la séquence de tâches avec du contenu mis à jour, vous devez redistribuer le contenu avant de le mettre à la disposition des clients. Pour distribuer le contenu qui est référencé par une séquence de tâches, procédez comme suit.  
@@ -352,19 +402,22 @@ Appliquez la procédure suivante pour configurer les détails de la séquence de
  Après avoir importé la séquence de tâches, modifiez-la pour spécifier les mots de passe qui se trouvaient dans la séquence de tâches d'origine. Pour des raisons de sécurité, les mots de passe ne sont pas exportés.  
 
 ##  <a name="BKMK_CreateTSVariables"></a> Créer des variables de séquence de tâches pour les ordinateurs et les regroupements  
- Vous pouvez définir des variables de séquence de tâches personnalisées pour des ordinateurs et des regroupements. Les variables qui sont définies pour un ordinateur sont appelées variables de séquence de tâches par ordinateur. Les variables définies pour un regroupement sont appelées variables de séquence de tâches par regroupement. S'il existe un conflit, les variables par ordinateur ont préséance sur les variables par regroupement. Cela signifie que les variables de séquence de tâches attribuées à un ordinateur spécifique disposent automatiquement d'une priorité plus importante que celles attribuées au regroupement contenant l'ordinateur.  
+Vous pouvez définir des variables de séquence de tâches personnalisées pour des ordinateurs et des regroupements. Les variables qui sont définies pour un ordinateur sont appelées variables de séquence de tâches par ordinateur. Les variables définies pour un regroupement sont appelées variables de séquence de tâches par regroupement. S'il existe un conflit, les variables par ordinateur ont préséance sur les variables par regroupement. Cela signifie que les variables de séquence de tâches attribuées à un ordinateur spécifique disposent automatiquement d'une priorité plus importante que celles attribuées au regroupement contenant l'ordinateur.  
 
- Par exemple, si une variable est attribuée au regroupement ABC et qu'une variable avec le même nom est attribuée à l'ordinateur XYZ, qui est un membre du regroupement ABC, la variable attribuée à l'ordinateur XYZ reçoit une priorité plus élevée que celle attribuée au regroupement ABC.  
+Par exemple, si une variable est attribuée au regroupement ABC et qu'une variable avec le même nom est attribuée à l'ordinateur XYZ, qui est un membre du regroupement ABC, la variable attribuée à l'ordinateur XYZ reçoit une priorité plus élevée que celle attribuée au regroupement ABC.  
 
- Vous pouvez masquer les variables par ordinateur et par regroupement pour qu’elles ne soient pas visibles dans la console Configuration Manager. Si vous ne souhaitez plus que ces variables soient masquées, vous devez les supprimer et les redéfinir sans sélectionner l'option pour les masquer. Quand vous utilisez l'option **Ne pas afficher cette valeur dans la console Configuration Manager**, la valeur de la variable n'est pas affichée, mais elle peut encore être utilisée par la séquence de tâches lors de son exécution.  
+Vous pouvez masquer les variables par ordinateur et par regroupement pour qu’elles ne soient pas visibles dans la console Configuration Manager. Si vous ne souhaitez plus que ces variables soient masquées, vous devez les supprimer et les redéfinir sans sélectionner l'option pour les masquer. Quand vous utilisez l'option **Ne pas afficher cette valeur dans la console Configuration Manager**, la valeur de la variable n'est pas affichée dans la console, mais elle peut encore être utilisée par la séquence de tâches lors de son exécution.  
 
- Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
+> [!WARNING]    
+> Le paramètre **Ne pas afficher cette valeur dans la console Configuration Manager** s’applique à la console Configuration Manager, mais les valeurs des variables sont toujours affichées dans le fichier journal de la séquence de tâches (SMSTS.LOG). 
 
-> [!WARNING]  
+Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
+
+> [!IMPORTANT]  
 >  Lorsque vous utilisez des variables par regroupement pour des séquences de tâches, considérez les éléments suivants :  
 >   
->  -   Comme les modifications apportées aux regroupements sont toujours répliquées dans toute la hiérarchie, toutes les modifications que vous apportez à des variables de regroupement ne seront pas appliquées uniquement au site actuel, mais à tous les membres du regroupement dans toute la hiérarchie.  
-> -   Lorsque vous supprimez un regroupement, cette action supprime également les variables de séquence de tâches qui sont configurées pour le regroupement.  
+> - Comme les modifications apportées aux regroupements sont toujours répliquées dans toute la hiérarchie, toutes les modifications que vous apportez à des variables de regroupement ne seront pas appliquées uniquement au site actuel, mais à tous les membres du regroupement dans toute la hiérarchie.  
+> - Lorsque vous supprimez un regroupement, cette action supprime également les variables de séquence de tâches qui sont configurées pour le regroupement.  
 
  Utilisez les procédures suivantes pour créer des variables de séquence de tâches pour un ordinateur ou un regroupement.  
 
@@ -397,7 +450,7 @@ Appliquez la procédure suivante pour configurer les détails de la séquence de
 6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
 
 ##  <a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
- Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez la séquence de tâches à l'aide de la procédure suivante.  
+ Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez une séquence de tâches.  
 
 #### <a name="to-select-a-task-sequence-to-manage"></a>Pour sélectionner une séquence de tâches à gérer  
 
@@ -416,7 +469,6 @@ Appliquez la procédure suivante pour configurer les détails de la séquence de
 |**Activer**|Active la séquence de tâches afin qu'elle puisse être exécutée. Il est inutile de redéployer une séquence de tâches déployée une fois qu'elle est activée.|  
 |**Créer un fichier de contenu préparé**|Démarre l'Assistant Création du fichier de contenu préparé pour préparer le contenu de séquence de tâches. Pour plus d’informations sur la création d’un fichier de contenu préparé, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
 |**Déplacer**|Déplace la séquence de tâches sélectionnée vers un autre dossier.|  
-|**Propriétés**|Ouvre la boîte de dialogue **Propriétés** pour la séquence de tâches sélectionnée. Utilisez cette boîte de dialogue pour modifier le comportement de l'objet de séquence de tâches. Toutefois, vous ne pouvez pas modifier les étapes de la séquence de tâches à l'aide de cette boîte de dialogue.|  
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)

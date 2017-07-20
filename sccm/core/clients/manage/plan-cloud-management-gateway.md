@@ -1,7 +1,7 @@
 ---
 title: Planifier la passerelle de gestion cloud | Microsoft Docs
 description: 
-ms.date: 05/16/2017
+ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,10 +10,10 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
-ms.openlocfilehash: b1295891a5567e64b901c79100c2971e526dc874
+ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
+ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -22,6 +22,9 @@ ms.lasthandoff: 05/17/2017
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
 À compter de la version 1610, la passerelle de gestion cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Le service de passerelle de gestion cloud est déployé sur Microsoft Azure et nécessite un abonnement Azure. Il se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé point de connexion de la passerelle de gestion cloud. Une fois le service déployé et configuré, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils se trouvent sur le réseau privé interne ou sur Internet.
+
+> [!TIP]  
+> Depuis la version 1610, la passerelle de gestion cloud est une fonctionnalité en préversion. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
 Utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point de connexion de la passerelle de gestion cloud et configurer les rôles de système de site pour autoriser le trafic de la passerelle de gestion cloud. La passerelle de gestion cloud ne prend actuellement en charge que les rôles de point de gestion et de point de mise à jour logicielle.
 
@@ -93,11 +96,6 @@ La passerelle de gestion cloud utilise les fonctionnalités Microsoft Azure suiv
 
     - Pour plus de détails, consultez le coût d’utilisation d’une [distribution cloud](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution).
 
-## <a name="next-steps"></a>Étapes suivantes
-
-[Configurer la passerelle de gestion cloud](setup-cloud-management-gateway.md)
-
-
 ## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Forum aux questions sur la passerelle de gestion cloud (Cloud Management Gateway ou CMG)
 
 ### <a name="why-use-the-cloud-management-gateway"></a>Pourquoi utiliser la passerelle de gestion cloud ?
@@ -122,7 +120,7 @@ Le composant de gestionnaire de service cloud sur le point de connexion de servi
 
 Les certificats suivants sont nécessaires pour sécuriser la passerelle CMG :
 
-- **Certificat de gestion** - Vous pouvez utiliser tout type de certificat, y compris des certificats auto-signés. Vous pouvez utiliser un certificat public téléchargé sur Azure AD ou un [fichier PFX avec une clé privée](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importé dans Configuration Manager pour permettre l’authentification auprès d’Azure AD. 
+- **Certificat de gestion** - Vous pouvez utiliser tout type de certificat, y compris des certificats auto-signés. Vous pouvez utiliser un certificat public téléchargé sur Azure AD ou un [fichier PFX avec une clé privée](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importé dans Configuration Manager pour permettre l’authentification auprès d’Azure AD.
 - **Certificat de service Web** - Nous vous recommandons d’utiliser un certificat public délivré par une autorité de certification afin d’obtenir une approbation native par les clients. L’élément CName doit être créé dans le registre DNS public. Les certificats génériques ne sont pas pris en charge.
 - **Certificats racine/SubCA téléchargés sur la passerelle CMG** - La passerelle CMG doit effectuer une validation complète de la chaîne sur les certificats client PKI. Si vous utilisez une autorité de certification d’entreprise pour émettre des certificats client PKI et que leur autorité de certification racine ou secondaire n’est pas disponible sur Internet, vous devez également télécharger ces certificats sur la passerelle CMG.
 
@@ -159,15 +157,17 @@ La passerelle CMG garantit la sécurité de plusieurs façons :
 
 - Sécurisez les rôles du côté du client Configuration Manager du point de terminaison de publication, notamment le point de gestion et les points de terminaison hôtes de mise à jour logicielle dans IIS afin de traiter les demandes des clients. Chaque point de terminaison publié sur la passerelle CMG comporte un mappage d’URL.
 L’URL externe est celle que le client utilise pour communiquer avec la passerelle CMG.
-L’URL interne est le point de connexion CMG utilisé pour transférer les demandes vers le serveur interne. 
+L’URL interne est le point de connexion CMG utilisé pour transférer les demandes vers le serveur interne.
 
 #### <a name="example"></a>Exemple :
 Lorsque vous activez le trafic CMG sur un point de gestion, Configuration Manager crée un ensemble de mappages d’URL en interne pour chaque serveur de point de gestion, par exemple ccm_system, ccm_incoming et sms_mp.
-L’URL externe du point de terminaison du point de gestion ccm_system se présente sous la forme **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**. L’URL est unique pour chaque point de gestion. Le client Configuration Manager ajoute ensuite le nom du point de gestion de la passerelle CMG, par exemple **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** dans sa liste de points de gestion internet. Toutes les URL externes publiées sont téléchargées automatiquement sur la passerelle CMG, qui peut alors filtrer ces URL. Tous les mappages d’URL sont répliqués vers un point de connexion CMG afin de pouvoir transférer ces URL vers des serveurs internes en fonction de l’URL externe demandée par le client.
+L’URL externe du point de terminaison du point de gestion ccm_system se présente sous la forme **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
+L’URL est unique pour chaque point de gestion. Le client Configuration Manager ajoute ensuite le nom du point de gestion de la passerelle CMG, par exemple **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** dans sa liste de points de gestion internet.
+Toutes les URL externes publiées sont téléchargées automatiquement sur la passerelle CMG, qui peut alors filtrer ces URL. Tous les mappages d’URL sont répliqués vers un point de connexion CMG afin de pouvoir transférer ces URL vers des serveurs internes en fonction de l’URL externe demandée par le client.
 
-### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Quels sont les ports utilisés par la passerelle de gestion cloud ? 
+### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Quels sont les ports utilisés par la passerelle de gestion cloud ?
 
-- Aucun port entrant n’est requis sur le réseau local. Le déploiement de CMG crée automatiquement un ensemble de passerelles CMG. 
+- Aucun port entrant n’est requis sur le réseau local. Le déploiement de CMG crée automatiquement un ensemble de passerelles CMG.
 - Outre le port 443, certains ports sortants sont requis par le point de connexion CMG.
 
 |||||
@@ -182,7 +182,7 @@ L’URL externe du point de terminaison du point de gestion ccm_system se prése
 
 - Si possible, configurez la passerelle CMG, le point de connexion CMG et le serveur de site Configuration Manager dans la même région pour réduire la latence du réseau.
 - Actuellement, la connexion entre le client Configuration Manager et la passerelle CMG ne tient pas compte de la région.
-- Pour obtenir une disponibilité optimale, nous vous recommandons d’utiliser au moins 2 instances virtuelles de la passerelle CMG et deux points de connexion CMG par site 
+- Pour obtenir une disponibilité optimale, nous vous recommandons d’utiliser au moins 2 instances virtuelles de la passerelle CMG et deux points de connexion CMG par site
 - Vous pouvez faire évoluer la passerelle CMG pour prendre en charge davantage de clients en ajoutant d’autres instances de machine virtuelle. Leur charge est équilibrée par l’équilibreur de charge Azure AD.
 - Créez plusieurs points de connexion CMG pour répartir la charge entre ces points. La passerelle CMG acheminera via un système de tourniquet (round-robin) le trafic vers ses points de connexion CMG.
 - Le nombre de clients pris en charge par instance de machine virtuelle CMG est de 6 000 dans la version 1702. Lorsque le canal CMG est soumis à une forte charge, la demande est toujours gérée mais son traitement peut prendre plus longtemps que prévu.
@@ -195,4 +195,7 @@ Pour résoudre les problèmes de trafic client, utilisez **CMGHttpHandler.log**,
 
 Pour obtenir la liste de tous les fichiers journaux liés à la passerelle CMG, consultez [Fichiers journaux dans Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway)
 
+## <a name="next-steps"></a>Étapes suivantes
+
+[Configurer la passerelle de gestion cloud](setup-cloud-management-gateway.md)
 

@@ -15,9 +15,11 @@ caps.latest.revision: 5
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: f5a58ba9ecd9b0998c2859b6d3f45e493d7ef3cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f62d969dd49fb00b688602128df74b28ff551135
+ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,10 +29,10 @@ ms.openlocfilehash: f5a58ba9ecd9b0998c2859b6d3f45e493d7ef3cb
 
 Une fois l’infrastructure en place pour la création de rapports dans System Center Configuration Manager, il existe un certain nombre d’opérations que vous pouvez généralement effectuer pour gérer les rapports et les abonnements aux rapports.  
 
-##  <a name="a-namebkmkmanagereportsa-manage-configuration-manager-reports"></a><a name="BKMK_ManageReports"></a> Gérer les rapports Configuration Manager  
+##  <a name="BKMK_ManageReports"></a> Gérer les rapports Configuration Manager  
  Configuration Manager offre plus de 400 rapports prédéfinis qui vous aident à recueillir, organiser et présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Vous pouvez utiliser les rapports prédéfinis comme ils sont, ou vous pouvez modifier un rapport pour qu'il réponde à vos besoins. Vous pouvez également créer des rapports personnalisés basés sur des modèles ou sur SQL qui répondent à vos besoins. Utilisez les sections suivantes pour mieux gérer les rapports Configuration Manager.  
 
-###  <a name="a-namebkmkrunreporta-run-a-configuration-manager-report"></a><a name="BKMK_RunReport"></a> Exécuter un rapport Configuration Manager  
+###  <a name="BKMK_RunReport"></a> Exécuter un rapport Configuration Manager  
  Rapports dans le Gestionnaire de Configuration sont stockés dans SQL Server Reporting Services et les données affichées dans le rapport sont récupérées à partir de la base de données de site Configuration Manager. Vous pouvez accéder aux rapports dans la console Configuration Manager ou à l'aide du Gestionnaire de rapports dans un navigateur web. Les rapports peuvent être ouverts depuis n'importe quel ordinateur disposant d'un accès à l'ordinateur exécutant SQL Server Reporting Services, si vous possédez les droits vous permettant de consulter les rapports. Lorsque vous exécutez un rapport, le titre du rapport, la description et la catégorie sont affichés dans la langue du système d'exploitation local.  
 
 > [!NOTE]  
@@ -38,6 +40,9 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 > [!WARNING]  
 >  Pour exécuter des rapports, vous devez disposez des droits de **Lecture** pour l'autorisation **Site** et l'autorisation **Exécuter le rapport** configurée pour des objets spécifiques.  
+
+> [!IMPORTANT]    
+> Il doit y avoir une relation d’approbation bidirectionnelle pour les utilisateurs d’un domaine différent de celui du compte du Point de Reporting Servicies pour pouvoir exécuter des rapports.
 
 > [!NOTE]  
 >  Le Gestionnaire de rapports est un outil de gestion et d’accès aux rapports basé sur le web que vous utilisez pour administrer une instance de serveur de rapports unique sur un emplacement distant via une connexion HTTP. Vous pouvez utiliser le Gestionnaire de rapports pour les tâches opérationnelles, par exemple, pour afficher des rapports, modifier les propriétés des rapports et gérer les abonnements aux rapports associés. Cette rubrique indique les étapes permettant d'afficher un rapport et de modifier ses propriétés dans le Gestionnaire de rapports. Pour plus d'informations sur les autres options du Gestionnaire de rapports, voir [Gestionnaire de rapports](http://go.microsoft.com/fwlink/p/?LinkId=224916) dans la documentation en ligne de SQL Server 2008.  
@@ -73,7 +78,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 4.  Lorsque des paramètres sont requis, spécifiez-les, puis cliquez sur **Afficher le rapport**.  
 
-###  <a name="a-namebkmkmodifyreportpropertiesa-modify-the-properties-for-a-configuration-manager-report"></a><a name="BKMK_ModifyReportProperties"></a> Modifier les propriétés d’un rapport Configuration Manager  
+###  <a name="BKMK_ModifyReportProperties"></a> Modifier les propriétés d’un rapport Configuration Manager  
  Dans la console Configuration Manager, vous pouvez afficher les propriétés d’un rapport, telles que son nom et sa description. Si vous souhaitez modifier ces propriétés, utilisez le Gestionnaire de rapports. Utilisez la procédure suivante pour modifier les propriétés d’un rapport Configuration Manager.  
 
 #### <a name="to-modify-report-properties-in-report-manager"></a>Pour modifier les propriétés de rapports dans le Gestionnaire de rapports  
@@ -91,7 +96,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 5.  Lorsque vous avez terminé, cliquez sur **Appliquer**. Les propriétés du rapport sont enregistrées sur le serveur de rapports et la console Configuration Manager récupère les propriétés de rapport mises à jour pour le rapport.  
 
-###  <a name="a-namebkmkeditreporta-edit-a-configuration-manager-report"></a><a name="BKMK_EditReport"></a> Modifier un rapport Configuration Manager  
+###  <a name="BKMK_EditReport"></a> Modifier un rapport Configuration Manager  
  Lorsqu’un rapport Configuration Manager existant ne récupère pas les informations dont vous devez disposer ou qu’il ne donne pas la mise en page ou l’aspect que vous souhaitez, vous pouvez le modifier dans le Générateur de rapports.  
 
 > [!NOTE]  
@@ -115,7 +120,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 4.  Dans le Générateur de rapports, modifiez les paramètres de rapport appropriés, puis cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports.  
 
-###  <a name="a-namebkmkcreatemodelbasedreporta-create-a-model-based-report"></a><a name="BKMK_CreateModelBasedReport"></a> Créer un rapport basé sur un modèle  
+###  <a name="BKMK_CreateModelBasedReport"></a> Créer un rapport basé sur un modèle  
  Un rapport basé sur un modèle vous permet de sélectionner les éléments que vous souhaitez inclure dans votre rapport de manière interactive. Pour plus d’informations sur la création de modèles de rapport personnalisés, consultez [Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
@@ -157,7 +162,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 10. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter et modifier le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
 
-###  <a name="a-namebkmkcreatesqlbasedreporta-create-a-sql-based-report"></a><a name="BKMK_CreateSQLBasedReport"></a> Créer un rapport basé sur SQL  
+###  <a name="BKMK_CreateSQLBasedReport"></a> Créer un rapport basé sur SQL  
  Un rapport basé sur SQL vous permet de récupérer des données basées sur une instruction SQL de rapport.  
 
 > [!IMPORTANT]  
@@ -200,10 +205,10 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 9. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
 
-##  <a name="a-namebkmkmanagereportsubscriptionsa-manage-report-subscriptions"></a><a name="BKMK_ManageReportSubscriptions"></a> Gérer les abonnements aux rapports  
+##  <a name="BKMK_ManageReportSubscriptions"></a> Gérer les abonnements aux rapports  
  Les abonnements aux rapports dans SQL Server Reporting Services permettent de configurer la remise automatique des rapports spécifiés par courrier électronique ou vers une solution de partage de fichiers, à des intervalles de temps planifiés. Utilisez l’**Assistant Création d’abonnement** dans System Center 2012 Configuration Manager pour configurer les abonnements aux rapports.  
 
-###  <a name="a-namebkmkreportsubscriptionfilesharea-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a><a name="BKMK_ReportSubscriptionFileShare"></a> Créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a> Créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers  
  Lorsque vous créez un abonnement aux rapports pour remettre un rapport à un partage de fichiers, le rapport est copié au format spécifié pour le partage de fichiers que vous avez indiqué. Vous ne pouvez vous abonner et demander la remise que pour un seul rapport à la fois.  
 
  À la différence des rapports qui sont hébergés et gérés par un serveur de rapports, les rapports qui sont remis à un dossier partagé sont des fichiers statiques. Les fonctionnalités interactives définies pour le rapport ne fonctionnent pas pour les rapports qui sont stockés sous forme de fichiers sur le système de fichiers. Les fonctionnalités d'interaction sont représentées comme des éléments statiques. Si le rapport comprend des graphiques, la présentation par défaut est utilisée. Si le rapport contient des liens renvoyant à un autre rapport, le lien est restitué sous forme de texte statique. Si vous souhaitez conserver les fonctionnalités interactives dans un rapport remis, utilisez plutôt la remise par courrier électronique. Pour plus d’informations sur la remise de courrier électronique, consultez la section [Créer un abonnement aux rapports pour remettre un rapport par courrier électronique](#BKMK_ReportSubscriptionEmail) plus loin dans cette rubrique.  
@@ -284,7 +289,7 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 
 8.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  
 
-###  <a name="a-namebkmkreportsubscriptionemaila-create-a-report-subscription-to-deliver-a-report-by-email"></a><a name="BKMK_ReportSubscriptionEmail"></a> Créer un abonnement aux rapports pour remettre un rapport par e-mail  
+###  <a name="BKMK_ReportSubscriptionEmail"></a> Créer un abonnement aux rapports pour remettre un rapport par e-mail  
  Lorsque vous créez un abonnement aux rapports afin de remettre un rapport par courrier électronique, un message qui contient le rapport en pièce jointe est envoyé aux destinataires que vous aurez configurés. Le serveur de rapports ne valide pas les adresses de messagerie et n'obtient pas d'adresses à partir d'un serveur de messagerie. Vous devez connaître à l'avance les adresses de messagerie que vous souhaitez utiliser. Par défaut, vous pouvez envoyer des rapports à n'importe quel compte de messagerie électronique valide au sein ou en dehors de votre organisation. Vous pouvez sélectionner une ou les deux options de remise par courrier électronique suivantes :  
 
 -   Envoyer une notification et un lien hypertexte vers le rapport généré.  
@@ -358,9 +363,4 @@ Une fois l’infrastructure en place pour la création de rapports dans System C
 -   Sur la page **Résumé** , passez en revue les paramètres d'abonnement au rapport. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer un abonnement à un rapport.  
 
 -   Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

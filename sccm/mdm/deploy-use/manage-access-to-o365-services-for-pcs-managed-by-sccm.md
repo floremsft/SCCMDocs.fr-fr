@@ -16,10 +16,10 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
-ms.openlocfilehash: e9028a54e538b4ec987dbaeb5ba1ee22ad091728
+ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
+ms.openlocfilehash: e78fe989b7ff445717c8320c4eae3900eb46baea
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/19/2017
 
 
 ---
@@ -27,31 +27,25 @@ ms.lasthandoff: 05/17/2017
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-
-
- À compter de la version 1602 de Configuration Manager, vous pouvez configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager.  
+À compter de la version 1602 de Configuration Manager, vous pouvez configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager.  
 
 > [!IMPORTANT]  
->  Il s’agit d’une fonctionnalité en préversion disponible dans les mises à jour 1602, 1606 et 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
+> Il s’agit d’une fonctionnalité en préversion disponible dans les mises à jour 1602, 1606 et 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
 > - Après avoir installé la mise à jour 1602, le type de fonctionnalité s’affiche comme commercialisé même s’il s’agit d’une préversion.
 > - Si vous mettez ensuite à jour la version 1602 vers la version 1606, le type de fonctionnalité s’affiche comme commercialisé même s’il reste en préversion.
 > - Si vous mettez à jour la version 1511 directement vers la version 1606, le type de fonctionnalité s’affiche en tant que préversion.
 
- Si vous recherchez des informations sur la façon de configurer l’accès conditionnel pour des appareils inscrits et gérés par Intune, ou des PC joints au domaine et non évalués sur le plan de la compatibilité, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).  
-
+Si vous recherchez des informations sur la façon de configurer l’accès conditionnel pour des appareils inscrits et gérés par Intune, ou des PC joints au domaine et non évalués sur le plan de la compatibilité, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).
 
 ## <a name="supported-services"></a>Services pris en charge  
 
--   Exchange Online  
-
--   SharePoint Online  
+-   Exchange Online
+-   SharePoint Online
 
 ## <a name="supported-pcs"></a>PC pris en charge  
 
--   Windows 7  
-
--   Windows 8.1  
-
+-   Windows 7
+-   Windows 8.1
 -   Windows 10 
 
 ## <a name="configure-conditional-access"></a>Configurer un accès conditionnel  
@@ -61,7 +55,7 @@ ms.lasthandoff: 05/17/2017
 
 -   Synchronisation d’ADFS et abonnement O365. L’abonnement O365 est nécessaire pour configurer Exchange Online et SharePoint Online.  
 
--   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager. Cela exige que vous disposiez d’un déploiement hybride.  
+-   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager. L’abonnement Intune sert à transférer l’état de conformité des appareils à Azure Active Directory et à accorder les licences d’utilisateur.  
 
  Les PC doivent répondre aux exigences suivantes :  
 
@@ -146,6 +140,8 @@ ms.lasthandoff: 05/17/2017
 
 -   Windows 10 users may see multiple access failures when trying to reach O365 and/or SharePoint online resources. Note that conditional access is not fully supported for Windows 10.  
 --->
-### <a name="see-also"></a>Voir aussi  
- [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+## <a name="see-also"></a>Voir aussi
+
+- [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+- [Organigramme de résolution des problèmes d’accès conditionnel pour Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)
 

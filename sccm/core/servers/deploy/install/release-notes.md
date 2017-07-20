@@ -2,7 +2,7 @@
 title: "Notes de publication - Configuration Manager | Microsoft Docs"
 description: "Consultez ces notes pour les problèmes urgents qui ne sont pas encore résolus dans le produit ou traités dans un article de la Base de connaissances Microsoft."
 ms.custom: na
-ms.date: 05/11/2017
+ms.date: 05/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d5166b16ffbe46af561b1ce98c0494cc4aaa72a8
-ms.openlocfilehash: 9da6f9678a7fb5c76f365a3522f5e5e0fdfec037
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: 6113576ca38da27e9e8732b3930deee96db4ae2c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -153,7 +153,7 @@ L’exception est semblable à la suivante :
 
 Lorsque vous déployez le client sur des ordinateurs Windows, l’installation échoue. Le fichier ccmsetup.log contient une entrée « File 'C:\WINDOWS\ccmsetup\Silverlight.exe' returned failure exit code 1612. Fail the installation » suivie de "InstallFromManifest failed 0x8007064c ».
 
-**Solution de contournement** Cette erreur est due à une version endommagée de Silverlight, précédemment installée. Vous pouvez essayer d’exécuter l’outil suivant sur l’ordinateur concerné pour résoudre ce problème : [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed) 
+**Solution de contournement** Cette erreur est due à une version endommagée de Silverlight, précédemment installée. Vous pouvez essayer d’exécuter l’outil suivant sur l’ordinateur concerné pour résoudre ce problème : [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed)
 
 
 
@@ -200,6 +200,14 @@ Une fois que vous avez créé et déployé un déploiement de tâches à haut ri
 
 **Solution de contournement** :  
 L’utilisateur doit fermer la boîte de dialogue pour que le premier déploiement à haut risque affiche la boîte de dialogue du déploiement à haut risque suivant.
+
+## <a name="software-updates"></a>Mises à jour logicielles
+
+### <a name="importing-an-office-365-client-settings-from-a-configuration-file-fails-when-it-contains-unsupported-languages"></a>L’importation des paramètres d’un client Office 365 à partir d’un fichier de configuration échoue s’il contient des langages non pris en charge
+Lorsque vous importez les paramètres d’un client Office 365 à partir d’un fichier de configuration XML existant et que le fichier contient des langues qui ne sont pas prises en charge par le client Office 365 ProPlus, une erreur se produit. Pour plus d’informations, voir [Déployer des applications Office 365 sur des clients depuis le tableau de bord Gestion des clients Office 365](/sccm/sum/deploy-use/manage-office-365-proplus-updates#to-deploy-office-365-apps-to-clients-from-the-office-365-client-management-dashboard).
+
+**Solution de contournement** :    
+Utilisez uniquement les [langues prises en charge par le client Office 365 ProPlus](https://technet.microsoft.com/library/cc179219&#40;v=office.16&#41;.aspx) dans le fichier de configuration XML.  
 
 ## <a name="mobile-device-management"></a>Gestion des appareils mobiles  
 
@@ -250,9 +258,16 @@ Ce problème affecte l’accès conditionnel de System Center Configuration Mana
 **Solution de contournement :** ajoutez le **regroupement d’utilisateurs** à la page **Regroupements ciblés** avant de sélectionner le **regroupement d’utilisateurs** dans la page **Regroupements exemptés**, ou assurez-vous que vous n’ajoutez pas le même **regroupement d’utilisateurs** aux regroupements ciblés et exemptés.
 
 ## <a name="endpoint-protection"></a>Endpoint Protection
-<!--  Product Studio bug 485370 added by Nathbarn 04 19 2017 -->
+<!--  Product Studio bug 485370 added 04 19 2017 -->
 ### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core
 La stratégie de logiciel anti-programme malveillant ne parvient pas à s’appliquer sur Windows Server 2016 Core.  Le code d’erreur est 0x80070002.  Il existe une dépendance manquante pour ConfigSecurityPolicy.exe.
 
-**Solution de contournement :** Ce problème est résolu par [l’article 4019472 de la Base de connaissances](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) publié le 9 mai 2017. 
+**Solution de contournement :** Ce problème est résolu par [l’article 4019472 de la Base de connaissances](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) publié le 9 mai 2017.
+
+<!-- Product Studio bug 462286 added  05 25 2017 and valid until July 2017 GA release -->
+### <a name="windows-defender-advanced-threat-protection-policies-fail-on-older-client-agents"></a>Les stratégies Windows Defender Advanced Threat Protection (ATP) échouent sur les agents de clients plus anciens
+
+Les stratégies Windows Defender Advanced Threat Protection créées à partir d’un serveur de site Configuration Manager 1610 ou version ultérieure ne seront pas appliquées à Configuration Manager version 1606 et les clients antérieurs.  Les clients ne sont pas embarqués et l’évaluation de la stratégie signale une erreur. L**’état du déploiement** dans la configuration Windows Defender Advanced Threat Protection affiche **Erreur**.
+
+**Solution de contournement** : mettez à niveau le client Configuration Manager avec la version 1610 ou ultérieure.
 

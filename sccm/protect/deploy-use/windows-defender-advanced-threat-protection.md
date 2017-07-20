@@ -16,10 +16,10 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
-ms.openlocfilehash: 237dc9cbccb973720a633490f096aed4bc16d183
+ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
+ms.openlocfilehash: 6c3b67278fa587c137a29e174e277fb0f15872c8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
@@ -33,8 +33,8 @@ Windows Defender ATP est un service disponible dans le [Centre de sécurité Wi
  **Conditions préalables**  
 
 -   Abonnement au service en ligne Windows Defender Advanced Threat Protection  
-
--   Clients exécutant Windows 10 version 1607 ou ultérieure  
+-   Ordinateurs clients exécutant Windows 10 version 1607 ou ultérieure  
+-   Ordinateurs clients exécutant la version 1610 de Configuration Manager ou un agent client ultérieur
 
 ## <a name="how-to-create-an-onboarding-configuration-file"></a>Créer un fichier de configuration de l’intégration  
 

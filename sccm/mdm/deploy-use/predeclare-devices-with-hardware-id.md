@@ -16,10 +16,10 @@ author: nathbarn
 ms.author: nathbarn
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e6833951db27b227a3ca22925e9d9f4c3fc443fc
-ms.openlocfilehash: e8606b8a9268a0a0668b75070cf35894f4794123
+ms.sourcegitcommit: 5eed004bd38a567dfdd4e392300be656a7abe3f7
+ms.openlocfilehash: c692fad43807e54cecbd7ab60284ea740d60617d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
@@ -62,7 +62,7 @@ Lorsque vous téléchargez des numéros de série d’appareils iOS appartenant 
 
 ## <a name="format-for-uploading-csv-files"></a>Format pour le chargement des fichiers .csv
 
-Le fichier .csv que vous utilisez pour identifier des appareils par numéro IMEI ou numéro de série doit avoir le format suivant, à l’exception de la ligne supérieure fournie à titre indicatif uniquement. Chaque ligne doit contenir un numéro d’identification : un numéro IMEI ou un numéro de série iOS. Vous pouvez spécifier ces deux numéros. Les numéros IMEI peuvent être utilisés pour les appareils Android, iOS et Windows. Les numéros de série iOS sont également pris en charge.  Ce tableau contient des exemples de données :
+Le fichier .csv que vous utilisez pour identifier des appareils par numéro IMEI ou numéro de série iOS doit avoir le format suivant, à l’exception de la ligne supérieure fournie à titre indicatif uniquement. Chaque ligne doit contenir un numéro d’identification : un numéro IMEI ou un numéro de série iOS. Pour les appareils iOS, vous pouvez inclure ces deux numéros. Les numéros IMEI peuvent être utilisés pour les appareils Android, iOS et Windows. Ce tableau contient des exemples de données :
 
 | Numéro IMEI  | Numéro de série iOS  | SE | Détails |
 |------------ |---------------|-----|-----|

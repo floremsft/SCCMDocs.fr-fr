@@ -2,7 +2,7 @@
 title: "Mettre à niveau vers System Center Configuration Manager | Microsoft Docs"
 description: "Découvrez les étapes d’exécution d’une mise à niveau sur place réussie à partir d’un site et d’une hiérarchie qui exécute System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 6/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d940fd1bbf96767d44f8c55315e814be55a83897
-ms.openlocfilehash: 9e58ab8dd892adf25429564adfd6f86849ddcbdf
+ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
+ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -32,17 +32,17 @@ Vous pouvez exécuter une mise à niveau sur place pour mettre à niveau System 
  Avant de procéder à la mise à niveau à partir de System Center 2012 Configuration Manager, vous devez préparer les sites en supprimant des configurations spécifiques qui peuvent empêcher la réussite de l’opération et en suivant la séquence de mise à niveau quand plusieurs sites sont concernés.  
 
  > [!TIP]
- > Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
+ > Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="bkmk_path"></a> Chemins de mise à niveau sur place  
 
 **Mise à niveau vers la version 1702**   
 Si vous avez un support de base de référence 1702, vous pouvez mettre à niveau les produits suivants vers une version sous licence complète de System Center Configuration Manager version 1702 :   
--      Une installation d’évaluation de System Center Configuration Manager version 1702
--      System Center 2012 Configuration Manager avec Service Pack 1
--      System Center 2012 Configuration Manager avec Service Pack 2
--      System Center 2012 R2 Configuration Manager
--      System Center 2012 R2 Configuration Manager avec Service Pack 1
+-     Une installation d’évaluation de System Center Configuration Manager version 1702
+-     System Center 2012 Configuration Manager avec Service Pack 1
+-     System Center 2012 Configuration Manager avec Service Pack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager avec Service Pack 1
 
 **Mettre à niveau vers la version 1606**  
 Le 15 décembre 2016, le média de base de la version 1606 a été republié afin d’ajouter la prise en charge d’autres scénarios de mise à niveau. Cette nouvelle version prend en charge la mise à niveau des produits suivants vers une version sous licence complète de System Center Configuration Manager version 1606 :  
@@ -115,7 +115,7 @@ Pour plus d'informations, voir [Windows Update](http://go.microsoft.com/fwlink/p
 Les rôles système de site suivants ne sont plus utilisés dans System Center Configuration Manager et doivent être désinstallées avant la mise à niveau depuis System Center 2012 Configuration Manager :  
 
 -   Point de gestion hors bande  
--   Point de validation d’intégrité du service  
+-   Point du programme de validation d'intégrité système  
 
 **Désactivez les réplicas de base de données pour les points de gestion au niveau des sites principaux :**  
 Configuration Manager ne peut pas réussir la mise à niveau d’un site principal ayant un réplica de base de données activé pour les points de gestion. Désactivez la réplication de base de données avant de :  
@@ -271,7 +271,7 @@ Quand un site est mis à niveau vers System Center Configuration Manager, certai
      Les calendriers de synthèse personnalisés des mises à jour logicielles ou des groupes de mises à jour logicielles sont réinitialisés à la valeur par défaut (1 heure). Au terme de la mise à niveau, réinitialisez les valeurs de synthèse personnalisées sur la fréquence requise.  
 
 ##  <a name="bkmk_test"></a> Tester la mise à niveau de base de données de site  
-Les informations suivantes s’appliquent uniquement lorsque vous mettez à niveau une version antérieure telle que System Center 2012 Configuration Manager vers System Center Configuration Manager. Si votre site exécute déjà System Center Configuration Manager et que vous installez une nouvelle mise à jour, consultez la section [Étape 2 : tester la mise à niveau de base de données avant d’installer une mise à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) dans la rubrique **Avant d’installer une mise à jour dans la console**.
+Les informations suivantes s’appliquent uniquement lorsque vous mettez à niveau une version antérieure telle que System Center 2012 Configuration Manager vers System Center Configuration Manager.
 
 Avant de mettre à niveau un site, testez une copie de la base de données de ce site pour la mise à niveau.  
 
