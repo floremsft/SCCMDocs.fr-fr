@@ -6,7 +6,7 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 03/28/2017
+ms.date: 06/27/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,10 +14,10 @@ ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
-ms.openlocfilehash: 703adc87b9498e39a1db71b94f1bc1a05a4889ec
+ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
+ms.openlocfilehash: b5a2fd9f15992c9e5ef8aede64af5446b6852b1a
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -294,6 +294,9 @@ Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soi
 
 -   une mise à jour logicielle de remplacement n'a pas été approuvée pour le déploiement dans votre environnement de production.  
 
+    > [!NOTE]  
+    >  Lorsque Configuration Manager définit une mise à jour logicielle remplacée sur **Expiré**, cela de définit pas la mise à jour sur **Expiré** dans WSUS. Toutefois, lorsque la tâche de nettoyage WSUS s’exécute, les mises à jour définies sur **Expiré** dans Configuration Manager sont définies dans l’état **Refusé** sur le serveur WSUS, et l’agent Windows Update sur les ordinateurs ne recherche plus ces mises à jour. Cela signifie que les clients continuent à effectuer des recherches pour une mise à jour qui a expiré jusqu’à l’exécution de la tâche de nettoyage. Pour plus d’informations sur la tâche de nettoyage WSUS, consultez [Maintenance des mises à jour logicielles](/sccm/sum/deploy-use/software-updates-maintenance).
+    
 ###  <a name="BKMK_UpdateLanguages"></a> Langues  
  Les paramètres de langue du point de mise à jour logicielle permettent de configurer les langues pour lesquelles les détails du résumé (métadonnées des mises à jour logicielles) sont synchronisés pour les mises à jour logicielles, ainsi que les langues des fichiers de mise à jour logicielle qui seront téléchargés pour les mises à jour.  
 

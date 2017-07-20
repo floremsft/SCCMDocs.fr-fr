@@ -2,7 +2,7 @@
 title: "Fonctionnalités dépréciées | Microsoft Docs"
 description: "Découvrez les fonctionnalités, produits et systèmes d’exploitation que System Center Configuration Manager ne prend plus en charge."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 57b9ab13bda0bb5fa5139e52a4c55ef9524e4097
+ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
+ms.openlocfilehash: e23acf743d8f73afd213c44c3728d1b66d7e558f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -59,7 +59,7 @@ Pour plus d'informations, voir :
 
 -   Remarque 1 : Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095).
 
--   Remarque 2 : depuis la version 1702, ce système d’exploitation n'est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais les versions antérieures à 1702 continuent de prendre en charge son utilisation. Ce système d’exploitation continue d’être pris en charge pour le point de migration d’état et le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion) jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Depuis la version 1602, vous pouvez mettre à niveau sur place le système d’exploitation d’un serveur de site à partir de Windows Server 2008 R2 vers Windows Server 2012 R2.  
+-   Remarque 2 : depuis la version 1702, ce système d’exploitation n'est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais les versions antérieures à 1702 continuent de prendre en charge son utilisation. Ce système d’exploitation continue d’être pris en charge pour le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion) jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Depuis la version 1602, vous pouvez mettre à niveau sur place le système d’exploitation d’un serveur de site à partir de Windows Server 2008 R2 vers Windows Server 2012 R2.  
 
      Pour plus d’informations sur la mise à niveau sur place d’un système d’exploitation de serveurs de site, consultez la section qui traite de la [mise à niveau sur place du système d’exploitation des serveurs de site qui exécutent Windows Server 2008 R2](../../../core/plan-design/changes/whats-new-in-version-1602.md#bkmk_UpgradeOS) dans [Nouveautés de System Center Configuration Manager](../../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md).
 
@@ -103,7 +103,7 @@ Si vous devez mettre à niveau votre version de SQL Server, nous vous recommando
 |Gestion hors bande : telle que dans System Center 2012 Configuration Manager|16 octobre 2015|Version 1511|
 |Séquences de tâches : <br /> - OSDPreserveDriveLetter  <br /><br /> Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. |20 juin 2016 |Version 1606 |
 |Séquences de tâches : <br /> - Convertir en disque dynamique <br /> - Installer les outils de déploiement |18 novembre 2016|La prise en charge de ces séquences de tâches prend fin avec la première mise à jour publiée après le 1er juin 2017.|
-|Le Centre logiciel a été modernisé. Les applications qui seraient apparues uniquement dans le catalogue des applications dépendant de Silverlight (applications accessibles à l’utilisateur) apparaissent désormais dans le Centre logiciel, sous l’onglet **Applications**. Il est toujours possible d’accéder au catalogue des applications via le lien situé sous l’onglet **État de l’installation** du Centre logiciel.<br><br>Dans les prochains mois, la version précédente du Centre logiciel ne sera plus disponible.<br><br>Vous pouvez configurer les clients pour qu’ils utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 décembre 2016|Annoncé prochainement|
+|Le Centre logiciel a été modernisé. Les applications qui seraient apparues uniquement dans le catalogue des applications dépendant de Silverlight (applications accessibles à l’utilisateur) apparaissent désormais dans le Centre logiciel, sous l’onglet **Applications**. Il est toujours possible d’accéder au catalogue des applications via le lien situé sous l’onglet **État de l’installation** du Centre logiciel.<br><br>Dans les prochains mois, la version précédente du Centre logiciel ne sera plus disponible.<br><br>Vous pouvez configurer les clients pour qu’ils utilisent le nouveau Centre logiciel en activant le paramètre client **Agent ordinateur** > **Utiliser le nouveau Centre logiciel**.<br><br>Pour plus d’informations sur le Centre logiciel, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 décembre 2016|La prise en charge de la version précédente du centre logiciel se termine avec la première mise à jour publiée après le 1 janvier 2018.|
 |Gestion de disques durs virtuels avec Configuration Manager. </br></br>Cela inclut la suppression des options permettant de créer un nouveau disque dur virtuel ou de gérer un disque dur virtuel à l’aide d’une séquence de tâches, ainsi que la suppression du nœud Disques durs virtuels dans la console Configuration Manager. </br></br>Une fois cette prise en charge supprimée, les disques durs virtuels existants ne seront pas supprimés, mais ils ne seront plus accessibles à partir de la console Configuration Manager.  |6 janvier 2017 |La prise en charge des disques durs virtuels prend fin avec la première mise à jour publiée après le 1er juin 2017.|
 |Outil d'évaluation de mise à niveau System Center Configuration Manager. </br></br>L’outil d’évaluation de mise à niveau dépend à la fois de System Center Configuration Manager et des outils d'analyse de compatibilité des applications (ACT) 6.x. La dernière version d’ACT a été intégrée à Windows 10 v1511 ADK. Comme il n’y aura plus aucune mise à jour d’ACT, la prise en charge de l’outil d’évaluation de mise à niveau cessera. </br></br>L’outil d’évaluation de mise à niveau est remplacé par la fonctionnalité [Disponibilité pour la mise à niveau](/sccm/core/clients/manage/upgrade/upgrade-analytics). Une note de dépréciation a été ajoutée à la [page de téléchargement UAT](https://www.microsoft.com/download/details.aspx?id=37145) le 12/09/2016. |12/09/2016  | 11 juillet 2017 |  
 

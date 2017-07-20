@@ -2,7 +2,7 @@
 title: "Mettre à niveau l’infrastructure locale | Microsoft Docs"
 description: "Découvrez comment mettre à niveau l’infrastructure, telles que SQL Server et le système d’exploitation de site des systèmes de site."
 ms.custom: na
-ms.date: 2/14/2017
+ms.date: 06/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2e711cce2435957f3e85dad08f17260e1a224fc2
-ms.openlocfilehash: c6448932e91a02984ca57cef0b75c10ea3f43fa1
+ms.sourcegitcommit: 0564cb678200d17d97c0f1d111c0b4b41d8ba40e
+ms.openlocfilehash: 188b7f2537dd0e569a5c00995620124512cf311b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -39,9 +39,10 @@ Utilisez les informations de cette rubrique pour mettre à niveau l’infrastruc
 
 -   Mise à niveau sur place vers un Service Pack Windows Server ultérieur si le niveau du Service Pack de Windows résultant est pris en charge par Configuration Manager.  
 -   Mise à niveau sur place à partir de :
-    - Windows Server 2012 R2 vers Windows Server 2016 ([afficher des informations supplémentaires](#upgrade-windows-server-2012-r2-to-2016)).
-    - Windows Server 2012 vers Windows Server 2012 R2 ([afficher des informations supplémentaires](#upgrade-windows-server-2012-to-windows-server-2012-r2)).
-    - Quand vous utilisez Configuration Manager version 1602 ou ultérieur, la mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2 est également prise en charge ([afficher des informations supplémentaires](#upgrade-windows-server-2008-r2-to-windows-server-2012-r2)).
+    - Windows Server 2012 R2 vers Windows Server 2016 ([afficher des informations supplémentaires](#bkmk_2016)).
+    - Windows Server 2012 vers Windows Server 2016 ([afficher des informations supplémentaires](#bkmk_2016)).
+    - Windows Server 2012 vers Windows Server 2012 R2 ([afficher des informations supplémentaires](#bkmk_2012r2)).
+    - Quand vous utilisez Configuration Manager version 1602 ou ultérieur, la mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2 est également prise en charge ([afficher des informations supplémentaires](#bkmk_from2008r2).
 
     > [!WARNING]  
     >  Avant de mettre à niveau vers Windows Server 2012 R2, *vous devez désinstaller WSUS 3.2* du serveur.  
@@ -52,29 +53,29 @@ Pour mettre à niveau un serveur, utilisez les procédures de mise à niveau fou
   -  [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) dans la documentation de Windows Server.  
   - [Options de mise à niveau et de conversion pour Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) dans la documentation de Windows Server.
 
-### <a name="upgrade-windows-server-2012-r2-to-2016"></a>Mise à niveau de Windows Server 2012 R2 vers 2016  
-Ce scénario de mise à niveau du système d’exploitation a les conditions suivantes :
+### <a name="bkmk_2016"></a> Mise à niveau de Windows Server 2012 ou Windows Server 2012 R2 vers la version 2016
+Lorsque vous mettez à niveau Windows Server 2012 ou Windows Server 2012 R2 vers Windows Server 2016, ce qui suit s’applique :
+
 
 **Avant la mise à niveau :**  
--     Supprimez le client SCEP (System Center Endpoint Protection). Windows Defender, qui remplace le client SCEP, est intégré à Windows Server 2016. La présence du client SCEP peut empêcher une mise à niveau vers Windows Server 2016.
+-   Supprimez le client SCEP (System Center Endpoint Protection). Windows Defender, qui remplace le client SCEP, est intégré à Windows Server 2016. La présence du client SCEP peut empêcher une mise à niveau vers Windows Server 2016.
 
 **Après la mise à niveau :**
--     Vérifiez que Windows Defender est activé, configuré pour démarrer automatiquement et en cours d’exécution.
--     Vérifiez que les services Configuration Manager suivants sont en cours d’exécution :
+-   Vérifiez que Windows Defender est activé, configuré pour démarrer automatiquement et en cours d’exécution.
+-   Vérifiez que les services Configuration Manager suivants sont en cours d’exécution :
   -     SMS_EXECUTIVE
   -     SMS_SITE_COMPONENT_MANAGER
 
 
--     Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
+-   Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
   -     Serveur de site
   -     Point de gestion
   -     Point de service web du catalogue des applications
   -     Point du site web du catalogue des applications
 
+-   Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble des [prérequis pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
 
--     Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble des [prérequis pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
-
-  Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
+-   Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
 
 **Problème connu lié aux consoles Configuration Manager distantes :**  
 Une fois la mise à niveau du serveur de site ou d’un serveur qui héberge une instance de SMS_Provider vers Windows Server 2016 effectuée, il se peut que les utilisateurs administratifs ne puissent pas connecter une console Configuration Manager au site. Pour contourner ce problème, vous devez restaurer manuellement les autorisations pour le groupe Administrateurs SMS dans WMI. Les autorisations doivent être définies sur le serveur de site, ainsi que sur chaque serveur distant qui héberge une instance de SMS_Provider :
@@ -84,46 +85,45 @@ Une fois la mise à niveau du serveur de site ou d’un serveur qui héberge une
 3. Développez l’arborescence sous la racine, sélectionnez le nœud **SMS**, puis choisissez **Sécurité**.  Vérifiez que le groupe **Administrateurs SMS** dispose des autorisations suivantes :
   -     Activer le compte
   -     Appel à distance autorisé
-4. Dans l’**onglet Sécurité** sous le nœud **SMS**, sélectionnez le nœud **site_**&lt;*sitecode*>, puis choisissez **Sécurité**. Vérifiez que le groupe **Administrateurs SMS** dispose des autorisations suivantes :
+4. Dans **l’onglet Sécurité** sous le nœud **SMS**, sélectionnez le nœud **site_&lt;sitecode**>, puis choisissez **Sécurité**. Vérifiez que le groupe **Administrateurs SMS** dispose des autorisations suivantes :
   -   Méthodes d’exécution
   -   Écriture fournisseur
   -   Activer le compte
   -   Appel à distance autorisé
 5. Enregistrez les autorisations pour restaurer l’accès à la console Configuration Manager.
 
-### <a name="windows-server-2012-to-windows-server-2012-r2"></a>Windows Server 2012 vers Windows Server 2012 R2
+### <a name="bkmk_2012r2"></a> Windows Server 2012 vers Windows Server 2012 R2
 
 **Avant la mise à niveau :**
 -  Contrairement aux autres scénarios pris en charge, ce scénario ne nécessite pas de considérations supplémentaires avant la mise à niveau.
 
 **Après la mise à niveau :**
-  -    Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
+  - Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
     - Serveur de site
     - Point de gestion
     - Point de service web du catalogue des applications
     - Point du site web du catalogue des applications
 
-
   -     Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
-    -     Serveur de site
-    -     Point de gestion
-    -     Point de service web du catalogue des applications
-    -     Point du site web du catalogue des applications
+    -   Serveur de site
+    -   Point de gestion
+    -   Point de service web du catalogue des applications
+    -   Point du site web du catalogue des applications
 
 
   -     Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble des [prérequis pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
 
   Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
 
-### <a name="upgrade-windows-server-2008-r2-to-windows-server-2012-r2"></a>Mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2
+### <a name="bkmk_from2008r2"></a> Mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2
 Ce scénario de mise à niveau du système d’exploitation a les conditions suivantes :  
 
 **Avant la mise à niveau :**
--     Désinstallez WSUS 3.2.  
+-   Désinstallez WSUS 3.2.  
     Avant de mettre à niveau le système d’exploitation d’un serveur vers Windows Server 2012 R2, vous devez désinstaller WSUS 3.2 du serveur. Pour plus d’informations sur cette étape critique, consultez la section Fonctionnalités nouvelles et modifiées de la rubrique Vue d’ensemble des services WSUS (Windows Server Update Services) dans la documentation de Windows Server.
 
 **Après la mise à niveau :**
-  -    Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
+  - Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
     - Serveur de site
     - Point de gestion
     - Point de service web du catalogue des applications
@@ -131,10 +131,10 @@ Ce scénario de mise à niveau du système d’exploitation a les conditions sui
 
 
   -     Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
-    -     Serveur de site
-    -     Point de gestion
-    -     Point de service web du catalogue des applications
-    -     Point du site web du catalogue des applications
+    -   Serveur de site
+    -   Point de gestion
+    -   Point de service web du catalogue des applications
+    -   Point du site web du catalogue des applications
 
 
   -     Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble de la [configuration requise pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.

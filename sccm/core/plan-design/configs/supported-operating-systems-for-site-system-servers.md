@@ -2,7 +2,7 @@
 title: "Serveurs de système de site pris en charge | Microsoft Docs"
 description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/9/2017
+ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 86109f7186422c2b29ee933e827a7d14123e5792
+ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
+ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -184,8 +184,8 @@ Utilisez les informations de cette rubrique ainsi que celles contenues dans les 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise et Datacenter  
  Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
- Depuis Configuration Manager version 1702, ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais il continue d’être pris en charge pour le point de migration d’état et le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion).
- 
+ Depuis Configuration Manager version 1702, ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais il continue d’être pris en charge pour le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion).
+
  Les versions antérieures à 1702 continuent de prendre en charge son utilisation pour les éléments suivants.
 
 

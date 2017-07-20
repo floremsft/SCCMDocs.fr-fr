@@ -1,8 +1,8 @@
 ---
-title: Version Technical Preview pour System Center Configuration Manager | Microsoft Docs
+title: Version Technical Preview pour Configuration Manager | Microsoft Docs
 description: "Découvrez la version Technical Preview qui vous permet de tester les nouvelles fonctions et fonctionnalités de System Center Configuration Manager."
 ms.custom: na
-ms.date: 4/3/2017
+ms.date: 06/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f809c9327db9f298168674add2d09820fdecd1b8
-ms.openlocfilehash: 3a7370fedee417588d219dc7bff46205faf42929
+ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
+ms.openlocfilehash: 736e5a04d3d5f2a3825ed4e801308fd5699ea86e
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/07/2017
 
 
 ---
@@ -94,7 +94,7 @@ Chaque préversion est prise en charge pendant la durée de disponibilité de tr
 
 **Versions de référence actives de la version Technical Preview :**  
 Vous pouvez installer une version de référence dans un délai d’un an après sa date de publication. Toutefois, lorsque vous installez un nouveau site Technical Preview, nous vous recommandons d’utiliser la dernière version de base de référence disponible.
--  **Technical Preview 1703** : Configuration Manager Technical Preview 1703 est disponible à la fois sous la forme d’une mise à jour dans la console pour Configuration Manager Technical Preview et en tant que nouvelle version de référence disponible sur le site web Centre d’évaluation TechNet.
+-  **Technical Preview 1703** : Configuration Manager Technical Preview 1703 est disponible à la fois sous la forme d’une mise à jour dans la console pour Configuration Manager Technical Preview et en tant que nouvelle version de référence [disponible sur le site web Centre d’évaluation TechNet](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
 -  **Technical Preview 1610** : Configuration Manager Technical Preview 1610 est disponible à la fois sous la forme d’une mise à jour dans la console pour Configuration Manager Technical Preview et en tant que version de référence. Si vous disposez du support d’installation 1610, nous vous recommandons de télécharger la version 1703 et d’installer cette version à la place.
 
@@ -112,11 +112,45 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnalités de cha
 
 
 
-##  <a name="bkmk_tpCaps"></a> Fonctionnalités fournies dans les versions Technical Preview  
+##  <a name="bkmk_tpCaps"></a> Fonctionnalités fournies dans la dernière version Technical Preview  
  Voici la liste des fonctionnalités fournies par chaque version Technical Preview de Configuration Manager.  Les fonctionnalités disponibles à partir d’une version Technical Preview restent disponibles dans les versions ultérieures. De même, les fonctionnalités qui ont été ajoutées à la version System Center Configuration Manager (Current Branch) restent disponibles dans les versions Technical Preview suivantes.  Cliquez sur le contenu de chaque version Technical Preview pour en savoir plus sur une fonctionnalité spécifique.  
 
  |Fonctionnalité |Version Technical Preview |Version Current Branch|  
-|----------------|---------------------|--------------------|
+ |----------------|---------------------|--------------------|
+ |Nouveaux paramètres de stratégie de gestion d’application mobile|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Non ajouté](media/Red_X.gif)|
+ |Améliorations des groupes de limites pour les points de mise à jour logicielle|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|![Non ajouté](media/Red_X.gif)|
+ |Rôle serveur site haute disponibilité|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Non ajouté](media/Red_X.gif)|
+ |Inclure la confiance pour des fichiers et dossiers spécifiques dans une stratégie de protection des appareils|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#include-trust-for-specific-files-and-folders-in-a-device-guard-policy)|![Non ajouté](media/Red_X.gif)|
+ |Masquer la progression de la séquence de tâches|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#hide-task-sequence-progress)|![Non ajouté](media/Red_X.gif)|
+ |Spécifier un autre emplacement de contenu pour installer et désinstaller le contenu|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#specify-a-different-content-location-for-install-content-and-uninstall-content)|![Non ajouté](media/Red_X.gif)|
+ |Améliorations d’accessibilité |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#accessibility-improvements)|![Non ajouté](media/Red_X.gif)|
+ |Prise en charge de l’assistant des services Azure pour Upgrade Readiness |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#changes-to-the-azure-services-wizard-to-support-upgrade-readiness)|![Non ajouté](media/Red_X.gif)|
+ |Nouveaux paramètres client pour les services cloud|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#new-client-settings-for-cloud-services)|![Non ajouté](media/Red_X.gif)|
+ |Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#create-and-run-powershell-scripts-from-the-configuration-manager-console)|![Non ajouté](media/Red_X.gif)|
+ |Prise en charge du démarrage réseau PXE pour IPv6 |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|![Non ajouté](media/Red_X.gif)|
+ |Gérer les mises à jour du pilote Microsoft Surface |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|![Non ajouté](media/Red_X.gif)|
+ |Configuration de Windows Update pour les stratégies d’entreprise de report d’entreprise |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|![Non ajouté](media/Red_X.gif)|
+ |Restrictions de l’inscription Android et iOS|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|![Non ajouté](media/Red_X.gif)|
+ |Stratégie de gestion des applications Android for Work pour le copier-coller|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#android-for-work-application-management-policy-for-copy-paste)|![Non ajouté](media/Red_X.gif)|
+ |Nouveaux paramètres d’élément de configuration Windows|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#new-windows-configuration-item-settings)|![Non ajouté](media/Red_X.gif)|
+ |Nouvelles règles de stratégie de conformité d’appareil|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#new-device-compliance-policy-rules)|![Non ajouté](media/Red_X.gif)|
+ |Évaluation de l’attestation de l’intégrité des appareils pour les stratégies de conformité pour l’accès conditionnel|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|![Non ajouté](media/Red_X.gif)|
+ |Prise en charge des autorités de certification Entrust|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#support-for-entrust-certification-authorities)|![Non ajouté](media/Red_X.gif)|
+ |Prise en charge de Cisco (IPSec) pour les profils VPN macOS|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#cisco-ipsec-support-for-macos-vpn-profiles)|![Non ajouté](media/Red_X.gif)|
+
+## <a name="capabilities-delivered-in-previous-technical-previews"></a>Fonctionnalités fournies dans les versions Technical Preview précédentes
+ Quand toutes les fonctionnalités d’une version Technical Preview sont disponibles dans la version minimale prise en charge de la version Current Branch, les détails de cette préversion sont supprimés du tableau suivant.  
+
+ |Fonctionnalité |Version Technical Preview |Version Current Branch|  
+ |----------------|---------------------|--------------------|
+  |Nouvelles fonctionnalités pour Azure AD et la gestion du cloud|[Tech Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|![Non ajouté](media/Red_X.gif)|
+ |Configurer et déployer des stratégies Windows Defender Application Guard|[Tech Preview 1705](capabilities-in-technical-preview-1705.md#configure-and-deploy-windows-defender-application-guard-policies)|![Non ajouté](media/Red_X.gif)|
+ |Outil de réinitialisation des mises à jour  |[Tech Preview 1705](capabilities-in-technical-preview-1705.md#update-reset-tool)|![Non ajouté](media/Red_X.gif)|
+ |Prise en charge des consoles à résolution élevée  |[Tech Preview 1705](capabilities-in-technical-preview-1705.md#high-dpi-console-support)|![Non ajouté](media/Red_X.gif)|
+ |Améliorations de Cache d’homologue  |[Tech Preview 1705](capabilities-in-technical-preview-1705.md#peer-cache-improvements) |![Non ajouté](media/Red_X.gif)|
+ |Améliorations pour les groupes de disponibilité Always On SQL Server |[Tech Preview 1705](capabilities-in-technical-preview-1705.md#improvements-for-sql-server-always-on-availability-groups) |![Non ajouté](media/Red_X.gif)|
+ |Amélioration des notifications à l’utilisateur pour les mises à jour d’Office 365|[Tech Preview 1705](capabilities-in-technical-preview-1705.md#improved-user-notifications-for-office-365-updates) |![Non ajouté](media/Red_X.gif)|
+ |Utiliser l’assistant de services Azure pour configurer une connexion à OMS|[Tech Preview 1705](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) |![Non ajouté](media/Red_X.gif)|
  |Configurer des applications Android avec des stratégies de configuration des applications  |[Tech Preview 1704](capabilities-in-technical-preview-1704.md#configure-android-apps-with-app-configuration-policies)|![Non ajouté](media/Red_X.gif)|
  |L’inventaire matériel collecte des informations sur le démarrage sécurisé |[Tech Preview 1704](capabilities-in-technical-preview-1704.md#hardware-inventory-collects-secure-boot-information)|![Non ajouté](media/Red_X.gif)|
  |Ajouter des séquences de tâches enfants à une séquence de tâches|[Tech Preview 1704](capabilities-in-technical-preview-1704.md#add-child-task-sequences-to-a-task-sequence)|![Non ajouté](media/Red_X.gif)|
@@ -209,19 +243,20 @@ Technical Preview. Pour envoyer des commentaires sur les fonctionnalités de cha
  |Nouvelles options de redémarrage pour les clients Windows 10 après l’installation de mises à jour logicielles|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_RestartOptions)|[Version 1606](/sccm/sum/plan-design/plan-for-software-updates#restart-options-for-Windows-10-clients-after-software-update-installation)|  
  |Attestation d’intégrité de l’appareil en local |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_DHA)|[Version 1606](/sccm/core/servers/manage/health-attestation)|  
  |Prédéclarer des appareils d’entreprise avec numéro IMEI ou numéro de série iOS|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_IMEI)|[Version 1606](/sccm/mdm/deploy-use/predeclare-devices-with-hardware-id)|  
- |Gérer les applications achetées en volume à partir du Windows Store pour Entreprises| [Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_WindowsVPP)|[Version 1606](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)|  
- |Améliorations apportées à la gestion de Microsoft Passport for Work|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_PFW)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#device-configuration-and-protection)|  
- |Options permettant aux clients de basculer vers un nouveau point de mise à jour logicielle|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_switchsup)|[Version 1606](/sccm/sum/plan-design/plan-for-software-updates#BKMK_ManuallySwitchSUPs)|  
- |Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client |[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_peercache)|Paramètres client : [Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#administration)<br/>Cache d’homologue : [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache)|  
- |Prise en charge de Passport for Work en tant que Fournisseur de stockage de clés (KSP, Key Storage Provider) |[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_passport)|[Version 1606](/sccm/protect/deploy-use/create-certificate-profiles)|  
- |Attestation d’intégrité de l’appareil en local|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_onpremdha)|[Version 1606](/sccm/core/servers/manage/health-attestation)|  
- |Paramètre SmartLock pour les appareils Android|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_Smart)|[Version 1606](/sccm/compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client#android-and-samsung-knox-configuration-item-settings-reference)|  
- <!--  TP 1603 Aged out of support and all features in Current Branch Builds:
+
+ <!--  TP 1604 and earlier has aged out of support and all features are in Current Branch builds:
+ |Manage volume-purchased apps from the Windows Store for Business| [Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_WindowsVPP)|[Version 1606](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)|  
+ |Improvements to Microsoft Passport for Work management|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_PFW)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#device-configuration-and-protection)|  
+ |Option for clients to switch to a new software update point|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_switchsup)|[Version 1606](/sccm/sum/plan-design/plan-for-software-updates#BKMK_ManuallySwitchSUPs)|  
+ |Client settings to manage Client Cache Settings and client Peer Cache |[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_peercache)|Client Settings: [Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#administration)<br/>Peer Cache: [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache)|  
+ |Support for Passport for Work as a KSP |[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_passport)|[Version 1606](/sccm/protect/deploy-use/create-certificate-profiles)|  
+ |On-premises Device Health Attestation|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_onpremdha)|[Version 1606](/sccm/core/servers/manage/health-attestation)|  
+ |SmartLock setting for Android devices|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_Smart)|[Version 1606](/sccm/compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client#android-and-samsung-knox-configuration-item-settings-reference)|  
  |Improvements to Software Center|[Tech Preview 1603](capabilities-in-technical-preview-1603.md#BKMK_SC1603)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#application-management)|  
  |Improvements to remote control|[Tech Preview 1603](capabilities-in-technical-preview-1603.md#BKMK_RC1603)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#remote-control)|  
  |Customize the RamDisk TFTP block size and window size on PXE-enabled distribution points|[Tech Preview 1603](capabilities-in-technical-preview-1603.md#BKMK_RamDiskTFTP)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#operating-system-deployment)|  
 -->
- Quand toutes les fonctionnalités d’une version Technical Preview sont disponibles dans la version minimale prise en charge de la version Current Branch, les détails de cette préversion sont supprimés de ce tableau.
+
 
 
 ## <a name="see-also"></a>Voir aussi  

@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
-ms.openlocfilehash: a33960fb89b71c0f8128e21a5054f5b63cfc6b17
+ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
+ms.openlocfilehash: 4bc076bba4672d0be0032ec785da20e60b11a6c4
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/17/2017
 
 System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la détection et l’installation des mises à jour recommandées pour votre infrastructure Configuration Manager. Cette méthode de maintenance dans la console est complétée par des mises à jour hors bande, telles que des correctifs logiciels, qui s’adressent aux clients qui ont besoin de résoudre des problèmes qui peuvent être propres à leur environnement.  
 
-> [!TIP]
+> [!TIP]  
 > Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
 
@@ -85,7 +85,7 @@ Les versions suivantes de Configuration Manager sont disponibles sous forme de v
 | 1511 <br /><br /> 5.00.8325.1000|08/12/2015| 12/8/2016|Oui|Non|  
 
 
-*(Note 1)* Ce support de la base de référence 1606 est disponible dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch 1606).
+*(Note 1)* Les supports de base de référence 1606 et 1702 sont disponibles dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch) sur le [Centre de service de licence en volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Par exemple, sur VLSC, vous pouvez rechercher *System Center Config Mgr (Current Branch et LTSB)*, et les supports des bases de référence 1606 et 1702 sont renvoyés et disponibles au téléchargement.
 
 Pour vérifier la version de votre site Configuration Manager, dans la console, accédez à **À propos de System Center Configuration Manager** dans le coin supérieur gauche de la console où sont affichées la nouvelle version du site et de la console.  
 

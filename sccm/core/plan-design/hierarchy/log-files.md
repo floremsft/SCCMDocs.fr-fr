@@ -2,7 +2,7 @@
 title: Fichiers journaux pour Configuration Manager | Microsoft Docs
 description: "Utilisez des fichiers journaux pour résoudre des problèmes dans une hiérarchie System Center Configuration Manager."
 ms.custom: na
-ms.date: 3/28/2017
+ms.date: 7/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: b991b4ea27e66c233b04f8e65a412404521d89a6
+ms.sourcegitcommit: 5e1bc0063ab3d34410f7dbc773a5eacdd5eb6d2f
+ms.openlocfilehash: 28597cf1cb269fff0872c7f79ef961496aea32ab
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/05/2017
 
 
 ---
@@ -507,7 +507,7 @@ Le tableau suivant répertorie les fichiers journaux qui contiennent des informa
 ||||
 |-|-|-|
 |Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|
-|CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.<br>Vous pouvez configurer le niveau de journalisation en modifiant le Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**|Le dossier **SMS/Logs** sur le serveur de système de site|
+|CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.<br>Vous pouvez configurer le niveau de journalisation en modifiant le Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**|Le dossier *installdir* sur le serveur de site principal ou les autorités de certification.|
 |CMGSetup.log ou CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Enregistre des détails concernant la 2ème phase du déploiement de la passerelle de gestion cloud (déploiement local dans Azure)<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |CMGHttpHandler.log ou CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Enregistre des détails concernant la liaison du gestionnaire http de la passerelle de gestion cloud avec Internet Information Services dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
 |CMGService.log ou CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Enregistre des détails concernant le composant principal du service de passerelle de gestion cloud dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|

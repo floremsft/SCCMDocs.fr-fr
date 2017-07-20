@@ -2,7 +2,7 @@
 title: "Cache d’homologue du client | System Center Configuration Manager"
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 4/4/2017
+ms.date: 7/3/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 26feb0b166beb7e48cb800a5077d00dbc3eec51a
-ms.openlocfilehash: dcd05d7d120f8997562da7d92b38c8b52a512357
+ms.sourcegitcommit: ed6b65a1a5aabc0970cd0333cb033405cf6d2aea
+ms.openlocfilehash: 94802680747a3d371716c1b345b2cba098150716
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/03/2017
 
 ---
 
@@ -33,18 +33,20 @@ ms.lasthandoff: 05/17/2017
 > Depuis la version 1610, le cache d’homologue et le tableau de bord Sources de données du client sont des fonctionnalités en préversion. Pour les activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
 ## <a name="overview"></a>Vue d'ensemble
- -     Vous utilisez des paramètres du client pour permettre aux clients d’utiliser le cache d’homologue.
- -     Pour partager du contenu, les clients du cache d’homologue doivent être membres du groupe de limites actuel du client qui recherche le contenu. Les clients du cache d’homologue dans les groupes de limites voisins ne sont pas inclus dans le pool des emplacements sources de contenu disponibles quand un client utilise une action de secours pour rechercher du contenu à partir d’un groupe de limites voisin. Pour plus d’informations sur les groupes de limites actuels et voisins, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Les clients non activés pour le cache d’homologue mais qui font partie du groupe de limites actuel avec des clients activés pour le cache d’homologue peuvent obtenir du contenu de la part du client activé pour le cache d’homologue.  
+Un client de cache d’homologue est un client Configuration Manager qui est activé pour utiliser le cache d’homologue. Un client de cache d’homologue qui a du contenu qu’il peut partager avec d’autres clients est une source de cache d’homologue.
+ -  Vous utilisez des paramètres du client pour permettre aux clients d’utiliser le cache d’homologue.
+ -  Pour partager du contenu en tant que source de cache d’homologue, un client de cache d’homologue :
+    -  Les appareils doivent être joints à un domaine. Toutefois, un client qui n’est pas joint à un domaine peut obtenir du contenu à partir d’une source de cache d’homologue jointe à un domaine.
+    -  Il doit être un membre du groupe de limites actuel du client qui recherche le contenu. Un client du cache d’homologue dans les groupes de limites voisins n’est pas inclus dans le pool des emplacements sources de contenu disponibles quand un client utilise une action de secours pour rechercher du contenu à partir d’un groupe de limites voisin. Pour plus d’informations sur les groupes de limites actuels et voisins, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
  - Chaque type de contenu conservé dans le cache d’un client Configuration Manager peut être fourni à d’autres clients à l’aide du cache d’homologue.
- -    Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en association avec lui afin de vous offrir davantage d’options pour l’extension de solutions de déploiement de contenu traditionnelles telles que des points de distribution. Il s’agit d’une solution personnalisée sans recours à BranchCache. Par conséquent, si vous n’activez pas ou n’utilisez pas Windows BranchCache, elle fonctionne quand même.
+ -  Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en association avec lui afin de vous offrir davantage d’options pour l’extension de solutions de déploiement de contenu traditionnelles telles que des points de distribution. Il s’agit d’une solution personnalisée sans recours à BranchCache. Par conséquent, si vous n’activez pas ou n’utilisez pas Windows BranchCache, elle fonctionne quand même.
 
 ### <a name="operations"></a>Opérations
 
 Après avoir déployé des paramètres du client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme source de contenu homologue pour d’autres clients du même groupe de limites :
- -    Un client qui agit en tant que source de contenu homologue envoie une liste des contenus mis en cache disponibles à son point de gestion.
- -    Ensuite, quand le client suivant dans ce groupe de limites demande ce contenu, chaque source de cache d’homologue disposant du contenu est retournée comme source de contenu potentielle avec les points de distribution et d’autres emplacements de sources de contenu dans ce groupe de limites.
- -    Selon le processus de fonctionnement normal, le client qui recherche le contenu sélectionne une source de contenu dans le pool de sources qu’il a proposé, puis continue pour essayer d’obtenir le contenu.
+ -  Un client qui agit en tant que source de contenu homologue envoie une liste des contenus mis en cache disponibles à son point de gestion.
+ -  Ensuite, quand le client suivant dans ce groupe de limites demande ce contenu, chaque source de cache d’homologue disposant du contenu est retournée comme source de contenu potentielle avec les points de distribution et d’autres emplacements de sources de contenu dans ce groupe de limites.
+ -  Selon le processus de fonctionnement normal, le client qui recherche le contenu sélectionne une source de contenu dans le pool de sources qu’il a proposé, puis continue pour essayer d’obtenir le contenu.
 
 > [!NOTE]
 > En cas de recours à un groupe de limites voisin pour le contenu, les emplacements sources de contenu de cache d’homologue à partir du groupe de limites voisin ne sont pas ajoutés au pool des emplacements de sources de contenu potentiels du client.  
@@ -94,13 +96,13 @@ Utilisez ce rapport pour comprendre les détails du rejet pour un groupe de limi
 
 -   Chaque site où les clients utilisent le cache d’homologue doit être configuré avec un [compte d’accès réseau](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Le compte est utilisé par l’ordinateur source du cache d’homologue pour authentifier les demandes de téléchargement provenant des homologues et nécessite pour cela seulement des autorisations d’utilisateur du domaine.
 
--     Étant donné que la limite actuelle d’une source de contenu de cache d’homologue est déterminée par la soumission de l’inventaire matériel de ces clients, un client qui se déplace vers un emplacement réseau et qui se trouve dans un autre groupe de limites peut toujours être considéré comme un membre de son précédent groupe de limites pour les besoins du cache d’homologue. En conséquence, un client peut se voir proposer une source de contenu de cache d’homologue qui ne se trouve pas dans son emplacement réseau immédiat. Nous vous recommandons d’empêcher les clients qui adoptent souvent cette configuration de participer à une source de cache d’homologue.
+-   Étant donné que la limite actuelle d’une source de contenu de cache d’homologue est déterminée par la soumission de l’inventaire matériel de ces clients, un client qui se déplace vers un emplacement réseau et qui se trouve dans un autre groupe de limites peut toujours être considéré comme un membre de son précédent groupe de limites pour les besoins du cache d’homologue. En conséquence, un client peut se voir proposer une source de contenu de cache d’homologue qui ne se trouve pas dans son emplacement réseau immédiat. Nous vous recommandons d’empêcher les clients qui adoptent souvent cette configuration de participer à une source de cache d’homologue.
 
 ## <a name="to-configure-client-peer-cache-client-settings"></a>Pour configurer les paramètres client du cache d’homologue du client
-1.    Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, puis ouvrez l’objet des paramètres de client d’appareil que vous voulez utiliser. Vous pouvez également modifier l’objet des paramètres client par défaut.
-2.    Dans la liste des paramètres disponibles, choisissez **Paramètres du cache du client**.
-3.    Définissez **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu** sur **Oui**.
-4.    Configurez les paramètres suivants pour définir les ports que vous souhaitez utiliser pour le cache d’homologue :  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**, puis ouvrez l’objet des paramètres de client d’appareil que vous voulez utiliser. Vous pouvez également modifier l’objet des paramètres client par défaut.
+2.  Dans la liste des paramètres disponibles, choisissez **Paramètres du cache du client**.
+3.  Définissez **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu** sur **Oui**.
+4.  Configurez les paramètres suivants pour définir les ports que vous souhaitez utiliser pour le cache d’homologue :  
   -  **Port pour la diffusion réseau initiale**
   -  **Activer HTTPS pour la communication d’homologues clients**
   -  **Port pour le téléchargement de contenu à partir d’un homologue (HTTP/HTTPS)**

@@ -17,10 +17,10 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 071d758f1015d16217a54fe26df5f8f948c818a3
+ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
+ms.openlocfilehash: f648d7626af50d95fbaa5a7a2abd821a9c47f5d1
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/07/2017
 
 
 ---
@@ -629,6 +629,9 @@ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle
 
 -   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
 
+> [!NOTE]    
+> Lorsque vous déployez une séquence de tâches contenant l’étape Télécharger le contenu du package, ne sélectionnez pas **Télécharger tout le contenu localement avant de démarrer la séquence de tâches** pour les **Options de déploiement** sur la page **Points de distribution** de l’assistant de déploiement de logiciels.  
+
 Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Toutefois, la possibilité d’enregistrer le package dans le cache du client Configuration Manager n’est pas prise en charge dans WinPE.
 
 ### <a name="details"></a>Détails  
@@ -654,11 +657,11 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
  **Placez à l’emplacement suivant**  
  Choisissez d’enregistrer le package à l’un des emplacements suivants :  
 
--   **Répertoire de travail de séquence de tâches**  
+ -   **Répertoire de travail de séquence de tâches**  
 
--   **Cache du client Configuration Manager**: vous utilisez cette option pour stocker le contenu dans le cache du client. Cela permet au client de servir de source de cache homologue pour d’autres clients de cache homologue. Pour plus d’informations, consultez [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Cache du client Configuration Manager**: vous utilisez cette option pour stocker le contenu dans le cache du client. Cela permet au client de servir de source de cache homologue pour d’autres clients de cache homologue. Pour plus d’informations, consultez [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
--   **Chemin personnalisé**  
+ -   **Chemin personnalisé**  
 
  **Enregistrez le chemin d’accès en tant que variable**  
  Vous pouvez enregistrer le chemin en tant que variable que vous pouvez utiliser dans une autre étape de séquence de tâches. Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %*mon_contenu*% en tant que variable personnalisée, il s’agit de la racine du stockage de tout le contenu référencé (qui peut correspondre à plusieurs packages). Lorsque vous faites référence à la variable, vous ajoutez un suffixe numérique à la variable. Par exemple, pour le premier package, vous ferez référence à la variable %*mycontent01*%. Lorsque vous faites référence à la variable dans des étapes ultérieures, par exemple la mise à niveau du système d’exploitation, vous utiliseriez %*mycontent02*% ou %*mycontent03*% où le nombre correspond à l’ordre dans lequel le package est répertorié dans l’étape.  

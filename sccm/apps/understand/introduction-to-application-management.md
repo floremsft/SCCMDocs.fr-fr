@@ -15,11 +15,11 @@ caps.latest.revision: 18
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-experimental: true
-experiment_id: rob-table-161101
-translationtype: Human Translation
-ms.sourcegitcommit: 5aef08865b232ff2dacec6906098bebf4e42e6b1
-ms.openlocfilehash: 699adb5fac0c625c321db011af6989cc4c0778ec
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
+ms.openlocfilehash: 959a36413d06bb225f260bd44c1d3d59efd44e69
+ms.contentlocale: fr-fr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,11 +37,11 @@ Dans cette rubrique, vous allez découvrir les principes de base à connaître a
 
  Quand l’application est déployée sur des appareils, des **spécifications** déterminent le type de déploiement qui est installé sur l’appareil.  
 
- Bien sûr, une application permet d’effectuer bien d’autres choses que nous passerons en revue dans ce guide. Le tableau suivant présente les concepts que vous devez connaître avant d’aller plus loin. Notez que vous n’aurez pas forcément recours à tous ces concepts dans chaque application que vous créez :  
+ Vous pouvez effectuer bien d’autres choses avec une application. Vous en apprendrez plus sur ces choses en parcourant ce guide. Le tableau suivant présente les concepts que vous devez connaître avant d’aller plus loin :  
 
 |Concept|Description|    
 |-|-|  
-|**Requirements**|Dans les versions précédentes de Configuration Manager, il était fréquent de créer un regroupement contenant les appareils sur lesquels vous souhaitiez déployer une application. Bien que vous puissiez toujours procéder de cette façon, vous pouvez désormais utiliser des spécifications pour indiquer des critères d’installation plus granulaires.<br /><br /> Par exemple, vous pouvez préciser qu’une application peut uniquement être installée sur des appareils Windows 10. Vous pouvez ensuite déployer l’application sur tous vos appareils, mais elle ne sera installée que sur les appareils Windows 10.<br /><br /> Configuration Manager évalue les spécifications pour déterminer si une application et ses types de déploiement doivent être installés. Ensuite, il détermine le type de déploiement correct selon lequel installer une application. Tous les sept jours, par défaut, les règles de spécification sont réévaluées pour garantir leur conformité en fonction du paramètre client **Planifier la réévaluation des déploiements**.<br /><br /> Pour plus d’informations, consultez [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md).|  
+|**Requirements**|Dans les versions précédentes de Configuration Manager, il était fréquent de créer un regroupement contenant les appareils sur lesquels vous souhaitiez déployer une application. Même si vous pouvez toujours créer une collection, les exigences vous permettent de spécifier des critères plus détaillés pour un déploiement d’application.<br /><br /> Par exemple, vous pouvez préciser qu’une application peut uniquement être installée sur des appareils Windows 10. Vous pouvez ensuite déployer l’application sur vos appareils, mais elle ne sera installée que sur les appareils Windows 10.<br /><br /> Configuration Manager évalue les spécifications pour déterminer si une application et ses types de déploiement doivent être installés. Ensuite, il détermine le type de déploiement correct selon lequel installer une application. Tous les sept jours, par défaut, les règles de spécification sont réévaluées pour garantir leur conformité en fonction du paramètre client **Planifier la réévaluation des déploiements**.<br /><br /> Pour plus d’informations, consultez [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md).|  
 |**Conditions globales**|Tandis que les spécifications sont utilisées avec un type de déploiement spécifique dans une seule application, vous pouvez également créer des conditions globales. Il s’agit d’une bibliothèque de spécifications prédéfinies que vous pouvez utiliser avec n’importe quel type d’application et de déploiement.<br /><br /> Configuration Manager contient un ensemble de conditions globales intégrées, mais vous pouvez également créer vos propres conditions globales.<br /><br /> Pour plus d’informations, consultez [Créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).|  
 |**Déploiement simulé**|Évalue les spécifications, la méthode de détection et les dépendances d’une application. Il signale les résultats sans installer l’application.<br /><br /> Pour plus d’informations, consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).|  
 |**Action de déploiement**|Spécifie si vous voulez installer ou désinstaller (en cas de prise en charge) l’application que vous déployez.<br /><br /> Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  
@@ -110,9 +110,4 @@ De plus, quand vous gérez des appareils par le biais de la gestion des appareil
 -   Les scripts qui s'exécutent selon un planning défini et qui ne peuvent pas utiliser l'évaluation globale.
 
  Pour plus d’informations, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
