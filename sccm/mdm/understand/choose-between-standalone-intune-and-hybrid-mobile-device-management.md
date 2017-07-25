@@ -2,7 +2,7 @@
 title: Choisir entre Intune autonome et la gestion des appareils mobiles hybride | Microsoft Docs
 description: "Choisissez de déployer la gestion des appareils mobiles hybride avec Intune et Configuration Manager ou d’exécuter Intune de façon autonome."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 07/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,45 +12,47 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
 caps.latest.revision: 10
-author: Mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 84e3896dd05a8c157f4e94625b0eca60aacc11d3
-ms.openlocfilehash: 8f2625aadfd0aed92d9922c7e3c0d3d166a78cdd
+ms.translationtype: HT
+ms.sourcegitcommit: 648bc6b96aa5ccc834442a962e6d5b5125f88bb5
+ms.openlocfilehash: ddb6d47e5dba4fddd6fa811d83b1bf0c91ad26f9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 02/25/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Choisir entre Intune autonome et la gestion des appareils mobiles hybride avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-L’une des questions les plus fréquentes relatives à la gestion des appareils mobiles avec Microsoft Intune est la suivante : « Dois-je intégrer Intune à Configuration Manager (gestion des appareils mobiles hybride) ou exécuter Intune autonome dans la configuration cloud ? ». Pour répondre à cette question, vous devez comparer attentivement les deux options et tenir compte des mises à jour qui seront apportées à Intune début 2017.
+L’une des questions les plus fréquentes relatives à la gestion des appareils mobiles avec Microsoft Intune est la suivante : « Dois-je intégrer Intune à Configuration Manager (gestion des appareils mobiles hybride) ou exécuter Intune autonome dans la configuration cloud ? ». Pour répondre à cette question, vous devez soigneusement comparer les deux options.
 
-## <a name="what-is-intune-standalone"></a>En quoi consiste Intune autonome ?
+## <a name="intune-standalone"></a>Intune autonome
+Intune autonome est la topologie de déploiement recommandée par Microsoft. Intune autonome est une solution cloud de gestion des périphériques mobiles (GPM) qui est gérée à l’aide d’une console web accessible n’importe où dans le monde. Les centres de données Intune sont hébergés en Amérique du Nord, en Europe et en Asie. Intune étant un service cloud, vous pouvez déployer la gestion Intune sur vos appareils dans des délais relativement courts.
 
-Intune autonome est une solution cloud de gestion des appareils mobiles qui n’implique aucune ressource locale et qui est gérée à l’aide d’une console web accessible n’importe où dans le monde. Les centres de données Intune sont hébergés en Amérique du Nord, en Europe et en Asie. Intune étant un service cloud, vous pouvez déployer la gestion Intune sur vos appareils dans des délais relativement courts. Vous pouvez également choisir Intune autonome si votre organisation effectue la transition vers le cloud.
+Il est généralement plus rapide et plus facile pour les clients de déployer la topologie autonome, car il n’existe aucune dépendance pour les composants locaux. Intune autonome est désormais disponible sur la plateforme cloud de Microsoft Azure et fournit de nombreuses fonctionnalités avancées, telles que :
+- Plateforme de gestion Enterprise Mobility intégrée : plateforme cloud avec expérience administrateur intégrée dans le portail Azure pour Intune, Azure AD Premium et Azure Information Protection.
+- Gestion des périphériques mobiles : fonctionnalités de protection des informations et de gestion des périphériques mobiles.
+- Mise à l’échelle : déployez et gérez des appareils mobiles sans vous préoccuper de la mise à l’échelle.
+- Contrôle d’accès en fonction du rôle : restriction de l’accès aux fonctions d’administration en fonction des rôles affectés et des étendues.
+- Accès par programmation (API) : prise en charge de l’API Microsoft Graph, options de gestion SDK et PowerShell.
+- Console Web : console HTML 5 reposant sur des normes web prenant en charge la plupart des navigateurs web les plus récents.
+- Création de rapports avancée : fonctionnalité permettant de créer des rapports personnalisés.
+- Agilité : programme d’installation simple et diffusion rapide de nouvelles fonctionnalités.
 
-## <a name="what-is-hybrid-mdm-with-configuration-manager"></a>En quoi consiste la gestion des appareils mobiles hybride avec Configuration Manager ?
 
-La gestion des appareils mobiles hybride est une solution qui utilise Intune comme canal de remise des stratégies, profils et applications aux appareils. En revanche, elle utilise l’infrastructure locale de Configuration Manager pour stocker et administrer le contenu et gérer les appareils. Vous pouvez choisir la gestion des appareils mobiles hybride si vous avez déjà réalisé des investissements importants dans Configuration Manager et que vous souhaitez étendre son utilisation à la gestion des appareils mobiles. Une implémentation hybride vous offre un « contrôle unifié », ce qui signifie que vous pouvez utiliser la même infrastructure locale et la même console d’administration pour gérer d’une part des appareils mobiles avec Intune et, d’autre part, des PC et des serveurs avec le client Configuration Manager traditionnel.
+## <a name="hybrid-mdm-with-configuration-manager"></a>Gestion des périphériques mobiles (GPM) hybride avec Configuration Manager
+La gestion des périphériques mobiles (GPM) hybride est une solution qui intègre les fonctionnalités de gestion des périphériques mobiles d’Intune à Configuration Manager. Elle utilise Intune comme canal de remise des stratégies, profils et applications aux appareils. En revanche, elle utilise l’infrastructure locale de Configuration Manager pour administrer le contenu et gérer les appareils. Une implémentation hybride vous offre un « contrôle unifié ».  Ce qui signifie que vous pouvez utiliser la même infrastructure locale et la même console d’administration pour gérer d’une part des appareils mobiles avec Intune et, d’autre part, des PC et des serveurs avec le client Configuration Manager traditionnel. Vous pouvez choisir la gestion des périphériques mobiles (GPM) hybride pour les raisons suivantes :  
+- Vous voulez gérer les appareils mobiles inscrits dans Intune et les appareils gérés avec le client Configuration Manager à partir de la même console d’administration
+- Votre infrastructure nécessite que vous disposiez de plusieurs serveurs NDES pour la remise de certificat aux appareils mobiles
+- Votre infrastructure nécessite que vous disposiez de plusieurs connecteurs Exchange Server
+- Vous avez besoin de la prise en charge du chiffrement S/MIME
 
-## <a name="whats-coming-to-intune-standalone-in-early-2017"></a>Nouvelles fonctionnalités d’Intune autonome prévues pour le début de l’année 2017
 
-Si vous devez choisir entre Intune autonome et la gestion des appareils mobiles hybride, tenez compte des nouvelles fonctionnalités d’Intune autonome qui seront dévoilées début 2017. Jusqu’à présent, ce sont les fonctionnalités avancées de la gestion des appareils mobiles hybride qui incitaient certains clients à préférer cette approche à Intune autonome :
+## <a name="changing-the-mdm-authority-setting"></a>Modification du paramètre d’autorité de gestion des périphériques mobiles (GPM)
+Si vous voulez modifier le paramètre d’autorité de gestion des périphériques mobiles, vous pouvez le faire sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](/sccm/mdm/deploy-use/change-mdm-authority.md).
 
--   Accès par programmation (API) : options de gestion SDK et PowerShell
-
--   Rapports personnalisés : création de rapports personnalisés
-
--   Contrôle d’accès en fonction du rôle : restriction de l’accès aux fonctions d’administration en fonction des rôles affectés
-
--   Mise à l’échelle : déploiement et gestion de plus de 100 000 appareils mobiles
-
--   Contrôle unifié : gestion des PC clients traditionnels et des appareils gérés par Intune dans la même console
-
-Si vous commencez à planifier votre déploiement Intune aujourd’hui et que vous disposez d’une fenêtre de plusieurs mois pour le pilotage, les tests d’acceptation et le déploiement, vous pouvez envisager de choisir Intune autonome compte tenu des nouvelles fonctionnalités qui seront introduites dans le service cloud. Durant le premier semestre de l’année 2017, Intune autonome fera l’objet de mises à jour pour recevoir la plupart des fonctionnalités avancées d’un déploiement hybride avec Configuration Manager. Intune autonome sera bientôt hébergé sur la plateforme cloud Microsoft Azure où il bénéficiera, outre d’une scalabilité accrue, des fonctionnalités suivantes : accès en fonction du rôle par le biais du portail Azure, création de rapports personnalisés et accès par programmation par le biais de l’API Graph Azure.
-
-Vous pouvez passer de la gestion hybride à Intune autonome et vice versa, mais cette opération nécessite l’intervention du support technique de Microsoft. Vous devez aussi désinscrire et réinscrire tous les appareils après la modification de l’autorité de gestion.  Microsoft s’efforce actuellement d’optimiser l’expérience associée au changement de configuration. Les améliorations seront incluses dans une future mise à jour du service.
+> [!NOTE]    
+> Vous devez disposer de Configuration Manager 1610 ou version ultérieure pour modifier votre autorité de gestion des périphériques mobiles sur Intune autonome. Si vous avez une version antérieure de Configuration Manager, vous pouvez modifier l’autorité de gestion des périphériques mobiles, mais vous aurez besoin de l’aide du Support et des opérations de Microsoft. Vous devrez également annuler l’inscription de tous vos appareils et les réinscrire après la modification de l’autorité de gestion des périphériques mobiles.  
 
