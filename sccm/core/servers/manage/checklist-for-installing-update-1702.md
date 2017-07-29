@@ -2,7 +2,7 @@
 title: "Liste de contrôle pour 1702 | System Center Configuration Manager"
 description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour vers System Center Configuration Manager version 1702."
 ms.custom: na
-ms.date: 6/6/2017
+ms.date: 06/06/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
