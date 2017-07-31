@@ -26,10 +26,11 @@
 ###  [Fonctions et fonctionnalités](plan-design/changes/features-and-capabilities.md)
 ###  [Nouveautés par rapport à Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Nouveautés dans les versions incrémentielles](plan-design/changes/whats-new-incremental-versions.md)
+###  [Nouveautés dans la version 1706](plan-design/changes/whats-new-in-version-1706.md)
 ###  [Nouveautés dans la version 1702](plan-design/changes/whats-new-in-version-1702.md)
 ###  [Nouveautés dans la version 1610](plan-design/changes/whats-new-in-version-1610.md)
-###  [Nouveautés dans la version 1606](plan-design/changes/whats-new-in-version-1606.md)
 <!--
+###  [What's new in version 1606](plan-design/changes/whats-new-in-version-1606.md)
 ###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
 -->
 ###  [Fonctionnalités supprimées et dépréciées](plan-design/changes/removed-and-deprecated-features.md)
@@ -75,12 +76,15 @@
 
 ##   [Données de diagnostic et d’utilisation](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Utilisation des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
+###  [Données de diagnostic pour 1706](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1706.md)
 ###  [Données de diagnostic pour 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md)
 ###  [Données de diagnostic pour 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
-###  [Données de diagnostic pour 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+
 <!--
-###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+###  [Diagnostic data for 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
 ###  [Diagnostic data for 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
+###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+
 -->
 ###  [Mode de collecte des données de diagnostic et d’utilisation](plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)
 ###  [Mode d’affichage des données de diagnostic et d’utilisation](plan-design/diagnostics/view-diagnostics-and-usage-data.md)
@@ -181,12 +185,12 @@
 ###  [Limites de site et groupes de limites](servers/deploy/configure/define-site-boundaries-and-boundary-groups.md)
 #### [Limites](servers/deploy/configure/boundaries.md)
 #### [Groupes de limites](servers/deploy/configure/boundary-groups.md)
-#### [Groupes de limites pour les versions antérieures à 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
 ###  [Se préparer à utiliser SQL Server Always On](servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md)
 ###  [Configurer SQL Server Always On](servers/deploy/configure/configure-aoag.md)
 ###  [Utiliser un cluster SQL Server](servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md)
 ###  [Emplacements personnalisés pour les fichiers de base de données](servers/deploy/configure/custom-locations-for-site-database-files.md)
 ###  [Configurer l’administration basée sur des rôles](servers/deploy/configure/configure-role-based-administration.md)
+###  [Configurer les services Azure](servers/deploy/configure/azure-services-wizard.md)
 ##   Informations techniques de référence
 ###  [Comptes](plan-design/hierarchy/accounts.md)
 ###  [Communications entre points de terminaison](plan-design/hierarchy/communications-between-endpoints.md)
@@ -199,7 +203,9 @@
 ###  [Prise en charge du serveur proxy](plan-design/network/proxy-server-support.md)
 ###  [Notes de publication](servers/deploy/install/release-notes.md)
 ###  [Prise en charge Unicode et ASCII](plan-design/hierarchy/unicode-and-ascii-support.md)
-
+<!-- Deprecated from Content - still published but out of TOC:
+#### [Boundary groups for versions prior to 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
+-->
 
 #    Gérer l’infrastructure
 ##   [Tâches de maintenance](servers/manage/maintenance-tasks.md)
@@ -209,6 +215,7 @@
 ##   [Mettre à niveau l’infrastructure locale](servers/manage/upgrade-on-premises-infrastructure.md)
 ##   [Mises à jour pour Configuration Manager](servers/manage/updates.md)
 ###  [Installer des mises à jour dans la console](servers/manage/install-in-console-updates.md)
+#### [Outil de réinitialisation des mises à jour](servers/manage/update-reset-tool.md)
 #### [Tester la mise à niveau des bases de données](servers/manage/test-database-upgrade.md)
 #### [Organigramme - Téléchargement des mises à jour](servers/manage/download-updates-flowchart.md)
 #### [Organigramme - Réplication de mise à jour](servers/manage/update-replication-flowchart.md)
@@ -217,10 +224,11 @@
 ###  [Utiliser l’outil de connexion de service](servers/manage/use-the-service-connection-tool.md)
 ###  [Utiliser l’outil Inscription de la mise à jour](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Utiliser le programme d’installation de correctif logiciel](servers/manage/use-the-hotfix-installer-to-install-updates.md)
+###  [Liste de contrôle pour l’installation de la mise à jour 1706](servers/manage/checklist-for-installing-update-1706.md)
 ###  [Liste de contrôle pour l’installation de la mise à jour 1702](servers/manage/checklist-for-installing-update-1702.md)
 ###  [Liste de contrôle pour l’installation de la mise à jour 1610](servers/manage/checklist-for-installing-update-1610.md)
-###  [Liste de contrôle pour l’installation de la mise à jour 1606](servers/manage/checklist-for-installing-update-1606.md)
 <!-- Deprecated from Content - still published but out of TOC:
+###  [Checklist for installing update 1606](servers/manage/checklist-for-installing-update-1606.md)
 ###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
 -->
 ###  [Prise en charge pour les versions Current Branch](servers/manage/current-branch-versions-supported.md)  
@@ -278,6 +286,7 @@
 #### [Commandes client Linux et UNIX](clients/deploy/linux-and-unix-clients-technical-reference.md)
 ###  [Préparer le déploiement des clients sur des ordinateurs Mac](clients/deploy/prepare-to-deploy-mac-clients.md)
 ###  [Guide pratique pour déployer des clients sur des ordinateurs Mac](clients/deploy/deploy-clients-to-macs.md)
+###  [Installer des clients à partir d’Internet à l’aide d’Azure AD](clients/deploy/deploy-clients-cmg-azure.md)
 ###  [Guide pratique pour attribuer des clients à un site](clients/deploy/assign-clients-to-a-site.md)
 ###  [Guide pratique pour configurer l’état du client](clients/deploy/configure-client-status.md)
 ###  [Guide pratique pour surveiller l’état du déploiement des clients](clients/deploy/monitor-client-deployment-status.md)
@@ -286,6 +295,7 @@
 
 ##   [Surveiller et gérer les clients](clients/manage/monitor-clients.md)
 ###  [Guide pratique pour surveiller les clients](clients/manage/monitor-clients.md)
+###  [Utiliser Windows Analytics](clients/manage/monitor-windows-analytics.md)
 ###  [Guide pratique pour surveiller les clients Linux et UNIX](clients/manage/monitor-clients-for-linux-and-unix-servers.md)
 ###  [Guide pratique pour gérer les clients](clients/manage/manage-clients.md)
 ###  [Guide pratique pour gérer les clients Linux et UNIX](clients/manage/manage-clients-for-linux-and-unix-servers.md)
