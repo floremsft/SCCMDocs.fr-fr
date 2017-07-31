@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1dc74219-7ff5-4e3b-b4f6-5aad663bb75b
 caps.latest.revision: 24
-author: Dougeby
-ms.author: dougeby
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 065b1fcb25d7c7845b6f26e757b36e7fb97ce013
-ms.openlocfilehash: ef4536578456c13de5afaa5cd1977d2e6b4b6bd1
+ms.translationtype: HT
+ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
+ms.openlocfilehash: 167e639cdb9995fd743787cc9fbf364ec70f6ed9
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Configuration requise de l’infrastructure pour le déploiement de système d’exploitation dans System Center Configuration Manager
@@ -41,7 +40,9 @@ Le déploiement de système d’exploitation dans System Center 2012 Configurat
 
 -   Outils de déploiement Windows  
 
--   Environnement de préinstallation Windows (Windows PE)  
+-   Environnement de préinstallation Windows (Windows PE)
+
+Pour obtenir la liste des versions du Windows 10 ADK que vous pouvez utiliser avec différentes versions de Configuration Manager, consultez [Prise en charge de Windows 10 comme client](https://docs.microsoft.com/en-us/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).
 
  <sup>1</sup> USMT n'est pas requis sur le serveur de système de site du fournisseur SMS.  
 
@@ -171,7 +172,7 @@ Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
  Les Services de déploiement Windows (WDS) doivent être installés sur le même serveur que les points de distribution que vous configurez pour prendre en charge PXE ou la multidiffusion. WDS est inclus dans le système d’exploitation du serveur. Pour les déploiements PXE, WDS est le service qui effectue le démarrage PXE. Lorsque le point de distribution est installé et activé pour PXE, Configuration Manager installe un fournisseur dans WDS qui utilise les fonctions de démarrage PXE de WDS.  
 
 > [!NOTE]  
->  L'installation de WDS peut échouer si le serveur requiert un redémarrage.  
+>  Si le serveur nécessite un redémarrage, l’installation de WDS peut échouer. 
 
  Parmi les autres configurations WDS qui doivent être prises en compte, citons :  
 

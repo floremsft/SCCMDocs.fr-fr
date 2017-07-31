@@ -2,7 +2,7 @@
 title: "Taille et échelle | Microsoft Docs"
 description: "Déterminez le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils dans votre environnement System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/30/2016
+ms.date: 07/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: 4
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f9c43e26758d5171a6ef56e827b4b054ebc8a5e5
-ms.openlocfilehash: c7ad33339e65e6e00e88f98d6e13baceb98dae77
+ms.translationtype: HT
+ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
+ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/30/2016
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
@@ -133,7 +133,7 @@ Les numéros de support suivants sont basés sur l’utilisation du matériel re
 ###  <a name="bkmk_cas"></a> Hiérarchie avec un site d’administration centrale  
 Un site d’administration centrale prend en charge un nombre total d’appareils pouvant atteindre le nombre d’appareils répertoriés pour les trois groupes suivants :  
 
--   700 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
+-   700 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
 
 -   25 000 appareils exécutant Mac et Windows CE 7.0  
 
@@ -152,7 +152,7 @@ Un site d’administration centrale prend en charge un nombre total d’appareil
 ###  <a name="bkmk_chipri"></a> Site principal enfant  
 Chaque site principal enfant dans une hiérarchie avec un site d’administration centrale prend en charge les éléments suivants :  
 
--   Un total de 150 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie.  
+-   Un total de 150 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie. Consultez également la prise en charge des [appareils embarqués](#embedded).
 
 Par exemple, un site principal qui prend en charge 25 000 ordinateurs exécutant des clients Mac et Windows CE 7.0 (la limite d’une hiérarchie) peut prendre en charge 125 000 ordinateurs de bureau supplémentaires. Le nombre total d’appareils pris en charge atteint alors la limite maximale de 150 000 prise en charge par le site principal enfant.
 
@@ -161,7 +161,7 @@ Un site principal autonome prend en charge le nombre suivant d’appareils :
 
 -   Total de 175 000 clients et appareils, sans dépasser :  
 
-    -   150 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
+    -   150 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
 
     -   25 000 appareils exécutant Mac et Windows CE 7.0
 
@@ -171,7 +171,11 @@ Un site principal autonome prend en charge le nombre suivant d’appareils :
 
         -   150 000 appareils cloud  
 
+
 Par exemple, un site principal autonome prenant en charge 150 000 ordinateurs de bureau et 10 000 clients Mac ou Windows CE 7.0 ne peut prendre en charge que 15 000 appareils supplémentaires. Ces appareils peuvent être basés sur le cloud ou gérés à l’aide de la gestion MDM locale.  
+
+### <a name="embedded"></a>Sites principaux et appareils Windows Embedded
+Les sites principaux prennent en charge les appareils embarqués Windows Embedded où les filtres d'écriture basés sur des fichiers (FBWF) sont activés. Quand les appareils embarqués n’ont pas les filtres d'écriture activés, un site principal peut prendre en charge un nombre d'appareils embarqués pouvant atteindre le nombre d’appareils autorisés pour ce site. Sur le nombre total d’appareils qu'un site principal prend en charge, un maximum de 10 000 peuvent être des appareils Windows Embedded si ces appareils sont configurés pour les exceptions répertoriées dans la section Important que vous trouverez dans [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Un site principal prend en charge seulement 3 000 appareils Windows Embedded où EWF est activé et qui ne sont pas configurés pour les exceptions.
 
 ###  <a name="bkmk_sec"></a> Sites secondaires  
 Les sites secondaires prennent en charge les éléments suivants :  

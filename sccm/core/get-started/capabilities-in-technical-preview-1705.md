@@ -1,6 +1,6 @@
 ---
 title: Technical Preview 1705 | Microsoft Docs
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1705 pour System Center Configuration Manager."
+description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1705 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -14,20 +14,20 @@ ms.assetid: 00684289-d21a-45f8-b1e3-c5c787d73096
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: 1a38d25fbc26bd1f45c6fa2a0e931536af2d8b2f
+ms.translationtype: HT
+ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
+ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1705 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Fonctionnalités de la version Technical Preview 1705 de System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1705 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1705 de System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site Configuration Manager Technical Preview. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.    
 
-**Problèmes connus dans cette version d’évaluation technique :**
+**Problèmes connus dans cette version Technical Preview :**
 -   **Le connecteur Operations Manager Suite ne se met pas à niveau**. Lorsque vous mettez à niveau à partir d’une version précédente de la Technical Preview qui avait le connecteur OMS configuré, ce connecteur n’est pas mis à niveau et n’est plus disponible dans la console. Après la mise à niveau, vous devez [utiliser l’assistant de services Azure](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) et rétablir la connexion à votre espace de travail OMS.
 -   **Les pilotes Surface ne se synchronisent pas correctement**. Même si la prise en charge des pilotes Surface est répertoriée dans les **Nouveautés** dans la console Configuration Manager pour Technical Preview, cette fonctionnalité ne fonctionne pas encore comme prévu.
 -   **Impossible de créer une stratégie de report Windows Update for Business**. Bien que la possibilité de configurer des stratégies de report Windows Update for Business est répertoriée dans les **Nouveautés** dans la console Configuration Manager pour Technical Preview, l’Assistant ne s’ouvre pas et vous ne parvenez pas à configurer des stratégies.
@@ -93,9 +93,9 @@ Une fois que l’outil s’exécute :
 | **-I &lt;Nom de l'instance SQL Server>**             | *Facultatif* <br> Utilisez cela pour identifier l’instance de SQL Server qui héberge la base de données du site. |
 | **-FDELETE**                              | *Facultatif* <br> Permet de forcer la suppression d’un package de mise à jour téléchargé avec succès. |  
  **Exemples :**  
- Dans un scénario classique, vous souhaitez réinitialiser une mise à jour qui présente des problèmes de téléchargement. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, les données du site sont *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ Dans un scénario classique, vous souhaitez réinitialiser une mise à jour qui présente des problèmes de téléchargement. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Dans un scénario plus extrême, vous souhaitez forcer la suppression du package de mise à jour problématique. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, les données du site sont *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ Dans un scénario plus extrême, vous souhaitez forcer la suppression du package de mise à jour problématique. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
 ### <a name="test-the-tool-with-the-technical-preview"></a>Tester l’outil avec la version Technical Preview  
 Vous pouvez utiliser cet outil avec les versions Technical Preview 1606 et ultérieures. Cette compatibilité descendante est proposée afin que l’outil puisse être utilisé dans de nombreux scénarios de mise à jour de Technical Preview, sans devoir attendre la disponibilité de la version Technical Preview suivante.

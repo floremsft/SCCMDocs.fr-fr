@@ -15,12 +15,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
-ms.openlocfilehash: f11a53bbc85b40077b3909568db5ae5552b0456c
+ms.translationtype: HT
+ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
+ms.openlocfilehash: c421c3495f56503d5cbda7b1a5ab5350a168912d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Point de service de l’entrepôt de données pour System Center Configuration Manager
@@ -52,7 +51,7 @@ Une fois installé, le rôle de système de site installe et configure la base d
   - des autorisations de niveau **administrateur local** sur l’ordinateur qui hébergera la base de données de l’entrepôt de données ;
   - des autorisations **DB_owner** la base de données de l’entrepôt de données.
   - des autorisations **DB_reader** et **execute** sur la base de données des sites de niveau supérieur.
--    La base de données de l’entrepôt de données est prise en charge sur une instance par défaut ou nommée de SQL Server version 2012 ou ultérieure. L’édition doit être Enterprise ou Datacenter.
+-   La base de données de l’entrepôt de données est prise en charge sur une instance par défaut ou nommée de SQL Server version 2012 ou ultérieure. L’édition doit être Enterprise ou Datacenter.
   - Groupe de disponibilité SQL Server AlwaysOn : cette configuration n’est pas prise en charge.
   - Cluster SQL Server : les clusters de basculement SQL Server ne sont pas pris en charge. En effet, la base de données de l’entrepôt de données n’a pas été testée en profondeur sur les clusters de basculement SQL Server.
   - Lorsque la base de données de l’entrepôt de données ne se trouve pas au même emplacement que la base de données du serveur de site, vous devez disposer d’une licence distincte pour l’instance SQL Server qui héberge la base de données.
@@ -78,7 +77,7 @@ Quand vous installez le rôle, Configuration Manager crée la base de données d
 Page **Sélection du rôle système** :  
 
 Page **Général** :
--     **Paramètres de connexion de la base de données de l’entrepôt de données Configuration Manager** :
+-   **Paramètres de connexion de la base de données de l’entrepôt de données Configuration Manager** :
  - **Nom de domaine complet de SQL Server** :  
  spécifiez le nom de domaine complet (FQDN) du serveur qui héberge le point de service de l’entrepôt de données et la base de données.
  - **Nom d’instance SQL Server, le cas échéant** :   
@@ -103,15 +102,15 @@ Le rôle de système de site de l’entrepôt de données inclut les rapports su
  - **Déploiement de l’application - Historique** :   
  Affiche les détails du déploiement d’application pour une application et un ordinateur spécifiques.
  - **Endpoint Protection et Compatibilité des mises à jour logicielles - Historique** : affiche les ordinateurs sur lesquels des mises à jour logicielles n’ont pas été effectuées.  
- - **Inventaire matériel général - Historique** :      
+ - **Inventaire matériel général - Historique** :   
  Affiche tout l’inventaire matériel pour un ordinateur spécifique.
- - **Inventaire logiciel général - Historique** :      
+ - **Inventaire logiciel général - Historique** :   
  Affiche tout l’inventaire logiciel pour un ordinateur spécifique.
- - **Vue d'ensemble de l'intégrité de l'infrastructure - Historique** :     
+ - **Vue d'ensemble de l'intégrité de l'infrastructure - Historique** :  
  affiche une vue d’ensemble de l’intégrité de votre infrastructure Configuration Manager.
- - **Liste des programmes malveillants détectés - Historique** :     
+ - **Liste des programmes malveillants détectés - Historique** :    
  Affiche les programmes malveillants qui ont été détectés dans l’organisation.
- - **Résumé de la distribution de logiciels - Historique** :     
+ - **Résumé de la distribution de logiciels - Historique** :   
  Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.
 
 
@@ -126,13 +125,13 @@ Contrairement au déplacement de la base de données de l’entrepôt de donnée
 ## <a name="move-the-data-warehouse-database"></a>Déplacer la base de données de l’entrepôt de données
 Procédez comme suit pour déplacer la base de données de l’entrepôt de données vers un nouveau serveur SQL Server :
 
-1.    Utilisez la solution SQL Server Management Studio pour sauvegarder la base de données de l’entrepôt de données, puis la restaurer sur l’instance SQL Server du nouvel ordinateur qui hébergera l’entrepôt de données.   
+1.  Utilisez la solution SQL Server Management Studio pour sauvegarder la base de données de l’entrepôt de données, puis la restaurer sur l’instance SQL Server du nouvel ordinateur qui hébergera l’entrepôt de données.   
 > [!NOTE]     
 > Après avoir restauré la base de données sur le nouveau serveur, vérifiez que les autorisations d’accès à la base de données sont les mêmes sur la nouvelle base de données de l’entrepôt de données que sur la base de données de l’entrepôt de données d’origine.  
 
-2.    Utilisez la console Configuration Manager pour supprimer du serveur actuel le rôle de système de site du point de service de l’entrepôt de données.
-3.    Réinstallez le point de service de l’entrepôt de données et spécifiez le nom du nouveau serveur SQL Server et de l’instance qui héberge la base de données de l’entrepôt de données que vous avez restaurée.
-4.    Une fois le rôle de système de site installé, le déplacement est terminé.
+2.  Utilisez la console Configuration Manager pour supprimer du serveur actuel le rôle de système de site du point de service de l’entrepôt de données.
+3.  Réinstallez le point de service de l’entrepôt de données et spécifiez le nom du nouveau serveur SQL Server et de l’instance qui héberge la base de données de l’entrepôt de données que vous avez restaurée.
+4.  Une fois le rôle de système de site installé, le déplacement est terminé.
 
 ## <a name="troubleshooting-data-warehouse-issues"></a>Résolution des problèmes relatifs à l’entrepôt de données
 **Fichiers journaux** :  
@@ -167,7 +166,7 @@ Lorsque vous ouvrez un rapport de l’entrepôt de données, l’erreur suivante
     1. Ouvrez IIS, cliquez sur **Certificats de serveur**, puis cliquez avec le bouton droit sur **Créer un certificat auto-signé** et spécifiez le « nom convivial » du nom du certificat en tant que **certificat d’identification SQL Server de l’entrepôt de données**. Sélectionnez le magasin de certificats en tant que **Applications personnelles**.
     2. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Configuration du réseau SQL Server**, cliquez avec le bouton droit pour sélectionner **Propriétés** sous **Protocoles pour MSSQLSERVER**. Ensuite, sur l’onglet **Certificat**, sélectionnez le **certificat d’identification SQL Server de l’entrepôt de données** et enregistrez les modifications.  
     3. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Services SQL Server**, redémarrez le **service SQL Server** et le **Reporting Service**.
-    4.    Ouvrez la console MMC (Microsoft Management Console) et ajoutez le composant logiciel enfichable relatif aux **certificats**, puis sélectionnez la gestion du certificat pour le **compte d’ordinateur** de la machine locale. Ensuite, dans la console MMC, développez le dossier **Applications personnelles** > **Certificats** et exportez le **certificat d’identification SQL Server de l’entrepôt de données** en tant que fichier **Binaire codé DER X.509 (.cer)**.    
+    4.  Ouvrez la console MMC (Microsoft Management Console) et ajoutez le composant logiciel enfichable relatif aux **certificats**, puis sélectionnez la gestion du certificat pour le **compte d’ordinateur** de la machine locale. Ensuite, dans la console MMC, développez le dossier **Applications personnelles** > **Certificats** et exportez le **certificat d’identification SQL Server de l’entrepôt de données** en tant que fichier **Binaire codé DER X.509 (.cer)**.    
   2.    Sur l’ordinateur hébergeant la solution SQL Server Reporting Services, ouvrez la console MMC et ajoutez le composant logiciel enfichable relatif aux **certificats**, puis sélectionnez la gestion du certificat pour le **compte d’ordinateur**. Sous le dossier **Autorités de certification racine reconnues**, importez le **certificat d’identification SQL Server de l’entrepôt de données**.
 
 
@@ -178,7 +177,7 @@ Lorsque vous ouvrez un rapport de l’entrepôt de données, l’erreur suivante
 
 | Étape   | Détails  |
 |:------:|-----------|  
-| **1**  |     Le serveur de site transfère et stocke les données dans la base de données de site.  |  
+| **1**  |  Le serveur de site transfère et stocke les données dans la base de données de site.  |  
 | **2**  |      Selon sa planification et de sa configuration, le point de service de l’entrepôt de données obtient des données de la base de données de site.  |  
 | **3**  |  Le point de service de l’entrepôt de données transfère et stocke une copie des données synchronisées dans la base de données de l’entrepôt de données. |  
 **Rapports**
