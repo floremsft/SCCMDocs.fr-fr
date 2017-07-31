@@ -12,9 +12,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: fdf05118-162a-411e-b72e-386b9dc9a5e1
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 238ef5814c0c1b832c28d63c9f3879e21a6c439b
 ms.openlocfilehash: 179f076f228daa5adf612275a822cd379b0ce1e3
+ms.contentlocale: fr-fr
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -83,7 +85,7 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
 ### <a name="reporting-services-point"></a>Point de Reporting Services  
  Le rôle de système de site Point de Reporting Services peut afficher des rapports concernant les mises à jour logicielles. Ce rôle est facultatif, mais recommandé. Pour plus d’informations sur la création d’un point de Reporting Services, consultez [Configuration de la création de rapports](../../core/servers/manage/configuring-reporting.md).  
 
-##  <a name="a-namebkmkrecoverupgradesa-recover-from-synchronizing-the-upgrades-category-before-you-install-kb-3095113"></a><a name="BKMK_RecoverUpgrades"></a> Récupérer d’une synchronisation de la catégorie Mises à niveau avant l’installation du correctif KB 3095113  
+##  <a name="BKMK_RecoverUpgrades"></a> Récupérer d’une synchronisation de la catégorie Mises à niveau avant l’installation du correctif KB 3095113  
  Vous devez installer le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour WSUS sur vos points de mise à jour logicielle et serveurs de site avant de synchroniser la classification **Mises à niveau** . Si le correctif n’est pas installé lors de l’activation de la classification **Mises à niveau** , WSUS détecte la mise à niveau de fonctionnalités de la build 1511 de Windows 10, même s’il ne peut pas correctement télécharger et déployer les packages associés. Si vous synchronisez des mises à niveau sans avoir préalablement installé le [correctif 3095113](https://support.microsoft.com/kb/3095113), cela a pour effet de remplir la base de données WSUS (SUSDB) avec des données inutilisables qui doivent être effacées avant le déploiement des mises à niveau.  Pour résoudre ce problème, procédez comme suit.  
 
 #### <a name="to-recover-from-synchronizing-the-upgrades-classification-before-you-install-kb-3095113"></a>Pour récupérer d’une synchronisation de la classification Mises à niveau avant d’installer le correctif KB 3095113  
@@ -111,9 +113,4 @@ Cette rubrique répertorie les prérequis pour les mises à jour logicielles dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Préparer la gestion des mises à jour logicielles](../get-started/prepare-for-software-updates-management.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
