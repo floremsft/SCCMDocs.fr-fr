@@ -16,11 +16,11 @@ caps.handback.revision: 0
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 74f4dd44089d4a13526c981589e1f497f0e10290
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 50c137f159b0ef631f7173b8eec190182ce41cee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Protéger des applications à l’aide de stratégies de gestion des applications mobiles dans System Center Configuration Manager
@@ -43,12 +43,12 @@ Pour utiliser cette nouvelle fonctionnalité, vous devez utiliser le portail Azu
 
 Pour appliquer des restrictions à une application, celle-ci doit intégrer le Kit de développement logiciel (SDK) d’application Microsoft Intune. Il existe deux méthodes pour obtenir ce type d'application :  
 
--   **Utiliser une application gérée par une stratégie** (Android et iOS) : ces applications intègrent le SDK d’application. Pour ajouter ce type d'application, spécifiez un lien vers l'application à partir d'un magasin d'applications tel que l'iTunes Store ou Google Play. Aucun traitement supplémentaire n'est nécessaire pour ce type d'application. Pour obtenir une liste des applications gérées par une stratégie qui sont disponibles pour les appareils iOS et Android, consultez [Applications gérées pour les stratégies de gestion des applications mobiles Microsoft Intune](https://technet.microsoft.com/en-us/library/dn708489.aspx).  
+-   **Utiliser une application gérée par une stratégie** (Android et iOS) : ces applications intègrent le SDK d’application. Pour ajouter ce type d'application, spécifiez un lien vers l'application à partir d'un magasin d'applications tel que l'iTunes Store ou Google Play. Aucun traitement supplémentaire n'est nécessaire pour ce type d'application. Pour obtenir une liste des applications gérées par une stratégie qui sont disponibles pour les appareils iOS et Android, consultez [Applications gérées pour les stratégies de gestion des applications mobiles Microsoft Intune](https://technet.microsoft.com/library/dn708489.aspx).  
 
 -   **Utiliser une application « encapsulée »** (Android et iOS) : applications repackagées pour inclure le SDK d’application à l’aide de l’**outil de création de package de restrictions d’application Microsoft Intune**. On utilise généralement cet outil pour traiter les applications d'entreprise qui ont été créées en interne. Vous ne pouvez pas l'utiliser pour traiter les applications qui ont été téléchargées à partir du magasin d'applications. Pour plus d’informations, consultez les articles suivants :
-    - [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/en-us/library/dn878028.aspx)
+    - [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/dn878028.aspx)
 
-    - [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/en-us/library/mt147413.aspx)  
+    - [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/mt147413.aspx)  
 
 ## <a name="create-and-deploy-an-app-with-a-mobile-application-management-policy"></a>Créer et déployer une application avec une stratégie de gestion des applications mobiles  
 
@@ -58,7 +58,7 @@ Pour appliquer des restrictions à une application, celle-ci doit intégrer le K
 
      Par exemple, l’URL de l’application Microsoft Word pour iPad est **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**  
 
--   **Pour créer une application encapsulée** : utilisez les informations fournies dans les rubriques [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/en-us/library/dn878028.aspx) et [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/en-us/library/mt147413.aspx) pour créer une application encapsulée.  
+-   **Pour créer une application encapsulée** : utilisez les informations fournies dans les rubriques [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/dn878028.aspx) et [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/mt147413.aspx) pour créer une application encapsulée.  
 
      L'outil crée une application traitée et un fichier manifeste associé. Vous utilisez ces fichiers quand vous créez une application Configuration Manager contenant l’application.  
 
@@ -178,5 +178,5 @@ Pour plus d’informations, consultez [Gérer l’accès à Internet à l’aide
 -   Si aucune stratégie n’a encore été déployée sur l’appareil et que deux paramètres en conflit sont déployés, le paramètre par défaut intégré à l’appareil est utilisé.  
 
 ##  <a name="see-a-list-of-available-policy-managed-apps"></a>Afficher la liste des applications gérées par la stratégie disponibles  
- Pour obtenir la liste des applications gérées par une stratégie disponibles pour les appareils iOS et Android, consultez [Partenaires d’application Microsoft Intune](https://www.microsoft.com/en-us/cloud-platform/microsoft-intune-partners).  
+ Pour obtenir la liste des applications gérées par une stratégie disponibles pour les appareils iOS et Android, consultez [Partenaires d’application Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune-partners).  
 

@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9555a16d97224a1cf49a426ab225468b07403f60
-ms.openlocfilehash: e28fdeae809cadf78017dd2920e3f1a9484ec8a3
+ms.translationtype: HT
+ms.sourcegitcommit: 5f1412fb132e3a074742e11f1142b2594146cbe1
+ms.openlocfilehash: 44b4707b1a40624c51decf548d23ddd2164c5833
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/29/2016
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Guide pratique pour créer des regroupements dans System Center Configuration Manager
@@ -57,65 +56,65 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 5.  Dans la page **Règles d’adhésion** de l’**Assistant Création d’un regroupement de périphériques**, dans la liste **Ajouter une règle**, sélectionnez le type de règle d’adhésion que vous voulez utiliser pour le regroupement. Vous pouvez configurer plusieurs règles pour chaque regroupement.  
 
         
-        ##### To configure a direct rule  
+##### <a name="to-configure-a-direct-rule"></a>Pour configurer une règle directe  
 
-        1.  Sur la page **Rechercher des ressources** de l' **Assistant Création d'une règle d'adhésion directe**, spécifiez les informations suivantes :  
+1.  Sur la page **Rechercher des ressources** de l' **Assistant Création d'une règle d'adhésion directe**, spécifiez les informations suivantes :  
 
-            -   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource Système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
+-   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource Système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
 
-            -   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource sélectionnée que vous voulez rechercher. Par exemple, si vous souhaitez sélectionner des ordinateurs par leur nom NetBIOS, sélectionnez **Ressource Système** dans la liste **Classe de ressource** et **NetBIOS nom** dans la liste **Nom d'attribut** .  
+-   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource sélectionnée que vous voulez rechercher. Par exemple, si vous souhaitez sélectionner des ordinateurs par leur nom NetBIOS, sélectionnez **Ressource Système** dans la liste **Classe de ressource** et **NetBIOS nom** dans la liste **Nom d'attribut** .  
 
-            -   **Exclure les ressources signalées comme obsolètes** : si un ordinateur client est signalé comme obsolète, n’incluez pas cette valeur dans les résultats de recherche.  
+-   **Exclure les ressources signalées comme obsolètes** : si un ordinateur client est signalé comme obsolète, n’incluez pas cette valeur dans les résultats de recherche.  
 
-            -   **Exclure les ressources sur lesquelles le client Configuration Manager n’est pas installé** : Elles ne seront pas affichées dans les résultats de recherche.  
+-   **Exclure les ressources sur lesquelles le client Configuration Manager n’est pas installé** : Elles ne seront pas affichées dans les résultats de recherche.  
 
-            -   **Valeur :** entrez une valeur pour laquelle vous voulez rechercher le nom d’attribut sélectionné. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher les ordinateurs dont le nom NetBIOS commence par « M », entrez **M%** dans ce champ.  
+-   **Valeur :** entrez une valeur pour laquelle vous voulez rechercher le nom d’attribut sélectionné. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher les ordinateurs dont le nom NetBIOS commence par « M », entrez **M%** dans ce champ.  
 
-        2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**, puis choisissez **Suivant**.  
+2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**, puis choisissez **Suivant**.  
 
 
-        ##### To configure a query rule  
+##### <a name="to-configure-a-query-rule"></a>Pour configurer une règle de requête  
 
-        1.  Dans la boîte de dialogue **Propriétés de la règle de requête** , définissez les options suivantes :  
+1.  Dans la boîte de dialogue **Propriétés de la règle de requête** , définissez les options suivantes :  
 
-            -   **Nom** : Spécifiez un nom unique.  
+-   **Nom** : Spécifiez un nom unique.  
 
-            -   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/create-queries.md) à utiliser comme règle de requête pour le regroupement.   
+-   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/create-queries.md) à utiliser comme règle de requête pour le regroupement.   
 
-            -   **Classe de ressource :** Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
+-   **Classe de ressource :** Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
 
-            -   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+-   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
     
-        ##### To configure an include collection rule  
+##### <a name="to-configure-an-include-collection-rule"></a>Pour configurer une règle d'inclusion de regroupements  
 
-        In the **Select Collections** dialog box, select the collections you want to include in the new collection, then choose **OK**.  
+Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
 
-        ##### To configure an exclude collection rule  
+##### <a name="to-configure-an-exclude-collection-rule"></a>Pour configurer une règle d'exclusion de regroupements  
 
-        In the **Select Collections** dialog box, select the collections you want to exclude from the new collection, then choose **OK**.  
+Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
 
-    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+-   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
 
-        > [!IMPORTANT]  
-        >  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
-        >   
-        >  -   SMS_G_System_CollectedFile  
-        > -   SMS_G_System_LastSoftwareScan  
-        > -   SMS_G_System_AppClientState  
-        > -   SMS_G_System_DCMDeploymentState  
-        > -   SMS_G_System_DCMDeploymentErrorAssetDetails  
-        > -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
-        > -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-        > -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-        > -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-        > -   SMS_G_System_SoftwareUsageData  
-        > -   SMS_G_System_CI_ComplianceState  
-        > -   SMS_G_System_EndpointProtectionStatus  
-        > -   SMS_GH_System_*  
-        > -   SMS_GEH_System_*  
+> [!IMPORTANT]  
+>  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
+>   
+> -   SMS_G_System_CollectedFile  
+> -   SMS_G_System_LastSoftwareScan  
+> -   SMS_G_System_AppClientState  
+> -   SMS_G_System_DCMDeploymentState  
+> -   SMS_G_System_DCMDeploymentErrorAssetDetails  
+> -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
+> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_System_SoftwareUsageData  
+> -   SMS_G_System_CI_ComplianceState  
+> -   SMS_G_System_EndpointProtectionStatus  
+> -   SMS_GH_System_*  
+> -   SMS_GEH_System_*  
 
-    -   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
+-   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
 
 6.  Terminez l'Assistant pour créer le regroupement. Le nouveau regroupement figure dans le nœud **Regroupements de périphériques** de l'espace de travail **Ressources et conformité**.  
 
@@ -134,60 +133,60 @@ Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez l
 
     -   dans la liste **Ajouter une règle** , sélectionnez le type de règle d'adhésion à utiliser pour le regroupement. Vous pouvez configurer plusieurs règles pour chaque regroupement.  
 
-         ##### <a name="to-configure-a-direct-rule"></a>Pour configurer une règle directe  
+##### <a name="to-configure-a-direct-rule"></a>Pour configurer une règle directe  
 
-        1.  Dans la page **Rechercher des ressources** de l’**Assistant Création d’une règle d’adhésion directe**, spécifiez les informations suivantes :  
+1.  Dans la page **Rechercher des ressources** de l’**Assistant Création d’une règle d’adhésion directe**, spécifiez les informations suivantes :  
 
-            -   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
+-   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
 
-            -   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource que vous voulez rechercher. Par exemple, si vous voulez sélectionner des utilisateurs par leur nom d’unité d’organisation (UO), sélectionnez **Ressource utilisateur** dans la liste **Classe de ressource** et **Nom de l’unité d’organisation utilisateur** dans la liste **Nom d’attribut** .  
+-   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource que vous voulez rechercher. Par exemple, si vous voulez sélectionner des utilisateurs par leur nom d’unité d’organisation (UO), sélectionnez **Ressource utilisateur** dans la liste **Classe de ressource** et **Nom de l’unité d’organisation utilisateur** dans la liste **Nom d’attribut** .  
 
-            -   **Valeur :** Entrez une valeur à rechercher. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher des utilisateurs dans l’unité d’organisation Contoso, entrez **Contoso** dans ce champ.  
+-   **Valeur :** Entrez une valeur à rechercher. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher des utilisateurs dans l’unité d’organisation Contoso, entrez **Contoso** dans ce champ.  
 
-        2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**.  
+2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**.  
 
-        ##### <a name="to-configure-a-query-rule"></a>Pour configurer une règle de requête  
+##### <a name="to-configure-a-query-rule"></a>Pour configurer une règle de requête  
 
-        1.  Dans la boîte de dialogue **Propriétés de la règle de requête**, fournissez les informations suivantes :  
+1.  Dans la boîte de dialogue **Propriétés de la règle de requête**, fournissez les informations suivantes :  
 
-            -   **Nom** : Un nom unique.  
+-   **Nom** : Un nom unique.  
 
-            -   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle de requête pour le regroupement.  
+-   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle de requête pour le regroupement.  
 
-            -   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
+-   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
 
-            -   **Modifier l’instruction de requête** : Ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez [créer une requête](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle pour le regroupement.  
+-   **Modifier l’instruction de requête** : Ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez [créer une requête](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle pour le regroupement.  
 
-        ##### <a name="to-configure-an-include-collection-rule"></a>Pour configurer une règle d'inclusion de regroupements  
+##### <a name="to-configure-an-include-collection-rule"></a>Pour configurer une règle d'inclusion de regroupements  
 
-        Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
 
-        ##### <a name="to-configure-an-exclude-collection-rule"></a>Pour configurer une règle d'exclusion de regroupements  
+##### <a name="to-configure-an-exclude-collection-rule"></a>Pour configurer une règle d'exclusion de regroupements  
 
-        Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
 
 
-    -   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+-   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
 
-        > [!IMPORTANT]  
-        >  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
-        >   
-        >  -   SMS_G_System_CollectedFile  
-        > -   SMS_G_System_LastSoftwareScan  
-        > -   SMS_G_System_AppClientState  
-        > -   SMS_G_System_DCMDeploymentState  
-        > -   SMS_G_System_DCMDeploymentErrorAssetDetails  
-        > -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
-        > -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-        > -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-        > -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-        > -   SMS_G_System_SoftwareUsageData  
-        > -   SMS_G_System_CI_ComplianceState  
-        > -   SMS_G_System_EndpointProtectionStatus  
-        > -   SMS_GH_System_*  
-        > -   SMS_GEH_System_*  
+> [!IMPORTANT]  
+>  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
+>   
+> -   SMS_G_System_CollectedFile  
+> -   SMS_G_System_LastSoftwareScan  
+> -   SMS_G_System_AppClientState  
+> -   SMS_G_System_DCMDeploymentState  
+> -   SMS_G_System_DCMDeploymentErrorAssetDetails  
+> -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
+> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_System_SoftwareUsageData  
+> -   SMS_G_System_CI_ComplianceState  
+> -   SMS_G_System_EndpointProtectionStatus  
+> -   SMS_GH_System_*  
+> -   SMS_GEH_System_*  
 
-    -   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
+-   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
 
 6.  Effectuez toutes les étapes de l'Assistant. Le nouveau regroupement figure dans le nœud **Regroupements d'utilisateurs** de l'espace de travail **Ressources et conformité**.  
 
