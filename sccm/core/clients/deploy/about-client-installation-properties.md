@@ -51,7 +51,7 @@ Utilisez la commande CCMSetup.exe de System Center Configuration Manager pour in
 
  À l'invite de commandes, la commande CCMSetup.exe utilise le format suivant :  
 
- `CCMSetup.exe [&lt;Ccmsetup properties\>] [&lt;client.msi setup properties>]`  
+ `CCMSetup.exe [<Ccmsetup properties>] [<client.msi setup properties>]`  
 
  Exemple :  
 
