@@ -2,7 +2,7 @@
 title: "Gérer les applications à partir du Windows Store pour Entreprises | Microsoft Docs"
 description: "Gérez et déployez les applications à partir du Windows Store pour Entreprises en utilisant System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/25/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: HT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: 93e767c9a115b30d68871baece670977165f55f4
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 369b6a82a20a90ca534f9484c0be71096dd35a30
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -85,6 +85,8 @@ Sur les PC exécutant une version de Windows 10 antérieure à la mise à jour C
 
 ## <a name="set-up-windows-store-for-business-synchronization"></a>Configurer la synchronisation du Windows Store pour Entreprises
 
+### <a name="for-configuration-manager-versions-prior-to-1706"></a>Pour les versions de Configuration Manager antérieures à 1706
+
 **Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Cette action vous donne un ID de client dont vous aurez besoin plus tard.**
 1. Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.
 2.  Cliquez sur **Ajouter une application développée par mon organisation**.
@@ -110,6 +112,24 @@ Sur les PC exécutant une version de Windows 10 antérieure à la mise à jour C
 2.  Sous l’onglet **Accueil**, dans le groupe **Windows Store pour Entreprises**, cliquez sur **Ajouter un compte Windows Store pour Entreprises**. 
 3.  Ajoutez vos ID de locataire, ID de client et clé de client à partir d’Azure Active Directory, puis fermez l’Assistant.
 4. À la fin de l’opération, le compte que vous avez configuré apparaît dans la liste **Windows Store pour Entreprises** de la console Configuration Manager.
+
+### <a name="for-configuration-manager-version-1706-and-later"></a>Pour Configuration Manager version 1706 et ultérieures
+
+1. Dans la console, accédez à **Administration** > **Présentation** > **Gestion des services cloud** > **Azure** > **Services Azure**, puis choisissez **Configurer les services Azure** pour démarrer l’**Assistant Services Azure**.
+2. Dans la page **Services Azure**, sélectionnez le service à configurer, puis cliquez sur **Suivant**.
+3. Dans la page **Général**, entrez un nom convivial comme nom de service Azure et une description facultative, puis cliquez sur **Suivant**.
+4. Dans la page **Application**, spécifiez votre environnement Azure, puis cliquez sur **Parcourir** pour ouvrir la fenêtre **Server App**.
+5. Dans la fenêtre **Server App**, sélectionnez l’application serveur à utiliser, puis cliquez sur **OK**. Les applications serveur sont des applications web Azure qui contiennent les configurations pour votre compte Azure, notamment l’ID de locataire, l’ID de client et une clé secrète pour les clients. Si vous ne disposez pas d’une application serveur disponible, choisissez l’une des méthodes suivantes :
+    - **Créer** : pour créer une application serveur, cliquez sur **Créer**. Fournissez un nom convivial pour l’application et le locataire. Une fois que vous êtes connecté à Azure, Configuration Manager crée l’application web dans Azure, notamment l’ID de client et la clé secrète à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
+    - **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir **vérifié** les informations, cliquez sur **OK** pour continuer. 
+6. Passez en revue la page **Informations**, puis effectuez les étapes et configurations supplémentaires indiquées. Ces configurations sont nécessaires pour utiliser le service avec Configuration Manager. Par exemple, pour configurer Windows Store pour Entreprises :
+    - Dans Azure, vous devez inscrire Configuration Manager comme application web ou API web et enregistrer l’ID de client. Vous devez aussi spécifier une clé de client que doit utiliser l’outil de gestion (c’est-à-dire, Configuration Manager).
+    - Dans la console Windows Store pour Entreprises, vous devez configurer Configuration Manager comme outil de gestion du Store, activer la prise en charge pour les applications sous licence en mode hors connexion, puis acheter au moins une application. 
+7. Cliquez sur **Suivant** quand vous êtes prêt à continuer.
+8. Dans la page **Configurations d’application**, configurez le catalogue d’applications et la langue de ce service, puis cliquez sur **Suivant**.
+9. Une fois l’Assistant terminé, la console Configuration Manager indique que vous avez configuré **Windows Store pour Entreprises** comme **Type de service cloud**.
+
+
 
 
 ## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Créer et déployer une application Configuration Manager à partir d’une application du Windows Store pour Entreprises

@@ -2,7 +2,7 @@
 title: "Administrer à distance un ordinateur Windows | Microsoft Docs"
 description: "Administrez un ordinateur client Windows distant à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 07/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08afca8b422474639cbdb860e555fe0da27361a4
-ms.openlocfilehash: dd794de867e1d0db47be9dc21a6d494087f76bc1
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: aecc4ccfec98932f3988f1ca1fcdc898cd417933
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Comment administrer à distance un ordinateur client Windows à l’aide de System Center Configuration Manager
@@ -91,12 +90,11 @@ Vous pouvez démarrer l’observateur de contrôle à distance de trois manière
 
 -   À l’invite de commandes Windows, tapez *<Dossier d’installation Configuration Manager>\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
 
-    > [!NOTE]  
-    >  CmRcViewer.exe prend en charge les options de ligne de commande suivantes :  
-    >   
-    >  -   *<Adresse>\>* : spécifie le nom NetBIOS, le nom de domaine complet (FQDN) ou l’adresse IP de l’ordinateur client auquel vous voulez vous connecter.  
-    > -   *<Nom du serveur de site\>* : indique le nom du serveur de site System Center Configuration Manager auquel vous voulez envoyer des messages d’état associés à la session de contrôle à distance.  
-    > -   **/?** : affiche les options de ligne de commande de l’observateur de contrôle à distance.  
-    >   
-    >  **Example:CmRcViewer.exe** *<Adresse\>* *<\\\Nom du serveur de site>*  
+CmRcViewer.exe prend en charge les options de ligne de commande suivantes :  
+
+- *Adresse* : spécifie le nom NetBIOS, le nom de domaine complet (FQDN) ou l’adresse IP de l’ordinateur client auquel vous voulez vous connecter.
+- *Nom du serveur de site* : indique le nom du serveur de site System Center Configuration Manager auquel vous voulez envoyer des messages d’état associés à la session de contrôle à distance.
+- **/?** : affiche les options de ligne de commande de l’observateur de contrôle à distance.  
+     
+**Example:CmRcViewer.exe** *<Adresse\>* *<\\\Nom du serveur de site>*  
 

@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
-ms.openlocfilehash: 7a5ff0e75b8cdac68e3854c4f5aba01a7d423e9b
+ms.translationtype: HT
+ms.sourcegitcommit: afe0ecc4230733fa76e41bf08df5ccfb221da7c8
+ms.openlocfilehash: 506df4f7c7baa5f0586a1ddf0cb02b3de9f4d076
 ms.contentlocale: fr-fr
-ms.lasthandoff: 12/29/2016
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
@@ -31,7 +30,7 @@ ms.lasthandoff: 12/29/2016
 Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Manager, vous pouvez configurer des regroupements, des fenêtres de maintenance et des paramètres client pour mieux gérer les serveurs. Par ailleurs, le client Configuration Manager pour Linux et UNIX n’a pas d’interface utilisateur, mais vous pouvez forcer le client à interroger manuellement la stratégie du client.
 
 ##  <a name="BKMK_CollectionsforLnU"></a> Regroupements de serveurs Linux et UNIX  
- Utilisez les regroupements pour gérer des groupes de serveurs Linux et UNIX de la même façon que d’autres types de clients. Les regroupements peuvent être des regroupements avec adhésion directe ou des regroupements basés sur une requête qui identifient les systèmes d’exploitation clients, les configurations matérielles ou d’autres détails sur le client, qui sont stockés dans la base de données du site. Par exemple, vous pouvez utiliser des regroupements qui incluent des serveurs Linux et UNIX pour gérer les éléments suivants :  
+ Utilisez les regroupements pour gérer des groupes de serveurs Linux et UNIX de la même façon que d’autres types de clients. Les regroupements peuvent être des regroupements avec adhésion directe ou des regroupements basés sur une requête. Les regroupements basés sur une requête identifient les systèmes d’exploitation clients, les configurations matérielles ou d’autres détails sur le client qui sont stockés dans la base de données du site. Par exemple, vous pouvez utiliser des regroupements qui incluent des serveurs Linux et UNIX pour gérer les paramètres suivants :  
 
 -   Paramètres du client  
 
@@ -43,14 +42,14 @@ Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Ma
 
  Les paramètres client par défaut pour l’inventaire matériel incluent des informations sur le système d’exploitation de l’ordinateur client. Vous pouvez utiliser la propriété **Légende** de la classe **Système d’exploitation** pour identifier le système d’exploitation d’un serveur Linux ou UNIX.  
 
- Vous pouvez afficher des informations détaillées sur les ordinateurs qui exécutent le client Configuration Manager pour Linux et UNIX dans le nœud Appareils de l’espace de travail Ressources et Conformité, dans la console Configuration Manager. Dans l’espace de travail Ressources et Conformité de la console Configuration Manager, la colonne **Système d’exploitation** affiche le nom du système d’exploitation de chaque ordinateur.  
+ Vous pouvez afficher des informations détaillées sur les ordinateurs qui exécutent le client Configuration Manager pour Linux et UNIX dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité**, dans la console Configuration Manager. Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, la colonne **Système d’exploitation** affiche le nom du système d’exploitation de chaque ordinateur.  
 
- Par défaut, les serveurs Linux et UNIX sont membres du regroupement **Tous les systèmes** . Nous recommandons de créer des regroupements personnalisés qui incluent uniquement les serveurs Linux et UNIX, ou un sous-ensemble de ces serveurs. Cela vous permet de gérer des opérations telles que le déploiement de logiciels ou l’affectation de paramètres client à des groupes d’ordinateurs similaires, et de mesurer ainsi avec précision la réussite d’un déploiement.   
+ Par défaut, les serveurs Linux et UNIX sont membres du regroupement **Tous les systèmes** . Nous recommandons de créer des regroupements personnalisés qui incluent uniquement les serveurs Linux et UNIX, ou un sous-ensemble de ces serveurs. Les regroupements personnalisés vous permettent de gérer des opérations telles que le déploiement de logiciels ou l’affectation de paramètres client à des groupes d’ordinateurs similaires, et de mesurer ainsi avec précision la réussite d’un déploiement.   
 
  Quand vous créez un regroupement personnalisé pour des serveurs Linux et UNIX, insérez des requêtes de règle d’appartenance qui incluent l’attribut Légende pour l’attribut Système d’exploitation. Pour plus d’informations sur la création de regroupements, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manage](../../../core/clients/manage/collections/create-collections.md).  
 
 ##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Fenêtres de maintenance pour les serveurs Linux et UNIX  
- Le client Configuration Manager pour les serveurs Linux et UNIX prend en charge l’utilisation des [fenêtres de maintenance](../../../core/clients/manage/collections/use-maintenance-windows.md). Cette prise en charge est inchangée par rapport à celle des clients basés sur Windows.  
+ Le client Configuration Manager pour les serveurs Linux et UNIX prend en charge l’utilisation des [fenêtres de maintenance](../../../core/clients/manage/collections/use-maintenance-windows.md). Cette prise en charge est inchangée par rapport à celle des clients Windows.  
 
 ##  <a name="BKMK_ClientSettingsforLnU"></a> Paramètres client pour les serveurs Linux et UNIX  
  Vous pouvez [configurer les paramètres client](../../../core/clients/deploy/configure-client-settings.md) qui s’appliquent aux serveurs Linux et UNIX de la même façon que vous configurez les paramètres d’autres clients.  

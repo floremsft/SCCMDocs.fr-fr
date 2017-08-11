@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
-ms.openlocfilehash: f648d7626af50d95fbaa5a7a2abd821a9c47f5d1
+ms.translationtype: HT
+ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
+ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
@@ -1527,9 +1526,9 @@ Après avoir sélectionné les variables pour une règle, vous devez fournir une
 >  Quand vous importez une séquence de tâches lors de l'étape Définir des variables dynamiques et que l'option **Valeur secrète** est sélectionnée pour la valeur de la variable, la valeur est supprimée lorsque vous importez la séquence de tâches. Ainsi, vous devez réentrer la valeur de la variable dynamique après avoir importé la séquence de tâches.  
 
 ##  <a name="BKMK_SetTaskSequenceVariable"></a> Définir la variable de séquence de tâches  
- Utilisez l'étape de séquence de tâches **Définir la variable de séquence de tâches** pour définir la valeur d'une variable qui est utilisée avec la séquence de tâches.  
+Utilisez l'étape de séquence de tâches **Définir la variable de séquence de tâches** pour définir la valeur d'une variable qui est utilisée avec la séquence de tâches.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Les variables de séquence de tâches sont lues par les actions et en déterminent le comportement. Pour plus d’informations sur les variables de séquence de tâches spécifiques, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
+Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Les variables de séquence de tâches sont lues par les actions et en déterminent le comportement. Pour plus d’informations sur les variables de séquence de tâches spécifiques, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
 
 ### <a name="details"></a>Détails  
  Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
@@ -1553,6 +1552,16 @@ Après avoir sélectionné les variables pour une règle, vous devez fournir une
 
  **Valeur**  
  Valeur associée à la variable de la séquence de tâches. La valeur peut être une autre variable de séquence de tâches dans la syntaxe %<nom_variable\>%.  
+
+## <a name="hide-task-sequence-progress"></a>Masquer la progression de la séquence de tâches
+<!-- 1354291 -->
+Dans la version 1706, vous pouvez contrôler le moment auquel la progression de la séquence de tâches s’affiche pour les utilisateurs finaux à l’aide d’une nouvelle variable. Dans votre séquence de tâches, suivez l’étape **Définir une variable de séquence de tâches** pour définir la valeur de la variable **TSDisableProgressUI** pour masquer ou afficher la progression de la séquence de tâches. Vous pouvez suivre l’étape Définir une variable de séquence de tâches plusieurs fois dans une séquence de tâches pour modifier la valeur de la variable. Cela vous permet de masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches.
+
+ - **Pour masquer la progression de la séquence de tâches**  
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **True** pour masquer la progression de la séquence de tâches.
+
+ - **Pour afficher la progression de la séquence de tâches**  
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **False** pour afficher la progression de la séquence de tâches.
 
 ##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Configurer Windows et ConfigMgr  
  Utilisez l'étape de séquence de tâches **Configurer Windows et ConfigMgr** pour effectuer la transition de Windows PE vers le nouveau système d'exploitation. Cette étape de séquence de tâches est obligatoire dans tout déploiement de système d'exploitation, elle installe le client Configuration Manager dans le nouveau système d’exploitation et prépare la poursuite de l’exécution de la séquence de tâches dans le nouveau système d’exploitation.  

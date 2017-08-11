@@ -2,7 +2,7 @@
 title: "Cache d’homologue du client | System Center Configuration Manager"
 description: "Utilisez le cache d’homologue pour les emplacements sources de contenu du client lors du déploiement de contenu avec System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/3/2017
+ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: 3
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ed6b65a1a5aabc0970cd0333cb033405cf6d2aea
-ms.openlocfilehash: 94802680747a3d371716c1b345b2cba098150716
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 89fcd16887ae77299f9d18472ee6a1ba56794eca
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -94,7 +94,9 @@ Utilisez ce rapport pour comprendre les détails du rejet pour un groupe de limi
 
 -   Des clients ne peuvent transférer du contenu qu’à partir de clients de cache d’homologue qui se trouvent dans leur groupe de limites actuel.
 
--   Chaque site où les clients utilisent le cache d’homologue doit être configuré avec un [compte d’accès réseau](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Le compte est utilisé par l’ordinateur source du cache d’homologue pour authentifier les demandes de téléchargement provenant des homologues et nécessite pour cela seulement des autorisations d’utilisateur du domaine.
+-   Avant la version 1706, chaque site où les clients utilisent le cache d’homologue doit être configuré avec un [compte d’accès réseau](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Depuis la version 1706, ce compte n’est plus nécessaire, sauf dans le cas suivant :  un client utilise le cache d’homologue pour obtenir et exécuter une séquence de tâches depuis le Centre logiciel et la séquence de tâches redémarre le client en mode WinPE.  Dans ce scénario, le client a toujours besoin du compte d’accès réseau quand il est en mode WinPE pour accéder à l’ordinateur source du cache d’homologue afin d’obtenir du contenu.
+
+    Quand il est nécessaire, le compte d’accès réseau est utilisé par l’ordinateur source du cache d’homologue pour authentifier les demandes de téléchargement provenant des homologues et nécessite pour cela seulement des autorisations d’utilisateur du domaine.
 
 -   Étant donné que la limite actuelle d’une source de contenu de cache d’homologue est déterminée par la soumission de l’inventaire matériel de ces clients, un client qui se déplace vers un emplacement réseau et qui se trouve dans un autre groupe de limites peut toujours être considéré comme un membre de son précédent groupe de limites pour les besoins du cache d’homologue. En conséquence, un client peut se voir proposer une source de contenu de cache d’homologue qui ne se trouve pas dans son emplacement réseau immédiat. Nous vous recommandons d’empêcher les clients qui adoptent souvent cette configuration de participer à une source de cache d’homologue.
 

@@ -2,7 +2,7 @@
 title: "Mettre à niveau des appareils Windows vers une autre version avec Configuration Manager | Microsoft Docs"
 description: "Mettez automatiquement à niveau les appareils qui exécutent Windows 10 Desktop, Windows 10 Mobile ou Windows 10 Holographique vers une autre édition avec Configuration Manager."
 ms.custom: na
-ms.date: 04/18/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
-ms.openlocfilehash: cfde0a43947013bbd3a1093688cee19fe309fd03
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: cd8c644d07dab0010dc211df8ce4f2dc6e1fa7ae
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -34,14 +33,14 @@ La **stratégie de mise à niveau d’édition** de System Center Configuration 
 
 - Windows 10 Desktop
 - Windows 10 Mobile
-- Windows 10 Holographique
+<!-- - Windows 10 Holographic -->
 
 Les chemins de mise à niveau suivants sont pris en charge :
 
 - De Windows 10 Professionnel vers Windows 10 Entreprise
 - De Windows 10 Famille vers Windows 10 Éducation
 - De Windows 10 Mobile vers Windows 10 Mobile Entreprise
-- De Windows 10 Holographique Professionnel vers Windows 10 Holographique Entreprise
+<!-- - From Windows 10 Holographic Pro to Windows 10 Holographic Enterprise -->
 
 Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logiciel client Configuration Manager. Cette stratégie n’est actuellement pas compatible avec les PC gérés par gestion MDM locale.
 
@@ -50,7 +49,7 @@ Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logici
 
 -   Une clé de produit valide pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour les systèmes d’exploitation d’ordinateur)  
 
--   Un fichier de licence de Microsoft, qui contient les informations de licence pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour Windows 10 Mobile et Windows 10 Holographique).
+-   Un fichier de licence de Microsoft, qui contient les informations de licence pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour Windows 10 Mobile<!-- and Windows 10 Holographic-->).
 
 - Pour créer et déployer ce type de stratégie, le rôle de sécurité **Administrateur complet** de Configuration Manager doit vous avoir été affecté.
 
@@ -68,7 +67,7 @@ Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logici
 
     -   **Description** (facultatif) : si vous le souhaitez, entrez une description pour la stratégie qui vous permet de l’identifier dans la console Intune.  
 
-    -   **Référence (SKU) pour mettre à niveau l’appareil vers** : dans la liste déroulante, sélectionnez la version de Windows 10 Desktop, Windows 10 Holographique ou Windows 10 Mobile vers laquelle vous voulez mettre à niveau les appareils ciblés.  
+    -   **Référence pour mettre à niveau l’appareil vers** : dans la liste déroulante, sélectionnez la version de Windows 10 Desktop, <!-- Windows 10 Holographic,--> ou Windows 10 Mobile vers laquelle vous voulez mettre à niveau les appareils ciblés.  
 
     -   **Informations sur la licence** : sélectionnez une des options suivantes :  
 
@@ -77,7 +76,7 @@ Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logici
             > [!NOTE]  
             >  Une fois que vous avez créé une stratégie contenant une clé de produit, vous ne pouvez plus modifier la clé de produit. La raison en est que la clé est masquée pour des raisons de sécurité. Pour changer la clé de produit, vous devez entrer à nouveau toute la clé.  
 
-        -   **Fichier de licence** : cliquez sur **Parcourir** pour sélectionner un fichier de licence valide au format XML, qui sera utilisé pour mettre à niveau les appareils que vous ciblez et qui exécutent des systèmes d’exploitation Windows 10 Holographique et Windows 10 Mobile.  
+        -   **Fichier de licence** : cliquez sur **Parcourir** pour sélectionner un fichier de licence valide au format XML. Ce fichier sert à mettre à niveau les appareils ciblés qui exécutent les systèmes d’exploitation <!--Windows 10 Holographic and -->Windows 10 Mobile.  
 
 6.  Effectuez toutes les étapes de l'Assistant.  
 
@@ -91,7 +90,15 @@ La nouvelle stratégie figure dans le nœud **Mise à niveau de l’édition de 
 
 4.  Dans la boîte de dialogue **Déployer la mise à niveau de l’édition Windows 10**, choisissez le regroupement sur lequel vous voulez déployer la stratégie et la planification selon laquelle la stratégie doit être évaluée, puis cliquez sur **OK**. Pour les PC gérés par le client Configuration Manager, vous devez déployer la stratégie sur un regroupement d’appareils. Pour les PC inscrits dans Intune, vous pouvez déployer la stratégie sur un regroupement d’utilisateurs ou d’appareils. 
 
-Vous pouvez surveiller le déploiement que vous venez de créer à partir du nœud **Déploiements** de l’espace de travail **Surveillance** .  
 
- Une fois que la stratégie atteint un PC Windows ciblé et qu’il est évalué, celui-ci est redémarré dans les deux heures suivantes pour appliquer la mise à niveau. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Quand vous analysez le déploiement que vous venez de créer à partir du nœud **Déploiements** de l’espace de travail **Analyse**, vous pouvez recevoir des erreurs qui semblent indiquer l’échec du déploiement. Par exemple :
+- **Ne s’applique pas à cet appareil**
+- **Échec de la conversion du type de données**
+
+Ces erreurs ne signifient pas que le déploiement a échoué. Vérifiez que la mise à niveau a réussi sur le PC ciblé.
+
+Une fois que la stratégie atteint un PC Windows ciblé et qu’il est évalué, celui-ci est redémarré dans les deux heures suivantes pour appliquer la mise à niveau. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.
 

@@ -2,7 +2,7 @@
 title: "Fonctionnalités en préversion| Microsoft Docs"
 description: "Fonctionnalités en préversion dans System Center Configuration Manager"
 ms.custom: na
-ms.date: 6/13/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,12 +15,11 @@ caps.latest.revision: 36
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
-ms.openlocfilehash: 988f8da0b221f8c0b470e7a0a8ed995356193f98
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 7b594daeed81ef2d991ad06489f9184a69804117
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>Fonctionnalités en préversion dans System Center Configuration Manager
@@ -51,9 +50,10 @@ Si vous avez donné votre consentement sur un site principal autonome, et si vou
 
  |Fonctionnalité          |Ajoutée en préversion | Ajoutée en version complète|  
 |------------------|---------------------|---------------------|
+| Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager |  [Version 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Gestion Device Guard avec Configuration Manager |  [Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application  |   [Version 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Point de service de l’entrepôt de données  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Point de service de l’entrepôt de données  |  [Version 1702](/sccm/core/servers/manage/data-warehouse) |[Version 1706](/sccm/core/servers/manage/data-warehouse)|
 | Cache d’homologue pour la distribution de contenu aux clients |  [Version 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Passerelle de gestion cloud |  [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Tableau de bord Sources de données du client |  [Version 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Pas encore](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|

@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0cf2ac6440588ccf4848baa7a195f78e8675447d
-ms.openlocfilehash: c6a1eb9ccaee45eb242fb320cb6b492d1a39d349
+ms.translationtype: HT
+ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
+ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gérer les images de démarrage avec System Center Configuration Manager
@@ -33,15 +32,7 @@ Une image de démarrage dans Configuration Manager est une image [Windows PE (W
 ## <a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut
 Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64*> ou <*i386*>. Les images de démarrage par défaut sont mises à jour ou régénérées selon l’action que vous effectuez.
 
-**Utiliser les mises à jour et la maintenance pour installer la dernière version de Configuration Manager** À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, ce dernier régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées.
-
-Avant la version 1702, Configuration Manager mettait à jour l’image de démarrage existante (boot.wim) avec les composants du client, les pilotes, les personnalisations, etc. Toutefois, il n’utilisait pas la dernière version de Windows PE du Windows ADK. Vous deviez modifier manuellement l’image de démarrage pour utiliser la nouvelle version du Windows ADK.
-
-**Mise à niveau de Configuration Manager 2012 vers Configuration Manager Current Branch (CB)** Quand vous mettez à niveau Configuration Manager 2012 vers Configuration Manager CB par le biais du processus d’installation, Configuration Manager régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour et la nouvelle version du client Configuration Manager. Toutes les personnalisations restent inchangées. Les images de démarrage personnalisées ne sont pas modifiées.
-
-**Mettre à jour les points de distribution avec l’image de démarrage** Quand vous utilisez l’action **Mettre à jour les points de distribution** à partir du nœud **Images de démarrage** dans la console Configuration Manager, Configuration Manager met à jour les images de démarrage par défaut avec les composants du client, les pilotes, les personnalisations, etc. Toutefois, il n’utilise pas la dernière version de Windows PE du Windows ADK. Les images de démarrage personnalisées ne sont pas modifiées.
-
-Pour toute action indiquée ci-dessus, tenez également compte de ce qui suit :
+Considérez ce qui suit pour toutes les actions décrites dans les sections suivantes :
 - Les objets de pilotes de source doivent être valides, notamment les fichiers sources des pilotes. Sinon, les pilotes ne sont pas ajoutés aux images de démarrage sur le site.
 - Les images de démarrage non basées sur les images de démarrage par défaut, même si elles utilisent la même version de Windows ADK, ne sont pas modifiées.
 - Vous devez redistribuer les images de démarrage modifiées aux points de distribution.
@@ -50,6 +41,21 @@ Pour toute action indiquée ci-dessus, tenez également compte de ce qui suit :
 
 > [!NOTE]
 > L’outil Journal de suivi de Configuration Manager est ajouté à toutes les images de démarrage que vous ajoutez à la **bibliothèque de logiciels**. Quand vous êtes dans Windows PE, vous pouvez démarrer l’outil Journal de suivi de Configuration Manager en tapant **CMTrace** à partir d’une invite de commandes.  
+
+### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Utiliser les mises à jour et la maintenance pour installer la dernière version de Configuration Manager
+À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, Configuration Manager régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées.
+
+Avant la version 1702, Configuration Manager mettait à jour l’image de démarrage existante (boot.wim) avec les composants du client, les pilotes, les personnalisations, etc. Toutefois, il n’utilisait pas la dernière version de Windows PE du Windows ADK. Vous deviez modifier manuellement l’image de démarrage pour utiliser la nouvelle version du Windows ADK.
+
+### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Mettre à niveau Configuration Manager 2012 vers Configuration Manager Current Branch (CB)
+Quand vous mettez à niveau Configuration Manager 2012 vers Configuration Manager CB par le biais du processus d’installation, Configuration Manager regénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour et la nouvelle version du client Configuration Manager. Toutes les personnalisations restent inchangées. Les images de démarrage personnalisées ne sont pas modifiées.
+
+### <a name="update-distribution-points-with-the-boot-image"></a>Mettre à jour les points de distribution avec l’image de démarrage
+Quand vous utilisez l’action **Mettre à jour les points de distribution** à partir du nœud **Images de démarrage** dans la console Configuration Manager, Configuration Manager met à jour les images de démarrage par défaut avec les composants du client, les pilotes, les personnalisations, etc.    
+
+À compter de Configuration Manager version 1706, vous pouvez choisir de recharger la dernière version de Windows PE (à partir du répertoire d’installation de Windows ADK) dans l’image de démarrage. La page **Général** de l’Assistant Mettre à jour les points de distribution fournit des informations sur la version de Windows ADK installée sur le serveur du site, la version de Windows ADK à partir de laquelle Windows PE a été utilisé dans l’image de démarrage, et la version du client Configuration Manager. Vous pouvez utiliser ces informations pour vous aider à décider s’il faut recharger l’image de démarrage. En outre, une nouvelle colonne (**Version du client**) a été ajoutée lorsque vous affichez des images de démarrage dans le nœud **Images de démarrage** et vous indique la version du client Configuration Manager utilisée par chaque image de démarrage.    
+
+Les images de démarrage personnalisées ne sont pas modifiées.
 
 ##  <a name="BKMK_BootImageCustom"></a> Personnaliser une image de démarrage  
  Vous pouvez personnaliser ou [modifier une image de démarrage](#BKMK_ModifyBootImages) depuis la console Configuration Manager si cette image est basée sur une version de Windows PE de la version prise en charge de Windows ADK. Quand un site est mis à niveau avec une nouvelle version et qu’une nouvelle version de Windows ADK est installée, les images de démarrage personnalisées (ne figurant pas dans l’emplacement d’image de démarrage par défaut) ne sont pas mises à jour avec la nouvelle version de Windows ADK. Dans ce cas, vous ne pouvez plus personnaliser les images de démarrage dans la console Configuration Manager. En revanche, elles continuent à fonctionner comme avant la mise à niveau.  
@@ -123,7 +129,7 @@ Pour toute action indiquée ci-dessus, tenez également compte de ce qui suit :
 >   
 >  Pour plus d’informations sur l’utilisation de PXE pour déployer des systèmes d’exploitation, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Pour découvrir comment distribuer une image de démarrage, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+ Pour découvrir comment distribuer une image de démarrage, consultez [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
 
 ##  <a name="BKMK_ModifyBootImages"></a> Modifier une image de démarrage  
  Vous pouvez ajouter des pilotes de périphérique à l’image de démarrage, en supprimer de celle-ci ou modifier les propriétés associées à l’image. Les pilotes de périphérique que vous ajoutez ou supprimez peuvent inclure des pilotes de périphérique de stockage de masse ou de cartes réseau. Quand vous modifiez des images de démarrage, tenez compte des facteurs suivants :  
@@ -132,7 +138,7 @@ Pour toute action indiquée ci-dessus, tenez également compte de ce qui suit :
 
 -   Quand vous modifiez une image de démarrage, cette image ne modifie aucun des packages associés auxquels l’image de démarrage fait référence.  
 
--   Après avoir modifié une image de démarrage, vous devez la **mettre à jour** sur les points de distribution où elle se trouve déjà afin que la version la plus récente de l’image de démarrage soit disponible. Pour plus d’informations, voir [Manage content you have distributed](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkmanagea-manage-the-content-you-have-distributed).  
+-   Après avoir modifié une image de démarrage, vous devez la **mettre à jour** sur les points de distribution où elle se trouve déjà afin que la version la plus récente de l’image de démarrage soit disponible. Pour plus d’informations, voir [Manage content you have distributed](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage).  
 
  Utilisez la procédure suivante pour modifier une image de démarrage.  
 
@@ -213,7 +219,7 @@ Pour toute action indiquée ci-dessus, tenez également compte de ce qui suit :
         -   Définissez les **Paramètres du point de distribution préparé** pour spécifier la manière dont l'image de démarrage doit être distribuée vers les points de distribution activés pour le contenu préparé.  
 
             > [!NOTE]  
-            >  Pour plus d’informations sur le contenu préparé, consultez [Prestage content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+            >  Pour plus d’informations sur le contenu préparé, consultez [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
 
     -   Dans l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution et effectuez l'une des actions suivantes :  
 

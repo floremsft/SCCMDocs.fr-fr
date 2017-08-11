@@ -2,7 +2,7 @@
 title: "Mises à jour | Microsoft Docs"
 description: "Découvrez une méthode de service dans la console, appelée **Mises à jour et maintenance**, qui facilite la localisation et l’installation des mises à jour recommandées."
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,22 +16,21 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: 4bc076bba4672d0be0032ec785da20e60b11a6c4
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: d46aca88111d4ee0e96b75ca5a3ec57aa4274d6d
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Mises à jour pour System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la détection et l’installation des mises à jour recommandées pour votre infrastructure Configuration Manager. Cette méthode de maintenance dans la console est complétée par des mises à jour hors bande, telles que des correctifs logiciels, qui s’adressent aux clients qui ont besoin de résoudre des problèmes qui peuvent être propres à leur environnement.  
+System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance**. Cette méthode dans la console facilite la localisation et l’installation des mises à jour recommandées pour votre infrastructure Configuration Manager. La maintenance dans la console est complétée par des mises à jour hors bande, telles que des correctifs logiciels, qui s’adressent aux clients qui ont besoin de résoudre des problèmes qui peuvent être propres à leur environnement.  
 
 > [!TIP]  
-> Lors de la gestion de l’infrastructure de site et de hiérarchie System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
+> Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
 
 
  **Les rubriques suivantes peuvent vous aider à comprendre comment rechercher et installer les différents types de mise à jour pour System Center Configuration Manager :**  
@@ -53,9 +52,9 @@ Si vous utilisez l’édition Technical Preview, consultez [Technical Preview po
 
 -   La dernière version de base est à utiliser quand il s’agit d’installer un nouveau site dans une nouvelle hiérarchie.  
 
--   Vous devez utiliser une version de base pour effectuer une mise à niveau à partir de System Center 2012 Configuration Manager.  
+-   Utilisez une version de base pour effectuer la mise à niveau à partir de System Center 2012 Configuration Manager. Au terme de la mise à niveau vers System Center Configuration Manager, vous ne pouvez plus utiliser les versions de base pour rester à jour. Vous devez utiliser à la place les [mises à jour dans la console](/sccm/core/servers/manage/install-in-console-updates) pour effectuer la mise à jour vers la version la plus récente.  
 
--   D’autres versions de base de référence seront régulièrement publiées. Quand vous utilisez la dernière version de base de référence pour installer une nouvelle hiérarchie, vous évitez d’installer une version obsolète de Configuration Manager, suivie d’une mise à niveau de votre infrastructure pour la mettre à jour.  
+-   D’autres versions de base sont publiées régulièrement. Quand vous utilisez la dernière version de base pour installer une nouvelle hiérarchie, cela vous évite d’installer une version obsolète de Configuration Manager, suivie d’une mise à niveau supplémentaire de votre infrastructure pour la mettre à jour.  
 
 Après avoir installé une version de base, d’autres versions de Configuration Manager sont disponibles sous forme de mises à jour dans la console. Les mises à jour dans la console mettent à jour votre infrastructure vers la dernière version de Configuration Manager.  
 
@@ -63,11 +62,11 @@ Après avoir installé une version de base, d’autres versions de Configuration
 
 -   Les mises à jour que vous installez sur le site d’administration centrale s’installent automatiquement sur les sites principaux enfants, sauf si elles sont bloquées par une fenêtre de maintenance que vous avez configurée sur le site principal.  
 
--   Vous devez mettre à jour manuellement les sites secondaires vers une nouvelle version de mise à jour à partir de la console.  
+-   Mettez à jour manuellement les sites secondaires vers une nouvelle version de mise à jour à partir de la console.  
 
 Quand vous installez une mise à jour, celle-ci stocke les fichiers d’installation de cette version sur le serveur du site dans un dossier nommé CD.Latest. Pour plus d’informations sur ces fichiers, consultez [Dossier CD.Latest pour System Center Configuration Manager](../../../core/servers/manage/the-cd.latest-folder.md).  
 
--   Les fichiers contenus dans le dossier CD.Latest sont utilisés pendant la récupération de site et pour installer des sites supplémentaires dans une hiérarchie qui n’exécute plus une version de base.  
+-   Utilisez les fichiers contenus dans le dossier CD.Latest durant l’exécution du service Site Recovery et pour installer des sites supplémentaires dans une hiérarchie qui n’exécute plus une version de base.  
 
 -   Vous ne pouvez pas vous servir des fichiers d’installation du dossier CD.Latest pour installer le premier site d’une nouvelle hiérarchie ni pour mettre à niveau un site à partir de System Center 2012 Configuration Manager.  
 
@@ -77,12 +76,13 @@ Les versions suivantes de Configuration Manager sont disponibles sous forme de v
 
 |Version |Date de disponibilité|[Date de fin de support](/sccm/core/servers/manage/current-branch-versions-supported) |De base|Mise à jour dans la console|  
 |-------------|-----------|------------|--------------|------------------------|  
-|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|3/27/2017| 3/27/2018|Oui|Oui|
-|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|11/18/2016| 11/18/2017|Non|Oui|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|7/22/2016| 7/22/2017|Non|Oui|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) avec le correctif cumulatif 1606 (KB3186654) </br></br>5.00.8412.1307 *(Note 1)* |10/12/2016| 7/22/2017|Oui|Non|
-| 1602<br /><br /> 5.00.8355.1000|11/03/2016| 3/11/2017|Non|Oui|
-| 1511 <br /><br /> 5.00.8325.1000|08/12/2015| 12/8/2016|Oui|Non|  
+|[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juillet 2017|31 juillet 2018|Non|Oui|
+|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 mars 2017| 27 mars 2018|Oui|Oui|
+|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 novembre 2016| 18 novembre 2017|Non|Oui|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 juillet 2016| 22 juillet 2017|Non|Oui|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) avec le correctif cumulatif 1606 (KB3186654) </br></br>5.00.8412.1307 *(Note 1)* |12 octobre 2016| 12 octobre 2017|Oui|Non|
+| 1602<br /><br /> 5.00.8355.1000|11 mars 2016| 11 mars 2017|Non|Oui| 
+| 1511 <br /><br /> 5.00.8325.1000|8 décembre 2015| 8 décembre 2016|Oui|Non|  
 
 
 *(Note 1)* Les supports de base de référence 1606 et 1702 sont disponibles dans le cadre de Microsoft System Center 2016 ou de System Center Configuration Manager (Current Branch et Long-Term Servicing Branch) sur le [Centre de service de licence en volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Par exemple, sur VLSC, vous pouvez rechercher *System Center Config Mgr (Current Branch et LTSB)*, et les supports des bases de référence 1606 et 1702 sont renvoyés et disponibles au téléchargement.
@@ -93,11 +93,11 @@ Pour vérifier la version de votre site Configuration Manager, dans la console, 
  Quand vous utilisez une installation de System Center Configuration Manager prête pour la production, aussi appelée « Current Branch », la plupart des mises à jour que vous installez sont disponibles via le canal Mises à jour et maintenance. Cette méthode identifie, télécharge et met à disposition les mises à jour qui s’appliquent à la version et à la configuration actuelles de votre infrastructure et propose uniquement les mises à jour que Microsoft recommande à tous les clients,   
  à savoir :  
 
--   Les nouvelles versions comme la version 1610  
+-   Les nouvelles versions comme la version 1610, 1702 ou 1706.  
 
--   Les mises à jour qui comprennent de nouveaux composants pour votre version actuelle  
+-   Les mises à jour qui comprennent de nouveaux composants pour votre version actuelle.
 
--   Les correctifs logiciels pour votre version de Configuration Manager que tous les clients doivent installer  
+-   Les correctifs logiciels pour votre version de Configuration Manager que tous les clients doivent installer.
 
 Les mises à jour dans la console offrent une stabilité accrue et résolvent les problèmes courants. Elles remplacent les types de mise à jour déjà rencontrés pour les versions de produit précédentes de service packs, de mises à jour cumulatives et de correctifs logiciels applicables à tous les clients, et pour l’extension pour Microsoft Intune. Ces mises à jour peuvent s’appliquer à un ou plusieurs des éléments suivants :  
 

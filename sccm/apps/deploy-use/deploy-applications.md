@@ -2,7 +2,7 @@
 title: "Déployer des applications | Microsoft Docs"
 description: "Créez un type de déploiement ou simulez le déploiement d’une application à l’aide de System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,21 +16,20 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
-ms.openlocfilehash: 0eaa1d13e9c273a6649f50d73fb357f04464d94c
+ms.translationtype: HT
+ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
+ms.openlocfilehash: f704d1b0ec48e3a7bbea784a7c18de77b21cd0ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Déployer des applications avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
- Avant de pouvoir déployer une application System Center Configuration Manager, vous devez créer au moins un type de déploiement pour cette application. Pour plus d’informations sur la création d’applications et de types de déploiements, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).
+Avant de pouvoir déployer une application System Center Configuration Manager, vous devez créer au moins un type de déploiement pour cette application. Pour plus d’informations sur la création d’applications et les types de déploiements, consultez [Créer des applications](/sccm/apps/deploy-use/create-applications).
 
- Vous pouvez aussi simuler un déploiement d’application. Ce type de déploiement teste l’applicabilité du déploiement d’une application sur des ordinateurs, sans installation ou désinstallation de l’application. Un déploiement simulé évalue la méthode de détection, les spécifications et les dépendances d’un type de déploiement, et génère un rapport contenant les résultats dans le nœud **Déploiements** de l’espace de travail **Surveillance**. Pour plus d’informations, consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).
+ Vous pouvez aussi simuler un déploiement d’application. Ce type de déploiement teste l’applicabilité du déploiement d’une application sur des ordinateurs, sans installation ou désinstallation de l’application. Un déploiement simulé évalue la méthode de détection, les spécifications et les dépendances d’un type de déploiement, et génère un rapport contenant les résultats dans le nœud **Déploiements** de l’espace de travail **Surveillance**. Pour plus d’informations, consultez [Simuler des déploiements d’applications](/sccm/apps/deploy-use/simulate-application-deployments).
 
 > [!IMPORTANT]
 >  Vous pouvez déployer (c’est-à-dire installer ou désinstaller) les applications nécessaires, mais pas les packages ni les mises à jour logicielles. Les appareils inscrits à la gestion MDM ne prennent pas non plus en charge les déploiements simulés, l’expérience utilisateur ou les paramètres de planification.
@@ -45,61 +44,73 @@ ms.lasthandoff: 05/17/2017
 
 Dans la page **Général** de l’Assistant Déploiement logiciel, spécifiez les informations suivantes :
 
-- **Logiciel** : Indique l’application à déployer. Vous pouvez cliquer sur **Parcourir** pour sélectionner une autre application.
-- **Regroupement** : Cliquez sur **Parcourir** pour sélectionner le regroupement sur lequel vous voulez déployer l’application.
-- **Utiliser des groupes de points de distribution par défaut associés à ce regroupement** : Sélectionnez cette option si vous voulez stocker le contenu de l’application dans le groupe de points de distribution par défaut du regroupement. Si vous n’avez associé aucun groupe de points de distribution au regroupement sélectionné, cette option est grisée.
-- **Distribuer automatiquement le contenu pour les dépendances** : Si cette option est activée et que l’un des types de déploiement de l’application contient des dépendances, alors le contenu de l’application dépendante est également envoyé aux points de distribution.
+- **Logiciel**  
+Indique l’application à déployer. Vous pouvez cliquer sur **Parcourir** pour sélectionner une autre application.
+- **Regroupement**  
+Cliquez sur **Parcourir** pour sélectionner le regroupement sur lequel vous voulez déployer l’application.
+- **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**  
+Sélectionnez cette option si vous voulez stocker le contenu de l’application sur le groupe de points de distribution par défaut du regroupement. Si vous n’avez associé aucun groupe de points de distribution au regroupement sélectionné, cette option est grisée.
+- **Distribuer automatiquement le contenu pour les dépendances**  
+Si cette option est activée et que l’un des types de déploiement de l’application contient des dépendances, alors le contenu de l’application dépendante est également envoyé aux points de distribution.
 
     >[!IMPORTANT]
     > Si vous mettez à jour l'application dépendante après le déploiement de l'application principale, les nouveaux contenus de la dépendance ne seront pas distribués automatiquement.
 
-- **Commentaires (champ facultatif)** : si vous le souhaitez, entrez une description de ce déploiement.
+- **Commentaires (facultatif)**  
+Si vous le souhaitez, entrez une description de ce déploiement.
 
 ### <a name="specify-content-options-for-the-deployment"></a>Spécifier les options de contenu pour le déploiement
 
-Dans la page **Contenu**, cliquez sur **Ajouter** pour ajouter le contenu associé à ce déploiement aux points de distribution ou aux groupes de points de distribution. Si vous avez sélectionné **Utiliser des groupes de points de distribution par défaut associés à ce regroupement** dans la page **Général**, cette option est automatiquement renseignée et peut uniquement être modifiée par un membre du rôle de sécurité Administrateur d’application.
+Dans la page **Contenu**, cliquez sur **Ajouter** pour ajouter le contenu associé à ce déploiement aux points de distribution ou aux groupes de points de distribution. Si vous avez sélectionné **Utiliser des groupes de points de distribution par défaut associés à ce regroupement** dans la page **Général**, cette option est renseignée automatiquement et peut être modifiée uniquement par un membre du rôle de sécurité Administrateur d’application.
 
 ### <a name="specify-deployment-settings"></a>Spécifier des paramètres de déploiement
 
 Dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel, spécifiez les informations suivantes :
 
-- **Action** : Dans la liste déroulante, choisissez si ce déploiement est destiné à **Installer** ou **Désinstaller** l’application.
+- **Action**  
+Dans la liste déroulante, choisissez si ce déploiement est destiné à **Installer** ou **Désinstaller** l’application.
 
     > [!NOTE]
-    >  Si une application est déployée deux fois sur un appareil, une fois avec l'action **Installer** et une autre fois avec l'action **Désinstaller**, le déploiement de l'application avec l'action **Installer** aura la priorité.
+    >  Si une application est déployée deux fois sur un appareil, une fois avec l’action **Installer** et une autre fois avec l’action **Désinstaller**, le déploiement de l’application avec l’action **Installer** a la priorité.
 
 Il n'est pas possible de modifier l'action d'un déploiement après sa création.
 
-- **Objet** : Dans la liste déroulante, choisissez l’une des options suivantes :
-    - **Disponible** : Si l’application est déployée sur un utilisateur, celui-ci peut voir l’application publiée dans le Centre logiciel et il peut l’installer à la demande.
-    - **Obligatoire** : L’application est déployée automatiquement, selon la planification. Si l’état du déploiement de l’application n’est pas masqué, toute personne utilisant l’application peut suivre l’état de son déploiement et installer l’application à partir du Centre logiciel avant l’échéance.
+- **Fonction**  
+Dans la liste déroulante, choisissez l'une des options suivantes :
+    -  **Disponible**  
+    Si l’application est déployée sur un utilisateur, celui-ci voit l’application publiée dans le Centre logiciel et il peut l’installer à la demande.
+    - **Obligatoire**  
+    L’application est déployée automatiquement, conformément à la planification. Si l’état du déploiement de l’application n’est pas masqué, toute personne utilisant l’application peut suivre l’état de son déploiement et installer l’application à partir du Centre logiciel avant l’échéance.
 
     > [!NOTE]   
     >  Lorsque l'action de déploiement est définie sur **Désinstaller**, l'objet du déploiement est automatiquement défini sur **Obligatoire** et ne peut plus être modifié.  
 
-- **Déployer automatiquement en fonction de la planification, qu’un utilisateur soit connecté ou non** : Si le déploiement s’effectue sur un utilisateur, sélectionnez cette option pour déployer l’application sur les appareils principaux de l’utilisateur. Ce paramètre ne nécessite pas que l'utilisateur se connecter avant que déploiement ne s'exécute. Ne sélectionnez pas cette option si l'utilisateur doit fournir une entrée pour terminer l'installation. Cette option est disponible uniquement lorsque l'objet du déploiement est **Obligatoire**.
+- **Déployer automatiquement selon le calendrier avec ou sans connexion de l’utilisateur**  
+Si le déploiement concerne un utilisateur, sélectionnez cette option pour déployer l’application sur les appareils principaux de l’utilisateur. Ce paramètre ne nécessite pas que l'utilisateur se connecter avant que déploiement ne s'exécute. Ne sélectionnez pas cette option si l'utilisateur doit fournir une entrée pour terminer l'installation. Cette option est disponible uniquement lorsque l'objet du déploiement est **Obligatoire**.
 
-
-- **Envoyer des paquets de mise en éveil** : Si l’objet du déploiement est défini sur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement. Ce paquet réveille les ordinateurs à l’échéance de l’installation. Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.
-- **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires** : Cette option est disponible uniquement pour les déploiements dont l’objet est **Obligatoire**.
-- **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** - Pour plus d’informations sur la configuration d’une liste de fichiers exécutables pouvant empêcher l’installation d’une application, consultez **Procédure pour vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application** plus loin dans cette rubrique.
-- **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application** : Si cette option est sélectionnée, l’administrateur doit approuver toutes les demandes d’utilisateur pour l’application avant qu’elle puisse être installée. Cette option est grisée quand l’objet du déploiement est **Obligatoire** ou quand l’application est déployée sur un regroupement d’appareils.
+- **Envoyer des paquets de mise en éveil**  
+Si l’objet du déploiement est défini sur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement. Ce paquet réveille les ordinateurs à l’échéance de l’installation. Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.
+- **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires**  
+Cette option est disponible uniquement pour les déploiements dont l’objectif est **Obligatoire**.
+- **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement**  
+Pour plus d’informations sur la configuration d’une liste de fichiers exécutables pouvant empêcher l’installation d’une application, consultez **Procédure pour vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application** plus loin dans cette rubrique.
+- **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application**  
+Si cette option est sélectionnée, l’administrateur doit approuver toutes les demandes d’utilisateur pour l’application avant qu’elle puisse être installée. Cette option est grisée quand l’objet du déploiement est **Obligatoire** ou quand l’application est déployée sur un regroupement d’appareils.
 
     > [!NOTE]
     >  Les demandes d'approbation d'application sont affichées dans le nœud **Demandes d'approbation** , sous **Gestion d'applications** dans l'espace de travail **Bibliothèque de logiciels** . Si une demande ne reçoit pas d’approbation dans les 45 jours, elle est supprimée. En outre, la réinstallation du client Configuration Manager pourrait annuler des demandes d’approbation en attente.
     >  Une fois que vous avez approuvé l’installation d’une application, vous pouvez ensuite choisir de refuser la demande en cliquant sur **Refuser** dans la console Configuration Manager (précédemment, ce bouton était grisé après l’approbation).
     >  Cette action n’entraîne pas la désinstallation de l’application sur tous les appareils, mais elle empêche les utilisateurs d’installer de nouvelles copies de l’application à partir du Centre logiciel.
 
-
-
-- **Mettre automatiquement à niveau toutes les versions remplacées de cette application** : Si cette option est sélectionnée, toutes les versions remplacées de l’application sont mises à niveau avec l’application de remplacement.
+- **Mettre automatiquement à niveau toutes les versions remplacées de cette application**  
+Si cette option est sélectionnée, toutes les versions remplacées de l’application sont mises à niveau avec l’application de remplacement.
 
 ### <a name="specify-scheduling-settings-for-the-deployment"></a>Spécifier les paramètres de planification pour le déploiement
 
-Dans la page **Planification** de l’Assistant Déploiement logiciel, définissez le moment où cette application sera déployée ou mise à la disposition des appareils clients.
-Les options de cette page pourront différer selon si l'action de déploiement est définie sur **Disponible** ou sur **Obligatoire**.
+Dans la page **Planification** de l’Assistant Déploiement logiciel, définissez le moment où cette application est déployée ou mise à la disposition des appareils clients.
+Les options de cette page diffèrent selon que l’action de déploiement est définie sur **Disponible** ou sur **Obligatoire**.
 
-Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez définies. Cela est généralement nécessaire quand un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez définies. Cela est généralement nécessaire quand un ordinateur a été éteint pendant une période prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur est rentré de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
 
 Pour configurer la période de grâce, procédez comme suit :
 
@@ -131,24 +142,24 @@ Dans la page **Stratégies de configuration des applications**, cliquez sur **No
 
 ### <a name="finish-up"></a>Terminer
 
-Dans la page **Résumé** de l’Assistant Déploiement logiciel, vérifiez les actions qui seront effectuées dans le cadre du déploiement, puis cliquez sur **Suivant** pour terminer l’Assistant.
+Dans la page **Résumé** de l’Assistant Déploiement logiciel, vérifiez les actions qui sont effectuées dans le cadre du déploiement, puis cliquez sur **Suivant** pour terminer l’Assistant.
 
-Le nouveau déploiement sera affiché dans la liste **Déploiements** du nœud **Déploiements** de l'espace de travail **Surveillance** . Vous pouvez modifier les propriétés de ce déploiement ou le supprimer de l'onglet **Déploiements** du volet Détail de l'application.
+Le nouveau déploiement est affiché dans la liste **Déploiements** du nœud **Déploiements** de l’espace de travail **Surveillance** . Vous pouvez modifier les propriétés de ce déploiement ou le supprimer de l'onglet **Déploiements** du volet Détail de l'application.
 
 ## <a name="delete-an-application-deployment"></a>Supprimer le déploiement d’une application
 
 1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.
-
 3.  Dans la liste **Applications**, sélectionnez l’application qui inclut le déploiement à supprimer.
-
 4.  Sous l’onglet **Déploiements** de la liste *<nom_application\>*, sélectionnez le déploiement d’application à supprimer. Ensuite, sous l’onglet **Déploiement**, dans le groupe **Déploiement**, cliquez sur **Supprimer**.
 
- Lorsque vous supprimez un déploiement d'application, les instances déjà installées de l'application ne sont pas supprimées. Pour supprimer ces applications, vous devez déployer l’application sur des ordinateurs avec **Désinstaller**. Si vous supprimez un déploiement d’application ou que vous retirez une ressource du regroupement sur lequel le déploiement a lieu, l’application ne sera plus visible dans le Centre logiciel.
+Lorsque vous supprimez un déploiement d'application, les instances déjà installées de l'application ne sont pas supprimées. Pour supprimer ces applications, vous devez déployer l’application sur des ordinateurs avec **Désinstaller**. Si vous supprimez un déploiement d’application ou que vous retirez une ressource du regroupement sur lequel le déploiement a lieu, l’application ne sera plus visible dans le Centre logiciel.
 
 ## <a name="user-notifications-for-required-deployments"></a>Notifications à l’utilisateur pour les déploiements obligatoires
 Quand vous recevez des logiciels obligatoires, dans le paramètre **Répéter et me le rappeler**, vous pouvez choisir une valeur dans la liste déroulante suivante :
-- **Plus tard** : Spécifie que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
-- **Durée fixe** : Indique que la notification est planifiée pour s’afficher de nouveau après la durée sélectionnée. Par exemple, si vous sélectionnez 30 minutes, la notification s’affiche de nouveau au bout de 30 minutes.
+- **Ultérieurement**  
+Indique que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
+- **Heure fixe**  
+Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée. Par exemple, si vous sélectionnez 30 minutes, la notification s’affiche de nouveau au bout de 30 minutes.
 
 ![Page Agent ordinateur dans les paramètres de l’agent du client](media/ComputerAgentSettings.png)
 
@@ -163,23 +174,24 @@ Par ailleurs, pour un déploiement à haut risque, comme une séquence de tâche
 >[!Tip]
 >Cette fonctionnalité, introduite avec la version 1702, est en version préliminaire. Pour l’activer, consultez [Fonctionnalités en version préliminaire dans System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
 
-Dans la boîte de dialogue **Propriétés** d’un type de déploiement, sous l’onglet **Comportement à l’installation**, vous pouvez spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloqueront l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé. Pour configurer cela :
+Dans la boîte de dialogue **Propriétés** d’un type de déploiement, sous l’onglet **Comportement à l’installation**, vous pouvez spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloquent l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé. Pour configurer cela :
 
 1. Ouvrez la boîte de dialogue **Propriétés** d’un type de déploiement.
 2. Dans l’onglet **Comportement à l’installation** de la boîte de dialogue **Propriétés** de *<deployment type name>*, cliquez sur **Ajouter**.
-3. Dans la boîte de dialogue **Ajouter ou modifier un fichier exécutable**, entrez le nom du fichier exécutable qui, s’il est en cours d’exécution, bloquera l’installation de l’application. Si vous le souhaitez, vous pouvez également entrer un nom convivial pour l’application pour vous aider à l’identifier dans la liste.
+3. Dans la boîte de dialogue **Ajouter ou modifier un fichier exécutable**, entrez le nom du fichier exécutable qui, s’il est en cours d’exécution, bloque l’installation de l’application. Si vous le souhaitez, vous pouvez également entrer un nom convivial pour l’application pour vous aider à l’identifier dans la liste.
 4. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés** de *<deployment type name>*.
 5. Ensuite, lorsque vous déployez une application, sur la page **Paramètres du déploiement** de l’Assistant Déploiement logiciel, sélectionnez **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement**, puis poursuivez le déploiement de l’application.
 
 Une fois que l’application atteint les ordinateurs client, le comportement suivant s’applique :
 
-- Si l’application a été déployée en tant que **Disponible** et qu’un utilisateur final tente de l’installer, il est invité à fermer les fichiers exécutables en cours d’exécution que vous avez spécifiés avant de poursuivre l’installation.
+- Si l’application a été déployée comme **Disponible** et qu’un utilisateur final tente de l’installer, il est invité à fermer les fichiers exécutables en cours d’exécution que vous avez spécifiés avant de poursuivre l’installation.
 
-- Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** est sélectionnée, une boîte de dialogue signale à l’utilisateur que les fichiers exécutables que vous avez spécifiés seront fermés automatiquement quand l’installation de l’application arrivera à échéance. Vous pouvez planifier ces boîtes de dialogue dans **Paramètres client** > **Agent ordinateur**. Si vous ne souhaitez pas que l’utilisateur final voit ces messages, sélectionnez **Masquer dans le Centre logiciel et toutes les notifications** sous l’onglet **Expérience utilisateur** des propriétés du déploiement.
+- Si l’application a été déployée comme **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** est sélectionnée, une boîte de dialogue signale à l’utilisateur que les fichiers exécutables que vous avez spécifiés sont fermés automatiquement quand l’installation de l’application arrive à échéance. Vous pouvez planifier ces boîtes de dialogue dans **Paramètres client** > **Agent ordinateur**. Si vous ne souhaitez pas que l’utilisateur final voit ces messages, sélectionnez **Masquer dans le Centre logiciel et toutes les notifications** sous l’onglet **Expérience utilisateur** des propriétés du déploiement.
 
-- Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** n’est pas sélectionnée, l’installation de l’application échoue si une ou plusieurs des applications spécifiées sont en cours d’exécution.
+- Si l’application a été déployée comme **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** n’est pas sélectionnée, l’installation de l’application échoue si une ou plusieurs des applications spécifiées sont en cours d’exécution.
 
-## <a name="for-more-information"></a>Pour plus d’informations :
-- [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md)
-- [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md)
+## <a name="for-more-information"></a>Pour plus d'informations
+
+   -  [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md)  
+   -  [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md)
 

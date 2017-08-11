@@ -2,7 +2,7 @@
 title: "Paramètres client | Microsoft Docs"
 description: "Choisissez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 08/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
-ms.openlocfilehash: 4a169098f30e4a9d708e41ee25c6a400d5ff0e85
+ms.translationtype: HT
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/19/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
@@ -63,9 +63,25 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
   À compter de la version 1606, utilisez ce paramètre pour configurer l’ordinateur client pour [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Pour autoriser la mise en cache BranchCache sur le client, définissez **Activer BranchCache** sur **Oui**.
 
+- **Activer BranchCache**
+
+Active BranchCache sur les ordinateurs clients.
+
+- **Taille maximale du cache BranchCache (pourcentage du disque)**.
+
 - **Configurer la taille du cache du client**
 
-  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Sélectionnez **Oui** pour spécifier la **Taille maximale du cache** (en mégaoctets ou en pourcentage du disque). La taille du cache du client peut augmenter jusqu’à la taille maximale en Mo ou au pourcentage du disque, **selon la valeur la moins élevée des deux**. Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
+  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Choisissez **Oui** puis spécifiez :
+    - **Taille maximale du cache** (mégaoctets). 
+    - **Taille maximale du cache** (pourcentage du disque).
+La taille du cache du client peut augmenter jusqu’à la taille maximale en Mo ou au pourcentage du disque, **selon la valeur la moins élevée des deux**. Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
+
+- **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu**
+
+Active le cache d’homologue pour les clients Configuration Manager. Ensuite, spécifiez les informations relatives au port par lequel le client communique avec l’ordinateur homologue. Configuration Manager configure automatiquement les règles de pare-feu Windows pour autoriser ce trafic. Si vous utilisez un autre pare-feu, vous devez configurer manuellement des règles pour autoriser ce trafic.
+
+
+
 
 ## <a name="client-policy"></a>Stratégie du client  
 
@@ -107,7 +123,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
   -   Le point de gestion basé sur Internet authentifie correctement l'utilisateur à l'aide de l'authentification Windows (Kerberos ou NTLM).  
 
-   Si vous laissez cette option configurée sur la valeur **Faux** ou **Non**, ou si l'une des conditions échoue, un ordinateur sur Internet recevra uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre a la valeur **Faux** ou **Non**, mais que **Activer l’interrogation de la stratégie utilisateur sur les clients** a la valeur **Vrai** ou que **Activer la stratégie utilisateur sur les clients** a la valeur **Oui**, les utilisateurs ne reçoivent pas les stratégies utilisateur tant que l’ordinateur n’est pas connecté à l’intranet.  
+   Si vous laissez cette option configurée sur la valeur **Faux** ou **Non**, ou si l’une des conditions échoue, un ordinateur sur Internet reçoit uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre a la valeur **Faux** ou **Non**, mais que **Activer l’interrogation de la stratégie utilisateur sur les clients** a la valeur **Vrai** ou que **Activer la stratégie utilisateur sur les clients** a la valeur **Oui**, les utilisateurs ne reçoivent pas les stratégies utilisateur tant que l’ordinateur n’est pas connecté à l’intranet.  
 
    Pour plus d’informations sur la gestion des clients sur Internet, consultez [Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) dans [Communications entre points de terminaison dans System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
@@ -140,7 +156,7 @@ La plupart des paramètres client sont explicites. Les autres sont décrits ici.
 
      -   Vous voulez configurer manuellement le serveur le plus proche pour les clients ou vous assurer qu'ils ne connectent pas à un serveur via une connexion réseau lente.  
 
-     -   Vous souhaitez contrôler quels clients se connectent à quel serveur, pour des raisons professionnelles ou de performances ou à des fins de tests.  
+     -   Vous souhaitez contrôler quels clients se connectent à quel serveur. Cette configuration convient pour des raisons professionnelles ou de performances ou à des fins de tests.  
 
      -   Vous ne souhaitez pas patienter jusqu'à 25 heures ou attendre une modification du réseau pour que les clients soient configurés avec un autre point de site web du catalogue d'applications.  
 

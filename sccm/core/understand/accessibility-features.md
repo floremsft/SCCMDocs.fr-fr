@@ -2,7 +2,7 @@
 title: "Accessibilité | Microsoft Docs"
 description: "Découvrez les fonctionnalités qui rendent System Center Configuration Manager accessible aux personnes en situation de handicap."
 ms.custom: na
-ms.date: 3/27/2017
+ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: 6
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 98599b3c188c9e9b508fea79ecf9a2b2348e9288
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: ca518796477dda149a9f4c0ebd65f0a082eab806
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="accessibility-features-in-system-center-configuration-manager"></a>Fonctionnalités d’accessibilité dans System Center Configuration Manager
@@ -31,14 +31,38 @@ System Center Configuration Manager inclut des fonctionnalités d’accessibilit
 
 
 ## <a name="bkmk_aconsole"></a> Fonctionnalités d’accessibilité pour la console Configuration Manager  
--   Pour accéder à un espace de travail, utilisez les raccourcis clavier suivants :  
 
-|Espace de travail|Raccourci clavier|  
-|------|--------|  
-|Biens et conformité|Ctrl+1|  
-|Bibliothèque de logiciels|Ctrl+2|  
-|monitoring|Ctrl+3|  
-|Administration|Ctrl+4|  
+**Raccourcis et améliorations apportées avec la version 1706**
+
+|Raccourci clavier|  Fonction|
+|--------|--------|  
+|Ctrl + M|Définit le focus sur le volet principal (central).|
+|Ctrl + T|Définit le focus sur le nœud supérieur dans le volet de navigation. Si le focus était déjà dans ce volet, le focus est défini sur le dernier nœud que vous avez visité.|
+|Ctrl + I|Définit le focus sur la barre de navigation, sous le ruban.|
+|Ctrl + L|Définit le focus sur le champ **Recherche**, quand il est disponible.|
+|Ctrl + D|Définit le focus sur le volet de détails, quand il est disponible.|
+|Alt     |Fait basculer le focus vers et hors du ruban.|
+
+
+- Amélioration de la navigation dans le volet de navigation lorsque vous saisissez les lettres d’un nom de nœud.
+- La navigation au clavier via la vue principale et le ruban est désormais circulaire.
+- La navigation au clavier dans le volet d’informations est désormais circulaire. Pour revenir à l’objet ou au volet précédent, utilisez Ctrl + D, puis MAJ + TAB.
+- Après l’actualisation d’une vue de l’espace de travail, le focus est défini sur le volet principal de cet espace de travail.
+- Correction d’un problème pour activer les lecteurs d’écran pour annoncer les noms des éléments de liste.
+- Ajout des noms accessibles de plusieurs contrôles sur la page qui active les lecteurs d’écran pour annoncer des informations importantes.
+
+
+**Les raccourcis suivants sont disponibles pour toutes les versions**
+
+- Pour accéder à un espace de travail, utilisez les raccourcis clavier suivants :  
+
+|Raccourci clavier| Espace de travail|
+|--------|--------|  
+|Ctrl + 1| Biens et conformité|
+|Ctrl + 2|  Bibliothèque de logiciels|
+|Ctrl + 3|  Analyse|
+|Ctrl + 4|  Administration|
+
 
 -   Pour accéder au menu d’un espace de travail, sélectionnez la touche Tab jusqu’à ce que l’icône de réduction/développement soit active. Sélectionnez ensuite la flèche Bas pour accéder au menu de l’espace de travail.  
 
@@ -56,7 +80,7 @@ System Center Configuration Manager inclut des fonctionnalités d’accessibilit
 >  Les informations présentes dans cette section ne s’appliquent qu’aux utilisateurs détenteurs de licences de produits Microsoft aux États-Unis. Si vous avez obtenu ce produit en dehors des États-Unis, vous pouvez utiliser la carte d’information de filiale fournie avec le package logiciel ou consulter le [site web Accessibilité de Microsoft](http://go.microsoft.com/fwlink/?LinkId=8431) pour obtenir les coordonnées des services de support technique Microsoft. Vous pouvez contacter votre filiale pour savoir si les types de produits ou de services décrits dans cette section sont disponibles dans votre région. Les informations sur l'accessibilité sont disponibles dans d'autres langues, notamment en japonais et en français.  
 
 ##  <a name="bkmk_ahelp"></a> Fonctionnalités d’accessibilité dans l’aide de Configuration Manager  
- L’aide de Configuration Manager intègre des fonctionnalités qui la rendent accessible à un plus grand nombre d’utilisateurs, notamment les personnes présentant une mobilité réduite, une acuité visuelle réduite ou d’autres handicaps.  
+ L’aide de Configuration Manager intègre des fonctionnalités qui la rendent accessible à un plus grand nombre d’utilisateurs, notamment ceux présentant une mobilité réduite, une acuité visuelle réduite ou d’autres handicaps.  
 
 |Tâche|Utiliser ce raccourci clavier|  
 |----------------|--------------------------------|  

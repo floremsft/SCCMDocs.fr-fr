@@ -2,7 +2,7 @@
 title: SQL Server Always On | Microsoft Docs
 description: "Planifiez l’utilisation d’un groupe de disponibilité SQL Server Always On avec SCCM."
 ms.custom: na
-ms.date: 5/26/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,12 +15,11 @@ caps.latest.revision: 16
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
-ms.openlocfilehash: 188ae877368a6cb2ec9998bff74259b4e5b5e7ce
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Se préparer à l’utilisation de groupes de disponibilité SQL Server Always On avec Configuration Manager
@@ -43,7 +42,9 @@ Voici les scénarios pris en charge pour l’utilisation de groupes de disponibi
 
 -      [Créez un groupe de disponibilité pour une utilisation avec Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
 -     [Configurez un site pour utiliser un groupe de disponibilité](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
--     [Ajoutez ou supprimez des membres réplicas dans un groupe de disponibilité qui héberge une base de données de site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-replica-members).
+-     [Ajouter ou supprimer des membres de réplica synchrone à partir d’un groupe de disponibilité qui héberge une base de données de site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members).
+-     [Configurer des réplicas avec validation asynchrone](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca) (nécessite Configuration Manager version 1706 ou ultérieure).
+-     [Récupérer un site à partir d’un réplica avec validation asynchrone](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site) (nécessite Configuration Manager version 1706 ou ultérieure).
 -     [Déplacez une base de données de site d’un groupe de disponibilité vers une instance par défaut ou nommée d’un serveur SQL Server autonome](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
 
 
@@ -62,31 +63,35 @@ Chaque réplica du groupe de disponibilité doit exécuter une version de SQL Se
 Vous devez utiliser une édition *Enterprise* de SQL Server.
 
 **Compte :**  
-Chaque instance SQL Server peut s’exécuter sous un compte d’utilisateur de domaine (**compte de service**) ou un **système local**. Chaque réplica d’un groupe peut avoir une configuration différente. Les [meilleures pratiques SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd) recommandent d’utiliser un compte avec les autorisations les plus basses possible.
+Chaque instance de SQL Server peut s’exécuter sous un compte d’utilisateur de domaine (**compte de service**) ou un compte n’appartenant pas à un domaine. Chaque réplica d’un groupe peut avoir une configuration différente. Les [meilleures pratiques SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd) recommandent d’utiliser un compte avec les autorisations les plus basses possible.
 
-Par exemple, afin de configurer les comptes de service et les autorisations pour SQL Server 2016, consultez [Configurer les comptes de service et les autorisations Windows](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) sur MSDN.
+-   Pour configurer les comptes de service et les autorisations pour SQL Server 2016, consultez [Configurer les comptes de service Windows et les autorisations](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) sur MSDN.
+-   Pour utiliser un compte n’appartenant pas à un domaine, vous devez utiliser des certificats. Pour plus d’informations, consultez [Utiliser des certificats pour un point de terminaison de mise en miroir de bases de données (Transact-SQL)](https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
 
-  Si vous utilisez un **système local** pour exécuter un réplica, vous devez configurer l’authentification du point de terminaison. Cela inclut la délégation des droits pour activer une connexion au point de terminaison du serveur réplica.
-  -     Déléguez les droits SQL Server en ajoutant le compte d’ordinateur de chaque serveur SQL Server en tant que connexion sur les autres serveurs SQL du nœud, puis octroyez des droits d’administrateur système à ce compte.  
-  -     Déléguez les droits de point de terminaison à chaque serveur distant sur le point de terminaison local en exécutant le script suivant sur chaque réplica :    
-
-              GRANT CONNECT ON endpoint::[endpoint_name]  
-              TO [domain\servername$]
 
 Pour plus d’informations, consultez [Créer un point de terminaison de mise en miroir de base de données pour les groupes de disponibilité Always On](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
 
 ### <a name="availability-group-configurations"></a>Configurations du groupe de disponibilité
 **Membres du réplica :**  
-Le groupe de disponibilité doit avoir un réplica principal et peut avoir jusqu’à deux réplicas secondaires synchrones.  Chaque membre du réplica doit :
+-   Le groupe de disponibilité doit avoir un réplica principal.
+-   Avant la version 1706, vous pouviez avoir jusqu’à deux réplicas secondaires synchrones.
+-   À compter de la version 1706, vous pouvez utiliser les mêmes nombre et type de réplicas dans un groupe de disponibilité pris en charge par la version de SQL Server que vous utilisez.
+
+    Vous pouvez utiliser un réplica avec validation asynchrone pour récupérer votre réplica synchrone. Consultez les [options de récupération de base de données de site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) dans la rubrique Sauvegarde et récupération pour plus d’informations sur la façon d’y parvenir.
+    > [!CAUTION]  
+    > Configuration Manager ne prend pas en charge le basculement pour utiliser le réplica avec validation asynchrone comme base de données de votre site.
+Étant donné que Configuration Manager ne valide pas l’état du réplica avec validation asynchrone pour vérifier qu’il est à jour, et que, [par définition, un réplica de ce type peut être désynchronisé]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), l’utilisation d’un réplica avec validation asynchrone comme base de données de site risque de compromettre l’intégrité de votre site et de ses données.
+
+Chaque membre du réplica doit :
 -   utiliser **l’instance par défaut**;  
     *Depuis la version 1702, vous pouvez utiliser une* ***instance nommée***.
 
--      définir **Connexions dans le rôle principal** sur **Oui**
--      définir **Secondaire accessible en lecture** sur **Oui**  
--      être configuré pour le **basculement manuel**.       
+-     définir **Connexions dans le rôle principal** sur **Oui**
+-     définir **Secondaire accessible en lecture** sur **Oui**  
+-     être configuré pour le **basculement manuel**.      
 
     >  [!TIP]
-    >  Configuration Manager prend en charge l’utilisation de réplicas de groupe de disponibilité quand il est configuré pour le **basculement automatique**. Toutefois, **Basculement manuel** doit être défini lorsque :
+    >  Configuration Manager prend en charge l’utilisation de réplicas synchrones de groupe de disponibilité quand il est configuré pour le **Basculement automatique**. Toutefois, **Basculement manuel** doit être défini lorsque :
     >  -  Vous exécutez le programme d’installation pour spécifier l’utilisation de la base de données de site dans le groupe de disponibilité.
     >  -  Lorsque vous installez une mise à jour dans Configuration Manager (pas seulement les mises à jour qui s’appliquent à la base de données de site).  
 
@@ -95,15 +100,15 @@ Tous les réplicas d’un groupe de disponibilité doivent être hébergés loca
 
 Lorsque vous configurez un groupe de disponibilité dans Azure et que le groupe se situe derrière un équilibreur de charge interne ou externe, les éléments suivants constituent les ports par défaut que vous devez ouvrir pour permettre au programme d’installation d’accéder à chaque réplica :   
 
--      Mappeur de point de terminaison RCP - **TCP 135**   
--      Server Message Block – **TCP 445**  
+-     Mappeur de point de terminaison RCP - **TCP 135**   
+-     Server Message Block – **TCP 445**  
     *Vous pouvez supprimer ce port après le déplacement de la base de données. Depuis la version 1702, ce port n’est plus nécessaire.*
--      SQL Server Service Broker : **TCP 4022**
--      SQL sur TCP : **TCP 1433**   
+-     SQL Server Service Broker : **TCP 4022**
+-     SQL sur TCP : **TCP 1433**   
 
 Une fois l’installation terminée, les ports suivants doivent rester accessibles :
--      SQL Server Service Broker : **TCP 4022**
--      SQL sur TCP : **TCP 1433**
+-     SQL Server Service Broker : **TCP 4022**
+-     SQL sur TCP : **TCP 1433**
 
 Depuis la version 1702, vous pouvez utiliser des ports personnalisés pour ces configurations. Les mêmes ports doivent être utilisés par le point de terminaison et sur tous les réplicas du groupe de disponibilité.
 
@@ -119,25 +124,25 @@ Quand vous exécutez le programme d’installation de Configuration Manager pour
 Les serveurs de réplication secondaires doivent avoir ce chemin de fichier uniquement pendant que vous utilisez le programme d’installation pour spécifier l’instance de base de données dans le groupe de disponibilité. Une fois que le programme d’installation a configuré la base de données du site dans le groupe de disponibilité, vous pouvez supprimer le chemin inutilisé des serveurs de réplication secondaires.
 
 Par exemple, examinez le scénario suivant :
--    Vous créez un groupe de disponibilité qui utilise trois serveurs SQL Server.
+-   Vous créez un groupe de disponibilité qui utilise trois serveurs SQL Server.
 
--    Votre serveur de réplication principal est une nouvelle installation de SQL Server 2014. Par défaut, les fichiers .MDF et .LDF de la base de données sont stockés dans C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA.
+-   Votre serveur de réplication principal est une nouvelle installation de SQL Server 2014. Par défaut, les fichiers .MDF et .LDF de la base de données sont stockés dans C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA.
 
--    Vos deux serveurs de réplication secondaires ont été mis à niveau vers SQL Server 2014 à partir de versions antérieures et conservent le chemin de fichier d’origine pour stocker les fichiers de base de données, à savoir C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA.
+-   Vos deux serveurs de réplication secondaires ont été mis à niveau vers SQL Server 2014 à partir de versions antérieures et conservent le chemin de fichier d’origine pour stocker les fichiers de base de données, à savoir C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA.
 
--    Avant de tenter de déplacer la base de données du site vers ce groupe de disponibilité, sur chaque serveur de réplication secondaire, vous devez créer le prochain chemin de fichier, même si les réplicas secondaires n’utilisent pas cet emplacement de fichier, à savoir C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA (il s’agit du même chemin que celui en cours d’utilisation sur le réplica principal).
+-   Avant de tenter de déplacer la base de données du site vers ce groupe de disponibilité, sur chaque serveur de réplication secondaire, vous devez créer le prochain chemin de fichier, même si les réplicas secondaires n’utilisent pas cet emplacement de fichier, à savoir C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA (il s’agit du même chemin que celui en cours d’utilisation sur le réplica principal).
 
--    Vous accordez ensuite au compte de service SQL Server sur chaque réplica secondaire un accès en contrôle total à l’emplacement du fichier qui vient d’être créé sur ce serveur.
+-   Vous accordez ensuite au compte de service SQL Server sur chaque réplica secondaire un accès en contrôle total à l’emplacement du fichier qui vient d’être créé sur ce serveur.
 
--    Vous pouvez désormais exécuter correctement le programme d’installation de Configuration Manager pour configurer le site afin qu’il utilise la base de données du site figurant dans le groupe de disponibilité.
+-   Vous pouvez désormais exécuter correctement le programme d’installation de Configuration Manager pour configurer le site afin qu’il utilise la base de données du site figurant dans le groupe de disponibilité.
 
 **Configurer la base de données sur un nouveau réplica :**   
  La base de données de chaque réplica doit être définie avec les éléments suivants :
--     **Intégration du CLR** doit être *activé*
--      **Max text repl size** doit être *2147483647*
--      Le propriétaire de la base de données doit être le *compte SA*
--      **TRUSTWORTY** doit être **ON**
--      **Service Broker** doit être *activé*
+-   **Intégration du CLR** doit être *activé*
+-     **Max text repl size** doit être *2147483647*
+-     Le propriétaire de la base de données doit être le *compte SA*
+-     **TRUSTWORTY** doit être **ON**
+-     **Service Broker** doit être *activé*
 
 Vous pouvez appliquer ces configurations uniquement à un réplica principal. Pour configurer un réplica secondaire, vous devez d’abord basculer le réplica principal vers le réplica secondaire afin de définir ce dernier comme nouveau réplica principal.   
 
@@ -213,7 +218,7 @@ Depuis l’édition standard de SQL Server 2016, les [groupes de disponibilité 
 **Serveurs SQL qui hébergent des groupes de disponibilité supplémentaires :**   
 Avant la version 1610 de Configuration Manager, si un groupe de disponibilité sur un serveur SQL Server héberge un ou plusieurs groupes de disponibilité en plus du groupe que vous utilisez pour Configuration Manager, chaque réplica de chacun des ces groupes de disponibilité supplémentaires doit disposer des configurations suivantes lorsque vous exécutez le programme d’installation de Configuration Manager ou installez une mise à jour pour Configuration Manager :
 -   **basculement manuel**
--     **autoriser toute connexion en lecture seule**
+-   **autoriser toute connexion en lecture seule**
 
 **Utilisation d’une base de données non prise en charge :**
 -   **Configuration Manager prend uniquement en charge la base de données de site dans un groupe de disponibilité :** Les éléments suivants ne sont pas pris en charge :

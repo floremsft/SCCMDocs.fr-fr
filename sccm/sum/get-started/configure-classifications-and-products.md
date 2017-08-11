@@ -1,5 +1,4 @@
 ---
-
 title: "Configurer les classifications et les produits à synchroniser | Microsoft Docs"
 description: "Suivez ces étapes pour configurer les classifications et les produits à synchroniser dans la console Configuration Manager."
 keywords: 
@@ -13,11 +12,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-translationtype: Human Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
-ms.openlocfilehash: 6add66e625c790b65edf64216c2262a5d082f820
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: afe0ecc4230733fa76e41bf08df5ccfb221da7c8
+ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
+ms.contentlocale: fr-fr
+ms.lasthandoff: 08/04/2017
 
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurer les classifications et les produits à synchroniser  
@@ -51,9 +50,13 @@ ms.openlocfilehash: 6add66e625c790b65edf64216c2262a5d082f820
     > - **Outils** : spécifie des utilitaires ou des fonctionnalités permettant d’effectuer une ou plusieurs tâches.  
     > - **Correctifs cumulatifs** : spécifie des ensembles cumulés de correctifs, assemblés pour faciliter leur déploiement. Ces correctifs peuvent comprendre des mises à jour de sécurité, des mises à jour critiques, des mises à jour, etc. Les correctifs cumulatifs concernent généralement un domaine particulier, tel que la sécurité ou un composant de produit.  
     > - **Mises à jour** : spécifie des mises à jour d’une application ou d’un fichier déjà installé.  
-    > - **Mises à niveau** : spécifie des mises à niveau de fonctions et fonctionnalités Windows 10.  
-    >   
-    >      Vos sites et points de mise à jour logicielle doivent exécuter au moins WSUS 4.0 avec le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour obtenir la classification de **mise à niveau**.  
+    > - **Mises à niveau** : spécifie des mises à niveau de fonctions et fonctionnalités Windows 10. Vos sites et points de mise à jour logicielle doivent exécuter au moins WSUS 4.0 avec le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour obtenir la classification de **mise à niveau**.    
+    >       
+
+    > [!NOTE]    
+    > À compter de Configuration Manager version 1706, vous pouvez également cocher la case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** pour synchroniser les pilotes Microsoft Surface. Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016 pour synchroniser correctement les pilotes Surface.     
+    >    
+    > Cette fonctionnalité est en version préliminaire. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 5.  Sous l'onglet **Produits** , spécifiez les produits pour lesquels vous souhaitez synchroniser les mises à jour logicielles, puis cliquez sur **Fermer**.  
 
@@ -65,12 +68,6 @@ ms.openlocfilehash: 6add66e625c790b65edf64216c2262a5d082f820
     > [!IMPORTANT]  
     >  Configuration Manager stocke une liste de produits et de familles de produits que vous pouvez choisir quand vous installez le point de mise à jour logicielle pour la première fois. Tant que les mises à jour logicielles ne sont pas effectuées, les produits et familles de produits publiés après la publication de Configuration Manager risquent de ne pas pouvoir être sélectionnés. La synchronisation permet de mettre à jour la liste des produits et des familles de produits pouvant être sélectionnés.  
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 Démarrez la synchronisation des mises à jour logicielles pour récupérer les mises à jour logicielles en fonction des nouveaux critères. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles](synchronize-software-updates.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

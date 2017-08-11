@@ -2,7 +2,7 @@
 title: "Créer des éléments de configuration pour les appareils Windows 8.1 et Windows 10 gérés via Microsoft Intune | Microsoft Docs"
 description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,18 +16,15 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: f75bac7887772119f30654fe15c16a8f993cad75
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: cbfc5f178e72b40526a4cb540f962a3b82203699
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="how-to-create-configuration-items-for-windows-81-and-windows-10-devices-managed-without-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager
-||  
-|-|  
-|Cet article contient des informations sur les [nouvelles fonctionnalités introduites dans la version 1602](https://technet.microsoft.com/library/mt622084.aspx) de la \(branche active\) de System Center Configuration Manager. Pour utiliser les nouvelles fonctionnalités, vous devez [installer la mise à jour 1602](https://technet.microsoft.com/library/mt607046.aspx). Si vous n’avez pas effectué la mise à jour vers la version la plus récente de Configuration Manager, vous pouvez [télécharger la documentation de la version que vous utilisez](https://gallery.technet.microsoft.com/Documentation-for-System-ea90eaf1) à partir de la Galerie TechNet.|  
+
   
  Utilisez l’élément de configuration System Center Configuration Manager **Windows 8.1 et Windows 10** pour gérer les paramètres des appareils Windows 8.1 et Windows 10 qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
   
@@ -90,7 +87,8 @@ ms.lasthandoff: 05/17/2017
 |**Durée d’inactivité avant le verrouillage de l’appareil**|Spécifiez la durée pendant laquelle un appareil peut rester inactif (sans interaction de l’utilisateur) avant d’être verrouillé.|  
 |**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|  
 |**Qualité du mot de passe**|Sélectionnez le niveau de complexité du mot de passe requis et spécifiez si les appareils biométriques peuvent être utilisés.|  
-|**Envoyer le code PIN de récupération du mot de passe au serveur Exchange Server**||  
+|**Envoyer le code PIN de récupération du mot de passe au serveur Exchange Server**|-|
+|**Chiffrement de l’appareil**|Activez le chiffrement sur les appareils ciblés.|  
   
 ###  <a name="device"></a>Appareil  
   
@@ -108,6 +106,11 @@ ms.lasthandoff: 05/17/2017
 |**Enregistrement vocal**|Autorisez l’utilisation des fonctionnalités d’enregistrement de la voix de l’appareil.<br /><br /> (Windows 10 uniquement)|
 |**Cortana**|Autorisez l’utilisation de l’Assistant vocal Cortana.<br /><br /> (Windows 10 uniquement)|
 |**Notifications Sécurité et maintenance**|Activez ou désactivez le volet de notifications dans Windows 10. <br /><br /> (Windows 10 uniquement)|
+|**Modification des paramètres de région (version de bureau uniquement)**|Empêche l’utilisateur final de changer les paramètres de région sur l’appareil.|
+|**Modification des paramètres d’alimentation et de veille (poste de travail uniquement)**|Empêche l’utilisateur final de changer les paramètres d’alimentation et de veille sur l’appareil.|
+|**Modification des paramètres de langue (poste de travail uniquement)**|Empêche l’utilisateur de changer les paramètres de langue sur l’appareil.|
+|**Modification de l’heure du système**|Empêche l’utilisateur final de changer les date et heure sur l’appareil.|
+|**Changement de nom d’appareil**|Empêche l’utilisateur final de changer le nom de l’appareil.|
   
 ### <a name="email-management"></a>Gestion de la messagerie  
  Ces paramètres concernent les appareils exécutant Windows 8.1 et Windows 10.  
@@ -119,7 +122,7 @@ ms.lasthandoff: 05/17/2017
 |**Formats de message autorisés**|Spécifiez si les courriers électroniques des utilisateurs peuvent être au format HTML ou au format texte brut uniquement.|  
 |**Taille maximale des messages en texte brut (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques en texte brut lorsqu'ils sont automatiquement téléchargés.|  
 |**Taille maximale des messages HTML (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques HTML lorsqu'ils sont automatiquement téléchargés.|  
-|**Taille maximum d'une pièce jointe (téléchargée automatiquement)**|Configure la taille maximale des courriers électroniques qui seront téléchargés automatiquement.|  
+|**Taille maximum d'une pièce jointe (téléchargée automatiquement)**|Configure la taille maximale des e-mails qui sont téléchargés automatiquement.|  
 |**Synchronisation du calendrier**|Autoriser la synchronisation des calendriers sur l’appareil.|  
 |**Compte de messagerie personnalisé**|Autorisez l'utilisation d'un compte non Microsoft sur l'appareil.|  
 |**Rendre le compte Microsoft facultatif dans l'application Windows Mail**|Configurez cette option pour supprimer l’obligation de disposer d’un compte Microsoft dans Windows Mail.|  
@@ -131,7 +134,10 @@ ms.lasthandoff: 05/17/2017
 |-------------|-------------|  
 |**Boutique d'applications**|Permet d'accéder à l'App Store sur l'appareil.|  
 |**Entrer un mot de passe pour accéder à la boutique d'applications**|Les utilisateurs doivent entrer un mot de passe pour accéder à l'App Store.|  
-|**Achats dans l'application**|Autorise les utilisateurs à effectuer des achats dans l'application.|  
+|**Achats dans l'application**|Autorise les utilisateurs à effectuer des achats dans l'application.|
+|**Mettre à jour automatiquement les applications du Store**|Permet la mise à jour automatique des applications installées à partir du Windows Store.|
+|**Utiliser uniquement le magasin privé**|Activez cette option pour n’autoriser les utilisateurs à télécharger des applications qu’à partir de votre magasin privé.|
+|**Stocker le démarrage de l’application d’origine**|Désactive toutes les applications qui ont été préinstallées sur l’appareil ou téléchargées à partir du Windows Store.|
   
 ### <a name="browser"></a>Navigateur  
  Ces paramètres concernent les appareils exécutant Windows 8.1 et Windows 10.  
@@ -157,11 +163,11 @@ ms.lasthandoff: 05/17/2017
 |**Niveau de sécurité de la zone intranet**|Configurez le niveau de sécurité pour la zone intranet.|  
 |**Niveau de sécurité de la zone Sites de confiance**|Configurez le niveau de sécurité pour la zone Sites de confiance.|  
 |**Niveau de sécurité de la zone des sites sensibles**|Configurez le niveau de sécurité pour la zone des sites sensibles.|  
-|**Espaces de noms pour la zone intranet**|Configurer les sites web qui seront ajoutés ou supprimés dans la zone intranet.|  
+|**Espaces de noms pour la zone intranet**|Configurer les sites web qui sont ajoutés ou supprimés dans la zone intranet.|  
 |**Accéder à un site intranet pour une entrée à mot unique**|Active ou désactive le paramètre qui permet à Internet Explorer d'accéder automatiquement à un site Intranet si un nom de site valide est entré sans être précédé de HTTP :|  
 |**Option de menu du mode entreprise**|Autorisez les utilisateurs à activer et désactiver le mode Entreprise à partir du menu **Outils** d’Internet Explorer.|  
 |**Emplacement du rapport de journalisation (URL)**|Spécifiez une URL où les sites web visités sont enregistrés quand le Mode entreprise est actif.|  
-|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l'emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.|  
+|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l’emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.|  
   
 ###  <a name="cloud"></a>Cloud  
  Ces paramètres concernent les appareils exécutant Windows 8.1 et Windows 10.  
@@ -228,22 +234,22 @@ ms.lasthandoff: 05/17/2017
 |**Connexion réseau sans fil**|Activez ou désactivez la fonctionnalité Wi-Fi des appareils.|  
 |**Connexion Wi-Fi**|Les utilisateurs peuvent utiliser leur appareil en tant que point d'accès sans fil mobile.|  
 |**Décharger les données en Wi-Fi si possible**|Configurez cette option pour utiliser la connexion Wi-Fi sur le périphérique lorsque cela est possible.|  
-|**Rapports de point d'accès Wi-Fi**||  
-|**Configuration manuelle du Wi-Fi**||  
+|**Rapports de point d'accès Wi-Fi**|-|  
+|**Configuration manuelle du Wi-Fi**|-|  
   
 #### <a name="to-configure-a-wireless-network-connection"></a>Pour configurer une connexion réseau sans fil  
   
 1.  Dans la page **Configurer les paramètres de communication sans fil de l'appareil mobile** , cliquez sur **Ajouter**.  
   
-2.  Dans la boîte de dialogue **Connexion réseau sans fil** , spécifiez les informations suivantes sur la connexion sans fil qui sera configurée sur les appareils mobiles :  
+2.  Dans la boîte de dialogue **Connexion réseau sans fil**, spécifiez les informations suivantes sur la connexion sans fil qui est configurée sur les appareils mobiles :  
   
 |Paramètre|Plus d'informations|  
 |-------------|----------------------|  
 |**Nom réseau (SSID)**|Entrez le nom du réseau Wi-Fi.|  
 |**Connexion réseau**|Choisissez entre **Internet** et **Travail**.|  
 |**Authentification**|Sélectionnez la méthode d'authentification de la connexion sans fil :<br /><br /> - **Ouvrir**<br /><br /> - **Partagé**<br /><br /> - **WPA**<br /><br /> - **WPA-PSK**<br /><br /> - **WPA2**<br /><br /> - **WPA2-PSK**|  
-|**Chiffrement des données**|Choisissez la méthode de chiffrement utilisée par cette connexion. Les valeurs possibles varient en fonction de la méthode d' **Authentification** sélectionnée :<br /><br /> - **Désactivé**<br /><br /> - **WEP**<br /><br /> - **TKIP**<br /><br /> - **AES**|  
-|**Index de clé**|Sélectionnez un index de clé entre **1** et **4** , qui sera utilisé avec un paramètre **Chiffrement des données** de **WEP**.|  
+|**Chiffrement des données**|Choisissez la méthode de chiffrement utilisée par cette connexion. Les valeurs possibles varient en fonction de la méthode **d’Authentification** sélectionnée :<br /><br /> - **Désactivé**<br /><br /> - **WEP**<br /><br /> - **TKIP**<br /><br /> - **AES**|  
+|**Index de clé**|Sélectionnez un index de clé entre **1** et **4**, qui est utilisé avec un paramètre **Chiffrement des données** de **WEP**.|  
 |**Ce réseau se connecte à Internet**|Sélectionnez cette option si vous souhaitez fournir des paramètres de proxy qui permettent aux appareils mobiles d'établir une connexion sans fil à Internet.|  
 |**Paramètres du serveur proxy**|Spécifiez si nécessaire les paramètres **Serveur** et **Port** pour **HTTP**, **WAP** et **Sockets**.|  
 |**Activer l'accès réseau 802.1X**|Sélectionnez cette option si vous souhaitez sécuriser la connexion en spécifiant un type EAP.|  
@@ -258,7 +264,7 @@ ms.lasthandoff: 05/17/2017
   
 -   **Fichier de certificat** : cliquez sur Parcourir, puis sélectionnez le fichier de certificat avec l’extension **.cer** que vous souhaitez importer.  
   
--   **Banque d'informations de destination** : choisissez une ou plusieurs banques de destination où le certificat importé sera ajouté sur l'appareil mobile :  
+-   **Banque d’informations de destination** : choisissez une ou plusieurs banques de destination où le certificat importé est ajouté sur l’appareil mobile :  
   
     -   **Racine**  
   
@@ -272,7 +278,7 @@ ms.lasthandoff: 05/17/2017
   
     -   **Homologue**  
   
--   **Rôle** : si **SPC** (Software Publisher Certificate) est sélectionné en tant que banque de destination, choisissez le rôle qui sera associé au certificat :  
+-   **Rôle** : si **SPC** (Software Publisher Certificate) est sélectionné en tant que banque de destination, choisissez le rôle qui est associé au certificat :  
   
     -   **Opérateur mobile**  
   
@@ -293,10 +299,10 @@ ms.lasthandoff: 05/17/2017
 |**Contrôle de compte d'utilisateur**|Active ou désactive le contrôle de compte d'utilisateur Windows sur l'appareil.|  
 |**Pare-feu réseau**|Active ou désactive le pare-feu Windows.<br /><br /> (Windows 8.1 uniquement)|  
 |**Mises à jour (Windows 8.1 et versions antérieures)**|Choisissez le mode de téléchargement des mises à jour logicielles Windows sur les ordinateurs. Par exemple, vous pouvez télécharger automatiquement les mises à jour, mais permettre à l'utilisateur de choisir à quel moment les installer.|  
-|**Classification minimale des mises à jour**|Choisissez la classification minimale des mises à jour téléchargées sur les ordinateurs Windows : **Aucune**, **Importante**ou **Recommandée**.|  
+|**Classification minimale des mises à jour**|Choisissez la classification minimale des mises à jour téléchargées sur les ordinateurs Windows : **Aucune**, **Importante** ou **Recommandée**.|  
 |**Mises à jour (Windows 10)**|Choisissez le mode de téléchargement des mises à jour logicielles Windows sur les ordinateurs. Par exemple, vous pouvez télécharger automatiquement les mises à jour, mais permettre à l'utilisateur de choisir à quel moment les installer.<br /><br /> (Windows 10 uniquement)|  
-|**Jour d’installation**|Choisissez le jour où les mises à jour seront installées.<br /><br /> (Windows 10 uniquement)|  
-|**Heure d’installation**|Choisissez l’heure à laquelle les mises à jour seront installées.<br /><br /> (Windows 10 uniquement)|  
+|**Jour d’installation**|Choisissez le jour où les mises à jour sont installées.<br /><br /> (Windows 10 uniquement)|  
+|**Heure d’installation**|Choisissez l’heure à laquelle les mises à jour sont installées.<br /><br /> (Windows 10 uniquement)|  
 |**SmartScreen**|Activez ou désactivez Windows SmartScreen.|  
 |**Protection antivirus**|Sélectionnez cette option pour vous assurer qu’un logiciel antivirus est installé sur l’appareil.|  
 |**Les signatures de la protection antivirus sont à jour**|Sélectionnez cette option pour vous assurer que les fichiers de signature antivirus sont à jour.|  
@@ -316,15 +322,15 @@ ms.lasthandoff: 05/17/2017
   
  Vous ne pouvez pas spécifier à la fois les applications conformes et non conformes dans le même élément de configuration.  
   
-#### <a name="to-specify-apps-that-will-be-allowed-or-blocked"></a>Pour spécifier les applications autorisées ou bloquées  
+#### <a name="to-specify-apps-that-are-allowed-or-blocked"></a>Pour spécifier les applications autorisées ou bloquées  
   
-1.  Dans la page **Liste des applications autorisées et bloquées**, spécifiez les informations suivantes :  
+Dans la page **Liste des applications autorisées et bloquées**, spécifiez les informations suivantes :  
   
-    |Paramètre|Plus d'informations|  
+|Paramètre|Plus d'informations|  
     |-------------|----------------------|  
     |**Liste des applications bloquées**|Sélectionnez cette option si vous souhaitez spécifier une liste d’applications que les utilisateurs ne sont pas autorisés à installer.|  
     |**Liste des applications autorisées**|Sélectionnez cette option si vous souhaitez spécifier une liste d'applications que les utilisateurs sont autorisés à installer. L’installation de toutes les autres applications est bloquée.|  
-    |**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez un nom de votre choix, éventuellement l'éditeur de l'application, et l'URL de l'application dans le magasin d'applications.<br /><br /> Pour spécifier l’URL, dans le Windows Store, recherchez l’application à utiliser.<br /><br /> Ouvrez la page de l'application, puis copiez l'URL dans le Presse-papiers. Vous pouvez maintenant utiliser cette URL dans la liste des applications autorisées ou bloquées.<br /><br /> **Exemple :** recherchez l’application **Skype** dans le Store. L’URL que vous utilisez sera **http://www.windowsphone.com/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51**.|  
+    |**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez un nom de votre choix, éventuellement l'éditeur de l'application, et l'URL de l'application dans le magasin d'applications.<br /><br /> Pour spécifier l’URL, dans le Windows Store, recherchez l’application à utiliser.<br /><br /> Ouvrez la page de l'application, puis copiez l'URL dans le Presse-papiers. Vous pouvez maintenant utiliser cette URL dans la liste des applications autorisées ou bloquées.<br /><br /> **Exemple :** recherchez l’application **Skype** dans le Store. L’URL que vous utilisez est **http://www.windowsphone.com/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51**.|  
     |**Éditer**|Vous permet de modifier le nom, l'éditeur et l'URL de l'application sélectionnée.|  
     |**Supprimer**|Supprime l'application sélectionnée dans la liste.|  
     |**Importerer**|Importe une liste d'applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.|  
@@ -357,7 +363,8 @@ Pour plus d’informations sur la configuration de la protection des données d�
 Ces paramètres concernent les appareils exécutant Windows 10 et versions ultérieures.  
   
 |Nom du paramètre|Détails|  
-|------------------|-------------|  
+|------------------|-------------| 
+|Microsoft Edge|Autoriser l’utilisation du navigateur web Edge sur l’appareil.| 
 |**Autoriser les suggestions de recherche dans la barre d’adresse**|Permet à votre moteur de recherche de suggérer des sites lorsque vous tapez des expressions de recherche.|  
 |**Autoriser l’envoi du trafic intranet vers Internet Explorer**||  
 |**Autoriser l’absence de suivi**|La fonctionnalité Do Not Track (Ne pas me suivre) informe des sites web que vous ne souhaitez qu’ils suivent votre visite sur un site.|  
@@ -366,7 +373,14 @@ Ces paramètres concernent les appareils exécutant Windows 10 et versions ult�
 |**Autoriser les cookies**|Autoriser ou désactiver les cookies.|  
 |**Autoriser le remplissage automatique**|Autoriser l’utilisation de la fonctionnalité de remplissage automatique du navigateur Edge.|  
 |**Autoriser le gestionnaire de mots de passe**|Autoriser l’utilisation de la fonctionnalité de gestionnaire des mots de passe du navigateur Edge.|  
-|**Emplacement de la liste des sites en mode entreprise**|Indique où trouver la liste des sites web qui s'ouvrent en Mode entreprise. Les utilisateurs ne peuvent pas modifier cette liste.|  
+|**Emplacement de la liste des sites en mode entreprise**|Indique où trouver la liste des sites web qui s’ouvrent en Mode entreprise. Les utilisateurs ne peuvent pas modifier cette liste.|
+|**Bloquer l’accès à about:flags**|Empêcher l’utilisateur final d’accéder à la page about:flags dans Edge qui contient les paramètres de développeur et expérimentaux.|
+|**Remplacement de l’invite de commandes SmartScreen**|Autoriser l’utilisateur final à ignorer les avertissements du filtre SmartScreen concernant les sites web potentiellement malveillants.|
+|**Remplacement de l’invite de commandes SmartScreen pour les fichiers**|Autoriser l’utilisateur final à ignorer les avertissements du filtre SmartScreen concernant le téléchargement de fichiers potentiellement malveillants.|
+|**Adresse IP localhost WebRTC**|Empêcher l’affichage de l’adresse IP localhost de l’utilisateur quand celui-ci passe des appels téléphoniques à l’aide du protocole RTC web.|
+|**Moteur de recherche par défaut**|Spécifier le moteur de recherche par défaut à utiliser. Les utilisateurs finaux peuvent changer cette valeur à tout moment.|
+|**URL OpenSearch XML**|Vous pouvez utiliser un fichier XML OpenSearch afin de créer un service de recherche pour Microsoft Edge.<br>Pour plus d’informations, consultez [OpenSearch](https://msdn.microsoft.com/library/windows/desktop/dd940337).|
+|**Pages d’accueil (version de bureau uniquement)**|Ajouter une liste de sites que vous souhaitez utiliser en tant que pages d’accueil dans le navigateur Microsoft Edge (version de bureau uniquement).|  
 
 
 ### <a name="windows-defender"></a>Windows Defender
@@ -392,7 +406,7 @@ Ces paramètres concernent les appareils exécutant Windows 10 et versions ult�
 |**Analyser les fichiers ouverts à partir de dossiers partagés sur le réseau**|Permet à Defender d’analyser les fichiers sur des lecteurs réseau partagés (par exemple ceux qui sont accessibles à partir d’un chemin UNC)<br>Si les fichiers sur le disque sont en lecture seule, Defender ne peut pas y supprimer les logiciels malveillants détectés.|
 |**Intervalle de mise à jour des signatures**|Spécifie l’intervalle auquel Defender recherche de nouveaux fichiers de signatures.
 |**Activer la protection cloud**|Autorise ou bloque la réception par Microsoft Active Protection Service d’informations sur l’activité des logiciels malveillants en provenance des appareils que vous gérez. Ces informations sont utilisées pour améliorer le service.|
-|**Demander aux utilisateurs d’envoyer des exemples**|Contrôle si les fichiers susceptibles de nécessiter davantage d’analyse par Microsoft pour déterminer s’ils sont malveillants sont automatiquement envoyés à Microsoft.|
+|**Demander aux utilisateurs d’envoyer des exemples**|Contrôle si les fichiers susceptibles de nécessiter davantage d’analyse sont automatiquement envoyés à Microsoft pour déterminer s’ils sont malveillants.|
 |**Détection des applications potentiellement indésirables**|Protège les postes de travail Windows inscrits contre l’exécution de logiciels classés par Windows Defender comme potentiellement indésirables. Vous pouvez protéger contre l’exécution de ces applications ou utiliser le mode audit pour signaler quand une application potentiellement indésirable est installée.|
 |**Exclusion de fichiers et de dossiers**|Ajoute un ou plusieurs fichiers et dossiers, comme C:\Chemin ou %ProgramFiles%\Chemin\nom_fichier.exe, à la liste des exclusions. Ces fichiers et dossiers ne sont pas inclus dans les analyses en temps réel ou planifiées.|
 |**Exclusions des extensions de fichier**|Ajoute une ou plusieurs extensions de fichier, comme jpg ou txt, à la liste des exclusions. Les fichiers avec ces extensions ne sont pas inclus dans les analyses en temps réel ou planifiées.|

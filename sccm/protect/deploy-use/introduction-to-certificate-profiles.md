@@ -2,7 +2,7 @@
 title: "Présentation des profils de certificat | Microsoft Docs"
 description: "Découvrez le fonctionnement des profils de certificat dans System Center Configuration Manager avec les services de certificats Active Directory."
 ms.custom: na
-ms.date: 03/30/2017
+ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 41dcc259-f147-4420-bff2-b65bdf8cff77
 caps.latest.revision: 7
-author: arob98
-ms.author: angrobe
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: ba1d5b04cb0cb0284525e295a6086a3c0ac67e9f
+ms.translationtype: HT
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: 7b1c0e449f3d1ef42e279e8707df6bf1df163b3f
 ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -50,18 +49,25 @@ Les profils de certificat fournissent les fonctionnalités de gestion suivantes�
 
 -   **Certificat d'Autorité de certification approuvé** : vous permet de déployer un certificat d'autorité de certification racine ou intermédiaire approuvé pour former une chaîne d'approbation des certificats lorsque l'appareil doit authentifier un serveur.  
 
--   **Protocole SCEP (Simple Certificate Enrollment Protocol)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription d’appareil réseau sur un serveur exécutant Windows Server 2012 R2.
+-   **Protocole d'inscription de certificats simple (SCEP)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription d’appareil réseau sur un serveur exécutant Windows Server 2012 R2.
+
+    Pour créer un profil de certificat du type **Protocole d’inscription de certificats simple (SCEP)**, vous devez d’abord créer un profil de certificat du type **Certificat d’autorité de certification approuvé**.
+
 -   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat .pfx (également appelé PKCS #12) pour un appareil ou un utilisateur.
 
-    > [!NOTE]  
-    >  Vous devez créer un profil de certificat du type **Certificat d’autorité de certification approuvé** avant de pouvoir créer un profil de certificat du type **Protocole SCEP (Simple Certificate Enrollment Protocol)**.  
+    Vous pouvez créer des profils de certificat PFX en [important des informations d’identification](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) à partir de certificats existants ou en [définissant une autorité de certification](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) pour traiter les requêtes.
+
+    À compter de la version 1706, vous pouvez utiliser Microsoft ou Entrust comme autorités de certification pour les certificats **Échange d’informations personnelles (.pfx)**.
+
 
 ## <a name="requirements-and-supported-platforms"></a>Configuration requise et plateformes prises en charge  
- Pour déployer des profils de certificat qui utilisent le protocole SCEP, vous devez installer le point d’enregistrement de certificat sur un serveur de système de site du site d’administration centrale ou d’un site principal. Vous devez également installer un module de stratégie pour NDES, le module de stratégie de Configuration Manager, sur un serveur exécutant Windows Server 2012 R2 avec le rôle de services de certificats Active Directory et un service NDES accessible aux appareils qui nécessitent les certificats. Pour les appareils inscrits par Microsoft Intune, le service NDES doit être accessible sur Internet, par exemple, dans un sous-réseau filtré (également appelé DMZ).  
+Pour déployer des profils de certificat qui utilisent le protocole SCEP, vous devez installer le point d’enregistrement de certificat sur un serveur de système de site du site d’administration centrale ou d’un site principal. Vous devez également installer un module de stratégie pour NDES, le module de stratégie de Configuration Manager, sur un serveur exécutant Windows Server 2012 R2 avec le rôle de services de certificats Active Directory et un service NDES accessible aux appareils qui nécessitent les certificats. Pour les appareils inscrits par Microsoft Intune, le service NDES doit être accessible sur Internet, par exemple, dans un sous-réseau filtré (également appelé DMZ).  
 
- Pour plus d’informations sur la façon dont le service NDES prend en charge un module de stratégie pour que Configuration Manager puisse déployer des certificats, consultez [Utilisation d’un module de stratégie avec le service d’inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+Les certificats PFX nécessitent également un point d’enregistrement de certificat sur un serveur de système de site dans le site d’administration centrale ou un site principal.  Vous devez également spécifier l’autorité de certification pour le certificat et les informations d’identification d’accès pertinentes.  À compter de la version 1706, vous pouvez spécifier Microsoft ou Entrust comme autorités de certification.  
 
- Configuration Manager prend en charge le déploiement de certificats sur différents magasins de certificats, en fonction de la configuration requise, du type d’appareil et du système d’exploitation. Les appareils et les systèmes d'exploitation suivants sont pris en charge :  
+Pour plus d’informations sur la façon dont le service NDES prend en charge un module de stratégie pour que Configuration Manager puisse déployer des certificats, consultez [Utilisation d’un module de stratégie avec le service d’inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+
+Configuration Manager prend en charge le déploiement de certificats sur différents magasins de certificats, en fonction des exigences, du type d’appareil et du système d’exploitation. Les appareils et les systèmes d'exploitation suivants sont pris en charge :  
 
 -   Windows RT 8.1  
 

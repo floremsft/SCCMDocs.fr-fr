@@ -1,7 +1,7 @@
 ---
 title: "Méthodes de découverte | Microsoft Docs"
 ms.custom: na
-ms.date: 2/3/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: 8
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 81d7516b814d2db74d4d857871071c8911755754
-ms.openlocfilehash: 6e53f501281e31f2b7df54b9740eac970f108257
+ms.translationtype: HT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 442e5e1fbddd00248819a8de79adc78929474fc0
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="about-discovery-methods-for-system-center-configuration-manager"></a>À propos des méthodes de découverte pour System Center Configuration Manager
@@ -189,6 +189,27 @@ Dans la boîte de dialogue des **propriétés de découverte d’utilisateurs Ac
 Les actions de la découverte d’utilisateurs Active Directory sont enregistrées dans le fichier **adusrdis.log** du dossier **&lt;Chemin_installation\>\LOGS** sur le serveur de site.  
 
 Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+## <a name="azureaddisc"></a> Découverte des utilisateurs Azure Active Directory
+Depuis la version 1706, vous pouvez utiliser la découverte des utilisateurs Azure Active Directory (Azure AD) quand vous configurez votre environnement pour utiliser les services Azure.
+Utilisez cette méthode de découverte pour rechercher dans votre annuaire Azure AD les utilisateurs qui s’authentifient auprès de votre instance d’Azure AD, notamment les attributs suivants :  
+-   objectId
+-   displayName
+-   messagerie
+-   mailNickname
+-   onPremisesSecurityIdentifier
+-   userPrincipalName
+-   AAD tenantID
+
+Cette méthode prend en charge une synchronisation complète et une synchronisation delta des données utilisateur à partir d’Azure AD. Vous pouvez ensuite utiliser ces informations avec les données de découverte que vous collectez par le biais des autres méthodes de découverte.
+
+Les actions de la découverte des utilisateurs Azure AD sont enregistrées dans le fichier SMS_AZUREAD_DISCOVERY_AGENT.log sur le serveur de site de niveau supérieur de la hiérarchie.
+
+Pour configurer la découverte des utilisateurs Azure AD, vous utilisez l’Assistant Services Azure.  Pour plus d’informations sur la configuration de cette méthode de découverte, consultez [Configurer la découverte des utilisateurs Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods).
+
+
+
+
 
 ##  <a name="bkmk_aboutHeartbeat"></a> Découverte par pulsations d’inventaire  
 **Configurable :** Oui  
@@ -407,7 +428,7 @@ Quand l’une de ces trois méthodes de découverte s’exécute sur un site sp�
 
 La découverte recherche des objets aux emplacements spécifiés, puis tente de recueillir des informations sur ces objets. Lorsque suffisamment d'informations sur une ressource sont identifiées, un enregistrement de données de découverte est créé. Les informations requises varient en fonction de la méthode de découverte utilisée.  
 
-Si vous configurez l'exécution d'une même méthode de découverte dans différents sites Configuration Manager pour tirer profit de l'interrogation des serveurs Active Directory locaux, vous pouvez configurer chaque site à l'aide d'un ensemble unique d'options de découverte. Étant donné que les données de découverte sont partagées avec chaque site de la hiérarchie, évitez la superposition entre ces configurations pour découvrir de manière efficace chaque ressource une seule fois. 
+Si vous configurez l'exécution d'une même méthode de découverte dans différents sites Configuration Manager pour tirer profit de l'interrogation des serveurs Active Directory locaux, vous pouvez configurer chaque site à l'aide d'un ensemble unique d'options de découverte. Étant donné que les données de découverte sont partagées avec chaque site de la hiérarchie, évitez la superposition entre ces configurations pour découvrir de manière efficace chaque ressource une seule fois.
 
 Dans les environnements plus petits, envisagez d’exécuter chaque méthode de découverte sur un seul site dans votre hiérarchie pour réduire les charges administratives supplémentaires et la possibilité de multiples actions de découverte redécouvrant les mêmes ressources. Quand vous limitez le nombre de sites exécutant des découvertes, vous pouvez réduire la bande passante réseau globale utilisée par la découverte. Vous pouvez également réduire le nombre global de DDR qui sont créés et qui doivent être traités par vos serveurs de site.  
 

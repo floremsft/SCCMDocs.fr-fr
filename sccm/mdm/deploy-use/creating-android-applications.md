@@ -2,7 +2,7 @@
 title: "Créer des applications Android | Documents Microsoft"
 description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Android."
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,17 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: HT
-ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
-ms.openlocfilehash: 3bfb7364c3de5264a5fa8a684965d9aebeb84719
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
 
 *S’applique à : System Center Configuration Manager (Current Branch)*
 
-Une application System Center Configuration Manager inclut un ou plusieurs types de déploiement, qui comprennent les fichiers d’installation et informations nécessaires pour déployer le logiciel sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+Une application System Center Configuration Manager a un ou plusieurs types de déploiement. Les types de déploiement comprennent les fichiers d’installation et les informations nécessaires pour déployer des logiciels sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
 
  Vous pouvez créer des applications à l'aide des méthodes suivantes :  
 
@@ -52,7 +52,7 @@ Les actions de déploiement suivantes sont prises en charge :
 |Android for Work | **Obligatoire** |
 
 ## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
-En tant qu’administrateur de Configuration Manager, vous pouvez également approuver et déployer des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
+En tant qu’administrateur de Configuration Manager, vous pouvez également approuver des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
 
 Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
 

@@ -1,5 +1,4 @@
 ---
-
 title: "Planifier les mises à jour logicielles | Documents Microsoft"
 description: "Il est essentiel de planifier l’infrastructure du point de mise à jour logicielle avant d’utiliser les mises à jour logicielles dans un environnement de production System Center Configuration Manager."
 keywords: 
@@ -13,12 +12,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: b5a2fd9f15992c9e5ef8aede64af5446b6852b1a
+ms.translationtype: HT
+ms.sourcegitcommit: afe0ecc4230733fa76e41bf08df5ccfb221da7c8
+ms.openlocfilehash: 8b739a01a6bb5cacf0f7109e2e6fa3b31dd666d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -109,11 +107,15 @@ Pour rechercher la signification d’un code d’erreur, vous devez convertir le
 
 
 ###  <a name="BKMK_ManuallySwitchSUPs"></a>Basculer manuellement les clients vers un nouveau point de mise à jour logicielle
-À compter de Configuration Manager version 1606, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle en cas de problème avec le point de mise à jour logicielle actif. Cette option entraîne des modifications uniquement quand un client reçoit plusieurs points de mise à jour logicielle à partir d’un point de gestion.  
+À compter de Configuration Manager version 1606, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle en cas de problème avec le point de mise à jour logicielle actif. Cette option entraîne des modifications uniquement quand un client reçoit plusieurs points de mise à jour logicielle à partir d’un point de gestion.
 
-Activez cette option sur un regroupement d’appareils ou sur un ensemble d’appareils sélectionnés. Une fois l’option activée, les clients rechercheront un autre point de mise à jour logicielle lors de la prochaine analyse. En fonction de vos paramètres de configuration WSUS (classifications des mises à jour, produits, partage d’une base de données WSUS par les points de mise à jour logicielle, etc.), le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Par conséquent, vous ne devez utiliser cette option qu’en cas de nécessité.  
+> [!IMPORTANT]    
+> Quand vous basculez des appareils pour utiliser un nouveau serveur, les appareils utilisent une action de secours pour rechercher ce serveur. C’est pourquoi vous devez passer en revue vos configurations de groupe de limites et vérifiez que vos points de mise à jour logicielle sont dans les groupes de limites appropriés avant de procéder à ce changement. Pour plus d’informations, consultez [Points de mise à jour logicielle](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points).
+>
+> Le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Le volume du trafic dépend de vos paramètres de configuration WSUS (classifications des mises à jour, produits, partage d’une base de données WSUS par les points de mise à jour logicielle ou non, etc.). Si vous envisagez de basculer plusieurs appareils, songez à le faire pendant les fenêtres de maintenance pour réduire l’impact sur le réseau durant la synchronisation avec le nouveau serveur de point de mise à jour logicielle.
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>Pour activer l’option de basculement vers des points de mise à jour logicielle  
+Activez cette option sur un regroupement d’appareils ou sur un ensemble d’appareils sélectionnés. Une fois l’option activée, les clients rechercheront un autre point de mise à jour logicielle lors de la prochaine analyse.
 
 1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
 
@@ -295,8 +297,8 @@ Les mises à jour logicielles exigent qu'une version prise en charge de WSUS soi
 -   une mise à jour logicielle de remplacement n'a pas été approuvée pour le déploiement dans votre environnement de production.  
 
     > [!NOTE]  
-    >  Lorsque Configuration Manager définit une mise à jour logicielle remplacée sur **Expiré**, cela de définit pas la mise à jour sur **Expiré** dans WSUS. Toutefois, lorsque la tâche de nettoyage WSUS s’exécute, les mises à jour définies sur **Expiré** dans Configuration Manager sont définies dans l’état **Refusé** sur le serveur WSUS, et l’agent Windows Update sur les ordinateurs ne recherche plus ces mises à jour. Cela signifie que les clients continuent à effectuer des recherches pour une mise à jour qui a expiré jusqu’à l’exécution de la tâche de nettoyage. Pour plus d’informations sur la tâche de nettoyage WSUS, consultez [Maintenance des mises à jour logicielles](/sccm/sum/deploy-use/software-updates-maintenance).
-    
+    > Quand Configuration Manager définit une mise à jour logicielle remplacée avec l’état **Expiré**, celle-ci n’est pas définie avec l’état **Refusé** dans WSUS. Toutefois, quand la tâche de nettoyage WSUS s’exécute, les mises à jour définies avec l’état **Expiré** dans Configuration Manager passent à l’état **Refusé** sur le serveur WSUS, et l’agent Windows Update sur les ordinateurs ne recherche plus ces mises à jour. Cela signifie que les clients continuent à effectuer des recherches pour une mise à jour qui a expiré jusqu’à l’exécution de la tâche de nettoyage. Pour plus d’informations sur la tâche de nettoyage WSUS, consultez [Maintenance des mises à jour logicielles](/sccm/sum/deploy-use/software-updates-maintenance).
+
 ###  <a name="BKMK_UpdateLanguages"></a> Langues  
  Les paramètres de langue du point de mise à jour logicielle permettent de configurer les langues pour lesquelles les détails du résumé (métadonnées des mises à jour logicielles) sont synchronisés pour les mises à jour logicielles, ainsi que les langues des fichiers de mise à jour logicielle qui seront téléchargés pour les mises à jour.  
 

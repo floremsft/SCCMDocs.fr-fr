@@ -2,7 +2,7 @@
 title: Technical Preview 1707 | Microsoft Docs
 description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1707 de System Center Configuration Manager."
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -15,8 +15,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: HT
-ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
-ms.openlocfilehash: 118f20768ffc99364eb9e8cf2074d7a23f4dc572
+ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
+ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
 ms.contentlocale: fr-fr
 ms.lasthandoff: 07/28/2017
 
@@ -62,7 +62,7 @@ Cliquez sur une section du graphique **Modèles de Surface** pour obtenir la lis
 ## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Configurer et déployer des stratégies Windows Defender Application Guard
 <!-- 1351960 -->
 
-[Windows Defender Application Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) est une nouvelle fonctionnalité de Windows qui permet de protéger vos utilisateurs en ouvrant les sites web non approuvés dans un conteneur isolé et sécurisé qui n’est pas accessible par les autres parties du système d’exploitation. Dans cette version Technical Preview, nous avons ajouté la prise en charge pour configurer cette fonctionnalité à l’aide des paramètres de conformité de Configuration Manager que vous configurez, puis déployez sur une collection. Cette fonctionnalité sera disponible dans la version préliminaire de la version 64 bits de mise à jour de Windows 10 Creators Update (nom de code : RS2). Pour tester cette fonctionnalité maintenant, vous devez utiliser une version préliminaire de cette mise à jour.
+[Windows Defender Application Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) est une nouvelle fonctionnalité de Windows qui permet de protéger vos utilisateurs en ouvrant les sites web non approuvés dans un conteneur isolé et sécurisé qui n’est pas accessible par les autres parties du système d’exploitation. Dans cette version Technical Preview, nous avons ajouté la prise en charge pour configurer cette fonctionnalité à l’aide des paramètres de conformité de Configuration Manager que vous configurez, puis déployez sur une collection. Cette fonctionnalité sera disponible dans la préversion de la version 64 bits de mise à jour de Windows 10 Fall Creators Update (nom de code : RS3). Pour tester cette fonctionnalité maintenant, vous devez utiliser une version préliminaire de cette mise à jour.
 
 ### <a name="before-you-start"></a>Avant de commencer
 
@@ -87,12 +87,12 @@ Pour en savoir plus sur Windows Defender Application Guard, consultez [ce billet
 
 <!-- 1236459 --->
 
-Dans la dernière version Technical Preview, nous avons introduit une nouvelle fonctionnalité qui vous permet de [créer et exécuter des scripts PowerShell à partir de la console Configuration Manager]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+Dans la dernière version Technical Preview, nous avons introduit une nouvelle fonctionnalité qui vous permet de [créer et exécuter des scripts PowerShell à partir de la console Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 Dans cette version, nous avons étendu cette fonctionnalité. Maintenant, Configuration Manager lit le script PowerShell et affiche tous les paramètres dans l’Assistant Création d’un script. Vous pouvez fournir une valeur pour le paramètre de l’Assistant qui sera utilisée lors de l’exécution du script. Vous pouvez également laisser le paramètre vide. Dans ce cas, vous devrez fournir une valeur pour le paramètre lorsque vous exécuterez le script.
 
 ### <a name="try-it-out"></a>Essayez !
 
-1. Suivez les instructions dans [Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+1. Suivez les instructions dans [Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
 2. Sur la nouvelle page **Paramètres du script** de l’**Assistant Création d’un script**, choisissez un paramètre et cliquez sur **Modifier**.
 3. Fournissez une valeur de paramètre pour le paramètre sélectionné, puis cliquez sur **OK**.
 4. Effectuez toutes les étapes de l'Assistant.

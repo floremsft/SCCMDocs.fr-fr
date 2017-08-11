@@ -2,7 +2,7 @@
 title: "Configurer la découverte | Microsoft Docs"
 description: "Configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory."
 ms.custom: na
-ms.date: 2/17/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: 5
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 860815010068422f2d8854ed2d574c24cc386891
-ms.openlocfilehash: 63a3c2ef66c80d1da9b50e67166a2196cf1b081b
+ms.translationtype: HT
+ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
+ms.openlocfilehash: 34a539ceaea6b070f81a28d2c0a9ce388e26cfeb
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
@@ -33,9 +33,11 @@ Vous configurez les méthodes de découverte à exécuter sur un site System Cen
 
 -   La découverte de serveur est une méthode automatique qui recherche les ordinateurs que vous utilisez comme systèmes de site. Elle n’est ni configurable ni désactivable.  
 
-**Pour activer une méthode de découverte configurable :**  
+**Pour activer une méthode de découverte configurable :**  
+ > [!NOTE]  
+ > Les informations suivantes ne s’appliquent pas à la découverte des utilisateurs Azure Active Directory. Consultez plutôt [Configurer la découverte des utilisateurs Azure AD](#azureaadisc) plus loin dans cette rubrique.
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration de la hiérarchie**, puis sur **Méthodes de découverte**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
 
 2.  Sélectionnez la méthode de découverte pour le site sur lequel vous voulez activer la découverte.  
 
@@ -211,6 +213,14 @@ Utilisez les procédures suivantes pour activer la découverte de forêts Active
 7.  Le cas échéant, dans l'onglet **Attributs Active Directory** , vous pouvez configurer des attributs Active Directory supplémentaires pour les ordinateurs à découvrir. Les attributs d'objets par défaut sont également répertoriés.  
 
 8.  Après avoir terminé la configuration de la découverte d’utilisateurs Active Directory, choisissez **OK** pour enregistrer la configuration.  
+
+## <a name="azureaadisc"></a> Configurer la découverte des utilisateurs Azure AD
+Depuis la version 1706, vous pouvez configurer la découverte des utilisateurs Azure Active Directory quand vous connectez Configuration Manager à votre [abonnement Azure et à Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
+
+La découverte des utilisateurs Azure AD est configurée dans le cadre de la *gestion cloud*. La procédure à suivre est détaillée dans [Créer l’application web Azure à utiliser avec Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) dans la rubrique *Configurer les services Azure à utiliser avec Configuration Manager*.
+
+
+
 
 ##  <a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
  Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  

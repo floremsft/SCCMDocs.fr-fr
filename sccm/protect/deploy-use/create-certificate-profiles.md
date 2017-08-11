@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aa8924a013ebdbee888cab33001fddbe7ad2d67e
-ms.openlocfilehash: 80a716f5a42a81e5550eb1b5c7f14534e14a4fb7
+ms.translationtype: HT
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: 1e00804d27ecef2aadd8bfa395db1919c46243ee
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,10 +33,16 @@ Utilisez des profils de certificat dans Configuration Manager (SCCM) pour config
 
 Cette rubrique explique comment créer des profils de certificat racine approuvé et des profils de certificat SCEP. Si vous souhaitez créer des profils de certificat PFX, consultez [Créer des profils de certificat PFX](../../protect/deploy-use/create-pfx-certificate-profiles.md).
 
+Pour créer un profil de certificat :
 
-## <a name="create-a-new-certificate-profile"></a>Créer un profil de certificat  
+1.  Démarrez l’Assistant Créer un profil de certificat.
+1.  Fournissez les informations générales sur le certificat.
+1.  Configurez un certificat d’autorité de certification approuvé.  
+1.  Configurez les informations de certificat SCEP (uniquement pour les certificats SCEP).  
+1.  Spécifiez les plateformes prises en charge pour le profil de certificat.
 
-### <a name="start-the-create-certificate-profile-wizard"></a>Démarrer l'Assistant Création d'un profil de certificat  
+
+## <a name="start-the-create-certificate-profile-wizard"></a>Démarrer l’Assistant Créer un profil de certificat  
 
 1.  Dans la console System Center Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
@@ -45,7 +50,7 @@ Cette rubrique explique comment créer des profils de certificat racine approuv�
 
 3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil de certificat**.  
 
-### <a name="provide-general-information-about-the-certificate-profile"></a>Fournir des informations générales sur le profil de certificat  
+## <a name="provide-general-information-about-the-certificate-profile"></a>Fournir des informations générales sur le profil de certificat  
 
 Sur la page **Général** de l'Assistant Création d'un profil de certificat, spécifiez les informations suivantes :  
 
@@ -59,11 +64,12 @@ Sur la page **Général** de l'Assistant Création d'un profil de certificat, sp
 
 -   **Paramètres du protocole SCEP (Simple Certificate Enrollment Protocol)**: sélectionnez ce type de profil de certificat pour demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service de rôle du service d’inscription d’appareils réseau.
 
--   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Importation** : sélectionnez cette option pour importer un certificat PFX. Pour en savoir plus sur la création de certificats PFX, consultez [Créer des profils de certificat PFX](../../protect/deploy-use/create-pfx-certificate-profiles.md).
+-   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Importation** : sélectionnez cette option pour importer un certificat PFX. Pour en savoir plus sur la création de certificats PFX, consultez [Importer des profils de certificat PFX](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md).
+
+-   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Créer** : sélectionnez cette option pour traiter les certificats PFX en utilisant une autorité de certification. Pour en savoir plus sur la création de certificats PFX, consultez [Créer des profils de certificat PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
 
 
-
-### <a name="configure-a-trusted-ca-certificate"></a>Configurer un certificat d’autorité de certification approuvé  
+## <a name="configure-a-trusted-ca-certificate"></a>Configurer un certificat d’autorité de certification approuvé  
 
 > [!IMPORTANT]  
 >  Vous devez configurer au moins un profil de certificat d'Autorité de certification approuvé pour pouvoir créer un profil de certificat SCEP.    
@@ -89,7 +95,7 @@ Sur la page **Général** de l'Assistant Création d'un profil de certificat, sp
 2.  Utilisez la valeur **Empreinte numérique de certificat** pour vérifier que vous avez importé le certificat correct.  
 
 
-### <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Configurer les informations de certificat SCEP (uniquement pour les certificats SCEP)  
+## <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Configurer les informations de certificat SCEP (uniquement pour les certificats SCEP)  
 
 1.  Dans la page **Serveurs SCEP** de l’Assistant Créer un profil de certificat, spécifiez l’URL des serveurs NDES qui délivreront des certificats par le biais du protocole SCEP. Vous pouvez choisir d’affecter automatiquement une URL NDES en fonction de la configuration du serveur de système de site de point d’inscription de certificat, ou ajouter les URL manuellement.  
 
@@ -183,7 +189,7 @@ Sur la page **Général** de l'Assistant Création d'un profil de certificat, sp
    >  Si vous spécifiez un certificat d’autorité de certification racine qui n’est pas déployé pour l’utilisateur ou l’appareil, System Center Configuration Manager ne lancera pas la demande de certificat que vous configurez dans ce profil de certificat.  
 
 
-###  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Spécifier les plateformes prises en charge pour le profil de certificat  
+##  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Spécifier les plateformes prises en charge pour le profil de certificat  
 
 1. Sur la page **Plateformes prises en charge** de l'Assistant Création d'un profil de certificat, sélectionnez les systèmes d'exploitation dans lesquels vous voulez installer le profil de certificat. Vous pouvez également cliquer sur **Sélectionner tout** pour installer le profil de certificat sur tous les systèmes d'exploitation disponibles.
 2. Dans la page **Résumé** de l’Assistant, passez en revue les paramètres, puis choisissez **Terminer**. 

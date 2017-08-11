@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
-ms.openlocfilehash: da86fc2f61ce8229fb0d3f58a4f8a24d1514b30e
+ms.translationtype: HT
+ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
+ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
 ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Créer des applications avec System Center Configuration Manager
@@ -39,7 +38,7 @@ Une application System Center Configuration Manager dispose des fichiers et info
 -   Importer une application à partir d’un fichier.  
 
 > [!NOTE]  
-> La section  [Créer des applications iOS avec System Center Configuration Manager](../../mdm/deploy-use/create-applications.md) fournit des informations détaillées sur la création d’applications iOS, Windows Phone et Android.  
+>  La section [Créer des applications iOS avec System Center Configuration Manager](../../mdm/deploy-use/create-applications.md) fournit des informations détaillées sur la création d’applications iOS, Windows Phone et Android.  
 
 Procédez comme suit pour créer des applications et des types de déploiement Configuration Manager.  
 
@@ -198,6 +197,14 @@ La nouvelle application s’affiche dans le nœud **Applications** de la console
 
         > [!IMPORTANT]  
         >  Le compte du système de l'ordinateur du serveur de site doit disposer d'autorisations vers l'emplacement de contenu que vous spécifiez.  
+
+    -   **Paramètres du contenu de désinstallation** : spécifiez l’une des options suivantes :
+        - **Identique au contenu d’installation** : sélectionnez cette option si le contenu d’installation et le contenu de désinstallation sont identiques. Il s’agit du comportement par défaut.
+        - **Pas de contenu de désinstallation** : sélectionnez cette option si votre application ne nécessite pas de contenu pour la désinstallation.
+        - **Différent du contenu d’installation** : sélectionnez cette option si le contenu de désinstallation est différent du contenu d’installation.
+
+4. Si vous avez sélectionné **Différent du contenu d’installation**, recherchez ou entrez l’emplacement du contenu de l’application qui est utilisé pour désinstaller l’application.
+5. Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
 
     -   **Conserver le contenu dans la mémoire cache du client** : sélectionnez cette option pour spécifier si le contenu doit être conservé indéfiniment dans le cache de l’ordinateur client, même s’il a déjà été exécuté. Bien que cette option puisse être utile avec certains déploiements, comme les logiciels basés sur un programme d’installation Windows qui exigent qu’une copie de la source locale soit disponible pour appliquer les mises à jour, elle aura pour effet de réduire l’espace disponible dans le cache. Le choix de cette option peut entraîner l'échec d'un déploiement important plus tard si l'espace disponible dans le cache est insuffisant.  
 

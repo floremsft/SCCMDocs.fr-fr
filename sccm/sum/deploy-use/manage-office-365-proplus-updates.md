@@ -13,10 +13,10 @@ ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
 ms.translationtype: HT
-ms.sourcegitcommit: a986c23b18f782b713d7df0048dff2543f640b66
-ms.openlocfilehash: eb2f9ff61b68e015182a1f898afcb2a528b410ba
+ms.sourcegitcommit: 5d696e3da187d47e0d41c02864d9b5267827e701
+ms.openlocfilehash: 902d7f7216ca7bb585afae587a6706e2332da9d3
 ms.contentlocale: fr-fr
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -73,7 +73,7 @@ Dans les versions antérieures de Configuration Manager, vous devez exécuter le
 - L’ordinateur qui exécute le programme d’installation de Office 365 doit avoir accès à Internet.  
 - L’utilisateur qui exécute le programme d’installation d’Office 365 doit avoir accès **en lecture** et en **écriture** au partage d’emplacement du contenu fourni dans l’Assistant.
 - Si vous recevez une erreur de téléchargement 404, copiez les fichiers suivants dans le dossier utilisateur %temp% :
-  - [releasehistory.xml](http://officecdn.microsoft.com.edgesuite.net/wsus/releasehistory.cab)
+  - [releasehistory.xml](http://officecdn.microsoft.com/pr/wsus/releasehistory.cab)
   - [o365client_32bit.xml](http://officecdn.microsoft.com/pr/wsus/ofl.cab)  
 
 
@@ -123,6 +123,17 @@ Procédez comme suit pour déployer les mises à jour d’Office 365 avec le Ge
 
 > [!Important]
 > Vous devez télécharger et déployer les mises à jour dans les mêmes langues que celles configurées sur les clients Office 365. Par exemple, supposons que vous disposiez d’un client Office 365 configuré avec les langues en-us et fr-fr. Sur le serveur de site, vous téléchargez et déployez uniquement le contenu en-us pour une mise à jour Office 365 applicable. Lorsque l’utilisateur commence l’installation pour cette mise à jour depuis le Centre logiciel, la mise à jour se bloque pendant le téléchargement du contenu.   
+
+## <a name="restart-behavior-and-client-notifications-for-office-365-updates"></a>Comportement de redémarrage et notifications des clients pour les mises à jour d’Office 365
+Quand vous déployez une mise à jour sur un client Office 365, le comportement de redémarrage et les notifications des clients diffèrent en fonction de la version de Configuration Manager dont vous disposez. Le tableau suivant fournit des informations sur l’expérience utilisateur quand le client reçoit une mise à jour d’Office 365 :
+
+|Version de Configuration Manager |Expérience de l’utilisateur final|  
+|----------------|---------------------|
+|Avant 1610|Un indicateur de redémarrage est défini et la mise à jour est installée après le redémarrage de l’ordinateur.|
+|1610|Les applications Office 365 sont fermées sans avertissement avant l’installation de la mise à jour.|
+|1610 avec mise à jour <br/>1702|Un indicateur de redémarrage est défini et la mise à jour est installée après le redémarrage de l’ordinateur.|
+|1706|Le client reçoit des notifications contextuelles et dans l’application, ainsi qu’une boîte de dialogue de compte à rebours avant l’installation de la mise à jour.|
+
 
 ## <a name="add-languages-for-office-365-update-downloads"></a>Ajouter des langues pour les téléchargements des mises à jour Office 365
 À compter de Configuration Manager version 1610, vous pouvez configurer Configuration Manager pour qu’il télécharge des mises à jour dans toutes les langues prises en charge par Office 365, que celles-ci soient prises en charge ou non par Configuration Manager.    
