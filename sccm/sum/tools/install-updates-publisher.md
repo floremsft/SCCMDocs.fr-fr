@@ -123,3 +123,4 @@ Une fois l’installation terminée, exécutez le fichier **UpdatesPublisher.exe
 
  Toutefois, si vous souhaitez utiliser les valeurs par défaut et n’envisagez pas de déployer des mises à jour sur un serveur de mise à jour ou sur des appareils gérés, vous pouvez passer directement à la [gestion des catalogues de mises à jour logicielles](updates-publisher-catalogs.md) ou à la [création de mises à jour logicielles](create-updates-with-updates-publisher.md) et créer vos propres catalogues de mises à jour.
 
+
