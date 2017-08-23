@@ -1,6 +1,6 @@
 ---
-title: "Administratorprüfliste für die Energieverwaltung | Microsoft-Dokumentation"
-description: "Verwenden der Administratorcheckliste für das Planen und Implementieren der Energieverwaltung in System Center Configuration Manager."
+title: "Liste de contrôle de l’administrateur de gestion de l’alimentation | Microsoft Docs"
+description: "Utilisez la liste de contrôle de l’administrateur pour planifier et implémenter la gestion de l’alimentation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,64 +18,64 @@ manager: angrobe
 ms.openlocfilehash: e6a7a0b853be930b558cdd739b90285ebb8538e7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: HT
-ms.contentlocale: de-DE
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="administrator-checklist-for-power-management-in-system-center-configuration-manager"></a>Administratorcheckliste für die Energieverwaltung in System Center Configuration Manager
+# <a name="administrator-checklist-for-power-management-in-system-center-configuration-manager"></a>Liste de contrôle de l’administrateur de gestion de l’alimentation dans System Center Configuration Manager
 
-*Gilt für: System Center Configuration Manager (Current Branch)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Diese Administratorcheckliste enthält die empfohlenen Schritte für die Verwendung der System Center Configuration Manager-Energieverwaltung in Ihrer Organisation.  
+Cette liste de vérification de l'administrateur fournit les étapes recommandées pour l'utilisation de la gestion de l'alimentation System Center Configuration Manager au sein de votre organisation.  
 
-## <a name="configuring-power-management"></a>Konfigurieren der Energieverwaltung  
- Gehen Sie folgendermaßen vor, um Hilfe beim Konfigurieren der Hierarchie zu erhalten, sodass Energieverwaltungsinformationen von Clientcomputern gesammelt werden können.  
-
-> [!IMPORTANT]  
->  Wenden Sie keine Energiesparpläne auf Computer in Ihrer Hierarchie an, bevor Sie die Energiedaten der Clientcomputer gesammelt und ausgewertet haben. Wenn Sie neue Energieverwaltungseinstellungen auf Computer anwenden, ohne die bestehenden Einstellungen zu untersuchen, könnte dies zu einem Anstieg im Energieverbrauch führen.  
-
-|Aufgabe|Details|  
-|----------|-------------|  
-|Lesen Sie die Konzepte zur Energieverwaltung in der Configuration Manager-Dokumentationsbibliothek.|Siehe [Introduction to power management (Einführung in die Energieverwaltung)](introduction-to-power-management.md).|  
-|Lesen Sie die Voraussetzungen zur Energieverwaltung in der Configuration Manager-Dokumentationsbibliothek.|Siehe [Prerequisites for power management (Voraussetzungen für die Energieverwaltung)](prerequisites-for-power-management.md).|  
-|Lesen Sie die Informationen zu bewährten Methoden für die Energieverwaltung.|Siehe [Best practices for power management (Bewährte Methoden für die Energieverwaltung)](best-practices-for-power-management.md).|  
-|Konfigurieren Sie Ihre Sammlungen zum Verwalten des Stromverbrauchs von Computern in Ihrer Umgebung.|Verwenden Sie die **Sammlung für die Erstellung von Berichten über Basisdaten**, **Sammlung für die Erstellung von Berichten über Basisdaten**, **Sammlung von Computern, von denen die Energieverwaltung nicht unterstützt wird**, **Sammlungen von Computern, auf die Energiesparpläne angewendet werden**, **Sammlungen von Computern, auf die Energiesparpläne angewendet werden**, und **Sammlungen von Computern, auf denen Windows Server ausgeführt wird**, um die Energieeinstellungen für Computer in Ihrer Hierarchie zu verwalten. Sie können mehrere Sammlungen erstellen und unterschiedliche Energiesparpläne auf jede Sammlung anwenden.|  
-|Aktivieren Sie die Energieverwaltung.|Bevor Sie die Energieverwaltung einsetzen können, müssen Sie sie aktivieren und die erforderlichen Clienteinstellungen konfigurieren. Weitere Informationen finden Sie unter [Configuring power management (Konfigurieren der Energieverwaltung)](configuring-power-management.md).|  
-|Sammeln Sie die Energieverwaltungsinformationen von Clientcomputern.|Energieverwaltungsdaten werden von Clients über die Configuration Manager-Hardwareinventur gemeldet. Je nach konfiguriertem Zeitplan für die Hardwareinventur kann es einige Zeit dauern, bis das Inventar aller Clientcomputer abgerufen ist.|  
-
-## <a name="monitoring-and-planning-phase"></a>Überwachungs- und Planungsphase  
-
-|Aufgabe|Details|  
-|----------|-------------|  
-|Führen Sie den Bericht **Computeraktivität**aus.|Im Bericht **Computeraktivität** wird ein Diagramm angezeigt, in dem die Monitor-, Computer- und Benutzeraktivität für eine angegebene Sammlung über einen bestimmten Zeitraum zu sehen ist. Dieser Bericht enthält eine Verknüpfung zum Bericht **Computeraktivitätsdetails** , in dem die Standby- und Aktivierungsfunktionen von Computern einer bestimmten Sammlung angezeigt werden. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Stromverbrauch** oder **Stromverbrauch nach Tag**aus.|In den Berichten **Stromverbrauch** bzw. **Stromverbrauch nach Tag** wird der monatliche Gesamtstromverbrauch einer bestimmten Sammlung für einen angegebenen Zeitraum in Kilowatt pro Stunde (kWh) angezeigt. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Umweltbelastung** oder  **Umweltbelastung nach Tag**aus.|In den Berichten **Umweltbelastung** bzw. **Umweltbelastung nach Tag** wird ein Diagramm angezeigt, in dem die durch eine bestimmte Sammlung von Computern während eines bestimmten Zeitraums eingesparte Kohlendioxidemission (CO2) zu sehen ist. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Stromkosten** oder **Stromkosten nach Tag**aus.|In den Berichten **Stromkosten** bzw. **Stromkosten nach Tag** werden die Gesamtstromkosten während eines bestimmten Zeitraums angezeigt. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Energiefunktionen**aus.|Im Bericht **Energiefunktionen** werden die Energieverwaltungsfunktionen von Computern in der bestimmten Sammlung angezeigt. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Energieeinstellungen**aus.|Im Bericht **Energieeinstellungen** wird eine aggregierte Liste der aktuellen Energieeinstellungen angezeigt, die von Computern in einer bestimmten Sammlung verwendet werden. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Schließen Sie alle erforderlichen Sammlungen von Computern aus der Energieverwaltung aus.|Siehe [Configuring power management (Konfigurieren der Energieverwaltung)](configuring-power-management.md).|  
+## <a name="configuring-power-management"></a>Configuration de la gestion de l’alimentation  
+ Suivez ces étapes pour vous aider à configurer votre hiérarchie afin de recueillir des informations sur la gestion de l'alimentation à partir d'ordinateurs client.  
 
 > [!IMPORTANT]  
->  Stellen Sie sicher, dass Sie die Informationen aus den während der Überwachungs- und Planungsphase generierten Berichten zur Energieverwaltung speichern. Sie können diese Daten mit den während der Erzwingungs- und Kompatibilitätsphasen generierten Energieverwaltungsinformationen vergleichen, um die Einsparungen beim Energieverbrauch, bei den Energiekosten und bei der Umweltbelastung auszuwerten, die durch das Anwenden eines Energiesparplans auf Computer in Ihrer Hierarchie erzielt wurden.  
+>  N'appliquez pas de modes d'alimentation pour les ordinateurs de votre hiérarchie avant d'avoir recueilli et analysé les données d'alimentation à partir d'ordinateurs client. Si vous appliquez les nouveaux paramètres de gestion de l'alimentation aux ordinateurs sans examiner préalablement les paramètres existants, cela peut entraîner une augmentation de la consommation d'énergie.  
 
-## <a name="enforcement-phase"></a>Erzwingungsphase  
-
-|Aufgabe|Details|  
+|Tâche|Détails|  
 |----------|-------------|  
-|Wählen Sie für Sammlungen von Computern in der Organisation vorhandene Energiesparpläne aus, oder erstellen Sie neue Energiesparpläne.|Siehe [How to create and apply power plans (Erstellen und Anwenden von Energiesparplänen)](create-and-apply-power-plans.md).|  
-|Wenden Sie diese Energiesparpläne auf Computer an.|Siehe [How to create and apply power plans (Erstellen und Anwenden von Energiesparplänen)](create-and-apply-power-plans.md).|  
+|Passez en revue les concepts de gestion de l'alimentation dans la bibliothèque de documentation Configuration Manager.|Voir [Présentation de la gestion de l’alimentation](introduction-to-power-management.md).|  
+|Passez en revue les prérequis de la gestion de l'alimentation dans la bibliothèque de documentation Configuration Manager.|Voir [Configuration requise pour la gestion de l’alimentation](prerequisites-for-power-management.md).|  
+|Passez en revue les meilleures pratiques pour la gestion de l'alimentation.|Voir [Bonnes pratiques de gestion de l’alimentation](best-practices-for-power-management.md).|  
+|Configurez vos regroupements pour gérer la consommation électrique des ordinateurs au sein de votre environnement.|Utilisez **Regroupement pour les rapports sur les données de base**, **Regroupement d’ordinateurs ne prenant pas en charge la gestion l’alimentation**, **Regroupements d’ordinateurs auxquels seront appliqués des modes de gestion de l’alimentation** et **Regroupements d’ordinateurs qui exécutent Windows Server** pour gérer les paramètres d’alimentation des ordinateurs dans votre hiérarchie. Vous pouvez créer plusieurs regroupements et appliquer différents modes d'alimentation à chaque regroupement.|  
+|Activez la gestion de l'alimentation.|Avant de pouvoir commencer à utiliser la gestion de l'alimentation, vous devez l'activer et configurer les paramètres client requis. Pour plus d’informations, voir [Configuration de la gestion de l’alimentation](configuring-power-management.md).|  
+|Recueillez des informations de gestion de l'alimentation à partir d'ordinateurs client.|Les données de gestion de l'alimentation sont communiquées par les clients via l'inventaire matériel Configuration Manager. Selon le calendrier d'inventaire matériel que vous avez configuré, la récupération de l'inventaire depuis tous les ordinateurs client peut prendre un certain temps.|  
 
-## <a name="compliance-phase"></a>Kompatibilitätsphase  
+## <a name="monitoring-and-planning-phase"></a>Phase de surveillance et de planification  
 
-|Aufgabe|Details|  
+|Tâche|Détails|  
 |----------|-------------|  
-|Führen Sie den Bericht **Computeraktivität**aus.|Im Bericht **Computeraktivität** wird ein Diagramm angezeigt, in dem die Monitor-, Computer- und Benutzeraktivität für eine angegebene Sammlung über einen bestimmten Zeitraum zu sehen ist. Dieser Bericht enthält eine Verknüpfung zum Bericht **Energieverwaltung - Computeraktivitätsdetails** , in dem die Standby- und Aktivierungsfunktionen von Computern einer bestimmten Sammlung angezeigt werden. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Stromverbrauch** oder **Stromverbrauch nach Tag**aus.|In den Berichten **Stromverbrauch** bzw. **Stromverbrauch nach Tag** wird der monatliche Gesamtstromverbrauch einer bestimmten Sammlung für einen angegebenen Zeitraum in Kilowatt pro Stunde (kWh) angezeigt. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Umweltbelastung** oder **Umweltbelastung nach Tag**aus.|In den Berichten **Umweltbelastung** bzw. **Umweltbelastung nach Tag** wird ein Diagramm angezeigt, in dem die durch eine bestimmte Sammlung von Computern während eines bestimmten Zeitraums eingesparte Kohlendioxidemission (CO2) zu sehen ist. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Führen Sie den Bericht **Stromkosten** oder **Stromkosten nach Tag**aus.|In den Berichten **Stromkosten** bzw. **Stromkosten nach Tag** werden die Gesamtstromkosten während eines bestimmten Zeitraums angezeigt. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Activité de l'ordinateur**.|Le rapport **Activité de l'ordinateur** affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un regroupement spécifique au cours d'une période donnée. Ce rapport est lié au rapport **Détails de l'activité de l'ordinateur** qui affiche les capacités de mise en veille et de mise en éveil des ordinateurs dans le regroupement spécifique. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Consommation énergétique** ou **Consommation énergétique journalière**.|Les rapports **Consommation énergétique** et **Consommation énergétique journalière** affichent la consommation énergétique mensuelle totale en kilowatts par heure (kWh) pour un regroupement spécifique au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Incidence sur l'environnement** ou  **Incidence journalière sur l'environnement**.|Les rapports **Incidence sur l'environnement** et **Incidence journalière sur l'environnement** affichent un graphique présentant les émissions de dioxyde de carbone (CO2) enregistrées par un regroupement spécifique d'ordinateurs au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Coût énergétique** ou **Coût énergétique journalier**.|Les rapports **Coût énergétique** et **Coût énergétique journalier** affichent le coût de la consommation énergétique totale au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Fonctions de gestion de l'alimentation**.|Le rapport **Fonctions de gestion de l'alimentation** affiche les fonctions de gestion de l'alimentation des ordinateurs dans le regroupement spécifique. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Paramètres d'alimentation**.|Le rapport **Paramètres d'alimentation** affiche une liste agrégée des paramètres d'alimentation actuels utilisés par les ordinateurs d'un regroupement spécifique. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Excluez tous les regroupements d'ordinateurs requis de la gestion de l'alimentation.|Voir [Configuration de la gestion de l’alimentation](configuring-power-management.md).|  
 
-## <a name="troubleshooting"></a>Problembehandlung  
+> [!IMPORTANT]  
+>  Veillez à enregistrer les informations provenant des rapports de gestion de l'alimentation générés pendant la phase de planification et de surveillance. Vous pouvez comparer ces données aux informations de gestion de l'alimentation générées pendant les phases de mise en œuvre et de conformité pour vous aider à évaluer les économies à réaliser en matière de consommation énergétique, de coût de l'alimentation et d'incidence sur l'environnement lors de l'application d'un mode d'alimentation aux ordinateurs de votre hiérarchie.  
 
-|Aufgabe|Details|  
+## <a name="enforcement-phase"></a>Phase de mise en œuvre  
+
+|Tâche|Détails|  
 |----------|-------------|  
-|Wenn es Computer in der Hierarchie gibt, für die weder der Standby- noch der Ruhezustand aktiviert wurde, führen Sie den Bericht mit dem Namen **Störungsbericht** aus, um mögliche Ursachen anzuzeigen.|Im **Störungsbericht** wird eine Liste der häufigsten Ursachen angezeigt, deretwegen für Computer weder der Standbymodus noch der Ruhezustand aktiviert werden konnte, sowie die Anzahl von Computern, die für einen bestimmten Zeitraum von jeder Ursache betroffen waren. Weitere Informationen finden Sie unter [How to monitor and plan for power management (Überwachen und Planen der Energieverwaltung in Configuration Manager)](monitor-and-plan-for-power-management.md).|  
-|Werden mehrere Energiesparpläne auf einen Computer angewendet, so hat der am wenigsten einschränkende Energiesparplan Priorität. Führen Sie den Bericht **Computer mit mehreren Energiesparplänen** aus, um Computer anzuzeigen, auf die mehrere Energiesparpläne angewendet werden.|Siehe **Computers with Multiple Power Plans (Computer mit mehreren Energiesparplänen)**  im Thema [How to Monitor and Plan for Power Management (Überwachen und Planen der Energieverwaltung)](monitor-and-plan-for-power-management.md).|  
+|Sélectionnez les modes d'alimentation existants ou créez de nouveaux modes d'alimentation pour les regroupements d'ordinateurs de votre organisation.|Voir [Guide pratique pour créer et appliquer des modes de gestion de l’alimentation](create-and-apply-power-plans.md).|  
+|Appliquez ces modes d'alimentation aux ordinateurs.|Voir [Guide pratique pour créer et appliquer des modes de gestion de l’alimentation](create-and-apply-power-plans.md).|  
+
+## <a name="compliance-phase"></a>Phase de compatibilité  
+
+|Tâche|Détails|  
+|----------|-------------|  
+|Exécutez le rapport **Activité de l'ordinateur**.|Le rapport **Activité de l'ordinateur** affiche un graphique illustrant l'activité du moniteur, de l'ordinateur et de l'utilisateur pour un regroupement spécifique au cours d'une période donnée. Ce rapport est lié au rapport **Détails de l'activité par l'ordinateur** qui affiche les capacités de mise en veille et de mise en éveil des ordinateurs dans le regroupement spécifique. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Consommation énergétique** ou **Consommation énergétique journalière**.|Les rapports **Consommation énergétique** et **Consommation énergétique journalière** affichent la consommation énergétique mensuelle totale en kilowatts par heure (kWh) pour un regroupement spécifique au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Incidence sur l'environnement** ou **Incidence journalière sur l'environnement**.|Les rapports **Incidence sur l'environnement** et **Incidence journalière sur l'environnement** affichent un graphique présentant les émissions de dioxyde de carbone (CO2) enregistrées par un regroupement spécifique d'ordinateurs au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Exécutez le rapport **Coût énergétique** ou **Coût énergétique journalier**.|Les rapports **Coût énergétique** et **Coût énergétique journalier** affichent le coût de la consommation énergétique totale au cours d'une période donnée. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+
+## <a name="troubleshooting"></a>Résolution des problèmes  
+
+|Tâche|Détails|  
+|----------|-------------|  
+|Si les ordinateurs de votre hiérarchie ne sont pas entrés en veille ou en veille prolongée, exécutez le rapport **Rapport sur la non mise en veille** pour afficher les causes possibles.|Le **Rapport sur la non mise en veille** affiche une liste des causes courantes qui ont empêché les ordinateurs d'entrer en veille ou en veille prolongée et le nombre d'ordinateurs affectés par chaque cause pendant une période spécifique. Pour plus d’informations, voir [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
+|Si plusieurs modes d'alimentation sont appliqués à un seul ordinateur, le mode d'alimentation le moins restrictif est appliqué. Exécutez le rapport **Ordinateurs avec plusieurs modes de gestion de l'alimentation** pour afficher les ordinateurs auxquels sont appliqués plusieurs modes d'alimentation.|Voir **Ordinateurs avec plusieurs modes de gestion de l'alimentation** dans [Guide pratique pour surveiller et planifier la gestion de l’alimentation](monitor-and-plan-for-power-management.md).|  
