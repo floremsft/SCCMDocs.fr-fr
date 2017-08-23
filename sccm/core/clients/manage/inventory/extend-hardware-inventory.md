@@ -1,159 +1,156 @@
 ---
-title: "Étendre l’inventaire matériel | Microsoft Docs"
-description: "Découvrez différentes façons d’étendre l’inventaire matériel dans System Center Configuration Manager."
+title: Erweitern der Hardwareinventur | Microsoft-Dokumentation
+description: "Erfahren Sie, wie Sie die Hardwareinventur in System Center Configuration Manager erweitern können."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d5bfab4f-c55e-4545-877c-5c8db8bc1891
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 5f1412fb132e3a074742e11f1142b2594146cbe1
 ms.openlocfilehash: 3e5517e1710d0d12e51fba58efda5dc5edd08544
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Comment étendre l’inventaire matériel dans System Center Configuration Manager
+# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Erweitern der Hardwareinventur in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-L’inventaire matériel lit les informations sur les PC Windows en utilisant WMI (Windows Management Instrumentation). WMI est l’implémentation Microsoft de WBEM (Web-Based Enterprise Management), une norme sectorielle pour l’accès aux informations de gestion dans une entreprise. Dans les versions précédentes de Configuration Manager, vous pouviez étendre l'inventaire matériel en modifiant le fichier sms_def.mof fichier sur le serveur de site. Ce fichier contenait une liste de classes WMI qui pouvaient être lues par l’inventaire matériel. En modifiant ce fichier, vous pouviez activer et désactiver les classes existantes et également créer des classes à inventorier.  
+Die Hardwareinventur liest Informationen von Windows-PCs mithilfe der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI). Bei WMI handelt es sich um die Microsoft-Implementierung von Web-Based Enterprise Management (WBEM), einem Industriestandard für den Zugriff auf Verwaltungsinformationen in einem Unternehmen. In vorherigen Versionen von Configuration Manager waren Sie in der Lage, die Hardwareinventur durch Ändern der Datei "sms_def.mof" auf dem Standortserver zu erweitern. In dieser Datei war eine Liste der WMI-Klassen enthalten, die von der Hardwareinventur gelesen werden konnte. Durch das Bearbeiten dieser Datei war es Ihnen möglich, vorhandene Klassen zu aktivieren und zu deaktivieren sowie neue Klassen in der Inventur zu erstellen.  
 
-Le fichier Configuration.mof permet de définir les classes de données qui doivent faire l’objet d’un inventaire matériel sur le client. Il n’a pas été modifié depuis Configuration Manager 2012. Vous pouvez créer des classes de données pour inventorier les classes de données de référentiel WMI existantes ou personnalisées ou les clés de Registre présentes sur les systèmes clients.  
+Die Datei „Configuration.mof“ wird zur Definition der Datenklassen verwendet, die von der Hardwareinventur auf dem Client inventarisiert werden. Sie wurde seit Configuration Manager 2012 nicht geändert. Datenklassen können erstellt werden, um vorhandene oder benutzerdefinierte WMI-Repositorydatenklassen oder -Registrierungsschlüssel auf Clientsystemen zu inventarisieren.  
 
- Le fichier Configuration.mof définit également et inscrit les fournisseurs WMI d'accéder aux informations de périphérique durant l'inventaire matériel. L'enregistrement des fournisseurs définit le type de fournisseur à utiliser et les classes prises en charge par le fournisseur.  
+ Die Datei "Configuration.MOF" wird auch definiert und registriert die WMI-Anbietern, die Geräteinformationen während der Hardwareinventur zugreifen. Durch das Registrieren von Anbietern werden der zu verwendende Anbietertyp sowie die vom Anbieter unterstützten Klassen definiert.  
 
- Quand les clients Configuration Manager demandent une stratégie, par exemple, pendant leur intervalle d’interrogation standard de stratégie client, le fichier Configuration.mof est joint au corps de la stratégie. Ce fichier est ensuite téléchargé et compilé par les clients. Lorsque vous ajoutez, modifiez ou supprimez des classes de données à partir du fichier Configuration.mof, les clients compilent automatiquement ces modifications sont apportées aux classes de données liées au stock. Aucune autre action n’est requise pour inventorier les classes de données nouvelles ou modifiées sur les clients Configuration Manager. Ce fichier se trouve dans **<emplacement_installation_CM\>\Inboxes\clifiles.src\hinv\\\** sur les serveurs de site principal.  
+ Wenn Configuration Manager-Clients Richtlinien fordern, z.B. während deren Standard-Clientrichtlinien-Abrufintervall, wird die Datei „Configuration.MOF“ an den Richtlinientext angefügt. Diese Datei wird dann heruntergeladen und von Clients kompiliert. Beim Hinzufügen, ändern oder Löschen von Datenklassen aus der Datei "Configuration.MOF" Kompilieren Clients automatisch diese Änderungen Datenklassen Lagerbestand bezieht. Zum Inventarisieren neuer oder geänderter Datenklassen auf Configuration Manager-Clients sind keine weiteren Aktionen erforderlich. Diese Datei befindet sich auf primären Standortservern in **<Configuration Manager-Installationsort\>\Inboxes\clifiles.src\hinv\\**.  
 
- Dans Configuration Manager, le fichier sms_def.mof n’a plus besoin d’être modifié comme c’était le cas dans Configuration Manager 2007. Au lieu de cela, vous pouvez activer et désactiver des classes WMI, et ajouter de nouvelles classes que l’inventaire matériel collectera, à l’aide des paramètres client. Configuration Manager permet d’étendre l’inventaire matériel à l’aide des méthodes ci-dessous.  
+ In Configuration Manager bearbeiten Sie nicht mehr die Datei „sms_def.mof“ wie in Configuration Manager 2007. Stattdessen aktivieren und deaktivieren Sie WMI-Klassen und fügen neue durch die Hardwareinventur zu erfassende Klassen mithilfe von Clienteinstellungen hinzu. Configuration Manager stellt die folgenden Methoden zum Erweitern der Hardwareinventur zur Verfügung.  
 
 > [!NOTE]  
->  Si vous avez modifié manuellement le fichier Configuration.mof pour ajouter des classes d’inventaire personnalisées, ces modifications sont remplacées quand vous effectuez la mise à jour vers la version 1602. Pour continuer à utiliser des classes personnalisées après la mise à jour, vous devez les ajouter à la section « Added extensions » du fichier Configuration.mof après la mise à jour vers 1602.  
-> En revanche, vous ne devez rien modifier au-dessus de cette section, car la modification de ces sections est réservée à Configuration Manager. Une sauvegarde de votre fichier Configuration.mof personnalisé se trouve dans :  
-> **<répertoire_installation_CM\>\data\hinvarchive\\**.  
+>  Wenn Sie die Datei „Configuration.mof“ zum Hinzufügen benutzerdefinierter Inventarklassen manuell geändert haben, werden diese Änderungen beim Aktualisieren auf die Version 1602 überschrieben. Wenn Sie benutzerdefinierte Klassen nach der Aktualisierung weiterhin verwenden möchten, müssen Sie sie nach dem Aktualisieren auf 1602 dem Abschnitt „Added extensions“ (Hinzugefügte Erweiterungen) der Datei „Configuration.mof“ hinzufügen.  
+> Sie dürfen jedoch nichts bearbeiten, was oberhalb dieses Abschnitts liegt, da diese Abschnitte für die Änderungen durch Configuration Manager reserviert sind. Eine Sicherung Ihrer benutzerdefinierten Datei „Configuration.mof“ finden Sie unter:  
+> **<Configuration Manager-Installationsverzeichnis\>\data\hinvarchive\\**.  
 
-|Méthode|Informations complémentaires|  
+|Methode|Weitere Informationen|  
 |------------|----------------------|  
-|Activer ou désactiver les classes d'inventaire existantes|Activez ou désactivez les classes d’inventaire par défaut ou créez des paramètres client personnalisés qui vous permettent de collecter différentes classes d’inventaire matériel depuis les regroupements de clients définis. Consultez la procédure [Pour activer ou désactiver les classes existantes d’inventaire](#BKMK_Enable) dans cette rubrique.|  
-|Ajouter une nouvelle classe d'inventaire|Ajoutez une nouvelle classe d’inventaire à partir de l’espace de noms WMI d’un autre appareil. Consultez la procédure [Pour ajouter une nouvelle classe d’inventaire](#BKMK_Add) dans cette rubrique.|  
-|Importer et exporter des classes d'inventaire matériel|Importez et exportez des fichiers MOF (Managed Object Format) qui contiennent des classes d’inventaire à partir de la console Configuration Manager. Consultez les procédures [Pour importer des classes d’inventaire matériel](#BKMK_Import) et [Pour exporter des classes d’inventaire matériel](#BKMK_Export) dans cette rubrique.|  
-|Créer des fichiers NOIDMIF|Utilisez des fichiers NOIDMIF pour collecter des informations sur les appareils clients qui ne peuvent pas être inventoriés par Configuration Manager. Par exemple, vous pouvez souhaiter recueillir des informations numéros de périphérique actif qui existe uniquement en tant qu'étiquette sur le périphérique. Inventaire NOIDMIF est automatiquement associé à l'appareil client collectées à partir de. Consultez [Pour créer des fichiers NOIDMIF](#BKMK_NOIDMIF) dans cette rubrique.|  
-|Créer les fichiers IDMIF|Utilisez des fichiers IDMIF pour collecter des informations sur les ressources de votre organisation qui ne sont associées à aucun client Configuration Manager, par exemple, les projecteurs, les photocopieurs et les imprimantes réseau. Consultez [Pour créer des fichiers IDMIF](#BKMK_IDMIF) dans cette rubrique.|  
+|Aktivieren oder Deaktivieren von vorhandenen Inventurklassen|Aktivieren oder Deaktivieren Sie die Standardinventurklassen, oder erstellen Sie benutzerdefinierte Clienteinstellungen, mit denen Sie verschiedene Hardwareinventurklassen aus bestimmten Clientsammlungen sammeln können. Siehe auch das Verfahren [So aktivieren oder deaktivieren Sie vorhandene Inventurklassen](#BKMK_Enable) in diesem Thema.|  
+|Hinzufügen einer neuen Inventurklasse|Fügen Sie eine neue Inventurklasse aus dem WMI-Namespace eines anderen Geräts hinzu. Siehe auch das Verfahren [So fügen Sie eine neue Inventurklasse hinzu](#BKMK_Add) in diesem Thema.|  
+|Importieren und Exportieren von Hardwareinventurklassen|Importieren und exportieren Sie MOF-Dateien (Managed Object Format), die Inventurklassen aus der Configuration Manager-Konsole enthalten. Siehe auch die Verfahren [So importieren Sie Hardwareinventurklassen](#BKMK_Import) und [So exportieren Sie Hardwareinventurklassen](#BKMK_Export) in diesem Thema.|  
+|Erstellen von NOIDMIF-Dateien|Verwenden Sie NOIDMIF-Dateien zum Sammeln von Informationen zu Clientgeräten, die nicht von Configuration Manager inventarisiert werden können. Möglicherweise möchten z. B. Gerät Asset Informationen sammeln, die nur als Etikett auf dem Gerät vorhanden ist. NOIDMIF-Inventur wird automatisch das Clientgerät, dem er entnommen wurde zugeordnet. Siehe auch [So erstellen Sie NOIDMIF-Dateien](#BKMK_NOIDMIF) in diesem Thema.|  
+|IDMIF-Dateien erstellen|Verwenden Sie IDMIF-Dateien zum Sammeln von Informationen zu Beständen in Ihrer Organisation, die keinem Configuration Manager-Client zugeordnet sind, z.B. Projektoren, Fotokopierer und Netzwerkdrucker. Siehe auch [So erstellen Sie IDMIF-Dateien](#BKMK_IDMIF) in diesem Thema.|  
 
-## <a name="procedures-to-extend-hardware-inventory"></a>Procédures pour étendre l’inventaire matériel  
-Ces procédures vous aident à configurer les paramètres client par défaut pour l'inventaire matériel et elles s'appliquent à tous les clients de votre hiérarchie. Pour appliquer ces paramètres à certains clients uniquement, créez un paramètre d’appareil client personnalisé et affectez-le à un regroupement de clients spécifiques. Consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+## <a name="procedures-to-extend-hardware-inventory"></a>Verfahren zum Erweitern der Hardwareinventur  
+Diese Vorgehensweisen können Sie die Standard-Clienteinstellungen für die Hardwareinventur konfigurieren, und sie gelten für alle Clients in Ihrer Hierarchie. Wenn diese Einstellungen nur auf manche Clients angewendet werden sollen, erstellen Sie eine benutzerdefinierte Clientgeräteeinstellung, und weisen Sie diese einer Sammlung von bestimmten Clients zu. Weitere Informationen finden Sie unter [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-###  <a name="BKMK_Enable"></a> Pour activer ou désactiver les classes existantes d'inventaire  
+###  <a name="BKMK_Enable"></a> So aktivieren oder deaktivieren Sie vorhandene Inventurklassen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** > **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
+5.  Wählen Sie im Dialogfeld **Clientstandardeinstellungen** **Hardwareinventur** aus.  
 
-6.  Dans la liste **Paramètres du périphérique** , cliquez sur **Définir des classes**.  
+6.  Klicken Sie in der Liste **Geräteeinstellungen** auf **Klassen festlegen**.  
 
-7.  Dans la boîte de dialogue **Classes d'inventaire matériel** , sélectionnez ou désélectionnez les classes et les propriétés de classe que doit collecter l'inventaire matériel. Vous pouvez développer une classe pour sélectionner ou désélectionner des propriétés individuelles dans la classe. Utilisez le champ **Rechercher des classes d'inventaire** pour rechercher des classes individuelles.  
+7.  Wählen Sie im Dialogfeld **Hardwareinventurklassen** die Klassen oder Klasseneigenschaften aus, die von der Hardwareinventur gesammelt werden sollen, oder heben Sie deren Markierung auf. Sie können Klassen erweitern, damit einzelne Eigenschaften in der betreffenden Klasse aktiviert oder deaktiviert werden können. Verwenden Sie für die Suche nach einzelnen Klassen das Feld **Inventurklassen suchen** .  
 
     > [!IMPORTANT]  
-    >  Quand vous ajoutez de nouvelles classes à l’inventaire matériel Configuration Manager, la taille du fichier d’inventaire collecté et envoyé au serveur de site augmente. Cela peut nuire aux performances de votre réseau et du site Configuration Manager. Activez uniquement les classes d'inventaire à collecter.  
+    >  Wenn Sie neue Klassen zur Configuration Manager-Hardwareinventur hinzufügen, vergrößert sich die Inventurdatei, die gesammelt und an den Standortserver gesendet wird. Dies kann sich negativ auf die Leistung des Netzwerks und des Configuration Manager-Standorts auswirken. Aktivieren Sie nur die Inventurklassen, die Sie sammeln möchten.  
 
 
-###  <a name="BKMK_Add"></a> Pour ajouter une nouvelle classe d'inventaire  
+###  <a name="BKMK_Add"></a> So fügen Sie eine neue Inventurklasse hinzu  
 
-Vous pouvez uniquement ajouter des classes d'inventaire à partir du serveur de niveau supérieur dans la hiérarchie et en modifiant les paramètres client par défaut. Cette option n'est pas disponible lorsque vous créez des paramètres de périphérique personnalisés.
+Sie können inventurklassen nur auf dem Server auf oberster Ebene in der Hierarchie und durch Ändern der Standardeinstellungen für den Client hinzufügen. Diese Option ist nicht verfügbar, wenn Sie benutzerdefinierte Geräteeinstellungen erstellen.
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** > **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
+5.  Wählen Sie im Dialogfeld **Clientstandardeinstellungen** **Hardwareinventur** aus.  
 
-6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
+6.  Wählen Sie in der Liste **Geräteeinstellungen** **Klassen festlegen** aus.  
 
-7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Ajouter**.  
+7.  Wählen Sie im Dialogfeld **Hardwareinventurklassen** **Hinzufügen** aus.  
 
-8.  Dans la boîte de dialogue **Ajouter une classe d'inventaire matériel** , cliquez sur **Ajouter**.  
+8.  Klicken Sie im Dialogfeld **Hardwareinventurklasse hinzufügen** auf **Verbinden**.  
 
-9. Dans la boîte de dialogue **Connexion à Windows Management Instrumentation (WMI)** , définissez le nom de l'ordinateur depuis lequel vous allez extraire les classes WMI et l'espace de noms WMI à utiliser pour récupérer les classes. Si vous souhaitez récupérer toutes les classes sous l'espace de noms WMI spécifié, cliquez sur **Récursive**. Si l'ordinateur auquel vous vous connectez n'est pas l'ordinateur local, fournissez les informations d'identification d'un compte autorisé à accéder à WMI sur l'ordinateur distant.  
+9. Geben Sie im Dialogfeld **WMI-Verbindung herstellen** den Namen des Computers, von dem die WMI-Klassen abgerufen werden, sowie den WMI-Namespace ein, der zum Abrufen der Klassen verwendet werden soll. Klicken Sie auf **Rekursiv**, wenn Sie alle Klassen unterhalb des angegebenen WMI-Namespaces abrufen möchten. Wenn es sich bei dem Computer, zu dem Sie eine Verbindung herstellen, nicht um einen lokalen Computer handelt, geben Sie Anmeldeinformationen für ein Konto an, das über die Berechtigung verfügt, auf WMI auf dem Remotecomputer zuzugreifen.  
 
-10. Choisissez **Connexion**.  
+10. Wählen Sie **Verbinden** aus.  
 
-11. Dans la boîte de dialogue **Ajouter une classe d’inventaire matériel**, dans la liste des **classes d’inventaire**, sélectionnez les classes WMI à ajouter à l’inventaire matériel Configuration Manager.  
+11. Wählen Sie im Dialogfeld **Hardwareinventurklasse hinzufügen** in der Liste **Inventurklassen** die WMI-Klassen aus, die Sie der Configuration Manager-Hardwareinventur hinzufügen möchten.  
 
-12. Si vous souhaitez modifier des informations sur la classe WMI sélectionnée, choisissez **Modifier** et, dans la boîte de dialogue **Qualificatifs de classe**, fournissez les informations suivantes :  
+12. Wenn Sie Informationen zur ausgewählten WMI-Klasse bearbeiten möchten, wählen Sie **Bearbeiten** aus, und geben Sie im Dialogfeld **Klassenkennzeichner** die folgenden Informationen an:  
 
-    -   **Nom complet** : ce nom sera affiché dans l’Explorateur de ressources.  
+    -   **Anzeigename** : Wird im Ressourcen-Explorer angezeigt.  
 
-    -   **Propriétés** : définissez l’unité dans laquelle s’affiche chaque propriété de la classe WMI.  
+    -   **Eigenschaften** – Legen Sie die Einheiten fest, in denen jede Eigenschaft der WMI-Klasse angezeigt wird.  
 
-     Vous pouvez également désigner des propriétés comme propriété de clé pour identifier de façon unique chaque instance de la classe. Si aucune clé n'est définie pour la classe et que plusieurs instances de la classe sont signalées par le client, seule la dernière instance trouvée est stockée dans la base de données.  
+     Sie können Eigenschaften auch als Schlüsseleigenschaft angeben, mit der jede Instanz der Klasse eindeutig bestimmt werden kann. Wenn kein Schlüssel für die Klasse definiert ist, und mehrere Instanzen der Klasse vom Client gemeldet werden, wird nur die aktuelle Instanz, die gefunden wird, in der Datenbank gespeichert.  
 
-     Quand vous avez terminé de configurer les propriétés, cliquez sur **OK** pour fermer la boîte de dialogue **Qualificatifs de classe** et les autres boîtes de dialogue ouvertes. 
+     Klicken Sie nach Abschluss der Konfiguration der Eigenschaften auf **OK**, um das Dialogfeld **Klassenkennzeichner** zu schließen, und die anderen Dialogfelder zu öffnen. 
 
 
-###  <a name="BKMK_Import"></a> Pour importer des classes d'inventaire matériel  
+###  <a name="BKMK_Import"></a> So importieren Sie Hardwareinventurklassen  
 
-Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez les paramètres par défaut du client. Toutefois, vous pouvez utiliser des paramètres client personnalisés pour importer des informations qui ne contient pas un changement de schéma, telles que la modification de la propriété d'une classe existante à partir de **True** à **False**.  
+Sie können Inventurklassen nur importieren, wenn Sie die Clientstandardeinstellungen ändern. Sie können jedoch benutzerdefinierte Clienteinstellungen zum Importieren von Informationen, die nicht mit eine Änderung des Schemas, z. B. das Ändern der Eigenschaft aus einer vorhandenen Klasse enthält **True** auf **False**.  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** >  **Paramètres client** > **Paramètres client par défaut**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** >  **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
+5.  Wählen Sie im Dialogfeld **Clientstandardeinstellungen** **Hardwareinventur** aus.  
 
-6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
+6.  Wählen Sie in der Liste **Geräteeinstellungen** **Klassen festlegen** aus.  
 
-7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Importer**.  
+7.  Wählen Sie im Dialogfeld **Hardwareinventurklassen** **Importieren** aus.  
 
-8.  Dans la boîte de dialogue **Importer**, sélectionnez le fichier MOF (Managed Object Format) à importer, puis choisissez **OK**. Passez en revue les éléments qui seront importés, puis cliquez sur **Importer**.  
+8.  Wählen Sie im Dialogfeld **Importieren** die MOF-Datei (Managed Object Format) aus, die Sie importieren möchten, und wählen Sie dann **OK** aus. Überprüfen Sie die Elemente, die importiert werden, und wählen Sie dann **Importieren** aus.  
 
-###  <a name="BKMK_Export"></a> Pour exporter des classes d'inventaire matériel  
+###  <a name="BKMK_Export"></a> So exportieren Sie Hardwareinventurklassen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** > **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
+5.  Wählen Sie im Dialogfeld **Clientstandardeinstellungen** **Hardwareinventur** aus.  
 
-6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
+6.  Wählen Sie in der Liste **Geräteeinstellungen** **Klassen festlegen** aus.  
 
-7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Exporter**.  
+7.  Wählen Sie im Dialogfeld **Hardwareinventurklassen** **Exportieren** aus.  
 
     > [!NOTE]  
-    >  Lorsque vous exportez des classes, toutes les classes sélectionnées sont exportées.  
+    >  Wenn Sie Klassen exportieren, werden alle aktuell ausgewählten Klassen exportiert.  
 
-8.  Dans la boîte de dialogue **Exporter**, spécifiez le fichier MOF (Managed Object Format) vers lequel vous voulez exporter les classes, puis choisissez **Enregistrer**.  
+8.  Legen Sie im Dialogfeld **Exportieren** die MOF-Datei (Managed Object Format) fest, in die Sie die Klassen exportieren möchten, und wählen Sie dann **Speichern** aus.  
 
-## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Comment utiliser les fichiers MIF (Management Information Format) pour étendre l’inventaire matériel  
- Utilisez des fichiers MIF (Management Information Format) pour étendre les informations d’inventaire matériel recueillies auprès des clients par Configuration Manager. Au cours de l'inventaire matériel, les informations stockées dans les fichiers MIF sont ajoutées au rapport d'inventaire du client et stockées dans la base de données de site. Vous pourrez utiliser les données depuis cet emplacement de la même manière que vous utilisez les données d'inventaire du client par défaut. Il existe deux types de fichiers MIF, NOIDMIF et IDMIF.
-
-> [!IMPORTANT]  
->  Avant d’ajouter les informations de fichiers MIF à la base de données Configuration Manager, vous devez créer ou importer des informations de classe pour eux. Pour plus d’informations, consultez les sections [Pour ajouter une nouvelle classe d'inventaire](#BKMK_Add) et [Pour importer des classes d'inventaire matériel](#BKMK_Import) de cette rubrique.  
-
-###  <a name="BKMK_NOIDMIF"></a> Pour créer des fichiers NOIDMIF  
- Les fichiers NOIDMIF permettent d’ajouter des informations à un inventaire matériel de client qui normalement ne peut pas être collecté par Configuration Manager et est associé à un appareil client particulier. Par exemple, de nombreuses sociétés affectent à chaque ordinateur de l’organisation un numéro d’inventaire, puis les classent manuellement. Quand vous créez un fichier NOIDMIF, ces informations peuvent être ajoutées à la base de données Configuration Manager et être utilisées pour les requêtes et la génération de rapports. Pour plus d’informations sur la création de fichiers NOIDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
+## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Verwenden von MIF (Management Information Format)-Dateien zum Erweitern der Hardwareinventur  
+ Verwenden Sie MIF (Management Information Format)-Dateien zum Erweitern von Hardwareinventurinformationen, die Configuration Manager von Clients sammelt. Während der Hardwareinventur werden die in MIF-Dateien gespeicherten Informationen dem Clientinventurbericht hinzugefügt und in der Standortdatenbank gespeichert, wo Sie die Daten auf die gleiche Weise wie Standard-Clientinventurdaten verwenden können. Es gibt zwei Arten von MIF-Dateien, NOIDMIF- und IDMIF.
 
 > [!IMPORTANT]  
->  Quand vous créez un fichier NOIDMIF, il doit être enregistré sous un format codé ANSI. Les fichiers NOIDMIF enregistrés au format encodé UTF-8 ne peuvent pas être lus par Configuration Manager.  
+>  Vor dem Hinzufügen von Informationen aus MIF-Dateien an die Configuration Manager-Datenbank müssen Sie Klasseninformationen für sie erstellen oder importieren. Weitere Informationen finden Sie in den Abschnitten [So fügen Sie eine neue Inventurklasse hinzu](#BKMK_Add) und [So importieren Sie Hardwareinventurklassen](#BKMK_Import) dieses Themas.  
 
- Après avoir créé un fichier NOIDMIF, stockez-le dans le dossier *%Windir%***\System32\CCM\Inventory\Noidmifs** sur chaque client. Configuration Manager collecte les informations des fichiers NODMIF de ce dossier lors du prochain cycle d’inventaire matériel planifié.  
+###  <a name="BKMK_NOIDMIF"></a> So erstellen Sie NOIDMIF-Dateien  
+ NOIDMIF-Dateien können verwendet werden, um einer Client-Hardwareinventur Informationen hinzuzufügen, die normalerweise nicht durch Configuration Manager gesammelt werden können und einem bestimmten Client-Gerät zugeordnet sind. Beispielsweise vergeben viele Unternehmen für alle Computer in der Organisation eine Gerätenummer, und katalogisieren diese dann manuell. Wenn Sie eine NOIDMIF-Datei erstellen, können diese Informationen der Configuration Manager-Datenbank hinzugefügt und für Abfragen und Berichte verwendet werden. Weitere Informationen zum Erstellen von NOIDMIF-Dateien finden Sie in der Configuration Manager SDK-Dokumentation.  
 
-###  <a name="BKMK_IDMIF"></a> Pour créer des fichiers IDMIF  
- Les fichiers IDMIF permettent d’ajouter à la base de données Configuration Manager des informations sur les ressources qui ne pourraient normalement pas être inventoriées par Configuration Manager et qui ne sont associées à aucun appareil client particulier. Par exemple, vous pouvez utiliser des fichiers IDMIF pour recueillir des informations sur les projecteurs, lecteurs de DVD, photocopieurs ou autres équipements qui ne contiennent pas de client Configuration Manager. Pour plus d’informations sur la création de fichiers IDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
+> [!IMPORTANT]  
+>  Wenn Sie eine NOIDMIF-Datei erstellen, müssen Sie diese in einem ANSI-codierten Format speichern. In UTF-8-codiertem Format gespeicherte NOIDMIF-Dateien können nicht von Configuration Manager gelesen werden.  
 
- Après avoir créé un fichier IDMIF, stockez-le dans le dossier *%Windir%***\CCM\Inventory\Idmifs** sur les ordinateurs clients. Configuration Manager collecte les informations de ce fichier lors du prochain cycle d’inventaire matériel planifié. Vous devez déclarer de nouvelles classes pour les informations contenues dans le fichier en les ajoutant ou en les important.  
+ Nachdem Sie eine NOIDMIF-Datei erstellt haben, speichern Sie diese im Ordner *%Windir%***\CCM\Inventar\Noidmifs** auf jedem Client. Während des nächsten geplanten Hardwareinventurzyklus sammelt Configuration Manager Informationen aus NOIDMIF-Dateien in diesem Ordner.  
+
+###  <a name="BKMK_IDMIF"></a> So erstellen Sie IDMIF-Dateien  
+ Mithilfe von IDMIF-Dateien können Sie der Configuration Manager-Datenbank Informationen zu Beständen hinzufügen, die normalerweise nicht von Configuration Manager inventarisiert werden können, und keinem bestimmten Clientgerät zugeordnet sind. In den IDMIF-Dateien können Sie z.B. Informationen zu Projektoren, DVD-Playern, Fotokopierern oder anderen Geräten sammeln, auf denen kein Configuration Manager-Client vorhanden ist. Weitere Informationen zum Erstellen von IDMIF-Dateien finden Sie in der Configuration Manager SDK-Dokumentation.  
+
+ Nachdem Sie eine IDMIF-Datei erstellt haben, speichern Sie diese im Ordner *%Windir%***\CCM\Inventar\Idmifs** auf den Clientcomputern. Während des nächsten geplanten Hardwareinventurzyklus wird Configuration Manager Informationen aus dieser Datei sammeln. Sie müssen für die in der Datei enthaltenen Informationen neue Klassen deklarieren, indem Sie sie hinzufügen oder importieren.  
 
 > [!NOTE]
-> Les fichiers MIF peuvent contenir de grandes quantités de données et le regroupement de ces données pourrait affecter négativement les performances de votre site. Activez la collecte de fichiers MIF uniquement quand cela est nécessaire et configurez l’option **Taille maximale du fichier MIF personnalisé (Ko)** dans les paramètres d’inventaire matériel. Pour plus d’informations, consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](introduction-to-hardware-inventory.md).
-
+> MIF-Dateien können große Datenmengen enthalten. Das Sammeln dieser Daten kann sich negativ auf die Leistung Ihres Standorts auswirken. Aktivieren Sie die MIF-Sammlung nur im Bedarfsfall, und konfigurieren Sie die Option **Maximale benutzerdefinierte MIF-Dateigröße (KB)** in den Einstellungen der Hardwareinventur. Weitere Informationen finden Sie unter [Einführung in die Hardwareinventur in System Center Configuration Manager](introduction-to-hardware-inventory.md).

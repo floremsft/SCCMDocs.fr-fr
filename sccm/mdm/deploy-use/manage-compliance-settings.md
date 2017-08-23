@@ -1,138 +1,134 @@
 ---
-title: "Gestion de la conformité sur les appareils gérés avec Microsoft Intune | Microsoft Docs"
-description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
+title: "Verwalten der Kompatibilität auf mit Intune verwalteten Geräten | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über System Center Configuration Manager-Kompatibilitätseinstellungen, indem Sie einige Szenarios durcharbeiten."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9e83007f-e81c-4b7e-b47e-b01d7b19cfbc
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 355f6ffec7a77bf03a26f0a1963c2638e67bd75b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: b3a63f6c55c317c9c84d4394dfdcb9f1cbbbc90b
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="managing-compliance-on-devices-managed-with-intune"></a>Gestion de la conformité sur les appareils gérés avec Microsoft Intune
+# <a name="managing-compliance-on-devices-managed-with-intune"></a>Verwalten der Kompatibilität auf mit Intune verwalteten Geräten
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
+Diese Szenarios dienen zur Einführung in das Verwenden von System Center Configuration Manager-Kompatibilitätseinstellungen.  
 
- Si vous connaissez déjà les paramètres de compatibilité, vous trouverez une documentation détaillée sur toutes les fonctionnalités que vous utilisez dans la section [Éléments de configuration pour les appareils gérés avec Microsoft Intune](#configuration-items-for-devices-managed-with-intune).  
+ Wenn Sie bereits mit den Kompatibilitätseinstellungen vertraut sind, finden Sie eine ausführliche Dokumentation zu allen verwendbaren Features im Abschnitt [Configuration items for devices managed with Intune (Konfigurationselemente für Geräte, die mit Intune verwaltet werden)](#configuration-items-for-devices-managed-with-intune).  
 
- La section [Bien démarrer avec les paramètres de conformité](../../compliance/get-started/get-started-with-compliance-settings.md) fournit des informations de base sur les paramètres de conformité. Pour savoir comment implémenter les composants requis éventuels, voir [Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+ In [Erste Schritte mit Kompatibilitätseinstellungen](../../compliance/get-started/get-started-with-compliance-settings.md) erfahren Sie mehr über einige Grundlagen der Kompatibilitätseinstellungen, und lesen Sie zudem [Planen und Konfigurieren von Kompatibilitätseinstellungen](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md), um jegliche notwendigen Voraussetzungen zu implementieren.  
 
-## <a name="general-information-for-each-scenario"></a>Informations générales pour chaque scénario  
- Dans chaque scénario, vous allez créer un élément de configuration qui effectue une tâche spécifique. Pour ouvrir l’Assistant Création d’élément de configuration, procédez comme suit :  
+## <a name="general-information-for-each-scenario"></a>Allgemeine Informationen für jedes Szenario  
+ In jedem Szenario erstellen Sie ein Konfigurationselement, das eine bestimmte Aufgabe ausführt. Öffnen Sie den Assistenten zum Erstellen von Konfigurationselementen, und führen Sie die folgenden Schritte aus:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationselemente**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
 
-4.  Sous l’onglet **Général** de l’Assistant Création d’élément de configuration illustré ci-dessous, nommez et décrivez l’élément de configuration, puis choisissez le type d’élément de configuration approprié pour chaque scénario de cette rubrique.  
+4.  Geben Sie auf der Registerkarte **Allgemein** des nachstehend gezeigten Assistenten zum Erstellen von Konfigurationselementen einen Namen und eine Beschreibung des Konfigurationselements an. Wählen Sie dann den für jedes Szenario geeigneten Konfigurationselementtyp.  
 
-     ![Affiche la page Général de l’Assistant Création d’élément de configuration.](media/Compliance-Settings-Wizard---1.png)  
+     ![Zeigt die Seite „Allgemein“ des Assistenten zum Erstellen von Konfigurationselementen](media/Compliance-Settings-Wizard---1.png)  
 
-## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Windows 8.1 et Windows 10 gérés via Microsoft Intune  
+## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Szenarios für Windows 8.1 und Windows 10-Geräte, die mit Intune verwaltet werden  
 
-### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Scénario : restreindre l’accès à la boutique d’applications sur tous les PC Windows  
- Dans ce scénario, vous êtes l’administrateur informatique d’une société qui gère des informations hautement confidentielles. Pour cette raison, vous limitez les applications que les utilisateurs peuvent installer. Vous souhaitez empêcher les utilisateurs de tous les PC Windows 10 de télécharger des applications à partir du Windows Store. Vous prenez donc les mesures suivantes.  
+### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Szenario: Einschränken des Zugriffs auf den App Store auf allen Windows-PCs  
+ In diesem Szenario sind Sie der IT-Administrator eines Unternehmens, das mit hochsensiblen Daten arbeitet. Aus diesem Grund schränken Sie die Apps ein, die Benutzer installieren dürfen. Sie möchten, dass Benutzer aller Windows 10-PCs keine Apps mehr aus dem Windows Store herunterladen können. Deshalb führen Sie die folgenden Schritte aus.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows 8.1 et Windows 10** , puis cliquez sur **Suivant**.  
+1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **Windows 8.1 und Windows 10** aus, und klicken Sie auf **Weiter**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes Windows 10.  
+2.  Wählen Sie auf der Seite **Unterstützte Plattformen** alle Windows 10-Plattformen aus.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Boutique**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Geräteeinstellungen** die Option **Store**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Dans la page **Boutique** , sélectionnez la valeur **Interdit** pour **Boutique d’applications**.  
+4.  Wählen Sie auf der Seite **Store** die Option **Nicht zulässig** als Einstellung für **App Store**aus.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les PC.  
+5.  Wählen Sie **Nicht kompatible Einstellungen wiederherstellen** aus, um sicherzustellen, dass die Änderung auf alle PCs angewendet wird.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
 
-## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Windows Phone gérés via Microsoft Intune  
+## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Szenarios für Windows Phone-Geräte, die mit Intune verwaltet werden  
 
-### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Scénario : désactiver l’utilisation de la capture d’écran sur un Windows Phone  
- Dans ce scénario, vous utilisez des appareils Windows Phone 8.1 dans votre société. Ces appareils exécutent une application de ventes qui contient des informations sensibles. Pour protéger votre entreprise, vous souhaitez désactiver l’utilisation de la capture d’écran sur l’appareil, car elle pourrait être utilisée pour transmettre des informations sensibles en dehors de l’entreprise.  
+### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Szenario: Deaktivieren von Bildschirmaufnahmen auf einem Windows Phone  
+ In diesem Szenario werden in Ihrem Unternehmen Windows Phone 8.1-Geräte verwendet. Auf diesen Geräten läuft eine Vertriebs-App, die vertrauliche Informationen enthält. Zum Schutz Ihres Unternehmens möchten Sie Bildschirmaufnahmen auf dem Gerät deaktivieren, die potenziell dazu genutzt werden können, um vertrauliche Informationen aus Ihrem Unternehmen zu schmuggeln.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows Phone** , puis cliquez sur **Suivant**.  
+1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **Windows Phone** aus, und klicken Sie auf **Weiter**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes **Tout Windows Phone 8.1**.  
+2.  Wählen Sie auf der Seite **Unterstützte Plattformen** **Alle Windows 8.1-Plattformen** aus.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Périphérique**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Geräteeinstellungen** die Option **Gerät**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Dans la page **Périphérique** , sélectionnez la valeur **Désactivé** pour **Capture d’écran**.  
+4.  Wählen Sie auf der Seite **Gerät** die Option **Deaktiviert** als Einstellung für **Bildschirmaufnahme**aus.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les appareils Windows Phone 8.1.  
+5.  Wählen Sie **Nicht kompatible Einstellungen wiederherstellen** aus, um sicherzustellen, dass die Änderung auf alle Windows Phone 8.1-Geräte angewendet wird.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines mit System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
 
-## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Scénarios relatifs aux appareils iOS et Mac OS X gérés via Microsoft Intune  
+## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Szenarios für iOS und Mac OS X-Geräte, die mit Intune verwaltet werden  
 
-### <a name="scenario-disable-the-camera-on-ios-devices"></a>Scénario : désactiver l’appareil photo sur les appareils iOS  
- Dans ce scénario, votre entreprise produit des plans pour de nouvelles conceptions de produits. Ces plans contiennent des informations sensibles qui ne doivent pas être divulguées. Étant donné que votre entreprise fournit des iPhones ou des iPads à tous les employés, vous souhaitez désactiver l’utilisation de l’appareil photo sur ces appareils pour éviter leur utilisation pour photographier les plans.  
+### <a name="scenario-disable-the-camera-on-ios-devices"></a>Szenario: Deaktivieren der Kamera auf iOS-Geräten  
+ In diesem Szenario erzeugt Ihr Unternehmen Pläne für neue Produktentwicklungen mit vertraulichen Informationen, die geheim bleiben müssen. Da Ihr Unternehmen allen Mitarbeitern iPhones oder iPads zur Verfügung stellt, möchten Sie die Kamera auf diesen Geräten deaktivieren, um zu verhindern, dass die Pläne fotografiert werden.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **iOS et Mac OS X** , puis cliquez sur **Suivant**.  
+1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **iOS und Mac OS X** aus, und klicken Sie auf **Weiter**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes d’appareils iPhone et iPad.  
+2.  Wählen Sie auf der Seite **Unterstützte Plattformen** alle iPhone- und iPad-Geräteplattformen aus.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Sécurité**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Geräteeinstellungen** die Option **Sicherheit**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Dans la page **Sécurité** , sélectionnez la valeur **Interdit** pour **Appareil photo**.  
+4.  Wählen Sie auf der Seite **Sicherheit** die Option **Nicht zulässig** als Einstellung für **Kamera**aus.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les appareils iOS.  
+5.  Wählen Sie **Nicht kompatible Einstellungen wiederherstellen** aus, um sicherzustellen, dass die Änderung auf alle iOS-Geräte angewendet wird.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines mit System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
 
-## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Android et Samsung KNOX Standard gérés via Microsoft Intune  
+## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Szenarios für Android- und Samsung KNOX Standard-Geräte, die mit Intune verwaltet werden  
 
-### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Scénario : exiger un mot de passe sur tous les appareils Android 5  
- Dans ce scénario, vous allez créer un élément de configuration uniquement pour les appareils Android 5 qui exige des utilisateurs qu’ils configurent un mot de passe d’au moins six caractères sur leurs appareils. De plus, si un utilisateur entre un mot de passe incorrect à cinq reprises, l’appareil sera effacé.  
+### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Szenario: Anfordern eines Kennworts auf allen Android 5-Geräten  
+ In diesem Szenario erstellen Sie ein Konfigurationselement nur für Android 5-Geräte, das Benutzern auffordert, auf ihren Geräten ein Kennwort mit mindestens 6 Zeichen zu konfigurieren. Wenn ein Benutzer zudem fünfmal ein falsches Kennwort eingibt, wird das Gerät zurückgesetzt.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Android et Samsung KNOX** , puis cliquez sur **Suivant**.  
+1.  Wählen Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Allgemein** den Konfigurationselementtyp **Android und Samsung KNOX** aus, und klicken Sie auf **Weiter**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez uniquement **Android 5** (pour que les paramètres soient appliqués uniquement à cette plateforme).  
+2.  Wählen Sie auf der Seite **Unterstützte Plattformen** nur **Android 5** aus (um sicherzustellen, dass die Einstellungen nur für diese Plattform gelten).  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Mot de passe**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Geräteeinstellungen** die Option **Kennwort**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Dans la page **Mot de passe** , configurez les paramètres suivants :  
+4.  Konfigurieren Sie auf der Seite **Kennwort** die folgenden Einstellungen:  
 
-    -   **Demander des paramètres de mot de passe sur les appareils** > **Requis**  
+    -   **Kennworteinstellungen auf Geräten erforderlich** > **Erforderlich**  
 
-    -   **Longueur minimale du mot de passe (caractères)** > **6**  
+    -   **Minimale Kennwortlänge (Zeichen)** > **6**  
 
-    -   **Nombre d’échecs de tentative de connexion avant que le périphérique soit réinitialisé** > **5**  
+    -   **Anzahl der gescheiterten Anmeldeversuche vor dem Zurücksetzen eines Geräts** > **5**  
 
-5.  Terminez l’Assistant pour créer l’élément de configuration.  
+5.  Schließen Sie den Assistenten ab, um das neue Konfigurationselement zu erstellen.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ Sie können nun die Informationen im Thema [Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) verwenden, die Ihnen beim Bereitstellen der von Ihnen erstellten Konfiguration auf Geräten helfen.  
 
-## <a name="configuration-items-for-devices-managed-with-intune"></a>Éléments de configuration pour les appareils gérés avec Microsoft Intune
+## <a name="configuration-items-for-devices-managed-with-intune"></a>Konfigurationselementen für Geräte, die mit Intune verwaltet werden
 
-Vous trouverez ici les types d’éléments de configuration System Center Configuration Manager disponibles pour les appareils qui ne sont pas gérés par le client Configuration Manager, par exemple les appareils inscrits auprès de Microsoft Intune.  
+Folgende Configuration Manager-Konfigurationselementtypen sind für Geräte verfügbar, die nicht vom Configuration Manager-Client verwaltet werden, z.B. Geräte, die bei Microsoft Intune registriert sind.  
 
- -   [Comment créer des éléments de configuration pour les appareils Windows 8.1 et Windows 10 gérés via Microsoft Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
+ -   [How to create configuration items for Windows 8.1 and Windows 10 devices managed with Intune (Erstellen von Konfigurationselementen für Windows 8.1 und Windows 10-Geräte, die mit Intune verwaltet werden)](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils Windows Phone gérés via Microsoft Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
+ -   [How to create configuration items for Windows Phone devices managed with Intune (Erstellen von Konfigurationselementen für Windows Phone-Geräte, die mit Intune verwaltet werden)](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils iOS et Mac OS X gérés via Microsoft Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
+ -   [How to create configuration items for iOS and Mac OS X devices managed with Intune (Erstellen von Konfigurationselementen für iOS und Mac OS X-Geräte, die mit Intune verwaltet werden)](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils Android et Samsung KNOX Standard gérés via Microsoft Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  
-
+ -   [How to create configuration items for iOS and Mac OS X devices managed with Intune (Erstellen von Konfigurationselementen für Android- und Samsung KNOX Standard-Geräte, die mit Intune verwaltet werden)](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  

@@ -1,67 +1,60 @@
 ---
-title: Terminer la migration | Microsoft Docs
-description: "Découvrez comment terminer la migration vers une hiérarchie de destination System Center Configuration Manager une fois qu’une hiérarchie source ne contient plus de données."
+title: "Überwachen der Migration | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie die Migration zu einer System Center Configuration Manager-Zielhierarchie abschließen, nachdem eine Quellhierarchie keine Daten mehr enthält."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f4854b50-2e8c-414c-a872-9579554dca98
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 0f4a10ba7bbe397f05d724141b562b6cd8b78ea8
 ms.openlocfilehash: eb1d2e320df02b26423ed4341d5bd1568b9444ad
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planifier la fin de la migration dans System Center Configuration Manager
+# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planen des Abschließens der Migration in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Avec System Center Configuration Manager, vous pouvez terminer le processus de migration quand une hiérarchie source ne contient plus de données à migrer vers votre hiérarchie de destination. Pour cela, suivez les étapes ci-dessous :  
+Wenn eine Quellhierarchie in System Center Configuration Manager keine Daten mehr enthält, die Sie zu Ihrer Zielhierarchie migrieren möchten, können Sie den Migrationsprozess abschließen. Der Abschluss der Migration umfasst die folgenden allgemeinen Schritte:  
 
--   Vérifiez que les données dont vous avez besoin ont été migrées. Avant de terminer la migration à partir d'une hiérarchie source, vérifiez que vous avez bien migré toutes les ressources de la hiérarchie source dont vous pouvez avoir besoin dans la hiérarchie de destination. Pensez notamment aux données et aux clients.  
+-   Stellen Sie sicher, dass alle benötigten Daten migriert wurden. Vergewissern Sie sich vor dem Abschließen der Migration aus einer Quellhierarchie, dass Sie alle Ressourcen aus der Quellhierarchie migriert haben, die Sie in der Zielhierarchie benötigen. Bei diesen Ressourcen kann es sich um Daten und Clients handeln.  
 
--   Arrêtez la collecte des données des sites source. Pour pouvoir terminer la migration à partir d'une hiérarchie source, vous devez au préalable arrêter la collecte des données des sites source.  
+-   Beenden Sie das Sammeln von Daten an Quellstandorten. Zum Abschließen der Migration aus einer Quellhierarchie müssen Sie zuerst das Sammeln von Daten an den Quellstandorten beenden.  
 
--   Nettoyez les données de migration. Après avoir arrêté la collecte des données des sites source d'une hiérarchie source, vous pouvez supprimer de la base de données de la hiérarchie de destination les données relatives au processus de migration et à la hiérarchie source.  
+-   Bereinigen Sie die Migrationsdaten. Nachdem Sie die Datensammlung für alle Quellstandorte einer Quellhierarchie beendet haben, können Sie die Daten zum Migrationsprozess und zur Quellhierarchie aus der Datenbank der Zielhierarchie entfernen.  
 
--   Retirez la hiérarchie source. Une fois que la migration à partir d’une hiérarchie source est terminée et que cette hiérarchie ne contient plus de ressources que vous gérez, vous pouvez retirer les sites de la hiérarchie source et supprimer l’infrastructure associée de votre environnement. Pour plus d’informations sur le retrait de sites et de hiérarchies sources, consultez la documentation de cette version de Configuration Manager.  
+-   Nehmen Sie die Quellhierarchie außer Betrieb. Wenn die Migration aus einer Quellhierarchie abgeschlossen ist und in dieser Hierarchie keine Ressourcen mehr enthalten sind, die von Ihnen verwaltet werden, können Sie die Standorte der Quellhierarchie außer Betrieb nehmen und die entsprechende Infrastruktur aus Ihrer Umgebung entfernen. Informationen zur Außerbetriebnahme von Standorten und Quellhierarchien finden Sie in der Dokumentation zur entsprechenden Version von Configuration Manager.  
 
-Pour planifier la fin d’une migration à partir d’une hiérarchie source en arrêtant la collecte de données et le nettoyage des données de migration, consultez les sections ci-dessous :  
+Verwenden Sie die Informationen in den folgenden Abschnitten, um das Abschließen der Migration aus einer Quellhierarchie zu planen, indem Sie die Datensammlung beenden und anschließend die Migrationsdaten bereinigen:  
 
--   [Planifier l’arrêt de la collecte de données](#Plan_to_Stop_Data_Gath)  
+-   [Planen des Beendens der Datensammlung](#Plan_to_Stop_Data_Gath)  
 
--   [Planifier le nettoyage des données de migration](#Plan_to_clean_up)  
+-   [Planen der Bereinigung der Migrationsdaten](#Plan_to_clean_up)  
 
-##  <a name="a-nameplantostopdatagatha-plan-to-stop-gathering-data"></a><a name="Plan_to_Stop_Data_Gath"></a> Planifier l’arrêt de la collecte de données  
- Avant de terminer la migration et de nettoyer les données de migration, vous devez arrêter la collecte des données de chaque site source dans la hiérarchie source. Pour arrêter la collecte de données de chaque site source, vous devez exécuter la commande **Arrêter la collecte de données** sur les sites source de niveau inférieur, puis répéter le processus au niveau de chaque site parent. Le site de niveau supérieur de la hiérarchie source doit être le dernier site sur lequel vous arrêtez la collecte des données. Vous devez arrêter la collecte de données sur chaque site enfant avant d'exécuter cette commande sur un site parent. En règle générale, vous arrêtez la collecte de données uniquement quand vous êtes prêt à terminer le processus de migration.  
+##  <a name="Plan_to_Stop_Data_Gath"></a> Planen des Beendens der Datensammlung  
+ Bevor Sie die Migration abschließen und die Migrationsdaten bereinigen, müssen Sie die Datensammlung von den Quellstandorten in der Quellhierarchie beenden. Wenn keine Daten mehr von einem Quellstandort gesammelt werden sollen, führen Sie den Befehl **Sammeln von Daten beenden** bei den Quellstandorten der untersten Ebene aus und wiederholen den Vorgang dann bei jedem übergeordneten Standort. Der Standort der obersten Ebene der Quellhierarchie muss der letzte Standort sein, an dem Sie die Datensammlung beenden. Beenden Sie die Datensammlung bei jedem untergeordneten Standort, ehe Sie sie bei einem übergeordneten Standort beenden. Üblicherweise wird die Datensammlung erst dann beendet, wenn der Migrationsprozess abgeschlossen werden kann.  
 
- Lorsque vous arrêtez la collecte des données d'un site source, les points de distribution partagés de ce site ne sont plus disponibles en tant qu'emplacements de contenu pour les clients de la hiérarchie de destination. Par conséquent, vérifiez que le contenu migré dont les clients ont besoin dans la hiérarchie de destination reste bien disponible. Pour cela, utilisez l'une des méthodes suivantes :  
+ Nachdem die Datensammlung für einen Quellstandort beendet wurde, sind freigegebene Verteilungspunkte dieses Standorts nicht mehr als Inhaltsorte für Clients in der Zielhierarchie verfügbar. Sorgen Sie deshalb dafür, dass von den Clients in der Zielhierarchie benötigte migrierte Inhalte verfügbar bleiben, indem Sie eine der folgenden Optionen verwenden:  
 
--   Dans la hiérarchie de destination, distribuez le contenu à un point de distribution au moins.  
+-   Verteilen Sie Inhalte in der Zielhierarchie an mindestens einen Verteilungspunkt.  
 
--   Avant d'arrêter la collecte de données à partir d'un site source, mettez à niveau ou réaffectez les points de distribution partagés ayant le contenu requis. Pour plus d’informations sur la mise à niveau ou la réattribution de points de distribution partagés, consultez les sections correspondantes dans la rubrique [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+-   Bevor Sie die Datensammlung an einem Quellstandort beenden, sollten Sie freigegebene Verteilungspunkte, auf denen erforderliche Inhalte vorliegen, aktualisieren oder neu zuweisen. Weitere Informationen zum Aktualisieren oder erneuten Zuweisen freigegebener Verteilungspunkte finden Sie in den betreffenden Abschnitten im Thema [Planen einer Migrationsstrategie für die Inhaltsbereitstellung in System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
-Après avoir arrêté la collecte de données à partir de chaque site source de la hiérarchie source, vous pouvez nettoyer les données de migration. Dans la console Configuration Manager, vous pouvez accéder à chaque tâche de migration qui a été exécutée ou qui est planifiée pour être exécutée, tant que vous n’avez pas nettoyé les données de migration.  
+Wenn keine Daten mehr von den Quellstandorten in der Quellhierarchie gesammelt werden, können die Migrationsdaten bereinigt werden. Bis die Migrationsdaten bereinigt wurden, sind alle geplanten und ausgeführten Migrationsaufträge in der Configuration Manager-Konsole verfügbar.  
 
-Pour plus d’informations sur les sites sources et la collecte de données, consultez [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
+Weitere Informationen zu Quellstandorten und der Datensammlung finden Sie unter [Planen einer Strategie für Quellhierarchien in System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
 
-##  <a name="a-nameplantocleanupa-plan-to-clean-up-migration-data"></a><a name="Plan_to_clean_up"></a> Planifier le nettoyage des données de migration  
- La dernière étape nécessaire pour terminer la migration consiste à nettoyer les données de migration. Vous pouvez utiliser la commande **Nettoyer les données de migration** après avoir arrêté la collecte des données pour chaque site source de la hiérarchie source. Cette action facultative supprime de la base de données de la hiérarchie de destination l'ensemble des données relatives à la hiérarchie source actuelle.  
+##  <a name="Plan_to_clean_up"></a> Planen der Bereinigung der Migrationsdaten  
+ Der letzte Schritt zum Abschließen der Migration besteht in der Bereinigung der Migrationsdaten. Sie können den Befehl **Migrationsdaten bereinigen** verwenden, nachdem Sie die Datensammlung für die einzelnen Quellstandorte in der Quellhierarchie beendet haben. Mit diesem optionalen Vorgang werden Daten zur aktuellen Quellhierarchie aus der Datenbank der Zielhierarchie entfernt.  
 
- Lors du nettoyage des données de migration, la plupart des données relatives à la migration sont supprimées de la base de données de la hiérarchie de destination. Cependant, les détails sur les objets migrés sont conservés. Grâce à ces détails, vous pouvez utiliser l’espace de travail **Migration** pour reconfigurer la hiérarchie source contenant les données migrées afin de reprendre la migration à partir de cette hiérarchie source, ou de passer en revue les objets et la propriété de site des objets précédemment migrés.  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+ Beim Bereinigen der Migrationsdaten werden die meisten Daten zur Migration aus der Datenbank der Zielhierarchie entfernt. Informationen zu migrierten Objekten werden jedoch beibehalten. Mit diesen Informationen können Sie den Arbeitsbereich **Migration** verwenden, um die Quellhierarchie, in der die migrierten Daten enthalten sind, neu zu konfigurieren. Sie können entweder die Migration von der betreffenden Quellhierarchie fortsetzen oder die Objekte und den Standortbesitz von zuvor migrierten Objekten prüfen.  

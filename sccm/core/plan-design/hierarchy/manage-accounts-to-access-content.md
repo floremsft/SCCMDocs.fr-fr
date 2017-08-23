@@ -1,124 +1,121 @@
 ---
-title: "Comptes pour accéder au contenu dans System Center Configuration Manager | Microsoft Docs"
-description: "En savoir plus sur les comptes où les clients accèdent au contenu System Center Configuration Manager."
+title: "Konten für den Zugriff auf Inhalt in System Center Configuration Manager | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über die Konten, mit denen Clients auf System Center Configuration Manager-Inhalt zugreifen."
 ms.custom: na
 ms.date: 2/6/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a7df9d0f-fbde-47eb-97e7-3d29536424fa
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e592a732259147ee71d404a68982c28e5138e243
 ms.openlocfilehash: 0e982d08d54af39b13f553fc531a200f921e94a6
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
+# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Verwalten von Konten für den Zugriff auf Inhalt in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Avant de déployer du contenu dans System Center Configuration Manager, déterminez de quelle façon les clients accèderont à ce contenu à partir des points de distribution. Cet article décrit les comptes suivants utilisés à cette fin :
+Überlegen Sie vor der Bereitstellung von Inhalt in System Center Configuration Manager, wie Clients auf Inhalt von Verteilungspunkten zugreifen. In diesem Artikel werden zu diesem Zweck die folgenden Konten verwendet:
 
--   **Compte d’accès réseau**. Utilisé par les clients pour se connecter à un point de distribution et accéder au contenu. Par défaut, les clients essaient d’abord d’utiliser leur compte d’ordinateur.
+-   **Netzwerkzugriffskonto**. Wird von Clients verwendet, um die Verbindung zu einem Verteilungspunkt herzustellen und auf Inhalte zuzugreifen. Standardmäßig verwenden Clients zuerst das Computerkonto.
 
-     Ce compte est également utilisé par les points de distribution d’extraction pour obtenir le contenu d’un point de distribution source dans une forêt distante.  
+     Dieses Konto wird auch von Pullverteilungspunkten verwendet, um Inhalte von einem Quellverteilungspunkt in einer Remotegesamtstruktur abzurufen.  
 
--   **Compte d’accès au package**. Par défaut, Configuration Manager octroie aux comptes intégrés appelés **Utilisateurs** et **Administrateurs** l’accès au contenu d’un point de distribution. Vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
+-   **Paketzugriffskonto**. Standardmäßig gewährt Configuration Manager den integrierten Konten **Benutzer** und **Administratoren** Zugriff auf Inhalt auf einem Verteilungspunkt. Sie können weitere Berechtigungen einrichten, um den Zugriff zu beschränken.  
 
--   **Compte de connexion multidiffusion**. Utilisé pour les déploiements de système d’exploitation.  
+-   **Multicastverbindungskonto**. Wird für Betriebssystembereitstellungen verwendet.  
 
-##  <a name="bkmk_NAA"></a> Compte d’accès réseau  
- Les ordinateurs clients utilisent le compte d’accès réseau quand ils ne peuvent pas utiliser leur compte d’ordinateur local pour accéder au contenu sur les points de distribution. Par exemple, cela s'applique aux clients du groupe de travail et aux ordinateurs de domaines non approuvés. Ce compte peut également être utilisé pendant le déploiement du système d'exploitation si l'ordinateur qui installe le système d'exploitation ne possède pas encore de compte d'ordinateur sur le domaine.  
+##  <a name="bkmk_NAA"></a> Netzwerkzugriffskonto  
+ Clientcomputer verwenden das Netzwerkzugriffskonto, wenn über ihr lokales Computerkonto kein Zugriff auf Inhalte auf Verteilungspunkten möglich ist. Beispielsweise gilt dies für Arbeitsgruppenclients und Computer aus nicht vertrauenswürdigen Domänen. Dieses Konto wird möglicherweise auch bei der Betriebssystembereitstellung verwendet, falls der Computer, von dem das Betriebssystem installiert wird, noch kein Computerkonto in der Domäne hat.  
 
--   Les clients utilisent le compte d'accès réseau uniquement pour accéder aux ressources du réseau.  
+-   Von Clients wird für den Zugriff auf Ressourcen im Netzwerk nur das Netzwerkzugriffskonto verwendet.  
 
--   Sur chaque site principal, vous pouvez configurer plusieurs comptes à utiliser comme compte d’accès réseau.  
+-   An jedem primären Standort können Sie mehrere Konten als Netzwerkzugriffskonten einrichten.  
 
--   Les clients tentent d’abord d’accéder au contenu sur un point de distribution à l’aide de leur compte *nom_ordinateur*$. Si l’accès avec ce compte n’est pas possible, ils tentent alors d’utiliser un compte d’accès réseau. Les clients continuent d’essayer d’utiliser le compte d’accès réseau, même en cas d’échec antérieur.  
+-   Clients versuchen zunächst, unter Verwendung ihres Kontos „*Computername*$“ auf Inhalte auf einem Verteilungspunkt zuzugreifen. Wenn der Zugriff mit diesem Konto nicht möglich ist, versuchen die Clients, ein Netzwerkzugriffskonto zu verwenden. Clients versuchen weiterhin, das Netzwerkzugriffskonto zu verwenden, auch wenn dies zuvor nicht erfolgreich war.  
 
-### <a name="permissions"></a>Autorisations
-Accordez les autorisations minimales appropriées à ce compte, pour qu'il puisse accéder au logiciel pour le contenu que nécessite le client.  
+### <a name="permissions"></a>Berechtigungen
+Weisen Sie diesem Konto die minimal erforderlichen Berechtigungen für den Inhalt zu, der vom Client für den Zugriff auf die Software benötigt wird.  
 
--   Le compte doit avoir le droit **Accéder à cet ordinateur à partir du réseau** sur le point de distribution.  
+-   Das Konto muss über die Berechtigung **Auf diesen Computer vom Netzwerk aus zugreifen** für den Verteilungspunkt verfügen.  
 
--   Créez le compte dans n'importe quel domaine fournissant l'accès nécessaire aux ressources. Le compte d'accès réseau doit toujours inclure un nom de domaine. La sécurité directe n’est pas prise en charge pour ce compte. Si vous disposez de points de distribution dans plusieurs domaines, créez le compte dans un domaine approuvé.  
+-   Erstellen Sie das Konto in einer Domäne, die den erforderlichen Zugriff auf Ressourcen ermöglicht. Das Netzwerkzugriffskonto muss immer einen Domänennamen enthalten. Pass-Through-Sicherheit wird für dieses Konto nicht unterstützt. Wenn es Verteilungspunkte in mehreren Domänen gibt, erstellen Sie das Konto in einer vertrauenswürdigen Domäne.  
 
 > [!TIP]  
->  Pour éviter les verrouillages de compte, ne modifiez pas le mot de passe d'un compte d'accès réseau existant. Au lieu de cela, créez un compte et configurez le nouveau compte dans Configuration Manager. Après un délai suffisant pendant lequel tous les clients ont reçu les informations du nouveau compte, supprimez l’ancien compte des dossiers partagés du réseau et supprimez le compte.  
+>  Zur Vermeidung von Kontosperrungen sollten Sie das Kennwort für ein vorhandenes Netzwerkzugriffskonto nicht ändern. Erstellen Sie stattdessen ein neues Konto, und richten Sie das neue Konto in Configuration Manager ein. Wenn genügend Zeit verstrichen ist, sodass alle Clients die neuen Kontodetails empfangen haben, entfernen Sie das alte Konto aus den freigegebenen Netzwerkordnern, und löschen Sie es.  
 
 > [!IMPORTANT]  
->  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
+>  Erteilen Sie diesem Konto keine Rechte zur interaktiven Anmeldung.  
 >   
->  N'accordez pas à ce compte le droit de joindre les ordinateurs au domaine. Si vous devez joindre les ordinateurs au domaine au cours d'une séquence de tâches, utilisez le compte de jonction de domaine de l'Éditeur de séquence de tâches.  
+>  Gewähren Sie diesem Konto nicht das Recht, der Domäne Computer hinzuzufügen. Wenn während einer Tasksequenz Computer der Domäne beitreten müssen, verwenden Sie dafür das Tasksequenz-Editor-Domänenbeitrittskonto.  
 
-### <a name="to-configure-the-network-access-account"></a>Pour configurer le compte d'accès réseau  
+### <a name="to-configure-the-network-access-account"></a>So konfigurieren Sie das Netzwerkzugriffskonto  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** >   **Configuration du site** >  **Sites**, puis sélectionnez le site.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** >   **Standortkonfiguration** >  **Standorte**, und wählen Sie anschließend den Standort aus.  
 
-2.  Dans le groupe **Paramètres**, choisissez **Configurer les composants de site** > **Distribution de logiciels**.  
+2.  Wählen Sie in der Gruppe **Einstellungen** die Optionen **Standortkomponenten konfigurieren** > **Softwareverteilung**.  
 
-3.  Choisissez l’onglet **Compte d’accès réseau**. Configurez un ou plusieurs comptes, puis choisissez **OK**.  
+3.  Wählen Sie die Registerkarte **Netzwerkzugriffskonto**. Konfigurieren Sie mindestens ein Konto, und wählen Sie dann **OK**.  
 
-##  <a name="bkmk_Paa"></a> Comptes d’accès aux packages  
- Les comptes d’accès au package vous permettent de définir des autorisations NTFS pour spécifier les utilisateurs et les groupes d’utilisateurs qui peuvent accéder à un contenu de package sur des points de distribution. Par défaut, Configuration Manager n’accorde cet accès qu’aux comptes génériques **Utilisateurs** et **Administrateurs**. Vous pouvez cependant contrôler l’accès pour les ordinateurs clients à l’aide d’autres comptes ou groupes Windows. Les appareils mobiles n’utilisent pas les comptes d’accès au package, car ces appareils récupèrent toujours le contenu du package de façon anonyme.  
+##  <a name="bkmk_Paa"></a> Paketzugriffskonten  
+ Mit Paketzugriffskonten können Sie durch Festlegen von NTFS-Dateisystemberechtigungen angeben, welche Benutzer und Benutzergruppen auf Paketinhalt an Verteilungspunkten zugreifen können. Standardmäßig wird in Configuration Manager Zugriff nur auf die allgemeinen Zugriffskonten **Benutzer** und **Administratoren** gewährt. Sie können den Zugriff für Clientcomputer jedoch über zusätzliche Windows-Konten oder -Gruppen steuern. Mobile Geräte verwenden die Paketzugriffskonten nicht, weil diese Geräte Paketinhalte immer anonym abrufen.  
 
- Par défaut, quand Configuration Manager copie les fichiers de contenu d’un package sur un point de distribution, il accorde un accès en **Lecture** au groupe **Utilisateurs** local et un **Contrôle intégral** au groupe **Administrateurs** local. Les autorisations requises dépendent du package. Si vous avez des clients dans des groupes de travail ou dans des forêts non approuvées, ceux-ci utiliseront le compte d'accès réseau pour accéder au contenu du package. Assurez-vous que le compte d'accès réseau bénéficie d'autorisations sur le package à l'aide des comptes d'accès au package définis.  
+ Wenn die Inhaltsdateien in einem Paket von Configuration Manager auf einen Verteilungspunkt kopiert werden, werden standardmäßig die folgenden Berechtigungen erteilt: **Lesen** für die lokale Gruppe **Benutzer** und **Vollzugriff** für die lokale Gruppe **Administratoren**. Die tatsächlich erforderlichen Berechtigungen sind vom jeweiligen Paket abhängig. Von Clients in Arbeitsgruppen oder nicht vertrauenswürdigen Gesamtstrukturen wird das Netzwerkzugriffskonto zum Zugriff auf den Paketinhalt verwendet. Stellen Sie anhand der definierten Paketzugriffskonten sicher, dass das Netzwerkzugriffskonto über Berechtigungen für das Paket verfügt.  
 
- Utilisez des comptes dans un domaine susceptible d'accéder aux points de distribution. Si vous créez ou modifiez le compte une fois le package créé, vous devez redistribuer le package. La mise à jour du package ne modifie pas les autorisations de système de fichiers NTFS sur le package.  
+ Verwenden Sie Konten in einer Domäne mit Zugriff auf die Verteilungspunkte. Wenn Sie das Konto nach der Paketerstellung erstellen oder ändern, müssen Sie das Paket erneut verteilen. Wenn ein Paketupdate ausgeführt wird, werden die NTFS-Dateisystemberechtigungen für das Paket nicht geändert.  
 
- Il est inutile d'ajouter le compte d'accès réseau comme un compte d'accès au package, car l'appartenance au groupe **Utilisateurs** l'ajoute automatiquement. Le fait de restreindre le compte d'accès au package au compte d'accès réseau uniquement n'empêche pas les clients d'accéder au package.  
+ Das Netzwerkzugriffskonto braucht nicht als Paketzugriffskonto hinzugefügt werden, da es Mitglied der Gruppe **Benutzer** ist und somit standardmäßig hinzugefügt wird. Der Zugriff von Clients auf das Paket kann nicht dadurch verhindert werden, dass das Paketzugriffskonto auf das Netzwerkzugriffskonto beschränkt wird.  
 
-### <a name="to-manage-access-accounts"></a>Pour gérer les comptes d'accès  
+### <a name="to-manage-access-accounts"></a>So verwalten Sie Zugriffskonten  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Option **Softwarebibliothek** aus.  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels**, déterminez le type de contenu dont vous souhaitez gérer les comptes d’accès et suivez les étapes indiquées :  
+2.  Legen Sie im Arbeitsbereich **Softwarebibliothek** den Typ des Inhalts fest, für den Sie Zugriffskonten verwalten möchten, und befolgen Sie die angegebenen Schritte:  
 
-    -   **Applications** : développez **Gestion d’applications**, choisissez **Applications**, puis sélectionnez les applications dont vous souhaitez gérer les comptes d’accès.  
+    -   **Anwendungen**: Erweitern Sie **Anwendungsverwaltung**, wählen Sie **Anwendungen**, und wählen Sie dann die Anwendungen aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Packages** : développez **Gestion d’applications**, choisissez **Packages**, puis sélectionnez les packages dont vous souhaitez gérer les comptes d’accès.  
+    -   **Pakete**: Erweitern Sie **Anwendungsverwaltung**, wählen Sie **Pakete**, und wählen Sie dann die Pakete aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Packages de déploiement** : développez **Mises à jour logicielles**, choisissez **Packages de déploiement**, puis sélectionnez les packages de déploiement dont vous souhaitez gérer les comptes d’accès.  
+    -   **Bereitstellungspakete**: Erweitern Sie **Softwareupdates**, wählen Sie **Bereitstellungspakete**, und wählen Sie dann die Bereitstellungspakete aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Packages de pilotes** : développez **Systèmes d’exploitation**, choisissez **Packages de pilotes**, puis sélectionnez les packages de pilotes dont vous souhaitez gérer les comptes d’accès.  
+    -   **Treiberpakete**: Erweitern Sie **Betriebssysteme**, wählen Sie **Treiberpakete**, und wählen Sie dann die Treiberpakete aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Images du système d’exploitation** : développez **Systèmes d’exploitation**, choisissez **Images du système d’exploitation**, puis sélectionnez les images du système d’exploitation dont vous souhaitez gérer les comptes d’accès.  
+    -   **Betriebssystemimages**: Erweitern Sie **Betriebssysteme**, wählen Sie **Betriebssystemimages**, und wählen Sie dann die Betriebssystemimages aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Programmes d’installation de système d’exploitation** : développez **Systèmes d’exploitation**, choisissez **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation dont vous souhaitez gérer les comptes d’accès.  
+    -   **Betriebssysteminstallationspakete**: Erweitern Sie **Betriebssysteme**, wählen Sie **Betriebssysteminstallationspakete**, und wählen Sie dann die Betriebssysteminstallationspakete aus, für die Sie Zugriffskonten verwalten möchten.  
 
-    -   **Images de démarrage** : développez **Systèmes d’exploitation**, choisissez **Images de démarrage**, puis sélectionnez les images de démarrage dont vous souhaitez gérer les comptes d’accès.  
+    -   **Startimages**: Erweitern Sie **Betriebssysteme**, wählen Sie **Startimages**, und wählen Sie dann die Startimages aus, für die Sie Zugriffskonten verwalten möchten.  
 
-3.  Cliquez avec le bouton droit sur l’objet sélectionné, puis choisissez **Gérer des comptes d’accès**.  
+3.  Klicken Sie mit der rechten Maustaste auf das ausgewählte Objekt, und wählen Sie dann **Zugriffskonten verwalten**.  
 
-4.  Dans la boîte de dialogue **Ajouter un compte**, spécifiez le type du compte auquel les droits d’accès au contenu seront accordés, puis indiquez les droits d’accès associés au compte.  
+4.  Geben Sie im Dialogfeld **Konto hinzufügen** den Kontotyp an, dem Zugriff auf den Inhalt gewährt werden soll, und geben Sie dann die Zugriffsrechte an, die dem Konto zugeordnet sind.  
 
     > [!NOTE]  
-    >  Quand vous ajoutez un nom d’utilisateur au compte et que Configuration Manager trouve un compte d’utilisateur local et un compte d’utilisateur de domaine portant ce nom, Configuration Manager définit les droits d’accès du compte d’utilisateur de domaine.  
+    >  Wenn Sie einen Benutzernamen für das Konto hinzufügen und Configuration Manager sowohl ein lokales Benutzerkonto als auch ein Domänenbenutzerkonto mit diesem Namen findet, legt Configuration Manager Zugriffsrechte für das Domänenbenutzerkonto fest.  
 
-##  <a name="bkmk_multi"></a> Compte de connexion multidiffusion  
- Le compte de connexion multidiffusion est utilisé par des points de distribution qui sont configurés pour la multidiffusion pour lire les informations de la base de données de site.  
+##  <a name="bkmk_multi"></a> Multicastverbindungskonto  
+ Über das Multicastverbindungskonto können von den Verteilungspunkten, die für Multicast eingerichtet sind, Informationen aus der Standortdatenbank gelesen werden.  
 
--   Vous spécifiez un compte à utiliser quand vous configurez des connexions de base de données Configuration Manager pour la multidiffusion.  
+-   Sie geben ein Konto an, das verwendet werden soll, wenn Sie Configuration Manager-Datenbankverbindungen für Multicast einrichten.  
 
--   Le compte d’ordinateur du point de distribution est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place.  
+-   Zwar wird standardmäßig das Computerkonto des Verteilungspunkts verwendet, aber Sie können stattdessen auch ein Benutzerkonto einrichten.  
 
--   Chaque fois que la base de données de site est dans une forêt non approuvée, vous devez spécifier un compte d'utilisateur.  
+-   Sie müssen stets ein Benutzerkonto angeben, wenn die Standortdatenbank sich in einer nicht vertrauenswürdigen Gesamtstruktur befindet.  
 
--   Le compte doit avoir des autorisations **d’accès en lecture** à la base de données de site.  
+-   Das Konto benötigt die Berechtigung **Lesen** für die Standortdatenbank.  
 
-Par exemple, si votre centre de données dispose d'un réseau de périmètre dans une forêt autre que celle du serveur de site et de la base de données du site, vous pouvez utiliser ce compte pour lire les informations sur la multidiffusion à partir de la base de données du site.
+Wenn Ihr Rechenzentrum beispielsweise über ein Umkreisnetzwerk in einer anderen Gesamtstruktur als der des Standortservers und der Standortdatenbank verfügt, können Sie mit diesem Konto die Multicast-Informationen aus der Standortdatenbank lesen.
 
-Si vous créez ce compte, créez-le en tant que compte local doté de droits limités sur l’ordinateur qui exécute Microsoft SQL Server.  
+Erstellen Sie dieses Konto ggf. als lokales Konto mit geringen Rechten auf dem Computer, auf dem Microsoft SQL Server ausgeführt wird.  
 
 > [!IMPORTANT]  
->  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
-
+>  Erteilen Sie diesem Konto keine Rechte zur interaktiven Anmeldung.  

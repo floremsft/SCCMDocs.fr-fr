@@ -1,13 +1,12 @@
 ---
-title: "Activer une règle de protection des appareils dans la stratégie de conformité | Microsoft Docs"
-description: "Activez une règle de protection contre les menaces mobiles dans la stratégie de conformité des appareils."
+title: "Aktivieren einer Geräteschutzregel in einer Konformitätsrichtlinie | Microsoft-Dokumentation"
+description: "Aktivieren einer Regel in der Gerätekonformitätsrichtlinie zum Schutz von Mobilgeräten vor Bedrohungen."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99a5b715-f172-46e1-ac27-ad55bde66d0d
@@ -15,44 +14,41 @@ caps.latest.revision:
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: b6e7fe0416870ebb6258f89808affe77997c879d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: faa92e150686e615164ce3f5435b77a65305aab3
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Activer une règle de protection contre les menaces des appareils dans la stratégie de conformité
+# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Aktivieren einer Regel zum Schutz vor Gerätebedrohungen in der Konformitätsrichtlinie
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Intune avec Mobile Threat Protection de Lookout vous donne la possibilité de détecter les menaces mobiles et d’évaluer les risques sur l’appareil. Vous pouvez créer une règle de stratégie de conformité dans Configuration Manager pour inclure l’évaluation des risques permettant de déterminer si l’appareil est conforme. Vous pouvez ensuite utiliser la stratégie d’accès conditionnel pour autoriser ou bloquer l’accès à Exchange, SharePoint et d’autres services, en fonction de la compatibilité des appareils.
+Intune mit Lookout Mobile Threat Protection (MTP) ermöglicht Ihnen, Bedrohungen für Mobilgeräte zu erkennen und eine Risikobewertung für das Gerät vorzunehmen. Sie können eine Konformitätsrichtlinienregel in Configuration Manager erstellen, die die Risikoanalyse einschließt, um festzustellen, ob das Gerät als konform eingestuft wird. Anschließend können Sie den Zugriff auf Exchange, SharePoint und andere Dienste mit der Richtlinie für den bedingten Zugriff basierend auf der Gerätekonformität zulassen oder blockieren.
 
-Pour que Mobile Threat Protection de Lookout influence la stratégie de conformité de l’appareil :
+So können Sie die Konformitätsrichtlinie für das Gerät von der Lookout-Bedrohungserkennung abhängig machen
 
-* La règle **Protection contre les menaces sur les appareils** doit être activée sur la stratégie de conformité.
+* Die Regel **Schutz vor Gerätebedrohungen** muss in der Konformitätsrichtlinie aktiviert werden.
 
-* La page **État de Lookout** dans la **console Administrateur Intune** doit apparaître comme étant **Active**. Pour plus d’informations et des instructions sur la façon d’activer l’intégration de Lookout, consultez la rubrique [Activer la connexion de Lookout dans Intune](enable-lookout-connection-in-intune.md).
+* Auf der Seite **Lookout-Status** in der **Intune-Administratorkonsole** muss **Aktiv** angezeigt werden. Weitere Informationen und Anweisungen zum Aktivieren der Lookout-Integration finden Sie im Thema [Aktivieren der Lookout-MTP-Verbindung in Intune](enable-lookout-connection-in-intune.md).
 
 
-Avant de créer la règle de protection contre les menaces sur les appareils dans la stratégie de conformité, nous vous recommandons de [configurer votre abonnement avec Mobile Threat Protection de Lookout](set-up-your-subscription-with-lookout.md), [d’activer la connexion de Lookout dans Intune](enable-lookout-connection-in-intune.md) et de [configurer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md). La règle de compatibilité est appliquée seulement une fois que le programme d’installation est terminé.
+Vor dem Erstellen der Regel zum Schutz vor Gerätebedrohungen in der Konformitätsrichtlinie wird empfohlen, [für Ihr Abonnement den Lookout-Schutz vor Gerätebedrohungen einzurichten](set-up-your-subscription-with-lookout.md), [die Lookout-Verbindung in Intune zu aktivieren](enable-lookout-connection-in-intune.md) und [die Lookout for Work-App zu konfigurieren](configure-and-deploy-lookout-for-work-apps.md). Die Konformitätsregel wird erst nach Abschluss des Setups erzwungen.
 
-Pour activer la règle de protection contre les menaces sur les appareils, vous pouvez utiliser une stratégie de conformité existante ou en créer une.
+Um die Regel zum Schutz vor Gerätebedrohungen zu aktivieren, können Sie entweder eine vorhandene Konformitätsregel verwenden oder eine neue erstellen.
 
-Dans le cadre de l’installation de Mobile Threat Protection de Lookout, dans la [console Lookout](https://aad.lookout.com), vous avez créé une stratégie qui classifie les différentes menaces selon trois niveaux : Élevé, Moyen et Faible. Dans la stratégie de conformité Intune, vous utilisez le niveau de menace pour définir le niveau de menace maximal autorisé.
+Im Rahmen des Setups des Lookout-Schutzes vor Gerätebedrohungen in der [Lookout-Konsole](https://aad.lookout.com) haben Sie eine Richtlinie erstellen, die verschiedene Bedrohungen in die Stufen „Hoch“, „Mittel“ und „Niedrig“ klassifiziert. In der Intune-Konformitätsrichtlinie können Sie die maximal zulässige Bedrohungsstufe festlegen.
 
-Dans la page **Règles** de l’Assistant Stratégie de conformité, définissez une nouvelle règle avec les informations suivantes :
-  * Condition : niveau de risque maximal de protection contre les menaces sur les appareils.
-  * Valeur : la valeur peut être une des suivantes :
-    * **Aucun (sécurisé)** : il s’agit de l’option la plus sécurisée. Cela signifie que l’appareil ne peut avoir aucune menace. Si un quelconque niveau de menace est détecté, l’appareil est évalué comme non conforme.
-    * **Faible** : l’appareil est considéré comme conforme si seule des menaces de niveau Faible sont présentes. Toute menace d’un niveau supérieur place l’appareil dans un état de non-conformité.
-    * **Moyen** : l’appareil est évalué comme conforme si les menaces trouvées sur l’appareil sont de niveau Faible ou Moyen. Si des menaces de niveau Élevé sont détectées, l’appareil est déterminé comme étant non conforme.
-    * **Élevé** : cette option est la moins sécurisée. Cette option permet en fait tous les niveaux de menaces. Elle peut être utile si vous utilisez cette solution uniquement pour la génération de rapports.
+Definieren Sie auf der Seite **Regeln** im Konformitätsrichtlinien-Assistenten eine neue Regel mit den folgenden Informationen:
+  * Bedingung: Schutz vor Gerätebedrohungen – maximale Risikostufe.
+  * Wert: Folgende Werte sind möglich:
+    * **Keine (Geschützt)**: Dies ist die sicherste Option. Das bedeutet, dass auf dem Gerät keinerlei Bedrohungen zulässig sind. Bei jeglichem Fund einer Bedrohung (egal welcher Stufe) wird das Gerät als nicht konform ausgewertet.
+    * **Niedrig**: Das Gerät wird als konform ausgewertet, wenn nur Bedrohungen der Stufe „Niedrig“ vorhanden sind. Jegliche Bedrohung einer höheren Stufe bewirkt, dass das Gerät in den Status „Nicht konform“ eingestuft wird.
+    * **Mittel**: Das Gerät wird als konform ausgewertet, wenn die auf dem Gerät gefundenen Bedrohungen zur Stufe „Niedrig“ oder „Mittel“ gehören. Wenn Bedrohungen der Stufe „Hoch“ erkannt werden, wird das Gerät als „Nicht konform“ eingestuft.
+    * **Hoch**: Dies ist die am wenigsten sichere Option. Im Prinzip lässt diese Option alle Bedrohungsstufen zu. Sie ist somit eigentlich nur zu Berichtszwecken nützlich.
 
-Si vous créez des stratégies d’accès conditionnel pour Office 365 et d’autres services, l’évaluation de conformité ci-dessus est prise en considération, et l’accès aux ressources d’entreprise par les appareils non conformes est bloqué jusqu’à ce que la menace soit résolue.
+Wenn Sie Richtlinien für bedingten Zugriff für Office 365 und andere Dienste erstellen, wird die oben beschriebene Konformitätsbewertung berücksichtigt. Nicht konforme Geräte werden blockiert und dürfen auf Unternehmensressourcen erst wieder zugreifen, wenn die Bedrohung entfernt wurde.
 
-L’état de la protection contre les menaces sur les appareils est affiché sur le nœud **Sécurité** dans l’espace de travail **Surveillance**.
-Un résumé de l’état avec les différents niveaux de menaces est affiché dans un graphique. Vous pouvez cliquer sur les sections du graphique pour voir plus d’informations, comme le nombre d’appareils signalés comme non conformes par plateforme, et les éventuelles erreurs qui sont signalées.
-Vous pouvez également voir l’état des appareils individuels dans l’espace de travail **Ressources et conformité**, sous **Appareils**.  Vous pouvez ajouter les colonnes **État de conformité de l’appareil** et **Niveau de menace pour l’appareil** pour afficher l’état.  Par défaut, ces colonnes ne sont pas affichées.
-
+Der Gerätebedrohungsschutz-Status wird auf dem Knoten **Sicherheit** im Arbeitsbereich **Überwachung** angezeigt.
+In einem visuellen Diagramm wird eine Zusammenfassung des Status mit verschiedenen Bedrohungsstufen angezeigt. Klicken Sie auf die einzelnen Abschnitte des Diagramms, um weitere Informationen anzuzeigen, z.B. die Anzahl der als nicht kompatibel eingestuften Geräte nach Plattform und alle gemeldeten Fehler.
+Den Status einzelner Geräte können Sie auch im Arbeitsbereich **Bestand und Kompatibilität** unter **Geräte** anzeigen.  Sie können die Spalten **Gerätebedrohung – Kompatibilität** und **Gerätebedrohungsebene** hinzufügen, um den Status anzuzeigen.  Diese Spalten werden standardmäßig nicht angezeigt.

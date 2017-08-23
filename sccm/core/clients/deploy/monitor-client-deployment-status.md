@@ -1,68 +1,64 @@
 ---
-title: "Surveiller l’état de déploiement des clients | Microsoft Docs"
-description: "Surveillez l’état de déploiement des clients dans System Center Configuration Manager."
+title: "Überwachen des Status der Clientbereitstellung | Microsoft-Dokumentation"
+description: "Überwachen des Status der Clientbereitstellung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 20a573b3-53cb-4ed5-bae1-7542f533ed20
-caps.latest.revision: 11
-caps.handback.revision: 0
+caps.latest.revision: "11"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
-ms.openlocfilehash: 0ca218e4276699dd9029308e1d8ac524563da7c5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/03/2017
-
-
+ms.openlocfilehash: 3d9d02d8c56aea17e563112f92173c2b56781da6
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Guide pratique pour surveiller l’état de déploiement des clients dans System Center Configuration Manager
+# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Überwachen des Status der Clientbereitstellung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Le déploiement de clients sur votre site prend du temps et certaines installations ne réussissent pas dès la première fois. La console System Center Configuration Manager permet de garder un œil sur les déploiements de clients au sein d’un regroupement en signalant l’état de déploiement des clients en temps réel.  
+Das standortweite Bereitstellen von Clients nimmt einige Zeit in Anspruch, und einige Installationen verlaufen beim ersten Mal nicht erfolgreich. Mithilfe der System Center Configuration Manager-Konsole können Sie die Clientbereitstellungen innerhalb einer Sammlung überwachen, denn sie berichtet in Echtzeit über den Status der Clientbereitstellungen.  
 
 > [!NOTE]  
->  Le moyen le plus efficace et le plus fiable de surveiller le déploiement des clients est d’utiliser la console Configuration Manager (comme décrit dans cet article). La section **État du client** de l’espace de travail **Analyse** dans la console indique l’état du déploiement des clients avec précision et en temps réel. Vous pouvez surveiller les déploiements de client avec d’autres outils, tels le Gestionnaire de serveur dans Windows Server ou System Center Operations Manager, mais vous risquez de recevoir des alarmes en relation avec l’activité normale d’installation de clients. En raison de la façon dont le programme d’installation client (CCMSetup.exe) s’exécute dans différents environnements, ces autres outils peuvent générer de faux avertissements ou alarmes ne reflétant pas fidèlement l’état de déploiement des clients.  
+>  Die Configuration Manager-Konsole stellt die beste und zuverlässigste Methode zum Überwachen von Clientbereitstellungen dar (wie in diesem Artikel beschrieben). Der Bereich **Clientstatus** im Konsolenarbeitsbereich **Überwachung** gibt den Status der Clientbereitstellungen genau und in Echtzeit wieder. Sie können Clientbereitstellungen auch mit anderen Tools überwachen, z. B. mit Server-Manager in Windows Server oder mit System Center Operations Manager. Allerdings erhalten Sie dann unter Umständen Alarme für normale Aktivitäten bei Clientinstallation. Bedingt durch die Funktionsweise des Clientinstallationsprogramms (CCMSetup.exe) in verschiedenen Umgebungen, generieren diese anderen Tools möglicherweise falsche Alarme und Warnmeldungen, die den Zustand der Clientbereitstellungen nicht genau widerspiegeln.  
 
- Dans l’espace de travail **Analyse** de la console, vous pouvez surveiller les états suivants des déploiements de clients se produisant à l’intérieur d’un regroupement que vous spécifiez :  
+ Im Arbeitsbereich **Überwachung** der Konsole können Sie die folgenden Statusmeldungen für die Clientbereitstellungen überwachen, die aktuell in einer von Ihnen angegebenen Sammlung ausgeführt werden:  
 
--   conformité  
+-   Kompatibel  
 
--   En cours  
+-   In Bearbeitung  
 
--   Non conforme  
+-   Nicht kompatibel  
 
--   Échec  
+-   Fehlgeschlagen  
 
--   Inconnu  
+-   Unbekannt  
 
- Configuration Manager génère des rapports sur les déploiements de clients en production ou en pré-production. La console Configuration Manager fournit également un graphique illustrant les déploiements de clients ayant échoué au cours d’une période donnée, pour vous aider à déterminer si les actions que vous exécutez pour résoudre les problèmes de déploiements améliorent le taux de réussite des déploiements au fil du temps.  
+ Configuration Manager berichtet über die Bereitstellungen geordnet nach Produktionsclients oder Präproduktionsclients. Außerdem können Sie mit der Configuration Manager-Konsole ein Diagramm mit den fehlerhaften Bereitstellungen in einem angegebenen Zeitraum anzeigen. Anhand dieser Daten können Sie leicht feststellen, ob Ihre Maßnahmen zur Fehlerbehebung die Erfolgsrate Ihrer Bereitstellungen mit der Zeit anwachsen lassen.  
 
-## <a name="to-monitor-client-deployments"></a>Pour analyser les déploiements de clients  
+## <a name="to-monitor-client-deployments"></a>So überwachen Sie den Status von Clientbereitstellungen  
 
--   Dans la console Configuration Manager, cliquez sur **Surveillance** > **État du client**.  
+-   Klicken Sie in der Configuration Manager-Konsole auf **Überwachung** > **Clientstatus**.  
 
--   Cliquez sur **Déploiement des clients en production** ou **Déploiement des clients en préproduction**, selon la version du client que vous souhaitez analyser.  
+-   Klicken Sie je nach der Version der zu überwachenden Clients auf **Produktionsclientbereitstellung** oder auf **Präproduktionsclientbereitstellung**.  
 
--   Consulter les graphiques d’état du déploiement des clients et d’échec de déploiement des clients.  
+-   Schauen Sie sich die Diagramme zum Clientbereitstellungsstatus und zu den Fehlern bei der Clientbereitstellung an.  
 
--   Si vous souhaitez modifier l’étendue du rapport, cliquez sur **Parcourir...**, puis choisissez un autre regroupement.  
+-   Wenn Sie den Geltungsbereich des Berichts ändern möchten, klicken Sie auf **Durchsuchen...**  
 
- Pour en savoir plus sur les déploiements de clients en préproduction, consultez [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
+ , und wählen Sie eine andere Sammlung aus.Weitere Informationen zu Präproduktionsclientbereitstellungen finden Sie unter [Testen von Clientupgrades in einer Präproduktionssammlung in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 
  > [!NOTE]
- > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non conforme**, même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.   
+ > Der Bereitstellungsstatus auf den Computern, auf denen Standortsystemrollen in einer Präproduktionssammlung gehostet werden, kann eventuell als **Nicht kompatibel** gemeldet werden, selbst wenn der Client erfolgreich bereitgestellt wurde. Wenn Sie den Client in den Produktivbetrieb versetzen, wird der Bereitstellungsstatus ordnungsgemäß gemeldet.   
 
- Pour analyser l’état des clients déployés, consultez [Comment surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
+ Informationen zur Statusüberwachung bei bereitgestellten Clients finden Sie unter [How to monitor clients in System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md) (Überwachen von Clients in System Center Configuration Manager).  
 
- Vous pouvez utiliser des rapports Configuration Manager pour obtenir un complément d’informations sur l’état des clients de votre site. Pour plus d’informations sur la façon d’exécuter des rapports, consultez [Génération de rapports dans System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
-
+ Sie können mithilfe von Configuration Manager-Berichten weitere Informationen zum Status von Clients an Ihrem Standort erhalten. Weitere Informationen zum Ausführen von Berichten finden Sie unter [Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/reporting.md).  

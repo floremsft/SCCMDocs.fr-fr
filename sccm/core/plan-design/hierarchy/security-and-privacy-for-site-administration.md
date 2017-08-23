@@ -1,285 +1,282 @@
 ---
-title: "Sécurité et confidentialité pour l’administration de site | Microsoft Docs"
-description: "Optimisez la sécurité et la confidentialité pour l’administration de site dans System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für die Standortverwaltung | Microsoft-Dokumentation"
+description: "Optimieren Sie Sicherheit und Datenschutz für die Standortverwaltung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1d58176e-abc0-4087-8583-ce70deb4dcf5
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f9097014c7e988ec8e139e518355c4efb19172b3
 ms.openlocfilehash: a60b8c103a303dcae0bd66f3060d5a8f17d1cef9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour l’administration de site dans System Center Configuration Manager
+# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Standortverwaltung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour les sites System Center Configuration Manager et la hiérarchie.
+Diese Thema enthält Sicherheits- und Datenschutzinformationen für System Center Configuration Manager-Standorte und die Hierarchie.
 
-##  <a name="BKMK_Security_Sites"></a> Bonnes pratiques de sécurité pour l’administration de site  
- Utilisez les bonnes pratiques de sécurité suivantes pour vous aider à sécuriser les sites System Center Configuration Manager et la hiérarchie.  
+##  <a name="BKMK_Security_Sites"></a> Bewährte Sicherheitsmethoden für die Standortverwaltung  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, um System Center Configuration Manager-Standorte und die Hierarchie zu sichern.  
 
- **Exécutez le programme d’installation à partir d’une source approuvée et sécurisez le canal de communication entre le support d’installation et le serveur de site.**  
+ **Führen Sie Setup nur von einer vertrauenswürdigen Quelle aus aus, und sichern Sie den Kommunikationskanal zwischen Setupmedien und Standortserver.**  
 
- Pour empêcher la falsification des fichiers sources, exécutez le programme d’installation à partir d’une source approuvée. Si vous stockez les fichiers sur le réseau, sécurisez l'emplacement réseau.  
+ Führen Sie Setup nur von einer vertrauenswürdigen Quelle aus aus, um Manipulationen der Quelldateien zu vermeiden. Wenn Sie die Dateien im Netzwerk speichern, Sichern Sie den Speicherort im Netzwerk.  
 
- Si vous exécutez le programme d’installation à partir d’un emplacement réseau, pour empêcher une éventuelle personne malveillante de falsifier les fichiers lors de leur transmission sur le réseau, utilisez IPsec ou la signature SMB (Server Message Block) entre l’emplacement source des fichiers d’installation et le serveur de site.  
+ Wenn Sie Setup von einem Speicherort im Netzwerk aus ausführen, verwenden Sie IPsec oder Server Message Block (SMB)-Signaturen zwischen dem Quellspeicherort der Setupdateien und dem Standortserver, um Manipulationen an den Dateien während der Übertragung über das Netzwerk zu verhindern.  
 
- De plus, si vous utilisez le téléchargeur d’installation pour télécharger les fichiers requis par le programme d’installation, veillez à sécuriser également l’emplacement de stockage de ces fichiers et sécurisez le canal de communication pour cet emplacement lorsque vous exécutez le programme d’installation.  
+ Wenn Sie das Setup-Downloadprogramm zum Herunterladen der für Setup erforderlichen Dateien verwenden, sichern Sie auch den Ort, an dem diese Dateien gespeichert werden, sowie den Kommunikationskanal mit diesem Speicherort, wenn Sie Setup ausführen.  
 
- **Développez le schéma Active Directory pour System Center Configuration Manager et publiez des sites vers les services de domaine Active Directory.**  
+ **Erweitern Sie das Active Directory-Schema für System Center Configuration Manager, und veröffentlichen Sie die Standorte in Active Directory Domain Services.**  
 
- Les extensions de schéma ne sont pas nécessaires pour exécuter System Center Configuration Manager, mais elles créent un environnement plus sécurisé car les serveurs de site et les clients Configuration Manager peuvent récupérer les informations à partir d’une source approuvée.  
+ Schemaerweiterungen sind zum Ausführen von System Center Configuration Manager nicht erforderlich, jedoch lässt sich die Sicherheit der Umgebung durch sie erhöhen, da so ein Abrufen von Informationen durch Configuration Manager-Clients und Standortserver aus vertrauenswürdigen Quellen ermöglicht wird.  
 
- Si les clients se trouvent dans un domaine non approuvé, déployez les rôles de système de site suivants dans les domaines des clients :  
+ Stellen Sie bei Clients in einer nicht vertrauenswürdigen Domäne die folgenden Standortsystemrollen in den Domänen der Clients bereit:  
 
--   Point de gestion  
+-   Verwaltungspunkt  
 
--   Point de distribution  
+-   Verteilungspunkt  
 
--   Point du site web du catalogue des applications  
-
-> [!NOTE]  
->  Un domaine approuvé pour Configuration Manager requiert l’authentification Kerberos. Cela signifie que si des clients se trouvent dans une autre forêt qui ne dispose pas d’une approbation de forêt bidirectionnelle avec la forêt du serveur de site, ces clients sont considérés comme étant dans un domaine non approuvé. Dans ce cas, une approbation externe n'est pas suffisante.  
-
- **Utilisez IPsec pour sécuriser les communications entre les sites et serveurs de système de site.**  
-
- Bien que Configuration Manager sécurise les communications entre le serveur de site et l’ordinateur qui exécute SQL Server, Configuration Manager ne sécurise pas les communications entre les rôles de système de site et SQL Server. Seuls certains systèmes de site (le point d'inscription et le point de service Web du catalogue d'applications) peuvent être configurés pour le protocole HTTPS pour la communication intrasite.  
-
- Si vous n'utilisez pas de contrôles supplémentaires pour sécuriser ces canaux serveur à serveur, des personnes malveillantes peuvent utiliser différentes attaques d'usurpation ou de l'intercepteur contre les systèmes de site. Utilisez la signature SMB lorsque vous ne pouvez pas utiliser IPsec.  
+-   Anwendungskatalog-Websitepunkt  
 
 > [!NOTE]  
->  Il est particulièrement important de sécuriser le canal de communication entre le serveur de site et le serveur de la source du package. Cette communication utilise SMB. Si vous ne pouvez pas utiliser IPsec pour sécuriser cette communication, utilisez la signature SMB afin de vous assurer que les fichiers ne sont pas falsifiés avant que les clients les téléchargent et les exécutent.  
+>  Eine vertrauenswürdige Domäne für den Configuration Manager erfordert Kerberos-Authentifizierung. Daher werden Clients in einer anderen Gesamtstruktur ohne bidirektionale Vertrauensstellung mit der Gesamtstruktur des Standortservers als Clients in einer nicht vertrauenswürdigen Domäne betrachtet. Eine externe Vertrauensstellung ist für diesen Zweck nicht ausreichend.  
 
- **Ne modifiez pas les groupes de sécurité créés et gérés par Configuration Manager pour la communication du système de site.**  
+ **Verwenden Sie IPsec zum Sichern der Kommunikation zwischen Standortsystemservern und Standorten.**  
 
- Groupes de sécurité :  
+ Die Kommunikation zwischen Standortserver und dem Computer, auf dem SQL Server ausgeführt wird, wird von Configuration Manager gesichert. Die Kommunikation zwischen Standortsystemrollen und SQL Server wird von Configuration Manager jedoch nicht gesichert. Es können nur einige Standortsysteme (Anmeldungspunkt und Anwendungskatalog-Webdienstpunkt) für die Verwendung von HTTPS zur standortinternen Kommunikation konfiguriert werden.  
 
--   **SMS_SiteSystemToSiteServerConnection_MP_&lt;code_site\>**  
+ Wenn Sie keine zusätzlichen Kontrollmaßnahmen zum Sichern dieser Kanäle zwischen Servern verwenden, können Angreifer verschiedene Spoofing- und Man-in-the-middle-Angriffe gegen Standortsysteme richten. Verwenden Sie SMB-Signaturen, wenn Sie IPsec nicht verwenden können.  
 
--   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;code_site\>**  
+> [!NOTE]  
+>  Es ist besonders wichtig, den Kommunikationskanal zwischen Standortserver und dem Quellserver der Pakete zu sichern. Diese Kommunikation erfolgt über SMB. Wenn Sie IPsec nicht verwenden können, um die Kommunikation zu sichern, verwenden Sie SMB-Signaturen, um zu gewährleisten, dass die Dateien nicht manipuliert sind, wenn sie von den Clients heruntergeladen und ausgeführt werden.  
 
--   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;code_site\>**  
+ **Nehmen Sie keine Änderungen an den Sicherheitsgruppen vor, die von Configuration Manager erstellt und zur Kommunikation im Standortsystem verwaltet werden.**  
 
-Configuration Manager crée et gère automatiquement ces groupes de sécurité. Cela inclut la suppression de comptes d'ordinateur lorsqu'un rôle de système de site est supprimé.  
+ Sicherheitsgruppen:  
 
-Pour garantir la continuité de service et des privilèges minimum, ne modifiez pas ces groupes manuellement.  
+-   **SMS_SiteSystemToSiteServerConnection_MP_&lt;Standortcode\>**  
 
-**Si les clients ne peuvent pas interroger le serveur du catalogue global pour obtenir des informations Configuration Manager, gérez le processus de mise en service de la clé racine approuvée.**  
+-   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;Standortcode\>**  
 
-Si les clients ne peuvent pas interroger le catalogue global pour obtenir des informations Configuration Manager, ils doivent s’appuyer sur la clé racine approuvée pour authentifier des points de gestion valides. La clé racine approuvée est stockée dans le Registre du client et peut être configurée à l'aide d'une stratégie de groupe ou d'une configuration manuelle.  
+-   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;Standortcode\>**  
 
-Si le client ne dispose pas d'une copie de la clé racine approuvée avant de contacter un point de gestion pour la première fois, il approuve le premier point de gestion avec lequel il communique. Pour réduire le risque d'un acte de piraterie consistant à réacheminer les clients vers un point de gestion non autorisé, vous pouvez préparer la mise en service des clients avec la clé racine approuvée. Pour plus d’informations, voir [Planification de la clé racine approuvée](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+Diese Sicherheitsgruppen werden von Configuration Manager automatisch erstellt und verwaltet. Hierin ist das Entfernen von Computerkonten, wenn eine Standortsystemrolle entfernt wird, eingeschlossen.  
 
-**Utilisez des numéros différents des numéros de port par défaut.**  
+Bearbeiten Sie diese Gruppen nicht manuell, um die Dienstkontinuität und das Prinzip der geringsten Berechtigungen nicht zu gefährden.  
 
-L’utilisation de numéros de port différents des numéros par défaut peut vous permettre de bénéficier d’une sécurité supplémentaire, car les personnes malveillantes ont plus de difficulté à explorer l’environnement en vue d’une attaque. Si vous décidez d’utiliser des ports autres que les ports par défaut, planifiez-les avant d’installer Configuration Manager et utilisez-les de manière cohérente sur tous les sites de la hiérarchie. Les ports de demande client et l’éveil par appel réseau (Wake On LAN), notamment, permettent d’utiliser des numéros de port autres que les numéros par défaut.  
+**Wenn eine Abfrage von Configuration Manager-Informationen vom globalen Katalogserver durch die Clients nicht möglich ist, verwalten Sie den Bereitstellungsprozess des vertrauenswürdigen Stammschlüssels.**  
 
-**Utilisez la séparation des rôles sur les systèmes de site.**  
+Wenn eine Abfrage von Configuration Manager-Informationen vom globalen Katalog durch die Clients nicht möglich ist, ist der vertrauenswürdige Stammschlüssel zur Authentifizierung gültiger Verwaltungspunkte erforderlich. Der vertrauenswürdige Stammschlüssel wird in der Clientregistrierung gespeichert und kann mithilfe der Gruppenrichtlinie oder manuell konfiguriert werden.  
 
-Bien que vous puissiez installer tous les rôles de système de site sur un seul ordinateur, cette pratique est rarement utilisée sur les réseaux de production, car elle crée un point de défaillance unique.  
+Wenn der Client beim ersten Kontakt mit einem Verwaltungspunkt keine Kopie des vertrauenswürdigen Stammschlüssels aufweist, wird dem ersten Verwaltungspunkt vertraut, mit dem kommuniziert wird. Sie können für den Client im Voraus einen vertrauenswürdigen Stammschlüssel bereitstellen, um das Risiko zu reduzieren, dass Clients von einem Angreifer an einen nicht autorisierten Verwaltungspunkt umgeleitet werden. Weitere Informationen finden Sie unter [Planning for the trusted root key (Planen des vertrauenswürdigen Stammschlüssels)](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
-**Réduisez le profil d'attaque.**  
+**Verwenden Sie nicht die Standardportnummern.**  
 
-L’isolation de chaque rôle de système de site sur un serveur différent réduit le risque qu’une attaque contre les vulnérabilités d’un système de site puisse être utilisée contre un autre système de site. De nombreux rôles de système de site requièrent l’installation d’IIS (Internet Information Services) sur le système de site et cela augmente la surface d’attaque. Si vous devez combiner des rôles de système de site afin de réduire les dépenses en matériel, combinez les rôles de système de site IIS uniquement avec d’autres rôles de système de site nécessitant IIS.  
+Aus Sicherheitsgründen sollten Sie Portnummern verwenden, die nicht der Standardeinstellung entsprechen. Dadurch wird Angreifern die Erkundung der Umgebung zur Vorbereitung eines Angriffs erschwert. Wenn Sie sich für die Verwendung von Portnummern entscheiden, die nicht der Standardeinstellung entsprechen, planen Sie diese Nummern, bevor Sie Configuration Manager installieren, und verwenden Sie diese Nummern konsistent in allen Standorten der Hierarchie. Portnummern, die nicht der Standardeinstellung entsprechen, können Sie beispielsweise als Clientanforderungsports und für Wake-On-LAN verwenden.  
+
+**Verwenden Sie die Rollentrennung für Standortsysteme.**  
+
+Sie können zwar sämtliche Standortsystemrollen auf einem einzigen Computer installieren, doch wird dieses Vorgehen in Produktionsnetzwerken selten verwendet, weil damit ein einziger Fehlerpunkt erstellt wird.  
+
+**Verringern Sie die Angriffsfläche.**  
+
+Wenn Sie jede Standortserverrolle auf einem anderen Server installieren, reduzieren Sie damit das Risiko, dass ein Angriff gegen Schwachstellen in einem Standortsystem auch gegen ein anderes Standortsystem verwendet werden kann. Für viele Standortsystemrollen ist die Installation von Internetinformationsdiensten (IIS) auf dem Standortsystem erforderlich. Dadurch vergrößert sich die Angriffsfläche. Wenn Sie Standortsystemrollen kombinieren müssen, um die Hardwareausgaben zu reduzieren, sollten Sie IIS-Standortsystemrollen nur mit Rollen kombinieren, für die ebenfalls IIS erforderlich sind.  
 
 > [!IMPORTANT]  
->  Le rôle de point d’état de secours est une exception. Comme ce rôle de système de site accepte les données non authentifiées des clients, nous vous recommandons de ne jamais attribuer le rôle de point d’état de secours à un autre système de site Configuration Manager.  
+>  Für die Fallbackstatuspunkt-Rolle gilt eine Ausnahme. Von dieser Standortsystemrolle werden nicht authentifizierte Daten von Clients akzeptiert, daher sollte die Fallbackstatuspunkt-Rolle niemals einer anderen Configuration Manager-Standortsystemrolle zugewiesen werden.  
 
 
-**Suivez les meilleures pratiques de sécurité pour Windows Server et exécutez l'Assistant Configuration de la sécurité sur tous les systèmes de site.**  
+**Befolgen Sie die bewährten Sicherheitsmethoden für Windows Server, und führen Sie auf allen Standortsystemen den Sicherheitskonfigurations-Assistenten aus.**  
 
-L'Assistant Configuration de la sécurité (SCW) vous aide à créer une stratégie de sécurité que vous pouvez appliquer à n'importe quel serveur de votre réseau. Une fois que vous avez installé le modèle System Center Configuration Manager, l’Assistant Configuration de la sécurité reconnaît les applications, les services, les ports et les rôles de système de site Configuration Manager. Il autorise ensuite les communications requises pour Configuration Manager et bloque les communications non requises.  
+Mithilfe des Sicherheitskonfigurations-Assistenten können Sie eine Sicherheitsrichtlinie erstellen und auf alle Server im Netzwerk anwenden. Nach der Installation der System Center Configuration Manager-Vorlage erkennt SCW Configuration Manager-Standortsystemrollen, -dienste, -ports und -anwendungen. Danach wird die Kommunikation, die für Configuration Manager erforderlich ist, zugelassen, und die nicht erforderliche Kommunikation wird blockiert.  
 
-L’Assistant Configuration de la sécurité est inclus dans le kit de ressources pour System Center 2012 Configuration Manager, que vous pouvez télécharger dans le Centre de téléchargement Microsoft : [System Center 2012 – Composants additionnels et extensions du composant Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
+Der Sicherheitskonfigurations-Assistent ist im Toolkit für System Center 2012 Configuration Manager enthalten, das Sie im Microsoft Download Center herunterladen können: [System Center 2012 – Add-Ons und Erweiterungen für Configuration Manager-Komponente](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
 
-**Configurez des adresses IP statiques pour les systèmes de site.**  
+**Konfigurieren Sie statische IP-Adressen für Standortsysteme.**  
 
-Les adresses IP statiques sont plus simples à protéger des attaques de résolution de noms.  
+Statische IP-Adressen können leichter vor Namensauflösungsangriffen geschützt werden.  
 
-Elles facilitent également la configuration d’IPsec. L’utilisation d’IPsec est une bonne pratique de sécurité pour sécuriser les communications entre des systèmes de site dans Configuration Manager.  
+Statische IP-Adressen erleichtern auch die Konfiguration von IPsec. Die Verwendung von IPsec ist eine bewährte Sicherheitsmethode zur Kommunikationssicherung zwischen Standortsystemen in Configuration Manager.  
 
-**N'installez pas d'autres applications sur des serveurs de système de site.**  
+**Installieren Sie keine anderen Anwendungen auf Standortsystemservern.**  
 
-Lorsque vous installez d’autres applications sur des serveurs de système de site, vous augmentez la surface d’attaque pour Configuration Manager et risquez des problèmes d’incompatibilité.  
+Wenn Sie andere Anwendungen auf Standortsystemservern installieren, vergrößern Sie die Angriffsfläche von Configuration Manager und erhöhen das Risiko von Kompatibilitätsproblemen.  
 
-**Exigez la signature et autorisez le cryptage comme une option de site.**  
+**Fordern Sie Signaturen an, und aktivieren Sie Verschlüsselung als Standortoption.**  
 
-Activez les options de signature et de cryptage pour le site. Assurez-vous que tous les clients peuvent prendre en charge l’algorithme de hachage SHA-256, puis activez l’option **Exiger SHA-256**.  
+Aktivieren Sie die Signierungs- und Verschlüsselungsoptionen für den Standort. Vergewissern Sie sich, dass der SHA-256-Hashalgorithmus von allen Clients unterstützt wird, und aktivieren Sie dann die Option **SHA-256 erforderlich**.  
 
-**Limitez et surveillez les utilisateurs administratifs Configuration Manager et utilisez l’administration basée sur les rôles pour accorder à ces utilisateurs les autorisations minimales dont ils ont besoin.**  
+**Überwachen Sie Configuration Manager-Administratoren, beschränken Sie ihre Anzahl, und verwenden Sie die rollenbasierte Verwaltung, um diesen Benutzern die minimal erforderlichen Berechtigungen zu erteilen.**  
 
-Accordez un accès administratif à Configuration Manager uniquement aux utilisateurs auxquels vous faites confiance, puis accordez-leur les autorisations minimales en utilisant les rôles de sécurité intégrés ou en personnalisant les rôles de sécurité. Les utilisateurs administratifs qui peuvent créer, modifier et déployer des applications, des séquence de tâches, des mises à jour logicielles, des éléments de configuration et des références de configuration, peuvent potentiellement contrôler des appareils dans la hiérarchie Configuration Manager.  
+Gewähren Sie nur vertrauenswürdigen Benutzern administrativen Zugriff auf Configuration Manager, und befolgen Sie das Prinzip der minimal erforderlichen Berechtigungen, indem Sie die integrierten Sicherheitsrollen verwenden oder anpassen. Administratoren, die Anwendungen, Tasksequenzen, Softwareupdates, Konfigurationsobjekte und Konfigurationsbaselines erstellen, ändern und bereitstellen können, können die Geräte in der Configuration Manager-Hierarchie möglicherweise steuern.  
 
-Auditez régulièrement les affectations d'utilisateur administratifs et leur niveau d'autorisation pour vérifier les modifications requises.  
+Überwachen Sie kontinuierlich die Administratorzuweisungen und die Autorisierungsebenen, um erforderliche Änderungen zu überprüfen.  
 
-Pour plus d'informations sur la configuration de l'administration basée sur des rôles, voir la section [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Weitere Informationen zum Konfigurieren der rollenbasierten Verwaltung finden Sie unter [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-**Sécurisez les sauvegardes Configuration Manager et le canal de communication lors de la sauvegarde et de la restauration.**  
+**Sichern Sie die Configuration Manager-Sicherungen sowie den Kommunikationskanal, wenn Sie Sicherungen und Wiederherstellungen ausführen.**  
 
-Lorsque vous sauvegardez Configuration Manager, ces informations incluent des certificats et d’autres données sensibles qui pourraient être utilisées par une personne malveillante pour l’emprunt d’identité.  
+Beim Wiederherstellen von Configuration Manager sind Informationen erforderlich, in denen auch Zertifikate und andere sensible Daten enthalten sind. Diese Daten könnten von Angreifern zur Identitätsvortäuschung verwendet werden.  
 
-Utilisez la signature SMB ou IPsec lorsque vous transférez ces données sur le réseau et sécurisez l'emplacement de sauvegarde.  
+Verwenden Sie SMB-Signaturen oder IPsec, wenn Sie solche Daten im Netzwerk übertragen, und sichern Sie auch das Sicherungsverzeichnis.  
 
-**Lorsque vous exportez ou importez des objets à partir de la console Configuration Manager vers un emplacement réseau, sécurisez l’emplacement et le canal de réseau.**  
+**Sichern Sie beim Exportieren und Importieren von Objekten zwischen Configuration Manager-Konsole und einem Netzwerkspeicherort den Speicherort und den Netzwerkkanal.**  
 
-Veillez à restreindre l'accès au dossier réseau.  
+Schränken Sie die Anzahl der Personen ein, die auf den Netzwerkordner zugreifen können.  
 
-Utilisez la signature SMB ou IPsec entre l’emplacement réseau et le serveur de site, et entre l’ordinateur qui exécute la console Configuration Manager et le serveur de site pour empêcher une personne malveillante de falsifier les données exportées. Utilisez IPsec pour chiffrer les données sur le réseau afin d'éviter la divulgation d'informations.  
+Verwenden Sie SMB-Signaturen oder IPsec zwischen Netzwerkspeicherort und Standortserver sowie zwischen dem Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, und dem Standortserver, um Manipulationen an den exportierten Daten zu verhindern. Verwenden Sie IPsec zum Verschlüsseln der Daten im Netzwerk, um die Offenlegung von Informationen zu verhindern.  
 
-**Si un système de site n’est pas désinstallé correctement ou cesse de fonctionner et ne peut pas être restauré, supprimez manuellement les certificats Configuration Manager pour ce serveur à partir des autres serveurs Configuration Manager.**  
+**Wenn ein Standortsystem nicht richtig deinstalliert wird oder bei Funktionsausfall nicht wiederhergestellt werden kann, entfernen Sie die Configuration Manager-Zertifikate für diesen Server manuell von anderen Configuration Manager-Servern.**  
 
-Pour supprimer la confiance entre homologues initialement établie avec le système de site et les rôles de système de site, supprimez manuellement les certificats Configuration Manager pour le serveur en échec dans le magasin de certificats **Personnes autorisées** sur d’autres serveurs de système de site. Ceci est particulièrement important si vous adaptez le serveur sans le reformater.  
+Zum Entfernen von PeerTrust, das ursprünglich mit dem Standortsystem und den Standortsystemrollen erstellt wurde, entfernen Sie die Configuration Manager-Zertifikate für den ausgefallenen Server im Zertifikatspeicher **Vertrauenswürdige Personen** auf anderen Standortsystemservern manuell. Dies ist besonders dann wichtig, wenn Sie den Server ohne Neuformatieren wiederverwenden.  
 
-Pour plus d’informations sur ces certificats, consultez la section **Contrôles de chiffrement pour la communication du serveur** dans [Informations techniques de référence sur les contrôles de chiffrement pour System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
+Weitere Informationen zu diesen Zertifikaten finden Sie im Abschnitt **Kryptografische Steuerelemente für die Serverkommunikation** unter [Technische Referenz für kryptografische Steuerelemente](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
 
-**Ne configurez pas les systèmes de site basés sur Internet pour relier le réseau de périmètre et l'Intranet.**  
+**Konfigurieren Sie internetbasierte Standortsysteme nicht als Brücke zu Umkreisnetzwerk und Intranet.**  
 
-Ne configurez pas les serveurs de système de site comme multi-résidents, afin qu’ils se connectent au réseau de périmètre et à l’intranet. Bien que cette configuration autorise les systèmes de site basés sur Internet à accepter les connexions client à partir d'Internet et de l'Intranet, elle élimine une limite de sécurité entre le réseau de périmètre et l'Intranet.  
+Konfigurieren Sie Standortsystemserver nicht so, dass sie mehrfach vernetzt und sowohl mit dem Umkreisnetzwerk als auch mit dem Intranet verbunden sind. Durch eine solche Konfiguration können von internetbasierten Standortsystemen zwar Clientverbindungen aus dem Internet und dem Intranet angenommen werden, aber es wird eine Sicherheitsgrenze zwischen dem Umkreisnetzwerk und dem Intranet aufgehoben.  
 
-**Si le serveur de système de site se trouve sur un réseau non approuvé (tel qu'un réseau de périmètre), configurez le serveur de site pour établir des connexions avec le système de site.**  
+**Wenn sich der Standortsystemserver in einem nicht vertrauenswürdigen Netzwerk (wie einem Umkreisnetzwerk) befindet, konfigurieren Sie den Standortserver für das Initiieren von Verbindungen mit dem Standortsystem.**  
 
-Par défaut, les systèmes de site établissent des connexions avec le serveur de site pour transférer des données, ce qui peut constituer un risque pour la sécurité lorsque la connexion est établie depuis un réseau non approuvé vers le réseau approuvé. Lorsque des systèmes de site acceptent des connexions depuis Internet ou résident dans une forêt non approuvée, configurez l'option du système de site **Exiger que le serveur de site établisse des connexions vers ce système de site** afin que toutes les connexions soient établies depuis le réseau approuvé une fois que le système de site et tout rôle de système de site a été installé.  
+Von den Standortsystemen werden standardmäßig Verbindungen mit dem Standortserver zur Datenübertragung hergestellt. Dies kann ein Sicherheitsrisiko darstellen, wenn die Verbindung von einem nicht vertrauenswürdigen Netzwerk mit dem vertrauenswürdigen Netzwerk hergestellt wird. Wenn von den Standortsystemen Verbindungen aus dem Internet akzeptiert werden oder sich die Standortsysteme in einer nicht vertrauenswürdigen Struktur befinden, konfigurieren Sie die Standortsystemoption **Verbindungen mit diesem Standortsystem müssen vom Standortserver hergestellt werden** , sodass nach der Installation von Standortsystem und Standortsystemrollen alle Verbindungen vom vertrauenswürdigen Netzwerk initiiert werden.  
 
-**Si vous utilisez un serveur proxy Web pour la gestion des clients basés sur Internet, utilisez le pontage SSL vers SSL à l'aide de la terminaison avec authentification.**  
+**Wenn Sie für die internetbasierte Clientverwaltung einen Webproxyserver verwenden, verwenden Sie SSL-zu-SSL-Bridging mit Tunnelabschluss und Authentifizierung.**  
 
- Lorsque vous configurez la terminaison SSL au niveau du serveur Web proxy, les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet.  
+ Wenn Sie den SSL-Tunnelabschluss für den Proxywebserver konfigurieren, werden Pakete aus dem Internet überprüft, bevor sie an das interne Netzwerk weitergeleitet werden. Die vom Client eingehende Verbindung wird vom Proxywebserver authentifiziert und beendet, und dann wird eine neue authentifizierte Verbindung mit dem internetbasierten Standortsystem hergestellt.  
 
- Lorsque les ordinateurs clients Configuration Manager utilisent un serveur web proxy pour se connecter à des systèmes de site basés sur Internet, l’identité du client (GUID client) est contenue, en toute sécurité, dans la charge utile du paquet pour que le point de gestion ne considère pas le serveur web proxy comme le client. Si votre serveur Web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, le tunnel SSL est également pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison et ne peuvent donc pas être inspectés à la recherche de contenu malveillant.  
+ Wenn von Configuration Manager-Clientcomputern ein Proxywebserver verwendet wird, um eine Verbindung mit internetbasierten Standortsystemen herzustellen, wird die Clientidentität (Client-GUID) sicher als Bestandteil der Paketnutzdaten transportiert, sodass der Proxywebserver vom Verwaltungspunkt nicht als Client angesehen wird. Wenn von Ihrem Proxywebserver die Voraussetzungen für die Unterstützung von SSL-Bridging nicht erfüllt werden, steht Ihnen als weitere Möglichkeit die Verwendung von SSL-Tunneling zur Verfügung. Diese Option ist weniger sicher, da die SSL-Pakete aus dem Internet ohne Tunnelabschluss an die Standortsysteme weitergeleitet werden und daher nicht auf schädlichen Inhalt überprüft werden können.  
 
- Si votre serveur Web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, vous pouvez utiliser le tunnel SSL. Toutefois, il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison et ne peuvent donc pas être inspectés à la recherche de contenu malveillant.  
+ Wenn von Ihrem Proxywebserver die Voraussetzungen für die Unterstützung von SSL-Bridging nicht erfüllt werden, können Sie auch SSL-Tunneling verwenden. Diese Option ist jedoch weniger sicher, da die SSL-Pakete aus dem Internet ohne Tunnelabschluss an die Standortsysteme weitergeleitet werden und daher nicht auf schädlichen Inhalt überprüft werden können.  
 
 > [!WARNING]  
->  Les appareils mobiles qui sont inscrits par Configuration Manager ne peuvent pas utiliser le pontage SSL et doivent utiliser le tunnel SSL uniquement.  
+>  SSL-Bridging wird von mobilen Geräten, die mithilfe von Configuration Manager angemeldet wurden, nicht unterstützt, sodass hierbei nur SSL-Tunneling verwendet werden kann.  
 
-**Configurations à utiliser si vous configurez le site pour qu’il réveille les ordinateurs afin d’installer le logiciel :**  
+**Empfohlene Konfigurationen, wenn Sie den Standort zum Aktivieren von Computern für die Softwareinstallation konfigurieren.**  
 
--   Si vous utilisez des paquets de mise en éveil traditionnels, utilisez la monodiffusion plutôt que des diffusions dirigées vers le sous-réseau.  
+-   Wenn Sie herkömmliche Aktivierungspakete verwenden, bevorzugen Sie Unicast gegenüber subnetzgesteuerten Broadcasts.  
 
--   Si vous devez utiliser des diffusions dirigées vers le sous-réseau, configurez les routeurs de sorte à autoriser les diffusions vers IP uniquement à partir du serveur de site et uniquement sur un numéro de port autre que le port par défaut.  
+-   Wenn subnetzgesteuerte Broadcasts verwendet werden müssen, konfigurieren Sie die Router so, dass IP-gesteuerte Broadcasts nur über den Standortserver und nur über eine nicht standardmäßig konfigurierte Portnummer möglich sind.  
 
-Pour plus d’informations sur les différentes technologies Wake On LAN, consultez [Planification de l’éveil des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+Weitere Informationen zu den verschiedenen Wake-On-LAN-Technologien finden Sie unter [Planning how to wake up clients in System Center Configuration Manager (Planen der Aktivierung von Clients in System Center Configuration Manager)](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-**Si vous utilisez la notification par courrier électronique, configurez un accès authentifié au serveur de messagerie SMTP.**  
+**Wenn Sie E-Mail-Benachrichtigungen verwenden, konfigurieren Sie einen authentifizierten Zugriff auf den SMTP-E-Mail-Server.**  
 
-Dans la mesure du possible, utilisez un serveur de courrier qui prend en charge l’accès authentifié et le compte d’ordinateur du serveur de site pour l’authentification. Si vous devez spécifier un compte d'utilisateur pour l'authentification, utilisez un compte qui dispose des privilèges minimum.  
+Verwenden Sie nach Möglichkeit einen E-Mail-Server mit Unterstützung für authentifizierten Zugriff, und authentifizieren Sie den Zugriff mithilfe des Computerkontos des Standortservers. Falls Sie ein Benutzerkonto für die Authentifizierung angeben müssen, verwenden Sie eines mit den geringsten Berechtigungen.  
 
-##  <a name="BKMK_Security_SiteServer"></a> Bonnes pratiques de sécurité pour le serveur de site  
- Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser le serveur de site Configuration Manager.  
+##  <a name="BKMK_Security_SiteServer"></a> Bewährte Sicherheitsmethoden für den Standortserver  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, um den Configuration Manager-Standortserver zu sichern.  
 
- **Installez Configuration Manager sur un serveur membre plutôt que sur un contrôleur de domaine.**  
+ **Installieren Sie Configuration Manager auf einem Mitgliedsserver anstatt auf einem Domänencontroller.**  
 
- Le serveur de site Configuration Manager et les systèmes de site ne nécessitent pas d’installation sur un contrôleur de domaine. Un contrôleur de domaine ne possède pas de base de données SAM (Security Accounts Management) locale autre que la base de données du domaine. Lorsque vous installez Configuration Manager sur un serveur membre, vous pouvez gérer les comptes Configuration Manager dans la base de données SAM locale plutôt que dans la base de données du domaine.  
+ Die Configuration Manager-Standortserver und -Standortsysteme müssen nicht auf einem Domänencontroller installiert werden. Domänencontroller verfügen neben der Domänendatenbank über keine andere lokale SAM-Datenbank (Security Accounts Management). Wenn Sie Configuration Manager auf einem Mitgliedsserver installieren, können Sie die Configuration Manager-Konten in der lokalen SAM-Datenbank anstelle der Domänendatenbank warten.  
 
- Cette pratique réduit également la surface d'attaque sur vos contrôleurs de domaine.  
+ Außerdem verringern Sie mit dieser Verfahrensweise die Angriffsfläche Ihrer Domänencontroller.  
 
- **Installez des sites secondaires en évitant de copier les fichiers vers le serveur de site secondaire sur le réseau.**  
+ **Vermeiden Sie es beim Installieren sekundärer Standorte, die Dateien über das Netzwerk auf den sekundären Standortserver zu kopieren.**  
 
- Lorsque vous exécutez le programme d’installation et créez un site secondaire, ne sélectionnez pas l’option de copie des fichiers depuis le site parent vers le site secondaire, et n’utilisez pas un emplacement réseau source. Lorsque vous copiez des fichiers sur le réseau, un attaquant doué pourrait pirater le package d'installation du site secondaire et falsifier les fichiers avant qu'ils soient installés, bien qu'il soit difficile de programmer cette attaque. Cette attaque peut être atténuée à l'aide d'IPsec ou de SMB lorsque vous transférez les fichiers.  
+ Wenn Sie das Setup ausführen und einen sekundären Standort erstellen, aktivieren Sie nicht die Option zum Kopieren der Dateien vom übergeordneten in den sekundären Standort, und verwenden Sie keinen Quellspeicherort im Netzwerk. Wenn Sie Dateien über das Netzwerk kopieren, könnte ein geschickter Angreifer auf das Installationspaket des sekundären Standorts zugreifen und die darin enthaltenen Dateien vor der Installation manipulieren, auch wenn die zeitliche Organisation eines solchen Angriffs schwierig wäre. Dieses Risiko können Sie minimieren, indem Sie beim Übertragen der Dateien IPsec oder SMB verwenden.  
 
- Au lieu de copier les fichiers sur le réseau, sur le serveur de site secondaire, copiez les fichiers sources du dossier multimédia vers un dossier local. Ensuite, lorsque vous exécutez le programme d’installation pour créer un site secondaire, dans la page **Fichiers sources d’installation**, sélectionnez **Utiliser les fichiers sources dans l’emplacement local suivant sur l’ordinateur de site secondaire (le plus sûr)**, et spécifiez ce dossier.  
+ Kopieren Sie die Quelldateien auf dem sekundären Standortserver aus dem Medienordner in einen lokalen Ordner, anstatt sie über das Netzwerk zu kopieren. Wenn Sie dann das Setup ausführen, um einen sekundären Standort zu erstellen, wählen Sie auf der Seite **Installationsquelldateien** die Option **Quelldateien in folgendem lokalen Speicherort auf dem sekundären Standortcomputer verwenden (am sichersten)** aus, und geben Sie diesen Ordner an.  
 
- Pour plus d’informations, consultez [Install a secondary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) (Installer un site secondaire) dans la rubrique [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Utiliser l’Assistant Configuration pour installer des sites).  
+ Weitere Informationen finden Sie unter [Install a secondary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) (Installieren eines sekundären Standorts) im Thema [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Verwenden des Setup-Assistenten zum Installieren von Standorten).  
 
-##  <a name="BKMK_Security_SQLServer"></a> Bonnes pratiques de sécurité pour SQL Server  
- Configuration Manager utilise SQL Server comme base de données principale. Si la base de données est compromise, des personnes malveillantes pourraient contourner Configuration Manager et accéder directement à SQL Server afin de lancer des attaques via Configuration Manager. Considérez les attaques contre SQL Server comme présentant un risque élevé et traitez-les en conséquence.  
+##  <a name="BKMK_Security_SQLServer"></a> Bewährte Sicherheitsmethoden für SQL Server  
+ Configuration Manager verwendet SQL Server als Back-End-Datenbank. Wenn die Datenbank beschädigt ist, können Angreifer Configuration Manager umgehen und direkt auf SQL Server zugreifen, um Angriffe über Configuration Manager zu starten. Angriffe auf SQL Server müssen als hochriskant angesehen werden, und es müssen entsprechende Vorkehrungen getroffen werden.  
 
- Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser SQL Server pour Configuration Manager.  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, um SQL Server für Configuration Manager zu sichern.  
 
- **N’utilisez pas le serveur de base de données de site Configuration Manager pour exécuter d’autres applications SQL Server.**  
+ **Verwenden Sie den Configuration Manager-Standortdatenbankserver nicht, um andere SQL Server-Anwendungen auszuführen.**  
 
- L’augmentation du nombre d’accès au serveur de base de données de site Configuration Manager augmente le risque auquel sont exposées vos données Configuration Manager. Si la base de données du site Configuration Manager est compromise, les autres applications sur le même ordinateur SQL Server présentent également des risques.  
+ Je mehr Zugriffsmöglichkeiten auf den Configuration Manager-Standortdatenbankserver bestehen, desto größer ist das Risiko für Ihre Configuration Manager-Daten. Zudem sind auch andere Anwendungen auf dem gleichen SQL Server-Computer einem Risiko ausgesetzt, wenn die Configuration Manager-Standortdatenbank gefährdet ist.  
 
- **Configurez SQL Server pour utiliser l'authentification Windows.**  
+ **Konfigurieren Sie SQL Server für die Verwendung der Windows-Authentifizierung.**  
 
- Configuration Manager accède au site de base de données à l’aide d’un compte Windows et de l’authentification Windows, mais vous pouvez également configurer SQL Server de sorte qu’il utilise le mode mixte SQL Server. Le mode mixte SQL Server vous permet de configurer des connexions SQL supplémentaires afin d’accéder à la base de données, mais cela n’est pas nécessaire et augmente la surface d’attaque.  
+ Der Zugriff von Configuration Manager auf die Standortdatenbank erfolgt zwar über ein Windows-Konto und mithilfe der Windows-Authentifizierung, aber es ist dennoch möglich, SQL Server für die Verwendung des gemischten Modus von SQL Server zu konfigurieren. Durch den gemischten Modus von SQL Server werden zusätzliche SQL-Anmeldungen für den Zugriff auf die Datenbank ermöglicht. Dies ist jedoch nicht erforderlich und vergrößert zudem die Angriffsfläche.  
 
- **Prenez des mesures supplémentaires pour assurer que les sites secondaires qui utilisent SQL Server Express disposent des dernières mises à jour logicielles.**  
+ **Unternehmen Sie zusätzliche Schritte, um zu gewährleisten, dass an sekundären Standorten, an denen SQL Server Express verwendet wird, die neuesten Softwareupdates verfügbar sind.**  
 
- Lorsque vous installez un site principal, Configuration Manager télécharge SQL Server Express depuis le Centre de téléchargement Microsoft, puis copie les fichiers sur le serveur de site principal. Lorsque vous installez un site secondaire et sélectionnez l’option d’installation de SQL Server Express, Configuration Manager installe la version téléchargée précédemment et ne vérifie pas si de nouvelles versions sont disponibles. Pour vous assurer que le site secondaire dispose des dernières versions, effectuez l’une des tâches suivantes :  
+ Wenn Sie einen primären Standort installieren, wird SQL Server Express durch Configuration Manager vom Microsoft Download Center heruntergeladen, und die Dateien werden auf den primären Standortserver kopiert. Wenn Sie einen sekundären Standort installieren und die Option zum Installieren von SQL Server Express auswählen, wird die zuvor heruntergeladene Version von Configuration Manager installiert. Eine Prüfung, ob neue Versionen verfügbar sind, findet nicht statt. Führen Sie eines der folgenden Verfahren aus, um sicherzustellen, dass am sekundären Standort die neuesten Versionen verfügbar sind:  
 
--   Une fois le site secondaire installé, exécutez Windows Update sur le serveur de site secondaire.  
+-   Wenn der sekundäre Standort installiert ist, führen Sie Windows Update auf dem sekundären Standortserver aus.  
 
--   Avant d'installer le site secondaire, installez SQL Server Express manuellement sur l'ordinateur qui va exécuter le serveur de site secondaire et assurez-vous d'installer la version la plus récente, ainsi que toutes les mises à jour logicielles. Installez ensuite le site secondaire et sélectionnez l’option pour utiliser une instance existante de SQL Server.  
+-   Installieren Sie zunächst SQL Server Express manuell auf dem Computer, auf dem der sekundäre Standortserver ausgeführt werden soll, bevor Sie den sekundären Standort installieren. Achten Sie darauf, die aktuellste Version und alle verfügbaren Softwareupdates zu installieren. Installieren Sie dann den sekundären Standort, und wählen Sie die Option zum Verwenden einer vorhandenen SQL Server-Instanz aus.  
 
-Exécutez régulièrement Windows Update sur ces sites et sur toutes les versions installées de SQL Server pour vous assurer qu'ils disposent des dernières mises à jour logicielles.  
+Führen Sie in regelmäßigen Abständen Windows Update für diese Standorte und alle installierten Versionen von SQL Server aus, um zu gewährleisten, dass jeweils die aktuellsten Softwareupdates installiert sind.  
 
-**Suivez les meilleures pratiques pour SQL Server.**  
+**Wenden Sie die bewährten Methoden für SQL Server an.**  
 
-Identifiez et suivez les meilleures pratiques pour votre version de SQL Server. Prenez toutefois en compte les impératifs suivants pour Configuration Manager :  
+Identifizieren Sie die bewährten Methoden für Ihre Version von SQL Server, und wenden Sie sie an. Berücksichtigen Sie jedoch die folgenden Anforderungen für Configuration Manager:  
 
--   Le compte d'ordinateur du serveur de site doit être membre du groupe Administrateurs sur l'ordinateur exécutant SQL Server. Si vous suivez la recommandation SQL Server « Définir des administrateurs de manière explicite », le compte utilisé pour exécuter l’installation sur le serveur de site doit être membre du groupe Utilisateurs SQL.  
+-   Das Computerkonto des Standortservers muss Mitglied der Administratorgruppe auf dem Computer sein, auf dem SQL Server ausgeführt wird. Wenn Sie der SQL Server-Empfehlung nachkommen, die Administratorprinzipale explizit bereitzustellen, muss das Konto, das zur Ausführung von Setup auf dem Standortserver verwendet wird, Mitglied der SQL-Benutzergruppe sein.  
 
--   Si vous installez SQL Server à l'aide d'un compte utilisateur de domaine, vous devez configurer un nom principal de service (SPN) pour le compte d'ordinateur de domaine dans les services de domaine Active Directory. Sans le nom de principal du service, l’authentification Kerberos échoue, de même que l’installation de Configuration Manager.  
+-   Wenn Sie SQL Server mithilfe eines Domänenbenutzerkontos installieren, vergewissern Sie sich, dass das Computerkonto des Standortservers für einen Dienstprinzipalnamen (Service Principal Name, SPN), der in den Active Directory-Domänendiensten veröffentlicht wird, konfiguriert ist. Ohne den SPN treten bei der Kerberos-Authentifizierung und bei Configuration Manager-Setup Fehler auf.  
 
-##  <a name="BKMK_Security_IIS"></a> Bonnes pratiques de sécurité pour les systèmes de site exécutant IIS  
-Plusieurs rôles de système de site dans Configuration Manager requièrent IIS. Le processus de sécurisation IIS permet à Configuration Manager de fonctionner correctement et réduit les risques d’attaques de sécurité. Dans la mesure du possible, réduisez le nombre de serveurs qui requièrent IIS. Par exemple, exécutez uniquement le nombre de points de gestion dont vous avez besoin pour prendre en charge votre base de clients, en tenant compte de la haute disponibilité et de l'isolation du réseau pour la gestion des clients basée sur Internet.  
+##  <a name="BKMK_Security_IIS"></a> Bewährte Sicherheitsmethoden für Standortsysteme, die IIS ausführen  
+Mehrere Standortsystemrollen in Configuration Manager erfordern IIS. Wenn Sie IIS sichern, ist ein ordnungsgemäßer Betrieb von Configuration Manager möglich, und das Gefahrenpotenzial in Bezug auf Sicherheitsprobleme wird verringert. Minimieren Sie die Anzahl der Server, für die IIS erforderlich sind. Führen Sie beispielsweise nur so viele Verwaltungspunkte aus, wie Sie für Ihre Client-Basis benötigen. Berücksichtigen Sie dabei Faktoren wie hohe Verfügbarkeit und Netzwerkisolation für internetbasierte Clientverwaltung.  
 
- Utilisez les meilleures pratiques de sécurité suivantes pour contribuer à sécuriser les systèmes de site qui exécutent IIS.  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden zur Sicherung von Standortsystemen an, von denen IIS ausgeführt werden.  
 
- **Désactivez les fonctions IIS dont vous n’avez pas besoin.**  
+ **Deaktivieren Sie IIS-Funktionen, die Sie nicht benötigen.**  
 
- Installez uniquement les fonctionnalités IIS minimales pour le rôle de système de site que vous installez. Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Installieren Sie nur einen minimalen IIS-Funktionsumfang für die Standortsystemrolle, die Sie installieren. Weitere Informationen finden Sie unter [Site and site system prerequisites for System Center Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Standort- und Standortsystemanforderungen für System Center Configuration Manager).  
 
- **Configurez les rôles de système de site pour exiger HTTPS.**  
+ **Konfigurieren Sie die Standortsystemrollen zum Erzwingen von HTTPS.**  
 
- Lorsque les clients se connectent à un système de site à l'aide du protocole HTTP au lieu de HTTPS, ils utilisent l'authentification Windows, qui peut avoir recours à l'authentification NTLM plutôt qu'à l'authentification Kerberos. Avec l'authentification NTLM, les clients risquent de se connecter à un serveur non autorisé.  
+ Wenn von Clients eine Verbindung mit einem Standortsystem über HTTP statt HTTPS hergestellt wird, wird die Windows-Authentifizierung verwendet. Dies kann dazu führen, dass keine Kerberos-Authentifizierung, sondern NTLM-Authentifizierung verwendet wird. In diesem Fall können von den Clients Verbindungen mit einem nicht autorisierten Server hergestellt werden.  
 
- Les points de distribution peuvent présenter l'exception à cette meilleure pratique de sécurité dans la mesure où les comptes d'accès aux packages ne fonctionnent pas lorsque ces points de distribution sont configurés pour le protocole HTTPS. Les comptes d'accès aux packages fournissent des autorisations d'accès au contenu, vous permettant de limiter les utilisateurs disposant des droits d'accès au contenu. Pour plus d’informations, voir [Bonnes pratiques de sécurité pour la gestion de contenu](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
+ Eine Ausnahme von dieser bewährten Sicherheitsmethode gilt für Verteilungspunkte, da Paketzugriffskonten nicht funktionsfähig sind, wenn der Verteilungspunkt für HTTPS konfiguriert ist. Bei Paketzugriffskonten erfolgt eine Autorisierung für den Inhalt, sodass Sie den Zugriff auf den Inhalt auf bestimmte Benutzer beschränken können. Weitere Informationen finden Sie unter [Security best practices for content management (Bewährte Sicherheitsmethoden für die Inhaltsverwaltung)](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
 
-**Configurez une liste de certificats de confiance dans IIS pour les rôles système de site.**  
+**Konfigurieren Sie für Standortsystemrollen eine Zertifikatvertrauensliste (Certificate Trust List, CTL) in IIS.**  
 
-Rôles des systèmes de site :  
+Standortsystemrollen:  
 
--   Point de distribution configuré pour le protocole HTTPS  
+-   Verteilungspunkte, die für HTTPS konfiguriert sind  
 
--   Point de gestion configuré pour le protocole HTTPS et pour la prise en charge des appareils mobiles
+-   Verwaltungspunkte, die für HTTPS konfiguriert und für die Unterstützung von mobilen Geräten aktiviert sind
 
-Une liste de certificats de confiance est une liste définie d'autorités de certification racine de confiance. Utilisée avec une stratégie de groupe et un déploiement d’infrastructure à clé publique (PKI), une liste de certificats de confiance vous permet de compléter les autorités de certification racine de confiance déjà configurées sur votre réseau, notamment celles installées automatiquement avec Microsoft Windows ou ajoutées par le biais des autorités de certification racine d’entreprise Windows. Toutefois, lorsqu’une liste de certificats de confiance est configurée dans IIS, elle définit un sous-ensemble des autorités de certification racine de confiance.  
+Eine Zertifikatvertrauensliste (Certificate Trust List, CTL) ist eine definierte Liste von vertrauenswürdigen Stammzertifizierungsstellen. Wenn Sie eine Zertifikatvertrauensliste zusammen mit einer Gruppenrichtlinie und einer Public-Key-Infrastruktur (PKI)-Bereitstellung verwenden, können Sie die vorhandenen vertrauenswürdigen Stammzertifizierungsstellen ergänzen, die im Netzwerk konfiguriert sind (beispielsweise von Microsoft Windows automatisch installiert oder durch Windows-Unternehmens-Stammzertifizierungsstellen hinzugefügt). Ist in IIS jedoch eine Zertifikatvertrauensliste konfiguriert, wird eine Teilmenge der vertrauenswürdigen Stammzertifizierungsstellen durch diese definiert.  
 
-Ce dernier vous confère un contrôle accru de la sécurité car la liste de certificats de confiance limite l'acceptation des certificats clients à ceux qui sont publiés à partir de la liste des autorités de certification de la liste de certificats de confiance. Par exemple, Windows est fourni avec différents certificats d’autorités de certification tierces renommées, telles que VeriSign et Thawte.
+Hierdurch haben Sie mehr Kontrolle über die Sicherheit, da von der Zertifikatvertrauensliste nur solche Zertifikate zugelassen werden, die von den aufgelisteten Zertifizierungsstellen ausgestellt wurden. Windows wird beispielsweise mit einer Anzahl von bekannten Zertifikaten von Drittanbieter-Zertifizierungsstellen geliefert, z.B. VeriSign und Thawte.
 
-Par défaut, l'ordinateur qui exécute les services Internet (IIS) approuve les certificats liés à ces autorités de certification connues. Si vous ne configurez pas IIS avec une liste de certificats de confiance pour les rôles de système de site répertoriés, tout appareil doté d’un certificat client publié par ces autorités de certification est accepté comme client Configuration Manager valide. Si vous configurez les services Internet (IIS) avec une liste de certificats de confiance qui ne comprend pas ces autorités de certification, les connexions de clients sont rejetées si le certificat requis était lié à ces autorités de certification. Cependant, pour que les clients Configuration Manager soient acceptés dans les rôles de système de site répertoriés, vous devez configurer IIS avec une liste de certificats de confiance qui spécifie les autorités de certification utilisées par les clients Configuration Manager.  
+Zertifikate von diesen bekannten Zertifizierungsstellen werden von Computern mit IIS standardmäßig als vertrauenswürdig eingestuft. Wenn Sie IIS nicht mit einer Zertifikatvertrauensliste für die aufgelisteten Standortsystemrollen konfigurieren, werden alle Geräte mit Clientzertifikaten dieser Zertifizierungsstellen als gültige Configuration Manager-Clients zugelassen. Wenn Sie IIS mit einer CTL konfigurieren, die diese Zertifizierungsstellen nicht enthält, werden Clientverbindungen mit Zertifikaten dieser Zertifizierungsstellen abgelehnt. Damit Configuration Manager-Clients jedoch für die aufgelisteten Standortsystemrollen zugelassen werden, müssen Sie IIS mit einer CTL konfigurieren, die die von Configuration Manager-Clients verwendeten Zertifizierungsstellen angibt.  
 
 > [!NOTE]  
->  Seuls les rôles de système de site répertoriés exigent que vous configuriez une liste de certificats de confiance dans IIS. La liste d’émetteurs de certificats utilisée par Configuration Manager pour les points de gestion fournit la même fonctionnalité aux ordinateurs clients lorsqu’ils se connectent aux points de gestion HTTPS.  
+>  Die Konfiguration einer Zertifikatvertrauensliste in IIS ist nur für die aufgelisteten Standortsystemrollen erforderlich. Für Clientcomputer, die mit HTTPS-Verwaltungspunkten verbunden werden, wird diese Funktionalität über die Liste der Zertifikataussteller bereitgestellt, die von Configuration Manager für Verwaltungspunkte verwendet wird.  
 
-Pour plus d'informations sur la façon de configurer une liste d'autorités de certification approuvées dans IIS, consultez la documentation de IIS.  
+Weitere Informationen zum Konfigurieren einer Liste von vertrauenswürdigen Zertifizierungsstellen in IIS finden Sie in der IIS-Dokumentation.  
 
-**N'installez pas le serveur de site sur un ordinateur comportant IIS.**  
+**Installieren Sie den Standortserver nicht auf einem Computer mit IIS.**  
 
-La séparation des rôles permet de réduire le profil d'attaque et d'optimiser la récupération. De plus, le compte d’ordinateur du serveur de site dispose généralement des privilèges d’administrateur sur tous les rôles de système de site (et probablement sur les clients Configuration Manager, si vous utilisez l’installation poussée du client).  
+Mit der Rollentrennung verringern Sie die Angriffsfläche und verbessern die Wiederherstellbarkeit. Zudem sind dem Computerkonto des Standortservers normalerweise Administratorberechtigungen auf allen Standortsystemrollen (und möglicherweise auf Configuration Manager-Clients, wenn Sie Clientpushinstallation verwenden) erteilt.  
 
-**Utilisez des serveurs IIS dédiés pour Configuration Manager.**  
+**Verwenden dedizierter IIS-Server für Configuration Manager.**  
 
-Il est possible d’héberger plusieurs applications basées sur le web sur les serveurs IIS utilisés par Configuration Manager, mais cela peut augmenter considérablement votre surface d’attaque. Une application mal configurée peut permettre à un attaquant d’acquérir le contrôle d’un système de site Configuration Manager, puis d’étendre son contrôle à la hiérarchie.  
+Sie können zwar mehrere webbasierte Anwendungen auf den IIS-Servern hosten, die auch von Configuration Manager verwendet werden, doch durch dieses Vorgehen kann die Angriffsfläche erheblich vergrößert werden. Ein Angreifer könnte aufgrund einer unzureichend konfigurierten Anwendung die Kontrolle über ein Configuration Manager-Standortsystem und in der Folge auch über die Hierarchie gewinnen.  
 
-Si vous devez exécuter d’autres applications basées sur le web sur des systèmes de site Configuration Manager, créez un site web personnalisé pour les systèmes de site Configuration Manager.  
+Wenn Sie andere webbasierte Anwendungen auf Configuration Manager-Standortsystemen ausführen müssen, erstellen Sie eine benutzerdefinierte Website für Configuration Manager-Standortsysteme.  
 
-**Utilisez un site web personnalisé.**  
+**Verwenden Sie eine benutzerdefinierte Website.**  
 
-Pour les systèmes de site exécutant IIS, vous pouvez configurer Configuration Manager pour utiliser un site web personnalisé en lieu et place du site web par défaut pour IIS. Si vous devez exécuter d’autres applications basées sur le Web sur le système de site, vous devez utiliser un site web personnalisé. Ce paramètre s’applique à l’ensemble du site plutôt qu’à un système de site spécifique.  
+Sie können Configuration Manager für Standortsysteme, von denen IIS ausgeführt werden, so konfigurieren, dass statt der Standardwebsite für IIS eine benutzerdefinierte Website verwendet wird. Wenn das Ausführen anderer Webanwendungen auf dem Standortsystem erforderlich ist, müssen Sie eine benutzerdefinierte Website verwenden. Diese Einstellung ist nicht auf ein bestimmtes Standortsystem beschränkt, sondern gilt für den gesamten Standort.  
 
-En plus de fournir une sécurité supplémentaire, vous devez utiliser un site Web personnalisé si vous exécutez d'autres applications Web sur le système de site.  
+Wenn Sie andere Webanwendungen auf dem Standortsystem ausführen, müssen Sie nicht nur zusätzliche Sicherheit bereitstellen, sondern auch eine benutzerdefinierte Website verwenden.  
 
-**Si vous passez du site Web par défaut à un site Web personnalisé après l'installation des rôles de point de distribution, supprimez les répertoires virtuels par défaut.**  
+**Wenn Sie nach der Installation von Verteilungspunktrollen von der Standardwebsite zu einer benutzerdefinierten Website wechseln, entfernen Sie die virtuellen Standardverzeichnisse.**  
 
-Lorsque vous utilisez un site web personnalisé à la place du site web par défaut, Configuration Manager ne supprime pas les anciens répertoires virtuels. Supprimez les répertoires virtuels que Configuration Manager a créés initialement sous le site web par défaut.  
+Wenn Sie von der Standardwebsite zu einer benutzerdefinierten Website wechseln, werden die alten virtuellen Verzeichnisse nicht von Configuration Manager entfernt. Entfernen Sie die virtuellen Verzeichnisse, die ursprünglich von Configuration Manager unter der Standardwebsite erstellt wurden.  
 
-Par exemple, les répertoires virtuels à supprimer pour un point de distribution sont les suivants :  
+Bei einem Verteilungspunkt müssen Sie beispielsweise die folgenden virtuellen Verzeichnisse entfernen:  
 
 -   SMS_DP_SMSPKG$  
 
@@ -289,82 +286,81 @@ Par exemple, les répertoires virtuels à supprimer pour un point de distributio
 
 -   NOCERT_SMS_DP_SMSSIG$  
 
-**Suivez les meilleures pratiques relatives au serveur IIS.**  
+**Wenden Sie die bewährten Methoden für IIS-Server an.**  
 
-Identifiez et suivez les meilleures pratiques relatives à votre version du serveur IIS. Toutefois, prenez en considération les spécifications de Configuration Manager relatives à certains rôles de système de site spécifiques. Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+Ermitteln Sie die bewährten Methoden für Ihre Version von IIS-Server, und wenden Sie sie an. Berücksichtigen Sie jedoch alle Anforderungen, die unter Configuration Manager für bestimmte Standortsystemrollen gelten. Weitere Informationen finden Sie unter [Site and site system prerequisites for System Center Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Standort- und Standortsystemanforderungen für System Center Configuration Manager).  
 
-##  <a name="BKMK_Security_ManagementPoint"></a> Bonnes pratiques de sécurité pour le point de gestion  
- Les points de gestion représentent l’interface principale entre les appareils et Configuration Manager. Toute attaque contre le point de gestion et le serveur sur lequel il s’exécute doit être considérée comme représentant un risque élevé et doit être traitée en conséquence. Appliquez toutes les bonnes pratiques de sécurité et surveillez toute activité inattendue.  
+##  <a name="BKMK_Security_ManagementPoint"></a> Bewährte Sicherheitsmethoden für den Verwaltungspunkt  
+ Verwaltungspunkte sind die primäre Schnittstelle zwischen Geräten und Configuration Manager. Angriffe auf den Verwaltungspunkt und auf den Server, auf dem der Verwaltungspunkt ausgeführt wird, sind hochriskant. Es müssen daher entsprechende Vorkehrungen getroffen werden. Wenden Sie alle entsprechenden bewährten Sicherheitsmethoden an, und führen Sie eine Überwachung auf ungewöhnliche Aktivitäten hin aus.  
 
- Utilisez les bonnes pratiques suivantes pour mieux sécuriser un point de gestion dans Configuration Manager.  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, um Verwaltungspunkte in Configuration Manager zu sichern.  
 
-**Lorsque vous installez un client Configuration Manager sur le point de gestion, attribuez-le au site de ce point de gestion.**  
+**Wenn Sie einen Configuration Manager-Client am Verwaltungspunkt installieren, weisen Sie ihn dem Standort dieses Verwaltungspunkts zu.**  
 
- Évitez le scénario où un client Configuration Manager sur un système de site de point de gestion est attribué à un site autre que le site du point de gestion.  
+ Achten Sie darauf, die Configuration Manager-Clients im Standortsystem eines Verwaltungspunkts ausschließlich dem Standort des Verwaltungspunkts zuzuweisen.  
 
- Si vous migrez vers System Center Configuration Manager à partir d’une version antérieure, migrez dès que possible le logiciel client sur le point de gestion vers System Center Configuration Manager.  
+ Wenn Sie von einer früheren Version zu System Center Configuration Manager migrieren, migrieren Sie so bald wie möglich die Clientsoftware auf dem Verwaltungspunkt zu System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_FSP"></a> Bonnes pratiques de sécurité pour le point d’état de secours  
- Utilisez les bonnes pratiques de sécurité suivantes si vous installez un point d’état de secours dans Configuration Manager.  
+##  <a name="BKMK_Security_FSP"></a> Bewährte Sicherheitsmethoden für den Fallbackstatuspunkt  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, wenn Sie einen Fallbackstatuspunkt in Configuration Manager installieren.  
 
- Pour plus d'informations sur les considérations relatives à la sécurité, voir [Determine Whether You Require a Fallback Status Point](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
+ Weitere Informationen zu den Sicherheitserwägungen beim Installieren eines Fallbackstatuspunkts finden Sie unter [Determine Whether You Require a Fallback Status Point](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
 
 
-**N’exécutez pas d’autres rôles de système de site sur le système de site et n’installez pas le point d’état de secours sur un contrôleur de domaine.**  
+**Führen Sie keine anderen Standortsystemrollen auf dem Standortsystem aus, und installieren Sie den Fallbackstatuspunkt nicht auf einem Domänencontroller.**  
 
- Le point d'état de secours est conçu pour accepter les communications non authentifiées provenant de n'importe quel ordinateur. De ce fait, l'exécution de ce rôle de système de site avec d'autres rôles de système de site ou sur un contrôleur de domaine augmente considérablement le risque auquel est exposé le serveur.  
+ Der Fallbackstatuspunkt ist darauf ausgelegt, nicht authentifizierte Kommunikation von beliebigen Computern zu akzeptieren. Daher wird das Gefahrenpotenzial in Bezug auf Sicherheitsprobleme für den betreffenden Server beträchtlich erhöht, wenn Sie diese Standortsystemrolle auf einem Domänencontroller oder zusammen mit anderen Standortsystemrollen ausführen.  
 
-**Lorsque vous utilisez des certificats PKI pour la communication client dans Configuration Manager, installez le point d’état de secours avant d’installer les clients.**  
+**Wenn Sie PKI-Zertifikate für die Clientkommunikation in Configuration Manager verwenden, installieren Sie den Fallbackstatuspunkt, bevor Sie die Clients installieren.**  
 
- Si les systèmes de site Configuration Manager n’acceptent pas la communication client HTTP, vous pouvez ne pas être au courant que des clients ne sont pas gérés en raison de problèmes liés aux certificats PKI. Toutefois, si les clients sont affectés à un point d’état de secours, ces problèmes de certificat sont signalés par le point d’état de secours.  
+ Wenn von den Configuration Manager-Standortsystemen keine HTTP-Clientkommunikation akzeptiert wird, bemerken Sie möglicherweise nicht, dass Clients ggf. aufgrund von Problemen mit PKI-Zertifikaten nicht verwaltet werden. Wenn die Clients jedoch einem Fallbackstatuspunkt zugewiesen sind, werden solche Zertifikatsprobleme vom Fallbackstatuspunkt gemeldet.  
 
- Pour des raisons de sécurité, vous ne pouvez pas affecter un point d’état de secours aux clients une fois qu’ils sont installés. Au lieu de cela, vous ne pouvez attribuer ce rôle que pendant l’installation des clients.  
+ Aus Sicherheitsgründen können Sie Clients nach deren Installation keinen Fallbackstatuspunkt mehr zuweisen. Diese Rolle können Sie nur während der Installation der Clients zuweisen.  
 
-**Évitez d'utiliser le point d'état de secours dans le réseau de périmètre.**  
+**Verwenden Sie den Fallbackstatuspunkt nicht im Umkreisnetzwerk.**  
 
- Le point d'état de secours est conçu pour accepter les données provenant de n'importe quel client. Un point d'état de secours sur le réseau de périmètre facilite le dépannage des clients basés sur Internet, mais il convient d'évaluer les avantages liés au dépannage par rapport aux risques pouvant être engendrés par un système de site qui accepte les données non authentifiées sur un réseau accessible au public.  
+ Es ist beabsichtigt, dass Daten von beliebigen Clients vom Fallbackstatuspunkt akzeptiert werden. Durch das Platzieren des Fallbackstatuspunkts im Umkreisnetzwerk kann die Problembehandlung bei internetbasierten Clients erleichtert werden. Diesen Vorteil müssen Sie jedoch gegen die Risiken abwägen, die entstehen, wenn vom Standortsystem nicht authentifizierte Daten in einem öffentlich zugänglichen Netzwerk akzeptiert werden.  
 
- Si vous installez le point d’état de secours sur le réseau de périmètre ou sur tout réseau non approuvé, configurez le serveur de site de sorte qu’il initialise les transferts de données au lieu du paramètre par défaut qui autorise le point d’état de secours à se connecter au serveur de site.  
+ Wenn Sie den Fallbackstatuspunkt doch im Umkreisnetzwerk oder in einem nicht vertrauenswürdigen Netzwerk installieren, verwenden Sie nicht die Standardeinstellung, bei der vom Fallbackstatuspunkt eine Verbindung mit dem Standortserver initiiert werden kann. Konfigurieren Sie stattdessen den Standortserver so, dass Datenübertragungen von diesem initiiert werden.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour l’administration de site  
- Passez en revue les problèmes de sécurité suivants pour Configuration Manager :  
+##  <a name="BKMK_SecurityIssues_Clients"></a> Sicherheitsprobleme bei der Standortverwaltung  
+ Überprüfen Sie die folgenden Sicherheitsprobleme für Configuration Manager:  
 
--   Configuration Manager ne possède aucune défense contre un utilisateur administratif autorisé qui utilise Configuration Manager pour attaquer le réseau. Les utilisateurs administratifs non autorisés représentent un risque élevé pour la sécurité et peuvent lancer de nombreuses attaques, dont notamment les stratégies suivantes :  
+-   In Configuration Manager ist kein Schutz gegen autorisierte Administratoren verfügbar, die Configuration Manager zum Angriff auf das Netzwerk verwenden. Nicht autorisierte Administratoren stellen ein hohes Sicherheitsrisiko dar. Sie könnten zahlreiche Angriffe unternehmen, darunter die folgenden Strategien:  
 
-    -   l’utilisation de la fonction de déploiement de logiciels pour installer et exécuter automatiquement un logiciel malveillant sur tous les clients Configuration Manager de l’entreprise ;  
+    -   Verwenden der Softwarebereitstellung zum automatischen Installieren und Ausführen von Schadsoftware auf jedem Configuration Manager-Clientcomputer im Unternehmen  
 
-    -   l’utilisation du contrôle distant pour prendre à distance le contrôle d’un client Configuration Manager sans autorisation ;  
+    -   Verwenden der Remotesteuerung zum Steuern eines Configuration Manager-Clients ohne dessen Erlaubnis  
 
-    -   la configuration d'intervalles d'interrogation rapides et d'un grand nombre d'inventaires afin de créer des attaques par déni de service contre les clients et les serveurs ;  
+    -   Konfigurieren schneller Abrufintervalle und großer Inventarmengen, um Denial-of-Service-Angriffe gegen Clients und Server auszuführen  
 
-    -   l'utilisation d'un site de la hiérarchie pour écrire des données dans un autre site Active Directory.  
+    -   Verwenden eines Standorts der Hierarchie, um in die Active Directory-Daten eines anderen Standorts zu schreiben  
 
-    La hiérarchie du site constitue la limite de sécurité. Considérez le sites comme des limites de gestion uniquement.  
+    Die Standorthierarchie ist die Sicherheitsgrenze. Betrachten Sie Standorte nur als Verwaltungsgrenzen.  
 
-    Analysez toutes les opérations de l'utilisateur administratif et consultez régulièrement les journaux d'audit. Il est impératif de vérifier les antécédents professionnels des utilisateurs administratifs Configuration Manager avant de les recruter, puis de les soumettre régulièrement à des vérifications.  
+    Überwachen Sie alle Administratoraktivitäten, und überprüfen Sie die Überwachungsprotokolle regelmäßig. Unterziehen Sie alle Configuration Manager-Administratoren vor der Einstellung einer zwingenden Hintergrundüberprüfung, und machen Sie regelmäßige erneute Überprüfungen zur Bedingung für die Beschäftigung.  
 
--   Si le point d'inscription est compromis, un attaquant peut obtenir des certificats pour authentification et voler les informations d'identification des utilisateurs qui inscrivent leurs appareils mobiles.  
+-   Wenn der Anmeldungspunkt gefährdet ist, könnte ein Angreifer Authentifizierungszertifikate abrufen und die Anmeldeinformationen von Benutzern stehlen, die ihre mobilen Geräte anmelden.  
 
-    Le point d'inscription communique avec une autorité de certification et peut créer, modifier et supprimer des objets Active Directory. N’installez jamais le point d’inscription dans le réseau de périmètre et surveillez toute activité inattendue.  
+    Zwischen Anmeldungspunkt und Zertifizierungsstelle findet Kommunikation statt, und vom Anmeldungspunkt können Active Directory-Objekte erstellt, geändert und gelöscht werden. Installieren Sie einen Anmeldungspunkt niemals im Umkreisnetzwerk. Überwachen Sie den Anmeldungspunkt immer auf ungewöhnliche Aktivitäten hin.  
 
--   Si vous autorisez des stratégies d'utilisateur pour la gestion des clients basés sur Internet ou configurez le point du site Web du catalogue d'applications pour les utilisateurs lorsqu'ils sont sur Internet, vous augmentez votre profil d'attaque.  
+-   Wenn Sie Benutzerrichtlinien für die internetbasierte Clientverwaltung zulassen oder den Anwendungskatalog-Websitepunkt für die Verwendung durch Benutzer mit Internetzugang konfigurieren, erhöhen Sie die Angriffsfläche.  
 
-    En plus des certificats PKI pour les connexions client à serveur, ces configurations requièrent l'authentification Windows, qui peut avoir recours à l'authentification NTLM plutôt qu'à l'authentification Kerberos. L'authentification NTLM est vulnérable aux attaques par relecture et emprunt d'identité. Pour authentifier correctement un utilisateur sur Internet, vous devez autoriser une connexion d'un serveur de système de site basé sur Internet à un contrôleur de domaine.  
+    Bei diesen Konfigurationen werden Verbindungen zwischen Clients und Server über PKI-Zertifikate hergestellt, und es ist zudem eine Windows-Authentifizierung erforderlich, sodass möglicherweise die NTLM-Authentifizierung statt der Kerberos-Authentifizierung verwendet wird. Die NTLM-Authentifizierung ist anfällig für Identitätswechsel und Wiederholungsangriffe. Sie müssen Verbindungen zwischen dem internetbasierten Standortsystemserver und einem Domänencontroller zulassen, um Benutzer im Internet erfolgreich zu authentifizieren.  
 
--   Le partage Admin$ est requis sur les serveurs de système de site.  
+-   Auf Standortsystemservern ist die Freigabe Admin$ erforderlich.  
 
-    Le serveur de site Configuration Manager utilise le partage Admin$ pour se connecter aux systèmes de site et y effectuer des opérations de service. Ne désactivez pas ou ne supprimez pas le partage Admin$.  
+    Der Configuration Manager-Standortserver verwendet die Admin$-Freigabe, um eine Verbindung mit Standortsystemen herzustellen und Dienstvorgänge auf diesen auszuführen. Deaktivieren Sie die Freigabe Admin$ nicht, und entfernen Sie sie nicht.  
 
--   Configuration Manager utilise des services de résolution de noms pour se connecter à d’autres ordinateurs. Ces services sont difficiles à sécuriser contre des attaques de sécurité telles que l’usurpation, l’altération, la répudiation, la divulgation d’informations, le déni de service et l’élévation de privilèges.  
+-   Verbindungen mit anderen Computern werden in Configuration Manager mithilfe von Namensauflösungsdiensten hergestellt. Es ist schwierig, diese Dienste vor Angriffen wie Spoofing, Verfälschungen, Nichtanerkennung, Veröffentlichung von Informationen, Denial-of-Service oder Rechteerweiterungen zu schützen.  
 
-    Identifiez et suivez les meilleures pratiques de sécurité pour la version de DNS et WINS que vous utilisez pour la résolution de noms.  
+    Identifizieren und befolgen Sie alle bewährten Sicherheitsmethoden für die Version von DNS und WINS, die Sie zur Namensauflösung verwenden.  
 
-##  <a name="BKMK_Privacy_Cliients"></a> Informations de confidentialité pour la découverte  
- La découverte crée des enregistrements pour les ressources réseau et les stocke dans la base de données System Center Configuration Manager. Les enregistrements de données de découverte contiennent des informations sur les ordinateurs, telles que les adresses IP, les systèmes d’exploitation et les noms des ordinateurs. Les méthodes de découverte Active Directory peuvent également être configurées pour découvrir toute information stockée dans les services de domaine Active Directory.  
+##  <a name="BKMK_Privacy_Cliients"></a> Datenschutzinformationen zur Ermittlung  
+ Bei der Ermittlung werden Datensätze für Netzwerkressourcen erstellt und in der System Center Configuration Manager-Datenbank gespeichert. Discovery Data Records (DDRs) enthalten Computerinformationen wie IP-Adressen, Betriebssysteme und Computernamen. Außerdem können Active Directory-Ermittlungsmethoden zur Ermittlung jeglicher in den Active Directory-Domänendiensten gespeicherter Informationen konfiguriert werden.  
 
- La seule méthode de découverte activée par défaut est la découverte par pulsations d’inventaire, mais cette méthode découvre uniquement les ordinateurs sur lesquels le logiciel client System Center Configuration Manager est installé.  
+ Die einzige standardmäßig aktivierte Ermittlungsmethode ist die Frequenzermittlung. Hiermit werden jedoch nur Computer ermittelt, auf denen die System Center Configuration Manager-Clientsoftware bereits installiert ist.  
 
- Les informations de découverte ne sont pas envoyées à Microsoft. Au lieu de cela, elles sont stockées dans la base de données Configuration Manager. Les informations sont conservées dans la base de données jusqu’à leur suppression, tous les 90 jours, par la tâche de maintenance du site **Supprimer les données de découverte anciennes**.  
+ Die ermittelten Informationen werden nicht an Microsoft gesendet. Sie werden stattdessen in der Configuration Manager-Datenbank gespeichert. Die Informationen verbleiben bis zum Löschen durch den Standortwartungstask **Veraltete Ermittlungsdaten löschen** in der Datenbank. Der Löschvorgang wird alle 90 Tage ausgeführt.  
 
- Avant de configurer d'autres méthodes de découverte ou d'étendre la découverte Active Directory, pensez aux conditions requises en termes de confidentialité.  
-
+ Berücksichtigen Sie beim Konfigurieren zusätzlicher Ermittlungsmethoden oder beim Erweitern der Active Directory-Ermittlung Ihre Datenschutzanforderungen.  

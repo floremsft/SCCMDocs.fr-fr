@@ -1,7 +1,6 @@
 ---
-
-title: "Introduction aux mises à jour logicielles | Microsoft Docs"
-description: "Découvrez les principes de base des mises à jour logicielles dans System Center Configuration Manager."
+title: "Einführung in Softwareupdates | Microsoft Docs"
+description: Hier erhalten Sie grundlegende Informationen zu Softwareupdates in System Center Configuration Manager.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,281 +9,273 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
-translationtype: Human Translation
-ms.sourcegitcommit: d8cace9edd58e8fa438dbb43e54e57cd0dc55d2b
 ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Présentation des mises à jour logicielles dans System Center Configuration Manager
+# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Einführung zu Softwareupdates in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les mises à jour logicielles dans System Center Configuration Manager offrent un ensemble d’outils et de ressources qui peuvent faciliter la gestion de la tâche complexe que représentent le suivi et l’application des mises à jour logicielles sur les ordinateurs clients de l’entreprise. Il est essentiel de disposer d'un processus de gestion des mises à jour logicielles efficace pour assurer le fonctionnement des opérations, résoudre les problèmes de sécurité et préserver la stabilité de l'infrastructure réseau. Toutefois, la gestion des mises à jour logicielles nécessite une attention constante et continue du fait que les technologies évoluent rapidement et que de nouvelles menaces de sécurité émergent constamment.  
+Mit der Softwareupdatefunktion wird in System Center Configuration Manager eine Gruppe von Tools und Ressourcen bereitgestellt, mit denen die komplexe Aufgabe der Nachverfolgung und Anwendung von Softwareupdates auf Clientcomputern im Unternehmen leichter verwaltet werden kann. Ein effektiver Softwareupdate-Verwaltungsprozess ist erforderlich, um die Betriebseffektivität aufrechtzuerhalten, Sicherheitsprobleme zu beheben und die Stabilität der Netzwerkinfrastruktur zu gewährleisten. Da die Technologie sich kontinuierlich wandelt und immer wieder neue Sicherheitsrisiken auftreten, gebührt der effektiven Verwaltung von Softwareupdates besonderes Augenmerk.  
 
-Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez déployer des mises à jour logicielles dans votre environnement, consultez [Exemple de scénario de déploiement de mises à jour logicielles de sécurité](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
+Ein Beispielszenario für die Bereitstellung von Softwareupdates in Ihrer Umgebung finden Sie unter [Example scenario for using System Center Configuration Manager to deploy and monitor the security software updates released monthly by Microsoft (Beispielszenario für die Verwendung von Configuration Manager zum Bereitstellen und Überwachen der monatlichen Sicherheitsupdates von Microsoft)](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
 
-##  <a name="a-namebkmksynchronizationa-software-updates-synchronization"></a><a name="BKMK_Synchronization"></a> Synchronisation des mises à jour logicielles  
- La synchronisation des mises à jour logicielles dans Configuration Manager se connecte à Microsoft Update pour récupérer les métadonnées des mises à jour logicielles. Le site de niveau supérieur (site d’administration centrale ou site principal autonome) se synchronise avec Microsoft Update selon une planification ou quand vous démarrez manuellement la synchronisation à partir de la console Configuration Manager. Dès lors que Configuration Manager a terminé la synchronisation des mises à jour logicielles sur le site de niveau supérieur, il la démarre sur les sites enfants, le cas échéant. Quand la synchronisation est terminée sur chaque site principal ou secondaire, une stratégie à l'échelle du site est créée, laquelle fournit aux ordinateurs clients l'emplacement des points de mise à jour logicielle.  
-
-> [!NOTE]  
->  Les mises à jour logicielles sont activées par défaut dans les paramètres client. Toutefois, si vous définissez le paramètre client **Activer les mises à jour logicielles sur les clients** sur **Non** pour désactiver les mises à jour logicielles sur un regroupement ou dans les paramètres par défaut, l'emplacement des points de mise à jour logicielle ne sont pas envoyés aux clients associés. Pour plus d’informations, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
-
- Une fois que le client a reçu la stratégie, il lance une analyse de la conformité des mises à jour logicielles et écrit les informations dans Windows Management Instrumentation (WMI). Les informations de conformité sont ensuite envoyées au point de gestion qui les transmet alors au serveur de site. Pour plus d'informations sur l'évaluation de la conformité, voir la section [Software updates compliance assessment](#BKMK_SUMCompliance) de cette rubrique.  
-
- Vous pouvez installer plusieurs points de mise à jour logicielle sur un site principal. Le premier point de mise à jour logicielle que vous installez est configuré en tant que source de synchronisation. Celle-ci effectue la synchronisation à partir de Microsoft Update ou d’un serveur WSUS ne figurant pas dans votre hiérarchie Configuration Manager. Les autres points de mise à jour logicielle au niveau du site utilisent le premier point de mise à jour logicielle en tant que source de synchronisation.  
+##  <a name="BKMK_Synchronization"></a> Softwareupdatesynchronisierung  
+ Bei der Softwareupdatesynchronisierung in Configuration Manager werden Metadaten für Softwareupdates über eine Verbindung zu Microsoft Update abgerufen. Der Standort der obersten Ebene (Standort der zentralen Verwaltung oder eigenständiger primärer Standort) wird nach einem Zeitplan mit Microsoft Update synchronisiert. Über die Configuration Manager-Konsole können Sie die Synchronisierung auch manuell starten. Nachdem die Softwareupdatesynchronisierung am Standort der obersten Ebene abgeschlossen ist, wird sie von Configuration Manager ggf. an untergeordneten Standorten gestartet. Wenn die Synchronisierung an allen primären bzw. sekundären Standorten abgeschlossen ist, wird eine standortweite Richtlinie erstellt. Mit dieser Richtlinie werden Clientcomputer darüber informiert, wo die Softwareupdatepunkte sich befinden.  
 
 > [!NOTE]  
->  Lorsque le processus de synchronisation des mises à jour logicielles est terminé sur le site de niveau supérieur, les métadonnées des mises à jour logicielles sont répliquées sur les sites enfants par réplication de la base de données. Quand vous connectez une console Configuration Manager au site enfant, Configuration Manager affiche les métadonnées des mises à jour logicielles. Toutefois, tant que vous n’avez pas installé ni configuré un point de mise à jour logicielle sur le site, les clients n’analysent pas la conformité des mises à jour logicielles, ils ne transmettent pas les informations de conformité à Configuration Manager et vous ne pouvez pas déployer correctement les mises à jour logicielles.  
+>  Softwareupdates sind in Clienteinstellungen standardmäßig aktiviert. Wenn Sie aber für die Clienteinstellung **Softwareupdates auf Clients aktivieren** die Option **Nein** auswählen, um Softwareupdates in einer Sammlung oder in den Standardeinstellungen zu deaktivieren, werden die zugeordneten Clients nicht darüber informiert, wo die Softwareupdatepunkte sich befinden. Ausführlichere Informationen finden Sie im Abschnitt [Software Updates](../../core/clients/deploy/about-client-settings.md#software-updates) (Softwareupdates).  
 
-### <a name="synchronization-on-the-top-level-site"></a>Synchronisation sur le site de niveau supérieur  
- Le processus de synchronisation des mises à jour logicielles sur le site de niveau supérieur permet de récupérer auprès de Microsoft Update les métadonnées des mises à jour logicielles qui respectent les critères que vous spécifiez dans les propriétés du composant du point de mise à jour logicielle. Vous configurez les critères uniquement sur le site de niveau supérieur.  
+ Nachdem die Richtlinie beim Client eingegangen ist, wird die Softwareupdatekompatibilität überprüft. Die Informationen werden vom Client in Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI) geschrieben. Anschließend werden die Kompatibilitätsinformationen an den Verwaltungspunkt und von dort an den Standortserver gesendet. Weitere Informationen zur Compliancebewertung finden Sie im Abschnitt [Software updates compliance assessment](#BKMK_SUMCompliance) dieses Themas.  
 
-> [!NOTE]  
->  En guise de source de synchronisation, plutôt que Microsoft Updates, vous pouvez spécifier un serveur WSUS existant qui ne figure pas dans la hiérarchie Configuration Manager.  
-
- La liste suivante décrit les étapes de base du processus de synchronisation sur le site de niveau supérieur :  
-
-1.  La synchronisation des mises à jour logicielles démarre.  
-
-2.  Le Gestionnaire de synchronisation WSUS envoie une demande à WSUS exécuté sur le point de mise à jour logicielle pour lancer la synchronisation avec Microsoft Update.  
-
-3.  Les métadonnées des mises à jour logicielles sont synchronisées à partir de Microsoft Update et toutes les modifications sont insérées ou mises à jour dans la base de données WSUS.  
-
-4.  Quand WSUS a terminé la synchronisation, le gestionnaire de synchronisation WSUS synchronise les métadonnées des mises à jour logicielles de la base de données WSUS vers la base de données Configuration Manager, et toutes les modifications effectuées après la dernière synchronisation sont insérées ou mises à jour dans la base de données du site. Les métadonnées des mises à jour logicielles sont stockées dans la base de données du site sous la forme d'un élément de configuration.  
-
-5.  Les éléments de configuration des mises à jour logicielles sont envoyées aux sites enfants par réplication de la base de données.  
-
-6.  Une fois la synchronisation terminée avec succès, le Gestionnaire de synchronisation WSUS crée le message d'état 6702.  
-
-7.  Le Gestionnaire de synchronisation WSUS envoie une demande de synchronisation à tous les sites enfants.  
-
-8.  Le gestionnaire de synchronisation WSUS envoie une demande à la fois au serveur WSUS qui s'exécute sur d'autres points de mise à jour logicielle sur le site. Les serveurs WSUS sur les autres points de mise à jour logicielle sont configurés pour être des réplicas du serveur WSUS qui s'exécute sur le point de mise à jour logicielle par défaut sur le site.  
-
-### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Synchronisation sur les sites secondaires et principaux enfants  
- Lors du processus de synchronisation des mises à jour logicielles sur le site de niveau supérieur, les éléments de configuration des mises à jour logicielles sont répliqués sur les sites enfants par réplication de la base de données. À la fin du processus, le site de niveau supérieur envoie une demande de synchronisation au site enfant, puis le site enfant démarre la synchronisation WSUS. La liste suivante fournit les étapes de base pour le processus de synchronisation sur un site secondaire ou un site principal enfant :  
-
-1.  Le gestionnaire de synchronisation WSUS reçoit une demande de synchronisation de la part du site de niveau supérieur.  
-
-2.  La synchronisation des mises à jour logicielles démarre.  
-
-3.  Le Gestionnaire de synchronisation WSUS effectue une demande à WSUS qui est exécuté sur le point de mise à jour logicielle pour démarrer la synchronisation.  
-
-4.  WSUS exécuté sur le point de mise à jour logicielle sur le site enfant synchronise les métadonnées des mises à jour logicielles à partir de WSUS exécuté sur le point de mise à jour logicielle sur le site parent.  
-
-5.  Une fois la synchronisation terminée avec succès, le Gestionnaire de synchronisation WSUS crée le message d'état 6702.  
-
-6.  À partir d'un site principal, le gestionnaire de synchronisation WSUS envoie une demande de synchronisation aux sites secondaires enfants. Le site secondaire démarre la synchronisation des mises à jour logicielles avec le site principal parent. Le site secondaire est configuré en tant que réplica du serveur WSUS qui s'exécute sur le site parent.  
-
-7.  Le gestionnaire de synchronisation WSUS envoie une demande à la fois au serveur WSUS qui s'exécute sur d'autres points de mise à jour logicielle sur le site. Les serveurs WSUS sur les autres points de mise à jour logicielle sont configurés pour être des réplicas du serveur WSUS qui s'exécute sur le point de mise à jour logicielle par défaut sur le site.  
-
-##  <a name="a-namebkmksumcompliancea-software-updates-compliance-assessment"></a><a name="BKMK_SUMCompliance"></a> Software updates compliance assessment  
- Avant de déployer des mises à jour logicielles sur des ordinateurs clients dans Configuration Manager, lancez une analyse de conformité des mises à jour logicielles sur ces ordinateurs. Pour chaque mise à jour logicielle, un message indiquant l'état de conformité de la mise à jour est créé. Les messages d'état sont envoyés en bloc vers le point de gestion, puis vers le serveur du site où l'état de conformité est inséré dans la base de données du site. L’état de conformité des mises à jour logicielles s’affiche dans la console Configuration Manager. Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour. Vous trouverez dans les sections suivantes des informations sur les états de conformité, ainsi qu'une description du processus d'analyse de la conformité des mises à jour logicielles.  
-
-### <a name="software-updates-compliance-states"></a>États de conformité des mises à jour logicielles  
- Vous trouverez ci-dessous une description de chaque état de conformité affiché dans la console Configuration Manager pour les mises à jour logicielles.  
-
--   **Obligatoire**  
-
-     Spécifie que la mise à jour logicielle est applicable et qu'elle est requise par l'ordinateur client. Lorsque l'état de la mise à jour est **Requise**, n'importe laquelle des conditions suivante peut être vérifiée :  
-
-    -   La mise à jour logicielle n'a pas été déployée sur l'ordinateur client.  
-
-    -   La mise à jour logicielle a été installée sur l'ordinateur client. Toutefois, le message d'état le plus récent n'a pas encore été inséré dans la base de données sur le serveur de site. Une fois l'installation terminée, l'ordinateur client analyse de nouveau la mise à jour. Un délai maximal de deux minutes peut être observé avant que le client n'envoie l'état actualisé au point de gestion, lequel le transfère ensuite au serveur de site.  
-
-    -   La mise à jour logicielle a été installée sur l'ordinateur client. Toutefois, l'installation de la mise à jour logicielle requiert un redémarrage de l'ordinateur pour se terminer.  
-
-    -   La mise à jour logicielle a été déployée sur l'ordinateur client, mais elle n'a pas encore été installée.  
-
--   **Non requis**  
-
-     Spécifie que la mise à jour logicielle n'est pas applicable à l'ordinateur client. Par conséquent, elle n'est pas obligatoire.  
-
--   **Installé**  
-
-     Indique que la mise à jour logicielle est applicable à l'ordinateur client et qu'elle est déjà installée sur celui-ci.  
-
--   **Inconnu.**  
-
-     Indique que le serveur de site n'a reçu aucun message d'état émanant de l'ordinateur client, généralement pour l'une des raisons suivantes :  
-
-    -   L'ordinateur client n'a pas réussi à faire l'analyse de conformité des mises à jour logicielles.  
-
-    -   L'analyse s'est correctement terminée sur l'ordinateur client. Toutefois, le message d'état n'a pas encore été traité sur le serveur de site, probablement en raison d'un backlog de messages d'état.  
-
-    -   L'analyse sur l'ordinateur client a abouti, mais le site enfant n'a envoyé aucun message d'état.  
-
-    -   L'analyse sur l'ordinateur client a abouti, mais le fichier de message d'état est endommagé et n'a pas pu être traité.  
-
-### <a name="scan-for-software-updates-compliance-process"></a>Processus d'analyse de la conformité des mises à jour logicielles  
- Quand le point de mise à jour logicielle est installé et synchronisé, une stratégie d’ordinateur à l’échelle du site est créée pour informer les ordinateurs clients que les mises à jour logicielles de Configuration Manager ont été activées pour le site. Lorsqu'un client reçoit la stratégie de l'ordinateur, une analyse d'évaluation de la conformité est planifiée pour démarrer de façon aléatoire dans les deux heures suivantes. Lorsqu'une analyse est lancée, le processus Agent client des mises à jour logicielles efface l'historique des analyses, soumet une requête pour rechercher le serveur WSUS qui devrait être utilisé pour l'analyse, et met à jour la stratégie de groupe local avec l'emplacement du serveur WSUS.  
+ Sie können an einem primären Standort mehrere Softwareupdatepunkte installieren. Der zuerst installierte Softwareupdatepunkt wird als Synchronisierungsquelle konfiguriert. Hiermit erfolgt die Synchronisierung über Microsoft Update oder über einen WSUS-Server, der der Configuration Manager-Hierarchie nicht angehört. Der erste Softwareupdatepunkt wird von den übrigen Softwareupdatepunkten am Standort als Synchronisierungsquelle verwendet.  
 
 > [!NOTE]  
->  Les clients basés sur Internet doivent se connecter au serveur WSUS à l'aide de SSL.  
+>  Wenn die Softwareupdatesynchronisierung am Standort der obersten Ebene abgeschlossen ist, werden die Metadaten für Softwareupdates mithilfe der Datenbankreplikation an untergeordnete Standorte repliziert. Wenn Sie eine Verbindung zwischen einer Configuration Manager-Konsole und dem untergeordneten Standort herstellen, werden von Configuration Manager die Metadaten für Softwareupdates angezeigt. Allerdings ist es erst nach der Installation und Konfiguration eines Softwareupdatepunkts am Standort möglich, die Kompatibilität von Softwareupdates zu prüfen, Kompatibilitätsinformationen an Configuration Manager zu senden und Softwareupdates bereitzustellen.  
 
- Une requête d'analyse est transmise à l'Agent Windows Update (WUA). L'Agent Windows Update (WUA) se connecte à l'emplacement du serveur WSUS répertorié dans la stratégie locale, récupère les métadonnées des mises à jour logicielles synchronisées sur le serveur WSUS, puis recherche les mises à jour sur l'ordinateur client. Le processus Agent client des mises à jour logicielles détecte que l'analyse de la conformité est terminée. Il crée des messages d'état pour chacune des mises à jour logicielles dont l'état de conformité a changé après la dernière analyse. Les messages d'état sont envoyés en bloc au point de gestion, toutes les 15 minutes. Le point de gestion transfère ensuite les messages d'état au serveur de site où ils sont insérés dans la base de données du serveur de site.  
+### <a name="synchronization-on-the-top-level-site"></a>Synchronisierung am Standort der obersten Ebene  
+ Bei der Softwareupdatesynchronisierung am Standort der obersten Ebene werden von Microsoft Update die Metadaten für Softwareupdates abgerufen, die die in Eigenschaften der Softwareupdatepunktkomponente angegebenen Kriterien erfüllen. Sie konfigurieren die Kriterien nur am Standort der obersten Ebene.  
 
- Après la première analyse de conformité des mises à jour logicielles, l'analyse démarre selon le calendrier d'analyse configuré. Cependant, si le client a effectué l'analyse de conformité des mises à jour logicielles dans la plage de temps indiquée par la valeur de durée de vie, il utilise les métadonnées des mises à jour logicielles stockées localement. Si la dernière analyse a été effectuée en dehors de la durée de vie, le client doit se connecter au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle et mettre à jour les métadonnées des mises à jour logicielles stockées sur le client.  
+> [!NOTE]  
+>  Sie können anstelle von Microsoft Updates einen vorhandenen WSUS-Server, der nicht der Configuration Manager-Hierarchie angehört, als Synchronisierungsquelle festlegen.  
 
- En incluant la planification de l'analyse, l'analyse de la conformité des mises à jour logicielles peut être lancée de différentes manières :  
+ In der folgenden Liste werden die grundlegenden Schritte des Synchronisierungsprozesses am Standort der obersten Ebene beschrieben:  
 
--   **Calendrier d’analyse des mises à jour logicielles**: l’analyse de la conformité des mises à jour logicielles commence selon le calendrier d’analyse configuré dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur la configuration des paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
+1.  Die Softwareupdatesynchronisierung wird gestartet.  
 
--   **Action Propriétés de Configuration Manager**: l’utilisateur peut démarrer l’action **Cycle d’analyse des mises à jour de logiciels** ou **Cycle d’évaluation des déploiements de mises à jour de logiciels** sous l’onglet **Action** de la boîte de dialogue **Propriétés du Configuration Manager** sur l’ordinateur client.  
+2.  Vom WSUS-Synchronisierungs-Manager wird die Anforderung, die Synchronisierung mit Microsoft Update zu starten, an WSUS auf dem Softwareupdatepunkt gesendet.  
 
--   **Planification de la réévaluation du déploiement**: l’évaluation du déploiement et l’analyse de la conformité des mises à jour logicielles commencent selon le calendrier de réévaluation du déploiement configuré, comme indiqué dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur les paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
+3.  Die Metadaten für Softwareupdates werden über Microsoft Update synchronisiert, und alle Änderungen werden in die WSUS-Datenbank eingefügt bzw. in dieser aktualisiert.  
 
--   **Avant de télécharger les fichiers de mises à jour**: quand un ordinateur client reçoit une stratégie d’attribution pour un nouveau déploiement obligatoire, l’Agent client des mises à jour logicielles télécharge les fichiers de mise à jour logicielle dans le cache du client local. Avant de télécharger les fichiers de mise à jour logicielle, l'agent du client démarre une analyse pour vérifier que la mise à jour logicielle est toujours nécessaire.  
+4.  Wenn die Synchronisierung von WSUS abgeschlossen ist, werden die Metadaten für Softwareupdates aus der WSUS-Datenbank vom WSUS-Synchronisierungs-Manager mit der Configuration Manager-Datenbank synchronisiert. Alle Änderungen, die seit der letzten Synchronisierung vorgenommen wurden, werden in die Standortdatenbank eingefügt bzw. in dieser aktualisiert. Die Metadaten für Softwareupdates werden in der Standortdatenbank als Konfigurationselement gespeichert.  
 
--   **Avant l’installation des mises à jour logicielles**: juste avant d’installer des mises à jour logicielles, l’Agent client des mises à jour logicielles démarre une analyse pour vérifier que les mises à jour logicielles sont toujours nécessaires.  
+5.  Die Konfigurationselemente für Softwareupdates werden mithilfe der Datenbankreplikation an untergeordnete Standorte gesendet.  
 
--   **Après l’installation des mises à jour logicielles**: juste après la fin de l’installation des mises à jour logicielles, l’Agent client des mises à jour logicielles démarre une analyse pour vérifier que les mises à jour logicielles ne sont plus nécessaires et crée un message d’état indiquant que la mise à jour logicielle est installée. Lorsque l'installation est terminée mais qu'un redémarrage est nécessaire, le message d'état indique que l'ordinateur client doit être redémarré.  
+6.  Wenn die Synchronisierung erfolgreich abgeschlossen wurde, wird vom WSUS-Synchronisierungs-Manager die Statusmeldung 6702 ausgegeben.  
 
--   **Après le redémarrage du système**: si un ordinateur client attend le redémarrage du système pour terminer l’installation de la mise à jour logicielle, l’Agent client des mises à jour logicielles démarre une analyse après le redémarrage pour vérifier que la mise à jour logicielle n’est plus nécessaire et crée un message d’état indiquant que la mise à jour logicielle est installée.  
+7.  Vom WSUS-Synchronisierungs-Manager wird eine Synchronisierungsanforderung an alle untergeordneten Standorte gesendet.  
 
-#### <a name="time-to-live-value"></a>Valeur de la durée de vie  
- Les métadonnées des mises à jour logicielles requises pour l'analyse de la conformité des mises à jour logicielles sont stockées sur l'ordinateur client local et, par défaut, sont pertinentes pendant 24 heures. Cette durée est appelée durée de vie.  
+8.  Vom WSUS-Synchronisierungs-Manager werden einzelne Anforderungen an WSUS auf anderen Softwareupdatepunkten des Standorts gesendet. Die WSUS-Server auf den übrigen Softwareupdatepunkten werden als Replikate von WSUS auf dem Standard-Softwareupdatepunkt am Standort konfiguriert.  
 
-#### <a name="scan-for-software-updates-compliance-types"></a>Types d'analyse de conformité des mises à jour logicielles  
- Le client analyse la conformité des mises à jour logicielles à l'aide d'un outil d'analyse en ligne ou hors ligne. L'analyse peut être forcée ou non, en fonction de la méthode d'exécution adoptée. Vous trouverez ci-dessous une description des méthodes en ligne ou hors ligne, forcée ou non forcée, permettant de lancer l’analyse.  
+### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Synchronisierung an untergeordneten primären Standorten und sekundären Standorten  
+ Bei der Softwareupdatesynchronisierung am Standort der obersten Ebene werden die Konfigurationselemente für Softwareupdates mithilfe der Datenbankreplikation an untergeordnete Standorte repliziert. Am Ende des Prozesses wird vom Standort der obersten Ebene eine Synchronisierungsanforderung an den untergeordneten Standort gesendet. Daraufhin wird die WSUS-Synchronisierung vom untergeordneten Standort gestartet. Die folgende Liste enthält die grundlegenden Schritte für den Synchronisierungsprozess an einem untergeordneten primären Standort oder an einem sekundären Standort:  
 
--   **Calendrier d’analyse des mises à jour logicielles** (analyse en ligne non forcée)  
+1.  Beim WSUS-Synchronisierungs-Manager geht eine Synchronisierungsanforderung vom Standort der obersten Ebene ein.  
 
-     Conformément au calendrier d'analyse configuré, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+2.  Die Softwareupdatesynchronisierung wird gestartet.  
 
--   **Cycle d’analyse des mises à jour logicielles** ou **Cycle d’évaluation des déploiements de mises à jour ** (analyse en ligne forcée)  
+3.  Vom WSUS-Synchronisierungs-Manager wird die Anforderung, die Synchronisierung zu starten, an WSUS auf dem Softwareupdatepunkt gesendet.  
 
-     L'ordinateur client se connecte toujours au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles avant d'analyser la conformité des mises à jour logicielles. Une fois l'analyse terminée, le compteur de durée de vie est réinitialisé. Prenons l'exemple d'une valeur de durée de vie de 24 heures : si l'utilisateur lance une analyse de conformité des mises à jour logicielles, cette valeur est réinitialisée sur 24 heures.  
+4.  Von WSUS auf dem Softwareupdatepunkt am untergeordneten Standort werden die von WSUS auf dem Softwareupdatepunkt am übergeordneten Standort stammenden Metadaten für Softwareupdates synchronisiert.  
 
--   **Calendrier de la réévaluation du déploiement** (analyse en ligne non forcée)  
+5.  Wenn die Synchronisierung erfolgreich abgeschlossen wurde, wird vom WSUS-Synchronisierungs-Manager die Statusmeldung 6702 ausgegeben.  
 
-     Conformément au calendrier de réévaluation du déploiement configuré, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+6.  Vom WSUS-Synchronisierungs-Manager wird von einem primären Standort eine Synchronisierungsanforderung an alle untergeordneten sekundären Standorte gesendet. Am sekundären Standort wird die Softwareupdatesynchronisierung mit dem übergeordneten primären Standort gestartet. Der sekundäre Standort wird als Replikat von WSUS auf dem übergeordneten Standort konfiguriert.  
 
--   **Avant de télécharger les fichiers de mise à jour** (analyse en ligne non forcée)  
+7.  Vom WSUS-Synchronisierungs-Manager werden einzelne Anforderungen an WSUS auf anderen Softwareupdatepunkten des Standorts gesendet. Die WSUS-Server auf den übrigen Softwareupdatepunkten werden als Replikate von WSUS auf dem Standard-Softwareupdatepunkt am Standort konfiguriert.  
 
-     Avant de pouvoir télécharger les fichiers de mise à jour dans les déploiements requis, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+##  <a name="BKMK_SUMCompliance"></a> Software updates compliance assessment  
+ Prüfen Sie vor der Bereitstellung von Softwareupdates auf Clientcomputern in Configuration Manager die Kompatibilität der Clientcomputer mit den Softwareupdates. Für jedes Softwareupdate wird eine Zustandsmeldung mit dem Kompatibilitätszustand für das Update erstellt. Die Zustandsmeldungen werden zusammen an den Verwaltungspunkt gesendet und anschließend an den Standortserver weitergeleitet, wo der Kompatibilitätszustand in die Standortdatenbank aufgenommen wird. Der Kompatibilitätszustand für Softwareupdates wird in der Configuration Manager-Konsole angezeigt. Sie können Softwareupdates auf Computern, auf denen die Updates erforderlich sind, bereitstellen und installieren. Die folgenden Abschnitte enthalten Informationen zu Kompatibilitätszuständen und eine Beschreibung des Überprüfungsprozesses der Softwareupdatekompatibilität.  
 
--   **Avant l’installation des mises à jour logicielles** (analyse en ligne non forcée)  
+### <a name="software-updates-compliance-states"></a>Kompatibilitätszustände von Softwareupdates  
+ Im Folgenden finden Sie eine Beschreibung der Kompatibilitätszustände, die in der Configuration Manager-Konsole für Softwareupdates angezeigt werden.  
 
-     Avant d'installer les mises à jour logicielles dans les déploiements requis, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+-   **Erforderlich**  
 
--   **Après l’installation des mises à jour logicielles** (analyse hors ligne non forcée)  
+     Gibt an, dass das Softwareupdate für den Clientcomputer anwendbar und erforderlich ist. Der Softwareupdatezustand ist **Erforderlich**, wenn eine der folgenden Bedingungen erfüllt ist:  
 
-     Une fois qu'une mise à jour logicielle a été installée, l'Agent client des mises à jour logicielles démarre une analyse à l'aide des métadonnées locales. Le client ne se connecte jamais au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles.  
+    -   Das Softwareupdate wurde nicht für den Clientcomputer bereitgestellt.  
 
--   **Après le redémarrage du système** (analyse hors ligne forcée)  
+    -   Das Softwareupdate wurde auf dem Clientcomputer installiert. Allerdings wurde die letzte Zustandsmeldung bisher noch nicht in die Datenbank auf dem Standortserver eingefügt. Nach Abschluss der Installation wird der Clientcomputer erneut auf das Update überprüft. Der aktualisierte Zustand wird vom Client möglicherweise erst nach einer Verzögerung von bis zu zwei Minuten an den Verwaltungspunkt gesendet und von dort an den Standortserver weitergeleitet.  
 
-     Une fois qu'une mise à jour logicielle a été installée et l'ordinateur redémarré, l'Agent client des mises à jour logicielles démarre une analyse en utilisant les métadonnées locales. Le client ne se connecte jamais au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles.  
+    -   Das Softwareupdate wurde auf dem Clientcomputer installiert. Allerdings muss die Installation des Softwareupdates mit einem Computerneustart abgeschlossen werden.  
 
-##  <a name="a-namebkmkdeploymentpackagesa-software-update-deployment-packages"></a><a name="BKMK_DeploymentPackages"></a> Packages de déploiement des mises à jour logicielles  
- Un package de déploiement de mise à jour logicielle est le véhicule utilisé pour télécharger des mises à jour logicielles vers un dossier partagé du réseau et copier les fichiers sources des mises à jour logicielles vers la bibliothèque de contenu sur les serveurs de site et sur les points de distribution qui sont définis dans le déploiement. À l'aide de l'Assistant Téléchargement des mises à jour, vous pouvez télécharger des mises à jour logicielles et les ajouter à des packages de déploiement avant de les déployer. Cet Assistant vous permet de préparer les mises à jour logicielles sur des points de distribution et de vérifier que cette partie du processus de déploiement a réussi avant que vous déployiez les mises à jour logicielles vers les clients.  
+    -   Das Softwareupdate wurde für den Clientcomputer bereitgestellt, jedoch noch nicht installiert.  
 
- Une fois que vous avez déployé les mises à jour logicielles téléchargées à l'aide de l'Assistant Déploiement des mises à jour logicielles, le déploiement utilise automatiquement le package de déploiement qui contient les mises à jour logicielles. Lorsque les mises à jour logicielles qui n'ont pas été téléchargées sont déployées, vous devez spécifier un package de déploiement nouveau ou existant dans l'Assistant Déploiement des mises à jour logicielles et les mises à jour logicielles sont téléchargées à la fin de l'exécution de l'Assistant.  
+-   **Nicht erforderlich**  
+
+     Hiermit wird angegeben, dass das Softwareupdate nicht für den Clientcomputer gilt. Das Softwareupdate ist daher nicht erforderlich.  
+
+-   **Installiert**  
+
+     Gibt an, dass das Softwareupdate auf den Clientcomputer anwendbar ist und bereits installiert wurde.  
+
+-   **Unbekannt**  
+
+     Beim Standortserver ist keine Zustandsmeldung vom Clientcomputer eingegangen. Dies kann unter anderem einen der folgenden Gründe haben:  
+
+    -   Der Clientcomputer konnte die Softwareupdatekompatibilität nicht erfolgreich überprüfen.  
+
+    -   Die Überprüfung wurde auf dem Clientcomputer erfolgreich abgeschlossen. Die Zustandsmeldung wurde jedoch noch nicht auf dem Standortserver verarbeitet, was möglicherweise auf einen Rückstand von Zustandsmeldungen zurückzuführen ist.  
+
+    -   Die Überprüfung auf dem Clientcomputer wurde erfolgreich abgeschlossen, die Zustandsmeldung jedoch noch nicht vom untergeordneten Standort empfangen.  
+
+    -   Die Überprüfung auf dem Clientcomputer wurde erfolgreich abgeschlossen, die Zustandsmeldung ist jedoch in irgendeiner Form beschädigt und konnte nicht verarbeitet werden.  
+
+### <a name="scan-for-software-updates-compliance-process"></a>Überprüfen der Softwareupdatekompatibilität  
+ Wenn der Softwareupdatepunkt installiert und synchronisiert ist, wird eine standortweite Computerrichtlinie erstellt. Mit dieser Richtlinie werden Clientcomputer darüber informiert, dass Configuration Manager-Softwareupdates für den Standort aktiviert wurden. Beim Empfang der Computerrichtlinie durch einen Client wird eine Kompatibilitätsüberprüfung geplant, die innerhalb der nächsten zwei Stunden zufällig gestartet wird. Beim Start der Überprüfung wird der Überprüfungsverlauf vom Softwareupdateclient-Agent gelöscht. Außerdem wird eine Anforderung zum Suchen des WSUS-Servers übermittelt, der für die Überprüfung verwendet werden soll, und anhand des WSUS-Serverspeicherorts wird ein Update der lokalen Gruppenrichtlinie ausgeführt.  
+
+> [!NOTE]  
+>  Verbindungen zwischen internetbasierten Clients und dem WSUS-Server müssen mithilfe von SSL hergestellt werden.  
+
+ Eine Überprüfungsanforderung wird an den Windows Update-Agent (WUA) geleitet. Daraufhin wird vom WUA eine Verbindung mit dem in der lokalen Richtlinie genannten Ort des WSUS-Servers hergestellt. Anschließend werden die auf dem WSUS-Server synchronisierten Metadaten für Softwareupdates abgerufen, und der Clientcomputer wird auf diese Updates überprüft. Von einem Prozess des Softwareupdateclient-Agents wird erkannt, dass die Kompatibilitätsüberprüfung abgeschlossen wurde. Für jedes Softwareupdate, dessen Kompatibilitätszustand sich seit der letzten Überprüfung geändert hat, werden Zustandsmeldungen erstellt. Die Zustandsmeldungen werden alle fünfzehn Minuten zusammen an den Verwaltungspunkt gesendet. Der Verwaltungspunkt leitet die Zustandsmeldungen dann an den Standortserver weiter, auf dem die Zustandsmeldungen in der Standortdatenbank gespeichert werden.  
+
+ Nach der ersten Überprüfung der Kompatibilität von Softwareupdates wird die Überprüfung im konfigurierten Überprüfungszeitplan gestartet. Wenn die Kompatibilität von Softwareupdates vom Client jedoch innerhalb des durch die Gültigkeitsdauer (Time-to-Live, TTL) angegebenen Zeitrahmens überprüft wurde, werden vom Client die lokal gespeicherten Metadaten für Softwareupdates verwendet. Erfolgt die letzte Überprüfung außerhalb der Gültigkeitsdauer, muss vom Client eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt werden, und für die auf dem Client gespeicherten Metadaten für Softwareupdates muss ein Update ausgeführt werden.  
+
+ Mithilfe des Überprüfungszeitplans kann die Überprüfung der Kompatibilität von Softwareupdates auf folgende Weise gestartet werden:  
+
+-   **Zeitplan für Softwareupdateprüfung**: Die Überprüfung der Kompatibilität von Softwareupdates beginnt gemäß Überprüfungszeitplan, der in den Einstellungen des Softwareupdateclient-Agents konfiguriert wird. Weitere Informationen zum Konfigurieren der Clienteinstellungen für Softwareupdates finden Sie im Abschnitt [Software Updates (Softwareupdates)](../../core/clients/deploy/about-client-settings.md#software-updates) im Thema „About client settings in System Center Configuration Manager“ (Informationen zu Clienteinstellungen in System Center Configuration Manager).  
+
+-   **Aktion in den Configuration Manager-Eigenschaften**: Der Benutzer kann auf dem Clientcomputer im Dialogfeld **Configuration Manager-Eigenschaften** auf der Registerkarte **Aktion** die Aktion **Überprüfungszyklus für Softwareupdates** oder **Auswertungszyklus für Softwareupdatebereitstellung** starten.  
+
+-   **Zeitplan für die erneute Bewertung der Bereitstellung**: Die Bewertung der Bereitstellung und die Überprüfung der Kompatibilität von Softwareupdates beginnen gemäß dem Zeitplan für die erneute Bewertung der Bereitstellung, der in den Einstellungen des Softwareupdateclient-Agents konfiguriert wird. Weitere Informationen zu den Clienteinstellungen für Softwareupdates finden Sie im Abschnitt „Software Updates“ (Softwareupdates) im Thema [About client settings in System Center Configuration Manager (Informationen zu Clienteinstellungen in Configuration Manager)](../../core/clients/deploy/about-client-settings.md#software-updates).  
+
+-   **Vor dem Herunterladen von Updatedateien**: Wenn bei einem Clientcomputer eine Zuweisungsrichtlinie für eine neu erforderliche Bereitstellung eingeht, werden die Softwareupdatedateien vom Softwareupdateclient-Agent in den lokalen Clientcache heruntergeladen. Vor dem Download der Softwareupdatedatei wird vom Client-Agent im Rahmen einer Überprüfung bestätigt, dass das Softwareupdate noch erforderlich ist.  
+
+-   **Vor der Softwareupdateinstallation**: Unmittelbar vor der Softwareupdateinstallation wird vom Softwareupdateclient-Agent im Rahmen einer Überprüfung bestätigt, dass die Softwareupdates noch erforderlich sind.  
+
+-   **Nach der Softwareupdateinstallation**: Unmittelbar nach dem Abschluss einer Softwareupdateinstallation wird vom Softwareupdateclient-Agent im Rahmen einer Überprüfung bestätigt, dass die Softwareupdates nicht mehr erforderlich sind. Dann wird vom Softwareupdateclient-Agent eine neue Zustandsmeldung erstellt, aus der hervorgeht, dass das Softwareupdate installiert ist. Wenn die Installation abgeschlossen ist, aber ein Neustart ausgeführt werden muss, geht aus der Zustandsmeldung hervor, dass auf dem Clientcomputer ein Neustart ansteht.  
+
+-   **Nach dem Neustart des Systems**: Wenn auf einem Clientcomputer ein Systemneustart ansteht, damit die Installation des Softwareupdates abgeschlossen werden kann, wird vom Softwareupdateclient-Agent nach dem Neustart im Rahmen einer Überprüfung bestätigt, dass das Update nicht mehr erforderlich ist. Dabei wird eine neue Zustandsmeldung erstellt, aus der hervorgeht, dass das Softwareupdate installiert wurde.  
+
+#### <a name="time-to-live-value"></a>Gültigkeitsdauer  
+ Die zum Überprüfen der Kompatibilität von Softwareupdates erforderlichen Metadaten für Softwareupdates werden auf dem lokalen Clientcomputer gespeichert und sind standardmäßig bis zu 24 Stunden gültig. Dieser Wert wird als Gültigkeitsdauer (Time to Live, TTL) bezeichnet.  
+
+#### <a name="scan-for-software-updates-compliance-types"></a>Überprüfungstypen für Softwareupdatekompatibilität  
+ Die Überprüfung der Kompatibilität von Softwareupdates durch den Client erfolgt entweder online oder offline sowie entweder erzwungenermaßen oder freiwillig. Welcher Überprüfungstyp verwendet wird, hängt davon ab, wie die Überprüfung der Kompatibilität von Softwareupdates gestartet wurde. Im Folgenden wird beschrieben, welche Methoden zum Starten der Überprüfung online oder offline ausgeführt werden und ob die Überprüfung erzwungenermaßen oder freiwillig erfolgt.  
+
+-   **Zeitplan für Softwareupdateprüfung** (freiwillige Onlineüberprüfung)  
+
+     Vom Client wird gemäß konfiguriertem Überprüfungszeitplan nur dann eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um die Metadaten für Softwareupdates abzurufen, wenn die letzte Überprüfung außerhalb der Gültigkeitsdauer erfolgt ist.  
+
+-   **Überprüfungszyklus für Softwareupdates** oder **Auswertungszyklus für Softwareupdatebereitstellung** (erzwungene Onlineüberprüfung)  
+
+     Vom Clientcomputer wird vor der Überprüfung der Kompatibilität von Softwareupdates immer eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um die Metadaten für Softwareupdates abzurufen. Der Zähler für die Gültigkeitsdauer wird nach Abschluss der Überprüfung zurückgesetzt. Beträgt die Gültigkeitsdauer beispielsweise 24 Stunden, wird sie nach dem Start einer Überprüfung der Kompatibilität von Softwareupdates auf 24 Stunden zurückgesetzt.  
+
+-   **Zeitplan für die erneute Bewertung der Bereitstellung** (freiwillige Onlineüberprüfung)  
+
+     Vom Client wird gemäß konfiguriertem Zeitplan für die erneute Auswertung der Bereitstellungen nur dann eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um die Metadaten für Softwareupdates abzurufen, wenn die letzte Überprüfung außerhalb der Gültigkeitsdauer erfolgt ist.  
+
+-   **Vor dem Herunterladen von Updatedateien** (freiwillige Onlineüberprüfung)  
+
+     Vom Client wird bei erforderlichen Bereitstellungen vor dem Herunterladen der Updatedateien nur dann eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um die Metadaten für Softwareupdates abzurufen, wenn die letzte Überprüfung außerhalb der Gültigkeitsdauer erfolgt ist.  
+
+-   **Vor der Softwareupdateinstallation** (freiwillige Onlineüberprüfung)  
+
+     Vom Client wird bei erforderlichen Bereitstellungen vor dem Installieren von Softwareupdates nur dann eine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um die Metadaten für Softwareupdates abzurufen, wenn die letzte Überprüfung außerhalb der Gültigkeitsdauer erfolgt ist.  
+
+-   **Nach der Softwareupdateinstallation** (erzwungene Offlineüberprüfung)  
+
+     Nach der Installation eines Softwareupdates wird vom Softwareupdateclient-Agent anhand der lokalen Metadaten eine Überprüfung gestartet. Vom Client wird keine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um Metadaten für Softwareupdates abzurufen.  
+
+-   **Nach dem Neustart des Systems** (erzwungene Offlineüberprüfung)  
+
+     Nach der Installation eines Softwareupdates und nach dem Neustart des Computers wird vom Softwareupdateclient-Agent anhand der lokalen Metadaten eine Überprüfung gestartet. Vom Client wird keine Verbindung mit WSUS auf dem Softwareupdatepunkt hergestellt, um Metadaten für Softwareupdates abzurufen.  
+
+##  <a name="BKMK_DeploymentPackages"></a> Softwareupdate-Bereitstellungspakete  
+ Mithilfe von Bereitstellungspaketen für Softwareupdates werden Softwareupdates in freigegebene Netzwerkordner heruntergeladen. Die Quelldateien des Softwareupdates werden dann in die Inhaltsbibliothek auf Standortservern und an Verteilungspunkten kopiert, die in der Bereitstellung definiert sind. Mit dem Assistenten zum Herunterladen von Updates können Sie Softwareupdates herunterladen und Bereitstellungspaketen hinzufügen, bevor diese bereitgestellt werden. Sie können mit dem Assistenten Softwareupdates an Verteilungspunkten bereitstellen und sich vom Erfolg dieses Teils des Bereitstellungsprozesses überzeugen, bevor Sie die Softwareupdates Clients bereitstellen.  
+
+ Wenn Sie heruntergeladene Softwareupdates mit dem Assistenten zum Bereitstellen von Softwareupdates bereitstellen, wird bei der Bereitstellung automatisch das Bereitstellungspaket verwendet, das die Softwareupdates enthält. Werden Softwareupdates bereitgestellt, die nicht heruntergeladen wurden, müssen Sie im Assistenten zum Bereitstellen von Softwareupdates ein neues oder vorhandenes Bereitstellungspaket angeben. Die Softwareupdates werden dann heruntergeladen, wenn der Assistent abgeschlossen ist.  
 
 > [!IMPORTANT]  
->  Vous devez créer manuellement le dossier réseau partagé pour les fichiers sources du package de déploiement avant de le spécifier dans l'Assistant. Chaque package de déploiement doit utiliser un dossier réseau partagé différent.  
+>  Sie müssen den freigegebenen Netzwerkordner für die Quelldateien des Bereitstellungspakets manuell erstellen, bevor Sie ihn im Assistenten angeben. Von jedem Bereitstellungspaket muss ein eigener freigegebener Ordner verwendet werden.  
 
 > [!IMPORTANT]  
->  Le compte d'ordinateur du fournisseur SMS et l'utilisateur administratif qui télécharge les mises à jour logicielles requièrent des autorisations en **Écriture** vers la source du package. Limitez l'accès à la source du package pour éviter qu'une personne malveillante falsifie les fichiers sources de mises à jour logicielles dans la source du package.  
+>  Sowohl das Computerkonto „SMS-Anbieter“ als auch der Administrator, der die Softwareupdates herunterlädt, muss über die Berechtigung **Schreiben** für die Paketquelle verfügen. Beschränken Sie den Zugriff auf die Paketquelle, um das Risiko zu verringern, dass die Quelldateien der Softwareupdates an der Paketquelle von Angreifern manipuliert werden.  
 
- Lors de la création d'un package de déploiement, la version du contenu est définie sur 1 avant que des mises à jour logicielles soient téléchargées. Quand les fichiers de mise à jour logicielle sont téléchargés à l'aide du package, la version de contenu est incrémentée à 2. Par conséquent, tous les nouveaux packages de déploiement démarrent avec une version de contenu égale à 2. Chaque fois que le contenu d'un package de déploiement change, la version de contenu est incrémentée de 1. Pour plus d’informations, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+ Bei der Erstellung eines neuen Bereitstellungspakets wird die Inhaltsversion auf 1 festgesetzt, bevor Softwareupdates heruntergeladen werden. Wenn die Softwareupdatedateien über das Paket heruntergeladen werden, wird die Inhaltsversion auf 2 erhöht. Aus diesem Grund haben alle neuen Bereitstellungspakete anfänglich die Inhaltsversion 2. Bei jeder Änderung des Inhalts eines Bereitstellungspakets wird die Inhaltsversion um 1 erhöht. Weitere Informationen finden Sie unter [Fundamental concepts for content management in System Center Configuration Manager (Grundlegende Konzepte für das Content Management)](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
- Les clients installent les mises à jour logicielles dans un déploiement en utilisant tout point de distribution qui met à disposition les mises à jour logicielles, quel que soit le package de déploiement. Même si un package de déploiement est supprimé pour un déploiement actif, les clients peuvent toujours installer les mises à jour logicielles dans le déploiement à condition que chacune d'elles ait été téléchargée dans au moins un autre package de déploiement et qu'elle soit disponible sur un point de distribution accessible depuis le client. Lorsque le dernier package de déploiement contenant une mise à jour logicielle est supprimé, les ordinateurs clients ne peuvent pas récupérer la mise à jour logicielle tant qu'elle n'est pas à nouveau téléchargée vers un package de déploiement. Les mises à jour logicielles s’affichent avec une flèche rouge dans la console Configuration Manager quand les fichiers de mise à jour ne se trouvent dans aucun package de déploiement. Les déploiements apparaissent avec une double flèche rouge lorsqu'ils contiennent des mises à jour dans cet état.  
+ Clients installieren die in einer Bereitstellung enthaltenen Softwareupdates mithilfe eines beliebigen Verteilungspunkts, auf dem die Softwareupdates verfügbar ist. Dies geschieht unabhängig vom Bereitstellungspaket. Wenn ein Bereitstellungspaket für eine aktive Bereitstellung gelöscht wird, können die Softwareupdates in der Bereitstellung dennoch weiterhin von Clients installiert werden. Dies setzt voraus, dass jedes Update in mindestens ein weiteres Bereitstellungspaket heruntergeladen wurde und auf einem Verteilungspunkt verfügbar ist, auf den der Client Zugriff hat. Wenn das letzte Bereitstellungspaket mit einem Softwareupdate gelöscht wird, kann das Softwareupdate erst wieder von Clientcomputern abgerufen werden, nachdem es erneut in ein Bereitstellungspaket heruntergeladen wurde. In der Configuration Manager-Konsole werden Softwareupdates mit einem roten Pfeil markiert, wenn sich die Updatedateien nicht in Bereitstellungspaketen befinden. Bereitstellungen werden mit einem roten Doppelpfeil angezeigt, wenn sie Updates in diesem Zustand enthalten.  
 
-##  <a name="a-namebkmkdeploymentworkflowsa-software-update-deployment-workflows"></a><a name="BKMK_DeploymentWorkflows"></a> Flux de travail de déploiement de mise à jour logicielle  
- Il existe deux principaux scénarios de déploiement des mises à jour logicielles dans votre environnement : le déploiement manuel et le déploiement automatique. En règle générale, vous déployez manuellement les mises à jour logicielles pour créer une ligne de base pour vos ordinateurs clients, puis vous gérez les mises à jour logicielles sur les clients à l'aide d'un déploiement automatique. Les sections suivantes fournissent un résumé du flux de travail pour le déploiement manuel et automatique pour les mises à jour logicielles.  
+##  <a name="BKMK_DeploymentWorkflows"></a> Workflows für die Softwareupdatebereitstellung  
+ Die Bereitstellung von Softwareupdates in einer Umgebung erfolgt entweder manuell oder automatisch. In der Regel werden Softwareupdates manuell bereitgestellt, um eine Basislinie für die Clientcomputer zu erstellen. Die Verwaltung der Softwareupdates auf Clients erfolgt dann durch die automatische Bereitstellung. Die folgenden Abschnitte enthalten einen Überblick über die Workflows bei der manuellen und automatischen Bereitstellung von Softwareupdates  
 
-###  <a name="a-namebkmkmanualdeploymenta-manual-deployment-of-software-updates"></a><a name="BKMK_ManualDeployment"></a> Déploiement manuel de mises à jour logicielles  
- Le déploiement manuel de mises à jour logicielles consiste à sélectionner des mises à jour logicielles dans la console Configuration Manager et à démarrer manuellement le processus de déploiement. Généralement, vous utilisez cette méthode de déploiement pour mettre à jour les ordinateurs clients avec les mises à jour logicielles requises avant de créer des règles de déploiement automatique qui gèrent les déploiements de mises à jour logicielles mensuelles en continu ; vous pouvez également déployer des mises à jour logicielles requises hors bande. La liste suivante fournit le flux de travail général pour le déploiement manuel de mises à jour logicielles :  
+###  <a name="BKMK_ManualDeployment"></a> Manuelle Bereitstellung von Softwareupdates  
+ Bei der manuellen Bereitstellung von Softwareupdates werden Softwareupdates in der Configuration Manager-Konsole ausgewählt, und der Bereitstellungsprozess wird manuell gestartet. Mit dieser Bereitstellungsmethode sorgen Sie in der Regel dafür, dass die aktuell erforderlichen Softwareupdates auf den Clientcomputern vorhanden sind, bevor Sie automatische Bereitstellungsregeln zur Verwaltung der laufenden monatlichen Softwareupdatebereitstellungen erstellen. Diese Methode dient auch dazu, Out-of-Band-Anforderungen für Softwareupdates bereitzustellen. Der allgemeine Workflow für die manuelle Bereitstellung von Softwareupdates umfasst die folgenden Schritte:  
 
-1.  filtre pour les mises à jour logicielles qui utilisent des configurations spécifiques. Par exemple, vous pouvez fournir des critères qui récupèrent toutes les mises à jour logicielles critiques ou de sécurité qui sont requises sur plus de 50 ordinateurs clients.  
+1.  Filtern Sie Softwareupdates mit bestimmten Anforderungen heraus. Beispielsweise könnten Sie anhand geeigneter Kriterien angeben, dass alle Softwareupdates abgerufen werden sollen, die auf mehr als 50 Clientcomputern benötigt werden und deren Klassifizierung Sicherheit oder Kritisch lautet.  
 
-2.  Créez un groupe de mises à jour logicielles contenant les mises à jour logicielles.  
+2.  Erstellen Sie eine Softwareupdategruppe, die die Softwareupdates enthält.  
 
-3.  Téléchargez le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles.  
+3.  Laden Sie den Inhalt für die Softwareupdates in der Softwareupdategruppe herunter.  
 
-4.  Déployez manuellement le groupe de mises à jour logicielles.  
+4.  Stellen Sie die Softwareupdategruppe manuell bereit.  
 
-###  <a name="a-namebkmkautomaticdeploymenta-automatic-deployment-of-software-updates"></a><a name="BKMK_AutomaticDeployment"></a> Déploiement automatique de mises à jour logicielles  
- La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Vous utilisez généralement cette méthode de déploiement pour vos mises à jour logicielles mensuelles (généralement appelées Patch Tuesday) et pour la gestion des mises à jour de définitions. Quand la règle s'exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (dans le cas d'un groupe existant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours de la dernière semaine) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés dans les points de distribution, et les mises à jour logicielles sont déployées sur les ordinateurs clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique de mises à jour logicielles :  
+###  <a name="BKMK_AutomaticDeployment"></a> Automatische Bereitstellung von Softwareupdates  
+ Die automatische Bereitstellung von Softwareupdates wird mithilfe einer automatischen Bereitstellungsregel (ADR) konfiguriert. Diese Bereitstellungsmethode eignet sich insbesondere für monatliche Softwareupdates („Patch-Dienstag“) und für die Verwaltung von Definitionsupdates. Bei der Ausführung der Regel werden Softwareupdates aus der Softwareupdategruppe entfernt (bei Verwendung einer vorhandenen Gruppe), Softwareupdates, die einem angegebenen Kriterium (z. B. alle in der letzten Woche veröffentlichten Sicherheitsupdates der letzten Woche) entsprechen, zu einer Softwareupdategruppe hinzugefügt, die Inhaltsdateien für die Softwareupdates heruntergeladen und auf Verteilungspunkte kopiert und die Softwareupdates auf Clientcomputern in der Zielsammlung bereitgestellt. Der allgemeine Workflow für die automatische Bereitstellung von Softwareupdates umfasst die folgenden Schritte:  
 
-1.  Créez une règle de déploiement automatique qui spécifie des paramètres de déploiement tels que :  
+1.  Erstellen Sie eine automatische Bereitstellungsregel, von der unter anderem die folgenden Bereitstellungseinstellungen angegeben werden:  
 
-    -   Regroupement cible  
+    -   Zielsammlung  
 
-    -   Décider d'activer ou non le déploiement ou le rapport sur la conformité des mises à jour logicielles pour les ordinateurs clients du regroupement cible  
+    -   Aktivierung der Bereitstellung oder Erstellung eines Berichts zur Kompatibilität mit Softwareupdates für die Clientcomputer in der Zielsammlung  
 
-    -   Critères de mises à jour logicielles  
+    -   Kriterien für Softwareupdates  
 
-    -   Calendriers d'évaluation et de déploiement  
+    -   Auswertungs- und Bereitstellungszeitpläne  
 
-    -   Expérience utilisateur  
+    -   Benutzerfreundlichkeit  
 
-    -   Propriétés de téléchargement  
+    -   Downloadeigenschaften  
 
-2.  Les mises à jour logicielles sont ajoutées à un groupe de mises à jour logicielles.  
+2.  Die Softwareupdates werden einer Softwareupdategruppe hinzugefügt.  
 
-3.  Le groupe de mises à jour logicielles est déployé sur les ordinateurs clients du regroupement cible, s'il est spécifié.  
+3.  Die Softwareupdategruppe wird auf den Clientcomputern in der Zielsammlung bereitgestellt, sofern diese angegeben ist.  
 
- Vous devez déterminer quelle stratégie de déploiement utiliser dans votre environnement. Par exemple, vous pouvez créer la règle de déploiement automatique et cibler un regroupement de clients test. Après avoir vérifié que les mises à jour logicielles sont installées sur le groupe test, vous pouvez ajouter un nouveau déploiement à la règle ou modifier le regroupement dans le déploiement existant et le remplacer par un regroupement cible qui comprend un ensemble plus important de clients. Les objets de mise à jour logicielle qui sont créés par les règles de déploiement automatique sont interactifs.  
+ Sie müssen eine Bereitstellungsstrategie für Ihre Umgebung auswählen. Beispielsweise könnten Sie eine automatische Bereitstellungsregel erstellen und eine Sammlung mit Testclients als Ziel angeben. Nachdem Sie sich vergewissert haben, dass die Softwareupdates in der Testgruppe installiert werden, können Sie eine neue Bereitstellung zur Regel hinzufügen oder in der vorhandenen Bereitstellung eine andere Zielsammlung angeben, die mehr Clients enthält. Die von den automatischen Bereitstellungsregeln erstellten Softwareupdateobjekte sind interaktiv.  
 
--   Les mises à jour logicielles qui ont été déployées à l'aide d'une règle de déploiement automatique sont déployées automatiquement sur les nouveaux clients ajoutés au regroupement cible.  
+-   Die mithilfe einer automatischen Bereitstellungsregel bereitgestellten Softwareupdates werden neuen Clients, die der Zielsammlung hinzugefügt werden, automatisch bereitgestellt.  
 
--   Les nouvelles mises à jour logicielles ajoutées à un groupe de mises à jour logicielles sont déployées automatiquement sur les clients du regroupement cible.  
+-   Neue Softwareupdates, die einer Softwareupdategruppe hinzugefügt werden, werden den Clients in der Zielsammlung automatisch bereitgestellt.  
 
--   Vous pouvez activer ou désactiver les déploiements à tout moment pour la règle de déploiement automatique.  
+-   Sie können Bereitstellungen für die automatische Bereitstellungsregel jederzeit aktivieren oder deaktivieren.  
 
- Après avoir créé une règle de déploiement automatique, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement, et chaque nouveau déploiement que vous ajoutez :  
+ Nach der Erstellung einer automatischen Bereitstellungsregel können Sie zusätzliche Bereitstellungen zur Regel hinzufügen. Dies hilft Ihnen dabei, die Komplexität der Bereitstellung verschiedener Updates für verschiedene Sammlungen zu verwalten. Jede neue Bereitstellung verfügt über sämtliche Funktionen und die Bereitstellungsüberwachungsumgebung, und in jeder neu hinzugefügten Bereitstellung:  
 
--   utilise les mêmes packages et groupes de mise à jour que ceux créés lors de la première exécution de la règle de déploiement automatique ;  
+-   Werden die gleiche Upgradegruppe und das gleiche Upgradepaket verwendet, die bzw. das bei der ersten Ausführung der ADR erstellt wurde.  
 
--   peut spécifier un regroupement différent ;  
+-   Kann eine andere Sammlung angegeben werden.  
 
--   prend en charge des propriétés de déploiement uniques, notamment :  
+-   Werden eindeutige Bereitstellungseigenschaften unterstützt, einschließlich:  
 
-    -   Heure d'activation  
+    -   Aktivierungszeitpunkt  
 
-    -   Échéance  
+    -   Stichtag  
 
-    -   Afficher ou masquer l'expérience utilisateur  
+    -   Endbenutzeroberfläche ein- oder ausblenden  
 
-    -   Séparer les alertes pour ce déploiement  
+    -   Warnungen für diese Bereitstellung trennen  
 
-##  <a name="a-namebkmkdeploymentprocessa-software-update-deployment-process"></a><a name="BKMK_DeploymentProcess"></a> Processus de déploiement des mises à jour logicielles  
- Après avoir déployé des mises à jour logicielles ou lorsqu'une règle de déploiement automatique exécute et déploie des mises à jour logicielles, une stratégie d'attribution du déploiement est ajoutée à la stratégie de l'ordinateur pour le site. Les mises à jour logicielles sont téléchargées à partir de l'emplacement de téléchargement, d'Internet, ou du dossier réseau, vers la source du package. Les mises à jour logicielles sont copiées depuis la source du package vers la bibliothèque de contenu sur le serveur de site, puis copiées dans la bibliothèque de contenu sur le point de distribution.  
+##  <a name="BKMK_DeploymentProcess"></a> Vorgang der Softwareupdatebereitstellung  
+ Nachdem Sie Softwareupdates bereitgestellt haben oder wenn bei der Ausführung einer automatischen Bereitstellungsregel Softwareupdates bereitgestellt werden, wird der Computerrichtlinie des Standorts eine Bereitstellungszuweisungsrichtlinie hinzugefügt. Die Softwareupdates werden vom Downloadort, aus dem Internet oder aus einem freigegebenen Netzwerkordner in die Paketquelle heruntergeladen. Dann werden die Softwareupdates aus der Paketquelle in die Inhaltsbibliothek auf dem Standortserver und anschließend in die Inhaltsbibliothek am Verteilungspunkt kopiert.  
 
- Lorsqu'un ordinateur client du regroupement cible pour le déploiement reçoit la stratégie d'ordinateur, l'Agent du client de mise à jour logicielle démarre une analyse d'évaluation. L'agent du client télécharge le contenu pour les mises à jour logicielles requises depuis un point de distribution vers le cache du client local juste après avoir reçu le déploiement, mais attend la fin du paramètre **Temps disponible du logiciel** pour le déploiement avant que les mises à jour logicielles soient disponibles pour l'installation. Les mises à jour logicielles dans les déploiements facultatifs (déploiements qui ne possèdent pas d'échéance d'installation) ne sont pas téléchargées avant qu'un utilisateur démarre manuellement l'installation.  
+ Wenn die Computerrichtlinie bei einem Clientcomputer in der Zielsammlung der Bereitstellung eingeht, wird vom Softwareupdateclient-Agent eine Bewertungsüberprüfung gestartet. Der Inhalt für erforderliche Softwareupdates wird vom Client-Agent von einem Verteilungspunkt in den lokalen Clientcache heruntergeladen. Dieser Vorgang wird kurz nach dem Empfang der Bereitstellung ausgeführt, aber erst nach dem unter **Zeitpunkt der Verfügbarkeit der Software** für die Bereitstellung angegebenen Zeitpunkt, zu dem die Softwareupdates für die Installation verfügbar sind. Die Softwareupdates in optionalen Bereitstellungen (d. h. Bereitstellungen ohne Installationsstichtag) werden erst heruntergeladen, wenn ein Benutzer die Installation manuell startet.  
 
- Une fois l'échéance configurée dépassée, l'Agent client des mises à jour logicielles effectue une analyse pour vérifier que les mises à jour logicielles sont toujours nécessaires. Il vérifie ensuite le cache local sur l'ordinateur client pour s'assurer que les fichiers sources de mise à jour logicielle sont toujours disponibles. Enfin, le client installe les mises à jour logicielles. Si le contenu a été supprimé de la mémoire cache du client pour laisser de la place à un autre déploiement, le client télécharge à nouveau les mises à jour logicielles depuis le point de distribution vers la mémoire cache du client. Les mises à jour logicielles sont toujours téléchargées sur la mémoire cache du client indépendamment de la taille maximale de la mémoire cache configurée pour le client. Lorsque l'installation est terminée, l'agent du client vérifie que les mises à jour logicielles ne sont plus requises, puis il envoie un message d'état au point de gestion pour indiquer que les mises à jour logicielles sont désormais installées sur le client.  
+ Wenn der konfigurierte Stichtag verstrichen ist, wird vom Softwareupdateclient-Agent im Rahmen einer Überprüfung bestätigt, dass die Softwareupdates noch erforderlich sind. Anschließend wird im lokalen Cache auf dem Clientcomputer überprüft, ob die Quelldateien für die Softwareupdates noch verfügbar sind. Schließlich werden die Softwareupdates vom Client installiert. Wurde der Inhalt aus dem Clientcache gelöscht, um für eine andere Bereitstellung Platz zu machen, werden die Softwareupdates vom Client erneut vom Verteilungspunkt in den Clientcache heruntergeladen. Softwareupdates werden unabhängig von der konfigurierten maximalen Größe des Clientcaches immer in den Clientcache heruntergeladen. Nach Abschluss der Installation wird vom Client-Agent im Rahmen einer Überprüfung bestätigt, dass die Softwareupdates nicht mehr erforderlich sind. Dann wird an den Verwaltungspunkt eine Zustandsmeldung gesendet, aus der hervorgeht, dass die Softwareupdates jetzt auf dem Client installiert sind.  
 
-### <a name="required-system-restart"></a>Redémarrage du système obligatoire  
- Par défaut, lorsque des mises à jour logicielles d'un déploiement requis sont installées sur un ordinateur client, et qu'un redémarrage du système est nécessaire pour terminer l'installation, le redémarrage du système est effectué. Pour les mises à jour logicielles qui ont été installées avant l'échéance, le redémarrage automatique du système est repoussé à la date et à l'heure de l'échéance, à moins que l'ordinateur ne soit redémarré entre temps pour une autre raison. Le redémarrage du système peut être ignoré pour les serveurs et les stations de travail. Ces paramètres sont configurés sur la page **Expérience utilisateur** de l'Assistant Déploiement des mises à jour logicielles ou créez Assistant Création d'une règle de mises à jour automatique.  
+### <a name="required-system-restart"></a>Erforderlicher Neustart des Systems  
+ Wenn Softwareupdates aus einer erforderlichen Bereitstellung auf einem Clientcomputer installiert werden und zum Abschluss der Installation ein Neustart des Systems erforderlich ist, wird der Systemneustart standardmäßig gestartet. Bei vor dem Stichtag installierten Softwareupdates wird der automatische Systemneustart bis zum Stichtag verschoben, sofern der Computer nicht aus einem anderen Grund vor diesem Zeitpunkt neu gestartet wird. Der Systemneustart kann für Server und Arbeitsstationen unterdrückt werden. Diese Einstellungen werden auf der Seite **Benutzerfreundlichkeit** des Assistenten zum Bereitstellen von Softwareupdates oder des Assistenten zum Erstellen automatischer Bereitstellungsregeln konfiguriert.  
 
-### <a name="deployment-reevaluation-cycle"></a>Cycle de réévaluation des déploiements  
- Par défaut, les ordinateurs clients démarrent un cycle de réévaluation du déploiement tous les 7 jours. Durant ce cycle d'évaluation, l'ordinateur client analyse les mises à jour logicielles qui ont été précédemment déployées et installées. Si des mises à jour logicielles viennent à manquer, elles sont réinstallées à partir du cache local. Si une mise à jour logicielle n'est plus disponible dans le cache local, elle est téléchargée à partir d'un point de distribution, puis installée. Vous pouvez configurer le calendrier de réévaluation sur la page **Mises à jour logicielles** dans les paramètres client du site.  
+### <a name="deployment-reevaluation-cycle"></a>Zyklus der erneuten Bereitstellungsbewertung  
+ Von Clientcomputern wird standardmäßig alle 7 Tage ein Zyklus zur erneuten Auswertung der Bereitstellung gestartet. Während dieses Auswertungszyklus wird vom Clientcomputer nach bereits bereitgestellten und installierten Softwareupdates gesucht. Falls Softwareupdates fehlen, werden diese vom lokalen Cache aus neu installiert. Ist ein Softwareupdate nicht mehr im lokalen Cache verfügbar, wird es von einem Verteilungspunkt heruntergeladen und dann installiert. Sie können den Zeitplan für die erneute Auswertung in den Clienteinstellungen des Standorts auf der Seite **Softwareupdates** konfigurieren.  
 
-##  <a name="a-namebkmkembeddeddevicesa-support-for-windows-embedded-devices-that-use-write-filters"></a><a name="BKMK_EmbeddedDevices"></a> Prise en charge des appareils Windows Embedded qui utilisent des filtres d'écriture  
- Lorsque vous déployez des mise à jour logicielles sur des appareils Windows Embedded à filtre d'écriture, vous pouvez spécifier s'il faut désactiver le filtre d'écriture sur l'appareil pendant le déploiement, puis redémarrer l'appareil après le déploiement. Si le filtre d'écriture n'est pas désactivé, le logiciel est déployé sur un segment de recouvrement temporaire et il n'est plus installé lorsque l'appareil redémarre, sauf si un autre déploiement force la conservation des modifications.  
+##  <a name="BKMK_EmbeddedDevices"></a> Unterstützung für Windows Embedded-Geräte mit Schreibfiltern  
+ Beim Bereitstellen von Softwareupdates für Windows Embedded-Geräte mit aktivierten Schreibfiltern können Sie angeben, ob der Schreibfilter auf dem Gerät während der Bereitstellung deaktiviert und das Gerät nach der Bereitstellung neu gestartet werden soll. Wenn der Schreibfilter nicht deaktiviert wird, wird die Software auf einem temporären Overlay bereitgestellt und bei einem Neustart des Geräts nicht mehr installiert, es sei denn, die Beibehaltung der Änderungen wird durch eine andere Bereitstellung erzwungen.  
 
 > [!NOTE]  
->  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de gérer le moment auquel le filtre d'écriture est désactivé et activé et le moment auquel l'appareil redémarre.  
+>  Stellen Sie beim Bereitstellen eines Softwareupdates auf einem Windows Embedded-Gerät sicher, dass das Gerät Mitglied einer Sammlung ist, für die ein Wartungsfenster konfiguriert ist. So können Sie verwalten, wann der Schreibfilter deaktiviert bzw. aktiviert ist und wann das Gerät neu gestartet wird.  
 
- Le paramètre d'expérience utilisateur qui contrôle le comportement du filtre d'écriture est une case à cocher nommée **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
+ Das Verhalten der Schreibfilter wird über eine Einstellung der Benutzerfreundlichkeit gesteuert, bei der es sich um das Kontrollkästchen **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)**handelt.  
 
- Pour plus d’informations sur la façon dont Configuration Manager gère les appareils intégrés qui utilisent des filtres d’écriture, consultez [Planification du déploiement du client sur des appareils Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+ Weitere Informationen dazu, wie Configuration Manager Embedded-Geräte verwaltet, die Schreibfilter verwenden, finden Sie unter [Planning for client deployment to Windows Embedded devices (Planen der Clientbereitstellung auf Windows Embedded-Geräten)](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-##  <a name="a-namebkmkextendsoftwareupdatesa-extend-software-updates-in-configuration-manager"></a><a name="BKMK_ExtendSoftwareUpdates"></a> Étendre les mises à jour logicielles dans Configuration Manager  
- Utilisez l’éditeur de mise à jour Systems Center pour gérer les mises à jour logicielles qui ne sont pas disponibles à partir de Microsoft Update. Une fois que vous avez publié les mises à jour logicielles sur le serveur de mise à jour et que vous les avez synchronisées dans Configuration Manager, vous pouvez les déployer sur des clients Configuration Manager. Pour plus d’informations sur l’éditeur de mise à jour, consultez [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
+##  <a name="BKMK_ExtendSoftwareUpdates"></a> Erweitern von Softwareupdates in Configuration Manager  
+ Mit System Center Updates Publisher können Sie Softwareupdates verwalten, die nicht über Microsoft Update verfügbar sind. Nachdem Sie die Softwareupdates auf dem Updateserver veröffentlicht und in Configuration Manager synchronisiert haben, können Sie sie für Configuration Manager-Clients bereitstellen. Weitere Informationen zu Updates Publisher finden Sie unter [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+## <a name="next-steps"></a>Nächste Schritte
+[Planen von Softwareupdates](../plan-design/plan-for-software-updates.md)

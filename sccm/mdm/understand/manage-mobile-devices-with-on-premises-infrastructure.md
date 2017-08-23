@@ -1,55 +1,51 @@
 ---
-title: Gestion des appareils mobiles locale | Microsoft Docs
-description: "Découvrez comment utiliser la gestion des appareils mobiles locale, une méthode de gestion d’appareils disponible dans System Center Configuration Manager."
+title: "Lokale Verwaltung mobiler Geräte (Mobile Device Management, MDM) | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über die lokale Verwaltung mobiler Geräte – eine Geräteverwaltungslösung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 497c05c7-fe9f-4b88-983b-1c5b3d59308e
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6479bcc134103e6005159a8ea295a5f359a436
-ms.openlocfilehash: cbd33bf3cf7d623d9ba7a657d4ca7d746d7e79da
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 7b96c4d4d87aa150eacc5d7d20710f5d2199e48a
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>Gestion des appareils mobiles (MDM) locale dans System Center Configuration Manager
+# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>Lokale Verwaltung mobiler Geräte (Mobile Device Management, MDM) in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La gestion des appareils mobiles (MDM) locale est une solution de gestion d’appareils disponible dans System Center Configuration Manager. Elle s’appuie sur les fonctionnalités de gestion intégrées aux systèmes d’exploitation des appareils (basées sur la norme de gestion d’appareils mobiles OMA DM) quand la gestion et la maintenance des appareils s’effectue via l’infrastructure Configuration Manager d’une entreprise. La gestion d’appareils mobiles locale a besoin de Microsoft Intune pour configurer les fonctions de gestion, mais uniquement pour les abonnements (et parfois pour envoyer des notifications aux appareils leur demandant de s’enregistrer quand des stratégies sont modifiées). Par contre, elle n’en a pas besoin pour gérer les appareils ni pour stocker les données les concernant.  
+Die lokale Verwaltung mobiler Geräte mit System Center Configuration Manager ist eine Geräteverwaltungslösung, die mit den integrierten Verwaltungsfunktionen von Gerätebetriebssystemen (basierend auf dem Standard OMA DM (Open Mobile Alliance Device Management)) arbeitet und die Configuration Manager-Infrastruktur eines Unternehmens zum Verwalten und Warten der Geräte nutzt. Für die lokale Verwaltung mobiler Geräte wird Microsoft Intune benötigt, um Verwaltungsfunktionen einzurichten. Dies ist allerdings nur für das Abonnement erforderlich und um gelegentlich Geräte bei Richtlinienänderungen einzuchecken. Die Funktionen werden nicht für die Verwaltung der Geräte verwendet oder um Daten über sie zu speichern.  
 
- ![Concept de la gestion locale](media/On-premises-conceptual.png)  
+ ![Lokale Verwaltung – Konzepte](media/On-premises-conceptual.png)  
 
- La gestion d’appareils mobiles locale diffère de Microsoft Intune qui, tout en s’appuyant aussi sur les fonctionnalités OMA DM intégrées, fournit toutes les fonctions de gestion via des services cloud.  La gestion d’appareils mobiles locale se distingue aussi de la solution de gestion basée sur le client classique de Configuration Manager, car même si elle s’appuie sur une infrastructure d’entreprise analogue, elle n’utilise pas de logiciels clients installés séparément sur les ordinateurs et appareils qu’elle gère.  
+ Die lokale Verwaltung mobiler Geräte unterscheidet sich von Microsoft Intune, das auch mit den integrierten OMA DM-Funktionen arbeitet, wobei alle Verwaltungsfunktionen von Clouddiensten bereitgestellt werden.  Die lokale Verwaltung mobiler Geräte unterscheidet sich zudem von der von Configuration Manager angebotenen herkömmlichen clientbasierten Verwaltungslösung insofern, als mit einer vergleichbaren Unternehmensinfrastruktur gearbeitet wird, jedoch keine separat installierte Clientsoftware auf den verwalteten Computern und Geräten verwendet wird.  
 
- Le tableau ci-dessous indique les avantages et les inconvénients de la gestion d’appareils mobiles locale par rapport à la gestion classique basée sur le client :  
+ In der folgenden Tabelle sehen Sie die Vor- und Nachteile der lokalen Verwaltung mobiler Geräte im Vergleich mit einer herkömmlichen clientbasierten Verwaltung:  
 
-|Avantages|Inconvénients|  
+|Vorteile|Nachteile|  
 |----------------|-------------------|  
-|**Une infrastructure simplifiée** : nécessite moins de rôles système de site.<br /><br /> **Une maintenance plus facile** : dans la mesure où les fonctionnalités de gestion sont intégrées au système d’exploitation des appareils, le recours aux nouvelles versions du logiciel client n’est pas obligatoire quand de nouvelles fonctionnalités de gestion sont introduites dans le système Configuration Manager.<br /><br /> **Local** : la gestion et les données sont conservées en local.|**Moins de fonctionnalités de gestion de clients** : absence d’orchestration, de contrôle de logiciel, d’intégration tierce, de séquencement de tâches ou de prise en charge du Centre logiciel.<br /><br /> **Prise en charge d’appareils limitée** : actuellement, la gestion d’appareils mobiles locale est disponible uniquement pour les appareils exécutant Windows 10 et Windows 10 Mobile.|  
+|**Vereinfachte Infrastruktur** : Weniger Standortsystemrollen sind erforderlich.<br /><br /> **Einfacher zu verwalten**: Da Verwaltungsfunktionalität in das Gerätebetriebssystem integriert ist, sind keine neuen Versionen der Clientsoftware erforderlich, wenn neue Verwaltungsfunktionen in das Configuration Manager-System eingeführt werden.<br /><br /> **Lokal** : Die gesamte Verwaltung und alle Daten bleiben lokal.|**Weniger Clientverwaltungsfunktionen** : Keine Orchestrierung, Softwaremessung, Integration von Drittanbietern, Tasksequenzen oder Softwarecenterunterstützung.<br /><br /> **Eingeschränkte Unterstützung für Geräte**: Derzeit werden bei der lokalen Verwaltung mobiler Geräte nur Geräte mit Windows 10 und Windows 10 Mobile unterstützt.|  
 
- Les rubriques suivantes contiennent des informations utiles pour planifier, préparer et inscrire des appareils pour la gestion d’appareils mobiles locale :  
+ Die folgenden Themen bieten Informationen zum Planen, Vorbereiten und Registrieren von mobilen Geräten für die lokale Verwaltung:  
 
--   [Planifier la gestion des appareils mobiles locale dans System Center Configuration Manager](../plan-design/plan-on-premises-mdm.md)  
+-   [Planen der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager](../plan-design/plan-on-premises-mdm.md)  
 
-     Découvrez les points à prendre en compte pour configurer l’infrastructure Configuration Manager et planifier l’inscription des appareils pour la gestion d’appareils mobiles locale.  
+     Erfahren Sie, was bei der Einrichtung der Configuration Manager-Infrastruktur und Planung der Geräteregistrierung für die lokale Verwaltung mobiler Geräte berücksichtigt werden muss.  
 
--   [Étapes de préparation pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
+-   [Vorbereitungsschritte für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
 
-     Découvrez comment préparer le système Configuration Manager pour la gestion d’appareils mobiles locale, notamment comment configurer l’abonnement à Microsoft Intune, configurer des certificats, installer des rôles de système de site et configurer l’inscription des appareils.  
+     Erfahren Sie, wie Sie das Configuration Manager-System für die lokale Verwaltung mobiler Geräte vorbereiten, indem Sie das Microsoft Intune-Abonnement und Zertifikate einrichten, die Standortsystemrollen installieren und die Geräteregistrierung einrichten.  
 
--   [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Registrieren von Geräten für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
 
-     Découvrez comment se produit l’inscription, comment les utilisateurs peuvent inscrire leurs propres appareils et comment inscrire des appareils en bloc avec un package d’inscription.  
-
+     Erfahren Sie, wie die Registrierung erfolgt, wie Benutzer ihre eigenen Geräte registrieren können und wie die Massenregistrierung von Geräten mithilfe eines Registrierungspakets stattfindet.  

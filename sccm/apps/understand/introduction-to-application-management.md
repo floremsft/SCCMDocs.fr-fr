@@ -1,113 +1,109 @@
 ---
-title: "Introduction à la gestion des applications | Documents Microsoft"
-description: "Découvrez les informations de base dont vous aurez besoin pour gérer et déployer des applications System Center Configuration Manager."
+title: "Einführung in die Anwendungsverwaltung | Microsoft Docs"
+description: "Hier finden Sie die wichtigsten Informationen über das Verwalten und Bereitstellen von System Center Configuration Manager-Anwendungen."
 ms.custom: na
 ms.date: 12/23/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 08f711ba-83bf-4b5f-9520-a0778c6ae7eb
-caps.latest.revision: 18
+caps.latest.revision: "18"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
 ms.openlocfilehash: 959a36413d06bb225f260bd44c1d3d59efd44e69
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Présentation de la gestion d’applications dans System Center Configuration Manager
+# <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Einführung in die Anwendungsverwaltung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans cette rubrique, vous allez découvrir les principes de base à connaître avant de commencer à utiliser des applications System Center Configuration Manager.  
+Dieses Thema enthält die Grundlagen, die Sie vor der Arbeit mit System Center Configuration Manager-Anwendungen kennenlernen sollten.  
 
 > [!TIP]  
->  Si vous savez déjà comment gérer des applications dans Configuration Manager, vous pouvez ignorer cette rubrique et passer à la création d’un exemple d’application. Consultez [Créer et déployer une application avec System Center Configuration Manager](../../apps/get-started/create-and-deploy-an-application.md).  
+>  Wenn Sie sich bereits mit der Verwaltung von Anwendungen in Configuration Manager auskennen, können Sie dieses Thema auch überspringen und zum Erstellen einer Beispielanwendung übergehen. Informationen hierzu finden Sie unter [Erstellen und Bereitstellen einer Anwendung mit System Center Configuration Manager](../../apps/get-started/create-and-deploy-an-application.md).  
 
-## <a name="what-is-an-application"></a>Qu’est-ce qu’une application ?  
- Bien que le terme *application* soit couramment utilisé en informatique, il a une signification particulière dans Configuration Manager. Comparez plutôt une application à une boîte. Cette boîte contient un ou plusieurs ensembles de fichiers d’installation pour un package logiciel (appelé **type de déploiement**), ainsi que des instructions sur la façon de déployer le logiciel.  
+## <a name="what-is-an-application"></a>Was ist eine Anwendung?  
+ Obwohl der Begriff *Anwendung* in der Computertechnologie weit verbreitet ist, hat er in Configuration Manager eine andere Bedeutung. Stellen Sie sich eine Anwendung wie eine Schachtel vor. Diese Schachtel enthält mindestens einen Satz von Installationsdateien für ein Softwarepaket (als **Bereitstellungstyp** bezeichnet) und Anweisungen zum Bereitstellen der Software.  
 
- Quand l’application est déployée sur des appareils, des **spécifications** déterminent le type de déploiement qui est installé sur l’appareil.  
+ Bei der Bereitstellung der Anwendung für Geräte entscheiden **Anforderungen** , welcher Bereitstellungstyp auf dem Gerät installiert wird.  
 
- Vous pouvez effectuer bien d’autres choses avec une application. Vous en apprendrez plus sur ces choses en parcourant ce guide. Le tableau suivant présente les concepts que vous devez connaître avant d’aller plus loin :  
+ Eine Anwendung bietet viele weitere Möglichkeiten. Mehr zu diesen erfahren Sie bei der Lektüre dieses Leitfadens. In der folgenden Tabelle werden Konzepte vorgestellt, mit denen Sie sich vertraut machen sollten, bevor Sie sich eingehender mit dem Thema beschäftigen:  
 
-|Concept|Description|    
+|Konzept|Beschreibung|    
 |-|-|  
-|**Requirements**|Dans les versions précédentes de Configuration Manager, il était fréquent de créer un regroupement contenant les appareils sur lesquels vous souhaitiez déployer une application. Même si vous pouvez toujours créer une collection, les exigences vous permettent de spécifier des critères plus détaillés pour un déploiement d’application.<br /><br /> Par exemple, vous pouvez préciser qu’une application peut uniquement être installée sur des appareils Windows 10. Vous pouvez ensuite déployer l’application sur vos appareils, mais elle ne sera installée que sur les appareils Windows 10.<br /><br /> Configuration Manager évalue les spécifications pour déterminer si une application et ses types de déploiement doivent être installés. Ensuite, il détermine le type de déploiement correct selon lequel installer une application. Tous les sept jours, par défaut, les règles de spécification sont réévaluées pour garantir leur conformité en fonction du paramètre client **Planifier la réévaluation des déploiements**.<br /><br /> Pour plus d’informations, consultez [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md).|  
-|**Conditions globales**|Tandis que les spécifications sont utilisées avec un type de déploiement spécifique dans une seule application, vous pouvez également créer des conditions globales. Il s’agit d’une bibliothèque de spécifications prédéfinies que vous pouvez utiliser avec n’importe quel type d’application et de déploiement.<br /><br /> Configuration Manager contient un ensemble de conditions globales intégrées, mais vous pouvez également créer vos propres conditions globales.<br /><br /> Pour plus d’informations, consultez [Créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).|  
-|**Déploiement simulé**|Évalue les spécifications, la méthode de détection et les dépendances d’une application. Il signale les résultats sans installer l’application.<br /><br /> Pour plus d’informations, consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).|  
-|**Action de déploiement**|Spécifie si vous voulez installer ou désinstaller (en cas de prise en charge) l’application que vous déployez.<br /><br /> Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  
-|**Objet du déploiement**|Spécifie si l’application de déploiement est **Obligatoire**ou **Disponible**.<br /><br /> **Obligatoire** signifie que l’application est déployée automatiquement selon le calendrier qui a été configuré. Un utilisateur peut toutefois suivre l'état du déploiement de l'application (s'il n'est pas masqué) et installer l'application avant l'échéance, à l'aide du Centre logiciel.<br /><br /> **Disponible** signifie que si l’application est déployée sur un utilisateur, celui-ci peut voir l’application publiée dans le Centre logiciel et la demander au besoin.<br /><br /> Pour plus d’informations, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  
-|**Révisions**|Quand vous apportez des modifications à une application ou à un type de déploiement contenu dans une application, Configuration Manager crée une nouvelle version de l’application. Vous pouvez afficher l’historique de chaque révision de l’application, afficher ses propriétés, restaurer une version précédente d’une application ou supprimer une ancienne version.<br /><br /> Pour plus d’informations, consultez [Mettre à jour et mettre hors service des applications](../../apps/deploy-use/update-and-retire-applications.md).|  
-|**Méthode de détection**|Les méthodes de détection permettent de détecter si une application déployée est déjà installée. Si la méthode de détection indique que l’application est installée, Configuration Manager n’essaie pas de la réinstaller.<br /><br /> Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).|  
-|**Dépendances**|Les dépendances définissent un ou plusieurs types de déploiement d'un autre type d'application qui doivent être installés avant l'installation d'un type de déploiement. Vous pouvez configurer les types de déploiement dépendants à installer automatiquement avant l’installation d’un type de déploiement.<br /><br /> Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).|  
-|**Remplacement**|Configuration Manager vous permet de mettre à niveau ou de remplacer des applications existantes en utilisant une relation de remplacement. Quand vous remplacez une application, vous pouvez spécifier un nouveau type de déploiement pour remplacer le type de déploiement de l’application remplacée. Vous pouvez aussi décider s’il faut mettre à niveau ou désinstaller l’application remplacée avant d’installer l’application de remplacement.<br /><br /> Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).|  
-|**Gestion centrée sur l'utilisateur**|Les applications Configuration Manager prennent en charge la gestion centrée sur l’utilisateur, ce qui vous permet d’associer des utilisateurs spécifiques à des appareils spécifiques. Au lieu de mémoriser le nom de l’appareil d’un utilisateur, vous pouvez déployer des applications sur l’utilisateur et l’appareil. Cette fonctionnalité permet de veiller à ce que les applications les plus importantes soient toujours disponibles sur chaque appareil auquel accède un utilisateur spécifique. Si un utilisateur acquiert un nouvel ordinateur, vous pouvez installer automatiquement ses applications sur l’appareil avant qu’il ouvre une session.<br /><br /> Pour plus d’informations, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).|  
+|**Requirements**|In früheren Versionen von Configuration Manager wurde häufig eine Sammlung mit den Geräten erstellt, für die Sie eine Anwendung bereitstellen wollten. Obwohl Sie weiterhin eine Sammlung erstellen können, lassen sich mit Anforderungen detailliertere Kriterien für eine Anwendungsbereitstellung angeben.<br /><br /> Beispiel: Sie können angeben, dass eine Anwendung nur auf Geräten unter Windows 10 installiert werden darf. Dann können Sie die Anwendung auf Ihren Geräten bereitstellen. Allerdings wird sie nur auf Geräten mit Windows 10 installiert.<br /><br /> Durch Auswerten von Anforderungen wird von Configuration Manager bestimmt, ob eine Anwendung und deren Bereitstellungstypen installiert werden. Anschließend wird der für die Installation einer Anwendung richtige Bereitstellungstyp ermittelt. Die Anforderungsregeln werden entsprechend der Clienteinstellung **Erneute Auswertung für Bereitstellungen planen**standardmäßig alle sieben Tage erneut ausgewertet, um die Kompatibilität zu gewährleisten.<br /><br /> Weitere Informationen finden Sie unter [Erstellen und Bereitstellen einer Anwendung](../../apps/get-started/create-and-deploy-an-application.md).|  
+|**Globale Bedingungen**|Obwohl Anforderungen mit einem bestimmten Bereitstellungstyp in einer einzelnen Anwendung verwendet werden, können Sie auch globale Bedingungen erstellen. Hierbei handelt es sich um eine Bibliothek mit vordefinierten Anforderungen, die Sie mit jeder Anwendung und jedem Anwendungstyp verwenden können.<br /><br /> Configuration Manager enthält eine Reihe integrierter globaler Bedingungen, und Sie können auch eigene erstellen.<br /><br /> Weitere Informationen finden Sie unter [Erstellen von globalen Bedingungen](../../apps/deploy-use/create-global-conditions.md).|  
+|**Simulierte Bereitstellung**|Wertet die Anforderungen, die Erkennungsmethode und die Abhängigkeiten für eine Anwendung aus. Die Ergebnisse werden ausgegeben, ohne dass die Anwendung installiert wird.<br /><br /> Weitere Informationen finden Sie unter [Simulieren von Anwendungsbereitstellungen](../../apps/deploy-use/simulate-application-deployments.md).|  
+|**Bereitstellungsaktion**|Gibt an, ob Sie die bereitgestellte Anwendung installieren oder deinstallieren möchten (falls unterstützt).<br /><br /> Weitere Informationen finden Sie unter [Bereitstellen von Anwendungen](../../apps/deploy-use/deploy-applications.md).|  
+|**Bereitstellungszweck**|Gibt an, ob die Bereitstellungs-App **Erforderlich**oder **Verfügbar**ist.<br /><br /> **Erforderlich:** Die Anwendung wird gemäß dem eingerichteten Zeitplan automatisch bereitgestellt. Allerdings kann ein Benutzer den Bereitstellungsstatus der Anwendung (sofern dieser nicht ausgeblendet ist) nachverfolgen und die Anwendung vor Ablauf der Frist über das Softwarecenter installieren.<br /><br /> **Verfügbar** : Wenn die Anwendung für einen Benutzer bereitgestellt wird, ist sie für den Benutzer im Softwarecenter als veröffentlichte Anwendung sichtbar, und er kann sie bei Bedarf anfordern.<br /><br /> Weitere Informationen finden Sie unter [Bereitstellen von Anwendungen](../../apps/deploy-use/deploy-applications.md).|  
+|**Revisionen**|Wenn Sie an einer Anwendung oder an einem in einer Anwendung enthaltenen Bereitstellungstyp Änderungen vornehmen, wird in Configuration Manager eine neue Version der Anwendung erstellt. Sie können den Verlauf jeder Anwendungsrevision sowie deren Eigenschaften anzeigen, eine frühere Version einer Anwendung wiederherstellen oder eine alte Version löschen.<br /><br /> Weitere Informationen finden Sie unter [Aktualisieren und Außerkraftsetzen von Anwendungen](../../apps/deploy-use/update-and-retire-applications.md).|  
+|**Erkennungsmethode**|Erkennungsmethoden werden verwendet, um zu ermitteln, ob eine bereitgestellte Anwendung bereits installiert ist. Wenn die Erkennungsmethode angibt, dass die Anwendung installiert ist, versucht Configuration Manager nicht, sie erneut zu installieren.<br /><br /> Weitere Informationen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).|  
+|**-Abhängigkeiten**|Mit Abhängigkeiten wird mindestens ein Bereitstellungstyp einer anderen Anwendung definiert, der installiert sein muss, bevor ein Bereitstellungstyp installiert wird. Sie können die abhängigen Bereitstellungstypen einrichten, die vor der Installation eines Bereitstellungstyps automatisch installiert werden.<br /><br /> Weitere Informationen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).|  
+|**Ablösung**|Configuration Manager ermöglicht es Ihnen, vorhandene Anwendungen mithilfe einer Ablösungsbeziehung zu aktualisieren oder zu ersetzen. Wenn Sie eine Anwendung ablösen, können Sie einen neuen Bereitstellungstyp als Ersatz für den Bereitstellungstyp der abgelösten Anwendung angeben. Sie können außerdem festlegen, ob vor dem Installieren der ablösenden Anwendung ein Upgrade der abzulösenden Anwendung ausgeführt oder die abzulösende Anwendung deinstalliert werden soll.<br /><br /> Weitere Informationen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).|  
+|**Benutzerzentrierte Verwaltung**|Configuration Manager-Anwendungen unterstützen die benutzerorientierte Verwaltung, d.h., Sie können bestimmte Benutzer und Geräte einander zuordnen. Anstatt sich den Namen des Geräts eines Benutzers merken zu müssen, können Sie Apps für den Benutzer und das Gerät bereitstellen. Dank dieser Funktionalität können Sie dafür sorgen, dass die wichtigsten Apps stets auf jedem Gerät verfügbar sind, auf das ein bestimmter Benutzer zugreift. Beim Wechsel eines Benutzers zu einem neuen Computer können Sie auf dem Gerät automatisch die vom Benutzer verwendeten Apps installieren, bevor er sich anmeldet.<br /><br /> Weitere Informationen finden Sie unter [Verknüpfung von Benutzern und Geräten mit Affinität zwischen Benutzer und Gerät](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).|  
 
-## <a name="what-application-types-can-you-deploy"></a>Quels types d’applications pouvez-vous déployer ?  
- Configuration Manager vous permet de déployer les types d’application suivants :  
+## <a name="what-application-types-can-you-deploy"></a>Welche Anwendungstypen können bereitgestellt werden?  
+ Configuration Manager unterstützt die Bereitstellung folgender App-Typen:  
 
-- Windows Installer (fichier *.msi)
-- Package d’application Windows (*.appx, *.appxbundle)
-- Package d'application Windows (dans le Windows Store)
+- Windows Installer (MSI-Datei)
+- Windows-App-Paket (*.appx, *.appxbundle)
+- Windows-App-Paket (im Windows Store)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5
-- Fichier CAB Windows Mobile
+- Windows Mobile-CAB-Datei
 - macOS  
 
 
-De plus, quand vous gérez des appareils par le biais de la gestion des appareils locaux Microsoft Intune ou Configuration Manager, vous pouvez gérer ces types d’application supplémentaires :
+Beim Verwalten von Geräten mit Microsoft Intune oder der lokalen Geräteverwaltung von Configuration Manager können Sie zusätzlich folgende App-Typen verwalten:
 
-- Package d'application Windows Phone (fichier *.xap)
-- Package d'application pour iOS (fichier *.ipa)
-- Package d'application pour Android (fichier *.apk)
-- Package d'application pour Android sur Google Play
-- Package d'application Windows Phone (dans Windows Phone Store)
-- Windows Installer par le biais de la gestion des appareils mobiles
-- Application Web
-
-
-
-## <a name="state-based-applications"></a>Applications basées sur l’état  
- Les applications Configuration Manager utilisent la surveillance basée sur l’état, ce qui vous permet de suivre le dernier état du déploiement d’application pour les utilisateurs et les appareils. Les messages d'état affichent des informations concernant des appareils individuels. Par exemple, si une application est déployée sur un regroupement d’utilisateurs, vous pouvez voir l’état de compatibilité du déploiement ainsi que son objet dans la console Configuration Manager. Vous pouvez surveiller le déploiement de tous vos logiciels à l’aide de l’espace de travail **Surveillance** dans la console Configuration Manager. Les déploiements de logiciels incluent des mises à jour logicielles, des paramètres de compatibilité, des applications, des séquences de tâches, des packages et des programmes. Pour plus d’informations, consultez [Surveiller des applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
-
- Les déploiements d’applications sont régulièrement réévalués par Configuration Manager. Exemple :  
-
--   Une application déployée est désinstallée par l'utilisateur final. Au cycle d’évaluation suivant, Configuration Manager détecte que l’application n’est pas présente et la réinstalle.  
-
--   Une application n'a pas été installée sur un appareil, car elle n'a pas satisfait à la configuration requise. Plus tard, une modification est apportée à l'appareil pour qu'il soit conforme à la configuration requise. Configuration Manager détecte cette modification et l’application est installée.  
+- Windows Phone-App-Paket (XAP-Datei)
+- App-Paket für iOS (IPA-Datei)
+- App-Paket für Android (APK-Datei)
+- App-Paket für Android auf Google Play
+- Windows Phone-App-Paket (in Windows Phone Store)
+- Windows Installer über MDM
+- Webanwendung
 
 
- Vous pouvez définir l’intervalle de réévaluation des déploiements d’applications à l’aide du paramètre client **Planifier la réévaluation des déploiements**. Pour plus d’informations, consultez [À propos des paramètres client](../../core/clients/deploy/about-client-settings.md).  
 
-## <a name="get-started-creating-an-application"></a>Prendre en main la création d’une application  
- Si vous souhaitez vous lancer et commencer à créer une application, consultez la procédure pas à pas de la rubrique [Créer et déployer une application](../../apps/get-started/create-and-deploy-an-application.md) pour créer une application simple.  
+## <a name="state-based-applications"></a>Zustandsbasierte Anwendungen  
+ Configuration Manager-Anwendungen verwenden eine zustandsbasierte Überwachung, mit deren Hilfe Sie den letzten Anwendungsbereitstellungszustand für Benutzer und Geräte nachverfolgen können. In den Zustandsmeldungen werden Informationen zu einzelnen Geräten angezeigt. Wenn beispielsweise eine Anwendung für eine Sammlung von Benutzern bereitgestellt wird, können Sie den Kompatibilitätszustand und den Zweck der Bereitstellung in der Configuration Manager-Konsole anzeigen. Sie können die Bereitstellung sämtlicher Software mithilfe des Arbeitsbereichs **Überwachung** in der Configuration Manager-Konsole überwachen. Softwarebereitstellungen umfassen Softwareupdates, Kompatibilitätseinstellungen, Anwendungen, Tasksequenzen sowie Pakete und Programme. Weitere Informationen finden Sie unter [Überwachen von Anwendungen](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
- Si vous connaissez déjà les principes de base et que vous recherchez des informations de référence plus approfondies sur les options disponibles, commencez par la rubrique [Créer des applications](/sccm/apps/deploy-use/create-applications).  
+ Anwendungsbereitstellungen werden regelmäßig von Configuration Manager neu ausgewertet. Beispiel:  
 
-## <a name="software-center-and-the-application-catalog"></a>Centre logiciel et catalogue des applications  
- Dans les versions précédentes de Configuration Manager, le Centre logiciel servait à installer et à planifier les installations de logiciels, à configurer les paramètres de contrôle à distance et à configurer la gestion de l’alimentation. Les utilisateurs pouvaient se connecter au catalogue des applications pour rechercher et demander des logiciels, configurer certaines préférences et réinitialiser à distance leurs appareils mobiles.  
+-   Eine bereitgestellte Anwendung wird vom Endbenutzer deinstalliert. Im nächsten Auswertungszyklus wird von Configuration Manager festgestellt, dass die Anwendung nicht vorhanden ist, und sie wird erneut installiert.  
 
- Bien que ces paramètres soient toujours disponibles dans System Center Configuration Manager, une nouvelle version du Centre logiciel est maintenant disponible et vous permet de rechercher des applications. Vous ne devez pas utiliser le catalogue des applications, qui nécessite un navigateur web compatible avec Silverlight. Toutefois, les rôles de système de site Point du site web du catalogue des applications et Point de service web du catalogue des applications sont toujours requis pour que les applications accessibles à l’utilisateur apparaissent dans le Centre logiciel.  
+-   Eine Anwendung wurde nicht auf einem Gerät installiert, da es die Anforderungen nicht erfüllt. Später wird eine Änderung an dem Gerät vorgenommen, sodass es die Anforderungen erfüllt. Configuration Manager erkennt diese Änderung, und die Anwendung wird installiert.  
 
- Pour plus d’informations, consultez [Planifier et configurer la gestion des applications](../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
-## <a name="configuration-manager-packages-and-programs"></a>Packages et programmes Configuration Manager  
- Configuration Manager continue de prendre en charge les packages et les programmes utilisés dans les versions précédentes du produit. Un déploiement qui utilise des packages et des programmes peut être plus adapté qu’un déploiement qui utilise une application lors du déploiement de l’un des éléments suivants :  
+ Sie können das Intervall der erneuten Bewertung von Anwendungsbereitstellungen mithilfe der Clienteinstellung **Erneute Auswertung für Bereitstellungen planen** einrichten. Weitere Informationen finden Sie unter [About client settings (Informationen zu Clienteinstellungen)](../../core/clients/deploy/about-client-settings.md).  
 
--   Des scripts n'installant pas d'application sur un ordinateur, tel qu'un script pour défragmenter le lecteur de l'ordinateur.  
+## <a name="get-started-creating-an-application"></a>Erste Schritte beim Erstellen einer Anwendung  
+ Wenn Sie direkt mit dem Erstellen einer Anwendung beginnen möchten, finden Sie im Thema [Erstellen und Bereitstellen einer Anwendung](../../apps/get-started/create-and-deploy-an-application.md) eine exemplarische Vorgehensweise zum Erstellen einer einfachen Anwendung.  
 
--   Les scripts exceptionnels qui ne doivent pas être surveillés en permanence.  
+ Wenn Sie mit den Grundlagen vertraut sind und ausführlichere Referenzinformationen zu allen verfügbaren Optionen wünschen, beginnen Sie mit [Erstellen von Anwendungen](/sccm/apps/deploy-use/create-applications).  
 
--   Les scripts qui s'exécutent selon un planning défini et qui ne peuvent pas utiliser l'évaluation globale.
+## <a name="software-center-and-the-application-catalog"></a>Softwarecenter und der Anwendungskatalog  
+ In früheren Versionen von Configuration Manager diente das Softwarecenter zum Installieren und Planen von Softwareinstallationen, zum Konfigurieren von Remotesteuerungseinstellungen und zum Einrichten der Energieverwaltung. Benutzer konnten den Anwendungskatalog durchsuchen, um Software zu suchen und anzufordern, Voreinstellungen einrichten und ihre mobilen Geräte remote zurücksetzen.  
 
- Pour plus d’informations, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
+ Diese Einstellungen sind in System Center Configuration Manager weiterhin verfügbar. Es gibt jedoch eine neue Version von Softwarecenter, die Ihnen das Suchen nach Anwendungen ermöglicht. Dazu müssen Sie nicht den Anwendungskatalog verwenden, für den ein Silverlight-fähiger Webbrowser erforderlich ist. Allerdings sind die Standortsystemrollen "Anwendungskatalog-Websitepunkt" und "Anwendungskatalog-Webdienstpunkt" nach wie vor erforderlich, damit für Benutzer verfügbare Apps im Softwarecenter angezeigt werden.  
 
+ Weitere Informationen finden Sie unter [Planen und Konfigurieren der Anwendungsverwaltung](../../apps/plan-design/plan-for-and-configure-application-management.md).  
+
+## <a name="configuration-manager-packages-and-programs"></a>Configuration Manager-Pakete und -Programme  
+ Configuration Manager unterstützt auch weiterhin Pakete und Programme, die in vorherigen Produktversionen verwendet wurden. Eine Bereitstellung mit Paketen und Programmen kann beim Bereitstellen der folgenden Objekte besser geeignet sein als eine Bereitstellung, die eine Anwendung verwendet:  
+
+-   Skripts, mit denen keine Anwendungen auf einem Computer installiert werden, z. B. ein Skript zum Defragmentieren der Computerfestplatte  
+
+-   „Einmal-Skripts“, die nicht ständig überwacht werden müssen  
+
+-   Skripts, die mit regelmäßiger Wiederholung ausgeführt werden und keine globale Auswertung verwenden können
+
+ Weitere Informationen finden Sie unter [Pakete und Programme](../../apps/deploy-use/packages-and-programs.md).  

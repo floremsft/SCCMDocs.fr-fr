@@ -1,6 +1,6 @@
 ---
-title: "Créer un rôle de système de site de point Endpoint Protection | Microsoft Docs"
-description: "Apprenez à configurer Endpoint Protection de façon à gérer la sécurité et les programmes malveillants sur les ordinateurs clients Configuration Manager."
+title: "Erstellen einer Standortsystemrolle für einen Endpoint Protection-Punkt | Microsoft-Dokumentation"
+description: "Informationen über das Konfigurieren von Endpoint Protection zum Verwalten von Sicherheit und Schadsoftware auf Configuration Manager-Clientcomputern."
 defintion: 
 definition: 
 ms.custom: na
@@ -8,82 +8,78 @@ ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 0a9dc0fe-a942-40a2-bab1-7eeee4d95380
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
-ms.openlocfilehash: 884b5f2ec3f1aa273128dfeaaf88d969c9d8669d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 02/15/2017
-
-
+ms.openlocfilehash: 6e717bcbe5ef8c3f2efa717d0cebb9e675e7c127
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-endpoint-protection-point-site-system-role"></a>Créer un rôle de système de site de point Endpoint Protection
+# <a name="create-an-endpoint-protection-point-site-system-role"></a>Erstellen einer Standortsystemrolle für einen Endpoint Protection-Punkt
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
- Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome.
+ Die Standortsystemrolle für den Endpoint Protection-Punkt muss installiert sein, bevor Sie Endpoint Protection verwenden können. Sie darf nur auf einem einzigen Standortsystemserver installiert sein, und sie muss auf der obersten Hierarchieebene eines zentralen Verwaltungsstandorts oder eines eigenständigen primären Standorts installiert sein.
 
- Utilisez l’une des procédures suivantes selon que vous voulez installer un nouveau serveur de système de site pour Endpoint Protection ou utiliser un serveur de système de site existant :
- - [Installation sur un nouveau serveur de système de site](#new-site-system-server)
- - [Installation sur un serveur de système de site existant](#existing-site-system-server)
+ Verwenden Sie eins der folgenden Verfahren, je nachdem, ob Sie einen neuen Standortsystemserver für Endpoint Protection installieren oder einen bestehenden Standortsystemserver verwenden möchten:
+ - [Installieren auf einem neuen Standortsystemserver](#new-site-system-server)
+ - [Installieren auf einem bestehenden Standortsystemserver](#existing-site-system-server)
 
 > [!IMPORTANT]
->  Quand vous installez un point Endpoint Protection, un client Endpoint Protection est installé sur le serveur hébergeant le point Endpoint Protection. Les analyses et les services sont désactivés sur ce client pour lui permettre de coexister avec une solution existante anti-programme malveillant installée sur le serveur. Si vous activez ultérieurement ce serveur pour confier la gestion à Endpoint Protection et que vous sélectionnez l’option de suppression de solution tierce anti-programme malveillant, le produit tiers n’est pas supprimé. Vous devez désinstaller ce produit manuellement.
+>  Bei der Installation eines Endpoint Protection-Punkts ist ein Endpoint Protection-Client auf dem Server installiert, der den Endpoint Protection-Punkt hostet. Dienste und Überprüfungen sind auf diesem Client deaktiviert, damit er gemeinsam mit einer bestehenden Antischadsoftwarelösung auf dem Server installiert sein kann. Wenn Sie diesen Server später für die Verwaltung mit Endpoint Protection aktivieren und die Option auswählen, alle Antischadsoftware-Lösungen von Drittanbietern zu entfernen, werden Produkte von Drittanbietern nicht entfernt. Solche Produkte müssen manuell deinstalliert werden.
 
-## <a name="new-site-system-server"></a>Nouveau serveur de système de site
+## <a name="new-site-system-server"></a>neuer Standortsystemserver
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.
 
-2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site**.
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Server und Standortsystemrollen**.
 
-3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un serveur de système de site**.
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Standortsystemserver erstellen**.
 
-4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**.
+4.  Geben Sie auf der Seite **Allgemein** die allgemeinen Einstellungen für den Standortsystemserver an, und klicken Sie dann auf **Weiter**.
 
-5.  Sur la page **Sélection du rôle système** , sélectionnez **Point Endpoint Protection** dans la liste des rôles disponibles, puis cliquez sur **Suivant**.
+5.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen **Endpoint Protection-Punkt** aus, und klicken Sie dann auf **Weiter**.
 
-6.  Sur la page **Endpoint Protection** , sélectionnez la case à cocher **J'accepte les termes du contrat de licence Endpoint Protection** et cliquez sur **Suivant**.
-
-    > [!IMPORTANT]
-    >  Vous ne pouvez pas utiliser Endpoint Protection dans Configuration Manager, à moins que vous acceptiez les termes du contrat de licence.
-
-7.  Dans la page **Cloud Protection Service**, sélectionnez le niveau d’information à envoyer à Microsoft pour aider au développement de nouvelles définitions, puis cliquez sur **Suivant**.
-
-    > [!NOTE]
-    >  Cette option configure les paramètres de Cloud Protection Service (anciennement Microsoft Active Protection Service ou MAPS) utilisés par défaut. Vous pouvez ensuite configurer des paramètres personnalisés pour chaque stratégie anti-programme malveillant que vous créez. Rejoignez Cloud Protection Service pour contribuer à renforcer la protection de vos ordinateurs en fournissant à Microsoft des exemples de programmes malveillants et permettre ainsi de tenir à jour les définitions anti-programme malveillant. De plus, quand vous rejoignez Cloud Protection Service, le client Endpoint Protection peut utiliser le service de signature dynamique pour télécharger les nouvelles définitions avant leur publication sur Windows Update. Pour plus d’informations, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
-
-8.  Effectuez toutes les étapes de l'Assistant.
-
-
-## <a name="existing-site-system-server"></a>Serveur de système de site existant
-
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.
-
-2.  Dans l’espace de travail **Administration**, développez **Configuration du site**, cliquez sur **Serveurs et rôles de système de site**, puis sélectionnez le serveur à utiliser pour Endpoint Protection.
-
-3.  Sous l'onglet **Accueil** , dans le groupe **Serveur** , cliquez sur **Ajouter des rôles de système de site**.
-
-4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**.
-
-5.  Sur la page **Sélection du rôle système** , sélectionnez **Point Endpoint Protection** dans la liste des rôles disponibles, puis cliquez sur **Suivant**.
-
-6.  Sur la page **Endpoint Protection** , sélectionnez la case à cocher **J'accepte les termes du contrat de licence Endpoint Protection** et cliquez sur **Suivant**.
+6.  Aktivieren Sie auf der Seite **Endpoint Protection** das Kontrollkästchen **Ich stimme den Endpoint Protection-Lizenzbedingungen zu** , und klicken Sie dann auf **Weiter**.
 
     > [!IMPORTANT]
-    >  Vous ne pouvez pas utiliser Endpoint Protection dans Configuration Manager, à moins que vous acceptiez les termes du contrat de licence.
+    >  Sie können Endpoint Protection nur in Configuration Manager nutzen, wenn Sie dem Lizenzvertrag zustimmen.
 
-7.  Dans la page **Cloud Protection Service**, sélectionnez le niveau d’information à envoyer à Microsoft pour aider au développement de nouvelles définitions, puis cliquez sur **Suivant**.
+7.  Wählen Sie die Informationsebene aus, die Sie an Microsoft senden wollen, um die Entwicklung neuer Definitionen zu unterstützen auf der Seite **Cloud Protection Service** aus, und klicken Sie dann auf **Weiter**.
 
     > [!NOTE]
-    >  Cette option configure les paramètres Cloud Protection Service (anciennement MAPS) utilisés par défaut. Vous pouvez configurer des paramètres personnalisés pour chaque stratégie anti-programme malveillant que vous configurez. Pour plus d’informations, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
+    >  Mit dieser Option werden die Einstellungen des Cloud Protection Service (ehem. Microsoft Active Protection Service oder MAPS) konfiguriert, die als Standard verwendet werden. Anschließend können Sie benutzerdefinierte Einstellungen für jede Richtlinie für Antischadsoftware konfigurieren, die Sie erstellen. Treten Sie Cloud Protection Service bei, um Ihre Computer besser sichern zu können, indem Sie Microsoft Schadsoftwarebeispiele zur Aktualisierung der Antischadsoftwaredefinitionen zur Verfügung stellen. Wenn Sie Cloud Protection Service beitreten, kann der Endpoint Protection-Client außerdem den Dienst für dynamische Signaturen verwenden, um neue Definitionen herunterzuladen, bevor diese in Windows Update veröffentlicht werden. Weitere Informationen finden Sie unter [Erstellen und Bereitstellen von Richtlinien für Antischadsoftware für Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-8.  Effectuez toutes les étapes de l'Assistant.
+8.  Schließen Sie den Assistenten ab.
 
+
+## <a name="existing-site-system-server"></a>bestehender Standortsystemserver
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.
+
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, klicken Sie auf **Server und Standortsystemrollen**, und wählen Sie den Server aus, den Sie für Endpoint Protection verwenden möchten.
+
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Server** auf **Standortsystemrollen hinzufügen**.
+
+4.  Geben Sie auf der Seite **Allgemein** die allgemeinen Einstellungen für den Standortsystemserver an, und klicken Sie dann auf **Weiter**.
+
+5.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen **Endpoint Protection-Punkt** aus, und klicken Sie dann auf **Weiter**.
+
+6.  Aktivieren Sie auf der Seite **Endpoint Protection** das Kontrollkästchen **Ich stimme den Endpoint Protection-Lizenzbedingungen zu** , und klicken Sie dann auf **Weiter**.
+
+    > [!IMPORTANT]
+    >  Sie können Endpoint Protection nur in Configuration Manager nutzen, wenn Sie dem Lizenzvertrag zustimmen.
+
+7.  Wählen Sie die Informationsebene aus, die Sie an Microsoft senden wollen, um die Entwicklung neuer Definitionen zu unterstützen auf der Seite **Cloud Protection Service** aus, und klicken Sie dann auf **Weiter**.
+
+    > [!NOTE]
+    >  Mit dieser Option werden die Einstellungen des Cloud Protection Service (ehem. Microsoft Active Protection Service oder MAPS) konfiguriert, die als Standard verwendet werden. Anschließend können Sie benutzerdefinierte Einstellungen für jede Richtlinie für Antischadsoftware konfigurieren, die Sie erstellen. Weitere Informationen finden Sie unter [Erstellen und Bereitstellen von Richtlinien für Antischadsoftware für Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
+
+8.  Schließen Sie den Assistenten ab.

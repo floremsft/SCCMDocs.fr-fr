@@ -1,214 +1,207 @@
 ---
-title: "Créer et déployer une application | Documents Microsoft"
-description: "Créez et déployez une application contenant une application métier et apprenez à gérer efficacement les applications."
+title: Erstellen und Bereitstellen einer Anwendung | Microsoft Docs
+description: Informationen zum Erstellen und Bereitstellen einer Anwendung mit einer Line-of-Business-App, und wie Apps effektiv verwaltet werden.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3bd1e487-ea18-43c1-b7c3-acbd9b86d429
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 6516db6f4c09fdd173b498c58ccc411847752c4e
 ms.openlocfilehash: bbbf278f5d31c51bfe061dd44e170f7ab1ca70ad
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Créer et déployer une application avec System Center Configuration Manager
+# <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Erstellen und Bereitstellen einer Anwendung mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique vous montre de façon concrète comment créer une application avec System Center Configuration Manager. Dans cet exemple, vous créez et vous déployez une application qui contient une application métier pour PC Windows appelée **Contoso.msi**. Cette application doit être installée sur tous les PC exécutant Windows 10 dans votre entreprise. Au fil des étapes, vous allez découvrir de nombreuses façons de gérer efficacement les applications.  
+In diesem Thema legen Sie direkt los und erstellen eine Anwendung mit System Center Configuration Manager. In diesem Beispiel werden Sie eine Anwendung erstellen und bereitstellen, die eine branchenspezifische App für Windows-PCs enthält. Die App heißt **Contoso.msi** und muss auf allen PCs in Ihrem Unternehmen installiert werden, auf denen Windows 10 ausgeführt wird. Nebenbei lernen Sie viele Funktionen kennen, mit denen Sie Anwendungen effizient verwalten können.  
 
- Cette procédure est destinée à vous donner une vue d’ensemble de la manière de créer et déployer des applications Configuration Manager. Elle ne couvre cependant pas toutes les options de configuration, ni la façon de créer et déployer des applications pour d’autres plateformes.  
+ Dieses Verfahren soll Ihnen einen Überblick über das Erstellen und Bereitstellen von Configuration Manager-Anwendungen geben. Es wird allerdings nicht auf alle Konfigurationsoptionen und auch nicht auf die Erstellung und Bereitstellung von Anwendungen für andere Plattformen eingegangen.  
 
- Pour obtenir des détails spécifiques adaptés à chaque plateforme, consultez une des rubriques suivantes :  
+ Spezifische Details für die einzelnen Plattformen finden Sie in den folgenden Themen:  
 
--   [Créer des applications Windows](../../apps/get-started/creating-windows-applications.md)  
--   [Créer des applications iOS](../../apps/get-started/creating-ios-applications.md)  
--   [Créer des applications Android](../../apps/get-started/creating-android-applications.md)  
--   [Créer des applications Windows Phone](../../apps/get-started/creating-windows-phone-applications.md)  
--   [Créer des applications pour ordinateurs Mac](../../apps/get-started/creating-mac-computer-applications.md)  
--   [Créer des applications serveur Linux et UNIX](../../apps/get-started/creating-linux-and-unix-server-applications.md)
--   [Créer des applications Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md)
+-   [Erstellen von Windows-Anwendungen](../../apps/get-started/creating-windows-applications.md)  
+-   [Erstellen von iOS-Anwendungen](../../apps/get-started/creating-ios-applications.md)  
+-   [Erstellen von Android-Anwendungen](../../apps/get-started/creating-android-applications.md)  
+-   [Erstellen von Windows Phone-Anwendungen](../../apps/get-started/creating-windows-phone-applications.md)  
+-   [Erstellen von Anwendungen für Macintosh-Computer](../../apps/get-started/creating-mac-computer-applications.md)  
+-   [Erstellen von Linux- und UNIX-Serveranwendungen](../../apps/get-started/creating-linux-and-unix-server-applications.md)
+-   [Erstellen von Windows Embedded-Anwendungen](../../apps/get-started/creating-windows-embedded-applications.md)
 
 
-Si vous êtes déjà familiarisé avec les applications Configuration Manager, vous pouvez ignorer cette rubrique. Vous pouvez cependant consulter la rubrique [Créer des applications](../../apps/deploy-use/create-applications.md) pour découvrir toutes les options disponibles quand vous créez et déployez des applications.  
+Wenn Sie bereits mit Configuration Manager-Anwendungen vertraut sind, können Sie dieses Thema überspringen. Vielleicht interessiert Sie auch das Thema zum [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md), in dem alle beim Erstellen und Bereitstellen von Anwendungen verfügbaren Optionen erläutert werden.  
 
-## <a name="before-you-start"></a>Avant de commencer  
+## <a name="before-you-start"></a>Vorbereitung  
 
-Veillez à prendre connaissance des informations contenues dans la rubrique de [présentation de la gestion des applications](/sccm/apps/understand/introduction-to-application-management) de façon à préparer votre site à l’installation d’applications, et à comprendre la terminologie utilisée dans cette rubrique.  
+Die Informationen unter [Einführung in die Anwendungsverwaltung](/sccm/apps/understand/introduction-to-application-management) sollten Ihnen geläufig sein. So ist sichergestellt, dass Sie Ihren Standort für die Installation von Anwendungen vorbereitet haben und die in diesem Thema verwendete Terminologie kennen.  
 
- Vérifiez aussi que les fichiers d’installation de l’application **Contoso.msi** se trouvent à un emplacement accessible sur votre réseau.  
+ Vergewissern Sie sich außerdem, dass die Installationsdateien für die App **Contoso.msi** unter einem zugänglichen Pfad in Ihrem Netzwerk gespeichert sind.  
 
-## <a name="create-the-configuration-manager-application"></a>Créer l’application Configuration Manager  
+## <a name="create-the-configuration-manager-application"></a>Erstellen der Configuration Manager-Anwendung  
 
-### <a name="to-start-the-create-application-wizard-and-create-the-application"></a>Pour démarrer l’Assistant Création d’une application et créer l’application  
+### <a name="to-start-the-create-application-wizard-and-create-the-application"></a>So starten Sie den Assistenten zum Erstellen von Anwendungen und erstellen die Anwendung  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Anwendung erstellen** aus.  
 
-4.  Dans la page **Général** de l’ **Assistant Création d’une application**, choisissez **Détecter automatiquement les informations de cette application à partir des fichiers d’installation**. Ceci permet de préremplir certaines informations dans l’Assistant avec les informations extraites du fichier d’installation .msi. Spécifiez ensuite les informations suivantes :  
+4.  Wählen Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Anwendungen** die Option **Informationen zu dieser Anwendung automatisch anhand der Installationsdateien erkennen** aus. Dadurch werden einige Informationen aus der MSI-Installationsdatei extrahiert und vorab in den Assistenten eingefügt. Geben Sie dann die folgenden Informationen an:  
 
-    -   **Type** : choisissez **Windows Installer (fichier \*.msi)**.  
+    -   **Typ:** Wählen Sie **Windows Installer (\*.msi-Datei)** aus.  
 
-    -   **Emplacement** : entrez l’emplacement du fichier d’installation **Contoso.msi** (ou choisissez **Parcourir** pour le sélectionner). Notez que l’emplacement doit être spécifié sous la forme *\\\Serveur\Partage\Fichier* pour permettre à Configuration Manager de trouver les fichiers d’installation.  
+    -   **Speicherort:** Geben Sie den Speicherort der Installationsdatei **Contoso.msi** ein (oder wählen Sie **Durchsuchen** aus, um ihn auszuwählen). Beachten Sie, dass der Speicherort im Format *\\\Server\Freigabe\Datei* angegeben werden muss, damit die Installationsdateien in Configuration Manager gefunden werden.  
 
-    Le résultat doit ressembler à la capture d’écran suivante :  
+    Zum Schluss sollte ein Screenshot angezeigt werden, der etwa wie folgt aussieht:  
 
-    ![Page Général de l’Assistant Gestion des applications](/sccm/apps/get-started/media/App-management-wizard-general-page.png)  
+    ![App-Management-Assistent Allgemein](/sccm/apps/get-started/media/App-management-wizard-general-page.png)  
 
-5.  Choisissez **Suivant**. La page **Importer des informations** affiche des informations sur l’application et tous les fichiers associés qui ont été importés dans Configuration Manager. Quand vous avez terminé, choisissez à nouveau **Suivant**.  
+5.  Wählen Sie **Weiter** aus. Auf der Seite **Informationen importieren** werden einige Informationen zur App und zugehörigen Dateien angezeigt, die in Configuration Manager importiert wurden. Wählen Sie abschließend erneut **Weiter** aus.  
 
-6.  Dans la page **Informations générales**, vous pouvez fournir des informations complémentaires sur l’application pour faciliter le tri et sa localisation dans la console Configuration Manager.  
+6.  Auf der Seite **Allgemeine Informationen** können Sie weitere Informationen zur Anwendung angeben. Auf diese Weise kann die Anwendung leichter sortiert und in der Configuration Manager-Konsole gefunden werden.  
 
-     De plus, le champ **Programme d’installation** vous permet de spécifier la ligne de commande complète à utiliser pour installer l’application sur les PC. Vous pouvez modifier ce champ pour ajouter vos propres propriétés (par exemple **/q** pour effectuer une installation sans assistance).  
+     Darüber hinaus können Sie im Feld **Installationsprogramm** die vollständige Befehlszeile angeben, die zur Installation der Anwendung auf PCs verwendet wird. Sie können das Feld bearbeiten, um eigene Eigenschaften hinzuzufügen (z.B. **/q** für eine unbeaufsichtigte Installation).  
 
     > [!TIP]  
-    >  Certains champs de cette page de l’Assistant peuvent avoir été renseignés automatiquement au moment où vous avez importé les fichiers d’installation de l’application.  
+    >  Einige Felder auf dieser Seite des Assistenten wurden während des Imports der Anwendungsinstallationsdateien möglicherweise automatisch ausgefüllt.  
 
-     Le résultat doit ressembler à la capture d’écran suivante :  
+     Zum Schluss sollte ein mit dem folgenden Screenshot vergleichbarer Bildschirm angezeigt werden:  
 
-     ![Page Informations générales de l’Assistant Gestion des applications](/sccm/apps/get-started/media/App-management-wizard-general-information-page.png)  
+     ![App-Management-Assistent-Seite mit allgemeinen Informationen](/sccm/apps/get-started/media/App-management-wizard-general-information-page.png)  
 
-7.  Choisissez **Suivant**. Dans la page Résumé, vous pouvez vérifier vos paramètres d’application, puis terminer l’Assistant.  
+7.  Wählen Sie **Weiter** aus. Auf der Seite „Zusammenfassung“ können Sie die Anwendungseinstellungen bestätigen und den Assistenten dann abschließen.  
 
- Vous avez fini de créer l’application. Pour la trouver, dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion d’applications**, puis choisissez **Applications**. Pour cet exemple, vous verrez ceci :  
+ Die Erstellung der App ist abgeschlossen. Sie finden die App, indem Sie im Arbeitsbereich **Softwarebibliothek** den Knoten **Anwendungsverwaltung** erweitern und dann die Option **Anwendungen** auswählen. In diesem Beispiel sehen Sie:  
 
- ![Graphique de l’application finale](/sccm/apps/get-started/media/Final-app-graphic.png)  
+ ![Endgültige App-Grafik](/sccm/apps/get-started/media/Final-app-graphic.png)  
 
-## <a name="examine-the-properties-of-the-application-and-its-deployment-type"></a>Examiner les propriétés de l’application et son type de déploiement  
+## <a name="examine-the-properties-of-the-application-and-its-deployment-type"></a>Überprüfen der Anwendungseigenschaften und des Bereitstellungstyps  
 
-Maintenant que vous avez créé une application, vous pouvez si nécessaire en ajuster les paramètres. Pour afficher les propriétés de l’application, sélectionnez l’application et, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+Nachdem Sie eine Anwendung erstellt haben, können Sie die Anwendungseinstellungen bei Bedarf optimieren. Um die Anwendungseigenschaften anzuzeigen, wählen Sie die App und dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
- La boîte de dialogue **Propriétés de l’application <Contoso\>** contient beaucoup d’éléments que vous pouvez configurer pour ajuster le comportement de l’application. Pour plus d’informations sur tous les paramètres configurables, consultez [Créer des applications](../../apps/deploy-use/create-applications.md). Pour cet exemple, vous allez seulement modifier quelques propriétés du type de déploiement de l’application.  
+ Im Dialogfeld **<Contoso\> Anwendungseigenschaften** sind viele Elemente enthalten, die Sie konfigurieren können, um das Anwendungsverhalten zu optimieren. Details zu allen konfigurierbaren Einstellungen finden Sie unter [Anwendungen erstellen](../../apps/deploy-use/create-applications.md). Im Rahmen dieses Beispiels ändern Sie nur einige Eigenschaften des Bereitstellungstyps der Anwendung.  
 
- Choisissez l’onglet **Types de déploiement** > Type de déploiement **Application Contoso** > **Modifier**.  
+ Wählen Sie die Registerkarte **Bereitstellungstypen** den Bereitstellungstyp **Contoso-Anwendung** und dann **Bearbeiten** aus.  
 
-Une boîte de dialogue similaire à celle-ci s’affiche :  
+Ein mit dem folgenden vergleichbares Dialogfeld wird angezeigt:  
 
-![Page de propriétés de l’application dans la gestion des applications](/sccm/apps/get-started/media/App-management-app-properties-page.png)  
+![App-Management-App-Eigenschaftenseite](/sccm/apps/get-started/media/App-management-app-properties-page.png)  
 
-## <a name="add-a-requirement-to-the-deployment-type"></a>Ajouter une spécification pour le type de déploiement  
- Les spécifications indiquent les conditions devant être remplies pour qu’une application soit installée sur un appareil.  Vous pouvez choisir des spécifications prédéfinies ou créer les vôtres. Dans cet exemple, vous ajoutez une spécification pour que l’application soit installée uniquement sur les PC exécutant Windows 10.  
+## <a name="add-a-requirement-to-the-deployment-type"></a>Hinzufügen einer Anforderung zum Bereitstellungstyp  
+ Mit Anforderungen werden Bedingungen angegeben, die erfüllt sein müssen, bevor eine Anwendung auf einem Gerät installiert wird.  Sie können integrierte Anforderungen auswählen oder eigene Anforderungen erstellen. In diesem Beispiel fügen Sie die Anforderung hinzu, dass die Anwendung nur auf PCs installiert wird, auf denen Windows 10 ausgeführt wird.  
 
-1.  Dans la page de propriétés du type de déploiement que vous venez d’ouvrir, choisissez l’onglet **Spécifications**.  
+1.  Wählen Sie auf der gerade geöffneten Eigenschaftenseite des Bereitstellungstyps die Registerkarte **Anforderungen** aus.  
 
-2.  Choisissez **Ajouter** pour ouvrir la boîte de dialogue **Créer une spécification**.  
+2.  Wählen Sie **Hinzufügen** aus, um das Dialogfeld **Anforderung erstellen** zu öffnen.  
 
-3.  Dans la boîte de dialogue **Créer une spécification** , indiquez les informations suivantes :  
+3.  Geben Sie im Dialogfeld **Anforderung erstellen** die folgenden Informationen an:  
 
-    -   **Catégorie** : **Appareil**  
+    -   **Kategorie:** **Gerät**  
 
-    -   **Condition** : **Système d’exploitation**  
+    -   **Bedingung:** **Betriebssystem**  
 
-    -   **Type de règle** : **Valeur**  
+    -   **Regeltyp:** **Wert**  
 
-    -   **Opérateur** : **L’un des**  
+    -   **Operator:** **Eine von**  
 
-    -   Dans la liste des systèmes d’exploitation, sélectionnez **Windows 10**.  
+    -   Wählen Sie aus der Betriebssystemliste **Windows 10**aus.  
 
-    Vous obtenez une boîte de dialogue similaire à celle-ci :  
+    Zum Schluss sieht das Dialogfeld etwa folgendermaßen aus:  
 
-    ![Page de spécifications dans la gestion des applications](/sccm/apps/get-started/media/App-management-requirements-page.png)  
+    ![Seite „App-Verwaltungsanforderungen“](/sccm/apps/get-started/media/App-management-requirements-page.png)  
 
-4.  Choisissez **OK** pour fermer chaque page de propriétés que vous avez ouverte. Revenez ensuite à la liste **Applications** dans la console Configuration Manager.  
-
-> [!TIP]  
->  Les spécifications peuvent permettre de réduire le nombre de regroupements Configuration Manager dont vous avez besoin. Comme vous venez de spécifier que l’application peut être installée uniquement sur les PC exécutant Windows 10, vous pouvez la déployer ultérieurement sur un regroupement contenant des ordinateurs qui exécutent de nombreux systèmes d’exploitation différents. L’application ne sera cependant installée que sur les PC Windows 10.  
-
-## <a name="add-the-application-content-to-a-distribution-point"></a>Ajouter le contenu de l’application à un point de distribution  
-
-Ensuite, pour déployer l’application sur des PC, vérifiez que le contenu de l’application est copié sur un point de distribution. Les PC accèdent au point de distribution pour installer l’application.  
+4.  Wählen Sie **OK** aus, um alle geöffneten Eigenschaftenseiten zu schließen. Kehren Sie dann zur Liste **Anwendungen** in der Configuration Manager-Konsole zurück.  
 
 > [!TIP]  
->  Pour plus d’informations sur les points de distribution et la gestion de contenu dans Configuration Manager, consultez [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+>  Mithilfe von Anforderungen können Sie die Anzahl der benötigten Configuration Manager-Sammlungen verringern. Da Sie gerade angegeben haben, dass die Anwendung nur auf Windows 10-Computern installiert werden kann, können Sie diese Anforderung später für eine Sammlung bereitstellen, die Computer enthält, auf denen viele verschiedene Betriebssysteme ausgeführt werden. Die Anwendung wird jedoch nur auf Windows 10-Computern installiert.  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels**.  
+## <a name="add-the-application-content-to-a-distribution-point"></a>Hinzufügen des Anwendungsinhalts zu einem Verteilungspunkt  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels**, développez **Applications**. Ensuite, dans la liste des applications, sélectionnez l’**Application Contoso** que vous avez créée.  
-
-3.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Distribuer du contenu**.  
-
-4.  Dans la page **Général** de l’**Assistant Distribuer du contenu**, vérifiez que le nom de l’application est correct, puis choisissez **Suivant**.  
-
-5.  Dans la page **Contenu**, vérifiez les informations qui seront copiées sur le point de distribution, puis choisissez **Suivant**.  
-
-6.  Dans la page **Destination du contenu**, choisissez **Ajouter** pour sélectionner un ou plusieurs points de distribution ou bien des groupes de points de distribution sur lesquels le contenu de l’application doit être installé.  
-
-7.  Effectuez toutes les étapes de l'Assistant.  
-
-Vous pouvez vérifier que le contenu de l’application a bien été copié sur le point de distribution dans l’espace de travail **Surveillance**, sous **État de distribution** > **État du contenu**.  
-
-## <a name="deploy-the-application"></a>Déployer l'application  
-
-Ensuite, déployez l’application sur un regroupement de périphériques de votre hiérarchie. Dans cet exemple, vous déployez l’application sur le regroupement d’appareils **Tous les systèmes**.  
+Zur Bereitstellung der Anwendung auf PCs müssen Sie als Nächstes sicherstellen, dass der Inhalt der Anwendung auf einen Verteilungspunkt kopiert wird. PCs greifen auf den Verteilungspunkt zu, um die Anwendung zu installieren.  
 
 > [!TIP]  
->  N’oubliez pas que seuls les ordinateurs Windows 10 installeront l’application en raison des spécifications que vous avez sélectionnées précédemment.  
+>  Weitere Informationen zu Verteilungspunkten sowie zum Content Management in Configuration Manager finden Sie unter [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Option **Softwarebibliothek** aus.  
 
-3.  Dans la liste d’applications, sélectionnez l’application que vous avez créée précédemment (**Application Contoso**) puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Knoten **Anwendungen**. Wählen Sie dann in der Liste der Anwendungen die **Contoso-Anwendung** aus, die Sie erstellt haben.  
 
-4.  Dans la page **Général** de l’**Assistant Déploiement logiciel**, choisissez **Parcourir** pour sélectionner le regroupement d’appareils **Tous les systèmes**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** die Option **Inhalt verteilen** aus.  
 
-5.  Dans la page **Contenu**, vérifiez que le point de distribution à partir duquel les PC doivent installer l’application est bien sélectionné.  
+4.  Überprüfen Sie auf der Seite **Allgemein** des **Assistenten für die Verteilung von Inhalt**, ob der Name der Anwendung richtig ist, und wählen Sie dann **Weiter** aus.  
 
-6.  Dans la page **Paramètres de déploiement**, vérifiez que l’action de déploiement définie est **Installer** et que l’objectif du déploiement est **Obligatoire**.  
+5.  Überprüfen Sie auf der Seite **Inhalt** die Informationen, die auf den Verteilungspunkt kopiert werden, und wählen Sie dann **Weiter** aus.  
+
+6.  Wählen Sie auf der Seite **Inhaltsziel** die Option **Hinzufügen** aus, um einen oder mehrere Verteilungspunkte oder Verteilungspunktgruppen auszuwählen, auf bzw. in denen der Anwendungsinhalt installiert werden soll.  
+
+7.  Schließen Sie den Assistenten ab.  
+
+Im Arbeitsbereich **Überwachung** können Sie unter **Verteilungsstatus** > **Inhaltsstatus** überprüfen, ob der Inhalt der Anwendung erfolgreich auf den Verteilungspunkt kopiert wurde.  
+
+## <a name="deploy-the-application"></a>Bereitstellen der Anwendung  
+
+Als Nächstes stellen Sie die Anwendung für eine Gerätesammlung in Ihrer Hierarchie bereit. In diesem Beispiel stellen Sie die Anwendung in der Gerätesammlung **Alle Systeme** bereit.  
+
+> [!TIP]  
+>  Denken Sie daran, dass die Anwendung aufgrund der zuvor ausgewählten Anforderungen nur auf Windows 10-Computern installiert wird.  
+
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
+
+3.  Wählen Sie in der Liste der Anwendungen Ihre zuvor erstellte **Contoso-Anwendung** aus. Wählen Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** die Option **Bereitstellen** aus.  
+
+4.  Wählen Sie auf der Seite **Allgemein** des **Assistenten zum Bereitstellen von Software** die Option **Durchsuchen** und dann die Gerätesammlung **Alle Systeme** aus.  
+
+5.  Wählen Sie auf der Seite **Inhalt** den Verteilungspunkt aus, über den PCs die ausgewählte Anwendung installieren sollen.  
+
+6.  Stellen Sie auf der Seite **Bereitstellungseinstellungen** sicher, dass die Bereitstellungsaktion auf **Installieren** und der Bereitstellungszweck auf **Erforderlich** festgelegt sind.  
 
     > [!TIP]  
-    >  En définissant l’objectif de déploiement sur **Obligatoire**, vous avez l’assurance que l’application est installée sur des PC conformes aux spécifications que vous avez définies. Si vous définissez la valeur **Disponible**, les utilisateurs peuvent installer l’application à la demande à partir du Centre logiciel.  
+    >  Indem Sie den Zweck der Bereitstellung auf **Erforderlich** festlegen, stellen Sie sicher, dass die Anwendung auf PCs installiert wird, die die definierten Anforderungen erfüllen. Wenn Sie diesen Wert auf **Verfügbar**festlegen, können Benutzer die Anwendung bei Bedarf über das Softwarecenter installieren.  
 
-7.  Dans la page **Planification** , vous pouvez configurer à quel moment l’application sera installée. Pour cet exemple, sélectionnez **Dès que possible après le délai disponible**.  
+7.  Auf der Seite **Zeitplanung** können Sie konfigurieren, wann die Anwendung installiert wird. Wählen Sie für dieses Beispiel **So bald wie möglich nach der verfügbaren Zeit**aus.  
 
-8.  Dans la page **Expérience utilisateur**, choisissez **Suivant** pour accepter les valeurs par défaut.  
+8.  Wählen Sie auf der Seite **Benutzerfreundlichkeit** die Option **Weiter** aus, um die Standardwerte zu übernehmen.  
 
-9. Effectuez toutes les étapes de l'Assistant.  
+9. Schließen Sie den Assistenten ab.  
 
-Utilisez les informations de la section **Surveiller l’application** ci-dessous pour voir l’état du déploiement de votre application.  
+Der nachfolgende Abschnitt **Die Anwendung überwachen** enthält Informationen zum Anzeigen des Status Ihrer Anwendungsbereitstellung.  
 
-## <a name="monitor-the-application"></a>Surveiller l’application  
- Cette section vous explique comment examiner en un coup d’œil l’état du déploiement de l’application que vous venez de déployer.  
+## <a name="monitor-the-application"></a>Die Anwendung überwachen  
+ In diesem Abschnitt erhalten Sie eine Übersicht über den Bereitstellungsstatus der Anwendung, die Sie gerade bereitgestellt haben.  
 
-### <a name="to-review-the-deployment-status"></a>Pour consulter l’état du déploiement  
+### <a name="to-review-the-deployment-status"></a>So überprüfen den Bereitstellungsstatus  
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance** > **Déploiements**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Überwachung** > **Bereitstellungen** aus.  
 
-3.  Dans la liste des déploiements, sélectionnez **Application Contoso**.  
+3.  Wählen Sie in der Liste der Bereitstellungen die **Contoso-Anwendung**aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Afficher l’état**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** die Option **Status anzeigen** aus.  
 
-5.  Sélectionnez un des onglets suivants pour en voir davantage sur l’état du déploiement de l’application :  
+5.  Wählen Sie eine der folgenden Registerkarten aus, um weitere Statusinformationen zur Anwendungsbereitstellung anzuzeigen:  
 
-    -   **Opération réussie** : l’application a bien été installée sur les PC indiqués.  
+    -   **Erfolg:** Die Anwendung wurde erfolgreich auf den angegebenen PCs installiert.  
 
-    -   **En cours** : l’installation de l’application n’est pas encore terminée.  
+    -   **In Bearbeitung:** Die Installation der Anwendung ist noch nicht abgeschlossen.  
 
-    -   **Erreur** : une erreur s’est produite lors de l’installation de l’application sur les PC indiqués. Des informations complémentaires sur l’erreur sont aussi affichées.  
+    -   **Fehler:** Beim Installieren der Anwendung auf den angegebenen PCs ist ein Fehler aufgetreten. Weitere Informationen zum Fehler werden ebenfalls angezeigt.  
 
-    -   **Config non satisfaite** : aucune tentative d’installation de l’application sur les appareils indiqués n’a été faite, car ils n’étaient pas conformes aux spécifications que vous avez configurées (en l’occurrence, ils n’exécutaient pas Windows 10).  
+    -   **Anforderungen nicht erfüllt:** Es wurde nicht versucht, die Anwendung auf den angegebenen Geräten zu installieren, da sie nicht die konfigurierten Anforderungen erfüllt haben (in diesem Beispiel, weil auf diesen Geräten Windows 10 nicht ausgeführt wird).  
 
-    -   **Inconnu** : Configuration Manager n’a pas pu signaler l’état du déploiement. Faites une nouvelle vérification ultérieurement.  
+    -   **Unbekannt:** Der Status der Bereitstellung konnte in Configuration Manager nicht gemeldet werden. Kehren Sie später erneut zurück.  
 
 > [!TIP]  
->  Il existe plusieurs façons de surveiller les déploiements d’applications. Pour plus d’informations, consultez [Surveiller les applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+>  Es gibt einige Möglichkeiten zum Überwachen von Anwendungsbereitstellungen. Ausführliche Informationen finden Sie unter [Überwachen von Anwendungen](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
-## <a name="end-user-experience"></a>Expérience de l’utilisateur final  
+## <a name="end-user-experience"></a>Ablauf für Endbenutzer  
 
-Les utilisateurs ayant des PC gérés par Configuration Manager et exécutant Windows 10 voient un message les invitant à installer l’application Contoso. L’application s’installe dès lors qu’ils acceptent l’installation.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+Benutzern von Windows 10-PCs, die mit Configuration Manager verwaltet werden, wird die Meldung angezeigt, dass sie die Anwendung „Contoso“ installieren müssen. Nachdem sie der Installation zugestimmt haben, wird die Anwendung installiert.  

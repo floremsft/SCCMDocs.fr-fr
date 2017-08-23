@@ -1,237 +1,233 @@
 ---
-title: Configurer Asset Intelligence | Microsoft Docs
-description: Configurez Asset Intelligence dans System Center Configuration Manager.
+title: Konfigurieren von Asset Intelligence | Microsoft-Dokumentation
+description: Richten Sie Asset Intelligence in System Center Configuration Manager ein.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 08e0382d-de05-4a76-ba5c-7223173f7066
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
-ms.openlocfilehash: 27566be49a673bebca6ac3621e692fad65523ca4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: d2704e0f93ad9748f7eb06d714b3754463cb3bdb
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-asset-intelligence-in-system-center-configuration-manager"></a>Configurer Asset Intelligence dans System Center Configuration Manager
+# <a name="configure-asset-intelligence-in-system-center-configuration-manager"></a>Konfigurieren von Asset Intelligence in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Asset Intelligence permet d’inventorier et de gérer l’utilisation des licences logicielles.   
+Asset Intelligence erstellt eine Inventarliste der Softwarelizenzen und überwacht ihre Verwendung.   
 
-## <a name="steps-to-configure-asset-intelligence"></a>Étapes de configuration d’Asset Intelligence  
+## <a name="steps-to-configure-asset-intelligence"></a>Schritte zum Konfigurieren von Asset Intelligence  
    
 
-- **Étape 1** : Pour collecter les données d’inventaire pour les rapports Asset Intelligence, vous devez activer l’agent d’inventaire matériel, comme cela est expliqué dans [Comment étendre l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).
-- **Étape 2** : [Activer les classes de création de rapports d’inventaire matériel Asset Intelligence](#BKMK_EnableAssetIntelligence).  
-- **Étape 3** : [Installer un point de synchronisation Asset Intelligence](#BKMK_InstallAssetIntelligenceSynchronizationPoint)
-- **Étape 4** : [Activer l’audit des événements de connexion réussie](#BKMK_EnableSuccessLogonEvents)  
-- **Étape 5** : [Importer les informations de licence logicielle](#BKMK_ImportSoftwareLicenseInformation)  
-- **Étape 6** : [Configurer les tâches de maintenance Asset Intelligence](#BKMK_ConfigureMaintenanceTasks) 
+- **Schritt 1**: Zum Sammeln von Inventurdaten, die für Asset Intelligence-Berichte erforderlich sind, müssen Sie den Hardwareinventurclient-Agent aktivieren. Dies wird unter [Erweitern der Hardwareinventur in System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md) beschrieben.
+- **Schritt 2**: [ Aktivieren von Asset Intelligence-Hardwareinventur-Berichtsklassen](#BKMK_EnableAssetIntelligence)  
+- **Schritt 3**: [Installieren eines Asset Intelligence-Synchronisierungspunkts](#BKMK_InstallAssetIntelligenceSynchronizationPoint)
+- **Schritt 4**: [Aktivieren der Überwachung erfolgreicher Anmeldeereignisse](#BKMK_EnableSuccessLogonEvents)  
+- **Schritt 5**: [Importieren von Softwarelizenzinformationen](#BKMK_ImportSoftwareLicenseInformation)  
+- **Schritt 6**: [Konfigurieren von Asset Intelligence-Wartungstasks](#BKMK_ConfigureMaintenanceTasks) 
 
 
-###  <a name="BKMK_EnableAssetIntelligence"></a> Activer les classes de création de rapports d’inventaire matériel Asset Intelligence  
- Pour activer Asset Intelligence sur les sites Configuration Manager, vous devez activer au moins une des classes de création de rapports d’inventaire matériel Asset Intelligence. Vous pouvez activer les classes sur la page d'accueil **Asset Intelligence** ou, dans l'espace de travail **Administration** , dans le nœud **Paramètres client** , dans les propriétés des paramètres client. Procédez selon l'une des méthodes suivantes :  
+###  <a name="BKMK_EnableAssetIntelligence"></a> Enable Asset Intelligence hardware inventory reporting classes  
+ Zum Aktivieren von Asset Intelligence in Configuration Manager-Standorten müssen Sie mindestens eine Asset Intelligence-Hardwareinventur-Berichtsklasse aktivieren. Sie können die Klassen auf der **Asset Intelligence** -Startseite oder im Arbeitsbereich **Verwaltung** im Knoten **Clienteinstellungen** in den Eigenschaften der Clienteinstellungen aktivieren. Wenden Sie eines der folgenden Verfahren an:  
 
-##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-the-asset-intelligence-home-page"></a>Pour activer les classes de création de rapports d'inventaire matériel Asset Intelligence depuis la page d'accueil Asset Intelligence  
+##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-the-asset-intelligence-home-page"></a>So aktivieren Sie Asset Intelligence-Hardwareinventur-Berichtsklassen von der Asset Intelligence-Startseite aus  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Asset Intelligence**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Konformität** > **Asset Intelligence** aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Asset Intelligence**, choisissez **Modifier les classes d’inventaire**.   
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Asset Intelligence** **Inventurklassen bearbeiten** aus.   
 
-4.  Pour activer la création de rapports Asset Intelligence, sélectionnez **Activer toutes les classes de création de rapports Asset Intelligence** ou **Activer uniquement les classes de création de rapports Asset Intelligence sélectionnées**, puis sélectionnez au moins une classe de création de rapports dans les classes affichées.  
-
-    > [!NOTE]  
-    >  Les rapports Asset Intelligence qui dépendent des classes d'inventaire matériel que vous activez en utilisant cette procédure n'affichent pas de données tant que les clients n'ont pas établi et retourné un inventaire matériel.  
-
-
-##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-client-settings-properties"></a>Pour activer les classes de création de rapports d'inventaire matériel Asset Intelligence depuis les propriétés des paramètres client  
-
-1.  Dans la console Configuration Manager, choisissez **Administration** >  **Paramètres client** > **Paramètres d’agent client par défaut**. Si vous avez créé des paramètres client personnalisés, vous pouvez sélectionner ces paramètres à la place.  
-
-3.  Sous l’onglet **Accueil** > groupe **Propriétés**, choisissez **Propriétés**.   
-
-4.  Choisissez **Inventaire matériel** > **Déf. classes**. .  
-
-5.  Choisissez **Filtrer par catégorie** > **Classes de création de rapports Asset Intelligence**. La liste des classes est actualisée avec uniquement les classes de création de rapports d'inventaire matériel Asset intelligence.  
-
-6.  Sélectionnez au moins une classe de création de rapports dans la liste.  
+4.  Zum Aktivieren der Asset Intelligence-Berichterstattung wählen Sie **Alle Asset Intelligence-Berichtsklassen aktivieren** oder **Nur die ausgewählten Asset Intelligence-Berichtsklassen aktivieren** und mindestens eine der angezeigten Berichtsklassen aus.  
 
     > [!NOTE]  
-    >  Les rapports Asset Intelligence qui dépendent des classes d'inventaire matériel que vous activez en utilisant cette procédure n'affichent pas de données tant que les clients n'ont pas établi et retourné un inventaire matériel.  
+    >  In den von den Hardwareinventurklassen abhängigen Asset Intelligence-Berichten, die mit diesem Verfahren aktiviert werden, werden erst dann Daten angezeigt, wenn die Hardwareinventurdaten von den Clients überprüft und zurückgegeben wurden.  
+
+
+##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-client-settings-properties"></a>So aktivieren Sie Asset Intelligence-Hardwareinventur-Berichtsklassen in den Eigenschaften der Clienteinstellungen  
+
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** >  **Clienteinstellungen** > **Client-Agent-Standardeinstellungen** aus. Wenn Sie benutzerdefinierte Clienteinstellungen erstellt haben, können Sie alternativ diese auswählen.  
+
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.   
+
+4.  Wählen Sie **Hardwareinventur** > **Klassen festlegen** aus. .  
+
+5.  Wählen Sie **Filter by category** (Nach Kategorie filtern) > **Asset Intelligence-Berichtsklassen** aus. In der aktualisierten Liste werden nur Asset Intelligence-Hardwareinventur-Berichtsklassen angezeigt.  
+
+6.  Wählen Sie mindestens eine Berichtsklasse aus der Liste aus.  
+
+    > [!NOTE]  
+    >  In den von den Hardwareinventurklassen abhängigen Asset Intelligence-Berichten, die mit diesem Verfahren aktiviert werden, werden erst dann Daten angezeigt, wenn die Hardwareinventurdaten von den Clients überprüft und zurückgegeben wurden.  
   
 
-###  <a name="BKMK_InstallAssetIntelligenceSynchronizationPoint"></a> Installer un point de synchronisation Asset Intelligence  
+###  <a name="BKMK_InstallAssetIntelligenceSynchronizationPoint"></a> Install an Asset Intelligence Synchronization Point  
 
-Le rôle de système de site du point de synchronisation Asset Intelligence permet de connecter des sites Configuration Manager à System Center Online pour synchroniser les informations du catalogue Asset Intelligence. Le point de synchronisation Asset Intelligence peut uniquement être installé sur un système de site de niveau supérieur dans la hiérarchie Configuration Manager. De plus, il a besoin d’un accès Internet pour se synchroniser avec System Center Online via le port TCP 443.
+Die Standortsystemrolle des Asset Intelligence-Synchronisierungspunkts wird verwendet, um eine Verbindung von Configuration Manager-Standorten zu System Center Online herstellen und Asset Intelligence-Kataloginformationen synchronisieren zu können. Der Asset Intelligence-Synchronisierungspunkt kann nur auf einem Standortsystem installiert werden, das sich am Standort der obersten Ebene in der Configuration Manager-Hierarchie befindet, und erfordert für die Synchronisierung mit System Center Online über TCP-Port 443 eine Internetverbindung.
 
-Outre le téléchargement des nouvelles informations du catalogue Asset Intelligence, le point de synchronisation Asset Intelligence peut envoyer les informations de titres de logiciels personnalisés à System Center Online à des fins de catégorisation. Microsoft considère tous les titres de logiciels téléchargés comme des informations publiques. Assurez-vous que vos titres de logiciels personnalisés ne contiennent pas d’informations confidentielles ou propriétaires. Pour plus d’informations sur la demande de catégorisation des titres de logiciels, consultez [Demander une mise à jour du catalogue pour les logiciels sans catégorie](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).  
+Zusätzlich zum Herunterladen neuer Asset Intelligence-Kataloginformationen können vom Asset Intelligence-Synchronisierungspunkt Informationen zu benutzerdefinierten Softwaretiteln zur Kategorisierung in System Center Online hochgeladen werden. Microsoft behandelt alle hochgeladenen Softwaretitel als öffentliche Informationen. Stellen Sie sicher, dass Ihre benutzerdefinierten Softwaretitel keine vertraulichen oder geschützten Informationen enthalten. Weitere Informationen zu Kategorisierungsanforderungen für Softwaretitel finden Sie unter [Request a catalog update for uncategorized software titles (Anfordern eines Katalogupdates für nicht kategorisierte Softwaretitel)](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).  
 
-##### <a name="to-install-an-asset-intelligence-synchronization-point-site-system-role"></a>Pour installer un rôle de système de site de point de synchronisation Asset Intelligence  
+##### <a name="to-install-an-asset-intelligence-synchronization-point-site-system-role"></a>So installieren Sie eine Asset Intelligence-Synchronisierungspunkt-Standortsystemrolle  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**> **Configuration du site** > **Serveurs et rôles de système de site**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung**> **Standortkonfiguration** > **Server und Standortsystemrollen** aus.  
 
-3.  Ajoutez le rôle de système de site du point de synchronisation Asset Intelligence à un serveur de système de site nouveau ou existant :  
+3.  Fügen Sie die Standortsystemrolle für den Asset Intelligence-Synchronisierungspunkt zu einem neuen oder bestehenden Standortsystemserver hinzu:  
 
-    -  Pour un **nouveau serveur de système de site** : sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un serveur de système de site** pour démarrer l’Assistant.   
+    -  Für einen **Neuen Standortsystemserver**: Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** **Standortsystemserver erstellen** aus, um den Assistenten zu starten.   
 
         > [!NOTE]  
-        >  Par défaut, quand Configuration Manager installe un rôle système de site, les fichiers d’installation sont installés sur le premier disque dur formaté NTFS disponible qui a le plus d’espace disque libre. Pour empêcher Configuration Manager d’effectuer l’installation sur des disques particuliers, créez un fichier vide « No_sms_on_drive.sms » et copiez-le dans le dossier racine du disque avant d’installer le serveur de système de site.  
+        >  Wenn eine Standortsystemrolle von Configuration Manager in der Standardeinstellung installiert wird, erfolgt die Installation auf dem ersten verfügbaren NTFS-formatierten Festplattenlaufwerk, das genügend Speicherplatz bietet. Soll die Installation durch Configuration Manager nicht auf einem bestimmten Laufwerk vorgenommen werden, erstellen Sie eine leere Datei mit dem Namen „No_sms_on_drive.sms“, und kopieren Sie sie in den Stammordner des Laufwerks, bevor Sie den Standortsystemserver installieren.  
 
-    -  Pour un **serveur de système de site existant** : choisissez le serveur sur lequel vous souhaitez installer le rôle de système de site du point de synchronisation Asset Intelligence. Quand vous choisissez un serveur, la liste des rôles de système de site déjà installés sur le serveur s’affiche dans le volet Détails.  
+    -  Für einen **Bestehenden Standortsystemserver**: Wählen Sie den Server aus, auf dem die Standortsystemrolle „Asset Intelligence-Synchronisierungspunkt“ installiert werden soll. Wenn Sie einen Server auswählen, wird im Detailbereich eine Liste der Standortsystemrollen angezeigt, die bereits auf dem Server installiert sind.  
 
-         Sous l’onglet **Accueil**, dans le groupe **Serveur**, choisissez **Ajouter des rôles de système de site** pour démarrer l’Assistant.  
+         Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Server** **Add Site System Role** (Standortsystemrollen hinzufügen) aus, um den Assistenten zu starten.  
 
-4.  Renseignez la page **Général**. Lorsque vous ajoutez le point de synchronisation Asset Intelligence à un serveur de système de site existant, vérifiez les valeurs qui ont été précédemment configurées.  
+4.  Schließen Sie die Seite **Allgemein** ab. Soll der Asset Intelligence-Synchronisierungspunkt zu einem bestehenden Standortsystemserver hinzugefügt werden, überprüfen Sie die zuvor konfigurierten Werte.  
 
-5.  Dans la page **Sélection du rôle système**, sélectionnez **Point de synchronisation Asset Intelligence** dans la liste des rôles disponibles.  
+5.  Wählen Sie auf der Seite **Systemrollenauswahl** in der Liste der verfügbaren Rollen **Asset Intelligence-Synchronisierungspunkt** aus.  
 
-6.  Dans la page des **paramètres de connexion du point de synchronisation Asset Intelligence**, choisissez **Suivant**.  
+6.  Wählen Sie auf der Seite **Asset Intelligence Synchronization Point Connection Settings** (Asset Intelligence-Synchronisierungspunkteinstellungen) **Weiter** aus.  
 
-     Par défaut, le paramètre **Utiliser ce point de synchronisation Asset Intelligence** est sélectionné et ne peut pas être configuré sur cette page. Comme System Center Online accepte le trafic réseau uniquement sur le port TCP 443, le paramètre de **numéro de port SSL** ne peut pas être défini dans cette page de l'Assistant.  
+     Die Einstellung **Diesen Asset Intelligence-Synchronisierungspunkt verwenden** ist in der Standardeinstellung ausgewählt und kann auf dieser Seite nicht konfiguriert werden. Von System Center Online wird Netzwerkverkehr nur über TCP-Port 443 akzeptiert, daher können die Einstellungen für die **SSL-Portnummer** auf dieser Seite des Assistenten nicht konfiguriert werden.  
 
-7.  Éventuellement, spécifiez le chemin du fichier de certificat d’authentification (.pfx) System Center Online. En règle générale, vous ne spécifiez pas un chemin d'accès pour le certificat, car le certificat de connexion est préparé automatiquement pendant l'installation du rôle de site.  
+7.  Sie können optional einen Pfad zur System Center Online-Authentifizierungszertifikatdatei (.pfx) angeben. Normalerweise geben Sie keinen Pfad für das Zertifikat an, weil das Verbindungszertifikat bei der Standortrolleninstallation automatisch bereitgestellt wird.  
 
-8.  Dans la page **Paramètres du serveur proxy**, indiquez si le point de synchronisation Asset Intelligence doit utiliser un serveur proxy lors de la connexion à System Center Online pour synchroniser le catalogue et si des données d’identification sont nécessaires pour se connecter au serveur proxy.  
+8.  Geben Sie auf der Seite **Proxyservereinstellungen** an, ob vom Asset Intelligence-Synchronisierungspunkt ein Proxyserver für die Verbindung mit System Center Online verwendet werden soll, um den Katalog zu synchronisieren. Geben Sie außerdem an, ob bei der Verbindung mit dem Proxyserver Anmeldeinformationen verwendet werden sollen.  
 
     > [!WARNING]  
-    >  Si un serveur proxy est nécessaire pour la connexion à System Center Online, le certificat de connexion peut être également supprimé si le mot de passe du compte d'utilisateur expire pour le compte défini pour l'authentification du serveur proxy.  
+    >  Wenn zur Verbindung mit System Center Online ein Proxyserver erforderlich ist, kann das Verbindungszertifikat auch dann gelöscht werden, wenn das Benutzerkontokennwort für das zur Proxyserverauthentifizierung konfigurierte Konto abläuft.  
 
-9. Sur la page **Calendrier des synchronisations** , indiquez si vous souhaitez synchroniser le catalogue Asset Intelligence dans un calendrier. Lorsque vous activez le calendrier des synchronisations, vous pouvez définir un calendrier de synchronisation simple ou personnalisé. Pendant la synchronisation planifiée, le point de synchronisation Asset Intelligence se connecte à System Center Online pour récupérer le dernier catalogue Asset Intelligence. Vous pouvez synchroniser manuellement le catalogue Asset Intelligence depuis le nœud Asset Intelligence dans la console Configuration Manager. Pour savoir comment synchroniser manuellement le catalogue Asset Intelligence, consultez la section [Pour synchroniser manuellement le catalogue Asset Intelligence](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ManuallySynchronizeCatalog) dans la rubrique [Opérations pour Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).  
+9. Geben Sie auf der Seite **Synchronisierungszeitplan** an, ob der Asset Intelligence-Katalog nach einem Zeitplan synchronisiert werden soll. Wenn Sie den Synchronisierungszeitplan aktivieren, geben Sie einen einfachen oder einen benutzerdefinierten Synchronisierungszeitplan an. Bei der geplanten Synchronisierung wird vom Asset Intelligence-Synchronisierungspunkt eine Verbindung mit System Center Online hergestellt, um den aktuellsten Asset Intelligence-Katalog abzurufen. Sie können den Asset Intelligence-Katalog im Knoten „Asset Intelligence“ in der Configuration Manager-Konsole manuell synchronisieren. Die Schritte für die manuelle Synchronisierung des Asset Intelligence-Katalogs finden Sie im Abschnitt [To manually synchronize the Asset Intelligence catalog (So führen Sie eine manuelle Synchronisierung des Asset Intelligence-Katalogs durch)](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ManuallySynchronizeCatalog) in [Operations for Asset Intelligence in System Center Configuration Manager (Vorgänge für Asset Intelligence in System Center Configuration Manager)](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).  
 
-10. Effectuer toutes les étapes de l'Assistant 
+10. Abschließen des Assistenten 
 
-###  <a name="BKMK_EnableSuccessLogonEvents"></a> Activer l’audit des événements de connexion réussie  
- Quatre rapports Asset Intelligence affichent des informations extraites des journaux d'événements de sécurité Windows sur les ordinateurs client. Voici comment configurer les paramètres d’ouverture de session de la stratégie de sécurité des ordinateurs pour activer l’audit des événements associés aux ouvertures de session qui aboutissent.  
+###  <a name="BKMK_EnableSuccessLogonEvents"></a> Enable auditing of success logon events  
+ In vier Asset Intelligence-Berichten werden Informationen angezeigt, die aus den Windows-Sicherheitsereignisprotokollen auf den Clientcomputern zusammengestellt werden. So konfigurieren Sie Sicherheitsrichtlinien für die Anmeldeeinstellungen zur Überprüfung erfolgreicher Anmeldeereignisse.  
 
-##### <a name="to-enable-success-logon-event-logging-by-using-a-local-security-policy"></a>Pour activer la journalisation des événements associés aux ouvertures de session qui aboutissent en utilisant une stratégie de sécurité locale  
+##### <a name="to-enable-success-logon-event-logging-by-using-a-local-security-policy"></a>So aktivieren Sie die Protokollierung von erfolgreichen Anmeldeereignissen mithilfe einer lokalen Sicherheitsrichtlinie  
 
-1.  Sur un ordinateur client Configuration Manager, choisissez **Démarrer** > **Outils d’administration** > **Stratégie de sécurité locale**.  
+1.  Wählen Sie auf einem Configuration Manager-Clientcomputer **Starten** > **Verwaltungstools** > **Lokale Sicherheitsrichtlinie** aus.  
 
-2.  Dans la boîte de dialogue **Stratégie de sécurité locale**, sous **Paramètres de sécurité**, développez **Stratégies locales**, puis choisissez **Stratégie d’audit**.  
+2.  Erweitern Sie im Dialogfeld **Lokale Sicherheitsrichtlinie** unter **Sicherheitseinstellungen** **Lokale Richtlinien**, und wählen Sie **Audit Policy** (Überwachungsrichtlinie) aus.  
 
-3.  Dans le volet des résultats, double-cliquez sur **Auditer les événements de connexion**, cochez la case **Succès** et choisissez **OK**.  
+3.  Doppelklicken Sie im Ergebnisbereich auf **Anmeldeereignisse überwachen**, vergewissern Sie sich, dass das Kontrollkästchen **Erfolg** aktiviert ist, und wählen Sie **OK** aus.  
 
-##### <a name="to-enable-success-logon-event-logging-by-using-an-active-directory-domain-security-policy"></a>Pour activer la journalisation des événements d'ouverture de session qui aboutissent en utilisant une stratégie de sécurité du domaine Active Directory  
+##### <a name="to-enable-success-logon-event-logging-by-using-an-active-directory-domain-security-policy"></a>So aktivieren Sie die Protokollierung von erfolgreichen Anmeldeereignissen mithilfe einer Active Directory-Domänensicherheitsrichtlinie  
 
-1.  Sur un ordinateur contrôleur de domaine, choisissez **Démarrer**, pointez sur **Outils d’administration**, puis choisissez **Stratégie de sécurité du domaine**.  
+1.  Wählen Sie auf einem Domänencontrollercomputer **Starten** aus, zeigen Sie mit der Maus auf **Verwaltungstools**, und wählen Sie **Domain Security Policy** (Sicherheitsrichtlinie für Domänen) aus.  
 
-2.  Dans la boîte de dialogue **Stratégie de sécurité locale**, sous **Paramètres de sécurité**, développez **Stratégies locales**, puis choisissez **Stratégie d’audit**.  
+2.  Erweitern Sie im Dialogfeld **Lokale Sicherheitsrichtlinie** unter **Sicherheitseinstellungen** **Lokale Richtlinien**, und wählen Sie **Audit Policy** (Überwachungsrichtlinie) aus.  
 
-3.  Dans le volet des résultats, double-cliquez sur **Auditer les événements de connexion**, cochez la case **Succès** et choisissez **OK**.  
+3.  Doppelklicken Sie im Ergebnisbereich auf **Anmeldeereignisse überwachen**, vergewissern Sie sich, dass das Kontrollkästchen **Erfolg** aktiviert ist, und wählen Sie **OK** aus.  
 
-###  <a name="BKMK_ImportSoftwareLicenseInformation"></a> Importer les informations de licence logicielle  
- Les sections suivantes décrivent les procédures permettant d’importer des informations de licences logicielles Microsoft et générales dans la base de données de site Configuration Manager en utilisant l’Assistant Importer des licences logicielles. Lorsque vous importez des informations de licence de logiciel vers la base de données de site depuis des fichiers de déclaration de licence, le compte de l'ordinateur serveur de site doit disposer des autorisations **Contrôle intégral** pour le système de fichiers NTFS du partage de fichiers utilisé pour importer les informations de licence de logiciel.  
+###  <a name="BKMK_ImportSoftwareLicenseInformation"></a> Import software license information  
+ In den folgenden Abschnitten werden die erforderlichen Vorgehensweisen zum Importieren von Microsoft- und allgemeinen Softwarelizenzierungsinformationen in die Configuration Manager-Standortdatenbank mithilfe des Assistenten zum Importieren von Softwarelizenzen beschrieben. Beim Importieren von Softwarelizenzinformationen aus Lizenzübersichtsdateien in die Standortdatenbank wird für das Computerkonto des Standortservers **Vollzugriff** im NTFS-Dateisystem auf die Dateifreigabe benötigt, die zum Importieren der Softwarelizenzinformationen verwendet wird.  
 
 > [!IMPORTANT]  
->  Les informations de licence logicielle importées dans la base de données de site remplacent les informations existantes. Vérifiez que le fichier d'informations de licence logicielle que vous utilisez avec Assistant Importer des licences logicielles contient la liste complète des informations de licence logicielle nécessaires.  
+>  Beim Import von Softwarelizenzinformationen in die Standortdatenbank werden vorhandene Softwarelizenzinformationen überschrieben. Vergewissern Sie sich, dass die mit dem Assistenten zum Importieren von Softwarelizenzen verwendete Datei mit Softwarelizenzinformationen eine vollständige Liste aller erforderlichen Softwarelizenzinformationen enthält.  
 
-##### <a name="to-import-software-license-information-into-the-asset-intelligence-catalog"></a>Pour importer des informations de licence logicielle vers le catalogue Asset Intelligence  
+##### <a name="to-import-software-license-information-into-the-asset-intelligence-catalog"></a>So importieren Sie Softwarelizenzinformationen in den Asset Intelligence-Katalog  
 
-1.  Dans l’espace de travail **Ressources et Conformité**, choisissez **Asset Intelligence**.  
+1.  Wählen Sie im Arbeitsbereich **Bestand und Konformität** **Asset Intelligence** aus.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Asset Intelligence**, choisissez **Importer des licences logicielles**.   
+2.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Asset Intelligence** **Softwarelizenzen importieren** aus.   
 
-4.  Sur la page **Importer** , spécifiez si vous importez un fichier MVLS (Microsoft Volume Licensing) (.xml ou .csv) ou un fichier de déclaration de licence générale (.csv). Pour plus d'informations sur la création d'un fichier de déclaration de licence générale, voir [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) plus loin dans cette rubrique.  
+4.  Geben Sie auf der Seite **Importieren** an, ob eine Microsoft-Volumenlizenzierungsdatei (MVLS) (.xml oder .csv) oder eine allgemeine Lizenzzusammenfassung (.csv) importiert werden soll. Weitere Informationen zum Erstellen einer allgemeinen Lizenzübersichtsdatei finden Sie unter [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) weiter unten in diesem Thema.  
 
     > [!WARNING]  
-    >  Pour télécharger un fichier MVLS de format .csv que vous pouvez importer vers le catalogue Asset Intelligence, consultez [Centre de gestion des licences en volume Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=226547). Pour accéder à ces informations, vous devez disposer d'un compte enregistré sur le site Web. Vous devez contacter votre responsable de compte Microsoft pour plus d'informations sur la façon d'obtenir votre fichier MVLS de format .xml.  
+    >  Informationen zum Herunterladen einer MVLS-Datei im CSV-Format, die in den Asset Intelligence-Katalog importiert werden kann, finden Sie im [Microsoft Volume Licensing Service Center](http://go.microsoft.com/fwlink/p/?LinkId=226547). Für den Zugriff auf diese Informationen benötigen Sie ein registriertes Konto auf der Website. Wenden Sie sich an Ihren Microsoft-Kontobeauftragten, um sich zu informieren, wie Sie Ihre MVLS-Datei im XML-Format erhalten.  
 
-5.  Entrez le chemin d’accès UNC du fichier de déclaration de licence ou choisissez **Parcourir** pour sélectionner un dossier réseau partagé et un fichier.  
+5.  Geben Sie den UNC-Pfad zur Lizenzinformationsdatei ein, oder wählen Sie **Durchsuchen** aus, um einen freigegebenen Netzwerkordner und die entsprechende Datei auszuwählen.  
 
     > [!NOTE]  
-    >  Le dossier partagé doit être correctement sécurisé pour empêcher tout accès non autorisé au fichier d'informations de licence. En outre, le compte de l'ordinateur sur lequel l'Assistant est exécuté doit avoir les autorisations de contrôle intégral sur le partage contenant le fichier d'importation de licence.  
+    >  Der freigegebene Ordner muss ordnungsgemäß gesichert sein, um nicht autorisierte Zugriffe auf die Lizenzinformationsdatei zu verhindern. Außerdem muss das Computerkonto des Computers, auf dem der Assistent ausgeführt wird, Vollzugriff auf die Freigabe haben, in der sich die Lizenzimportdatei befindet.  
 
-6. Effectuez toutes les étapes de l'Assistant.  
+6. Schließen Sie den Assistenten ab.  
 
 ###  <a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
- Une déclaration de licence générale peut également être importée vers le catalogue Asset Intelligence en utilisant un fichier d'importation de licence de format .csv (délimité par des virgules) créé manuellement.  
+ Eine allgemeine Lizenzübersicht kann auch mithilfe einer manuell im kommagetrennten CSV-Dateiformat erstellten Lizenzimportdatei in den Asset Intelligence-Katalog importiert werden.  
 
 > [!NOTE]  
->  Seuls les champs **Nom**, **Éditeur**, **Version**et **Quantité effective** sont requis, mais ils doivent tous être entrés sur la première ligne du fichier d'importation de licence. Tous les champs de date doivent être affichés dans le format suivant : mois/jour/année, par exemple, 08/04/2008.  
+>  Obwohl nur in den Feldern **Name**, **Herausgeber**, **Version**und **Tatsächliche Menge** Daten enthalten sein müssen, ist die Eingabe in alle Felder der ersten Zeile der Lizenzimportdatei obligatorisch. Alle Datumsfelder müssen das folgende Format aufweisen: Monat/Tag/Jahr, z. B. 08/04/2008.  
 
-Asset Intelligence fait correspondre les produits que vous spécifiez dans la déclaration de licence générale en utilisant le nom du produit et la version du produit, mais pas le nom de l'éditeur. Vous devez utiliser un nom de produit dans la déclaration de licence générale qui correspond exactement au nom de produit stocké dans la base de données du site. Asset Intelligence utilise le nombre **Quantité effective** donné dans la déclaration de licence générale et le compare au nombre de produits installés trouvés dans l’inventaire Configuration Manager.  
+Von Asset Intelligence werden die Produkte, die Sie in der allgemeinen Lizenzerklärung angeben, anhand von Produktnamen und Produktversion abgeglichen, jedoch nicht anhand des Namens des Herausgebers. Sie müssen in der allgemeinen Lizenzerklärung einen Produktnamen verwenden, der exakt mit dem in der Standortdatenbank gespeicherten Produktnamen übereinstimmt. Von Asset Intelligence wird der Wert **Tatsächliche Menge**, der in der allgemeinen Lizenzerklärung angegeben ist, mit der Anzahl installierter Produkte verglichen, die bei der Configuration Manager-Inventur gefunden werden.  
 
 > [!TIP]  
->  Pour obtenir la liste complète des noms de produits stockés dans la base de données du site Configuration Manager, exécutez la requête suivante sur la base de données du site : SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
+>  Für eine vollständige Liste der in der Configuration Manager-Standortdatenbank gespeicherten Produktnamen können Sie in der Standortdatenbank die folgende Abfrage ausführen: SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
 
- Vous pouvez spécifier les versions exactes pour un produit ou spécifier une partie de la version, comme par exemple uniquement la version principale. Les exemples suivants présentent les correspondances de version obtenues pour une entrée de version de déclaration générale de licence pour un produit spécifique.  
+ Sie können die exakte Version oder einen Teil der Version (z. B. die Hauptversion) für ein Produkt angeben. Die folgenden Beispiele sind die Übereinstimmungen der Version mit einem Versionseintrag einer allgemeinen Lizenzzusammenfassung für ein bestimmtes.  
 
-|Entrée de déclaration de licence générale|Correspondance avec les entrées de la base de données de site|  
+|Eintrag der allgemeinen Lizenzzusammenfassung|Übereinstimmende Standortdatenbankeinträge|  
 |-------------------------------------|------------------------------------|  
-|Name: "MySoftware", ProductVersion0:"2"|ProductName0: "Mysoftware", ProductVersion0: "2.01.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.02.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.10.1234"|  
-|Name: "MySoftware", Version "2.05"|ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"|  
-|Name: "Mysoftware", Version "2"<br /><br /> Name: "Mysoftware", Version "2.05"|Erreur lors de l'importation. L'importation échoue lorsque plusieurs entrées correspondent à la même version du produit.|  
+|Name: "MeineSoftware", ProductVersion0: "2"|ProductName0: "MeineSoftware", ProductVersion0: "2.01.1234"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.02.5678"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.05.3579.000"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.10.1234"|  
+|Name: "MeineSoftware", Version "2.05"|ProductName0: "MeineSoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MeineSoftware", ProductVersion0: "2.05.3579.000"|  
+|Name: "MeineSoftware", Version "2"<br /><br /> Name: "MeineSoftware", Version "2.05"|Fehler beim Importieren. Beim Import tritt ein Fehler auf, wenn mehr als ein Eintrag mit derselben Produktversion übereinstimmt.|  
   
 
-##### <a name="to-create-a-general-license-statement-import-file-by-using-microsoft-excel"></a>Pour créer un fichier d'importation de déclaration de licence générale à l'aide de Microsoft Excel  
+##### <a name="to-create-a-general-license-statement-import-file-by-using-microsoft-excel"></a>So erstellen sie eine Importdatei für die allgemeine Lizenzzusammenfassung unter Verwendung von Microsoft Excel  
 
-1.  Ouvrez Microsoft Excel et créez une nouvelle feuille de calcul.  
+1.  Öffnen Sie Microsoft Excel, und erstellen Sie ein neues Arbeitsblatt.  
 
-2.  Sur la première ligne de la nouvelle feuille de calcul, saisissez tous les noms de champs de données des licences logicielles.  
+2.  Geben Sie in die erste Zeile der neuen Kalkulationstabelle die Namen aller Softwarelizenz-Datenfelder ein.  
 
-3.  À partir de la deuxième ligne, entrez les informations de licence logicielle requises. Assurez-vous que tous les champs de données des licences logicielles requis sont saisis sur les lignes suivantes pour chaque licence logicielle qui doit être importée. Le nom de logiciel saisi dans la feuille de calcul doit être le même que le nom de logiciel affiché dans l'Explorateur de ressources pour un ordinateur client, après avoir exécuté l'inventaire matériel.  
+3.  Geben Sie in die zweite sowie die folgenden Zeilen der neuen Kalkulationstabelle die notwendigen Softwarelizenzinformationen ein. Stellen Sie sicher, dass in den darauf folgenden Zeilen für alle zu importierenden Softwarelizenzen mindestens die obligatorischen Softwarelizenz-Datenfelder eingegeben werden. Der in der Kalkulationstabelle eingegebene Softwaretitel muss identisch mit dem Titel sein, der im Anschluss an die Ausführung der Hardwareinventur für einen Client im Ressourcen-Explorer angezeigt wird.  
 
-4.  Enregistrez le fichier au format .csv.  
+4.  Speichern Sie die Datei im CSV-Format.  
 
-5.  Copiez le fichier .csv dans le partage de fichiers utilisé pour l'importation des informations de licence logicielle dans le catalogue Asset Intelligence.  
+5.  Kopieren Sie die CSV-Datei in die Dateifreigabe, die für den Import von Softwarelizenzinformationen in den Asset Intelligence-Katalog verwendet wird.  
 
-6.  Dans la console Configuration Manager, utilisez l’Assistant Importer des licences logicielles pour importer le nouveau fichier .csv.  
+6.  Verwenden Sie in der Configuration Manager-Konsole den Assistenten zum Importieren von Softwarelizenzen, um die neu erstellte CSV-Datei zu importieren.  
 
-7.  Générez le **rapport de rapprochement des licences logicielles tierces (licence 15A)** d’Asset Intelligence pour vérifier que les informations de licence ont bien été importées dans le catalogue Asset Intelligence.  
+7.  Führen Sie den **Asset Intelligence-MVLS-Abstimmungsbericht für Lizenz 15A** aus, um sicherzustellen, dass die Lizenzinformationen erfolgreich in den Asset Intelligence-Katalog importiert wurden.  
 
 > [!NOTE]  
->  Pour obtenir un exemple de fichier de licence logicielle générale que vous pouvez utiliser à des fins de test, consultez [Exemple de fichier d’importation de licence générale Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md).  
+>  Ein Beispiel für eine allgemeine Softwarelizenzdatei, die für Testzwecke verwendet werden kann, finden Sie unter [Operations for Asset Intelligence in System Center Configuration Manager (Beispiel für eine allgemeine Asset Intelligence-Lizenzimportdatei in System Center Configuration Manager)](../../../../core/clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md).  
 
-#### <a name="sample-table-to-describe-software-licenses"></a>Exemple de tableau utilisé pour décrire des licences logicielles  
- Lors de la création d'un fichier d'importation de déclaration de licence générale, les informations figurant dans le tableau suivant peuvent être utilisées pour décrire les licences logicielles à importer dans le catalogue Asset Intelligence.  
+#### <a name="sample-table-to-describe-software-licenses"></a>Tabelle mit Beispielen zur Beschreibung von Softwarelizenzen  
+ Bei der Erstellung einer Importdatei für die allgemeine Lizenzzusammenfassung können die Informationen in der folgenden Tabelle zum Beschreiben der in den Asset Intelligence-Katalog zu importierenden Softwarelizenzen verwendet werden.  
 
-|Nom de la colonne|Type de données|Obligatoire|Exemple|  
+|Spaltenname|Datentyp|Erforderlich|Beispiel|  
 |-----------------|---------------|--------------|-------------|  
-|Nom|Jusqu'à 255 caractères|Oui|Nom du logiciel|  
-|Éditeur|Jusqu'à 255 caractères|Oui|Éditeur du logiciel|  
-|Version|Jusqu'à 255 caractères|Oui|Version du logiciel|  
-|Langage|Jusqu'à 255 caractères|Oui|Langue du logiciel|  
-|Quantité effective|Valeur entière|Oui|Nombre de licences achetées|  
-|Numéro BC|Jusqu'à 255 caractères|Non|Informations sur les BC|  
-|Nom du revendeur|Jusqu'à 255 caractères|Non|Informations sur le revendeur|  
-|Date d'achat|Date au format suivant : MM/JJ/AAAA|Non|Date d'achat de la licence|  
-|Achat de la prise en charge|Valeur en bits|Non|0 ou 1 (0 pour Oui, 1 pour Non)|  
-|Date d'expiration de la prise en charge|Date au format suivant : MM/JJ/AAAA|Non|Date de fin de la prise en charge achetée|  
-|Commentaires|Jusqu'à 255 caractères|Non|Commentaires facultatifs|  
+|Name|Bis zu 255 Zeichen|Ja|Softwaretitel|  
+|Herausgeber|Bis zu 255 Zeichen|Ja|Softwareherausgeber|  
+|Version|Bis zu 255 Zeichen|Ja|Version des Softwaretitels|  
+|Sprache|Bis zu 255 Zeichen|Ja|Sprache des Softwaretitels|  
+|Tatsächliche Menge|Ganzzahliger Wert|Ja|Anzahl erworbener Lizenzen|  
+|Bestellnummer|Bis zu 255 Zeichen|Nein|Bestellinformationen|  
+|Name des Wiederverkäufers|Bis zu 255 Zeichen|Nein|Informationen zum Vertragshändler|  
+|Kaufdatum|Datumswert in folgendem Format: TT.MM.JJJJ|Nein|Datum des Lizenzerwerbs|  
+|Support erworben|Bitwert|Nein|0 oder 1. Geben Sie 0 für Ja oder 1 für Nein ein.|  
+|Ablaufdatum Support|Datumswert in folgendem Format: TT.MM.JJJJ|Nein|Enddatum des erworbenen Supports|  
+|Kommentare|Bis zu 255 Zeichen|Nein|Optionale Kommentare|  
 
-###  <a name="BKMK_ConfigureMaintenanceTasks"></a> Configurer les tâches de maintenance Asset Intelligence  
- Les tâches de maintenance suivantes sont disponibles pour Asset Intelligence :  
+###  <a name="BKMK_ConfigureMaintenanceTasks"></a> Configure Asset Intelligence maintenance tasks  
+ Die folgenden Wartungstasks sind für Asset Intelligence verfügbar:  
 
--   **Vérifier le titre de l’application à l’aide des informations d’inventaire** : vérifie si le nom du logiciel indiqué dans l’inventaire logiciel correspond au nom du logiciel figurant dans le catalogue Asset Intelligence. Par défaut, cette tâche est activée et planifiée pour être exécutée le samedi entre 00 h 00 et 5 h 00. Cette tâche de maintenance est uniquement disponible sur le site de niveau supérieur de la hiérarchie Configuration Manager.  
+-   **Anwendungstitel mit Inventurinformationen prüfen**: Überprüft, ob ein im Softwareinventar gemeldeter Softwaretitel mit dem Softwaretitel im Asset Intelligence-Katalog abgestimmt ist. Dieser Task ist standardmäßig aktiviert und zur Ausführung an Samstagen nach 0:00 Uhr und vor 5:00 Uhr eingeplant. Dieser Wartungstask ist nur am Standort der obersten Ebene in der Configuration Manager-Hierarchie verfügbar.  
 
--   **Résumer les données du logiciel installé** : fournit les informations affichées dans l’espace de travail **Ressources et Conformité**, dans le nœud **Logiciels inventoriés**, sous le nœud **Asset Intelligence**. Quand la tâche s’exécute, Configuration Manager compte les titres de logiciels inventoriés sur le site principal. Par défaut, cette tâche est activée et planifiée pour être exécutée tous les jours entre 00 h 00 et 5 h 00. Cette tâche de maintenance est disponible uniquement sur les sites principaux.  
+-   **Daten installierter Software zusammenfassen**: Stellt die Informationen zur Verfügung, die im Arbeitsbereich **Bestand und Konformität** unter dem Knoten **Asset Intelligence** im Knoten **Inventarisierte Software** angezeigt werden. Wenn der Task ausgeführt wird, wird die Anzahl aller inventarisierten Softwaretitel am primären Standort von Configuration Manager gesammelt. Dieser Task ist standardmäßig aktiviert und zur täglichen Ausführung nach 0:00 Uhr und vor 5:00 Uhr eingeplant. Dieser Wartungstask ist nur an primären Standorten verfügbar.  
 
-##### <a name="to-configure-asset-intelligence-maintenance-tasks"></a>Pour configurer les tâches de maintenance Asset Intelligence  
+##### <a name="to-configure-asset-intelligence-maintenance-tasks"></a>So konfigurieren Sie Wartungstasks für Asset Intelligence  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Sites**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte** aus.  
 
-3.  Sélectionnez le site sur lequel vous allez configurer la tâche de maintenance Asset Intelligence.  
+3.  Wählen Sie den Standort aus, an dem der Wartungstask für Asset Intelligence konfiguriert werden soll.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Maintenance de site**. Sélectionnez une tâche, puis choisissez **Modifier** pour modifier les paramètres. 
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** **Standortwartung** aus. Wählen Sie einen Task und anschließend **Bearbeiten** aus, um die Einstellungen zu ändern. 
 
-      Nous vous recommandons de définir la période aux heures creuses d’utilisation du site. La période représente l'intervalle de temps au cours duquel la tâche peut être exécutée. Elle est définie par les paramètres **Démarrer après** et **Heure de début au plus tard** spécifiés dans la boîte de dialogue **Propriétés de la tâche** .  
+    Es wird empfohlen, den Zeitpunkt außerhalb der Spitzenzeiten des Standorts zu legen. Der Zeitraum ist das Zeitintervall, in dem der Task ausgeführt werden kann. Er wird über die Optionen **Start nach** und **Spätester Startzeitpunkt** im Dialogfeld **Taskeigenschaften** definiert.  
 
-    Vous pouvez lancer immédiatement la tâche en sélectionnant le jour actuel et en réglant la valeur **Démarrer après** quelques minutes après le moment présent.  
+    Sie können den Task direkt initiieren, indem Sie den aktuellen Tag auswählen und für die Option **Start nach** eine Zeit wenige Minuten nach der aktuellen Zeit festlegen.  
 
-7.  Choisissez **OK** pour enregistrer vos paramètres. La tâche est désormais exécutée conformément à sa planification.  
+7.  Wählen Sie **OK** aus, um die Einstellungen zu speichern. Der Task wird nun gemäß dem Zeitplan ausgeführt.  
 
     > [!NOTE]  
-    >  Si l’exécution d’une tâche échoue à la première tentative, Configuration Manager retente de l’exécuter jusqu’à la réussite de l’opération ou l’expiration de la période d’exécution planifiée.  
-
+    >  Wenn beim ersten Versuch, den Task auszuführen, ein Fehler auftritt, wird von Configuration Manager versucht, den Task solange erneut auszuführen, bis der Task entweder erfolgreich ausgeführt wird oder der Zeitraum, in dem der Task ausgeführt werden kann, verstrichen ist.  

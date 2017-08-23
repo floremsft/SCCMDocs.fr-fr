@@ -1,80 +1,73 @@
 ---
-title: Configurations prises en charge | Microsoft Docs
-description: "Identifiez les principales configurations et exigences liées à la planification, au déploiement et à la maintenance d’un déploiement de System Center Configuration Manager fonctionnel."
+title: "Unterstützte Konfigurationen | Microsoft-Dokumentation"
+description: "Identifizieren Sie wichtige Konfigurationen und Anforderungen, damit Sie eine funktionierende Bereitstellung von System Center Configuration Manager planen, bereitstellen und verwalten können."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45a10878-ff48-4318-9c6d-c014b38a4039
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 6b8601a195e81e011c49ae8662ae224f36c82c0d
 ms.openlocfilehash: aad46e9ab893b9bb3e32d35c17b9678b3a265c99
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-configurations-for-system-center-configuration-manager"></a>Configurations prises en charge pour System Center Configuration Manager
+# <a name="supported-configurations-for-system-center-configuration-manager"></a>Unterstützte Konfigurationen für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Comme solution locale, System Center Configuration Manager utilise vos serveurs, clients, configurations réseau et autres produits tels que Microsoft Intune, SQL Server et Azure.
+Als lokale Lösung verwendet System Center Configuration Manager Ihre Server, Clients, Netzwerkkonfigurationen und zusätzliche Produkte wie Microsoft Intune, SQL Server und Azure.
 
-La présente rubrique et les rubriques suivantes fournissent des informations essentielles pour vous aider à déterminer les principales configurations, exigences et limitations à prendre en compte pour planifier, installer et gérer un déploiement de Configuration Manager pleinement opérationnel.  Ces informations sont propres à l’infrastructure des sites, hiérarchies et appareils gérés de Configuration Manager.
+Die Informationen in diesem und den folgenden Themen sind entscheidend, um wichtige Konfigurationen, Anforderungen und Einschränkungen zu identifizieren, damit Sie eine funktionierende Bereitstellung von Configuration Manager planen, bereitstellen und verwalten können.  Diese Informationen sind für die Infrastruktur von Configuration Manager-Standorten, Hierarchien und verwalteten Geräten spezifisch.
 
-Quand une fonctionnalité Configuration Manager nécessite des configurations particulières, ces informations sont fournies dans la documentation de la fonctionnalité, venant ainsi compléter les informations de configuration plus générales.  
+Wenn eine Configuration Manager-Funktion spezifischere Konfigurationen erfordert, werden diese Informationen in die funktionsspezifische Dokumentation aufgenommen und ergänzen diese allgemeineren Konfigurationsdetails.  
 
- Les produits et les technologies qui sont décrits dans les rubriques suivantes sont pris en charge par Configuration Manager. Toutefois, leur inclusion dans ce contenu n’implique pas une extension de prise en charge des produits au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations sur les politiques de support Microsoft, consultez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) .  
+ Die in den folgenden Abschnitten beschriebenen Produkte und Technologien werden von Configuration Manager unterstützt. Die Tatsache, dass diese Produkte und Technologien hier beschrieben werden, bedeutet jedoch nicht, dass damit der Support über den Support Lifecycle der jeweiligen Produkte hinaus erweitert wurde. Produkte, deren Support Lifecycle überschritten ist, werden nicht für die Verwendung mit Configuration Manager unterstützt. Weitere Informationen zum Microsoft Support Lifecycle finden Sie auf der Website [Microsoft Support Lifecycle](http://go.microsoft.com/fwlink/p/?LinkId=208270).  
 
 > [!NOTE]  
->  Pour plus d’informations sur la politique de support Microsoft, consultez le site web [FAQ sur la politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
+>  Informationen zur Microsoft Support Lifecycle-Richtlinie finden Sie auf der Website mit häufig gestellten Fragen zur Microsoft Support Lifecycle-Richtlinie unter [Microsoft Support Lifecycle-Richtlinie – Häufig gestellte Fragen (FAQs)](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
 
- De plus, les produits et versions de produits non répertoriés dans les rubriques suivantes ne sont pas pris en charge avec System Center Configuration Manager, sauf s’ils ont été annoncés dans le [blog Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/).  Parfois, le contenu de ce blog précède une mise à jour du corps de cette documentation.
-
-
--  [Taille et échelle en chiffres](../../../core/plan-design/configs/size-and-scale-numbers.md)  
-Découvrez combien de sites, de rôles de système de site par site et de clients ou d’appareils sont pris en charge dans les différentes conceptions de hiérarchie pour Configuration Manager.
-
--  [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
-Découvrez les configurations requises sur un ordinateur Windows Server pour prendre en charge les différents types de site et rôles de système de site.
-
--  [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
-Découvrez quels systèmes d’exploitation vous pouvez utiliser comme serveur de site ou serveur de système de site.
-
--  [Systèmes d’exploitation pris en charge pour les clients et appareils](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
-Découvrez quels systèmes d’exploitation vous pouvez gérer à l’aide de Configuration Manager, notamment Windows, Windows Embedded, Linux et UNIX, Mac, ainsi que les appareils mobiles.
-
--  [Systèmes d’exploitation pris en charge pour la console](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
-Découvrez quels systèmes d’exploitation peuvent héberger la console Configuration Manager pour fournir un point d’accès permettant de gérer votre déploiement.  
-
--  [Prise en charge des versions de SQL Server](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
-Découvrez quelles versions de SQL Server peuvent héberger la base de données de site et la base de données de création de rapports, et quelles configurations requises et facultatives vous pouvez utiliser.
-
--  [Options de haute disponibilité](../../../protect/understand/high-availability-options.md)  
-Découvrez les options que vous pouvez implémenter lors de la conception de votre environnement pour faciliter le maintien d’un haut niveau de service disponible pour votre déploiement Configuration Manager.
-
--  [Matériel recommandé](../../../core/plan-design/configs/recommended-hardware.md)  
-Découvrez des conseils pour vous aider à déterminer les configurations et le matériel appropriés pour héberger vos sites et principaux services Configuration Manager.
-
--  [Prise en charge des domaines Active Directory](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
-Découvrez les configurations de domaine Active Directory prises en charge que Configuration Manager exige et prend en charge.
-
--  [Prise en charge des fonctionnalités et réseaux Windows](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
-Découvrez les technologies Windows (telles que la déduplication de données et BranchCache) prises en charge dans Configuration Manager, ainsi que les limitations de leur utilisation.
-
--  [Prise en charge des environnements de virtualisation](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
-Découvrez comment utiliser les technologies de machine virtuelle prises en charge.
+ Darüber hinaus werden Produkte und Produktversionen, die in den folgenden Themen nicht aufgeführt sind, nicht von System Center Configuration Manager unterstützt, außer dies wurde im [Enterprise Mobility + Security Blog (Blog für Enterprise Mobility + Security)](https://blogs.technet.microsoft.com/enterprisemobility/) angekündigt.  Der Inhalt in diesem Blog wird von Zeit zu Zeit einer Aktualisierung an dieser Stelle der Dokumentation vorangestellt.
 
 
+-  [Anpassen und Skalieren von Zahlen](../../../core/plan-design/configs/size-and-scale-numbers.md)  
+Erfahren Sie, wie viele Standorte, Standortsystemrollen pro Standort sowie Clients oder Geräte in verschiedenen Hierarchieentwürfen für Configuration Manager unterstützt werden.
 
-<!--HONumber=Jan17_HO1-->
+-  [Voraussetzungen für Standorte und Standortsysteme](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
+Erfahren Sie mehr über Konfigurationen, die auf einem Windows Server zur Unterstützung der verschiedenen Standorttypen und Standortsystemrollen erforderlich sind.
 
+-  [Unterstützte Betriebssysteme für Standortsystemserver](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+Erfahren Sie, welche Betriebssysteme Sie als Standortserver oder Standortsystemserver verwenden können.
 
+-  [Unterstützte Betriebssysteme für Clients und Geräte](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
+Erfahren Sie, welche Betriebssysteme Sie mit Configuration Manager verwalten können, einschließlich Windows, Windows Embedded, Linux und UNIX, Mac und mobile Geräte.
+
+-  [Unterstützte Betriebssysteme für die Konsole](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
+Erfahren Sie, welche Betriebssysteme die Configuration Manager-Konsole als Zugriffspunkt zum Verwalten der Bereitstellung hosten können.  
+
+-  [Unterstützung für SQL Server-Versionen](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
+Erfahren Sie, welche Versionen von SQL Server die Standortdatenbank und Berichtsdatenbank hosten und welche erforderlichen Konfigurationen und optionalen Konfigurationen Sie verwenden können.
+
+-  [Optionen für hohe Verfügbarkeit](../../../protect/understand/high-availability-options.md)  
+Erfahren Sie mehr über die Optionen, die Sie bei der Entwicklung Ihrer Umgebung implementieren können, um einen hoch verfügbaren Dienst für Ihre Configuration Manager-Bereitstellung aufrechtzuerhalten.
+
+-  [Empfohlene Hardware](../../../core/plan-design/configs/recommended-hardware.md)  
+Erfahren Sie mehr über Richtlinien, die Ihnen helfen, die richtige Hardware und die richtigen Konfigurationen zum Hosten Ihrer Configuration Manager-Standorte und wichtigen Dienste zu identifizieren.
+
+-  [Unterstützung für Active Directory-Domänen](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
+Erfahren Sie mehr über die unterstützten Active Directory-Domänenkonfigurationen, die Configuration Manager erfordert und unterstützt.
+
+-  [Unterstützung für Windows-Features und Netzwerke](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
+Erfahren Sie mehr über unterstützte Windows-Technologien (wie z.B. BranchCache und Datendeduplizierung) und Einschränkungen für die Verwendung mit Configuration Manager.
+
+-  [Unterstützung für Virtualisierungsumgebungen](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
+Erfahren Sie mehr über die Verwendung unterstützter Technologien virtueller Computer.

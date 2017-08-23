@@ -1,169 +1,165 @@
 ---
-title: "Créer des applications serveur Linux et UNIX | Documents Microsoft"
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Linux et Unix."
+title: Erstellen von Linux- und UNIX-Serveranwendungen | Microsoft Docs
+description: "Hier erfahren Sie, was Sie beim Erstellen und Bereitstellen von Anwendungen für Linux- und Unix-Geräte berücksichtigen müssen."
 ms.custom: na
 ms.date: 04/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 79cd131a-1a24-4751-87c8-7f275e45d847
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b9261db93c9bf72c492e3c9be5b30f81835134a
 ms.openlocfilehash: 72ebd8bd29b5ecdd817631e447291c04f49d9808
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-linux-and-unix-server-applications-with-system-center-configuration-manager"></a>Créer des applications serveur Linux et UNIX avec System Center Configuration Manager
+# <a name="create-linux-and-unix-server-applications-with-system-center-configuration-manager"></a>Erstellen von Linux- und UNIX-Serveranwendungen mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Prenez en compte les points suivants quand vous créez et déployez des applications pour des ordinateurs qui exécutent Linux et UNIX.  
+Berücksichtigen Sie beim Erstellen und Bereitstellen von Anwendungen für Computer, auf denen Linux und UNIX ausgeführt wird, die folgenden Aspekte.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
- Le client Configuration Manager pour Linux et UNIX prend en charge les **déploiements logiciels qui utilisent des packages et des programmes**. Vous ne pouvez pas déployer d’applications Configuration Manager sur des ordinateurs exécutant Linux et UNIX.  
+## <a name="general-considerations"></a>Allgemeine Aspekte  
+ Der Configuration Manager-Client für Linux und UNIX unterstützt **Softwarebereitstellungen, von denen Pakete und Programme verwendet werden**. Configuration Manager-Anwendungen können nicht auf Computern bereitgestellt werden, auf denen Linux und UNIX ausgeführt werden.  
 
- Le déploiement de logiciels Linux et UNIX inclut les possibilités suivantes :  
+ Die Funktionalität einer Linux- und UNIX-Softwarebereitstellung umfasst Folgendes:  
 
--   l’installation de logiciels pour des serveurs Linux et UNIX, notamment :  
+-   Softwareinstallation für Linux- und UNIX-Server, darunter:  
 
-    -   un déploiement de nouveaux logiciels ;  
+    -   Neue Softwarebereitstellung  
 
-    -   des mises à jour logicielles pour les programmes qui sont déjà installés sur un ordinateur ;  
+    -   Softwareupdates für bereits auf einem Computer installierte Programme  
 
-    -   des correctifs de système d'exploitation.  
+    -   Patches für Betriebssysteme  
 
--   des commandes Linux et UNIX natives, et des scripts situés sur des serveurs Linux et UNIX  
+-   Native Linux- und UNIX-Befehle sowie auf Linux- und UNIX-Servern gespeicherte Skripts  
 
--   des déploiements qui sont limités aux systèmes d’exploitation que vous spécifiez en sélectionnant l’option de programme **Uniquement sur les plateformes clientes spécifiées**
+-   Bereitstellungen, die auf die Betriebssysteme beschränkt sind, die Sie beim Auswählen der Programmoption **Nur auf angegebenen Clientplattformen** angegeben haben
 
--   les fenêtres de maintenance pour contrôler à quel moment le logiciel s’installe
+-   Wartungsfenster zum Steuern, wann die Software installiert wird
 
--   les messages d’état de déploiement pour contrôler les déploiements  
+-   Bereitstellungsstatusmeldungen zum Überwachen von Bereitstellungen  
 
--   l’option permettant au client d’accélérer l’utilisation du réseau quand il télécharge des logiciels à partir d’un point de distribution  
+-   Option für den Client zum Drosseln der Netzwerkauslastung beim Herunterladen von Software von einem Verteilungspunkt  
 
-### <a name="differences-between-deploying-to-linux-and-unix-computers-and-deploying-to-windows-devices"></a>Différences entre le déploiement sur des ordinateurs Linux et UNIX et le déploiement sur des appareils Windows
-Les principales différences entre le déploiement de packages et de programmes sur des ordinateurs Linux et UNIX et le déploiement de packages et de programmes sur des appareils Windows sont les suivantes :  
+### <a name="differences-between-deploying-to-linux-and-unix-computers-and-deploying-to-windows-devices"></a>Unterschiede zwischen der Bereitstellung für Linux- und UNIX-Computer und der Bereitstellung für Windows-Geräte
+Zwischen dem Bereitstellen von Paketen und Programmen für Linux- und UNIX-Computer und dem Bereitstellen von Paketen und Programmen für Windows-Geräte bestehen die folgenden Hauptunterschiede:  
 
-|Configuration|Détails|  
+|Konfiguration|Details|  
 |-------------------|-------------|  
-|Utilisez uniquement des configurations destinées aux ordinateurs et non aux utilisateurs.|Le client Configuration Manager pour Linux et UNIX ne prend pas en charge les configurations destinées aux utilisateurs.|  
-|Configurez les programmes de sorte qu’ils téléchargent les logiciels à partir du point de distribution et exécutez les programmes à partir du cache du client local.|Le client Configuration Manager pour Linux et UNIX ne prend pas en charge l’exécution de logiciels à partir du point de distribution. Vous devez configurer les logiciels de sorte qu’ils soient téléchargés sur le client, puis installés.<br /><br /> Par défaut, une fois que le client pour Linux et UNIX a installé un logiciel, celui-ci est supprimé de la mémoire cache du client. Toutefois, les packages configurés avec l'option **Conserver le contenu dans la mémoire cache du client** ne sont pas supprimés du client et restent dans sa mémoire cache une fois le logiciel installé.<br /><br /> Le client pour Linux et UNIX ne prend pas en charge les configurations de la mémoire cache du client, et la taille maximale de celle-ci est seulement limitée par l'espace disque disponible sur l'ordinateur client.|  
-|Configurez le compte d'accès réseau pour l'accès au point de distribution.|Les ordinateurs Linux et UNIX sont conçus pour être des ordinateurs de groupe de travail. Pour accéder aux packages à partir du point de distribution dans le domaine du serveur de site Configuration Manager, vous devez configurer le compte d’accès réseau pour le site. Vous devez spécifier ce compte en tant que propriété de composant de distribution de logiciels et configurer le compte avant de déployer des logiciels.<br /><br /> Vous pouvez configurer plusieurs comptes d'accès réseau sur chaque site. Le client pour Linux et UNIX peut utiliser chacun des comptes que vous configurez comme un compte d'accès réseau.<br /><br /> Pour plus d'informations, voir [Site components for System Center Configuration Manager](../../core/servers/deploy/configure/site-components.md).|  
+|Verwenden Sie ausschließlich Konfigurationen für Computer und nicht die Konfigurationen für Benutzer.|Konfigurationen für Benutzer werden vom Configuration Manager-Client für Linux und UNIX nicht unterstützt.|  
+|Konfigurieren Sie die Programme so, dass Software vom Verteilungspunkt heruntergeladen wird und die Programme vom lokalen Clientcache ausgeführt werden.|Das Ausführen der Software vom Verteilungspunkt wird vom Configuration Manager-Client für Linux und UNIX nicht unterstützt. Stattdessen müssen Sie die Software so konfigurieren, dass sie auf den Client heruntergeladen und dann installiert wird.<br /><br /> Standardmäßig wird die Software aus dem Clientcache gelöscht, nachdem sie vom Client für Linux und UNIX installiert wurde. Allerdings werden Pakete, für die **Inhalt dauerhaft in Clientcache speichern** konfiguriert wurde, nicht vom Client entfernt. Sie verbleiben nach der Installation der Software im Cache des Clients.<br /><br /> Vom Client für Linux und UNIX werden keine Konfigurationen für den Clientcache unterstützt. Die maximale Cachegröße ist lediglich durch den freien Speicherplatz auf dem Clientcomputer beschränkt.|  
+|Konfigurieren des Netzwerkzugriffskontos für den Zugriff über Verteilungspunkte|Linux- und UNIX-Computer wurden als Arbeitsgruppencomputer entwickelt. Das Netzwerkzugriffskonto muss für den Standort konfiguriert sein, um über den Verteilungspunkt in der Configuration Manager-Standortserverdomäne auf Pakete zugreifen zu können. Sie müssen dieses Konto als Eigenschaft der Softwareverteilungskomponente angeben und es vor dem Bereitstellen von Software konfigurieren.<br /><br /> An einem Standort können jeweils mehrere Netzwerkzugriffskonten konfiguriert werden. Auf dem Client für Linux und UNIX können alle die von Ihnen konfigurierten Konten als Netzwerkzugriffskonto verwendet werden.<br /><br /> Weitere Informationen finden Sie unter [Site components for System Center Configuration Manager](../../core/servers/deploy/configure/site-components.md).|  
 
- Vous pouvez déployer des packages et des programmes vers des regroupements qui contiennent uniquement des clients Linux ou UNIX ou vers des regroupements qui contiennent une combinaison de types de client, tels que le **regroupement Tous les systèmes**. Toutefois, les clients non-Linux et non-UNIX n’installent pas les logiciels ou ne font pas état de l’échec.  
+ Sie können Pakete und Programme für Sammlungen bereitstellen, die ausschließlich Linux- oder UNIX-Clients enthalten, oder für Sammlungen, die verschiedene Clienttypen enthalten, beispielsweise die Sammlung **Alle Systeme**. Die Software wird jedoch auf Nicht-Linux- und Nicht-UNIX-Clients nicht installiert, oder diese Clients melden einen Fehler.  
 
- Quand le client Configuration Manager pour Linux et UNIX reçoit et exécute un déploiement, il génère des messages d’état. Vous pouvez afficher ces messages d’état dans la console Configuration Manager ou en utilisant des rapports destinés à surveiller l’état du déploiement.  
+ Wenn der Configuration Manager-Client für Linux und UNIX eine Bereitstellung empfängt und ausführt, werden Statusmeldungen generiert. Sie können diese Statusmeldungen in der Configuration Manager-Konsole anzeigen oder den Bereitstellungsstatus mithilfe von Berichten überwachen.  
 
- Pour plus d’informations sur l’utilisation de packages et de programmes, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
+ Weitere Informationen zum Verwenden von Paketen und Programmen finden Sie unter [Pakete und Programme](../../apps/deploy-use/packages-and-programs.md).  
 
-##  <a name="configure-packages-programs-and-deployments-for-linux-and-unix-servers"></a>Configurer des packages, programmes et déploiements pour les serveurs UNIX et Linux  
- Vous pouvez créer et déployer des packages et des programmes en utilisant les options par défaut disponibles dans la console Configuration Manager. Le client n'impose pas de configurations uniques.  
+##  <a name="configure-packages-programs-and-deployments-for-linux-and-unix-servers"></a>Konfigurieren von Paketen, Programmen und Bereitstellungen für Linux- und UNIX-Server  
+ Pakete und Programme können mit den in der Configuration Manager-Konsole verfügbaren Standardoptionen erstellt und bereitgestellt werden. Für den Client sind keine eindeutigen Konfigurationen erforderlich.  
 
- Pour configurer les packages, les programmes et les déploiements, aidez-vous des informations figurant dans les sections suivantes.  
+ Verwenden Sie die Informationen in den folgenden Abschnitten, um Pakete und Programme sowie Bereitstellungen zu konfigurieren.  
 
-### <a name="packages-and-programs"></a>Packages et programmes  
- Pour créer un package et un programme pour un serveur Linux ou UNIX, utilisez l’**Assistant Création d’un package et d’un programme** à partir de la console Configuration Manager. Le client pour Linux et UNIX prend en charge la plupart des paramètres de package et de programme. Toutefois, certains ne sont pas pris en charge. Lorsque vous créez ou configurez un package et un programme, tenez compte des points suivants :  
+### <a name="packages-and-programs"></a>Pakete und Programme  
+ Verwenden Sie in der Configuration Manager-Konsole den **Assistenten zum Erstellen von Paketen und Programmen**, um ein Paket und Programm für einen Linux- oder UNIX-Server zu erstellen. Die meisten Einstellungen für Pakete und Programme werden vom Client für Linux und UNIX unterstützt. Einige Einstellungen werden jedoch nicht unterstützt. Beachten Sie Folgendes, wenn Sie Pakete und Programme erstellen oder konfigurieren:  
 
--   Incluez les types de fichiers pris en charge par les ordinateurs de destination.  
+-   Schließen Sie die Dateitypen ein, die von den Zielcomputern unterstützt werden.  
 
--   Définissez les lignes de commande qu’il est approprié d’utiliser sur l’ordinateur de destination.  
+-   Definieren Sie die Befehlszeilen, die für die Verwendung auf dem Zielcomputer geeignet sind.  
 
--   Gardez à l’esprit que les paramètres qui interagissent avec les utilisateurs ne sont pas pris en charge.  
+-   Denken Sie daran, dass keine Einstellungen unterstützt werden, bei denen eine Interaktion mit Benutzern erfolgt.  
 
-Le tableau suivant répertorie les propriétés pour packages et programmes qui ne sont pas prises en charge :  
+In der folgenden Tabelle sind die Eigenschaften für Pakete und Programme aufgeführt, die nicht unterstützt werden:  
 
-|Propriété de package et de programme|Comportement|Plus d'informations|  
+|Eigenschaft des Pakets und Programms|Verhalten|Weitere Informationen|  
 |----------------------------------|--------------|----------------------|  
-|Paramètres de partage de package :<br /><br /> - Toutes les options|Une erreur est générée et l’installation du logiciel échoue.|Le client ne prend pas en charge cette configuration. Au lieu de cela, le client doit télécharger le logiciel à l'aide du protocole HTTP ou HTTPS, puis exécuter la ligne de commande à partir de sa mémoire cache locale.|  
-|Paramètres de mise à jour de package :<br /><br /> - Déconnecter les utilisateurs des points de distribution|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
-|Paramètres de déploiement du système d'exploitation :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
-|Rapports :<br /><br /> - Utiliser prop. package pr. corresp. fichiers MIF d’état<br /><br /> - Utiliser ces champs pour la correspondance des fichiers MIF d’état|Les paramètres sont ignorés.|Le client ne prend pas en charge l'utilisation de fichiers MIF d'état.|  
-|**Exécuter**:<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client exécute toujours les packages sans aucune interface utilisateur.<br /><br /> Le client ignore toutes les options de configuration de l'exécution.|  
-|Après l'exécution :<br /><br />- Configuration Manager redémarre l’ordinateur<br /><br /> - Le programme contrôle le redémarrage<br /><br /> - Configuration Manager déconnecte l’utilisateur|Une erreur est générée et l’installation du logiciel échoue.|Le paramètre de redémarrage du système et les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Lorsque le paramètre utilisé n'est pas **Aucune action requise** , le client génère une erreur et poursuit l'installation du logiciel, sans qu'aucune action ne soit effectuée.|  
-|Le programme peut s'exécuter :<br /><br /> - Uniquement quand un utilisateur est connecté|Une erreur est générée et l’installation du logiciel échoue.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Lorsque cette option est configurée, le client génère une erreur et fait échouer l'installation du logiciel.<br /><br /> Les autres options sont ignorées et l'installation du logiciel se poursuit.|  
-|Mode d'exécution :<br /><br /> - Exécuter avec les droits d’utilisateur|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge l’exécution de la configuration avec des droits d’administration.<br /><br /> Quand vous spécifiez **Exécuter avec les droits d’administration**, le client Configuration Manager utilise ses informations d’identification racines.<br /><br /> Ce paramètre ne génère pas d'erreur ni d'entrée de journal. En revanche, l’installation du logiciel échoue quand le client génère une erreur pour la configuration requise **Le programme peut s’exécuter** = **Uniquement lorsqu’un utilisateur est connecté**.|  
-|Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Cette configuration est ignorée et l'installation du logiciel se poursuit.|  
-|Mode lecteur :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Ce paramètre n'est pas pris en charge, car le contenu est toujours téléchargé sur le client et exécuté localement.|  
-|Exécuter un autre programme en premier|Une erreur est générée et l’installation du logiciel échoue.|L'installation récursive de programmes n'est pas prise en charge.<br /><br /> Lorsqu'un programme est configuré pour exécuter préalablement un autre programme, l'installation du logiciel échoue et l'installation de l'autre programme ne démarre pas.|  
-|Lorsque ce programme est attribué à un ordinateur :<br /><br /> - Exécuter une fois pour chaque utilisateur qui se connecte|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge l’exécution de la configuration une fois pour l’ordinateur.<br /><br /> Ce paramètre ne génère pas d'erreur ni d'entrée de journal, car il en a déjà été créée pour la configuration requise de **Le programme peut s'exécuter** = **Uniquement quand un utilisateur a ouvert une session**.|  
-|Supprimer les notifications de programmes|Les paramètres sont ignorés.|Le client n'implémente pas d'interface utilisateur.<br /><br /> Lorsque cette configuration est sélectionnée, elle est ignorée et l'installation du logiciel se poursuit.|  
-|Désactiver ce programme sur les ordinateurs sur lesquels il est déployé|Les paramètres sont ignorés.|Ce paramètre n'est pas pris en charge et n'a pas d'incidence sur l'installation du logiciel.|  
-|Autoriser l'installation de ce programme depuis la séquence de tâches d'installation du package sans le déployer||Le client ne prend pas en charge les séquences de tâches.<br /><br /> Ce paramètre n'est pas pris en charge et n'a pas d'incidence sur l'installation du logiciel.|  
-|Windows Installer :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge les fichiers ni les paramètres Windows Installer.|  
-|Mode de maintenance OpsMgr :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
+|Einstellungen für die Paketfreigabe:<br /><br /> - Alle Optionen|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Diese Konfiguration wird vom Client nicht unterstützt. Die Software muss vom Client über HTTP oder HTTPS heruntergeladen werden. Die Befehlszeile muss anschließend aus dem lokalen Cache ausgeführt werden.|  
+|Einstellungen für die Paketaktualisierung:<br /><br /> - Verbindungen zwischen Benutzern und Verteilungspunkten trennen|Die Einstellungen werden ignoriert.|Diese Konfiguration wird vom Client nicht unterstützt.|  
+|Betriebssystembereitstellungseinstellungen:<br /><br /> - Alle Optionen|Die Einstellungen werden ignoriert.|Diese Konfiguration wird vom Client nicht unterstützt.|  
+|Berichterstattung:<br /><br /> - Paketeigenschaften für MIF-Statusabstimmung verwenden<br /><br /> - Folgende Felder für MIF-Statusabstimmung verwenden|Die Einstellungen werden ignoriert.|Die Verwendung von Status-MIF-Dateien wird vom Client nicht unterstützt.|  
+|**Run**:<br /><br /> - Alle Optionen|Die Einstellungen werden ignoriert.|Pakete ohne Benutzeroberfläche werden immer vom Client ausgeführt.<br /><br /> Alle Konfigurationsoptionen für Ausführen werden vom Client ausgeführt.|  
+|Nach der Ausführung:<br /><br />- Der Computer wird von Configuration Manager neu gestartet.<br /><br /> - Neustart wird durch das Programm gesteuert<br /><br /> - Der Benutzer wird von Configuration Manager abgemeldet.|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Die Einstellung für einen Neustart des Systems und die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Wird eine andere Einstellung als **Keine Aktion erforderlich** verwendet, wird vom Client ein Fehler generiert, und die Installation der Software wird ohne weitere Maßnahmen fortgesetzt.|  
+|Programm kann ausgeführt werden:<br /><br /> - Nur wenn ein Benutzer angemeldet ist|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Wenn diese Option konfiguriert wurde, wird vom Client ein Fehler generiert, und bei der Softwareinstallation tritt ein Fehler auf.<br /><br /> Andere Optionen werden ignoriert, und die Softwareinstallation wird fortgesetzt.|  
+|Ausführmodus:<br /><br /> - Mit Benutzerrechten ausführen|Die Einstellungen werden ignoriert.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Allerdings wird die Konfiguration zur Ausführung mit Administratorrechten vom Client unterstützt.<br /><br /> Wenn Sie die Option **Mit Administratorrechten ausführen** festlegen, werden vom Configuration Manager-Client die Stammanmeldedaten verwendet.<br /><br /> Mit dieser Einstellung wird kein Fehler oder Protokolleintrag generiert. Stattdessen tritt bei der Softwareinstallation ein Fehler auf, wenn vom Client für die Konfiguration **Programm kann ausgeführt werden** = **Nur wenn ein Benutzer angemeldet ist** ein Fehler generiert wird.|  
+|Benutzern gestatten, die Programminstallation anzuzeigen und mit ihr zu interagieren|Die Einstellungen werden ignoriert.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Diese Konfiguration wird ignoriert, und die Softwareinstallation wird fortgesetzt.|  
+|Laufwerkmodus:<br /><br /> - Alle Optionen|Die Einstellungen werden ignoriert.|Diese Einstellung wird nicht unterstützt, da der Inhalt immer auf den Client heruntergeladen und lokal ausgeführt wird.|  
+|Ein anderes Programm zuerst ausführen|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Die rekursive Programminstallation wird nicht unterstützt.<br /><br /> Wurde ein Programm so konfiguriert, dass ein anderes Programm zuerst ausgeführt wird, tritt bei der Softwareinstallation ein Fehler auf, und die Installation des anderen Programms wird nicht gestartet.|  
+|Wenn dieses Programm einem Computer zugewiesen ist:<br /><br /> - Einmal ausführen für jeden Benutzer, der sich anmeldet|Die Einstellungen werden ignoriert.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Allerdings wird die Konfiguration zur einmaligen Ausführung für den Computer vom Client unterstützt.<br /><br /> Mit dieser Einstellung wird kein Fehler oder Protokolleintrag generiert, da für die Konfiguration **Programm kann ausgeführt werden** = **Nur wenn ein Benutzer angemeldet ist**.|  
+|Programmbenachrichtigungen unterdrücken|Die Einstellungen werden ignoriert.|Vom Client wird keine Benutzeroberfläche implementiert.<br /><br /> Bei Auswahl dieser Konfiguration wird die Einstellung ignoriert, und die Softwareinstallation wird fortgesetzt.|  
+|Dieses Programm auf Computern deaktivieren, auf denen es bereitgestellt ist|Die Einstellungen werden ignoriert.|Diese Einstellung wird nicht unterstützt und hat keinen Einfluss auf die Installation der Software.|  
+|Installation dieses Programms aus der Tasksequenz „Paket installieren“ ohne Bereitstellung zulassen||Vom Client werden keine Tasksequenzen unterstützt.<br /><br /> Diese Einstellung wird nicht unterstützt und hat keinen Einfluss auf die Installation der Software.|  
+|Windows Installer:<br /><br /> - Alle Optionen|Die Einstellungen werden ignoriert.|Vom Client werden keine Windows Installer-Dateien oder -Einstellungen unterstützt.|  
+|OpsMgr-Wartungsmodus:<br /><br /> - Alle Optionen|Die Einstellungen werden ignoriert.|Diese Konfiguration wird vom Client nicht unterstützt.|  
 
-### <a name="deploy-software-to-a-linux-or-unix-server"></a>Déployer un logiciel sur un serveur Linux ou UNIX
- Pour déployer un logiciel sur un serveur Linux ou UNIX à l’aide d’un package et d’un programme, vous pouvez utiliser l’**Assistant Déploiement logiciel** de la console Configuration Manager. Le client pour Linux et UNIX prend en charge la plupart des paramètres de déploiement. Cela n’est toutefois pas le cas pour certains paramètres. Lors du déploiement d’un logiciel, tenez compte des points suivants :  
+### <a name="deploy-software-to-a-linux-or-unix-server"></a>Bereitstellen von Software für einen Linux- oder UNIX-Server
+ Sie können in der Configuration Manager-Konsole den **Assistenten zum Bereitstellen von Software** verwenden, um mithilfe eines Pakets und Programms Software auf einem Linux- oder UNIX-Server bereitzustellen. Die meisten Bereitstellungseinstellungen werden vom Client für Linux und UNIX unterstützt. Einige Einstellungen werden jedoch nicht unterstützt. Beim Bereitstellen von Software ist Folgendes zu beachten:  
 
--   Vous devez préparer le package sur au moins un point de distribution associé à un groupe de limites configuré pour l'emplacement du contenu.  
+-   Das Paket muss auf mindestens einem Verteilungspunkt bereitgestellt sein, der einer für Inhaltsorte konfigurierten Begrenzungsgruppe zugeordnet ist.  
 
--   Le client pour Linux et UNIX qui reçoit ce déploiement doit être en mesure d’accéder à ce point de distribution à partir de son emplacement réseau.  
+-   Der Client für Linux und UNIX, von dem diese Bereitstellung empfangen wird, muss über seinen Netzwerkpfad auf diesen Verteilungspunkt zugreifen können.  
 
--   Le client pour Linux et UNIX télécharge le package à partir du point de distribution et exécute le programme sur l'ordinateur local.  
+-   Das Paket wird vom Client für Linux und UNIX vom Verteilungspunkt heruntergeladen, und das Programm wird auf dem lokalen Computer ausgeführt.  
 
--   Le client pour Linux et UNIX ne peut pas télécharger de packages à partir de dossiers partagés. Il télécharge les packages à partir de points de distribution compatibles IIS qui prennent en charge le protocole HTTP ou HTTPS.  
+-   Vom Client für Linux und UNIX können keine Pakete aus freigegebenen Ordnern heruntergeladen werden. Es werden Pakete von IIS-fähigen Verteilungspunkten heruntergeladen, die HTTP oder HTTPS unterstützen.  
 
- Le tableau suivant répertorie les propriétés destinées aux déploiements non prises en charge :  
+ In der folgenden Tabelle werden Eigenschaften für Bereitstellungen aufgelistet, die nicht unterstützt werden:  
 
-|Propriété de déploiement|Comportement|Plus d'informations|  
+|Bereitstellungseigenschaft|Verhalten|Weitere Informationen|  
 |-------------------------|--------------|----------------------|  
-|Paramètres de déploiement – objet :<br /><br /> - Disponible<br /><br /> - Obligatoire|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge le paramètre **Obligatoire**, qui applique l'heure d'installation planifiée, mais toute installation manuelle avant cette heure planifiée n'est pas prise en charge.|  
-|Envoyer des paquets de mise en éveil|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
-|Calendrier d'attribution :<br /><br /> - ouverture de session<br /><br /> - fermeture de session|Une erreur est générée et l’installation du logiciel échoue.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge le paramètre **Dès que possible**.|  
-|Paramètres de notification :<br /><br /> - Autoriser les utilisateurs à exécuter le programme indépendamment des attributions|Les paramètres sont ignorés.|Le client n'implémente pas d'interface utilisateur.|  
-|Lorsque l'heure d'attribution planifiée est atteinte, autorisez l'exécution des activités suivantes en dehors de la fenêtre de maintenance :<br /><br /> - Redémarrage du système (si nécessaire pour terminer l’installation)|Une erreur est générée.|Le client ne prend pas en charge un redémarrage du système.|  
-|Option de déploiement pour les réseaux (LAN) rapides :<br /><br /> - Exécuter le programme à partir du point de distribution|Une erreur est générée et l’installation du logiciel échoue.|Le client ne peut pas exécuter le logiciel à partir du point de distribution et doit au lieu de cela télécharger le programme avant de pouvoir l'exécuter.|  
-|Option de déploiement pour une limite réseau lente ou non fiable ou un emplacement source de secours pour le contenu :<br /><br /> - Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau|Les paramètres sont ignorés.|Le client ne prend pas en charge le partage de contenu entre homologues.|  
+|Bereitstellungseinstellungen – Zweck:<br /><br /> - Verfügbar<br /><br /> - Erforderlich|Die Einstellungen werden ignoriert.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Allerdings wird die Einstellung **Erforderlich**vom Client unterstützt, wodurch die geplante Installationszeit erzwungen wird, aber es wird keine manuelle Installation vor dieser geplanten Zeit unterstützt.|  
+|Aktivierungspakete senden|Die Einstellungen werden ignoriert.|Diese Konfiguration wird vom Client nicht unterstützt.|  
+|Zuweisungszeitplan:<br /><br /> - Anmelden<br /><br /> - Abmelden|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Die benutzerspezifischen Einstellungen werden nicht unterstützt.<br /><br /> Vom Client wird die Einstellung **So bald wie möglich**unterstützt.|  
+|Benachrichtigungseinstellungen:<br /><br /> - Benutzern zuweisungsunabhängige Programmausführung erlauben|Die Einstellungen werden ignoriert.|Vom Client wird keine Benutzeroberfläche implementiert.|  
+|Wenn die geplante Zuweisungszeit erreicht ist, erlauben Sie die Ausführung folgender Aktivität außerhalb des Wartungsfensters:<br /><br /> - Systemneustart (falls dieser zum Abschluss der Installation erforderlich ist)|Es wird ein Fehler generiert.|Vom Client wird kein Systemneustart unterstützt.|  
+|Bereitstellungsoption für schnelle (LAN-)Netzwerke:<br /><br /> - Programm vom Verteilungspunkt ausführen|Ein Fehler wird generiert, und bei der Softwareinstallation tritt ein Fehler auf.|Vom Client kann die Software nicht vom Verteilungspunkt ausgeführt werden. Das Programm muss zur Ausführung heruntergeladen werden.|  
+|Bereitstellungsoption für eine langsame oder unzuverlässige Netzwerkgrenze oder für einen Fallbackquellpfad für den Inhalt:<br /><br /> - Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen|Die Einstellungen werden ignoriert.|Vom Client wird das Freigeben von Inhalten zwischen Peers nicht unterstützt.|  
 
- Pour plus d’informations sur l’emplacement du contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Weitere Informationen finden Sie unter [Manage content and content infrastructure for System Center Configuration Manager (Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager)](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- Pour plus d’informations sur la création d’un déploiement, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).  
+ Weitere Informationen zum Erstellen einer Bereitstellung finden Sie unter [Bereitstellen von Anwendungen](../../apps/deploy-use/deploy-applications.md).  
 
-##  <a name="manage-network-bandwidth-for-software-downloads-from-distribution-points"></a>Gérer la bande passante réseau pour les téléchargements de logiciels à partir de points de distribution  
- Le client Linux et UNIX prend en charge les contrôles de bande passante réseau quand il télécharge des logiciels à partir d’un point de distribution.  
+##  <a name="manage-network-bandwidth-for-software-downloads-from-distribution-points"></a>Verwalten der Netzwerkbandbreite für das Herunterladen von Software von Verteilungspunkten  
+ Der Linux- und UNIX-Client unterstützt die Steuerung der Netzwerkbandbreite beim Herunterladen von Software von einem Verteilungspunkt.  
 
- Le client utilise les paramètres de service de transfert intelligent en arrière-plan (BITS) que vous configurez comme paramètres du client dans Configuration Manager, mais il n’implémente pas BITS. Au lieu de cela, pour accélérer l'utilisation de la bande passante réseau, le client contrôle la taille du bloc de la demande HTTP et le délai intra-bloc pour le téléchargement de logiciels.  
+ Hierfür werden die BITS-Einstellungen (Background Intelligent Transfer Service, intelligenter Hintergrundübertragungsdienst) verwendet, die Sie als Clienteinstellungen in Configuration Manager konfigurieren, ohne dass BITS implementiert wird. Stattdessen erfolgt die Drosselung der genutzten Netzwerkbandbreite beim Softwaredownload, indem die die Größe der HTTP-Anforderungsblöcke und die Verzögerung zwischen den Blöcken vom Client gesteuert werden.  
 
- Pour configurer l'utilisation des contrôles de bande passante réseau par un client, configurez les paramètres clients pour **Transfert intelligent en arrière-plan** , puis appliquez les paramètres à l'ordinateur client. Pour utiliser les contrôles de bande passante, le client doit recevoir des paramètres du client pour **Transfert intelligent en arrière-plan** avec les paramètres suivants configurés sur **Oui** :  
+ Soll ein Clients für die Steuerung der Netzwerkbandbreite konfiguriert werden, legen Sie die Clienteinstellungen unter **Intelligente Hintergrundübertragung** fest und wenden diese Einstellungen dann auf den Clientcomputer an. Die Bandbreitensteuerung kann nur von Clients durchgeführt werden, für die die Option **Intelligente Hintergrundübertragung** in den folgenden Clienteinstellungen auf **Ja** festgelegt wurde:  
 
--   **Limiter la bande passante réseau maximale pour les transferts BITS en arrière-plan**  
+-   **Maximale Netzwerkbandbreite für BITS-Übertragungen im Hintergrund begrenzen**  
 
- Le client prend en charge les configurations suivantes pour le Transfert intelligent en arrière-plan :  
+ Die folgenden Konfigurationen für intelligente Hintergrundübertragung werden vom Client unterstützt:  
 
-    -   **Heure de début de la fenêtre de limitation**  
+    -   **Beginn des Einschränkungszeitfensters**  
 
-    -   **Heure de fin de la fenêtre de limitation**  
+    -   **Ende des Einschränkungszeitfensters**  
 
-    -   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
+    -   **Maximale Übertragungsrate während des Einschränkungszeitfensters (KBit/s)**  
 
-    -   **Taux de transfert maximal en dehors de la fenêtre de limitation (Kbit/s)**  
+    -   **Maximale Übertragungsrate außerhalb des Einschränkungszeitfensters (KBit/s)**  
 
-La configuration suivante pour le Transfert intelligent en arrière-plan n'est pas prise en charge et est ignorée par le client pour Linux et UNIX :  
+Die folgende Konfiguration der intelligente Hintergrundübertragung wird nicht unterstützt und wird vom Client für Linux und UNIX ignoriert:  
 
--   **Autoriser les téléchargements BITS en dehors de la fenêtre de limitation**  
+-   **BITS-Downloads außerhalb des Einschränkungszeitfensters zulassen**  
 
- Si le téléchargement de logiciels vers le client à partir d’un point de distribution est interrompu, le client pour Linux et UNIX ne reprend pas le téléchargement. Au lieu de cela, il redémarre le téléchargement de l’ensemble du package logiciel.  
+ Wenn der Softwaredownload von einem Verteilungspunkt auf den Client unterbrochen wird, wird der Ladevorgang vom Client für Linux und UNIX nicht wiederaufgenommen. Stattdessen wird der Download des gesamten Softwarepakets neu gestartet.  
 
-##  <a name="configure-operations-for-software-deployments"></a>Configurer des opérations pour les déploiements de logiciels  
- À l’instar du client Windows, le client Configuration Manager pour Linux et UNIX détecte les nouveaux déploiements de logiciels en sondant et recherchant une nouvelle stratégie. La fréquence à laquelle le client recherche une nouvelle stratégie dépend de ses paramètres. Vous pouvez configurer les fenêtres de maintenance de façon à contrôler à quels moments les déploiements de logiciels se produisent.  
+##  <a name="configure-operations-for-software-deployments"></a>Konfigurieren von Vorgängen für Softwarebereitstellungen  
+ Ähnlich wie beim Windows-Client werden vom Configuration Manager-Client für Linux und UNIX neue Softwarebereitstellungen ermittelt, wenn die Abfragen und Überprüfungen für neue Richtlinien ausgeführt werden. Die Häufigkeit, mit der die Überprüfung auf neue Richtlinien vom Client ausgeführt wird, hängt von den Einstellungen des Clients ab. Sie können Wartungsfenster konfigurieren, um zu steuern, wann die Softwarebereitstellungen auftreten.  
 
- Vous pouvez configurer les déploiements de logiciels sur les serveurs Linux et UNIX à partir des propriétés de package, de programme et de déploiement.  
+ Softwarebereitstellungen auf Linux- und UNIX-Servern können Sie mithilfe von Paket-, Programm- und Bereitstellungseigenschaften konfigurieren.  
 
- Lorsque le client reçoit la stratégie d'un déploiement, il envoie un message d'état. De même, il envoie des messages d’état quand il démarre l’installation d’un logiciel et que l’installation se termine ou échoue.  
+ Wenn auf dem Client eine Richtlinie für eine Bereitstellung empfangen wird, wird von diesem eine Statusmeldung übermittelt. Außerdem werden Statusmeldungen übermittelt, sobald die Installation der Software gestartet wird und wenn sie beendet wird bzw. ein Fehler auftritt.  
 
- Dans le cadre des déploiements logiciels, les programmes s’exécutent avec les informations d’identification racines avec lesquelles le client Configuration Manager pour Linux et UNIX s’exécute. Le code de sortie de la commande du programme permet de déterminer la réussite ou l'échec de l'opération. Le code de sortie 0 (zéro) est considéré comme un succès. Par ailleurs, le flux de sortie standard (**stdout**) et le flux d'erreurs standard (**stderr**) sont copiés dans le fichier journal lorsque le niveau de journal est défini sur INFO ou TRACE.  
+ Programme für Softwarebereitstellungen werden mit den Stammanmeldedaten ausgeführt, mit denen der Configuration Manager-Client für Linux und UNIX ausgeführt wird. Mit dem Exitcode des Programmbefehls wird ermittelt, ob der Vorgang fehlerfrei ausgeführt wurde oder nicht. Der Exitcode 0 (Null) bedeutet „erfolgreich“. Darüber hinaus werden die Einträge **stdout** (Standardausgabestream) und **stderr** (Standardfehlerstream) in die Protokolldatei kopiert, wenn die Protokollebene auf INFO oder TRACE festgelegt wurde.  
 
 > [!TIP]  
->  Si le logiciel que vous voulez déployer est situé sur un partage NFS (Network File System) accessible au serveur Linux ou UNIX, vous n'avez pas besoin d'utiliser de point de distribution pour télécharger le package. En revanche, au moment de créer le package, n'activez pas la case à cocher **Ce package contient des fichiers sources**. Ensuite, lors de la configuration du programme, spécifiez la ligne de commande appropriée pour accéder directement au package sur le point de montage NFS.  
-
+>  Wenn sich die bereitzustellende Software auf einer NFS-Freigabe (NFS) befindet, auf die der Linux- oder UNIX-Server Zugriff hat, müssen Sie keinen Verteilungspunkt verwenden, um das Paket herunterzuladen. Stattdessen müssen Sie beim Erstellen des Pakets nur darauf achten, dass das Kontrollkästchen **Dieses Paket enthält Quelldateien**nicht aktiviert ist. Geben Sie dann beim Konfigurieren des Programms die Befehlszeile an, die einen direkten Zugriff auf das Paket auf dem NFS-Bereitstellungspunkt erlaubt.  

@@ -1,6 +1,6 @@
 ---
-title: "Ajouter des mises à jour à un groupe de mises à jour - Configuration Manager| Microsoft Docs"
-description: "Ajoutez manuellement ou automatiquement des mises à jour logicielles à un groupe de mises à jour logicielles dans votre environnement."
+title: "Hinzufügen von Updates zu einer Updategruppe – Configuration Manager | Microsoft-Dokumentation"
+description: "Manuelles oder Automatisches hinzufügen von Softwareupdates zu einer Softwareupdategruppe in Ihrer Umgebung."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -9,55 +9,51 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: a0767664-fd60-46a8-9da5-86cc431ce53c
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4e44e2b8f6baf020c3b7742bafd607082ffacaa4
 ms.openlocfilehash: 02e30ba48f3564fa8a31f21793c145054e02e002
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="add-software-updates-to-an-update-group"></a>Hinzufügen von Softwareupdates zu einer Updategruppe  
 
-# <a name="add-software-updates-to-an-update-group"></a>Ajouter des mises à jour logicielles à un groupe de mises à jour  
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+ Mithilfe von Softwareupdategruppen können Sie Softwareupdates in Ihrer Umgebung auf wirksame Weise organisieren. Sie können Softwareupdates einer Softwareupdategruppe manuell hinzufügen. Mit einer automatischen Bereitstellungsregel können Softwareupdates einer Softwareupdategruppe auch automatisch hinzugefügt werden. Eine Softwareupdategruppe wiederum kann entweder manuell oder mithilfe einer automatischen Bereitstellungsregel automatisch bereitgestellt werden. Nach der Bereitstellung einer Softwareupdategruppe können Sie der Gruppe neue Softwareupdates hinzufügen, die von Configuration Manager automatisch bereitgestellt werden. Gehen Sie wie folgt vor, um einer neuen oder bereits vorhandenen Softwareupdategruppe Softwareupdates hinzuzufügen.  
 
- Les groupes de mises à jour logicielles vous permettent d'organiser efficacement les mises à jour logicielles dans votre environnement. Vous pouvez ajouter des mises à jour logicielles à un groupe de mises à jour logicielles manuellement ou automatiquement à l’aide d’une règle de déploiement automatique (ADR). Une telle règle vous permet aussi de déployer un groupe de mises à jour logicielles manuellement ou automatiquement. Après avoir déployé un groupe de mises à jour logicielles, vous pouvez ajouter de nouvelles mises à jour logicielles au groupe et Configuration Manager les déploiera automatiquement. Pour ajouter des mises à jour logicielles à un groupe nouveau ou existant de mises à jour logicielles, procédez comme suit.  
+#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>So fügen Sie Softwareupdates einer neuen Softwareupdategruppe hinzu  
 
-#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Pour ajouter des mises à jour logicielles à un nouveau groupe de mises à jour logicielles  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+2.  Erweitern Sie im Arbeitsbereich „Softwarebibliothek“ den Eintrag **Softwareupdates**, und klicken Sie auf **Alle Softwareupdates**.  
 
-2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**, puis cliquez sur **Toutes les mises à jour logicielles**.  
+3.  Wählen Sie die Softwareupdates aus, die der neuen Softwareupdategruppe hinzugefügt werden sollen.  
 
-3.  Sélectionnez les mises à jour logicielles à ajouter au nouveau groupe de mises à jour logicielles.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Softwareupdategruppe erstellen**.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Créer un groupe de mises à jour logicielles**.  
+5.  Geben Sie den Namen und optional eine Beschreibung für die Softwareupdategruppe ein. Achten Sie darauf, dass der Name und die Beschreibung aussagekräftig sind, damit Sie den Typ der einzelnen Softwareupdates in der Softwareupdategruppe schnell ermitteln können. Klicken Sie auf **Erstellen**, um den Vorgang fortzusetzen.  
 
-5.  Spécifiez le nom du groupe de mises à jour logicielles et indiquez éventuellement une description. Utilisez un nom et une description suffisamment détaillés pour vous permettre de déterminer quel type de mises à jour logicielles se trouve dans le groupe de mises à jour logicielles. Pour continuer, cliquez sur **Créer**.  
+6.  Klicken Sie auf **Softwareupdategruppe** , um die neue Softwareupdategruppe anzuzeigen.  
 
-6.  Cliquez sur **Groupes de mises à jour logicielles** pour afficher le nouveau groupe de mises à jour logicielles.  
+7.  Wählen Sie die Softwareupdategruppe aus. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Mitglieder anzeigen** , um eine Liste der Softwareupdates in der Gruppe anzuzeigen.  
 
-7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>So fügen Sie Softwareupdates einer vorhandenen Softwareupdategruppe hinzu  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Pour ajouter des mises à jour logicielles à un groupe de mises à jour logicielles existant  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+2.  Erweitern Sie im Arbeitsbereich „Softwarebibliothek“ den Eintrag **Softwareupdates**, und klicken Sie auf **Alle Softwareupdates**.  
 
-2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**, puis cliquez sur **Toutes les mises à jour logicielles**.  
-
-3.  Sélectionnez les mises à jour logicielles que vous souhaitez ajouter au nouveau groupe de mises à jour logicielles.  
+3.  Wählen Sie die Softwareupdates aus, die Sie der neuen Softwareupdategruppe hinzufügen möchten.  
 
     > [!NOTE]  
-    >  Dans le nœud **Toutes les mises à jour logicielles**, par défaut, Configuration Manager affiche uniquement les mises à jour logicielles classées comme **Critique** et **Sécurité** et qui ont été publiées au cours des 30 derniers jours.  
+    >  Im Knoten **Alle Softwareupdates** werden von Configuration Manager standardmäßig nur Softwareupdates angezeigt, die die Klassifizierungen **Kritisch** und **Sicherheit** aufweisen, und in den letzten 30 Tagen veröffentlicht wurden.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Modifier l'adhésion**.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Mitgliedschaft bearbeiten**.  
 
-5.  Sélectionnez le groupe de mises à jour logicielles dans lequel vous souhaitez ajouter les mises à jour logicielles.  
+5.  Wählen Sie die Softwareupdategruppe aus, der Sie die Softwareupdates hinzufügen möchten.  
 
-6.  Cliquez sur le nœud **Groupes de mises à jour logicielles** pour afficher le groupe de mises à jour logicielles.  
+6.  Klicken Sie auf den Knoten **Softwareupdategruppen** , um die Softwareupdategruppe anzuzeigen.  
 
-7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
-
+7.  Wählen Sie die Softwareupdategruppe aus. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Mitglieder anzeigen** , um eine Liste der Softwareupdates in der Softwareupdategruppe anzuzeigen.  

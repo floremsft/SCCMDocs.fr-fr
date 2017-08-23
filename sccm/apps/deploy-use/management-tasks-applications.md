@@ -1,68 +1,61 @@
 ---
-title: "Tâches de gestion pour les applications System Center Configuration Manager | Microsoft Docs"
-description: "Gérer les applications et les types de déploiement System Center Configuration Manager"
+title: "Verwaltungstasks für System Center Configuration Manager-Anwendungen | Microsoft-Dokumentation"
+description: Verwalten von Anwendungen und Bereitstellungstypen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c4041e21-21ff-4d95-ab05-14007e0047cf
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: a53f8ca0cc9c4e4f7d91dd4a08eeea76cbd0b142
 ms.openlocfilehash: 72f99f0c90951f80de3d6e5ed8786d3fa482107e
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="management-tasks-for-system-center-configuration-manager-applications"></a>Tâches de gestion pour les applications System Center Configuration Manager
+# <a name="management-tasks-for-system-center-configuration-manager-applications"></a>Verwaltungstasks für System Center Configuration Manager-Anwendungen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Aidez-vous des informations contenues dans cet article pour gérer les applications et les types de déploiement System Center Configuration Manager.  
+Die Informationen in diesem Artikel unterstützen Sie bei der Verwaltung von Anwendungen und Bereitstellungstypen in System Center Configuration Manager.  
 
-Pour obtenir de l’aide sur la création d’applications et de types de déploiement, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).  
+Hilfe zum Erstellen von Anwendungen und Bereitstellungstypen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).  
 
 > [!IMPORTANT]  
->  Selon le type d’application ou le type de déploiement, certaines options de gestion peuvent ne pas être disponibles.  
+>  Je nach Anwendungs- oder Bereitstellungstyp sind einige Verwaltungsoptionen möglicherweise nicht verfügbar.  
 
-##  <a name="manage-applications"></a>Gérer des applications  
- Dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion des applications** > **Applications**, choisissez l’application à gérer, puis une tâche de gestion.  
+##  <a name="manage-applications"></a>Verwalten von Anwendungen  
+ Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Knoten **Anwendungsverwaltung** >  **Anwendungen**, und wählen Sie die zu verwaltende Anwendung und dann einen Verwaltungstask aus.  
 
-|Tâche|Détails|  
+|Aufgabe|Details|  
 |----------|-------------|  
-|**Gérer des comptes d'accès**|Ouvre la boîte de dialogue **Gérer les comptes d'accès** , dans laquelle vous pouvez spécifier le niveau d'accès autorisé pour le contenu associé à l'application sélectionnée.|  
-|**Créer un fichier de contenu préparé**|Ouvre l' **Assistant Création du fichier de contenu préparé** qui vous aide à gérer la distribution du contenu aux points de distribution distants. Lorsque la planification et la limitation n'offrent pas de solution valide pour le point de distribution distant, vous pouvez préparer le contenu sur le point de distribution.<br /><br /> Consultez [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
-|**Historique des révisions**|Ouvre la boîte de dialogue **Historique de révision de l’application**, qui vous permet d’afficher les propriétés des révisions de cette application, de supprimer d’anciennes révisions d’application et de restaurer d’anciennes versions de cette application.<br /><br /> Consultez [Guide pratique pour modifier et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Créer un type de déploiement**|Ouvre l’**Assistant Création d’un type de déploiement** qui vous permet d’ajouter un nouveau type de déploiement à l’application sélectionnée.<br /><br /> Consultez [Créer des applications](../../apps/deploy-use/create-applications.md).|  
-|**Statistiques de mise à jour**|Met à jour les informations concernant les déploiements de cette application, affichées dans le nœud **Déploiements** de l'espace de travail **Surveillance** .<br /><br /> Consultez [Surveiller des applications à partir de la console System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md).|  
-|**Rétablir**|Rétablit une application qui a été mise hors service par le biais de la tâche de gestion **Mettre hors service**.|  
-|**Mettre hors service**|Quand une application est mise hors service, elle n’est plus disponible pour le déploiement, mais l’application et les déploiements de l’application ne sont pas supprimés. Les copies existantes de l'application qui ont été installées sur les ordinateurs clients ne seront pas supprimées. Toutes les révisions de l'application seront supprimées de Configuration Manager après 60 jours. Toutefois, les copies installées de l’application ne sont pas supprimées.<br /><br /> Pour supprimer une application, vous devez tout d’abord la mettre hors service, supprimer les déploiements, supprimer les références à cette application présentes dans d’autres déploiements, puis supprimer toutes ses révisions.<br /><br /> Consultez [Modifier et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Exporter**|Ouvre l’**Assistant Exportation de l’application**, qui vous permet d’exporter les applications sélectionnées dans un fichier .zip que vous pouvez ensuite archiver ou installer sur un autre site. Si vous choisissez d’exporter le contenu de l’application, un dossier avec le contenu sera créé.<br /><br /> Vous pouvez également exporter les dépendances d’applications, les relations de remplacement, les conditions et le contenu de l’application et de ses dépendances.<br /><br /> L’applet de commande Windows PowerShell **Export-CMApplication** permet de réaliser la même opération. Pour plus d’informations, consultez [Export-CMApplication](http://go.microsoft.com/fwlink/p/?LinkID=258880) dans la documentation de référence sur les applets de commande Microsoft System Center 2012 Configuration Manager SP1.|  
-|**Supprimer**|Supprime l'application sélectionnée.<br /><br /> Vous ne pouvez pas supprimer une application si d'autres applications en dépendent, si elle a un déploiement actif ou si elle possède des séquences de tâches dépendantes.|  
-|**Simuler un déploiement**|Ouvre l' **Assistant Simuler un déploiement d'application** , qui vous permet de tester les résultats du déploiement d'une application sans installer ou désinstaller l'application.<br /><br /> Consultez [Simuler des déploiements d’applications](../../apps/deploy-use/simulate-application-deployments.md).|  
-|**Déployer**|Ouvre l' **Assistant Déploiement logiciel** où vous pouvez déployer l'application sélectionnée sur un ensemble d'ordinateurs dans votre hiérarchie.<br /><br /> Consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).|  
-|**Distribuer du contenu**|Ouvre l' **Assistant Distribuer du contenu** où vous pouvez copier le contenu de l'application sélectionnée sur les points de distribution dans votre hiérarchie.<br /><br /> Consultez [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
-|**Voir les relations**|Affiche un graphique montrant les relations entre les applications sélectionnées et d’autres applications. Choisissez parmi :<br><br><ul><li>**Dépendance** : affiche les applications dépendantes de l’application sélectionnée, ainsi que les applications dont dépend l’application sélectionnée.</li><li>**Remplacement** : affiche les applications remplacées par l’application sélectionnée, ainsi que les applications qui remplacent l’application sélectionnée.</li><li>**Conditions globales** : affiche les conditions globales référencées par cette application.</li></ol><br /> Consultez [Modifier et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md) et [Créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).|  
+|**Zugriffskonten verwalten**|Öffnet das Dialogfeld **Zugriffskonten verwalten** , in dem Sie die zulässige Zugriffsebene für die Inhalte angeben können, die der ausgewählten Anwendung zugeordnet sind.|  
+|**Datei für vorab bereitgestellten Inhalt erstellen**|Öffnet den ****  Assistenten zum Erstellen von vorab bereitgestellten Inhaltsdateien, mit dessen Hilfe Sie die Verteilung von Inhalten an Remoteverteilungspunkte verwalten können. Wenn die Planung und Einschränkung als Lösung für den Remoteverteilungspunkt nicht infrage kommen, können Sie die Inhalte vorab auf dem Verteilungspunkt bereitstellen.<br /><br /> Siehe [Verwalten von Inhalt und Inhaltsinfrastruktur](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
+|**Revisionsverlauf**|Öffnet das Dialogfeld **Anwendungsrevisionsverlauf**, in dem Sie die Eigenschaften von Revisionen dieser Anwendung anzeigen, alte Revision löschen, und alte Versionen dieser Anwendung wiederherstellen können.<br /><br /> Siehe [Überarbeiten und Ablösen von Anwendungen](../../apps/deploy-use/revise-and-supersede-applications.md).|  
+|**Bereitstellungstyp erstellen**|Öffnet den **Assistenten zum Erstellen neuer Bereitstellungstypen**, mit dessen Hilfe Sie der ausgewählten Anwendung einen neuen Bereitstellungstyp hinzufügen können.<br /><br /> Siehe [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).|  
+|**Statistik aktualisieren**|Aktualisiert die Informationen zu Bereitstellungen dieser Anwendung, die im Arbeitsbereich **Überwachung** im Knoten **Bereitstellungen** angezeigt werden.<br /><br /> Siehe [Überwachen von Anwendungen in der System Center Configuration Manager-Konsole](../../apps/deploy-use/monitor-applications-from-the-console.md).|  
+|**Reaktivieren**|Reaktiviert eine Anwendung, die mithilfe des Verwaltungstasks **Außerkraftsetzen** außer Kraft gesetzt wurde.|  
+|**Außerkraftsetzen**|Außer Kraft gesetzte Anwendungen können nicht mehr bereitgestellt werden, jedoch werden weder die Anwendung noch Bereitstellungen der Anwendung gelöscht. Bereits auf Clientcomputern installierte Exemplare dieser Anwendung werden nicht entfernt. Alle Anwendungsrevisionen werden von Configuration Manager nach 60 Tagen gelöscht. Installierte Kopien der Anwendung werden jedoch nicht entfernt.<br /><br /> Zum Löschen einer Anwendung müssen Sie diese zunächst außer Kraft setzen, sämtliche Bereitstellungen löschen, Verweise anderer Bereitstellungen auf diese Anwendung entfernen, und dann sämtliche Revisionen der Anwendung löschen.<br /><br /> Siehe [Überarbeiten und Ablösen von Anwendungen](../../apps/deploy-use/revise-and-supersede-applications.md).|  
+|**Exportierenieren**|Öffnet den **Assistenten zum Exportieren von Anwendungen**, mit dessen Hilfe Sie die ausgewählten Anwendungen in eine ZIP-Datei exportieren können. Diese Datei können Sie dann archivieren oder an einem anderen Standort installieren. Wenn Sie den Inhalt der Anwendung exportieren, wird ein Ordner erstellt, in dem sich der Inhalt befindet.<br /><br /> Sie können darüber hinaus Anwendungsabhängigkeiten, Ablösungsbeziehungen und -bedingungen und Inhalt für die Anwendung und ihre Abhängigkeiten exportieren.<br /><br /> Das Windows PowerShell-Cmdlet **Export-CMApplication** hat die gleiche Funktion. Weitere Informationen finden Sie unter [Export-CMApplication](http://go.microsoft.com/fwlink/p/?LinkID=258880) in der Cmdlet-Referenzdokumentation von Microsoft System Center 2012 Configuration Manager SP1.|  
+|**Löschen**|Löscht die derzeit ausgewählte Anwendung.<br /><br /> Eine Anwendung kann nicht gelöscht werden, wenn andere Anwendungen von ihr abhängig sind oder sie über eine aktive Bereitstellung oder abhängige Tasksequenzen verfügt.|  
+|**Bereitstellung simulieren**|Öffnet den ****  Assistenten zum Simulieren der Anwendungsbereitstellung, mit dessen Hilfe Sie die Ergebnisse einer Anwendungsbereitstellung auf Computern ohne Installieren oder Deinstallieren der Anwendung überprüfen können.<br /><br /> Siehe [Simulieren von Anwendungsbereitstellungen](../../apps/deploy-use/simulate-application-deployments.md).|  
+|**Bereitstellen**|Öffnet den ****  Assistenten zum Bereitstellen von Software, mit dessen Hilfe Sie die ausgewählte Anwendung auf Sammlungen oder Computern in Ihrer Hierarchie bereitstellen können.<br /><br /> Siehe [Bereitstellen von Anwendungen](../../apps/deploy-use/deploy-applications.md).|  
+|**Inhalt verteilen**|Öffnet den ****  Assistenten für die Verteilung von Inhalt, mit dessen Hilfe Sie den Inhalt für die ausgewählte Anwendung auf Verteilungspunkte in Ihrer Hierarchie kopieren können.<br /><br /> Siehe [Verwalten von Inhalt und Inhaltsinfrastruktur](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
+|**Beziehungen anzeigen**|Zeigt eine grafische Darstellung der Beziehungen der ausgewählten Anwendungen zu anderen Anwendungen an. Wählen Sie eine der folgenden Optionen:<br><br><ul><li>**Abhängigkeit**: Zeigt die Anwendungen an, die von der ausgewählten Anwendung abhängig sind, und Anwendungen, von denen die ausgewählte Anwendung abhängig ist.</li><li>**Ablösung**: Zeigt Anwendungen, die die ausgewählte Anwendung ablösen, und Anwendungen, die von der ausgewählten Anwendung abgelöst werden.</li><li>**Globale Bedingungen**: Zeigt die globalen Bedingungen an, auf die von dieser Anwendung verwiesen werden.</li></ol><br /> Informationen hierzu finden Sie unter [Überarbeiten und Ablösen von Anwendungen](../../apps/deploy-use/revise-and-supersede-applications.md) und [Erstellen von globalen Bedingungen](../../apps/deploy-use/create-global-conditions.md).|  
 
-##  <a name="manage-deployment-types"></a>Gérer les types de déploiement  
- Dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion des applications**, choisissez **Applications**, puis l’application avec le type de déploiement que vous voulez gérer. Dans le volet Détails, choisissez l’onglet **Types de déploiement**, le type de déploiement que vous voulez gérer, puis une tâche de gestion.  
+##  <a name="manage-deployment-types"></a>Verwalten von Bereitstellungstypen  
+ Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Anwendungsverwaltung**, und wählen Sie **Anwendungen** und dann die gewünschte Anwendung aus, die den Bereitstellungstyp enthält, den Sie verwalten möchten. Wählen Sie im Detailbereich die Registerkarte **Bereitstellungstypen** aus. Wählen Sie den Bereitstellungstyp, den Sie verwalten möchten, und anschließend einen Verwaltungstask aus.  
 
-|Tâche|Détails|  
+|Aufgabe|Details|  
 |----------|-------------|  
-|**Augmenter la priorité**|Augmente la priorité du type de déploiement sélectionné. Les types de déploiement sont évalués dans l'ordre. Quand un type de déploiement répond aux exigences spécifiées, il est exécuté et aucun autre type de déploiement de la liste de priorité ne sera évalué.|  
-|**Diminuer la priorité**|Diminue la priorité du type de déploiement sélectionné.|  
-|**Supprimer**|Supprime le type de déploiement sélectionné.<br><br>Si un type de déploiement est référencé par un type de déploiement dans une autre application, vous ne pouvez pas le supprimer.<br>Pour supprimer un type de déploiement, vous devez supprimer toutes les dépendances de ce type de déploiement figurant dans d’autres types de déploiement.<br>En outre, vous devez également supprimer les révisions précédentes de toutes les applications qui ont un type de déploiement qui fait référence au type de déploiement que vous souhaitez supprimer.|  
-|**Mettre à jour le contenu**|Actualise le contenu pour le type de déploiement sélectionné.<br /><br /> Quand vous démarrez cet Assistant pour un type de déploiement avec une application virtuelle, l’**Assistant Mise à jour du contenu** est lancé. Cet Assistant vous permet de modifier les options de publication et les règles de spécification de l’application virtuelle sélectionnée. Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md).<br /><br /> Lorsque vous actualisez le contenu d'un type de déploiement, une nouvelle révision de l'application est créée. Cela peut provoquer la mise à jour d'appareils clients avec la nouvelle application.|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+|**Priorität erhöhen**|Erhöht die Priorität des ausgewählten Bereitstellungstyps. Bereitstellungstypen werden der Reihe nach ausgewertet. Wenn ein Bereitstellungstyp den angegebenen Anforderungen entspricht, wird er ausgeführt, und weitere Bereitstellungstypen in der Prioritätenliste werden nicht ausgewertet.|  
+|**Priorität verringern**|Verringert die Priorität des ausgewählten Bereitstellungstyps.|  
+|**Löschen**|Löscht den ausgewählten Bereitstellungstyp.<br><br>Ein Bereitstellungstyp kann nicht gelöscht werden, wenn er von einem Bereitstellungstyp in einer anderen Anwendung referenziert wird.<br>Zum Löschen eines Bereitstellungstyps müssen Sie für den Bereitstellungstyp alle Abhängigkeiten entfernen, die in anderen Bereitstellungstypen enthalten sind.<br>Darüber hinaus müssen Sie alle früheren Anwendungsrevisionen mit Bereitstellungstypen entfernen, von denen auf den zu löschenden Bereitstellungstyp verwiesen wird.|  
+|**Inhalt aktualisieren**|Aktualisiert den Inhalt für den ausgewählten Bereitstellungstyp.<br /><br /> Wenn Sie diesen Assistenten für einen Bereitstellungstyp starten, der eine virtuelle Anwendung enthält, wird der **Assistent für das Update von Inhalten** gestartet. Mithilfe dieses Assistenten können Sie Veröffentlichungsoptionen und Anforderungsregeln für die ausgewählte virtuelle Anwendung ändern. Weitere Informationen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md).<br /><br /> Wenn Sie den Inhalt eines Bereitstellungstyps aktualisieren, wird eine neue Revision der Anwendung erstellt. Dies kann dazu führen, dass Clientgeräte mit der neuen Anwendung aktualisiert werden.|  

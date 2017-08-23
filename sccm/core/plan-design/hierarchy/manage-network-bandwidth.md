@@ -1,80 +1,75 @@
 ---
-title: "Gérer la bande passante du réseau pour le contenu | Microsoft Docs"
-description: "Configurez la planification, la limitation de bande passante et le contenu préparé pour System Center Configuration Manager."
+title: "Verwalten der Netzwerk-Bandbreite für Inhalt | Microsoft-Dokumentation"
+description: "Konfigurieren Sie Zeitplanung, Bandbreiteneinschränkung und vorab bereitgestellten Inhalt für System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e80d1151-91db-4a27-8411-a957297b67d0
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 37e4f27fcea0bbdd39c9fd3ab38aa46e3059f73a
 ms.openlocfilehash: d9dff97126c34a726677de60dd7647370c553b6e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="manage-network-bandwidth-for-content"></a>Verwalten von Netzwerkbandbreite für Inhalte
+Um Ihnen die Verwaltung der Netzwerkbandbreite zu erleichtern, die für den Inhaltsverwaltungsvorgang von System Center Configuration Manager verwendet wird, können Sie die integrierten Steuerelemente für Zeitplanung und Drosselung verwenden. Sie können auch vorab bereitgestellte Inhalte nutzen. In den folgenden Abschnitten werden diese Optionen detaillierter beschrieben.
 
-# <a name="manage-network-bandwidth-for-content"></a>Gérer la bande passante réseau pour le contenu
-Pour mieux gérer la bande passante réseau utilisée pour le processus de gestion du contenu de System Center Configuration Manager, vous pouvez utiliser les commandes Configuration Manager intégrées de planification et de limitation de bande passante. Vous pouvez également utiliser le contenu préparé. Les sections suivantes décrivent ces options plus en détail.
+##  <a name="BKMK_PlanningForThrottling"></a>Zeitplanung und Bandbreiteneinschränkung  
 
-##  <a name="BKMK_PlanningForThrottling"></a>Planification et limitation de bande passante  
+ Wenn Sie ein Paket erstellen, den Quellpfad für den Inhalt ändern oder ein Update bei Inhalt am Verteilungspunkt ausführen, werden die Dateien aus dem Quellpfad auf die Inhaltsbibliothek auf dem Standortserver kopiert. Dann wird der Inhalt aus der Inhaltsbibliothek auf dem Standortserver in die Inhaltsbibliothek an den Verteilungspunkten kopiert. Wenn ein Update bei Inhaltsquelldateien ausgeführt wird und die Quelldateien bereits verteilt wurden, werden von Configuration Manager nur die Dateien abgerufen und an den Verteilungspunkt gesendet, die neu sind oder bei denen das Update ausgeführt wurde.
 
- Lorsque vous créez un package, modifiez le chemin source du contenu ou mettez à jour le contenu sur le point de distribution, les fichiers sont copiés depuis le chemin source vers la bibliothèque de contenu sur le serveur de site. Ensuite, le contenu est copié depuis la bibliothèque de contenu sur le serveur de site vers la bibliothèque de contenu sur les points de distribution. Si des fichiers sources de contenu sont mis à jour et que ces fichiers ont déjà été distribués, Configuration Manager récupère uniquement les fichiers nouveaux ou mis à jour, puis il les envoie au point de distribution.
+ Sie können die Steuerelemente für Zeitplanung und Drosselung für die Kommunikation zwischen Standorten sowie zwischen Standortserver und Remoteverteilungspunkt verwenden. Wenn die Netzwerkbandbreite auch nach dem Einrichten der Steuerelemente für Zeitplanung und Drosselung eingeschränkt ist, sollten Sie eine Vorabbereitstellung des Inhalts auf dem Verteilungspunkt in Betracht ziehen.  
 
- Vous pouvez utiliser les commandes de planification et de limitation de bande passante pour la communication entre sites, ainsi que pour la communication entre un serveur de site et un point de distribution distant. Si vous constatez que la bande passante réseau est limitée même après avoir configuré les commandes de planification et de limitation de bande passante, vous pouvez envisager de préparer le contenu sur le point de distribution.  
+ Sie können in Configuration Manager einen Zeitplan einrichten und Drosselungseinstellungen für Remoteverteilungspunkte angeben, mit denen festgelegt wird, wann und wie die Inhaltsverteilung ausgeführt wird. Es sind für jeden Remoteverteilungspunkt andere Konfigurationen möglich, mithilfe derer Sie mit Netzwerkbandbreiteneinschränkungen zwischen Standortserver und Remoteverteilungspunkt umgehen können. Die Steuerelemente für Zeitplanung und Drosselung für den Remoteverteilungspunkt sind mit den Einstellungen für eine Standardabsenderadresse vergleichbar. In diesem Fall werden die Einstellungen von einer neuen Komponente namens Paketübertragungs-Manager verwendet.
 
- Dans Configuration Manager, vous pouvez configurer un calendrier et spécifier des paramètres de limitation de bande passante sur des points de distribution distants qui déterminent quand et comment s’effectue la distribution du contenu. Chaque point de distribution distant peut avoir différentes configurations qui permettent de répondre aux limitations de la bande passante réseau à partir du serveur de site pour le point de distribution distant. Les commandes de programmation et de limitation de bande passante sur le point de distribution sont similaires aux paramètres d’une adresse d’expéditeur standard. Dans ce cas, les paramètres sont utilisés par un nouveau composant appelé Package Transfer Manager.
-
- Package Transfer Manager distribue le contenu à partir d'un serveur de site, site principal ou secondaire, vers un point de distribution qui est installé sur un système de site. Les paramètres de limitation de bande passante sont spécifiés sous l’onglet **Limites du taux de transfert**, et les paramètres de planification sont spécifiés sous l’onglet **Calendrier** pour un point de distribution qui ne se trouve pas sur un serveur de site. Les paramètres d'heure sont basés sur le fuseau horaire du site émetteur, et non sur le point de distribution.  
+ Vom Paketübertragungs-Manager wird Inhalt von einem Standortserver als primärem oder sekundärem Standort an einen Verteilungspunkt verteilt, der auf einem Standortsystem installiert ist. Bei einem Verteilungspunkt, der sich nicht auf einem Standortserver befindet, werden die Drosselungseinstellungen auf der Registerkarte **Begrenzung der Datenübertragungsrate** und die Zeitplaneinstellungen auf der Registerkarte **Zeitplan** konfiguriert. Die Zeiteinstellungen basieren auf der Zeitzone am sendenden Standort, nicht auf der am Verteilungspunkt.  
 
 > [!IMPORTANT]  
->  Les onglets **Limites du taux de transfert** et **Calendrier** sont affichés uniquement dans les propriétés des points de distribution qui ne sont pas installés sur un serveur de site.  
+>  Die Registerkarten **Begrenzung der Datenübertragungsrate** und **Zeitplan** werden nur in den Eigenschaften von Verteilungspunkten, die nicht auf einem Standortserver installiert sind, angezeigt.  
 
-Pour plus d’informations, consultez [Installer et configurer des points de distribution pour System Center Configuration Manager](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).  
+Weitere Informationen finden Sie unter [Installieren und Konfigurieren von Verteilungspunkten für System Center Configuration Manager](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).  
 
-##  <a name="BKMK_PrestagingContent"></a>Contenu préparé  
- Vous pouvez préparer du contenu pour ajouter les fichiers de contenu à la bibliothèque de contenu sur un serveur de site ou sur un point de distribution avant de distribuer le contenu. Comme les fichiers de contenu figurent déjà dans la bibliothèque de contenu, ils ne sont pas transférés sur le réseau quand vous distribuez le contenu. Vous pouvez préparer des fichiers de contenu pour les applications et les packages.  
+##  <a name="BKMK_PrestagingContent"></a>Vorab bereitgestellter Inhalt  
+ Sie können Inhalt vorab bereitstellen, um der Inhaltsbibliothek auf einem Standortserver oder Verteilungspunkt vor der Verteilung des Inhalts Inhaltsdateien hinzuzufügen. Da die Inhaltsdateien sich bereits in der Inhaltsbibliothek befinden, werden sie bei der Verteilung des Inhalts nicht über das Netzwerk übertragen. Sie können Inhaltsdateien für Anwendungen und Pakete vorab bereitstellen.  
 
-Dans la console Configuration Manager, sélectionnez le contenu à préparer, puis utilisez l’**Assistant Création du fichier de contenu préparé**. Cette opération crée un fichier de contenu compressé et préparé qui contient les fichiers et les métadonnées associées pour le contenu. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site ou d'un point de distribution. Notez les points suivants :  
+Wählen Sie in der Configuration Manager-Konsole den Inhalt, den Sie vorab bereitstellen möchten, und verwenden Sie dann den **Assistenten zum Erstellen von vorab bereitgestellten Inhaltsdateien**. Durch diesen wird eine komprimierte, vorab bereitgestellte Inhaltsdatei erstellt, die die Dateien und zugeordneten Metadaten für den ausgewählten Inhalt umfasst. Anschließend können Sie den Inhalt zur Bereitstellung auf einem Standortserver oder Verteilungspunkt manuell importieren. Beachten Sie dabei folgende Punkte:  
 
--   Lorsque vous importez le fichier de contenu préparé sur un serveur de site, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le serveur de site, puis enregistrés dans la base de données du serveur de site.  
+-   Wenn Sie die vorab bereitgestellte Inhaltsdatei in einen Standortserver importieren, wird sie der Inhaltsbibliothek auf dem Standortserver hinzugefügt und dann in der Datenbank des Standortservers registriert.  
 
--   Quand vous importez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution. Un message d’état est envoyé au serveur de site pour indiquer au site que le contenu est disponible sur le point de distribution.  
+-   Wenn Sie die vorab bereitgestellte Inhaltsdatei auf einem Verteilungspunkt importieren, werden die Inhaltsdateien zur Inhaltsbibliothek auf dem Verteilungspunkt hinzugefügt. Eine Statusmeldung wird an den Standortserver gesendet, in der der Standort über die Verfügbarkeit des Inhalts auf dem Verteilungspunkt informiert wird.  
 
-Vous pouvez éventuellement configurer le point de distribution comme **préparé** pour faciliter la gestion de la distribution de contenu. Ensuite, quand vous distribuez le contenu, choisissez l’option souhaitée :  
+Optional können Sie den Verteilungspunkt als **vorab bereitgestellt** konfigurieren, um die Inhaltsverteilung einfacher verwalten zu können. Anschließend können Sie beim Verteilen von Inhalt zwischen folgenden Möglichkeiten auswählen:  
 
--   Toujours préparer le contenu sur le point de distribution.  
+-   Inhalt wird immer vorab auf dem Verteilungspunkt bereitgestellt.  
 
--   Préparer le contenu initial pour le package, puis utiliser le processus de distribution de contenu standard quand des mises à jour du contenu sont disponibles.  
+-   Der Anfangsinhalt des Pakets wird vorab bereitgestellt, Inhaltsaktualisierungen erfolgen mithilfe des regulären Inhaltsverteilungsvorgangs.  
 
--   Toujours utiliser le processus de distribution de contenu standard pour le contenu du package.  
+-   Für Inhalt des Pakets wird stets der reguläre Inhaltsverteilungsvorgang verwendet.  
 
-###  <a name="BKMK_DetermineToPrestageContent"></a>Déterminer si vous devez préparer du contenu  
- Envisagez de préparer du contenu pour les applications et les packages dans les cas suivants :  
+###  <a name="BKMK_DetermineToPrestageContent"></a>Bestimmen, ob Inhalt vorab bereitgestellt werden soll  
+ Erwägen Sie, in den folgenden Szenarien Inhalte für Anwendungen und Pakete vorab bereitzustellen:  
 
--   **Pour résoudre le problème de bande passante réseau limitée entre le serveur de site et un point de distribution.** Si la planification et la limitation de bande passante ne suffisent pas à répondre à vos besoins en matière de bande passante, songez à préparer le contenu sur le point de distribution. Chaque point de distribution est associé au paramètre **Activer ce point de distribution pour le contenu préparé** que vous pouvez choisir dans les propriétés du point de distribution. Lorsque vous activez cette option, le point de distribution est identifié comme un point de distribution préparé et vous pouvez choisir comment gérer le contenu pour chaque package.  
+-   **Beheben des Problems der begrenzten Netzwerkbandbreite zwischen Standortserver und Verteilungspunkt.** Wenn Planung und Drosselung zum Beheben Ihrer Bandbreitenprobleme nicht ausreichen, ziehen Sie die Vorabbereitstellung des Inhalts auf dem Verteilungspunkt in Betracht. Bei jedem Verteilungspunkt können Sie in den Verteilungspunkteigenschaften die Einstellung **Diesen Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren** wählen. Wenn Sie diese Option aktivieren, wird der Verteilungspunkt als vorab bereitgestellter Verteilungspunkt identifiziert, und Sie können auswählen, wie der Inhalt pro Paket verwaltet werden soll.  
 
-    Les paramètres suivants sont disponibles dans les propriétés relatives à une application, un package, un package de pilotes, une image de démarrage, un programme d’installation de système d’exploitation et une image. Ils vous permettent de choisir le mode de gestion de la distribution du contenu sur les points de distribution distants qui sont identifiés comme préparés :  
+    Die folgenden Einstellungen stehen in den Eigenschaften für eine Anwendung, ein Paket, ein Treiberpaket, ein Startabbild, ein Installationsprogramm für Betriebssysteme und ein Image zur Verfügung. Mit diesen Einstellungen können Sie auswählen, wie die Inhaltsverteilung auf Remoteverteilungspunkten verwaltet wird, die als vorab bereitgestellt identifiziert werden:  
 
-    -   **Télécharger automatiquement le contenu lorsque des packages sont affectés à des points de distribution** : utilisez cette option quand vous disposez de packages plus petits, et que les paramètres de planification et de limitation de bande passante offrent suffisamment de contrôle pour la distribution de contenu.  
+    -   **Inhalt automatisch herunterladen, wenn Pakete Verteilungspunkten zugeordnet sind**: Verwenden Sie diese Option, wenn Sie kleinere Pakete haben und die Zeitplanungs- und Drosselungseinstellungen für die Inhaltsverteilung eine ausreichende Steuerung bieten.  
 
-    -   **Télécharger uniquement les modifications de contenu vers le point de distribution** : utilisez cette option si vous prévoyez que la taille des futures mises à jour du contenu du package sera normalement inférieure à celle du package initial. Par exemple, vous pouvez préparer une application telle que Microsoft Office, car la taille du package initial est supérieure à 700 Mo et trop volumineuse pour être envoyée sur le réseau. Toutefois, les mises à jour du contenu pour ce package peuvent être inférieures à 10 Mo et distribuables sur le réseau. Citons aussi l’exemple d’un package de pilotes : sa taille initiale peut être importante, mais les ajouts de pilotes incrémentiels au package peuvent être de petite taille.  
+    -   **Nur Inhaltsänderungen auf den Verteilungspunkt herunterladen**: Verwenden Sie diese Option, wenn Sie damit rechnen, dass zukünftige Aktualisierungen des Paketinhalts im Allgemeinen kleiner sind als das Anfangspaket. Beispielsweise könnten Sie eine Anwendung wie Microsoft Office vorab bereitstellen, da die Größe des Anfangspakets mehr als 700 MB beträgt, sodass das Paket nicht über das Netzwerk gesendet werden kann. Die Inhaltsupdates bei diesem Paket könnten jedoch kleiner als 10 MB und damit über das Netzwerk verteilbar sein. Ein weiteres Beispiel wären Treiberpakete, bei denen das Anfangspaket groß ist, inkrementelle Treiberergänzungen zum Paket jedoch klein sind.  
 
-    -   **Copier manuellement le contenu de ce package vers le point de distribution** : utilisez cette option quand vous disposez de packages volumineux, avec du contenu tel qu’un système d’exploitation et n’utilisez jamais le réseau pour distribuer le contenu sur le point de distribution. Lorsque vous sélectionnez cette option, vous devez préparer le contenu sur le point de distribution.  
+    -   **Den Inhalt dieses Pakets manuell an den Verteilungspunkt kopieren**: Verwenden Sie diese Option, wenn Sie große Pakete mit Inhalt wie einem Betriebssystem haben, die sie niemals über das Netzwerk an den Verteilungspunkt verteilen möchten. Wenn Sie diese Option auswählen, müssen Sie den Inhalt am Verteilungspunkt vorab bereitstellen.  
 
     > [!IMPORTANT]  
-    >  Les options précédentes sont applicables pour chaque package et ne sont utilisées que si un point de distribution est identifié comme préparé. Les points de distribution qui n'ont pas été identifiés comme préparés ignorent ces paramètres. Dans ce cas, le contenu est toujours distribué via le réseau à partir du serveur de site vers les points de distribution.  
+    >  Die genannten Optionen sind pro Paket anwendbar und können nur dann verwendet werden, wenn ein Verteilungspunkt als vorab bereitgestellt identifiziert wurde. Von Verteilungspunkten, die nicht als vorab bereitgestellt identifiziert wurden, werden diese Einstellungen ignoriert. In diesem Fall wird Inhalt vom Standortserver stets über das Netzwerk an diese Verteilungspunkte verteilt.  
 
--   **Pour restaurer la bibliothèque de contenu sur un serveur de site.** lors de la défaillance d'un serveur de site, les informations sur les packages et applications inclus dans la bibliothèque de contenu sont restaurées vers la base de données de site dans le cadre du processus de restauration, mais les fichiers de la bibliothèque de contenu ne sont pas restaurés dans le cadre du processus. Si vous ne disposez pas d’une sauvegarde du système de fichiers pour restaurer la bibliothèque de contenu, vous pouvez créer un fichier de contenu préparé à partir d’un autre site contenant les packages et applications que vous devez avoir. Vous pouvez ensuite extraire le fichier de contenu préparé sur le serveur de site récupéré. Pour plus d’informations sur la sauvegarde et la récupération du serveur de site, consultez [Sauvegarde et récupération pour System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
-
+-   **Wiederherstellen der Inhaltsbibliothek auf einem Standortserver.** Beim Ausfall eines Standortservers werden Informationen zu Paketen und Anwendungen, die in der Inhaltsbibliothek enthalten sind, im Rahmen des Wiederherstellungsvorgangs auf der Standortdatenbank wiederhergestellt. Die Dateien der Inhaltsbibliothek werden bei diesem Vorgang jedoch nicht wiederhergestellt. Wenn Sie nicht über eine Sicherung des Dateisystems verfügen, um die Inhaltsbibliothek wiederherzustellen, können Sie eine vorab bereitgestellte Inhaltsdatei mit den erforderlichen Paketen und Anwendungen von einem anderen Standort erstellen. Anschließend können Sie die vorab bereitgestellte Inhaltsdatei auf dem wiederhergestellten Standortserver extrahieren. Weitere Informationen zur Standortserversicherung und -wiederherstellung finden Sie unter [Sicherung und Wiederherstellung für System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  

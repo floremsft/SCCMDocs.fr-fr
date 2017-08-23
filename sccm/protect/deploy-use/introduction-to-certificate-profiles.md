@@ -1,73 +1,70 @@
 ---
-title: "Présentation des profils de certificat | Microsoft Docs"
-description: "Découvrez le fonctionnement des profils de certificat dans System Center Configuration Manager avec les services de certificats Active Directory."
+title: "Einführung in Zertifikatprofile | Microsoft-Dokumentation"
+description: Erfahren Sie, wie Zertifikatprofile in System Center Configuration Manager mit den Active Directory-Zertifikatdiensten funktionieren.
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 41dcc259-f147-4420-bff2-b65bdf8cff77
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: 7b1c0e449f3d1ef42e279e8707df6bf1df163b3f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Einführung in Zertifikatprofile in System Center Configuration Manager
 
-# <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Présentation des profils de certificat dans System Center Configuration Manager
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-
-Les profils de certificat fonctionnent avec les services de certificats Active Directory et le rôle Service d’inscription d’appareil réseau pour configurer des certificats d’authentification pour les appareils gérés afin que les utilisateurs puissent accéder en toute transparence aux ressources d’entreprise. Par exemple, vous pouvez créer et déployer des profils de certificat pour fournir les certificats nécessaires aux utilisateurs pour établir des connexions VPN et sans fil. 
-
-Les profils de certificat peuvent automatiquement configurer des appareils d'utilisateur pour que les ressources d'entreprise, telles que les réseaux Wi-Fi et les serveurs VPN, soient accessibles sans avoir à installer manuellement des certificats ou à utiliser un processus hors bande. Les profils de certificat peuvent également contribuer à sécuriser les ressources d'entreprise, car vous pouvez utiliser les paramètres plus sécurisés pris en charge par votre infrastructure à clé publique (PKI) d'entreprise. Par exemple, vous pouvez exiger l'authentification du serveur pour toutes les connexions VPN et Wi-Fi car vous avez provisionné les certificats requis sur les appareils gérés.   
-
-Les profils de certificat fournissent les fonctionnalités de gestion suivantes :  
-
--   Inscription et renouvellement de certificats auprès d’une autorité de certification d’entreprise pour les appareils exécutant iOS, Windows 8.1, Windows RT 8.1, Windows 10 Desktop et Mobile, et Android. Ces certificats peuvent ensuite être utilisés pour les connexions VPN et Wi-Fi.  
-
--   Déploiement de certificats d'autorité de certification racine approuvés et de certificats d'autorité de certification intermédiaires pour configurer une chaîne d'approbation sur les appareils pour les connexions VPN et Wi-Fi, lorsque l'authentification du serveur est requise.  
-
--   Analyse et rapport sur les certificats installés.  
-
-**Exemple :** Tous les employés doivent pouvoir se connecter à des points d'accès Wi-Fi répartis à différents endroits dans l'entreprise. Déployez les certificats nécessaires pour se connecter au Wi-Fi et déployez les profils Wi-Fi qui référencent le certificat pour permettre une connexion fluide de l’utilisateur.  
-
-**Exemple :** Vous disposez d'une PKI en place et voulez adopter une méthode plus flexible et sécurisée pour configurer les certificats qui permettent aux utilisateurs d'accéder aux ressources d'entreprise à partir de leurs appareils personnels sans compromettre la sécurité. Configurez des profils de certificat avec les paramètres et protocoles pris en charge par la plateforme d’appareil spécifique. Les appareils peuvent ensuite demander automatiquement ces certificats depuis un serveur d'inscription via Internet. Ensuite, configurez des profils VPN pour utiliser ces certificats afin que l’appareil puisse accéder aux ressources d’entreprise.  
-
-## <a name="types-of-certificate-profiles"></a>Types de profil de certificat  
- Il existe trois types de profil de certificat :  
-
--   **Certificat d'Autorité de certification approuvé** : vous permet de déployer un certificat d'autorité de certification racine ou intermédiaire approuvé pour former une chaîne d'approbation des certificats lorsque l'appareil doit authentifier un serveur.  
-
--   **Protocole d'inscription de certificats simple (SCEP)** : vous permet de demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service d’inscription d’appareil réseau sur un serveur exécutant Windows Server 2012 R2.
-
-    Pour créer un profil de certificat du type **Protocole d’inscription de certificats simple (SCEP)**, vous devez d’abord créer un profil de certificat du type **Certificat d’autorité de certification approuvé**.
-
--   **Échange d’informations personnelles (.pfx)** : vous permet de demander un certificat .pfx (également appelé PKCS #12) pour un appareil ou un utilisateur.
-
-    Vous pouvez créer des profils de certificat PFX en [important des informations d’identification](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) à partir de certificats existants ou en [définissant une autorité de certification](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) pour traiter les requêtes.
-
-    À compter de la version 1706, vous pouvez utiliser Microsoft ou Entrust comme autorités de certification pour les certificats **Échange d’informations personnelles (.pfx)**.
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-## <a name="requirements-and-supported-platforms"></a>Configuration requise et plateformes prises en charge  
-Pour déployer des profils de certificat qui utilisent le protocole SCEP, vous devez installer le point d’enregistrement de certificat sur un serveur de système de site du site d’administration centrale ou d’un site principal. Vous devez également installer un module de stratégie pour NDES, le module de stratégie de Configuration Manager, sur un serveur exécutant Windows Server 2012 R2 avec le rôle de services de certificats Active Directory et un service NDES accessible aux appareils qui nécessitent les certificats. Pour les appareils inscrits par Microsoft Intune, le service NDES doit être accessible sur Internet, par exemple, dans un sous-réseau filtré (également appelé DMZ).  
+Zertifikatprofile arbeiten mit Active Directory-Zertifikatdiensten und der Rolle „Registrierungsdienst für Netzwerkgeräte“, um Authentifizierungszertifikate für verwaltete Geräte bereitzustellen, damit Benutzer nahtlos auf Unternehmensressourcen zugreifen können. Sie können z. B. Zertifikatprofile erstellen und bereitstellen, um Benutzern die erforderlichen Zertifikate zum Initiieren von VPN- und Drahtlosverbindungen bereitzustellen. 
 
-Les certificats PFX nécessitent également un point d’enregistrement de certificat sur un serveur de système de site dans le site d’administration centrale ou un site principal.  Vous devez également spécifier l’autorité de certification pour le certificat et les informations d’identification d’accès pertinentes.  À compter de la version 1706, vous pouvez spécifier Microsoft ou Entrust comme autorités de certification.  
+Mit Zertifikatprofilen können Benutzergeräte automatisch so konfiguriert werden, dass auf Unternehmensressourcen wie WLAN-Netzwerke und VPN-Server ohne manuelle Installation von Zertifikaten bzw. ohne Verwendung eines Out-of-Band-Prozesses zugegriffen werden kann. Mit Zertifikatprofilen können auch Unternehmensressourcen geschützt werden, da Sie sicherere Einstellungen verwenden können, die von der Public Key-Infrastruktur (PKI) Ihres Unternehmens unterstützt werden. Sie können z. B. eine Serverauthentifizierung für alle WLAN- und VPN-Verbindungen erforderlich machen, da Sie die erforderlichen Zertifikate auf den verwalteten Geräten bereitgestellt haben.   
 
-Pour plus d’informations sur la façon dont le service NDES prend en charge un module de stratégie pour que Configuration Manager puisse déployer des certificats, consultez [Utilisation d’un module de stratégie avec le service d’inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+Zertifikatprofile bieten die folgenden Verwaltungsfunktionen:  
 
-Configuration Manager prend en charge le déploiement de certificats sur différents magasins de certificats, en fonction des exigences, du type d’appareil et du système d’exploitation. Les appareils et les systèmes d'exploitation suivants sont pris en charge :  
+-   Zertifikatregistrierung und -erneuerung von einer Unternehmenszertifizierungsstelle für Geräte unter iOS, Windows 8.1, Windows RT 8.1, Windows 10 Desktop und Mobile sowie Android. Diese Zertifikate können dann für WLAN- und VPN-Verbindungen verwendet werden.  
+
+-   Bereitstellung von Stammzertifizierungsstellen- und Zwischenzertifizierungsstellen-Zertifikaten zur Konfiguration einer Vertrauenskette auf Geräten für VPN- und WLAN-Verbindungen, wenn die Serverauthentifizierung erforderlich ist.  
+
+-   Überwachen und Melden der installierten Zertifikate.  
+
+**Beispiel:** Alle Mitarbeiter müssen Verbindungen mit WLAN-Hotspots an verschiedenen Unternehmensstandorten herstellen können. Stellen Sie die für die WLAN-Verbindung erforderlichen Zertifikate bereit, und stellen Sie anschließend auf das Zertifikat verweisende WLAN-Profile bereit, um eine nahtlose Benutzerverbindung zu ermöglichen.  
+
+**Beispiel:** Sie haben eine PKI eingerichtet und möchten Zertifikate auf eine flexiblere, sicherere Art und Weise bereitstellen, die Benutzern ohne Beeinträchtigung der Sicherheit den Zugriff auf Unternehmensressourcen über ihre persönlichen Geräten ermöglicht. Konfigurieren Sie Zertifikatprofile mit Einstellungen und Protokollen, die von der jeweiligen Geräteplattform unterstützt werden. Die Geräte können diese Zertifikate dann automatisch von einem mit dem Internet verbundenen Registrierungsserver anfordern. Anschließend konfigurieren Sie VPN-Profile, die diese Zertifikate verwenden, damit das Gerät auf Unternehmensressourcen zugreifen kann.  
+
+## <a name="types-of-certificate-profiles"></a>Arten von Zertifikatprofilen  
+ Es gibt drei Arten von Zertifikatprofilen:  
+
+-   **Vertrauenswürdiges Zertifikat der Zertifizierungsstelle** : Ermöglicht Ihnen die Bereitstellung eines Zertifikats einer vertrauenswürdigen Stammzertifizierungsstelle oder einer Zwischenzertifizierungsstelle, um eine Zertifikatkette zu bilden, wenn das Gerät einen Server authentifizieren muss.  
+
+-   **Simple Certificate Enrollment-Protokoll (SCEP)**: Ermöglicht Ihnen das Anfordern eines Zertifikats für ein Gerät oder einen Benutzer mithilfe des Protokolls SCEP und des Registrierungsdiensts für Netzwerkgeräte auf einem Server mit Windows Server 2012 R2.
+
+    Sie müssen ein **Zertifikatprofil für ein vertrauenswürdiges Zertifikat der Zertifizierungsstelle** erstellen, um ein Zertifikatprofil des Typs **Simple Certificate Enrollment Protocol (SCEP)** erstellen zu können.
+
+-   **Privater Informationsaustausch (.pfx)**: Erlaubt es Ihnen, für ein Gerät oder einen Benutzer ein PFX-Zertifikat (auch als PKCS #12-Zertifikat bezeichnet) anzufordern.
+
+    Sie können PFX-Zertifikatprofile erstellen, indem Sie n entweder aus bestehenden Zertifikaten [Anmeldeinformationen importieren](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) oder für die Bearbeitung von Anfragen [eine Zertifizierungsstelle definieren](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
+
+    Ab Version 1706 können Sie Microsoft oder Entrust als Zertifizierungsstelle für **PFX-Zertifikate (Personal information exchange)** nutzen.
+
+
+## <a name="requirements-and-supported-platforms"></a>Anforderungen und unterstützte Plattformen  
+Zum Bereitstellen von Zertifikatprofilen, die SCEP verwenden, müssen Sie den Zertifikatregistrierungspunkt auf einem Standortsystemserver am Standort der zentralen Verwaltung oder an einem primären Standort installieren. Zudem müssen Sie ein Richtlinienmodul für NDES – das Configuration Manager-Richtlinienmodul – auf einem Server unter Windows Server 2012 R2 mit der Rolle „Active Directory-Zertifikatdienste“ und einem funktionsfähigen NDES installieren, der für die Geräte verfügbar ist, welche die Zertifikate benötigen. Bei Geräten, die von Microsoft Intune registriert werden, muss der NDES über das Internet verfügbar sein, z.B. in einem Umkreisnetzwerk (auch als DMZ bezeichnet).  
+
+Für PFX-Zertifikate benötigen Sie zusätzlich einen Zertifikatregistrierungspunkt auf einem Standortsystemserver am zentralen Verwaltungsstandort oder einem primären Standort.  Sie müssen auch die Zertifizierungsstelle (Certificate Authority – CA) für das Zertifikat und die notwendigen Anmeldeinformationen angeben.  Ab Version 1706 können Sie entweder Microsoft oder Entrust als Zertifizierungsstelle angeben.  
+
+Weitere Informationen zur Unterstützung eines Richtlinienmoduls durch den Registrierungsdienst für Netzwerkgeräte, damit Configuration Manager Zertifikate bereitstellen kann, finden Sie unter [Verwenden eines Richtlinienmoduls mit dem Registrierungsdienst für Netzwerkgeräte](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+
+Configuration Manager unterstützt die anforderungs-, gerätetyp- und betriebssystemabhängige Bereitstellung von Zertifikaten für unterschiedliche Zertifikatspeicher. Folgende Geräte und Betriebssysteme werden unterstützt:  
 
 -   Windows RT 8.1  
 
@@ -75,36 +72,36 @@ Configuration Manager prend en charge le déploiement de certificats sur différ
 
 -   Windows Phone 8.1  
 
--   Windows 10 Desktop et Mobile  
+-   Windows 10 Desktop und Mobile  
 
 -   iOS  
 
 -   Android  
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être [inscrits dans Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).   
+>  Um Profile für Android-, iOS-, Windows Phone- und registrierte Windows 8.1-Geräte (und höher) bereitzustellen, müssen diese Geräte [bei Microsoft Intune registriert](https://technet.microsoft.com/en-us/library/dn646962.aspx) werden.   
 
-Un scénario type pour System Center Configuration Manager consiste à installer des certificats d’autorité de certification racine approuvés pour authentifier des serveurs Wi-Fi et VPN lorsque la connexion utilise les protocoles d’authentification EAP-TLS, EAP-TTLS et PEAP, ainsi que les protocoles de tunneling IKEv2, L2TP/IPsec et Cisco IPsec VPN.  
+In einem typischen Szenario für System Center Configuration Manager werden vertrauenswürdige Stammzertifizierungsstellenzertifikate zum Authentifizieren von WLAN- und VPN-Servern installiert, wenn für die Kommunikation die Authentifizierungsprotokolle EAP-TLS, EAP-TTLS und PEAP sowie die VPN-Tunnelprotokolle IKEv2, L2TP/IPsec und Cisco IPsec verwendet werden.  
 
-Vous devez vous assurer qu'un certificat d'autorité de certification racine d'entreprise est installé sur l'appareil avant que l'appareil puisse demander des certificats à l'aide d'un profil de certificat SCEP.  
+Sie müssen sicherstellen, dass auf dem Gerät ein Stammzertifizierungsstellen-Zertifikat des Unternehmens installiert ist. Nur dann können vom Gerät mithilfe eines SCEP-Zertifikatprofils Zertifikate angefordert werden.  
 
-Vous pouvez spécifier divers paramètres dans un profil de certificat SCEP pour demander des certificats personnalisés pour différents environnements ou besoins en connectivité. L' **Assistant Créer un profil de certificat** comporte deux pages pour les paramètres d'inscription. La première, **Inscription SCEP**, contient les paramètres de la demande d'inscription et l'emplacement où installer le certificat. La seconde, **Propriétés du certificat**, décrit le certificat demandé.  
+Sie können eine Reihe von Einstellungen in einem SCEP-Zertifikatprofil angeben, um benutzerdefinierte Zertifikate für unterschiedliche Umgebungen oder Verbindungsanforderungen anzufordern. Der **Assistent zum Erstellen von Zertifikatprofilen** enthält zwei Seiten für Parameter für die Anmeldung. Die erste Seite **SCEP-Anmeldung**enthält Einstellungen für die Anmeldeanforderung sowie zum Installationsort des Zertifikats. Auf der zweiten Seite **Zertifikateigenschaften**wird das angeforderte Zertifikat beschrieben.  
 
-## <a name="deploying-certificate-profiles"></a>Déploiement de profils de certificat  
- Lorsque vous déployez un profil de certificat, les fichiers de certificat dans le profil sont installés sur des appareils clients. Tous les paramètres SCEP sont également déployés et les demandes SCEP sont traitées sur l'appareil client. Vous pouvez déployer des profils de certificat sur des regroupements d’utilisateurs ou d’appareils, et spécifier le magasin de destination pour chaque certificat. Les règles de mise en application déterminent si les certificats peuvent être installés sur l’appareil. Quand vous déployez des profils de certificat sur des regroupements d’utilisateurs, l’affinité entre appareil et utilisateur détermine les appareils d’utilisateur qui doivent installer les certificats. Quand des profils de certificat contenant des certificats d’utilisateur sont déployés sur des regroupements d’appareils, par défaut, les certificats sont installés sur chacun des appareils principaux de l’utilisateur. Vous pouvez modifier ce comportement pour installer le certificat sur l’un des appareils de l’utilisateur dans la page **Inscription SCEP** de l’**Assistant Création d’un profil de certificat**. En outre, les certificats d'utilisateur ne seront pas déployés sur les appareils s'il s'agit d'ordinateurs de groupe de travail.  
+## <a name="deploying-certificate-profiles"></a>Bereitstellen von Zertifikatprofilen  
+ Beim Bereitstellen eines Zertifikatprofils werden die Zertifikatdateien im Profil auf Clientgeräten installiert. Zudem werden SCEP-Parameter bereitgestellt, und die SCEP-Anforderungen werden auf dem Clientgerät verarbeitet. Sie können Zertifikatprofile für Benutzer- oder Gerätesammlungen bereitstellen und den Zielspeicher für die einzelnen Zertifikate angeben. Durch Anwendbarkeitsregeln wird bestimmt, ob die Zertifikate auf dem Gerät installiert werden können. Beim Bereitstellen von Zertifikatprofilen für Benutzersammlungen wird durch die Affinität zwischen Benutzer und Gerät bestimmt, auf welchen Geräten der Benutzer die Zertifikate installiert werden. Wenn Zertifikatprofile, die Benutzerzertifikate enthalten, für Gerätesammlungen bereitgestellt werden, werden die Zertifikate standardmäßig auf allen primären Geräten der Benutzer installiert. Das Verhalten, dass das Zertifikat auf allen Geräten der Benutzer bereitgestellt wird, können Sie auf der Seite **SCEP-Anmeldung** des **Assistenten zum Erstellen von Zertifikatprofilen** ändern. Zudem werden Benutzerzertifikate auf Geräten, bei denen es sich um Arbeitsgruppencomputer handelt, nicht installiert.  
 
-## <a name="monitoring-certificate-profiles"></a>Surveillance des profils de certificat  
+## <a name="monitoring-certificate-profiles"></a>Überwachen von Zertifikatprofilen  
 
-Vous pouvez surveiller les déploiements de profil de certificat en affichant les résultats ou les rapports de conformité. Ces approches sont décrites dans [Guide pratique pour surveiller des profils de certificat](/sccm/protect/deploy-use/monitor-certificate-profiles).
+Sie können Zertifikatprofilbereitstellungen überwachen, indem Sie Konformitätsergebnisse oder -berichte anzeigen. Diese Ansätze werden unter [Überwachen von Zertifikatprofilen in System Center Configuration Manager](/sccm/protect/deploy-use/monitor-certificate-profiles) beschrieben.
 
 
-## <a name="automatic-revocation-of-certificates"></a>Révocation automatique de certificats  
- System Center Configuration Manager révoque automatiquement les certificats utilisateur et ordinateur qui ont été déployés à l’aide de profils de certificat dans les circonstances suivantes :  
+## <a name="automatic-revocation-of-certificates"></a>Automatisches Sperren von Zertifikaten  
+ System Center Configuration Manager widerruft automatisch Benutzer- und Computerzertifikate, die unter den folgenden Umständen mithilfe von Zertifikatprofilen erstellt wurden:  
 
--   L’appareil est mis hors service depuis la gestion de System Center Configuration Manager.  
+-   Die Verwaltung in System Center Configuration Manager wurde für dieses Gerät außer Kraft gesetzt.  
 
--   Une réinitialisation sélective est appliquée à l'appareil.  
+-   Das Gerät wird selektiv zurückgesetzt.  
 
--   L’appareil est bloqué depuis la hiérarchie System Center Configuration Manager.  
+-   Das Gerät wurde in der System Center Configuration Manager-Hierarchie gesperrt.  
 
- Pour révoquer les certificats, le serveur de site envoie une commande de révocation à l'autorité de certification émettrice. Le motif de révocation est la **cessation de fonctionnement**.  
+ Zum Sperren der Zertifikate wird vom Standortserver ein Sperrbefehl an die ausstellende Zertifizierungsstelle gesendet. Der Grund für die Sperre ist **Vorgangsende**.  

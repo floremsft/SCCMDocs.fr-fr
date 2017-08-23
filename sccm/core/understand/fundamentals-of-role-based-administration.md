@@ -1,217 +1,213 @@
 ---
-title: "Principes de base de l’administration basée sur des rôles | Microsoft Docs"
-description: "Utilisez l’administration basée sur les rôles pour contrôler l’accès administratif à Configuration Manager et les objets que vous gérez."
+title: Grundlagen der rollenbasierten Verwaltung | Microsoft-Dokumentation
+description: Verwenden Sie die rollenbasierte Verwaltung zum Steuern des administrativen Zugriffs auf Configuration Manager und Objekte, die Sie verwalten.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0a2d6c3f-a4e4-4c19-b087-3caada480de9
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
 ms.openlocfilehash: ddf2ad1cae51c1e36df5a6d86822e2b9abe604e2
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager
+# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Avec System Center Configuration Manager, l’administration basée sur des rôles vous permet de sécuriser l’accès nécessaire à l’administration de Configuration Manager. Vous sécurisez également l’accès aux objets que vous gérez, tels que les regroupements, les déploiements et les sites. À présent que vous comprenez les concepts présentés dans cette rubrique, vous pouvez [configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Mit System Center Configuration Manager verwenden Sie die rollenbasierte Verwaltung, um den Zugriff zu schützen, der zum Verwalten von Configuration Manager erforderlich ist. Ferner schützen Sie damit den Zugriff auf die Objekte, die Sie verwalten, wie Sammlungen, Bereitstellungen und Standorte. Nachdem Sie sich mit den in diesem Thema behandelten Konzepten vertraut gemacht haben, können Sie mit dem [Konfigurieren der rollenbasierten Verwaltung für System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) fortfahren.  
 
- Le modèle d’administration basée sur des rôles définit et gère de façon centralisée les paramètres d’accès de sécurité à l’échelle de la hiérarchie pour tous les sites ainsi que les paramètres de site à l’aide des éléments suivants :  
+ Über das rollenbasierte Verwaltungsmodell werden Sicherheitszugriffseinstellungen für alle Standorte und Standorteinstellungen hierarchieweit zentral definiert und verwaltet. Dazu dienen die folgenden Elemente:  
 
--   Les *rôles de sécurité* sont attribués aux utilisateurs administratifs pour octroyer à ceux-ci (ou à des groupes d’utilisateurs) des autorisations relatives à différents objets Configuration Manager, par exemple, celles de créer ou modifier des paramètres client.  
+-   *Sicherheitsrollen* werden Administratoren zugewiesen, um diesen Benutzern (oder Benutzergruppen) Berechtigungen für verschiedene Configuration Manager-Objekte zu erteilen. Dies ist z.B. zum Erstellen oder Ändern von Clienteinstellungen der Fall.  
 
--   Les *étendues de sécurité* permettent de regrouper des instances d’objets spécifiques qu’un utilisateur administratif est chargé de gérer, par exemple une application qui installe Microsoft Office 2010.  
+-   Mithilfe von *Sicherheitsbereichen* werden bestimmte Instanzen von Objekten gruppiert, für deren Verwaltung ein Administrator verantwortlich ist, z.B. eine Anwendung zum Installieren von Microsoft Office 2010.  
 
--   Les *regroupements* permettent de spécifier des groupes de ressources d’utilisateurs et d’appareils que l’utilisateur administratif peut gérer.  
+-   *Sammlungen* dienen zum Angeben von Gruppen von Benutzer- und Geräteressourcen, die der Administrator verwalten kann.  
 
- L’utilisation combinée de rôles de sécurité, d’étendues de sécurité et de regroupements permet de séparer les attributions administratives répondant aux besoins de votre organisation, ainsi que de définir l’étendue administrative d’un utilisateur, autrement dit ce qu’il peut afficher et gérer dans votre déploiement de Configuration Manager.  
+ Mit der Kombination aus Sicherheitsrollen, Sicherheitsbereichen und Sammlungen trennen Sie die administrativen Aufgaben, die die Anforderungen Ihres Unternehmens erfüllen. Wenn sie zusammen verwendet werden, definieren sie den Verwaltungsumfang eines Benutzers, den dieser Benutzer in Ihrer Configuration Manager-Bereitstellung anzeigen und verwalten kann.  
 
-## <a name="benefits-of-role-based-administration"></a>Avantages de l’administration basée sur des rôles  
+## <a name="benefits-of-role-based-administration"></a>Vorteile der rollenbasierten Verwaltung  
 
--   Les sites ne sont pas utilisés comme limites administratives.  
+-   Standorte dienen nicht als Verwaltungsgrenzen.  
 
--   Après avoir créé des utilisateurs administratifs pour la hiérarchie, il vous suffit de leur attribuer une étendue de sécurité une seule fois.  
+-   Sie richten Administratoren für die Hierarchie ein und müssen für diese nur eine einmalige Sicherheitszuweisung ausführen.  
 
--   Toutes les attributions de sécurité sont répliquées et disponibles dans la hiérarchie.  
+-   Alle Sicherheitszuweisungen werden repliziert und sind in der gesamten Hierarchie verfügbar.  
 
--   Il existe des rôles de sécurité intégrés permettent d’attribuer les tâches d’administration classiques, mais vous pouvez aussi créer vos propres rôles de sécurité personnalisés en fonction des besoins propres à votre activité.  
+-   Es gibt integrierte Sicherheitsrollen, die zum Zuweisen der typischen Verwaltungsaufgaben verwendet werden. Sie können eigene benutzerdefinierte Sicherheitsrollen für Ihre speziellen Geschäftsanforderungen erstellen.  
 
--   Les utilisateurs administratifs voient uniquement les objets qu'ils sont autorisés à gérer.  
+-   Administratoren können nur die Objekte ansehen, für die sie über Berechtigungen zum Verwalten verfügen.  
 
--   Vous pouvez auditer des actions administratives de sécurité.  
+-   Sie können Verwaltungssicherheitsvorgänge überwachen.  
 
-Quand vous concevez et implémentez la sécurité administrative pour Configuration Manager, créez une *étendue administrative* pour un utilisateur administratif à l’aide des éléments suivants :  
+Beim Entwerfen und Implementieren der administrativen Sicherheit für Configuration Manager nutzen Sie Folgendes, um einen *Verwaltungsbereich* für einen Administrator zu erstellen:  
 
--   [Rôles de sécurité](#bkmk_Planroles)  
+-   [Sicherheitsrollen](#bkmk_Planroles)  
 
--   [Regroupements](#bkmk_planCol)  
+-   [Sammlungen](#bkmk_planCol)  
 
--   [Étendues de sécurité](#bkmk_PlanScope)  
+-   [Sicherheitsbereichen](#bkmk_PlanScope)  
 
 
- L’étendue administrative contrôle les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les autorisations dont dispose cet utilisateur sur ces objets. Les configurations d'administration basées sur des rôles sont répliquées sur chaque site de la hiérarchie en tant que données globales, puis sont appliquées à toutes les connexions administratives.  
+ Mit diesem Verwaltungsbereich werden die Objekte, die ein Administrator in der Configuration Manager-Konsole anzeigen kann, sowie die Berechtigungen dieses Benutzers in Bezug auf diese Objekte verwaltet. Konfigurationen der rollenbasierten Administration werden als globale Daten an allen Standorten in der Hierarchie repliziert und auf alle Verwaltungsverbindungen angewendet.  
 
 > [!IMPORTANT]  
->  Les retards de réplication intersite peuvent empêcher un site de recevoir des modifications pour l'administration basée sur les rôles. Pour plus d’informations sur la manière de surveiller la réplication intersite de base de données, consultez la rubrique [Transfert de données entre sites dans System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md).  
+>  Aufgrund von Verzögerungen bei der standortübergreifenden Replikation können Änderungen an der rollenbasierten Verwaltung möglicherweise nicht von einem Standort empfangen werden. Informationen zur Überwachung der standortübergreifenden Datenbankreplikation finden Sie unter [Datenübertragungen zwischen Standorten in System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md).  
 
-##  <a name="bkmk_Planroles"></a> Rôles de sécurité  
- Utilisez des rôles de sécurité pour accorder des autorisations de sécurité aux utilisateurs administratifs. Les rôles de sécurité sont des groupes d'autorisations de sécurité que vous affectez aux utilisateurs administratifs afin qu'ils puissent effectuer leurs tâches administratives. Ces autorisations de sécurité définissent les actions administratives réalisables par un utilisateur administratif ainsi que les autorisations sont accordées pour des types d'objet particulier. Comme bonne pratique de sécurité, affectez les rôles de sécurité qui fournissent des autorisations minimales.  
+##  <a name="bkmk_Planroles"></a> Sicherheitsrollen  
+ Verwenden Sie Sicherheitsrollen, um Administratoren Sicherheitsberechtigungen zu erteilen. Bei Sicherheitsrollen handelt es sich um Gruppen von Sicherheitsberechtigungen, die Sie Administratoren zuweisen, damit diese ihre Verwaltungsaufgaben erfüllen können. Aus diesen Sicherheitsberechtigungen geht hervor, welche Verwaltungsaufgaben ein Administrator ausführen darf und welche Berechtigungen ihm für bestimmte Objekttypen gewährt werden. Aus Sicherheitsgründen wird empfohlen, die Sicherheitsrollen zuzuweisen, mit denen die wenigsten Berechtigungen erteilt werden.  
 
- Configuration Manager possède plusieurs rôles de sécurité intégrés pour prendre en charge des regroupements typiques de tâches administratives et vous pouvez créer vos propres rôles de sécurité personnalisés pour prendre en charge vos besoins professionnels spécifiques. Exemples de rôles de sécurité intégrés :  
+ In Configuration Manager gibt es mehrere integrierte Sicherheitsrollen zur Unterstützung typischer Gruppen von Verwaltungsaufgaben. Sie können auch benutzerdefinierte Sicherheitsrollen erstellen, die im Einklang mit Ihren Geschäftsanforderungen stehen. Beispiele für die integrierten Sicherheitsrollen:  
 
--   *Administrateur complet* : accorde toutes les autorisations dans Configuration Manager.  
+-   *Hauptadministrator* gewährt sämtliche Berechtigungen in Configuration Manager.  
 
--   *Gestionnaire de biens* : accorde des autorisations permettant de gérer le point de synchronisation Asset Intelligence, les classes de création de rapports Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et les règles de contrôle.  
+-   Der *Asset-Manager* gewährt Berechtigungen zum Verwalten des Asset Intelligence-Synchronisierungspunkts, von Asset Intelligence-Berichtsklassen, Softwareinventur, Hardwareinventur sowie Messungsregeln.  
 
--   *Gestionnaire des mises à jour logicielles* : accorde les autorisations de définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements et des modèles.  
+-   *Softwareupdate-Manager* gewährt Berechtigungen zum Definieren und Bereitstellen von Softwareupdates. Administratoren, denen diese Rolle zugeordnet ist, können Sammlungen, Softwareupdategruppen, Bereitstellungen und Vorlagen erstellen.  
 
 > [!TIP]  
->  Vous pouvez afficher la liste des rôles de sécurité intégrés et les rôles de sécurité personnalisés que vous créez, ainsi que leurs descriptions, dans la console Configuration Manager. Pour afficher les rôles, dans l’espace de travail **Administration**, développez **Sécurité**, puis sélectionnez **Rôles de sécurité**.  
+>  Sie können die Liste der integrierten und benutzerdefinierten Sicherheitsrollen mit ihren Beschreibungen in der Configuration Manager-Konsole anzeigen. Um die Rollen anzuzeigen, erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Sicherheit**, und wählen Sie dann **Sicherheitsrollen** aus.  
 
- Chaque rôle de sécurité dispose d'autorisations spécifiques à différents types d'objets. Par exemple, le rôle de sécurité *Auteur d’application* a les autorisations suivantes pour les applications : Approuver, Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Exécuter un rapport et Définir l’étendue de sécurité.
+ Jeder Sicherheitsrolle sind bestimmte Berechtigungen für die verschiedenen Objekttypen zugeordnet. Beispielsweise umfasst die Sicherheitsrolle *Anwendungsautor* die folgenden Berechtigungen für Anwendungen: Genehmigen, Erstellen, Löschen, Ändern, Ordner ändern, Objekt verschieben, Lesen, Bericht ausführen und Festlegen des Sicherheitsbereichs.
 
- Vous ne pouvez pas modifier les autorisations pour les rôles de sécurité intégrés, mais vous pouvez copier le rôle, y apporter des modifications, puis enregistrer ces modifications sous un nouveau rôle de sécurité personnalisé. Vous pouvez également importer des rôles de sécurité que vous avez exportés depuis une autre hiérarchie, par exemple depuis un réseau de test. Passez en revue les rôles de sécurité et leurs autorisations pour déterminer si vous allez utiliser les rôles de sécurité intégrés ou devoir créer vos propres rôles de sécurité personnalisés.  
+ Sie können die Berechtigungen der integrierten Sicherheitsrollen nicht ändern. Es ist aber möglich, eine Rolle zu kopieren, zu ändern und die geänderte Rolle als neue benutzerdefinierte Sicherheitsrolle zu speichern. Sie können außerdem Sicherheitsrollen importieren, die Sie aus einer anderen Hierarchie, z.B. einem Testnetzwerk, exportiert haben. Überprüfen Sie die Sicherheitsrollen und deren Berechtigungen, um festzustellen, ob Sie die integrierten Sicherheitsrollen verwenden können oder ob Sie eigene benutzerdefinierte Sicherheitsrollen erstellen müssen.  
 
- ### <a name="to-help-you-plan-for-security-roles"></a>Pour faciliter la planification des rôles de sécurité  
+ ### <a name="to-help-you-plan-for-security-roles"></a>Nützliche Hinweise für das Planen von Sicherheitsrollen  
 
-1.  Identifiez les tâches que les utilisateurs administratifs effectuent dans Configuration Manager. Ces tâches peuvent concerner un ou plusieurs groupes de tâches de gestion, tels que le déploiement d'applications et de packages, le déploiement de systèmes d'exploitation et de paramètres pour la conformité, la configuration de sites et de la sécurité, l'audit, le contrôle d'ordinateurs à distance et le recueil de données d'inventaire.  
+1.  Identifizieren Sie die Tasks, die Administratoren in Configuration Manager ausführen. Dabei kann es sich um Gruppen von Verwaltungstasks handeln, wie z. B. Bereitstellen von Anwendungen und Paketen, Bereitstellen von Betriebssystemen und Kompatibilitätseinstellungen, Konfigurieren von Standorten und Sicherheit, Überwachung, Remotesteuerung von Computern und Sammeln von Inventurdaten.  
 
-2.  Mappez ces tâches administratives vers un ou plusieurs rôles de sécurité intégrés.  
+2.  Ordnen Sie diese Verwaltungstasks mindestens einer der integrierten Sicherheitsrollen zu.  
 
-3.  Si certains des utilisateurs administratifs effectuent des tâches de rôles de sécurité multiples, attribuez les rôles de sécurité multiples à ces utilisateurs administratifs au lieu de créer un nouveau rôle de sécurité qui combine les tâches.  
+3.  Wenn einige Administratoren die Tasks mehrerer Sicherheitsrollen ausführen, weisen Sie diesen Administratoren alle relevanten Sicherheitsrollen zu, statt eine neue Sicherheitsrolle zu erstellen, in der diese Tasks enthalten sind.  
 
-4.  Si les tâches que vous avez identifiées ne correspondent pas aux rôles de sécurité intégrés, créez et testez de nouveaux rôles de sécurité.  
+4.  Wenn die identifizierten Tasks den integrierten Sicherheitsrollen nicht zugewiesen werden können, erstellen und testen Sie neue Sicherheitsrollen.  
 
-Pour plus d’informations sur la façon de créer et de configurer des rôles de sécurité pour l’administration basée sur des rôles, consultez [Créer des rôles de sécurité personnalisés](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) et [Configurer des rôles de sécurité](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Informationen zum Erstellen und Konfigurieren von Sicherheitsrollen für die rollenbasierte Verwaltung finden Sie unter [Erstellen benutzerdefinierter Sicherheitsrollen](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) und [Konfigurieren von Sicherheitsrollen](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) im Thema [Konfigurieren der rollenbasierten Verwaltung für System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-##  <a name="bkmk_planCol"></a> Regroupements  
- Les regroupements spécifient les ressources d'utilisateur et d'ordinateur qu'un utilisateur administratif peut consulter ou gérer. Par exemple, pour que les utilisateurs administratifs puissent déployer des applications ou effectuer un contrôle à distance, un rôle de sécurité qui leur permet d'accéder à un regroupement contenant ces ressources doit leur être attribué. Vous pouvez sélectionner des regroupements d'utilisateurs ou d'appareils.  
+##  <a name="bkmk_planCol"></a> Sammlungen  
+ Mithilfe von Sammlungen werden die Benutzer- und Computerressourcen angegeben, die ein Administrator anzeigen oder verwalten kann. Damit Administratoren beispielsweise Anwendungen bereitstellen oder die Remotesteuerung ausführen können, müssen sie einer Sicherheitsrolle zugewiesen werden, mit der Zugriff auf eine Sammlung gewährt wird, die diese Ressourcen enthält. Sie können Sammlungen von Benutzern oder Geräten auswählen.  
 
- Pour plus d’informations sur les regroupements, consultez [Présentation des regroupements dans System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
+ Weitere Informationen zu Sammlungen finden Sie unter [Einführung in Sammlungen in System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
 
- Avant de configurer l'administration basée sur les rôles, vérifiez si vous devez créer de nouveaux regroupements pour l'une des raisons suivantes :  
+ Überprüfen Sie vor dem Konfigurieren der rollenbasierten Verwaltung, ob folgende Gründe für das Erstellen neuer Sammlungen vorliegen:  
 
--   Organisation fonctionnelle. Par exemple, des regroupements distincts de serveurs et de stations de travail.  
+-   Funktionsorganisation. Beispielsweise getrennte Sammlungen von Servern und Arbeitsstationen.  
 
--   Implantation géographique. Par exemple, des regroupements distincts pour l'Amérique du Nord et l'Europe.  
+-   Geografische Ausrichtung. Beispielsweise getrennte Sammlungen für Nordamerika und Europa.  
 
--   Exigences de sécurité et procédures commerciales. Par exemple, des regroupements distincts pour les ordinateurs de production et de test.  
+-   Sicherheitsanforderungen und Geschäftsprozesse. Beispielsweise getrennte Sammlungen für Produktions- und Testcomputer.  
 
--   Alignement de l'organisation. Par exemple, des regroupements distincts pour chaque unité d'exploitation.  
+-   Organisationsausrichtung. Beispielsweise getrennte Sammlungen für jeden Geschäftsbereich.  
 
-Pour plus d’informations sur la façon de configurer des regroupements pour l’administration basée sur des rôles, consultez [Configurer des regroupements pour gérer la sécurité](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Informationen zum Konfigurieren von Sammlungen für die rollenbasierte Verwaltung finden Sie unter [Konfigurieren von Sammlungen zum Verwalten der Sicherheit](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) im Thema [Konfigurieren der rollenbasierten Verwaltung für System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-##  <a name="bkmk_PlanScope"></a> Étendues de sécurité  
- Utilisez les étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder à des objets sécurisables. Une étendue de sécurité est un ensemble nommé d’objets sécurisables attribués aux utilisateurs administratifs en tant que groupe. Tous les objets sécurisables doivent être affectés à une ou plusieurs étendues de sécurité. Configuration Manager possède deux étendues de sécurité intégrées :  
+##  <a name="bkmk_PlanScope"></a> Sicherheitsbereichen  
+ Mithilfe von Sicherheitsbereichen können Sie Administratoren Zugriff auf sicherungsfähige Objekte gewähren. Bei einem Sicherheitsbereich handelt es sich um benannte Sätze von sicherungsfähigen Objekten, die Administratoren als Gruppe zugewiesen werden. Alle sicherungsfähigen Objekte müssen mindestens einem Sicherheitsbereich zugewiesen werden. Configuration Manager verfügt über zwei integrierte Sicherheitsbereiche:  
 
--   L’étendue de sécurité intégrée *Toutes* accorde l’accès à toutes les étendues. Vous ne pouvez pas attribuer d'objets à cette étendue de sécurité.  
+-   Der integrierte Sicherheitsbereich *Alle* gewährt Zugriff auf alle Bereiche. Diesem Sicherheitsbereich können keine Objekte zugewiesen werden.  
 
--   L’étendue de sécurité intégrée *Par défaut* est utilisée pour tous les objets, par défaut. Lorsque vous installez Configuration Manager pour la première fois, tous les objets sont attribués à cette étendue de sécurité.  
+-   Der integrierte Sicherheitsbereich *Standard* wird standardmäßig für alle Objekte verwendet. Bei der Erstinstallation von Configuration Manager werden alle Objekte diesem Sicherheitsbereich zugewiesen.  
 
-Si vous souhaitez restreindre les objets que les utilisateurs administratifs peuvent voir et gérer, vous devez créer et utiliser vos propres étendues de sécurité personnalisées. Les étendues de sécurité ne prennent pas en charge une structure hiérarchique et ne peuvent pas être imbriquées. Les étendues de sécurité peuvent contenir un ou plusieurs types d'objet, dont les suivants :  
+Wenn Sie die Objekte beschränken möchten, die von Administratoren angezeigt und verwaltet werden können, müssen Sie eigene benutzerdefinierte Sicherheitsbereiche erstellen und verwenden. Sicherheitsbereiche unterstützen keine hierarchische Struktur und können nicht geschachtelt werden. Sicherheitsbereiche können mehrere Objekttypen enthalten, darunter die folgenden:  
 
--   Abonnements aux alertes  
+-   Benachrichtigungsabonnements  
 
 -   Applications  
 
--   Images de démarrage  
+-   Startabbilder  
 
--   Groupes de limites  
+-   Begrenzungsgruppen  
 
--   Éléments de configuration  
+-   Konfigurationselemente  
 
--   Paramètres client personnalisés  
+-   Benutzerdefinierte Clienteinstellungen  
 
--   Points de distribution et groupes de points de distribution  
+-   Verteilungspunkte und Verteilungspunktgruppen  
 
--   Packages de pilotes  
+-   Treiberpakete  
 
--   Conditions globales  
+-   Globale Bedingungen  
 
--   Tâches de migration  
+-   Migrationsaufträge  
 
--   Images du système d'exploitation  
+-   Betriebssystemabbilder  
 
--   Packages d'installation du système d'exploitation  
+-   Installationspakete für Betriebssysteme  
 
--   Packages  
+-   Pakete  
 
--   Requêtes  
+-   Abfragen  
 
--   Sites  
+-   Standorte  
 
--   Règles de contrôle de logiciel  
+-   Softwaremessungsregeln  
 
--   Groupes de mises à jour logicielles  
+-   Softwareupdategruppen  
 
--   Packages de mises à jour logicielles  
+-   Softwareupdatepakete  
 
--   Packages de séquence de tâches  
+-   Tasksequenzpakete  
 
--   Éléments et packages des paramètres de l'appareil Windows CE  
+-   Windows CE-Geräteeinstellungselemente und -pakete  
 
-Certains objets ne peuvent pas être ajoutés aux étendues de sécurité, car ils ne sont sécurisés que par les rôles de sécurité. L’accès administratif à ces objets ne peut pas être limité à un sous-ensemble des objets disponibles. Par exemple, vous pouvez être un utilisateur administratif et créer des groupes de limites qui sont utilisés pour un site spécifique. Comme l'objet de la limite ne prend pas en charge les étendues de sécurité, vous ne pouvez pas attribuer à cet utilisateur une étendue de sécurité ne lui accordant que l'accès aux limites qui pourraient être associées à ce site. Comme l'objet de la limite ne peut pas être associé à une étendue de sécurité, lorsque vous attribuez un rôle de sécurité qui comprend l'accès aux objets de la limite à un utilisateur, celui-ci peut accéder à toutes les limites de la hiérarchie.  
+Einige Objekte können Sicherheitsbereichen nicht zugewiesen werden, da sie nur durch Sicherheitsrollen gesichert werden. Der Administratorzugriff auf diese Objekte kann nicht auf eine Teilmenge der verfügbaren Objekte beschränkt werden. Zum Beispiel erstellt ein Administrator Begrenzungsgruppen, die für einen bestimmten Standort verwendet werden. Da für das Grenzobjekt keine Sicherheitsbereiche unterstützt werden, ist es nicht möglich, diesem Benutzer einen Sicherheitsbereich zuzuweisen, der den Zugriff nur auf die diesem Standort zugeordneten Grenzen gewährt. Da Grenzobjekte Sicherheitsbereichen nicht zugeordnet werden können, erhält dieser Benutzer Zugriff auf alle Grenzen in der Hierarchie, wenn Sie ihm eine Sicherheitsrolle zuweisen, die ihm Zugriff auf Grenzobjekte gewährt.  
 
-Parmi les objets qui ne sont pas limités par des étendues de sécurité, on compte les objets suivants :  
+Zu den Objekten, die nicht durch Sicherheitsbereiche eingeschränkt sind, zählen folgende:  
 
--   Forêts Active Directory  
+-   Active Directory-Gesamtstrukturen  
 
--   Utilisateurs administratifs  
+-   Administratoren  
 
--   Alertes  
+-   Warnungen  
 
--   Stratégies anti-programme malveillant  
+-   Richtlinien für Antischadsoftware  
 
--   Limites  
+-   Standortgrenzen  
 
--   Associations d'ordinateurs  
+-   Computerzuordnungen  
 
--   Paramètres client par défaut  
+-   Clientstandardeinstellungen  
 
--   Modèles de déploiement  
+-   Bereitstellungsvorlagen  
 
--   Pilotes d'appareils  
+-   Gerätetreiber  
 
--   Connecteur Exchange Server  
+-   Exchange Server-Connector  
 
--   Mappages de site à site de migration  
+-   Zuordnungen der Migration zwischen Standorten  
 
--   Profil d'inscription d'appareil mobile  
+-   Anmeldungsprofile für mobile Geräte  
 
--   Rôles de sécurité  
+-   Sicherheitsrollen  
 
--   Étendues de sécurité  
+-   Sicherheitsbereichen  
 
--   Adresses de site  
+-   Standortadressen  
 
--   Rôles système de site  
+-   Standortsystemrollen  
 
--   Titres des logiciels  
+-   Softwaretitel  
 
--   Mises à jour logicielles  
+-   Softwareupdates  
 
--   Messages d'état  
+-   Statusmeldungen  
 
--   Affinités des appareils d'utilisateur  
+-   Affinitäten zwischen Benutzer und Gerät  
 
-Créez des étendues de sécurité lorsque vous devez limiter l'accès à des instances d'objets distinctes. Exemple :  
+Erstellen Sie Sicherheitsbereiche, wenn Sie den Zugriff auf separate Instanzen von Objekten beschränken müssen. Beispiel:  
 
--   Vous disposez d'un groupe d'utilisateurs administratifs qui doit être capable de consulter les applications de production, mais pas les applications de test. Créer une étendue de sécurité pour les applications de production et une autre pour les applications de test.  
+-   Eine Gruppe von Administratoren muss Produktionsanwendungen anzeigen können, jedoch keine Testanwendungen. Erstellen Sie einen Sicherheitsbereich für Produktionsanwendungen und eine weitere für die Testanwendungen.  
 
--   Différents utilisateurs administratifs nécessitent différents accès pour certaines instances d'un type d'objet. Par exemple, un groupe d’utilisateurs administratifs requiert l’autorisation Lire pour des groupes de mises à jour logicielles spécifiques et un autre groupe d’utilisateurs administratifs requiert les autorisations Modifier et Supprimer pour d’autres groupes de mises à jour logicielles. Créez différentes étendues de sécurité pour ces groupes de mises à jour logicielles.  
+-   Verschiedene Administratoren benötigen unterschiedliche Zugriffsberechtigungen für einige Instanzen eines Objekttyps. Zum Beispiel benötigt eine Administratorengruppe die Berechtigung „Lesen“ für bestimmte Softwareupdategruppen, und eine andere Administratorengruppe benötigt die Berechtigungen „Ändern“ und „Löschen“ für andere Softwareupdategruppen. Erstellen Sie unterschiedliche Sicherheitsbereiche für diese Softwareupdategruppen.  
 
-Pour plus d’informations sur la façon de configurer des étendues de sécurité pour l’administration basée sur des rôles, consultez [Configurer des étendues de sécurité pour un objet](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
-
+Informationen zum Konfigurieren von Sicherheitsbereichen für die rollenbasierte Verwaltung finden Sie unter [Konfigurieren von Sicherheitsbereichen für ein Objekt](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) im Thema [Konfigurieren der rollenbasierten Verwaltung für System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  

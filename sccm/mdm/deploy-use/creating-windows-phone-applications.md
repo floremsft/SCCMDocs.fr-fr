@@ -1,69 +1,65 @@
 ---
-title: "Créer des applications Windows Phone | Documents Microsoft"
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des appareils Windows Phone."
+title: Erstellen von Windows Phone-Anwendungen | Microsoft Docs
+description: "Erfahren Sie, was Sie beim Erstellen und Bereitstellen von Anwendungen für Windows Phone-Geräte berücksichtigen müssen."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68fe11fa-5fb2-4b81-b0f5-b6f2392fb4ad
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 6d5d5eb9e4bf0297e2d86bf591dab5b3f42c95fa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 6cbf2389a72c0c384ef8e84a1755ac77b64bfc6d
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Créer des applications Windows Phone à l’aide de System Center Configuration Manager
+# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Erstellen von Windows Phone-Anwendungen mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Une application System Center Configuration Manager inclut un ou plusieurs types de déploiement, qui comprennent les fichiers d’installation et informations nécessaires pour déployer le logiciel sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+In einer System Center Configuration Manager-Anwendung ist mindestens ein Bereitstellungstyp enthalten, der die Installationsdateien und Informationen enthält, die zur Bereitstellung der Software für ein Gerät erforderlich sind. Bereitstellungstypen verfügen auch über Regeln, aus denen hervorgeht, wann und wie die Software bereitgestellt wird.  
 
- Vous pouvez créer des applications à l'aide des méthodes suivantes :  
+ Es gibt die folgenden Möglichkeiten zum Erstellen von Anwendungen:  
 
--   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
+-   Erstellen Sie die Anwendungen und Bereitstellungstypen durch Lesen der Installationsdateien der Anwendung automatisch.  
 
--   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
+-   Erstellen Sie die Anwendung manuell, und fügen Sie Bereitstellungstypen später hinzu.  
 
--   Importer une application à partir d’un fichier.  
+-   Importieren Sie eine Anwendung aus einer Datei.  
 
-Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes lorsque vous créez et déployez des applications pour des appareils Windows Phone.  
+Unter [Starten des Assistenten zum Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) finden Sie weitere Informationen zu erforderlichen Schritten zum Erstellen von Configuration Manager-Anwendungen und Bereitstellungstypen. Berücksichtigen Sie beim Erstellen und Bereitstellen von Apps für Windows Phone-Geräte auch Folgendes.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
- Configuration Manager prend en charge le déploiement des types de fichiers d’application suivants :  
+## <a name="general-considerations"></a>Allgemeine Aspekte  
+ Configuration Manager unterstützt die Bereitstellung folgender App-Dateitypen:  
 
-|Type d'appareil|Types de fichiers pris en charge|  
+|Gerätetyp|Unterstützte Dateitypen|  
 |-----------------|---------------------|  
 |Windows Phone 8|.xap|  
 |Windows Phone 8.1|.xap, .appx, .appxbundle|
-|Windows 10 Mobile|.xap, .appx, .appxbundle|
+|Windows 10 Mobile|.xap, .appx, .appxbundle|
 
- Les actions de déploiement suivantes sont prises en charge :  
+ Die folgenden Bereitstellungsaktionen werden unterstützt:  
 
-|Type d'appareil|Actions prises en charge|  
+|Gerätetyp|Unterstützte Aktionen|  
 |-----------------|-----------------------|  
-|Windows Phone 8, Windows Phone 8.1 et Windows 10 Mobile|Disponible, Obligatoire, Désinstaller|  
+|Windows Phone 8, Windows Phone 8.1 und Windows 10 Mobile|Verfügbar, Erforderlich, Deinstallieren|  
 
-## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Étapes de déploiement de la dernière version de l’application de portail d’entreprise Windows Phone avec remplacement  
- Le tableau suivant présente la procédure, des détails et des informations complémentaires pour créer et déployer la dernière version de l'application de portail d'entreprise Windows Phone 8.  
+## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Schritte zur Bereitstellung der neuesten Windows Phone-Unternehmensportal-App mit Ablösung  
+ In der folgenden Tabelle finden Sie Schritte, Details und weitere Informationen zum Erstellen und Bereitstellen der aktuellen Windows Phone 8-Unternehmensportal-App.  
 
-|Étape|Plus d'informations|  
+|Schritt|Weitere Informationen|  
 |----------|----------------------|  
-|**Étape 1 :** obtenir la dernière application de portail d’entreprise.|Téléchargez l' [application du portail d'entreprise Windows Phone 8](http://go.microsoft.com/fwlink/?LinkId=268440).|  
-|**Étape 2 :** signer l’application de portail d’entreprise avec votre certificat Symantec.|Pour plus d’informations sur la façon de signer l’application de portail d’entreprise, consultez [Configurer la gestion des appareils Windows Phone et Windows 10 Mobile hybrides avec System Center Configuration Manager et Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Étape 3 :** Créer une application avec la version la plus récente de l’application de portail d’entreprise et spécifier une relation de remplacement.|Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md) et [Réviser et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Étape 4 :** ajouter l’application à l’Assistant Créer un abonnement Windows Intune.|Pour plus d’informations, consultez [Configurer la gestion des appareils Windows Phone et Windows 10 Mobile hybrides avec System Center Configuration Manager et Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Étape 5 :** supprimer le déploiement qui est automatiquement créé lorsque vous avez ajouté l’application de portail d’entreprise à l’Assistant Créer un abonnement Microsoft Intune.|L’abonnement Microsoft Intune a créé un déploiement automatique de cette application, car ce déploiement ne prendra pas en charge le remplacement.|  
-|**Étape 6 :** Créer un déploiement de l’application. Dans la page **Paramètres de déploiement** de l’**Assistant Déploiement logiciel**, cochez la case **Mettre automatiquement à niveau toutes les versions remplacées de cette application**.|Créez un nouveau déploiement avec le remplacement à l'aide de l'application que vous avez créée avec la relation de remplacement.|  
-|**Étape 7 (facultative) :** Par défaut, les applications de remplacement s’installent sur les appareils au bout de sept jours. Pour déployer l’application de portail d’entreprise plus tôt sur les appareils inscrits auparavant, définissez le paramètre **Planifier la réévaluation des déploiements** sur une valeur inférieure.<br /><br /> Si vous affectez à cette valeur une valeur inférieure à la valeur par défaut, cela peut affecter négativement les performances de votre réseau et des ordinateurs clients.|Aucune information supplémentaire.|  
-
+|**Schritt 1:** Beschaffen Sie sich die aktuelle Unternehmensportal-App.|Laden Sie die [Unternehmensportal-App von Windows Phone 8](http://go.microsoft.com/fwlink/?LinkId=268440)herunter.|  
+|**Schritt 2:** Signieren Sie die Unternehmensportal-App mit Ihrem Symantec-Zertifikat.|Weitere Informationen zum Signieren der Unternehmensportal-App finden Sie unter [Set up Windows Phone and Windows 10 Mobile hybrid device management with System Center Configuration Manager and Microsoft Intune (Einrichten einer hybriden Geräteverwaltung für Windows Phone und Windows 10 Mobile mit System Center Configuration Manager und Microsoft Intune)](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Schritt 3:** Erstellen Sie eine neue Anwendung mit der aktuellen Version der Unternehmensportal-App, und geben Sie eine Ablösungsbeziehung an.|Weitere Informationen finden Sie unter [Erstellen von Anwendungen](../../apps/deploy-use/create-applications.md) und [Überarbeiten und Ablösen von Anwendungen](../../apps/deploy-use/revise-and-supersede-applications.md).|  
+|**Schritt 4:** Fügen Sie die Anwendung dem Assistenten für Microsoft Intune-Abonnements hinzu.|Weitere Informationen finden Sie unter [Set up Windows Phone and Windows 10 Mobile hybrid device management with System Center Configuration Manager and Microsoft Intune (Einrichten einer hybriden Geräteverwaltung für Windows Phone und Windows 10 Mobile mit System Center Configuration Manager und Microsoft Intune)](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Schritt 5:** Löschen Sie die beim Hinzufügen der Unternehmensportal-App zum Assistenten für Microsoft Intune-Abonnements automatisch erstellte Bereitstellung.|Eine automatische Bereitstellung dieser App wurde durch das Microsoft Intune-Abonnement erstellt, da eine Ablösung von dieser Bereitstellung nicht unterstützt wird.|  
+|**Schritt 6:** Erstellen Sie eine neue Bereitstellung der Anwendung. Aktivieren Sie im **Assistenten zum Bereitstellen von Software** auf der Seite **Bereitstellungseinstellungen** die Option **Automatically upgrade any superceded versions of this application** (Abgelöste Versionen dieser Anwendung automatisch upgraden).|Erstellen Sie mithilfe der Anwendung, die Sie mit der Ablösungsbeziehung erstellt haben, eine neue Bereitstellung mit Ablösung.|  
+|**Schritt 7 (optional):** Die ablösenden Apps würden standardmäßig nach 7 Tagen auf den Geräten installiert werden. Wenn Sie die Unternehmensportal-App auf zuvor bereits angemeldeten Geräten schneller bereitstellen möchten, können Sie für die Einstellung **Erneute Auswertung für Bereitstellungen planen** einen niedrigeren Wert festlegen.<br /><br /> Wenn Sie einen Wert festlegen, der niedriger als die Standardeinstellung ist, kann dies jedoch die Leistung von Netzwerk und Clientcomputern beeinträchtigen.|keine zusätzlichen Informationen|  

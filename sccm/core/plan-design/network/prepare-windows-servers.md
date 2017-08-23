@@ -1,145 +1,141 @@
 ---
-title: "Préparer des serveurs Windows | Microsoft Docs"
-description: "Vérifiez qu’un ordinateur remplit les conditions préalables pour l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager."
+title: Vorbereiten von Computern mit Windows Server | Microsoft-Dokumentation
+description: "Stellen Sie sicher, dass ein Computer die Voraussetzungen für die Verwendung als Standortserver oder Standortsystemserver für System Center Configuration Manager erfüllt."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2aca914f-641e-4bc8-98d4-bbf0a2a5276f
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dd102603356864add4084c6881c39bebcbd635f2
 ms.openlocfilehash: 9b97dedb5d2be0bd2e47260033e6e4361467dc4e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Préparer des serveurs Windows pour prendre en charge System Center Configuration Manager
+# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Vorbereiten von Computern mit Windows Server zur Unterstützung von System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Pour pouvoir l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager, l’ordinateur doit remplir les conditions requises.  
+Ehe Sie einen Windows-Computer als Standortsystemserver für System Center Configuration Manager nutzen können, muss der Computer die Voraussetzung für die vorgesehene Verwendung als Standortserver oder Standortsystemserver erfüllen.  
 
--   Ces conditions incluent souvent un ou plusieurs rôles ou fonctionnalités Windows, qui sont activés à l’aide du Gestionnaire de serveur des ordinateurs.  
+-   Zu diesen Voraussetzungen gehören häufig ein(e) oder mehrere Windows-Features oder -Rollen, die mithilfe von Server-Manager auf dem Computer aktiviert werden.  
 
--   Étant donné que la méthode d’activation des rôles et fonctionnalités Windows varie selon les systèmes d’exploitation, consultez la documentation de votre système d’exploitation pour en savoir plus sur la configuration appropriée.  
+-   Da sich die Methode zum Aktivieren von Windows-Features und -Rollen je nach Betriebssystem unterscheidet, konsultieren Sie die Dokumentation Ihres Betriebssystems hinsichtlich detaillierter Informationen zur entsprechenden Einrichtung.  
 
-Les informations contenues dans cet article offrent une vue d’ensemble des différents types de configurations Windows nécessaires à la prise en charge des systèmes de site Configuration Manager. Pour plus d’informations sur la configuration de certains rôles de système de site, consultez [Prérequis des sites et systèmes de site pour System Center Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+Die Informationen in diesem Artikel bieten einen Überblick über die verschiedenen Windows-Konfigurationstypen, die zur Unterstützung von Configuration Manager-Standortsystemen erforderlich sind. Konfigurationsdetails für bestimmte Standortsystemrollen finden Sie unter [Voraussetzungen für Standorte und Standortsysteme](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-##  <a name="BKMK_WinFeatures"></a> Rôles et fonctionnalités Windows  
- Quand vous configurez des rôles et des fonctionnalités Windows sur un ordinateur, il se peut que vous deviez redémarrer l’ordinateur pour terminer la configuration. Il est donc judicieux d’identifier les ordinateurs qui hébergeront certains rôles de système de site avant d’installer un site ou un serveur de système de site Configuration Manager.
-### <a name="features"></a>Fonctionnalités  
- Les fonctionnalités Windows suivantes sont nécessaires sur certains serveurs de système de site et doivent être configurées pour pouvoir installer un rôle de système de site sur cet ordinateur.  
+##  <a name="BKMK_WinFeatures"></a> Windows-Features und -Rollen  
+ Wenn Sie Windows-Features und -Rollen auf einem Computer einrichten, müssen Sie möglicherweise den Computer neu starten, um die Konfiguration abzuschließen. Daher ist es eine gute Idee, die Computer zu identifizieren, die bestimmte Standortsystemrollen hosten, bevor Sie einen Configuration Manager-Standort oder Standortsystemserver installieren.
+### <a name="features"></a>Features  
+ Die folgenden Windows-Features sind auf bestimmten Standortsystemservern erforderlich und müssen eingerichtet werden, bevor Sie eine Standortsystemrolle auf dem jeweiligen Computer installieren.  
 
--   **.NET Framework** : incluant  
+-   **.NET Framework:** einschließlich  
 
     -   ASP.NET  
-    -   Activation HTTP  
-    -   Activation non-HTTP  
-    -   Services WCF (Windows Communication Foundation)  
+    -   HTTP-Aktivierung  
+    -   Nicht-HTTP-Aktivierung  
+    -   Windows Communication Foundation (WCF)  
 
-    Différents rôles de système de site requièrent différentes versions de .NET Framework.  
+    Verschiedene Versionen von .NET Framework sind je nach Standortsystemrolle erforderlich.  
 
-    Comme Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures, si différentes versions sont requises, vous devez prévoir d’activer chaque version sur le même ordinateur.  
+    Da .NET Framework 4.0 und höher nicht so abwärtskompatibel ist, dass 3.5 oder ältere Versionen ersetzt werden, müssen Sie entsprechende Versionen auf demselben Computer aktivieren, sofern diese als erforderlich angegeben sind.  
 
--   **Service de transfert intelligent en arrière-plan (BITS)** : les points de gestion ont besoin du service BITS (et des options sélectionnées automatiquement) pour prendre en charge la communication avec les appareils gérés.  
+-   **Background Intelligent Transfer Service (BITS)**: Verwaltungspunkte erfordern BITS (und automatisch ausgewählte Optionen), damit die Kommunikation mit verwalteten Geräten unterstützt wird.  
 
--   **BranchCache** : vous pouvez configurer les points de distribution avec BranchCache pour prendre en charge les clients qui utilisent cette fonctionnalité.  
+-   **BranchCache:** Verteilungspunkte können mit BranchCache so eingerichtet werden, dass Sie Clients unterstützen, die BranchCache verwenden.  
 
--   **Déduplication des données** : vous pouvez configurer les points de distribution avec la déduplication des données pour tirer parti de cette fonctionnalité.  
+-   **Datendeduplizierung:** Verteilungspunkte können mit Datendeduplizierung eingerichtet werden und davon profitieren.  
 
--   **Compression différentielle à distance (RDC)** : chaque ordinateur qui héberge un serveur de site ou un point de distribution a besoin de la compression différentielle à distance.   
-    Celle-ci est utilisée pour générer des signatures de package et effectuer des comparaisons de signatures.  
+-   **Remotedifferenzialkomprimierung (Remote Differential Compression, RDC)**: Jeder Computer, der einen Standortserver oder Verteilungspunkt hostet, benötigt RDC.   
+    RDC wird zum Erstellen von Paketsignaturen und Durchführen von Signaturvergleichen verwendet.  
 
-### <a name="roles"></a>Rôles  
- Les rôles Windows suivants sont requis pour prendre en charge des fonctionnalités spécifiques, telles que les mises à jour logicielles et les déploiements de système d’exploitation. IIS est requis par les principaux rôles de système de site.  
+### <a name="roles"></a>Rollen  
+ Die folgenden Windows-Rollen sind erforderlich, um bestimmte Funktionen zu unterstützen, z. B. Softwareupdates und Betriebssystembereitstellungen, während IIS von den meisten gängigen Standortsystemrollen benötigt wird.  
 
- -   **Service d’inscription de périphérique réseau** (sous Services de certificats Active Directory) : ce rôle Windows est requis pour pouvoir utiliser des profils de certificat dans Configuration Manager.  
+ -   **Registrierungsdienst für Netzwerkgeräte** (unter Active Directory-Zertifikatdienste): Diese Windows-Rolle ist eine Voraussetzung für die Verwendung von Zertifikatprofilen in Configuration Manager.  
 
- -   **Serveur web (IIS)**, avec notamment :  
-    -   Fonctionnalités HTTP communes >  
-        -   Redirection HTTP  
-    -   Développement d’applications >  
-        -   Extensibilité .NET  
+ -   **Webserver (IIS)**: Einschließlich:  
+    -   Allgemeine HTTP-Features >  
+        -   HTTP-Umleitung  
+    -   Anwendungsentwicklung >  
+        -   .NET-Erweiterbarkeit  
         -   ASP.NET  
-        -   Extensions ISAPI  
-        -   Filtres ISAPI  
-    -   Outils de gestion >  
-        -   IIS 6 Management Compatibility  
-        -   Compatibilité avec la métabase de données IIS 6  
-        -   Compatibilité avec IIS 6 Windows Management Instrumentation (WMI)  
-    -   Sécurité >  
-        -   Filtrage des demandes  
-        -   Authentification Windows  
+        -   ISAPI-Erweiterungen  
+        -   ISAPI-Filter  
+    -   Verwaltungstools >  
+        -   IIS 6-Verwaltungskompatibilität  
+        -   IIS 6-Metabasiskompatibilität  
+        -   IIS 6-WMI-Kompatibilität  
+    -   Sicherheit >  
+        -   Anforderungsfilterung  
+        -   Windows-Authentifizierung  
 
- Les rôles de système de site suivants utilisent une ou plusieurs des configurations IIS répertoriées :  
-    -   Point de service Web du catalogue des applications  
-    -   Point du site web du catalogue des applications  
-    -   Point de distribution  
-    -   Point d'inscription  
-    -   Point proxy d'inscription  
-    -   Point d’état de secours  
-    -   Point de gestion  
-    -   Point de mise à jour logicielle  
-    -   Point de migration d'état     
+ Die folgenden Standortsystemrollen verwenden eine oder mehrere der aufgelisteten IIS-Konfigurationen:  
+    -   Anwendungskatalog-Webdienstpunkt  
+    -   Anwendungskatalog-Websitepunkt  
+    -   Verteilungspunkt  
+    -   Anmeldungspunkt  
+    -   Anmeldungsproxypunkt  
+    -   Fallbackstatuspunkt  
+    -   Verwaltungspunkt  
+    -   Softwareupdatepunkt  
+    -   Zustandsmigrationspunkt     
 
-    La version minimale d’IIS requise est la version fournie avec le système d’exploitation du serveur de site.  
+    Die erforderliche Mindestversion von IIS ist die Version, die zum Betriebssystem des Standortservers gehört.  
 
-    En plus de ces configurations IIS, il se peut que vous deviez configurer le [Filtrage des demandes IIS pour les points de distribution](#BKMK_IISFiltering).  
+    Zusätzlich zu diesen IIS-Konfigurationen müssen Sie möglicherweise [IIS-Anforderungsfilterung für Verteilungspunkte](#BKMK_IISFiltering) einrichten.  
 
--   **Services de déploiement Windows** : ce rôle est utilisé pour le déploiement de système d’exploitation.  
--   **Windows Server Update Services** : ce rôle est nécessaire pour le déploiement de mises à jour logicielles.  
+-   **Windows-Bereitstellungsdienste:** Diese Rolle wird mit der Betriebssystembereitstellung verwendet.  
+-   **Windows Server Update Services:** Diese Rolle ist erforderlich, wenn Sie Softwareupdates bereitstellen.  
 
-##  <a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
- Par défaut, IIS utilise le filtrage des demandes pour bloquer l’accès par HTTP ou HTTPS à plusieurs extensions de nom de fichier et emplacements de dossier. Sur un point de distribution, cela empêche les clients de télécharger des packages contenant des extensions ou des emplacements de dossier bloqués.  
+##  <a name="BKMK_IISFiltering"></a> IIS-Anforderungsfilterung für Verteilungspunkte  
+ IIS verwendet standardmäßig die Filterung von Benutzeranforderungen, um Dateierweiterungen und Ordnerpfade für den Zugriff über HTTP- oder HTTPS-Verbindungen zu blockieren. Auf einem Verteilungspunkt verhindert dies, dass Clients Pakete mit blockierten Erweiterungen oder Ordnerpfaden herunterladen.  
 
- Si vos fichiers sources de package contiennent des extensions qui sont bloquées dans IIS par votre configuration de filtrage des demandes, vous devez les autoriser dans le filtrage des demandes. Pour cela, vous devez [configurer le filtrage des demandes](https://technet.microsoft.com/library/hh831621.aspx) dans le Gestionnaire des services IIS sur vos ordinateurs de point de distribution.  
+ Wenn Ihre Paketquelldateien Erweiterungen aufweisen, die in IIS durch Ihre Konfiguration der Anforderungsfilterung blockiert werden, müssen Sie die Anforderungsfilterung so einrichten, dass sie diese zulässt. Dies erfolgt durch [Bearbeiten des Anforderungsfilterfeatures](https://technet.microsoft.com/library/hh831621.aspx) im IIS-Manager auf Ihren Verteilungspunktcomputern.  
 
- Par ailleurs, Configuration Manager utilise les extensions de nom de fichier suivantes pour les packages et les applications. Vérifiez que vos configurations de filtrage des demandes ne bloquent pas les extensions de fichier suivantes :  
+ Die folgenden Dateinamenerweiterungen werden außerdem von Configuration Manager für Pakete und Anwendungen verwendet. Stellen Sie sicher, dass Ihre Konfigurationen der Anforderungsfilterung diese Erweiterungen nicht blockieren:  
 
 -   .PCK  
 -   .PKG  
 -   .STA  
 -   .TAR  
 
-Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des fichiers sources incluant un dossier nommé **bin** ou contenant un fichier avec l’extension **.mdb**.  
+Beispiel: Sie verfügen über Quelldateien für eine Softwarebereitstellung, die möglicherweise einen Ordner mit der Bezeichnung **bin** oder eine Datei mit der Dateierweiterung **.mdb** aufweisen.  
 
--   Par défaut, le filtrage des demandes IIS bloque l’accès à ces éléments (**bin** est bloqué en tant que segment masqué et **.mdb** est bloqué en tant qu’extension de nom de fichier).  
+-   Standardmäßig blockiert die IIS-Anforderungsfilterung den Zugriff auf diese Elemente (**bin** wird als ausgeblendetes Segment und **.mdb** als Dateierweiterung blockiert).  
 
--   Quand vous utilisez la configuration IIS par défaut sur un point de distribution, les clients qui utilisent BITS ne peuvent pas télécharger ce déploiement logiciel à partir du point de distribution et indiquent qu’ils attendent du contenu.  
+-   Wenn Sie die IIS-Standardkonfiguration auf einem Verteilungspunkt verwenden, treten beim Herunterladen dieser Softwarebereitstellung vom Verteilungspunkt Fehler auf, wenn die Clients BITS verwenden. Außerdem geben die Clients an, dass sie auf Inhalte warten.  
 
--   Pour permettre aux clients de télécharger ce contenu, sur chaque point de distribution applicable, modifiez l’option **Filtrage des demandes** dans le Gestionnaire des services IIS pour autoriser l’accès aux extensions de fichier et aux dossiers contenus dans les packages et applications que vous déployez.  
+-   Damit die Clients diese Inhalte herunterladen können, bearbeiten Sie auf jedem betreffenden Verteilungspunkt im IIS-Manager das Feature **Anforderungsfilterung**, um den Zugriff auf die Dateierweiterungen und Ordner in den Paketen und Anwendungen zuzulassen, die Sie bereitstellen.  
 
 > [!IMPORTANT]  
->  Les modifications apportées au filtre de demande peuvent augmenter la surface exposée aux attaques de l’ordinateur.  
+>  Durch Bearbeitung des Anforderungsfilters kann sich die Angriffsfläche des Computers erhöhen.  
 >   
->  -   Les modifications apportées au niveau du serveur s’appliquent à tous les sites web sur le serveur.  
-> -   Les modifications apportées à un site web particulier s’appliquent uniquement à ce site web.  
+>  -   Auf Serverebene vorgenommene Änderungen gelten für alle Websites auf dem Server.  
+> -   Änderungen an einzelnen Websites gelten nur für die jeweilige Website.  
 >   
->  La bonne pratique à suivre sur le plan de la sécurité consiste à exécuter Configuration Manager sur un serveur web dédié. Si vous devez exécuter d’autres applications sur le serveur web, utilisez un site web personnalisé pour Configuration Manager. Pour plus d’informations, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
+>  Eine bewährte Sicherheitsmethode besteht darin, Configuration Manager auf einem dedizierten Webserver auszuführen. Wenn das Ausführen anderer Webanwendungen auf dem Webserver erforderlich ist, verwenden Sie für Configuration Manager eine benutzerdefinierte Website. Weitere Informationen finden Sie unter [Websites für Standortsystemserver in System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-## <a name="http-verbs"></a>Verbes HTTP
-**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
+## <a name="http-verbs"></a>HTTP-Verben
+**Verwaltungspunkte:** Damit die Clients erfolgreich mit einem Verwaltungspunkt kommunizieren können, müssen auf dem Verwaltungspunktserver die folgenden HTTP-Verben zulässig sein:  
  - GET
  - POST
  - CCM_POST
  - HEAD
  - PROPFIND
 
-**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
+**Verteilungspunkte:** Für Verteilungspunkte müssen die folgenden HTTP-Verben zulässig sein:
  - GET
  - HEAD
  - PROPFIND
 
-Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire applicable à la version de Windows Server qui héberge votre point de gestion.
-
+Informationen zum Konfigurieren der Anforderungsfilterung finden Sie unter [Konfigurieren der Anforderungsfilterung in IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) auf TechNet oder in einer ähnlichen Dokumentation, die sich auf die Version von Windows Server bezieht, die den Verwaltungspunkt hostet.

@@ -1,7 +1,6 @@
 ---
-
-title: "Synchroniser les mises à jour sans connexion Internet - Configuration Manager | Microsoft Docs"
-description: "Exécutez la synchronisation des mises à jour logicielles à partir du point de mise à jour logicielle de niveau supérieur qui est déconnecté d’Internet."
+title: "Synchronisieren von Updates ohne Internetverbindung – Configuration Manager | Microsoft-Dokumentation"
+description: "Führen Sie die Synchronisierung von Softwareupdates auf dem obersten Softwareupdatepunkt aus, der nicht mit dem Internet verbunden ist."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,104 +9,98 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Synchronisieren von Softwareupdates bei einem getrennten Softwareupdatepunkt  
 
-# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté  
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+ Wenn der Softwareupdatepunkt am Standort der obersten Ebene nicht mit dem Internet verbunden ist, müssen Sie die Metadaten für Softwareupdates mithilfe der Export- und Importfunktionen des Tools „WSUSUtil“ synchronisieren. Sie können einen vorhandenen WSUS-Server, der nicht der Configuration Manager-Hierarchie angehört, als Synchronisierungsquelle auswählen. In diesem Thema erfahren Sie, wie Sie die Export- und Importfunktionen des Tools „WSUSUtil“ verwenden.  
 
- Quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d'Internet, vous devez utiliser les fonctions d'exportation et d'importation de l'outil WSUSUtil pour synchroniser les métadonnées des mises à jour logicielles. Vous pouvez choisir un serveur WSUS existant qui ne fait pas partie de votre hiérarchie Configuration Manager en tant que source de synchronisation. Cette rubrique fournit des informations sur l’utilisation des fonctions d’exportation et d’importation de l’outil WSUSUtil.  
+ Zum Exportieren und Importieren von Metadaten für Softwareupdates gehen Sie wie folgt vor: Sie müssen Metadaten für Softwareupdates aus der WSUS-Datenbank auf einem angegebenen Exportserver exportieren, die lokal gespeicherten Dateien mit den Lizenzbedingungen auf den getrennten Softwareupdatepunkt kopieren und dann die Metadaten für Softwareupdates in die WSUS-Datenbank auf dem getrennten Softwareupdatepunkt importieren.  
 
- Pour exporter et importer des métadonnées de mises à jour logicielles, vous devez les exporter de la base de données WSUS sur un serveur d'exportation spécifié, copier les fichiers du contrat de licence stockés localement vers le point de mise à jour logicielle déconnecté, puis importer les métadonnées des mises à jour logicielles dans la base de données WSUS sur le point de mise à jour logicielle déconnecté.  
+ Mithilfe der nachstehenden Tabelle können Sie den Exportserver identifizieren, auf den die Metadaten für Softwareupdates exportiert werden müssen.  
 
- Utilisez le tableau suivant pour identifier le serveur d'exportation vers lequel exporter les métadonnées des mises à jour logicielles.  
-
-|Point de mise à jour logicielle|Source de mise à jour en amont pour les points de mise à jour logicielle connectés|Serveur d'exportation d'un point de mise à jour logicielle déconnecté|  
+|Softwareupdatepunkt|Upstream-Updatequelle für verbundene Softwareupdatepunkte|Exportserver für getrennten Softwareupdatepunkt|  
 |---------------------------|-----------------------------------------------------------------|------------------------------------------------------------|  
-|Site d'administration centrale|Microsoft Update (Internet)<br /><br /> Serveur WSUS existant|Choisissez un serveur WSUS qui est synchronisé avec Microsoft Update en utilisant les classifications de mise à jour logicielle, les produits et les langues dont vous avez besoin dans votre environnement Configuration Manager.|  
-|Site principal autonome|Microsoft Update (Internet)<br /><br /> Serveur WSUS existant|Choisissez un serveur WSUS qui est synchronisé avec Microsoft Update en utilisant les classifications de mise à jour logicielle, les produits et les langues dont vous avez besoin dans votre environnement Configuration Manager.|  
+|Standort der zentralen Verwaltung|Microsoft Update (Internet)<br /><br /> Vorhandener WSUS-Server|Wählen Sie einen WSUS-Server aus, der anhand der in der Configuration Manager-Umgebung benötigten Softwareupdateklassifizierungen, Produkte und Sprachen mit Microsoft Update synchronisiert wurde.|  
+|Eigenständiger primärer Standort|Microsoft Update (Internet)<br /><br /> Vorhandener WSUS-Server|Wählen Sie einen WSUS-Server aus, der anhand der in der Configuration Manager-Umgebung benötigten Softwareupdateklassifizierungen, Produkte und Sprachen mit Microsoft Update synchronisiert wurde.|  
 
- Avant de commencer le processus d'exportation, vérifiez que la synchronisation des mises à jour logicielles est terminée sur le serveur d'exportation sélectionné pour vous assurer que les métadonnées des mises à jour logicielles les plus récentes sont synchronisées. Pour vérifier que la synchronisation des mises à jour logicielles s'est terminée correctement, procédez comme suit.  
+ Überprüfen Sie, ob die Softwareupdatesynchronisierung auf dem ausgewählten Exportserver abgeschlossen ist, bevor Sie den Exportprozess starten. Dadurch stellen Sie sicher, dass die jüngsten Metadaten für Softwareupdates synchronisiert werden. Gehen Sie wie folgt vor, um zu überprüfen, ob die Softwareupdatesynchronisierung erfolgreich abgeschlossen wurde.  
 
-#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>Pour vérifier que la synchronisation des mises à jour logicielles s'est terminée correctement sur le serveur d'exportation  
+#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>So überprüfen Sie, ob die Softwareupdatesynchronisierung auf dem Exportserver erfolgreich abgeschlossen wurde  
 
-1.  Ouvrez la console d'administration WSUS et connectez-vous à la base de données WSUS sur le serveur d'exportation.  
+1.  Öffnen Sie die WSUS-Verwaltungskonsole, und stellen Sie eine Verbindung mit der WSUS-Datenbank auf dem Exportserver her.  
 
-2.  Dans la console d'administration WSUS, cliquez sur **Synchronisations**. Une liste des tentatives de synchronisation des mises à jour logicielles s'affiche dans le volet des résultats.  
+2.  Klicken Sie in der WSUS-Verwaltungskonsole auf **Synchronisierungen**. Im Ergebnisbereich wird eine Liste der Synchronisierungsversuche für Softwareupdates angezeigt.  
 
-3.  Dans le volet des résultats, chercher les dernières tentatives de synchronisation des mises à jour logicielles et vérifiez que la synchronisation s'est terminée correctement.  
+3.  Suchen Sie im Ergebnisbereich den letzten Synchronisierungsversuch für Softwareupdates, und überprüfen Sie, ob dieser erfolgreich abgeschlossen wurde.  
 
 > [!IMPORTANT]  
->  L'outil WSUSUtil doit être exécuté localement sur le serveur d'exportation afin d'exporter les métadonnées des mises à jour logicielles et il doit également être exécuté sur le serveur du point de mise à jour logicielle déconnecté afin d'importer les métadonnées des mises à jour logicielles. En outre, l'utilisateur qui exécute l'outil WSUSUtil doit être membre du groupe Administrateurs local sur chaque serveur.  
+>  Das Tool „WSUSUtil“ muss lokal auf dem Exportserver ausgeführt werden, um die Metadaten für Softwareupdates zu exportieren. Es muss außerdem lokal auf dem Server des getrennten Softwareupdatepunkts ausgeführt werden, um die Metadaten für Softwareupdates zu importieren. Der Benutzer, der das Tool „WSUSUtil“ ausführt, muss zudem auf beiden Servern der lokalen Administratorengruppe angehören.  
 
-## <a name="export-process-for-software-updates"></a>Processus d’exportation pour les mises à jour logicielles  
- Le processus d'exportation des mises à jour logicielles comporte deux étapes principales : pour copier les fichiers du contrat de licence stockés localement dans le point de mise à jour logicielle déconnecté et pour exporter les métadonnées des mises à jour logicielles de la base de données WSUS sur le serveur d'exportation.  
+## <a name="export-process-for-software-updates"></a>Exportprozess für Softwareupdates  
+ Der Exportprozess für Softwareupdates besteht aus zwei Hauptschritten. Zuerst werden lokal gespeicherte Dateien mit den Lizenzbedingungen auf den getrennten Softwareupdatepunkt kopiert, und dann werden die Metadaten für Softwareupdates aus der WSUS-Datenbank auf dem Exportserver exportiert.  
 
- Pour copier les métadonnées du contrat de licence local vers le point de mise à jour logicielle déconnecté, procédez comme suit.  
+ Gehen Sie wie folgt vor, um die lokalen Metadaten für Lizenzbedingungen auf den getrennten Softwareupdatepunkt zu kopieren.  
 
-#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>Pour copier les fichiers locaux du serveur d'exportation vers le serveur du point de mise à jour logicielle déconnecté  
+#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>So kopieren Sie lokale Dateien vom Exportserver auf den Server des getrennten Sofwareupdatepunkts  
 
-1.  Sur le serveur d'exportation, accédez au dossier dans lequel les mises à jour logicielles et les termes du contrat de licence des mises à jour logicielles sont stockés. Par défaut, le serveur WSUS stocke les fichiers dans <*lecteur_installation_WSUS*>\WSUS\WSUSContent\\, où *lecteur_installation_WSUS* correspond au lecteur sur lequel WSUS est installé.  
+1.  Navigieren Sie im Exportserver zu dem Order, in dem die Softwareupdates und Lizenzbedingungen für Softwareupdates gespeichert sind. Standardmäßig speichert der WSUS-Server die Dateien im Ordner „<*WSUS-Installationslaufwerk*>\WSUS\WSUSContent\\“, wobei das *WSUS-Installationslaufwerk* das Laufwerk ist, auf dem WSUS installiert ist.  
 
-2.  Copiez tous les fichiers et dossiers depuis cet emplacement vers le dossier WSUSContent sur le serveur du point de mise à jour logicielle déconnecté.  
+2.  Kopieren Sie alle Dateien und Ordner von diesem Ort in den Ordner WSUSContent auf dem Server des getrennten Softwareupdatepunkts.  
 
- Pour exporter les métadonnées des mises à jour logicielles à partir de la base de données WSUS sur le serveur d'exportation, procédez comme suit.  
+ Gehen Sie wie folgt vor, um die Metadaten für Softwareupdates aus der WSUS-Datenbank auf dem Exportserver zu exportieren.  
 
-#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>Pour exporter les métadonnées des mises à jour logicielles à partir de la base de données WSUS sur le serveur d'exportation  
+#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>So exportieren Sie Metadaten für Softwareupdates aus der WSUS-Datenbank auf dem Exportserver  
 
-1.  À l'invite de commandes sur le serveur d'exportation, accédez au dossier qui contient WSUSutil.exe. Par défaut, l'outil se trouve dans %*ProgramFiles*%\Update Services\Tools. Par exemple, si l’outil se trouve à l’emplacement par défaut, tapez **cd %ProgramFiles%\Update Services\Tools**.  
+1.  Wechseln Sie an der Eingabeaufforderung des Exportservers zum Ordner, der "WSUSutil.exe" enthält. Dieses Tool befindet sich standardmäßig im Ordner "%*Programme*%\Update Services\Tools". Befindet sich das Tool beispielsweise am Standardspeicherort, geben Sie **cd %ProgramFiles%\Update Services\Tools**ein.  
 
-2.  Tapez ce qui suit pour exporter les métadonnées des mises à jour logicielles vers un fichier de package :  
+2.  Geben Sie Folgendes ein, um die Metadaten für Softwareupdates in eine Paketdatei zu exportieren:  
 
-     **wsusutil.exe export***nompackage**fichierjournal*  
+     **wsusutil.exe export**  *Paketname*  *Protokolldatei*  
 
-     Exemple :  
+     Beispiel:  
 
      **wsusutil.exe export export.cab export.log**  
 
-     Le format peut être résumé comme suit : WSUSutil.exe est suivi de l’option d’exportation, du nom du fichier .cab d’exportation créé pendant l’opération d’exportation et du nom d’un fichier journal. WSUSutil.exe exporte les métadonnées du serveur d'exportation et crée un fichier journal de l'opération.  
+     Das Format kann wie folgt zusammengefasst werden: Nach „WSUSutil.exe“ stehen die Exportoption, der Name der beim Exportvorgang erstellten CAB-Exportdatei und der Name einer Protokolldatei. „WSUSutil.exe“ exportiert die Metadaten des Exportservers und erstellt eine Protokolldatei des Vorgangs.  
 
     > [!NOTE]  
-    >  Le nom du package (fichier .cab) et du fichier journal doivent être uniques dans le dossier actif.  
+    >  Der Name des Pakets (CAB-Datei) und der Protokolldatei müssen im aktuellen Ordner eindeutig sein.  
 
-3.  Déplacez le package d'exportation dans le dossier qui contient WSUSutil.exe sur le serveur d'importation WSUS.  
+3.  Verschieben Sie das Exportpaket in den Ordner mit „WSUSutil.exe“ auf dem WSUS-Importserver.  
 
     > [!NOTE]  
-    >  Si vous déplacez le package vers ce dossier, l'expérience d'importation peut s'avérer plus facile. Vous pouvez déplacer le package vers un emplacement accessible au serveur d'importation, puis spécifier l'emplacement pendant l'exécution de WSUSutil.exe.  
+    >  Der Importprozess wird dadurch erleichtert, dass Sie das Paket in diesen Ordner verschieben. Sie können das Paket an jeden Speicherort verschieben, auf den der Importserver Zugriff hat, und dann diesen Ort beim Ausführen von „WSUSutil.exe“ angeben.  
 
-## <a name="import-software-updates-metadata"></a>Importer les métadonnées des mises à jour logicielles  
- Pour importer les métadonnées des mises à jour logicielles depuis le serveur d'exportation vers le point de mise à jour logicielle déconnecté, procédez comme suit.  
+## <a name="import-software-updates-metadata"></a>Importieren von Metadaten für Softwareupdates  
+ Gehen Sie wie folgt vor, um Metadaten für Softwareupdates vom Exportserver in den getrennten Softwareupdatepunkt zu importieren.  
 
 > [!IMPORTANT]  
->  N'importez jamais de données exportées à partir d'une source non approuvée. Si vous importez du contenu à partir d'une source non approuvée, vous risquez de compromettre la sécurité de votre serveur WSUS.  
+>  Importieren Sie stets ausschließlich Daten, die aus einer vertrauenswürdigen Quelle exportiert wurden. Die Sicherheit des WSUS-Servers kann durch den Import von Inhalten aus einer nicht vertrauenswürdigen Quelle beeinträchtigt werden.  
 
-#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>Pour importer les métadonnées de la base de données du serveur d'importation  
+#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>So importieren Sie Metadaten in die Datenbank des Importservers  
 
-1.  À l'invite de commandes sur le serveur WSUS d'importation, accédez au dossier qui contient WSUSutil.exe. Par défaut, l'outil se trouve dans %*ProgramFiles*%\Update Services\Tools.  
+1.  Wechseln Sie an der Eingabeaufforderung des WSUS-Importservers zum Ordner, der "WSUSutil.exe" enthält. Dieses Tool befindet sich standardmäßig im Ordner "%*Programme*%\Update Services\Tools".  
 
-2.  Tapez la commande suivante :  
+2.  Geben Sie Folgendes ein:  
 
-     **wsusutil.exe import** *nompackage**fichierjournal*  
+     **wsusutil.exe import**  *Paketname*  *Protokolldatei*  
 
-     Exemple :  
+     Beispiel:  
 
      **wsusutil.exe import export.cab import.log**  
 
-     Le format peut être résumé comme suit : WSUSutil.exe est suivi par la commande d’importation, le nom du fichier de package (.cab) créé pendant l’opération d’exportation, le chemin du fichier de package s’il se trouve dans un autre dossier et le nom d’un fichier journal. WSUSutil.exe importe les métadonnées du serveur d'exportation et crée un fichier journal de l'opération.  
+     Das Format kann wie folgt zusammengefasst werden: Nach „WSUSutil.exe“ stehen der Importbefehl, der Name der beim Exportvorgang erstellten CAB-Paketdatei, der Pfad der Paketdatei, falls diese in einem anderen Ordner gespeichert ist, sowie der Name einer Protokolldatei. „WSUSutil.exe“ importiert die Metadaten des Exportservers und erstellt eine Protokolldatei des Vorgangs.  
 
-## <a name="next-steps"></a>Étapes suivantes
-À l’issue de la première synchronisation de mises à jour logicielles ou après la mise à disposition de nouvelles classifications ou de nouveaux produits, vous devez [configurer les nouvelles classifications et les nouveaux produits](configure-classifications-and-products.md) pour synchroniser les mises à jour logicielles avec les nouveaux critères.
+## <a name="next-steps"></a>Nächste Schritte
+Nachdem Softwareupdates zum ersten Mal synchronisiert wurden oder wenn neue Klassifizierungen oder Produkte verfügbar sind, müssen Sie [die neuen Klassifizierungen und Produkte so konfigurieren](configure-classifications-and-products.md), dass Softwareupdates mit den neuen Kriterien synchronisiert werden.
 
-Après avoir synchronisé les mises à jour logicielles avec les critères dont vous avez besoin, [gérez les paramètres des mises à jour logicielles](manage-settings-for-software-updates.md).  
-
+Nachdem Sie Softwareupdates mit den erforderlichen Kriterien synchronisiert haben, [verwalten Sie Einstellungen für Softwareupdates](manage-settings-for-software-updates.md).  

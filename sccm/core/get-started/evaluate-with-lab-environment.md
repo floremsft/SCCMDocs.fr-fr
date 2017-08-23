@@ -1,71 +1,67 @@
 ---
-title: "Évaluer Configuration Manager | Microsoft Docs"
-description: "Créez un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation."
+title: Auswerten von Configuration Manager | Microsoft-Dokumentation
+description: "Richten Sie eine Laborumgebung ein, um System Center Configuration Manager für die Verwendung in Ihrer Organisation zu bewerten."
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 01b30260-f03a-4851-a549-d1b76e8cfc69
-caps.latest.revision: 25
-caps.handback.revision: 0
+caps.latest.revision: "25"
+caps.handback.revision: "0"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0ea90d3f3bef80b8acf9018a1338ae05fc948af4
 ms.openlocfilehash: d7ea785ab1beee09b9adda735a87f89bc9481620
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Évaluer System Center Configuration Manager en créant votre propre environnement lab
+# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Auswerten von System Center Configuration Manager durch Einrichtung Ihrer eigenen Laborumgebung
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
- Découvrez comment créer un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation.  
+ Erfahren Sie mehr über die Einrichtung einer Laborumgebung, um System Center Configuration Manager für die Verwendung in Ihrer Organisation zu testen.  
 
- System Center Configuration Manager est un outil complexe et puissant qui permet de gérer vos utilisateurs, logiciels et appareils. Il est judicieux de procéder à une évaluation approfondie de System Center Configuration Manager avant de procéder à un déploiement complet de façon à combiner vos connaissances conceptuelles à des exercices pratiques.  
+ System Center Configuration Manager ist ein komplexes und leistungsstarkes Tool zum Verwalten Ihrer Benutzer, Geräte und Software. Es wird empfohlen, vor der vollständigen Bereitstellung von System Center Configuration Manager eine gründliche Bewertung durchzuführen, damit Sie über ein grundlegendes Verständnis hinaus die Möglichkeit haben, Ihr Wissen in praktischen Übungen anzuwenden.  
 
- Ce guide s’adresse principalement aux administrateurs qui évaluent l’utilisation de Configuration Manager dans des environnements d’entreprise :  
+ Dieses Handbuch richtet sich in erster Linie an Administratoren, die die Verwendung von Configuration Manager in Unternehmensumgebungen bewerten:  
 
--   Administrateurs à la recherche d’une solution de gestion complète de PC, serveurs et appareils mobiles  
+-   Administratoren, die eine Lösung zur vollständigen Verwaltung von PCs, Servern und mobilen Geräten möchten  
 
--   Administrateurs dans les secteurs de haute sécurité qui exigent la sécurité liée à la gestion locale des appareils et la souplesse liée à la gestion des appareils dans le cloud  
+-   Administratoren in Hochsicherheitsbranchen, die für ihre lokale Geräteverwaltung hohe Sicherheitsanforderungen haben und gleichzeitig die Flexibilität cloudbasierter Geräteverwaltung benötigen  
 
--   Administrateurs qui souhaitent gérer la montée en puissance de leur architecture de serveurs locale  
+-   Administratoren, die die Skalierung der eigenen lokalen Serverarchitektur verwalten möchten  
 
-## <a name="what-this-lab-does"></a>Ce que fait ce lab  
- L’objectif principal sous-tendant la création de cet environnement lab est de vous fournir les connaissances générales qui vous permettront de commencer à utiliser Configuration Manager et d’améliorer votre connaissance de cet outil. Vous allez examiner pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
+## <a name="what-this-lab-does"></a>Wozu diese Laborumgebung dient  
+ Das Hauptziel der Erstellung dieser Testumgebung besteht darin, Ihnen allgemeine Kenntnisse für den Einstieg in die Arbeit mit Configuration Manager zu vermitteln, und Ihr Verständnis von Configuration Manager zu erweitern. Sie werden Schritt für Schritt durch eine beschleunigte Assembly des aktuellen Release von Configuration Manager mit zwei Servern gehen:  
 
--   L’un hébergeant Active Directory, le contrôleur de domaine et le serveur DNS  
+-   Ein Server hostet Active Directory, den Domänencontroller und den DNS-Server.  
 
--   Un autre hébergeant Configuration Manager et tous les composants SQL Server associés  
+-   Ein zweiter Server hostet Configuration Manager und alle zugehörigen SQL Server-Komponenten.  
 
-Les ordinateurs clients sont installés sur Hyper-V. Le lab proprement dit peut aussi être exécuté en tant que système entièrement virtualisé sur un seul serveur.  
+Clientcomputer werden in Hyper-V installiert. Die Laborumgebung selbst kann auch als vollständig virtualisiertes System auf einem einzigen Server ausgeführt werden.  
 
-## <a name="what-this-lab-does-not-do"></a>Ce que ne fait pas ce lab  
- Ce lab ne vous guidera pas dans tous les scénarios de Configuration Manager possibles. Il n’est pas conçu pour être migré immédiatement dans un environnement actif.  
+## <a name="what-this-lab-does-not-do"></a>Wozu diese Laborumgebung nicht dient  
+ In dieser Laborumgebung werden nicht alle Configuration Manager-Szenarios behandelt. Sie ist nicht darauf ausgelegt, sofort in eine aktive Umgebung migriert zu werden.  
 
- Une fois ce lab généré, vous disposerez d’un environnement de travail opérationnel. Toutefois, cet environnement ne sera pas optimisé pour des facteurs tels que les performances du système, la gestion de l’espace sur disque dur et le stockage SQL Server.  
+ Wenn Sie diese Laborumgebung einrichten, verfügen Sie über eine funktionierende Umgebung, in der Sie arbeiten können. Diese Umgebung wird jedoch nicht hinsichtlich Faktoren wie Systemleistung, Verwaltung von Festplattenspeicherplatz und SQL Server-Speicher optimiert.  
 
-##  <a name="BKMK_EvalRec"></a>Lecture recommandée avant d’élaborer le lab  
- La [documentation de System Center Configuration Manager](http://docs.microsoft.com/sccm/) propose un contenu très riche. Nous vous recommandons de lire les rubriques suivantes de cette bibliothèque avant de commencer le lab :  
+##  <a name="BKMK_EvalRec"></a> Empfohlene Literatur vor dem Erstellen der Laborumgebung  
+ In der [Dokumentation für System Center Configuration Manager](http://docs.microsoft.com/sccm/) steht Ihnen eine Fülle von Inhalten zur Verfügung. Es wird empfohlen, dass Sie vor dem Erstellen der Laborumgebung folgende Themen aus dieser Bibliothek lesen:  
 
--   Découvrez les concepts de base concernant la console Configuration Manager, les portails d’utilisateurs finaux, ainsi que des exemples de scénarios dans [Présentation de System Center Configuration Manager](../../core/understand/introduction.md).  
+-   Erfahren Sie mehr zu wichtigen Konzepten der Configuration Manager-Konsole, Endbenutzerportalen und Beispielszenarios in der [Einführung zu System Center Configuration Manager](../../core/understand/introduction.md).  
 
--   Découvrez les principales fonctionnalités de gestion de Configuration Manager dans [Fonctions et fonctionnalités de System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
+-   Erfahren Sie mehr über die primären Verwaltungsfunktionen von Configuration Manager in [Features und Funktionen von System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
 
--   Approfondissez vos connaissances avec [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Untermauern Sie Ihre Kenntnisse mit den [Grundlagen von System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
--   Découvrez l’importance des rôles de sécurité dans [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+-   Informationen zur Bedeutung von Sicherheitsrollen finden Sie unter [Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   Découvrez la gestion de contenu dans [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   Erfahren Sie etwas über Content Management unter [Konzepte für Content Management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   Apprenez à traiter correctement les opérations quotidiennes tout au long de votre déploiement dans [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
-
+-   [Erfahren Sie, wie Clients Standortressourcen und Dienste für System Center Configuration Manager suchen](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md), um tägliche Vorgänge in der gesamten Bereitstellung erfolgreich zu unterstützen.  

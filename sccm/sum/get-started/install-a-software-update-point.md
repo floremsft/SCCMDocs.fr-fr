@@ -1,7 +1,6 @@
 ---
-
-title: "Installer et configurer un point de mise à jour logicielle | Microsoft Docs"
-description: "Il doit y avoir un point de mise à jour logicielle installé sur le site d’administration centrale et sur les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et le déploiement des mises à jour logicielles sur les clients."
+title: Installieren und Konfigurieren eines Softwareupdatepunkts | Microsoft-Dokumentation
+description: "Primäre Standorte setzen einen Softwareupdatepunkt am Standort der zentralen Verwaltung voraus, da damit die Bewertung der Kompatibilität von Softwareupdates und die Bereitstellung von Softwareupdates an Clients durchgeführt werden können."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,150 +9,143 @@ ms.date: 05/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
 ms.openlocfilehash: 7d369384d133c90a15e01df50ac53992d61f3873
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/01/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="install-and-configure-a-software-update-point"></a>Installieren und Konfigurieren eines Softwareupdatepunkts  
 
-
-# <a name="install-and-configure-a-software-update-point"></a>Installer et configurer un point de mise à jour logicielle  
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
 > [!IMPORTANT]  
->  Avant d'installer le rôle de système de site du point de mise à jour logicielle, vous devez vérifier que le serveur satisfait aux dépendances requises et qu'il détermine l'infrastructure du point de mise à jour logicielle sur le site. Pour plus d’informations sur la planification des mises à jour logicielles et pour savoir comment déterminer l’infrastructure de votre point de mise à jour logicielle, consultez [Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md).  
+>  Installieren Sie die Standortsystemrolle „Softwareupdatepunkt“ erst, nachdem Sie überprüft haben, ob der Server die erforderlichen Abhängigkeiten aufweist, und nachdem Sie die Infrastruktur der Softwareupdatepunkte am Standort bestimmt haben. Weitere Informationen zum Planen von Softwareupdates und zum Bestimmen der Infrastruktur der Softwareupdatepunkte finden Sie unter [Planen von Softwareupdates](../plan-design/plan-for-software-updates.md).  
 
- Le point de mise à jour logicielle est requis sur le site d'administration centrale et les sites principaux pour permettre l'évaluation de la conformité des mises à jour logicielles et pour déployer des mises à jour logicielles sur des clients. Le point de mise à jour de logicielle est facultatif sur les sites secondaires. Le rôle de système de site du point de mise à jour logicielle doit être créé sur un serveur sur lequel WSUS est installé. Le point de mise à jour logicielle interagit avec les services WSUS pour configurer les paramètres de mise à jour logicielle et demander la synchronisation des métadonnées de mises à jour logicielles. Dans une hiérarchie Configuration Manager, vous devez installer et configurer le point de mise à jour logicielle d’abord sur le site d’administration centrale, puis sur les sites principaux enfants et, enfin, sur les sites secondaires (le cas échéant). Si vous disposez d'un site principal autonome, et non d'un site d'administration centrale, installez et configurez d'abord le point de mise à jour logicielle sur le site principal, puis éventuellement sur des sites secondaires. Certains paramètres sont uniquement disponibles quand vous configurez le point de mise à jour logicielle sur un site de niveau supérieur. Il existe différentes options à prendre en compte en fonction de l'emplacement auquel vous avez installé le point de mise à jour logicielle.  
-
-> [!IMPORTANT]  
->  Vous pouvez installer plusieurs points de mise à jour logicielle sur un site. Le premier point de mise à jour logicielle que vous installez est configuré en tant que source de synchronisation, laquelle synchronise les mises à jour à partir de Microsoft Update ou à partir de la source de synchronisation en amont. Les autres points de mise à jour logicielle sur le site sont configurés en tant que réplicas du premier point de mise à jour logicielle. Par conséquent, certains paramètres ne sont pas disponibles une fois que vous avez installé et configuré le point de mise à jour logicielle initial.  
+ Der Softwareupdatepunkt ist am Standort der zentralen Verwaltung und an primären Standorten erforderlich, da andernfalls die Bewertung der Kompatibilität von Softwareupdates und die Bereitstellung von Softwareupdates an Clients nicht möglich wären. An sekundären Standorten ist der Softwareupdatepunkt optional. Die Standortsystemrolle „Softwareupdatepunkt“ muss auf einem Computer erstellt werden, auf dem WSUS installiert ist. Durch die Interaktion mit WSUS werden vom Softwareupdatepunkt die Softwareupdateeinstellungen konfiguriert, und die Synchronisierung von Metadaten für Softwareupdates wird angefordert. Wenn Sie über eine Configuration Manager-Hierarchie verfügen, installieren und konfigurieren Sie den Softwareupdatepunkt zuerst am Standort der zentralen Verwaltung, dann an untergeordneten primären Standorten und schließlich optional an sekundären Standorten. Wenn Sie über einen eigenständigen primären Standort verfügen (nicht über einen Standort der zentralen Verwaltung), installieren und konfigurieren Sie den Softwareupdatepunkt zuerst am primären Standort und dann optional an sekundären Standorten. Einige Einstellungen sind nur verfügbar, wenn Sie den Softwareupdatepunkt an einem Standort der obersten Ebene konfigurieren. Je nachdem, wo Sie den Softwareupdatepunkt installiert haben, müssen Sie unterschiedliche Optionen in Erwägung ziehen.  
 
 > [!IMPORTANT]  
->  Vous ne pouvez pas installer le rôle système de site du point de mise à jour logicielle sur un serveur configuré et utilisé comme serveur WSUS autonome ni utiliser un point de mise à jour logicielle pour gérer directement des clients WSUS. Les serveurs WSUS existants sont uniquement pris en charge en tant que sources de synchronisation en amont pour le point de mise à jour logicielle actif. Consultez [Synchroniser à partir d’un emplacement de source de données en amont](#BKMK_wsussync)
+>  Sie können an einem Standort mehrere Softwareupdatepunkte installieren. Der zuerst installierte Softwareupdatepunkt wird als Synchronisierungsquelle konfiguriert. Er dient zur Synchronisierung der Updates von Microsoft Update oder von der Upstreamsynchronisierungsquelle. Die übrigen Softwareupdatepunkte am Standort werden als Replikate des ersten Softwareupdatepunkts konfiguriert. Daher sind einige Einstellungen nach der Installation und Konfiguration des ersten Softwareupdatepunkts nicht verfügbar.  
 
- Vous pouvez ajouter le rôle de système de site de point de mise à jour logicielle à un serveur de système de site existant ou en créer un nouveau. Sur la page **Sélection du rôle système** de l' **Assistant Création d'un serveur de système de site** ou l' **Assistant Ajout des rôles de système de site** , selon que vous ajoutez le rôle de système de site à un serveur de site nouveau ou existant, sélectionnez **Point de mise à jour logicielle**, puis configurez les paramètres du point de mise à jour logicielle dans l'Assistant. Les paramètres varient selon la version de Configuration Manager utilisée. Pour plus d’informations sur l’installation de rôles de système de site, consultez [Installer des rôles de système de site](../../core/servers/deploy/configure/install-site-system-roles.md).  
+> [!IMPORTANT]  
+>  Die Installation der Standortsystemrolle „Softwareupdatepunkt“ auf einem Server, der als eigenständiger WSUS-Server konfiguriert und verwendet wird, oder die Verwendung eines Softwareupdatepunkts für die direkte Verwaltung von WSUS-Clients wird nicht unterstützt. Vorhandene WSUS-Server werden nur als Upstreamsynchronisierungsquellen für den aktiven Softwareupdatepunkt unterstützt. Siehe [Über eine Upstreamdatenquelle synchronisieren](#BKMK_wsussync).
 
- Utilisez les sections suivantes pour plus d'informations sur les paramètres du point de mise à jour logicielle sur un site.  
+ Sie können die Standortsystemrolle „Softwareupdatepunkt“ einem vorhandenen Standortsystemserver hinzufügen oder einen neuen erstellen. Je nachdem, ob Sie die Standortsystemrolle einem neuen oder einem vorhandenen Standortserver hinzufügen, wählen Sie im **Assistenten zum Erstellen von Standortsystemservern** oder im **Assistenten zum Hinzufügen von Standortsystemrollen** auf der Seite **Systemrollenauswahl** die Option **Softwareupdatepunkt**. Konfigurieren Sie dann die Einstellungen für den Softwareupdatepunkt im Assistenten. Die Einstellungen sind je nach der von Ihnen verwendeten Version von Configuration Manager unterschiedlich. Weitere Informationen zum Installieren einer Standortsystemrolle finden Sie unter [Installieren von Standortsystemrollen](../../core/servers/deploy/configure/install-site-system-roles.md).  
 
-## <a name="proxy-server-settings"></a>Paramètres du serveur proxy  
- Vous pouvez configurer les paramètres du serveur proxy dans différentes pages de l’**Assistant Création d’un serveur de système de site** ou de l’**Assistant Ajout des rôles de système de site** selon votre version de Configuration Manager.  
+ In den folgenden Abschnitten finden Sie Informationen über die Einstellungen für Softwareupdatepunkte an einem Standort.  
 
--   Vous devez configurer le serveur proxy, puis spécifier à quel moment utiliser le serveur proxy pour les mises à jour logicielles. Configurez les paramètres suivants :  
+## <a name="proxy-server-settings"></a>Proxyservereinstellungen  
+ Je nach verwendeter Configuration Manager-Version können Sie die Proxyservereinstellungen auf unterschiedlichen Seiten des **Assistenten zum Erstellen von Standortsystemservern** oder des **Assistenten zum Hinzufügen von Standortsystemrollen** konfigurieren.  
 
-    -   Configurez les paramètres du serveur proxy sur la page **Proxy** de l'Assistant ou sous l'onglet **Proxy** dans Propriétés du système de site. Les paramètres du serveur proxy sont propres au système de site, ce qui signifie que tous les rôles de système de site utilisent les paramètres du serveur proxy que vous spécifiez.  
+-   Sie müssen den Proxyserver konfigurieren und dann angeben, wann er für Softwareupdates verwendet werden soll. Konfigurieren Sie die folgenden Einstellungen:  
 
-    -   Spécifiez si le serveur proxy doit être utilisé quand Configuration Manager synchronise les mises à jour logicielles et quand il télécharge du contenu à l’aide d’une règle de déploiement automatique. Configurez les paramètres du serveur proxy du point de mise à jour logicielle sur la page **Paramètres de compte et proxy** de l'Assistant ou sur l'onglet **Paramètres de compte et proxy** des propriétés du point de mise à jour logicielle.  
+    -   Konfigurieren Sie die Proxyservereinstellungen im Assistenten auf der Seite **Proxy** oder in Eigenschaften des Standortsystems auf der Registerkarte **Proxy** . Die Proxyservereinstellungen sind standortsystemspezifisch. Dies bedeutet, dass die von Ihnen angegebenen Proxyservereinstellungen von allen Standortsystemrollen verwendet werden.  
+
+    -   Geben Sie an, ob der Proxyserver bei der Synchronisierung der Softwareupdates sowie beim Herunterladen des Inhalts mithilfe einer automatischen Bereitstellungsregel von Configuration Manager verwendet werden soll. Konfigurieren Sie die Einstellungen für den Proxyserver für Softwareupdatepunkte auf der Seite **Proxy- und Kontoeinstellungen** des Assistenten oder auf der Registerkarte **Proxy- und Kontoeinstellungen** in den Eigenschaften für den Softwareupdatepunkt.  
 
         > [!NOTE]  
-        >  Le paramètre **Utiliser un serveur proxy lors du téléchargement du contenu avec des règles de déploiement automatiques** est disponible mais il n'est pas utilisé pour un point de mise à jour logicielle situé sur un site secondaire. Seul le point de mise à jour logicielle situé sur le site d'administration centrale et le site principal télécharge du contenu depuis la page Microsoft Update.  
+        >  Die Einstellung **Proxyserver beim Herunterladen von Inhalt mithilfe der Regeln zur automatischen Bereitstellung verwenden** ist zwar verfügbar, wird aber für einen Softwareupdatepunkt an einem sekundären Standort nicht verwendet. Inhalt wird nur vom Softwareupdatepunkt am Standort der zentralen Verwaltung und an einem eigenständigen primären Standort von Microsoft Update heruntergeladen.  
 
 > [!IMPORTANT]  
->  Par défaut, le compte **Système local** pour le serveur sur lequel une règle de déploiement automatique a été créée est utilisé pour se connecter à Internet et télécharger les mises à jour logicielles lors de l'exécution des règles de déploiement automatique. Si ce compte n’a pas accès à Internet, les mises à jour logicielles ne peuvent pas être téléchargées et l’entrée suivante est consignée dans le fichier ruleengine.log : **Échec du téléchargement de la mise à jour sur Internet. Erreur = 12007**. Configurez les informations d'identification nécessaires pour se connecter au serveur proxy lorsque le compte système local n'a pas accès à Internet.  
+>  Das Konto **Lokales System** für den Server, auf dem die automatische Bereitstellungsregel erstellt wurde, wird bei der Ausführung der automatischen Bereitstellungsregeln standardmäßig zum Herstellen der Verbindung mit dem Internet und zum Herunterladen von Softwareupdates verwendet. Wenn über dieses Konto keine Verbindung mit dem Internet hergestellt werden kann, können keine Softwareupdates heruntergeladen werden. In diesem Fall wird der Datei „ruleengine.log“ der folgende Eintrag hinzugefügt: **Fehler beim Herunterladen des Updates aus dem Internet. Fehler = 12007**. Konfigurieren Sie Anmeldeinformationen für die Verbindung mit dem Proxyserver, wenn der Internetzugriff über das Konto Lokales System nicht möglich ist.  
 
 
-## <a name="wsus-settings"></a>Paramètres WSUS  
- Vous devez configurer les paramètres WSUS dans différentes pages de l’**Assistant Création d’un serveur de système de site** ou de l’**Assistant Ajout des rôles de système de site**, selon votre version de Configuration Manager et, dans certains cas, uniquement dans les propriétés du point de mise à jour logicielle (aussi appelées propriétés du composant du point de mise à jour logicielle). Utilisez les informations dans les sections suivantes pour configurer les paramètres WSUS.  
+## <a name="wsus-settings"></a>WSUS-Einstellungen  
+ Sie müssen die WSUS-Einstellungen je nach verwendeter Configuration Manager-Version auf verschiedenen Seiten des **Assistenten zum Erstellen von Standortsystemservern** oder des **Assistenten zum Hinzufügen von Standortsystemrollen** konfigurieren. In manchen Fällen kann die Konfiguration auch nur in den Eigenschaften des Softwareupdatepunkts vorgenommen werden, die auch als Eigenschaften der Softwareupdatepunkt-Komponente bezeichnet werden. In den folgenden Abschnitten wird erläutert, wie Sie die WSUS-Einstellungen konfigurieren.  
 
-### <a name="BKMK_wsusport"></a>Paramètres de port WSUS  
- Vous devez configurer les paramètres du port WSUS sur la page Point de mise à jour logicielle de l'Assistant ou dans les propriétés du point de mise à jour logicielle. Utilisez la procédure suivante pour déterminer les paramètres de port utilisés par WSUS.  
+### <a name="BKMK_wsusport"></a> WSUS-Porteinstellungen  
+ Sie müssen die WSUS-Porteinstellungen im Assistenten auf der Seite Softwareupdatepunkt oder in den Eigenschaften des Softwareupdatepunkts konfigurieren. Führen Sie die folgende Prozedur durch, um die von WSUS verwendeten Porteinstellungen zu bestimmen.  
 
-#### <a name="to-determine-the-port-settings-used-in-iis"></a>Pour déterminer les paramètres de port dans IIS  
+#### <a name="to-determine-the-port-settings-used-in-iis"></a>So bestimmen Sie die Porteinstellungen in IIS  
 
- 1.  Sur le serveur WSUS, ouvrez le Gestionnaire des services Internet (IIS).  
+ 1.  Öffnen Sie auf dem WSUS-Server den Internetinformationsdienste-Manager.  
 
- 2.  Développez le nœud **Sites**, cliquez avec le bouton droit sur le site Web du serveur WSUS, puis cliquez sur **Modifier les liaisons**. Dans la boîte de dialogue Liaisons de site, les valeurs de port HTTP et HTTPS sont affichées dans la colonne **Port** .
+ 2.  Erweitern Sie **Sites**, klicken Sie mit der rechten Maustaste auf die Website für den WSUS-Server, und klicken Sie dann auf **Bindungen bearbeiten**. Im Dialogfeld "Sitebindungen" werden die HTTP- und HTTPS-Portwerte in der Spalte **Port** angezeigt.
 
 
-### <a name="configure-ssl-communications-to-wsus"></a>Configurer les communications SSL vers WSUS  
- Vous pouvez configurer la communication SSL sur la page **Général** de l'Assistant ou sous l'onglet **Général** des propriétés du point de mise à jour logicielle.  
+### <a name="configure-ssl-communications-to-wsus"></a>Konfigurieren der SSL-Kommunikation mit WSUS  
+ Sie können die SSL-Kommunikation im Assistenten auf der Seite **Allgemein** oder in den Eigenschaften des Softwareupdatepunkts auf der Registerkarte **Allgemein** konfigurieren.  
 
- Pour plus d’informations sur l’utilisation de SSL, consultez [Decide whether to configure WSUS to use SSL](../plan-design/plan-for-software-updates.md#BKMK_WSUSandSSL).  
+ Weitere Informationen zur Verwendung von SSL finden Sie unter [Decide whether to configure WSUS to use SSL](../plan-design/plan-for-software-updates.md#BKMK_WSUSandSSL).  
 
-### <a name="wsus-server-connection-account"></a>Compte de connexion au serveur SMTP  
- Vous pouvez configurer un compte pour qu'il soit utilisé par le serveur de site lorsqu'il se connecte au service WSUS exécuté sur le point de mise à jour logicielle. Si vous ne configurez pas ce compte, Configuration Manager utilise le compte d’ordinateur du serveur de site pour se connecter à WSUS. Configurez le compte de connexion du serveur WSUS dans la page **Paramètres de compte et proxy** de l’Assistant ou sous l’onglet **Paramètres de compte et proxy** dans les propriétés du point de mise à jour logicielle.  Vous pouvez configurer le compte à différentes étapes de l’Assistant selon la version de Configuration Manager que vous utilisez.  
+### <a name="wsus-server-connection-account"></a>Verbindungskonto für WSUS-Server  
+ Sie können ein Konto konfigurieren, das beim Herstellen einer Verbindung mit WSUS auf dem Softwareupdatepunkt vom Standortserver verwendet wird. Wenn Sie dieses Konto nicht konfigurieren, wird die Verbindung mit WSUS von Configuration Manager über das Computerkonto für den Standortserver hergestellt. Konfigurieren Sie das Verbindungskonto für WSUS-Server auf der Seite **Proxy- und Kontoeinstellungen** des Assistenten oder auf der Registerkarte **Proxy- und Kontoeinstellungen** in den Eigenschaften für den Softwareupdatepunkt.  Je nachdem, welche Version von Configuration Manager Sie verwenden, können Sie das Konto an unterschiedlichen Stellen im Assistenten konfigurieren.  
 
- Pour plus d’informations sur les comptes Configuration Manager, consultez [Comptes utilisés dans System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
+ Weitere Informationen zu Paketzugriffskonten finden Sie unter [In System Center Configuration Manager verwendete Konten](../../core/plan-design/hierarchy/accounts.md).  
 
-## <a name="synchronization-source"></a>Source de synchronisation  
- Vous pouvez configurer la source de synchronisation en amont pour la synchronisation des mises à jour logicielles sur la page **Source de synchronisation** de l'Assistant ou sous l'onglet **Paramètres de synchronisation** dans les propriétés du composant du point de mise à jour logicielle. Vos options pour la source de synchronisation varient selon le site.  
+## <a name="synchronization-source"></a>Synchronisierungsquelle  
+ Sie können die Upstreamsynchronisierungsquelle für die Synchronisierung von Softwareupdates im Assistenten auf der Seite **Synchronisierungsquelle** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Synchronisierungseinstellungen** konfigurieren. Die Optionen für die Synchronisierungsquelle variieren je nach Standort.  
 
- Utilisez le tableau suivant pour les options disponibles lorsque vous configurez le point de mise à jour logicielle au niveau d'un site.  
+ In der folgenden Tabelle finden Sie eine Übersicht über die Optionen, die beim Konfigurieren des Softwareupdatepunkts an einem Standort verfügbar sind.  
 
-|Site|Options de source de synchronisation disponibles|  
+|Standort|Verfügbare Optionen für die Synchronisierungsquelle|  
 |----------|----------------------------------------------|  
-|-   Site d’administration centrale<br />-   Site principal autonome|-   Synchroniser à partir du site web Microsoft Update<br />-   Synchroniser à partir d’un emplacement de source de données en amont<br />-   Ne pas synchroniser à partir de Microsoft Update ou de la source de données en amont|  
-|-   Points de mise à jour logicielle supplémentaires sur un site<br />-   Site principal enfant<br />-   Site secondaire|-   Synchroniser à partir d’un emplacement de source de données en amont|  
+|-   Standort der zentralen Verwaltung<br />-   Eigenständiger primärer Standort|-   Über die Microsoft Update-Website synchronisieren<br />-   Über eine Upstreamdatenquelle synchronisieren<br />-   Nicht über Microsoft Update oder eine Upstreamdatenquelle synchronisieren|  
+|-   Zusätzliche Softwareupdatepunkte an einem Standort<br />-   Untergeordneter primärer Standort<br />-   Sekundärer Standort|-   Über eine Upstreamdatenquelle synchronisieren|  
 
- La liste suivante fournit plus d'informations sur chaque option que vous pouvez utiliser comme source de synchronisation :  
+ Die folgende Liste enthält weitere Informationen zu den einzelnen Optionen, die Sie als Synchronisierungsquelle verwenden können:  
 
--   **Synchroniser à partir de Microsoft Update**: utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de Microsoft Update. Le site d'administration centrale doit avoir accès à Internet ; sinon, la synchronisation échoue. Ce paramètre est disponible uniquement lorsque vous configurez le point de mise à jour logicielle sur le site de niveau supérieur.  
+-   **Von Microsoft Update synchronisieren**: Verwenden Sie diese Einstellung zum Synchronisieren der Metadaten für Softwareupdates von Microsoft Update. Der Standort der zentralen Verwaltung muss mit dem Internet verbunden sein. Andernfalls kann die Synchronisierung nicht ausgeführt werden. Diese Einstellung ist nur verfügbar, wenn Sie den Softwareupdatepunkt am Standort der obersten Ebene konfigurieren.  
 
     > [!NOTE]  
-    >  En présence d’un pare-feu entre le point de mise à jour logicielle et Internet, une configuration du pare-feu peut s’avérer nécessaire pour autoriser l’utilisation des ports HTTP et HTTPS pour le site web WSUS. Vous pouvez également choisir de restreindre l'accès sur le pare-feu à des domaines limités. Pour plus d’informations sur la planification d’un pare-feu prenant en charge les mises à jour logicielles, consultez [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
+    >  Wenn es zwischen dem Softwareupdatepunkt und dem Internet eine Firewall gibt, muss die Firewall möglicherweise zum Akzeptieren der für die WSUS-Website verwendeten HTTP- und HTTPS-Ports konfiguriert werden. Nach Wunsch können Sie den Zugriff auf der Firewall auf bestimmte Domänen einschränken. Weitere Informationen zum Planen einer Firewall, von der Softwareupdates unterstützt werden, finden Sie unter [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
 
--   **<a name="BKMK_wsussync"></a>Synchroniser à partir d’un emplacement de source de données en amont** : utilisez ce paramètre pour synchroniser les métadonnées des mises à jour logicielles à partir de la source de synchronisation en amont. Les sites principaux enfants et les sites secondaires sont automatiquement configurés pour utiliser l'URL du site parent pour ce paramètre. Vous pouvez synchroniser les mises à jour logicielles à partir d’un serveur WSUS existant. Spécifiez une URL, comme https://WSUSServer:8531, où 8531 est le port qui est utilisé pour se connecter au serveur WSUS.  
+-   **<a name="BKMK_wsussync"></a>Über eine Upstreamdatenquelle synchronisieren**: Verwenden Sie diese Einstellung, um Metadaten für Softwareupdates über die Upstreamsynchronisierungsquelle zu synchronisieren. Die untergeordneten primären und sekundären Standorte werden automatisch zur Verwendung der übergeordneten Standort-URL für diese Einstellung konfiguriert. Sie haben die Möglichkeit, Softwareupdates über einen vorhandenen WSUS-Server zu synchronisieren. Geben Sie eine URL wie https://WSUSServer:8531 an, wobei 8531 der Port ist, über den die Verbindung mit dem WSUS-Server hergestellt wird.  
 
--   **Ne pas synchroniser à partir de Microsoft Update ou de la source de données en amont**: utilisez ce paramètre pour synchroniser manuellement les mises à jour logicielles quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d’Internet. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté](synchronize-software-updates-disconnected.md).  
+-   **Nicht über Microsoft Update oder eine Upstreamdatenquelle synchronisieren**: Verwenden Sie diese Einstellung, um Softwareupdates manuell zu synchronisieren, wenn der Softwareupdatepunkt am Standort der obersten Ebene nicht mit dem Internet verbunden ist. Weitere Informationen finden Sie unter [Synchronisieren von Softwareupdates bei einem getrennten Softwareupdatepunkt](synchronize-software-updates-disconnected.md).  
 
 > [!NOTE]  
->  En présence d’un pare-feu entre le point de mise à jour logicielle et Internet, une configuration du pare-feu peut s’avérer nécessaire pour autoriser l’utilisation des ports HTTP et HTTPS pour le site web WSUS. Vous pouvez également choisir de restreindre l'accès sur le pare-feu à des domaines limités. Pour plus d’informations sur la planification d’un pare-feu prenant en charge les mises à jour logicielles, consultez [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
+>  Wenn es zwischen dem Softwareupdatepunkt und dem Internet eine Firewall gibt, muss die Firewall möglicherweise zum Akzeptieren der für die WSUS-Website verwendeten HTTP- und HTTPS-Ports konfiguriert werden. Nach Wunsch können Sie den Zugriff auf der Firewall auf bestimmte Domänen einschränken. Weitere Informationen zum Planen einer Firewall, von der Softwareupdates unterstützt werden, finden Sie unter [Configure firewalls](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls).  
 
- Vous pouvez également configurer la création d'événements de rapports WSUS dans la page **Source de synchronisation** de l'Assistant ou sous l'onglet **Paramètres de synchronisation** dans les propriétés du composant de point de mise à jour logicielle. Configuration Manager n’utilise pas ces événements. Vous devez donc normalement choisir le paramètre par défaut **Ne pas créer les événements de rapports WSUS**.  
+ Sie können im Assistenten auf der Seite **Synchronisierungsquelle** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Synchronisierungseinstellungen** auch festlegen, ob WSUS-Berichterstattungsereignisse erstellt werden sollen. Da Configuration Manager diese Ereignisse nicht verwendet, wählen Sie in der Regel die Standardeinstellung **Keine WSUS-Berichterstattungsereignisse erstellen**.  
 
-## <a name="synchronization-schedule"></a>Calendrier des synchronisations  
- Configurez le calendrier des synchronisations sur la page **Calendrier des synchronisations** de l'Assistant ou dans les propriétés du composant du point de mise à jour logicielle. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
+## <a name="synchronization-schedule"></a>Synchronisierungszeitplan  
+ Konfigurieren Sie den Synchronisierungszeitplan im Assistenten auf der Seite **Synchronisierungszeitplan** oder in "Eigenschaften der Softwareupdatepunktkomponente". Diese Einstellung wird nur auf dem Softwareupdatepunkt am Standort der obersten Ebene konfiguriert.  
 
- Si vous activez le calendrier, vous pouvez configurer un calendrier de synchronisation récurrent simple ou personnalisé. Quand vous configurez un calendrier simple, l’heure de début est établie sur la base de l’heure locale de l’ordinateur qui exécute la console Configuration Manager au moment où vous créez le calendrier. Quand vous configurez l’heure de début d’un calendrier personnalisé, elle est basée sur l’heure locale de l’ordinateur qui exécute la console Configuration Manager.  
+ Wenn Sie den Zeitplan aktivieren, können Sie für die Synchronisierung einen einfachen oder benutzerdefinierten Wiederholungszeitplan konfigurieren. Wenn Sie einen einfachen Zeitplan konfigurieren, basiert die Startzeit auf der zum Zeitpunkt der Zeitplanerstellung geltenden lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird. Die für einen benutzerdefinierten Zeitplan konfigurierte Startzeit basiert auf der lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird.  
 
 > [!TIP]  
->  Planifiez la synchronisation des mises à jour logicielles pour qu’elle s’exécute selon une plage de temps adaptée à votre environnement. Un scénario type consiste à définir le calendrier de synchronisation des mises à jour logicielles pour qu'elle soit exécutée peu après la publication d'une mise à jour de sécurité normale de Microsoft le deuxième mardi de chaque mois, généralement appelé Patch Tuesday (Mardi correctif). Un autre scénario type consiste à définir le calendrier de synchronisation des mises à jour logicielles pour qu'elle soit exécutée tous les jours lorsque vous utilisez des mises à jour logicielles afin de fournir les mises à jour du moteur et de définition Endpoint Protection.  
+>  Planen Sie die Ausführung der Softwareupdatesynchronisierung in einem für Ihre Umgebung geeigneten Zeitrahmen. Eine Möglichkeit besteht darin, den Zeitplan so zu konfigurieren, dass die Softwareupdatesynchronisierung kurz nach der Veröffentlichung der Microsoft-Sicherheitsupdates jeweils am zweiten Dienstag eines Monats („Patch-Dienstag“) ausgeführt wird. Eine andere Möglichkeit besteht darin, den Zeitplan so zu konfigurieren, dass die Softwareupdatesynchronisierung täglich ausgeführt wird, wenn Sie mithilfe von Softwareupdates Endpoint Protection-Definitions- und Modulupdates bereitstellen.  
 
 > [!NOTE]  
->  Si vous choisissez de ne pas activer la synchronisation des mises à jour logicielles selon un calendrier, vous pouvez synchroniser manuellement les mises à jour logicielles à partir du nœud **Toutes les mises à jour logicielles** ou **Groupe de mises à jour logicielles** dans l'espace de travail Bibliothèque de logiciels. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles](synchronize-software-updates.md).  
+>  Wenn Sie die Softwareupdatesynchronisierung nicht nach einem Zeitplan aktivieren, können Sie Softwareupdates im Arbeitsbereich "Softwarebibliothek" über den Knoten **Alle Softwareupdates** oder S **oftwareupdategruppen** manuell synchronisieren. Weitere Informationen finden Sie unter [Synchronisieren von Softwareupdates](synchronize-software-updates.md).  
 
-## <a name="supersedence-rules"></a>Règles de remplacement  
- Configurez les paramètres de remplacement sur la page **Règles de remplacement** de l'Assistant ou sous l'onglet **Règles de remplacement** dans les propriétés du composant du point de mise à jour logicielle. Vous pouvez configurer les règles de remplacement uniquement sur le site de niveau supérieur.  
+## <a name="supersedence-rules"></a>Ablösungsregeln  
+ Konfigurieren Sie die Ablösungseinstellungen im Assistenten auf der Seite **Ablösungsregeln** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Ablösungsregeln** . Sie können die Ablösungsregeln nur am Standort der obersten Ebene konfigurieren.  
 
- Sur cette page, vous pouvez spécifier l'expiration immédiate des mises à jour logicielles remplacées, ce qui permet de les exclure des nouveaux déploiements et de marquer les déploiements existants de manière à indiquer que les mises à jour logicielles remplacées contiennent une ou plusieurs mises à jour logicielles qui ont expiré. Ou bien, vous pouvez spécifier une période avant l'expiration des mises à jour logicielles remplacées, ce qui vous permet de continuer à les déployer. Pour plus d'informations, voir [Supersedence rules](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
-
-> [!NOTE]  
->  La page **Règles de remplacement** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
-
-## <a name="classifications"></a>Classifications  
- Configurez les paramètres des classifications sur la page **Classifications** de l'Assistant ou sous l'onglet **Classifications** dans les propriétés du composant du point de mise à jour logicielle. Pour plus d’informations sur les classifications de mise à jour logicielle, consultez [Update classifications](../plan-design/plan-for-software-updates.md#BKMK_UpdateClassifications).  
+ Auf dieser Seite können Sie angeben, dass abgelöste Softwareupdates sofort ablaufen sollen. Hierdurch verhindern Sie, dass diese Softwareupdates in neue Bereitstellungen eingeschlossen werden. Zudem wird bei vorhandenen Bereitstellungen durch eine Kennzeichnung darauf hingewiesen, dass die abgelösten Softwareupdates mindestens ein abgelaufenes Softwareupdate enthalten. Sie können auch angeben, dass die abgelösten Softwareupdates erst nach einem bestimmten Zeitraum ablaufen. In diesem Fall können Sie diese Updates weiterhin bereitstellen. Weitere Informationen finden Sie unter [Supersedence rules](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
 
 > [!NOTE]  
->  La page **Classifications** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
+>  Die Seite **Ablösungsregeln** ist im Assistenten nur verfügbar, wenn Sie den ersten Softwareupdatepunkt am Standort konfigurieren. Bei der Installation weiterer Softwareupdatepunkte wird diese Seite nicht angezeigt.  
+
+## <a name="classifications"></a>Klassifizierungen  
+ Konfigurieren Sie die Klassifizierungseinstellungen im Assistenten auf der Seite **Klassifizierungen** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Klassifizierungen** . Weitere Informationen zu Softwareupdateklassifizierungen finden Sie unter [Update classifications](../plan-design/plan-for-software-updates.md#BKMK_UpdateClassifications).  
+
+> [!NOTE]  
+>  Die Seite **Klassifizierungen** ist im Assistenten nur verfügbar, wenn Sie den ersten Softwareupdatepunkt am Standort konfigurieren. Bei der Installation weiterer Softwareupdatepunkte wird diese Seite nicht angezeigt.  
 
 > [!TIP]  
->  Lorsque vous installez pour la première fois le point de mise à jour logicielle sur le site de niveau supérieur, désactivez toutes les classifications des mises à jour logicielles. Après la synchronisation initiale des mises à jour logicielles, configurez les classifications à partir d'une liste actualisée, puis relancez la synchronisation. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
+>  Deaktivieren Sie bei der Erstinstallation des Softwareupdatepunkts am Standort der obersten Ebene alle Klassifizierungen für Softwareupdates. Nach der Erstsynchronisierung der Softwareupdates konfigurieren Sie die Klassifizierungen anhand einer aktualisierten Liste, und initiieren Sie dann die Synchronisierung erneut. Diese Einstellung wird nur auf dem Softwareupdatepunkt am Standort der obersten Ebene konfiguriert.  
 
-## <a name="products"></a>Produits  
- Configurez les paramètres des produits sur la page **Produits** de l'Assistant ou sous l'onglet **Produits** dans les propriétés du composant du point de mise à jour logicielle.  
+## <a name="products"></a>Produkte  
+ Konfigurieren Sie die Produkteinstellungen im Assistenten auf der Seite **Produkte** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Produkte** .  
 
 > [!NOTE]  
->  La page **Produits** de l’Assistant est uniquement disponible quand vous configurez le premier point de mise à jour logicielle sur le site. Cette page ne s'affiche pas lorsque vous installez des points de mise à jour logicielle supplémentaires.  
+>  Die Seite **Produkte** ist im Assistenten nur verfügbar, wenn Sie den ersten Softwareupdatepunkt am Standort konfigurieren. Bei der Installation weiterer Softwareupdatepunkte wird diese Seite nicht angezeigt.  
 
 > [!TIP]  
->  Lorsque vous installez pour la première fois le point de mise à jour logicielle sur le site de niveau supérieur, désactivez tous les produits. Après la synchronisation initiale des mises à jour logicielles, configurez les produits à partir d'une liste actualisée, puis relancez la synchronisation. Ce paramètre est configuré uniquement sur le point de mise à jour logicielle sur le site de niveau supérieur.  
+>  Deaktivieren Sie bei der Erstinstallation des Softwareupdatepunkts am Standort der obersten Ebene alle Produkte. Nach der Erstsynchronisierung der Softwareupdates konfigurieren Sie die Produkte anhand einer aktualisierten Liste, und initiieren Sie dann die Synchronisierung erneut. Diese Einstellung wird nur auf dem Softwareupdatepunkt am Standort der obersten Ebene konfiguriert.  
 
-## <a name="languages"></a>Langues  
- Configurez les paramètres linguistiques sur la page **Langues** de l'Assistant ou sous l'onglet **Langues** dans les propriétés du composant du point de mise à jour logicielle. Spécifiez les langues pour lesquelles vous souhaitez synchroniser les fichiers de mise à jour logicielle et les détails du résumé. Le paramètre **Fichier de mise à jour logicielle** est configuré au niveau de chaque point de mise à jour logicielle dans la hiérarchie Configuration Manager. Les paramètres **Détails du résumé** sont configurés uniquement sur le point de mise à jour logicielle de niveau supérieur. Pour plus d'informations, voir [Languages](../plan-design/plan-for-software-updates.md#BKMK_UpdateLanguages).  
+## <a name="languages"></a>Sprachen  
+ Konfigurieren Sie die Spracheinstellungen im Assistenten auf der Seite **Sprachen** oder in "Eigenschaften der Softwareupdatepunktkomponente" auf der Registerkarte **Sprachen** . Geben Sie die Sprachen an, für die Sie Softwareupdatedateien und Übersichtsdetails synchronisieren möchten. Die Einstellung **Softwareupdatedatei** wird auf jedem Softwareupdatepunkt in der Configuration Manager-Hierarchie konfiguriert. Die Einstellung **Übersichtsdetails** wird nur auf dem Softwareupdatepunkt am Standort der obersten Ebene konfiguriert. Weitere Informationen finden Sie unter [Languages](../plan-design/plan-for-software-updates.md#BKMK_UpdateLanguages).  
 
 > [!NOTE]  
->  La page **Langues** de l’Assistant est uniquement disponible quand vous installez le point de mise à jour logicielle sur le site d’administration centrale. Vous pouvez configurer les langues du fichier de mise à jour logicielle sur les sites enfants à partir de l'onglet **Langues** dans les propriétés du composant du point de mise à jour logicielle.  
+>  Die Seite **Sprachen** ist im Assistenten nur verfügbar, wenn Sie den ersten Softwareupdatepunkt am Standort der zentralen Verwaltung installieren. Sie können die Sprachen für die Softwareupdatedatei an untergeordneten Standorten über die Registerkarte **Sprachen** in "Eigenschaften der Softwareupdatepunktkomponente" konfigurieren.  
 
-## <a name="next-steps"></a>Étapes suivantes
-Vous avez installé le point de mise à jour logicielle en commençant par le site de premier niveau dans la hiérarchie Configuration Manager. Répétez les procédures décrites dans cette rubrique pour installer le point de mise à jour logicielle sur chaque site enfant.
+## <a name="next-steps"></a>Nächste Schritte
+Sie haben den Softwareupdatepunkt ausgehend vom obersten Standort in der Configuration Manager-Hierarchie installiert. Wiederholen Sie die Verfahren in diesem Thema zum Installieren des Softwareupdatepunkts an untergeordneten Standorten.
 
-Une fois que vous avez installé tous les points de mise à jour logicielle, vous pouvez [synchroniser les mises à jour logicielles](synchronize-software-updates.md).
-
+Nachdem Sie die Softwareupdatepunkte installiert haben, wechseln Sie zu [Synchronisieren von Softwareupdates](synchronize-software-updates.md).

@@ -1,57 +1,54 @@
 ---
-title: "Confirmer les exigences relatives aux noms de domaine via System Center Configuration Manager | Microsoft Docs"
-description: "Confirmez les exigences relatives aux noms de domaine via System Center Configuration Manager."
+title: "Anforderungen an den Domänennamen unter Verwendung von System Center Configuration Manager | Microsoft-Dokumentation"
+description: "Anforderungen an den Domänennamen unter Verwendung von System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 522c2e82-20eb-4f38-859b-d55640b24e32
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 51dc2cec2138c13f413853727ab956b2871d47b0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
+ms.openlocfilehash: 35b24294073956a6bdb14cae07705f56d31e00a9
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Confirmer les exigences relatives aux noms de domaine via System Center Configuration Manager et Microsoft Intune
+# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Anforderungen an den Domänennamen mit System Center Configuration Manager und Microsoft Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Si nécessaire, procédez comme suit pour satisfaire les éventuelles dépendances externes à Configuration Manager :
+Führen Sie gegebenenfalls folgende Schritte durch, um Abhängigkeiten außerhalb von Configuration Manager zu erfüllen:
 
-1. Chaque utilisateur doit disposer d’une licence Intune pour l’inscription des appareils. Pour que la solution puisse associer des licences Intune avec des utilisateurs, chaque utilisateur doit disposer d’un nom d’utilisateur principal (UPN) qui peut être résolu publiquement (par exemple johndoe@contoso.com) ou un ID de connexion de substitution configuré dans Azure Active Directory. La configuration d’un ID de connexion de substitution permet aux utilisateurs de se connecter avec une adresse e-mail, même si leur UPN est au format NetBIOS (par exemple, CONTOSO\johndoe).
+1. Jedem Benutzer muss eine Intune-Lizenz zugewiesen werden, um Geräte zu registrieren. Um Intune-Lizenzen mit Benutzern zu verknüpfen, benötigt jeder Benutzer einen Benutzerprinzipalnamen (user principal name, UPN), der öffentlich aufgelöst werden kann (z.B. johndoe@contoso.com) oder eine alternative Anmelde-ID, die in Azure Active Directory konfiguriert wurde. Das Konfigurieren einer alternativen ID ermöglicht Benutzern z.B. die Anmeldung mit einer E-Mail-Adresse, auch wenn ihr UPN in einem NetBIOS-Format (z.B. CONTOSO\johndoe) vorliegt.
 
-  - Si votre entreprise utilise des UPN qui peuvent être résolues publiquement (par exemple johndoe@contoso.com), aucune configuration supplémentaire n’est nécessaire.
-  - Si votre entreprise utilise un UPN qui ne peut pas être résolu (par exemple CONTOSO\johndoe), vous devez [configurer un ID de substitution dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
+  - Wenn Ihr Unternehmen öffentlich auflösbare UPNs verwendet (d.h. johndoe@contoso.com), ist keine weitere Konfiguration erforderlich.
+  - Wenn Ihr Unternehmen einen nicht auflösbaren UPN verwendet (d.h. CONTOSO\johndoe), müssen Sie [eine alternative ID in Azure Active Directory konfigurieren](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
 
-2.  Déployez et configurez les services ADFS (Active Directory Federation Services). (Facultatif)
+2.  Stellen Sie Active Directory-Verbunddienste (AD FS) bereit, und konfigurieren Sie diese. (Optional)
 
-     Quand vous configurez l’authentification unique, vos utilisateurs peuvent se connecter à l’aide de leurs informations d’identification d’entreprise pour accéder aux services d’Intune.
+     Wenn Sie das einmalige Anmelden einrichten, können sich die Benutzer mit ihren normalen Unternehmensanmeldeinformationen anmelden, um auf die Dienste in Intune zuzugreifen.
 
-     Pour plus d'informations, consultez les rubriques suivantes :
-    -   [Préparer l’authentification unique](http://go.microsoft.com/fwlink/?LinkID=271124)
-    -   [Planifier et déployer AD FS 2.0 en vue d’une utilisation avec l’authentification unique](http://go.microsoft.com/fwlink/?LinkID=271125)
+     Weitere Informationen finden Sie unter den folgenden Themen:
+    -   [Vorbereiten des einmaligen Anmeldens](http://go.microsoft.com/fwlink/?LinkID=271124)
+    -   [Planen und Bereitstellen von AD FS 2.0 für die Verwendung mit dem einmaligen Anmelden](http://go.microsoft.com/fwlink/?LinkID=271125)
 
-3.  Déploiement et configuration de la synchronisation d'annuaires
+3.  Stellen Sie die Verzeichnissynchronisierung bereit, und konfigurieren Sie sie.
 
-     La synchronisation de répertoires vous permet de remplir Intune avec des comptes d’utilisateur synchronisés. Les comptes d’utilisateur et les groupes de sécurité synchronisés sont ajoutés à Intune. L’échec d’activation de la synchronisation d’annuaires est une cause courante de l’incapacité des appareils à s’inscrire lors de la configuration du MDM Configuration Manager avec Microsoft Intune.
+     Mithilfe der Verzeichnissynchronisierung können Sie Intune mit synchronisierten Benutzerkonten auffüllen. Die synchronisierten Benutzerkonten und Sicherheitsgruppen werden Intune hinzugefügt. Ein Fehler beim Aktivieren der Verzeichnissynchronisierung ist eine häufige Ursache dafür, dass Geräte beim Einrichten von Configuration Manager-MDM mit Microsoft Intune nicht registriert werden können.
 
-     Pour plus d’informations, consultez [Intégration d’annuaire](http://go.microsoft.com/fwlink/?LinkID=271120) dans la bibliothèque de documentation d’Active Directory.
+     Weitere Informationen finden Sie unter [Verzeichnisintegration](http://go.microsoft.com/fwlink/?LinkID=271120) in der Active Directory-Dokumentationsbibliothek.
 
-4.  Facultatif et non recommandé : si vous n’utilisez pas les services ADFS (Active Directory Federation Services), réinitialisez les mots de passe Microsoft Online des utilisateurs.
+4.  Optional, jedoch nicht empfohlen: Setzen Sie die Microsoft Online-Kennwörter von Benutzern zurück, wenn AD FS nicht verwendet wird.
 
-     Si vous n'utilisez pas AD FS, vous devez définir un mot de passe Microsoft Online pour chaque utilisateur.
+     Wenn Sie AD FS nicht verwenden, müssen Sie für jeden Benutzer ein Microsoft Online-Kennwort festlegen.
 
 > [!div class="button"]
-[< Étape précédente](create-mdm-collection.md) [Étape suivante >](configure-intune-subscription.md)
-
+[< Vorheriger Schritt](create-mdm-collection.md) [Nächster Schritt >](configure-intune-subscription.md)

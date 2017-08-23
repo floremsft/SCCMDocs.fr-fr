@@ -1,144 +1,140 @@
 ---
-title: "Tâches de maintenance | Microsoft Docs"
-description: "Comprenez quelles tâches de maintenance effectuer pour les sites et les hiérarchies Configuration Manager, et à quel moment les effectuer."
+title: Wartungstasks | Microsoft-Dokumentation
+description: "Hier finden Sie Informationen dazu, welche Wartungstasks für Configuration Manager-Standorte und -Hierarchien zu welchem Zeitpunkt durchgeführt werden müssen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 625bb787-6d16-47a0-8b0f-b129cd909ca3
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b56e84cbe9785e280fb02ede6644a8ed2769586
 ms.openlocfilehash: 90b6e4434abc5573a364c769bd835e08e5dff16d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Tâches de maintenance pour System Center Configuration Manager
+# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Wartungstasks für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les sites et hiérarchies System Center Configuration Manager exigent une maintenance et une surveillance régulières pour fournir en permanence des services efficaces. Une maintenance régulière garantit que le matériel, les logiciels et la base de données Configuration Manager fonctionnent toujours correctement et efficacement. Lorsque les performances sont optimales, les risques de défaillance sont considérablement réduits.  
+System Center Configuration Manager-Standorte und -Hierarchien müssen regelmäßig gewartet und überwacht werden, damit Dienste effektiv und ohne Unterbrechungen bereitgestellt werden können. Durch regelmäßige Wartung wird die ordnungsgemäße, effiziente Funktionsfähigkeit von Hardware, Software und der Configuration Manager-Standortdatenbank dauerhaft sichergestellt. Durch optimale Leistung wird das Risiko eines Ausfalls erheblich reduziert.  
 
- Pour configurer des alertes et utiliser le système d’état pour surveiller l’intégrité de Configuration Manager, consultez [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+ Informationen zum Konfigurieren von Benachrichtigungen sowie zum Überwachen der Integrität von Configuration Manager mit dem Statussystem finden Sie unter [Use alerts and the status system for System Center Configuration Manager (Verwenden von Benachrichtigungen und Statussystem für System Center Configuration Manager)](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   [Tâches de maintenance](#bkmk_MTs)  
+-   [Wartungstasks](#bkmk_MTs)  
 
-##  <a name="bkmk_MTs"></a> Tâches de maintenance  
- Une maintenance régulière est essentielle pour assurer le bon fonctionnement du site. Tenez un journal des tâches de maintenance pour y documenter les dates, les auteurs et tout commentaire de maintenance sur les tâches.  
+##  <a name="bkmk_MTs"></a> Wartungstasks  
+ Eine regelmäßige Wartung ist wichtig, um den ordnungsgemäßen Standortbetrieb zu gewährleisten. Führen Sie ein tägliches Wartungsprotokoll, um zu dokumentieren, wann die Wartung von wem vorgenommen wurde, und um alle wartungsrelevanten Kommentare de den ausgeführten Tasks aufzuzeichnen.  
 
-### <a name="when-to-do-common-maintenance-tasks"></a>Quand effectuer les tâches de maintenance courantes ?  
- Pour maintenir votre site, envisagez une maintenance quotidienne ou hebdomadaire. Certaines tâches peuvent nécessiter une planification différente. Une maintenance courante peut inclure les tâches de maintenance prédéfinies, ainsi que d’autres tâches, telles que la gestion des comptes pour conserver la conformité aux stratégies de l’entreprise.  
+### <a name="when-to-do-common-maintenance-tasks"></a>Wahl des Zeitpunkts für die Ausführung allgemeiner Wartungstasks  
+ Für die Wartung Ihres Standorts sollten Sie eine tägliche oder zumindest wöchentliche Wartung in Erwägung ziehen. Für einige Aufgaben wird ein anderer Zeitplan vonnöten sein. Zur allgemeinen Wartung können sowohl die integrierten Wartungstasks gezählt werden als auch andere Tasks wie die Kontowartung, die Sie zur Einhaltung Ihrer Unternehmensrichtlinien verwenden.  
 
- Utilisez les informations suivantes comme guide pour mieux planifier quand effectuer les différentes tâches de maintenance. Utilisez ces listes comme point de départ et ajoutez les tâches éventuellement requises.  
+ Orientieren Sie sich an den folgenden Informationen, wenn Sie den Ausführungszeitpunkt verschiedener Wartungstasks planen. Verwenden Sie diese Listen als Ausgangspunkt, und fügen Sie gegebenenfalls Tasks hinzu, die Sie benötigen.  
 
-**Tâches quotidiennes**   
-Tâches de maintenance que vous pouvez envisager d’effectuer quotidiennement :  
+**Tägliche Aufgaben**   
+Sie sollten erwägen, die folgenden Wartungstasks täglich durchzuführen:  
 
--   Vérifiez que les tâches de maintenance prédéfinies devant être exécutées quotidiennement s’exécutent correctement.  
+-   Überprüfen, ob die vordefinierten Wartungstasks, die für die tägliche Durchführung geplant sind, erfolgreich ausgeführt werden.  
 
--   Vérifiez l’état de la base de données Configuration Manager.  
+-   Überprüfen des Configuration Manager-Datenbankstatus.  
 
--   Vérifiez l'état du serveur de site.  
+-   Überprüfen Sie den Status des Standortservers.  
 
--   Vérifiez les boîtes de réception de système de site Configuration Manager pour chercher des backlogs de fichiers.  
+-   Überprüfen der Posteingänge des Configuration Manager-Standortsystems auf Dateirückstände.  
 
--   Vérifiez l'état des systèmes de site.  
+-   Überprüfen Sie den Status der Standortsysteme.  
 
--   Vérifiez les journaux d'événements du système d'exploitation sur les systèmes de site.  
+-   Überprüfen Sie die Betriebssystemereignisprotokolle auf den Standortsystemen.  
 
--   Vérifiez le journal des erreurs de SQL Server sur l'ordinateur de la base de données de site.  
+-   Überprüfen Sie das SQL Server-Fehlerprotokoll auf dem Standortdatenbankcomputer.  
 
--   Vérifiez les performances du système.  
+-   Überprüfen Sie die Systemleistung.  
 
--   Vérifiez les alertes Configuration Manager.  
+-   Überprüfen von Configuration Manager-Warnmeldungen.  
 
-**Tâches hebdomadaires**   
-Tâches de maintenance que vous pouvez envisager d’effectuer chaque semaine :  
+**Wöchentliche Aufgaben**   
+Sie sollten erwägen, die folgenden Wartungstasks wöchentlich durchzuführen:  
 
--   Vérifiez que les tâches de maintenance prédéfinies devant être exécutées chaque semaine s’exécutent correctement.  
+-   Überprüfen, ob die vordefinierten Wartungstasks, die für die wöchentliche Durchführung geplant sind, erfolgreich ausgeführt werden  
 
--   Supprimez les fichiers inutiles des systèmes de sites.  
+-   Löschen Sie nicht erforderliche Dateien von Standortsystemen.  
 
--   Si nécessaire, rédigez et distribuez des rapports destinés aux utilisateurs finaux.  
+-   Erstellen und verteilen Sie ggf. Endbenutzerberichte.  
 
--   Sauvegardez les journaux des applications, de sécurité et des événements système, et effacez-les.  
+-   Sichern Sie Anwendungs-, Sicherheits- und Systemereignisprotokolle und setzen Sie sie zurück.  
 
--   Vérifiez la taille de la base de données du site et assurez-vous que l’espace disque disponible sur le serveur de bases de données du site est suffisant pour permettre à la base de données de grandir.  
+-   Überprüfen der Größe der Standortdatenbank und Sicherstellen, dass ausreichend Speicherplatz auf dem Standortdatenbankserver verfügbar ist, um dem Wachstum der Standortdatenbank gerecht zu werden  
 
--   Effectuez la maintenance de la base de données du site, conformément à votre plan de maintenance de base de données SQL Server.  
+-   Durchführen einer SQL Server-Datenbankwartung für die Standortdatenbank entsprechend Ihrem SQL Server-Wartungsplan.  
 
--   Vérifiez que tous les systèmes de site disposent d'espace disque disponible.  
+-   Überprüfen Sie den verfügbaren Speicherplatz auf allen Standortsystemen.  
 
--   Exécutez les outils de défragmentation sur tous les systèmes de site.  
+-   Führen Sie auf allen Standortsystemen Festplattendefragmentierungstools aus.  
 
-**Tâches périodiques**   
-Certaines tâches qui ne nécessitent pas de maintenance quotidienne ni hebdomadaire sont importantes pour garantir l’intégrité globale du site. Ces tâches garantissent également que les plans de récupération d’urgence et de sécurité sont à jour. Tâches de maintenance que vous pouvez envisager d’effectuer plus régulièrement que les tâches quotidiennes ou hebdomadaires :  
+**Regelmäßige Tasks**   
+Einige Tasks, die jedoch nicht während der täglichen oder wöchentlichen Wartung durchgeführt werden müssen, sind dennoch wichtig, um die Integrität Ihres Standorts zu gewährleisten. Diese Tasks stellen zudem sicher, dass die Sicherheit sowie die Wiederherstellungspläne auf dem neuesten Stand sind. Bei den folgenden Wartungstasks empfiehlt sich unter Umständen eine häufigere Ausführung als täglich oder wöchentlich:  
 
--   Modifier les comptes et les mots de passe, si nécessaire, en fonction de votre plan de sécurité.  
+-   Ggf. Ändern von Konten und Kennwörtern gemäß Ihrem Sicherheitsplan.  
 
--   Passez en revue le plan de maintenance pour vérifier si les tâches de maintenance prévues sont planifiées correctement et efficacement en fonction des paramètres de site configurés.  
+-   Überprüfen des Wartungsplans um sicherzustellen, dass geplante Wartungstasks in Abhängigkeit von den konfigurierten Standorteinstellungen ordnungsgemäß und effektiv geplant sind.  
 
--   Passez en revue la conception de la hiérarchie Configuration Manager pour repérer toute modification requise.  
+-   Überprüfen des Configuration Manager-Hierarchieentwurfs auf erforderliche Änderungen.  
 
--   Vérifiez les performances du réseau pour vous assurer qu’aucune modification effectuée n’affecte le fonctionnement du site.  
+-   Prüfen der Netzwerkleistung zur Sicherstellung, dass keine Änderungen vorgenommen wurden, die Standortvorgänge beeinträchtigen.  
 
--   Vérifiez que les paramètres Active Directory affectant le fonctionnement du site n’ont pas été modifiés. Par exemple, vérifiez que les sous-réseaux qui sont attribués aux sites Active Directory et utilisés comme limites du site Configuration Manager n’ont pas changé.  
+-   Prüfen, dass Active Directory-Einstellungen, die sich auf Standortvorgänge auswirken, nicht geändert wurden. Stellen Sie beispielsweise sicher, dass Subnetze, die als Grenzen für einen Configuration Manager-Standort verwendeten Active Directory-Standorten zugewiesen sind, nicht geändert wurden.  
 
--   Examiner dans votre plan de reprise après incident toute modification nécessaire.  
+-   Überprüfen des Wiederherstellungsplans auf erforderliche Änderungen  
 
--   Récupérez un site selon le plan de récupération d’urgence dans un laboratoire de test en utilisant une copie de sauvegarde de la dernière sauvegarde créée par la tâche de maintenance Serveur de site de sauvegarde.
+-   Durchführen einer Standortwiederherstellung gemäß dem Wiederherstellungsplan in einem Testlabor mithilfe einer Sicherungskopie der aktuellen Sicherung, die über den Wartungstask „Standortserver sichern“ erstellt wurde
 
--   Examiner les erreurs liées au matériel ou vérifier si des mises à jour matérielles sont disponibles.  
+-   Überprüfen der Hardware auf Fehler oder verfügbare Hardwareupdates  
 
--   Vérifier l'état d'intégrité global du site.  
+-   Überprüfen der Gesamtintegrität des Standorts  
 
-###  <a name="BKMK_UseMTs"></a> Garantir l’intégrité opérationnelle de votre base de données de site  
- Quand votre site et hiérarchie Configuration Manager effectuent les tâches que vous planifiez et configurez, les composants de site ajoutent continuellement des données à la base de données Configuration Manager. Les performances de la base de données et l'espace de stockage disponible dans la base de données diminuent au fur et à mesure que la quantité de données augmente. Vous pouvez configurer des tâches de maintenance de site pour supprimer les données anciennes dont vous n’avez plus besoin.  
+###  <a name="BKMK_UseMTs"></a> Aufrechterhalten der funktionalen Integrität Ihrer Standortdatenbank  
+ Während die von Ihnen geplanten und eingerichteten Tasks von Configuration Manager-Standort und -Hierarchie ausgeführt werden, werden der Configuration Manager-Datenbank durch Standortkomponenten ständig neue Daten hinzugefügt. Durch zunehmende Datenmengen werden die Datenbankleistung und der Datenbankspeicherplatz zunehmend beansprucht. Sie können Standortwartungstasks so einrichten, dass veraltete Daten, die Sie nicht mehr benötigen, entfernt werden.  
 
- Configuration Manager propose des tâches de maintenance prédéfinies que vous pouvez utiliser pour garantir l’intégrité de la base de données Configuration Manager. Toutes les tâches de maintenance ne sont pas disponibles sur chaque site, par défaut. Certaines tâches sont activées alors que d’autres ne le sont pas, et toutes prennent en charge une planification que vous pouvez configurer.  
+ In Configuration Manager sind vordefinierte Wartungstasks verfügbar, die Sie zur Aufrechterhaltung der Integrität der Configuration Manager-Datenbank verwenden können. Standardmäßig stehen nicht alle Wartungstasks für jeden Standort zur Verfügung. Einige Tasks sind aktiviert, andere nicht, und sie unterstützen alle einen Zeitplan, den Sie einrichten können.  
 
- La plupart des tâches de maintenance prédéfinies suppriment régulièrement les données périmées de la base de données Configuration Manager. La réduction de la taille de la base de données obtenue en supprimant les données inutiles permet d'améliorer les performances et l'intégrité de la base de données, ce qui améliore l'efficacité du site et de la hiérarchie. D’autres tâches, telles que **Reconstruire les index**, aident à maintenir l’efficacité de la base de données. D’autres tâches, telles que la tâche **Serveur de site de sauvegarde**, vous aident à préparer la récupération d’urgence.  
+ Von den meisten Wartungstasks werden veraltete Daten in regelmäßigen Abständen aus der Configuration Manager-Datenbank entfernt. Durch das Entfernen nicht erforderlicher Daten wird die Größe der Datenbank reduziert. Hierdurch werden Leistung und Integrität der Datenbank sowie in der Folge die Effizienz von Standort und Hierarchie erhöht. Andere Tasks, wie etwa **Indizes neu erstellen**, helfen dabei, die Datenbankeffizienz zu gewährleisten. Andere Tasks, wie etwa **Standortserver sichern**, helfen Ihnen bei der Vorbereitung auf Notfallwiederherstellungen.  
 
 > [!IMPORTANT]  
->  Lorsque vous planifiez l'exécution d'une tâche qui supprime des données, examinez l'utilisation de ces données dans la hiérarchie. Quand une tâche qui supprime des données s’exécute sur un site, les informations sont supprimées de la base de données Configuration Manager, et cette modification est répliquée sur tous les sites dans la hiérarchie. Cette suppression peut affecter d’autres tâches reposant sur ces données. Par exemple, sur le site d’administration centrale, vous pouvez configurer une exécution mensuelle de la découverte afin d’identifier les ordinateurs non clients. Vous planifiez d’installer le client Configuration Manager sur ces ordinateurs dans un délai de deux semaines à compter de leur découverte. Toutefois, sur un site de la hiérarchie, un administrateur configure une exécution hebdomadaire de la tâche Supprimer les données de découverte anciennes. Il en résulte qu’une semaine après la découverte des ordinateurs non clients, ils sont supprimés de la base de données Configuration Manager. De retour sur le site d’administration centrale, vous préparez l’installation push du client Configuration Manager sur ces nouveaux ordinateurs au bout du dixième jour. Toutefois, étant donné que la tâche Supprimer les données de découverte anciennes a récemment été exécutée pour supprimer les données de sept jours ou plus, les ordinateurs récemment découverts ne sont plus disponibles dans la base de données.  
+>  Wenn Sie die Ausführung von Tasks planen, von denen Daten gelöscht werden, berücksichtigen Sie die hierarchieweite Verwendung dieser Daten. Wenn von einem Task, durch den Daten gelöscht werden, an einem Standort ausgeführt wird, werden die Informationen aus der Configuration Manager-Datenbank gelöscht, und diese Änderung wird an alle Standorte in der Hierarchie repliziert. Durch diesen Löschvorgang können andere Tasks, die von diesen Daten abhängig sind, beeinträchtigt werden. So können Sie z.B. am Standort der zentralen Verwaltung einen Ermittlungstask einrichten, der monatlich ausgeführt wird, um Nicht-Clientcomputer zu ermitteln. Sie können die Installation des Configuration Manager Client auf diesen Computern innerhalb zwei Wochen vor ihrer Ermittlung planen. An einem Standort in der Hierarchie richtet jedoch ein Administrator den Task „Veraltete Ermittlungsdaten löschen“ ein, sodass dieser wöchentlich ausgeführt wird. Dies führt dazu, dass sieben Tage nach der Ermittlung von Nicht-Clientcomputern diese aus der Configuration Manager-Datenbank gelöscht werden. Sie wiederum bereiten am Standort der zentralen Verwaltung eine Pushinstallation des Configuration Manager-Clients auf den neuen Computern für Tag 10 vor. Doch da der Task „Veraltete Ermittlungsdaten löschen“ kürzlich ausgeführt wurde und dadurch Daten, die älter als 7 Tage waren, gelöscht wurden, sind die kürzlich ermittelten Computer in der Datenbank nicht mehr verfügbar.  
 
-Après l’installation d’un site Configuration Manager, passez en revue les tâches de maintenance disponibles et activez celles nécessaire pour vos opérations. Passez en revue la planification par défaut de chaque tâche et, si nécessaire, modifiez la planification pour ajuster la tâche de maintenance en fonction de votre hiérarchie et de votre environnement. Bien que la planification par défaut de chaque tâche s’adapte à la plupart des environnements, surveillez les performances de vos sites et de votre base de données, et envisagez de reconfigurer ces tâches afin d’optimiser l’efficacité de votre déploiement. Planifiez d’examiner régulièrement les performances du site et de la base de données, ainsi que de reconfigurer les tâches de maintenance et leurs planifications afin de maintenir l’efficacité.  
+Überprüfen Sie nach der Installation eines Configuration Manager-Standorts die verfügbaren Wartungstasks, und aktivieren Sie diejenigen, die für Ihre Vorgänge erforderlich sind. Überprüfen Sie den Standardzeitplan jedes Tasks, und richten Sie die Zeitpläne nach Bedarf ein, um eine Feinabstimmung des Tasks auf Ihre Hierarchie und Umgebung auszuführen. Der Standardzeitplan jedes Tasks ist für die meisten Umgebungen passend. Überwachen Sie dennoch die Leistung Ihrer Standorte und der Datenbank, und gehen Sie davon aus, dass eine Feinabstimmung der Tasks erforderlich ist, um die Effizienz Ihrer Bereitstellung zu steigern. Planen Sie regelmäßige Überprüfungen der Leistung von Standort und Datenbank ein, und konfigurieren Sie Wartungstasks sowie deren Zeitpläne neu, um die Effizienz zu gewährleisten.  
 
-#### <a name="set-up-maintenance-tasks"></a>Configurer les tâches de maintenance  
- Chaque site Configuration Manager prend en charge des tâches de maintenance qui contribuent à garantir le fonctionnement optimal de la base de données du site. Par défaut, plusieurs tâches de maintenance sont activées pour chaque site, et toutes les tâches prennent en charge des planifications indépendantes. Les tâches de maintenance sont configurées individuellement pour chaque site et s’appliquent à la base de données sur le site. Toutefois, certaines tâches, telles que **Supprimer les données de découverte anciennes**, affectent les informations disponibles dans tous les sites d’une hiérarchie.  
+#### <a name="set-up-maintenance-tasks"></a>Benutzerdefinierte Wartungstasks einrichten  
+ Von jedem Configuration Manager-Standort werden Wartungstasks unterstützt, mit denen die Betriebseffizienz der Standortdatenbank aufrechterhalten werden kann. Standardmäßig sind an jedem Standort mehrere Wartungstasks aktiviert. Von allen Tasks werden unabhängige Zeitpläne unterstützt. Wartungstasks werden einzeln für jeden Standort eingerichtet und gelten für die Datenbank an diesem Standort. Einige Tasks, wie etwa **Veraltete Ermittlungsdaten löschen** wirken sich auf Informationen aus, die an allen Standorten in der Hierarchie verfügbar sind.  
 
- La console Configuration Manager affiche uniquement les tâches de maintenance que vous pouvez configurer sur un site. Pour obtenir la liste complète des tâches de maintenance par type de site, consultez [Référence des tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+ In der Configuration Manager-Konsole werden nur die Wartungstasks angezeigt, die Sie an einem Standort einrichten können. Eine umfassende Liste mit Wartungstasks nach Standorttyp finden Sie unter [Referenz für Wartungstasks für System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- Utilisez la procédure suivante pour mieux configurer les paramètres courants des tâches de maintenance.  
+ Anhand des folgenden Verfahrens können Sie die allgemeinen Einstellungen von Wartungstasks einrichten.  
 
-###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Pour configurer les tâches de maintenance pour Configuration Manager  
+###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Einrichten von Wartungstasks für Configuration Manager  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration de site** >**Sites**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** >**Standorte**.  
 
-2.  Choisissez le site avec la tâche de maintenance que vous souhaitez configurer.  
+2.  Wählen Sie den Standort mit dem einzurichtenden Wartungstask aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Maintenance de site**, puis choisissez la tâche de maintenance que vous souhaitez configurer.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** **Standortwartung** aus, und wählen Sie dann den Wartungstask aus, den Sie einrichten möchten.  
 
     > [!TIP]  
-    >  Seules les tâches disponibles sur le site sélectionné sont affichées.  
+    >  Es werden nur die Tasks angezeigt, die am ausgewählten Standort verfügbar sind.  
 
-4.  Pour configurer la tâche, choisissez **Modifier**, veillez à ce que la case **Activer cette tâche** soit cochée, et planifiez l’exécution de la tâche. Si la tâche supprime également les données anciennes, configurez l’ancienneté des données à supprimer de la base de données lors de l’exécution de la tâche. Choisissez **OK** pour fermer les **Propriétés** de la tâche.  
+4.  Wählen Sie zum Einrichten des Tasks **Bearbeiten** aus, vergewissern Sie sich, dass das Kontrollkästchen **Diese Aufgabe aktivieren** aktiviert ist, und richten Sie einen Zeitplan zum Ausführen des Tasks ein. Wenn mithilfe des Tasks auch veraltete Daten gelöscht werden, legen Sie fest, in welchem Alter Daten bei der Taskausführung aus der Datenbank gelöscht werden sollen. Klicken Sie auf **OK**, um die **Eigenschaften** des Tasks zu schließen.  
 
     > [!NOTE]  
-    >  Pour **Supprimer les messages d’état anciens**, vous devez configurer l’ancienneté des données à supprimer lorsque vous configurez des règles de filtre d’état.  
+    >  Legen Sie für **Veraltete Statusmeldungen löschen** fest, in welchem Alter Daten beim Einrichten von Statusfilterregeln gelöscht werden sollen.  
 
-5.  Pour activer ou désactiver la tâche sans modifier les propriétés de la tâche, choisissez le bouton **Activer** ou **Désactiver**. L'étiquette du bouton change en fonction de la configuration actuelle de la tâche.  
+5.  Klicken Sie auf die Schaltflächen **Aktivieren** oder **Deaktivieren**, um den Task zu aktivieren bzw. zu deaktivieren, ohne die Taskeigenschaften zu ändern. Die Bezeichnung der Schaltfläche ändert sich je nach aktueller Konfiguration des Tasks.  
 
-6.  Une fois que vous avez terminé de configurer les tâches de maintenance, choisissez **OK** pour terminer la procédure.
-
+6.  Wenn Sie die Wartungstasks konfiguriert haben, klicken Sie auf **OK**, um den Vorgang abzuschließen.

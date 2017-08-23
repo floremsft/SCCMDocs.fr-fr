@@ -1,225 +1,222 @@
 ---
-title: "Fonctionnalités de Technical Preview 1605 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1605 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1605 für Configuration Manager"
+description: "Erfahren Sie mehr zu Features, die in Technical Preview für System Center Configuration Manager-Version 1605 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2bafd028-1923-4463-9e3e-ee41bc0c437b
-caps.latest.revision: 36
+caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: 3af395b84dd6878af9b846b438049e55baf9472e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 8b3d472c586e704ee48e9825138c72f655d89492
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1605-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1605 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1605-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1605 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1605 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+In diesem Artikel werden die Features erläutert, die in der Technical Preview für System Center Configuration Manager 1605 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
 
- **Problèmes connus dans cette version d’évaluation technique :**  
+ **Bekannte Probleme in dieser Technical Preview:**  
 
--   Avec la version d’évaluation technique 1605, si vous mettez à jour les propriétés d’un point de gestion après son installation, vous pouvez voir une erreur de console qui force la fermeture de la console.  Dans ce cas, vous pouvez désinstaller le point de gestion, puis le réinstaller en utilisant les paramètres de votre choix. Vous pouvez également modifier le point de gestion avant d’installer la version d’évaluation technique 1605.  
+-   Mit Technical Preview 1605 erhalten Sie möglicherweise einen Konsolenfehler, der die Konsole schließt, wenn Sie die Eigenschaften eines Verwaltungspunkts aktualisieren, nachdem er installiert wurde.  Wenn dies geschieht, können Sie den Verwaltungspunkt deinstallieren, und ihn dann mit den gewünschten Einstellungen erneut installieren. Alternativ können Sie den Verwaltungspunkt vor der Installation von Technical Preview 1605 ändern.  
 
--   Lorsque vous utilisez la fonctionnalité Windows Store pour Entreprises avec la version d’évaluation technique 1604, puis mettez à niveau cette version vers la version d’évaluation technique 1605, vous ne pouvez plus afficher les données d’intégration. Toutes les autres fonctionnalités continuent à fonctionner. Si vous avez effectué l’intégration avec la version d’évaluation technique 1604, l’intégration demeure après l’installation de la version d’évaluation technique 1605 et vous n’avez aucune action supplémentaire à effectuer.  
+-   Wenn Sie das Windows Store für Unternehmen-Feature mit der Technical Preview 1604 verwenden, und ein Upgrade auf Technical Preview 1605 durchführen, können Sie die Onboarding-Daten nicht mehr anzeigen. Alle anderen Funktionen können weiterhin durchgeführt werden. Wenn Sie das Onboarding mit der Technical Preview 1604 durchgeführt haben, bleibt dies nach der Installation von Technical Preview 1605 bestehen, und Sie müssen keine weiteren Maßnahmen ergreifen.  
 
- **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+ **Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-##  <a name="BKMK_PerAppVPN"></a> VPN par application pour les appareils Windows 10  
- Pour les appareils Windows 10 gérés à l’aide de Configuration Manager avec Intune, vous pouvez ajouter une liste d’applications qui ouvrent automatiquement une connexion VPN que vous avez configurée via la console d’administration Configuration Manager. Vous avez la possibilité de restreindre le trafic VPN à ces applications ou vous pouvez continuer à autoriser tout le trafic via la connexion VPN.  
+##  <a name="BKMK_PerAppVPN"></a> VPN pro App für Windows 10-Geräte  
+ Für Windows 10-Geräte, die mithilfe von Configuration Manager und Intune verwaltet werden, können Sie eine Liste von Apps hinzufügen, die automatisch eine VPN-Verbindung öffnen, die Sie über die Configuration Manager-Verwaltungskonsole konfiguriert haben. Sie haben die Möglichkeit, den VPN-Datenverkehr auf diese Apps zu beschränken, oder Sie können weiterhin den gesamten Datenverkehr über die VPN-Verbindung ermöglichen.  
 
- **Configuration requise** :  
+ **Anforderungen**:  
 
--   Configuration Manager avec Intune  
+-   Configuration Manager mit Intune  
 
--   Un profil VPN Windows 10 déployé sur au moins un appareil  
+-   Ein Windows 10-VPN-Profil, das für mindestens ein Gerät bereitgestellt wurde  
 
-##  <a name="BKMK_InstallSU"></a> Améliorations apportées à la séquence de tâches Installer les mises à jour logicielles  
- Les améliorations suivantes ont été apportées à la séquence de tâches Installer les mises à jour logicielles :  
+##  <a name="BKMK_InstallSU"></a> Verbesserungen an der Tasksequenz „Softwareupdates installieren“  
+ Die folgenden Verbesserungen wurden an der Tasksequenz „Softwareupdates installieren“ durchgeführt:  
 
--   Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, est disponible. Elle vous permet de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape de séquence de tâches Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes.  
+-   Eine neue Tasksequenzvariable, „SMSTSSoftwareUpdateScanTimeout“, steht Ihnen zur Verfügung. Mit ihr können Sie das Timeout für die Softwareupdateprüfung während des Tasksequenzschritts „Softwareupdates installieren“ kontrollieren. Der Standardwert beträgt 30 Minuten.  
 
--   Des améliorations ont été apportées à la journalisation. Le fichier journal smsts.log contiendra de nouvelles entrées qui référenceront d’autres fichiers journaux qui vous aideront à résoudre les problèmes au cours du processus d’installation des mises à jour logicielles.  
+-   Es wurden Verbesserungen für die Protokollierung durchgeführt. Die Protokolldatei „smsts.log“ wird neue Protokolleinträge enthalten, die auf andere Protokolldateien verweisen, die Sie bei der Problembehandlung während der Installation der Softwareupdates unterstützen.  
 
-##  <a name="BKMK_PrepareConfigMgrClient"></a> Améliorations apportées à l’étape de séquence de tâches Préparer le client ConfigMgr pour capture  
- L’étape de préparation du client ConfigMgr va désormais supprimer complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
+##  <a name="BKMK_PrepareConfigMgrClient"></a> Verbesserungen am Tasksequenzschritt „ConfigMgr-Client für Erfassung vorbereiten“  
+ Im Schritt „Configuration Manager-Client vorbereiten“ wird der Configuration Manager-Client nun vollständig entfernt, und nicht nur die wichtigen Informationen. Wenn die Tasksequenz das erfasste Betriebssystemimage bereitstellt, wird jedes Mal ein neuer Configuration Manager-Client installiert.  
 
-##  <a name="BKMK_Grace"></a> Période de grâce pour les déploiements d’applications obligatoires  
- Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Il peut toutefois encore installer l’application immédiatement ou dès qu’il le souhaite.  
+##  <a name="BKMK_Grace"></a> Karenzzeit für die erforderlichen Anwendungsbereitstellungen  
+ In einigen Fällen empfiehlt es sich, Benutzern mehr Zeit zum Installieren von erforderlichen Anwendungsbereitstellungen zu geben, über die von Ihnen konfigurierten Fristen hinaus. Wenn z.B. ein Endbenutzer gerade aus dem Urlaub zurückgekehrt ist, muss er möglicherweise sehr lange warten, bis überfällige Anwendungsbereitstellungen installiert werden. Sie können jedoch die Anwendung weiterhin zu einem beliebigen Zeitpunkt installieren.  
 
- Pour résoudre ce problème, vous pouvez désormais définir une **période de grâce** en déployant des paramètres du client Configuration Manager sur un regroupement.  
+ Sie können jetzt eine **Karenzzeit** definieren, um dieses Problem zu lösen. Dafür müssen Sie die Configuration Manager-Clienteinstellungen für eine Sammlung bereitstellen.  
 
- Pour configurer la période de grâce, procédez comme suit :  
+ Führen Sie folgende Aktionen aus, um die Karenzzeit zu konfigurieren:  
 
-1.  Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.  
+1.  Auf der Seite **Computer-Agent** der Clienteinstellungen müssen Sie die neue Eigenschaft **Karenzzeit für Erzwingung nach Bereitstellungsfrist (Stunden)** mit einem Wert zwischen **1** und **120** Stunden konfigurieren.  
 
-2.  Dans un nouveau déploiement d’application, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**.  
+2.  Aktivieren Sie in einer neuen Anwendungsbereitstellung oder in den Eigenschaften einer vorhandenen Bereitstellung auf der Seite **Planung** das Kontrollkästchen **Erzwingung für diese Bereitstellung basierend auf den Benutzereinstellungen innerhalb der Karenzzeit verzögern**, bis zu der Karenzzeit, die in den Clienteinstellungen definiert ist.  
 
-     Tous les déploiements pour lesquels cette case à cocher est activée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utiliseront la période de grâce.  
+     Alle Bereitstellungen, für die dieses Kontrollkästchen ausgewählt ist, und die für Geräte vorgesehen sind, für die Sie ebenfalls die Clienteinstellungen bereitgestellt haben, werden die Karenzzeit verwenden.  
 
- Dans cette version, la période de grâce que vous configurez n’est pas utilisée par les appareils clients. Si vous configurez une période de grâce et cochez la case, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée après l’échéance.  
+ In diesem Release wird die Karenzzeit, die Sie konfigurieren, nicht von Clientgeräten verwendet. Wenn Sie eine Karenzzeit konfigurieren und das Kontrollkästchen aktivieren, wird die Anwendung im ersten, nicht geschäftlichen Fenster installiert werden, das der Benutzer nach Ablauf der Frist konfiguriert.  
 
- Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés. Toutefois, celles-ci ne sont pas actuellement implémentées dans cette version d’évaluation technique.  
+ Ähnliche Optionen wurden zum Bereitstellungsassistenten für Softwareupdates, zum Assistenten für automatische Bereitstellungsregeln und den Eigenschaftenseiten hinzugefügt. Jedoch sind diese zur Zeit nicht in dieser Technical Preview implementiert.  
 
-##  <a name="BKMK_Remote"></a> Nouvelle expérience pour les actions des appareils à distance  
- L’expérience relative à l’exécution des actions des appareils à distance à partir de la console Configuration Manager a été améliorée.  
-Des actions courantes telles que **Mettre hors service/réinitialiser**, **Réinitialisation du code secret**, **Verrouillage à distance** et **Contourner le verrou d’activation** figurent désormais dans le menu **Actions de l’appareil à distance**, accessible à partir de l’espace de travail **Ressources et Conformité**.  
+##  <a name="BKMK_Remote"></a> Benutzerfreundlichere Remotegeräteaktionen  
+ Die Ausführung von Remotegeräteaktionen über die Configuration Manager-Konsole wurde verbessert.  
+Häufig verwendete Aktionen, wie z.B. **Abkoppeln/Zurücksetzen**, **Kennung zurücksetzen**, **Remotesperre** und **Aktivierungssperre umgehen**, befinden sich nun im Menü **Remotegeräteaktionen**, auf das Sie über den Arbeitsbereich **Bestand und Kompatibilität** zugreifen können.  
 
- ![Capture d’écran du nouveau menu Actions de l’appareil à distance](media/New-Remote-Device-Actions.png)  
+ ![Screenshot, der die neuen Remotegeräteaktionen anzeigt](media/New-Remote-Device-Actions.png)  
 
- Vous pouvez rechercher l’état de chacune de ces opérations aux emplacements suivants :  
+ Sie finden den Status für jeden dieser Vorgänge an den folgenden Stellen:  
 
--   Dans le volet d’informations, lorsque vous sélectionnez un appareil à partir du nœud **Périphériques**.  
+-   Im Detailbereich, bei der Auswahl eines Geräts aus dem Knoten **Geräte**.  
 
--   Dans la page **Propriétés** d’un appareil.  
+-   Auf der Seite **Eigenschaften** für ein Gerät.  
 
--   Dans la page principale du nœud **Périphériques** (toutes les colonnes peuvent ne pas être visibles par défaut).  
+-   Auf der Hauptseite des Knotens **Geräte** (möglicherweise sind nicht alle Spalten standardmäßig sichtbar).  
 
- Pour plus d’informations sur le contournement du verrou d’activation iOS, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation pour Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock) et notamment la section **Problèmes connus actuels liés au contournement du verrou d’activation dans la version d’évaluation technique de Configuration Manager**.  
+ Weitere Informationen zu Umgehung der iOS-Aktivierungssperre, finden Sie unter [Unterstützen des Schutzes von iOS-Geräten durch Umgehung der Aktivierungssperre für Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock), insbesondere im Abschnitt **Aktuell bekannte Probleme mit der Umgehung der Aktivierungssperre finden Sie in Configuration Manager Technical Preview**.  
 
-##  <a name="BKMK_WSFB"></a> Applications du Windows Store pour Entreprises  
- Le [Windows Store pour Entreprises](https://www.microsoft.com/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
+##  <a name="BKMK_WSFB"></a> Windows Store für Unternehmen-Apps  
+ Im [Windows Store für Unternehmen](https://www.microsoft.com/business-store) können Sie Apps für Ihre Organisation finden und entweder einzeln oder per Volumenlizenz erwerben. Indem Sie den Store mit Configuration Manager verbinden, können Sie per Volumenlizenz erworbene Apps in der Configuration Manager-Konsole verwalten, zum Beispiel:  
 
--   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
+-   Sie können die Liste der erworbenen Apps mit Configuration Manager synchronisieren  
 
--   Les applications synchronisées apparaissent dans la console Configuration Manager et vous pouvez les déployer comme les autres applications.  
+-   Synchronisierte Apps werden in der Configuration Manager-Konsole angezeigt, und Sie können sie wie alle anderen Apps bereitstellen  
 
--   Toutes les 24 heures, Configuration Manager télécharge les informations de licence d’application à partir du Windows Store, et vous pouvez les consulter dans la console Configuration Manager.  
+-   Configuration Manager lädt alle 24 Stunden App-Lizenzinformationen aus dem Store herunter, und Sie können diese in der Configuration Manager-Konsole überprüfen  
 
- Dans la version d’évaluation technique 1604, vous pouviez synchroniser et afficher les applications provenant du Windows Store pour Entreprises dans la console Configuration Manager. Dans cette version, nous avons ajouté la possibilité de créer et de déployer des applications Configuration Manager à partir d’applications du Windows Store synchronisées.  
+ In Technical Preview Release 1604 konnten Sie Apps aus dem Windows Store für Unternehmen in der Configuration Manager-Konsole synchronisieren und anzeigen. In diesem Release haben wir die Möglichkeit zum Erstellen und Bereitstellen von Configuration Manager-Anwendungen von synchronisierten Store-Apps hinzugefügt.  
 
-### <a name="set-up-windows-store-for-business-synchronization"></a>Configurer la synchronisation du Windows Store pour Entreprises  
+### <a name="set-up-windows-store-for-business-synchronization"></a>Einrichten der Synchronisierung mit Windows Store für Unternehmen  
 
-1.  Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Vous obtenez ainsi un ID de client dont vous aurez besoin ultérieurement.  
+1.  Registrieren Sie Configuration Manager als „Web-Anwendung und/oder Web-API“-Verwaltungstool in Azure Active Directory. Sie erhalten eine Client-ID, die Sie später benötigen.  
 
-    1.  Dans le nœud Active Directory de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.  
+    1.  Wählen Sie im Active Directory-Knoten von [https://manage.windowsazure.com](https://manage.windowsazure.com) Ihr Azure Active Directory aus, und klicken Sie anschließend auf **Anwendungen** > **Hinzufügen**.  
 
-    2.  Cliquez sur **Ajouter une application développée par mon organisation**.  
+    2.  Klicken Sie auf **Eine von meinem Unternehmen entwickelte Anwendung hinzufügen**.  
 
-    3.  Attribuez un nom à l’application, sélectionnez **Application web** et/ou **API web**, puis cliquez sur la flèche **Suivant**.  
+    3.  Geben Sie einen Namen für die Anwendung ein, wählen Sie **Webanwendung** und/oder **Web-API** aus, und klicken Sie anschließend auf den Pfeil **Weiter**.  
 
-    4.  Entrez la même URL pour **URL de connexion** et pour **URI ID d’application**. L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer **https://&lt;votredomaine>/sccm**.  
+    4.  Geben Sie die gleiche URL für die **Registrierungs-URL** und die **App-ID-URI** ein. Dabei kann es sich um eine beliebige URL handeln, die nicht in eine reale Adresse aufgelöst werden muss. Sie können z.B. **https://&lt;Ihre Domäne>/sccm** eingeben.  
 
-    5.  Effectuez toutes les étapes de l'Assistant.  
+    5.  Schließen Sie den Assistenten ab.  
 
-2.  Dans Azure Active Directory, créez une clé de client pour l’outil de gestion inscrit.  
+2.  Erstellen Sie in Azure Active Directory einen Clientschlüssel für das registrierte Verwaltungstool.  
 
-    1.  Sélectionnez l’application que vous venez de créer, puis cliquez sur **Configurer**.  
+    1.  Markieren Sie die App, die Sie soeben erstellt haben, und klicken Sie auf **Konfigurieren**.  
 
-    2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**. Cela a pour effet de créer une nouvelle clé de client. Ne quittez pas cette page tant que vous n’avez pas correctement intégré le Windows Store pour Entreprises à Configuration Manager.  
+    2.  Wählen Sie unter **Schlüssel** eine Dauer aus der Liste aus, und klicken Sie anschließend auf **Speichern**. Dadurch wird ein neuer Clientschlüssel erstellt. Verlassen Sie diese Seite nicht, bevor Sie Windows Store für Unternehmen erfolgreich in Configuration Manager eingebunden haben.  
 
-3.  Dans le Windows Store pour Entreprises, configurez Configuration Manager en tant qu’outil de gestion du Windows Store.  
+3.  Konfigurieren von Configuration Manager als Speicherverwaltungstool im Windows Store für Unternehmen.  
 
-    1.  Ouvrez [https://businessstore.microsoft.com/fr-fr/managementtools](https://businessstore.microsoft.com/managementtools) et connectez-vous si vous y êtes invité.  
+    1.  Öffnen Sie [https://businessstore.microsoft.com/de-de/managementtools](https://businessstore.microsoft.com/managementtools), und melden Sie sich nach entsprechender Aufforderung an.  
 
-    2.  Acceptez les conditions d’utilisation si nécessaire.  
+    2.  Akzeptieren Sie gegebenenfalls die Nutzungsbedingungen.  
 
-    3.  Sous **Outils de gestion**, cliquez sur **Ajouter un outil de gestion**.  
+    3.  Klicken Sie unter **Verwaltungstools** auf **Verwaltungstool hinzufügen**.  
 
-    4.  Dans **Rechercher l’outil par son nom**, tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.  
+    4.  Geben Sie unter **Tool nach Namen suchen** den Namen der App ein, die Sie zuvor in AAD erstellt haben, und klicken Sie anschließend auf **Hinzufügen**.  
 
-    5.  Cliquez sur **Activer** en regard de l’application que vous venez d’importer.  
+    5.  Klicken Sie neben der App, die Sie gerade importiert haben, auf **Aktivieren**.  
 
-    6.  Dans l’Assistant **Show Offline-Licensed Apps** (Afficher les applications sous licence hors connexion), cliquez sur **Oui** si vous souhaitez autoriser l’achat d’applications sous licence hors connexion.  
+    6.  Klicken Sie im Assistenten **Offline lizenzierte Apps anzeigen** auf **Ja**, wenn Sie den Erwerb offline lizenzierter Apps zulassen möchten.  
 
-4.  Achetez au moins une application au Windows Store pour Entreprises.  
+4.  Kaufen Sie mindestens eine App aus dem Windows Store für Unternehmen.  
 
-5.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Windows Store pour Entreprises**.  
+5.  Erweitern Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Eintrag **Clouddienste**, und klicken Sie dann auf **Windows Store für Unternehmen.**  
 
-6.  Sous l’onglet **Accueil** du groupe **Créer**, cliquez sur **Ajouter un compte du Windows Store pour Entreprises**.  
+6.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Konto in Windows Store für Unternehmen hinzufügen**.  
 
-7.  Ajoutez vos ID de locataire, ID de client et clé de client à partir d’Azure Active Directory, puis fermez l’Assistant.  
+7.  Fügen Sie Mandanten-ID, Client-ID und Clientschlüssel aus Azure Active Directory hinzu, und schließen Sie den Assistenten ab.  
 
-8.  Une fois que vous avez terminé, le compte que vous avez configuré figure dans la liste **Windows Store for Business Accounts** (Comptes Windows Store pour Entreprises) de la console Configuration Manager.  
+8.  Sobald Sie fertig sind, wird das von Ihnen konfigurierte Konto in der Liste **Konto in Windows Store für Unternehmen** in der Configuration Manager-Konsole aufgeführt.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’exécuter la tâche suivante, puis indiquez-nous comment cela s’est passé en utilisant notre formulaire de commentaires à la page [Configuration Manager feedback program](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) du site Microsoft Connect :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, den folgenden Task auszuführen, und lassen Sie uns dann wissen, wie es funktioniert hat, indem Sie unserer Feedbackformular auf der Seite [Configuration Manager-Feedbackprogramm](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) auf der Microsoft Connect-Website ausfüllen:  
 
- Créez et déployez une application Configuration Manager à partir d’une application sous licence hors connexion du Windows Store pour Entreprises.  
+ Erstellen und Bereitstellen einer Configuration Manager-App aus einer offline lizenzierten App aus dem Windows Store für Unternehmen.  
 
-1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.  
+1.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** der Configuration Manager-Konsole **App-Verwaltung**, und klicken Sie anschließend auf **Lizenzinformationen für Store-Apps**.  
 
-2.  Choisissez l’application que vous voulez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.  
+2.  Wählen Sie zunächst die App aus, die Sie bereitstellen möchten. Klicken Sie anschließend auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Anwendung erstellen**.  
 
- Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.  
+ Eine Configuration Manager-App wird erstellt, die eine App aus dem Windows Store für Unternehmen enthält. Sie können diese App dann wie jede andere Configuration Manager-App bereitstellen und überwachen.  
 
 > [!IMPORTANT]  
->  Lorsque vous créez une application Configuration Manager avec un seul type de déploiement à partir d’une application hors connexion sous licence, elle peut être déployée sur des appareils gérés via la gestion des appareils mobiles, ainsi que par le client Configuration Manager. Si vous tentez de déployer une application avec plusieurs types de déploiement, l’installation échoue.  
+>  Beim Erstellen einer Configuration Manager-App mit einem einzelnen Bereitstellungstyp aus einer offline lizenzierten App kann dies für Geräte bereitgestellt werden, die MDM-verwaltet und auch mit dem Configuration Manager-Client verwaltet werden. Wenn Sie versuchen, eine App mit mehreren Bereitstellungstypen bereitzustellen, schlägt die Installation fehl.  
 >   
->  Vous ne pouvez pas déployer actuellement des applications en ligne sous licence à l’aide de Configuration Manager.  
+>  Sie können derzeit keine online lizenzierten Apps mit Configuration Manager bereitstellen.  
 
-##  <a name="BKMK_VPP2"></a> Améliorations générales pour les applications achetées en volume  
+##  <a name="BKMK_VPP2"></a> Allgemeine Verbesserungen für per Volumenlizenz erworbene Apps  
 
--   Dans cette version, les applications achetées en volume dans le Windows Store pour Entreprises et App Store iOS ont été consolidées dans une même vue, **Informations de licence pour les applications du Store**.  
+-   In diesem Release wurden per Volumenlizenz erworbene Apps aus dem Windows Store für Unternehmen und dem iOS App-Store in der gleichen Ansicht, **Lizenzinformationen für Store-Apps**, konsolidiert.  
 
--   Pour les applications iOS achetées en volume, l’onglet Programme d’achat en volume (VPP) Apple a été supprimé de la boîte de dialogue **Package d’application pour navigateur iOS** de l’Assistant Création d’une application. Pour créer une application achetée en volume pour iOS, procédez comme suit :  
+-   Für per Volumenlizenz erworbene iOS-Apps wurde die Registerkarte Apple Volume Purchase Program aus dem Dialogfeld **App-Paket für iOS-Browser** des Assistenten zum Erstellen von Apps entfernt. Gehen Sie folgendermaßen vor, um eine per Volumenlizenz erworbene App für iOS zu erstellen:  
 
-    1.  1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.  
+    1.  1.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** der Configuration Manager-Konsole **App-Verwaltung**, und klicken Sie anschließend auf **Lizenzinformationen für Store-Apps**.  
 
-    2.  2.  Choisissez l’application que vous voulez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.  
+    2.  2.  Wählen Sie zunächst die App aus, die Sie bereitstellen möchten. Klicken Sie anschließend auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Anwendung erstellen**.  
 
--   L’emplacement que vous utilisez pour obtenir et télécharger un jeton Apple VPP pour les applications achetées en volume dans la console Configuration Manager a changé. Vous pouvez désormais effectuer cette opération dans l’espace de travail **Admin** sous le nœud **Services cloud** > **Jetons du programme d’achat en volume (VPP) Apple**.  
+-   Der Ort, die Sie zum Abrufen und Hochladen eines Apple VPP-Token für per Volumenlizenz erworbenen Apps in der Configuration Manager-Konsole verwenden, hat sich geändert. Sie können das jetzt im Arbeitsbereich **Admin** im Knoten **Clouddienste** > **Apple Volume Purchase Program Token** erledigen.  
 
-##  <a name="BKMK_VPP"></a> Protection des données d’entreprise  
- Vous pouvez créer des éléments de configuration qui vous permettent de déployer vos stratégies de protection des données d’entreprise (PDE), notamment de choisir vos applications protégées, de définir le niveau de protection PDE et de rechercher des données d’entreprise sur le réseau. Pour plus d’informations sur PDE, consultez les rubriques suivantes :  
+##  <a name="BKMK_VPP"></a> Unternehmensdatenschutz (Enterprise Data Protection; EDP)  
+ Sie können Konfigurationselemente erstellen, mit denen Sie Ihre EDP-Richtlinien bereitstellen, Ihre geschützten Apps und Ihre EDP-Schutzebene auswählen, und Unternehmensdaten im Netzwerk suchen können. Weitere Informationen zu EDP finden Sie in den folgenden Themen:  
 
--   [Protéger vos données d’entreprise à l’aide de la protection des données d’entreprise (PDE)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-edp)  
+-   [Protect your enterprise data using enterprise data protection (EDP) (Schützen Ihrer Unternehmensdaten mithilfe des Unternehmensdatenschutzes (EDP))](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-edp)  
 
--   [Créer et déployer une stratégie de protection des données d’entreprise (PDE) à l’aide de System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-edp-policy-using-sccm)  
+-   [Create and deploy an enterprise data protection (EDP) policy using System Center Configuration Manager (Erstellen und Bereitstellen einer Richtlinie für den Unternehmensdatenschutz (EDP) mithilfe von System Center Configuration Manager)](https://technet.microsoft.com/itpro/windows/keep-secure/create-edp-policy-using-sccm)  
 
-##  <a name="BKMK_End"></a> Les utilisateurs finaux peuvent installer des applications à partir du portail d’entreprise  
- La gestion des appareils mobiles locale a été introduite dans la version 1511 de System Center Configuration Manager. Dans les versions précédentes, vous pouviez déployer des applications sur des appareils Windows 10 gérés par la gestion des appareils mobiles avec un objet de déploiement **Installation requise** pour les appareils gérés par la gestion des appareils mobiles locale.  
+##  <a name="BKMK_End"></a> Endbenutzer können Apps über das Unternehmensportal installieren.  
+ Die lokale Verwaltung mobiler Geräte (MDM) wurde in Version 1511 von System Center Configuration Manager eingeführt. In früheren Versionen konnten Sie Anwendungen für MDM-verwaltete Windows 10-Geräte mit dem Bereitstellungszweck **erforderliche Installation** für lokale, MDM-verwaltete Geräte, bereitstellen.  
 
- Dans cette version, vous pouvez désormais déployer des applications avec un objet de déploiement **Disponible** pour les utilisateurs d’ordinateurs Windows 10 gérés par la gestion des appareils mobiles locale, et les utilisateurs peuvent désormais installer eux-mêmes ces applications à partir du portail d’entreprise.
-Dans cette version d’évaluation technique, si le portail d’entreprise reste ouvert plus de 15 minutes, l’utilisateur final obtient un message d’erreur. Pour contourner ce problème, redémarrez le portail d’entreprise.  
+ In diesem Release können Sie jetzt Apps mit dem Bereitstellungszweck **Verfügbar** für Benutzer der lokalen, MDM-verwalteten Windows-10-Computer bereitstellen, und Benutzer können diese Apps jetzt selbst aus dem Unternehmensportal installieren.
+Wenn das Unternehmensportal in dieser Technical Preview länger als 15 Minuten geöffnet ist, wird dem Endbenutzer eine Fehlermeldung angezeigt. Starten Sie das Unternehmensportal neu, um das Problem zu umgehen.  
 
-### <a name="before-you-start"></a>Avant de commencer  
+### <a name="before-you-start"></a>Vorbereitung  
 
-#### <a name="server-prerequisites"></a>Configuration requise du serveur  
+#### <a name="server-prerequisites"></a>Voraussetzungen für den Server  
 
--   .NET 4.5 ou version ultérieure (nécessite un redémarrage)  
+-   .NET 4.5 oder höher (Neustart erforderlich)  
 
--   PowerShell 3.0 pour le script de configuration (nécessite un redémarrage)  
+-   PowerShell 3.0 für Konfigurationsskript (Neustart erforderlich)  
 
-#### <a name="client-prerequisites"></a>Prérequis pour le client  
+#### <a name="client-prerequisites"></a>Client-Voraussetzungen  
 
--   Windows 10 Desktop 1511 (build 10586.218 du système d’exploitation) ou version ultérieure  
+-   Windows 10 Desktop 1511 (OS Build 10586.218) oder höher  
 
-#### <a name="general-prerequisites"></a>Conditions préalables  
+#### <a name="general-prerequisites"></a>Allgemeine Voraussetzungen  
 
--   Assurez-vous d’avoir effectué les [étapes de préparation pour la gestion des appareils mobiles locale](https://technet.microsoft.com/library/mt613153.aspx) et d’avoir [inscrit vos appareils](https://technet.microsoft.com/library/mt627870.aspx).  
+-   Stellen Sie sicher, dass Sie die [Vorbereitungsschritte für die lokale Verwaltung mobiler Geräte](https://technet.microsoft.com/library/mt613153.aspx) durchgeführt und [Ihre Geräte registriert](https://technet.microsoft.com/library/mt627870.aspx) haben.  
 
--   Pour bénéficier de la meilleure expérience possible d’installation d’application lorsque vous utilisez le portail d’entreprise, assurez-vous que Configuration Manager a une connexion active à Microsoft Intune.  
+-   Stellen Sie sicher, dass Configuration Manager über eine aktive Verbindung zu Microsoft Intune verfügt, um die beste Anwendungsinstallation mit dem Unternehmensportal zu garantieren.  
 
--   Si vous choisissez l’option d’inscription en bloc, configurez l’affinité entre utilisateur et appareil pour l’appareil inscrit avant d’essayer ce scénario.  
+-   Bei Auswahl der Option „Massenregistrierung“ konfigurieren Sie die Benutzer-Gerät-Affinität für das registrierte Gerät, bevor Sie dieses Szenario ausprobieren.  
 
-### <a name="configuration-steps"></a>Étapes de configuration  
+### <a name="configuration-steps"></a>Konfigurationsschritte  
 
-#### <a name="install-the-application-catalog-roles-and-enable-mobile-device-management-support"></a>Installer les rôles de catalogue d’applications et activer la prise en charge de la gestion des appareils mobiles  
+#### <a name="install-the-application-catalog-roles-and-enable-mobile-device-management-support"></a>Installieren Sie die Anwendungskatalogrollen, und aktivieren Sie die Unterstützung der Verwaltung mobiler Geräte  
 
-1.  Ajouter les rôles de service web du catalogue des applications et de site web  
+1.  Fügen Sie den Anwendungskatalog-Webdienst und Websiterollen hinzu  
 
-    1.  Sélectionnez **Mode HTTPS** et l’option **Autoriser les appareils mobiles à utiliser ce point de service web du catalogue des applications**.  
+    1.  Wählen Sie **HTTPS-Modus** und die Option **Mobilen Geräten die Verwendung dieses Anwendungskatalog-Webdienstpunkts erlauben**.  
 
-    2.  Limitations de cette version d’évaluation technique :  
+    2.  Einschränkungen in dieser Technical Preview:  
 
-        -   Vous devez désinstaller tous les rôles de catalogue des applications existants avant d’activer l’option pour autoriser les appareils mobiles à se connecter.  
+        -   Sie müssen alle vorhandenen Anwendungskatalogrollen deinstallieren, bevor Sie die Option auswählen können, mit der mobile Geräte eine Verbindung herstellen können.  
 
-        -   Assurez-vous qu’il existe un seul ensemble de rôles de catalogue des applications et que ces rôles sont localisés sur un même système de site avec les rôles de point d’inscription et de point proxy d’inscription.  
+        -   Stellen Sie sicher, dass es nur einen Satz von Anwendungskatalogrollen gibt, und dass die Rollen auf dem gleichen Standortsystem mit dem Registrierungspunkt und den Registrierungsproxypunkt-Rollen zusammengestellt werden.  
 
-2.  Vérifiez que les composants suivants sont opérationnels à partir du nœud État du composant dans la console Configuration Manager :  
+2.  Stellen Sie im Knoten Komponentenstatus in der Configuration Manager-Konsole sicher, dass die folgenden Komponenten funktionsfähig sind:  
 
     -   **SMS_AWEBSVC_CONTROL_MANAGER**  
 
@@ -229,88 +226,88 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
 
     -   **SMS_PORTALWEB_CONTROL_MANAGER**  
 
-### <a name="configure-boundaries"></a>Configurer les limites  
- Configurer les limites requises pour les points de distribution d’intranet uniquement.  
+### <a name="configure-boundaries"></a>Konfigurieren von Grenzen  
+ Konfigurieren von erforderlichen Grenzen für Nur Intranet-Verteilungspunkte.  
 
 > [!NOTE]  
->  Seules les limites de plage IPv4 sont prises en charge pour l’instant pour la gestion des appareils mobiles.  
+>  Zu diesem Zeitpunkt werden nur IPv4-Bereichsgrenzen für die Verwaltung mobiler Geräte unterstützt.  
 
-### <a name="deploy-the-company-portal-application-and-configuration"></a>Déployer l’application et la configuration de portail d’entreprise  
+### <a name="deploy-the-company-portal-application-and-configuration"></a>Bereitstellen der Unternehmensportal-Anwendung und -Konfiguration  
 
-1.  Utilisez le script de configuration fourni avec la version d’évaluation technique pour préparer le déploiement et la configuration du portail d’entreprise :  
+1.  Verwenden Sie das Konfigurationsskript in der Technical Preview, um die Unternehmensportal-Bereitstellung und -Konfiguration vorzubereiten:  
 
-    1.  Ouvrez une fenêtre de commande PowerShell avec élévation des privilèges.  
+    1.  Öffnen Sie ein erhöhtes PowerShell-Befehlsfenster.  
 
-    2.  Exécutez **set-executionPolicy RemoteSigned**  
+    2.  Führen Sie **set-executionPolicy RemoteSigned** aus  
 
-    3.  À partir du dossier **&lt;répertoire d’installation de SCCM\>\cd.latest\SMSSETUP\TOOLS\MDM**, exécutez **.\ConfigurationScript.ps1**  
+    3.  Führen Sie **.\ConfigurationScript.ps1** aus dem Ordner **&lt;SCCM-Installationsverzeichnis\>\cd.latest\SMSSETUP\TOOLS\MDM** aus  
 
-     Le script de configuration effectue les opérations suivantes :  
+     Das Konfigurationsskript erledigt Folgendes:  
 
-    1.  Il crée une application Configuration Manager avec un type de déploiement Package d’application Windows utilisant **CompanyPortalOnPremisesMDM.appx** dans le même dossier.  
+    1.  Erstellt eine Configuration Manager-Anwendung mit einem Windows-App-Paketbereitstellungstyp und verwendet **CompanyPortalOnPremisesMDM.appx** im gleichen Ordner.  
 
-    2.  Il crée un élément de configuration et une base de référence de configuration qui configure le portail d’entreprise.  
+    2.  Erstellt ein Konfigurationselement und eine Konfigurationsbaseline, die das Unternehmensportal konfiguriert.  
 
-    3.  Il déploie la base de référence de configuration et l’application, et il ajoute l’application à tous les points de distribution.  
+    3.  Stellt die Konfigurationsbaseline und die Anwendung bereit, und fügt die Anwendung auf allen Verteilungspunkten hinzu.  
 
     > [!NOTE]  
-    >  Si les rôles de catalogue d’applications ne sont pas colocalisés avec le site principal, prenez les mesures suivantes :  
+    >  Wenn die Anwendungskatalogrollen nicht mit dem primären Standort zusammengestellt werden, müssen Sie folgende Aktionen ausführen:  
     >   
-    >  -   Dans l’espace de travail **Ressources et Conformité**, recherchez l’élément de configuration **OnPremMDM Portal Configuration CI - server urls**.  
-    > -   Modifiez la valeur **Règles de compatibilité** en spécifiant le nom de domaine complet du système de site dans lequel figurent les rôles de catalogue d’applications.  
+    >  -   Suchen Sie das Konfigurationselement **OnPremMDM Portal Configuration CI – Server-URLs** im Arbeitsbereich **Bestand und Kompatibilität**  
+    > -   Ändern Sie die den Wert **Kompatibilitätsregeln** auf den vollqualifizierten Domänennamen des Standortsystems, wo die Anwendungskatalogrollen gespeichert sind.  
 
-2.  Une fois que l’application de portail d’entreprise et sa configuration ont été déployées, vérifiez que l’application et la base de référence de configuration sont compatibles pour l’appareil donné en utilisant la section **Déploiements** de la console Configuration Manager. Le portail d’entreprise apparaît sous la forme de **Portail d’entreprise (version d’évaluation technique)** dans le menu Démarrer de l’appareil.  
+2.  Wenn die Unternehmensportal-Anwendung und ihre Konfiguration bereitgestellt sind, überprüfen Sie im Abschnitt **Bereitstellungen** der Configuration Manager-Konsole, ob die Anwendung und die Baselinekonfiguration für das angegebene Gerät kompatibel sind. Das Unternehmensportal erscheint als **Unternehmensportal (Technical Preview)** im Startmenü auf dem Gerät.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’exécuter les tâches suivantes, puis indiquez-nous comment cela s’est passé en utilisant notre formulaire de commentaires à la page [Configuration Manager feedback program](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) du site Microsoft Connect :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, die folgenden Tasks auszuführen, und lassen Sie uns dann wissen, wie es funktioniert hat, indem Sie unserer Feedbackformular auf der Seite [Configuration Manager-Feedbackprogramm](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) auf der Microsoft Connect-Website ausfüllen:  
 
-1.  Déployey plusieurs applications avec des types de déploiement pris en charge sur un regroupement d’utilisateurs avec un objet de déploiement **Disponible**. Pour cette version d’évaluation technique, les applications qui requièrent une approbation de l’administrateur ne sont pas prises en charge et ne s’afficheront pas dans le portail d’entreprise.  
+1.  Stellen Sie mehrere Anwendungen mit unterstützten Bereitstellungstypen mit dem Bereitstellungszweck **Verfügbar** für eine Benutzersammlung bereit. Für diese Technical Preview werden Anwendungen, für die eine Genehmigung des Administrators erforderlich ist, nicht unterstützt und nicht im Unternehmensportal angezeigt.  
 
-2.  Les utilisateurs peuvent rechercher des applications et les installer à partir du portail d’entreprise.  
+2.  Benutzer können dann Anwendungen aus dem Unternehmensportal suchen und installieren.  
 
-     Après avoir ouvert le portail d’entreprise, vous voyez une boîte de dialogue d’authentification nommée **System Center Configuration Manager**. Spécifiez les informations d’identification Active Directory de l’utilisateur (sous la forme de user@domain ou de domaine\utilisateur) pour vous connecter.  
+     Wenn Sie das Unternehmensportal geöffnet haben, sehen Sie ein Authentifizierungsdialogfeld mit dem Namen **System Center Configuration Manager**. Geben Sie die Active Directory-Registrierungsinformationen des Benutzers an (entweder in Form von user@domain oder Domäne\Benutzer), um sich anzumelden.  
 
-##  <a name="BKMK_SW1"></a> Nouveaux onglets pour les mises à jour et les systèmes d’exploitation dans le Centre logiciel  
- Dans cette version, les modifications suivantes ont été apportées pour améliorer la disposition de l’application Centre logiciel :  
+##  <a name="BKMK_SW1"></a> Neue Registerkarten für Updates und Betriebssysteme im Software Center  
+ In diesem Release wurden die folgenden Änderungen vorgenommen, um das Layout der Software Center-Anwendung zu verbessern:  
 
--   L’onglet **Applications** a été divisé en trois onglets distincts : **Mises à jour**, **Systèmes d’exploitation** (auparavant accessibles dans la liste **Filtres**) et **Applications**.  
+-   Die Registerkarte **Anwendungen** wurde in drei separate Registerkarten aufgeteilt: **Updates**, **Betriebssysteme** (die beide zuvor in der Liste **Filter** zu finden waren) und **Anwendungen**.  
 
-##  <a name="BKMK_ServerGroups"></a> Assurer la maintenance d’un groupe de serveurs  
- La version d’évaluation technique 1511 de System Center Configuration Manager incluait la possibilité de créer un regroupement dans lequel tous les appareils composaient un groupe de serveurs. Ensuite, vous pouviez configurer les paramètres du groupe de serveurs à utiliser pour déployer des mises à jour logicielles sur le groupe de serveurs, contrôler le pourcentage d’ordinateurs qui étaient mis à jour à un moment donné, et configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.  
+##  <a name="BKMK_ServerGroups"></a> Bereitstellung einer Servergruppe  
+ Technical Preview für System Center Configuration Manager Version 1511 enthält die Möglichkeit, eine Sammlung zu erstellen, in der alle Geräte in der Sammlung eine Servergruppe bilden. Anschließend könnten Sie die Einstellungen der Servergruppe konfigurieren, die Sie verwenden, wenn Sie Softwareupdates für die Servergruppe bereitstellen, den Prozentsatz der Computer überprüfen, die zu jedem Zeitpunkt aktualisiert werden und die PowerShell-Skripts vor und nach der Bereitstellung zur Ausführung benutzerdefinierter Aktionen konfigurieren.  
 
- La version d’évaluation technique 1605 de System Center Configuration Manager ajoute la possibilité de mettre à jour les ordinateurs dans le groupe de serveurs, dans un ordre spécifié que vous définissez. Elle ajoute une surveillance améliorée pour afficher l’état des ordinateurs dans le groupe de serveurs et elle offre la possibilité de supprimer les verrous de déploiement, ce qui s’avère utile lorsque les clients n’ont pas pu installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles.  
+ Mit der Technical Preview für System Center Configuration Manager Version 1605 haben Sie ebenso die Möglichkeit, die Computer in der Servergruppe in einer bestimmten Reihenfolge, die Sie definieren, zu aktualisieren, eine erweiterte Überwachung zum Anzeigen des Status für die Computer in der Servergruppe hinzuzufügen und die Bereitstellungssperren zu deaktivieren. Dies ist hilfreich, wenn Clients die Softwareupdates nicht installieren konnten und verhindern, dass andere Clients die Softwareupdates installieren.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’exécuter les tâches suivantes, puis indiquez-nous comment cela s’est passé en utilisant notre formulaire de commentaires à la page [Configuration Manager feedback program](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) du site Microsoft Connect :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, die folgenden Tasks auszuführen, und lassen Sie uns dann wissen, wie es funktioniert hat, indem Sie unserer Feedbackformular auf der Seite [Configuration Manager-Feedbackprogramm](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) auf der Microsoft Connect-Website ausfüllen:  
 
--   Je peux créer un regroupement qui représente un groupe de serveurs. Pour ce test, vous pouvez configurer vos règles d'appartenance pour avoir deux ordinateurs dans ce regroupement.   
+-   Ich kann eine Sammlung erstellen, die eine Servergruppe darstellt. Für diesen Test können Sie Ihre Sammlungsmitgliedschaftsregeln  für zwei Computer in dieser Sammlung konfigurieren.   
 
--   Je peux spécifier que les ordinateurs figurant dans le groupe de serveurs doivent installer les mises à jour logicielles dans un ordre spécifique en fonction des paramètres du groupe de serveurs pour le regroupement. Utilisez les exemples de scripts dans la procédure pour spécifier les scripts de prédéploiement et de post-déploiement.  
+-   Ich kann angeben, dass Computer in der Servergruppe Softwareupdates in einer bestimmten Reihenfolge, basierend auf Servergruppeneinstellungen für die Sammlung, installieren. Verwenden Sie die Beispielskripts in der Prozedur, um die Skripts für die vor und nach der Bereitstellung auszuführenden Aktionen festzulegen.  
 
--   Je peux déployer une mise à jour logicielle sur ce regroupement. Examinez les fichiers start.txt et end.txt (créés à partir des exemples de script) dans C:\temp, et vérifiez les heures de début et de fin du déploiement sur les ordinateurs figurant dans le groupe de serveurs. Examinez le fichier UpdatesDeployment.log pour obtenir plus d'informations.  
+-   Ich kann ein Softwareupdate für diese Sammlung bereitstellen. Überprüfen Sie die in den Dateien „start.txt“ und „end.txt“ (aus dem Vorlagenskript erstellt) in „C:\temp“ und überprüfen Sie die Start- und Endzeiten für die Bereitstellung auf den Computern in der Servergruppe. In der Protokolldatei "UpdatesDeployment.log" finden Sie weitere Informationen.  
 
-#### <a name="to-create-a-collection-for-a-server-group"></a>Pour créer un regroupement pour un groupe de serveurs  
+#### <a name="to-create-a-collection-for-a-server-group"></a>So erstellen Sie eine Sammlung für eine Servergruppe  
 
-1.  [Créez un regroupement d’appareils](https://technet.microsoft.com/library/gg712295.aspx) contenant les ordinateurs du groupe de serveurs.  
+1.  [Erstellen Sie eine Gerätesammlung](https://technet.microsoft.com/library/gg712295.aspx), die die Computer in der Servergruppe enthält.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, cliquez avec le bouton droit sur le regroupement qui contient les ordinateurs du groupe de serveurs, puis cliquez sur **Propriétés**.  
+2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**, klicken Sie mit der rechten Maustaste auf die Sammlung mit den Computern in der Servergruppe, und klicken Sie anschließend auf **Eigenschaften**.  
 
-3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même groupe de serveurs**, puis cliquez sur **Paramètres**.  
+3.  Wählen Sie auf der Registerkarte **Allgemein** die Option **Alle Geräte gehören derselben Servergruppe an** aus, und klicken Sie auf **Einstellungen**.  
 
-4.  Dans la page **Paramètres de groupe de serveurs**, spécifiez l’un des paramètres suivants :  
+4.  Legen Sie auf der Seite **Servergruppeneinstellungen** eine der folgenden Einstellungen fest:  
 
-    -   **Autorisez un pourcentage des machines à être mises à jour en même temps** : Spécifie que seul un certain pourcentage de clients sont mis à jour à un moment quelconque. Si, par exemple, le regroupement compte 10 clients, et qu’il est configuré pour mettre à jour 30 % des clients en même temps, seuls 3 clients installeront les mises à jour logicielles à un moment donné quelconque.  
+    -   **Zulassen, dass ein bestimmter Prozentsatz der Computer gleichzeitig aktualisiert wird**: Gibt an, dass nur ein bestimmter Prozentsatz von Clients gleichzeitig aktualisiert wird. Wenn eine Sammlung beispielsweise 10 Clients enthält und für die Sammlung festgelegt wurde, dass 30 % der Clients gleichzeitig aktualisiert werden, werden Softwareupdates immer nur auf 3 Clients gleichzeitig installiert.  
 
-    -   **Autorisez un nombre de machines à être mises à jour en même temps** : Spécifie que seul un certain nombre de clients sont mis à jour à un moment quelconque.  
+    -   **Zulassen, dass eine bestimmte Anzahl von Computern gleichzeitig aktualisiert wird**: Gibt an, dass nur eine bestimmte Anzahl von Clients gleichzeitig aktualisiert wird.  
 
-    -   **Spécifier la séquence de maintenance** : Spécifie que les clients du regroupement seront mis à jour l’un après l’autre, dans l’ordre que vous configurez. Un client installe les mises à jour logicielles après seulement que le client qui le précède dans la liste a terminé l’installation de ses mises à jour logicielles.  
+    -   **Angeben der Wartungssequenz**: Gibt an, dass die Clients in der Sammlung in der von Ihnen festgelegten Reihenfolge nacheinander aktualisiert werden. Auf einem Client werden Softwareupdates erst installiert, nachdem die Installation von Softwareupdates auf dem Client abgeschlossen ist, der sich in der Liste vor diesem Client befindet.  
 
-5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
+5.  Geben Sie an, ob ein Skript vor der Bereitstellung (Knoten sperren) oder ein Skript nach der Bereitstellung (Knoten fortsetzen) verwendet werden soll.  
 
     > [!TIP]  
-    >  Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
+    >  Die folgenden Beispiele können Sie beim Testen für Skripts vor und nach der Bereitstellung verwenden, die die aktuelle Uhrzeit in eine Textdatei schreiben:  
     >   
-    >  **Prédéploiement**  
+    >  **Vor der Bereitstellung**  
     >   
     >  `#Start`  
     >   
@@ -320,7 +317,7 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Post-déploiement**  
+    >  **Nach der Bereitstellung**  
     >   
     >  `#End`  
     >   
@@ -330,145 +327,144 @@ Dans cette version d’évaluation technique, si le portail d’entreprise reste
     >   
     >  `Out-File C:\temp\end.txt`  
 
-#### <a name="to-deploy-software-updates-to-the-server-group-and-monitor-status"></a>Pour déployer des mises à jour logicielles dans le groupe de serveurs et surveiller leur état  
+#### <a name="to-deploy-software-updates-to-the-server-group-and-monitor-status"></a>Bereitstellen von Softwareupdates für die Servergruppe und Überwachen des Status  
 
-1.  [Déployez les mises à jour logicielles](https://technet.microsoft.com/library/gg712304.aspx) sur le regroupement du groupe de serveurs.  
+1.  [Bereitstellen von Softwareupdates](https://technet.microsoft.com/library/gg712304.aspx) für die Servergruppensammlung.  
 
-2.  [Surveillez le déploiement des mises à jour logicielles](https://technet.microsoft.com/library/gg712304.aspx). Outre les affichages d’analyse standard pour le déploiement des mises à jour logicielles, une nouvelle description d’état est affichée lorsqu’un client attend son tour pour installer les mises à jour logicielles. **En attente d’un verrou** s’affiche pour ce nouvel état.  
+2.  [Überwachen der Softwareupdatebereitstellung](https://technet.microsoft.com/library/gg712304.aspx). Zusätzlich zu den standardmäßigen Überwachungsansichten für die Bereitstellung von Softwareupdates wird eine neue Statusbeschreibung angezeigt, wenn ein Client darauf wartet, die Softwareupdates zu installieren. Für den neuen Status wird **Auf die Sperre warten** angezeigt.  
 
-#### <a name="to-clear-the-deployment-locks-for-computers-in-a-server-group"></a>Pour désactiver les verrous de déploiement pour les ordinateurs d’un groupe de serveurs  
+#### <a name="to-clear-the-deployment-locks-for-computers-in-a-server-group"></a>So löschen Sie die Bereitstellungssperren für Computer in einer Servergruppe  
 
-1.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, puis cliquez sur le regroupement pour désactiver les verrous de déploiement.  
+1.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen** und anschließend auf die Sammlung, um Bereitstellungssperren zu löschen.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Supprimer les verrous de déploiement du groupe de serveurs**. Quand des clients ne parviennent pas à installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles, les verrous de déploiement peuvent être désactivés manuellement.  
+2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Bereitstellung** auf **Bereitstellungssperren für Servergruppe löschen**. Wenn Clients die Softwareupdates nicht installiert haben, und dadurch die Installation der Softwareupdates auf anderen Clients verhindert wird, können die Bereitstellungssperren manuell gelöscht werden.  
 
-##  <a name="BKMK_ATP"></a> Prise en charge du service Windows Defender Advanced Threat Protection  
- Protection avancée contre les menaces Windows Defender est un nouveau service qui aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux. En savoir plus sur [Protection avancée contre les menaces Windows Defender](https://blogs.windows.com/windowsexperience/2016/03/01/announcing-windows-defender-advanced-threat-protection). Configuration Manager peut vous aider à intégrer et surveiller des appareils clients Windows 10 Édition anniversaire gérés.  
+##  <a name="BKMK_ATP"></a> Unterstützung für Windows Defender Advanced Threat Protection  
+ Windows Defender Advanced Threat Protection (ATP) ist ein neuer Dienst, der Unternehmen dabei unterstützt, erweiterte Angriffe auf ihre Netzwerke zu entdecken, zu untersuchen und darauf zu reagieren. Weitere Informationen finden Sie unter [Windows Defender ATP](https://blogs.windows.com/windowsexperience/2016/03/01/announcing-windows-defender-advanced-threat-protection). Configuration Manager kann Sie beim Onboarding unterstützen, und verwaltete Windows 10 Anniversary Edition-Clientgeräte überwachen.  
 
-### <a name="try-it-now"></a>Essayez maintenant !  
- Essayez d’exécuter les tâches suivantes, puis indiquez-nous comment cela s’est passé en utilisant notre formulaire de commentaires à la page [Configuration Manager feedback program](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) du site Microsoft Connect :  
+### <a name="try-it-now"></a>Probieren Sie es jetzt aus!  
+ Versuchen Sie, die folgenden Tasks auszuführen, und lassen Sie uns dann wissen, wie es funktioniert hat, indem Sie unserer Feedbackformular auf der Seite [Configuration Manager-Feedbackprogramm](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) auf der Microsoft Connect-Website ausfüllen:  
 
--   Intégrer des appareils au service en ligne Protection avancée contre les menaces Windows Defender  
+-   Integrieren von Geräten in den Windows Defender Advanced Threat Protection (ATP)-Onlinedienst  
 
--   Surveiller le déploiement du service Protection avancée contre les menaces Windows Defender sur les appareils gérés  
+-   Überwachen der Windows Defender ATP-Bereitstellung für verwaltete Geräte  
 
- **Conditions préalables**  
+ **Voraussetzungen**  
 
--   Abonnement au service en ligne Protection avancée contre les menaces Windows Defender  
+-   Abonnement für den Windows Defender Advanced Threat Protection-Onlinedienst  
 
--   Clients exécutant Windows 10 Édition anniversaire (build 14328 et supérieure)  
+-   Clients unter Windows 10 Anniversary Edition (Build 14328 und höher)  
 
--   Créer un fichier de configuration d’intégration de client  
+-   Erstellen einer Client-Onbardingkonfigurationsdatei  
 
-    ##### <a name="how-to-create-an-onboarding-configuration-file"></a>Guide pratique pour créer un fichier de configuration d’intégration  
+    ##### <a name="how-to-create-an-onboarding-configuration-file"></a>So erstellen Sie eine Onboardingkonfigurationsdatei  
 
-    1.  Connectez-vous au service en ligne Protection avancée contre les menaces Windows Defender.  
+    1.  Melden Sie sich im Windows Defender ATP-Onlinedienst an  
 
-    2.  Cliquez sur l’élément de menu **Intégration du client**.  
+    2.  Klicken Sie auf das Menüelement **Client On-boarding** (Client-Onboarding)  
 
-    3.  Sélectionnez **System Center Configuration Manager**, puis cliquez sur **Télécharger le package**.  
+    3.  Wählen Sie **System Center Configuration Manager** aus und klicken Sie auf **Paket herunterladen**.  
 
-    4.  Téléchargez le fichier d’archive compressé (.zip) et extrayez son contenu.  
+    4.  Laden Sie die komprimierte Archiv-Datei (ZIP-Datei) herunter, und extrahieren Sie die Inhalte.  
 
 
-##### <a name="onboard-devices-for-windows-defender-atp"></a>Intégrer des appareils pour Windows Defender ATP  
+##### <a name="onboard-devices-for-windows-defender-atp"></a>Integrieren von Geräten für Windows Defender ATP  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Endpoint Protection** > **Stratégies Windows Defender ATP**, puis cliquez sur **Créer une stratégie Windows Defender ATP**. L’Assistant Création d’une stratégie Windows Defender ATP s’ouvre.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Endpoint Protection** > **Windows Defender ATP-Richtlinien**, und klicken Sie auf **Windows Defender ATP-Richtlinie erstellen**. Der Assistent zum Erstellen von Windows Defender ATP-Richtlinien wird geöffnet.  
 
-2.  Tapez un **nom** et une **description** pour la stratégie Windows Defender ATP, puis sélectionnez **Intégration**. Cliquez sur Suivant.  
+2.  Geben Sie den **Namen** und die **Beschreibung** für die Windows Defender ATP-Richtlinie ein, und wählen Sie **Onboarding** aus. Klicken Sie auf Weiter .  
 
-3.  Sélectionnez **Parcourir** pour accéder au fichier de configuration fourni par le locataire du service cloud Windows Defender ATP de votre organisation. Cliquez sur **Suivant**.  
+3.  **Navigieren** Sie in die Konfigurationsdatei, die vom Windows Defender ATP-Clouddienstmandanten Ihrer Organisation bereitgestellt wird. Klicken Sie auf **Weiter**.  
 
-4.  Spécifiez les exemples de fichiers collectés et partagés à partir des appareils gérés pour les besoins d’analyse.  
+4.  Geben Sie die Dateibeispiele an, die gesammelt und gemeinsam von verwalteten Geräten für die Analyse freigegeben werden.  
 
-    -   **Aucun**: aucun fichier d’exemple n’est collecté pour analyse.  
+    -   **Keine** – Es werden keine Beispieldateien für die Analyse gesammelt  
 
-    -   **Fichiers exécutables portables** : des fichiers tels que les fichiers programme (.exe), les fichiers de bibliothèque de liens dynamiques (.dll), les fichiers de polices et des fichiers similaires qui peuvent être exploités dans des attaques informatiques sont collectés et partagés pour analyse.  
+    -   **Portierbare ausführbare Dateien** – Dateien wie z.B. Programmdateien (.exe), dynamische Bibliotheklinkdateien (.dll), Schriftartdateien, und ähnliche Dateien, die in Cyberangriffen ausgenutzt werden können, werden gesammelt und zur Analyse freigegeben  
 
-     Cliquez sur **Suivant**.  
+     Klicken Sie auf **Weiter**.  
 
-5.  Passez en revue les informations de résumé et terminez l’Assistant.  
+5.  Überprüfen Sie die Zusammenfassung, und schließen Sie den Assistenten ab.  
 
-6.  Vous pouvez maintenant déployer la stratégie Windows Defender ATP sur les ordinateurs clients gérés en cliquant sur **Déployer**.  
+6.  Sie können nun die Windows Defender ATP-Richtlinie für verwaltete Clientcomputer bereitstellen, indem Sie auf **Bereitstellen** klicken.  
 
-##### <a name="monitor-windows-defender-atp"></a>Surveiller Windows Defender ATP  
+##### <a name="monitor-windows-defender-atp"></a>Überwachen von Windows Defender ATP  
 
-1.  Dans la console Configuration Manager, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité**, puis cliquez sur **Windows Defender ATP**.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Sicherheit**, und klicken Sie dann auf **Windows Defender ATP**.  
 
-2.  Examinez le tableau de bord Protection avancée contre les menaces Windows Defender.  
+2.  Überprüfen Sie das Windows Defender Advanced Threat Protection-Dashboard.  
 
-    -   **État du déploiement de l’agent Windows Defender** : nombre et pourcentage d’ordinateurs clients gérés éligibles avec la stratégie Windows Defender ATP intégrée active.  
+    -   **Windows Defender Agent Deployment Status** (Windows Defender-Agent-Bereitstellungsstatus) – Anzahl und Prozentsatz der geeigneten verwalteten Clientcomputer mit integrierter aktiver Windows Defender ATP-Richtlinie  
 
-    -   **Intégrité de l’agent Windows Defender ATP** : pourcentage d’ordinateurs clients qui signalent l’état de l’agent Windows Defender ATP.  
+    -   **Integrität von Windows Defender ATP-Agent** – Prozentsatz von Computerclients, die den Status für ihren Windows Defender-ATP-Agent melden  
 
-        -   **Sain** : fonctionnement correct.  
+        -   **Integriert** – Funktioniert ordnungsgemäß  
 
-        -   **Inactif** : aucune donnée n’a été envoyée au service durant la période.  
+        -   **Inaktiv** – In dem Zeitraum wurden keine Daten an den Dienst gesendet  
 
-        -   **État de l’agent** : le service système de l’agent dans Windows n’est pas en cours d’exécution.  
+        -   **Agent-Status** – Der Systemdienst für den Agent in Windows wird nicht ausgeführt  
 
-        -   **Non intégré** : la stratégie a été appliquée, mais l’agent n’a pas signalé de stratégie intégrée.  
+        -   **Nicht integriert** – Die Richtlinie wurde angewendet, aber der Agent hat die Richtlinienintegration nicht gemeldet  
 
-##  <a name="BKMK_DHA"></a> Attestation d’intégrité de l’appareil en local  
- L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale. Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales. Si l’option sur site est sélectionnée pour la création de rapports d’attestation d’intégrité, vous pouvez spécifier une URL pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
+##  <a name="BKMK_DHA"></a> Integritätsnachweis für lokale Geräte  
+ Der Integritätsnachweis für Windows 10-Geräte kann jetzt so konfiguriert werden, dass die Kommunikation über die lokale Infrastruktur erfolgt. Administratoren können angeben, ob die Berichterstellung über die Cloud oder über lokale Ressourcen durchgeführt wird. Wenn für die Berichterstellung für den Integritätsnachweis „lokal“ ausgewählt wird, kann ein URL für den Dienst angegeben werden. Dadurch können Client-PCs ohne Internetzugriff Geräte, die den Integritätsnachweis verwenden, aktivieren und verwalten.  
 
-### <a name="enable-health-attestation-for-on-premises-devices"></a>Activation de l’attestation d’intégrité pour les appareils locaux  
- Dans la version 1605, nous avons résolu quelques bogues découverts dans la version d’évaluation technique 1604.  Pour l’essayer, configurez le service d’attestation d’intégrité local à l’aide des paramètres de l’agent client.  
+### <a name="enable-health-attestation-for-on-premises-devices"></a>Aktivieren des Integritätsnachweises für lokale Geräte  
+ In Technical Preview 1605 haben wir einige Fehler behoben, die in 1604 aufgetreten sind.  Konfigurieren Sie zu Testzwecken den lokalen Health Attestation-Dienst anhand der Client-Agent-Einstellungen.  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Paramètres client**, puis affectez à **Utiliser le service d’attestation d’intégrité local** la valeur **Oui**.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Clienteinstellungen**, und legen Sie anschließend **Lokalen Integritätsnachweisdienst verwenden** auf **Ja**fest.  
 
-2.  Spécifiez l’ **URL du service d’attestation d’intégrité local**, puis cliquez sur **OK**.  
+2.  Geben Sie die **URL für lokalen Integritätsnachweisdienst**an, und klicken Sie anschließend auf **OK**.  
 
-##  <a name="BKMK_RestartOptions"></a> Nouvelles options de redémarrage pour les clients Windows 10 après l’installation de mises à jour logicielles  
- Quand une mise à jour logicielle nécessitant un redémarrage est déployée à l’aide de Configuration Manager et installée sur un ordinateur, un redémarrage en attente est planifié et une boîte de dialogue de redémarrage s’affiche. Actuellement, pour Windows 8 et versions ultérieures, si vous arrêtez ou redémarrez l’ordinateur à l’aide des options d’alimentation de Windows (et non pas à partir de la boîte de dialogue de redémarrage), la boîte de dialogue de redémarrage reste affichée après le redémarrage de l’ordinateur et celui-ci devra redémarrer à l’échéance configurée. Dans cette version d’évaluation technique, les options **Mettre à jour et redémarrer** et **Mettre à jour et arrêter** sont disponibles sur les ordinateurs Windows 10 dans les options d’alimentation de Windows chaque fois qu’un redémarrage est en attente pour une mise à jour logicielle Configuration Manager. Après l’utilisation de l’une de ces options, la boîte de dialogue de redémarrage ne s’affiche pas quand l’ordinateur redémarre.  
+##  <a name="BKMK_RestartOptions"></a> Neue Neustartoptionen für Windows 10-Clients nach der Installation von Softwareupdates  
+ Wenn ein Softwareupdate, das einen Neustart benötigt, mit Configuration Manager bereitgestellt und auf einem Computer installiert wird, wird ein ausstehender Neustart geplant, und das Neustartdialogfeld wird angezeigt. Wenn Sie in Versionen, die unter Windows 8 oder höher laufen, den Computer mithilfe der Windows Power-Optionen (anstatt über den Neustartdialog) herunterfahren oder neu starten, wird das Neustartdialogfeld auch nach dem Neustart weiterhin angezeigt. Der Computer muss trotzdem innerhalb der konfigurierten Zeitspanne neu gestartet werden. In dieser Technical Preview werden die Optionen **Update und Neustart** und **Update und Herunterfahren** auf Windows 10-Computern in den Windows Power-Optionen verfügbar sein, sobald es einen ausstehenden Neustart für ein Configuration Manager-Softwareupdate gibt. Nach der Verwendung einer dieser Optionen, wird das Dialogfeld „Neustart“ nach dem Neustart des Computers nicht angezeigt.  
 
-##  <a name="BKMK_IMEI"></a> Prédéclarer des appareils d’entreprise avec leur numéro IMEI ou leur numéro de série iOS  
- Vous pouvez désormais identifier des appareils d’entreprise en important leurs numéros IMEI (International Mobile Equipment Identity). Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) contenant les numéros IMEI des appareils ou saisir manuellement les informations sur les appareils.  Vous pouvez également importer les numéros de série des appareils iOS.  Les informations importées définissent l’appartenance des appareils inscrits sur « Entreprise ».  Une licence Intune reste nécessaire pour chaque utilisateur qui accède au service.  
+##  <a name="BKMK_IMEI"></a> Vorabdeklarieren von firmeneigenen Geräten mit IMEI- oder iOS-Seriennummer  
+ Sie können nun unternehmenseigene Geräte identifizieren, indem Sie deren IMEI-Nummern (International Station Mobile Equipment Identity) importieren. Sie können eine CSV-Datei (comma-separated values, durch Trennzeichen getrennte Datei) hochladen, die die IMEI-Nummern der Geräte enthält, oder Geräteinformationen manuell eingeben.  Sie können auch die Seriennummern für iOS-Geräte importieren.  Importierte Informationen legen den Besitz der registrierten Geräte auf „Unternehmen“ fest.  Dennoch wird für jeden Benutzer, der auf den Dienst zugreift, eine Intune-Lizenz benötigt.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’exécuter les tâches suivantes, puis indiquez-nous comment cela s’est passé en utilisant notre formulaire de commentaires à la page [Configuration Manager feedback program](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) du site Microsoft Connect :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, die folgenden Tasks auszuführen, und lassen Sie uns dann wissen, wie es funktioniert hat, indem Sie unserer Feedbackformular auf der Seite [Configuration Manager-Feedbackprogramm](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) auf der Microsoft Connect-Website ausfüllen:  
 
--   Importez un ensemble de numéros IMEI dans un fichier .csv. Chaque ligne peut contenir le numéro IMEI suivi d’un champ de détails.  
+-   Importieren Sie IMEI-Nummern in eine CSV-Datei. Jede Zeile kann die IMEI-Nummer, gefolgt von einem Detailfeld, enthalten.  
 
--   Importez manuellement des numéros IMEI à partir de la console Configuration Manager.  
+-   Importieren Sie IMEI-Nummern manuell über die Configuration Manager-Konsole.  
 
--   Importez un ensemble de numéros de série iOS dans un fichier .csv. Là encore, chaque ligne contient un numéro, suivi de détails éventuels sur l’appareil.  
+-   Importieren Sie iOS-Seriennummern in eine CSV-Datei. Jede Zeile enthält wiederum eine Zahl, gefolgt von allen Details für das Gerät.  
 
-##### <a name="pre-declare-corporate-owned-devices-with-imei-or-ios-serial-number"></a>Prédéclarer des appareils d’entreprise avec numéro IMEI ou numéro de série iOS  
+##### <a name="pre-declare-corporate-owned-devices-with-imei-or-ios-serial-number"></a>Vorabdeklarieren von firmeneigenen Geräten mit IMEI- oder iOS-Seriennummer  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Tous les appareils d’entreprise** > **Appareils prédéclarés**, puis cliquez sur **Créer des appareils prédéclarés**. L’Assistant Appareils prédéclarés s’ouvre.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Alle unternehmenseigene Geräte** > **Vorabdeklarierte Geräte**, und klicken Sie dann auf **Create Pre-declared Devices** (Erstellen von vorabdeklarierten Geräten). Der Assistent für vorabdeklarierte Geräte wird geöffnet.  
 
-2.  Spécifiez la façon dont vous souhaitez ajouter les informations sur les appareils :  
+2.  Geben Sie an, wie Sie Geräteinformationen hinzufügen möchten:  
 
-    -   **Charger un fichier CSV contenant des numéros IMEI et des informations détaillées** : pour charger une liste de numéros, consultez l’étape 3.  
+    -   **Hochladen einer CSV-Datei mit den IMEI-Nummern und Details** – Siehe Schritt 3 zum Hochladen einer Nummernliste.  
 
-    -   **Ajouter manuellement des numéros IMEI et des informations détaillées** : pour saisir manuellement des informations, tapez le numéro IMEI ou le numéro de série iOS, ainsi que des informations détaillées sur les appareils, puis passez à l’étape 4.  
+    -   **Manuelles Hinzufügen von IMEI-Nummern und Details** – Um Informationen manuell einzugeben, geben Sie die IMEI-Nummer oder iOS-Seriennummer und Details zu Geräten ein, und gehen Sie zu Schritt 4 über.  
 
-3.  Pour les fichiers chargés, accédez au fichier .csv contenant les informations à utiliser pour prédéclarer les appareils d’entreprise. Le fichier doit avoir le format suivant, à l’exception de la ligne du haut (fournie à titre indicatif uniquement) :  
+3.  Für hochgeladene Dateien navigieren Sie zu der CSV-Datei, die Informationen zu unternehmenseigenen, vorabdeklarierten Geräten enthält. Die Datei muss das folgende Format aufweisen, ausgenommen der obersten Zeile (die nur zur Erklärung zur Verfügung gestellt wird):  
 
-    |**No IMEI**|**No de série iOS**|**SE**|**Détails**|
+    |**IMEI-Nummer**|**iOS-Seriennummer**|**Betriebssystem**|**Details**|
     |---|---|---|---|
-    |123456789012345||WINDOWS|Appareil d’entreprise Windows|
-    |123456789012|A0BCD0EFGH0J|IOS|Appareils d’entreprise iOS|
-    |123456789012346||ANDROID|Appareil d’entreprise Android|
+    |123456789012345||WINDOWS|Unternehmenseigenes Windows-Gerät|
+    |123456789012|A0BCD0EFGH0J|IOS|Unternehmenseigenes iOS-Gerät|
+    |123456789012346||ANDROID|Unternehmenseigenes Android-Gerät|
 
-     **Colonnes :**  
+     **Spalten:**  
 
-    -   Colonne 1 : Numéro IMEI : Un numéro IMEI ou un numéro de série iOS est requis pour chaque ligne.  
+    -   Spalte 1: IMEI-Nummer – Eine IMEI-Nummer oder eine iOS-Seriennummer ist für jede Zeile erforderlich  
 
-    -   Colonne 2 : Numéro de série iOS : Seuls des numéros de série iOS peuvent être prédéclarés. Utilisez le numéro IMEI pour d’autres plateformes d’appareil  
+    -   Spalte 2: iOS-Seriennummer – Es können ausschließlich iOS-Seriennummern vorabdeklariert sein. Verwenden Sie die IMEI-Nummer für andere Geräteplattformen  
 
-    -   Colonne 3 : Système d’exploitation de l’appareil (des majuscules sont requises) :  
+    -   Spalte 3: Betriebssystem des Geräts (Großschreibung erforderlich):  
 
-        -   IOS : Tous les appareils iOS  
+        -   IOS – Alle iOS-Geräte  
 
-        -   WINDOWS : Inclut les appareils Windows Phone, Windows 10 Mobile et PC Windows  
+        -   WINDOWS – Umfasst Windows Phone, Windows 10 Mobile und Windows-PCs  
 
-        -   ANDROID : Tous les appareils Android  
+        -   ANDROID – Alle Android-Geräte  
 
-    -   Colonne 4 : Détails : Informations supplémentaires sur l’appareil qui figurent dans la console Configuration Manager.  
+    -   Spalte 4: Details – Zusätzliche Geräteinformationen, die in der Configuration Manager-Konsole angezeigt werden  
 
-     Cliquez sur **Suivant**.  
+     Klicken Sie auf **Weiter**.  
 
-4.  Vérifiez les résultats de l’importation du fichier. Les informations détaillées des numéros IMEI ou de série précédemment importés seront mises à jour avec de nouvelles informations.  Cliquez sur **Suivant** pour continuer ou sur **Précédent** pour conserver les détails modifiés, puis terminez l’Assistant.  
-
+4.  Überprüfen der Ergebnisse des Dateiimports. Die Details zuvor importierter IMEI- oder Seriennummern werden mit neuen Details aktualisiert.  Klicken Sie auf **Weiter**, um fortzufahren oder auf **Zurück**, um aktualisierte Details beizubehalten, und schließen Sie dann den Assistenten ab.  

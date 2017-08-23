@@ -1,82 +1,78 @@
 ---
-title: "Guide pratique pour créer des profils VPN dans System Center Configuration Manager | Microsoft Docs"
-description: "Découvrez comment créer des profils VPN dans System Center Configuration Manager."
+title: Erstellen von VPN-Profilen in System Center Configuration Manager | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie VPN-Profile in System Center Configuration Manager erstellen.
 ms.custom: 
 ms.date: 4/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f338e4db-73b5-45ff-92f4-1b89a8ded989
-caps.latest.revision: 15
+caps.latest.revision: "15"
 author: lleonard-msft
-caps.handback.revision: 0
+caps.handback.revision: "0"
 ms.author: alleonar
 ms.manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a6c89254d01f4074e5c170b20338686178ebdd3
 ms.openlocfilehash: 359fcfd9754fb5c81763bc44cac45376ea3ab0b8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Comment créer des profils VPN dans System Center Configuration Manager
+# <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Erstellen von VPN-Profilen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les types de connexion disponibles pour les différentes plateformes d’appareils sont décrits dans [Profils VPN dans System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
+Die für verschiedene Geräteplattformen verfügbaren Verbindungstypen werden unter [VPN-Profile in System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md) beschrieben.  
 
-Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
+Verteilen Sie die VPN-App für Drittanbieter-VPN-Verbindungen vor der Bereitstellung des VPN-Profils. Wenn Sie die App nicht bereitstellen, werden die Benutzer dazu aufgefordert, sobald sie versuchen, sich mit dem VPN zu verbinden. Weitere Informationen zum Bereitstellen von Apps finden Sie unter [Bereitstellen von Anwendungen mit System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
 
-### <a name="create-a-vpn-profile"></a>Créer un profil VPN   
+### <a name="create-a-vpn-profile"></a>Erstellen eines VPN-Profils   
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Paramètres de compatibilité** > **Accès aux ressources de l’entreprise**  > **Profils VPN**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Assets and Compliance** (Bestand und Konformität) > **Compliance Settings** (Konformitätseinstellungen) > **Company Resource Access** (Zugriff auf Unternehmensressourcen) > **VPN-Profiles** (VPN-Profile) aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil VPN**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Create VPN Profile** (VPN-Profil erstellen) aus.  
 
 
-1.  Renseignez la page **Général**. . Notez ce qui suit :  
+1.  Schließen Sie die Seite **Allgemein** ab. Beachten Sie dabei Folgendes:  
 
-       - N’utilisez pas les caractères \\/:*?&lt;>&#124;, ou le caractère espace dans le nom du profil VPN. Ces caractères ne sont pas pris en charge par le profil VPN de Windows Server.  
+    - Verwenden Sie im Namen des VPN-Profils keines der Zeichen \\/:*?&lt;>&#124; und auch keine Leerzeichen. Diese Zeichen werden vom Windows Server-VPN-Profil nicht unterstützt.  
 
-       -   Sélectionnez **Import an existing VPN profile item from a file** (Importer un élément de profil VPN existant à partir d’un fichier) pour importer les informations de profil VPN qui ont été exportées vers un fichier XML (Windows 8.1 et Windows RT uniquement).  
+     -   Wählen Sie **Import an existing VPN profile item from a file** (Vorhandenes VPN-Profilelement aus einer Datei importieren) aus, um Informationen eines VPN-Profils zu importieren, das in eine XML-Datei exportiert wurde (nur Windows 8.1 oder Windows RT).  
 
-1.  Dans la page **Connexion**, spécifiez les informations suivantes :  
+1.  Geben Sie auf der Seite **Verbindung** Folgendes an:  
 
-    -   **Type de connexion** : choisissez le type de connexion VPN. Vous pouvez choisir parmi les types de connexion dans le tableau suivant.  
+    -   **Verbindungstyp**: Wählen Sie den VPN-Verbindungstyp aus. Sie können aus den Verbindungstypen in der folgenden Tabelle wählen.  
 
-    -   **Liste de serveurs** : ajoutez un nouveau serveur à utiliser pour la connexion VPN. Selon le type de connexion, vous pouvez ajouter un ou plusieurs serveurs VPN et indiquer le serveur par défaut.  
+    -   **Server list** (Serverliste): Fügen Sie einen neuen Server zur Verwendung für die VPN-Verbindung hinzu. Abhängig vom Verbindungstyp können Sie einen oder mehrere VPN-Server hinzufügen und den Standardserver angeben.  
 
         > [!NOTE]  
-        >  Les appareils qui exécutent iOS ne prennent pas en charge l'utilisation de plusieurs serveurs VPN. Si vous configurez plusieurs serveurs VPN et que vous déployez le profil VPN sur un appareil iOS, seul le serveur par défaut sera utilisé.  
+        >  Von iOS-Geräten wird die Verwendung mehrerer VPN-Server nicht unterstützt. Wenn Sie mehrere VPN-Server konfigurieren und dann das VPN-Profil auf einem iOS-Gerät bereitstellen, wird nur der Standardserver verwendet.  
 
-     Ce tableau fournit des options pour les types de connexion. Pour plus d'informations, consultez la documentation de votre serveur VPN.
+     Diese Tabelle bietet Optionen für die Verbindungstypen. Weitere Informationen finden Sie in der Dokumentation zum VPN-Server.
 
-| &nbsp;&nbsp;Option&nbsp;&nbsp; | Plus d'informations | &nbsp;&nbsp;Type de&nbsp;connexion&nbsp;&nbsp; |  
+| &nbsp;&nbsp;Option&nbsp;&nbsp; | Weitere Informationen | &nbsp;&nbsp;Verbindung&nbsp;Typ&nbsp;&nbsp; |  
 |----------------|----------------------|---------------------|  
-|**Domaine**     |Domaine d’authentification que vous souhaitez utiliser. Un domaine d'authentification est un regroupement de ressources d'authentification utilisé par le type de connexion Pulse Secure.|Pulse Secure|    
-|**Rôle**        |Rôle d’utilisateur qui a accès à cette connexion. |Pulse Secure|  
-|**Groupe de connexion ou domaine** |Nom du groupe de connexion ou domaine auquel vous souhaitez vous connecter.|Dell SonicWALL Mobile Connect|  
-|**Empreinte digitale**  |Chaîne, par exemple « Code d’empreinte digitale Contoso », qui sera utilisée pour vérifier que le serveur VPN est digne de confiance.<br /><br /> Une empreinte digitale peut être :<br /><br /> - envoyée au client pour qu’il sache qu’il peut approuver n’importe quel serveur présentant cette même empreinte lors de la connexion ;<br /><br /> - si l’appareil n’a pas encore l’empreinte digitale, il invite l’utilisateur à approuver le serveur VPN auquel il se connecte en affichant l’empreinte digitale (l’utilisateur vérifie l’empreinte manuellement et choisit **Approuver** pour se connecter).|Check Point Mobile VPN|  
-|**Envoyer tout le trafic réseau via la connexion VPN** |Si cette option n'est pas sélectionnée, vous pouvez spécifier des itinéraires supplémentaires pour la connexion (pour les types de connexion **Microsoft SSL (SSTP)**, **Microsoft Automatic**, **IKEv2**, **PPTP** et **L2TP** ). On appelle cela le tunneling VPN ou fractionné.<br /><br /> Seules les connexions au réseau d'entreprise sont envoyées via un tunnel VPN. La tunnelisation VPN n'est pas utilisée quand vous vous connectez à des ressources sur Internet. |Tout|  
-|**Suffixe DNS spécifique à la connexion** |Suffixe DNS spécifique à la connexion pour la connexion.|- Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - IKEv2<br /><br /> - PPTP<br /><br /> - L2TP|  
-|**Ignorer VPN en cas de connexion à un réseau Wi-Fi d'entreprise**  |La connexion VPN n’est pas utilisée quand l’appareil est connecté au réseau Wi-Fi d’entreprise.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN<br /><br /> - Microsoft SSL (SSTP)<br /><br /> - Microsoft Automatic<br /><br /> - IKEv2<br /><br /> - L2TP|  
-|**Ignorer le VPN en cas de connexion à un réseau Wi-Fi domestique**  |La connexion VPN n’est pas utilisée quand l’appareil est connecté à un réseau Wi-Fi domestique.|Tout|  
-|**Par VPN d'application (iOS 7 et versions ultérieures, Mac OS X 10.9 et versions ultérieures)** |Associez cette connexion VPN à une application iOS pour que la connexion s’ouvre quand l’application est exécutée. Vous pouvez associer le profil VPN à une application lors de son déploiement.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
-|**Code XML personnalisé (facultatif)** |Spécifiez des commandes XML personnalisées qui configurent la connexion VPN.<br /><br /> Exemples :<br /><br /> Pour **Pulse Secure**:<br /><br /> **&lt;pulse-schema><br /> &nbsp; &lt;isSingleSignOnCredential>true&lt;/isSingleSignOnCredential\><br />&lt;/pulse-schema>**<br /><br /> Pour **CheckPoint VPN Mobile**:<br /><br /> **&lt;CheckPointVPN <br /> &nbsp; port="443" name="CheckPointSelfhost" <br /> &nbsp; sso="true" <br /> &nbsp; debug="3"<br />/>**<br /><br /> Pour **Dell SonicWALL Mobile Connect**:<br /><br /> **&lt;MobileConnect\><br />&nbsp; &nbsp; &lt;Compression\>false&lt;/Compression\><br />&nbsp; &nbsp; &lt;debugLogging\>True&lt;/debugLogging\><br />&nbsp; &nbsp; &lt;packetCapture\>False&lt;/packetCapture\><br />&lt;/MobileConnect\>**<br /><br /> Pour **Client F5 Edge**:<br /><br /> **&lt;f5-vpn-conf>&lt;single-sign-on-credential>&lt;/f5-vpn-conf>**<br /><br /> Pour plus d'informations sur la façon d'écrire des commandes XML personnalisées, reportez-vous à la documentation du VPN de chaque fabricant.|- Cisco AnyConnect<br /><br /> - Pulse Secure<br /><br /> - Client F5 Edge<br /><br /> - Dell SonicWALL Mobile Connect<br /><br /> - Check Point Mobile VPN|  
+|**Bereich**     |Der Authentifizierungsbereich, den Sie verwenden möchten. Ein Authentifizierungsbereich ist eine Gruppe von Authentifizierungsressourcen, die vom Verbindungstyp „Pulse Secure“ verwendet werden.|Pulse Secure|    
+|**Rolle**        |Die Benutzerrolle, die Zugriff auf diese Verbindung hat. |Pulse Secure|  
+|**Anmeldegruppe oder Domäne** |Der Name der Anmeldegruppe oder Domäne, mit der Sie eine Verbindung herstellen möchten.|Dell SonicWALL Mobile Connect|  
+|**Fingerabdruck**  |Eine Zeichenfolge wie z.B. „Contoso-Fingerabdruckcode“, anhand der überprüft wird, ob der VPN-Server vertrauenswürdig ist.<br /><br /> Mit einem Fingerabdruck kann wie folgt verfahren werden:<br /><br /> – Er kann an den Client gesendet werden, damit dieser weiß, dass alle Server vertrauenswürdig sind, die beim Verbinden den betreffenden Fingerabdruck vorweisen.<br /><br /> – Wenn das Gerät nicht über den Fingerabdruck verfügt, wird der Benutzer aufgefordert, dem VPN-Server zu vertrauen, mit dem eine Verbindung hergestellt wird, während der Fingerabdruck angezeigt wird (der Benutzer überprüft den Fingerabdruck manuell und wählt **Vertrauen** aus, um die Verbindung herzustellen).|Prüfpunkt für mobiles VPN|  
+|**Gesamten Netzwerkdatenverkehr über die VPN-Verbindung senden** |Wenn diese Option nicht ausgewählt ist, können Sie zusätzliche Routen für die Verbindung angeben (für die Verbindungstypen **Microsoft SSL (SSTP)**, **Microsoft Automatic**, **IKEv2**, **PPTP** und **L2TP** ). Dies wird auch als getrenntes Tunneln oder VPN-Tunneln bezeichnet.<br /><br /> Nur Verbindungen mit dem Unternehmensnetzwerk werden über einen VPN-Tunnel gesendet. Beim Verbinden mit Ressourcen im Internet wird VPN-Tunneln nicht verwendet. |Alle|  
+|**Verbindungsspezifisches DNS-Suffix** |Das verbindungsspezifische DNS-Suffix (Domain Name System) für die Verbindung.|– Microsoft SSL (SSTP)<br /><br /> – Microsoft Automatic<br /><br /> – IKEv2<br /><br /> – PPTP<br /><br /> – L2TP|  
+|**VPN beim Verbinden mit Unternehmens-WLAN-Netzwerk umgehen**  |Die VPN-Verbindung wird nicht verwendet, wenn das Gerät mit dem Unternehmens-WLAN verbunden ist.|– Cisco AnyConnect<br /><br /> – Pulse Secure<br /><br /> – F5 Edge Client<br /><br /> – Dell SonicWALL Mobile Connect<br /><br /> – Prüfpunkt für mobiles VPN<br /><br /> – Microsoft SSL (SSTP)<br /><br /> – Microsoft Automatic<br /><br /> – IKEv2<br /><br /> – L2TP|  
+|**VPN beim Verbinden mit WLAN-Heimnetzwerk umgehen**  |Die VPN-Verbindung wird nicht verwendet, wenn das Gerät mit einem WLAN-Heimnetzwerk verbunden ist.|Alle|  
+|**VPN pro App (iOS 7 und höher, Mac OS X 10.9 und höher)** |Ordnet diese VPN-Verbindung einer iOS-App zu, sodass die Verbindung geöffnet wird, wenn die Anwendung ausgeführt wird. Die Zuordnung des VPN-Profils zu einer App kann bei der Bereitstellung erfolgen.|– Cisco AnyConnect<br /><br /> – Pulse Secure<br /><br /> – F5 Edge Client<br /><br /> – Dell SonicWALL Mobile Connect<br /><br /> – Prüfpunkt für mobiles VPN|  
+|**Benutzerdefiniertes XML (optional)** |Gibt benutzerdefinierte XML-Befehle zum Konfigurieren der VPN-Verbindung an.<br /><br /> Beispiele:<br /><br /> Für **Pulse Secure**:<br /><br /> **&lt;Pulse-Schema ><br /> &nbsp; &lt;IsSingleSignOnCredential > true&lt;/isSingleSignOnCredential\><br />&lt;/pulse-schema >**<br /><br /> Für **CheckPoint Mobile VPN**:<br /><br /> **&lt;CheckPointVPN <br /> &nbsp; port="443" name="CheckPointSelfhost" <br /> &nbsp; sso="true" <br /> &nbsp; debug="3"<br />/>**<br /><br /> Für **Dell SonicWALL Mobile Connect**:<br /><br /> **&lt;MobileConnect\><br />&nbsp; &nbsp; &lt;Compression\>false&lt;/Compression\><br />&nbsp; &nbsp; &lt;debugLogging\>True&lt;/debugLogging\><br />&nbsp; &nbsp; &lt;packetCapture\>False&lt;/packetCapture\><br />&lt;/MobileConnect\>**<br /><br /> Für **F5 Edge Client**:<br /><br /> **&lt;f5-vpn-conf>&lt;single-sign-on-credential>&lt;/f5-vpn-conf>**<br /><br /> Weitere Informationen über das Schreiben von benutzerdefinierten XML-Befehlen finden Sie in der VPN-Dokumentation der einzelnen Hersteller.|– Cisco AnyConnect<br /><br /> – Pulse Secure<br /><br /> – F5 Edge Client<br /><br /> – Dell SonicWALL Mobile Connect<br /><br /> – Prüfpunkt für mobiles VPN|  
 
 > [!NOTE]  
->  Pour en savoir plus sur la création de profils VPN pour les appareils mobiles, voir [Créer des profils VPN](../../mdm/deploy-use/create-vpn-profiles.md).  
+>  Informationen zum Erstellen von VPN-Profilen für mobile Geräte finden Sie unter [Erstellen von VPN-Profilen](../../mdm/deploy-use/create-vpn-profiles.md)  
 
-Effectuez toutes les étapes de l'Assistant. Le nouveau profil VPN figure dans le nœud **Profils VPN** dans l'espace de travail **Ressources et Conformité** .
+Schließen Sie den Assistenten ab. Das neue VPN-Profil wird im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **VPN-Profile** angezeigt.
 
-### <a name="next-steps"></a>Étapes suivantes
+### <a name="next-steps"></a>Nächste Schritte
 
-- Pour les connexions VPN tierces, distribuez l’application VPN avant de déployer le profil VPN. Si vous ne déployez pas l’application, les utilisateurs sont invités à le faire quand ils tentent de se connecter au VPN. Pour découvrir comment déployer des applications, consultez [Déployer des applications avec System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
+- Verteilen Sie die VPN-App für Drittanbieter-VPN-Verbindungen vor der Bereitstellung des VPN-Profils. Wenn Sie die App nicht bereitstellen, werden die Benutzer dazu aufgefordert, sobald sie versuchen, sich mit dem VPN zu verbinden. Weitere Informationen zum Bereitstellen von Apps finden Sie unter [Bereitstellen von Anwendungen mit System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).
 
-- Déployez le profil VPN comme décrit dans [Guide pratique pour déployer des profils dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
-
+- Stellen Sie die VPN-Profile wie in [Erstellen von VPN-Profilen in System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md) beschrieben bereit.  

@@ -1,135 +1,128 @@
 ---
-title: "Configurer la sécurité dans System Center Configuration Manager | Microsoft Docs"
-description: "Configurez les options de sécurité pour System Center Configuration Manager."
+title: Konfigurieren der Sicherheit in System Center Configuration Manager | Microsoft-Dokumentation
+description: "Konfigurieren von sicherheitsbezogenen Vorgängen für System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 552e7e3d-e584-4a7c-9155-0f796a14b678
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: cf29123923436ed4cefc17c69630fc39989caeb4
 ms.openlocfilehash: 0034381a7a388ddc3eda5e774f3c63d741336301
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-security-in-system-center-configuration-manager"></a>Configurer la sécurité dans System Center Configuration Manager
+# <a name="configure-security-in-system-center-configuration-manager"></a>Konfigurieren der Sicherheit in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Utilisez les informations de cet article pour configurer les options de sécurité pour System Center Configuration Manager.  
+Anhand der Informationen in diesem Artikel können Sie die folgenden sicherheitsbezogenen Optionen für System Center Configuration Manager einrichten.  
 
-##  <a name="a-namebkmkconfigureclientpkia-configure-settings-for-client-pki-certificates"></a><a name="BKMK_ConfigureClientPKI"></a> Configurer les paramètres de certificat client PKI  
-Si vous souhaitez utiliser des certificats PKI (infrastructure à clés publiques) pour les connexions client aux systèmes de site utilisant les services IIS (Internet Information Services), la procédure suivante vous permet de configurer les paramètres pour ces certificats.  
+##  <a name="BKMK_ConfigureClientPKI"></a> Konfigurieren von Einstellungen für Client-PKI-Zertifikate  
+Wenn Sie Public Key-Infrastrukturzertifikate (PKI) für Clientverbindungen mit Standortsystemen verwenden möchten, von denen Internet Information Services (IIS) verwendet werden, konfigurieren Sie die Einstellungen für diese Zertifikate mithilfe des folgenden Verfahrens.  
 
-#### <a name="to-configure-client-pki-certificate-settings"></a>Pour configurer des paramètres de certificat client PKI  
+#### <a name="to-configure-client-pki-certificate-settings"></a>So konfigurieren Sie Einstellungen von Client-PKI-Zertifikaten  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** aus.  
 
-2.  Dans l’espace de travail **Administration**, développez **Configuration du site**, choisissez **Sites**, puis le site principal à configurer.  
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Standortkonfiguration**, wählen Sie **Standorte** und dann den zu konfigurierenden primären Standort aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**, puis l’onglet **Communication de l’ordinateur client**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** **Eigenschaften** und anschließend die Registerkarte **Kommunikation mit Clientcomputern** aus.  
 
-    Cet onglet est disponible uniquement sur un site principal. Si vous ne voyez pas l'onglet **Communication de l'ordinateur client** , vérifiez que vous n'êtes pas connecté à un site d'administration centrale ni à un site secondaire.  
+    Diese Registerkarte ist nur an einem primären Standort verfügbar. Wenn die Registerkarte **Kommunikation mit Clientcomputern** nicht angezeigt wird, sollten Sie sicherstellen, dass Sie nicht mit einem Standort der zentralen Verwaltung oder einem sekundären Standort verbunden sind.  
 
-4.  Choisissez **HTTPS uniquement** quand vous voulez que les clients attribués au site utilisent toujours un certificat client PKI pour se connecter aux systèmes de site qui utilisent IIS. Sinon, choisissez **HTTPS ou HTTP** quand vous n’avez pas besoin que les clients utilisent des certificats PKI.  
+4.  Wählen Sie **Nur HTTPS** aus, wenn Sie möchten, dass von Clients, die dem Standort zugewiesen sind, immer ein Client-PKI-Zertifikat verwendet wird, wenn eine Verbindung mit Standortsystemen mit IIS hergestellt wird. Wählen Sie alternativ **HTTPS oder HTTP** aus, wenn Sie die Verwendung eines Client-PKI-Zertifikats nicht erzwingen möchten.  
 
-5.  Si vous avez choisi **HTTPS ou HTTP**, choisissez **Utiliser le certificat client PKI (fonctionnalité d’authentification client) si possible** quand vous voulez utiliser un certificat client PKI pour des connexions HTTP. Le client utilise ce certificat au lieu d'un certificat auto-signé pour s'authentifier auprès des systèmes de site. Cette option est automatiquement sélectionnée si vous choisissez **HTTPS uniquement**.  
+5.  Wenn Sie die Option **HTTPS oder HTTP** ausgewählt haben und für HTTP-Verbindungen ein Client-PKI-Zertifikat verwenden möchten, wählen Sie **Use client PKI certificate (client authentication capability) when available** (PKI-Clientzertifikat (Clientauthentifizierungsfunktion) verwenden, sofern dieses verfügbar ist) aus. Zur Authentifizierung bei Standortsystemen wird vom Client dieses Zertifikat anstatt eines selbstsignierten Zertifikats verwendet. Wenn Sie **Nur HTTPS** auswählen, wird diese Option automatisch ausgewählt.  
 
-    Lorsque des clients sont détectés sur Internet ou qu'ils sont configurés pour la gestion des clients Internet uniquement, ils utilisent toujours un certificat client PKI.  
+    Wenn erkannt wird, dass Clients sich im Internet befinden oder für internetbasierte Clientverwaltung konfiguriert sind, wird immer ein Client-PKI-Zertifikat verwendet.  
 
-6.  Choisissez **Modifier** pour configurer votre méthode de sélection de client quand plusieurs certificats clients PKI valides sont disponibles sur un client, puis choisissez **OK**.  
+6.  Wählen Sie **Ändern** aus, um die Clientauswahlmethode Ihrer Wahl zu konfigurieren, wenn auf einem Client mehrere gültige PKI-Zertifikate verfügbar sind. Wählen Sie dann **OK** aus.  
 
-    Pour plus d’informations sur la méthode de sélection des certificats clients, consultez [Planification de la sélection des certificats clients PKI](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection).  
+    Weitere Informationen zur Auswahlmethode für Clientzertifikate finden Sie unter [Planning for PKI client certificate selection (Planen der PKI-Clientzertifikatauswahl)](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection).  
 
-7.  Activez ou désactivez la case à cocher pour permettre aux clients de vérifier la liste de révocation de certificats.  
+7.  Legen Sie mithilfe des Kontrollkästchens fest, ob die Überprüfung der Zertifikatsperrlisten von Clients ausgeführt werden soll.  
 
-    Pour plus d’informations sur la vérification de la liste de révocation de certificats pour les clients, consultez [Planification de la révocation de certificats PKI](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs).  
+    Weitere Informationen zur Überprüfung der Zertifikatsperrlisten durch Clients finden Sie unter [Planen der PKI-Zertifikatsperrung](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs).  
 
-8.  Si vous devez spécifier des certificats d’autorité de certification racine approuvés pour les clients, choisissez **Définir**, importez les fichiers de certificat d’autorité de certification racine, puis choisissez **OK**.  
+8.  Wenn Sie Zertifikate vertrauenswürdiger Zertifizierungsstellen (trusted root certification authority, CA) für Clients angeben müssen, wählen Sie **Festlegen** aus, importieren Sie die Dateien der Zertifikate der Stammzertifizierungsstelle, und wählen Sie dann **OK** aus.  
 
-    Pour plus d’informations sur ce paramètre, consultez [Planification des certificats racines approuvés PKI et de la liste des émetteurs de certificats](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRootCAs).  
+    Weitere Informationen zu dieser Einstellung finden Sie unter [Planen von vertrauenswürdigen PKI-Stammzertifikaten und der Liste der Zertifikataussteller](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRootCAs).  
 
-9. Choisissez **OK** pour fermer la boîte de dialogue des propriétés du site.  
+9. Wählen Sie **OK** aus, um das Dialogfeld „Eigenschaften“ für den Standort zu schließen.  
 
-Répétez cette procédure pour tous les sites principaux de la hiérarchie.  
+Wiederholen Sie diesen Vorgang für alle primären Standorte in der Hierarchie.  
 
-##  <a name="a-namebkmkconfiguresigningencryptiona-configure-signing-and-encryption"></a><a name="BKMK_ConfigureSigningEncryption"></a> Configurer la signature et le chiffrement  
-Configurez les paramètres de signature et de chiffrement les plus sécurisés pour les systèmes de site pris en charge par tous les clients du site. Ces paramètres sont particulièrement importants lorsque vous permettez aux clients de communiquer avec les systèmes de site à l'aide de certificats auto-signés via HTTP.  
+##  <a name="BKMK_ConfigureSigningEncryption"></a> Konfigurieren von Signierung und Verschlüsselung  
+Konfigurieren Sie für Standortsysteme die sichersten Einstellungen für Signierung und Verschlüsselung, die von allen Clients des Standorts unterstützt werden können. Diese Einstellungen sind vor allem dann wichtig, wenn Sie Kommunikation zwischen Clients und Standortsystemen mithilfe selbstsignierter Zertifikate und über HTTP zulassen.  
 
-#### <a name="to-configure-signing-and-encryption-for-a-site"></a>Pour configurer la signature et le chiffrement pour un site  
+#### <a name="to-configure-signing-and-encryption-for-a-site"></a>So konfigurieren Sie die Signierung und Verschlüsselung für einen Standort  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** aus.  
 
-2.  Dans l’espace de travail **Administration**, développez **Configuration du site**, choisissez **Sites**, puis le site principal à configurer.  
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Standortkonfiguration**, wählen Sie **Standorte** und dann den zu konfigurierenden primären Standort aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**, puis l’onglet **Signature et chiffrement**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** **Eigenschaften** und dann die Registerkarte **Signierung und Verschlüsselung** aus.  
 
-    Cet onglet est disponible uniquement sur un site principal. Si vous ne voyez pas l'onglet **Signature et chiffrement** , vérifiez que vous n'êtes pas connecté à un site d'administration centrale ni à un site secondaire.  
+    Diese Registerkarte ist nur an einem primären Standort verfügbar. Wenn die Registerkarte **Signierung und Verschlüsselung** nicht angezeigt wird, sollten Sie sicherstellen, dass Sie nicht mit einem Standort der zentralen Verwaltung oder einem sekundären Standort verbunden sind.  
 
-4.  Configurez les options de signature et de chiffrement de votre choix, puis choisissez **OK**.  
+4.  Konfigurieren Sie die gewünschten Optionen für die Signierung und Verschlüsselung, und wählen Sie dann **OK** aus.  
 
     > [!WARNING]  
-    >  Ne choisissez pas l’option **Demander SHA-256** sans vérifier d’abord que tous les clients susceptibles d’être attribués au site peuvent prendre en charge l’algorithme de hachage ou qu’ils disposent d’un certificat d’authentification client PKI valide. Vous devrez peut-être installer des mises à jour ou des correctifs logiciels sur les clients pour prendre en charge SHA-256. Par exemple, les ordinateurs qui exécutent Windows Server 2003 SP2 doivent installer un correctif qui est référencé dans [l'article 938397 de la Base de connaissances Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=226666).  
+    >  Wählen Sie die Option **SHA-256 erforderlich** nur dann aus, wenn Sie überprüft haben, ob dieser Hashalgorithmus von allen Clients, die dem Standort zugewiesen werden könnten, unterstützt wird, bzw. ob ein gültiges PKI-Zertifikat zur Authentifizierung für die Clients verfügbar ist. Möglicherweise müssen Sie Updates oder Hotfixes auf Clients installieren, damit SHA-256 unterstützt wird. Beispielsweise muss auf Computern mit Windows Server 2003 SP2 das im [KB-Artikel 938397](http://go.microsoft.com/fwlink/p/?LinkId=226666)genannte Hotfix installiert werden.  
     >   
-    >  Si vous choisissez cette option pour des clients qui ne prennent pas en charge SHA-256 et qui utilisent des certificats auto-signés, Configuration Manager rejette ces clients. Dans ce scénario, le composant SMS_MP_CONTROL_MANAGER enregistre l'ID de message 5443.  
+    >  Wenn Sie diese Option auswählen, wenn SHA-256 von Clients nicht unterstützt wird und selbstsignierte Zertifikate verwendet werden, werden die Zertifikate von Configuration Manager zurückgewiesen. In diesem Szenario wird von der Komponente SMS_MP_CONTROL_MANAGER eine Meldung mit der ID 5443 protokolliert.  
 
-5.  Choisissez **OK** pour fermer la boîte de dialogue **Propriétés** du site.  
+5.  Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften** für den Standort zu schließen.  
 
-Répétez cette procédure pour tous les sites principaux de la hiérarchie.  
+Wiederholen Sie diesen Vorgang für alle primären Standorte in der Hierarchie.  
 
-##  <a name="a-namebkmkconfigurerbaa-configure-role-based-administration"></a><a name="BKMK_ConfigureRBA"></a> Configurer l’administration basée sur des rôles  
-L'administration basée sur des rôles combine des rôles de sécurité, des étendues de sécurité et des regroupements attribués pour définir l'étendue administrative de chaque utilisateur administratif. L’étendue administrative inclut les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les tâches associées à ces objets que cet utilisateur est autorisé à exécuter. Les configurations d'administration basée sur des rôles s'appliquent à chaque site dans une hiérarchie.  
+##  <a name="BKMK_ConfigureRBA"></a> Konfigurieren der rollenbasierten Verwaltung  
+Bei der rollenbasierten Verwaltung werden Sicherheitsrollen, Sicherheitsbereiche und zugewiesene Sammlungen kombiniert, um den Verwaltungsbereich für jeden Administrator zu definieren. Zu einem Verwaltungsbereich gehören die Objekte, die ein Administrator in der Configuration Manager-Konsole anzeigen kann, sowie die Tasks im Zusammenhang mit diesen Objekten, die der Administrator ausführen darf. Die Konfigurationen der rollenbasierten Verwaltung werden auf jeden Standort in einer Hierarchie angewendet.  
 
-Les liens suivants renvoient vers les sections correspondantes de l’article [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md) :  
+Die folgenden Links führen zu den relevanten Abschnitten des Artikels [Konfigurieren der rollenbasierten Verwaltung für System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md):  
 
--   [Créer des rôles de sécurité personnalisés](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole)  
+-   [Erstellen benutzerdefinierter Sicherheitsrollen](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole)  
 
--   [Configurer des rôles de sécurité](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole)  
+-   [Konfigurieren von Sicherheitsrollen](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole)  
 
--   [Configurer des étendues de sécurité pour un objet](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope)  
+-   [Konfigurieren von Sicherheitsbereichen für ein Objekt](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope)  
 
--   [Configurer des regroupements pour gérer la sécurité](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl)  
+-   [Konfigurieren von Sammlungen zum Verwalten der Sicherheit](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl)  
 
--   [Créer un utilisateur administratif](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_Create_AdminUser)  
+-   [Erstellen eines neuen Administrators](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_Create_AdminUser)  
 
--   [Modifier l’étendue administrative d’un utilisateur administratif](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ModAdminUser)  
+-   [Modify the administrative scope of an administrative user (Ändern des Verwaltungsbereichs eines Administrators)](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ModAdminUser)  
 
 > [!IMPORTANT]  
->  Votre propre étendue administrative définit les objets et les paramètres que vous pouvez attribuer lorsque vous configurez une administration basée sur des rôles pour un autre utilisateur administratif. Pour plus d’informations sur la planification de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md).  
+>  Von Ihrem eigenen Verwaltungsbereich wird definiert, welche Objekte und Einstellungen Sie zuweisen können, wenn Sie die rollenbasierte Verwaltung für einen anderen Administrator konfigurieren. Informationen zum Planen für rollenbasierte Verwaltung finden Sie unter [Fundamentals of role-based administration for System Center Configuration Manager (Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager)](../../../core/understand/fundamentals-of-role-based-administration.md).  
 
-##  <a name="a-namebkmkmanageaccountsa-manage-accounts-that-are-used-by-configuration-manager"></a><a name="BKMK_ManageAccounts"></a> Gérer les comptes utilisés par Configuration Manager  
-Configuration Manager prend en charge les comptes Windows pour de nombreuses tâches et utilisations différentes.  
+##  <a name="BKMK_ManageAccounts"></a> Verwalten von Konten, die von Configuration Manager verwendet werden  
+In Configuration Manager werden Windows-Konten für zahlreiche verschiedene Tasks und Verwendungen unterstützt.  
 
-Utilisez la procédure suivante pour afficher les comptes qui sont configurés pour différentes tâches et pour gérer le mot de passe utilisé par Configuration Manager pour chaque compte.  
+Gehen Sie wie folgt vor, um anzuzeigen, welche Konten für verschiedene Tasks konfiguriert sind, und um die Kennwörter zu verwalten, die in Configuration Manager für die einzelnen Konten verwendet werden.  
 
-#### <a name="to-manage-accounts-that-are-used-by-configuration-manager"></a>Pour gérer les comptes utilisés par Configuration Manager  
+#### <a name="to-manage-accounts-that-are-used-by-configuration-manager"></a>So verwalten Sie Konten, die von Configuration Manager verwendet werden  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Verwaltung** aus.  
 
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Comptes** pour afficher les comptes qui sont configurés pour Configuration Manager.  
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Eintrag **Sicherheit**, und wählen Sie dann **Konten** aus, um die Konten anzuzeigen, die für Configuration Manager konfiguriert sind.  
 
-3.  Pour modifier le mot de passe d’un compte qui est configuré pour Configuration Manager, choisissez le compte.  
+3.  Wenn Sie das Kennwort für ein Konto ändern möchten, das für Configuration Manager konfiguriert ist, wählen Sie das Konto aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Choisissez **Définir** pour ouvrir la boîte de dialogue **Compte d’utilisateur Windows**, puis spécifiez le nouveau mot de passe que Configuration Manager doit utiliser pour ce compte.  
+5.  Wählen Sie **Festlegen** aus, um das Dialogfeld **Windows-Benutzerkonto** zu öffnen, und geben Sie das neue Kennwort ein, das in Configuration Manager für das Konto verwendet werden soll.  
 
     > [!NOTE]  
-    >  Le mot de passe que vous spécifiez doit correspondre au mot de passe spécifié pour le compte dans Utilisateurs et ordinateurs Active Directory.  
+    >  Das angegebene Kennwort muss mit dem Kennwort übereinstimmen, das in Active Directory-Benutzer und -Computer für das Konto angegeben wurde.  
 
-6.  Choisissez **OK** pour terminer la procédure.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-
+6.  Wählen Sie **OK** aus, um den Vorgang abzuschließen.  

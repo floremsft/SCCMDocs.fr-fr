@@ -1,805 +1,799 @@
 ---
-title: "Prérequis des sites | Microsoft Docs"
-description: "Découvrez comment configurer un ordinateur Windows comme serveur de système de site System Center Configuration Manager."
+title: "Voraussetzungen für Standorte | Microsoft-Dokumentation"
+description: Erfahren Sie, wie ein Windows-Computer als System Center Configuration Manager-Standortsystemserver konfiguriert wird.
 ms.custom: na
 ms.date: 1/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 42549b98dd7f418cc3f4543198aaeb90ea8a3efd
 ms.openlocfilehash: 0b1d2d619d6cdaf36cc22ef461ea1505b5cacc41
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Prérequis des sites et systèmes de site pour System Center Configuration Manager
+# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Voraussetzungen für Standorte und Standortsysteme für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-
- Les ordinateurs Windows nécessitent des configurations spécifiques pour pouvoir être utilisés comme serveurs de système de site System Center Configuration Manager.  
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
- Dans certains cas, par exemple Windows Server Update Services (WSUS) pour le point de mise à jour logicielle, vous devez vous référer à la documentation du produit pour connaître les prérequis et limitations supplémentaires liés à son utilisation. Cet article porte uniquement sur les configurations qui s’appliquent directement à l’utilisation de Configuration Manager.   
+ Windows-basierte Computer erfordern bestimmte Konfigurationen zur Unterstützung ihrer Verwendung als System Center Configuration Manager-Standortsystemserver.  
+
+
+ Bei einigen Produkten wie Windows Server Update Services (WSUS) für den Softwareupdatepunkt finden Sie Informationen zu weiteren Voraussetzungen und Einschränkungen zur Nutzung des Produkts in der Dokumentation zum jeweiligen Produkt. Hier werden nur Konfigurationen beschrieben, die sich direkt auf die Verwendung mit Configuration Manager beziehen.   
 
 > [!NOTE]  
->  Depuis janvier 2016, le support n’est plus assuré pour .NET Framework 4.0, 4.5 et 4.5.1. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
+>  Im Januar 2016 ist die Unterstützung für .NET Framework 4.0, 4.5 und 4.5.1 abgelaufen. Weitere Informationen finden Sie in den [häufig gestellten Fragen zur Microsoft-Support-Lifecycle-Richtlinie für .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) unter „support.microsoft.com“.  
 
-## <a name="a-namebkmkgeneralprerewqa-general-site-server-requirements-and-limitations"></a><a name="bkmk_generalprerewq"></a> Configuration requise et limitations générales du serveur de site
-**Ce qui suit s’applique à tous les serveurs de système de site :**
+## <a name="bkmk_generalprerewq"></a> Allgemeine Anforderungen und Einschränkungen für Standortserver
+**Folgendes gilt für alle Standortsystemserver:**
 
--   Chaque serveur de système de site doit utiliser un système d’exploitation 64 bits. La seule exception est le rôle de système de site du point de distribution, que vous pouvez installer sur certains systèmes d’exploitation 32 bits.  
+-   Jeder Standortsystemserver muss ein 64-Bit-Betriebssystem verwenden. Die einzige Ausnahme gilt für die Standortsystemrolle „Verteilungspunkt“, die unter manchen 32-Bit-Betriebssystemen installiert werden kann.  
 
--   Les systèmes de site ne sont pas pris en charge sur des installations minimales pour les systèmes d’exploitation suivants : Une exception à cette règle est que les installations minimales sont prises en charge pour le rôle de système de site du point de distribution, sans prise en charge de PXE ou de la multidiffusion.  
+-   Standortsysteme werden unter keinem Betriebssystem auf Server Core-Installationen unterstützt. Eine Ausnahme ist, dass Server Core-Installationen für die Standortsystemrolle „Verteilungspunkt“ ohne PXE- oder Multicast-Unterstützung unterstützt werden.  
 
--   Une fois que vous avez installé un serveur de système de site, vous ne pouvez plus modifier les éléments suivants :  
+-   Nach der Installation eines Standortsystemservers können folgende Elemente nicht geändert werden:  
 
-    -   Le nom du domaine où se trouve l’ordinateur du système de site (également appelé **changement de nom de domaine**).  
+    -   Der Domänenname der Domäne, in der sich der Standortsystemcomputer befindet (wird auch als **Domänenumbenennung** bezeichnet)  
 
-    -   L’appartenance de l’ordinateur au domaine.  
+    -   Die Domänenmitgliedschaft des Computers  
 
-    -   Nom de l’ordinateur.  
+    -   Der Name des Computers.  
 
-  Si vous devez modifier ces éléments, vous devez d’abord supprimer le rôle système de site sur l’ordinateur, puis réinstaller les rôles une fois la modification effectuée. Si ceci a une incidence sur l'ordinateur du serveur de site, vous devez désinstaller le site, puis le réinstaller une fois la modification effectuée.  
+  Um eines dieser Elemente zu ändern, müssen Sie zuerst die Standortsystemrolle vom Computer entfernen und die Rolle nach der Änderung erneut installieren. Falls sich dies auf den Standortservercomputer auswirkt, müssen Sie den Standort deinstallieren und nach der Änderung erneut installieren.  
 
--   Les rôles de système de site ne sont pas pris en charge sur une instance de cluster Windows Server. La seule exception est le serveur de base de données de site.  
+-   Standortsystemrollen werden auf Instanzen von Windows Server-Clustern nicht unterstützt. Die einzige Ausnahme gilt für den Standortdatenbankserver.  
 
--   Vous ne pouvez pas modifier le type de démarrage ou les paramètres d’ouverture de session pour un service Configuration Manager. Si vous le faites, vous risquez d’empêcher des services clés de s’exécuter correctement.  
+-   Die Änderung der Einstellungen für Starttyp und „Anmelden als“ für beliebige Configuration Manager-Dienste wird nicht unterstützt. Wenn Sie die Einstellungen trotzdem ändern, werden wichtige Dienste möglicherweise nicht ordnungsgemäß ausgeführt.  
 
-##  <a name="a-namebkmk2012prereqa-prerequisites-for-windows-server-2012-and-later-operating-systems"></a><a name="bkmk_2012Prereq"></a> Conditions préalables pour les systèmes d’exploitation Windows Server 2012 et versions ultérieures  
-###  <a name="a-namebkmk2012sspreqa-site-server-central-administration-site-and-primary-site"></a><a name="bkmk_2012sspreq"></a> Serveur de site : site d’administration centrale et site principal  
-  **Rôles et fonctionnalités Windows Server :**  
+##  <a name="bkmk_2012Prereq"></a> Voraussetzungen für Windows Server 2012 und höhere Betriebssysteme  
+###  <a name="bkmk_2012sspreq"></a> Standortserver: Standort der zentralen Verwaltung und primärer Standort  
+  **Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Compression différentielle à distance  
+-   Remotedifferenzialkomprimierung  
 
-**Windows ADK :**  
+**Windows ADK:**  
 
--   Avant d’installer ou de mettre à niveau un site d’administration centrale ou un site principal, vous devez installer la version du Kit de déploiement et d’évaluation Windows (ADK) nécessaire pour la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
+-   Bevor Sie einen Standort der zentralen Verwaltung oder einen primären Standort installieren oder aktualisieren, müssen Sie die Version von Windows ADK (Assessment and Deployment Kit) installieren, die die Version von Configuration Manager erfordert, die Sie installieren oder aktualisieren.  
 
-    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
+    -   Die 1511-Version von Configuration Manager erfordert die Windows 10 RTM-Version (10.0.10240) von Windows ADK.  
 
--   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Weitere Informationen zu dieser Anforderung finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Standortserver installiert wird.  
 
--   Les sites d'administration centrale et les sites principaux requièrent à la fois les versions x86 et x64 du fichier redistribuable applicable.  
+-   Standorte der zentralen Verwaltung und primäre Standorte erfordern sowohl die x86- als auch die x64-Version der betreffenden Redistributable-Datei.  
 
-###  <a name="a-namebkmk2012secpreqa-site-server-secondary-site"></a><a name="bkmk_2012secpreq"></a> Serveur de site : site secondaire  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012secpreq"></a> Standortserver: sekundärer Standort  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Compression différentielle à distance  
+-   Remotedifferenzialkomprimierung  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Standortserver installiert wird.  
 
--   Les sites secondaires requièrent seulement la version x64.  
+-   Sekundäre Standorte erfordern nur die x64-Version.  
 
-**Rôles de système de site par défaut :**  
+**Standard-Standortsystemrollen:**  
 
--   Par défaut, un site secondaire installe un **point de gestion** et un **point de distribution**.  
+-   Standardmäßig werden von einem sekundären Standort ein **Verwaltungspunkt** und ein **Verteilungspunkt** installiert.  
 
--   Assurez-vous que le serveur de site secondaire remplit les conditions préalables pour ces rôles de système de site.  
+-   Stellen Sie sicher, dass der sekundäre Standortserver die Voraussetzungen für diese Standortsystemrollen erfüllt.  
 
-###  <a name="a-namebkmk2012dbpreqa-database-server"></a><a name="bkmk_2012dbpreq"></a> Serveur de base de données  
-**Service d’accès à distance au Registre :**  
+###  <a name="bkmk_2012dbpreq"></a> Datenbankserver  
+**Remoteregistrierungsdienst:**  
 
--   Durant l’installation du site Configuration Manager, vous devez activer le service d’accès à distance au Registre sur l’ordinateur qui hébergera la base de données du site.  
+-   Während der Installation des Configuration Manager-Standorts müssen Sie den Remoteregistrierungsdienst auf dem Computer aktivieren, auf dem die Standortdatenbank gehostet wird.  
 
-**SQL Server :**  
+**SQL Server:**  
 
--   Avant d’installer un site d’administration centrale ou un site principal, vous devez installer une version prise en charge de SQL Server pour héberger la base de données du site.  
+-   Bevor Sie einen Standort der zentralen Verwaltung oder einen primären Standort installieren, müssen Sie eine unterstützte Version von SQL Server zum Hosten der Standortdatenbank installieren.  
 
--   Avant d’installer un site secondaire, vous pouvez installer une version prise en charge de SQL Server.  
+-   Bevor Sie einen sekundären Standort installieren, können Sie eine unterstützte Version von SQL Server installieren.  
 
--   Si vous souhaitez que Configuration Manager installe SQL Server Express en même temps que le site secondaire, vérifiez que l’ordinateur présente la configuration requise pour exécuter SQL Server Express.  
+-   Wenn Sie entscheiden, dass Configuration Manager im Rahmen der Installation des sekundären Standorts SQL Server Express installieren soll, stellen Sie sicher, dass der Computer die Voraussetzungen zur Ausführung von SQL Server Express erfüllt.  
 
-###  <a name="a-namebkmk2012smsprovpreqa-sms-provider-server"></a><a name="bkmk_2012smsprovpreq"></a> Serveur de fournisseur SMS  
-**Windows ADK :**  
+###  <a name="bkmk_2012smsprovpreq"></a> SMS-Anbieterserver  
+**Windows ADK:**  
 
--   L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version de Windows ADK nécessaire à la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
+-   Auf dem Computer, auf dem Sie eine SMS-Anbieterinstanz installieren, muss die Windows ADK-Version installiert sein, die für die von Ihnen installierte bzw. aktualisierte Version von Configuration Manager erforderlich ist.  
 
-    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
+    -   Die 1511-Version von Configuration Manager erfordert die Windows 10 RTM-Version (10.0.10240) von Windows ADK.  
 
--   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Weitere Informationen zu dieser Anforderung finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="a-namebkmk2012acwspreqa-application-catalog-website-point"></a><a name="bkmk_2012acwspreq"></a> Point du site web du catalogue des applications  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012acwspreq"></a> Anwendungskatalog-Websitepunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2 :  
+-   .NET Framework 4.5.2:  
 
     -   ASP.NET 4.5  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Document par défaut  
+    -   Standarddokument  
 
-    -   Contenu statique  
+    -   Statischer Inhalt  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 3.5 (und automatisch ausgewählte Optionen)  
 
-    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 4.5 (und automatisch ausgewählte Optionen)  
 
-    -   Extensibilité .NET 3.5  
+    -   .NET-Erweiterbarkeit 3.5  
 
-    -   Extensibilité .NET 4.5  
+    -   .NET-Erweiterbarkeit 4.5  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-###  <a name="a-namebkmk2012acwsitepreqa-application-catalog-web-service-point"></a><a name="bkmk_2012ACwsitepreq"></a> Point de service web du catalogue des applications  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012ACwsitepreq"></a> Anwendungskatalog-Webdienstpunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2 :  
+-   .NET Framework 4.5.2:  
 
-    -   ASP.NET 4.5 :  
+    -   ASP.NET 4.5:  
 
-        -   Activation de HTTP (et des options sélectionnées automatiquement)  
+        -   HTTP-Aktivierung (und automatisch ausgewählte Optionen)  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Document par défaut  
+    -   Standarddokument  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 3.5 (und automatisch ausgewählte Optionen)  
 
-    -   Extensibilité .NET 3.5  
+    -   .NET-Erweiterbarkeit 3.5  
 
-    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 4.5 (und automatisch ausgewählte Optionen)  
 
-    -   Extensibilité .NET 4.5  
+    -   .NET-Erweiterbarkeit 4.5  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2012aipreqa-asset-intelligence-synchronization-point"></a><a name="bkmk_2012AIpreq"></a> Point de synchronisation Asset Intelligence  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012AIpreq"></a> Asset Intelligence-Synchronisierungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-###  <a name="a-namebkmk2012crppreqa-certificate-registration-point"></a><a name="bkmk_2012crppreq"></a> Point d’enregistrement de certificat  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012crppreq"></a> Zertifikatregistrierungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 4.5.2 :  
+-   .NET Framework 4.5.2:  
 
-    -   Activation HTTP  
+    -   HTTP-Aktivierung  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 3.5 (und automatisch ausgewählte Optionen)  
 
-    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 4.5 (und automatisch ausgewählte Optionen)  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
-###  <a name="a-namebkmk2012dppreqa-distribution-point"></a><a name="bkmk_2012dppreq"></a> Point de distribution  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012dppreq"></a> Verteilungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   Compression différentielle à distance  
+-   Remotedifferenzialkomprimierung  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   Extensions ISAPI  
+    -   ISAPI-Erweiterungen  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
-**PowerShell :**  
+**PowerShell:**  
 
--   Sur Windows Server 2012 et les versions ultérieures, PowerShell 3.0 ou 4.0 est nécessaire pour pouvoir installer le point de distribution.  
+-   Unter Windows Server 2012 oder höher ist PowerShell 3.0 oder 4.0 vor der Installation des Verteilungspunkts erforderlich.  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Verteilungspunkt gehostet wird.  
 
--   La version installée dépend de la plateforme de l’ordinateur (x86 ou x64).  
+-   Welche Version installiert wird, hängt von der Computerplattform (x86 oder x64) ab.  
 
-**Microsoft Azure :**  
+**Microsoft Azure:**  
 
--   Pour héberger un point de distribution, vous pouvez utiliser un service cloud dans Microsoft Azure.  
+-   Sie können einen Clouddienst in Microsoft Azure verwenden, um einen Verteilungspunkt zu hosten.  
 
-**Pour prendre en charge PXE ou la multidiffusion :**  
+**So unterstützen Sie PXE oder Multicast:**  
 
--   Installez et configurez le rôle WDS (Windows Deployment Services) de Windows Server.  
+-   Installieren und konfigurieren Sie die Windows Serverrolle „Windows-Bereitstellungsdienste“ (Windows Deployment Services, WDS).  
 
     > [!NOTE]  
-    >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
+    >  WDS wird automatisch installiert und konfiguriert, wenn Sie einen Verteilungspunkt zur Unterstützung von PXE oder Multicast auf einem Server konfigurieren, der Windows Server 2012 oder höher ausführt.  
 
 > [!NOTE]  
-> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
+> Die Standortsystemrolle „Verteilungspunkt“ erfordert keinen intelligenten Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS). Wenn BITS auf dem Verteilungspunktcomputer konfiguriert ist, wird BITS auf diesem Computer nicht verwendet, um BITS-Clients den Download von Inhalten zu erleichtern.  
 
-###  <a name="a-namebkmk2012epppreqa-endpoint-protection-point"></a><a name="bkmk_2012EPPpreq"></a> Point Endpoint Protection  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012EPPpreq"></a> Endpoint Protection-Punkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
-###  <a name="a-namebkmk2012enrollpreqa-enrollment-point"></a><a name="bkmk_2012Enrollpreq"></a> Point d’inscription  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012Enrollpreq"></a> Anmeldungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 (ou version ultérieure).  
+-   Mindestens .NET Framework 3.5  
 
--   .NET Framework 4.5.2 :  
+-   .NET Framework 4.5.2:  
 
-     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Bei der Installation dieser Standortsystemrolle installiert Configuration Manager automatisch .NET Framework 4.5.2. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-    -   Activation de HTTP (et des options sélectionnées automatiquement)  
+    -   HTTP-Aktivierung (und automatisch ausgewählte Optionen)  
 
     -   ASP.NET 4.5  
 
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Document par défaut  
+    -   Standarddokument  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 3.5 (und automatisch ausgewählte Optionen)  
 
-    -   Extensibilité .NET 3.5  
+    -   .NET-Erweiterbarkeit 3.5  
 
-    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 4.5 (und automatisch ausgewählte Optionen)  
 
-    -   .NET Extensibility 4.5  
+    -   .NET-Erweiterbarkeit 4.5  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2012enrollproxpreqa-enrollment-proxy-point"></a><a name="bkmk_2012EnrollProxpreq"></a> Point proxy d’inscription  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012EnrollProxpreq"></a> Anmeldungsproxypunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 (ou version ultérieure).  
+-   Mindestens .NET Framework 3.5  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Bei der Installation dieser Standortsystemrolle installiert Configuration Manager automatisch .NET Framework 4.5.2. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Document par défaut  
+    -   Standarddokument  
 
-    -   Contenu statique  
+    -   Statischer Inhalt  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 3.5 (und automatisch ausgewählte Optionen)  
 
-    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
+    -   ASP.NET 4.5 (und automatisch ausgewählte Optionen)  
 
-    -   Extensibilité .NET 3.5  
+    -   .NET-Erweiterbarkeit 3.5  
 
-    -   Extensibilité .NET 4.5  
+    -   .NET-Erweiterbarkeit 4.5  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2012fsppreqa-fallback-status-point"></a><a name="bkmk_2012FSPpreq"></a> Point d’état de secours  
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+###  <a name="bkmk_2012FSPpreq"></a> Fallbackstatuspunkt  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-###  <a name="a-namebkmk2012mppreqa-management-point"></a><a name="bkmk_2012MPpreq"></a> Point de gestion  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012MPpreq"></a> Verwaltungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Extensions du serveur BITS (et options sélectionnées automatiquement) ou services BITS (et options sélectionnées automatiquement)  
+-   BITS-Servererweiterungen (und automatisch ausgewählte Optionen) oder intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS) (und automatisch ausgewählte Optionen)  
 
-**Configuration IIS :**  
+**IIS-Konfiguration:**  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   Extensions ISAPI  
+    -   ISAPI-Erweiterungen  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
-###  <a name="a-namebkmk2012rspointa-reporting-services-point"></a><a name="bkmk_2012RSpoint"></a> Point de Reporting Services  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012RSpoint"></a> Reporting Services-Punkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**SQL Server Reporting Services :**  
+**SQL Server Reporting Services:**  
 
--   Avant d’installer le point de Reporting Services, vous devez installer et configurer au moins une instance de SQL Server pour prendre en charge SQL Server Reporting Services.  
+-   Sie müssen zur Unterstützung von SQL Server Reporting Services vor dem Installieren des Reporting Services-Punkts mindestens eine SQL Server-Instanz installieren und konfigurieren.  
 
--   L’instance que vous utilisez pour SQL Server Reporting Services peut être la même que celle utilisée pour la base de données du site.  
+-   Sie können für SQL Server Reporting Services die gleiche Instanz wie für die Standortdatenbank verwenden.  
 
--   En outre, l’instance que vous utilisez peut être partagée avec d’autres produits System Center, dès lors que ceux-ci n’ont pas de restrictions pour le partage de l’instance de SQL Server.  
+-   Darüber hinaus kann die verwendete Instanz für andere System Center-Produkte freigegeben werden, solange die anderen System Center-Produkte keiner Einschränkung für die Freigabe von SQL Server-Instanzen unterliegen.  
 
-###  <a name="a-namebkmkscppreqa-service-connection-point"></a><a name="bkmk_SCPpreq"></a> Point de connexion de service  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_SCPpreq"></a> Dienstverbindungspunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Bei der Installation dieser Standortsystemrolle installiert Configuration Manager automatisch .NET Framework 4.5.2. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Verteilungspunkt gehostet wird.  
 
--   Le rôle de système de site nécessite la version x64.  
+-   Die Standortsystemrolle erfordert die x64-Version.  
 
-###  <a name="a-namebkmk2012suppreqa-software-update-point"></a><a name="bkmk_2012SUPpreq"></a> Point de mise à jour logicielle  
-**Rôles et fonctionnalités Windows Server :**  
+###  <a name="bkmk_2012SUPpreq"></a> Softwareupdatepunkt  
+**Windows Server-Rollen und -Features:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-La configuration IIS par défaut est nécessaire.
+Die IIS-Standardkonfiguration ist erforderlich.
 
-**Windows Server Update Services :**  
+**Windows Server Update Services:**  
 
--   Vous devez installer le rôle Windows Server Update Services (WSUS) de Windows Server sur un ordinateur avant d’installer un point de mise à jour logicielle.  
+-   Sie müssen die Windows Server-Rolle Windows Server Update Services auf einem Computer installieren, bevor Sie einen Softwareupdatepunkt installieren.  
 
--   Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+-   Weitere Informationen finden Sie unter [Planen von Softwareupdates in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
-### <a name="state-migration-point"></a>Point de migration d'état  
-La configuration IIS par défaut est nécessaire.  
+### <a name="state-migration-point"></a>Zustandsmigrationspunkt  
+Die IIS-Standardkonfiguration ist erforderlich.  
 
-##  <a name="a-namebkmk2008a-prerequisites-for-windows-server-2008-r2-and-windows-server-2008"></a><a name="bkmk_2008"></a> Conditions préalables pour Windows Server 2008 R2 et Windows Server 2008  
-Windows Server 2008 et Windows Server 2008 R2 bénéficient désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+##  <a name="bkmk_2008"></a> Voraussetzungen für Windows Server 2008 R2 und Windows Server 2008  
+Windows Server 2008 und Windows Server 2008 R2 unterliegen nun dem erweiterten Support und nicht mehr dem grundlegenden Support, wie in [Microsoft Lifecycle-Richtlinie](https://support.microsoft.com/lifecycle) ausführlich erläutert. Weitere Informationen zum künftigen Support für diese Betriebssysteme als Standortsystemserver mit Configuration Manager finden Sie unter [Entfernte und veraltete Features für System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-**Ce qui suit s’applique à toutes les conditions requises pour .NET Framework :**  
+**Folgendes gilt für alle .NET Framework-Anforderungen:**  
 
--   Installez la version complète de .NET Framework avant d’installer les rôles de système de site. Par exemple, consultez [Microsoft .NET Framework 4 (programme d’installation autonome)](http://go.microsoft.com/fwlink/p/?LinkId=193048). Le profil client .NET Framework 4 ne correspond pas à la configuration requise.  
+-   Installieren Sie die Vollversion von .NET Framework, bevor Sie die Standortsystemrollen installieren. Sie können diese beispielsweise unter [Microsoft .NET Framework 4 (eigenständiger Installer)](http://go.microsoft.com/fwlink/p/?LinkId=193048) herunterladen. .NET Framework 4 Client Profile ist für diese Anforderung unzureichend.  
 
-**Ce qui suit s’applique à toutes les conditions requises pour l’activation de Windows Communication Foundation (WCF) :**  
+**Folgendes gilt für alle Anforderungen zur Aktivierung von Windows Communication Foundation (WCF):**  
 
--   Vous pouvez configurer l’activation de WCF comme faisant partie de la fonctionnalité Windows du .NET Framework sur le serveur de système de site. Par exemple, sur Windows Server 2008 R2, exécutez l’**Assistant Ajout de fonctionnalités** pour installer des fonctionnalités supplémentaires sur le serveur. Dans la page **Sélectionner les fonctionnalités**, développez **Fonctionnalités de .NET Framework 3.5.1**, développez **Activation WCF**, puis cochez les cases **Activation HTTP** et **Activation non-HTTP** pour activer ces options.  
+-   Sie können die WCF-Aktivierung als Bestandteil des Windows-Features .NET Framework auf dem Standortsystemserver konfigurieren. Führen Sie beispielsweise unter Windows Server 2008 R2 den **Assistenten zum Hinzufügen von Features** aus, um weitere Features auf dem Server zu installieren. Erweitern Sie auf der Seite **Features auswählen** den Knoten **.NET Framework 3.5.1-Features** und dann den Knoten **WCF-Aktivierung**. Aktivieren Sie anschließend die Kontrollkästchen für **HTTP-Aktivierung** und **Nicht-HTTP-Aktivierung**, um diese Optionen zu aktivieren.  
 
-###  <a name="a-namebkmk2008sspreqa-site-server-central-administration-site-and-primary-site"></a><a name="bkmk_2008sspreq"></a> Serveur de site : site d’administration centrale et site principal  
-**.NET Framework :**  
+###  <a name="bkmk_2008sspreq"></a> Standortserver: Standort der zentralen Verwaltung und primärer Standort  
+**.NET Framework:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Fonctionnalité Windows :**  
+**Windows-Feature:**  
 
--   Compression différentielle à distance  
+-   Remotedifferenzialkomprimierung  
 
-**Windows ADK :**  
+**Windows ADK:**  
 
--   Avant d’installer ou de mettre à niveau un site d’administration centrale ou un site principal, vous devez installer la version de Windows ADK nécessaire pour la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
+-   Bevor Sie einen Standort der zentralen Verwaltung oder einen primären Standort installieren oder aktualisieren, müssen Sie die Version von Windows ADK installieren, die die Version von Configuration Manager erfordert, die Sie installieren oder aktualisieren.  
 
-    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
+    -   Die 1511-Version von Configuration Manager erfordert die Windows 10 RTM-Version (10.0.10240) von Windows ADK.  
 
--   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Weitere Informationen zu dieser Anforderung finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Standortserver installiert wird.  
 
--   Les sites d'administration centrale et les sites principaux requièrent à la fois les versions x86 et x64 du fichier redistribuable applicable.  
+-   Standorte der zentralen Verwaltung und primäre Standorte erfordern sowohl die x86- als auch die x64-Version der betreffenden Redistributable-Datei.  
 
-###  <a name="a-namebkmk2008secpreqa-site-server-secondary-site"></a><a name="bkmk_2008secpreq"></a> Serveur de site : site secondaire  
-**.NET Framework :**  
+###  <a name="bkmk_2008secpreq"></a> Standortserver: sekundärer Standort  
+**.NET Framework:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Standortserver installiert wird.  
 
--   Les sites secondaires requièrent seulement la version x64.  
+-   Sekundäre Standorte erfordern nur die x64-Version.  
 
-**Rôles de système de site par défaut :**  
+**Standard-Standortsystemrollen:**  
 
--   Par défaut, un site secondaire installe un **point de gestion** et un **point de distribution**.  
+-   Standardmäßig werden von einem sekundären Standort ein **Verwaltungspunkt** und ein **Verteilungspunkt** installiert.  
 
--   Assurez-vous que le serveur de site secondaire remplit les conditions préalables pour ces rôles de système de site.  
+-   Stellen Sie sicher, dass der sekundäre Standortserver die Voraussetzungen für diese Standortsystemrollen erfüllt.  
 
-###  <a name="a-namebkmk2008dbpreqa-database-server"></a><a name="bkmk_2008dbpreq"></a> Serveur de base de données  
-**Service d’accès à distance au Registre :**  
+###  <a name="bkmk_2008dbpreq"></a> Datenbankserver  
+**Remoteregistrierungsdienst:**  
 
--   Durant l’installation du site Configuration Manager, vous devez activer le service d’accès à distance au Registre sur l’ordinateur qui hébergera la base de données du site.  
+-   Während der Installation des Configuration Manager-Standorts müssen Sie den Remoteregistrierungsdienst auf dem Computer aktivieren, auf dem die Standortdatenbank gehostet wird.  
 
-**SQL Server :**  
+**SQL Server:**  
 
--   Avant d’installer un site d’administration centrale ou un site principal, vous devez installer une version prise en charge de SQL Server pour héberger la base de données du site.  
+-   Bevor Sie einen Standort der zentralen Verwaltung oder einen primären Standort installieren, müssen Sie eine unterstützte Version von SQL Server zum Hosten der Standortdatenbank installieren.  
 
--   Avant d’installer un site secondaire, vous pouvez installer une version prise en charge de SQL Server.  
+-   Bevor Sie einen sekundären Standort installieren, können Sie eine unterstützte Version von SQL Server installieren.  
 
--   Si vous souhaitez que Configuration Manager installe SQL Server Express en même temps que le site secondaire, vérifiez que l’ordinateur présente la configuration requise pour exécuter SQL Server Express.  
+-   Wenn Sie entscheiden, dass Configuration Manager im Rahmen der Installation des sekundären Standorts SQL Server Express installieren soll, stellen Sie sicher, dass der Computer die Voraussetzungen zur Ausführung von SQL Server Express erfüllt.  
 
-###  <a name="a-namebkmk2008smsprovpreqa-sms-provider-server"></a><a name="bkmk_2008smsprovpreq"></a> Serveur de fournisseur SMS  
-**Windows ADK :**  
+###  <a name="bkmk_2008smsprovpreq"></a> SMS-Anbieterserver  
+**Windows ADK:**  
 
--   L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version de Windows ADK nécessaire à la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
+-   Auf dem Computer, auf dem Sie eine SMS-Anbieterinstanz installieren, muss die Windows ADK-Version installiert sein, die für die von Ihnen installierte bzw. aktualisierte Version von Configuration Manager erforderlich ist.  
 
-    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
+    -   Die 1511-Version von Configuration Manager erfordert die Windows 10 RTM-Version (10.0.10240) von Windows ADK.  
 
--   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Weitere Informationen zu dieser Anforderung finden Sie unter [Anforderungen an die Infrastruktur für die Betriebssystembereitstellung](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="a-namebkmk2008acwspreqa-application-catalog-website-point"></a><a name="bkmk_2008acwspreq"></a> Point du site web du catalogue des applications  
-**.NET Framework :**  
+###  <a name="bkmk_2008acwspreq"></a> Anwendungskatalog-Websitepunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Contenu statique  
+    -   Statischer Inhalt  
 
-    -   Document par défaut  
+    -   Standarddokument  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET (et options sélectionnées automatiquement)  
+    -   ASP.NET (und automatisch ausgewählte Optionen)  
 
-         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
+         In einigen Szenarios, wenn z.B. IIS nach der Installation von .NET Framework 4.5.2 installiert oder umkonfiguriert wird, müssen Sie ASP.NET 4.5 ausdrücklich aktivieren. Führen Sie auf einem 64-Bit-Computer, auf dem .NET Framework 4.0.30319 ausgeführt wird, z.B. den folgenden Befehl aus: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**.  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-###  <a name="a-namebkmk2008acwsitepreqa-application-catalog-web-service-point"></a><a name="bkmk_2008ACwsitepreq"></a> Point de service web du catalogue des applications  
-**.NET Framework :**  
+###  <a name="bkmk_2008ACwsitepreq"></a> Anwendungskatalog-Webdienstpunkt  
+**.NET Framework:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Activation de Windows Communication Foundation (WCF) :**  
+**Aktivierung von Windows Communication Foundation (WCF):**  
 
--   Activation HTTP  
+-   HTTP-Aktivierung  
 
--   Activation non-HTTP  
+-   Nicht-HTTP-Aktivierung  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET (et options sélectionnées automatiquement)  
+    -   ASP.NET (und automatisch ausgewählte Optionen)  
 
-         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
+         In einigen Szenarios, wenn z.B. IIS nach der Installation von .NET Framework 4.5.2 installiert oder umkonfiguriert wird, müssen Sie ASP.NET 4.5 ausdrücklich aktivieren. Führen Sie auf einem 64-Bit-Computer, auf dem .NET Framework 4.0.30319 ausgeführt wird, z.B. den folgenden Befehl aus: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**.  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2008aipreqa-asset-intelligence-synchronization-point"></a><a name="bkmk_2008AIpreq"></a> Point de synchronisation Asset Intelligence  
-**.NET Framework :**  
+###  <a name="bkmk_2008AIpreq"></a> Asset Intelligence-Synchronisierungspunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-###  <a name="a-namebkmk2008crppreqa-certificate-registration-point"></a><a name="bkmk_2008crppreq"></a> Point d’enregistrement de certificat  
-**.NET Framework :**  
+###  <a name="bkmk_2008crppreq"></a> Zertifikatregistrierungspunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Activation HTTP  
+-   HTTP-Aktivierung  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
-###  <a name="a-namebkmk2008dppreqa-distribution-point"></a><a name="bkmk_2008dppreq"></a> Point de distribution  
-**Configuration IIS :**
+###  <a name="bkmk_2008dppreq"></a> Verteilungspunkt  
+**IIS-Konfiguration:**
 
-Vous pouvez utiliser la configuration IIS par défaut ou une configuration personnalisée. Pour utiliser une configuration IIS personnalisée, vous devez activer les options suivantes pour IIS :  
+Sie können die IIS-Standardkonfiguration oder eine benutzerdefinierte Konfiguration verwenden. Sie müssen die folgenden Optionen für IIS aktivieren, um eine benutzerdefinierte IIS-Konfiguration verwenden zu können:  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   Extensions ISAPI  
+    -   ISAPI-Erweiterungen  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
-Quand vous utilisez une configuration IIS personnalisée, vous pouvez supprimer les options qui ne sont pas nécessaires, comme les suivantes :  
+Wenn Sie eine benutzerdefinierte IIS-Konfiguration verwenden, können Sie nicht benötigte Optionen entfernen, darunter die folgenden:  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Redirection HTTP  
+    -   HTTP-Umleitung  
 
--   Scripts et outils de gestion IIS  
+-   IIS-Verwaltungsskripts und -tools  
 
-**Fonctionnalité Windows :**  
+**Windows-Feature:**  
 
--   Compression différentielle à distance  
+-   Remotedifferenzialkomprimierung  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Verteilungspunkt gehostet wird.  
 
--   La version installée dépend de la plateforme de l’ordinateur (x86 ou x64).  
+-   Welche Version installiert wird, hängt von der Computerplattform (x86 oder x64) ab.  
 
-**Microsoft Azure :**  
+**Microsoft Azure:**  
 
--   Pour héberger un point de distribution, vous pouvez utiliser un service cloud dans Azure.  
+-   Sie können einen Clouddienst in Azure verwenden, um einen Verteilungspunkt zu hosten.  
 
-**Pour prendre en charge PXE ou la multidiffusion :**  
+**So unterstützen Sie PXE oder Multicast:**  
 
--   Installez et configurez le rôle WDS (Windows Deployment Services) de Windows Server.  
+-   Installieren und konfigurieren Sie die Windows Serverrolle „Windows-Bereitstellungsdienste“ (Windows Deployment Services, WDS).  
 
     > [!NOTE]  
-    >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
+    >  WDS wird automatisch installiert und konfiguriert, wenn Sie einen Verteilungspunkt zur Unterstützung von PXE oder Multicast auf einem Server konfigurieren, der Windows Server 2012 oder höher ausführt.  
 
 > [!NOTE]  
-> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
+> Die Standortsystemrolle „Verteilungspunkt“ erfordert keinen intelligenten Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS). Wenn BITS auf dem Verteilungspunktcomputer konfiguriert ist, wird BITS auf diesem Computer nicht verwendet, um BITS-Clients den Download von Inhalten zu erleichtern.  
 
 
-###  <a name="a-namebkmk2008epppreqa-endpoint-protection-point"></a><a name="bkmk_2008EPPpreq"></a> Point Endpoint Protection  
-**.NET Framework :**  
+###  <a name="bkmk_2008EPPpreq"></a> Endpoint Protection-Punkt  
+**.NET Framework:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
-###  <a name="a-namebkmk2008enrollpreqa-enrollment-point"></a><a name="bkmk_2008Enrollpreq"></a> Point d’inscription  
-**.NET Framework :**  
+###  <a name="bkmk_2008Enrollpreq"></a> Anmeldungspunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Wenn diese Standortsystemrolle installiert wird, installiert Configuration Manager automatisch .NET Framework 4.5.2, wenn auf dem Server nicht bereits eine unterstützte Version von .NET Framework installiert ist. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-**Activation de Windows Communication Foundation (WCF) :**  
+**Aktivierung von Windows Communication Foundation (WCF):**  
 
--   Activation HTTP  
+-   HTTP-Aktivierung  
 
--   Activation non-HTTP  
+-   Nicht-HTTP-Aktivierung  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET (et options sélectionnées automatiquement)  
+    -   ASP.NET (und automatisch ausgewählte Optionen)  
 
-         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
+         In einigen Szenarios, wenn z.B. IIS nach der Installation von .NET Framework 4.5.2 installiert oder umkonfiguriert wird, müssen Sie ASP.NET 4.5 ausdrücklich aktivieren. Führen Sie auf einem 64-Bit-Computer, auf dem .NET Framework 4.0.30319 ausgeführt wird, z.B. den folgenden Befehl aus: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**.  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2008enrollproxpreqa-enrollment-proxy-point"></a><a name="bkmk_2008EnrollProxpreq"></a> Point proxy d’inscription  
-**.NET Framework :**  
+###  <a name="bkmk_2008EnrollProxpreq"></a> Anmeldungsproxypunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Wenn diese Standortsystemrolle installiert wird, installiert Configuration Manager automatisch .NET Framework 4.5.2, wenn auf dem Server nicht bereits eine unterstützte Version von .NET Framework installiert ist. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-**Activation de Windows Communication Foundation (WCF) :**  
+**Aktivierung von Windows Communication Foundation (WCF):**  
 
--   Activation HTTP  
+-   HTTP-Aktivierung  
 
--   Activation non-HTTP  
+-   Nicht-HTTP-Aktivierung  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   ASP.NET (et options sélectionnées automatiquement)  
+    -   ASP.NET (und automatisch ausgewählte Optionen)  
 
-         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
+         In einigen Szenarios, wenn z.B. IIS nach der Installation von .NET Framework 4.5.2 installiert oder umkonfiguriert wird, müssen Sie ASP.NET 4.5 ausdrücklich aktivieren. Führen Sie auf einem 64-Bit-Computer, auf dem .NET Framework 4.0.30319 ausgeführt wird, z.B. den folgenden Befehl aus: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**.  
 
-**Mémoire de l’ordinateur :**  
+**Arbeitsspeicher:**  
 
--   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
+-   Auf dem Computer, der diese Standortsystemrolle hostet, müssen mindestens 5 % des verfügbaren Speicher frei sein, um die Verarbeitung von Anforderungen durch die Standortsystemrolle zu ermöglichen.  
 
--   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
+-   Wenn diese Standortsystemrolle zusammen mit einer anderen Standortsystemrolle installiert wird, für die dieselbe Anforderung gilt, wird die Speicheranforderung für den Computer nicht erhöht, die Mindestanforderung von 5 % besteht jedoch weiter.  
 
-###  <a name="a-namebkmk2008fsppreqa-fallback-status-point"></a><a name="bkmk_2008FSPpreq"></a> Point d’état de secours  
-**Configuration IIS :**
+###  <a name="bkmk_2008FSPpreq"></a> Fallbackstatuspunkt  
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
+Die IIS-Standardkonfiguration mit den folgenden Ergänzungen ist erforderlich:  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-###  <a name="a-namebkmk2008mppreqa-management-point"></a><a name="bkmk_2008MPpreq"></a> Point de gestion  
-**.NET Framework :**  
+###  <a name="bkmk_2008MPpreq"></a> Verwaltungspunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-Vous pouvez utiliser la configuration IIS par défaut ou une configuration personnalisée. Chaque point de gestion que vous activez pour la prise en charge des appareils mobiles requiert une configuration d’IIS supplémentaire pour ASP.NET (et ses options sélectionnées automatiquement).
+Sie können die IIS-Standardkonfiguration oder eine benutzerdefinierte Konfiguration verwenden. Jeder Verwaltungspunkt, den Sie für die Unterstützung mobiler Geräte aktivieren, erfordert die zusätzliche IIS-Konfiguration für ASP.NET (und automatisch ausgewählte Optionen).
 
-Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
+In einigen Szenarios, wenn z.B. IIS nach der Installation von .NET Framework 4.5.2 installiert oder umkonfiguriert wird, müssen Sie ASP.NET 4.5 ausdrücklich aktivieren. Führen Sie auf einem 64-Bit-Computer, auf dem .NET Framework 4.0.30319 ausgeführt wird, z.B. den folgenden Befehl aus: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**.  
 
 
-Pour utiliser une configuration IIS personnalisée, vous devez activer les options suivantes pour IIS :  
+Sie müssen die folgenden Optionen für IIS aktivieren, um eine benutzerdefinierte IIS-Konfiguration verwenden zu können:  
 
--   Développement d'applications :  
+-   Anwendungsentwicklung:  
 
-    -   Extensions ISAPI  
+    -   ISAPI-Erweiterungen  
 
--   Sécurité :  
+-   Sicherheit:  
 
-    -   Authentification Windows  
+    -   Windows-Authentifizierung  
 
--   Compatibilité avec la gestion IIS 6 :  
+-   IIS 6-Verwaltungskompatibilität:  
 
-    -   Compatibilité avec la métabase de données IIS 6  
+    -   IIS 6-Metabasiskompatibilität  
 
-    -   Compatibilité WMI d'IIS 6  
+    -   IIS 6-WMI-Kompatibilität  
 
 
-Quand vous utilisez une configuration IIS personnalisée, vous pouvez supprimer les options qui ne sont pas nécessaires, comme les suivantes :  
+Wenn Sie eine benutzerdefinierte IIS-Konfiguration verwenden, können Sie nicht benötigte Optionen entfernen, darunter die folgenden:  
 
--   Fonctionnalités HTTP communes :  
+-   Allgemeine HTTP-Features:  
 
-    -   Redirection HTTP  
+    -   HTTP-Umleitung  
 
--   Scripts et outils de gestion IIS  
+-   IIS-Verwaltungsskripts und -tools  
 
-**Fonctionnalité Windows :**  
+**Windows-Feature:**  
 
--   Extensions du serveur BITS (et options sélectionnées automatiquement) ou service de transfert intelligent en arrière-plan (BITS) (et options sélectionnées automatiquement)  
+-   BITS-Servererweiterungen (und automatisch ausgewählte Optionen) oder intelligenter Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS) (und automatisch ausgewählte Optionen)  
 
-###  <a name="a-namebkmk2008rspointa-reporting-services-point"></a><a name="bkmk_2008RSpoint"></a> Point de Reporting Services  
-**.NET Framework :**  
+###  <a name="bkmk_2008RSpoint"></a> Reporting Services-Punkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**SQL Server Reporting Services :**  
+**SQL Server Reporting Services:**  
 
--   Avant d’installer le point de Reporting Services, vous devez installer et configurer au moins une instance de SQL Server pour prendre en charge SQL Server Reporting Services.  
+-   Sie müssen zur Unterstützung von SQL Server Reporting Services vor dem Installieren des Reporting Services-Punkts mindestens eine SQL Server-Instanz installieren und konfigurieren.  
 
--   L’instance que vous utilisez pour SQL Server Reporting Services peut être la même que celle utilisée pour la base de données du site.  
+-   Sie können für SQL Server Reporting Services die gleiche Instanz wie für die Standortdatenbank verwenden.  
 
--   En outre, l’instance que vous utilisez peut être partagée avec d’autres produits System Center, dès lors que ceux-ci n’ont pas de restrictions pour le partage de l’instance de SQL Server.  
+-   Darüber hinaus kann die verwendete Instanz für andere System Center-Produkte freigegeben werden, solange die anderen System Center-Produkte keiner Einschränkung für die Freigabe von SQL Server-Instanzen unterliegen.  
 
-###  <a name="a-namebkmk2008scppreqa-service-connection-point"></a><a name="bkmk_2008SCPpreq"></a> Point de connexion de service  
-**.NET Framework :**  
+###  <a name="bkmk_2008SCPpreq"></a> Dienstverbindungspunkt  
+**.NET Framework:**  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
+     Wenn diese Standortsystemrolle installiert wird, installiert Configuration Manager automatisch .NET Framework 4.5.2, wenn auf dem Server nicht bereits eine unterstützte Version von .NET Framework installiert ist. Diese Installation kann den Server in den Status „Ausstehender Neustart“ setzen. Wenn für .NET Framework ein Neustart aussteht, können .NET-Anwendungen möglicherweise erst nach dem Neustart des Servers und dem Abschluss der Installation ausgeführt werden.  
 
-**Redistribuable Visual C++ :**  
+**Visual C++ Redistributable:**  
 
--   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
+-   Configuration Manager installiert Microsoft Visual C++ 2013 Redistributable Package auf jedem Computer, auf dem ein Verteilungspunkt gehostet wird.  
 
--   Le rôle de système de site nécessite la version x64.  
+-   Die Standortsystemrolle erfordert die x64-Version.  
 
-###  <a name="a-namebkmk2008suppreqa-software-update-point"></a><a name="bkmk_2008SUPpreq"></a> Point de mise à jour logicielle  
-**.NET Framework :**  
+###  <a name="bkmk_2008SUPpreq"></a> Softwareupdatepunkt  
+**.NET Framework:**  
 
--   .NET Framework 3.5 SP1 (ou version ultérieure)  
+-   .NET Framework 3.5 SP1 (oder höher)  
 
--   .NET Framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Configuration IIS :**
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire.  
+Die IIS-Standardkonfiguration ist erforderlich.  
 
-**Windows Server Update Services :**  
+**Windows Server Update Services:**  
 
--   Vous devez installer le rôle Windows Server Update Services (WSUS) de Windows Server sur un ordinateur avant d’installer un point de mise à jour logicielle.  
+-   Sie müssen die Windows Server-Rolle Windows Server Update Services auf einem Computer installieren, bevor Sie einen Softwareupdatepunkt installieren.  
 
--   Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).
+-   Weitere Informationen finden Sie unter [Planen von Softwareupdates in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).
 
-###  <a name="a-namebkmk2008smppreqa-state-migration-point"></a><a name="bkmk_2008SMPpreq"></a> Point de migration d'état  
-**Configuration IIS :**
+###  <a name="bkmk_2008SMPpreq"></a> Zustandsmigrationspunkt  
+**IIS-Konfiguration:**
 
-La configuration IIS par défaut est nécessaire.  
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+Die IIS-Standardkonfiguration ist erforderlich.  

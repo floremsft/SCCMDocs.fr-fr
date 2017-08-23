@@ -1,52 +1,45 @@
 ---
-title: "Associer des utilisateurs à un ordinateur de destination | Microsoft Docs"
-description: "Configurez System Center Configuration Manager pour associer des utilisateurs à des ordinateurs de destination lors du déploiement de systèmes d’exploitation."
+title: Zuordnen von Benutzern zu einem Zielcomputer | Microsoft-Dokumentation
+description: Konfigurieren Sie System Center Configuration Manager, um Benutzer beim Bereitstellen von Betriebssystemen zu Zielcomputern zuzuordnen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 07c3c6d9-f056-4c4d-bc70-ede5ca933807
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: c0331567b94a99b29cc73c16de17a9f3bc6b9e43
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="associate-users-with-a-destination-computer-in-system-center-configuration-manager"></a>Associer des utilisateurs à un ordinateur de destination dans System Center Configuration Manager
+# <a name="associate-users-with-a-destination-computer-in-system-center-configuration-manager"></a>Zuordnen von Benutzern zu einem Zielcomputer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Quand vous utilisez System Center Configuration Manager pour déployer le système d’exploitation, vous pouvez associer des utilisateurs à l’ordinateur de destination sur lequel le système d’exploitation est déployé. Cette configuration consiste à spécifier ce qui suit :  
+Wenn Sie System Center Configuration Manager verwenden, um ein Betriebssystem bereitzustellen, können Sie dem Zielcomputer, auf dem das Betriebssystem bereitgestellt wird, Benutzer zuordnen. Diese Konfiguration umfasst Folgendes:  
 
--   Qu'un seul utilisateur soit l'utilisateur principal de l'ordinateur de destination.  
+-   Ein einzelner Benutzer ist der primäre Benutzer des Zielcomputers.  
 
--   Que plusieurs utilisateurs soient les utilisateurs principaux de l'ordinateur de destination.  
+-   Mehrere Benutzer sind die primären Benutzer des Zielcomputers.  
 
- L'affinité entre utilisateur et périphérique prend en charge la gestion orientée utilisateur lorsque vous déployez des applications. Quand vous associez un utilisateur à l’ordinateur de destination sur lequel installer un système d’exploitation, vous pouvez déployer ultérieurement des applications pour cet utilisateur, qui seront installées automatiquement sur l’ordinateur de destination. Toutefois, même si vous pouvez configurer la prise en charge de l'affinité entre utilisateur et périphérique lorsque vous déployez des systèmes d'exploitation, vous ne pouvez pas utiliser l'affinité entre utilisateur et périphérique pour déployer des systèmes d'exploitation.  
+ Von der Affinität zwischen Benutzer und Gerät wird die benutzerzentrierte Verwaltung unterstützt, wenn Sie Anwendungen bereitstellen. Wenn Sie dem Zielcomputer, auf dem ein Betriebssystem installiert werden soll, einen Benutzer zuordnen, können Sie diesem Benutzer zu einem späteren Zeitpunkt Anwendungen bereitstellen, die dann automatisch auf dem Zielcomputer installiert werden. Sie können zwar die Unterstützung für die Affinität zwischen Benutzer und Gerät konfigurieren, wenn Sie Betriebssysteme bereitstellen; sie können die Affinität zwischen Benutzer und Gerät jedoch nicht zum Bereitstellen von Betriebssystemen verwenden.  
 
- Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
+ Weitere Informationen zur Affinität zwischen Benutzer und Gerät finden Sie unter [Verknüpfen von Benutzern und Geräten mit Affinität zwischen Benutzer und Gerät](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
 
-## <a name="how-to-specify-a-user-when-you-deploy-operating-systems"></a>Comment spécifier un utilisateur quand vous déployez des systèmes d’exploitation  
- Le tableau suivant répertorie les actions que vous pouvez effectuer pour intégrer l'affinité entre périphérique et utilisateur dans vos déploiements de système d'exploitation. Vous pouvez intégrer l’affinité entre périphérique et utilisateur dans des déploiements PXE, des déploiements de médias de démarrage et des déploiements de médias préparés.  
+## <a name="how-to-specify-a-user-when-you-deploy-operating-systems"></a>Angeben eines Benutzers bei der Bereitstellung von Betriebssystemen  
+ In der folgenden Tabelle sind die Aktionen aufgelistet, die Sie zur Integration der Affinität zwischen Benutzer und Gerät in Ihre Betriebssystembereitstellung ausführen können. Sie können die Affinität zwischen Benutzer und Gerät in PXE-Bereitstellungen, in Bereitstellungen mit startbaren Medien sowie in Bereitstellungen mit vorab bereitgestellten Medien integrieren.  
 
-|Action|Plus d'informations|  
+|Aktion|Weitere Informationen|  
 |------------|----------------------|  
-|Créer une séquence de tâches qui inclut la variable **SMSTSAssignUsersMode**|Ajoutez la variable **SMSTSAssignUsersMode** au début de votre séquence de tâches en suivant l’étape de la séquence de tâches [Définir la variable de séquence de tâches](../../osd/understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable). Cette variable spécifie comment la séquence de tâches gère les informations utilisateur.<br /><br /> Définissez la variable sur l'une des valeurs suivantes :<br /><br /> <br /><br /> **Auto**: la séquence de tâches crée automatiquement une relation entre l'utilisateur et l'ordinateur de destination et déploie le système d'exploitation.<br /><br /> **En attente**: la séquence de tâches crée une relation entre l'utilisateur et l'ordinateur de destination, mais attend l'approbation de l'utilisateur administratif avant le déploiement du système d'exploitation.<br /><br /> **Désactivé**: la séquence de tâches n'associe pas un utilisateur à l'ordinateur de destination et continue à déployer le système d'exploitation.<br /><br /> <br /><br /> Cette variable peut également être définie sur un ordinateur ou un regroupement. Pour plus d’informations sur les variables intégrées, consultez [Variables intégrées de séquence de tâches](../../osd/understand/task-sequence-built-in-variables.md).|  
-|Créer une commande de prédémarrage qui collecte les informations utilisateur|La commande de prédémarrage peut être un script Visual Basic (VB) avec une zone de texte ou bien une application HTML (HTA) qui valide les données utilisateur qui sont saisies.<br /><br /> La commande de prédémarrage doit définir la variable **SMSTSUdaUsers** qui est utilisée lors de l'exécution de la séquence de tâches. Cette variable peut être définie sur un ordinateur, un regroupement ou une variable de séquence de tâches. Utilisez le format suivant pour ajouter plusieurs utilisateurs : *domaine\utilisateur1, domaine\utilisateur2, domaine\utilisateur3*.|  
-|Configurer comment les points de distribution et les médias associent l'utilisateur à l'ordinateur de destination|Quand vous [configurez un point de distribution pour des demandes de démarrage PXE](https://technet.microsoft.com/library/mt627944\(TechNet.10\).aspx#BKMK_PXEDistributionPoint) et quand vous créez un [média de démarrage](http://technet.microsoft.com/library/mt627921\(TechNet.10\).aspx) ou un [média préparé](https://technet.microsoft.com/library/mt627922\(TechNet.10\).aspx) à l’aide de l’Assistant Création d’un média de séquence de tâches, vous pouvez spécifier comment le point de distribution ou le média prend en charge l’association d’utilisateurs avec l’ordinateur de destination sur lequel le système d’exploitation est déployé.<br /><br /> La configuration de la prise en charge de l'affinité entre périphérique et utilisateur n'a pas de méthode intégrée permettant de valider l'identité de l'utilisateur. Cela peut être important quand un technicien qui approvisionne l’ordinateur entre les informations pour le compte de l’utilisateur. En plus de définir la façon dont les informations utilisateur sont traitées par la séquence de tâches, la configuration de ces options sur le point de distribution et le média permet de limiter les déploiements démarrés à partir d’un démarrage PXE ou à partir d’un type de média spécifique.|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+|Erstellen Sie eine Tasksequenz, welche die Variable **SMSTSAssignUsersMode** enthält.|Fügen Sie die Variable **SMSTSAssignUsersMode** dem Anfang Ihrer Tasksequenz hinzu, indem Sie den Tasksequenzschritt  [Set Task Sequence Variable](../../osd/understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable) verwenden. Mit dieser Variable geben Sie an, wie die Benutzerinformationen von der Tasksequenz verarbeitet werden.<br /><br /> Legen Sie einen der folgenden Werte für die Variable fest:<br /><br /> <br /><br /> **Auto**: Es wird automatisch eine Beziehung zwischen Benutzer und Zielcomputer erstellt, und das Betriebssystem wird automatisch bereitgestellt.<br /><br /> **Ausstehend**: Von der Tasksequenz wird eine Beziehung zwischen dem Benutzer und dem Zielcomputer erstellt. Es wird jedoch auf die Genehmigung durch den Administrator gewartet, bevor das Betriebssystem bereitgestellt wird.<br /><br /> **Deaktiviert**: Während der Bereitstellung des Betriebssystems wird keine Beziehung zwischen einem Benutzer und dem Zielcomputer erstellt.<br /><br /> <br /><br /> Diese Variable kann auch bei einem Computer oder einer Sammlung festgelegt werden. Weitere Informationen zu integrierten Tasksequenzvariablen finden Sie unter [Integrierte Tasksequenzvariablen](../../osd/understand/task-sequence-built-in-variables.md).|  
+|Erstellen eines Prestart-Befehls, von dem Benutzerinformationen gesammelt werden|Bei dem Prestart-Befehl kann es sich um ein Visual Basic-Skript (VB) mit Eingabefeld handeln oder um eine HTML-Anwendung (HTA), von der die eingegebenen Benutzerdaten überprüft werden.<br /><br /> Vom Prestart-Befehl muss die Variable **SMSTSUdaUsers** festgelegt werden, die beim Ausführen der Tasksequenz verwendet wird. Diese Variable kann auf einem Computer, einer Sammlung oder einer Tasksequenzvariable festgelegt werden. Verwenden Sie folgendes Format, wenn Sie mehrere Benutzer hinzufügen: *Domäne\Benutzer1, Domäne\Benutzer2, Domäne\Benutzer3*.|  
+|Konfigurieren der Zuordnung von Benutzer und Zielcomputer durch Medien und Verteilungspunkte|Wenn Sie [einen Verteilungspunkt so konfigurieren, dass PXE-Startanforderungen von ihm akzeptiert werden](https://technet.microsoft.com/library/mt627944\(TechNet.10\).aspx#BKMK_PXEDistributionPoint) , und mithilfe des Assistenten zum Erstellen von Tasksequenzmedien [startbare Medien](http://technet.microsoft.com/library/mt627921\(TechNet.10\).aspx) oder [vorab bereitgestellte Medien](https://technet.microsoft.com/library/mt627922\(TechNet.10\).aspx) erstellen, können Sie angeben, wie die Zuordnung von Benutzern und Zielcomputern dort, wo das Betriebssystem bereitgestellt wird, durch den Verteilungspunkt oder die Medien unterstützt werden soll.<br /><br /> In der Unterstützungskonfiguration der Affinität zwischen Benutzer und Gerät ist keine Methode zur Überprüfung der Benutzeridentität enthalten. Dies kann wichtig sein, wenn ein Techniker bei der Bereitstellung des Computers diese Informationen anstelle des Benutzers eingibt. Sie können nicht nur festlegen, wie die Benutzerinformationen von der Tasksequenz verarbeitet werden, sondern mithilfe der Konfiguration dieser Optionen an Verteilungspunkts und Medien können Sie auch die Bereitstellungen begrenzen, die durch einen PXE-Start oder von einem bestimmten Mediumtyp gestartet werden.|  

@@ -1,286 +1,282 @@
 ---
-title: "Informations techniques de référence sur les contrôles de chiffrement | Microsoft Docs"
-description: "Découvrez de quelle manière la signature et le chiffrement permettent d’empêcher les tentatives malveillantes de lecture des données dans System Center Configuration Manager."
+title: "Technische Referenz für kryptografische Steuerelemente | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr darüber, wie die Signierung und Verschlüsselung Sie vor Angriffen schützen kann, die Daten in System Center Configuration Manager lesen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0c63dcc5-a1bd-4037-959a-2e6ba0fd1b2c
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 0f76ed3dd74a80d9e22cfa743e5aa484f6cd7d97
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 09d319ce817c925ac002a27733d2ce35464eeca7
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="cryptographic-controls-technical-reference"></a>Informations techniques de référence sur les contrôles de chiffrement
+# <a name="cryptographic-controls-technical-reference"></a>Technische Referenz für kryptografische Steuerelemente
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-System Center Configuration Manager utilise la signature et le chiffrement pour sécuriser la gestion des appareils dans la hiérarchie Configuration Manager. La signature permet d’ignorer les données qui ont été modifiées lors du transit. Le chiffrement permet d’empêcher une personne malveillante de lire les données à l’aide d’un analyseur de protocole réseau.  
+System Center Configuration Manager verwendet die Signierung und Verschlüsselung zum Schutz der Geräteverwaltung in der Configuration Manager-Hierarchie. Wenn Daten bei der Übertragung verändert wurden, werden sie mit der Signierung verworfen. Bei der Verschlüsselung wird mithilfe einer Netzwerkprotokollanalyse verhindert, dass ein Angreifer die Daten lesen kann.  
 
- L’algorithme de hachage principal utilisé par Configuration Manager pour la signature est SHA-256. Quand deux sites Configuration Manager communiquent entre eux, ils signent leurs communications avec l’algorithme SHA-256. L’algorithme de chiffrement principal implémenté dans Configuration Manager est 3DES. Il est utilisé pour le stockage des données dans la base de données Configuration Manager et pour les communications client HTTP. Avec les communications client sur HTTPS, vous pouvez configurer votre infrastructure à clé publique (PKI) pour utiliser les certificats RSA avec des algorithmes de hachage et longueurs de clé maximales indiqués dans [Configuration requise des certificats PKI pour Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
+ Beim von Configuration Manager primär verwendeten Hashalgorithmus wird SHA-256 zur Signierung verwendet. Wenn zwei Configuration Manager-Standorte miteinander kommunizieren, signieren sie ihre Kommunikation mithilfe von SHA-256. Der in Configuration Manager primär implementierte Verschlüsselungsalgorithmus ist 3DES. Er wird zur Datenspeicherung in der Configuration Manager-Datenbank und für die-HTTP-Clientkommunikation verwendet. Wenn Sie die Clientkommunikation über HTTPS verwenden, können Sie Ihre Public Key-Infrastruktur (PKI) für die Verwendung von RSA-Zertifikaten mit den maximalen Hashalgorithmen und Schlüssellängen konfigurieren, die in [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md) beschrieben sind.  
 
- Pour la plupart des opérations de chiffrement pour les systèmes d’exploitation Windows, Configuration Manager utilise les algorithmes SHA-2, 3DES et AES ainsi que les algorithmes RSA de la bibliothèque CryptoAPI de Windows, rsaenh.dll.  
+ Für die meisten kryptografischen Vorgänge auf Windows-basierten Betriebssystemen verwendet Configuration Manager die SHA-2-, 3DES-, AES- und RSA-Algorithmen aus der Windows CryptoAPI-Bibliothek „rsaenh.dll“.  
 
 > [!IMPORTANT]  
->  Pour plus d’informations sur les modifications recommandées en réponse aux vulnérabilités SSL, consultez la rubrique [Vulnérabilités du protocole SSL](#about-ssl-vulnerabilities).  
+>  Sehen Sie sich die Informationen zu empfohlenen Änderungen als Reaktion auf SSL-Sicherheitsrisiken unter [Über SSL-Sicherheitsrisiken](#about-ssl-vulnerabilities)an.  
 
-##  <a name="cryptographic-controls-for-configuration-manager-operations"></a>Contrôles de chiffrement pour les opérations dans Configuration Manager  
- Les informations dans Configuration Manager peuvent être signées et chiffrées, que vous utilisiez ou non des certificats PKI avec Configuration Manager.  
+##  <a name="cryptographic-controls-for-configuration-manager-operations"></a>Kryptografische Steuerelemente für Configuration Manager-Vorgänge  
+ Informationen in Configuration Manager können signiert und verschlüsselt werden, unabhängig davon, ob Sie die PKI-Zertifikate mit Configuration Manager verwenden oder nicht.  
 
-### <a name="policy-signing-and-encryption"></a>Signature et chiffrement de stratégie  
- Les affectations de stratégies client sont signées par le certificat de signature du serveur de site auto-signé afin d'éviter qu'un point de gestion compromis envoie des stratégies qui ont été falsifiées, ce qui présenterait un risque de sécurité. Cela est important si vous utilisez la gestion du client basée sur Internet, car cet environnement nécessite un point de gestion exposé aux communications sur Internet.  
+### <a name="policy-signing-and-encryption"></a>Signieren und Verschlüsseln von Richtlinien  
+ Clientrichtlinienzuweisungen werden mit dem selbstsignierten Signaturzertifikat des Standortservers signiert, um das Sicherheitsrisiko zu verhindern, dass von einem gefährdeten Verwaltungspunkt manipulierte Richtlinien versendet werden. Dies ist insbesondere dann wichtig, wenn Sie eine internetbasierte Clientverwaltung verwenden, da diese Umgebung einen Verwaltungspunkt erfordert, der der Internetkommunikation ausgesetzt ist.  
 
- La stratégie est chiffrée à l’aide de l’algorithme 3DES quand elle contient des données sensibles. Une stratégie qui contient des données sensibles est envoyée aux clients autorisés uniquement. Une stratégie qui ne contient pas de données sensibles n'est pas chiffrée.  
+ Richtlinien werden mit 3DES verschlüsselt, wenn sie sensible Daten enthalten. Richtlinien, die sensible Daten enthalten, werden ausschließlich an autorisierte Clients gesendet. Richtlinien, die keine sensiblen Daten enthalten, werden nicht verschlüsselt.  
 
- Quand la stratégie est stockée sur les clients, elle est chiffrée à l’aide d’une interface de programmation d’applications de protection des données (DPAPI).  
+ Wenn eine Richtlinie auf Clients gespeichert wird, wird sie mithilfe der Anwendungsprogrammierschnittstelle für Datenschutz (Data Protection application programming interface, DPAPI) verschlüsselt.  
 
-### <a name="policy-hashing"></a>Hachage de stratégie  
- Quand les clients Configuration Manager demandent une stratégie, ils obtiennent d’abord une attribution de stratégie pour connaître les stratégies qui leur sont applicables. Par la suite, ils demandent uniquement le corps de ces stratégies. Chaque attribution de stratégie contient le hachage calculé pour le corps de la stratégie correspondante. Le client récupère les corps des stratégies applicables, puis il calcule le hachage de ce corps. Si le hachage du corps de la stratégie téléchargée ne correspond pas à celui de l'attribution de la stratégie, le client annule le corps de la stratégie.  
+### <a name="policy-hashing"></a>Hashwert von Richtlinien  
+ Wenn Configuration Manager-Clients eine Richtlinie anfordern, erhalten sie zunächst eine Richtlinienzuordnung, sodass sie wissen, welche Richtlinien auf sie zutreffen, und fordern dann nur diese Richtlinientexte an. Jede Richtlinienzuordnung enthält den errechneten Hashwert für den entsprechenden Richtlinientext. Der Client ruft die entsprechenden Richtlinientexte ab und berechnet aufgrund dieses Texts dann den Hashwert. Stimmt der Hashwert des heruntergeladenen Richtlinientexts nicht mit dem Hashwert der Richtlinienzuordnung überein, wird der Richtlinientext vom Client verworfen.  
 
- L'algorithme de hachage pour la stratégie est SHA-1 et SHA-256.  
+ Hashalgorithmen für Richtlinien sind SHA-1 und SHA-256.  
 
-### <a name="content-hashing"></a>Hachage du contenu  
- Le service du Gestionnaire de distributions sur le serveur de site hache les fichiers de tous les packages. Le fournisseur de stratégie inclut le hachage dans la stratégie de distribution de logiciels. Quand le client Configuration Manager télécharge le contenu, il régénère le hachage localement et le compare à celui fourni dans la stratégie. Si les hachages correspondent, le contenu n'est pas été altéré et le client installe le logiciel. Si un seul octet du contenu a été altéré, les hachages ne correspondront pas et le logiciel ne sera pas installé. Cette vérification permet de s'assurer que le logiciel correct est installé, car son contenu réel fait l'objet d'une contre-vérification avec la stratégie.  
+### <a name="content-hashing"></a>Inhaltshashing  
+ Der Verteilungs-Manager-Dienst des Standortservers erstellt einen Hashwert für die Inhaltsdateien aller Pakete. Der Richtlinienanbieter bindet den Hashwert in die Softwareverteilungsrichtlinie ein. Wenn der Inhalt vom Configuration Manager-Client heruntergeladen wird, wird der Hashwert vom Client lokal erneut generiert und mit dem Hashwert der Richtlinie verglichen. Stimmen die Hashwerte überein, wurde der Inhalt nicht geändert. Der Inhalt wird vom Client installiert. Wurde auch nur ein Byte des Inhalts geändert, stimmen die Hashwerte nicht überein, und die Software wird nicht installiert. Mit dieser Überprüfung wird sichergestellt, dass die richtige Software installiert wird, da der tatsächliche Inhalt mit der Richtlinie verglichen wird.  
 
- L'algorithme de hachage par défaut pour le contenu est SHA-256. Pour modifier ce paramètre par défaut, consultez la documentation du SDK Configuration Manager.  
+ Der Hashalgorithmus für Richtlinien ist standardmäßig SHA-256. Informationen zum Ändern dieser Standardeinstellung finden Sie in der Dokumentation für das Configuration Manager Software Development Kit (SDK).  
 
- Tous les appareils ne prennent pas en charge le hachage du contenu. C’est notamment le cas des appareils suivants :  
+ Die Verwendung von Inhaltshashs wird nicht von allen Geräten unterstützt. Ausnahmen sind:  
 
--   Clients Windows diffusant du contenu App-V.  
+-   Windows-Clients beim Streamen von App-V-Inhalten  
 
--   Clients Windows Phone. Ces clients vérifient la signature d’une application signée par une source approuvée.  
+-   Windows Phone-Clients, da diese Clients die Signatur einer Anwendung, die von einer vertrauenswürdigen Quelle signiert wird, überprüfen.  
 
--   Clients Windows RT. Ces clients vérifient la signature d’une application signée par une source approuvée et utilisent également la validation du nom complet du package.  
+-   Windows RT-Clients, da diese Clients die Signatur einer Anwendung, die von einer vertrauenswürdigen Quelle signiert wird, überprüfen, und außerdem die Überprüfung des vollständigen Paketnamens (PFN) verwenden.  
 
--   Appareils iOS. Ces appareils vérifient la signature d’une application signée par un certificat de développeur issu d’une source approuvée.  
+-   iOS, da diese Geräte die Signatur einer Anwendung, die von einem Entwicklerzertifikat einer vertrauenswürdigen Quelle signiert wird, überprüfen.  
 
--   Clients Nokia. Ces clients vérifient la signature d’une application qui utilise un certificat auto-signé. ou la signature d'un certificat issu d'une source approuvée, pour que le certificat puisse signer les applications Nokia Symbian Installation Source (SIS).  
+-   Nokia-Clients, da diese Clients die Signatur einer Anwendung, die ein selbstsigniertes Zertifikat verwendet, überprüfen. Alternativ dazu kann die Signatur eines Zertifikats aus einer vertrauenswürdigen Quelle verwendet werden, und mit dem Zertifikat können Nokia Symbian Installation Source-Anwendungen (SIS) signiert werden.  
 
--   Android. En outre, ces appareils n'utilisent pas la validation de signature pour l'installation des applications.  
+-   Android: Darüber hinaus wird die Signaturüberprüfung für die Anwendungsinstallation von diesen Geräten nicht verwendet.  
 
--   Clients qui s'exécutent sur des versions de Linux et UNIX qui ne prennent pas en charge SHA-256. Pour plus d’informations, consultez [Planification du déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager](../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
+-   Clients, auf denen Linux- und UNIX-Versionen ausgeführt werden, die SHA-256 nicht unterstützen. Weitere Informationen finden Sie unter [Planen der Clientbereitstellung für Linux- und UNIX-Computer in System Center Configuration Manager](../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
 
-### <a name="inventory-signing-and-encryption"></a>Signature et chiffrement d’inventaire  
- L'inventaire que les clients envoient aux points de gestion est toujours signé par les appareils, qu'ils communiquent ou non avec les points de gestion via HTTP ou HTTPS. S'ils utilisent le protocole HTTP, vous pouvez choisir de chiffrer ces données, ce qui constitue une meilleure pratique de sécurité.  
+### <a name="inventory-signing-and-encryption"></a>Signieren und Verschlüsseln der Inventur  
+ Inventurdaten, die von Clients an Verwaltungspunkte gesendet werden, werden stets von Geräten signiert. Dies gilt unabhängig davon, ob die Kommunikation mit Verwaltungspunkten über HTTP oder HTTPS erfolgt. Wenn HTTP verwendet wird, wird aus Sicherheitsgründen empfohlen, diese Daten zu verschlüsseln.  
 
-### <a name="state-migration-encryption"></a>Chiffrement de la migration d’état  
- Les données stockées sur les points de migration d'état pour le déploiement de système d'exploitation sont toujours chiffrées par l'Outil de migration utilisateur (USMT) en utilisant l'algorithme 3DES.  
+### <a name="state-migration-encryption"></a>Zustandsmigrationsverschlüsselung  
+ Auf Zustandsmigrationspunkten für die Betriebssystembereitstellung gespeicherte Daten werden vom User State Migration Tool (USMT) immer unter Verwendung von 3DES verschlüsselt.  
 
-### <a name="encryption-for-multicast-packages-to-deploy-operating-systems"></a>Chiffrement des packages de multidiffusion pour déployer des systèmes d’exploitation  
- Pour chaque package de déploiement de système d'exploitation, vous pouvez activer le chiffrement lorsque le package est transféré vers des ordinateurs à l'aide de la multidiffusion. Le chiffrement utilise la norme AES (Advanced Encryption Standard). Si vous activez le chiffrement, aucune configuration de certificat supplémentaire n'est nécessaire. Le point de distribution multidiffusion génère automatiquement des clés symétriques pour le chiffrement du package. Chaque package possède une clé de chiffrement qui lui est propre. La clé est stockée sur le point de distribution multidiffusion à l'aide des API Windows standard. Lorsque le client se connecte à la session de multidiffusion, l'échange de clé se produit sur un canal chiffré, soit avec le certificat d'authentification de client émis par l'infrastructure à clé publique (lorsque le client utilise le protocole HTTPS), soit avec le certificat auto-signé (lorsque le client utilise le protocole HTTP). Le client stocke la clé en mémoire uniquement pendant la durée d'ouverture de la session de multidiffusion.  
+### <a name="encryption-for-multicast-packages-to-deploy-operating-systems"></a>Verschlüsselung für Multicastpakete zum Bereitstellen von Betriebssystemen  
+ Sie können für jedes Paket der Betriebssystembereitstellung die Verschlüsselung aktivieren, wenn das Paket über Multicast an Computer übertragen wird. Bei der Verschlüsselung wird der erweiterte Verschlüsselungsstandard (Advanced Encryption Standard, AES) verwendet. Wenn Sie die Verschlüsselung aktivieren, ist keine zusätzliche Konfiguration für das Zertifikat erforderlich. Der multicastfähige Verteilungspunkt generiert automatisch symmetrische Schlüssel zur Paketverschlüsselung. Jedes Paket erhält einen anderen Verschlüsselungsschlüssel. Der Schlüssel wird mithilfe von Windows-Standard-APIs auf dem multicastfähigen Verteilungspunkt gespeichert. Wenn vom Client eine Verbindung mit der Multicastsitzung hergestellt wird, erfolgt der Schlüsselaustausch über einen Kanal, der entweder mit dem Clientauthentifizierungszertifikat der PKI (wenn vom Client HTTPS verwendet wird) oder mit dem selbstsignierten Zertifikat (wenn vom Client HTTP verwendet wird) verschlüsselt ist. Der Client speichert den Schlüssel nur für die Dauer der Multicastsitzung im Arbeitsspeicher.  
 
-### <a name="encryption-for-media-to-deploy-operating-systems"></a>Chiffrement du support pour déployer des systèmes d’exploitation  
- Lorsque vous utilisez un support pour déployer des systèmes d'exploitation et spécifier un mot de passe pour protéger le support, les variables d'environnement sont chiffrées à l'aide de la norme AES (Advanced Encryption Standard). Les autres données sur le support, y compris les packages et le contenu pour les applications, ne sont pas chiffrées.  
+### <a name="encryption-for-media-to-deploy-operating-systems"></a>Verschlüsselung von Medien zum Bereitstellen von Betriebssystemen  
+ Wenn Sie Betriebssysteme über Medien bereitstellen und zum Schutz der Medien ein Kennwort angeben, werden die Umgebungsvariablen mithilfe des erweiterten Verschlüsselungsstandards (Advanced Encryption Standard, AES) verschlüsselt. Andere Daten auf den Medien, wie beispielsweise Pakete und Inhalt für Anwendungen, werden nicht verschlüsselt.  
 
-### <a name="encryption-for-content-that-is-hosted-on-cloud-based-distribution-points"></a>Chiffrement du contenu hébergé sur des points de distribution cloud  
- Depuis System Center 2012 Configuration Manager SP1, quand vous chargez du contenu vers des points de distribution cloud, le contenu est chiffré à l’aide de l’algorithme AES (Advanced Encryption Standard) avec une clé de 256 bits. Le contenu est de nouveau chiffré à chaque fois que vous le mettez à jour. Lorsque des clients téléchargent le contenu, celui-ci est chiffré et protégé par la connexion HTTPS.  
+### <a name="encryption-for-content-that-is-hosted-on-cloud-based-distribution-points"></a>Verschlüsselung für Inhalte, die auf cloudbasierten Verteilungspunkten gehostet werden  
+ Ab System Center 2012 Configuration Manager SP1 werden bei Verwendung cloudbasierter Verschlüsselungspunkte die Inhalte, die Sie auf diese Verteilungspunkte hochladen, mithilfe des erweiterten Verschlüsselungsstandards (Advanced Encryption Standard, AES) unter Verwendung eines 256-Bit-Schlüssels verschlüsselt. Der Inhalt wird jeweils neu verschlüsselt, wenn Sie ihn aktualisieren. Wenn der Inhalt von Clients heruntergeladen wird, wird er verschlüsselt und ist per HTTPS-Verbindung geschützt.  
 
-### <a name="signing-in-software-updates"></a>Signature dans les mises à jour logicielles  
- Toutes les mises à jour logicielles doivent être signées par un éditeur approuvé pour les protéger contre les altérations. Sur les ordinateurs clients, l'Agent Windows Update (WUA) analyse les mises à jour du catalogue, mais n'installe pas la mise à jour s'il ne parvient pas à localiser le certificat numérique dans le magasin des éditeurs approuvés, sur l'ordinateur local. Si un certificat auto-signé a été utilisé pour la publication du catalogue de mises à jour, comme par exemple des éditeurs WSUS auto-signés, le certificat doit également se trouver dans le magasin de certificats des autorités de certification racine approuvées, sur l'ordinateur local, pour vérifier la validité du certificat. WUA vérifie également si le paramètre **Autoriser le contenu signé de la stratégie de groupe d'emplacement des services de mise à jour Microsoft sur l'intranet** est activé sur l'ordinateur local. Ce paramètre de stratégie doit être activé pour que WUA analyse les mises à jour qui ont été créées et publiées à l'aide de l'éditeur de mises à jour.  
+### <a name="signing-in-software-updates"></a>Signieren von Softwareupdates  
+ Alle Softwareupdates müssen zum Schutz vor Manipulation von einem vertrauenswürdigen Herausgeber signiert werden. Clientcomputer werden von Windows Update Agent (WUA) auf die Updates aus dem Katalog überprüft. Ein Update wird jedoch nur installiert, wenn das digitale Zertifikat im Speicher des vertrauenswürdigen Herausgebers auf dem lokalen Computer vorhanden ist. Wenn bei der Veröffentlichung des Updatekatalogs ein selbstsigniertes Zertifikat wie „WSUS Publishers Self-signed“ verwendet wurde, muss sich das Zertifikat auch im Zertifikatspeicher der vertrauenswürdigen Stammzertifizierungsstellen auf dem lokalen Computer befinden, damit die Gültigkeit des Zertifikats überprüft werden kann. WUA überprüft auch, ob auf dem lokalen Computer die Gruppenrichtlinieneinstellung **Signierten Inhalt von Intranet-Speicherort für Microsoft-Updatedienst zulassen** aktiviert ist. Diese Richtlinieneinstellung muss für WUA aktiviert sein, damit Updates überprüft werden können, die mithilfe von Update Publisher erstellt und veröffentlicht wurden.  
 
- Lorsque les mises à jour logicielles sont publiées dans l'éditeur de mises à jour System Center, un certificat numérique signe les mises à jour logicielles quand elles sont publiées sur un serveur de mise à jour. Vous pouvez soit spécifier un certificat PKI, soit laisser l'éditeur de mises à jour générer un certificat auto-signé pour signer la mise à jour logicielle.  
+ Wenn Softwareupdates in System Center Updates Publisher veröffentlicht werden, werden die Softwareupdates bei Veröffentlichung auf einem Updateserver durch ein digitales Zertifikat signiert. Sie können entweder ein PKI-Zertifikat angeben oder festlegen, dass Updates Publisher ein selbstsigniertes Zertifikat zum Signieren des Softwareupdates generieren soll.  
 
-### <a name="signed-configuration-data-for-compliance-settings"></a>Données de configuration signées pour les paramètres de compatibilité  
- Quand vous importez des données de configuration, Configuration Manager vérifie la signature numérique du fichier. Si les fichiers n'ont pas été signés, ou si la vérification de la signature numérique échoue, vous recevrez un avertissement et serez invité à continuer l'importation. Ne poursuivez l'importation des données de configuration que si vous faites explicitement confiance à l'éditeur et si vous êtes certain de l'intégrité des fichiers.  
+### <a name="signed-configuration-data-for-compliance-settings"></a>Signierte Konfigurationsdaten für Kompatibilitätseinstellungen  
+ Beim Importieren von Konfigurationsdaten überprüft Configuration Manager die digitale Signatur der Datei. Falls die Dateien nicht signiert wurden oder bei der Überprüfung der digitalen Signatur ein Fehler auftritt, wird eine Warnung ausgegeben. Sie werden dann aufgefordert, anzugeben, ob der Importvorgang fortgesetzt werden soll. Sie sollten mit dem Import der Konfigurationsdaten nur fortfahren, wenn Sie dem Herausgeber und der Integrität der Daten wirklich vertrauen.  
 
-### <a name="encryption-and-hashing-for-client-notification"></a>Chiffrement et hachage pour la notification du client  
- Si vous utilisez la notification du client, toutes les communications utilisent le protocole TLS et le niveau de chiffrement le plus élevé que le serveur et les systèmes d'exploitation clients peuvent négocier. Par exemple, un ordinateur client exécutant Windows 7 et un point de gestion exécutant Windows Server 2008 R2 peuvent prendre en charge le chiffrement AES 128 bits, tandis qu'un ordinateur client exécutant Vista et communiquant avec le même point de gestion négociera seulement un chiffrement 3DES. La même négociation se produit lors du hachage des paquets transférés lors de la notification du client, qui utilise l'algorithme SHA-1 ou SHA-2.  
+### <a name="encryption-and-hashing-for-client-notification"></a>Verschlüsselung und Hashing für die Clientbenachrichtigung  
+ Wenn Sie die Clientbenachrichtigung nutzen, werden bei der gesamten Kommunikation TLS und die höchste Verschlüsselungsstufe verwendet, die von den Betriebssystemen des Servers und Clients ausgehandelt werden kann. Bei einem Clientcomputer mit Windows 7 und einem Verwaltungspunkt mit Windows Server 2008 R2 kann z. B. die 128-Bit-AES-Verschlüsselung unterstützt werden, während für einen Clientcomputer mit Vista für denselben Verwaltungspunkt nur die 3DES-Verschlüsselung ausgehandelt werden kann. Diese Aushandlung wird auch für das Hashing der Pakete ausgeführt, die im Laufe der Clientbenachrichtigung übertragen werden. Dabei wird SHA-1 oder SHA-2 verwendet.  
 
-##  <a name="certificates-used-by-configuration-manager"></a>Certificats utilisés par Configuration Manager  
- Pour obtenir la liste des certificats d’infrastructure à clé publique (PKI) pris en charge par Configuration Manager, connaître les exigences ou limitations particulières et savoir comment utiliser les certificats, consultez [Configuration requise des certificats PKI pour Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md). Cette liste inclut les longueurs de clé et les algorithmes de hachage pris en charge. La plupart des certificats prennent en charge l'algorithme SHA-256 et la longueur de clé 2 048 bits.  
-
-> [!NOTE]  
->  Le nom d’objet ou l’autre nom d’objet des certificats utilisés par Configuration Manager doit contenir uniquement des caractères codés sur un octet.  
-
- Les certificats PKI sont requis pour les scénarios suivants :  
-
--   Quand vous gérez des clients Configuration Manager sur Internet.  
-
--   Quand vous gérez des clients Configuration Manager sur des appareils mobiles.  
-
--   Lorsque vous gérez des ordinateurs Mac.  
-
--   Lorsque vous utilisez des points de distribution cloud.  
-
--   Lorsque vous gérez des ordinateurs Intel AMT hors bande.  
-
- Pour la plupart des autres communications Configuration Manager nécessitant des certificats pour l’authentification, la signature ou le chiffrement, Configuration Manager utilise automatiquement les certificats PKI disponibles. S’il n’y a pas de certificats PKI disponibles, Configuration Manager génère des certificats auto-signés.  
-
- Configuration Manager n’utilise pas de certificats PKI quand il gère des appareils mobiles à l’aide du connecteur Exchange Server.  
-
-### <a name="mobile-device-management-and-pki-certificates"></a>Gestion d’appareils mobiles et certificats PKI  
- Si l’appareil mobile n’a pas été verrouillé par l’opérateur mobile, vous pouvez utiliser Configuration Manager ou Microsoft Intune pour demander et installer un certificat client. Ce certificat fournit une authentification mutuelle entre le client de l’appareil mobile et les systèmes de site Configuration Manager ou les services Microsoft Intune. Si l’appareil mobile est verrouillé, vous ne pouvez pas utiliser Configuration Manager ou Intune pour déployer des certificats.  
-
- Si vous activez l’inventaire matériel des appareils mobiles, Configuration Manager ou Intune effectue également l’inventaire des certificats installés sur l’appareil mobile.  
-
-### <a name="out-of-band-management-and-pki-certificates"></a>Gestion hors bande et certificats PKI  
- La gestion hors bande pour les ordinateurs Intel AMT utilise au moins deux types de certificats émis par l'infrastructure à clé publique : un certificat de configuration AMT et un certificat de serveur web.  
-
- Le point de service hors bande utilise un certificat de configuration AMT pour préparer les ordinateurs à la gestion hors bande. Les ordinateurs AMT à configurer doivent approuver le certificat présenté par le point de gestion hors bande. Par défaut, les ordinateurs basés sur AMT sont configurés par le fabricant de sorte qu'ils utilisent des autorités de certification externes, telles que VeriSign, Go Daddy, Comodo et Starfield. Si vous vous procurez un certificat de configuration auprès d'une autorité de certification externe, puis vous configurez Configuration Manager pour qu'il utilise ce certificat, les ordinateurs basés sur AMT approuveront l'autorité de certification du certificat de configuration et la configuration pourra être effectuée. Toutefois, l'emploi de votre propre autorité de certification interne pour l'émission du certificat de configuration AMT est une pratique de sécurité recommandée.  
-
- Les ordinateurs AMT exécutent un composant de serveur Web dans leur microprogramme et ce composant de serveur Web chiffre le canal de communication avec le point de service hors bande à l'aide du protocole TLS (Transport Layer Security). Il n'existe pas d'interface utilisateur dans le BIOS AMT qui permette de configurer un certificat manuellement. Vous devez donc disposer d'une autorité de certification d'entreprise Microsoft qui approuve automatiquement les requêtes de certificat émanant d'ordinateurs AMT. La requête utilise le fichier PKCS#10 pour le format de requête, lequel utilise à son tour le fichier PKCS#7 pour transmettre les informations relatives au certificat à l'ordinateur AMT.  
-
- Même si l'ordinateur AMT est authentifié auprès de l'ordinateur qui le gère, ce dernier ne possède pas de certificat client PKI correspondant. À la place, ces communications utilisent l'authentification Kerberos ou l'authentification HTTP Digest. Lorsque HTTP Digest est utilisé, il est chiffré à l'aide de TLS.  
-
- Un type de certificat supplémentaire peut être nécessaire pour la gestion des ordinateurs AMT hors bande : un certificat client facultatif pour les réseaux sans fil et les réseaux câblés authentifiés 802.1X. Un certificat client peut être requis par l'ordinateur basé sur AMT en vue de son authentification auprès du serveur RADIUS. Lorsque le serveur RADIUS est configuré pour l'authentification EAP-TLS, un certificat client est toujours nécessaire. Lorsque le serveur RADIUS est configuré pour l'authentification EAP-TTLS/MSCHAPv2 ou PEAPv0/EAP-MSCHAPv2, la configuration RADIUS indique si un certificat client est nécessaire ou non. Ce certificat est demandé par l'ordinateur AMT en utilisant les mêmes processus que la demande de certificat de serveur Web.  
-
-### <a name="operating-system-deployment-and-pki-certificates"></a>Déploiement de systèmes d’exploitation et certificats PKI  
- Quand vous utilisez Configuration Manager pour déployer des systèmes d’exploitation et un point de gestion qui nécessite des connexions client HTTPS, l’ordinateur client a également besoin d’un certificat pour communiquer avec ce point de gestion, même s’il se trouve dans une phase de transition (démarrage depuis le média de séquence de tâches ou un point de distribution PXE, par exemple). Pour la prise en charge de ce scénario, vous devez créer un certificat d’authentification de client PKI, l’exporter avec la clé privée, puis l’importer vers les propriétés du serveur de site. Ajoutez également le certificat de l’autorité de certification racine approuvée du point de gestion.  
-
- Si vous créez un média de démarrage, vous importez le certificat d'authentification du client lors de la création du média de démarrage. Configurez un mot de passe sur le support de démarrage pour protéger la clé privée et les autres données sensibles configurées dans la séquence de tâches. Chaque ordinateur qui démarre depuis le support de démarrage présentera le même certificat au point de gestion que celui requis pour les fonctions de clients telles que la demande de stratégies client.  
-
- Si vous utilisez le démarrage PXE, vous importez le certificat d'authentification du client vers le point de distribution PXE, et il utilise le même certificat pour tous les clients démarrant à partir de ce point de distribution PXE. Une meilleure pratique de sécurité exige que les utilisateurs qui connectent leurs ordinateurs à un service PXE fournissent un mot de passe dans le but de protéger la clé privée et d'autres données sensibles dans les séquences de tâches.  
-
- Si l'un de ces certificats d'authentification client est compromis, bloquez les certificats dans le nœud **Certificats** de l'espace de travail **Administration** , nœud **Sécurité** . Pour gérer ces certificats, vous devez disposer du droit **Gérer un certificat de déploiement de système d'exploitation** .  
-
- Une fois le système d’exploitation déployé et Configuration Manager installé, le client a besoin de son propre certificat d’authentification client PKI pour les communications client HTTPS.  
-
-### <a name="isv-proxy-solutions-and-pki-certificates"></a>Solutions proxy ISV et certificats PKI  
- Les éditeurs de logiciels indépendants (ISV) peuvent créer des applications qui étendent les fonctionnalités de Configuration Manager. Par exemple, un éditeur de logiciels indépendant peut créer des extensions pour la prise en charge de plates-formes clientes autres que Windows, comme les ordinateurs Macintosh ou UNIX. Toutefois, si les systèmes de site nécessitent des connexions clientes HTTPS, ces clients doivent également utiliser des certificats PKI pour communiquer avec le site. Dans Configuration Manager, vous pouvez attribuer un certificat au proxy ISV qui autorise les communications entre les clients de proxy ISV et le point de gestion. Si vous utilisez des extensions qui nécessitent des certificats de proxy ISV, consultez la documentation de ce produit. Pour plus d’informations sur la création de certificats proxy ISV, consultez le SDK Configuration Manager.  
-
- Si le certificat ISV est compromis, bloquez le certificat dans le nœud **Certificats** de l'espace de travail **Administration** , nœud **Sécurité** .  
-
-### <a name="asset-intelligence-and-certificates"></a>Asset Intelligence et certificats  
- Configuration Manager s’installe avec un certificat X.509 que le point de synchronisation Asset Intelligence utilise pour se connecter à Microsoft. Configuration Manager utilise ce certificat pour demander un certificat d’authentification client au service de certificats Microsoft. Le certificat d'authentification du client est installé sur le serveur du système de site du point de synchronisation Asset Intelligence. Il est utilisé pour authentifier le serveur auprès de Microsoft. Configuration Manager utilise le certificat d'authentification client pour télécharger le catalogue Asset Intelligence et télécharger des logiciels.  
-
- La longueur de clé de ce certificat est de 1024 bits.  
-
-### <a name="cloud-based-distribution-points-and-certificates"></a>Points de distribution cloud et certificats  
- Depuis System Center 2012 Configuration Manager SP1, les points de distribution cloud nécessitent un certificat de gestion (auto-signé ou PKI) que vous chargez vers Microsoft Azure. Ce certificat de gestion nécessite une fonctionnalité d'authentification du serveur et une longueur de clé de certificat de 2 048 bits. En outre, vous devez configurer un certificat de service pour chaque point de distribution cloud. Il ne peut pas être auto-signé, mais il doit également disposer d'une fonctionnalité d'authentification du serveur et d'une clé de certificat de 2 048 bits.  
+##  <a name="certificates-used-by-configuration-manager"></a>Von Configuration Manager verwendete Zertifikate  
+ Eine Liste der PKI-Zertifikate, die von Configuration Manager verwendet werden können, eine Übersicht über spezielle Anforderungen oder Einschränkungen sowie Informationen zur Verwendung der Zertifikate finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md). Diese Liste enthält die unterstützten Hashalgorithmen und Schlüssellängen. Von den meisten Zertifikaten werden SHA-256 und eine Schlüssellänge von 2048 Bit unterstützt.  
 
 > [!NOTE]  
->  Le certificat de gestion auto-signé sert uniquement aux tests et n'est pas destiné à être utilisé sur des réseaux de production.  
+>  Alle von Configuration Manager verwendeten Zertifikate dürfen im Antragstellernamen oder alternativen Antragstellernamen nur Einzelbyte-Zeichen enthalten.  
 
- Les clients ne nécessitent pas un certificat PKI de client pour utiliser des points de distribution cloud. Ils s'authentifient auprès de l'infrastructure de gestion à l'aide d'un certificat auto-signé ou d'un certificat PKI de client. Le point de gestion envoie ensuite un jeton d’accès Configuration Manager au client et ce dernier le présente au point de distribution cloud. Le jeton reste valide pendant huit heures.  
+ PKI-Zertifikate sind in den folgenden Fällen erforderlich:  
 
-### <a name="the-microsoft-intune-connector-and-certificates"></a>Connecteur Microsoft Intune et certificats  
- Quand Microsoft Intune inscrit des appareils mobiles, vous pouvez gérer ces appareils dans Configuration Manager en créant un connecteur Microsoft Intune. Le connecteur utilise un certificat PKI ayant une fonctionnalité d’authentification du client pour authentifier Configuration Manager auprès de Microsoft Intune et pour transférer toutes les informations échangées en utilisant le protocole SSL. La taille de la clé de certificat est de 2 048 bits et elle utilise l'algorithme de hachage SHA-1.  
+-   Verwalten von Configuration Manager-Clients im Internet.  
 
- Lorsque vous installez le connecteur, un certificat de signature est créé et stocké sur le serveur de site pour les clés de chargement de version test et un certificat de chiffrement est créé et stocké sur le point d'enregistrement de certificat pour chiffrer la demande d'accès du protocole d'inscription du certificat simple (SCEP). Ces certificats ont aussi une taille de clé de 2 048 bits et utilisent l'algorithme de hachage SHA-1.  
+-   Verwalten von Configuration Manager-Clients auf mobilen Geräten.  
 
- Quand Intune inscrit des appareils mobiles, il installe un certificat PKI sur ces appareils. Ce certificat possède une fonctionnalité d'authentification de client et utilise une taille de clé de 2 048 bits ainsi que l'algorithme de hachage SHA-1.  
+-   Bei der Verwaltung von Macintosh-Computern.  
 
- Ces certificats PKI sont automatiquement demandés, générés et installés par Microsoft Intune.  
+-   Bei der Verwendung von cloudbasierten Verteilungspunkten.  
 
-### <a name="crl-checking-for-pki-certificates"></a>Vérification de la liste de révocation de certificats pour les certificats PKI  
- Une liste de révocation de certificats (CRL) PKI augmente la surcharge administrative et de traitement, mais elle est plus sécurisée. Toutefois, si la vérification de la liste de révocation des certificats est activée alors que la liste de révocation des certificats est inaccessible, la connexion PKI échoue. Pour plus d’informations, consultez [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+-   Bei der Out-of-Band-Verwaltung Intel AMT-basierter Computer.  
 
- La vérification de la liste de révocation des certificats est activée par défaut dans les services Internet. Par conséquent, si vous utilisez une liste de révocation des certificats avec votre déploiement PKI, aucune configuration supplémentaire n'est requise sur la majorité des systèmes de site Configuration Manager qui exécutent les services Internet. L'exception concerne les mises à jour logicielles, qui nécessitent une étape manuelle pour activer la vérification de la liste de révocation des certificats afin de vérifier les signatures des fichiers de mises à jour logicielles.  
+ Für die übrige Configuration Manager-Kommunikation, bei der Zertifikate zur Authentifizierung, zum Signieren oder Verschlüsseln erforderlich sind, verwendet Configuration Manager automatisch PKI-Zertifikate, sofern diese verfügbar sind. Wenn sie nicht verfügbar sind, generiert Configuration Manager selbstsignierte Zertifikate.  
 
- La vérification de la liste de révocation des certificats est activée par défaut pour les ordinateurs client lorsqu'ils utilisent des connexions client HTTPS. La vérification de la liste de révocation des certificats n'est pas activée par défaut lorsque vous exécutez la console de gestion hors bande pour vous connecter à un ordinateur AMT, et vous pouvez activer cette option. Dans Configuration Manager SP1 ou version ultérieure, vous ne pouvez pas désactiver la vérification de la liste de révocation des certificats pour les clients installés sur des ordinateurs Mac.  
+ Bei der Verwaltung mobiler Geräte über den Exchange Server-Connector verwendet Configuration Manager keine PKI-Zertifikate.  
 
- La vérification de la liste de révocation des certificats n’est pas prise en charge pour les connexions suivantes dans Configuration Manager :  
+### <a name="mobile-device-management-and-pki-certificates"></a>Verwaltung mobiler Geräte und PKI-Zertifikate  
+ Wenn das mobile Gerät nicht durch den mobilen Betreiber gesperrt wurde, können Sie mithilfe von Configuration Manager oder Microsoft Intune ein Clientzertifikat anfordern und installieren. Dieses Zertifikat dient zur gegenseitigen Authentifizierung des Clients auf dem mobilen Gerät und den Configuration Manager-Standortsystemen oder Microsoft Intune-Diensten. Wenn Ihr mobiles Gerät gesperrt ist, können Sie Configuration Manager oder Intune nicht zur Bereitstellung von Zertifikaten verwenden.  
 
--   Connexions serveur à serveur.  
+ Wenn Sie die Hardwareinventur für mobile Geräte aktivieren, inventarisieren Configuration Manager oder Intune auch die Zertifikate, die auf dem mobilen Gerät installiert sind.  
 
--   Appareils mobiles qui sont inscrits par Configuration Manager.  
+### <a name="out-of-band-management-and-pki-certificates"></a>Out-of-Band-Verwaltung und PKI-Zertifikate  
+ Bei der Out-of-Band-Verwaltung für Intel AMT-basierte Computer werden mindestens zwei PKI-Zertifikattypen verwendet: ein AMT-Bereitstellungszertifikat und ein Webserverzertifikat.  
 
--   Appareils mobiles qui sont inscrits par Microsoft Intune.  
+ Der Out-of-Band-Dienstpunkt verwendet ein AMT-Bereitstellungszertifikat, um Computer auf die Out-of-Band-Verwaltung vorzubereiten. Die bereitzustellenden AMT-basierten Computer müssen dem vom Out-of-Band-Verwaltungspunkt vorgelegten Zertifikat vertrauen. Standardmäßig werden AMT-basierte Computer vom Computerhersteller für die Verwendung externer Zertifizierungsstellen (Certification Authorities, CAs) wie VeriSign, Go Daddy, Comodo und Starfield konfiguriert. Wenn Sie ein Bereitstellungszertifikat von einer externen Zertifizierungsstelle erwerben und Configuration Manager für die Verwendung dieses Bereitstellungszertifikats konfigurieren, vertrauen AMT-basierte Computer der Zertifizierungsstelle für das Bereitstellungszertifikat, und die Bereitstellung kann erfolgreich durchgeführt werden. Aus Sicherheitsgründen sollten Sie jedoch eine eigene interne Zertifizierungsstelle zum Ausstellen des AMT-Bereitstellungszertifikats verwenden.  
 
-##  <a name="cryptographic-controls-for-server-communication"></a>Contrôles de chiffrement pour les communications serveur  
- Configuration Manager utilise les contrôles de chiffrement suivants pour les communications serveur.  
+ In der Firmware der AMT-basierten Computer wird eine Webserverkomponente ausgeführt, von der der Kommunikationskanal mit dem Out-of-Band-Dienstpunkt mithilfe von Transport Layer Security (TLS) verschlüsselt wird. Es gibt keine Benutzeroberfläche, über die ein Zertifikat manuell für das AMT-BIOS konfiguriert werden könnte. Sie müssen daher über eine Microsoft-Unternehmenszertifizierungsstelle verfügen, von der Zertifikatanforderungen von AMT-basierten Computern automatisch genehmigt werden. Als Format für die Anforderung wird „PKCS#10“ verwendet, was wiederum die Verwendung von „PKCS#7“ für die Übertragung der Zertifikatinformationen an den AMT-basierten Computer nach sich zieht.  
 
-### <a name="server-communication-within-a-site"></a>Communications serveur intrasite  
- Chaque serveur de système de site utilise un certificat pour transférer des données vers les autres systèmes de site du même site Configuration Manager. Certains rôles de système de site utilisent également des certificats pour l'authentification. Par exemple, si vous installez le point de proxy d'inscription sur un serveur et le point d'inscription sur un autre serveur, ils peuvent s'authentifier mutuellement à l'aide de ce certificat d'identité. Quand Configuration Manager a besoin d’un certificat pour ce type de communication, il recherche un certificat PKI avec une fonctionnalité d’authentification du serveur parmi les certificats disponibles et l’utilise automatiquement. S’il n’en trouve pas, Configuration Manager génère un certificat auto-signé. Ce certificat auto-signé a une capacité d'authentification serveur, utilise l'algorithme SHA-256 et a une longueur de clé de 2048 bits. Configuration Manager copie le certificat dans le magasin Personnes autorisées sur d’autres serveurs de système de site qui peuvent avoir besoin d’approuver le système de site. Les systèmes de site peuvent ensuite s'approuver mutuellement à l'aide de ces certificats et PeerTrust.  
+ Der AMT-basierte Computer ist zwar für den jeweiligen Verwaltungscomputer authentifiziert, es gibt aber kein entsprechendes PKI-Zertifikat für den Clientcomputer, der diesen verwaltet. Für diese Kommunikationen wird stattdessen Kerberos oder HTTP Digest-Authentifizierung verwendet. Wen HTTP Digest verwendet wird, erfolgt die Verschlüsselung über TLS.  
 
- En plus de ce certificat pour chaque serveur de système de site, Configuration Manager génère un certificat auto-signé pour la plupart des rôles de système de site. Lorsqu'il existe plusieurs instances de rôle de système de site dans le même site, ils partagent le même certificat. Par exemple, vous pouvez disposer de plusieurs points de gestion ou de plusieurs points d'inscription dans le même site. Ce certificat auto-signé utilise également l'algorithme SHA-256 et sa longueur de clé est de 2 048 bits. Il est également copié dans le magasin Personnes autorisées sur des serveurs de système de site qui pourront avoir besoin de l'approuver. Les rôles de système de site suivants génèrent ce certificat :  
+ Für die Out-of-Band-Verwaltung AMT-basierter Computer ist möglicherweise ein weiterer Zertifikattyp erforderlich: ein optionales Clientzertifikat für 802.1X-authentifizierte Kabel- und Drahtlosnetzwerke. Der AMT-basierte Computer benötigt möglicherweise ein Clientzertifikat zur Authentifizierung beim RADIUS-Server. Wurde der RADIUS-Server für die EAP-TLS-Authentifizierung konfiguriert, ist ein Clientzertifikat immer erforderlich. Wurde der RADIUS-Server für EAP-TTLS/MSCHAPv2 oder PEAPv0/EAP-MSCHAPv2 konfiguriert, hängt es von der RADIUS-Konfiguration ab, ob ein Clientzertifikat erforderlich ist oder nicht. Dieses Zertifikat wird von den AMT-basierten Computern mithilfe derselben Prozesse angefordert, die auch zur Anforderung des Webserverzertifikats verwendet werden.  
 
--   Point de service Web du catalogue des applications  
+### <a name="operating-system-deployment-and-pki-certificates"></a>Betriebssystembereitstellung und PKI-Zertifikate  
+ Wenn Sie Configuration Manager zur Bereitstellung von Betriebssystemen verwenden und für einen Verwaltungspunkt HTTPS-Clientverbindungen erforderlich sind, muss der Clientcomputer ebenfalls über ein Zertifikat für die Kommunikation mit dem Verwaltungspunkt verfügen. Dies gilt auch, wenn der Computer sich in einer Übergangsphase befindet, wie beim Starten von einem Tasksequenzmedium oder einem PXE-fähigen Verteilungspunkt. Um dieses Szenario zu unterstützen, müssen Sie ein PKI-Clientauthentifizierungszertifikat erstellen, es mit dem privaten Schlüssel exportieren, dann in den Eigenschaften des Standortservers importieren und auch das vertrauenswürdige Stammzertifizierungsstellen-Zertifikat des Verwaltungspunkts hinzufügen.  
 
--   Point du site web du catalogue des applications  
+ Wenn Sie startbare Medien erstellen, importieren Sie das Clientauthentifizierungszertifikat bei der Erstellung des startbaren Mediums. Konfigurieren Sie zum Schutz des privaten Schlüssels und anderer sensibler Daten, die in der Tasksequenz konfiguriert werden, ein Kennwort für das startbare Medium. Dem Verwaltungspunkt wird von jedem Computer, der von dem startbaren Medium aus gestartet wird, das gleiche Zertifikat wie für Clientfunktionen (z. B. zum Anfordern einer Clientrichtlinie) vorgelegt.  
 
--   Point de synchronisation Asset Intelligence  
+ Wenn Sie PXE-Start verwenden, importieren Sie das Clientauthentifizierungszertifikat in den PXE-fähigen Verteilungspunkt. Für jeden Client, der von diesem PXE-fähigen Verteilungspunkt gestartet wird, wird das gleiche Zertifikat verwendet. Aus Sicherheitsgründen wird empfohlen, Benutzer, die ihren Computer mit einem PXE-Dienst verbinden, zur Eingabe eines Kennworts aufzufordern. Dadurch schützen Sie den privaten Schlüssel und andere sensible Daten in den Tasksequenzen.  
 
--   Point d'enregistrement de certificat  
+ Sollte eines dieser Clientauthentifizierungszertifikate gefährdet sein, sperren Sie die Zertifikate im Arbeitsbereich **Verwaltung** über die Knoten **Zertifikate** und **Sicherheit** . Sie benötigen das Recht zur **Verwaltung des Zertifikats zur Betriebssystembereitstellung**, um diese Zertifikate verwalten zu können.  
 
--   Point Endpoint Protection  
+ Nach der Bereitstellung des Betriebssystems und der Installation von Configuration Manager fordert der Client sein eigenes PKI-Clientauthentifizierungszertifikat für die HTTPS-Clientkommunikation.  
 
--   Point d'inscription  
+### <a name="isv-proxy-solutions-and-pki-certificates"></a>ISV-Proxylösungen und PKI-Zertifikate  
+ Unabhängige Softwarehersteller (Independent Software Vendors, ISVs) können Anwendungen zum Erweitern von Configuration Manager erstellen. Ein ISV kann beispielsweise Erweiterungen erstellen, um Nicht-Windows-Plattformen, wie Macintosh- oder UNIX-Computer, zu unterstützen. Wenn für die Standortsysteme jedoch HTTPS-Clientverbindungen erforderlich sind, müssen von diesen Clients ebenfalls PKI-Zertifikate für die Kommunikation mit dem Standort verwendet werden. Configuration Manager bietet die Möglichkeit, dem ISV-Proxy ein Zertifikat zuzuweisen, über das die Kommunikation zwischen den ISV-Proxyclients und dem Verwaltungspunkt ermöglicht wird. Wenn Sie Erweiterungen verwenden, die ISV-Proxyzertifikate erfordern, sollten Sie die Dokumentation des Produkts zu Hilfe nehmen. Weitere Informationen zum Erstellen von ISV-Proxyzertifikaten finden Sie im Configuration Manager Software Developer Kit (SDK).  
 
--   Point d'état de secours  
+ Sollte das ISV-Zertifikat gefährdet sein, sperren Sie das Zertifikat im Arbeitsbereich **Verwaltung** über die Knoten **Zertifikate** und **Sicherheit** .  
 
--   Point de gestion  
+### <a name="asset-intelligence-and-certificates"></a>Asset Intelligence und Zertifikate  
+ Configuration Manager wird mit einem X.509-Zertifikat installiert, über das vom Asset Intelligence-Synchronisierungspunkt eine Verbindung mit Microsoft hergestellt wird. Configuration Manager verwendet dieses Zertifikat, um ein Clientauthentifizierungszertifikat vom Microsoft-Zertifikatdienst anzufordern. Das Clientauthentifizierungszertifikat wird auf dem Standortsystemserver des Asset Intelligence-Synchronisierungspunkts installiert und dient zur Authentifizierung des Servers gegenüber Microsoft. In Configuration Manager dient das Clientauthentifizierungszertifikat zum Herunterladen des Asset Intelligence-Katalogs und zum Hochladen von Softwaretiteln.  
 
--   Point de distribution multidiffusion  
+ Dieses Zertifikat hat eine Schlüssellänge von 1024 Bit.  
 
--   Point de service hors bande  
+### <a name="cloud-based-distribution-points-and-certificates"></a>Cloudbasierte Verteilungspunkte und Zertifikate  
+ Ab System Center 2012 Configuration Manager SP1 erfordern cloudbasierte Verteilungspunkte ein Verwaltungszertifikat (selbstsigniert oder PKI), das Sie in Microsoft Azure hochladen. Für dieses Verwaltungszertifikat ist eine Funktion zur Serverauthentifizierung und eine Zertifikatschlüssellänge von 2048 Bit erforderlich. Außerdem müssen Sie ein Dienstzertifikat für jeden cloudbasierten Verteilungspunkt konfigurieren, bei dem es sich nicht um ein selbstsigniertes Zertifikat handeln darf. Die Funktion zur Serverauthentifizierung und eine Zertifikatschlüssellänge von 2048 Bit ist hierfür jedoch ebenfalls erforderlich.  
 
--   Point de Reporting Services  
+> [!NOTE]  
+>  Das selbstsignierte Verwaltungszertifikat dient nur zu Testzwecken und ist nicht für Produktionsnetzwerke geeignet.  
 
--   Point de mise à jour logicielle  
+ Für Clients ist es nicht erforderlich, dass für ein PKI-Clientzertifikat cloudbasierte Verteilungspunkte verwendet werden. Die Authentifizierung für die Verwaltung erfolgt entweder über ein selbstsigniertes Zertifikat oder ein PKI-Clientzertifikat. Der Verwaltungspunkt stellt dann ein Configuration Manager-Zugriffstoken für den Client aus, das der Client dem cloudbasierten Verteilungspunkt präsentieren kann. Das Token ist acht Stunden lang gültig.  
 
--   Point de migration d'état  
+### <a name="the-microsoft-intune-connector-and-certificates"></a>Der Microsoft Intune-Connector und Zertifikate  
+ Wenn Windows Intune mobile Geräte registriert, können Sie diese mobilen Geräte in Configuration Manager verwalten, indem Sie einen Microsoft Intune-Connector erstellen. Der Connector verwendet ein PKI-Zertifikat mit Clientauthentifizierungsfunktion, um Configuration Manager gegenüber Microsoft Intune zu authentifizieren, und alle Informationen per SSL-Verbindung zu übertragen. Die Zertifikatschlüsselgröße beträgt 2048 Bit, und es wird der SHA-1-Hashalgorithmus verwendet.  
 
--   Point du programme de validation d'intégrité système  
+ Wenn Sie den Connector installieren, wird ein Signaturzertifikat für Sideload-Schlüssel erstellt und auf dem Standortserver gespeichert. Ferner wird ein Verschlüsselungszertifikat erstellt und auf dem Zertifikatregistrierungspunkt gespeichert, um die SCEP-Abfrage (Simple Certificate Enrollment Protocol) zu verschlüsseln. Die Zertifikatschlüsselgröße beträgt 2048 Bit, und es wird der SHA-1-Hashalgorithmus verwendet.  
 
--   Connecteur Microsoft Intune  
+ Wenn Intune mobile Geräte registriert, installiert es ein PKI-Zertifikat auf dem mobilen Gerät. Dieses Zertifikat verfügt über eine Funktion zur Clientauthentifizierung, und es werden eine Schlüsselgröße von 2048 Bit und der SHA-1-Hashalgorithmus verwendet.  
 
- Ces certificats sont gérés automatiquement par Configuration Manager et, si nécessaire, générés automatiquement.  
+ Diese PKI-Zertifikate werden von Microsoft Intune automatisch angefordert, generiert und installiert.  
 
- Configuration Manager utilise également un certificat d’authentification du client pour envoyer des messages d’état du point de distribution vers le point de gestion. Lorsque le point de gestion est configuré pour les connexions client HTTPS uniquement, vous devez utiliser un certificat PKI. Si le point de gestion accepte les connexions HTTP, vous pouvez utiliser un certificat PKI ou choisir d'utiliser un certificat auto-signé qui possède la possibilité d'authentification client, utilise l'algorithme SHA-256 et dont la longueur de clé est de 2 048 bits.  
+### <a name="crl-checking-for-pki-certificates"></a>Überprüfen der Zertifikatsperrlisten für PKI-Zertifikate  
+ Durch eine PKI-Zertifikatsperrliste wird zwar der Verwaltungs- und Verarbeitungsaufwand erhöht, aber auch mehr Sicherheit gewährleistet. Wenn die Überprüfung der Zertifikatsperrlisten aktiviert ist, aber die Zertifikatsperrliste nicht abgerufen werden kann, kann keine PKI-Verbindung hergestellt werden. Weitere Informationen finden Sie unter [Sicherheit und Datenschutz für System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
-### <a name="server-communication-between-sites"></a>Communications serveur entre les sites  
- Configuration Manager transfère des données entre les sites en utilisant la réplication de base de données et la réplication basée sur les fichiers. Pour plus d’informations, consultez [Communications entre points de terminaison dans System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+ Die Überprüfung der Zertifikatsperrlisten ist in IIS standardmäßig aktiviert. Wenn Sie also eine Zertifikatsperrliste bei einer PKI-Bereitstellung verwenden, müssen die Configuration Manager-Standortsysteme, auf denen IIS ausgeführt werden, in der Regel nicht weiter konfiguriert werden. Eine Ausnahme sind Softwareupdates, die einen manuellen Schritt zum Aktivieren der CRL-Prüfung erfordern, damit die Signaturen in Softwareupdatedateien überprüft werden können.  
 
- Configuration Manager configure automatiquement la réplication de base de données entre les sites. Il utilise aussi automatiquement des certificats PKI avec une fonctionnalité d’authentification du serveur, s’ils sont disponibles ; sinon, Configuration Manager crée des certificats auto-signés pour l’authentification du serveur. Dans les deux cas, l'authentification entre sites est établie à l'aide de certificats dans le magasin Personnes autorisées qui utilise PeerTrust. L’utilisation de ce magasin de certificats garantit que seuls les ordinateurs SQL Server qui sont utilisés par la hiérarchie Configuration Manager participent à la réplication entre sites. Tandis que les sites principaux et le site d'administration centrale peuvent répliquer des modifications de configuration vers tous les sites de la hiérarchie, les sites secondaires peuvent répliquer les modifications de configuration uniquement vers leur site parent.  
+ Die Überprüfung der Zertifikatsperrlisten ist für Clientcomputer, von denen HTTPS-Clientverbindungen verwendet werden, standardmäßig aktiviert. Die Überprüfung der Zertifikatsperrlisten ist nicht standardmäßig aktiviert, wenn Sie die Out-of-Band-Verwaltungskonsole ausführen, um eine Verbindung mit einem AMT-basierten Computer herzustellen. Sie können diese Option aktivieren. Sie können die Überprüfung der Zertifikatsperrlisten für Clients auf Macintosh-Computern in Configuration Manager SP1 oder höher nicht deaktivieren.  
 
- Les serveurs de site établissent une communication entre sites à l'aide d'un échange de clé sécurisé qui s'effectue automatiquement. Le serveur de site émetteur génère un hachage et le signe avec sa clé privée. Le serveur de site récepteur vérifie la signature en utilisant la clé publique et compare le hachage à la valeur générée localement. Si les valeurs correspondent, le site récepteur accepte les données répliquées. Si les valeurs ne correspondent pas, Configuration Manager rejette les données de réplication.  
+ Die Überprüfung der Zertifikatsperrlisten wird nicht für die folgenden Verbindungen in Configuration Manager unterstützt:  
 
- La réplication de base de données dans Configuration Manager utilise Service Broker SQL Server pour transférer des données entre les sites à l’aide des mécanismes suivants :  
+-   Server-zu-Server-Verbindungen  
 
--   Connexion SQL Server à SQL Server : cette connexion utilise des informations d’identification Windows pour l’authentification serveur et des certificats auto-signés 1024 bits pour signer et chiffrer les données à l’aide de la norme AES (Advanced Encryption Standard). Si les certificats PKI avec la possibilité d'authentification serveur sont disponibles, ils seront utilisés. Le certificat doit se trouver dans le magasin Personnel pour le magasin de certificats Ordinateur.  
+-   Von Configuration Manager registrierte mobile Geräte.  
 
--   SQL Service Broker : utilise des certificats auto-signés avec 2048 bits pour l’authentification et pour signer et chiffrer les données à l’aide de la norme AES (Advanced Encryption Standard). Le certificat doit se trouver dans la base de données principale SQL Server.  
+-   Von Microsoft Intune registrierte mobile Geräte.  
 
- La réplication basée sur des fichiers utilise le protocole SMB (Server Message Block) et l'algorithme SHA-256 pour signer les données qui ne sont pas chiffrées mais elle ne contient aucune donnée sensible. Si vous souhaitez chiffrer ces données, vous pouvez utiliser IPsec. Vous devez effectuer ce chiffrement indépendamment de Configuration Manager.  
+##  <a name="cryptographic-controls-for-server-communication"></a>Kryptografische Steuerelemente für die Serverkommunikation  
+ Configuration Manager verwendet die folgenden kryptografischen Steuerelemente für die Serverkommunikation.  
 
-##  <a name="cryptographic-controls-for-clients-that-use-https-communication-to-site-systems"></a>Contrôles de chiffrement pour les clients qui utilisent la communication HTTPS avec les systèmes de site  
- Lorsque les rôles de système de site acceptent les connexions client, vous pouvez les configurer pour accepter les connexions HTTP et HTTPS, ou uniquement les connexions HTTPS. Les rôles de système de site qui acceptent les connexions à partir d'Internet acceptent uniquement les connexions client via HTTPS.  
+### <a name="server-communication-within-a-site"></a>Serverkommunikation innerhalb eines Standorts  
+ Jeder Standortsystemserver verwendet ein Zertifikat zur Datenübertragung auf andere Standortsysteme innerhalb des gleichen Configuration Manager-Standorts. Von einigen Standortsystemrollen werden auch Zertifikate für die Authentifizierung verwendet. Wenn Sie beispielsweise den Anmeldungsproxypunkt auf einem Server und den Anmeldungspunkt auf einem anderen Server installieren, erfolgt die gegenseitige Authentifizierung über dieses Identitätszertifikat. Wenn Configuration Manager für diese Kommunikation ein Zertifikat verwendet, und ein PKI-Zertifikat mit Serverauthentifizierungsfunktion verfügbar ist, wird dieses Zertifikat automatisch von Configuration Manager verwendet. Andernfalls generiert Configuration Manager ein selbstsigniertes Zertifikat. Von diesem selbstsignierten Zertifikat, das Serverauthentifizierungsfunktionen hat, wird SHA-256 verwendet und eine Schlüssellänge von 2048 Bit unterstützt. Configuration Manager kopiert das Zertifikat in den Speicher für vertrauenswürdige Personen auf anderen Standortsystemservern, von denen das Standortsystem möglicherweise als vertrauenswürdig eingestuft werden muss. Mithilfe dieser Zertifikate und PeerTrust wird eine bidirektionale Vertrauensstellung zwischen Standortsystemen ermöglicht.  
 
- Les connexions client via HTTPS offrent un niveau de sécurité plus élevé grâce à l'intégration avec une infrastructure à clé publique (PKI) pour protéger la communication client-serveur. Cependant, si vous configurez les connexions client HTTPS sans une connaissance approfondie de la planification, du déploiement et des opérations d'une infrastructure à clé publique, un certain risque persiste. Par exemple, si vous ne sécurisez pas votre autorité de certification racine, des personnes malveillantes sont susceptibles de compromettre la fiabilité de l'ensemble de votre infrastructure à clé publique. Le fait de ne pas parvenir à déployer et à gérer les certificats d'infrastructure à clé publique à l'aide de processus contrôlés et sécurisés peut aboutir à des clients non gérés qui ne peuvent pas recevoir de mises à jour logicielles critiques ou de packages.  
+ Zusätzlich zu diesem Zertifikat für jeden Standortsystemserver generiert Configuration Manager für die meisten Standortsystemrollen ein selbstsigniertes Zertifikat. Wenn es von einer Standortsystemrolle mehrere Instanzen am gleichen Standort gibt, gilt für alle Instanzen das gleiche Zertifikat. Beispielsweise können sich an einem Standort mehrere Verwaltungspunkte oder Anmeldungspunkte befinden. Von diesem selbstsignierten Zertifikat wird ebenfalls SHA-256 verwendet, und es hat eine Schlüssellänge von 2048 Bit. Es wird ebenfalls in den Speicher für vertrauenswürdige Personen auf Standortsystemservern kopiert, von denen es möglicherweise als vertrauenswürdig eingestuft werden muss. Dieses Zertifikat wird von den folgenden Standortsystemrollen generiert:  
+
+-   Anwendungskatalog-Webdienstpunkt  
+
+-   Anwendungskatalog-Websitepunkt  
+
+-   Asset Intelligence-Synchronisierungspunkt  
+
+-   Zertifikatregistrierungspunkt  
+
+-   Endpoint Protection-Punkt  
+
+-   Anmeldungspunkt  
+
+-   Fallbackstatuspunkt  
+
+-   Verwaltungspunkt  
+
+-   Multicast-fähiger Verteilungspunkt  
+
+-   Out-of-Band-Dienstpunkt  
+
+-   Reporting Services-Punkt  
+
+-   Softwareupdatepunkt  
+
+-   Zustandsmigrationspunkt  
+
+-   Systemintegritätsprüfungspunkt  
+
+-   Microsoft Intune-Connector  
+
+ Diese Zertifikate werden automatisch von Configuration Manager verwaltet und bei Bedarf automatisch generiert.  
+
+ Configuration Manager verwendet außerdem ein Clientauthentifizierungszertifikat, um Statusmeldungen vom Verteilungspunkt an den Verwaltungspunkt zu senden. Wenn der Verwaltungspunkt nur für HTTPS-Clientverbindungen konfiguriert ist, müssen Sie ein PKI-Zertifikat verwenden. Wenn vom Verwaltungspunkt HTTP-Verbindungen akzeptiert werden, können Sie ein PKI-Zertifikat verwenden oder die Option zur Verwendung eines selbstsignierten Zertifikats mit Clientauthentifizierungsfunktion auswählen. Von diesem Zertifikat wird SHA-256 verwendet, und es hat eine Schlüssellänge von 2048 Bit.  
+
+### <a name="server-communication-between-sites"></a>Serverkommunikation zwischen Standorten  
+ Configuration Manager überträgt Daten zwischen den Standorten mithilfe von Datenbankreplikation und dateibasierter Replikation. Weitere Informationen finden Sie unter [Kommunikation zwischen Endpunkten in System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+
+ Configuration Manager konfiguriert die Datenbankreplikation zwischen Standorten automatisch, und verwendet PKI-Zertifikate mit Serverauthentifizierungsfunktion, falls diese verfügbar sind. Wenn nicht, erstellt Configuration Manager selbstsignierte Zertifikate für die Serverauthentifizierung. In beiden Fällen erfolgt die Authentifizierung zwischen Standorten mithilfe von Zertifikaten im Speicher für vertrauenswürdige Personen, von dem PeerTrust verwendet wird. Mit diesem Zertifikatspeicher wird sichergestellt, dass nur die SQL Server-Computer, die von der Configuration Manager-Hierarchie verwendet werden, an der Replikation zwischen Standorten teilnehmen. Konfigurationsänderungen können von primären Standorten und dem Standort der zentralen Verwaltung an allen Standorten in der Hierarchie repliziert werden; bei sekundären Standorten hingegen ist die Replikation von Konfigurationsänderungen nur am jeweiligen übergeordneten Standort möglich.  
+
+ Die Kommunikation zwischen Standorten wird von Standortservern mithilfe eines sicheren, automatisch ablaufenden Schlüsselaustausches eingerichtet. Vom sendenden Standortserver wird ein Hashwert generiert und mit seinem privaten Schlüssel signiert. Der empfangende Standortserver prüft die Signatur mithilfe des öffentlichen Schlüssels und vergleicht den Hashwert mit einem lokal erstellten Wert. Stimmen die Werte überein, werden die replizierten Daten vom empfangenden Standort akzeptiert. Wenn die Werte nicht übereinstimmen, lehnt Configuration Manager die Replikationsdaten ab.  
+
+ Bei der Datenbankreplikation in Configuration Manager werden Daten mit dem SQL Server Service Broker anhand der folgenden Mechanismen zwischen Standorten übertragen:  
+
+-   Verbindung von SQL Server mit SQL Server: Hierbei werden Windows-Anmeldeinformationen für die Serverauthentifizierung sowie selbstsignierte Zertifikate mit 1024 Bit zum Signieren und Verschlüsseln der Daten mithilfe des erweiterten Verschlüsselungsstandards (Advanced Encryption Standard, AES) verwendet. Falls PKI-Zertifikate mit Serverauthentifizierungsfunktionen verfügbar sind, werden diese verwendet. Das Zertifikat muss sich im persönlichen Speicher des Computerzertifikatspeichers befinden.  
+
+-   SQL Service Broker: Hierbei werden selbstsignierte Zertifikate mit 2048 Bit zur Authentifizierung sowie zum Signieren und Verschlüsseln der Daten mithilfe des erweiterten Verschlüsselungsstandards (Advanced Encryption Standard, AES) verwendet. Das Zertifikat muss sich in der SQL Server-Masterdatenbank befinden.  
+
+ Bei der dateibasierten Replikation wird das SMB-Protokoll (Server Message Block) verwendet. Diese Daten werden mit SHA-256 signiert, aber nicht verschlüsselt, da sie keine sensiblen Daten enthalten. Wenn Sie diese Daten verschlüsseln möchten, können Sie IPsec verwenden. In diesem Fall müssen Sie IPsec unabhängig von Configuration Manager implementieren.  
+
+##  <a name="cryptographic-controls-for-clients-that-use-https-communication-to-site-systems"></a>Kryptografische Steuerelemente für Clients, bei denen die Kommunikation mit Standortsystemen über HTTPS erfolgt  
+ Wenn von Standortsystemrollen Clientverbindungen akzeptiert werden, können Sie sie für Verbindungen über HTTPS und HTTPS bzw. nur über HTTPS konfigurieren. Von Standortsystemrollen, bei denen nur Verbindungen über das Internet möglich sind, werden nur Clientverbindungen über HTTPS akzeptiert.  
+
+ Bei Clientverbindungen über HTTPS ist ein höheres Maß an Sicherheit gegeben, da sie in eine Public Key-Infrastruktur (PKI) integriert werden, um die Kommunikation zwischen Clients und Servern zu schützen. Wenn Sie HTTPS-Clientverbindungen konfigurieren, ohne sich zuvor umfassend mit der PKI-Planung, -Bereitstellung und den PKI-Operationen vertraut gemacht zu haben, können jedoch immer noch Sicherheitslücken bestehen. Wenn Sie Ihre Stammzertifizierungsstelle beispielsweise nicht sichern, können Angreifer die Vertrauensstellung Ihrer gesamten PKI-Infrastruktur gefährden. Wenn die PKI-Zertifikate nicht im Rahmen kontrollierter und sicherer Prozesse bereitgestellt und verwaltet werden, werden einige Clients möglicherweise nicht verwaltet, und ihnen werden daher keine kritischen Softwareupdates oder Pakete bereitgestellt.  
 
 > [!IMPORTANT]  
->  Les certificats PKI qui sont utilisés pour la communication client protègent la communication uniquement entre le client et certains systèmes de site. Ils ne protègent pas le canal de communication entre le serveur de site et les systèmes de site ou entre des serveurs de site.  
+>  Die für die Clientkommunikation verwendeten PKI-Zertifikate dienen lediglich zum Schutz der Kommunikation zwischen dem Client und einigen Standortsystemen. Der Kommunikationskanal zwischen dem Standortserver und den Standortsystemen oder zwischen Standortservern wird nicht von ihnen geschützt.  
 
-### <a name="communication-that-is-unencrypted-when-clients-use-https-communication"></a>Communications non chiffrées quand les clients utilisent la communication HTTPS  
- Lorsque les clients communiquent avec des systèmes de site à l'aide du protocole HTTPS, les communications sont généralement chiffrées via le protocole SSL. Cependant, dans les cas suivants, les clients communiquent avec les systèmes de site sans recourir au chiffrement :  
+### <a name="communication-that-is-unencrypted-when-clients-use-https-communication"></a>Kommunikation, die unverschlüsselt ist, wenn Clients die HTTPS-Kommunikation verwenden  
+ Die Kommunikation zwischen Clients und Standortsystemen über HTTPS wird in der Regel über SSL verschlüsselt. In den folgenden Situationen findet die Kommunikation der Clients mit Standortsystemen jedoch ohne Verschlüsselung statt:  
 
--   le client ne parvient pas à effectuer une connexion HTTPS sur l'Intranet et revient à utiliser le protocole HTTP lorsque les systèmes de site autorisent cette configuration  
+-   Von Clients kann keine HTTPS-Verbindung im Intranet hergestellt werden, und es wird auf HTTP ausgewichen, sofern diese Konfiguration von Standortsystemen zugelassen wird.  
 
--   Communication vers les rôles de système de site suivants :  
+-   Kommunikation mit den folgenden Standortsystemrollen:  
 
-    -   le client envoie des messages d'état au point d'état de secours  
+    -   Vom Client werden Zustandsmeldungen an den Fallbackstatuspunkt gesendet.  
 
-    -   le client envoie des demandes PXE à un point de distribution compatible PXE  
+    -   Vom Client werden PXE-Anforderungen an einen PXE-fähigen Verteilungspunkt gesendet.  
 
-    -   Le client envoie les données de notification à un point de gestion  
+    -   Vom Client werden Benachrichtigungsdaten an einen Verwaltungspunkt gesendet.  
 
- Les points Reporting services sont configurés pour utiliser HTTP ou HTTPS, indépendamment du mode de communication client.  
+ Reporting Services-Punkte sind dazu konfiguriert, HTTP oder HTTPS unabhängig vom Clientkommunikationsmodus zu verwenden.  
 
-##  <a name="cryptographic-controls-for-clients-chat-use-http-communication-to-site-systems"></a>Contrôles de chiffrement pour les clients qui utilisent la communication HTTP avec les systèmes de site  
- Quand les clients utilisent la communication HTTP avec des rôles de système de site, ils peuvent utiliser des certificats PKI pour l’authentification du client ou bien les certificats auto-signés que Configuration Manager génère. Les certificats auto-signés qui sont générés par Configuration Manager comportent un identificateur d’objet personnalisé utilisé pour la signature et le chiffrement. Ces certificats permettent d’identifier le client de façon unique. Pour tous les systèmes d'exploitation pris en charge sauf Windows Server 2003, ces certificats auto-signés utilisent SHA-256 et ont une longueur de clé de 2 048 bits. Pour Windows Server 2003, SHA1 est utilisé avec une longueur de clé de 1 024 bits.  
+##  <a name="cryptographic-controls-for-clients-chat-use-http-communication-to-site-systems"></a>Kryptografische Steuerelemente für Clientchats, bei denen die Kommunikation mit Standortsystemen über HTTP erfolgt  
+ Wenn die Kommunikation zwischen Client und Standortsystemrollen über HTTP erfolgt, können für die Clientauthentifizierung PKI-Zertifikate oder von Configuration Manager generierte, selbstsignierte Zertifikate verwendet werden. Wenn Configuration Manager selbstsignierte Zertifikate generiert, verfügen sie über einen benutzerdefinierten Objektbezeichner zum Signieren und Verschlüsseln, und diese Zertifikate werden verwendet, um den Client eindeutig zu identifizieren. Bei allen unterstützten Betriebssystemen mit Ausnahme von Windows Server 2003 verwenden diese selbstsignierten Zertifikate SHA-256 und weisen eine Schlüssellänge von 2048 Bit auf. Bei Windows Server 2003 wird SHA1 mit einer Schlüssellänge von 1024 Bit verwendet.  
 
-### <a name="operating-system-deployment-and-self-signed-certificates"></a>Déploiement de systèmes d’exploitation et certificats auto-signés  
- Quand vous utilisez Configuration Manager pour déployer des systèmes d’exploitation avec des certificats auto-signés, l’ordinateur client a également besoin d’un certificat pour communiquer avec le point de gestion, même s’il se trouve dans une phase de transition (démarrage depuis le média de séquence de tâches ou un point de distribution PXE, par exemple). Pour prendre en charge ce scénario pour les connexions HTTP, Configuration Manager génère des certificats auto-signés qui comportent un identificateur d’objet personnalisé utilisé pour la signature et le chiffrement. Ces certificats permettent d’identifier le client de façon unique. Pour tous les systèmes d'exploitation pris en charge sauf Windows Server 2003, ces certificats auto-signés utilisent SHA-256 et ont une longueur de clé de 2 048 bits. Pour Windows Server 2003, SHA1 est utilisé avec une longueur de clé de 1 024 bits. Si ces certificats auto-signés sont compromis, afin d'empêcher les intrus de les utiliser pour emprunter l'identité des clients approuvés, bloquez les certificats dans le nœud **Certificats** de l'espace de travail **Administration** , nœud **Sécurité** .  
+### <a name="operating-system-deployment-and-self-signed-certificates"></a>Betriebssystembereitstellung und selbstsignierte Zertifikate  
+ Wenn Sie Configuration Manager zur Bereitstellung von Betriebssystemen mithilfe von selbstsignierten Zertifikaten verwenden, muss ein Clientcomputer ebenfalls über ein Zertifikat verfügen, um mit dem Verwaltungspunkt kommunizieren zu können, auch wenn der Computer sich in einer Übergangsphase befindet, wie z.B. beim Starten von Tasksequenzmedien oder PXE-fähigen Verteilungspunkten. Zur Unterstützung dieses Szenarios für HTTP-Clientverbindungen generiert Configuration Manager selbstsignierte Zertifikate, die einen benutzerdefinierten Objektbezeichner für die Signierung und Verschlüsselung haben. Diese Zertifikate werden verwendet, um den Client eindeutig zu identifizieren. Bei allen unterstützten Betriebssystemen mit Ausnahme von Windows Server 2003 verwenden diese selbstsignierten Zertifikate SHA-256 und weisen eine Schlüssellänge von 2048 Bit auf. Bei Windows Server 2003 wird SHA1 mit einer Schlüssellänge von 1024 Bit verwendet. Wenn diese Clientauthentifizierungszertifikate gefährdet sind, sperren Sie die Zertifikate im Arbeitsbereich **Verwaltung** über die Knoten **Zertifikate** und **Sicherheit** , um zu verhindern, dass sie von Angreifern verwendet werden, um die Identität vertrauenswürdiger Clients anzunehmen.  
 
-### <a name="client-and-server-authentication"></a>Authentification client et serveur  
- Quand des clients se connectent via HTTP, ils authentifient les points de gestion à l’aide des services de domaine Active Directory ou de la clé racine approuvée de Configuration Manager. Les clients n'authentifient pas d'autres rôles de système de site, comme les points de migration de l'état ou les points de mise à jour logicielle.  
+### <a name="client-and-server-authentication"></a>Client- und Severauthentifizierung  
+ Bei HTTP-Clientverbindungen werden Verwaltungspunkte entweder mithilfe der Active Directory Domain Services oder mithilfe des vertrauenswürdigen Configuration Manager-Stammschlüssels authentifiziert. Von Clients werden keine anderen Standortsystemrollen, wie z. B. Zustandsmigrationspunkte oder Softwareupdatepunkte, authentifiziert.  
 
- Lorsqu'un point de gestion authentifie un client pour la première fois en utilisant le certificat auto-signé du client, ce mécanisme offre une sécurité minimale car n'importe quel ordinateur peut générer un certificat auto-signé. Dans ce scénario, le processus d'identité client doit être complété par une approbation. Seuls les ordinateurs approuvés doivent obtenir cette approbation, soit automatiquement par Configuration Manager, soit manuellement par un administrateur. Pour plus d’informations, consultez la section sur l’approbation dans la rubrique [Communications entre points de terminaison dans System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+ Bei der ersten Authentifizierung eines Clients von einem Verwaltungspunkt mithilfe des selbstsignierten Clientzertifikats bietet dieses Verfahren nur minimale Sicherheit, da selbstsignierte Zertifikate von jedem beliebigen Computer generiert werden können. In diesem Szenario muss die Identifizierung des Clients durch eine Genehmigung ergänzt werden. Die Genehmigung darf nur für vertrauenswürdige Computer und entweder automatisch durch Configuration Manager oder manuell durch einen Administrator erfolgen. Weitere Informationen finden Sie im Genehmigungsabschnitt unter [Datenübertragungen zwischen Endpunkten in System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-##  <a name="about-ssl-vulnerabilities"></a>Vulnérabilités du protocole SSL  
- Nous vous recommandons de désactiver le protocole SSL 3.0, d'activer la sécurité TLS 1.1 et 1.2, et de réorganiser les suites de chiffrement en rapport avec TLS pour améliorer la sécurité de vos serveurs Configuration Manager. Pour découvrir comment effectuer ces actions, consultez [cet article de la Base de connaissances](https://support.microsoft.com/en-us/kb/245030/). Cette action n'affecte pas les fonctionnalités de Configuration Manager.  
-
+##  <a name="about-ssl-vulnerabilities"></a>Über SSL-Sicherheitsrisiken  
+ Zur Verbesserung der Sicherheit von Configuration Manager-Servern wird empfohlen, SSL 3.0 zu deaktivieren, TLS 1.1 und 1.2 zu aktivieren und TLS-bezogene Verschlüsselungssuites neu zu ordnen. Informationen zum Ausführen dieser Aktionen finden Sie in [diesem KB-Artikel](https://support.microsoft.com/en-us/kb/245030/). Diese Aktion hat keine Auswirkungen auf die Configuration Manager-Funktionalität.  

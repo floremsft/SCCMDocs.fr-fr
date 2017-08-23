@@ -1,521 +1,515 @@
 ---
-title: "Déployer du contenu | Microsoft Docs"
-description: "Après avoir installé des points de distribution pour System Center Configuration Manager, voici comment commencer à y déployer du contenu."
+title: Inhalt bereitstellen | Microsoft-Dokumentation
+description: "Hier finden Sie eine Anleitung zur Bereitstellung von Inhalten, nachdem Sie Verteilungspunkte für System Center Configuration Manager installiert haben."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d50dcca0-4419-449d-a487-73abcadf328f
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
 ms.openlocfilehash: 36b08285ef78d0acb9ba9c44abe2d57e311d44b3
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Déployer et gérer du contenu pour System Center Configuration Manager
+# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Bereitstellen und Verwalten von Inhalt mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Après avoir installé des points de distribution pour System Center Configuration Manager, vous pouvez commencer à y déployer du contenu. En règle générale, le contenu est transféré aux points de distribution via le réseau, mais il existe d’autres options pour placer du contenu aux points de distribution. Une fois le contenu transféré vers un point de distribution, vous pouvez mettre à jour, redistribuer, supprimer et valider ce contenu sur les points de distribution.  
+Nach der Installation von Verteilungspunkten für System Center Configuration Manager können Sie mit der Bereitstellung von Inhalten beginnen. In der Regel werden Inhalte über das Netzwerk an Verteilungspunkte übertragen. Es gibt aber auch andere Optionen zum Übermitteln von Inhalten an die Verteilungspunkte. Nachdem Inhalt an einen Verteilungspunkt übertragen wurde, können Sie ihn auf Verteilungspunkten aktualisieren, neu verteilen, entfernen und überprüfen.  
 
-##  <a name="a-namebkmkdistributea-distribute-content"></a><a name="bkmk_distribute"></a> Distribuer du contenu  
- En règle générale, vous distribuez du contenu sur des points de distribution pour le rendre accessible aux ordinateurs clients. (Ceci ne s’applique pas si vous utilisez la distribution de contenu à la demande pour un déploiement spécifique.)  Quand vous distribuez du contenu, Configuration Manager stocke les fichiers de contenu dans un package, puis distribue ce package sur le point de distribution. Les types de contenu que vous pouvez distribuer incluent les suivants :  
+##  <a name="bkmk_distribute"></a> Treiberpakete  
+ Normalerweise verteilen Sie Inhalte an Verteilungspunkte, damit diese für Clientcomputer verfügbar sind. (Ausnahme: Verwendung einer bedarfsgesteuerten Verteilung von Inhalten für eine bestimmte Bereitstellung.)  Wenn Sie Inhalt verteilen, werden Inhaltsdateien von Configuration Manager in einem Paket gespeichert, das anschließend an den Verteilungspunkt verteilt wird. Die verteilbaren Inhaltstypen lauten z.B.:  
 
--   Types de déploiement d’application  
+-   Anwendungsbereitstellungstypen  
 
--   Packages  
+-   Pakete  
 
--   Packages de déploiement  
+-   Bereitstellungspakete  
 
--   Packages de pilotes  
+-   Treiberpakete  
 
--   Images du système d'exploitation  
+-   Betriebssystemabbilder  
 
--   Programmes d’installation de système d’exploitation  
+-   Betriebssysteminstallationspakete  
 
--   Images de démarrage  
+-   Startabbilder  
 
--   Séquences de tâches  
+-   Tasksequenzen  
 
-Quand vous créez un package qui contient des fichiers sources, tels qu'un type de déploiement d'application ou un package de déploiement, le site sur lequel le package est créé devient le site propriétaire de la source de contenu du package. Configuration Manager copie les fichiers sources à partir du chemin de fichier source spécifié pour l’objet vers la bibliothèque de contenu située sur le serveur de site propriétaire de la source de contenu du package.  Ensuite, Configuration Manager réplique les informations vers les sites supplémentaires. (Pour plus d’informations à ce sujet, consultez [Bibliothèque de contenu](../../../../core/plan-design/hierarchy/the-content-library.md).)  
+Wenn Sie ein Paket erstellen, das Quelldateien enthält, wie z. B. einen Anwendungsbereitstellungstyp oder ein Bereitstellungspaket, wird der Standort, an dem das Paket erstellt wird, zum Besitzer der Paketinhaltsquelle. Die Quelldateien werden von Configuration Manager aus dem Quelldateipfad, den Sie für das Objekt angegeben haben, in die Inhaltsbibliothek auf dem Standortserver kopiert, der Besitzer der Paketinhaltsquelle ist.  Anschließend werden die Informationen von Configuration Manager an zusätzliche Standorte repliziert. (Weitere Informationen dazu finden Sie unter [Die Inhaltsbibliothek](../../../../core/plan-design/hierarchy/the-content-library.md).)  
 
-Pour distribuer du contenu vers les points de distribution, procédez comme suit.  
+Wenden Sie das folgende Verfahren an, um Inhalt an Verteilungspunkte zu verteilen.  
 
-#### <a name="to-distribute-content-on-distribution-points"></a>Pour distribuer du contenu vers les points de distribution  
+#### <a name="to-distribute-content-on-distribution-points"></a>So verteilen Sie Inhalt an Verteilungspunkte  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem zu verteilenden Inhaltstyp einen der folgenden Schritte aus:  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer.  
+    -   **Anwendungen:** Erweitern Sie **Anwendungsverwaltung** > **Anwendungen**, und wählen Sie dann die zu verteilenden Anwendungen aus.  
 
-    -   **Packages** : Développez **Gestion d’applications** >  **Packages**, puis sélectionnez les packages à distribuer.  
+    -   **Pakete:** Erweitern Sie **Anwendungsverwaltung** >  **Pakete**, und wählen Sie dann die zu verteilenden Pakete aus.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez les packages de déploiement à distribuer.  
+    -   **Bereitstellungspakete:** Erweitern Sie **Softwareupdates**  >   **Bereitstellungspakete**, und wählen Sie dann die zu verteilenden Bereitstellungspakete aus.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** >  **Packages de pilotes**, puis sélectionnez les packages de pilotes à distribuer.  
+    -   **Treiberpakete:** Erweitern Sie **Betriebssysteme** >  **Treiberpakete**, und wählen Sie dann die zu verteilenden Treiberpakete aus.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à distribuer.  
+    -   **Betriebssystemimages:** Erweitern Sie **Betriebssysteme** >  **Betriebssystemimages**, und wählen Sie dann die zu verteilenden Betriebssystemimages aus.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à distribuer.  
+    -   **Betriebssysteminstallationspakete:** Erweitern Sie **Betriebssysteme** > **Betriebssysteminstallationspakete**, und wählen Sie dann die zu verteilenden Betriebssysteminstallationspakete aus.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à distribuer.  
+    -   **Startimages:** Erweitern Sie **Betriebssysteme** >  **Startimages**, und wählen Sie dann die zu verteilenden Startimages aus.  
 
-    -   **Séquences de tâches** : Développez **Systèmes d’exploitation** >  **Séquences de tâches**, puis sélectionnez la séquence de tâches à distribuer. Les séquences de tâches ne contiennent pas de contenu, mais elles comportent des dépendances de contenu associées qui sont distribuées.  
-
-        > [!NOTE]  
-        >  Si vous modifiez la séquence de tâches, vous devez redistribuer le contenu.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu**. L'Assistant Distribuer du contenu s'ouvre.  
-
-4.  Sur la page **Général**, vérifiez que le contenu affiché correspond bien au contenu que vous voulez distribuer, indiquez si vous voulez que Configuration Manager détecte les dépendances de contenu associées au contenu sélectionné et ajoutez les dépendances à la distribution avant de cliquer sur **Suivant**.  
-
-    > [!NOTE]  
-    >  Vous pouvez configurer le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** pour le type de contenu d'application uniquement. Configuration Manager configure automatiquement ce paramètre pour les séquences de tâches et il ne peut pas être modifié.  
-
-5.  Dans l'onglet **Contenu** , s'il s'affiche, vérifiez que le contenu répertorié correspond au contenu que vous voulez distribuer, puis cliquez sur **Suivant**.  
-
-    > [!NOTE]  
-    >  La page **Contenu** s'affiche uniquement lorsque le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** est sélectionné sur la page **Général** de l'Assistant.  
-
-6.  Sur la page **Destination du contenu** , cliquez sur **Ajouter**, choisissez l'une des opérations suivantes, puis suivez l'étape associée :  
-
-    -   **Regroupements**: sélectionnez **Regroupements d'utilisateurs** ou **Regroupements d'appareils**, cliquez sur le regroupement associé à un ou plusieurs groupes de points de distribution, puis sur **OK**.  
+    -   **Tasksequenzen:** Erweitern Sie **Betriebssysteme** >  **Tasksequenzen**, und wählen Sie dann die zu verteilenden Tasksequenzen aus. Tasksequenzen enthalten zwar keinen Inhalt, doch ihnen sind Inhaltsabhängigkeiten zugeordnet, die verteilt werden.  
 
         > [!NOTE]  
-        >  Seuls les regroupements qui sont associés à un groupe de points de distribution sont affichés. Pour plus d’informations sur l’association des regroupements et des groupes de points de distribution, consultez [Gérer les groupes de points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+        >  Wenn Sie eine Tasksequenz ändern, müssen Sie den Inhalt erneut verteilen.  
 
-    -   **Point de distribution**: sélectionnez un point de distribution existant, puis cliquez sur **OK**. Les points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Inhalt verteilen**. Der Assistent für die Verteilung von Inhalt wird geöffnet.  
 
-    -   **Groupe de points de distribution**: sélectionnez un groupe de points de distribution existant, puis cliquez sur **OK**. Les groupes de points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
-
-    Lorsque vous avez terminé d'ajouter des destinations de contenu, cliquez sur **Suivant**.  
-
-7.  Sur la page **Résumé** , vérifiez les paramètres de la distribution avant de continuer. Pour distribuer le contenu vers les destinations sélectionnées, cliquez sur **Suivant**.  
-
-8.  La page **Progression** affiche la progression de la distribution.  
-
-9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
-
-##  <a name="a-namebkmkprestagea-use-prestaged-content"></a><a name="bkmk_prestage"></a> Utiliser le contenu préparé  
- Vous pouvez préparer des fichiers de contenu pour les applications et les types de packages :  
-
--   Dans la console Configuration Manager, vous sélectionnez le contenu dont vous avez besoin, puis utilisez l’**Assistant Création du fichier de contenu préparé** pour créer un fichier de contenu préparé compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous avez sélectionné.  
-
--   Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution.  
-
--   Lorsque vous importez le fichier de contenu préparé sur un serveur de site, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le serveur de site, puis enregistrés dans la base de données du serveur de site.  
-
--   Lorsque vous importez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution, et un message d'état est envoyé au serveur de site qui informe le site que le contenu est disponible sur le point de distribution.  
-
-**Limitations et éléments à prendre en compte pour le contenu préparé :**  
-
--   **Si le point de distribution est situé sur le serveur de site**, n’activez pas le point de distribution pour le contenu préparé. Au lieu de cela, procédez comme indiqué dans [Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site](#bkmk_dpsiteserver).  
-
--   **Si le point de distribution est configuré en tant que point de distribution d’extraction**, n’activez pas le point de distribution pour le contenu préparé. La configuration de contenu préparé pour un point de distribution se substitue à la configuration du point de distribution d'extraction. Un point de distribution d'extraction configuré pour du contenu préparé n'extrait pas de contenu auprès d'un point de distribution source et ne reçoit pas de contenu du serveur de site.  
-
--   **Vous devez créer la bibliothèque de contenu sur le point de distribution avant de préparer le contenu pour ce point de distribution**. Distribuez le contenu sur le réseau au moins une fois avant de préparer le contenu vers le point de distribution.  
-
--   **Lorsque vous préparez du contenu pour un package dont le chemin source est particulièrement long** (plus de 140 caractères, par exemple), l’outil en ligne de commande d’extraction de contenu risque de ne pas réussir à extraire le contenu de ce package vers la bibliothèque de contenu.  
-
-Pour plus d’informations sur le moment propice à la préparation des fichiers de contenu, consultez *Contenu préparé* dans la rubrique [Gérer la bande passante du réseau pour la gestion de contenu](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).  
-
-Utilisez les sections suivantes pour préparer du contenu.  
-
-###  <a name="a-namebkmkcreateprestagedcontentfilea-step-1-create-a-prestaged-content-file"></a><a name="BKMK_CreatePrestagedContentFile"></a> Étape 1 : Créer un fichier de contenu préparé  
- Vous pouvez créer un fichier de contenu préparé et compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous sélectionnez dans la console Configuration Manager. Pour créer un fichier de contenu préparé, procédez comme suit.  
-
-##### <a name="to-create-a-prestaged-content-file"></a>Pour créer un fichier de contenu préparé  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez préparer :  
-
-    -   **Applications**: développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications que vous souhaitez préparer.  
-
-    -   **Packages**: développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les packages que vous souhaitez préparer.  
-
-    -   **Packages de pilotes**: développez **Systèmes d'exploitation**, cliquez sur **Packages de pilotes**, puis sélectionnez les packages de pilotes que vous souhaitez préparer.  
-
-    -   **Images du système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Images du système d'exploitation**, puis sélectionnez les images du système d'exploitation que vous souhaitez préparer.  
-
-    -   **Programmes d'installation de système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Programmes d'installation de système d'exploitation**, puis sélectionnez les programmes d'installation de système d'exploitation que vous souhaitez préparer.  
-
-    -   **Images de démarrage**: développez **Systèmes d'exploitation**, cliquez sur **Images de démarrage**, puis sélectionnez les images de démarrage que vous souhaitez préparer.  
-
-    -   **Séquences de tâches**: Développez **Systèmes d'exploitation**, cliquez sur **Séquences de tâches**, puis sélectionnez les séquences de tâches que vous souhaitez préparer.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Créer un fichier de contenu préparé**. L'Assistant Création du fichier de contenu préparé s'ouvre.  
+4.  Überprüfen Sie auf der Seite **Allgemein**, ob es sich bei dem aufgeführten Inhalt um den Inhalt handelt, den Sie verteilen möchten. Geben Sie an, ob von Configuration Manager Inhaltsabhängigkeiten erkannt werden sollen, die dem ausgewählten Inhalt zugeordnet sind, und fügen Sie der Verteilung die Abhängigkeiten hinzu. Klicken Sie dann auf **Weiter**.  
 
     > [!NOTE]  
-    >  **Pour les applications :** Sous l’onglet **Accueil**, dans le groupe **Application**, cliquez sur **Créer un fichier de contenu préparé**.  
+    >  Sie haben die Möglichkeit, die Einstellung **Zugeordnete Inhaltsabhängigkeiten erkennen und zu dieser Verteilung hinzufügen** nur für den Inhaltstyp "Anwendungen" zu konfigurieren. Configuration Manager konfiguriert Tasksequenzen automatisch und kann nicht geändert werden.  
+
+5.  Falls die Registerkarte **Inhalt** angezeigt wird, überprüfen Sie, ob es sich bei dem aufgeführten Inhalt um den Inhalt handelt, den Sie verteilen möchten. Klicken Sie dann auf **Weiter**.  
+
+    > [!NOTE]  
+    >  Die Seite **Inhalt** wird nur dann angezeigt, wenn im Assistenten auf der Seite **Allgemein** die Einstellung **Zugeordnete Inhaltsabhängigkeiten erkennen und zu dieser Verteilung hinzufügen** ausgewählt wurde.  
+
+6.  Klicken Sie auf der Seite **Inhaltsziel** auf **Hinzufügen**, wählen Sie eine der folgenden Optionen aus, und führen Sie die entsprechenden Schritte aus:  
+
+    -   **Sammlungen**: Wählen Sie **Benutzersammlungen** oder **Gerätesammlungen**aus, und klicken Sie auf die Sammlung, die einer oder mehreren Verteilungspunktgruppen zugeordnet ist. Klicken Sie dann auf **OK**.  
+
+        > [!NOTE]  
+        >  Es werden nur die Sammlungen, die einer Verteilungspunktgruppe zugeordnet sind, angezeigt. Weitere Informationen zum Zuordnen von Sammlungen zu Verteilungspunktgruppen finden Sie im Abschnitt [Manage distribution point groups (Verwalten von Verteilungspunktgruppen)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) des Themas [Install and configure distribution points for System Center Configuration Manager (Installieren und Konfigurieren von Verteilungspunkten in System Center Configuration Manager)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+
+    -   **Verteilungspunkt**: Wählen Sie einen vorhandenen Verteilungspunkt aus, und klicken Sie dann auf **OK**. Verteilungspunkte, die den Inhalt bereits empfangen haben, werden nicht angezeigt.  
+
+    -   **Verteilungspunktgruppe**: Wählen Sie eine vorhandene Verteilungspunktgruppe aus, und klicken Sie dann auf **OK**. Verteilungspunktgruppen, die den Inhalt bereits empfangen haben, werden nicht angezeigt.  
+
+    Nachdem Sie alle gewünschten Inhaltsziele hinzugefügt haben, klicken Sie auf **Weiter**.  
+
+7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen für die Verteilung, bevor Sie fortfahren. Klicken Sie auf **Weiter**, um den Inhalt an die ausgewählten Ziele zu verteilen.  
+
+8.  Auf der Seite **Status** wird der Fortschritt der Verteilung angezeigt.  
+
+9. Auf der Seite **Bestätigung** wird angezeigt, ob der Inhalt den Punkten erfolgreich zugewiesen wurde. Informationen zum Überwachen der Verteilung von Inhalten finden Sie unter [Monitor content you have distributed with System Center Configuration Manager (Überwachen von mit System Center Configuration Manager verteilten Inhalten)](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+
+##  <a name="bkmk_prestage"></a> Verwenden von vorab bereitgestellten Inhalten  
+ Sie können Inhaltsdateien für Anwendungen und Pakettypen vorab bereitstellen:  
+
+-   Wählen Sie den erforderlichen Inhalt in der Configuration Manager-Konsole aus, und verwenden Sie dann den **Assistenten zum Erstellen von vorab bereitgestellten Inhaltsdateien**, um eine komprimierte vorab bereitgestellte Inhaltsdatei zu erstellen, die die Dateien und die zugehörigen Metadaten für den ausgewählten Inhalt enthält.  
+
+-   Sie können den Inhalt dann manuell in einen Standortserver, sekundären Standort oder Verteilungspunkt importieren.  
+
+-   Wenn Sie die vorab bereitgestellte Inhaltsdatei in einen Standortserver importieren, wird sie der Inhaltsbibliothek auf dem Standortserver hinzugefügt und dann in der Datenbank des Standortservers registriert.  
+
+-   Wenn Sie die vorab bereitgestellte Inhaltsdatei in einen Verteilungspunkt importieren, wird sie der Inhaltsbibliothek des Verteilungspunkts hinzugefügt, und an den Standortserver wird eine Statusmeldung über die Verfügbarkeit des Inhalts am Verteilungspunkt gesendet.  
+
+**Einschränkungen und Überlegungen zu vorab bereitgestelltem Inhalt:**  
+
+-   **Wenn sich der Verteilungspunkt auf dem Standortserver befindet**, dürfen Sie den Verteilungspunkt nicht für vorab bereitgestellten Inhalt aktivieren. Verwenden Sie stattdessen die in [Vorabbereitstellen von Inhalt auf einem Verteilungspunkt auf einem Standortserver](#bkmk_dpsiteserver) beschriebene Prozedur.  
+
+-   Aktivieren Sie den Verteilungspunkt niemals für vorab bereitgestellte Inhalte, **wenn der Verteilungspunkt als Pullverteilungspunkt konfiguriert ist**. Mit der Konfiguration für vorab bereitgestellten Inhalt eines Verteilungspunkts wird die Konfiguration des Pullverteilungspunkts überschrieben. Von einem Pullverteilungspunkt, der für vorab bereitgestellten Inhalt konfiguriert ist, wird Inhalt nicht per Pullvorgang von einem Quellverteilungspunkt abgerufen, und es wird kein Inhalt vom Standortserver empfangen.  
+
+-   **Die Inhaltsbibliothek muss am Verteilungspunkt erstellt werden, bevor Sie Inhalt am Verteilungspunkt vorab bereitstellen können**. Verteilen Sie mindestens einmal Inhalt über das Netzwerk, bevor Sie Inhalt am Verteilungspunkt vorab bereitstellen.  
+
+-   **Wenn Sie Inhalt für ein Paket mit einem langen Paketquellpfad (z.B. mehr als 140 Zeichen) vorab bereitstellen**, ist es für das Befehlszeilentool „ExtractContent“ ggf. nicht möglich, den Inhalt für das Paket in die Inhaltsbibliothek zu extrahieren.  
+
+Informationen zum Vorabbereitstellen von Inhaltsdateien finden Sie unter *Prestaged content (vorab bereitgestellter Inhalt)* im Thema [Manage network bandwidth for content management (Verwalten der Netzwerkbandbreite für das Content Management)](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).  
+
+Gehen Sie wie in den folgenden Abschnitten beschrieben vor, um Inhalt vorab bereitzustellen.  
+
+###  <a name="BKMK_CreatePrestagedContentFile"></a> Schritt 1: Erstellen einer vorab bereitgestellten Inhaltsdatei  
+ Sie können eine komprimierte, vorab bereitgestellte Inhaltsdatei erstellen, die die Dateien und zugeordneten Metadaten für den in der Configuration Manager-Konsole ausgewählten Inhalt umfasst. Gehen Sie wie folgt vor, um eine vorab bereitgestellte Inhaltsdatei zu erstellen.  
+
+##### <a name="to-create-a-prestaged-content-file"></a>So erstellen Sie eine vorab bereitgestellte Inhaltsdatei  
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem vorab bereitzustellenden Inhaltstyp einen der folgenden Schritte aus:  
+
+    -   **Anwendungen**: Erweitern Sie **Anwendungsverwaltung**, klicken Sie auf **Anwendungen**, und wählen Sie dann die vorab bereitzustellenden Anwendungen aus.  
+
+    -   **Pakete**: Erweitern Sie **Anwendungsverwaltung**, klicken Sie auf **Pakete**, und wählen Sie dann die vorab bereitzustellenden Pakete aus.  
+
+    -   **Treiberpakete**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Treiberpakete**, und wählen Sie dann die vorab bereitzustellenden Treiberpakete aus.  
+
+    -   **Betriebssystemabbilder**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Betriebssystemabbilder**, und wählen Sie dann die vorab bereitzustellenden Betriebssystemabbilder aus.  
+
+    -   **Betriebssysteminstallationspakete**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Betriebssysteminstallationspakete**, und wählen Sie dann die vorab bereitzustellenden Betriebssysteminstallationspakete aus.  
+
+    -   **Startabbilder**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Startabbilder**, und wählen Sie dann die vorab bereitzustellenden Startabbilder aus.  
+
+    -   **Tasksequenzen**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Tasksequenzen**, und wählen Sie dann die vorab bereitzustellenden Tasksequenzen aus.  
+
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Datei für vorab bereitgestellten Inhalt erstellen**. Der Assistent zum Erstellen von vorab bereitgestellten Inhaltsdateien wird geöffnet.  
+
+    > [!NOTE]  
+    >  **Für Anwendungen:** Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Anwendung** auf **Vorab bereitgestellte Inhaltsdatei erstellen**.  
     >   
-    >  **Pour les packages :** Sous l’onglet **Accueil**, dans le groupe &lt;*nom_package*>, cliquez sur **Créer un fichier de contenu préparé**.  
+    >  **Für Pakete:** Klicken Sie auf der Registerkarte **Startseite** in der Gruppe &lt;*Paketname*> auf **Vorab bereitgestellte Inhaltsdatei erstellen**.  
 
-4.  Sur la page **Général** , cliquez sur **Parcourir**, choisissez l'emplacement pour le fichier de contenu préparé, spécifiez un nom pour le fichier, puis cliquez sur **Enregistrer**. Vous utilisez ce fichier de contenu préparé sur des serveurs de site principaux, des serveurs de site secondaires ou des points de distribution afin d'importer le contenu et les métadonnées.  
+4.  Klicken Sie auf der Seite **Allgemein** auf **Durchsuchen**, und wählen Sie den Speicherort für die vorab bereitgestellte Inhaltsdatei aus. Geben Sie für die Datei einen Namen ein, und klicken Sie dann auf **Speichern**. Diese vorab bereitgestellte Inhaltsdatei setzen Sie auf primären Standortservern, sekundären Standortservern oder Verteilungspunkten zum Importieren des Inhalts und der Metadaten ein.  
 
-5.  Pour les applications, sélectionnez **Exporter toutes les dépendances** afin que Configuration Manager détecte et ajoute les dépendances associées à l’application au fichier de contenu préparé. Ce paramètre est activé par défaut.  
+5.  Wählen Sie für Anwendungen **Alle Abhängigkeiten exportieren** aus, damit die der Anwendung zugeordneten Abhängigkeiten von Configuration Manager erkannt und der vorab bereitgestellten Inhaltsdatei hinzugefügt werden. Diese Einstellung ist standardmäßig aktiviert.  
 
-6.  Dans **Commentaires de l'administrateur**, saisissez des commentaires facultatifs concernant le fichier de contenu préparé, puis cliquez sur **Suivant**.  
+6.  Geben Sie unter **Administratorkommentare**optionale Kommentare zur vorab bereitgestellten Inhaltsdatei ein, und klicken Sie dann auf **Weiter**.  
 
-7.  Sur la page **Contenu** , vérifiez que le contenu répertorié correspond au contenu que vous souhaitez ajouter au fichier de contenu préparé, puis cliquez sur **Suivant**.  
+7.  Überprüfen Sie auf der Seite **Inhalt** , ob es sich bei dem aufgeführten Inhalt um den Inhalt handelt, den Sie der vorab bereitgestellten Inhaltsdatei hinzufügen möchten. Klicken Sie dann auf **Weiter**.  
 
-8.  Sur la page **Emplacements du contenu** , spécifiez les points de distribution à partir desquels vous souhaitez récupérer les fichiers de contenu pour le fichier de contenu préparé. Vous pouvez sélectionner plusieurs points de distribution pour récupérer le contenu. Les points de distribution sont répertoriés dans la section Emplacements du contenu. La colonne **Contenu** affiche le nombre de packages ou applications sélectionnés disponibles sur chaque point de distribution. Configuration Manager commence par le premier point de distribution de la liste pour récupérer le contenu sélectionné, puis descend dans la liste afin de récupérer le contenu restant requis pour le fichier de contenu préparé. Cliquez sur **Monter** ou **Descendre** pour modifier l'ordre de priorité des points de distribution. Si les points de distribution de la liste ne contiennent pas tout le contenu sélectionné, vous devez ajouter des points de distribution à la liste contenant le contenu ou fermer l'Assistant, distribuer le contenu à un point de distribution au moins, puis redémarrer l'Assistant.  
+8.  Geben Sie auf der Seite **Inhaltsorte** die Verteilungspunkte an, von denen die Inhaltsdateien für die vorab bereitgestellte Inhaltsdatei abgerufen werden sollen. Sie können mehrere Verteilungspunkte zum Abrufen des Inhalts auswählen. Die Verteilungspunkte sind im Abschnitt Inhaltsorte aufgeführt. In der Spalte **Inhalt** wird angegeben, wie viele der ausgewählten Pakete oder Anwendungen auf jedem Verteilungspunkt verfügbar sind. Configuration Manager ruft zunächst vom ersten Verteilungspunkt in der Liste den ausgewählten Inhalt ab. Der restliche Inhalt für die vorab bereitgestellte Inhaltsdatei wird dann von den nachfolgenden Verteilungspunkten in der Liste nacheinander abgerufen. Klicken Sie auf **Nach oben** oder **Nach unten** , um die Prioritätsreihenfolge der Verteilungspunkte zu ändern. Wenn die Verteilungspunkte in der Liste nicht den gesamten ausgewählten Inhalt enthalten, müssen Sie der Liste Verteilungspunkte hinzufügen, die den Inhalt enthalten. Alternativ können Sie den Assistenten beenden, den Inhalt an mindestens einen Verteilungspunkt verteilen und dann den Assistenten neu starten.  
 
-9. Sur la page **Résumé** , vérifiez les détails. Vous pouvez revenir aux pages précédentes et apporter des modifications. Cliquez sur **Suivant** pour créer le fichier de contenu préparé.  
+9. Bestätigen Sie die Details auf der Seite **Zusammenfassung** . Sie können zu vorhergehenden Seiten zurückkehren und Änderungen vornehmen. Klicken Sie auf **Weiter** , um die vorab bereitgestellte Inhaltsdatei zu erstellen.  
 
-10. La page **Progression** affiche le contenu qui est ajouté au fichier de contenu préparé.  
+10. Auf der Seite **Status** wird der Inhalt angezeigt, der der vorab bereitgestellten Inhaltsdatei gerade hinzugefügt wird.  
 
-11. Sur la page **Dernière étape** , vérifiez que le fichier de contenu préparé a été créé correctement, puis cliquez sur **Fermer**.  
+11. Überprüfen Sie auf der Seite **Abschluss des Vorgangs** , ob die vorab bereitgestellte Inhaltsdatei erfolgreich erstellt wurde. Klicken Sie dann auf **Schließen**.  
 
-###  <a name="a-namebkmkassigncontenttodistributionpointa-step-2-assign-the-content-to-distribution-points"></a><a name="BKMK_AssignContentToDistributionPoint"></a> Étape 2 : Affecter le contenu aux points de distribution  
- Après avoir préparé le fichier de contenu, attribuez le contenu aux points de distribution.  
+###  <a name="BKMK_AssignContentToDistributionPoint"></a> Schritt 2: Zuweisen des Inhalts zu Verteilungspunkten  
+ Nachdem Sie die Inhaltsdatei vorab bereitgestellt haben, weisen Sie den Inhalt Verteilungspunkten zu.  
 
 > [!NOTE]  
->  Si vous utilisez un fichier de contenu préparé pour récupérer la bibliothèque de contenu sur un serveur de site et n'êtes pas obligé de préparer les fichiers de contenu sur un point de distribution, vous pouvez ignorer cette procédure.  
+>  Wenn Sie mithilfe einer vorab bereitgestellten Inhaltsdatei die Inhaltsbibliothek auf einem Standortserver wiederherstellen und Sie die Inhaltsdateien nicht auf einem Verteilungspunkt vorab bereitstellen müssen, können Sie dieses Verfahren überspringen.  
 
- Pour affecter le contenu du fichier de contenu préparé aux points de distribution, procédez comme suit.  
+ Gehen Sie wie folgt vor, um den Inhalt in der vorab bereitgestellten Inhaltsdatei Verteilungspunkten zuzuweisen.  
 
 > [!IMPORTANT]  
->  Vérifiez que les points de distribution que vous souhaitez préparer sont configurés comme des points de distribution préparés ou que le contenu est distribué aux points de distribution via le réseau.  
+>  Stellen Sie sicher, dass die Verteilungspunkte, die Sie vorab bereitstellen möchten, als vorab bereitgestellte Verteilungspunkte konfiguriert sind bzw. dass der Inhalt über das Netzwerk an die Verteilungspunkte verteilt wird.  
 
-##### <a name="to-assign-the-content-to-distribution-points"></a>Pour affecter le contenu aux points de distribution  
+##### <a name="to-assign-the-content-to-distribution-points"></a>So weisen Sie den Inhalt Verteilungspunkten zu  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous avez sélectionné lorsque vous avez créé le fichier de contenu préparé :  
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem Inhaltstyp, den Sie beim Erstellen der vorab bereitgestellten Inhaltsdatei ausgewählt haben, einen der folgenden Schritte aus:  
 
-    -   **Applications**: développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications que vous avez préparées.  
+    -   **Anwendungen**: Erweitern Sie **Anwendungsverwaltung**, klicken Sie auf **Anwendungen**, und wählen Sie dann die vorab bereitgestellten Anwendungen aus.  
 
-    -   **Packages**: développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les Packages que vous avez préparés.  
+    -   **Pakete**: Erweitern Sie **Anwendungsverwaltung**, klicken Sie auf **Pakete**, und wählen Sie dann die vorab bereitgestellten Pakete aus.  
 
-    -   **Packages de déploiement**: développez **Mises à jour logicielles**, cliquez sur **Packages de déploiement**, puis sélectionnez les packages de déploiement que vous avez préparés.  
+    -   **Bereitstellungspakete**: Erweitern Sie **Softwareupdates**, klicken Sie auf **Bereitstellungspakete**, und wählen Sie dann die vorab bereitgestellten Bereitstellungspakete aus.  
 
-    -   **Packages de pilotes**: développez **Systèmes d'exploitation**, cliquez sur **Packages de pilotes**, puis sélectionnez les packages de pilotes que vous avez préparés.  
+    -   **Treiberpakete**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Treiberpakete**, und wählen Sie dann die vorab bereitgestellten Treiberpakete aus.  
 
-    -   **Images du système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Images du système d'exploitation**, puis sélectionnez les images du système d'exploitation que vous avez préparées.  
+    -   **Betriebssystemabbilder**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Betriebssystemabbilder**, und wählen Sie dann die vorab bereitgestellten Betriebssystemabbilder aus.  
 
-    -   **Programmes d'installation de système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Programmes d'installation de système d'exploitation**, puis sélectionnez les programmes d'installation de système d'exploitation que vous avez préparés.  
+    -   **Betriebssysteminstallationspakete**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Betriebssysteminstallationspakete**, und wählen Sie dann die vorab bereitgestellten Betriebssysteminstallationspakete aus.  
 
-    -   **Images de démarrage**: développez **Systèmes d'exploitation**, cliquez sur **Images de démarrage**, puis sélectionnez les images de démarrage que vous avez préparées.  
+    -   **Startabbilder**: Erweitern Sie **Betriebssysteme**, klicken Sie auf **Startabbilder**, und wählen Sie dann die vorab bereitgestellten Startabbilder aus.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu**. L'Assistant Distribuer du contenu s'ouvre.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Inhalt verteilen**. Der Assistent für die Verteilung von Inhalt wird geöffnet.  
 
-4.  Sur la page **Général** , vérifiez que le contenu affiché correspond bien au contenu que vous avez préparé, indiquez si vous voulez que Configuration Manager détecte les dépendances de contenu associées au contenu sélectionné et ajoutez les dépendances à la distribution avant de cliquer sur **Suivant**.  
-
-    > [!NOTE]  
-    >  Vous pouvez configurer le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** pour le type de contenu d'application uniquement. Configuration Manager configure automatiquement ce paramètre pour les séquences de tâches et il ne peut pas être modifié.  
-
-5.  Sur la page **Contenu** , si elle s'affiche, vérifiez que le contenu répertorié correspond au contenu que vous voulez distribuer, puis cliquez sur **Suivant**.  
+4.  Überprüfen Sie auf der Seite **Allgemein**, ob es sich bei dem aufgeführten Inhalt um den von Ihnen vorab bereitgestellten Inhalt handelt. Geben Sie an, ob von Configuration Manager Inhaltsabhängigkeiten erkannt werden sollen, die dem ausgewählten Inhalt zugeordnet sind, und fügen Sie die Abhängigkeiten der Verteilung hinzu. Klicken Sie dann auf **Weiter**.  
 
     > [!NOTE]  
-    >  La page **Contenu** s'affiche uniquement lorsque le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** est sélectionné sur la page **Général** de l'Assistant.  
+    >  Sie haben die Möglichkeit, die Einstellung **Zugeordnete Inhaltsabhängigkeiten erkennen und zu dieser Verteilung hinzufügen** nur für den Inhaltstyp "Anwendungen" zu konfigurieren. Configuration Manager konfiguriert Tasksequenzen automatisch und kann nicht geändert werden.  
 
-6.  Sur la page **Destination du contenu** , cliquez sur **Ajouter**, choisissez l'une des opérations suivantes qui inclut les points de distribution à préinstaller, puis suivez l'étape associée :  
+5.  Falls die Seite **Inhalt** angezeigt wird, überprüfen Sie, ob es sich bei dem aufgeführten Inhalt um den Inhalt handelt, den Sie verteilen möchten. Klicken Sie dann auf **Weiter**.  
 
-    -   **Regroupements**: sélectionnez **Regroupements d'utilisateurs** ou **Regroupements d'appareils**, cliquez sur le regroupement associé à un ou plusieurs groupes de points de distribution, puis sur **OK**.  
+    > [!NOTE]  
+    >  Die Seite **Inhalt** wird nur dann angezeigt, wenn im Assistenten auf der Seite **Allgemein** die Einstellung **Zugeordnete Inhaltsabhängigkeiten erkennen und zu dieser Verteilung hinzufügen** ausgewählt wurde.  
+
+6.  Klicken Sie auf der Seite **Inhaltsziel** auf **Hinzufügen**, wählen Sie eine der folgenden Komponenten aus, in der die vorab bereitzustellenden Verteilungspunkte enthalten sind, und führen Sie die zugeordneten Schritte aus:  
+
+    -   **Sammlungen**: Wählen Sie **Benutzersammlungen** oder **Gerätesammlungen**aus, und klicken Sie auf die Sammlung, die einer oder mehreren Verteilungspunktgruppen zugeordnet ist. Klicken Sie dann auf **OK**.  
 
         > [!NOTE]  
-        >  Seuls les regroupements qui sont associés à un groupe de points de distribution sont affichés.  Pour plus d’informations, consultez [Gérer les groupes de points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+        >  Es werden nur die Sammlungen, die einer Verteilungspunktgruppe zugeordnet sind, angezeigt.  Informationen hierzu finden Sie im Abschnitt [Manage distribution point groups (Verwalten von Verteilungspunktgruppen)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) in dem Artikel [Install and configure distribution points for System Center Configuration Manager (Installieren und Konfigurieren von Verteilungspunkten für Configuration Manager)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
-    -   **Point de distribution**: sélectionnez un point de distribution existant, puis cliquez sur **OK**. Les points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
+    -   **Verteilungspunkt**: Wählen Sie einen vorhandenen Verteilungspunkt aus, und klicken Sie dann auf **OK**. Verteilungspunkte, die den Inhalt bereits empfangen haben, werden nicht angezeigt.  
 
-    -   **Groupe de points de distribution**: sélectionnez un groupe de points de distribution existant, puis cliquez sur **OK**. Les groupes de points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
+    -   **Verteilungspunktgruppe**: Wählen Sie eine vorhandene Verteilungspunktgruppe aus, und klicken Sie dann auf **OK**. Verteilungspunktgruppen, die den Inhalt bereits empfangen haben, werden nicht angezeigt.  
 
-    Lorsque vous avez terminé d'ajouter des destinations de contenu, cliquez sur **Suivant**.  
+    Nachdem Sie alle gewünschten Inhaltsziele hinzugefügt haben, klicken Sie auf **Weiter**.  
 
-7.  Sur la page **Résumé** , vérifiez les paramètres de la distribution avant de continuer. Pour distribuer le contenu vers les destinations sélectionnées, cliquez sur **Suivant**.  
+7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Einstellungen für die Verteilung, bevor Sie fortfahren. Klicken Sie auf **Weiter**, um den Inhalt an die ausgewählten Ziele zu verteilen.  
 
-8.  La page **Progression** affiche la progression de la distribution.  
+8.  Auf der Seite **Status** wird der Fortschritt der Verteilung angezeigt.  
 
-9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+9. Auf der Seite **Bestätigung** wird angezeigt, ob der Inhalt den Verteilungspunkten erfolgreich zugewiesen wurde. Informationen zum Überwachen der Verteilung von Inhalten finden Sie unter [Monitor content you have distributed with System Center Configuration Manager (Überwachen von mit System Center Configuration Manager verteilten Inhalten)](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-###  <a name="a-namebkmkexportcontentfromprestagedcontentfilea-step-3-extract-the-content-from-the-prestaged-content-file"></a><a name="BKMK_ExportContentFromPrestagedContentFile"></a> Étape 3 : Extraire le contenu du fichier de contenu préparé  
- Une fois que vous avez créé le fichier de contenu préparé et que vous avez attribué le contenu aux points de distribution, vous pouvez extraire les fichiers de contenu vers la bibliothèque de contenu d'un serveur de site ou d'un point de distribution. Généralement, vous avez copié le fichier de contenu préparé vers un lecteur portable, tel qu’un lecteur USB, ou gravé le contenu sur un support, tel qu’un DVD, puis vous l’avez mis à disposition à l’emplacement du serveur de site ou du point de distribution qui demande le contenu.  
+###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a> Schritt 3: Extrahieren des Inhalts aus der vorab bereitgestellten Inhaltsdatei  
+ Nachdem Sie die vorab bereitgestellte Inhaltsdatei erstellt und den Inhalt Verteilungspunkten zugewiesen haben, können Sie die Inhaltsdateien in die Inhaltsbibliothek auf einem Standortserver oder Verteilungspunkt extrahieren. In der Regel dürften Sie die vorab bereitgestellte Inhaltsdatei auf ein tragbares Laufwerk wie ein USB-Laufwerk kopiert oder den Inhalt auf Medien wie eine DVD gebrannt haben. Die Inhaltsdatei bzw. der Inhalt müsste am Ort des Standortservers oder Verteilungspunkts, für den der Inhalt erforderlich ist, zur Verfügung stehen.  
 
- Pour exporter manuellement les fichiers de contenu à partir du fichier de contenu préparé à l'aide de l'outil de ligne de commande Extraire le contenu, procédez comme suit.  
+ Gehen Sie wie folgt vor, um die Inhaltsdateien mit dem Befehlszeilentool „ExtractContent“ manuell aus der vorab bereitgestellten Inhaltsdatei zu exportieren.  
 
 > [!IMPORTANT]  
->  Lorsque vous exécutez l'outil d'extraction de contenu en ligne de commande, l'outil crée un fichier temporaire lors de la création du fichier de contenu préparé. Le fichier est ensuite copié dans le dossier de destination, puis supprimé. Vous devez disposer de suffisamment d'espace disque pour stocker ce fichier temporaire. Sinon, le processus échoue. Le fichier temporaire est créé à l'emplacement suivant :  
+>  Wenn Sie das Befehlszeilentool „ExtractContent“ ausführen, wird vom Tool während der Erstellung der vorab bereitgestellten Inhaltsdatei eine temporäre Datei erstellt. Anschließend wird die Datei in den Zielordner kopiert und die temporäre Datei gelöscht. Für diese temporäre Datei muss genügend Festplattenspeicher vorhanden sein. Andernfalls tritt während des Vorgangs ein Fehler auf. Die temporäre Datei wird am folgenden Speicherort erstellt:  
 >   
->  -   Le fichier temporaire est créé dans le même dossier que celui spécifié comme dossier de destination du fichier de contenu préparé.  
+>  -   Die temporäre Datei wird in dem Ordner erstellt, den Sie als Zielordner für die vorab bereitgestellte Inhaltsdatei angeben.  
 
 > [!IMPORTANT]  
->  L’utilisateur qui exécute l’outil en ligne de commande d’extraction de contenu doit disposer de droits d’**administrateur** sur l’ordinateur à partir duquel vous extrayez le contenu préparé.  
+>  Der Benutzer, der das Befehlszeilentool „ExtractContent“ ausführt, muss auf dem Computer, auf dem Sie den vorab bereitgestellten Inhalt extrahieren, über **Administratorrechte** verfügen.  
 
-##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>Pour extraire les fichiers de contenu du fichier de contenu préparé  
+##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>So extrahieren Sie die Inhaltsdateien aus der vorab bereitgestellten Inhaltsdatei  
 
-1.  Copiez le fichier de contenu préparé à l'ordinateur à partir duquel vous souhaitez extraire le contenu.  
+1.  Kopieren Sie die vorab bereitgestellte Inhaltsdatei auf den Computer, auf dem Sie den Inhalt extrahieren möchten.  
 
-2.  Copiez l’outil en ligne de commande d’extraction de contenu depuis &lt;*chemin_installation_Configuration_Manager*>\bin\\&lt;*plateforme*> sur l’ordinateur à partir duquel vous souhaitez extraire le fichier de contenu préparé.  
+2.  Kopieren Sie das Befehlszeilentool „ExtractContent“ aus &lt;*Configuration Manager-Installationspfad*>\bin\\&lt;*Plattform*> auf den Computer, auf dem Sie die vorab bereitgestellte Inhaltsdatei extrahieren möchten.  
 
-3.  Ouvrez l'invite de commandes et accédez à l'emplacement du dossier du fichier de contenu préparé et l'outil Extraire le contenu.  
+3.  Öffnen Sie die Eingabeaufforderung, und suchen Sie den Ordner, der die vorab bereitgestellte Inhaltsdatei und das Tool „ExtractContent“ enthält.  
 
     > [!NOTE]  
-    >  Vous pouvez extraire un ou plusieurs fichiers de contenu préparé sur un serveur de site, un serveur de site secondaire ou un point de distribution.  
+    >  Sie können mehrere vorab bereitgestellte Inhaltsdateien auf einem Standortserver, sekundären Standortserver oder Verteilungspunkt extrahieren.  
 
-4.  Tapez **extractcontent /P:**&lt;*emplacement_fichier_préparé*>**\\**&lt;*nom_fichier_préparé*> **/S** pour importer un seul fichier.  
+4.  Geben Sie Folgendes ein, um eine einzelne Datei zu importieren: **extractcontent /P:**&lt;*Speicherort der vorab bereitgestellten Datei*>**\\**&lt;*Name der vorab bereitgestellten Datei*> **/S**.  
 
-     Tapez **extractcontent /P:**&lt;*emplacement_fichier_préparé*> **/S** pour importer tous les fichiers préparés dans le dossier spécifié.  
+     Geben Sie Folgendes ein, um alle vorab bereitgestellten Dateien in den angegebenen Ordner zu importieren: **extractcontent /P:**&lt;*Speicherort der vorab bereitgestellten Datei*> **/S**.  
 
-     Par exemple, tapez **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S** où `D:\PrestagedFiles\` est l’emplacement du fichier préparé, `MyPrestagedFile.pkgx` est le nom du fichier préparé et `/S` informe Configuration Manager d’extraire uniquement les fichiers de contenu qui sont plus récents que ce qui se trouve actuellement sur le point de distribution.  
+     Geben Sie beispielsweise **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S** ein. Dabei ist `D:\PrestagedFiles\` der Ordner für die vorab bereitgestellte Datei und `MyPrestagedFile.pkgx` der Name der vorab bereitgestellten Datei. Mit `/S` wird Configuration Manager angewiesen, nur Inhaltsdateien zu extrahieren, die neuer als die auf dem Verteilungspunkt vorhandenen Dateien sind.  
 
-     Lorsque vous extrayez le fichier de contenu préparé sur un serveur de site, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le serveur de site, puis la disponibilité du contenu est enregistrée dans la base de données du serveur de site. Lorsque vous exportez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution, ce dernier envoie un message d'état au serveur de site principal parent, puis la disponibilité du contenu est enregistrée dans la base de données du site.  
+     Wenn Sie die vorab bereitgestellte Inhaltsdatei auf einem Standortserver extrahieren, werden die Inhaltsdateien der Inhaltsbibliothek auf dem Standortserver hinzugefügt. Anschließend wird die Verfügbarkeit des Inhalts in der Datenbank des Standortservers registriert. Wenn Sie die vorab bereitgestellte Inhaltsdatei auf einem Verteilungspunkt exportieren, werden die Inhaltsdateien der Inhaltsbibliothek auf dem Verteilungspunkt hinzugefügt. Vom Verteilungspunkt wird eine Statusmeldung an den übergeordneten primären Standortserver gesendet, und dann wird die Verfügbarkeit des Inhalts in der Standortdatenbank registriert.  
 
     > [!IMPORTANT]  
-    >  Dans le scénario suivant, vous devez mettre à jour le contenu que vous avez extrait à partir d'un fichier de contenu préparé lorsque le contenu est mis à jour vers une nouvelle version :  
+    >  Im folgenden Szenario müssen Sie für den Inhalt, den Sie aus einer vorab bereitgestellten Inhaltsdatei extrahiert haben, ein Update ausführen, wenn ein Update des Inhalts auf eine neue Version ausgeführt wird:  
     >   
-    >  1.  Vous créez un fichier de contenu préparé pour la version 1 d'un package.  
-    >  2.  Vous mettez à jour les fichiers sources pour le package avec la version 2.  
-    >  3.  Vous extrayez le fichier de contenu préparé (version 1 du package) sur un point de distribution.  
+    >  1.  Sie erstellen eine vorab bereitgestellte Inhaltsdatei für Version 1 eines Pakets.  
+    >  2.  Sie führen für die Quelldateien des Pakets ein Update mit Version 2 aus.  
+    >  3.  Sie extrahieren die vorab bereitgestellte Inhaltsdatei (Version 1 des Pakets) auf einem Verteilungspunkt.  
     >   
-    > Configuration Manager ne distribue pas automatiquement le package version 2 vers le point de distribution. Vous devez créer un nouveau fichier de contenu préparé contenant la nouvelle version du fichier, puis extraire le contenu, mettre à jour le point de distribution pour distribuer les fichiers qui ont été modifiés ou redistribuer tous les fichiers du package.  
+    > Configuration Manager verteilt nicht automatisch Paketversion 2 an den Verteilungspunkt. Sie müssen eine neue vorab bereitgestellte Inhaltsdatei erstellen, die die neue Dateiversion enthält, und dann den Inhalt extrahieren, für den Verteilungspunkt ein Update ausführen, um die geänderten Dateien zu verteilen, oder alle Dateien im Paket erneut verteilen.  
 
-###  <a name="a-namebkmkdpsiteservera-how-to-prestage-content-on-a-distribution-point-on-a-site-server"></a><a name="bkmk_dpsiteserver"></a> Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site  
- Lorsqu'un point de distribution est installé sur un serveur de site, vous devez suivre la procédure suivante pour préparer correctement le contenu. Cela est dû au fait que les fichiers de contenu se trouvent déjà dans la bibliothèque de contenu.  
+###  <a name="bkmk_dpsiteserver"></a> So stellen Sie Inhalt vorab auf einem Verteilungspunkt an einem Standortserver bereit  
+ Wenn ein Verteilungspunkt auf einem Standortserver installiert ist, müssen Sie wie folgt vorgehen, um Inhalte erfolgreich vorab bereitstellen zu können. Grund hierfür ist, dass die Inhaltsdateien sich bereits in der Inhaltsbibliothek befinden.  
 
- Lorsqu’un point de distribution n’est pas activé pour préparer le contenu ou lorsque le point de distribution ne se trouve pas sur un serveur de site, consultez la section [Utilisation de contenu préparé](#bkmk_prestage) dans cette rubrique.  
+ Wenn der Verteilungspunkt nicht für die Vorabbereitstellung konfiguriert ist oder sich nicht auf einem Standortserver befindet, folgen Sie den Hinweisen im Abschnitt [Verwenden von vorab bereitgestellten Inhalten](#bkmk_prestage) dieses Themas.  
 
-##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>Pour préparer du contenu sur des points de distribution situés sur un serveur de site  
+##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>So stellen Sie Inhalte auf Verteilungspunkten auf einem Standortserver vorab bereit  
 
-1.  Utilisez les étapes suivantes pour vérifier que le point de distribution n'est pas activé pour le contenu préparé.  
+1.  Stellen Sie folgendermaßen sicher, dass der Verteilungspunkt nicht für die Vorabbereitstellung von Inhalten konfiguriert ist.  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+    1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-    2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**et sélectionnez le point de distribution situé sur le serveur de site.  
+    2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunkte**, und wählen Sie dann den Verteilungspunkt aus, der sich auf dem Standortserver befindet.  
 
-    3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+    3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-    4.  Dans l'onglet **Général** , vérifiez que la case **Activer ce point de distribution pour le contenu préparé** est décochée.  
+    4.  Vergewissern Sie sich, dass auf der Registerkarte **Allgemein** das Kontrollkästchen **Diesen Verteilungspunkt für vorab bereitgestellten Inhalt aktivieren** deaktiviert ist.  
 
-2.  Créez le fichier de contenu préparé en suivant la section [Étape 1 : Créer un fichier de contenu préparé](#BKMK_CreatePrestagedContentFile) dans cette rubrique.  
+2.  Erstellen Sie mithilfe des Abschnitts [Schritt 1: Erstellen einer vorab bereitgestellten Inhaltsdatei](#BKMK_CreatePrestagedContentFile) in diesem Thema vorab bereitgestellte Inhalte.  
 
-3.  Affectez le contenu au point de distribution en suivant la section [Étape 2 : Affecter le contenu aux points de distribution](#BKMK_AssignContentToDistributionPoint) dans cette rubrique.  
+3.  Weisen Sie mithilfe der Anweisungen im Abschnitt [Schritt 2: Zuweisen des Inhalts zu Verteilungspunkten](#BKMK_AssignContentToDistributionPoint) in diesem Thema den Verteilungspunkten Inhalte zu.  
 
-4.  Sur le serveur de site, extrayez le contenu du fichier de contenu préparé en suivant la section [Étape 3 : Extraire le contenu du fichier de contenu préparé](#BKMK_ExportContentFromPrestagedContentFile) dans cette rubrique.  
+4.  Extrahieren Sie auf dem Standortserver mithilfe der Anweisungen im Abschnitt [Schritt 3: Extrahieren des Inhalts aus der vorab bereitgestellten Inhaltsdatei](#BKMK_ExportContentFromPrestagedContentFile) dieses Themas den Inhalt der vorab bereitgestellten Inhaltsdatei.  
 
     > [!NOTE]  
-    >  Lorsque le point de distribution est situé sur un site secondaire, patientez au moins 10 minutes, puis utilisez une console Configuration Manager connectée au site principal parent pour affecter le contenu au point de distribution sur le site secondaire.  
+    >  Wenn der Verteilungspunkt sich an einem sekundären Standort befindet, warten Sie mindestens 10 Minuten. Verwenden Sie dann eine mit dem übergeordneten primären Standort verbundene Configuration Manager-Konsole, um den Inhalt dem Verteilungspunkt auf dem sekundären Standort zuzuweisen.  
 
-##  <a name="a-namebkmkmanagea-manage-the-content-you-have-distributed"></a><a name="bkmk_manage"></a> Gérer le contenu que vous avez distribué  
- Vous disposez des options suivantes pour gérer le contenu :  
- - [Mettre à jour le contenu](#update-content)
- - [Redistribuer le contenu](#redistribute-content)
- - [Supprimer le contenu](#remove-content)
- - [Valider le contenu](#validate-content)
+##  <a name="bkmk_manage"></a> Verwalten der Inhalte, die Sie verteilt haben  
+ Für das Verwalten von Inhalten haben Sie die folgenden Optionen:  
+ - [Inhalt aktualisieren](#update-content)
+ - [Inhalt neu verteilen](#redistribute-content)
+ - [Inhalt entfernen](#remove-content)
+ - [Inhalt prüfen](#validate-content)
 
-### <a name="update-content"></a>Mettre à jour le contenu
-Si l’emplacement du fichier source d’un déploiement est mis à jour par l’ajout de nouveaux fichiers ou le remplacement de fichiers existants par d’autres plus récents, vous pouvez mettre à jour les fichiers de contenu sur les points de distribution à l’aide de l’action **Mettre à jour les points de distribution** ou **Mettre à jour le contenu** :  
--   Les fichiers de contenu sont copiés du chemin source vers la bibliothèque de contenu sur le site propriétaire de la source du contenu du package.  
--   La version du package est incrémentée.  
--   Chaque instance de la bibliothèque de contenu sur les serveurs de site et sur les points de distribution est mise à jour uniquement avec les fichiers qui ont été modifiés.  
+### <a name="update-content"></a>Inhalt aktualisieren
+Wenn der Speicherort der Quelldatei für eine Bereitstellung aktualisiert wird, indem neue Dateien hinzugefügt oder vorhandene Dateien durch aktuellere Versionen ersetzt werden, können Sie die Inhaltsdateien an den Verteilungspunkten aktualisieren, indem Sie die Aktionen **Verteilungspunkte aktualisieren** oder **Inhalt aktualisieren** ausführen.  
+-   Die Inhaltsdateien werden vom Quelldateipfad in die Inhaltsbibliothek auf dem Standort kopiert, der Besitzer der Paketinhaltsquelle ist.  
+-   Die Paketversion wird erhöht  
+-   Für jede Instanz der Inhaltsbibliothek auf Standortservern und Verteilungspunkten werden nur die geänderten Dateien aktualisiert.  
 
 > [!WARNING]  
->  La version du package pour les applications est toujours 1. Quand vous mettez à jour le contenu pour un type de déploiement d’application, Configuration Manager crée un ID de contenu pour le type de déploiement, et le package fait référence à ce nouvel ID de contenu.  
+>  Die Paketversion von Clientanwendungen ist immer 1. Wenn Sie den Inhalt eines Anwendungsbereitstellungstyps aktualisieren, erstellt Configuration Manager eine neue Inhalts-ID für den Bereitstellungstyp, und im Paket wird auf die neue Inhalts-ID verwiesen.  
 
-#### <a name="to-update-content-on-distribution-points"></a>Pour mettre à jour du contenu sur les points de distribution  
+#### <a name="to-update-content-on-distribution-points"></a>So führen Sie ein Update für Inhalt an Verteilungspunkten aus  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem zu verteilenden Inhaltstyp einen der folgenden Schritte aus:  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer. Cliquez sur l'onglet **Types de déploiement** , puis sélectionnez le type de déploiement à mettre à jour.  
+    -   **Anwendungen:** Erweitern Sie **Anwendungsverwaltung** > **Anwendungen**, und wählen Sie dann die zu verteilenden Anwendungen aus. Klicken Sie auf die Registerkarte **Bereitstellungstypen** , und wählen Sie dann die Bereitstellungstypen aus, für die Sie ein Update ausführen möchten.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez les packages à mettre à jour.  
+    -   **Pakete:** Erweitern Sie **Anwendungsverwaltung** > **Pakete**, und wählen Sie dann die zu aktualisierenden Pakete aus.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez les packages de déploiement à mettre à jour.  
+    -   **Bereitstellungspakete:** Erweitern Sie **Softwareupdates** > **Bereitstellungspakete**, und wählen Sie dann die zu aktualisierenden Bereitstellungspakete aus.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez les packages de pilotes à mettre à jour.  
+    -   **Treiberpakete:** Erweitern Sie **Betriebssysteme** > **Treiberpakete**, und wählen Sie dann die zu aktualisierenden Treiberpakete aus.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à mettre à jour.  
+    -   **Betriebssystemimages:** Erweitern Sie **Betriebssysteme** > **Betriebssystemimages**, und wählen Sie dann die zu aktualisierenden Betriebssystemimages aus.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à mettre à jour.  
+    -   **Betriebssysteminstallationspakete:** Erweitern Sie **Betriebssysteme** > **Betriebssysteminstallationspakete**, und wählen Sie dann die zu aktualisierenden Betriebssysteminstallationspakete aus.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à mettre à jour.  
+    -   **Startimages:** Erweitern Sie **Betriebssysteme** >  **Startimages**, und wählen Sie dann die zu aktualisierenden Startimages aus.  
 
-3.  Dans l'onglet **Accueil** , cliquez sur le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**, puis cliquez sur **OK** pour confirmer la mise à jour du contenu.  
-
-    > [!NOTE]  
-    >  Pour mettre à jour le contenu pour les applications, cliquez sur l'onglet **Types de déploiement** , cliquez avec le bouton droit sur le type de déploiement, cliquez sur **Mettre à jour le contenu**, puis cliquez sur **OK** pour confirmer l'actualisation du contenu.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Verteilungspunkte aktualisieren**, und klicken Sie dann auf **OK** , um zu bestätigen, dass Sie das Update ausführen möchten.  
 
     > [!NOTE]  
-    >  Lorsque vous mettez à jour du contenu pour les images de démarrage, l'Assistant Gestion des points de distribution s'ouvre. Vérifiez les informations sur la **Résumé** , puis effectuez toutes les étapes de l'Assistant pour mettre à jour le contenu.  
+    >  Wenn Sie ein Update für Anwendungsinhalt ausführen möchten, klicken Sie auf die Registerkarte **Bereitstellungstypen** , klicken mit der rechten Maustaste auf den Bereitstellungstyp, klicken auf **Inhalt aktualisieren**und dann auf **OK** , um das Inhaltsupdate zu bestätigen.  
 
-### <a name="redistribute-content"></a>Redistribuer le contenu
-Vous pouvez redistribuer un package pour copier tous les fichiers de contenu dans le package vers des points de distribution ou des groupes de points de distribution, et remplacer les fichiers existants.  
+    > [!NOTE]  
+    >  Wenn Sie Updates für Startabbildinhalte ausführen, wird der Assistent zum Verwalten von Verteilungspunkten geöffnet. Überprüfen Sie die Informationen auf der Seite **Zusammenfassung** , und schließen Sie den Assistenten ab, um das Update auszuführen.  
 
- Utilisez cette option pour réparer les fichiers de contenu dans le package ou pour renvoyer le contenu après un échec de la distribution initiale. Vous pouvez redistribuer un package à partir des propriétés suivantes :  
+### <a name="redistribute-content"></a>Inhalt neu verteilen
+Sie können ein Paket neu verteilen, um alle Inhaltsdateien im Paket an Verteilungspunkte oder Verteilungspunktgruppen zu kopieren und damit die vorhandenen Dateien zu überschreiben.  
 
--   Propriétés du package  
--   Propriétés du point de distribution  
--   Propriétés du groupe de points de distribution  
+ Verwenden Sie diesen Vorgang, um Inhaltsdateien im Paket zu reparieren oder den Inhalt erneut zu senden, wenn die erste Verteilung nicht erfolgreich war. Sie können ein Paket über die folgenden Optionen neu verteilen:  
+
+-   Paketeigenschaften  
+-   Verteilungspunkteigenschaften  
+-   Eigenschaften für Verteilungspunktgruppen  
 
 
-#### <a name="to-redistribute-content-from-package-properties"></a>Pour redistribuer du contenu à partir des propriétés de package  
+#### <a name="to-redistribute-content-from-package-properties"></a>So verteilen Sie Inhalt mithilfe der Paketeigenschaften neu  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem zu verteilenden Inhaltstyp einen der folgenden Schritte aus:  
 
-    -   **Applications** : Développez **Gestion d’applications** >  **Applications**, puis sélectionnez l’application à redistribuer.  
+    -   **Anwendungen:** Erweitern Sie **Anwendungsverwaltung** >  **Anwendungen**, und wählen Sie dann die neu zu verteilende Anwendung aus.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à redistribuer.  
+    -   **Pakete:** Erweitern Sie **Anwendungsverwaltung** > **Pakete**, und wählen Sie dann das neu zu verteilende Paket aus.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez le package de déploiement à redistribuer.  
+    -   **Bereitstellungspakete:** Erweitern Sie **Softwareupdates** >  **Bereitstellungspakete**, und wählen Sie dann das neu zu verteilende Bereitstellungspaket aus.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilote à redistribuer.  
+    -   **Treiberpakete:** Erweitern Sie **Betriebssysteme** > **Treiberpakete**, und wählen Sie dann das neu zu verteilende Treiberpaket aus.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à redistribuer.  
+    -   **Betriebssystemimages:** Erweitern Sie **Betriebssysteme** > **Betriebssystemimages**, und wählen Sie dann das zu verteilende Betriebssystemimage aus.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à redistribuer.  
+    -   **Betriebssysteminstallationspakete:** Erweitern Sie **Betriebssysteme** > **Betriebssysteminstallationspakete**, und wählen Sie dann das neu zu verteilende Betriebssysteminstallationspaket aus.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez l’image de démarrage à redistribuer.  
+    -   **Startimages:** Erweitern Sie **Betriebssysteme** >  **Startimages**, und wählen Sie dann das neu zu verteilende Startimage aus.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution dans lequel vous souhaitez redistribuer le contenu, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf die Registerkarte **Inhaltsorte** . Wählen Sie den Verteilungspunkt oder die Verteilungspunktgruppe aus, an die Sie den Inhalt erneut verteilen möchten, und klicken Sie auf **Neu verteilen**. Klicken Sie dann auf **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-properties"></a>Pour redistribuer du contenu à partir des propriétés de package de point de distribution  
+#### <a name="to-redistribute-content-from-distribution-point-properties"></a>So verteilen Sie Inhalt mithilfe der Verteilungspunkteigenschaften neu  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dans lequel vous souhaitez redistribuer du contenu.  
+2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunkte**, und wählen Sie dann den Verteilungspunkt aus, an dem Sie Inhalt neu verteilen möchten.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à redistribuer, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf die Registerkarte **Inhalt** , wählen Sie den neu zu verteilenden Inhalt aus, und klicken Sie auf **Neu verteilen**. Klicken Sie dann auf **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>Pour redistribuer du contenu des propriétés du groupe de points de distribution  
+#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>So verteilen Sie Inhalt über die Eigenschaften für Verteilungspunktgruppen neu  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-2.  Dans l'espace de travail **Administration** , cliquez sur **Groupes de points de distribution**, puis sélectionnez le groupe de points de distribution dont vous souhaitez redistribuer du contenu.  
+2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunktgruppen**, und wählen Sie dann die Verteilungspunktgruppe aus, in der Sie Inhalt neu verteilen möchten.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à redistribuer, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf die Registerkarte **Inhalt** , wählen Sie den neu zu verteilenden Inhalt aus, und klicken Sie auf **Neu verteilen**. Klicken Sie dann auf **OK**.  
 
     > [!IMPORTANT]  
-    >  Le contenu du package est redistribué à tous les points de distribution du groupe de points de distribution.  
+    >  Der Paketinhalt wird an alle Verteilungspunkte in der Verteilungspunktgruppe neu verteilt.  
 
 
-#### <a name="use-the-sdk-to-force-replication-of-content"></a>Utiliser le SDK pour forcer la réplication de contenu
-Vous pouvez utiliser la méthode de classe WMI (Windows Management Instrumentation) **RetryContentReplication** à partir du SDK Configuration Manager pour forcer le gestionnaire de distribution à copier le contenu de l’emplacement source vers la bibliothèque de contenu.  
+#### <a name="use-the-sdk-to-force-replication-of-content"></a>Verwenden des SDKs zum Erzwingen der Inhaltsreplikation
+Sie können die Windows Management Instrumentation-Klassenmethode (WMI) **RetryContentReplication** aus dem Configuration Manager-SDK verwenden, um den Verteilungs-Manager dazu zu zwingen, Inhalt in die Inhaltsbibliothek vom Quellspeicherort zu kopieren.  
 
-Utilisez uniquement cette méthode pour forcer la réplication quand vous devez redistribuer le contenu après avoir rencontré des problèmes lors de la réplication normale de contenu (généralement validée à l’aide du nœud Surveillance de la console).   
+Verwenden Sie diese Methode nur, um Replikation zu erzwingen, wenn Sie Inhalt erneut verteilen müssen, nachdem es Probleme mit der normalen Inhaltsreplikation gab (In der Regel wird dies mit der Verwendung des Überwachungsknotens der Konsole bestätigt).   
 
-Pour plus d’informations sur cette option SDK, consultez [RetryContentReplication Method in Class SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) (Méthode RetryContentReplication dans la classe SMS_CM_UpdatePackages) sur MSDN.Microsoft.com.
+Weitere Informationen zu dieser SDK-Option finden Sie unter [RetryContentReplication Method in Class SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) („RetryContentReplication“-Methode in der Klasse „SMS_CM_UpdatePackages“) auf MSDN.Microsoft.com.
 
-### <a name="remove-content"></a>Supprimer le contenu
-Si vous n'avez plus besoin de contenu sur vos points de distribution, vous pouvez supprimer les fichiers de contenu sur le point de distribution.  
+### <a name="remove-content"></a>Inhalt entfernen
+Wenn Sie an Verteilungspunkten keinen Inhalt mehr benötigen, können Sie die Inhaltsdateien vom Verteilungspunkt entfernen.  
 
--   Propriétés du package  
--   Propriétés du point de distribution  
--   Propriétés du groupe de points de distribution  
+-   Paketeigenschaften  
+-   Verteilungspunkteigenschaften  
+-   Eigenschaften für Verteilungspunktgruppen  
 
-Cependant, si le contenu est associé à un autre package qui a été distribué au même point de distribution, vous ne pouvez pas le supprimer.  
+Wenn der Inhalt jedoch einem anderen Paket zugeordnet ist, das an den gleichen Verteilungspunkt verteilt wurde, können Sie den Inhalt nicht entfernen.  
 
-#### <a name="to-remove-package-content-files-from-distribution-points"></a>Pour supprimer les fichiers de contenu de package de points de distribution  
+#### <a name="to-remove-package-content-files-from-distribution-points"></a>So entfernen Sie Paketinhaltsdateien aus Verteilungspunkten  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez supprimer :  
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem zu löschenden Inhaltstyp einen der folgenden Schritte aus:  
 
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à supprimer.  
+    -   **Anwendungen:** Erweitern Sie **Anwendungsverwaltung** > **Anwendungen**, und wählen Sie dann die zu entfernende Anwendung aus.  
 
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à supprimer.  
+    -   **Pakete:** Erweitern Sie **Anwendungsverwaltung** > **Pakete**, und wählen Sie dann das zu entfernende Paket aus.  
 
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à supprimer.  
+    -   **Bereitstellungspakete:** Erweitern Sie **Softwareupdates** > **Bereitstellungspakete**, und wählen Sie dann das zu entfernende Bereitstellungspaket aus.  
 
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à supprimer.  
+    -   **Treiberpakete:** Erweitern Sie **Betriebssysteme** > **Treiberpakete**, und wählen Sie dann das zu entfernende Treiberpaket aus.  
 
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à supprimer.  
+    -   **Betriebssystemimages:** Erweitern Sie **Betriebssysteme** > **Betriebssystemimages**, und wählen Sie dann das zu entfernende Betriebssystemimage aus.  
 
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à supprimer.  
+    -   **Betriebssysteminstallationspakete:** Erweitern Sie **Betriebssysteme** > **Betriebssysteminstallationspakete**, und wählen Sie dann das zu entfernende Betriebssysteminstallationspaket aus.  
 
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à supprimer.  
+    -   **Startimages:** Erweitern Sie **Betriebssysteme** > **Startimages**, und wählen Sie dann das zu entfernende Startimage aus.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution à partir duquel vous souhaitez supprimer le contenu, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf die Registerkarte **Inhaltsorte** . Wählen Sie den Verteilungspunkt oder die Verteilungspunktgruppe aus, aus dem bzw. der Sie den Inhalt entfernen möchten, und klicken Sie auf **Entfernen**. Klicken Sie dann auf **OK**.  
 
-#### <a name="to-remove-package-content-from-distribution-point-properties"></a>Pour supprimer le contenu du package des propriétés du point de distribution  
+#### <a name="to-remove-package-content-from-distribution-point-properties"></a>So entfernen Sie Paketinhalt über die Verteilungspunkteigenschaften  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dans lequel vous souhaitez supprimer le contenu.  
+2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunkte**, und wählen Sie dann den Verteilungspunkt aus, aus dem Sie Inhalt löschen möchten.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à supprimer, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf die Registerkarte **Inhalt** , wählen Sie den zu entfernenden Inhalt aus, und klicken Sie auf **Entfernen**. Klicken Sie dann auf **OK**.  
 
-#### <a name="to-remove-content-from-distribution-point-group-properties"></a>Pour supprimer du contenu des propriétés du groupe de points de distribution  
+#### <a name="to-remove-content-from-distribution-point-group-properties"></a>So entfernen Sie Inhalt über die Eigenschaften für Verteilungspunktgruppen  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-2.  Dans l'espace de travail **Administration** , cliquez sur **Groupes de points de distribution**, puis sélectionnez le groupe de points de distribution dans lequel vous souhaitez supprimer du contenu.  
+2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunktgruppen**, und wählen Sie dann die Verteilungspunktgruppe aus, aus der Sie Inhalt entfernen möchten.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
-4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à supprimer, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
-
-
-### <a name="validate-content"></a>Valider le contenu
-Le processus de validation du contenu vérifie l'intégrité des fichiers de contenu sur les points de distribution. Vous pouvez activer la validation du contenu selon une planification, ou vous pouvez démarrer manuellement la validation du contenu à partir des propriétés des points de distribution et des packages.  
-
- Lors du démarrage du processus de validation du contenu, Configuration Manager vérifie les fichiers de contenu sur les points de distribution et si le hachage du fichier est inattendu pour les fichiers du point de distribution, Configuration Manager crée un message d’état que vous pouvez consulter dans l’espace de travail **Surveillance**.  
-
- Pour plus d’informations sur la configuration de la planification de la validation du contenu, consultez [Configurations des points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+4.  Klicken Sie auf die Registerkarte **Inhalt** , wählen Sie den zu entfernenden Inhalt aus, und klicken Sie auf **Entfernen**. Klicken Sie dann auf **OK**.  
 
 
-#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Pour initier la validation du contenu de tout le contenu d'un point de distribution  
+### <a name="validate-content"></a>Inhalt prüfen
+Bei der Inhaltsprüfung wird die Integrität der Inhaltsdateien auf Verteilungspunkten überprüft. Die Inhaltsprüfung wird nach einem Zeitplan ausgeführt, oder Sie können die Inhaltsprüfung über die Eigenschaften von Verteilungspunkten und Paketen manuell initiieren.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+ Zu Beginn der Inhaltsprüfung werden die Inhaltsdateien auf Verteilungspunkten von Configuration Manager überprüft. Wenn der Dateihash für die Dateien auf dem Verteilungspunkt nicht den Erwartungen entspricht, gibt Configuration Manager eine Statusmeldung aus, die Sie im Arbeitsbereich **Überwachung** überprüfen können.  
 
-2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dont vous voulez valider le contenu.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
-
-4.  Dans l'onglet **Accueil** , sélectionnez le package dans lequel vous souhaitez valider le contenu, cliquez sur **Valider**, sur **OK**, puis de nouveau sur **OK**. Le processus de validation du contenu démarre pour le package sur le point de distribution.  
-
-5.  Pour afficher les résultats du processus de validation du contenu, dans l'espace de travail **Surveillance** , développez **État de distribution**, puis cliquez sur le nœud **État du contenu** . Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche. Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
-
-#### <a name="to-initiate-content-validation-for-a-package"></a>Pour initier la validation du contenu d'un package  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez valider :  
-
-    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à valider.  
-
-    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à valider.  
-
-    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à valider.  
-
-    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à valider.  
-
-    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à valider.  
-
-    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à valider.  
-
-    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à préparer.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
-
-4.  Dans l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution dans lequel vous souhaitez valider le contenu, cliquez sur **Valider**, sur **OK**, puis de nouveau sur **OK**. Le processus de validation du contenu démarre pour le contenu situé sur le point de distribution ou le groupe de points de distribution sélectionné.  
-
-5.  Pour afficher les résultats du processus de validation du contenu, dans l'espace de travail **Surveillance** , développez **État de distribution**, puis cliquez sur le nœud **État du contenu** . Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche. Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+ Weitere Informationen zum Konfigurieren des Zeitplans für die Inhaltsprüfung finden Sie unter [Distribution point configurations (Konfigurationen von Verteilungspunkten)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) im Thema [Install and configure distribution points for System Center Configuration Manager (Installieren und Konfigurieren von Verteilungspunkten in System Center Configuration Manager)](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
 
+#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>So initiieren Sie die Inhaltsprüfung für alle Inhalte auf einem Verteilungspunkt  
 
-<!--HONumber=Dec16_HO3-->
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
+2.  Klicken Sie im Arbeitsbereich **Verwaltung** auf **Verteilungspunkte**, und wählen Sie dann den Verteilungspunkt aus, auf dem Sie den Inhalt prüfen möchten.  
 
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+
+4.  Wählen Sie auf der Registerkarte **Inhalt** das Paket mit dem zu überprüfenden Inhalt aus, klicken Sie auf **Überprüfen**und dann auf **OK**. Klicken Sie anschließend erneut auf **OK**. Die Inhaltsprüfung für das Paket auf dem Verteilungspunkt wird initiiert.  
+
+5.  Zum Anzeigen der Ergebnisse der Inhaltsprüfung erweitern Sie im Arbeitsbereich **Überwachung** den Knoten **Verteilungsstatus**, und klicken Sie dann auf den Knoten **Inhaltsstatus** . Der Inhalt jedes Pakettyps (z. B. Anwendung, Softwareupdatepaket und Startabbild) wird angezeigt. Weitere Informationen zum Überwachen des Status von Inhalten finden Sie unter [Monitor content you have distributed with System Center Configuration Manager (Überwachen von mit System Center Configuration Manager verteilten Inhalten)](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+
+#### <a name="to-initiate-content-validation-for-a-package"></a>So initiieren Sie die Inhaltsprüfung für ein Paket  
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
+
+2.  Wählen Sie im Arbeitsbereich **Softwarebibliothek** je nach dem zu überprüfenden Inhaltstyp einen der folgenden Schritte aus:  
+
+    -   **Anwendungen:** Erweitern Sie **Anwendungsverwaltung** > **Anwendungen**, und wählen Sie dann die zu prüfende Anwendung aus.  
+
+    -   **Pakete:** Erweitern Sie **Anwendungsverwaltung** > **Pakete**, und wählen Sie dann das zu prüfende Paket aus.  
+
+    -   **Bereitstellungspakete:** Erweitern Sie **Softwareupdates** > **Bereitstellungspakete**, und wählen Sie dann das zu prüfende Bereitstellungspaket aus.  
+
+    -   **Treiberpakete:** Erweitern Sie **Betriebssysteme** > **Treiberpakete**, und wählen Sie dann das zu prüfende Treiberpaket aus.  
+
+    -   **Betriebssystemimages:** Erweitern Sie **Betriebssysteme** > **Betriebssystemimages**, und wählen Sie dann das zu prüfende Betriebssystemimage aus.  
+
+    -   **Betriebssysteminstallationspakete:** Erweitern Sie **Betriebssysteme** >  **Betriebssysteminstallationspakete**, und wählen Sie dann das zu prüfende Betriebssysteminstallationspaket aus.  
+
+    -   **Startimages:** Erweitern Sie **Betriebssysteme** > **Startimages**, und wählen Sie dann das vorab bereitzustellende Startimage aus.  
+
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+
+4.  Wählen Sie auf der Registerkarte **Inhaltsorte** den Verteilungspunkt bzw. die Verteilungspunktgruppe mit dem zu überprüfenden Inhalt aus, klicken Sie auf **Überprüfen**und dann auf **OK**. Klicken Sie anschließend erneut auf **OK**. Die Inhaltsprüfung für den ausgewählten Verteilungspunkt bzw. die ausgewählte Verteilungspunktgruppe wird initiiert.  
+
+5.  Zum Anzeigen der Ergebnisse der Inhaltsprüfung erweitern Sie im Arbeitsbereich **Überwachung** den Knoten **Verteilungsstatus**, und klicken Sie dann auf den Knoten **Inhaltsstatus** . Der Inhalt jedes Pakettyps (z. B. Anwendung, Softwareupdatepaket und Startabbild) wird angezeigt. Weitere Informationen zum Überwachen des Status von Inhalten finden Sie unter [Monitor content you have distributed with System Center Configuration Manager (Überwachen von mit System Center Configuration Manager verteilten Inhalten)](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  

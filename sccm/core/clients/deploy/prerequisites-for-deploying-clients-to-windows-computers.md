@@ -1,241 +1,237 @@
 ---
-title: "Prérequis au déploiement de clients Windows | Microsoft Docs"
-description: "Découvrez la configuration requise pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager."
+title: "Voraussetzungen für die Bereitstellung des Windows-Clients | Microsoft-Dokumentation"
+description: "Hier erhalten Sie Informationen über die Voraussetzungen für die Bereitstellung von Clients auf Windows-Computern in System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1a2a9b48-a95b-4643-b00c-b3079584ae2e
-caps.latest.revision: 16
-caps.handback.revision: 0
+caps.latest.revision: "16"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 7ed1b9e6802cc20defcb92a8e536983fd757bd29
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
-
+ms.openlocfilehash: 6636ce4d929326fad0210407d7634ea585eb0a2d
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Configuration requise pour le déploiement de clients sur des ordinateurs Windows dans System Center Configuration Manager
+# <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Voraussetzungen für die Bereitstellung von Clients auf Windows-Computern in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Le déploiement de clients Configuration Manager dans votre environnement présente des dépendances externes et internes au produit, comme décrit ci-dessous. En outre, chaque méthode de déploiement client possède ses propres dépendances qui doivent être respectées pour le bon déroulement des installations clients.  
+Bei der Bereitstellung von Configuration Manager-Clients in einer Umgebung sind die folgenden externen und produktinternen Abhängigkeiten zu beachten. Darüber hinaus weist jede Clientbereitstellungsmethode eigene Abhängigkeiten auf, die erfüllt sein müssen, um eine erfolgreiche Clientinstallation auszuführen.  
 
-  Consultez également la rubrique [Configurations prises en charge pour System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md) pour vous assurer que les appareils présentent la configuration minimale requise (matériel et système d’exploitation) pour le client Configuration Manager.  
+  Lesen Sie auch den Artikel [Unterstützte Konfigurationen für System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md), um sicherzustellen, dass die Geräte die Mindestanforderungen an Hardware und Betriebssystem für den Configuration Manager-Client erfüllen.  
 
- Pour plus d’informations sur la configuration requise pour le client Configuration Manager pour Linux et UNIX, consultez [Planification du déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
-
-> [!NOTE]  
->  Les numéros de version de logiciel mentionnés dans cet article indiquent uniquement les numéros de version minimale requise.  
-
-##  <a name="BKMK_prereqs_computers"></a> Conditions préalables pour les clients d’ordinateurs  
- Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des ordinateurs.  
-
-### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
-
-|||  
-|-|-|  
-|Windows Installer version 3.1.4000.2435|Obligatoire pour prendre en charge l'utilisation des fichiers de mise à jour (.msp) Windows Installer pour les packages et les mises à jour logicielles.|  
-|[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Installez ce correctif sur les serveurs de site exécutant Windows Server 2008 R2 quand l’installation Push du client est activée.|  
-|Service Microsoft BITS (Background Intelligent Transfer Service) version 2.5|Requis pour autoriser le transfert contrôlé des données entre l’ordinateur client et les systèmes de site Configuration Manager. BITS n'est pas automatiquement téléchargé lors de l'installation du client. Lorsque le service BITS est installé sur les ordinateurs, un redémarrage est généralement nécessaire pour terminer l'installation.<br /><br /> La plupart des systèmes d’exploitation intègrent le service BITS. Si cela n’est pas le cas, comme Windows Server 2003 R2 SP2, par exemple, vous devez installer ce service avant d’installer le client Configuration Manager.|  
-|Planificateur de tâches Microsoft|Activez ce service sur le client pour accomplir l’installation du client.|  
-
-### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Dépendances extérieures à Configuration Manager et téléchargées automatiquement lors de l'installation  
- Le client Configuration Manager présente plusieurs dépendances externes potentielles. Ces dépendances dépendent du système d'exploitation et du logiciel installé sur l'ordinateur client.  
-
- Si elles sont nécessaires à l'installation du client, ces dépendances sont installées automatiquement avec le logiciel client.  
-
-|||  
-|-|-|  
-|Agent Windows Update version 7.0.6000.363|Requis par Windows pour prendre en charge la détection et le déploiement des mises à jour.|  
-|Microsoft Core XML Services (MSXML) version 6.20.5002 ou supérieure|Obligatoire pour prendre en charge le traitement des documents XML dans Windows.|  
-|Microsoft Remote Differential Compression (RDC)|Requis pour optimiser la transmission de données sur le réseau.|  
-|Microsoft Visual C++ 2013 Redistributable version 12.0.21005.1|Requis pour prendre en charge les opérations de clients. Lorsque cette mise à jour est installée sur les ordinateurs clients, un redémarrage peut être nécessaire pour terminer l'installation.|  
-|Microsoft Visual C++ 2005 Redistributable version 8.0.50727.42|Pour la version 1606 et les versions antérieures, exigé pour prendre en charge les opérations de Microsoft SQL Server Compact.|  
-|API d'image Windows 6.0.6001.18000|Requis pour permettre à Configuration Manager de gérer les fichiers image Windows (.wim).|  
-|Microsoft Policy Platform 1.2.3514.0|Requis pour autoriser les clients à évaluer les paramètres de conformité.|  
-|Microsoft Silverlight 5.1.41212.0 (à compter de Configuration Manager version 1602)|Requis pour prendre en charge l'expérience utilisateur du site Web du catalogue d'applications.|  
-|Microsoft .NET Framework version 4.5.2.|Requis pour prendre en charge les opérations de clients. Installé automatiquement sur l’ordinateur client si le Microsoft .NET Framework 4.5 ou version ultérieure n’est pas installé. Pour plus d’informations, consultez [Détails supplémentaires sur Microsoft .NET Framework version 4.5.2](#dotNet).|  
-|Composants Microsoft SQL Server Compact 3.5 SP2|Requis pour conserver les informations liées aux opérations du client.|  
-|Microsoft Windows Imaging Components|Requis par Microsoft .NET Framework 4.0 pour Windows Server 2003 ou Windows XP SP2 pour les ordinateurs 64 bits.|
-|Client logiciel PC Microsoft Intune|Vous ne pouvez pas exécuter le client logiciel Intune PC et le client Configuration Manager sur le même ordinateur. Assurez-vous que le client Intune a été supprimé avant d’installer le client Configuration Manager.|
-
-####  <a name="dotNet"></a> Informations supplémentaires sur Microsoft .NET Framework version 4.5.2  
+ Weitere Informationen zu den Anforderungen an den Configuration Manager-Client für Linux und UNIX finden Sie unter [Planen der Clientbereitstellung auf Linux- und UNIX-Computern in System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
 
 > [!NOTE]  
->  Le 12 janvier 2016, la prise en charge de .NET 4.0, 4.5 et 4.5.1 a expiré. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
+>  Bei den in diesem Artikel aufgeführten Softwareversionsnummern handelt es sich um die erforderlichen Mindestversionsnummern.  
 
- Un redémarrage peut être nécessaire pour achever l’installation de Microsoft .NET Framework version 4.5.2. Une notification **Redémarrage requis** sera affichée dans la barre d’état système.  Scénarios courants qui nécessitent le redémarrage des ordinateurs clients :  
+##  <a name="BKMK_prereqs_computers"></a> Voraussetzungen für Computerclients  
+ Mithilfe der folgenden Informationen können Sie die Voraussetzungen für die Installation des Configuration Manager-Clients auf Computern bestimmen.  
 
--   Des services ou des applications .NET sont en cours d’exécution sur l’ordinateur.  
-
--   Il manque une ou plusieurs mises à jour logicielles nécessaires pour l’installation de .NET.  
-
--   L’ordinateur doit être redémarré suite à une précédente installation de mises à jour logicielles du .NET Framework.  
-
- Après l’installation du .NET Framework 4.5.2, des mises à jour supplémentaires peuvent être installées par la suite et nécessiter des redémarrages de l’ordinateur.  
-
-### <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
- Pour plus d’informations sur les rôles de système de site suivants, consultez [Déterminer les rôles de système de site pour les clients System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md)  
+### <a name="dependencies-external-to-configuration-manager"></a>Externe Abhängigkeiten von Configuration Manager  
 
 |||  
 |-|-|  
-|Point de gestion|Un point de gestion n’est pas nécessaire pour déployer le client Configuration Manager, mais il l’est pour transférer des informations entre les ordinateurs clients et les serveurs Configuration Manager. Sans point de gestion, vous ne pouvez pas gérer les ordinateurs clients.|  
-|Point de distribution|Le point de distribution est un rôle de système de site facultatif, mais recommandé dans le cadre du déploiement de clients. Tous les points de distribution hébergent les fichiers sources du client, ce qui permet aux ordinateurs de trouver le point de distribution le plus proche auprès duquel ils peuvent télécharger ces fichiers sources au cours du déploiement. Si le site ne possède pas de point de distribution, les ordinateurs téléchargent les fichiers sources du client auprès de leur point de gestion.|  
-|Point d'état de secours|Le point d'état de secours est un rôle de système de site facultatif, mais recommandé dans le cadre du déploiement de clients. Le point d’état de secours surveille le déploiement des clients et permet aux ordinateurs du site Configuration Manager d’envoyer des messages d’état quand ils ne peuvent pas communiquer avec un point de gestion.|  
-|Point de Reporting Services|Le point de Reporting Services est un rôle de système de site, facultatif mais recommandé, qui peut afficher des rapports liés au déploiement et à la gestion du client. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../core/servers/manage/reporting.md).|  
+|Windows Installer Version 3.1.4000.2435|Erforderlich, um die Verwendung der Microsoft Windows Installer-Updatedateien (.msp) für Pakete und Softwareupdates zu unterstützen.|  
+|[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Wenn die Clientpushinstallation aktiviert ist, müssen Sie diesen Hotfix auf Standortservern installieren, auf denen Windows Server 2008 R2 ausgeführt wird.|  
+|Microsoft Background Intelligent Transfer Service (BITS) Version 2.5|Erforderlich, um Datenübertragungen eingeschränkter Bandbreite zwischen dem Clientcomputer und den Configuration Manager-Standortsystemen zu ermöglichen. BITS wird während der Clientinstallation nicht automatisch heruntergeladen. Wird BITS auf Computern installiert, ist zum Abschließen der Installation in der Regel ein Neustart erforderlich.<br /><br /> Die meisten Betriebssysteme enthalten BITS. Ist dies nicht der Fall (z.B. bei Windows Server 2003 R2 SP2), müssen Sie BITS vor der Installation des Configuration Manager-Clients installieren.|  
+|Microsoft-Aufgabenplanung|Aktivieren Sie diesen Dienst auf dem Client, um die Clientinstallation abzuschließen.|  
 
-### <a name="installation-method-dependencies"></a>Dépendances liées aux méthodes d'installation  
- Les conditions requises suivantes sont spécifiques aux différentes méthodes d'installation du client.  
+### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Externe abhängige Komponenten, die bei der Installation von Configuration Manager automatisch heruntergeladen werden  
+ Der Configuration Manager-Client verfügt über einige potenzielle externe Abhängigkeiten. Diese Abhängigkeiten hängen vom Betriebssystem und der installierten Software auf dem Clientcomputer ab.  
 
--   Installation poussée du client  
+ Wenn diese abhängigen Komponenten zum Abschließen der Clientinstallation erforderlich sind, werden sie automatisch mit der Clientsoftware installiert.  
 
-    -   Les comptes d'installation poussée du client sont utilisés pour se connecter aux ordinateurs pour l'installation du client et sont spécifiés dans l'onglet **Comptes** de la boîte de dialogue **Propriétés de l'installation poussée du client** . Le compte doit être membre du groupe d'administrateurs local sur l'ordinateur de destination.  
+|||  
+|-|-|  
+|Windows Update Agent Version 7.0.6000.363|Wird von Windows zur Unterstützung der Updateerkennung und -bereitstellung benötigt.|  
+|Microsoft Core XML Services (MSXML) Version 6.20.5002 oder höher|Wird unter Windows zur Unterstützung der Verarbeitung von XML-Dokumenten benötigt.|  
+|Microsoft Remote Differential Compression (RDC)|Ist erforderlich, um die Datenübertragung über das Netzwerk zu optimieren.|  
+|Microsoft Visual C++ 2013 Redistributable Version 12.0.21005.1|Ist zur Unterstützung von Clientoperationen erforderlich. Wenn dieses Update auf den Clientcomputern installiert wird, ist möglicherweise ein Neustart erforderlich, um die Installation abzuschließen.|  
+|Microsoft Visual C++ 2005 Redistributable Version 8.0.50727.42|Für die Version 1606 und ältere Versionen ist erforderlich, das Microsoft SQL Server Compact-Operationen unterstützt werden.|  
+|Windows Imaging APIs 6.0.6001.18000|Ist erforderlich für die Verwaltung von Windows-Imagedateien (.wim) mit Configuration Manager.|  
+|Microsoft-Richtlinienplattform 1.2.3514.0|Ist erforderlich, damit Kompatibilitätseinstellungen von Clients ausgewertet werden können.|  
+|Microsoft Silverlight 5.1.41212.0 (beginnend in Configuration Manager-Version 1602)|Ist erforderlich, um die Benutzerfreundlichkeit der Anwendungskatalog-Website zu unterstützen.|  
+|Microsoft .NET Framework 4.5.2|Ist zur Unterstützung von Clientoperationen erforderlich. Wird automatisch auf auf dem Clientcomputer installiert, wenn Microsoft .NET Framework 4.5 oder höher nicht installiert ist. Weitere Informationen finden Sie im nächsten Abschnitt unter [Weitere Informationen über Microsoft .NET Framework, Version 4.5.2](#dotNet).|  
+|Microsoft SQL Server Compact 3.5 SP2-Komponenten|Ist erforderlich zum Speichern von Informationen zu Clientoperationen.|  
+|Microsoft Windows Imaging Components|Ist erforderlich für Microsoft .NET Framework 4.0 auf 64-Bit-Computern unter Windows Server 2003 oder Windows XP SP2.|
+|Microsoft Intune PC-Softwareclient|Der Intune PC-Softwareclient und der Configuration Manager-Client können nicht auf dem gleichen PC ausgeführt werden. Stellen Sie sicher, dass der Intune-Client entfernt wurde, bevor Sie den Configuration Manager-Client installieren.|
 
-         Si vous ne spécifiez pas de compte d'installation poussée du client, le compte d'ordinateur du serveur de site sera utilisé.  
+####  <a name="dotNet"></a> Weitere Informationen über Microsoft .NET Framework, Version 4.5.2  
 
-    -   L’ordinateur sur lequel vous installez le client doit avoir été découvert par au moins une méthode de découverte de Configuration Manager.  
+> [!NOTE]  
+>  Die Unterstützung für .NET 4.0, 4.5 und 4.5.1 ist am 12. Januar 2016 abgelaufen. Weitere Informationen finden Sie in den [häufig gestellten Fragen zur Microsoft-Support-Lifecycle-Richtlinie für .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) unter „support.microsoft.com“.  
 
-    -   L'ordinateur dispose d'un partage ADMIN$.  
+ Zum Abschluss der Installation von Microsoft .NET Framework 4.5.2 ist möglicherweise ein Neustart des Systems erforderlich. Der Benutzer sieht auf der Taskleiste die Benachrichtigung **Neustart erforderlich** .  Allgemeine Szenarien, die den Neustart von Clientcomputern erfordern:  
 
-    -   L’option **Activer l’installation push du client aux ressources attribuées** doit être sélectionnée dans la boîte de dialogue **Propriétés de l’installation push du client** si vous souhaitez transférer (push) automatiquement le client Configuration Manager vers les ressources découvertes.  
+-   .NET-Anwendungen oder -Dienste, die auf dem Computer ausgeführt werden.  
 
-    -   L'ordinateur client doit être capable de contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge.  
+-   Es fehlen ein oder mehrere Softwareupdates, die für die .NET-Installation erforderlich sind.  
 
-     Vous devez disposer des autorisations de sécurité suivantes pour installer le client Configuration Manager à l’aide de l’installation push du client :  
+-   Der Computer wartet auf einen Neustart aufgrund einer vorherigen Installation von Softwareupdates für .NET Framework.  
 
-    -   Pour configurer le compte d’installation poussée du client : autorisation **Modifier** et Lire pour l’objet **Site** .  
+ Nach der Installation von .NET Framework 4.5.2 müssen möglicherweise weitere Updates installiert werden, was weitere Neustarts erfordern kann.  
 
-    -   Pour utiliser l’installation poussée du client pour installer le client sur les regroupements, les appareils et les requêtes : autorisation **Modifier la ressource** et **Lire** pour l’objet Collection.  
+### <a name="configuration-manager-dependencies"></a>Abhängigkeiten in Configuration Manager  
+ Weitere Informationen über diese Standortsystemrollen finden Sie unter [Ermitteln der Standortsystemrollen für System Center Configuration Manager-Clients](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
-     Le rôle de sécurité **Administrateur d'infrastructure** comprend les autorisations requises pour la gestion de l'installation poussée du client.  
+|||  
+|-|-|  
+|Verwaltungspunkt|Obgleich kein Verwaltungspunkt notwendig ist, um den Configuration Manager-Client bereitzustellen, muss ein Verwaltungspunkt vorhanden sein, um Informationen zwischen Clientcomputern und Configuration Manager-Servern zu übertragen. Ohne Verwaltungspunkt können Sie Clientcomputer nicht verwalten.|  
+|Verteilungspunkt|Der Verteilungspunkt ist eine optionale Standortsystemrolle, deren Verwendung für die Clientbereitstellung jedoch empfohlen wird. Die Clientquelldateien werden auf allen Verteilungspunkten gehostet. So können Computer den nächsten Verteilungspunkt ermitteln, von dem die Clientquelldateien während der Clientbereitstellung heruntergeladen werden können. Falls der Standort nicht über einen Verteilungspunkt verfügt, werden die Clientquelldateien von Computern vom jeweiligen Verwaltungspunkt heruntergeladen.|  
+|Fallbackstatuspunkt|Der Fallbackstatuspunkt ist eine optionale Standortsystemrolle, deren Verwendung für die Clientbereitstellung jedoch empfohlen wird. Mithilfe des Fallbackstatuspunkts wird die Clientbereitstellung nachverfolgt, und es wird Computern am Configuration Manager-Standort ermöglicht, Zustandsmeldungen zu senden, wenn sie nicht mit einem Verwaltungspunkt kommunizieren können.|  
+|Reporting Services-Punkt|Der Reporting Services-Punkt ist eine optionale, aber empfohlene Standortsystemrolle, über die Berichte zur Bereitstellung und Verwaltung von Clients angezeigt werden können. Weitere Informationen finden Sie unter [Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/reporting.md).|  
 
--   Installation basée sur un point de mise à jour logicielle  
+### <a name="installation-method-dependencies"></a>Installationsmethodenabhängigkeiten  
+ Die folgenden Voraussetzungen gelten für die verschiedenen Clientinstallationsmethoden.  
 
-    -   Si le schéma Active Directory n'a pas été étendu ou si vous installez des clients depuis une autre forêt, les propriétés d'installation de CCMSetup.exe doivent être configurées dans le Registre de l'ordinateur à l'aide d'une stratégie de groupe. Pour plus d’informations, consultez  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+-   Clientpushinstallation  
 
-    -   Le client Configuration Manager doit être publié sur le point de mise à jour logicielle.  
+    -   Clientpushinstallationskonten werden verwendet, um eine Verbindung mit Computern zur Installation des Clients herzustellen. Sie werden im Dialogfeld **Eigenschaften von Clientpushinstallation** auf der Registerkarte **Konten** angegeben. Das Konto muss ein Mitglied der lokalen Gruppe „Administratoren“ auf dem Zielcomputer sein.  
 
-    -   L'ordinateur client doit être capable de contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge.  
+         Wenn Sie kein Clientpushinstallationskonto angeben, wird das Konto des Standortservercomputers verwendet.  
 
-     Pour en savoir plus sur les autorisations de sécurité nécessaires à la gestion des mises à jour logicielles dans Configuration Manager, consultez [Prérequis pour les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/prerequisites-for-software-updates.md).  
+    -   Der Zielcomputer der Clientinstallation muss mit mindestens einer Configuration Manager-Ermittlungsmethode ermittelt worden sein.  
 
--   Installation basée sur une stratégie de groupe  
+    -   Auf dem Computer ist eine ADMIN$-Freigabe vorhanden.  
 
-    -   Si le schéma Active Directory n'a pas été étendu ou si vous installez des clients depuis une autre forêt, les propriétés d'installation de CCMSetup.exe doivent être configurées dans le Registre de l'ordinateur à l'aide d'une stratégie de groupe. Pour plus d’informations, consultez  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+    -   Im Dialogfeld **Eigenschaften der Clientpushinstallation** muss die Option **Clientpushinstallation auf zugewiesenen Ressourcen aktivieren** aktiviert sein, wenn Sie den Configuration Manager-Client automatisch mittels Push auf die ermittelten Ressourcen übertragen möchten.  
 
-    -   L'ordinateur client doit être en mesure de contacter un point de gestion pour télécharger les fichiers de prise en charge.  
+    -   Vom Clientcomputer muss eine Verbindung mit einem Verteilungspunkt oder einem Verwaltungspunkt hergestellt werden können, um unterstützende Dateien herunterzuladen.  
 
--   Installation basée sur un script d'ouverture de session  
+     Sie müssen über die folgenden Sicherheitsberechtigungen verfügen, um den Configuration Manager-Client mithilfe der Clientpushinstallation installieren zu können:  
 
-     L’ordinateur client doit pouvoir contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge, sauf si, sur l’invite de commande, vous avez spécifié CCMSetup.exe avec la propriété de ligne de commande **ccmsetup /source**.  
+    -   Berechtigungen **Ändern** und **Lesen** für das Standortobjekt, um das Clientpushinstallationskonto konfigurieren zu können  
 
--   Installation manuelle  
+    -   Berechtigungen **Ressource ändern** und **Lesen** für das Sammlungsobjekt, um den Client mithilfe der Clientpushinstallation in Sammlungen installieren zu können  
 
-     L’ordinateur client doit pouvoir contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge, sauf si, sur l’invite de commande, vous avez spécifié CCMSetup.exe avec la propriété de ligne de commande **ccmsetup /source**.  
+     Die Sicherheitsrolle **Infrastrukturadministrator** umfasst die für die Verwaltung der Clientpushinstallation erforderlichen Berechtigungen.  
 
--   Installation d'ordinateurs d'un groupe de travail  
+-   Auf einem Softwareupdatepunkt basierende Installation  
 
-     Pour accéder aux ressources du domaine du serveur de site Configuration Manager, le compte d’accès réseau doit être configuré pour le site.  
+    -   Wenn das Active Directory-Schema nicht erweitert wurde oder Sie Clients von einer anderen Gesamtstruktur aus installieren, müssen die Installationseigenschaften für CCMSetup.exe mithilfe von Gruppenrichtlinien in der Registrierung des Computers angegeben werden. Weitere Informationen finden Sie unter  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
-     Pour plus d’informations sur la configuration du compte d’accès réseau, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+    -   Der Configuration Manager-Client muss auf dem Softwareupdatepunkt veröffentlicht werden.  
 
--   Installation basée sur la distribution de logiciels (pour les mises à niveau uniquement)  
+    -   Vom Clientcomputer muss eine Verbindung mit einem Verteilungspunkt oder einem Verwaltungspunkt hergestellt werden können, um unterstützende Dateien herunterzuladen.  
 
-    -   Si le schéma Active Directory n'a pas été étendu ou si vous installez des clients depuis une autre forêt, les propriétés d'installation de CCMSetup.exe doivent être configurées dans le Registre de l'ordinateur à l'aide d'une stratégie de groupe. Pour plus d’informations, consultez [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+     Die erforderlichen Sicherheitsberechtigungen zum Verwalten von Configuration Manager-Softwareupdates finden Sie unter [Voraussetzungen für Softwareupdates in System Center Configuration Manager](../../../sum/plan-design/prerequisites-for-software-updates.md).  
 
-    -   L'ordinateur client doit être capable de contacter un point de distribution ou un point de gestion pour télécharger les fichiers de prise en charge.  
+-   Auf einer Gruppenrichtlinie basierende Installation  
 
-     Pour en savoir plus sur les autorisations de sécurité nécessaires à la mise à niveau du client Configuration Manager à l’aide de la gestion d’applications, consultez [Sécurité et confidentialité pour la gestion des applications](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+    -   Wenn das Active Directory-Schema nicht erweitert wurde oder Sie Clients von einer anderen Gesamtstruktur aus installieren, müssen die Installationseigenschaften für CCMSetup.exe mithilfe von Gruppenrichtlinien in der Registrierung des Computers angegeben werden. Weitere Informationen finden Sie unter  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Mises à niveau automatiques des clients  
+    -   Der Clientcomputer muss eine Verbindung mit einem Verwaltungspunkt herstellen können, damit er unterstützende Dateien herunterladen kann.  
 
-     Vous devez avoir le rôle de sécurité **Administrateur complet** pour pouvoir configurer des mises à niveau automatiques des clients.  
+-   Auf einem Anmeldeskript basierende Installation  
 
-### <a name="firewall-requirements"></a>Configuration requise du pare-feu  
- S’il existe un pare-feu entre les serveurs du système de site et les ordinateurs sur lesquels vous souhaitez installer le client Configuration Manager, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+     Vom Clientcomputer muss eine Verbindung mit einem Verteilungspunkt oder einem Verwaltungspunkt hergestellt werden können, um unterstützende Dateien herunterzuladen. Dies ist nicht erforderlich, wenn „CCMSetup.exe“ mit der Befehlszeileneigenschaft **ccmsetup /source**über die Eingabeaufforderung angegeben wurde.  
 
-##  <a name="BKMK_prereqs_mobiledevices"></a> Conditions préalables pour les clients d’appareils mobiles  
- Aidez-vous des informations suivantes pour déterminer la configuration requise pour installer le client Configuration Manager sur des appareils mobiles et pour inscrire ces appareils à l’aide de Configuration Manager.  
+-   Manuelle Installation  
 
-### <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
+     Vom Clientcomputer muss eine Verbindung mit einem Verteilungspunkt oder einem Verwaltungspunkt hergestellt werden können, um unterstützende Dateien herunterzuladen. Dies ist nicht erforderlich, wenn „CCMSetup.exe“ mit der Befehlszeileneigenschaft **ccmsetup /source**über die Eingabeaufforderung angegeben wurde.  
 
--   Autorité de certification d'entreprise Microsoft avec des modèles de certificats pour déployer et gérer les certificats requis pour les appareils mobiles.  
+-   Installation von Arbeitsgruppencomputern  
 
-     L'autorité de certification émettrice doit automatiquement approuver les demandes de certificat de la part d'utilisateurs d'appareils mobiles lors du processus d'inscription.  
+     Das Netzwerkzugriffskonto muss für den Standort konfiguriert sein, um auf Ressourcen in der Configuration Manager-Standortserverdomäne zugreifen zu können.  
 
-     Pour plus d’informations sur la configuration requise pour les certificats, consultez [Sécurité et confidentialité pour les profils de certificat dans System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md).  
+     Weitere Informationen zum Konfigurieren des Netzwerkzugriffskontos finden Sie unter [Fundamental concepts for content management in System Center Configuration Manager (Grundlegende Konzepte für das Content Management in System Center Configuration Manager)](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   Groupe de sécurité qui contient les utilisateurs pouvant inscrire leurs appareils mobiles.  
+-   Auf einer Softwareverteilung basierende Installation (nur für Upgrades)  
 
-     Ce groupe de sécurité est utilisé pour configurer le modèle de certificat utilisé lors de l'inscription d'appareils mobiles.  
+    -   Wenn das Active Directory-Schema nicht erweitert wurde oder Sie Clients von einer anderen Gesamtstruktur aus installieren, müssen die Installationseigenschaften für CCMSetup.exe mithilfe von Gruppenrichtlinien in der Registrierung des Computers angegeben werden. Weitere Informationen finden Sie unter [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Facultatif mais recommandé : alias DNS (enregistrement CNAME) nommé **ConfigMgrEnroll** configuré pour le nom du serveur du système de site sur lequel vous installerez le point proxy d’inscription.  
+    -   Vom Clientcomputer muss eine Verbindung mit einem Verteilungspunkt oder einem Verwaltungspunkt hergestellt werden können, um unterstützende Dateien herunterzuladen.  
 
-     Cet alias DNS est nécessaire pour prendre en charge la découverte automatique du service d’inscription : si vous ne configurez pas cet enregistrement DNS, les utilisateurs doivent spécifier manuellement le nom du serveur du système de site du point proxy d'inscription lors du processus d'inscription.  
+     Die Sicherheitsberechtigungen, die für ein Upgrade des Configuration Manager-Clients über die Anwendungsverwaltung erforderlich sind, finden Sie unter [Sicherheit und Datenschutz für die Anwendungsverwaltung](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
 
--   Dépendances du rôle du système de site pour les ordinateurs qui exécuteront les rôles du système de site point d'inscription et point proxy d'inscription.  
+-   Automatische Clientupgrades  
 
-     Consultez [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).  
+     Sie müssen ein Mitglied der Sicherheitsrolle **Hauptadministrator** sein, um automatische Clientupgrades konfigurieren zu können.  
 
-### <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
- Pour plus d’informations sur les rôles de système de site suivants, consultez [Déterminer les rôles de système de site pour les clients System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+### <a name="firewall-requirements"></a>Firewallanforderungen  
+ Wenn sich zwischen den Standortsystemservern und den Computern, auf denen der Configuration Manager-Client installiert werden soll, eine Firewall befindet, lesen Sie die Hinweise unter [Windows-Firewall- und -Porteinstellungen für Clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
--   Point de gestion configuré pour les connexions client HTTPS et activé pour les appareils mobiles  
+##  <a name="BKMK_prereqs_mobiledevices"></a> Voraussetzungen für Clients für mobile Geräte  
+ Mithilfe der folgenden Informationen können Sie die Voraussetzungen für die Installation des Configuration Manager-Clients auf mobilen Geräten bestimmen und diese mithilfe von Configuration Manager registrieren.  
 
-     Un point de gestion est toujours nécessaire pour installer le client Configuration Manager sur des appareils mobiles. En plus de la configuration requise du protocole HTTPS et d'être activé pour les appareils mobiles, le point de gestion doit être configuré avec un nom de domaine complet Internet et accepter les connexions client depuis Internet.  
+### <a name="dependencies-external-to-configuration-manager"></a>Externe Abhängigkeiten von Configuration Manager  
 
--   Point d'inscription et point proxy d'inscription  
+-   Eine Microsoft-Unternehmenszertifizierungsstelle (CA) mit Zertifikatvorlagen, um die Zertifikate bereitzustellen und zu verwalten, die für mobile Geräte erforderlich sind  
 
-     Un point proxy d'inscription gère les demandes d'inscription de la part d'appareils mobiles et le point d'inscription termine le processus d'inscription. Le point d'inscription doit être dans la même forêt Active Directory que le serveur de site, mais le point proxy d'inscription peut être dans une autre forêt.  
+     Von der ausstellenden Zertifizierungsstelle müssen im Rahmen der Anmeldung automatisch Zertifikatanforderungen genehmigt werden, die von Benutzern mobiler Geräte übermittelt wurden.  
 
--   Paramètres client pour l'inscription d'appareils mobiles  
+     Weitere Informationen zu Zertifikatanforderungen finden Sie unter [Sicherheit und Datenschutz für Zertifikatprofile in System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md).  
 
-     Configurez des paramètres client pour permettre aux utilisateurs d'inscrire des appareils mobiles et de configurer au moins un profil d'inscription.  
+-   Eine Sicherheitsgruppe mit Benutzern, die ihre mobilen Geräte anmelden können  
 
--   Point de Reporting Services  
+     Mit dieser Sicherheitsgruppe wird die im Rahmen der Anmeldung der mobilen Geräte verwendete Zertifikatvorlage konfiguriert.  
 
-     Le point de Reporting Services est un rôle de système de site, facultatif mais recommandé, qui peut afficher des rapports liés à l'inscription d'appareils mobiles et à la gestion de clients.  
+-   Optional, jedoch empfohlen: ein für den Namen des Standortsystemservers, auf dem der Anmeldungsproxypunkt installiert wird, konfigurierter DNS-Alias (CNAME-Eintrag) mit der Bezeichnung **ConfigMgrEnroll**  
 
-     Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
+     Dieser DNS-Alias ist erforderlich, um die automatische Ermittlung für den Anmeldungsdienst zu unterstützen: Wenn dieser DNS-Datensatz nicht konfiguriert wird, müssen Benutzer im Rahmen des Anmeldungsprozesses den Namen des Standortsystemservers für den Anmeldungsproxypunkt manuell angeben.  
 
--   Pour configurer l'inscription pour les appareils mobiles, vous devez disposer des autorisations de sécurité suivantes :  
+-   Abhängigkeiten der Standortsystemrollen für die Computer, auf denen die Standortsystemrollen „Anmeldungspunkt“ und „Anmeldungsproxypunkt“ ausgeführt werden  
 
-    -   Pour ajouter, modifier et supprimer les rôles de système de site d’inscription : autorisation **Modifier** pour l’objet **Site** .  
+     Informationen hierzu finden Sie unter [Supported operating systems for site system servers](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md) (Unterstützte Betriebssysteme für Standortsystemserver).  
 
-    -   Pour configurer les paramètres clients de l’inscription : les paramètres clients par défaut nécessitent l’autorisation **Modifier** pour l’objet **Site** et les paramètres clients personnalisés nécessitent des autorisations **Agent client**  .  
+### <a name="configuration-manager-dependencies"></a>Abhängigkeiten in Configuration Manager  
+ Weitere Informationen über diese Standortsystemrollen finden Sie unter [Ermitteln der Standortsystemrollen für System Center Configuration Manager-Clients](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
-     Le rôle de sécurité **Administrateur complet** comprend les autorisations requises pour configurer les rôles de système de site d'inscription.  
+-   Verwaltungspunkt, der für HTTPS-Clientverbindungen konfiguriert und für mobile Geräte aktiviert ist  
 
-     Pour gérer des appareils mobiles inscrits, vous devez disposer des autorisations de sécurité suivantes :  
+     Ein Verwaltungspunkt ist immer erforderlich, um den Configuration Manager-Client auf mobilen Geräten installieren zu können. Zusätzlich zu diesen Konfigurationsanforderungen (HTTPS-Unterstützung und aktiviert für mobile Geräte) muss der Verwaltungspunkt mit einem Internet-FQDN konfiguriert sein, und Clientverbindungen über das Internet müssen möglich sein.  
 
-    -   Pour réinitialiser ou retirer un appareil mobile : **Supprimer la ressource** pour l’objet **Collection** .  
+-   Anmeldungspunkt und Anmeldungsproxypunkt  
 
-    -   Pour annuler une réinitialisation ou retirer une commande : **Supprimer la ressource** pour l’objet **Collection** .  
+     Mithilfe eines Anmeldungsproxypunkts werden Anmeldungsanforderungen von mobilen Geräten verwaltet. Der Anmeldungspunkt schließt den Anmeldungsprozess ab. Der Anmeldungspunkt muss sich in der gleichen Active Directory-Gesamtstruktur befinden wie der Standortserver. Der Anmeldungsproxypunkt kann sich dagegen in einer anderen Gesamtstruktur befinden.  
 
-    -   Pour autoriser et bloquer des appareils mobiles : **Modifier la ressource** pour l’objet **Collection** .  
+-   Clienteinstellungen für die Anmeldung mobiler Geräte  
 
-    -   Pour verrouiller à distance ou réinitialiser le mot de passe sur un appareil mobile : **Modifier la ressource** pour l’objet **Collection** .  
+     Konfigurieren Sie Clienteinstellungen, damit Benutzer mobile Geräte anmelden können, und konfigurieren Sie mindestens ein Anmeldungsprofil.  
 
-     Le rôle de sécurité **Administrateur d'opérations** comprend les autorisations nécessaires pour la gestion des appareils mobiles.  
+-   Reporting Services-Punkt  
 
-     Pour plus d’informations sur la façon de configurer les autorisations de sécurité, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md) et [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+     Der Reporting Services-Punkt ist eine optionale, aber empfohlene Standortsystemrolle, über die Berichte zur Anmeldung mobiler Geräte und zur Clientverwaltung angezeigt werden können.  
 
-### <a name="firewall-requirements"></a>Configuration requise du pare-feu  
- Les appareils réseau intervenants, tels que des routeurs et des pare-feu, ainsi que le Pare-feu Windows, le cas échéant, doivent autoriser le trafic associé à l'inscription d'appareils mobiles :  
+     Weitere Informationen finden Sie unter [Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
 
--   Entre les appareils mobiles et le point proxy d'inscription : HTTPS (par défaut, TCP 443)  
+-   Sie müssen über die folgenden Sicherheitsberechtigungen verfügen, um die Anmeldung mobiler Geräte konfigurieren zu können:  
 
--   Entre le point proxy d'inscription et le point d'inscription : HTTPS (par défaut, TCP 443)  
+    -   Berechtigung **Ändern** für das Objekt **Standort** , um Anmeldungsstandortsystemrollen hinzufügen, ändern und löschen zu können  
 
- Si vous utilisez un serveur Web proxy, il doit être configuré pour un tunnel SSL. Le pontage SSL n'est pas pris en charge pour les appareils mobiles.  
+    -   Berechtigung **Ändern** für das Objekt **Standort** , um Clienteinstellungen für die Anmeldung konfigurieren zu können, sowie **Client-Agent**  -Berechtigungen, um benutzerdefinierte Clienteinstellungen konfigurieren zu können  
 
+     Die Sicherheitsrolle **Hauptadministrator** umfasst die für die Konfiguration der Anmeldungsstandortsystemrollen erforderlichen Berechtigungen.  
+
+     Sie müssen über die folgenden Sicherheitsberechtigungen verfügen, um angemeldete mobile Geräte verwalten zu können:  
+
+    -   Berechtigung **Ressource löschen** für das Objekt **Sammlung** , um ein mobiles Gerät zurücksetzen oder außer Kraft setzen zu können  
+
+    -   Berechtigung **Ressource löschen** für das Objekt **Sammlung** , um das Zurücksetzen oder Außerkraftsetzen eines mobilen Geräts abbrechen zu können  
+
+    -   Berechtigung **Ressource ändern** für das Objekt **Sammlung** , um mobile Geräte zulassen und blockieren zu können  
+
+    -   Berechtigung **Ressource ändern** für das Objekt **Sammlung** , um die Kennung auf einem mobilen Gerät remote sperren oder zurücksetzen zu können  
+
+     Die Sicherheitsrolle **Betriebsadministrator** umfasst die für die Verwaltung mobiler Geräte erforderlichen Berechtigungen.  
+
+     Weitere Informationen zum Konfigurieren von Sicherheitsberechtigungen finden Sie unter [Fundamentals of role-based administration for System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md) und  [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+
+### <a name="firewall-requirements"></a>Firewallanforderungen  
+ Von beteiligten Netzwerkgeräten wie Routern und Firewalls (einschließlich der Windows-Firewall) muss der Datenverkehr der Anmeldung mobiler Geräte zugelassen werden.  
+
+-   Zwischen mobilen Geräten und Anmeldungsproxypunkt: HTTPS (standardmäßig TCP 443)  
+
+-   Zwischen Anmeldungsproxypunkt und Anmeldungspunkt: HTTPS (standardmäßig TCP 443)  
+
+ Wenn Sie einen Proxywebserver verwenden, muss dieser für SSL-Tunneling konfiguriert sein. SSL-Bridging wird für mobile Geräte nicht unterstützt.  

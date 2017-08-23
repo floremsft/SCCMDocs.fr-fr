@@ -1,83 +1,79 @@
 ---
-title: "Stratégies de pare-feu Windows pour Endpoint Protection | Microsoft Docs"
-description: "Découvrez comment créer et déployer des stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager."
+title: "Windows-Firewall-Richtlinien für Endpoint Protection | Microsoft-Dokumentation"
+description: "Hier erfahren Sie, wie Firewallrichtlinien für Endpoint Protection in System Center 2012 Configuration Manager erstellt und bereitgestellt werden."
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6ecdfad1-6305-45a8-ae75-3f33b967cb8f
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 7a02ae3fb102ab85f98d3b7453fc0736e5a11200
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: acd75a8b22d050970b8c1176f725ddb4445633aa
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Créer et déployer des stratégies de Pare-feu Windows pour Endpoint Protection dans System Center Configuration Manager
+# <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Erstellen und Bereitstellen von Windows-Firewall-Richtlinien für Endpoint Protection in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager permettent d’effectuer des tâches de maintenance et de configuration de Pare-feu Windows de base sur les ordinateurs clients de votre hiérarchie. Vous pouvez utiliser les stratégies de pare-feu Windows pour effectuer les tâches suivantes :  
+Mithilfe von Firewallrichtlinien für Endpoint Protection in System Center 2012 Configuration Manager können Sie grundlegende Konfigurations- und Wartungstasks an der Windows-Firewall auf Clientcomputern in der Hierarchie ausführen. Über die Windows-Firewall-Richtlinien können Sie die folgenden Tasks ausführen:  
 
--   Contrôler si le pare-feu Windows est activé ou désactivé.  
+-   Steuern, ob die Windows-Firewall aktiviert oder deaktiviert ist  
 
--   Contrôler si les connexions entrantes sont autorisées vers les ordinateurs client.  
+-   Steuern, ob eingehende Verbindungen auf Clientcomputern zulässig sind  
 
--   Contrôler si les utilisateurs sont avertis lorsque le pare-feu Windows bloque un nouveau programme.  
+-   Steuern, ob Benutzer benachrichtigt werden, wenn von der Windows-Firewall ein neues Programm blockiert wird  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Endpoint Protection**, puis cliquez sur **Stratégies de Pare-feu Windows**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** den Knoten **Endpoint Protection**, und klicken Sie anschließend auf **Windows-Firewall-Richtlinien**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie de pare-feu Windows**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Windows-Firewall-Richtlinie erstellen**.  
 
-4.  Sur la page **Général** de l' **Assistant Création d'une stratégie de pare-feu Windows**, spécifiez un nom et une description facultative pour cette stratégie de pare-feu, puis cliquez sur **Suivant**.  
+4.  Geben Sie auf der Seite **Allgemein** unter **Assistent zum Erstellen von Windows-Firewall-Richtlinien**einen Namen und optional eine Beschreibung für diese Firewallrichtlinie ein, und klicken Sie dann auf **Weiter**.  
 
-5.  Sur la page **Paramètres de profil** de l'Assistant, configurez les paramètres suivants pour chaque profil réseau :  
+5.  Konfigurieren Sie auf der Seite **Profileinstellungen** des Assistenten die folgenden Einstellungen für jedes Netzwerkprofil:  
 
     > [!IMPORTANT]  
-    >  Si vous souhaitez déployer des stratégies de pare-feu Windows sur les ordinateurs exécutant Windows Server 2008 et Windows Vista Service Pack 1, vous devez d'abord installer le [correctif KB971800](http://go.microsoft.com/fwlink/p/?LinkId=231239) sur ces ordinateurs.  
+    >  Wenn Sie Windows-Firewall-Richtlinien auf Computern bereitstellen möchten, auf denen Windows Server 2008 und Windows Vista Service Pack 1 ausgeführt werden, müssen Sie auf diesen Computern zuvor den [Hotfix KB971800](http://go.microsoft.com/fwlink/p/?LinkId=231239) installieren.  
 
     > [!NOTE]  
-    >  Pour plus d'informations sur les profils réseau, consultez la documentation Windows.  
+    >  Weitere Informationen zu Netzwerkprofilen finden Sie in der Windows-Dokumentation.  
 
-    -   **Activer le pare-feu Windows**  
+    -   **Windows-Firewall aktivieren**  
 
         > [!NOTE]  
-        >  Si l'option **Activer le pare-feu Windows** n'est pas activée, les autres paramètres de cette page de l'Assistant ne sont pas disponibles.  
+        >  Wenn **Windows-Firewall aktivieren** nicht aktiviert ist, sind die weiteren Einstellungen auf dieser Seite des Assistenten nicht verfügbar.  
 
-    -   **Bloquer toutes les connexions entrantes, y compris celles figurant dans la liste de programmes autorisés**  
+    -   **Alle eingehenden Verbindungen blockieren, einschließlich der in der Liste der zugelassenen Programme**  
 
-    -   **Informer l'utilisateur lorsque le Pare-feu Windows bloque un nouveau programme**  
+    -   **Benutzer benachrichtigen, wenn ein neues Programm von der Windows-Firewall blockiert wird**  
 
-6.  Dans la page **Résumé** de l'Assistant, consultez les mesures à prendre, puis fermez l'Assistant.  
+6.  Überprüfen Sie auf der Seite **Zusammenfassung** des Assistenten die durchzuführenden Aktionen, und schließen Sie dann den Assistenten ab.  
 
-7.  Vérifiez que la nouvelle stratégie de pare-feu Windows s'affiche dans la liste **Stratégies de pare-feu Windows** .  
+7.  Überprüfen Sie, ob die neue Windows-Firewall-Richtlinie in der Liste **Windows-Firewall-Richtlinien** angezeigt wird.  
 
-##  <a name="BKMK_Assign"></a> Pour déployer une stratégie de pare-feu Windows  
+##  <a name="BKMK_Assign"></a> So stellen Sie eine Windows-Firewall-Richtlinie bereit  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Endpoint Protection**, puis cliquez sur **Stratégies de Pare-feu Windows**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** den Knoten **Endpoint Protection**, und klicken Sie anschließend auf **Windows-Firewall-Richtlinien**.  
 
-3.  Dans la liste **Stratégies de pare-feu Windows** , sélectionnez la stratégie de pare-feu Windows que vous souhaitez déployer.  
+3.  Wählen Sie aus der Liste **Windows-Firewall-Richtlinien** die Windows-Firewall-Richtlinie aus, die Sie bereitstellen möchten.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
-5.  Dans la boîte de dialogue **Déployer la stratégie de pare-feu Windows** , spécifiez le regroupement auquel vous souhaitez affecter cette stratégie de pare-feu Windows et spécifiez un calendrier d'attribution. La stratégie de pare-feu Windows évalue la conformité à l'aide de ce calendrier d'attribution et des paramètres de pare-feu Windows sur les clients à reconfigurer afin qu'elle corresponde à la stratégie de pare-feu Windows.  
+5.  Geben Sie im Dialogfeld **Windows-Firewall-Richtlinie bereitstellen** die Sammlung an, der Sie diese Windows-Firewall-Richtlinie zuweisen möchten, und legen Sie einen Zuweisungszeitplan fest. Die Windows-Firewall-Richtlinie wird mithilfe dieses Zeitplans auf Kompatibilität bewertet, und die Windows-Firewall-Einstellungen auf den Clients werden neu konfiguriert, damit sie mit der Windows-Firewall-Richtlinie übereinstimmen.  
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer la stratégie de Pare-feu Windows** et déployer la stratégie de Pare-feu Windows.  
+6.  Klicken Sie auf **OK** , um das Dialogfeld **Windows-Firewall-Richtlinie bereitstellen** zu schließen und die Windows-Firewall-Richtlinie bereitzustellen.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous déployez une stratégie de pare-feu Windows vers un regroupement, cette stratégie s'applique aux ordinateurs dans un ordre aléatoire pendant une période de 2 heures pour éviter d'inonder le réseau.
-
+    >  Wenn Sie eine Windows-Firewall-Richtlinie auf einer Sammlung bereitstellen, wird diese Richtlinie auf den Computern in zufälliger Reihenfolge über einen Zeitraum von 2 Stunden angewendet, um ein Überfluten des Netzwerks zu verhindern.

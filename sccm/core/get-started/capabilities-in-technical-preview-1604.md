@@ -1,175 +1,172 @@
 ---
-title: "Fonctionnalités de Technical Preview 1604 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1604 für Configuration Manager"
+description: "Erfahren Sie mehr zu Features, die in Technical Preview für System Center Configuration Manager 1604 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 684a5559-9e6e-469b-86ae-e768e9f0c9ac
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: d36de897e6407ec7431d4dbe24ad04423aee2ca1
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 26b0d8ea7b3e841c48945df55f8860394a98a29f
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1604 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1604 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1604 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+In diesem Artikel werden die Features erläutert, die in der Technical Preview für System Center Configuration Manager 1604 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
 
- Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
+ Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.  
 
-##  <a name="BKMK_WindowsVPP"></a> Gérer les applications achetées en volume à partir du Windows Store pour Entreprises  
- Le [Windows Store pour Entreprises](https://www.microsoft.com/en-us/business-store) est l’emplacement où vous pouvez trouver et acheter des applications pour votre organisation, individuellement ou en volume. En connectant le Store à Configuration Manager, vous pouvez gérer les applications achetées en volume à partir de la console Configuration Manager, par exemple :  
+##  <a name="BKMK_WindowsVPP"></a> Verwalten von per Volumenlizenz aus dem Windows Store für Unternehmen erworbenen Apps  
+ Im [Windows Store für Unternehmen](https://www.microsoft.com/en-us/business-store) können Sie Apps für Ihre Organisation finden und entweder einzeln oder per Volumenlizenz erwerben. Indem Sie den Store mit Configuration Manager verbinden, können Sie per Volumenlizenz erworbene Apps in der Configuration Manager-Konsole verwalten, zum Beispiel:  
 
--   Vous pouvez synchroniser la liste des applications achetées avec Configuration Manager.  
+-   Sie können die Liste der erworbenen Apps mit Configuration Manager synchronisieren  
 
--   Les applications synchronisées apparaissent dans la console Configuration Manager et vous pouvez les déployer comme les autres applications  
+-   Synchronisierte Apps werden in der Configuration Manager-Konsole angezeigt, und Sie können sie wie alle anderen Apps bereitstellen.  
 
--   Vous pouvez suivre le nombre de licences disponibles, et le nombre de celles qui sont en cours d’utilisation dans la console Configuration Manager  
+-   In der Configuration Manager-Konsole können Sie überwachen, wie viele Lizenzen verfügbar sind und wie viele Lizenzen gerade verwendet werden.  
 
-### <a name="try-it-out"></a>Essayez !  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
 
-##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Scénario 1 : configurer la synchronisation du Windows Store pour Entreprises  
+##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Szenario 1: Einrichten der Synchronisierung mit Windows Store für Unternehmen  
 
-1.  Dans Azure Active Directory, inscrivez Configuration Manager en tant qu’outil de gestion « Application web et/ou API web ». Vous obtenez ainsi un ID de client dont vous aurez besoin ultérieurement.  
+1.  Registrieren Sie Configuration Manager als „Web-Anwendung und/oder Web-API“-Verwaltungstool in Azure Active Directory. Sie erhalten eine Client-ID, die Sie später benötigen.  
 
-    1.  Dans le nœud **Active Directory** de [https://manage.windowsazure.com](https://manage.windowsazure.com), sélectionnez votre Azure Active Directory, puis cliquez sur **Applications** > **Ajouter**.  
+    1.  Wählen Sie im Knoten **Active Directory** von [https://manage.windowsazure.com](https://manage.windowsazure.com) Ihr Azure Active Directory aus, und klicken Sie dann auf **Apps** > **Hinzufügen**.  
 
-    2.  Cliquez sur **Ajouter une application développée par mon organisation**.  
+    2.  Klicken Sie auf **Eine von meinem Unternehmen entwickelte Anwendung hinzufügen**.  
 
-    3.  Attribuez un nom à l’application, sélectionnez **Application web** et/ou **API web**, puis cliquez sur la flèche Suivant.  
+    3.  Geben Sie einen Namen für die App ein, wählen Sie **Web-App** und/oder **Web-API** aus, und klicken Sie dann auf den Pfeil „Weiter“.  
 
-    4.  Entrez la même URL tant pour **URL de connexion** que pour **URI ID d’application**.  L’URL peut être une chaîne quelconque qui ne doit pas nécessairement correspondre à une adresse réelle. Par exemple, vous pouvez entrer **https://&lt;votredomaine\>/sccm**.  
+    4.  Geben Sie die gleiche URL für die **Registrierungs-URL** und die **App-ID-URI** ein.  Dabei kann es sich um eine beliebige URL handeln, die nicht in eine reale Adresse aufgelöst werden muss. Sie können z.B. **https://&lt;Ihre Domäne\>/sccm** eingeben.  
 
-    5.  Effectuez toutes les étapes de l'Assistant.  
+    5.  Schließen Sie den Assistenten ab.  
 
-2.  Dans Azure Active Directory, créez une clé de client pour l’outil de gestion inscrit.  
+2.  Erstellen Sie in Azure Active Directory einen Clientschlüssel für das registrierte Verwaltungstool.  
 
-    1.  Sélectionnez l’application que vous venez de créer, puis cliquez sur **Configurer**.  
+    1.  Markieren Sie die App, die Sie soeben erstellt haben, und klicken Sie auf **Konfigurieren**.  
 
-    2.  Sous **Clés**, sélectionnez une durée dans la liste, puis cliquez sur **Enregistrer**.  Cela a pour effet de créer une nouvelle clé de client.  Ne quittez pas cette page tant que vous n’avez pas correctement intégré le Windows Store pour Entreprises à Configuration Manager.  
+    2.  Wählen Sie unter **Schlüssel** eine Dauer aus der Liste aus, und klicken Sie anschließend auf **Speichern**.  Dadurch wird ein neuer Clientschlüssel erstellt.  Verlassen Sie diese Seite nicht, bevor Sie Windows Store für Unternehmen erfolgreich in Configuration Manager eingebunden haben.  
 
-3.  Dans le Windows Store pour Entreprises, configurez Configuration Manager en tant qu’outil de gestion du Windows Store.  
+3.  Konfigurieren von Configuration Manager als Speicherverwaltungstool im Windows Store für Unternehmen.  
 
-    1.  Ouvrez [https://businessstore.microsoft.com/fr-fr/managementtools](https://businessstore.microsoft.com/en-us/managementtools) et connectez-vous si vous y êtes invité.  
+    1.  Öffnen Sie [https://businessstore.microsoft.com/de-de/managementtools](https://businessstore.microsoft.com/en-us/managementtools), und melden Sie sich nach entsprechender Aufforderung an.  
 
-    2.  Acceptez les conditions d’utilisation si nécessaire.  
+    2.  Akzeptieren Sie gegebenenfalls die Nutzungsbedingungen.  
 
-    3.  Sous **Outils de gestion**, cliquez sur **Ajouter un outil de gestion**.  
+    3.  Klicken Sie unter **Verwaltungstools** auf **Verwaltungstool hinzufügen**.  
 
-    4.  Dans **Rechercher l’outil par son nom**, tapez le nom de l’application que vous avez créée précédemment dans AAD, puis cliquez sur **Ajouter**.  
+    4.  Geben Sie unter **Tool nach Namen suchen** den Namen der App ein, die Sie zuvor in AAD erstellt haben, und klicken Sie anschließend auf **Hinzufügen**.  
 
-    5.  Cliquez sur **Activer** en regard de l’application que vous venez d’importer.  
+    5.  Klicken Sie neben der App, die Sie gerade importiert haben, auf **Aktivieren**.  
 
-    6.  Dans l’Assistant **Show Offline-Licensed Apps** (Afficher les applications sous licence hors connexion), cliquez sur **Oui** si vous souhaitez autoriser l’achat d’applications sous licence hors connexion.  
+    6.  Klicken Sie im Assistenten **Offline lizenzierte Apps anzeigen** auf **Ja**, wenn Sie den Erwerb offline lizenzierter Apps zulassen möchten.  
 
-4.  Achetez au moins une application au Windows Store pour Entreprises.  
+4.  Kaufen Sie mindestens eine App aus dem Windows Store für Unternehmen.  
 
-5.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Windows Store pour Entreprises**.  
+5.  Erweitern Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** den Eintrag **Clouddienste**, und klicken Sie dann auf **Windows Store für Unternehmen**.  
 
-6.  Sous l’onglet **Accueil** du groupe **Créer**, cliquez sur **Ajouter un compte Windows Store pour Entreprises**.  
+6.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Windows Store für Unternehmen-Konto hinzufügen**.  
 
-7.  Ajoutez vos ID de locataire, ID de client et clé de client à partir d’Azure Active Directory, puis fermez l’Assistant.  
+7.  Fügen Sie Mandanten-ID, Client-ID und Clientschlüssel aus Azure Active Directory hinzu, und schließen Sie den Assistenten ab.  
 
-8.  Une fois que vous avez terminé, le compte que vous avez configuré figure dans la liste **Windows Store for Business Accounts** (Comptes Windows Store pour Entreprises) de la console Configuration Manager.  
+8.  Sobald Sie fertig sind, wird das von Ihnen konfigurierte Konto in der Liste der **Windows Store für Unternehmen-Konten** in der Configuration Manager-Konsole aufgeführt.  
 
-##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Scénario 2 : créer et déployer une application Configuration Manager à partir d’une application sous licence hors connexion du Windows Store pour Entreprises  
+##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Szenario 2: Erstellen und Bereitstellen einer Configuration Manager-App aus einer offline lizenzierten App aus dem Windows Store für Unternehmen  
 
-1.  Dans l’espace de travail **Bibliothèque de logiciels** de la console Configuration Manager, développez **Gestion des applications**, puis cliquez sur **Informations de licence pour les applications du Store**.  
+1.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** der Configuration Manager-Konsole den Eintrag **Anwendungsverwaltung**, und klicken Sie anschließend auf **Lizenzinformationen für Store-Apps**.  
 
-2.  La liste **Purchased Windows Store for Business apps** (Applications du Windows Store pour Entreprises achetées) affiche une liste des applications qui ont été synchronisées à partir du Windows Store. Choisissez l’application que vous voulez déployez puis, sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer une application**.  
+2.  Die Liste der **aus dem Windows Store für Unternehmen erworbenen Apps** zeigt eine Liste von Apps, die aus dem Store synchronisiert wurden. Wählen Sie zunächst die App aus, die Sie bereitstellen möchten. Klicken Sie anschließend auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Anwendung erstellen**.  
 
-3.  Une application Configuration Manager contenant l’application du Windows Store pour Entreprises est alors créée. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.  
+3.  Eine Configuration Manager-App wird erstellt, die eine App aus dem Windows Store für Unternehmen enthält. Sie können diese App dann wie jede andere Configuration Manager-App bereitstellen und überwachen.  
 
-##  <a name="BKMK_PFW"></a> Améliorations apportées à la gestion de Microsoft Passport for Work  
- Vous pouvez désormais déployer des stratégies Microsoft Passport for Work sur des appareils Windows 10 joints au domaine et gérés par le client Configuration Manager.  
+##  <a name="BKMK_PFW"></a> Verbesserungen an der Microsoft Passport for Work-Verwaltung  
+ Sie können nun Passport for Work-Richtlinien für in Domänen eingebundene Windows 10-Geräte bereitstellen, die vom Configuration Manager-Client verwaltet werden.  
 
-##  <a name="bkmk_switchsup"></a> Option permettant aux clients de basculer vers un nouveau point de mise à jour logicielle  
- Dans la version d’évaluation technique 1604, vous pouvez activer l’option permettant aux clients Configuration Manager de basculer vers un nouveau point de mise à jour logicielle quand des problèmes se posent au niveau du point de mise à jour logicielle actif. Pour utiliser cette option, vous devez disposer de plusieurs points de mise à jour logicielle sur un site principal. Vous activez cette option sur un regroupement d’appareils et, une fois activée, les clients du regroupement recherchent un autre point de mise à jour logicielle lors de l’analyse suivante quand le client ne parvient pas à se connecter au point de mise à jour logicielle actif. En fonction des paramètres de configuration WSUS (classifications des mises à jour, produits, etc.), le basculement vers un nouveau point de mise à jour logicielle génère un trafic réseau supplémentaire. Par conséquent, vous ne devez utiliser cette option qu’en cas de nécessité.  
+##  <a name="bkmk_switchsup"></a> Option für Clients zum Wechsel zu einem neuen Softwareupdatepunkt  
+ In Technical Preview 1604 können Sie die Option zum Wechsel zu einem neuen Softwareupdatepunkt für Configuration Manager-Clients aktivieren, wenn beim aktiven Softwareupdatepunkt Probleme auftreten. Für diese Option müssen an einem primären Standort mehrere Softwareupdatepunkte verfügbar sein. Aktivieren Sie diese Option auf einer Gerätesammlung und einmal aktiviert, suchen die Clients in der Sammlung während der nächsten Überprüfung nach einem anderen Softwareupdatepunkt, wenn der Client keine Verbindung mit dem aktiven Softwareupdatepunkt herstellen kann. Je nach Ihrer WSUS-Konfigurationseinstellung (Updateklassifizierungen, Produkte, usw.) führt der Wechsel auf einen neuen Softwareupdatepunkt zu zusätzlichem Netzwerkdatenverkehr. Aus diesem Grund sollten Sie diese Option nur bei Bedarf verwenden.  
 
-#### <a name="to-enable-the-option-to-switch-software-update-points"></a>Pour activer l’option de basculement vers des points de mise à jour logicielle  
+#### <a name="to-enable-the-option-to-switch-software-update-points"></a>So aktivieren Sie die Option zum Wechseln von Softwareupdatepunkten  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Regroupements d’appareils**.  
+1.  Gehen Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität > Übersicht > Gerätesammlungen**.  
 
-2.  Sous l’onglet **Accueil** , dans le groupe **Regroupement** , cliquez sur **Notification du client**, puis sur **Passer au point de mise à jour logicielle suivant**.  
+2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Sammlung** auf **Clientbenachrichtigung**, und klicken Sie anschließend auf **Zum nächsten Softwareupdatepunkt wechseln**.  
 
 > [!NOTE]  
->  Cette option est disponible uniquement sur les sites qui ont plusieurs points de mise à jour logicielle.  
+>  Diese Option ist nur an Standorten verfügbar, die über mehrere Softwareupdatepunkte verfügen.  
 
-##  <a name="bkmk_peercache"></a> Paramètres client pour gérer les paramètres du cache du client et le cache d’homologue du client  
- La version d’évaluation technique 1604 introduit deux nouveaux paramètres client d’appareil qui affectent l’utilisation du cache d’un client. Les deux paramètres peuvent être utilisés séparément, mais sont configurés sur la même feuille de propriétés des paramètres du client, et ils se combinent pour vous aider à gérer le déploiement de contenu sur vos clients dans des emplacements distants.  
+##  <a name="bkmk_peercache"></a> Clienteinstellungen zum Verwalten von Clientcacheeinstellungen und Clientpeercache  
+ In der Technical Preview-Version 1604 werden zwei neue Einstellungen für Geräteclients eingeführt, die sich auf die Verwendung des Clientcaches auswirken. Beide sind einzeln verwendbar, werden jedoch auf demselben Eigenschaftenblatt für Clienteinstellungen konfiguriert und helfen Ihnen beim Verwalten der Bereitstellung von Inhalten für Ihre Clients an Remotestandorten.  
 
--   Le premier nouveau paramètre est celui du **cache d’homologue du client**, solution Configuration Manager intégrée pour permettre aux clients de partager du contenu avec d’autres clients directement à partir de leur cache local. Pour pouvoir partager du contenu, les clients du cache d’homologue doivent être membres du même groupe de limites. Le cache d’homologue ne remplace pas l’utilisation d’autres solutions telles que BranchCache, mais fonctionne en parallèle afin de vous offrir davantage d’options pour étendre les solutions de déploiement de contenu traditionnelles telles que des points de distribution.  
+-   Die erste Option ist der **Clientpeercache**, eine integrierte Configuration Manager-Lösung für das Freigeben von Inhalten für andere Clients direkt aus ihrem lokalen Cache. Damit Peercacheclients Inhalte gemeinsam nutzen können, müssen sie Mitglieder der gleichen Begrenzungsgruppe sein. Der Peercache ersetzt nicht die Verwendung anderer Lösungen wie BranchCache, sondern wird parallel eingesetzt, um Ihnen weitere Optionen zur Verfügung zu stellen und herkömmliche Lösungen für die Inhaltsbereitstellung (z.B. Verteilungspunkte) zu erweitern.  
 
-     Après avoir déployé des paramètres client qui activent le cache d’homologue sur un regroupement, les membres de ce regroupement peuvent agir comme une source de contenu homologue pour d’autres clients dans le groupe de limites.  Le client qui opère en tant que source de contenu homologue envoie une liste des éléments disponibles qu’il a mis en cache dans son point de gestion. Ensuite, quand le client suivant dans ce groupe de limites demande ce contenu, la source de cache d’homologue est proposée comme source de contenu potentielle, ainsi que tous les points de distribution qui sont configurés pour être rapides. Le client sélectionne une source de contenu aléatoire à partir de ce pool combiné de sources de contenu. Les clients recherchent uniquement le contenu à partir d’un point de distribution configuré pour être lent quand aucun point de distribution rapide ni aucune source de cache d’homologue ne figure dans le groupe de limites.  
+     Nachdem Sie Clienteinstellungen bereitgestellt haben, die den Peercache für eine Sammlung aktivieren, können Mitglieder dieser Sammlung als Peerinhaltsquelle für andere Clients in der Begrenzungsgruppe fungieren.  Der Client, der als Peerinhaltsquelle fungiert, wird eine Liste der verfügbaren Inhalte einreichen, die er auf seinem Verwaltungspunkt zwischengespeichert hat. Wenn der nächste Client innerhalb dieser Begrenzungsgruppe diesen Inhalt anfordert, wird die Peercachequelle dann als mögliche Inhaltsquelle zusammen mit allen Verteilungspunkten angeboten, die als schnell konfiguriert sind. Der Client wählt eine zufällige Inhaltsquelle aus diesem kombinierten Pool von Inhaltsquellen aus. Clients werden nur Inhalte von einem Verteilungspunkt suchen, der als langsam konfiguriert wurde, wenn keine schnellen Verteilungspunkte oder Peercachequellen in der Begrenzungsgruppe vorhanden sind.  
 
--   Le deuxième nouveau paramètre vous permet de **gérer la taille du cache** sur les clients. Vous pouvez définir pour le cache une taille maximale exprimée en mégaoctets et une taille maximale exprimée en pourcentage de l’espace disque du client.  Le client applique le paramètre qui est atteint en premier.  
+-   Mit der zweiten neuen Einstellung können Sie die **Cachegrößen auf Clients verwalten**. Sie können den Cache auf eine maximale Größe in Megabyte und auf einen maximalen Prozentanteil des Speicherplatzes auf dem Laufwerk des Clients festlegen.  Der Client erzwingt die Einstellung, die zuerst erreicht wird.  
 
-Pour vous aider à comprendre l’utilisation du cache d’homologue du client, vous pouvez afficher le tableau de bord **Sources de données du client**. Dans la console, accédez à **Analyse > État du client > Sources de données du client**. Vous pouvez sélectionner ici une période à appliquer au tableau de bord. Ensuite, dans l’affichage, vous pouvez sélectionner le groupe de limites ou le package sur lesquels vous souhaitez afficher des informations. Lors de la consultation de celles-ci, vous pouvez pointer le curseur de la souris sur la surface pour afficher plus de détails sur les différentes sources de contenu ou de stratégie.  
+Um besser zu verstehen, wann der Clientpeercache erfolgreich verwendet wird, sehen Sie sich das Dashboard **Clientdatenquellen** an. Wechseln Sie in der Konsole zu **Überwachung > Clientstatus > Clientdatenquellen**. Hier können Sie einen Zeitraum auswählen, der auf das Dashboard angewendet werden soll. Anschließend können Sie in der Anzeige die Begrenzungsgruppe oder das Paket auswählen, für die bzw. das Sie Informationen anzeigen möchten. Beim Anzeigen der Informationen können Sie Ihre Maus über der Oberfläche bewegen, um weitere Details zu den verschiedenen Inhalts- oder Richtlinienquellen zu erhalten.  
 
- Vous pouvez également utiliser un nouveau rapport, **Sources de données du client - Résumé**, pour afficher une synthèse des sources de données du client pour chaque groupe de limites.   
-**Configuration requise pour utiliser le cache d’homologue :**  
+ Sie können auch einen neuen Bericht, **Clientdatenquellen – Zusammenfassung**, verwenden, um eine Zusammenfassung der Clientdatenquellen für die einzelnen Begrenzungsgruppen anzuzeigen.   
+**Anforderungen für die Verwendung des Peercaches:**  
 
--   Vous devez configurer votre site avec un **compte d’accès réseau** ayant le **contrôle total** du dossier de cache sur chaque client. Par défaut, il s’agit de **%windir%\ccmcache**  
+-   Sie müssen Ihren Standort mit einem **Netzwerkzugriffskonto** konfigurieren, das auf jedem Client **Vollzugriff** auf den Cacheordner besitzt. Standardmäßig ist dies **%windir%\ccmcache**  
 
--   Des clients peuvent transférer du contenu à l’aide du cache d’homologue uniquement quand ils sont membres du même groupe de limites.  
+-   Clients können Inhalte nur mithilfe von Peercache übertragen, wenn sie Mitglieder der gleichen Begrenzungsgruppe sind.  
 
-#### <a name="to-configure-client-peer-cache-client-settings"></a>Pour configurer les paramètres client du cache d’homologue du client  
+#### <a name="to-configure-client-peer-cache-client-settings"></a>So konfigurieren Sie Clienteinstellungen für Clientpeercache  
 
-1.  Les deux paramètres sont configurés dans la même page de paramètres client. Dans la console Configuration Manager, accédez à **Administration > Paramètres client**, puis ouvrez l’objet des paramètres client d’appareil à utiliser. Vous pouvez également modifier l’objet des paramètres client par défaut.  
+1.  Beide Einstellungen werden auf derselben Seite der Clienteinstellungen konfiguriert. Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung > Clienteinstellungen**, und öffnen Sie dann die Geräteclienteinstellungen, die Sie verwenden möchten. Außerdem können Sie das Objekt „Clientstandardeinstellungen“ ändern.  
 
-2.  Dans la liste des paramètres disponibles, sélectionnez **Paramètres du cache des clients**.  
+2.  Wählen Sie aus der Liste der verfügbaren Einstellungen **Clientcacheeinstellungen** aus.  
 
-3.  Pour gérer la taille du cache, affectez à **Configurer la taille du cache des clients** la valeur **Oui**. Vous pouvez ensuite configurer la taille maximale du cache en mégaoctets et en pourcentage de l’espace disque du client.  
+3.  Um die Größe des Caches zu verwalten, legen Sie **Clientcachegröße konfigurieren** auf **Ja** fest. Anschließend können Sie die maximale Cachegröße in MB oder als Prozentsatz des Client-Speicherplatzes konfigurieren.  
 
-4.  Pour permettre aux clients de participer au cache d’homologue du client, affectez à **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu** la valeur **Oui**. Vous pouvez ensuite configurer les ports que les clients utilisent, notamment s’il s’agit de HTTP ou HTTPS.  
+4.  Setzen Sie zum Aktivieren von Clients zur Teilnahme an Clientpeercache **Configuration Manager-Client in vollständigem Betriebssystem zur Freigabe von Inhalten aktivieren** auf **Ja** fest. Anschließend können Sie die Ports konfigurieren, die Clients verwenden, einschließlich HTTP oder HTTPS.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’accomplir les tâches suivantes, puis utilisez les informations relatives à l’envoi de commentaires au début de cette rubrique pour nous faire savoir comment cela a fonctionné :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, die folgenden Aufgaben durchzuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
 
-1.  Modifiez les paramètres client pour spécifier une nouvelle taille pour le cache des clients et confirmez ce paramètre sur un client.  
+1.  Ändern Sie die Clienteinstellungen, um eine neue Größe für den Clientcache anzugeben, und bestätigen Sie diese Einstellung dann auf einem Client.  
 
-2.  Utiliser des paramètres client pour configurer plusieurs clients pour utiliser le cache d’homologue  
+2.  Verwenden Sie die Clienteinstellungen, um mehrere Clients für die Verwendung des Peercaches zu konfigurieren.  
 
-3.  Déployez le contenu sur les clients de façon à ce que certains ou la plupart d’entre eux l’obtiennent d’un autre client à l’aide du cache d’homologue.  Vous pouvez vérifier la source de contenu utilisée en affichant le nouveau tableau de bord.  
+3.  Stellen Sie Inhalt für Clients bereit, damit einige oder die meisten Clients diese Inhalte von einem anderen Client über den Peercache abrufen können.  Sie können die verwendete Inhaltsquelle überprüfen, indem Sie das neue Dashboard ansehen.  
 
     > [!NOTE]  
-    >  Pour achever cette tâche avec la version d’évaluation technique et un point de distribution unique, configurez celui-ci de façon à ce qu’il soit lent pour l’emplacement réseau de tous vos clients. Ensuite, distribuez le contenu à un seul client.  Une fois que le client a obtenu le contenu, vous pouvez distribuer le contenu à des clients supplémentaires qui doivent trouver des homologues locaux à utiliser comme source de contenu avant d’utiliser le point de distribution qui est considéré comme lent à partir de l’emplacement du client.  
+    >  Um diese Aufgabe mit der technischen Vorschau und einem einzelnen Verteilungspunkt durchzuführen, konfigurieren Sie den Verteilungspunkt für die Netzwerkadresse all Ihrer Clients als langsam. Verteilen Sie dann den Inhalt an einen einzelnen Client.  Nachdem der Client den Inhalt erhalten hat, können Sie den Inhalt an weitere Clients verteilen. Diese sollten eher lokale Peers als Inhaltsquelle finden, bevor sie den Verteilungspunkt verwenden, der vom Standort des Clients aus als langsam gilt.  
 
-##  <a name="bkmk_passport"></a> Prise en charge de Passport for Work en tant que fournisseur KSP  
- Vous pouvez intégrer System Center Configuration Manager à Microsoft Passport for Work, et disposer ainsi d’une autre méthode de connexion qui utilise Active Directory ou un compte Azure Active Directory pour remplacer un mot de passe, une carte à puce ou une carte à puce virtuelle.  
-Passport vous permet d’utiliser un geste utilisateur au lieu d’un mot de passe pour vous connecter. Un geste utilisateur peut être un simple code confidentiel, une authentification biométrique telle que Windows Hello ou un appareil externe tel qu’un lecteur d’empreintes digitales.  
+##  <a name="bkmk_passport"></a> Unterstützung für Passport for Work als KSP  
+ System Center Configuration Manager ermöglicht die Integration in Microsoft Passport for Work. Dies ist eine alternative Anmeldemethode, die Active Directory oder ein Azure Active Directory-Konto verwendet, um ein Kennwort, eine Smartcard oder eine virtuelle Smartcard zu ersetzen.  
+Mit Passport können Sie anstelle eines Kennworts eine Benutzeraktion zur Anmeldung verwenden. Eine Benutzeraktion kann eine einfache PIN, eine biometrische Authentifizierung wie Windows Hello oder ein externes Gerät sein, z. B. ein Fingerabdruckleser.  
 
--   Vous pouvez utiliser Configuration Manager pour contrôler les gestes que les utilisateurs peuvent et ne peuvent pas utiliser pour se connecter, et pour configurer les exigences de complexité de code confidentiel.  
+-   Mit Configuration Manager können Sie steuern, welche Gesten Benutzer zum Anmelden verwenden können und welche nicht. Außerdem können Sie die Anforderungen an die PIN-Komplexität konfigurieren.  
 
--   Vous pouvez stocker des certificats d’authentification dans le fournisseur de stockage de clés de Passport for Work.  
+-   Sie können Authentifizierungszertifikate im Passport for Work-Schlüsselspeicheranbieter (Key Storage Provider, KSP) speichern.  
 
-Quand un utilisateur crée un code confidentiel Passport, Windows envoie une notification que Configuration Manager écoute.  Cela permet à Configuration Manager de déterminer rapidement quels utilisateurs ont créé un code confidentiel Passport. Ensuite, Configuration Manager peut également émettre de nouveaux certificats pour les utilisateurs si Passport est utilisé comme fournisseur de stockage de clés dans un profil de certificat.  
+Wenn ein Benutzer eine Passport-PIN erstellt, sendet Windows eine Benachrichtigung, auf die Configuration Manager lauscht.  So kann Configuration Manager schnell erkennen, welche Benutzer eine Passport-PIN erstellt haben. Configuration Manager kann diesen Benutzern dann auch neue Zertifikate ausstellen, wenn Passport als Schlüsselspeicheranbieter in einem Zertifikatprofil dient.  
 
-##  <a name="bkmk_onpremdha"></a> Attestation d’intégrité de l’appareil en local  
- L’attestation d’intégrité pour les appareils Windows 10 peut désormais être configurée pour communiquer à l’aide de l’infrastructure locale.  Les administrateurs peuvent spécifier si le signalement s’effectue via des ressources cloud ou locales.  Si l’option **local** est sélectionnée pour le rapport d’attestation d’intégrité, vous pouvez spécifier un URI pour le service. Les ordinateurs clients sans accès à Internet peuvent utiliser celui-ci pour activer et gérer des appareils à l’aide d’une attestation d’intégrité.  
+##  <a name="bkmk_onpremdha"></a> Integritätsnachweis für lokale Geräte  
+ Der Integritätsnachweis für Windows 10-Geräte kann jetzt so konfiguriert werden, dass die Kommunikation über die lokale Infrastruktur erfolgt.  Administratoren können angeben, ob die Berichterstellung über die Cloud oder über lokale Ressourcen durchgeführt wird.  Wenn für die Berichterstellung für den Integritätsnachweis **lokal** ausgewählt wird, kann ein URI für den Dienst angegeben werden. Dadurch können Client-PCs ohne Internetzugriff Geräte nutzen, aktivieren und verwalten, die den Integritätsnachweis verwenden.  
 
-#### <a name="enable-health-attestation-for-on-premises-devices"></a>Activation de l’attestation d’intégrité pour les appareils locaux  
+#### <a name="enable-health-attestation-for-on-premises-devices"></a>Aktivieren des Integritätsnachweises für lokale Geräte  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Paramètres client**, puis affectez la valeur **Oui** à **Utiliser le service d’attestation d’intégrité local**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Clienteinstellungen**, und legen Sie anschließend **Lokalen Integritätsnachweisdienst verwenden** auf **Ja**fest.  
 
-2.  Spécifiez l’ **URL du service d’attestation d’intégrité local**, puis cliquez sur **OK**.  
+2.  Geben Sie die **URL für lokalen Integritätsnachweisdienst**an, und klicken Sie anschließend auf **OK**.  
 
-Pour l’essayer, configurez le service d’attestation d’intégrité local à l’aide des paramètres de l’agent client.  
+Konfigurieren Sie zu Testzwecken den lokalen Health Attestation-Dienst anhand der Client-Agent-Einstellungen.  
 
-##  <a name="BKMK_Smart"></a> Paramètre SmartLock pour les appareils Android  
- Un nouveau paramètre, **Allow SmartLock and other trust agents** (Autoriser SmartLock et d’autres agents de confiance) a été ajouté à l’élément de configuration **Android et Samsung KNOX**, qui vous permet de contrôler la fonctionnalité SmartLock sur les appareils Android compatibles. Cette fonctionnalité du téléphone, parfois appelée agents de confiance, vous permet de désactiver ou de contourner le mot de passe de l’écran de verrouillage de l’appareil si celui-ci se trouve dans un emplacement approuvé, comme quand il est connecté à un appareil Bluetooth spécifique, ou quand il se trouve à proximité d’une balise NFC. Vous pouvez utiliser ce paramètre pour empêcher des utilisateurs finaux de configurer SmartLock.  
-
+##  <a name="BKMK_Smart"></a> SmartLock-Einstellung für Android-Geräte  
+ Eine neue Einstellung, **Allow SmartLock and other trust agents** (SmartLock und andere vertrauenswürdigen Agents zulassen), wurde dem Konfigurationselement **Android und Samsung KNOX** hinzugefügt. Mit dieser Einstellung können Sie das Smart Lock-Feature auf kompatiblen Android-Geräten steuern. Diese Telefonfunktion wird manchmal als Vertrauens-Agent bezeichnet und ermöglicht Ihnen das Deaktivieren oder Umgehen des Kennworts für den Gerätesperrbildschirm, wenn sich das Gerät an einem vertrauenswürdigen Standort befindet, z. B. wenn es mit einem bestimmten Bluetooth-Gerät verbunden ist oder sich in der Nähe eines NFC-Tags befindet. Mit dieser Einstellung können Sie verhindern, dass Endbenutzer Smart Lock konfigurieren.  

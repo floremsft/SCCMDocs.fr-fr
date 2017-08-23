@@ -1,376 +1,369 @@
 ---
-title: "Modifier l’infrastructure | Microsoft Docs"
-description: "Découvrez comment apporter des modifications ou prendre des mesures qui affecteront l’infrastructure Configuration Manager que vous avez déployée."
+title: "Ändern der Infrastruktur | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie Änderungen vornehmen oder Aktionen durchführen, die sich auf die von Ihnen bereitgestellte Configuration Manager-Infrastruktur auswirken."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
-caps.latest.revision: 19
-caps.handback.revision: 0
+caps.latest.revision: "19"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
 ms.openlocfilehash: a5228c4984347be4b115bfa5563791fa2fb7319c
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modifier votre infrastructure System Center Configuration Manager
+# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Ändern Ihrer System Center Configuration Manager-Infrastruktur
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Après avoir installé un ou plusieurs sites, vous pouvez être amené à modifier les configurations ou à effectuer des actions qui affectent l’infrastructure que vous avez déployée.  
+Nachdem Sie einen oder mehrere Standorte installiert haben, müssen Sie möglicherweise Konfigurationen ändern oder Aktionen ausführen, die sich auf die von Ihnen bereitgestellte Infrastruktur auswirken.  
 
 
-##  <a name="a-namebkmkmanagesmsprovidera-manage-the-sms-provider"></a><a name="BKMK_ManageSMSprovider"></a> Gérer le fournisseur SMS  
- Le fournisseur SMS (fichier de bibliothèque de liens dynamiques smsprov.dll) procure le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
+##  <a name="BKMK_ManageSMSprovider"></a> Verwalten des SMS-Anbieters  
+ Der SMS-Anbieter (eine Dynamic-Link Library-Datei: smsprov.dll) stellt den administrativen Kontaktpunkt für eine oder mehrere Configuration Manager-Konsolen bereit. Wenn Sie mehrere SMS-Anbieter installieren, können Sie Redundanz für Kontaktpunkte zur Verwaltung des Standorts und der Hierarchie bereitstellen.  
 
- Sur chaque site Configuration Manager, vous pouvez réexécuter le programme d’installation pour :  
+ An jedem Configuration Manager-Standort können Sie das Setup mit folgenden Zielen erneut ausführen:  
 
--   ajouter une instance du fournisseur SMS (chaque instance supplémentaire du fournisseur SMS doit se trouver sur un ordinateur distinct) ;  
+-   Hinzufügen einer zusätzlichen Instanz des SMS-Anbieters (jede zusätzliche Instanz des SMS-Anbieters muss sich auf einem separaten Computer befinden)  
 
--   supprimer une instance du fournisseur SMS (pour supprimer le dernier fournisseur SMS pour un site, vous devez désinstaller le site).  
+-   Entfernen einer Instanz des SMS-Anbieters (um den letzten SMS-Anbieter für einen Standort zu entfernen, müssen Sie den Standort deinstallieren)  
 
- Vous pouvez surveiller le processus d'installation ou de suppression du fournisseur SMS en consultant le fichier **ConfigMgrSetup.log** dans le dossier racine du serveur du site sur lequel vous exécutez le programme d'installation.  
+ Sie können die Installation bzw. das Entfernen eines SMS-Anbieters anhand der Protokolldatei **ConfigMgrSetup.log** überwachen. Sie finden die Datei im Stammordner des Standortservers, auf dem Sie Setup ausführen.  
 
- Avant de modifier le fournisseur SMS sur un site, familiarisez-vous avec les informations contenues dans [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ Machen Sie sich mit den Informationen unter [Plan for the SMS Provider for System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md) (Planen des SMS-Anbieters für System Center Configuration Manager) vertraut, bevor Sie den SMS-Anbieter an einem Standort ändern.  
 
-#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Pour gérer la configuration du fournisseur SMS pour un site  
+#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>So verwalten Sie die SMS-Anbieterkonfiguration für einen Standort  
 
-1.  Exécutez **Installation de Configuration Manager** à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Führen Sie das **Configuration Manager-Setup** über den **&lt;Installationsordner des Configuration Manager-Standorts \>\BIN\X64\setup.exe** aus.  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Wählen Sie auf der Seite **Erste Schritte** die Option **Standortwartung durchführen oder diesen Standort zurücksetzen**aus, und klicken Sie dann auf **Weiter**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Modifier la configuration du fournisseur SMS**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Standortwartung** die Option **SMS-Anbieterkonfiguration ändern**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Sur la page **Gérer les fournisseurs SMS** , sélectionnez l'une des options suivantes et effectuez toutes les étapes de l'Assistant comme indiqué :  
+4.  Wählen Sie auf der Seite **SMS-Anbieter verwalten** eine der folgenden Optionen aus, und schließen Sie dann den Assistenten der Option entsprechend ab:  
 
-    -   Pour ajouter un fournisseur SMS supplémentaires sur ce site :  
+    -   Wenn Sie diesem Standort einen zusätzlichen SMS-Anbieter hinzufügen möchten:  
 
-         Sélectionnez **Ajouter un nouveau fournisseur SMS**, spécifiez le nom de domaine complet d'un ordinateur qui hébergera le fournisseur SMS mais qui n'héberge aucun fournisseur SMS actuellement, puis cliquez sur **Suivant**.  
+         Wählen Sie **Neuen SMS-Anbieter hinzufügen**aus, geben Sie den FQDN für einen Computer an, auf dem der SMS-Anbieter gehostet werden soll und auf dem zurzeit kein SMS-Anbieter gehostet wird, und klicken Sie dann auf **Weiter**.  
 
-    -   Pour supprimer un fournisseur SMS d'un serveur :  
+    -   Wenn Sie einen SMS-Anbieter entfernen möchten:  
 
-         Sélectionnez **Désinstaller le fournisseur SMS spécifié**, sélectionnez le nom de l'ordinateur dont vous souhaitez supprimer le fournisseur SMS, cliquez sur **Suivant**, puis confirmez l'action.  
+         Wählen Sie **Angegebenen SMS-Anbieter deinstallieren**aus, wählen Sie den Namen des Computers aus, von dem der SMS-Anbieter entfernt werden soll, klicken Sie auf **Weiter**, und bestätigen Sie dann die Aktion.  
 
         > [!TIP]  
-        >  Pour déplacer le fournisseur SMS entre deux ordinateurs, vous devez installer le fournisseur SMS sur le nouvel ordinateur et supprimer le fournisseur SMS de l'emplacement d'origine. Il n'existe aucune option spéciale pour déplacer le fournisseur SMS entre les ordinateurs en un seul processus.  
+        >  Wenn Sie einen SMS-Anbieter von einem Computer auf einen anderen Computer verschieben möchten, müssen Sie den SMS-Anbieter auf dem neuen Computer installieren und ihn vom ursprünglichen Speicherort entfernen. Es gibt keine spezielle Option, mit der ein SMS-Anbieter in einem Schritt von einem Computer auf einen anderen verschoben werden kann.  
 
- Une fois toutes les étapes de l'Assistant Installation effectuées, la configuration du fournisseur SMS est terminée. Dans l'onglet **Général** dans la boîte de dialogue **Propriétés** du site, vous pouvez vérifier les ordinateurs disposant d'un fournisseur SMS installé pour un site.  
+ Mit dem Beenden des Setup-Assistenten ist die SMS-Anbieterkonfiguration abgeschlossen. Sie können auf der Registerkarte **Allgemein** im Dialogfeld **Standorteigenschaften** können Sie die Computer überprüfen, bei denen ein SMS-Anbieter für einen Standort installiert ist.  
 
-##  <a name="a-namebkmkconsolea-manage-the-configuration-manager-console"></a><a name="bkmk_Console"></a> Gérer la console Configuration Manager  
- Voici les tâches que vous pouvez effectuer pour gérer la console Configuration Manager :  
+##  <a name="bkmk_Console"></a> Verwalten der Configuration Manager-Konsole  
+ Nachfolgend sind Aufgaben aufgeführt, mit denen Sie die Configuration Manager-Konsole verwalten können:  
 
--   **Modifier la langue qui s’affiche dans la console Configuration Manager** – Pour modifier les langues installées, consultez [Gérer la langue de la console Configuration Manager](#BKMK_ManageConsoleLanguages) dans cette rubrique.  
+-   **Ändern der Sprache, in der die Configuration Manager-Konsole angezeigt wird** – Informationen zum Ändern der installierten Sprachen finden Sie unter [Verwalten der Sprache der Configuration Manager-Konsole](#BKMK_ManageConsoleLanguages) in diesem Thema.  
 
--   **Installer d’autres consoles** – Pour installer des consoles supplémentaires, consultez [Installer des consoles System Center Configuration Manager](/sccm/core/servers/deploy/install/install-consoles).  
+-   **Installieren zusätzlicher Konsolen** – Informationen zum Installieren zusätzlicher Konsolen finden Sie unter [Installieren von System Center Configuration Manager-Konsolen](/sccm/core/servers/deploy/install/install-consoles).  
 
--   **Configurer DCOM** – Pour configurer une autorisation DCOM pour permettre aux consoles distantes du serveur de site de se connecter, consultez [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](#BKMK_ConfigDCOMforRemoteConsole) dans cette rubrique.  
+-   **Konfigurieren von DCOM** – Informationen zum Konfigurieren der DCOM-Berechtigung für das Aktivieren von Konsolen, die sich nicht am selben Ort wie der Standortserver befinden, finden Sie unter [Konfigurieren von DCOM-Berechtigungen für Configuration Manager-Remotekonsolen](#BKMK_ConfigDCOMforRemoteConsole) in diesem Thema.  
 
--   **Modifier les autorisations pour limiter ce que voient les utilisateurs administratifs dans la console** – Pour modifier les autorisations d’administration qui limitent ce que les utilisateurs peuvent voir et faire dans la console, consultez [Modifier l’étendue administrative d’un utilisateur administratif](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
+-   **Ändern von Berechtigungen, um die Anzeige in der Konsole für Administratoren zu begrenzen** – Informationen zum Ändern von Administratorberechtigungen, sodass die Anzeige und der Bereich möglicher Aktionen in der Konsole für Benutzer begrenzt werden, finden Sie unter [Ändern des Verwaltungsbereichs eines Administrators](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
 
-###  <a name="a-namebkmkmanageconsolelanguagesa-manage-configuration-manager-console-language"></a><a name="BKMK_ManageConsoleLanguages"></a> Gérer la langue de la console Configuration Manager  
- Lors de l’installation du serveur de site, les fichiers d’installation de la console Configuration Manager et les modules linguistiques pris en charge pour le site sont copiés dans le sous-dossier **&lt;chemin_installation_Configuration_Manager\>\Tools\ConsoleSetup** du serveur de site.  
+###  <a name="BKMK_ManageConsoleLanguages"></a> Verwalten der Sprache der Configuration Manager-Konsole  
+ Während der Installation des Standortservers werden die Configuration Manager-Konsoleninstallationsdateien und unterstützten Sprachpakete für den Standort in den Unterordner **&lt;ConfigMgrInstallationPath\>\Tools\ConsoleSetup** auf dem Standortserver kopiert.  
 
--   Quand vous démarrez l’installation de la console Configuration Manager à partir de ce dossier sur le serveur de site, les fichiers de la console Configuration Manager et du module linguistique pris en charge sont copiés sur l’ordinateur.  
+-   Wenn Sie die Installation der Configuration Manager-Konsole von diesem Ordner auf dem Standortserver aus starten, werden die Configuration Manager-Konsole und die unterstützten Sprachpaketdateien auf den Computer kopiert  
 
--   Si le module linguistique correspondant au paramètre de langue défini sur l’ordinateur est disponible, la console Configuration Manager s’ouvre dans cette langue.  
+-   Wenn ein Sprachpaket für die aktuelle Spracheinstellung des Computers verfügbar ist, wird die Configuration Manager-Konsole in der betreffenden Sprache geöffnet  
 
--   Si le module linguistique associé n’est pas disponible pour la console Configuration Manager, la console s’ouvre en anglais.  
+-   Anderenfalls wird die Configuration Manager-Konsole in englischer Sprache geöffnet  
 
-Par exemple, considérez un scénario dans lequel vous installez la console Configuration Manager à partir d’un serveur de site prenant en charge l’anglais, l’allemand et le français. Si vous ouvrez la console Configuration Manager sur un ordinateur avec un paramètre de langue configuré pour le français, la console s’ouvre en français. Par contre, si vous ouvrez la console Configuration Manager sur un ordinateur avec un paramètre de langue configuré pour le japonais, la console s’ouvre en anglais, car le module linguistique japonais n’est pas disponible.  
+Stellen Sie sich beispielsweise ein Szenario vor, in dem Sie die Configuration Manager-Konsole von einem Standortserver aus installieren, der die Sprachen Deutsch, Englisch und Französisch unterstützt. Wenn Sie die Configuration Manager-Konsole auf einem Computer mit der konfigurierten Spracheinstellung „Französisch“ öffnen, wird die Konsole in französischer Sprache geöffnet. Wenn Sie die Configuration Manager-Konsole auf einem Computer mit der konfigurierten Spracheinstellung „Japanisch“ öffnen, wird die Konsole in englischer Sprache geöffnet, da das japanische Sprachpaket nicht verfügbar ist.  
 
- Chaque fois que la console Configuration Manager s’ouvre, les paramètres configurés pour la langue de l’ordinateur sont déterminés, la disponibilité d’un module linguistique associé pour la console Configuration Manager est vérifiée et le module linguistique correspondant est utilisé. Si vous voulez ouvrir la console Configuration Manager en anglais sans tenir compte des paramètres de langue configurés sur l’ordinateur, vous devez supprimer ou renommer manuellement les fichiers du module linguistique sur l’ordinateur.  
+ Bei jedem Öffnen der Configuration Manager-Konsole wird die konfigurierte Spracheinstellung für den Computer ermittelt und überprüft, ob ein zugeordnetes Sprachpaket für die Configuration Manager-Konsole verfügbar ist. Anschließend wird die Konsole unter Verwendung des entsprechenden Sprachpakets geöffnet. Wenn Sie die Configuration Manager-Konsole unabhängig von den konfigurierten Spracheinstellungen des Computers in englischer Sprache öffnen möchten, müssen Sie die Sprachpaketdateien auf dem Computer manuell entfernen oder umbenennen.  
 
- Utilisez les procédures suivantes pour démarrer la console Configuration Manager en anglais quels que soient les paramètres régionaux configurés sur l’ordinateur.  
+ Wenden Sie die folgenden Verfahren an, um die Configuration Manager-Konsole unabhängig von der konfigurierten Gebietsschemaeinstellung des Computers in englischer Sprache zu öffnen.  
 
-##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Pour installer une version en anglais uniquement de la console Configuration Manager sur des ordinateurs  
+##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>So installieren Sie nur die englische Version der Configuration Manager-Konsole auf Computern  
 
-1.  Dans l’Explorateur Windows, accédez à **&lt;chemin_installation_Configuration_Manager\>\Tools\ConsoleSetup\LanguagePack**.  
+1.  Wechseln Sie in Windows-Explorer zu **&lt;ConfigMgrInstallationPath\>\Tools\ConsoleSetup\LanguagePack**  
 
-2.  Renommez les fichiers **.msp** et **.mst** . Par exemple, vous pouvez remplacer **&lt;nom_fichier\>.MSP** par **&lt;nom_fichier\>.MSP.disabled**.  
+2.  Benennen Sie die **.msp** - und **.mst** -Dateien um. Sie könnten beispielsweise **&lt;Dateiname\>.MSP** in **&lt;Dateiname\>.MSP.disabled** ändern.  
 
-3.  Installez la console Configuration Manager sur l’ordinateur.  
+3.  Installieren Sie die Configuration Manager-Konsole auf dem Computer.  
 
     > [!IMPORTANT]  
-    >  Une fois les nouvelles langues de serveur configurées pour le serveur de site, les fichiers .msp et .mst sont recopiés dans le dossier **LanguagePack**. Vous devez répéter cette procédure pour installer de nouvelles consoles Configuration Manager en anglais uniquement.  
+    >  Wenn für den Standortserver neue Serversprachen konfiguriert werden, werden die MSP- und MST-Dateien erneut in den Ordner **LanguagePack** kopiert, und Sie müssen dieses Verfahren wiederholen, um Configuration Manager-Konsolen nur auf Englisch zu installieren.  
 
-##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Pour désactiver temporairement la langue d'une console sur une installation existante de la console Configuration Manager  
+##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>So deaktivieren Sie vorübergehend eine Konsolensprache bei einer vorhandenen Configuration Manager-Konsoleninstallation  
 
-1.  Sur l’ordinateur qui exécute la console Configuration Manager, fermez la console Configuration Manager.  
+1.  Schließen Sie auf dem Computer, auf dem die Configuration Manager-Konsole ausgeführt wird, die Configuration Manager-Konsole.  
 
-2.  Dans l’Explorateur Windows, accédez à &lt;*chemin_installation_console*>\Bin\ sur l’ordinateur de la console Configuration Manager.  
+2.  Wechseln Sie in Windows Explorer auf dem Computer mit der Configuration Manager-Konsole zu &lt;*ConsoleInstallationPath*>\Bin\.  
 
-3.  Renommez le dossier de langue approprié selon la langue configurée sur l'ordinateur. Par exemple, si les paramètres de langue pour l'ordinateur sont configurés pour l'allemand, renommez le dossier **de** , **de.disabled**.  
+3.  Benennen Sie den entsprechenden Sprachordner für die Sprache um, die auf dem Computer konfiguriert ist. Wenn beispielsweise beim Computer die Spracheinstellung "Deutsch" konfiguriert ist, könnten Sie den Ordner **de** in **de.deaktiviert**umbenennen.  
 
-4.  Pour ouvrir la console Configuration Manager dans la langue configurée pour l’ordinateur, rétablissez le nom d’origine du dossier. Par exemple, renommez **de.disabled** , **de**.  
+4.  Wenn Sie die Configuration Manager-Konsole wieder in der Sprache öffnen möchten, die für den Computer konfiguriert ist, benennen Sie den Ordner in den ursprünglichen Namen um. Benennen Sie beispielsweise **de.deaktiviert** wieder in **de**um.  
 
-##  <a name="a-namebkmkconfigdcomforremoteconsolea-configure-dcom-permissions-for-remote-configuration-manager-consoles"></a><a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurer les autorisations DCOM pour les consoles Configuration Manager distantes  
- Le compte d’utilisateur exécutant la console Configuration Manager exige des autorisations pour accéder à la base de données de site par le biais du fournisseur SMS. Toutefois, chaque utilisateur administratif qui utilise une console Configuration Manager distante doit posséder également des autorisations DCOM d’**activation à distance** sur :  
+##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Konfigurieren von DCOM-Berechtigungen für Configuration Manager-Remotekonsolen  
+ Für das Benutzerkonto, unter dem die Configuration Manager-Konsole ausgeführt wird, sind Berechtigungen für den Zugriff auf die Standortdatenbank über den SMS-Anbieter erforderlich. Administratoren, die eine Configuration Manager-Remotekonsole verwenden, benötigen zudem DCOM-Berechtigungen für eine **Remoteaktivierung** auf folgenden Computern:  
 
--   L'ordinateur de serveur de site ;  
+-   Den Standortservercomputer  
 
--   chaque ordinateur qui héberge une instance du fournisseur SMS.  
+-   Jedem Computer, der eine Instanz des SMS-Anbieters hostet  
 
- Le groupe de sécurité nommé **Administrateurs SMS** accorde des autorisations d’accès au fournisseur SMS sur un ordinateur et permet également d’accorder les autorisations DCOM requises. (Quand le fournisseur SMS s’exécute sur un serveur membre, il s’agit d’un groupe local dans l’ordinateur. Quand le fournisseur SMS s’exécute sur un contrôleur de domaine, il s’agit d’un groupe de domaine local.)  
+ Über die Sicherheitsgruppe mit Namen **SMS-Administratoren** ist der Zugriff auf den SMS-Anbieter auf einem Computer möglich, und auch die erforderlichen DCOM-Berechtigungen können mithilfe dieser Gruppe gewährt werden. (Wenn der SMS-Anbieter auf einem Mitgliedsserver ausgeführt wird, ist diese Gruppe eine lokale Computergruppe. Wenn der SMS-Anbieter auf einem Domänencontroller ausgeführt wird, ist diese Gruppe eine lokale Domänengruppe.)  
 
 > [!IMPORTANT]  
->  La console Configuration Manager utilise WMI (Windows Management Instrumentation) pour se connecter au fournisseur SMS, et WMI utilise DCOM en interne. Par conséquent, lorsque la console Configuration Manager est exécutée sur un ordinateur autre que le fournisseur SMS, Configuration Manager exige des autorisations pour activer un serveur DCOM sur l’ordinateur fournisseur SMS. Par défaut, l'activation à distance est accordée uniquement aux membres du groupe Administrateurs intégré. Accorder une autorisation d'activation à distance au groupe Administrateurs SMS reviendrait à permettre à un membre de ce groupe d'effectuer des attaques DCOM à l'encontre de l'ordinateur du fournisseur SMS. La surface d'attaque de l'ordinateur s'en trouverait également augmentée. Vous pouvez réduire l'étendue de cette menace en surveillant attentivement les membres du groupe Administrateurs SMS.  
+>  Die Configuration Manager-Konsole stellt mithilfe von Windows Management Instrumentation (WMI) eine Verbindung mit dem SMS-Anbieter her. WMI verwendet intern DCOM. Aus diesem Grund benötigt Configuration Manager Berechtigungen zum Aktivieren eines DCOM-Servers auf dem SMS-Anbietercomputer, wenn die Configuration Manager-Konsole auf einem anderen Computer als dem SMS-Anbietercomputer ausgeführt wird. Die Berechtigung zur Remoteaktivierung wird standardmäßig nur den Mitgliedern der integrierten Gruppe Administratoren erteilt. Wenn Sie der Gruppe SMS-Administratoren die Berechtigung Remoteaktivierung erteilen, kann jedes Mitglied dieser Gruppe DCOM-Angriffe gegen den SMS-Anbietercomputer unternehmen. Zudem wird die Angriffsfläche des Computers durch diese Konfiguration erhöht. Überwachen Sie sorgfältig die Mitgliedschaften der Gruppe SMS-Administratoren, um dieses Risiko zu verringern.  
 
- Utilisez la procédure ci-après pour configurer chaque site d’administration centrale, serveur de site principal et ordinateur sur lequel est installé le fournisseur SMS pour accorder l’accès à distance à la console Configuration Manager aux utilisateurs administratifs.  
+ Gehen Sie wie folgt vor, um die Standorte der zentralen Verwaltung, die primären Standortserver sowie alle Computer, auf denen der SMS-Anbieter installiert wird, für den Remotezugriff durch Administratoren mithilfe der Configuration Manager-Konsole zu konfigurieren.  
 
-#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Pour configurer des autorisations DCOM pour les connexions à distance à la console Configuration Manager  
+#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>So konfigurieren Sie DCOM-Berechtigungen für Remoteverbindungen der Configuration Manager-Konsole  
 
-1.  Ouvrez  **Services de composants** en exécutant **Dcomcnfg.exe**.  
+1.  Öffnen Sie  **Komponentendienste** , indem Sie **Dcomcnfg.exe**ausführen.  
 
-2.  Dans **Services de composants**, cliquez sur **Racine de la console** >  **Services de composants** > **Ordinateurs**, puis cliquez sur **Poste de travail**. Dans le menu **Action** , cliquez sur **Propriétés**.  
+2.  Klicken Sie unter **Komponentendienste**auf **Konsolenstamm** >  **Komponentendienste** > **Computer**aus, und klicken Sie dann auf **Arbeitsplatz**. Klicken Sie im Menü **Aktion** auf **Eigenschaften**.  
 
-3.  Dans la boîte de dialogue **Propriétés du poste de travail** , sous l'onglet **Sécurité COM** , dans la section **Autorisations d'exécution et d'activation** , cliquez sur **Modifier les limites**.  
+3.  Klicken Sie im Dialogfeld **Eigenschaften von Arbeitsplatz** auf der Registerkarte **COM-Sicherheit** im Abschnitt **Start- und Aktivierungsberechtigungen** auf **Limits bearbeiten**.  
 
-4.  Dans la boîte de dialogue **Autorisations d'exécution et d'activation** , cliquez sur **Ajouter**.  
+4.  Klicken Sie im Dialogfeld **Start- und Aktivierungsberechtigungen** auf **Hinzufügen**.  
 
-5.  Dans la boîte de dialogue **Sélectionner Utilisateur, ordinateurs, comptes de service ou groupes** , dans la zone **Entrez les noms d'objets à sélectionner (exemples)** , tapez **SMS Admins**, puis cliquez sur **OK**.  
+5.  Geben Sie im Dialogfeld **Benutzer, Computer, Dienstkonten oder Gruppen auswählen** im Feld **Geben Sie die Namen der auszuwählenden Objekte ein. (Beispiele)** die Zeichenfolge **SMS Admins**ein, und klicken Sie dann auf **OK**.  
 
     > [!NOTE]  
-    >  Vous devrez peut-être modifier la valeur du paramètre de **À partir de cet emplacement** pour localiser le groupe Administrateurs SMS. Lorsque le fournisseur SMS s'exécute sur un serveur membre, il s'agit d'un groupe local dans l'ordinateur. Lorsque le fournisseur SMS s'exécute sur un contrôleur de domaine, il s'agit d'un groupe de domaine local.  
+    >  Möglicherweise müssen Sie die Einstellung für **Von diesem Speicherort** ändern, um die Gruppe „SMS-Administratoren“ zu finden. Wenn der SMS-Anbieter auf einem Mitgliedsserver ausgeführt wird, ist diese Gruppe eine lokale Computergruppe. Wenn der SMS-Anbieter auf einem Domänencontroller ausgeführt wird, ist diese Gruppe eine lokale Domänengruppe.  
 
-6.  Dans la section **Autorisations pour les administrateurs SMS** , sélectionnez la case à cocher **Activation à distance** pour autoriser l'activation à distance.  
+6.  Aktivieren Sie im Abschnitt **Berechtigungen für SMS-Administratoren** das Kontrollkästchen **Remoteaktivierung** .  
 
-7.  Cliquez sur **OK** , cliquez de nouveau sur **OK** , puis fermez **Gestion de l'ordinateur**. Votre ordinateur est maintenant configuré pour autoriser l’accès à distance à la console Configuration Manager aux membres du groupe Administrateurs SMS.  
+7.  Klicken Sie auf **OK** , klicken Sie noch einmal auf **OK** , und schließen Sie dann die **Computerverwaltung**. Ihr Computer ist jetzt für den Remotezugriff über die Configuration Manager-Konsole durch Mitglieder der Gruppe „SMS-Administratoren“ konfiguriert.  
 
- Répétez cette procédure sur chaque ordinateur de fournisseur SMS pouvant prendre en charge les consoles Configuration Manager à distance.  
+ Wiederholen Sie dieses Verfahren auf jedem SMS-Anbietercomputer, durch den Configuration Manager-Remotekonsolen möglicherweise unterstützt werden.  
 
-##  <a name="a-namebkmkdbconfiga-modify-the-site-database-configuration"></a><a name="bkmk_dbconfig"></a> Modifier la configuration de base de données de site  
- Après avoir installé un site, vous pouvez modifier la configuration de la base de données de site et le serveur de base de données de site en exécutant l'installation sur un serveur de site d'administration centrale ou un serveur de site principal. Vous pouvez déplacer la base de données de site vers une nouvelle instance de SQL Server sur le même ordinateur ou vers un autre ordinateur exécutant une version de SQL Server prise en charge. Ces modifications et les modifications associées ne sont pas prises en charge pour la configuration de base de données sur des sites secondaires.  
+##  <a name="bkmk_dbconfig"></a> Ändern der Konfiguration für die Standortdatenbank  
+ Nach der Installation eines Standorts können Sie die Konfiguration der Standortdatenbank und des Standortdatenbankserver ändern, indem Sie Setup auf dem Standortserver der zentralen Verwaltung oder einem primären Standortserver ausführen. Sie können die Standortdatenbank auf eine neue SQL Server-Instanz auf dem gleichen Computer oder auf einen anderen Computer verschieben, auf dem eine unterstützte Version von SQL Server ausgeführt wird. Diese und verwandte Änderungen werden für die Datenbankkonfiguration an sekundären Standorten nicht unterstützt.  
 
- Pour plus d’informations sur les limites de prise en charge, consultez [Support policy for manual database changes in a Configuration Manager environment](https://support.microsoft.com/kb/3106512).  
+ Weitere Informationen zu den Grenzen der Unterstützung finden Sie unter [Supportrichtlinie für manuelle Datenbankänderungen in einer Configuration Manager-Umgebung](https://support.microsoft.com/kb/3106512).  
 
 > [!NOTE]  
->  Lorsque vous modifiez la configuration de la base de données pour un site, Configuration Manager redémarre ou réinstalle les services Configuration Manager sur le serveur de site et les serveurs de système de site distants qui communiquent avec la base de données.  
+>  Wenn Sie die Datenbankkonfiguration eines Standorts ändern, werden die Configuration Manager-Dienste auf dem Standortserver und den Systemservern von Remotestandorten, von denen aus Kommunikation mit der Datenbank erfolgt, von Configuration Manager neu gestartet oder neu installiert.  
 
-**Pour modifier la configuration de la base de données**, vous devez exécuter le programme d’installation sur le serveur de site, puis sélectionner l’option **Effectuer une maintenance de site ou réinitialiser ce site**. Ensuite, sélectionnez l'option **Modifier la configuration de SQL Server** . Vous pouvez modifier les configurations de base de données de site suivantes :  
+**Zum Ändern der Datenbankkonfiguration**müssen Sie Setup auf dem Standortserver ausführen und die Option **Standortwartung durchführen oder diesen Standort zurücksetzen**auswählen. Wählen Sie dann die Option **SQL Server-Konfiguration ändern** aus. Sie können die folgenden Konfigurationen der Standortdatenbank ändern:  
 
--   Le serveur Windows qui héberge la base de données.  
+-   Den Windows-basierten Server, auf dem die Datenbank gehostet wird  
 
--   L'instance de SQL Server en cours d'utilisation sur un serveur qui héberge la base de données SQL Server.  
+-   Die SQL Server-Instanz, die auf einem Server verwendet wird, auf dem die SQL Server-Datenbank gehostet wird  
 
--   Nom de la base de données.  
+-   Der Datenbankname.  
 
--   Port SQL Server utilisé par Configuration Manager  
+-   SQL Server-Port wird von Configuration Manager verwendet  
 
--   Port SQL Server Service Broker utilisé par Configuration Manager  
+-   SQL Server Service Broker-Port wird von Configuration Manager verwendet  
 
-**Si vous déplacez la base de données de site, vous devez configurer les éléments suivants :**  
+**Wenn Sie die Standortdatenbank verschieben, müssen Sie Folgendes konfigurieren:**  
 
--   **Configurer l’accès :** quand vous déplacez la base de données de site vers un nouvel ordinateur, ajoutez le compte d’ordinateur du serveur de site au groupe **Administrateurs locaux** sur l’ordinateur exécutant SQL Server. Si vous utilisez un cluster SQL Server pour la base de données de site, vous devez ajouter le compte d'ordinateur au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
+-   **Konfigurieren des Zugriffs** : Wenn Sie die Standortdatenbank auf einen neuen Computer verschieben, fügen Sie das Computerkonto des Standortservers der Gruppe **Lokale Administratoren** auf dem Computer, auf dem SQL Server ausgeführt wird, hinzu. Wenn Sie für die Standortdatenbank einen SQL Server-Cluster verwenden, müssen Sie das Computerkonto der Gruppe **Lokale Administratoren** jedes Windows Server-Clusterknotencomputers hinzufügen.  
 
--   **Activer l’intégration du CLR (Common Language Runtime) :**  quand vous déplacez la base de données vers une nouvelle instance de SQL Server ou vers un nouvel ordinateur SQL Server, vous devez activer l’intégration du CLR. Pour activer le CLR, utilisez **SQL Server Management Studio** pour vous connecter à l’instance de SQL Server qui héberge la base de données de site, puis exécutez la procédure stockée suivante en tant que requête : **sp_configure ’clr enabled’,1; reconfigure**.  
--  **Garantir que le nouvel ordinateur SQL Server a accès à l’emplacement de sauvegarde :** quand vous utilisez un chemin UNC pour le stockage de la sauvegarde de la base de données de site, après avoir déplacé la base de données vers un nouveau serveur, dont un déplacement vers un groupe de disponibilité SQL Server AlwaysOn ou un cluster SQL Server, vérifiez que le compte d’ordinateur du nouvel ordinateur SQL Server a des autorisations en **écriture** sur l’emplacement UNC.  
+-   **Aktivieren der CLR-Integration (Common Language Runtime):**  Wenn Sie die Standortdatenbank auf eine neue SQL Server-Instanz oder einen neuen SQL Server-Computer verschieben, müssen Sie die CLR-Integration (Common Language Runtime) aktivieren. Stellen Sie zum Aktivieren der CLR-Integration mithilfe von **SQL Server Management Studio** eine Verbindung mit der SQL Server-Instanz her, auf der die Standortdatenbank gehostet wird, und führen Sie dann die folgende gespeicherte Prozedur als Abfrage aus: **sp_configure 'clr enabled',1; reconfigure**.  
+-  **Stellen Sie sicher, dass der neue SQL-Server Zugriff auf den Speicherort der Sicherung hat:** Wenn Sie eine UNC verwenden, um die Sicherung der Standortdatenbank nach dem Verschieben der Datenbank einschließlich dem Verschieben einer SQL Server Always On-Verfügbarkeitsgruppe zu einem neuen SQL Server oder zu einem SQL Server-Cluster zu speichern, müssen Sie sicherstellen, dass das Computerkonto des neuen SQL Servers über **Schreibberechtigungen** für den UNC-Standort verfügt.  
 
 
 > [!IMPORTANT]  
->  Avant de déplacer une base de données possédant un ou plusieurs réplicas de base de données de points de gestion, vous devez supprimer les réplicas de base de données. Une fois la base de données déplacée, vous pouvez reconfigurer les réplicas de base de données. Pour plus d'informations, consultez [Database replicas for management points for System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  Vor dem Verschieben einer Datenbank, die über mindestens ein Datenbankreplikat für Verwaltungspunkte verfügt, müssen Sie zuerst die Datenbankreplikate entfernen. Nachdem das Verschieben der Datenbank abgeschlossen ist, können Sie die Datenbankreplikate neu konfigurieren. Weitere Informationen finden Sie unter [Database replicas for management points for System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-##  <a name="a-namebkmkspna-manage-the-spn-for-the-site-database-server"></a><a name="bkmk_SPN"></a> Gérer le SPN pour le serveur de base de données de site  
-Vous pouvez choisir le compte exécutant les services SQL pour la base de données du site :  
+##  <a name="bkmk_SPN"></a> Verwalten des SPN für den Standortdatenbankserver  
+Sie können das Konto auswählen, mit dem SQL-Dienste für die Standortdatenbank ausgeführt werden:  
 
--   Quand les services s’exécutent avec le compte système d’ordinateurs, le SPN est enregistré automatiquement pour vous.  
+-   Wenn die Dienste mit dem Systemkonto des Computers ausgeführt werden, wird der SPN automatisch für Sie registriert.  
 
--   Quand les services s’exécutent avec un compte d’utilisateur local de domaine, vous devez enregistrer manuellement le SPN pour vous assurer que les clients SQL et autre système de site peuvent effectuer l’authentification Kerberos. Sans l’authentification Kerberos, la communication avec la base de données peut échouer.  
+-   Wenn die Dienste mit einem lokalen Domänenbenutzerkonto ausgeführt werden, müssen Sie den SPN manuell registrieren, um sicherzustellen, dass SQL-Clients und andere Standortsysteme eine Kerberos-Authentifizierung ausführen können. Ohne Kerberos-Authentifizierung kann die Kommunikation mit der Datenbank fehlschlagen.  
 
-La documentation de SQL Server peut vous aider à [enregistrer manuellement le SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx)et fournit des informations supplémentaires sur les SPN et les connexions Kerberos.  
+Die SQL Server-Dokumentation bietet Ihnen Hilfe beim [manuellen Registrieren des SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx)und stellt zusätzliche Hintergrundinformationen zu SPNs und Kerberos-Verbindungen bereit.  
 
 > [!IMPORTANT]  
->  -   Quand vous créez un SPN pour un serveur SQL Server en cluster, vous devez spécifier le nom virtuel du cluster SQL Server comme nom d’ordinateur SQL Server.  
-> -   La commande permettant d’enregistrer un SPN pour une instance nommée de SQL Server est la même que celle utilisée pour l’enregistrement du SPN d’une instance par défaut, la seule différence étant que le numéro de port doit correspondre au port utilisé par l’instance nommée.  
+>  -   Wenn Sie einen SPN für einen gruppierten SQL Server erstellen, müssen Sie den virtuellen Namen des SQL Server-Clusters als SQL Server-Computernamen angeben.  
+> -   Der Befehl zum Registrieren eines SPN für eine benannte SQL Server-Instanz ist der gleiche wie zum Registrieren eines SPN für eine Standardinstanz. Allerdings muss die Portnummer mit der von der benannten Instanz verwendeten Portnummer übereinstimmen.  
 
-Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur de base de données de site à l’aide de l’outil **Setspn** . Vous devez exécuter l'outil Setspn sur un ordinateur qui réside dans le domaine de SQL Server et qui doit utiliser les informations d'identification de l'administrateur de domaine pour pouvoir l'exécuter.  
+Sie können einen SPN für das SQL Server-Dienstkonto des Standortdatenbankservers mithilfe des Tools **Setspn** registrieren. Sie müssen das Dienstprogramm Setspn auf einem Computer ausführen, der sich in der Domäne von SQL Server befindet. Zur Ausführung des Dienstprogramms sind die Anmeldeinformationen eines Domänenadministrators erforderlich.  
 
- Les procédures suivantes sont des exemples de gestion de SPN pour le compte de service SQL Server qui utilise l'outil Setspn sur Windows Server 2008 R2. Pour obtenir des instructions spécifiques à propos de Setspn, voir [Présentation de Setspn](http://go.microsoft.com/fwlink/p/?LinkId=226343)ou une documentation similaire, spécifique à votre système d'exploitation.  
+ Verwenden Sie die folgenden Verfahren als Beispiele für das Verwalten des SPN für das SQL Server-Dienstkonto mithilfe des Tools Setspn unter Windows Server 2008 R2. Umfassende Hinweise zu Setspn finden Sie in der [Übersicht über Setspn](http://go.microsoft.com/fwlink/p/?LinkId=226343)oder in der entsprechenden Dokumentation zu Ihrem Betriebssystem.  
 
 > [!NOTE]  
->  Les procédures suivantes font référence à l'outil en ligne de commande Setspn. L'outil en ligne de commande Setspn est inclus lorsque vous installez les outils de support Windows Server 2003 à partir du CD du produit ou depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=100114). Pour plus d'informations sur l'installation des outils de support Windows à partir du CD du produit, voir [Installer des outils de support Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
+>  Die folgenden Verfahren beziehen sich auf das Befehlszeilenprogramm Setspn. Das Befehlszeilenprogramm Setspn ist Bestandteil der Windows Server 2003-Supporttools, die Sie von der Produkt-CD installieren oder im [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=100114)herunterladen können. Weitere Informationen zum Installieren der Windows-Supporttools von der Produkt-CD finden Sie unter [Installieren der Windows-Supporttools](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
 
-#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Pour créer manuellement un nom principal de service (SPN) d'utilisateur de domaine pour le compte du service SQL Server  
+#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>So erstellen Sie manuell einen Domänenbenutzer-SPN (Service Principal Name) für das SQL Server-Dienstkonto  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**et entrez **cmd** dans la boîte de dialogue Exécuter.  
+1.  Klicken Sie auf **Start** , klicken Sie auf **Ausführen**, und geben Sie dann im Dialogfeld „Ausführen“ den Befehl **cmd** ein.  
 
-2.  Sur la ligne de commande, accédez au répertoire d'installation des outils de support de Windows Server. Par défaut, ces outils se trouvent dans le répertoire **C:\Program Files\Support Tools** .  
+2.  Wechseln Sie an der Befehlszeile in das Installationsverzeichnis für die Windows Server-Supporttools. Standardmäßig befinden sich diese Tools im Verzeichnis **C:\Program Files\Support Tools** .  
 
-3.  Entrez une commande valide pour créer le SPN. Pour créer le SPN, vous pouvez utiliser le nom NetBIOS ou le nom de domaine complet (FQDN) de l'ordinateur exécutant SQL Server. Toutefois, vous devez créer un SPN pour le nom NetBIOS et le nom de domaine complet.  
+3.  Geben Sie einen gültigen Befehl ein, um den SPN zu erstellen. Zum Erstellen des SPN können Sie den NetBIOS-Namen oder den FQDN (vollqualifizierter Domänenname) des Computers verwenden, auf dem SQL Server ausgeführt wird. Allerdings müssen Sie einen SPN sowohl für den NetBIOS-Namen als auch für den FQDN erstellen.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous créez un SPN pour un SQL Server en cluster, vous devez spécifier le nom virtuel du cluster SQL Server comme nom d'ordinateur SQL Server.  
+    >  Wenn Sie einen SPN für einen gruppierten SQL Server erstellen, müssen Sie den virtuellen Namen des SQL Server-Clusters als SQL Server-Computernamen angeben.  
 
-    -   Pour créer un SPN pour le nom NetBIOS de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_ordinateur_SQL_Server\>:1433 &lt;Domaine\Compte>**  
+    -   Zum Erstellen eines SPN für den NetBIOS-Namen des SQL Server-Computers geben Sie den folgenden Befehl ein: **setspn -A MSSQLSvc/&lt;SQL Server-Computername\>:1433 &lt;Domäne\Konto>**  
 
-    -   Pour créer un SPN pour le nom de domaine complet de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_de_domaine_complet_SQL_Server\>:1433 &lt;Domaine\Compte**  
+    -   Zum Erstellen eines SPN für den FQDN des SQL Server-Computers geben Sie den folgenden Befehl ein: **setspn -A MSSQLSvc/&lt;SQL Server- FQDN\>:1433 &lt;Domäne\Konto>**  
 
     > [!NOTE]  
-    >  La commande permettant d'enregistrer un SPN pour une instance nommée de SQL Server est la même que celle utilisée pour l'enregistrement du SPN d'une instance par défaut, sauf que le numéro de port doit correspondre au port utilisé par l'instance nommée.  
+    >  Der Befehl zum Registrieren eines SPN für eine benannte SQL Server-Instanz ist der gleiche wie zum Registrieren eines SPN für eine Standardinstanz. Allerdings muss die Portnummer mit der von der benannten Instanz verwendeten Portnummer übereinstimmen.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>Pour vérifier si le SPN d'utilisateur de domaine est inscrit correctement en utilisant la commande Setspn  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>So überprüfen Sie mithilfe des Befehls „Setspn“, ob der Domänenbenutzer-SPN richtig registriert wurde  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**et entrez **cmd** dans la boîte de dialogue **Exécuter** .  
+1.  Klicken Sie auf **Start** , klicken Sie auf **Ausführen**, und geben Sie dann im Dialogfeld **Ausführen** den Befehl **cmd** ein.  
 
-2.  À l’invite de commandes, entrez la commande suivante : **setspn -L &lt;domaine\compte_de_service_SQL>**.  
+2.  Geben Sie an der Eingabeaufforderung den folgenden Befehl ein: **setspn –L &lt;Domäne\SQL-Dienstkonto>**.  
 
-3.  Examinez le **Nom principal de service** inscrit pour vous assurer qu'un SPN valide a été créé pour SQL Server.  
+3.  Überprüfen Sie den registrierten **ServicePrincipalName** , um sicherzustellen, dass ein gültiger SPN für den SQL Server erstellt wurde.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>Pour vérifier que le SPN d'utilisateur de domaine est enregistré correctement lors de l'utilisation de la console MMC ADSIEdit  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>So überprüfen Sie mithilfe der ADSIEdit-MMC-Konsole, ob der Domänenbenutzer-SPN richtig registriert wurde  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**, puis entrez **adsiedit.msc** pour démarrer la console MMC ADSIEdit.  
+1.  Klicken Sie auf **Start** , klicken Sie auf **Ausführen**, und geben Sie dann **adsiedit.msc** ein, um die ADSIEdit-MMC-Konsole zu starten.  
 
-2.  Si nécessaire, connectez-vous au domaine du serveur de site.  
+2.  Stellen Sie ggf. eine Verbindung mit der Domäne des Standortservers her.  
 
-3.  Dans le volet de la console, développez le domaine du serveur de site, développez **DC=&lt;nom_serveur_unique\>**, développez **CN=Users**, cliquez avec le bouton droit sur **CN=&lt;utilisateur_compte_de_service\>**, puis cliquez sur **Propriétés**.  
+3.  Erweitern Sie im Konsolenbereich die Domäne des Standortservers, erweitern Sie **DC=&lt;definierter Name des Servers\>** und anschließend **CN=Benutzer**, klicken Sie mit der rechten Maustaste auf **CN=&lt;Dienstkontobenutzer\>**, und klicken Sie dann auf **Eigenschaften**.  
 
-4.  Dans la boîte de dialogue **Propriétés CN=&lt;utilisateur_compte_de_service\>**, consultez la valeur de **servicePrincipalName** pour vérifier qu’un SPN valide a été créé et associé à l’ordinateur SQL Server approprié.  
+4.  Überprüfen Sie im Dialogfeld **CN=&lt;Eigenschaften von \>Dienstkontobenutzer** den Wert **servicePrincipalName**, um sicherzustellen, dass ein gültiger SPN erstellt und dem richtigen SQL Server-Computer zugeordnet wurde.  
 
-#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Pour indiquer un compte d'utilisateur de domaine à la place du système local comme compte du service SQL Server  
+#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>So ändern Sie das SQL Server-Dienstkonto von einem lokalen Systembenutzerkonto in ein Domänenbenutzerkonto  
 
-1.  Créez ou sélectionnez un compte d'utilisateur de domaine ou de système local en tant que compte du service SQL Server.  
+1.  Erstellen Sie ein Domänenbenutzerkonto oder ein lokales Systembenutzerkonto, das dann als SQL Server-Dienstkonto verwendet wird, oder wählen Sie es aus.  
 
-2.  Ouvrez le **Gestionnaire de configuration SQL Server**.  
+2.  Öffnen Sie **SQL Server Configuration Manager**.  
 
-3.  Cliquez sur **Services SQL Server**, puis double-cliquez sur **SQL Server&lt;NOM_INSTANCE\>**.  
+3.  Klicken Sie auf **SQL Server-Dienste**, und doppelklicken Sie dann auf **SQL Server&lt; INSTANZNAME\>**.  
 
-4.  Dans l'onglet **Ouvrir une session** , sélectionnez **Ce compte**et entrez le nom et le mot de passe du compte d'utilisateur de domaine créé à l'étape 1. Vous pouvez également cliquer sur **Parcourir** pour rechercher le compte d'utilisateur dans les services de domaine Active Directory, puis cliquer sur **Appliquer**.  
+4.  Wählen Sie auf der Registerkarte **Anmelden** die Option **Dieses Konto**aus, und geben Sie dann den Benutzernamen und das Kennwort für das in Schritt 1 erstellte Domänenbenutzerkonto ein, oder klicken Sie auf **Durchsuchen** , um das Benutzerkonto in den Active Directory-Domänendiensten zu suchen, und klicken Sie dann auf **Übernehmen**.  
 
-5.  Cliquez sur **Oui** dans la boîte de dialogue **Confirmer la modification du compte** pour confirmer le changement de compte de service et redémarrer le service SQL Server.  
+5.  Klicken Sie im Dialogfeld **Kontenänderung bestätigen** auf **Ja** , um die Änderung des Dienstkontos zu bestätigen und den SQL Server-Dienst neu zu starten.  
 
-6.  Cliquez sur **OK** après modification du compte de service.  
+6.  Klicken Sie auf **OK** , nachdem das Dienstkonto erfolgreich geändert wurde.  
 
-##  <a name="a-namebkmkreseta-run-a-site-reset"></a><a name="bkmk_reset"></a> Exécuter une réinitialisation de site  
- Quand une réinitialisation de site s’exécute sur un site d’administration centrale ou sur un site principal, le site :  
+##  <a name="bkmk_reset"></a> Ausführen einer Standortrücksetzung  
+ Wenn eine Standortrücksetzung an einem Standort der zentralen Verwaltung oder primären Standort ausgeführt wird, geschieht Folgendes:  
 
--   réapplique les autorisations de fichiers et de Registre Configuration Manager par défaut ;  
+-   Die Configuration Manager-Standarddatei und die standardmäßigen Registrierungsberechtigungen werden erneut angewendet  
 
--   réinstalle tous les composants de site et tous les rôles de système de site sur le site.  
+-   Alle Standortkomponenten und alle Standortsystemrollen werden am Standort neu installiert.  
 
-Les sites secondaires ne prennent pas en charge la réinitialisation du site.  
+Für sekundäre Standorte wird das Zurücksetzen des Standorts nicht unterstützt.  
 
-Les réinitialisations de site peuvent être exécutées manuellement, quand vous le souhaitez, mais peuvent également s’exécuter automatiquement une fois que vous avez modifié la configuration du site.  
+Standortrücksetzungen können auf Wunsch manuell ausgeführt werden oder automatisch erfolgen, nachdem Sie die Standortkonfiguration geändert haben.  
 
-Par exemple, si les comptes utilisés par les composants Configuration Manager ont été modifiés, vous devez envisager de réinitialiser le site manuellement ; ainsi mis à jour, les composants de site peuvent utiliser les nouvelles informations de compte. Toutefois, si vous modifiez les langues du client ou du serveur sur un site, Configuration Manager réinitialise automatiquement le site, car cette action est nécessaire avant que le site puisse utiliser cette modification.  
+Wenn beispielsweise die von Configuration Manager-Komponenten verwendeten Konten geändert wurden, sollten Sie eine manuelle Standortrücksetzung in Erwägung ziehen, um sicherzustellen, dass die Standortkomponenten für die Verwendung der neuen Kontodetails aktualisiert werden. Wenn Sie dagegen die Sprachen für Client oder Server an einem Standort ändern, setzt Configuration Manager den Standort automatisch zurück, da dies erforderlich ist, bevor die Änderungen auf dem Standort wirksam werden.  
 
 > [!NOTE]  
->  La réinitialisation d’un site ne réinitialise pas les autorisations d’accès aux objets non-Configuration Manager.  
+>  Beim Zurücksetzen des Standorts werden ausschließlich die Zugriffsberechtigungen für Configuration Manager-Objekte zurückgesetzt.  
 
-Quand une réinitialisation de site s’exécute :  
+Beim Zurücksetzen eines Standorts geschieht Folgendes:  
 
-1.  L’installation s’arrête et redémarre le service **SMS_SITE_COMPONENT_MANAGER** ainsi que les composants de thread du service **SMS_EXECUTIVE** .  
+1.  Der Dienst **SMS_SITE_COMPONENT_MANAGER** und die Threadkomponenten des Diensts **SMS_EXECUTIVE** werden beendet und neu gestartet.  
 
-2.  Le programme d’installation supprime, puis recrée, le dossier partagé du système de site et le composant **SMS Executive** sur l’ordinateur local et sur les ordinateurs de système de site distants.  
+2.  Der Freigabeordner des Standortsystems und die Komponente **SMS-Executive** auf dem lokalen Computer und auf Remote-Standortsystemcomputern werden entfernt und anschließend neu erstellt.  
 
-3.  Le programme d’installation redémarre le service **SMS_SITE_COMPONENT_MANAGER** , et ce service installe les services **SMS_EXECUTIVE** et **SMS_SQL_MONITOR** .  
+3.  Der Dienst **SMS_SITE_COMPONENT_MANAGER** wird neu gestartet, und von diesem Dienst werden die Dienste **SMS_EXECUTIVE** und **SMS_SQL_MONITOR** installiert.  
 
-La réinitialisation d'un site restaure, également, les objets suivants :  
+Des Weiteren werden bei einer Standortrücksetzung folgende Objekte wiederhergestellt:  
 
--   Les clés de Registre **SMS** ou **NAL** et toutes les sous-clés par défaut dépendant de ces clés.  
+-   Die Registrierungsschlüssel **SMS** oder **NAL** sowie alle diesen Schlüsseln untergeordneten Schlüssel  
 
--   L’arborescence du répertoire de fichiers Configuration Manager et tous les fichiers par défaut ou tous les sous-répertoires de cette arborescence du répertoire de fichiers.  
+-   Die Configuration Manager-Dateiverzeichnisstruktur sowie alle Standarddateien und -verzeichnisse in dieser Verzeichnisstruktur.  
 
-**Configuration requise pour exécuter une réinitialisation du site**  
+**Voraussetzungen für das Ausführen einer Standortrücksetzung**  
 
-Le compte que vous utilisez pour effectuer une réinitialisation du site doit disposer des autorisations suivantes :  
+Das Konto, mit dem Sie das Zurücksetzen eines Standorts ausführen, muss über folgende Berechtigungen verfügen:  
 
--   Le compte que vous utilisez pour effectuer une réinitialisation du site doit disposer des autorisations suivantes :  
+-   Das Konto, mit dem Sie das Zurücksetzen eines Standorts ausführen, muss über folgende Berechtigungen verfügen:  
 
-    -   **Site d’administration centrale**: le compte que vous utilisez pour réinitialiser un site de ce site doit être un administrateur local situé sur le serveur de site d'administration centrale et doit disposer de privilèges équivalents au rôle de sécurité de l'administration basée sur le rôle **Administrateur complet** .  
+    -   **Standort der zentralen Verwaltung**: Das Konto, das Sie zum Zurücksetzen dieses Standorts verwenden, muss auf dem Standort der zentralen Verwaltung über lokale Administratorrechte verfügen sowie über Berechtigungen, die der rollenbasierten Verwaltungssicherheitsrolle **Hauptadministrator** entsprechen.  
 
-    -   **Site principal**: le compte que vous utilisez pour réinitialiser un site de ce site doit être un administrateur local situé sur le serveur de site principal et doit disposer de privilèges équivalents au rôle de sécurité de l'administration basée sur le rôle **Administrateur complet** . Si le site principal se trouve dans une hiérarchie disposant d'un site d'administration centrale, ce compte doit également être un administrateur local sur le serveur du site d'administration centrale.  
+    -   **Primärer Standort**: Das Konto, das Sie zum Zurücksetzen dieses Standorts verwenden, muss auf dem primären Standort über lokale Administratorrechte verfügen sowie über Berechtigungen, die der rollenbasierten Verwaltungssicherheitsrolle **Hauptadministrator** entsprechen. Wenn der primäre Standort sich in der gleichen Hierarchie befindet wie ein Standort der zentralen Verwaltung, muss dieses Konto darüber hinaus über lokale Administratorrechte auf dem Standortserver der zentralen Verwaltung verfügen.  
 
-**Limitations d’une réinitialisation de site**
-  - Depuis la version 1602, vous ne pouvez pas utiliser une réinitialisation de site pour modifier les modules linguistiques serveur ou client qui ont été installés sur les sites tant que la hiérarchie est configurée pour prendre en charge les [tests des mises à niveau du client dans un regroupement de préproduction](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+**Einschränkungen für eine Standortrücksetzung**
+  - Ab Version 1602 können Sie einen Standort zurücksetzen, um den Server oder Clientsprachpakete zu ändern, die an Standorten installiert sind. Als Voraussetzung muss die Hierarchie so konfiguriert sein, dass sie das [Testen von Clientupgrades in einer Präproduktionssammlung](/sccm/core/clients/manage/upgrade/test-client-upgrades) unterstützt.
 
-#### <a name="to-perform-a-site-reset"></a>Pour effectuer une réinitialisation de site  
+#### <a name="to-perform-a-site-reset"></a>So führen Sie eine Standortrücksetzung durch  
 
-1.  Exécutez **Installation de Configuration Manager** à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Führen Sie das **Configuration Manager-Setup** über **&lt;Installationsordner des Configuration Manager-Standorts\>\BIN\X64\setup.exe** aus.  
 
     > [!TIP]  
-    >  Vous pouvez également exécuter une réinitialisation de site en démarrant le programme d’installation de Configuration Manager dans le menu **Démarrer** de l’ordinateur serveur de site ou depuis le média source Configuration Manager.  
+    >  Sie können eine Standortrücksetzung auch ausführen, indem Sie das Configuration Manager-Setup im **Startmenü** auf dem Standortservercomputer oder aus dem Configuration Manager-Quellmedium starten.  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Wählen Sie auf der Seite **Erste Schritte** die Option **Standortwartung durchführen oder diesen Standort zurücksetzen**aus, und klicken Sie dann auf **Weiter**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Réinitialiser le site sans modification de la configuration**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Standortwartung** die Option **Standort ohne Konfigurationsänderung zurücksetzen**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Cliquez sur **Oui** pour démarrer la réinitialisation du site.  
+4.  Klicken Sie auf **Ja** , um das Zurücksetzen des Standorts zu beginnen.  
 
-Une fois la réinitialisation du site terminée, cliquez sur **Fermer** pour terminer cette procédure.  
+Wenn das Zurücksetzen des Standorts beendet ist, klicken Sie auf **Schließen** , um dieses Verfahren abzuschließen.  
 
-##  <a name="a-namebkmksitelanga-manage-language-packs-at-a-site"></a><a name="bkmk_sitelang"></a> Gérer les modules linguistiques sur un site  
-Après l’installation d’un site, vous pouvez modifier les modules linguistiques client et serveur en cours d’utilisation :  
+##  <a name="bkmk_sitelang"></a> Verwalten von Sprachpaketen an einem Standort  
+Nach der Installation eines Standorts können Sie die verwendeten Sprachpakete für Server und Client ändern:  
 
-**Modules linguistiques serveur :**  
+**Serversprachpakete:**  
 
--   **S’applique à :**  
+-   **Gilt für:**  
 
-     Installations de la console Configuration Manager  
+     Configuration Manager-Konsoleninstallationen  
 
-     Nouvelles installations de rôles de système de site applicables  
+     Neue Installationen von relevanten Standortsystemrollen  
 
--   **Détails :**  
+-   **Details:**  
 
-     Après la mise à jour des modules linguistiques serveur d’un site, vous pouvez ajouter la prise en charge des modules linguistiques dans les consoles Configuration Manager.  
+     Nach dem Aktualisieren der Serversprachpakete an einem Standort können Sie Configuration Manager-Konsolen die Unterstützung für die Sprachpakete hinzufügen.  
 
-     Pour ajouter la prise en charge d’un module linguistique serveur dans une console Configuration Manager, vous devez installer la console Configuration Manager à partir du dossier **ConsoleSetup** d’un serveur de site dans lequel figure le module linguistique que vous souhaitez utiliser. Si la console Configuration Manager est déjà installée, vous devez commencer par la désinstaller, afin de permettre à la nouvelle installation d’identifier la liste actuelle des modules linguistiques pris en charge.  
+     Zum Hinzufügen der Unterstützung für ein Serversprachpaket zu einer Configuration Manager-Konsole müssen Sie die Configuration Manager-Konsole aus dem Ordner **ConsoleSetup** eines Standortservers installieren, der das gewünschte Sprachpaket enthält. Falls die Configuration Manager-Konsole bereits installiert ist, müssen Sie sie zuerst deinstallieren, damit für die neue Installation die aktuelle Liste der unterstützten Sprachpakete identifiziert werden kann.  
 
-**Modules linguistiques client :**  
+**Clientsprachpakete:**  
 
--   **S’applique à :**  
+-   **Gilt für:**  
 
-     Les modifications apportées aux modules linguistiques client mettent à jour les fichiers sources d’installation du client, pour que les nouvelles installations et mises à niveau de client ajoutent la prise en charge de la liste des langues client mise à jour.  
+     Durch Änderungen der Clientsprachpakete werden die Quelldateien für die Clientinstallation aktualisiert, damit bei neuen Clientinstallationen und Upgrades die Unterstützung für die aktualisierte Liste der Clientsprachen hinzugefügt wird.  
 
--   **Détails :**  
+-   **Details:**  
 
-     Après la mise à jour des modules linguistique client d'un site, vous devez installer chacun des clients qui utiliseront les modules linguistiques en utilisant les fichiers sources qui incluent les modules linguistiques client.  
+     Nachdem Sie die Clientsprachpakete an einem Standort aktualisiert haben, müssen Sie jeden Client, von dem die Sprachpakete verwendet werden, mithilfe der Quelldateien mit den Clientsprachpaketen installieren.  
 
-Pour plus d’informations sur les langues client et serveur prises en charge par Configuration Manager, consultez [Modules linguistiques dans System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md).  
+Informationen zu den von Configuration Manager unterstützten Client- und Serversprachen finden Sie unter [Sprachpakete in System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md)  
 
-#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>Pour modifier les modules linguistiques pris en charge par un site  
+#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>So ändern Sie die Sprachpakete, die an einem Standort unterstützt werden  
 
-1.  Sur le serveur de site, exécutez le programme d’installation de Configuration Manager à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Führen Sie auf dem Standortserver das Configuration Manager-Setup unter **&lt;Configuration Manager-Installationsordner des Standorts\>\BIN\X64\setup.exe** aus.  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Wählen Sie auf der Seite **Erste Schritte** die Option **Standortwartung durchführen oder diesen Standort zurücksetzen**aus, und klicken Sie dann auf **Weiter**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Modifier la configuration de la langue**, puis cliquez sur **Suivant**.  
+3.  Wählen Sie auf der Seite **Standortwartung** die Option **Sprachkonfiguration ändern**aus, und klicken Sie dann auf **Weiter**.  
 
-4.  Sur la page **Téléchargements requis** , sélectionnez **Télécharger les fichiers requis** pour acquérir des mises à jour de modules linguistiques ou **Utiliser des fichiers précédemment téléchargés** pour utiliser les fichiers précédemment téléchargés incluant les modules linguistiques que vous souhaitez ajouter au site. Cliquez sur **Suivant** pour valider les fichiers et continuer.  
+4.  Aktivieren Sie auf der Seite **Download der Voraussetzungskomponenten** die Option **Erforderliche Dateien herunterladen** , damit Updates für Sprachpakete abgerufen werden. Sie können auch die Option **Bereits heruntergeladene Dateien verwenden** aktivieren, um die bereits heruntergeladenen Dateien zu verwenden, in denen die gewünschten Sprachpakete für den Standort enthalten sind. Klicken Sie auf **Weiter** , um die Dateien zu überprüfen und den Vorgang fortzusetzen.  
 
-5.  Sur la page **Sélection de la langue du serveur** , activez les cases à cocher correspondant aux langues serveur prises en charge par ce site, puis cliquez sur **Suivant**.  
+5.  Aktivieren Sie auf der Seite **Serversprachauswahl** das Kontrollkästchen für die Serversprachen, die vom Standort unterstützt werden, und klicken Sie dann auf **Weiter**.  
 
-6.  Sur la page **Sélection de la langue client** , activez les cases à cocher correspondant aux langues client prises en charge par ce site, puis cliquez sur **Suivant**.  
+6.  Aktivieren Sie auf der Seite **Clientsprachauswahl** das Kontrollkästchen für die Clientsprachen, die vom Standort unterstützt werden, und klicken Sie dann auf **Weiter**.  
 
-7.  Cliquez sur **Suivant**pour modifier les langues prises en charge au niveau du site.  
+7.  Klicken Sie auf **Weiter**, um die Sprachunterstützung für den Standort zu ändern.  
 
     > [!NOTE]  
-    >  Configuration Manager lance une réinitialisation de site qui réinstalle également tous les rôles de système de site au niveau du site.  
+    >  Configuration Manager initiiert das Zurücksetzen des Standorts, wobei auch alle Standortsystemrollen des Standorts neu installiert werden.  
 
-8.  Cliquez sur **Fermer** pour terminer cette procédure.  
+8.  Klicken Sie auf **Schließen** , um dieses Verfahren abzuschließen.  
 
-##  <a name="a-namebkmkmoddbalerta-modify-the-database-server-alert-threshold"></a><a name="BKMK_ModDBAlert"></a> Modifier le seuil d’alerte du serveur de base de données  
- Par défaut, Configuration Manager génère des alertes lorsque l’espace disque libre sur un serveur de base de données de site est faible. Les valeurs par défaut sont définies pour générer un avertissement lorsque l'espace disque libre est de 10 Go ou moins et une alerte critique lorsque l'espace disque libre est de 5 Go ou moins. Vous pouvez modifier ces valeurs ou désactiver les alertes pour chaque site.  
+##  <a name="BKMK_ModDBAlert"></a> Ändern des Warnungsschwellenwerts für Datenbankserver  
+ Configuration Manager gibt standardmäßig Warnungen aus, wenn auf einem Standortdatenbankserver wenig Speicherplatz verfügbar ist. Normalerweise wird eine Warnung ausgegeben, wenn der freie Festplattenspeicher 10 GB oder weniger beträgt. Bei 5 GB oder weniger wird eine kritische Warnung ausgegeben. Sie können diese Werte ändern oder die Warnungen für die einzelnen Standorte deaktivieren.  
 
- Pour modifier ces paramètres :  
+ So ändern Sie diese Einstellungen  
 
-1.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.  
+1.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Standorte**.  
 
-2.  Sélectionnez le site que vous souhaitez configurer et ouvrez les **Propriétés** de ce site.  
+2.  Wählen Sie den Standort aus, den Sie konfigurieren möchten, und öffnen Sie die **Eigenschaften** dieses Standorts.  
 
-3.  Dans la boîte de dialogue **Propriétés** du site, sélectionnez l’onglet **Alerte**, puis modifiez les paramètres.  
+3.  Klicken Sie im Dialogfeld **Standorteigenschaften** auf die Registerkarte **Warnung**, und bearbeiten Sie dann die Einstellungen.  
 
-4.  Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de site.  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+4.  Klicken Sie zum Schließen des Dialogfelds „Standorteigenschaften“ auf **OK** .  

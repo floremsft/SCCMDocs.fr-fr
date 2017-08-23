@@ -1,174 +1,170 @@
 ---
-title: "Créer une séquence de tâches pour capturer et restaurer l’état utilisateur | Microsoft Docs"
-description: "Utilisez des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
+title: Erstellen einer Tasksequenz zum Erfassen und Wiederherstellen eines Benutzerzustands | Microsoft-Dokumentation
+description: "Verwenden Sie die Tasksequenzen von System Center Configuration Manager zum Erfassen und Wiederherstellen von Benutzerzustandsdaten in Bereitstellungsszenarios für Betriebssysteme."
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d566d85c-bf7a-40e7-8239-57640a1db5f4
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager
+# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Erstellen einer Tasksequenz zum Erfassen und Wiederherstellen eines Benutzerzustands in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. En fonction du type de séquence de tâches que vous créez, les étapes de capture et de restauration peuvent être ajoutées automatiquement dans le cadre de la séquence de tâches. Dans d’autres scénarios, vous devrez peut-être ajouter manuellement les étapes de capture et de restauration à la séquence de tâches. Cette rubrique fournit les étapes que vous devez ajouter à une séquence de tâches existante pour capturer et restaurer des données d’état utilisateur.  
+Mit Tasksequenzen von System Center Configuration Manager können Sie bei der Betriebssystembereitstellung die Benutzerzustandsdaten erfassen und wiederherstellen, wenn Sie den Benutzerzustand des aktuellen Betriebssystems beibehalten möchten. Je nach Art der erstellten Tasksequenz werden die Schritte zum Erfassen und Wiederherstellen möglicherweise automatisch zur Tasksequenz hinzugefügt. In anderen Szenarien müssen Sie die Schritte zum Erfassen und Wiederherstellen möglicherweise manuell zur Tasksequenz hinzufügen. Dieses Thema enthält die Schritte, die Sie zu einer vorhandenen Tasksequenz hinzufügen müssen, um Benutzerzustandsdaten zu erfassen und wiederherzustellen.  
 
-##  <a name="BKMK_CaptureRestoreUserState"></a> Comment capturer et restaurer des données d’état utilisateur  
- Pour capturer et restaurer l’état utilisateur, vous devez ajouter les étapes suivantes à la séquence de tâches :  
+##  <a name="BKMK_CaptureRestoreUserState"></a> Erfassen und Wiederherstellen von Benutzerzustandsdaten  
+ Zum Erfassen und Wiederherstellen des Benutzerzustands müssen Sie die folgenden Schritte zur Tasksequenz hinzufügen:  
 
--   **Demander le magasin d’état**: cette étape est nécessaire seulement si vous stockez l’état utilisateur sur le point de migration d’état.  
+-   **Zustandsspeicher anfordern**: Dieser Schritt ist nur erforderlich, wenn Sie den Benutzerzustand auf dem Zustandsmigrationspunkt speichern.  
 
--   **Capturer l’état utilisateur**: cette étape capture les données d’état utilisateur et les stocke sur le point de migration d’état ou localement à l’aide de liens.  
+-   **Benutzerzustand erfassen**: Bei diesem Schritt werden die Benutzerzustandsdaten erfasst und entweder auf dem Zustandsmigrationspunkt oder lokal mithilfe von Links gespeichert.  
 
--   **Restaurer l’état utilisateur**: cette étape restaure les données d’état utilisateur sur l’ordinateur de destination. Elle peut récupérer les données à partir d'un point de migration d'état utilisateur ou à partir de l'ordinateur de destination.  
+-   **Benutzerzustand wiederherstellen**: Bei diesem Schritt werden die Benutzerzustandsdaten auf dem Zielcomputer wiederhergestellt. Dabei können die Daten von einem Migrationspunkt für den Benutzerzustand oder vom Zielcomputer abgerufen werden.  
 
--   **Libérer le magasin d’état**: cette étape est nécessaire seulement si vous stockez l’état utilisateur sur le point de migration d’état. Cette étape supprime ces données du point de migration d'état.  
+-   **Zustandsspeicher freigeben**: Dieser Schritt ist nur erforderlich, wenn Sie den Benutzerzustand auf dem Zustandsmigrationspunkt speichern. Bei diesem Schritt werden diese Daten aus dem Zustandsmigrationspunkt entfernt.  
 
- Utilisez les procédures suivantes pour ajouter les étapes de séquence de tâches nécessaires pour capturer et restaurer l'état utilisateur. Pour plus d’informations sur la création d’une séquence de tâches, consultez [Gérer les séquences de tâches pour automatiser des tâches](manage-task-sequences-to-automate-tasks.md).  
+ Gehen Sie wie folgt vor, um die zum Erfassen und Wiederherstellen des Benutzerzustands erforderlichen Tasksequenzschritte hinzuzufügen. Weitere Informationen zum Erstellen von Tasksequenzen finden Sie unter [Verwaltung von Tasksequenzen zum Automatisieren von Tasks](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>Pour ajouter des étapes de séquence de tâches afin de capturer l'état utilisateur  
+#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>So fügen Sie Tasksequenzschritte zum Erfassen des Benutzerzustands hinzu  
 
-1.  Dans la liste **Séquence de tâches** , sélectionnez une séquence de tâches et cliquez sur **Modifier**.  
+1.  Wählen Sie in der Liste **Tasksequenz** eine Tasksequenz aus, und klicken Sie dann auf **Bearbeiten**.  
 
-2.  Si vous utilisez un point de migration d'état pour stocker l'état utilisateur, ajoutez l'étape **Demander le magasin d'état** à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Demander le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Demander le magasin d'état** , puis cliquez sur **Appliquer**.  
+2.  Wenn Sie einen Zustandsmigrationspunkt zum Speichern des Benutzerzustands verwenden, fügen Sie der Tasksequenz den Schritt **Zustandsspeicher anfordern** hinzu. Klicken Sie im Dialogfeld **Tasksequenz-Editor** auf **Hinzufügen**, zeigen Sie auf **Benutzerzustand**, und klicken Sie dann auf **Zustandsspeicher anfordern**. Geben Sie für den Schritt **Zustandsspeicher anfordern** die folgenden Eigenschaften und Optionen an, und klicken Sie dann auf **Anwenden**.  
 
-     Dans l'onglet **Propriétés** , spécifiez les options suivantes :  
+     Geben Sie auf der Registerkarte **Eigenschaften** die folgenden Optionen an:  
 
-    -   Entrez un nom et une description pour l'étape.  
+    -   Geben Sie einen Namen und eine Beschreibung für den Schritt ein.  
 
-    -   Cliquez sur **Capturer l'état à partir de l'ordinateur**.  
+    -   Klicken Sie auf **Zustand des Computers erfassen**.  
 
-    -   Dans la zone **Nombre de tentatives** , spécifiez le nombre de tentatives de la séquence de tâches pour capturer les données d'état utilisateur si une erreur se produit.  
+    -   Geben Sie im Feld **Anzahl von Wiederholungen** an, wie oft von der Tasksequenz im Falle eines Fehlers versucht wird, die Benutzerzustandsdaten zu erfassen.  
 
-    -   Dans la zone **Délai de nouvelle tentative (en secondes)** , spécifiez le nombre de secondes d'attente avant que la séquence de tâches retente de capturer les données.  
+    -   Geben Sie im Feld **Wiederholungsverzögerung (in Sekunden)** an, wie viele Sekunden von der Tasksequenz bis zum nächsten Datenerfassungsversuch gewartet werden soll.  
 
-    -   Cochez la case **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau** pour indiquer si vous voulez utiliser le [compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) Configuration Manager pour vous connecter aux données d’état utilisateur.  
+    -   Aktivieren Sie das Kontrollkästchen **Das Netzwerkzugriffskonto verwenden, wenn vom Computerkonto keine Verbindung mit dem Zustandsspeicher hergestellt werden kann**, um anzugeben, ob das [Netzwerkzugriffskonto](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) von Configuration Manager zum Verbinden mit dem Zustandsspeicher verwendet werden soll.  
 
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
+     Geben Sie auf der Registerkarte **Optionen** die folgenden Optionen an:  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Aktivieren Sie das Kontrollkästchen **Bei Fehler fortsetzen** , wenn die Tasksequenz im Falle eines Fehlers bei diesem Schritt mit dem nächsten Schritt fortgesetzt werden soll.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geben Sie alle Bedingungen an, die erfüllt sein müssen, damit die Tasksequenz bei einem Fehler fortgesetzt werden kann.  
 
-3.  Ajoutez l'étape **Capturer l'état utilisateur** à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Capturer l'état utilisateur**. Spécifiez les propriétés et les options suivantes pour l'étape **Capturer l'état utilisateur** , puis cliquez sur **OK**.  
-
-    > [!IMPORTANT]  
-    >  Lorsque vous ajoutez cette étape à votre séquence de tâches, définissez également la variable de séquence de tâches **OSDStateStorePath** pour indiquer où sont stockées sur les données d'état utilisateur. Si vous stockez l'état utilisateur localement, ne spécifiez pas un dossier racine, car la séquence de tâches risquerait d'échouer. Lorsque vous stockez les données utilisateur localement, utilisez toujours un dossier ou un sous-dossier. Pour plus d’informations sur cette variable, consultez [Variables de l’action de séquence de tâches Capturer l’état utilisateur](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
-
-     Dans l'onglet **Propriétés** , spécifiez les options suivantes :  
-
-    -   Entrez un nom et une description pour l'étape.  
-
-    -   Indiquez l'emplacement du package qui contient les fichiers sources USMT utilisés pour capturer les données d'état utilisateur.  
-
-    -   Spécifiez les profils utilisateur à capturer :  
-
-        -   Cliquez sur **Capturer tous les profils utilisateur à l'aide des options standard** pour capturer tous les profils utilisateur.  
-
-        -   Cliquez sur **Personnaliser la façon dont les profils utilisateur sont capturés** pour spécifier les profils utilisateur individuels à capturer. Sélectionnez le fichier de configuration (miguser.xml, migsys.xml ou migapp.xml) qui contient les informations du profil utilisateur. Vous ne pouvez pas utiliser ici le fichier de configuration config.xml, mais vous pouvez l’ajouter manuellement à la ligne de commande USMT en utilisant les variables OSDMigrageAdditionalCaptureOptions et OSDMigrateAdditionalRestoreOptions.
-
-    -   Sélectionnez **Activer la journalisation documentée** pour spécifier la quantité d'informations à écrire dans des fichiers journaux si une erreur se produit.  
-
-    -   Sélectionnez **Ignorer les fichiers qui utilisent le système de fichiers EFS**.  
-
-    -   Sélectionnez **Copier en utilisant l'accès au système de fichiers** pour spécifier les paramètres suivants :  
-
-        -   **Continuer si certains fichiers ne peuvent pas être capturés**: ce paramètre permet à l’étape de séquence de tâches de continuer le processus de migration même si certains fichiers ne peuvent pas être capturés. Si vous désactivez cette option et qu'un fichier ne peut pas être capturé, l'étape de séquence de tâches échoue. Cette option est activée par défaut.  
-
-        -   **Capturer localement en utilisant des liens au lieu de copier les fichiers**: ce paramètre vous permet d’utiliser la fonctionnalité de migration de lien physique qui est disponible dans USMT 4.0. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-        -   **Capturer en mode hors-ligne (Windows PE uniquement)**: ce paramètre vous permet de capturer l’état utilisateur à partir de Windows PE sans démarrer le système d’exploitation existant. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-    -   Sélectionnez **Capturer en utilisant Volume Copy Shadow Service (VSS)**. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
-
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
-
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
-
-4.  Si vous utilisez un point de migration d’état pour stocker l’état utilisateur, ajoutez l’étape [Libérer le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Libérer le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Libérer le magasin d'état** , puis cliquez sur **OK**.  
+3.  Fügen Sie der Tasksequenz den Schritt **Benutzerzustand erfassen** hinzu. Klicken Sie im Dialogfeld **Tasksequenz-Editor** auf **Hinzufügen**, zeigen Sie auf **Benutzerzustand**, und klicken Sie dann auf **Benutzerzustand erfassen**. Geben Sie für den Schritt **Benutzerzustand erfassen** die folgenden Eigenschaften und Optionen an, und klicken Sie dann auf **OK**.  
 
     > [!IMPORTANT]  
-    >  L'action de séquence de tâches exécutée avant l'étape **Libérer le magasin d'état** doit être effectuée avec succès avant que l'étape **Libérer le magasin d'état** démarre.  
+    >  Legen Sie beim Hinzufügen dieses Schritts der Tasksequenz auch die Tasksequenzvariable **OSDStateStorePath** fest, um anzugeben, wo die Benutzerzustandsdaten gespeichert werden sollen. Wenn Sie den Benutzerstatus lokal speichern, sollten Sie keinen Stammordner angeben, da dies dazu führen kann, dass für die Tasksequenz ein Fehler auftritt. Verwenden Sie immer einen Ordner oder Unterordner, wenn Sie die Benutzerdaten lokal speichern. Informationen zu dieser Variablen finden Sie unter [Erfassen von Tasksequenz-Aktionsvariablen des Benutzerzustands](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-     Sous l'onglet **Propriétés** , entrez un nom et une description pour l'étape.  
+     Geben Sie auf der Registerkarte **Eigenschaften** die folgenden Optionen an:  
 
-     Sous l'onglet **Options** , spécifiez les options suivantes.  
+    -   Geben Sie einen Namen und eine Beschreibung für den Schritt ein.  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Geben Sie das Paket an, das die USMT-Quelldatei (Windows-EasyTransfer) zum Erfassen der Benutzerzustandsdaten enthält.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geben Sie die zu erfassenden Benutzerprofile an:  
 
- Déployez cette séquence de tâches pour capturer l'état utilisateur sur un ordinateur de destination. Pour plus d’informations sur la façon de déployer des séquences de tâches, consultez [Déployer une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+        -   Klicken Sie auf **Alle Benutzerprofile mithilfe von Standardoptionen erfassen** , um alle Benutzerprofile zu erfassen.  
 
-#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>Pour ajouter des étapes de séquence de tâches afin de restaurer l'état utilisateur  
+        -   Klicken Sie auf **Erfassung der Benutzerprofile anpassen** , um einzelne Benutzerprofile anzugeben, die erfasst werden sollen. Wählen Sie die Konfigurationsdatei („miguser.xml“, „migsys.xml“ oder „migapp.xml“) aus, die die Benutzerprofilinformationen enthält. Sie können die Konfigurationsdatei „config.xml“ hier nicht verwenden. Allerdings können Sie diese manuell mit den Variablen „OSDMigrageAdditionalCaptureOptions“ und „OSDMigrateAdditionalRestoreOptions“ der USMT-Befehlszeile hinzufügen.
 
-1.  Dans la liste **Séquence de tâches** , sélectionnez une séquence de tâches et cliquez sur **Modifier**.  
+    -   Aktivieren Sie das Kontrollkästchen **Ausführliche Protokollierung aktivieren** , um den Umfang der Informationen anzugeben, die bei einem Fehler in Protokolldateien geschrieben werden.  
 
-2.  Ajoutez l’étape [Restaurer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Restaurer l'état utilisateur**. Cette étape établit une connexion vers le point de migration d'état. Spécifiez les propriétés et les options suivantes pour l'étape **Restaurer l'état utilisateur** , puis cliquez sur **OK**.  
+    -   Aktivieren Sie das Kontrollkästchen **Dateien mit EFS (Encrypted File System) überspringen**.  
 
-     Dans l'onglet **Propriétés** , spécifiez les propriétés suivantes :  
+    -   Wählen Sie **Mithilfe des normalen Dateisystemzugriffs kopieren** aus, um die folgenden Einstellungen anzugeben:  
 
-    -   Entrez un nom et une description pour l'étape.  
+        -   **Fortsetzen, wenn einige Dateien nicht erfasst werden können**: Bei dieser Einstellung kann der Migrationsprozess auch dann von dem Tasksequenzschritt fortgesetzt werden, wenn einige Dateien nicht erfasst werden können. Wenn Sie diese Option deaktivieren und eine Datei nicht erfasst werden kann, kann der Tasksequenzschritt nicht ausgeführt werden. Diese Option ist standardmäßig aktiviert.  
 
-    -   Spécifiez le package qui contient l'outil USMT pour restaurer les données d'état utilisateur.  
+        -   **Lokal erfassen mithilfe von Links statt durch Kopieren von Dateien**: Bei dieser Einstellung können Sie die in USMT 4.0 verfügbare, auf festen Links basierende Migrationsfunktion verwenden. Diese Einstellung wird ignoriert, wenn Sie USMT-Versionen vor USMT 4.0 verwenden.  
 
-    -   Spécifiez les profils utilisateur à restaurer :  
+        -   **Im Offlinemodus erfassen (nur Windows PE)**: Bei dieser Einstellung können Sie den Benutzerzustand von Windows PE erfassen, ohne das vorhandene Betriebssystem zu starten. Diese Einstellung wird ignoriert, wenn Sie USMT-Versionen vor USMT 4.0 verwenden.  
 
-        -   Cliquez sur **Restaurer tous les profils utilisateur capturés présentant des options standard** pour restaurer tous les profils utilisateur.  
+    -   Wählen Sie **Mithilfe des Volumeschattenkopie-Diensts (VSS) erfassen**aus. Diese Einstellung wird ignoriert, wenn Sie USMT-Versionen vor USMT 4.0 verwenden.  
 
-        -   Cliquez sur **Personnaliser la restauration des profils utilisateur** pour restaurer des profils utilisateur individuels. Sélectionnez le fichier de configuration (miguser.xml, migsys.xml ou migapp.xml) qui contient les informations du profil utilisateur. Vous ne pouvez pas utiliser ici le fichier de configuration config.xml, mais vous pouvez l’ajouter manuellement à la ligne de commande USMT en utilisant les variables OSDMigrageAdditionalCaptureOptions et OSDMigrateAdditionalRestoreOptions.
+     Geben Sie auf der Registerkarte **Optionen** die folgenden Optionen an:  
 
-    -   Sélectionnez **Restaurer les profils utilisateur de l'ordinateur local** pour fournir un nouveau mot de passe pour les profils restaurés. Vous ne pouvez pas migrer les mots de passe pour les profils locaux.  
+    -   Aktivieren Sie das Kontrollkästchen **Bei Fehler fortsetzen** , wenn die Tasksequenz im Falle eines Fehlers bei diesem Schritt mit dem nächsten Schritt fortgesetzt werden soll.  
+
+    -   Geben Sie alle Bedingungen an, die erfüllt sein müssen, damit die Tasksequenz bei einem Fehler fortgesetzt werden kann.  
+
+4.  Fügen Sie den Schritt [Zustandsspeicher freigeben](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) zur Tasksequenz hinzu, wenn Sie einen Zustandsmigrationspunkt zum Speichern des Benutzerzustands verwenden. Klicken Sie im Dialogfeld **Tasksequenz-Editor** auf **Hinzufügen**, zeigen Sie auf **Benutzerzustand**, und klicken Sie dann auf **Zustandsspeicher freigeben**. Geben Sie für den Schritt **Zustandsspeicher freigeben** die folgenden Eigenschaften und Optionen an, und klicken Sie dann auf **OK**.  
+
+    > [!IMPORTANT]  
+    >  Die Tasksequenzaktion, die vor dem Schritt **Zustandsspeicher freigeben** ausgeführt wird, muss erfolgreich sein, bevor der Schritt **Zustandsspeicher freigeben** gestartet wird.  
+
+     Geben Sie auf der Registerkarte **Eigenschaften** einen Namen und eine Beschreibung für den Schritt ein.  
+
+     Geben Sie auf der Registerkarte **Optionen** die folgenden Optionen an.  
+
+    -   Aktivieren Sie das Kontrollkästchen **Bei Fehler fortsetzen** , wenn die Tasksequenz im Falle eines Fehlers bei diesem Schritt mit dem nächsten Schritt fortgesetzt werden soll.  
+
+    -   Geben Sie alle Bedingungen an, die erfüllt sein müssen, damit die Tasksequenz bei einem Fehler fortgesetzt werden kann.  
+
+ Stellen Sie diese Tasksequenz bereit, um den Benutzerzustand auf einem Zielcomputer zu erfassen. Informationen zum Bereitstellen von Tasksequenzen finden Sie unter [Tasksequenz bereitstellen](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+
+#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>So fügen Sie Tasksequenzschritte zum Wiederherstellen des Benutzerzustands hinzu  
+
+1.  Wählen Sie in der Liste **Tasksequenz** eine Tasksequenz aus, und klicken Sie dann auf **Bearbeiten**.  
+
+2.  Fügen Sie den Schritt [Benutzerzustand wiederherstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) zur Tasksequenz hinzu. Klicken Sie im Dialogfeld **Tasksequenz-Editor** auf **Hinzufügen**, zeigen Sie auf **Benutzerzustand**, und klicken Sie dann auf **Benutzerzustand wiederherstellen**. Durch diesen Schritt wird eine Verbindung mit dem Zustandsmigrationspunkt hergestellt. Geben Sie für den Schritt **Benutzerzustand wiederherstellen** die folgenden Eigenschaften und Optionen an, und klicken Sie dann auf **OK**.  
+
+     Geben Sie auf der Registerkarte **Eigenschaften** die folgenden Eigenschaften an:  
+
+    -   Geben Sie einen Namen und eine Beschreibung für den Schritt ein.  
+
+    -   Geben Sie das Paket an, das das Windows-EasyTransfer bzw. USMT zum Wiederherstellen der Benutzerzustandsdaten enthält.  
+
+    -   Geben Sie die wiederherzustellenden Benutzerprofile an:  
+
+        -   Klicken Sie auf **Alle erfassten Benutzerprofile mit Standardoptionen wiederherstellen** , um alle Benutzerprofile wiederherzustellen.  
+
+        -   Klicken Sie auf **Wiederherstellung von Benutzerprofilen anpassen**, um einzelne Benutzerprofile wiederherzustellen. Wählen Sie die Konfigurationsdatei („miguser.xml“, „migsys.xml“ oder „migapp.xml“) aus, die die Benutzerprofilinformationen enthält. Sie können die Konfigurationsdatei „config.xml“ hier nicht verwenden. Allerdings können Sie diese manuell mit den Variablen „OSDMigrageAdditionalCaptureOptions“ und „OSDMigrateAdditionalRestoreOptions“ der USMT-Befehlszeile hinzufügen.
+
+    -   Wählen Sie **Lokale Computerbenutzerprofile wiederherstellen** aus, um ein neues Kennwort für die wiederhergestellten Profile bereitzustellen. Sie können keine Kennwörter für lokale Profile migrieren.  
 
         > [!NOTE]  
-        >  Quand vous disposez de comptes d’utilisateur locaux, que vous utilisez l’étape [Capturer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) et que vous sélectionnez **Capturer tous les profils utilisateur à l’aide des options standard**, vous devez sélectionner le paramètre **Restaurer les profils utilisateur de l’ordinateur local** à l’étape [Restaurer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState), sinon la séquence de tâches échoue.  
+        >  Wenn Sie lokale Benutzerkonten verwenden und im Schritt [Benutzerzustand erfassen](../understand/task-sequence-steps.md#BKMK_CaptureUserState) die Option **Alle Benutzerprofile mit Standardoptionen erfassen** auswählen, müssen Sie im Schritt [Benutzerzustand wiederherstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) die Einstellung **Lokale Computerbenutzerprofile wiederherstellen** auswählen. Andernfalls tritt für die Tasksequenz ein Fehler auf.  
 
-    -   Sélectionnez **Continuer si certains fichiers ne peuvent pas être restaurés** si vous souhaitez que l'étape **Restaurer l'état utilisateur** se poursuive si un fichier ne peut pas être restauré.  
+    -   Wählen Sie **Fortsetzen, wenn einige Dateien nicht wiederhergestellt werden können** aus, wenn der Schritt **Benutzerzustand wiederherstellen** auch fortgesetzt werden soll, falls eine Datei nicht wiederhergestellt werden kann.  
 
-         Si vous stockez l'état utilisateur à l'aide de liens locaux et si la restauration échoue, l'utilisateur administratif peut supprimer manuellement les liens directs qui ont été créés pour stocker les données ou la séquence de tâches peut exécuter l'outil USMTUtils. Si vous utilisez USMTUtils pour supprimer le lien physique, ajoutez l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’exécution de USMTUtils.  
+         Wenn Sie den Benutzerzustand mithilfe von lokalen Links speichern und die Wiederherstellung nicht erfolgreich ist, kann der Administrator die zum Speichern der Daten erstellen festen Links manuell löschen. Alternativ kann das Tool USMTUtils von der Tasksequenz ausgeführt werden. Wenn Sie die festen Links mithilfe von USMTUtils löschen, fügen Sie nach dem Ausführen von USMTUtils den Schritt [Computer neu starten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) hinzu.  
 
-    -   Sélectionnez **Activer la journalisation documentée** pour spécifier la quantité d'informations à écrire dans des fichiers journaux si une erreur se produit.  
+    -   Aktivieren Sie das Kontrollkästchen **Ausführliche Protokollierung aktivieren** , um den Umfang der Informationen anzugeben, die bei einem Fehler in Protokolldateien geschrieben werden.  
 
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
+     Geben Sie auf der Registerkarte **Optionen** die folgenden Optionen an:  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Aktivieren Sie das Kontrollkästchen **Bei Fehler fortsetzen** , wenn die Tasksequenz im Falle eines Fehlers bei diesem Schritt mit dem nächsten Schritt fortgesetzt werden soll.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geben Sie alle Bedingungen an, die erfüllt sein müssen, damit die Tasksequenz bei einem Fehler fortgesetzt werden kann.  
 
-3.  Si vous utilisez un point de migration d’état pour stocker l’état utilisateur, ajoutez l’étape [Libérer le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Libérer le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Libérer le magasin d'état** , puis cliquez sur **OK**.  
+3.  Fügen Sie den Schritt [Zustandsspeicher freigeben](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) zur Tasksequenz hinzu, wenn Sie einen Zustandsmigrationspunkt zum Speichern des Benutzerzustands verwenden. Klicken Sie im Dialogfeld **Tasksequenz-Editor** auf **Hinzufügen**, zeigen Sie auf **Benutzerzustand**, und klicken Sie dann auf **Zustandsspeicher freigeben**. Geben Sie für den Schritt **Zustandsspeicher freigeben** die folgenden Eigenschaften und Optionen an, und klicken Sie dann auf **OK**.  
 
     > [!IMPORTANT]  
-    >  L'action de séquence de tâches exécutée avant l'étape **Libérer le magasin d'état** doit être effectuée avec succès avant que l'étape **Libérer le magasin d'état** démarre.  
+    >  Die Tasksequenzaktion, die vor dem Schritt **Zustandsspeicher freigeben** ausgeführt wird, muss erfolgreich sein, bevor der Schritt **Zustandsspeicher freigeben** gestartet wird.  
 
-     Sous l'onglet **Propriétés** , entrez un nom et une description pour l'étape.  
+     Geben Sie auf der Registerkarte **Eigenschaften** einen Namen und eine Beschreibung für den Schritt ein.  
 
-     Sous l'onglet **Options** , spécifiez les options suivantes.  
+     Geben Sie auf der Registerkarte **Optionen** die folgenden Optionen an.  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Aktivieren Sie das Kontrollkästchen **Bei Fehler fortsetzen** , wenn die Tasksequenz im Falle eines Fehlers bei diesem Schritt mit dem nächsten Schritt fortgesetzt werden soll.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geben Sie alle Bedingungen an, die erfüllt sein müssen, damit die Tasksequenz bei einem Fehler fortgesetzt werden kann.  
 
- Déployez cette séquence de tâches pour restaurer l'état utilisateur sur un ordinateur de destination. Pour plus d’informations sur le déploiement de séquences de tâches, consultez [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+ Stellen Sie diese Tasksequenz bereit, um den Benutzerzustand auf einem Zielcomputer wiederherzustellen. Informationen zum Bereitstellen von Tasksequenzen finden Sie unter [Bereitstellen einer Tasksequenz](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Surveiller le déploiement de la séquence de tâches](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)
-
+## <a name="next-steps"></a>Nächste Schritte
+[Überwachen der Tasksequenzbereitstellung](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)

@@ -1,56 +1,49 @@
 ---
-title: "Sécurité et confidentialité des profils de certificat | Microsoft Docs"
-description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils de certificat des utilisateurs et des appareils dans System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für Zertifikatprofile | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über bewährte Sicherheitsmethoden für die Verwaltung von Zertifikatprofilen für Benutzer und Geräte in System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3393db41-900a-44c5-b950-2d46a35a198c
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
 ms.openlocfilehash: c51787ad3fa0bdb285017cfab1ca6931afba9ea6
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils de certificat dans System Center Configuration Manager
+# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für Zertifikatprofile in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="security-best-practices-for-certificate-profiles"></a>Bonnes pratiques pour la sécurité des profils de certificat  
- Utilisez les bonnes pratiques de sécurité suivantes lorsque vous gérez des profils de certificat pour des appareils.  
+##  <a name="security-best-practices-for-certificate-profiles"></a>Bewährte Sicherheitsmethoden für Zertifikatprofile  
+ Verwenden Sie bei der Verwaltung von Zertifikatprofilen für Benutzer und Geräte die folgenden bewährten Sicherheitsmethoden.  
 
-|Bonnes pratiques de sécurité|Plus d'informations|  
+|Bewährte Sicherheitsmethode|Weitere Informationen|  
 |----------------------------|----------------------|  
-|Identifiez et suivez les bonnes pratiques de sécurité pour le service d'inscription de périphériques réseau, ce qui comprend la configuration du site web Service d'inscription de périphériques réseau dans IIS (Internet Information Services) pour exiger le protocole SSL et ignorer les certificats clients.|Pour plus d'informations, voir [Guide du service d'inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=309016) dans la bibliothèque des services de certificats Microsoft Active Directory sur TechNet.|  
-|Lorsque vous configurez des profils de certificat SCEP, choisissez les options les plus sécurisées prises en charge par vos périphériques et votre infrastructure.|Identifiez, implémentez et suivez les bonnes pratiques de sécurité recommandées pour vos appareils et votre infrastructure.|  
-|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Si vous cliquez sur l'option **Autoriser l'inscription du certificat uniquement sur le périphérique principal des utilisateurs** dans un profil de certificat SCEP, ne considérez pas les informations collectées à partir d'utilisateurs ou du périphérique comme faisant autorité. Si vous déployez des profils de certificat SCEP avec cette configuration et que l'affinité entre utilisateur et appareils n'est pas spécifiée par un utilisateur administratif approuvé, une élévation de privilèges et des certificats pour l'authentification peuvent être accordés à des utilisateurs qui ne sont pas autorisés.<br /><br /> **Remarque :** Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par System Center Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB ou IPsec entre les ordinateurs clients et le point de gestion.|  
-|N'ajoutez pas d'autorisations de lecture et d'inscription pour les utilisateurs sur les modèles de certificats ou configurez le point d'enregistrement de certificat de manière à ignorer la vérification du modèle de certificat.|Même si Configuration Manager prend en charge la vérification supplémentaire si vous ajoutez les autorisations de sécurité Lecture et Inscription pour les utilisateurs, et que vous pouvez configurer le point d’enregistrement de certificat de manière à ignorer cette vérification si l’authentification n’est pas possible, ces configurations ne représentent pas les bonnes pratiques en matière de sécurité. Pour plus d’informations, consultez [Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
+|Bestimmen und beachten Sie die bewährten Sicherheitsmethoden für den Registrierungsdienst für Netzwerkgeräte. Dazu zählt die Konfiguration der NDES-Website in Internetinformationsdienste (IIS), um SSL zu erfordern und Clientzertifikate zu ignorieren.|Weitere Informationen finden Sie unter [Network Device Enrollment Service Guidance (Anleitung zum Registrierungsdienst für Netzwerkgeräte)](http://go.microsoft.com/fwlink/p/?LinkId=309016) in der Bibliothek zu Active Directory-Zertifikatdiensten auf der TechNet-Website.|  
+|Wählen Sie bei der Konfiguration von SCEP-Zertifikatprofilen die sichersten Optionen aus, die von den Geräten und Ihrer Infrastruktur unterstützt werden können.|Bestimmen, implementieren und beachten Sie die bewährten Sicherheitsmethoden, die für Ihre Geräte und die Infrastruktur empfohlen wurden.|  
+|Geben Sie manuell die Affinität zwischen Benutzer und Gerät an, statt zuzulassen, dass die Benutzer das primäre Gerät selbst bestimmen. Aktivieren Sie darüber hinaus die verwendungsbasierte Konfiguration nicht.|Wenn Sie die Option **Zertifikatregistrierung nur auf dem primären Gerät des Benutzers zulassen** in einem SCEP-Zertifikatprofil anklicken, betrachten Sie die von Benutzern oder vom Gerät gesammelten Informationen nicht als autoritativ. Wenn Sie SCEP-Zertifikatprofile mit dieser Konfiguration bereitstellen und die Affinität zwischen Benutzer und Gerät nicht von einem vertrauenswürdigen Administrator angegeben wurde, kann dies zu Rechteerweiterungen führen, und nicht autorisierten Benutzern werden möglicherweise Zertifikate zur Authentifizierung erteilt.<br /><br /> **Hinweis:** Wenn Sie die verwendungsbasierte Konfiguration zulassen, werden diese Informationen mithilfe von Statusmeldungen erfasst, die nicht von System Center Configuration Manager geschützt werden. Sie können diese Bedrohung durch SMB-Signaturen oder IPsec zwischen Clientcomputern und dem Verwaltungspunkt verringern.|  
+|Fügen Sie den Zertifikatvorlagen nicht die Berechtigungen Lesen und Anmelden für Benutzer hinzu, oder konfigurieren Sie den Zertifikatregistrierungspunkt so, dass die Überprüfung von Zertifikatvorlagen übersprungen wird.|Obwohl Configuration Manager die zusätzliche Überprüfung unterstützt, wenn Sie die Sicherheitsberechtigungen zum Lesen und Registrieren für Benutzer hinzufügen, und Sie den Zertifikatregistrierungspunkt so konfigurieren können, dass die Überprüfung übersprungen wird, wenn keine Authentifizierung möglich ist, ist keine dieser Konfigurationen eine bewährte Sicherheitsmethode. Weitere Informationen finden Sie unter [Planen der Berechtigungen von Zertifikatvorlagen für Zertifikatprofile in System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
 
-## <a name="privacy-information-for-certificate-profiles"></a>Informations de confidentialité pour les profils de certificat  
- Vous pouvez utiliser des profils de certificat pour déployer des certificats d'Autorité de certification racine et clients et évaluer si ces appareils deviennent conformes après l'application des profils. Le point de gestion transmet les informations de compatibilité au serveur de site et System Center Configuration Manager les stocke dans la base de données de site. Les informations de compatibilité incluent des propriétés de certificat telles que le nom d'objet et l'empreinte numérique. Les informations sont chiffrées lorsque les appareils les envoient au point de gestion mais ne sont pas stockées au format chiffré dans la base de données de site. La base de données conserve les informations jusqu'à ce que la tâche de maintenance **Supprimer les données de gestion de configuration anciennes** les supprime après le délai par défaut de 90 jours. Vous pouvez configurer l'intervalle de suppression. Les informations de compatibilité ne sont pas transmises à Microsoft.  
+## <a name="privacy-information-for-certificate-profiles"></a>Informationen zum Datenschutz für Zertifikatprofile  
+ Sie können Zertifikatprofile verwenden, um Zertifikate der Stammzertifizierungsstelle und Clientzertifikate bereitzustellen, und dann auswerten, ob die Geräte nach der Anwendung der Profile Kompatibilität erreichen. Der Verwaltungspunkt sendet Kompatibilitätsinformationen an den Standortserver, die dann von System Center Configuration Manager in der Standortdatenbank gespeichert werden. Zu den Kompatibilitätsinformationen zählen Zertifikateigenschaften wie Antragstellername und Fingerabdruck. Die Informationen werden verschlüsselt, wenn sie von Geräten an den Verwaltungspunkt gesendet werden, sie werden aber nicht in einem verschlüsselten Format in der Standortdatenbank gespeichert. Die Informationen verbleiben in der Datenbank, bis sie mit dem Standortwartungstask **Veraltete Konfigurationsverwaltungsdaten löschen** nach dem Standardintervall von 90 Tagen gelöscht werden. Sie können das Löschintervall konfigurieren. Die Kompatibilitätsinformationen werden nicht an Microsoft gesendet.  
 
- Les profils de certificat utilisent les informations que Configuration Manager collecte à l’aide de la découverte. Pour plus d'informations sur les informations de confidentialité pour la découverte, voir la section **Informations de confidentialité pour la découverte** dans la rubrique [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+ In Zertifikatprofilen werden Informationen verwendet, die von Configuration Manager mithilfe der Ermittlung gesammelt werden. Weitere Informationen zu Datenschutzinformationen zur Ermittlung finden Sie im Abschnitt **Datenschutzinformationen zur Ermittlung** unter [Security and privacy for System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
 > [!NOTE]  
->  Les certificats délivrés aux utilisateurs ou appareils peuvent autoriser l'accès aux informations confidentielles.  
+>  Für Benutzer oder Geräte ausgestellte Zertifikate lassen möglicherweise Zugriff auf vertrauliche Informationen zu.  
 
- Par défaut, les appareils n'évaluent pas les profils de certificat. Vous devez aussi configurer les profils de certificat, puis les déployer pour des utilisateurs ou des appareils.  
+ Standardmäßig werden Zertifikatprofile von Geräten nicht ausgewertet. Darüber hinaus müssen Sie die Zertifikatprofile konfigurieren und sie dann Benutzern oder Geräten bereitstellen.  
 
- Avant de configurer les profils de certificat, pensez à vos besoins en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-
+ Berücksichtigen Sie beim Konfigurieren der Zertifikatprofile Ihre Datenschutzanforderungen.  

@@ -1,76 +1,73 @@
 ---
-title: "Stratégies de conformité des appareils | Microsoft Docs"
-description: "Découvrez comment gérer les stratégies de conformité dans System Center Configuration Manager pour rendre les appareils compatibles avec les stratégies d’accès conditionnel."
+title: "Konformitätsrichtlinien für Geräte| Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie Kompatibilitätsrichtlinien in System Center Configuration Manager verwalten, damit Geräte als kompatibel mit Richtlinien für bedingten Zugriff eingestuft werden können."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ad8fa94d-45bb-4c94-8d86-31234c5cf21c
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: bcaa2a9b5474e06bf344dc4fd47dbb160ea36297
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Stratégies de conformité des appareils dans System Center Configuration Manager
+# <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Kompatibilitätsrichtlinien für Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les **stratégies de conformité** dans System Center Configuration Manager définissent les règles et les paramètres auxquels un appareil doit se conformer pour être considéré comme conforme au vu des stratégies d’accès conditionnel. Vous pouvez également utiliser des stratégies de conformité pour surveiller et corriger les problèmes de conformité avec les appareils indépendamment de l'accès conditionnel.  
+**Kompatibilitätsrichtlinien** in System Center Configuration Manager definieren die Regeln und Einstellungen, die ein Gerät erfüllen muss, damit es als kompatibel mit Richtlinien für bedingten Zugriff eingestuft wird. Kompatibilitätsrichtlinien ermöglichen Ihnen auch, Kompatibilitätsprobleme bei Geräten unabhängig von bedingten Zugriffsrechten zu überwachen und zu beheben.  
 
 
 > [!IMPORTANT]  
->  Cet article décrit les stratégies de conformité applicables aux appareils gérés par Microsoft Intune.    Les stratégies de conformité applicables aux PC gérés par System Center Configuration Manager sont décrites dans [Gérer l’accès aux services O365 pour les PC gérés par System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+>  In diesem Artikel werden die Kompatibilitätsrichtlinien für Geräte beschrieben, die von Microsoft Intune verwaltet werden.    Die Kompatibilitätsrichtlinien für PCs, die von System Center Configuration Manager verwaltet werden, sind unter [Verwalten des Zugriffs auf Office 365-Dienste für PCs, die von System Center Configuration Manager verwaltet werden](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md) beschrieben.  
 
- Ces règles incluent des exigences telles que :  
+ Diese Richtlinien schließen Anforderungen wie die folgenden ein:  
 
--   Un code confidentiel et des mots de passe pour accéder à un appareil
+-   PIN und Kennwörter, um auf ein Gerät zuzugreifen
 
--   Le chiffrement des données stockées sur l’appareil
+-   Verschlüsselung von auf dem Gerät gespeicherten Daten
 
--   Si l'appareil est jailbroken ou rooté  
+-   Ob das Gerät per Jailbreak oder Rooting manipuliert wurde  
 
--   Si la messagerie sur l’appareil est gérée par une stratégie Intune, ou si le service Windows d’attestation d’intégrité de l’appareil signale celui-ci comme étant défectueux.
--   Applications qui ne peuvent pas être installées sur l’appareil.
+-   Ob der E-Mail-Dienst auf dem Gerät über eine Intune-Richtlinie verwaltet wird, oder ob das Gerät vom Windows-Integritätsnachweisdienst als fehlerhaft gemeldet wird.
+-   Apps, die auf dem Gerät nicht installiert werden können.
 
 
- Vous déployez des stratégies de conformité sur des regroupements d'utilisateurs. Quand une stratégie de conformité est déployée sur un utilisateur, tous ses appareils dont l'objet d'une vérification de la conformité.  
+ Sie stellen Kompatibilitätsrichtlinien für Benutzer- und Gerätegruppen bereit. Wenn Sie eine Konformitätsrichtlinie für einen Benutzer bereitstellen, wird die Konformität aller Geräte des Benutzers überprüft.  
 
- Le tableau suivant répertorie les appareils pris en charge par les stratégies de conformité et la façon dont les paramètres de non-conformité sont gérés quand la stratégie est utilisée avec une stratégie d'accès conditionnel.  
+ Die folgende Tabelle enthält die von Konformitätsrichtlinien unterstützten Gerätetypen. Zudem ist darin angegeben, wie nicht konforme Einstellungen gehandhabt werden, wenn die Richtlinie mit einer bedingten Zugriffsrichtlinie verwendet wird.  
 
-|Règle|Windows 8.1 et versions ultérieures|Windows Phone 8.1 et versions ultérieures|iOS 6.0 et versions ultérieures|Android 4.0 et versions ultérieures, Samsung KNOX Standard 4.0 et versions ultérieures, Android for Work|  
+|Regel|Windows 8.1 und höher|Windows Phone 8.1 und höher|iOS 6.0 und höher|Android 4.0 und höher, Samsung KNOX Standard 4.0 und höher, Android for Work|  
 |----------|---------------------------|---------------------------------|-----------------------|---------------------------|-----------------------------------------|  
-|**Configuration d’un code confidentiel ou mot de passe**|Corrigé|Corrigé|Corrigé|En quarantaine|  
-|**Chiffrement de l’appareil**|N/A|Corrigé|Corrigé (en définissant le code confidentiel)|En quarantaine<br>(Android for Work toujours chiffré)|  
-|**Appareil jailbreaké ou rooté**|N/A|N/A|En quarantaine (pas un paramètre)|En quarantaine (pas un paramètre)|  
-|**Profil de messagerie**|N/A|N/A|En quarantaine|N/A|  
-|**Version minimale du système d’exploitation**|En quarantaine|En quarantaine|En quarantaine|En quarantaine|  
-|**Version maximale du système d’exploitation**|En quarantaine|En quarantaine|En quarantaine|En quarantaine|  
-|**Attestation d’intégrité de l’appareil (mise à jour 1602)**|Le paramètre n’est pas applicable à Windows 8.1<br /><br /> Windows 10 et Windows 10 Mobile sont mis en quarantaine.|N/A|N/A|N/A|  
-|**Applications qui ne peuvent pas être installées**|N/A|N/A|En quarantaine|En quarantaine|
+|**PIN- oder Kennwortkonfiguration**|Wiederhergestellt|Wiederhergestellt|Wiederhergestellt|Isoliert|  
+|**Geräteverschlüsselung**|N/V|Wiederhergestellt|Wiederhergestellt (durch Festlegen der PIN)|Isoliert<br>(Android for Work, immer verschlüsselt)|  
+|**Gerät mit entfernten Nutzungsbeschränkungen**|N/V|N/V|Unter Quarantäne gestellt (keine Einstellung)|Unter Quarantäne gestellt (keine Einstellung)|  
+|**E-Mail-Profil**|N/V|N/V|Isoliert|N/V|  
+|**Minimales Release des Betriebssystems**|Isoliert|Isoliert|Isoliert|Isoliert|  
+|**Maximales Release des Betriebssystems**|Isoliert|Isoliert|Isoliert|Isoliert|  
+|**Integritätsnachweis des Geräts (Update 1602)**|Einstellung gilt nicht für Windows 8.1.<br /><br /> Windows 10 und Windows 10 Mobile werden isoliert.|N/V|N/V|N/V|  
+|**Apps, die nicht installiert werden können**|N/V|N/V|Isoliert|Isoliert|
 
- **Corrigé** = La conformité est appliquée par le système d'exploitation de l'appareil (par exemple, l'utilisateur est obligé de définir un code confidentiel).  Ce n'est jamais la cas quand le paramètre n'est pas conforme.  
+ **Wiederhergestellt** = Konformität wird vom Betriebssystem des Geräts erzwungen (z. B. wird der Benutzer gezwungen, eine PIN festzulegen).  Es gibt keinen Fall, in dem die Einstellung nicht konform ist.  
 
- **En quarantaine** = Le système d’exploitation de l’appareil n’applique pas la conformité (par exemple, les appareils Android ne forcent pas l’utilisateur à chiffrer l’appareil).  Dans ce cas :  
+ **Unter Quarantäne** = Das Betriebssystem des Geräts erzwingt keine Konformität (z. B. zwingen Android-Geräte den Benutzer nicht dazu, das Gerät zu verschlüsseln).  Dies bedeutet:  
 
--   L'appareil est bloqué si l'utilisateur est ciblé par une stratégie d'accès conditionnel.  
+-   Das Gerät wird blockiert, wenn dem Benutzer eine bedingte Zugriffsrichtlinie zugewiesen wird.  
 
--   Le portail d'entreprise ou portail web informe l'utilisateur des problèmes de conformité.  
+-   Das Unternehmensportal oder Webportal benachrichtigt den Benutzer bezüglich aller Konformitätsprobleme.  
 
 
-### <a name="next-steps"></a>Étapes suivantes  
-[Créer et déployer une stratégie de conformité d’appareil](create-compliance-policy.md)
-### <a name="see-also"></a>Voir aussi  
- [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
-
+### <a name="next-steps"></a>Nächste Schritte  
+[Erstellen und Bereitstellen einer Gerätekompatibilitätsrichtlinie](create-compliance-policy.md)
+### <a name="see-also"></a>Weitere Informationen:  
+ [Verwalten des Zugriffs auf Dienste in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)

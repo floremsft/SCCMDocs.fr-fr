@@ -1,480 +1,477 @@
 ---
-title: "Créer des applications | Microsoft Docs"
-description: "Créez et déployez des applications et des types de déploiement avec System Center Configuration Manager."
+title: Erstellen von Anwendungen | Microsoft-Dokumentation
+description: Erstellen Sie mit System Center Configuration Manager eine Anwendung und Bereitstellungstypen und stellen Sie diese bereit.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: 14
-caps.handback.revision: 0
+caps.latest.revision: "14"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-applications-with-system-center-configuration-manager"></a>Créer des applications avec System Center Configuration Manager
+# <a name="create-applications-with-system-center-configuration-manager"></a>Erstellen von Anwendungen mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Une application System Center Configuration Manager dispose des fichiers et informations nécessaires pour déployer des logiciels sur un appareil. Une application a un ou plusieurs types de déploiement qui comprennent les informations et fichiers d’installation nécessaires pour installer le logiciel. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+Eine System Center Configuration Manager-Anwendung verfügt über die Dateien und Informationen, die zur Bereitstellung von Software auf einem Gerät erforderlich sind. In einer Anwendung ist mindestens ein Bereitstellungstyp enthalten, der die Installationsdateien und Informationen enthält, die zur Installation der Software erforderlich sind. Bereitstellungstypen verfügen auch über Regeln, aus denen hervorgeht, wann und wie die Software bereitgestellt wird.  
 
- Vous pouvez créer des applications à l'aide des méthodes suivantes :  
+ Es gibt die folgenden Möglichkeiten zum Erstellen von Anwendungen:  
 
--   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
+-   Erstellen Sie die Anwendungen und Bereitstellungstypen durch Lesen der Installationsdateien der Anwendung automatisch.  
 
--   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
+-   Erstellen Sie die Anwendung manuell, und fügen Sie Bereitstellungstypen später hinzu.  
 
--   Importer une application à partir d’un fichier.  
+-   Importieren Sie eine Anwendung aus einer Datei.  
 
 > [!NOTE]  
->  La section [Créer des applications iOS avec System Center Configuration Manager](../../mdm/deploy-use/create-applications.md) fournit des informations détaillées sur la création d’applications iOS, Windows Phone et Android.  
+>  Unter [Create applications for mobile devices (Erstellen von Anwendungen für mobile Geräte)](../../mdm/deploy-use/create-applications.md) erhalten Sie ausführliche Informationen zum Erstellen von Anwendungen für iOS, Windows Phone und Android.  
 
-Procédez comme suit pour créer des applications et des types de déploiement Configuration Manager.  
+Führen Sie die folgenden Schritte aus, um mithilfe von Configuration Manager Anwendungen und Bereitstellungstypen zu erstellen.  
 
-## <a name="start-the-create-application-wizard"></a>Démarrer l’Assistant Création d’une application  
+## <a name="start-the-create-application-wizard"></a>Starten des Assistenten zum Erstellen von Anwendungen  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Anwendung erstellen** aus.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Spécifier si vous souhaitez détecter automatiquement les informations de l'application ou définir manuellement les informations  
+## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Geben Sie an, ob die Anwendungsinformationen automatisch erkannt oder manuell definiert werden sollen.  
 
--   Utilisez la procédure de détection automatique des informations de l’application pour créer une application simple avec un type de déploiement unique, comme un fichier Windows Installer sans dépendances ni spécifications. Après avoir créé une application à l'aide de cette procédure, vous pouvez la modifier pour ajouter ou changer les types de déploiement et ajouter des méthodes de détection, des dépendances ou des spécifications.  
+-   Sie können Anwendungsinformationen automatisch erkennen, wenn Sie eine einfache Anwendung mit einem einzelnen Bereitstellungstyp erstellen möchten, z.B. eine Windows Installer-Datei, die über keine Abhängigkeiten oder Anforderungen verfügt. Wenn Sie mithilfe dieses Verfahrens eine Anwendung erstellt haben, können Sie diese nach Bedarf bearbeiten, um Bereitstellungstypen hinzuzufügen oder zu ändern und um Erkennungsmethoden, Abhängigkeiten oder Anforderungen hinzuzufügen.  
 
--   Utilisez la procédure de définition manuelle des informations de l’application pour créer des applications plus complexes associant plusieurs types de déploiement, dépendances, méthodes de détection et spécifications.  
+-   Geben Sie Anwendungsinformationen manuell an, um komplexere Anwendungen mit mehreren Bereitstellungstypen, Abhängigkeiten, Erkennungsmethoden oder Anforderungen zu erstellen.  
 
-### <a name="automatically-detect-application-information"></a>Détecter automatiquement les informations sur l’application  
+### <a name="automatically-detect-application-information"></a>Automatische Erkennung von Anwendungsinformationen  
 
-1.  Dans la page **Général,** de l’Assistant Création d’une application, sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d’installation**.  
+1.  Wählen Sie auf der Registerkarte **Allgemein** des Assistenten zum Erstellen von Anwendungen die Option **Informationen zu dieser Anwendung automatisch anhand der Installationsdateien erkennen**aus.  
 
-2.  Dans la liste déroulante **Type** , choisissez le type de fichier d'installation d'application que vous souhaitez utiliser pour détecter les informations sur l'application. Pour plus d’informations sur les types d’installation disponibles, consultez [Types de déploiement pris en charge par Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) dans cette rubrique.  
+2.  Wählen Sie in der Dropdownliste **Typ** den Installationsdateityp der Anwendung aus, den Sie für die automatische Erkennung verwenden möchten. Informationen zu den verfügbaren Installationstypen finden Sie unter [Von Configuration Manager unterstützte Bereitstellungstypen](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) in diesem Thema.  
 
-3.  Dans la zone **Emplacement**, spécifiez le chemin UNC (au format *\\\\serveur\\partage\\\nom_fichier*) ou le lien du magasin du fichier d’installation d’application à utiliser pour détecter les informations sur l’application. Vous pouvez également cliquer sur **Parcourir** pour accéder au fichier d’installation.  
+3.  Geben Sie im Feld **Speicherort** den UNC-Pfad im Format *\\\\server\\freigabe\\\dateiname* oder den Store-Link zur Anwendungsinstallationsdatei an, die Sie zur Erkennung von Anwendungsinformationen verwenden möchten. Alternativ dazu können Sie auf **Durchsuchen** klicken, um zur Installationsdatei zu navigieren.  
 
     > [!IMPORTANT]  
-    >  Quand vous sélectionnez **Windows Installer (fichier \*.msi)** comme type d’application, tous les fichiers dans le dossier spécifié sont importés avec l’application et envoyés aux points de distribution. Vérifiez que le dossier spécifié contient uniquement les fichiers nécessaires à l’installation de l’application. Configuration Manager est testé pour prendre en charge jusqu’à 20 000 fichiers d’application dans le package d’application. Si votre application contient plus de fichiers, pensez à créer plusieurs applications avec moins de fichiers.  
+    >  Wenn Sie als Anwendungstyp **Windows Installer (\*msi-Datei)** auswählen, werden alle Dateien im angegebenen Ordner mit der Anwendung importiert und an Verteilungspunkte gesendet. Vergewissern Sie sich, dass der angegebene Ordner ausschließlich Dateien enthält, die zur Installation der Anwendung erforderlich sind. Configuration Manager wird getestet, um bis zu 20.000 Anwendungsdateien im Anwendungspaket zu unterstützen. Wenn Ihre Anwendung mehr Dateien enthält, sollten Sie mehrere Anwendungen mit jeweils geringerer Anzahl Dateien erstellen.  
 
-    >  Vous devez avoir accès au chemin UNC qui contient l’application et à tous les sous-dossiers intégrant le contenu de l’application.  
+    >  Sie benötigen Zugriff auf den UNC-Pfad mit der Anwendung sowie auf alle Unterordner, die Anwendungsinhalt enthalten.  
 
-4.  Dans la page **Importer des informations** de l’Assistant Création d’une application, consultez les informations qui ont été importées, puis choisissez **Suivant**. Si nécessaire, vous pouvez choisir **Précédent** pour revenir en arrière et corriger les erreurs éventuelles.  
+4.  Überprüfen Sie die importierten Informationen auf der Seite **Informationen importieren** des Assistenten zum Erstellen von Anwendungen, und wählen Sie anschließend **Weiter** aus. Bei Bedarf können Sie **Zurück** auswählen, um Fehler zu korrigieren.  
 
-5.  Dans la page **Informations générales** de l’Assistant Création d’une application, spécifiez les informations suivantes :  
+5.  Geben Sie auf der Seite **Allgemeine Informationen** des Assistenten zum Erstellen von Anwendungen die folgenden Informationen an:  
 
     > [!NOTE]  
-    >  Certaines de ces informations peuvent être déjà renseignées, si elles ont été obtenues automatiquement auprès des fichiers d'installation de l'application. En outre, les options affichées peuvent être différentes en fonction du type d'application que vous créez.  
+    >  Einige Informationen sind möglicherweise schon vorhanden, wenn sie aus den Anwendungsinstallationsdateien abgerufen wurden. Zudem werden je nach erstelltem Anwendungstyp möglicherweise unterschiedliche Optionen angezeigt.  
 
-    -   Informations générales relatives à l’application : nom, commentaires, version et éventuellement une référence qui vous aidera à référencer l’application dans la console Configuration Manager.  
+    -   Allgemeine Informationen zur Anwendung wie der Anwendungsname, Kommentare, die Version und eine optionale Referenz für die Suche nach der Anwendung in der Configuration Manager-Konsole.  
 
-    -   **Programme d’installation** : spécifiez le programme d’installation et les propriétés requises pour installer le type de déploiement d’application.  
+    -   **Installationsprogramm**: Geben Sie das Installationsprogramm und alle zur Installation des Anwendungsbereitstellungstyps erforderlichen Eigenschaften an.  
 
         > [!TIP]  
-        >  Si le programme d’installation n’est pas indiqué, choisissez **Parcourir** pour accéder à l’emplacement du programme d’installation.  
+        >  Wenn das Installationsprogramm nicht angezeigt wird, wählen Sie **Durchsuchen** aus, um auf den Speicherort des Installationsprogramms zuzugreifen.  
 
-    -   **Comportement à l’installation** : indiquez si le type de déploiement d’application doit être installé uniquement pour l’utilisateur actuellement connecté ou pour tous les utilisateurs. Vous pouvez également indiquer si vous souhaitez que le type de déploiement soit installé pour l’ensemble des utilisateurs en cas de déploiement sur un appareil ou uniquement pour un utilisateur spécifique en cas de déploiement auprès d’un utilisateur.  
+    -   **Installationsverhalten**: Geben Sie an, ob der Anwendungsbereitstellungstyp nur für den aktuell angemeldeten Benutzer oder für alle Benutzer installiert werden soll. Sie können auch angeben, dass der Bereitstellungstyp für alle Benutzer installiert werden soll, wenn er für ein Gerät bereitgestellt wird, oder für einen bestimmten Benutzer, wenn er für einen Benutzer bereitgestellt wird.  
 
-    -   **Utiliser une connexion VPN automatique (si elle est configurée)** : si un profil VPN a été déployé sur l’appareil où l’application est exécutée, lancez la connexion VPN au démarrage de l’application (Windows 8.1 et Windows Phone 8.1 uniquement).  
+    -   **Use an automatic VPN connection (if configured)**: (Automatische VPN-Verbindung verwenden (sofern konfiguriert))Wenn ein VPN-Profil auf dem Gerät bereitgestellt wurde, auf dem die App gestartet wird, starten Sie die VPN-Verbindung beim Starten der App (nur Windows 8.1 und Windows Phone 8.1).  
 
-         Sur les appareils Windows Phone 8.1, les connexions VPN automatiques ne sont pas prises en charge si plusieurs profils VPN ont été déployés sur l'appareil.  
+         Auf Geräten mit Windows Phone 8.1 werden automatische VPN-Verbindungen nicht unterstützt, wenn mehrere VPN-Profile auf dem Gerät bereitgestellt wurden.  
 
-         Pour plus d’informations sur les profils VPN, consultez [Profils VPN](../../protect/deploy-use/vpn-profiles.md).  
+         Weitere Informationen zu VPN-Profilen finden Sie unter [VPN-Profile](../../protect/deploy-use/vpn-profiles.md).  
 
-6.  Choisissez **Suivant**, examinez les informations sur l’application figurant dans la page **Résumé**, puis suivez toutes les étapes de l’Assistant Création d’une application.  
+6.  Wählen Sie **Weiter** aus, überprüfen Sie die Anwendungsinformationen auf der Seite **Zusammenfassung**, und schließen Sie den Assistenten zum Erstellen von Anwendungen ab.  
 
-La nouvelle application s’affiche dans le nœud **Applications** de la console Configuration Manager, ce qui marque la fin de la création d’une application. Si vous voulez ajouter d’autres types de déploiement à l’application, consultez [Créer des types de déploiement pour l’application](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) dans cette rubrique.  
+Die neue Anwendung wird im Knoten **Anwendungen** der Configuration Manager-Konsole angezeigt. Sie haben den Erstellungsvorgang einer Anwendung abgeschlossen. Wenn Sie der Anwendung weitere Bereitstellungstypen hinzufügen möchten, finden Sie weitere Informationen unter [Bereitstellungstypen für die Anwendung erstellen](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) in diesem Thema.  
 
-### <a name="manually-specify-application-information"></a>Définir manuellement les informations de l’application  
+### <a name="manually-specify-application-information"></a>Manuelles Angeben von Anwendungsinformationen  
 
-1.  Dans la page **Général** de l’Assistant Création d’une application, sélectionnez **Spécifier manuellement les informations de l’application**, puis choisissez **Suivant**.  
+1.  Wählen Sie auf der Seite **Allgemein** des Assistenten zum Erstellen von Anwendungen die Option **Anwendungsinformationen manuell angeben** aus, und wählen Sie anschließend **Weiter** aus.  
 
-2.  Spécifiez des informations générales relatives à l’application : nom, commentaires, version et éventuellement une référence qui vous aidera à référencer l’application dans la console Configuration Manager.  
+2.  Geben Sie allgemeine Informationen zur Anwendung wie den Anwendungsnamen, Kommentare, die Version und eine optionale Referenz für die Suche nach der Anwendung in der Configuration Manager-Konsole an.  
 
-3.  Dans la page **Catalogue d’applications** de l’Assistant Création d’une application, spécifiez les informations suivantes :  
+3.  Geben Sie auf der Seite **Anwendungskatalog** des Assistenten zum Erstellen von Anwendungen die folgenden Informationen an:  
 
-    -   **Langue sélectionnée** : dans la liste déroulante, sélectionnez la version de langue de l’application que vous souhaitez configurer. Choisissez **Ajouter/Supprimer** pour configurer d’autres langues pour cette application.  
+    -   **Ausgewählte Sprache**: Wählen Sie in der Dropdownliste die Sprachversion der einzurichtenden Anwendung aus. Wählen Sie **Hinzufügen/Entfernen** aus, um weitere Sprachen für diese Anwendung zu konfigurieren.  
 
-    -   **Nom de l’application localisée** : indiquez le nom de l’application dans la langue sélectionnée dans la liste déroulante **Langue sélectionnée**.  
+    -   **Lokalisierter Anwendungsname**: Geben Sie den Namen der Anwendung in der Sprache an, die Sie in der Dropdownliste **Ausgewählte Sprache** ausgewählt haben.  
 
         > [!IMPORTANT]  
-        >  Vous devez spécifier un nom d’application localisée pour chaque version de langue que vous configurez.  
+        >  Sie müssen für jede Sprachversion, die eingerichtet werden soll, einen lokalisierten Anwendungsnamen angeben.  
 
-    -   **Catégories d’utilisateurs** : choisissez **Modifier** pour spécifier les catégories de l’application, dans la langue sélectionnée dans la liste déroulante **Langue sélectionnée**. Les utilisateurs du Centre logiciel peuvent utiliser les catégories sélectionnées pour filtrer et trier les applications disponibles.  
+    -   **Benutzerkategorien**: Wählen Sie **Bearbeiten** aus, um Anwendungskategorien in der Sprache anzugeben, die Sie in der Dropdownliste **Ausgewählte Sprache** ausgewählt haben. Benutzer des Softwarecenters können diese ausgewählten Kategorien verwenden, um die verfügbaren Anwendungen zu filtern und zu sortieren.  
 
-    -   **Documentation utilisateur** : choisissez **Parcourir** pour spécifier l’URL ou le chemin UNC et le nom d’un fichier que les utilisateurs du Centre logiciel peuvent lire pour obtenir des informations supplémentaires sur cette application.  
+    -   **Benutzerdokumentation**: Wählen Sie **Durchsuchen** aus, um durch Angabe einer URL, des UNC-Pfads und des Dateinamens eine Datei auszuwählen, in der Softwarecenter-Benutzer weitere Informationen zur Anwendung erhalten können.  
 
-    -   **Texte de lien** : spécifiez le texte qui sera affiché à la place de l’URL de l’application.  
+    -   **Linktext**: Geben Sie den Text an, der anstelle der URL für die Anwendung angezeigt wird.  
 
-    -   **URL de la déclaration de confidentialité de l’application** : spécifiez une URL qui accède à la déclaration de confidentialité de l’application.  
+    -   **Application Privacy URL**: (URL der Datenschutzrichtlinien für die Anwendung) Geben Sie eine URL an, die mit der Datenschutzerklärung für die Anwendung verknüpft ist.  
 
-    -   **Description localisée** : entrez une description de l’application dans la langue que vous avez sélectionnée dans la liste déroulante **Langue sélectionnée**.  
+    -   **Lokalisierte Beschreibung**: Geben Sie eine Beschreibung der Anwendung in der Sprache an, die Sie in der Dropdownliste **Ausgewählte Sprache** ausgewählt haben.  
 
-    -   **Mots-clés** : entrez une liste de mots-clés dans la langue que vous avez sélectionnée dans la liste déroulante **Langue sélectionnée**. Ils permettront aux utilisateurs du Centre logiciel de rechercher l’application.  
+    -   **Schlüsselwörter**: Geben Sie eine Liste mit Schlüsselwörtern in der Sprache an, die Sie in der Dropdownliste **Ausgewählte Sprache** ausgewählt haben. Mithilfe dieser Schlüsselwörter können Softwarecenter-Benutzer nach der Anwendung suchen.  
 
-    -   **Icône** : choisissez **Parcourir** pour sélectionner une icône pour cette application parmi les icônes disponibles. Si vous ne spécifiez pas d'icône, une icône par défaut sera utilisée pour cette application.  
+    -   **Symbol**: Wählen Sie **Durchsuchen** aus, um aus den verfügbaren Symbolen ein Symbol für diese Anwendung auszuwählen. Wenn Sie kein Symbol angeben, wird für die Anwendung ein Standardsymbol verwendet.  
 
-    -   **Afficher en tant qu’application proposée et la mettre en exergue sur le portail de l’entreprise** : sélectionnez cette option pour afficher l’application de façon visible sur le portail de l’entreprise.  
+    -   **Display this as a featured app and highlight it in the company portal**: (Als ausgewählte App anzeigen und im Unternehmensportal hervorheben) Wählen Sie diese Option aus, wenn Sie die App im Unternehmensportal hervorgehoben anzeigen möchten.  
 
-4.  Dans la page **Types de déploiement** de l’Assistant Création d’une application, choisissez **Ajouter** pour créer un type de déploiement.  
+4.  Wählen Sie auf der Seite **Bereitstellungstypen** des Assistenten zum Erstellen von Anwendungen **Hinzufügen** aus, um einen neuen Bereitstellungstyp zu erstellen.  
 
- Pour plus d’informations, consultez [Créer des types de déploiement pour l’application](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
+ Weitere Informationen finden Sie unter [Bereitstellungstypen für die Anwendung erstellen](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) in diesem Thema.  
 
-5.  Choisissez **Suivant**, examinez les informations sur l’application figurant dans la page **Résumé**, puis suivez toutes les étapes de l’Assistant Création d’une application.  
+5.  Wählen Sie **Weiter** aus, überprüfen Sie die Anwendungsinformationen auf der Seite **Zusammenfassung**, und schließen Sie den Assistenten zum Erstellen von Anwendungen ab.  
 
-La nouvelle application s’affiche dans le nœud **Applications** de la console Configuration Manager.  
+Die neue Anwendung wird im Knoten **Anwendungen** der Configuration Manager-Konsole angezeigt.  
 
-##  <a name="create-deployment-types-for-the-application"></a>Créer des types de déploiement pour l'application  
- Si vous sélectionnez **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d’installation** dans la page **Général** de l’Assistant Création d’un type de déploiement, vous n’avez pas besoin d’exécuter certaines étapes des procédures suivantes.  
+##  <a name="create-deployment-types-for-the-application"></a>Bereitstellungstypen für die Anwendung erstellen  
+ Wenn Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Allgemein** die Option **Informationen zu diesem Bereitstellungstyp automatisch den Installationsdateien entnehmen** auswählen, müssen Sie einige der Schritte in den nachfolgenden Verfahren nicht ausführen.  
 
-## <a name="start-the-create-deployment-type-wizard"></a>Démarrer l’Assistant Création d’un type de déploiement  
+## <a name="start-the-create-deployment-type-wizard"></a>Starten des Assistenten zum Erstellen neuer Bereitstellungstypen  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.  
 
-3.  Sélectionnez une application puis, sous l’onglet **Accueil**, dans le groupe **Application**, choisissez **Créer un type de déploiement**.  
+3.  Wählen Sie eine Anwendung aus, und wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Anwendung** **Bereitstellungstyp erstellen** aus.  
 
 > [!TIP]  
->  Vous pouvez également démarrer l’Assistant Création d’un type de déploiement à partir de l’Assistant Création d’une application et sous l’onglet **Types de déploiement** de la boîte de dialogue **Propriétés de** *nom_application\>*.  
+>  Sie können den Assistenten zum Erstellen neuer Bereitstellungstypen auch über den Assistenten zum Erstellen von Anwendungen sowie über die Registerkarte **Bereitstellungstypen** im Dialogfeld *<Anwendungsname\>* **Eigenschaften** starten.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Spécifier s’il est nécessaire de détecter automatiquement les informations sur le type de déploiement ou de configurer manuellement les informations  
- Utilisez l’une des procédures suivantes pour détecter automatiquement ou configurer manuellement les informations relatives au type de déploiement.  
+## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Angeben, ob die Informationen zum Bereitstellungstyp automatisch erkannt oder manuell eingerichtet werden sollen  
+ Wenden Sie eines der folgenden Verfahren an, um Informationen zum Bereitstellungstyp automatisch zu erkennen oder manuell einzurichten.  
 
-### <a name="automatically-detect-deployment-type-information"></a>Détecter automatiquement les informations relatives au type de déploiement  
+### <a name="automatically-detect-deployment-type-information"></a>Automatisches Erkennen der Informationen zum Bereitstellungstyp  
 
-1.  Dans la page **Général** de l’Assistant Création d’un type de déploiement, sélectionnez **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d’installation**.  
+1.  Wählen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Allgemein** die Option **Informationen zu diesem Bereitstellungstyp automatisch den Installationsdateien entnehmen** aus.  
 
-2.  Dans la zone **Type**, sélectionnez le type du fichier d’installation d’application à utiliser pour détecter les informations sur le type de déploiement.  
+2.  Wählen Sie im Feld **Typ** den Installationsdateityp der Anwendung aus, den Sie zur Erkennung der Informationen zum Bereitstellungstyp verwenden möchten.  
 
-3.  Dans la zone **Emplacement**, spécifiez le chemin UNC (au format *\\\\serveur\\partage\\nom_fichier*) ou le lien du magasin vers les fichiers d’installation d’application et le contenu à utiliser pour détecter les informations sur le type de déploiement. Vous pouvez également choisir **Parcourir** pour rechercher le fichier d’installation.  
-
-    > [!NOTE]  
-    >  Vous devez avoir accès au chemin UNC qui contient l’application et à tous les sous-dossiers intégrant le contenu de l’application.  
-
-4.  Dans la page **Importer des informations** de l’Assistant Création d’un type de déploiement, consultez les informations qui ont été importées, puis choisissez **Suivant**. Vous pouvez aussi choisir **Précédent** pour revenir en arrière et corriger les erreurs éventuelles.  
-
-5.  Dans la page **Informations générales** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+3.  Geben Sie im Feld **Speicherort** den UNC-Pfad im Format *\\\\server\\freigabe\\dateiname* oder den Store-Link zu den Installationsdateien der Anwendung und zum Inhalt an, den Sie zur Erkennung von Bereitstellungstypinformationen verwenden möchten. Sie können auch **Durchsuchen** auswählen, um die Installationsdatei zu suchen.  
 
     > [!NOTE]  
-    >  Certaines informations relatives au type de déploiement peuvent déjà être présentes si elles ont été lues à partir des fichiers d'installation de l'application. En outre, les options affichées peuvent différer selon le type de déploiement que vous créez.  
+    >  Sie benötigen Zugriff auf den UNC-Pfad mit der Anwendung sowie auf alle Unterordner, die den Anwendungsinhalt enthalten.  
 
-    -   Informations générales sur le type de déploiement, comme le nom, les commentaires de l’administrateur et les langues disponibles.  
+4.  Überprüfen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Informationen importieren** die importierten Informationen, und wählen Sie anschließend **Weiter** aus. Sie können auch **Zurück** auswählen, um zurückzugehen und mögliche Fehler zu beheben.  
 
-    -   **Programme d’installation** : spécifiez le programme d’installation et les éventuelles propriétés nécessaires pour installer le type de déploiement.  
+5.  Geben Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Allgemeine Informationen** die folgenden Informationen an:  
 
-    -   **Comportement à l’installation** : indiquez si vous souhaitez installer le type de déploiement pour l’utilisateur actuel ou tous les utilisateurs. Vous pouvez également spécifier si le type de déploiement sera installé pour tous les utilisateurs, s'il s'agit d'un déploiement vers un appareil, ou vers un utilisateur uniquement s'il s'agit d'un déploiement vers un utilisateur.  
+    > [!NOTE]  
+    >  Einige Informationen zum Bereitstellungstyp können schon vorhanden sein, wenn sie aus den Anwendungsinstallationsdateien gelesen wurden. Zudem werden je nach erstelltem Bereitstellungstyp möglicherweise unterschiedliche Optionen angezeigt.  
 
-    -   **Utiliser une connexion VPN automatique (si elle est configurée)** : si un profil VPN a été déployé sur l’appareil où l’application est exécutée, lancez la connexion VPN au démarrage de l’application (Windows 8.1 et Windows Phone 8.1 uniquement). Si plusieurs profils VPN ont été déployés sur un appareil Windows 8.1, le premier profil VPN déployé est utilisé par défaut.  
+    -   Allgemeine Informationen zum Bereitstellungstyp, darunter Name, Administratorkommentare und verfügbare Sprachen.  
 
-         Sur les appareils Windows Phone 8.1, les connexions VPN automatiques ne sont pas prises en charge si plusieurs profils VPN ont été déployés sur l'appareil.  
+    -   **Installationsprogramm**: Geben Sie das Installationsprogramm und alle zur Installation des Bereitstellungstyps erforderlichen Eigenschaften an.  
 
-         Pour plus d’informations sur les profils VPN, consultez [Profils VPN dans System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
+    -   **Installationsverhalten**: Geben Sie an, ob der Bereitstellungstyp für den gegenwärtig angemeldeten Benutzer oder für alle Benutzer installiert werden soll. Sie können auch angeben, ob der Bereitstellungstyp für alle Benutzer installiert werden soll, wenn er für ein Gerät bereitgestellt wird, oder ob der Bereitstellungstyp nur für einen Benutzer installiert wird, wenn er für einen Benutzer bereitgestellt wird.  
 
-6.  Choisissez **Suivant**, puis passez à [Spécifier les options de contenu pour le type de déploiement](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+    -   **Use an automatic VPN connection (if configured)**: (Automatische VPN-Verbindung verwenden (sofern konfiguriert))Wenn ein VPN-Profil auf dem Gerät bereitgestellt wurde, auf dem die App gestartet wird, starten Sie die VPN-Verbindung beim Starten der App (nur Windows 8.1 und Windows Phone 8.1). Wenn mehrere VPN-Profile auf einem Windows 8.1-Gerät bereitgestellt wurden, wird standardmäßig das erste bereitgestellte VPN-Profil verwendet.  
 
-### <a name="manually-set-up-the-deployment-type-information"></a>Configurer manuellement les informations sur le type de déploiement  
+         Auf Geräten mit Windows Phone 8.1 werden automatische VPN-Verbindungen nicht unterstützt, wenn mehrere VPN-Profile auf dem Gerät bereitgestellt wurden.  
 
-1.  Dans la page **Général,** de l’Assistant Création d’un type de déploiement, sélectionnez **Spécifier manuellement les informations sur le type de déploiement**.  
+         Weitere Informationen zu VPN-Profilen finden Sie unter [VPN-Profile in System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
 
-2.  Dans la zone **Type**, choisissez le type du fichier d’installation d’application à utiliser pour détecter les informations sur le type de déploiement. Vous pouvez choisir les mêmes types d’installation que vous utilisez quand vous détectez automatiquement les informations sur le type de déploiement, ainsi que spécifier un script pour installer le type de déploiement.  
+6.  Wählen Sie **Weiter** aus, und fahren Sie mit [Specify content options for the deployment type](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type) (Angeben von Inhaltsoptionen für den Bereitstellungstyp) fort.  
 
-3.  Dans la page **Informations générales** de l’Assistant Création d’un type de déploiement, spécifiez un nom pour le type de déploiement, une description facultative et les langues dans lesquelles vous souhaitez que ce type de déploiement soit disponible, puis choisissez **Suivant**.  
+### <a name="manually-set-up-the-deployment-type-information"></a>Manuelles Einrichten der Informationen zum Bereitstellungstyp  
 
-4.  Continuez avec [Spécifier les options de contenu pour le type de déploiement](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+1.  Wählen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Registerkarte **Allgemein** die Option **Informationen zum Bereitstellungstyp manuell angeben** aus.  
 
-##  <a name="specify-content-options-for-the-deployment-type"></a>Spécifier les options de contenu pour le type de déploiement  
+2.  Wählen Sie im Feld **Typ** den Installationsdateityp der Anwendung aus, den Sie zur Erkennung der Informationen zum Bereitstellungstyp verwenden möchten. Sie können dieselben Installationstypen wie bei einer automatischen Erkennung der Informationen zum Bereitstellungstyp auswählen, und ein Skript zur Installation des Bereitstellungstyps angeben.  
 
-1.  Dans la page **Contenu** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+3.  Geben Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Allgemeine Informationen** einen Namen für den Bereitstellungstyp, eine optionale Beschreibung und die Sprachen an, in denen dieser Bereitstellungstyp verfügbar sein soll. Wählen Sie anschließend **Weiter** aus.  
 
-    -   **Emplacement du contenu** : spécifiez l’emplacement du contenu pour ce type de déploiement, ou sélectionnez **Parcourir** pour choisir le dossier de contenu du type de déploiement.  
+4.  Fahren Sie mit [Angeben von Inhaltsoptionen für den Bereitstellungstyp](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type) fort.  
+
+##  <a name="specify-content-options-for-the-deployment-type"></a>Angeben von Inhaltsoptionen für den Bereitstellungstyp  
+
+1.  Geben Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Inhalt** die folgenden Informationen an:  
+
+    -   **Inhaltsort**: Geben Sie den Speicherort des Inhalts für diesen Bereitstellungstyp an, oder klicken Sie auf **Durchsuchen**, um den Inhaltsordner für den Bereitstellungstyp auszuwählen.  
 
         > [!IMPORTANT]  
-        >  Le compte du système de l'ordinateur du serveur de site doit disposer d'autorisations vers l'emplacement de contenu que vous spécifiez.  
+        >  Das Systemkonto des Standortservercomputers muss zum Zugriff auf den angegebenen Inhaltsort berechtigt sein.  
 
-    -   **Paramètres du contenu de désinstallation** : spécifiez l’une des options suivantes :
-        - **Identique au contenu d’installation** : sélectionnez cette option si le contenu d’installation et le contenu de désinstallation sont identiques. Il s’agit du comportement par défaut.
-        - **Pas de contenu de désinstallation** : sélectionnez cette option si votre application ne nécessite pas de contenu pour la désinstallation.
-        - **Différent du contenu d’installation** : sélectionnez cette option si le contenu de désinstallation est différent du contenu d’installation.
+    -   **Einstellungen für zu deinstallierenden Inhalt** – wählen Sie eine der folgenden Optionen aus:
+        - **Übereinstimmend mit zu installierendem Inhalt**– wählen Sie diese Option aus, wenn die Inhalte für die Installation und die Deinstallation identisch sind. Dies ist das Standardverhalten.
+        - **Nicht zu deinstallierender Inhalt** – wählen Sie diese Option aus, wenn Ihre Anwendung für die Deinstallation keine Inhalte benötigt.
+        - **Abweichend von zu installierendem Inhalt** – wählen Sie diese Option aus, wenn die für die Deinstallation benötigten Inhalten von den Inhalten für die Installation abweichen.
 
-4. Si vous avez sélectionné **Différent du contenu d’installation**, recherchez ou entrez l’emplacement du contenu de l’application qui est utilisé pour désinstaller l’application.
-5. Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
+4. Wenn Sie **Abweichend von zu installierendem Inhalt** ausgewählt haben, können Sie den Speicherort der Anwendungsinhalte aufrufen eingeben, die zum Deinstallieren der Anwendung verwendet werden.
+5. Klicken Sie auf **OK**, um das Dialogfeld zu Bereitstellungstyp-Eigenschaften zu schließen.
 
-    -   **Conserver le contenu dans la mémoire cache du client** : sélectionnez cette option pour spécifier si le contenu doit être conservé indéfiniment dans le cache de l’ordinateur client, même s’il a déjà été exécuté. Bien que cette option puisse être utile avec certains déploiements, comme les logiciels basés sur un programme d’installation Windows qui exigent qu’une copie de la source locale soit disponible pour appliquer les mises à jour, elle aura pour effet de réduire l’espace disponible dans le cache. Le choix de cette option peut entraîner l'échec d'un déploiement important plus tard si l'espace disponible dans le cache est insuffisant.  
+    -   **Inhalt dauerhaft in Clientcache speichern**: Mit dieser Option geben Sie an, ob der Inhalt im Cache des Clientcomputers selbst dann dauerhaft beibehalten werden soll, wenn er bereits ausgeführt wurde. Diese Option kann sich bei einigen Bereitstellungen als nützlich erweisen, beispielsweise bei Windows Installer-basierter Software, bei der für die Anwendung von Updates eine lokale Quellkopie erforderlich ist. Allerdings wird der verfügbare Cachespeicher hierdurch verringert. Wenn Sie diese Option auswählen, kann es bei einer umfangreichen Bereitstellung im späteren Verlauf zu einem Fehler kommen, falls der Cache nicht über ausreichend Speicherplatz verfügt.  
 
-    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau** : sélectionnez cette option pour réduire la charge sur le réseau en autorisant les clients à télécharger du contenu à partir d’autres clients locaux sur le réseau qui ont déjà téléchargé et mis en cache le contenu. Cette option utilise la technologie Windows BranchCache.  
+    -   **Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen**: Wählen Sie diese Option aus, um das Herunterladen von Inhalten von anderen lokalen Clients zuzulassen, von denen die Inhalte bereits heruntergeladen und zwischengespeichert wurden, und so die Netzwerkauslastung zu reduzieren. Diese Option nutzt Windows BranchCache-Technologie.  
 
-    -   **Programme d’installation** : spécifiez le nom du programme d’installation et des paramètres d’installation requis, ou choisissez **Parcourir** pour localiser le fichier d’installation.  
+    -   **Installationsprogramm**: Geben Sie den Namen des Installationsprogramms und alle erforderlichen Installationsparameter an, oder wählen Sie **Durchsuchen** aus, um den Speicherort der Installationsdatei zu suchen.  
 
-    -   **Début de l’installation dans** : spécifiez éventuellement le dossier contenant le programme d’installation pour le type de déploiement. Ce dossier peut être un chemin absolu sur le client ou un chemin vers le dossier du point de distribution contenant les fichiers d’installation.  
+    -   **Installationsstart in**: Geben Sie bei Bedarf den Ordner an, in dem sich das Installationsprogramm für den Bereitstellungstyp befindet. Dabei kann es sich um einen absoluten Pfad auf dem Client oder um einen Pfad zum Verteilungspunktordner handeln, in dem sich die Installationsdateien befinden.  
 
-    -   **Programme de désinstallation** : spécifiez éventuellement le nom du programme de désinstallation et tous les paramètres exigés, ou choisissez **Parcourir** pour le localiser.  
+    -   **Deinstallationsprogramm**: Geben Sie bei Bedarf den Namen des Deinstallationsprogramms und alle erforderlichen Parameter an, oder klicken Sie auf **Durchsuchen**, um den Speicherort zu suchen.  
 
-    -   **Début de la désinstallation dans** : spécifiez éventuellement le dossier contenant le programme de désinstallation pour le type de déploiement. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.  
+    -   **Deinstallationsstart in**: Geben Sie bei Bedarf den Ordner an, in dem sich das Deinstallationsprogramm für den Bereitstellungstyp befindet. Dieser Ordner kann als absoluter Pfad auf dem Client oder relativ zu dem Verteilungspunktordner angegeben werden, in dem das Paket enthalten ist.  
 
-    -   **Exécutez l’installation et désinstallez le programme en tant que processus 32 bits sur des clients 64 bits** : utilisez les emplacements de fichier et de Registre 32 bits sur des ordinateurs fonctionnant sous Windows pour exécuter le programme d’installation pour le type de déploiement.  
+    -   **Installationsprogramm ausführen und Programm als 32-Bit-Prozess auf 64-Bit-Clients deinstallieren**: Verwenden Sie die 32-Bit-Dateipfade und 32-Bit-Registrierungspfade auf Windows-Computern zum Ausführen des Installationsprogramms für den Bereitstellungstyp.  
 
-2.  Choisissez **Suivant**.  
+2.  Wählen Sie **Weiter** aus.  
 
-## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Configurer des méthodes de détection pour indiquer la présence du type de déploiement (PC Windows uniquement)  
- Cette procédure configure une méthode de détection qui indique si le type de déploiement est déjà installé.  
+## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Einrichten von Methoden zum Erkennen vorhandener Bereitstellungstypen (nur Windows-PCs)  
+ Mit dem folgenden Verfahren richten Sie eine Erkennungsmethode ein, durch die angegeben wird, ob der Bereitstellungstyp bereits installiert ist.  
 
-1.  Dans la page **Méthode de détection** de l’Assistant Création d’un type de déploiement, sélectionnez **Configurer des règles pour détecter la présence de ce type de déploiement**, puis choisissez **Ajouter une clause**.  
+1.  Wählen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Erkennungsmethode** die Option **Regeln konfigurieren, um zu erkennen, ob dieser Bereitstellungstyp vorhanden ist** aus. Wählen Sie anschließend **Klausel hinzufügen** aus.  
 
     > [!NOTE]  
-    >  Vous pouvez également sélectionner **Utiliser un script personnalisé pour détecter la présence de ce type de déploiement**. Pour plus d’informations, consultez [Utiliser un script personnalisé pour vérifier la présence d’un type de déploiement](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
+    >  Sie können auch **Mithilfe eines benutzerdefinierten Skripts erkennen, ob dieser Bereitstellungstyp vorhanden ist** auswählen. Weitere Informationen finden Sie unter [Use a custom script to check for the presence of a deployment type (So erkennen Sie einen vorhandenen Bereitstellungstyp mithilfe eines benutzerdefinierten Skripts)](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
 
-2.  Dans la liste déroulante **Type de paramètre** de la boîte de dialogue **Règle de détection**, choisissez la méthode que vous souhaitez utiliser pour détecter la présence du type de déploiement. Vous pouvez choisir parmi les méthodes disponibles suivantes :  
+2.  Wählen Sie im Dialogfeld **Erkennungsregel** in der Dropdownliste **Einstellungstyp** die Methode aus, die Sie zum Erkennen des Vorhandenseins des Bereitstellungstyps verwenden möchten. Folgende Methoden stehen zur Auswahl:  
 
-    -   **Système de fichiers** : permet de détecter si un fichier ou un dossier spécifique existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **Dateisystem**: Mit dieser Methode können Sie erkennen, ob eine angegebene Datei oder ein angegebener Ordner auf einem Clientgerät vorhanden und die Anwendung somit installiert ist.  
 
         > [!NOTE]  
-        >  Le paramètre **Système de fichiers** ne permet pas de spécifier un chemin d’accès UNC à un partage réseau dans le champ Chemin d’accès. Vous pouvez uniquement spécifier un chemin local sur l'appareil client.  
+        >  Die Angabe eines UNC-Pfads zu einer Netzwerkfreigabe im Feld "Pfad" wird vom Einstellungstyp **Dateisystem** nicht unterstützt. Sie können nur einen lokalen Pfad auf dem Clientgerät angeben.  
         >   
-        >  Pour vérifier les emplacements de fichiers 32 bits pour le fichier ou dossier spécifié, sélectionnez d’abord l’option **Ce fichier ou dossier est associé à une application 32 bits sur des systèmes 64 bits**. Si le fichier ou dossier est introuvable, il sera cherché dans des emplacements 64 bits.  
+        >  Wählen Sie erst die Option **Diese Datei/dieser Ordner ist einer 32-Bit-Anwendung auf 64-Bit-Systemen zugeordnet** aus, um die angegebene Datei bzw. den angegebenen Order zuerst an 32-Bit-Speicherorten zu suchen. Wenn die Datei oder der Ordner nicht gefunden wird, werden die 64-Bit-Speicherorte durchsucht.  
 
-    -   **Registre** : permet de détecter si une clé de Registre ou une valeur de Registre spécifiée existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **System Center Configuration Manager**: Verwenden Sie diese Methode, um festzustellen, ob ein angegebener Registrierungsschlüssel oder -wert auf einem Clientgerät vorhanden und die Anwendung somit installiert ist.  
 
         > [!NOTE]  
-        >  Pour vérifier d’abord les emplacements du Registre 32 bits pour la clé de Registre spécifiée, sélectionnez d’abord l’option **Cette clé de Registre est associée à une application 32 bits sur des systèmes 64 bits**. Si la clé de Registre est introuvable, elle sera cherchée dans les emplacements 64 bits.  
+        >  Wählen Sie zuerst die Option **Dieser Registrierungsschlüssel ist mit einer 32-Bit-Anwendung auf 64-Bit-Systemen verknüpft** aus, um den angegebenen Registrierungsschlüssel in 32-Bit-Registrierungspfaden zu suchen. Wenn der Registrierungsschlüssel nicht gefunden wird, werden 64-Bit-Pfade durchsucht.  
 
-    -   **Windows Installer** : permet de détecter si un fichier Windows Installer spécifique existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **Windows Installer**: Mit dieser Methode können Sie erkennen, ob eine angegebene Windows Installer-Datei auf einem Clientgerät vorhanden und die Anwendung somit installiert ist.  
 
-3.  Spécifiez les détails concernant l'élément que vous souhaitez utiliser pour détecter si ce type de déploiement est installé. Par exemple, vous pouvez utiliser un fichier, un dossier, une clé ou valeur de Registre ou bien un code de produit Windows Installer.  
+3.  Geben Sie Details zu dem Element an, anhand dessen erkannt werden soll, ob dieser Bereitstellungstyp installiert ist. Beispielsweise können Sie eine Datei, einen Ordner, einen Registrierungsschlüssel oder -wert oder einen Windows Installer-Produktcode verwenden.  
 
-4.  Spécifiez des détails sur la valeur que vous souhaitez évaluer par rapport à l'élément que vous utilisez pour détecter si le type de déploiement est installé. Par exemple, si vous utilisez un fichier pour vérifier si le type de déploiement est installé, vous pouvez sélectionner **Le paramètre du système de fichiers doit exister sur le système cible pour indiquer la présence de cette application**.  
+4.  Geben Sie Details zu dem Wert an, den Sie anhand des zur Erkennung des installierten Bereitstellungstyps verwendeten Elements auswerten möchten. Wenn Sie beispielsweise anhand einer Datei bestimmen, ob der Bereitstellungstyp installiert ist, können Sie **The file system setting must exist on the target system to indicate presence of this application** (Die Dateisystemeinstellung muss auf dem Zielsystem vorhanden sein, um das Vorhandensein dieser Anwendung anzuzeigen) auswählen.  
 
-5.  Choisissez **Suivant** pour fermer la boîte de dialogue **Règle de détection**.  
+5.  Wählen Sie **Weiter** aus, um das Dialogfeld **Erkennungsregel** zu schließen.  
 
-###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Utiliser un script personnalisé pour vérifier la présence d’un type de déploiement  
+###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Verwenden eines benutzerdefinierten Skripts zum Überprüfen eines vorhandenen Bereitstellungstyps  
 
-1.  Dans la page **Méthode de détection** de l’Assistant Création d’un type de déploiement, sélectionnez **Utiliser un script personnalisé pour détecter la présence de ce type de déploiement**, puis choisissez **Modifier**.  
+1.  Aktivieren Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Erkennungsmethode** das Kontrollkästchen **Mithilfe eines benutzerdefinierten Skripts erkennen, ob dieser Bereitstellungstyp vorhanden ist**, und wählen Sie dann**Bearbeiten** aus.  
 
-2.  Dans la boîte de dialogue **Éditeur de script**, sélectionnez la langue du script que vous souhaitez utiliser pour détecter le type de déploiement dans la liste déroulante **Type de script**.  
+2.  Wählen Sie im Dialogfeld **Skript-Editor** in der Dropdownliste **Skripttyp** die Skriptsprache aus, die Sie zum Erkennen des Bereitstellungstyps verwenden möchten.  
 
-3.  Entrez le script à utiliser dans la zone **Contenu du script**. Vous pouvez également coller le contenu d’un script existant dans ce champ ou choisir **Ouvrir** pour accéder à un script existant enregistré. Configuration Manager vérifie les résultats du script en lisant les valeurs écrites dans le flux de sortie Standard Out (STDOUT), le flux de sortie Standard Error (STDERR) et le code de sortie du script. Si le code de sortie est une valeur non nulle, le script a échoué et l'état de la détection d'application est inconnu. Si le code de sortie est égal à zéro et STDOUT contient des données, l’état de la détection d’application est installé.  
+3.  Geben Sie das gewünschte Skript in das Feld **Skriptinhalte** ein. Sie können auch den Inhalt eines vorhandenen Skripts in dieses Feld einfügen oder **Öffnen** auswählen, um ein vorhandenes gespeichertes Skript zu suchen. Von Configuration Manager werden dann die Ergebnisse des Skripts überprüft, indem die Werte, die in der Standardausgabe (STDOUT) und im Standardfehler (STDERR) geschrieben wurden, sowie der Exitcode des Skripts ausgelesen werden. Ein Exitcode ungleich null bedeutet, dass es bei der Ausführung des Skripts zu einem Fehler gekommen ist, und dass der Erkennungszustand der Anwendung „Unbekannt“ ist. Wenn der Exitcode gleich null ist und in „STDOUT“-Daten enthalten sind, ist der Erkennungszustand der Anwendung „Installiert“.  
 
- Utilisez le tableau suivant pour voir comment utiliser la sortie d’un script pour vérifier si une application est installée.  
+ Anhand der folgenden Tabelle können Sie sehen, wie Sie die Ausgabe eines Skripts verwenden können, um zu überprüfen ob eine Anwendung installiert ist.  
 
-|Code de sortie du script|Détails|
+|Exitcode des Skripts|Details|
 |--------------------------------|-----------------|
-|0|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Non installé|  
-|0|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|0|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Installé|  
-|0|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Installé|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
+|0|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Leer<br /><br /> **Script result (Skriptergebnis):** Erfolg<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Nicht installiert|  
+|0|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Nicht leer<br /><br /> **Script result (Skriptergebnis):** Fehler<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Unbekannt|  
+|0|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Nicht leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Leer<br /><br /> **Script result (Skriptergebnis):** Erfolg<br /><br /> **Application detection state (Erkennungszustand der Anwendung)** Installiert|  
+|0|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Nicht leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Nicht leer<br /><br /> **Script result (Skriptergebnis):** Erfolg<br /><br /> **Application detection state (Erkennungszustand der Anwendung)** Installiert|  
+|Wert ungleich null|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Leer<br /><br /> **Script result (Skriptergebnis):** Fehler<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Unbekannt|  
+|Wert ungleich null|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Nicht leer<br /><br /> **Script result (Skriptergebnis):** Fehler<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Unbekannt|  
+|Wert ungleich null|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Nicht leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Leer<br /><br /> **Script result (Skriptergebnis):** Fehler<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Unbekannt|  
+|Wert ungleich null|**Data read from STDOUT (Aus „STDOUT“ gelesene Daten):** Nicht leer<br /><br /> **Data read from STDERR (Aus „STDERR“ gelesene Daten):** Nicht leer<br /><br /> **Script result (Skriptergebnis):** Fehler<br /><br /> **Application detection state (Erkennungszustand der Anwendung):** Unbekannt|  
 
-Le tableau suivant contient des exemples de script Microsoft Visual Basic (VB) que vous pouvez utiliser pour écrire vos propres scripts de détection d’application.  
+In der folgenden Tabelle sind Beispielskripte für Microsoft Visual Basic (VB) aufgeführt, mit deren Hilfe Sie eigene Skripte für die Anwendungserkennung schreiben können.  
 
-|Exemple de script Visual Basic|Description|  
+|Visual Basic-Beispielskript|Beschreibung|  
 |--------------------------------|-----------------|  
-|**WScript.Quit(1)**|Le script renvoie un code de sortie non nul, ce qui indique l'échec d'exécution correcte. Dans ce cas, l'état de la détection d'application est inconnu.|  
-|**WScript.StdErr.Write "Échec du script"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, mais la valeur de STDERR n'est pas vide, ce qui indique l'échec d'exécution correcte du script. Dans ce cas, l'état de la détection d'application est inconnu.|  
-|**WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. Toutefois, la valeur de STDOUT est vide, ce qui indique que l'application n'est pas installée.|  
-|**WScript.StdOut.Write "L’application est installée"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. La valeur de STDOUT n'est pas vide, ce qui indique que l'application est installée.|  
-|**WScript.StdOut.Write "L’application est installée"**<br /><br /> **WScript.StdErr.Write "Fin"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. Les valeurs de STDOUT et STDERR ne sont pas vides, ce qui indique que l'application est installée.|  
+|**WScript.Quit(1)**|Vom Skript wird ein Exitcode ungleich null zurückgegeben, was darauf hindeutet, dass es nicht erfolgreich ausgeführt werden konnte. In diesem Fall ist der Erkennungszustand der Anwendung Unbekannt.|  
+|**WScript.StdErr.Write "Script failed"**<br /><br /> **WScript.Quit(0)**|Vom Skript wird ein Exitcode gleich null zurückgegeben, der Wert für „STDERR“ ist jedoch nicht leer, was darauf hindeutet, dass das Skript nicht erfolgreich ausgeführt werden konnte. In diesem Fall ist der Erkennungszustand der Anwendung Unbekannt.|  
+|**WScript.Quit(0)**|Vom Skript wird ein Exitcode gleich null zurückgegeben, was darauf hindeutet, dass es erfolgreich ausgeführt wurde. Der Wert für „STDOUT“ ist jedoch leer, was darauf hindeutet, dass die Anwendung nicht installiert ist.|  
+|**WScript.StdOut.Write "The application is installed"**<br /><br /> **WScript.Quit(0)**|Vom Skript wird ein Exitcode gleich null zurückgegeben, was darauf hindeutet, dass es erfolgreich ausgeführt wurde. Der Wert für „STDOUT“ ist nicht leer, was darauf hindeutet, dass die Anwendung installiert ist.|  
+|**WScript.StdOut.Write "The application is installed"**<br /><br /> **WScript.StdErr.Write "Completed"**<br /><br /> **WScript.Quit(0)**|Vom Skript wird ein Exitcode gleich null zurückgegeben, was darauf hindeutet, dass es erfolgreich ausgeführt wurde. Die Werte für „STDOUT“ und „STDERR“ sind nicht leer, was darauf hindeutet, dass die Anwendung installiert ist.|  
 
  > [!NOTE]  
- >  La taille maximale que vous pouvez utiliser pour un script est 32 Ko.  
+ >  Die maximal zulässige Größe für ein Skript beträgt 32 KB.  
 
-4.  Choisissez **OK** pour fermer la boîte de dialogue **Éditeur de script**.  
+4.  Wählen Sie **OK** aus, um das Dialogfeld **Skript-Editor** zu schließen.  
 
-## <a name="specify-user-experience-options-for-the-deployment-type"></a>Spécifier les options d’expérience utilisateur pour le type de déploiement  
- Ces paramètres définissent comment l’application va être installée sur les appareils et ce que l’utilisateur verra.  
+## <a name="specify-user-experience-options-for-the-deployment-type"></a>Angeben von Optionen für die Benutzerfreundlichkeit des Bereitstellungstyps  
+ Durch diese Einstellungen wird angegeben, wie die Anwendung auf Geräten installiert wird und was dem Benutzer angezeigt wird.  
 
-1.  Dans la page **Expérience utilisateur** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+1.  Geben Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Benutzerfreundlichkeit** die folgenden Informationen an:  
 
-    -   **Comportement d’installation** : dans la liste déroulante, sélectionnez l’une des options suivantes :  
+    -   **Installationsverhalten**: Wählen Sie in der Dropdownliste eine der folgenden Optionen aus:  
 
-        -   **Installer pour l’utilisateur** : l’application est installée uniquement pour l’utilisateur pour lequel elle est déployée.  
+        -   **Für Benutzer installieren**: Die Anwendung wird nur für den Benutzer installiert, für den sie bereitgestellt wird.  
 
-        -   **Installer pour le système** : l’application est installée une seule fois et elle est disponible pour tous les utilisateurs.  
+        -   **Für System installieren**: Die Anwendung wird nur einmal installiert und ist für alle Benutzer verfügbar.  
 
-        -   **Installer pour le système si la ressource est un périphérique ; sinon installer pour l’utilisateur** : si l’application est déployée sur un appareil, elle est installée pour tous les utilisateurs. Si l'application est déployée sur un utilisateur, elle sera installée uniquement pour cet utilisateur.  
+        -   **Für System installieren, wenn Ressource ein Gerät ist, andernfalls für Benutzer installieren**: Wenn die Anwendung auf einem Gerät bereitgestellt wird, wird sie für alle Benutzer installiert. Wenn die Anwendung für einen Benutzer bereitgestellt wird, wird sie nur für diesen Benutzer installiert.  
 
-    -   **Condition d’ouverture de session** : spécifiez les conditions d’ouverture de session pour ce type de déploiement à partir des options suivantes :  
+    -   **Anmeldeanforderung**: Geben Sie die Anmeldeanforderungen für diesen Bereitstellungstyp anhand der folgenden Optionen an:  
 
-        -   **Uniquement quand un utilisateur a ouvert une session**  
+        -   **Nur wenn ein Benutzer angemeldet ist**  
 
-        -   **Qu’un utilisateur ait ouvert une session ou non**  
+        -   **Unabhängig von Benutzeranmeldung**  
 
-        -   **Uniquement lorsqu’aucun utilisateur n’a de session ouverte**  
-
-        > [!NOTE]  
-        >  Par défaut, cette option sera définie sur **Uniquement lorsqu'un utilisateur a ouvert une session**et ne pourra pas être modifiée si vous avez sélectionné **Installer pour l'utilisateur** dans la liste déroulante **Comportement d'installation** .  
-
-    -   **Visibilité du programme d’installation** : spécifiez le mode dans lequel le type de déploiement sera exécuté sur les appareils clients. Les options ci-dessous sont disponibles :  
-
-        -   **Agrandie** : le type de déploiement est exécuté de manière agrandie sur les appareils clients. Les utilisateurs verront toute l'activité de l'installation.  
-
-        -   **Normale** : le type de déploiement est exécuté en mode normal, en fonction des valeurs par défaut du système et du programme. Il s'agit du mode par défaut.  
-
-        -   **Réduite** : le type de déploiement est exécuté de manière réduite sur les appareils clients. Les utilisateurs peuvent voir l'activité de l'installation dans la zone de notification ou dans la barre des tâches.  
-
-        -   **Masquée** : le type de déploiement est exécuté de manière masquée sur les appareils clients et les utilisateurs ne voient aucune activité d’installation.  
-
-    -   **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** : spécifiez si un utilisateur peut interagir avec l’installation du type de déploiement pour configurer les options d’installation.  
+        -   **Nur wenn kein Benutzer angemeldet ist**  
 
         > [!NOTE]  
-        >  Cette option est activée par défaut si l'option **Installer pour l'utilisateur** est sélectionnée dans la liste déroulante **Comportement d'installation** .  
+        >  Für diese Option wird standardmäßig **Nur wenn ein Benutzer angemeldet ist** ausgewählt. Die Option kann nicht geändert werden, wenn Sie in der Dropdownliste **Installationsverhalten** die Option **Für Benutzer installieren** ausgewählt haben.  
 
-    -   **Durée maximale d’exécution allouée (en minutes)** : spécifiez la durée maximale pendant laquelle le programme est supposé s’exécuter sur l’ordinateur client. Ce paramètre peut être spécifié comme un nombre entier supérieur à zéro. Le paramètre par défaut est de 120 minutes.  
+    -   **Sichtbarkeit des Installationsprogramms**: Gibt den Modus an, in dem der Bereitstellungstyp auf Clientgeräten ausgeführt wird. Die folgenden Optionen sind verfügbar:  
 
-         Cette valeur est utilisée pour :  
+        -   **Maximiert**: Der Bereitstellungstyp wird auf Clientgeräten im maximierten Modus ausgeführt. Benutzer sehen alle Installationsaktivitäten.  
 
-        -   surveiller les résultats du type de déploiement ;  
+        -   **Normal**: Der Bereitstellungstyp wird basierend auf den Standardeinstellungen des Systems und Programms im normalen Modus ausgeführt. Dies ist der Standardmodus.  
 
-        -   vérifier si un type de déploiement sera installé une fois que des fenêtres de maintenance auront été définies sur des appareils clients. Lorsqu'une fenêtre de maintenance est activée, un programme démarre uniquement s'il reste suffisamment de temps dans la fenêtre de maintenance pour respecter l'option **Durée maximale d'exécution allouée** .  
+        -   **Minimiert**: Der Bereitstellungstyp wird auf Clientgeräten im minimierten Modus ausgeführt. Benutzer können die Installationsaktivität möglicherweise im Infobereich oder in der Taskleiste sehen.  
+
+        -   **Ausgeblendet**: Der Bereitstellungstyp wird auf Clientgeräten im ausgeblendeten Modus ausgeführt, und Benutzer sehen keine Installationsaktivitäten.  
+
+    -   **Benutzern gestatten, die Programminstallation anzuzeigen und mit ihr zu interagieren**: Hiermit geben Sie an, ob der Benutzer bei der Installation des Bereitstellungstyps die Installationsoptionen einrichten darf.  
+
+        > [!NOTE]  
+        >  Diese Option ist standardmäßig aktiviert, wenn in der Dropdownliste **Installationsverhalten** die Option **Für Benutzer installieren** ausgewählt wurde.  
+
+    -   **Maximal zulässige Laufzeit (Minuten):** Geben Sie hier an, wie lange die Ausführung des Programms auf dem Clientcomputer voraussichtlich maximal dauert. Sie können für diese Einstellung eine ganze Zahl größer oder gleich Null angeben. Die Standardeinstellung ist 120 Minuten.  
+
+         Dieser Wert wird verwendet:  
+
+        -   Überwachen Sie die Ergebnisse des Bereitstellungstyps.  
+
+        -   Überprüfen Sie, ob ein Bereitstellungstyp installiert wird, wenn auf Clientgeräten Wartungsfenster definiert wurden. Wenn ein Wartungsfenster vorhanden ist, wird ein Programm nur gestartet, wenn die verbleibende Dauer des Wartungsfensters noch mindestens der Einstellung unter **Maximal zulässige Laufzeit** entspricht.  
 
         > [!IMPORTANT]  
-        >  Un conflit peut se produire si la **durée maximale d'exécution allouée** est plus longue que celle de la fenêtre de maintenance planifiée. Si la durée maximale d'exécution définie par l'utilisateur dépasse la longueur des fenêtres de maintenance disponibles, ce type de déploiement n'est pas exécuté.  
+        >  Wenn der Zeitraum für **Maximal zulässige Laufzeit** länger ist als das geplante Wartungsfenster, kann dies zu einem Problem führen. Wird die maximale Laufzeit vom Benutzer auf einen Wert festgelegt, der die Länge der verfügbaren Wartungsfenster überschreitet, wird dieser Bereitstellungstyp nicht ausgeführt.  
 
-2.  **Temps d’installation estimé (minutes)** : spécifiez la durée estimée nécessaire à l’installation du type de déploiement. Il est indiqué aux utilisateurs du Centre logiciel.  
+2.  **Geschätzte Installationszeit (Minuten)**: Geben Sie an, wie lange die Installation des Bereitstellungstyps voraussichtlich dauert. Dies wird Benutzern des Softwarecenters angezeigt.  
 
-## <a name="specify-requirements-for-the-deployment-type"></a>Spécifier des spécifications pour le type de déploiement  
+## <a name="specify-requirements-for-the-deployment-type"></a>Angeben von Anforderungen für den Bereitstellungstyp  
 
-1.  Dans la page **Spécifications** de l’Assistant Création d’un type de déploiement, choisissez **Ajouter** pour ouvrir la boîte de dialogue **Créer une spécification**, puis ajoutez une nouvelle spécification.  
+1.  Wählen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Anforderungen** **Hinzufügen** aus, um das Dialogfeld **Anforderung erstellen** zu öffnen und eine neue Anforderung hinzuzufügen.  
 
     > [!NOTE]  
-    >  Vous pouvez également ajouter de nouvelles spécifications sous l’onglet **Spécifications** de la boîte de dialogue **Propriétés** de *<nom_type_déploiement\>*.  
+    >  Sie können neue Anforderungen auch im Dialogfeld **Eigenschaften** von *<Name des Bereitstellungstyps\>* auf der Registerkarte **Anforderungen** hinzufügen.  
 
-2.  Dans la liste déroulante **Catégorie**, indiquez si cette spécification s’applique à un appareil ou à un utilisateur, ou sélectionnez **Personnalisé** pour utiliser une condition globale préalablement créée. Quand vous sélectionnez **Personnalisé**, vous pouvez également choisir **Créer** pour créer une condition globale. Pour plus d’informations sur les conditions globales, consultez [Comment créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).  
+2.  Wählen Sie in der Dropdownliste **Kategorie** aus, ob diese Anforderung für ein Gerät oder einen Benutzer bestimmt ist, oder wählen Sie **Benutzerdefiniert** aus, um eine zuvor erstellte globale Bedingung zu verwenden. Bei Auswahl von **Benutzerdefiniert** können Sie auch **Erstellen** auswählen, um eine neue globale Bedingung zu erstellen. Weitere Informationen über globale Bedingungen finden Sie unter [Erstellen von globalen Bedingungen](../../apps/deploy-use/create-global-conditions.md).  
 
     > [!IMPORTANT]  
-    >  Les spécifications relatives à la catégorie **Utilisateur** et à la condition **Périphérique principal** sont ignorées si vous déployez l’application sur un regroupement d’appareils.  
+    >  Alle Anforderungen mit der Kategorie **Benutzer** und der Bedingung **Primäres Gerät** werden ignoriert, wenn Sie die Anwendung für eine Gerätesammlung bereitstellen.  
     >   
-    >  Si vous avez créé une séquence de tâches ou un package et un programme Windows qui a Windows 10 comme spécification à l’aide de System Center 2012 R2 Configuration Manager SP1 et que vous effectuez une mise à niveau vers System Center Configuration Manager, la spécification relative à Windows 10 peut être supprimée. Pour résoudre ce problème, spécifiez à nouveau la spécification. Notez que bien que l’exigence ait été supprimée de l’affichage des exigences, elle est toujours traitée correctement sur les appareils.  
+    >  Wenn Sie ein Windows-Paket und -Programm oder eine Tasksequenz erstellt haben, was Windows 10 erfordert und dies mit System Center 2012 R2 Configuration Manager SP1 geschah, und Sie dann ein Upgrade auf System Center Configuration Manager ausführen, werden die Anforderungen für Windows 10 möglicherweise entfernt. Um dieses Problem zu beheben, geben Sie die Anforderungen erneut an. Die Anforderung wird auf Geräten weiterhin ordnungsgemäß verarbeitet, obwohl sie aus der Anforderungsanzeige entfernt wurde.  
 
-3.  Dans la liste déroulante **Condition** , sélectionnez la condition que vous souhaitez utiliser pour déterminer si l'utilisateur ou l'appareil répond aux spécifications de l'installation. Le contenu de cette liste varie en fonction de la catégorie sélectionnée.  
+3.  Wählen Sie in der Dropdownliste **Bedingung** die Bedingung aus, anhand derer bewertet werden soll, ob der Benutzer bzw. das Gerät den Installationsanforderungen entspricht. Der Inhalt dieser Liste ist von der ausgewählten Kategorie abhängig.  
 
-4.  Dans la liste déroulante **Opérateur** , choisissez l'opérateur qui sera utilisé pour comparer la condition sélectionnée à la valeur spécifiée, afin d'évaluer si l'utilisateur ou l'appareil répond aux spécifications de l'installation. Les opérateurs disponibles varient en fonction de la condition sélectionnée.  
+4.  Wählen Sie in der Dropdownliste **Operator** den Operator aus, der zum Vergleichen der ausgewählten Bedingung mit dem angegebenen Wert verwendet werden soll, um zu bewerten, ob der Benutzer bzw. das Gerät den Installationsanforderungen entspricht. Welche Operatoren verfügbar sind, ist von der ausgewählten Bedingung abhängig.  
 
     > [!IMPORTANT]  
-    >  Les spécifications disponibles varient selon le type d’appareil utilisé par le type de déploiement.  
+    >  Die verfügbaren Anforderungen variieren je nach Gerätetyp, die der Bereitstellungstyp verwendet.  
 
-5.  Dans la zone **Valeur**, spécifiez les valeurs qui seront utilisées avec la condition et l’opérateur sélectionnés pour évaluer si l’utilisateur ou l’appareil respecte les spécifications de l’installation. Les valeurs disponibles varient en fonction de la condition et de l'opérateur sélectionnés.  
+5.  Geben Sie im Feld **Wert** die Werte ein, die zusammen mit der ausgewählten Bedingung und dem Operator verwendet werden sollen, um zu bewerten, ob der Benutzer bzw. das Gerät die Installationsanforderungen erfüllt. Welche Werte verfügbar sind, ist von der ausgewählten Bedingung und dem ausgewählten Operator abhängig.  
 
-6.  Choisissez **OK** pour enregistrer la spécification et fermer la boîte de dialogue **Créer une spécification**.  
+6.  Wählen Sie **OK** aus, um die Anforderung zu speichern und das Dialogfeld **Anforderung erstellen** zu schließen.  
 
-## <a name="specify-dependencies-for-the-deployment-type"></a>Spécifier des dépendances pour le type de déploiement  
- Les dépendances définissent un ou plusieurs types de déploiement d'un autre type d'application qui doivent être installés avant l'installation d'un type de déploiement. Vous pouvez configurer les types de déploiement dépendants à installer automatiquement avant l’installation d’un type de déploiement.  
+## <a name="specify-dependencies-for-the-deployment-type"></a>Angeben von Abhängigkeiten für den Bereitstellungstyp  
+ Mit Abhängigkeiten wird mindestens ein Bereitstellungstyp einer anderen Anwendung definiert, der installiert sein muss, bevor ein Bereitstellungstyp installiert wird. Sie können die abhängigen Bereitstellungstypen einrichten, die vor der Installation eines Bereitstellungstyps automatisch installiert werden.  
 
 > [!IMPORTANT]  
->  Dans certains cas, un type de déploiement est dépendant d’un type de déploiement qui a également des dépendances. Le nombre maximal de dépendances prises en charge dans la chaîne est de 5.  
+>  In einigen Fällen ist ein Bereitstellungstyp von einem Bereitstellungstyp abhängig, der ebenfalls über Abhängigkeiten verfügt. Die maximale Anzahl unterstützter Abhängigkeiten in der Kette beträgt fünf.  
 
-1.  Dans la page **Dépendances** de l’Assistant Création d’un type de déploiement, choisissez **Ajouter** pour spécifier les types de déploiement à installer avant l’installation de ce type de déploiement.  
+1.  Wählen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Abhängigkeiten** **Hinzufügen** aus, um die Bereitstellungstypen anzugeben, die installiert werden müssen, damit dieser Bereitstellungstyp installiert werden kann.  
 
     > [!IMPORTANT]  
-    >  Vous pouvez également ajouter de nouvelles dépendances sous l’onglet **Dépendances** de la boîte de dialogue **Propriétés** de *<nom_type_déploiement\>*.  
+    >  Sie können neue Abhängigkeiten auch im Dialogfeld *<Name des Bereitstellungstyps\>***Eigenschaften** auf der Registerkarte **Abhängigkeiten** hinzufügen.  
 
-2.  Dans la boîte de dialogue **Ajouter une dépendance**, choisissez **Ajouter**.  
+2.  Wählen Sie im Dialogfeld **Abhängigkeit hinzufügen** **Hinzufügen** aus.  
 
-3.  Dans la boîte de dialogue **Spécifier l'application requise** , sélectionnez une application existante et l'un des types de déploiement d'application à utiliser en tant que dépendance.  
+3.  Wählen Sie im Dialogfeld **Erforderliche Anwendung angeben** eine vorhandene Anwendung aus sowie einen der Anwendungsbereitstellungstypen, der als Abhängigkeit verwendet werden soll.  
 
     > [!TIP]  
-    >  Vous pouvez choisir **Afficher** pour afficher les propriétés de l’application ou du type de déploiement sélectionné.  
+    >  Sie können **Anzeigen** auswählen, um die Eigenschaften der ausgewählten Anwendung bzw. des ausgewählten Bereitstellungstyps anzuzeigen.  
 
-4.  Choisissez **OK** pour fermer la boîte de dialogue **Spécifier l’application requise**.  
+4.  Wählen Sie **OK** aus, um das Dialogfeld **Erforderliche Anwendung angeben** zu schließen.  
 
-5.  Si vous souhaitez qu'une application dépendante soit installée automatiquement, voir **Installation automatique** à côté de l'application dépendante.  
+5.  Wenn eine abhängige Anwendung automatisch installiert werden soll, aktivieren Sie das Kontrollkästchen **Automatisch installieren** neben der abhängigen Anwendung.  
 
     > [!NOTE]  
-    >  Une application dépendante n'a pas besoin être déployée pour être automatiquement installée.  
+    >  Eine abhängige Anwendung muss nicht bereitgestellt werden, damit sie automatisch installiert werden kann.  
 
-6.  Dans la boîte de dialogue **Ajouter une dépendance**, sous **Nom du groupe de dépendances**, entrez un nom pour faire référence à ce groupe de dépendances d’applications.  
+6.  Geben Sie im Dialogfeld **Abhängigkeit hinzufügen** unter **Name der Abhängigkeitsgruppe** einen Namen für diese Gruppe von Anwendungsabhängigkeiten ein.  
 
-7.  Vous pouvez également utiliser les boutons **Augmenter la priorité** et **Diminuer la priorité** pour modifier l'ordre dans lequel chaque dépendance est évaluée.  
+7.  Über die Schaltflächen **Priorität erhöhen** und **Priorität verringern** können Sie bei Bedarf die Auswertungsreihenfolge der Abhängigkeiten ändern.  
 
-8.  Choisissez **OK** pour fermer la boîte de dialogue **Ajouter une dépendance**.  
+8.  Wählen Sie **OK** aus, um das Dialogfeld **Abhängigkeit hinzufügen** zu schließen.  
 
-## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Confirmer les paramètres relatifs au type de déploiement et terminer l’Assistant  
+## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Bestätigen der Bereitstellungstypeinstellungen und Abschließen des Assistenten  
 
-1.  Dans la page **Résumé** de l’Assistant Création d’un type de déploiement, passez en revue les actions que doit prendre l’Assistant. Choisissez **Suivant** pour créer le type de déploiement ou **Précédent** pour revenir en arrière et modifier les paramètres du type de déploiement.  
+1.  Überprüfen Sie im Assistenten zum Erstellen neuer Bereitstellungstypen auf der Seite **Zusammenfassung** die Aktionen, die vom Assistenten ausgeführt werden sollen. Wählen Sie **Weiter** aus, um den Bereitstellungstyp zu erstellen, oder **Zurück**, um die Einstellungen für den Bereitstellungstyp zu ändern.  
 
-2.  Après la fermeture de la page **Progression**, passez en revue les actions prises par l’Assistant, puis choisissez **Fermer** pour terminer l’Assistant.  
+2.  Nachdem die Seite **Fortschritt** geschlossen wurde, überprüfen Sie die ausgeführten Aktionen. Wählen Sie anschließend **Schließen** aus, um den Assistenten abzuschließen.  
 
-3.  Si vous avez démarré l’Assistant Création d’un type de déploiement à partir de l’Assistant Création d’une application, vous revenez à la page **Types de déploiement** de l’Assistant Création d’une application.  
+3.  Wenn der Assistent zum Erstellen neuer Bereitstellungstypen aus dem Assistenten zum Erstellen von Anwendungen heraus gestartet wurde, wird nun wieder die Seite **Bereitstellungstypen** des Assistenten zum Erstellen von Anwendungen angezeigt.  
 
-## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Configurer des options supplémentaires pour les types de déploiement qui contiennent des applications virtuelles  
- Utilisez les procédures suivantes pour configurer des options supplémentaires pour les types de déploiement qui contiennent des applications virtuelles.  
+## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Einrichten zusätzlicher Optionen für Bereitstellungstypen, die virtuelle Anwendungen enthalten  
+ Wenden Sie die folgenden Verfahren an, um zusätzliche Optionen für Bereitstellungstypen einzurichten, die virtuelle Anwendungen enthalten.  
 
-### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Configurer les options de contenu pour les types de déploiement App-V (Application Virtualization)  
+### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Einrichten von Inhaltsoptionen für Application Virtualization-Bereitstellungstypen (App-V)  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungen** aus.  
 
-2.  Dans la liste **Applications**, sélectionnez une application contenant un type de déploiement App-V. Ensuite, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+2.  Wählen Sie in der Liste **Anwendungen** eine Anwendung aus, die über ein App-V-Bereitstellungstyp verfügt. Wählen Sie anschließend auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-3.  Dans la boîte de dialogue **Propriétés de** *<nom_application\>*, sous l’onglet **Types de déploiement**, sélectionnez un type de déploiement App-V, puis choisissez **Modifier**.  
+3.  Wählen Sie im Dialogfeld Eigenschaften von *<Anwendungsname\>* **Properties** auf der Registerkarte **Bereitstellungstypen** einen App-V-Bereitstellungstyp aus, und wählen Sie dann **Bearbeiten** aus.  
 
-4.  Dans la boîte de dialogue **Propriétés de** *<Nom du type de déploiement\>*, sous l’onglet **Contenu**, configurez les options suivantes, si nécessaire :  
+4.  Konfigurieren Sie im Dialogfeld *<Name des Bereitstellungstyps\>* **Eigenschaften** auf der Registerkarte **Inhalt** bei Bedarf die folgenden Optionen:  
 
-    -   **Conserver le contenu dans la mémoire cache du client** : sélectionnez cette option pour vérifier que le contenu de ce type de déploiement n’est pas supprimé du cache du client Configuration Manager.  
+    -   **Inhalt dauerhaft in Clientcache speichern:** Bei Auswahl dieser Option werden die Inhalte für diesen Bereitstellungstyp nicht aus dem Configuration Manager-Clientcache gelöscht.  
 
-    -   **Charger le contenu dans le cache AppV avant le lancement** : sélectionnez cette option pour vérifier que tout le contenu de l’application virtuelle est chargé dans le cache App-V avant le lancement de l’application. Cette option garantit également que le contenu de l'application ne sera pas épinglé dans le cache et que celui-ci pourra être supprimé au besoin.  
+    -   **Inhalt vor dem Start in den App-V-Cache laden:** Bei Auswahl dieser Option werden alle Inhalte für die virtuelle Anwendung vor dem Starten der Anwendung in den App-V-Cache geladen. Darüber hinaus wird der Anwendungsinhalt nicht im Cache fixiert und kann bei Bedarf gelöscht werden.  
 
-5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*.  
+5.  Wählen Sie **OK** aus, um das Dialogfeld *<Name des Bereitstellungstyps\>* **Eigenschaften** zu schließen.  
 
-6.  Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+6.  Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften von** *<Anwendungsname\>* zu schließen.  
 
-### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Configurer les options de publication pour les types de déploiement App-V  
+### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Einrichten von Veröffentlichungsoptionen für App-V-Bereitstellungstypen  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Applications**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungen** aus.  
 
-3.  Dans la liste **Applications**, sélectionnez une application contenant un type de déploiement App-V. Ensuite, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Wählen Sie in der Liste **Anwendungen** eine Anwendung aus, die über ein App-V-Bereitstellungstyp verfügt. Wählen Sie anschließend auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-4.  Dans la boîte de dialogue **Propriétés de** *<nom_application\>*, sous l’onglet **Types de déploiement**, sélectionnez un type de déploiement App-V, puis choisissez **Modifier**.  
+4.  Wählen Sie im Dialogfeld Eigenschaften von *<Anwendungsname\>* **Properties** auf der Registerkarte **Bereitstellungstypen** einen App-V-Bereitstellungstyp aus, und wählen Sie dann **Bearbeiten** aus.  
 
-5.  Dans la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*, sous l’onglet **Publication**, sélectionnez les éléments de l’application virtuelle à publier.  
+5.  Wählen Sie im Dialogfeld **Eigenschaften** von *<Name des Bereitstellungstyps\>* auf der Registerkarte **Veröffentlichung** die Elemente in der virtuellen Anwendung aus, die veröffentlicht werden sollen.  
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*.  
+6.  Wählen Sie **OK** aus, um das Dialogfeld *<Name des Bereitstellungstyps\>* **Eigenschaften** zu schließen.  
 
-7.  Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+7.  Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften von** *<Anwendungsname\>* zu schließen.  
 
-## <a name="import-an-application"></a>Importer une application  
- Utilisez la procédure ci-dessous pour importer une application dans Configuration Manager. Pour plus d’informations sur l’exportation d’une application, consultez [Tâches de gestion pour les applications System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md).  
+## <a name="import-an-application"></a>Importieren einer Anwendung  
+ Gehen Sie wie folgt vor, um eine Anwendung in Configuration Manager zu importieren. Informationen zum Exportieren von Anwendungen finden Sie unter [Management tasks for System Center Configuration Manager applications (Verwaltungsaufgaben für System Center Configuration Manager-Anwendungen)](../../apps/deploy-use/management-tasks-applications.md).  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.   
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** aus.   
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Importer l’application**.  
+3.  Wählen Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** **Anwendung importieren** aus.  
 
-4.  Dans la page **Général** de l’**Assistant Importation de l’application**, choisissez **Parcourir**, puis spécifiez un chemin UNC au fichier .zip contenant l’application à importer.  
+4.  Klicken Sie auf der Seite **Allgemein** des **Assistenten zum Importieren von Anwendungen** auf **Durchsuchen**, und geben Sie einen UNC-Pfad zur ZIP-Datei an, in der die zu importierende Anwendung enthalten ist.  
 
-5.  Dans la page **Contenu du fichier**, sélectionnez l’action à effectuer quand l’application que vous essayez d’importer est un doublon d’une application existante. Vous pouvez créer une application ou ignorer la copie et ajouter une nouvelle révision à l’application existante.  
+5.  Wählen Sie auf der Seite **Dateiinhalt** die Aktion aus, die ausgeführt werden soll, wenn die zu importierende Anwendung das Duplikat einer vorhandenen Anwendung ist. Sie können eine neue Anwendung erstellen, oder das Duplikat ignorieren, und eine neue Revision zur vorhandenen Anwendung hinzufügen.  
 
-6.  Dans la page **Résumé**, passez en revue les actions à effectuer, puis terminez l’Assistant.  
+6.  Überprüfen Sie auf der Seite **Zusammenfassung** die durchzuführenden Aktionen, und schließen Sie dann den Assistenten ab.  
 
- La nouvelle application s’affiche dans le nœud **Applications**.  
+ Die neue Anwendung wird im Knoten **Anwendungen** angezeigt.  
 
 > [!TIP]  
->  L’applet de commande Windows PowerShell **Import-CMApplication** permet de réaliser la même opération que cette procédure. Pour plus d’informations, consultez [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) dans la référence sur les applets de commande Microsoft System Center 2012 Configuration Manager SP1.  
+>  Das Windows PowerShell-Cmdlet **Import-CMApplication** hat die gleiche Funktion wie dieses Verfahren. Weitere Informationen finden Sie unter [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) in der Cmdlet-Referenzdokumentation von Microsoft System Center 2012 Configuration Manager SP1.  
 
-##  <a name="deployment-types-supported-by-configuration-manager"></a>Types de déploiement pris en charge par Configuration Manager  
+##  <a name="deployment-types-supported-by-configuration-manager"></a>Von Configuration Manager unterstützte Bereitstellungstypen  
 
-|Nom du type de déploiement|Plus d'informations|  
+|Name des Bereitstellungstyps|Weitere Informationen|  
 |--------------------------|----------------------|  
-|**Windows Installer (\*fichier .msi)**|Crée un type de déploiement à partir d'un fichier Windows Installer.|  
-|**Package d’application Windows (\*.appx, \*.appxbundle)**|Crée un type de déploiement pour Windows 8, Windows RT ou version ultérieure, à partir d’un fichier de package d’application Windows ou d’un package de lots d’applications Windows.|  
-|**Package d’application Windows (dans le Windows Store)**|Crée un type de déploiement pour Windows 8, Windows RT ou version ultérieure, en spécifiant un lien vers l’application dans Windows Store ou en parcourant le magasin pour sélectionner l’application dont vous avez besoin.<br /><br /> Si vous voulez déployer l'application sous forme de lien vers Windows Store, vérifiez que le paramètre de stratégie de groupe **Désactiver l'application du Store** est défini sur **Désactivé** ou sur **Non configuré**. Si ce paramètre est activé, les clients ne pourront pas se connecter à Windows Store pour télécharger et installer des applications.<br /><br /> Les types de déploiements de Windows 8 qui utilisent un lien vers un magasin sont toujours évalués avant d’autres types de déploiements, quelle que soit leur priorité.|  
-|**Programme d’installation de script**|Crée un type de déploiement spécifiant un script qui s’exécute sur des appareils clients pour installer un contenu ou pour effectuer une action.|  
-|**Microsoft Application Virtualization 4**|Crée un type de déploiement à partir d’un fichier manifeste Microsoft Application Virtualization 4.|  
-|**Microsoft Application Virtualization 5**|Crée un type de déploiement à partir d'un fichier de package Microsoft Application Virtualization 5.|  
-|**Package d’application Windows Phone (\*fichier .xap)**|Crée un type de déploiement à partir d'un fichier de package d'application Windows Phone.|  
-|**Package d’application Windows Phone (dans le Windows Phone Store)**|Crée un type de déploiement en spécifiant un lien vers l’application dans le Windows Phone Store.|  
-|**Fichier CAB Windows Mobile**|Crée un type de déploiement pour des appareils Windows Mobile à partir d’un fichier CAB Windows Mobile.|  
-|**Package d’application pour iOS (fichier \*.ipa)**|Crée un type de déploiement à partir d'un fichier de package d'application iOS.|  
-|**Package d’application pour iOS depuis l’App Store**|Crée un type de déploiement en spécifiant un lien vers l'application iOS dans l'App Store.|  
-|**Package d’application pour Android (fichier \*.apk)**|Crée un type de déploiement à partir d'un fichier de package d'application Android.|  
-|**Package d’application pour Android sur Google Play**|Crée un type de déploiement en spécifiant un lien vers l'application sur Google Play.|  
-|**Mac OS X**|Crée un type de déploiement pour les ordinateurs Mac à partir d'un fichier .cmmac que vous avez créé à l'aide de l'outil CMAppUtil.<br /><br /> S’applique uniquement aux ordinateurs Mac exécutant le client Configuration Manager.|  
-|**Application web**|Crée un type de déploiement qui spécifie un lien vers une application Web. Le type de déploiement installe un raccourci vers l'application Web sur l'appareil de l'utilisateur.<br /><br /> Si vous avez installé Intune Managed Browser sur des appareils iOS ou Android que vous gérez, vous pouvez vous assurer que les utilisateurs peuvent uniquement utiliser Managed Browser pour ouvrir l’application. Pour ce faire, utilisez un des formats suivants quand vous spécifiez un lien vers l’application, en remplaçant **http:** par **http-intunemam:** ou **https:** par **https-intunemam:**<br /><br /> - **http-intunemam://<chemin de l’application web\>**<br /><br /> - **https-intunemam://<chemin de l’application web\>**<br /><br /> Vous pouvez imposer une configuration requise pour Configuration Manager afin de vérifier que les applications à associer au navigateur Managed Browser sont installées uniquement sur des appareils iOS et Android.<br /><br /> Pour plus d’informations sur Intune Managed Browser, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
-|**Windows Installer via la gestion des appareils mobiles (\*.msi)**|Ce type de programme d’installation vous permet de créer et déployer des applications Windows Installer sur des PC qui exécutent Windows 10.<br /><br /> Tenez compte des points suivants quand vous utilisez ce type de programme d’installation :<br><br>- Vous ne pouvez télécharger qu’un seul fichier avec l’extension .msi.<br /><br /> - Le code de produit et la version de produit du fichier sont utilisés pour la détection d’applications.<br /><br /> - Le comportement de redémarrage par défaut de l’application sera utilisé. Configuration Manager ne contrôle pas cette fonctionnalité.<br /><br /> - Les packages MSI par utilisateur sont installés pour un utilisateur unique.<br /><br /> - Les packages MSI par ordinateur sont installés pour tous les utilisateurs sur l’appareil.<br /><br /> - Actuellement, les packages MSI en mode double s’installent uniquement pour tous les utilisateurs sur l’appareil.<br /><br /> - Les mises à jour d’application sont prises en charge quand le code de produit MSI de chaque version est identique.|  
-
+|**Windows Installer (\*msi-Datei)**|Hiermit wird ein Bereitstellungstyp aus einer Windows Installer-Datei erstellt.|  
+|**Windows-App-Paket (\*.appx, \*.appxbundle)**|Erstellt einen Bereitstellungstyp für die Betriebssysteme Windows 8, Windows RT oder höher aus einer Windows-App-Paketdatei oder einem gebündelten Windows-App-Paket.|  
+|**Windows-App-Paket (im Windows Store)**|Erstellt einen Bereitstellungstyp für Windows 8, Windows RT oder höher, indem ein Link zur App im Windows Store angegeben und der Store durchsucht wird, um die erforderliche App auszuwählen.<br /><br /> Wenn Sie die App als Link zum Windows Store bereitstellen möchten, müssen Sie die Gruppenrichtlinieneinstellung **Store-Anwendung deaktivieren** auf **Deaktiviert** oder **Nicht konfiguriert festlegen**. Wenn diese Einstellung aktiviert ist, kann von Clients keine Verbindung mit dem Windows Store zum Herunterladen und Installieren von Anwendungen hergestellt werden.<br /><br /> Windows 8-Bereitstellungstypen, bei denen ein Link zu einem Store verwendet wird, werden unabhängig von ihrer Priorität immer vor anderen Bereitstellungstypen ausgewertet.|  
+|**Skriptinstallationsprogramm**|Hiermit wird ein Bereitstellungstyp erstellt, in dem ein Skript angegeben wird. Dieses Skript wird auf Clientgeräten ausgeführt und dient zur Installation von Inhalten oder zur Ausführung einer Aktion.|  
+|**Microsoft Application Virtualization 4**|Erstellt einen Bereitstellungstyp aus einem Microsoft Application Virtualization 4-Manifest.|  
+|**Microsoft Application Virtualization 5**|Hiermit wird ein Bereitstellungstyp aus einer Microsoft Application Virtualization 5-Paketdatei erstellt.|  
+|**Windows Phone-App-Paket (\*.xap-Datei)**|Hiermit wird ein Bereitstellungstyp aus einer Windows Phone-App-Paketdatei erstellt.|  
+|**Windows Phone-App-Paket (in Windows Phone Store)**|Erstellt einen Bereitstellungstyp, indem ein Link zur App im Windows Phone-Store angegeben wird.|  
+|**Windows Mobile-CAB-Datei**|Erstellt einen Bereitstellungstyp für Windows Mobile-Geräte anhand einer Windows Mobile-CAB (Cabinet)-Datei.|  
+|**App-Paket für iOS (\*.ipa-Datei)**|Hiermit wird ein Bereitstellungstyp aus einer iOS-App-Paketdatei erstellt.|  
+|**App-Paket für iOS aus App Store**|Hiermit wird ein Bereitstellungstyp erstellt, indem ein Link zur iOS-App im App Store angegeben wird.|  
+|**App-Paket für Android (\*.apk-Datei)**|Hiermit wird ein Bereitstellungstyp aus einer Android-App-Paketdatei erstellt.|  
+|**App-Paket für Android auf Google Play**|Hiermit wird ein Bereitstellungstyp erstellt, indem ein Link zur App auf Google Play angegeben wird.|  
+|**Mac OS X**|Hiermit wird ein Bereitstellungstyp für Macintosh-Computer aus einer CMMAC-Datei erstellt, die Sie mit dem Tool „CMAppUtil“ erstellt haben.<br /><br /> Gilt nur für Macintosh-Computer, auf denen der Configuration Manager-Client ausgeführt wird.|  
+|**Webanwendung**|Hiermit wird ein Bereitstellungstyp erstellt, der einen Link zu einer Webanwendung angibt. Mit dem Bereitstellungstyp wird auf dem Gerät des Benutzers eine Verknüpfung mit der Webanwendung installiert.<br /><br /> Wenn Intune Managed Browser auf den von Ihnen verwalteten iOS- oder Android-Geräten installiert wurde, können Sie sicherstellen, dass die Benutzer die App nur über Managed Browser öffnen. Zu diesem Zweck geben Sie den Link zur App in einem der folgenden Formate an – Sie ersetzen dabei **http:** durch **http-intunemam:** oder **https:** durch **https-intunemam:**<br /><br /> - **http-intunemam://<Pfad zur Web-App\>**<br /><br /> - **https-intunemam://<Pfad zur Web-App\>**<br /><br /> Sie können mithilfe der Configuration Manager-Anwendungsanforderungen sicherstellen, dass die Apps, die Sie mit Managed Browser verknüpfen möchten, nur auf iOS- und Android-Geräten installiert werden.<br /><br /> Weitere Informationen zu Intune Managed Browser finden Sie unter [Verwalten des Internetzugriffs mittels Richtlinien für verwaltete Browser mit System Center Configuration Manager](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
+|**Windows Installer über die Verwaltung mobiler Geräte (\*.msi)**|Mit diesem Installationstyp können Sie Windows Installer-basierte Apps auf Windows 10-PCs erstellen und bereitstellen.<br /><br /> Folgendes muss berücksichtigt werden, wenn Sie diese Art Installationsprogramm verwenden:<br><br>– Sie können nur eine einzelne Datei mit der Erweiterung „.msi“ hochladen.<br /><br /> – Produktcode und Produktversion der Datei werden zur Erkennung der App verwendet.<br /><br /> – Es wird das standardmäßige Neustartverhalten der App verwendet. Dies wird nicht von Configuration Manager gesteuert.<br /><br /> – Pro Benutzer definierte MSI-Pakete werden für einen einzelnen Benutzer installiert.<br /><br /> – Pro Gerät definierte MSI-Pakete werden für alle Benutzer des Geräts installiert.<br /><br /> – MSI-Pakete im Dualmodus werden zurzeit nur für alle Benutzer des Geräts installiert.<br /><br /> – App-Updates werden unterstützt, wenn jede Version den gleichen MSI-Produktcode aufweist.|  

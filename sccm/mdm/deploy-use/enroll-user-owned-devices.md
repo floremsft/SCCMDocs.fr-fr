@@ -1,35 +1,31 @@
 ---
-title: "Inscrire des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
-description: "Découvrez les différentes méthodes d’inscription des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager."
+title: "Registrieren von Benutzergeräten für Hybridbereitstellungen mit Configuration Manager | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über verschiedene Methoden für die Registrierung von Benutzergeräten für Hybridbereitstellungen mit Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2bdaa8a7-6a64-4b0e-b617-309dcd912c45
-caps.latest.revision: 13
+caps.latest.revision: "13"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: 6793e4736fe2603dfaef9f98b0fb54e5584aa7cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrire des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager
+# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Registrieren von Benutzergeräten für Hybridbereitstellungen mit Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les appareils appartenant aux utilisateurs (BYOD) peuvent être gérés de différentes façons en fonction du type de l’appareil et de la méthode utilisée pour son achat.  
+Benutzergeräte (Bring Your Own Device, BYOD) können mit einer Vielzahl von Methoden verwaltet werden, die vom Gerät und der Erwerbsart abhängen.  
 
-Une fois l’inscription activée, les appareils appartenant aux utilisateurs peuvent être inscrits via l’application du portail d’entreprise.
+Nachdem die Registrierung aktiviert ist, können Benutzergeräte über die Unternehmensportal-App registriert werden.
 
-La section [Comment former vos utilisateurs finaux à Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) passe en revue les étapes que les utilisateurs finaux doivent suivre pour effectuer différentes tâches dans Intune une fois qu’ils ont inscrit leurs appareils.
-
+Unter [Resources about the end-user experience with Microsoft Intune (Ressourcen zur Endbenutzererfahrung mit Microsoft Intune)](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) werden einige der Schritte überprüft, mit denen Endbenutzer verschiedene Aufgaben in Intune ausführen, nachdem sie ihre Geräte registriert haben.

@@ -1,195 +1,188 @@
 ---
-title: "Choisir les éléments à migrer | Microsoft Docs"
-description: "Découvrez les données que vous pouvez migrer et celles que ne pouvez pas vers System Center Configuration Manager."
+title: Auswahl von zu Migrierenden Daten | Microsoft-Dokumentation
+description: "Erfahren Sie, welche Daten migriert werden können und welche Daten Sie nicht zu System Center Configuration Manager migrieren können."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99222dc8-0e1e-4513-8302-7a1acf671e9b
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: d37261c03fddc3d576fcef73fabd7189e4c46d38
 ms.openlocfilehash: 9dc5f6c9f58e1fc33b2dc9dd76737ae23af81993
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Déterminer s’il faut migrer des données vers System Center Configuration Manager
+# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Bestimmen, ob Daten zu System Center Configuration Manager migriert werden sollen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, la migration offre un moyen de transférer des données et des configurations créées dans des versions de Configuration Manager prises en charge vers votre nouvelle hiérarchie.  La migration vous permet d’effectuer les opérations suivantes :  
+In System Center Configuration Manager bezeichnet „Migration“ einen Prozess zum Übertragen vorhandener Daten und Konfigurationen, die Sie erstellt haben, aus unterstützten Versionen von Configuration Manager in Ihre neue Hierarchie.  Damit können die folgenden Zwecke erfüllt werden:  
 
--   Combiner plusieurs hiérarchies en une seule.  
+-   Kombinieren mehrerer Hierarchien zu einer.  
 
--   Déplacer les données et les configurations d’un déploiement de laboratoire vers votre déploiement de production.
+-   Verschieben von Daten und Konfigurationen aus einer Testbereitstellung in Ihre Produktionsbereitstellung.
 
--   Déplacer des données et la configuration à partir d’une version antérieure de Configuration Manager, telle que Configuration Manager 2007, qui n’a pas de chemin de mise à niveau vers System Center Configuration Manager, ou à partir de System Center 2012 Configuration Manager (qui prend en charge un chemin de mise à niveau vers System Center Configuration Manager).  
+-   Verschieben von Daten und Konfigurationen aus einer früheren Configuration Manager-Version, z.B. Configuration Manager 2007, die über keinen Upgradepfad zu System Center Configuration Manager verfügt, oder aus System Center 2012 Configuration Manager (unterstützt keinen Upgradepfad zu System Center Configuration Manager).  
 
-À l'exception du rôle de système de site du point de distribution et des ordinateurs hébergeant les points de distribution, aucune infrastructure (sites, rôles de système de site ou ordinateurs hébergeant un rôle de système de site) ne peut être migrée ou transférée, ni partagée entre des hiérarchies.  
+Mit Ausnahme der Standortsystemrolle Verteilungspunkt und der Computer, auf denen Verteilungspunkte gehostet werden, kann keine Infrastruktur (z. B. Standorte, Standortsystemrollen oder Computer, auf denen eine Standortsystemrolle gehostet wird) migriert, übertragen oder zwischen Hierarchien freigegeben werden.  
 
- Il est impossible de migrer l’infrastructure de serveur, mais vous pouvez migrer des clients Configuration Manager entre des hiérarchies. La migration des clients consiste notamment à migrer les données utilisées par les clients à partir de la hiérarchie source vers la hiérarchie de destination, puis à installer ou à réaffecter le logiciel client afin que le client communique ensuite avec la nouvelle hiérarchie.
+ Obwohl Sie keine Serverinfrastrukturen migrieren können, können Sie Configuration Manager-Clients zwischen Hierarchien migrieren. Die Clientmigration umfasst das Migrieren der von Clients verwendeten Daten aus der Quell- in die Zielhierarchie und die anschließende Installation oder Neuzuweisung der Clientsoftware, wobei der Client der neuen Hierarchie unterstellt wird.
 
-Une fois qu’un client a été installé dans la nouvelle hiérarchie et qu’il a envoyé ses données, son identifiant Configuration Manager unique permet à Configuration Manager d’associer plus facilement les données que vous avez migrées précédemment avec chaque ordinateur client.  
+Sobald ein Client nach seiner Installation in der neuen Hierarchie seine Daten übermittelt, kann Configuration Manager mithilfe dessen eindeutiger Configuration Manager-ID den Bezug zwischen den Daten, die Sie zuvor migriert haben, und den einzelnen Clients herstellen.  
 
- La fonctionnalité fournie par la migration permet de pérenniser les investissements effectués en matière de configurations et de déploiements tout en vous permettant de tirer pleinement parti des principales modifications du produit introduites dans System Center 2012 Configuration Manager et poursuivies dans System Center Configuration Manager. Ces modifications comprennent une hiérarchie Configuration Manager simplifiée qui utilise moins de sites et de ressources ainsi que l’amélioration du traitement avec l’utilisation du code 64 bits natif qui s’exécute sur du matériel 64 bits.  
+ Mithilfe dieser Migrationsfunktionalität können Sie nicht nur weiterhin von Investitionen profitieren, die bereits in Konfigurationen und Bereitstellungen erfolgt sind, sondern auch von allen wesentlichen Produktänderungen (die zuerst in System Center 2012 Configuration Manager und dann in System Center Configuration Manager eingeführt wurden). Zu den Änderungen gehören eine vereinfachte Configuration Manager-Hierarchie, die weniger Standorte und Ressourcen benötigt, und eine verbesserte Verarbeitung durch Verwenden von nativem 64-Bit-Code, der auf 64-Bit-Hardware läuft.  
 
- Pour plus d’informations sur les versions de Configuration Manager prises en charge par la migration, consultez [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+ Informationen zu den Versionen von Configuration Manager, in denen die Migration unterstützt wird, finden Sie unter [Prerequisites for migration in System Center Configuration Manager (Voraussetzungen für die Migration in System Center Configuration Manager)](../../core/migration/prerequisites-for-migration.md).  
 
- Les sections suivantes expliquent comment planifier les données que vous pouvez migrer et celles qui ne peuvent pas l’être :  
+ Die folgenden Abschnitte helfen Ihnen bei der Planung für Daten, die migriert bzw. nicht migriert werden können:  
 
--   [Données que vous pouvez migrer vers System Center Configuration Manager](#Can_Migrate)  
+-   [Daten, die zu System Center Configuration Manager migriert werden können](#Can_Migrate)  
 
--   [Données que vous ne pouvez pas migrer vers System Center Configuration Manager](#Cannot_migrate)  
+-   [Daten, die nicht zu System Center Configuration Manager migriert werden können](#Cannot_migrate)  
 
-##  <a name="a-namecanmigratea-data-that-you-can-migrate-to-system-center-configuration-manager"></a><a name="Can_Migrate"></a> Données que vous pouvez migrer vers System Center Configuration Manager  
- Le processus de migration peut migrer la plupart des objets entre des hiérarchies Configuration Manager prises en charge. Les instances migrées de certains objets à partir d’une version prise en charge de Configuration Manager 2007 doivent être modifiées, de façon à ce qu’elles respectent le schéma et le format d’objet de System Center 2012 Configuration Manager.
+##  <a name="Can_Migrate"></a> Daten, die zu System Center Configuration Manager migriert werden können  
+ Die meisten Objekte können zwischen unterstützten Configuration Manager-Hierarchien migriert werden. Die migrierten Instanzen einiger Objekte einer unterstützten Version von Configuration Manager2007 müssen geändert werden, um dem Schema- und Objektformat von System Center 2012 Configuration Manager zu entsprechen.
 
-Ces modifications n’affectent pas les données contenues dans la base de données du site source. Les objets migrés à partir d’une version prise en charge de System Center 2012 Configuration Manager ou de System Center Configuration Manager ne nécessitent aucune modification.  
+Diese Änderungen haben keine Auswirkungen auf die Daten in der Datenbank des Quellstandorts. Objekte, die aus einer unterstützten Version von System Center 2012 Configuration Manager oder System Center Configuration Manager migriert wurden, erfordern keine Änderungen.  
 
- Voici des objets qui peuvent migrer en fonction de la version de Configuration Manager utilisée dans la hiérarchie source. Certains objets, telles les requêtes, ne migrent pas. Si vous souhaitez continuer à utiliser ces objets qui ne migrent pas, vous devez les recréer dans la nouvelle hiérarchie. D’autres objets, notamment certaines données des clients, sont recréés automatiquement dans la nouvelle hiérarchie quand vous gérez les clients de cette hiérarchie.  
+ Die folgenden Objekte auf Grundlage der Configuration Manager-Version in der Quellhierarchie migriert werden können. Einige Objekte, wie z. B. Abfragen, werden nicht migriert. Wenn Sie diese Objekte, die nicht migriert werden, weiterhin verwenden möchten, müssen Sie sie in der neuen Hierarchie neu erstellen. Andere Objekte, z.B. einige Clientdaten, werden in der neuen Hierarchie automatisch neu erstellt, wenn Sie Clients in der Hierarchie verwalten.  
 
-### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objets que vous pouvez migrer à partir de la version Current Branch de System Center Configuration Manager ou de System Center 2012 Configuration Manager
+### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Folgende Objekte können Sie von System Center 2012 Configuration Manager oder Current Branch von System Center Configuration Manager migrieren:
 
--   Publications  
+-   Ankündigungen  
 
--   Applications pour System Center 2012 Configuration Manager et versions ultérieures  
+-   Anwendungen für System Center 2012 Configuration Manager und höhere Versionen  
 
--   Environnement virtuel App-V de System Center 2012 Configuration Manager et versions ultérieures  
+-   Virtuelle App-V-Umgebung für System Center 2012 Configuration Manager und höhere Versionen  
 
--   Personnalisations Asset Intelligence  
+-   Asset Intelligence-Anpassungen  
 
--   Limites  
+-   Standortgrenzen  
 
--   Regroupements : pour migrer des regroupements à partir d’une version prise en charge de System Center 2012 Configuration Manager ou de System Center Configuration Manager, vous utilisez une tâche de migration d’objets.  
+-   Sammlungen: Verwenden Sie einen Objektmigrationsauftrag, um Sammlungen von einer unterstützten Version von System Center 2012 Configuration Manager oder System Center Configuration Manager zu migrieren.  
 
--   Paramètres de compatibilité :  
+-   Kompatibilitätseinstellungen:  
 
-    -   Lignes de base de configuration  
+    -   Konfigurationsbasislinien  
 
-    -   Éléments de configuration  
+    -   Konfigurationselemente  
 
--   Déploiement de système d'exploitation :  
+-   Betriebssystembereitstellung:  
 
-    -   Images de démarrage  
+    -   Startabbilder  
 
-    -   Packages de pilotes  
+    -   Treiberpakete  
 
-    -   Pilotes  
+    -   Treiber  
 
-    -   Images  
+    -   Abbilder  
 
-    -   Packages  
+    -   Pakete  
 
-    -   Séquences de tâches  
+    -   Tasksequenzen  
 
--   Résultats de la recherche : critères de recherche enregistrés  
+-   Suchergebnisse: Gespeicherte Suchkriterien  
 
--   Mises à jour logicielles :  
+-   Softwareupdates:  
 
-    -   Déploiements  
+    -   Bereitstellungen  
 
-    -   Packages de déploiement  
+    -   Bereitstellungspakete  
 
-    -   Modèles  
+    -   Vorlagen  
 
-    -   Listes des mises à jour logicielles  
+    -   Softwareupdatelisten  
 
--   Packages de distribution de logiciels  
+-   Softwareverteilungspakete  
 
--   Règles de contrôle de logiciel  
+-   Softwaremessungsregeln  
 
--   Packages d'application virtuelle  
+-   Virtuelle Anwendungspakete  
 
-### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Objets que vous pouvez migrer à partir de Configuration Manager 2007 SP2
+### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Folgende Objekte können von Configuration Manager 2007 SP2 migriert werden:
 
--   Publications  
+-   Ankündigungen  
 
--   Applications pour System Center 2012 Configuration Manager et versions ultérieures  
+-   Anwendungen für System Center 2012 Configuration Manager und höhere Versionen  
 
--   Environnement virtuel App-V de System Center 2012 Configuration Manager et versions ultérieures  
+-   Virtuelle App-V-Umgebung für System Center 2012 Configuration Manager und höhere Versionen  
 
--   Personnalisations Asset Intelligence  
+-   Asset Intelligence-Anpassungen  
 
--   Limites  
+-   Standortgrenzen  
 
--   Regroupements : vous migrez des regroupements à partir d’une version prise en charge de Configuration Manager 2007 en utilisant une tâche de migration du regroupement.  
+-   Sammlungen: Sie migrieren Sammlungen von einer unterstützten Version von Configuration Manager 2007 mithilfe eines Sammlungsmigrationsauftrags.  
 
--   Paramètres de compatibilité (désignés par l’expression « gestion de la configuration souhaitée » dans Configuration Manager 2007) :  
+-   Kompatibilitätseinstellungen (in Configuration Manager 2007 als Verwaltung gewünschter Konfigurationen bezeichnet)  
 
-    -   Lignes de base de configuration  
+    -   Konfigurationsbasislinien  
 
-    -   Éléments de configuration  
+    -   Konfigurationselemente  
 
--   Déploiement de système d'exploitation :  
+-   Betriebssystembereitstellung:  
 
-    -   Images de démarrage  
+    -   Startabbilder  
 
-    -   Packages de pilotes  
+    -   Treiberpakete  
 
-    -   Pilotes  
+    -   Treiber  
 
-    -   Images  
+    -   Abbilder  
 
-    -   Packages  
+    -   Pakete  
 
-    -   Séquences de tâches  
+    -   Tasksequenzen  
 
--   Résultats de la recherche : dossiers de recherche  
+-   Suchergebnisse: Suchordner  
 
--   Mises à jour logicielles :  
+-   Softwareupdates:  
 
-    -   Déploiements  
+    -   Bereitstellungen  
 
-    -   Packages de déploiement  
+    -   Bereitstellungspakete  
 
-    -   Modèles  
+    -   Vorlagen  
 
-    -   Listes des mises à jour logicielles  
+    -   Softwareupdatelisten  
 
--   Packages de distribution de logiciels  
+-   Softwareverteilungspakete  
 
--   Règles de contrôle de logiciel  
+-   Softwaremessungsregeln  
 
--   Packages d'application virtuelle  
+-   Virtuelle Anwendungspakete  
 
-##  <a name="a-namecannotmigratea-data-that-you-cannot-migrate-to-system-center-configuration-manager"></a><a name="Cannot_migrate"></a> Données que vous ne pouvez pas migrer vers System Center Configuration Manager  
- Vous ne pouvez pas migrer les types d'objets suivants :  
+##  <a name="Cannot_migrate"></a> Daten, die nicht zu System Center Configuration Manager migriert werden können  
+ Folgende Objekttypen können nicht migriert werden:  
 
--   Informations de préparation de client AMT  
+-   AMT-Client-Bereitstellungsinformationen  
 
--   Fichiers stockés sur les clients, notamment :  
+-   Dateien auf Clients, einschließlich:  
 
-    -   Données d'inventaire et historique client  
+    -   Clientinventur- und -verlaufsdaten  
 
-    -   Fichiers dans le cache du client  
+    -   Dateien im Clientcache  
 
--   Requêtes  
+-   Abfragen  
 
--   Droits de sécurité Configuration Manager 2007 et instances pour le site et les objets  
+-   Configuration Manager 2007-Sicherheitsrechte und -Instanzen für den Standort und Objekte  
 
--   Rapports Configuration Manager 2007 de SQL Server Reporting Services  
+-   Configuration Manager 2007-Berichte von SQL Server Reporting Services  
 
--   Rapports web de Configuration Manager 2007  
+-   Configuration Manager 2007-Webberichte  
 
--   Rapports System Center 2012 Configuration Manager et System Center Configuration Manager  
+-   System Center 2012 Configuration Manager und System Center Configuration Manager-Berichte  
 
--   Administration basée sur des rôles System Center 2012 Configuration Manager et System Center Configuration Manager :  
+-   System Center 2012 Configuration Manager und die rollenbasierte System Center Configuration Manager-Verwaltung:  
 
-    -   Rôles de sécurité  
+    -   Sicherheitsrollen  
 
-    -   Étendues de sécurité  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-
+    -   Sicherheitsbereiche  

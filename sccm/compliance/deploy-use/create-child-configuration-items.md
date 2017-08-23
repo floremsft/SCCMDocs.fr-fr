@@ -1,51 +1,44 @@
 ---
-title: "Créer des éléments de configuration enfants | Microsoft Docs"
-description: "Créez des éléments de configuration enfants dans System Center Configuration Manager."
+title: Erstellen untergeordneter Konfigurationselemente | Microsoft-Dokumentation
+description: Erstellen Sie untergeordnete Konfigurationselemente in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 113984fa-6150-41a1-89ed-d2a83b979732
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: 33d4a2d5a09af74e1d76ac9b34a42b749f5bf7ef
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-child-configuration-items-in-system-center-configuration-manager"></a>Guide pratique pour créer des éléments de configuration enfants dans System Center Configuration Manager
+# <a name="how-to-create-child-configuration-items-in-system-center-configuration-manager"></a>Erstellen untergeordneter Konfigurationselemente in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, les éléments de configuration enfants sont des copies d’éléments de configuration qui maintiennent une relation avec l’élément de configuration d’origine dans le sens où ils héritent de la configuration d’origine de l’élément de configuration parent.  
+Untergeordnete Konfigurationselemente in System Center Configuration Manager sind Kopien von Konfigurationselementen, die eine Beziehung zum ursprünglichen Konfigurationselement beibehalten: Sie erben die ursprüngliche Konfiguration vom übergeordneten Konfigurationselement.  
 
-Quand vous examinez les propriétés d’un élément de configuration enfant dans la console Configuration Manager, vous ne pouvez pas modifier les objets et les paramètres hérités avec leurs critères de validation. En revanche, il vous est possible d'ajouter, puis de modifier, d'autres critères de validation pour l'élément de configuration enfant. Vous pouvez aussi ajouter de nouveaux objets et paramètres à ce dernier.
-La création et la modification d’un élément de configuration enfant vise généralement à redéfinir l’élément de configuration d’origine pour l’adapter aux besoins de votre entreprise.  
+Wenn Sie in der Configuration Manager-Konsole die Eigenschaften eines untergeordneten Konfigurationselements anzeigen, können Sie die geerbten Objekte und Einstellungen mit den entsprechenden Überprüfungskriterien nicht bearbeiten. Sie können jedoch dem untergeordneten Konfigurationselement zusätzliche Überprüfungskriterien hinzufügen und diese anschließend bearbeiten. Außerdem können Sie dem untergeordneten Konfigurationselement auch neue Objekte und Einstellungen hinzufügen.
+Das Erstellen und Bearbeiten eines untergeordneten Konfigurationselements dient üblicherweise dazu, das ursprüngliche Konfigurationselement für Ihre Unternehmensanforderungen zu optimieren.  
 
 > [!NOTE]  
->  Vous pouvez uniquement créer des éléments de configuration enfants à partir d’éléments de configuration du type **Ordinateurs et serveurs Windows (personnalisés)**.  
+>  Sie können untergeordnete Konfigurationselemente nur von Konfigurationselementen des Typs **Windows-Desktops und -Server (benutzerdefiniert)**erstellen.  
 
-## <a name="to-create-a-child-configuration-item"></a>Pour créer un élément de configuration enfant  
+## <a name="to-create-a-child-configuration-item"></a>So erstellen Sie ein untergeordnetes Konfigurationselement  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationselemente**.  
 
-3.  Dans la liste **Éléments de configuration** , sélectionnez l’élément de configuration pour lequel vous souhaitez créer un élément de configuration enfant, puis sous l’onglet **Accueil** , dans le groupe **Élément de configuration** , cliquez sur **Créer un élément de configuration enfant**.  
+3.  Wählen Sie in der Liste **Konfigurationselemente** das Konfigurationselement aus, für das Sie ein untergeordnetes Konfigurationselement erstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Konfigurationselement** auf **Untergeordnetes Konfigurationselement erstellen**.  
 
-4.  Sur la page **Général** de l' **Assistant Création d'élément de configuration enfant**, vous pouvez choisir une révision spécifique de l'élément de configuration parent à utiliser pour créer l'enfant. Les autres étapes de cet Assistant sont identiques à celles que vous utiliseriez pour créer un élément de configuration standard. Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md).  
+4.  Auf der Seite **Allgemein** des **Assistenten zum Erstellen untergeordneter Konfigurationselemente**können Sie eine spezifische Revision des übergeordneten Konfigurationselements auswählen, aus der das untergeordnete Konfigurationselement erstellt werden soll. Andere Schritte des Assistenten sind identisch mit denen zum Erstellen eines Standardkonfigurationselements. Weitere Informationen finden Sie unter [Erstellen benutzerdefinierter Konfigurationselemente für Windows-Desktop- und -Servercomputer](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md).  
 
-5.  Effectuez toutes les étapes de l'Assistant. Le nouvel élément de configuration enfant figure dans la liste **Éléments de configuration** .  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+5.  Schließen Sie den Assistenten ab. Das neue untergeordnete Konfigurationselement wird in der Liste **Konfigurationselemente** angezeigt.  

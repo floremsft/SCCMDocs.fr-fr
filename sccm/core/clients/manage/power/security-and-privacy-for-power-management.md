@@ -1,42 +1,38 @@
 ---
-title: "Sécurité et confidentialité pour la gestion de l’alimentation | Microsoft Docs"
-description: "Obtenir des informations de sécurité et de confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für die Energieverwaltung | Microsoft-Dokumentation"
+description: "Hier finden Sie Informationen zu Sicherheit und Datenschutz für die Energieverwaltung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 469ff35f-59a1-484d-902b-107dd6070baf
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: f72059973057e707f58cb6b7aa495226b6c1962c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 94d5418c364c318dba92dc9f9066f54d1130aa34
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-power-management-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager
+# <a name="security-and-privacy-for-power-management-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Energieverwaltung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette section contient des informations de sécurité et de confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager.  
+Dieser Abschnitt enthält Informationen zu Sicherheit und Datenschutz für die Energieverwaltung in System Center Configuration Manager.  
 
-## <a name="security-best-practices-for-power-management"></a>Meilleures pratiques de sécurité pour la gestion de l’alimentation  
- Il n'existe aucune meilleure pratique liée à la sécurité pour la gestion de l'alimentation.  
+## <a name="security-best-practices-for-power-management"></a>Bewährte Sicherheitsmethoden für die Energieverwaltung  
+ Für die Energieverwaltung sind keine bewährten Sicherheitsmethoden vorhanden.  
 
-## <a name="privacy-information-for-power-management"></a>Informations de confidentialité pour la gestion de l’alimentation  
- La gestion de l’alimentation utilise des fonctionnalités intégrées à Windows pour surveiller la consommation d’énergie et appliquer des paramètres d’alimentation à des ordinateurs pendant les heures de bureau et les heures creuses. Configuration Manager collecte des informations sur la consommation d’énergie auprès des ordinateurs, incluant des données sur périodes d’utilisation des ordinateurs par les utilisateurs. Bien que Configuration Manager surveille la consommation d’énergie pour un regroupement plutôt que pour chaque ordinateur, un regroupement peut contenir un seul ordinateur. La gestion de l'alimentation n'est pas activée par défaut et doit être configurée par un administrateur.  
+## <a name="privacy-information-for-power-management"></a>Informationen zum Datenschutz für die Energieverwaltung  
+ Zur Überwachung des Energieverbrauchs und zum Anwenden von Energieeinstellungen auf Computer während und außerhalb der Geschäftszeiten nutzt die Energieverwaltung in Windows integrierte Funktionen. Configuration Manager sammelt Informationen zum Energieverbrauch von Computern, beispielsweise auch zu den Computernutzungszeiten von Benutzern. Obwohl von Configuration Manager nur der Energieverbrauch einer Sammlung und nicht jedes Computers überwacht wird, ist es möglich, eine Sammlung mit nur einem Computer zu überwachen. Die Energieverwaltung ist standardmäßig nicht aktiviert und muss von einem Administrator konfiguriert werden.  
 
- Les informations sur la consommation d’énergie sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations détaillées sont conservées dans la base de données pendant 31 jours et les informations résumées sont conservées pendant 13 mois. Vous ne pouvez pas configurer l'intervalle de suppression.  
+ Die Informationen zum Energieverbrauch werden in der Configuration Manager-Datenbank gespeichert und nicht an Microsoft gesendet. Ausführliche Informationen werden 31 Tage in der Datenbank gespeichert, zusammengefasste Informationen 13 Monate. Das Löschintervall kann nicht konfiguriert werden.  
 
- Avant de configurer la gestion de l'alimentation, pensez à vos besoins en matière de confidentialité.  
-
+ Berücksichtigen Sie beim Konfigurieren der Energieverwaltung Ihre Datenschutzanforderungen.  

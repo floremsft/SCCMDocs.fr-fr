@@ -1,53 +1,49 @@
 ---
-title: "Configurer l’inventaire matériel | Microsoft Docs"
-description: "Configurez l’inventaire matériel pour l’ensemble des clients ou pour un regroupement dans System Center Configuration Manager."
+title: Hardwareinventur konfigurieren | Microsoft-Dokumentation
+description: "Richten Sie die Hardwareinventur für alle Clients oder für eine Sammlung in System Center Configuration Manager ein."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e45290e-f8f7-4335-801e-570225d12c2b
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 05c27c7aa36e0b4236867766dab36125c31467b3
-ms.openlocfilehash: deed112cca011b3b410c1197b7abf0f36a864f3c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/03/2017
-
-
+ms.openlocfilehash: 0baadb95ec8dbb945f1a611ebb95a03cec3199bd
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel dans Configuration Manager
+# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>How to configure hardware inventory in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette procédure configure les paramètres client par défaut pour l’inventaire matériel et s’applique à tous les clients de votre hiérarchie. Si vous voulez que ces paramètres s’appliquent uniquement à certains clients, créez un paramètre client de périphérique personnalisé et affectez-le à un regroupement contenant les périphériques pour lesquels utiliser l’inventaire matériel. Consultez [Guide pratique pour configurer les paramètres clients dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+Mithilfe dieses Verfahrens werden die Clientstandardeinstellungen für die Hardwareinventur konfiguriert. Sie gilt für alle Clients in der Hierarchie. Wenn Sie diese Einstellungen nur auf manche Clients anwenden möchten, erstellen Sie eine benutzerdefinierte Geräteclienteinstellung und weisen diese einer Sammlung mit den Geräten zu, auf denen Sie die Hardwareinventur verwenden möchten. Weitere Informationen finden Sie unter [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 > [!NOTE]  
->  Si un périphérique client reçoit des paramètres d’inventaire matériel de la part de plusieurs ensembles de paramètres client, les classes d’inventaire matériel de chaque ensemble de paramètres sont alors fusionnées lors de l’inventaire matériel.  
+>  Wenn ein Clientgerät Hardwareinventureinstellungen von mehreren Clienteinstellungssätzen erhält, werden die Hardwareinventurklassen aus jedem Einstellungssatz zusammengeführt, sobald vom Client eine Hardwareinventur gemeldet wird.  
 
-### <a name="to-configure-hardware-inventory"></a>Pour configurer l'inventaire matériel  
+### <a name="to-configure-hardware-inventory"></a>So konfigurieren Sie die Hardwareinventur  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Verwaltung** > **Clienteinstellungen** > **Clientstandardeinstellungen** aus.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus.  
 
-5.  Dans la boîte de dialogue **Paramètres par défaut**, choisissez **Inventaire matériel**.  
+5.  Wählen Sie im Dialogfeld **Standardeinstellungen** die Option **Hardwareinventur** aus.  
 
-6.  Dans la liste **Paramètres de périphérique** , configurez les éléments suivants :  
+6.  Konfigurieren Sie in der Liste **Geräteeinstellungen** die folgenden Optionen:  
 
-    -   **Activer l’inventaire matériel sur les clients** : Sélectionnez **True**.  
+    -   **Hardwareinventur auf Clients aktivieren**: Wählen Sie **Wahr** aus.  
 
-    -   **Calendrier de l’inventaire matériel** : Cliquez sur **Planifier** pour spécifier l’intervalle auquel les clients collectent l’inventaire matériel.  
+    -   **Hardwareinventur-Zeitplan**: Klicken Sie auf **Zeitplan**, um das Intervall anzugeben, in dem Clients eine Hardwareinventur sammeln.  
 
-7.  Configurez les autres [paramètres clients d’inventaire matériel](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) dont vous avez besoin.  
+7.  Konfigurieren Sie andere [Hardwareinventurclient-Einstellungen](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory), die Sie benötigen.  
 
-Les périphériques client sont configurés en utilisant ces paramètres lors du prochain téléchargement de stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [Comment gérer des clients dans Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
-
+Die Clientgeräte werden beim nächsten Clientrichtliniendownload mit diesen Einstellungen konfiguriert. Informationen zum Initiieren des Abrufens von Richtlinien für einen einzelnen Client finden Sie unter [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  

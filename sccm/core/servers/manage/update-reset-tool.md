@@ -1,82 +1,79 @@
 ---
-title: "Outil de réinitialisation des mises à jour | Microsoft Docs"
-description: "Utilisez l’outil de réinitialisation des mises à jour pour effectuer des mises à jour dans la console pour System Center Configuration Manager."
+title: "Tool zum Zurücksetzen von Updates | Microsoft-Dokumentation"
+description: "Verwenden Sie das Tool zum Zurücksetzen von Updates für konsoleninterne Updates für System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 25fa89d6-7e47-45a6-8f4e-70b77560fba6
-caps.latest.revision: 0
-caps.handback.revision: 0
+caps.latest.revision: "0"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 1960f86e98a957559f379b9eeb6d293f7e4182e5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="update-reset-tool"></a>Outil de réinitialisation des mises à jour
+# <a name="update-reset-tool"></a>Tool zum Zurücksetzen von Updates
 
-*S’applique à : System Center Configuration Manager (Current Branch)*  
+*Gilt für: System Center Configuration Manager (Current Branch)*  
 
 
-À compter de la version 1706, les sites d’administration centrale et les sites principaux Configuration Manager incluent l’outil de réinitialisation des mises à jour Configuration Manager (**CMUpdateReset.exe**). Utilisez l’outil pour résoudre les problèmes de téléchargement ou de réplication des mises à jour dans la console. L’outil se trouve dans le dossier ***\cd.latest\SMSSETUP\TOOLS*** du serveur de site.
+Ab Version 1706 enthalten primäre Standorte von Configuration Manager und Standorte der zentralen Verwaltung das Configuration Manager-Tool zum Zurücksetzen von Updates **CMUpdateReset.exe**. Mit diesem Tool können Sie Probleme beheben, die bei konsoleninternen Updates während des Herunterladens oder Replizierens auftreten. Das Tool befindet sich auf dem Standortserver im Ordner ***\cd.latest\SMSSETUP\TOOLS***.
 
-Vous pouvez utiliser cet outil avec n’importe quelle version de Current Branch prise en charge.
+Sie können dieses Tool mit jeder Version (Current Branch) verwenden, die weiterhin unterstützt wird.
 
-Utilisez cet outil quand une [mise à jour dans la console](/sccm/core/servers/manage/install-in-console-updates) n’a pas encore été installée et qu’elle se trouve dans un état d’échec. Un état d’échec signifie que le téléchargement de la mise à jour est en cours, mais qu’il est bloqué ou qu’il prend beaucoup trop de temps. Un téléchargement est considéré comme trop long s’il dépasse de plusieurs heures le téléchargement de packages de mise à jour de taille similaire. Il peut également s’agir d’un échec de réplication de la mise à jour sur les sites principaux enfants.  
+Der Einsatz dieses Tools ist erforderlich, wenn ein [konsoleninternes Update](/sccm/core/servers/manage/install-in-console-updates) nicht vollständig installiert wurde und sich in einem fehlerhaften Zustand befindet. Unter „fehlerhafter Zustand“ wird verstanden, dass das Update zwar heruntergeladen wird, der Vorgang jedoch deutlich länger als üblich dauert. „Deutlich länger als üblich“ bedeutet, dass das Herunterladen von Update-Paketen mit vergleichbarer Größe viele Stunden mehr in Anspruch nimmt, als Sie es von früheren Updates gewohnt sind. Es kann sich auch um einen Fehler beim Replizieren des Updates an untergeordnete primäre Standorte handeln.  
 
-Lorsque vous exécutez l’outil, il s’exécute sur la mise à jour que vous spécifiez. Par défaut, l’outil ne supprime pas les mises à jour installées ou téléchargées avec succès.  
+Wenn Sie das Tool ausführen, wird es für das Update ausgeführt, das Sie angeben. Erfolgreich installierte oder heruntergeladene Updates werden von diesem Tool standardmäßig nicht gelöscht.  
 
-### <a name="prerequisites"></a>Conditions préalables
-Le compte que vous utilisez pour exécuter l’outil nécessite les autorisations suivantes :
--   Autorisations en **Lecture** et **Écriture** pour la base de données de site du site d’administration centrale et pour chaque site principal de votre hiérarchie. Pour définir ces autorisations, vous pouvez ajouter le compte d’utilisateur en tant que membre des [rôles de base de données fixes](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** et **db_datareader** sur la base de données Configuration Manager de chaque site. L’outil n’interagit pas avec les sites secondaires.
--   **Administrateur local** sur le site de niveau supérieur de votre hiérarchie.
--   **L’administrateur local** sur l’ordinateur hébergeant le point de connexion de service.
+### <a name="prerequisites"></a>Voraussetzungen
+Das Konto, das Sie verwenden, um das Tool auszuführen, benötigt die folgenden Berechtigungen:
+-   Die Berechtigungen **Lesen** und **Schreiben** für die Standortdatenbank des Standorts der zentralen Verwaltung und jeden primären Standort in Ihrer Hierarchie Zum Festlegen dieser Berechtigungen können Sie das Benutzerkonto der Configuration Manager-Datenbank an jedem Standort als Mitglied der [festen Datenbankrollen](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** und **db_datareader** hinzufügen. Das Tool interagiert nicht mit sekundären Standorten.
+-   **Lokaler Administrator** am Standort der obersten Ebene Ihrer Hierarchie.
+-   **Lokaler Administrator** auf dem Computer, der den Dienstverbindungspunkt hostet.
 
-Vous devez disposer du GUID du package de mise à jour à réinitialiser. Pour obtenir le GUID :
-  1.   Dans la console, accédez à **Administration** > **Mises à jour et maintenance**.
-  2.   Dans le volet qui s’affiche, cliquez avec le bouton droit sur l’en-tête d’une des colonnes (comme **État**), puis sélectionnez **GUID du package** pour ajouter cette colonne à l’affichage.
-  3.   La colonne affiche maintenant le GUID du package de mise à jour.
+Sie benötigen die GUID des Updatepakets, das Sie zurücksetzen möchten. So rufen Sie die GUID ab
+  1.   Navigieren Sie in der Konsole zu **Verwaltung** > **Updates und Wartung**.
+  2.   Klicken Sie im Anzeigebereich mit der rechten Maustaste auf die Überschrift einer der Spalten (z.B. **Status**), und wählen Sie anschließend **Paket-GUID** aus, um diese Spalte der Anzeige hinzuzufügen.
+  3.   In der Spalte wird nun die Paket-GUID des Updates angezeigt.
 
 > [!TIP]  
-> Pour copier le GUID, sélectionnez la ligne pour le package de mise à jour que vous souhaitez réinitialiser, puis utilisez CTRL + C pour copier cette ligne. Si vous collez votre sélection copiée dans un éditeur de texte, vous pouvez ensuite copier uniquement le GUID pour une utilisation en tant que paramètre de ligne de commande quand vous exécutez l’outil.
+> Um die GUID zu kopieren, wählen Sie die Zeile des Updatepakets aus, das Sie zurücksetzen möchten, und drücken dann STRG+C, um diese Zeile zu kopieren. Wenn Sie die kopierte Auswahl in einen Text-Editor einfügen, können Sie anschließend nur die GUID zur Verwendung als Befehlszeilenparameter kopieren, wenn Sie das Tool ausführen.
 
-### <a name="run-the-tool"></a>Exécution de l'outil    
-L’outil doit être exécuté sur le site de niveau supérieur de la hiérarchie.
+### <a name="run-the-tool"></a>Ausführen des Tools    
+Das Tool muss für den Standort der obersten Ebene der Hierarchie ausgeführt werden.
 
-Quand vous exécutez l’outil, utilisez les paramètres de ligne de commande pour spécifier les éléments suivants :
-  -   Serveur SQL Server sur le site de niveau supérieur de la hiérarchie.
-  -   Nom de la base de données de site sur le site de niveau supérieur.
-  -   GUID du package de mise à jour à réinitialiser.
+Wenn Sie das Tool ausführen, verwenden Sie Befehlszeilenparameter, um Folgendes anzugeben:
+  -   den SQL Server am Standort der obersten Ebene in der Hierarchie
+  -   den Namen der Standortdatenbank am Standort der obersten Ebene
+  -   die GUID des Updatepakets, das Sie zurücksetzen möchten
 
-En fonction de l’état de la mise à jour, l’outil identifie les serveurs supplémentaires auxquels il doit accéder.   
+Das Tool ermittelt anhand des Updatestatus die zusätzlichen Server, auf die es Zugriff benötigt.   
 
-Si le package de mise à jour est dans un état *post-téléchargement*, l’outil ne nettoie pas le package. Vous pouvez éventuellement forcer la suppression d’une mise à jour téléchargée avec succès à l’aide du paramètre de suppression de force (consultez les paramètres de ligne de commande plus loin dans cette rubrique).
+Wenn das Updatepaket den Status*Nach Download* hat, wird das Paket nicht vom Tool bereinigt. Optional können Sie das Entfernen eines erfolgreich heruntergeladenen Updates mithilfe des Parameters „FDELETE“ erzwingen (siehe die Befehlszeilenparameter weiter unten in diesem Thema).
 
-Une fois que l’outil s’exécute :
--   Si un package a été supprimé, redémarrez le service SMS_Executive sur le site de niveau supérieur. Ensuite, recherchez les mises à jour pour pouvoir retélécharger le package.
--   Si un package n’a pas été supprimé, aucune action n’est nécessaire. La mise à jour se réinitialise, puis redémarre la réplication ou l’installation.
+Nach Ausführung des Tools:
+-   Wenn ein Paket gelöscht wurde, starten Sie den SMS_Executive-Dienst am Standort der obersten Ebene neu. Überprüfen Sie anschließend, ob Updates zur Verfügung stehen, damit Sie das Paket erneut herunterladen können.
+-   Wenn ein Paket nicht gelöscht wurde, sind keine Maßnahmen erforderlich. Das Update wird zuerst erneut initialisiert. Anschließend wird die Replikation oder Installation neu gestartet.
 
-**Paramètres de ligne de commande :**  
+**Befehlszeilenparameter**  
 
-| Paramètre        |Description                 |  
+| Parameter        |Beschreibung                 |  
 |------------------|----------------------------|  
-|**-S &lt;Nom de domaine complet de l’instance SQL Server de votre site de niveau supérieur >** | *Obligatoire* <br> Permet de spécifier le nom de domaine complet de l’instance SQL Server qui héberge la base de données de site pour le site de niveau supérieur de votre hiérarchie.    |  
-| **D - &lt;Nom de la base de données>**                        | *Obligatoire* <br> Permet de spécifier le nom de la base de données pour le site de niveau supérieur.  |  
-| **-P &lt;GUID du package>**                         | *Obligatoire* <br> Permet de spécifier le GUID du package de mise à jour à réinitialiser.   |  
-| **-I &lt;Nom de l'instance SQL Server>**             | *Facultatif* <br> Permet d’identifier l’instance de SQL Server qui héberge la base de données du site. |
-| **-FDELETE**                              | *Facultatif* <br> Permet de forcer la suppression d’un package de mise à jour téléchargé avec succès. |  
- **Exemples :**  
- Dans un scénario classique, vous souhaitez réinitialiser une mise à jour qui présente des problèmes de téléchargement. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+|**-S &lt;Vollqualifizierter Domänenname der SQL Server-Instanz Ihres Standorts der obersten Ebene>** | *Erforderlich* <br> Geben Sie den vollqualifizierten Domänennamen der SQL Server-Instanz an, die die Standortdatenbank für den Standort der obersten Ebene Ihrer Hierarchie hostet.    |  
+| **-D &lt;Datenbankname>**                        | *Erforderlich* <br> Geben Sie den Namen der Datenbank am Standort der obersten Ebene an.  |  
+| **-P &lt;Paket-GUID>**                         | *Erforderlich* <br> Geben Sie die GUID des Updatepakets an, das Sie zurücksetzen möchten.   |  
+| **-I &lt;SQL Server-Instanzname>**             | *Optional* <br> Bestimmen Sie die SQL Server-Instanz, die die Standortdatenbank hostet. |
+| **-FDELETE**                              | *Optional* <br> Erzwingen Sie das Löschen eines erfolgreich heruntergeladenen Updatepakets. |  
+ **Beispiele:**  
+ In einem typischen Szenario möchten Sie ein Update zurücksetzen, wenn beim Herunterladen Probleme aufgetreten sind. Der vollqualifizierte Domänenname Ihrer SQL Server-Instanz lautet *server1.fabrikam.com*, die Standortdatenbank heißt *CM_XYZ*, und die Paket-GUID lautet *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Führen Sie Folgendes aus: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Dans un scénario plus extrême, vous souhaitez forcer la suppression du package de mise à jour problématique. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
-
+ In einem extremeren Szenario möchten Sie das Löschen eines problematischen Updatepakets erzwingen. Der vollqualifizierte Domänenname Ihrer SQL Server-Instanz lautet *server1.fabrikam.com*, die Standortdatenbank heißt *CM_XYZ*, und die Paket-GUID lautet *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Führen Sie Folgendes aus: ***CMUpdateReset.exe -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***

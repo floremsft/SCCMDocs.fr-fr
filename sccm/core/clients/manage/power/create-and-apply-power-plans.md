@@ -1,120 +1,113 @@
 ---
-title: "Créer et appliquer des modes d’alimentation | Microsoft Docs"
-description: "Créez et appliquez des modes de gestion de l’alimentation dans System Center Configuration Manager."
+title: "Erstellen und Anwenden von Energiesparplänen | Microsoft-Dokumentation"
+description: "Erstellen Sie Energiesparpläne in System Center Configuration Manager, und führen Sie sie aus."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 738eddaa-52e2-467f-b453-821ef2884d47
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: de81da31b524cebe8e820766a64ecc5fdb7e4771
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Comment créer et appliquer des modes de gestion de l’alimentation dans System Center Configuration Manager
+# <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Erstellen und Anwenden von Energiesparplänen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La gestion de l’alimentation dans System Center Configuration Manager vous permet d’appliquer les modes de gestion de l’alimentation fournis avec Configuration Manager à des regroupements d’ordinateurs de votre hiérarchie, ou de créer vos propres modes de gestion de l’alimentation personnalisés. Procédez comme indiqué dans cette rubrique pour appliquer un mode d'alimentation intégré ou personnalisé aux ordinateurs.  
-
-> [!IMPORTANT]  
->  Vous pouvez uniquement appliquer les modes de gestion de l’alimentation Configuration Manager à des regroupements d’appareils.  
-
- Si un ordinateur est membre de plusieurs regroupements, chacun appliquant des modes de gestion de l'alimentation différents, les actions suivantes sont effectuées :  
-
--   Mode de gestion de l’alimentation : si plusieurs valeurs sont appliquées à un ordinateur en tant que paramètres d’alimentation, la valeur la moins restrictive est utilisée.  
-
--   Heure de sortie de veille : si plusieurs heures d’éveil sont appliquées à un ordinateur de bureau, l’heure la plus proche de minuit est utilisée.  
-
- Utilisez le rapport **Ordinateurs avec plusieurs modes de gestion de l'alimentation** pour afficher tous les ordinateurs auxquels sont appliqués plusieurs modes d'alimentation. Cela peut vous aider à détecter les ordinateurs qui présentent des conflits de l'alimentation. Pour plus d’informations sur les rapports de gestion de l’alimentation, consultez [Comment surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+Mithilfe der Energieverwaltung in System Center Configuration Manager können Sie Energiesparpläne, die in Configuration Manager enthalten sind, auf Sammlungen von Computern in der Hierarchie anwenden oder eigene Energiesparpläne erstellen. Gehen Sie zum Anwenden eines integrierten oder benutzerdefinierten Energiesparplans auf Computern wie in diesem Thema beschrieben vor.  
 
 > [!IMPORTANT]  
->  Les paramètres d’alimentation configurés à l’aide de la stratégie de groupe Windows remplacent les paramètres configurés par la gestion de l’alimentation Configuration Manager.  
+>  Es können nur Configuration Manager-Energiesparpläne auf Gerätesammlungen angewendet werden.  
 
- Procédez comme suit pour créer et appliquer un mode de gestion de l’alimentation Configuration Manager.  
+ Wenn ein Computer mehreren Sammlungen angehört, für die unterschiedliche Energiesparpläne verwendet werden, werden folgende Aktionen durchgeführt:  
 
-### <a name="to-create-and-apply-a-power-plan"></a>Pour créer et appliquer un mode d'alimentation  
+-   Energiesparplan: Wenn auf einen Computer mehrere Werte für Energieeinstellungen angewendet werden, wird der am wenigsten restriktive Wert verwendet.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+-   Aktivierungszeit: Wenn auf einen Desktopcomputer mehrere Aktivierungszeiten angewendet werden, wird die Zeit verwendet, die Mitternacht am nächsten liegt.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements d’appareils**.  
+ Verwenden Sie zum Anzeigen aller Computer, auf die mehrere Energiesparpläne angewendet werden, den Bericht **Computer mit mehreren Energiesparplänen** . Dadurch können Sie Computer mit Energiesparplankonflikten ermitteln. Weitere Informationen zu Berichten zur Energieverwaltung finden Sie unter [Überwachen und Planen der Energieverwaltung in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
-3.  Dans la liste **Regroupements de périphériques** , cliquez sur le regroupement auquel vous souhaitez appliquer les paramètres de gestion de l'alimentation, puis, dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+> [!IMPORTANT]  
+>  Durch Energieeinstellungen, die mithilfe einer Windows-Gruppenrichtlinie konfiguriert wurden, werden die von der Configuration Manager-Energieverwaltung konfigurierten Einstellungen überschrieben.  
 
-4.  Sous l’onglet **Gestion de l’alimentation** de la boîte de dialogue **Propriétés de ***<nom_regroupement\>*, sélectionnez **Spécifier les paramètres de gestion de l’alimentation de ce regroupement**.  
+ Gehen Sie zum Erstellen und Anwenden eines Configuration Manager-Energiesparplans wie nachfolgend beschrieben vor.  
+
+### <a name="to-create-and-apply-a-power-plan"></a>So erstellen Sie einen Energiesparplan und wenden ihn an  
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+
+2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**.  
+
+3.  Klicken Sie in der Liste **Gerätesammlungen** auf die Sammlung, auf die Sie Energieverwaltungseinstellungen anwenden möchten. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+
+4.  Wählen Sie auf der Registerkarte **Energieverwaltung** im Dialogfeld *<Sammlungsname\>***Eigenschaften** die Option **Energieverwaltungseinstellungen für diese Sammlung angeben**.  
 
     > [!NOTE]  
-    >  Vous pouvez également cliquer sur **Parcourir** , puis copier les paramètres de gestion de l'alimentation à partir d'un regroupement sélectionné vers le regroupement sélectionné.  
+    >  Sie können auch auf **Durchsuchen** klicken und die Energieverwaltungseinstellungen von einer ausgewählten Sammlung zur ausgewählten Sammlung kopieren.  
 
-5.  Dans les champs **Début** et **Fin** , spécifiez l'heure de début et l'heure de fin des heures de pointe (ou de bureau).  
+5.  Geben Sie in den Feldern **Start** und **Ende** die Start- und Endzeit für Hauptzeitstunden (oder Geschäftszeiten) an.  
 
-6.  Activez **Heure de reprise (ordinateurs de bureau)** pour indiquer une heure de sortie du mode veille ou du mode veille prolongée d'un ordinateur de bureau afin d'installer des mises à jour planifiées ou des logiciels.  
+6.  Aktivieren Sie **Aktivierungszeit (Desktopcomputer)** zum Angeben eines Zeitpunkts, zu dem ein Desktopcomputer aus dem Standby- oder Ruhezustand erneut aktiviert wird, damit geplante Updates oder Softwareinstallationen installiert werden können.  
 
     > [!IMPORTANT]  
-    >  La gestion de l'alimentation utilise la fonction d'heure de reprise Windows interne pour sortir les ordinateurs du mode veille ou du mode veille prolongée. Les paramètres de l’heure de sortie de veille ne sont pas appliqués aux ordinateurs portables afin d’éviter qu’ils ne sortent de veille alors qu’ils ne sont pas branchés. L’heure de sortie de veille est aléatoire et les ordinateurs peuvent sortir de veille pendant une heure à partir de l’heure de sortie de veille spécifiée.  
+    >  Für die Energieverwaltung wird die Aktivierungszeitfunktion von Windows verwendet, mit der Computer aus dem Standby- oder Ruhezustand erneut aktiviert werden. Aktivierungszeiteinstellungen werden nicht auf tragbare Computer angewendet, damit diese nicht aktiviert werden, wenn sie nicht an die Stromversorgung angeschlossen sind. Die Aktivierungszeit ist zufällig. Computer werden nach Beginn der angegebenen Aktivierungszeit für einen Zeitraum von einer Stunde erneut aktiviert.  
 
-7.  Si vous souhaitez configurer un mode d'alimentation personnalisé pour les heures de pointe (ou de bureau), sélectionnez **Pic personnalisé (ConfigMgr)** dans la liste déroulante **Mode forte alimentation** , puis cliquez sur **Modifier**. Si vous souhaitez configurer un mode d'alimentation pour les heures creuses, sélectionnez **Non-pic personnalisé (ConfigMgr)** dans la liste déroulante **Faible alimentation** , puis cliquez sur **Modifier**.  
-
-    > [!NOTE]  
-    >  Vous pouvez utiliser le rapport **Activité de l'ordinateur** pour vous aider à déterminer les planifications à utiliser pour les heures de pointe et les heures creuses lorsque vous appliquez des modes d'alimentation à des regroupements d'ordinateurs. Pour plus d’informations, consultez [Guide pratique pour surveiller et planifier la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
-
-     Vous pouvez également sélectionner dans les modes d'alimentation intégrés, **Équilibré (ConfigMgr)**, **Hautes performances (ConfigMgr)** ou **Économiseur d'énergie (ConfigMgr)**, puis cliquer sur **Afficher** pour afficher les propriétés de chaque mode d'alimentation.  
+7.  Wenn Sie einen benutzerdefinierten Energiesparplan für Hauptzeitstunden (oder Geschäftszeiten) konfigurieren möchten, wählen Sie aus der Dropdownliste **Hauptzeitplan** die Option **Benutzerdefiniert, Hauptzeit (ConfigMgr)** aus, und klicken Sie auf **Bearbeiten**. Wenn Sie einen Energiesparplan für Nebenzeitstunden (oder außerhalb der Geschäftszeiten) konfigurieren möchten, wählen Sie aus der Dropdownliste **Nebenzeitplan** die Option **Benutzerdefiniert, Nebenzeit (ConfigMgr)** aus, und klicken Sie auf **Bearbeiten**.  
 
     > [!NOTE]  
-    >  Vous ne pouvez pas modifier les modes d'alimentation intégrés.  
+    >  Mithilfe des Berichts **Computeraktivität** können Sie einfacher bestimmen, welche Zeitpläne für Haupt- und Nebenzeitstunden verwendet werden sollen, wenn Sie Energiesparpläne auf Sammlungen von Computern anwenden. Weitere Informationen finden Sie unter [Überwachen und Planen der Energieverwaltung in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
-8.  Dans la boîte de dialogue **Propriétés de ***<nom du mode de gestion de l’alimentation\>*, configurez les paramètres suivants :  
+     Sie können auch einen der integrierten Energiesparpläne auswählen ( **Ausgeglichen (ConfigMgr)**, **Höchstleistung ConfigMgr)** und **Energiesparmodus (ConfigMgr)**) und dann zum Anzeigen der Eigenschaften jedes Energiesparplans auf **Anzeigen** klicken.  
 
-    -   **Nom** : spécifiez un nom pour ce mode de gestion de l’alimentation ou utilisez la valeur par défaut fournie.  
+    > [!NOTE]  
+    >  Die integrierten Energiesparpläne können nicht geändert werden.  
 
-    -   **Description**  : spécifiez une description pour ce mode de gestion de l’alimentation ou utilisez la valeur par défaut fournie.  
+8.  Konfigurieren Sie im Dialogfeld *<Energiesparplanname\>***Eigenschaften** die folgenden Einstellungen:  
 
-    -   **Spécifier les propriétés pour ce mode d’alimentation** : configurez les propriétés du mode de gestion de l’alimentation. Pour désactiver une propriété, désactivez sa case. Pour plus d’informations sur les paramètres disponibles, consultez [Paramètres du mode de gestion de l’alimentation disponibles](#BKMK_Plans) dans cette rubrique.  
+    -   **Name:** Geben Sie einen Namen für diesen Energiesparplan an, oder verwenden Sie den angegebenen Standardwert.  
+
+    -   **Beschreibung:**  Geben Sie eine Beschreibung für diesen Energiesparplan an, oder verwenden Sie den angegebenen Standardwert.  
+
+    -   **Eigenschaften für diesen Energiesparplan angeben:** Konfigurieren Sie die Eigenschaften des Energiesparplans. Deaktivieren Sie zum Deaktivieren einer Eigenschaft das entsprechende Kontrollkästchen. Weitere Informationen über die verfügbaren Einstellungen finden Sie in diesem Thema unter [Available power management plan settings](#BKMK_Plans) .  
 
         > [!IMPORTANT]  
-        >  Les paramètres activés sont appliqués aux ordinateurs lorsque le mode d'alimentation est appliqué. Si vous désactivez une case à cocher du paramètre d'alimentation, la valeur sur l'ordinateur client n'est pas modifiée lorsque le mode d'alimentation est appliqué. Le fait de désactiver une case ne permet pas de restaurer la valeur du paramètre d'alimentation sélectionnée avant l'application d'un mode d'alimentation.  
+        >  Aktivierte Einstellungen werden auf die Computer angewendet, sobald der Energiesparplan angewendet wird. Wenn Sie ein Kontrollkästchen der Energieeinstellung deaktivieren, wird der Wert auf dem Clientcomputer nicht geändert, wenn der Energiesparplan angewendet wird. Durch Deaktivieren eines Kontrollkästchens wird der Wert für die Energieeinstellung nicht auf den Wert wiederhergestellt, der vor dem Anwenden eines Energiesparplans angegeben war.  
 
-9. Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de ***<nom du mode de gestion de l’alimentation\>*.  
+9. Klicken Sie auf **OK**, um das Dialogfeld *<Energiesparplanname\>***Eigenschaften** zu schließen.  
 
-10. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres de ***<Nom du regroupement\>* et pour appliquer le mode de gestion de l’alimentation.  
+10. Klicken Sie auf **OK**, um das Dialogfeld *<Sammlungsname\>***Einstellungen** zu schließen.  
 
-##  <a name="a-namebkmkplansa-available-power-management-plan-settings"></a><a name="BKMK_Plans"></a> Available power management plan settings  
- Le tableau suivant répertorie les paramètres de gestion de l’alimentation disponibles dans Configuration Manager. Vous pouvez configurer d'autres paramètres pour les périodes où l'ordinateur est branché ou sur batterie. Selon la version de Windows que vous utilisez, il est possible que certains paramètres ne soient pas configurables.  
+##  <a name="BKMK_Plans"></a> Available power management plan settings  
+ In der folgenden Tabelle sind die in Configuration Manager verfügbaren Energieverwaltungseinstellungen aufgelistet. Sie können separate Einstellungen für folgende Vorkommnisse konfigurieren: wenn ein Computer nicht an die Stromversorgung angeschlossen ist oder sich im Akkubetrieb befindet. Je nachdem welche Windows-Version Sie verwenden, können Sie einige Einstellungen möglicherweise nicht konfigurieren.  
 
 > [!NOTE]  
->  Les paramètres d'alimentation que vous ne configurez pas conservent leur valeur actuelle sur les ordinateurs clients.  
+>  Bei Energieeinstellungen, die nicht konfiguriert werden, wird der aktuelle Wert auf den Clientcomputern beibehalten.  
 
-|Nom|Description|  
+|Name|Beschreibung|  
 |----------|-----------------|  
-|**Désactiver l'affichage après (minutes)**|Spécifie la durée en minutes, pendant laquelle l'ordinateur doit être inactif avant que l'affichage ne soit désactivé. Spécifiez une valeur **0** si vous ne voulez pas que la gestion de l’alimentation désactive l’affichage.|  
-|**Mise en veille après (minutes)**|Spécifie la durée en minutes, pendant laquelle l'ordinateur doit être inactif avant d'entrer en mode veille. Spécifiez une valeur **0** si vous ne voulez pas que la gestion de l’alimentation passe l’ordinateur en mode veille.|  
-|**Demander un mot de passe à la reprise**|Une valeur **Oui** ou **Non** spécifie si un mot de passe est nécessaire pour déverrouiller l’ordinateur lorsqu’il sort du mode veille.|  
-|**Action du bouton d'alimentation**|Spécifie l'action qui est effectuée lorsque l'utilisateur appuie sur le bouton d'alimentation. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Valeurs possibles **Ne rien faire**, **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Bouton de mise sous tension du menu Démarrer**|Spécifie l’action qui se produit quand vous appuyez sur le bouton d’alimentation du menu **Démarrer** de l’ordinateur. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Valeurs possibles **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Action du bouton de mise en veille**|Spécifie l’action qui se produit quand vous appuyez sur le bouton de **mise en veille** de l’ordinateur. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Valeurs possibles **Ne rien faire**, **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Action à la fermeture du capot**|Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Valeurs possibles **Ne rien faire**, **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Désactiver le disque dur après (minutes)**|Spécifie la durée en minutes, pendant laquelle le disque dur doit être inactif avant d'être désactivé. Spécifiez une valeur **0** si vous ne voulez pas que la gestion de l’alimentation mette hors tension le disque dur de l’ordinateur.|  
-|**Mise en veille prolongée après (minutes)**|Spécifie la durée en minutes, pendant laquelle l'ordinateur doit être inactif avant d'entrer en veille prolongée. Spécifiez une valeur **0** si vous ne voulez pas que la gestion de l’alimentation mette l’ordinateur en veille prolongée.|  
-|**Action sur batterie faible**|Spécifie l'action qui se produit lorsque la batterie de l'ordinateur atteint le niveau de notification de batterie faible spécifié. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Valeurs possibles **Ne rien faire**, **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Action sur batterie critique**|Spécifie l'action qui est effectuée lorsque la batterie de l'ordinateur atteint le niveau de notification de batterie critique spécifié. Spécifie l'action qui se produit lorsque l'utilisateur ferme le capot d'un ordinateur portable. Les valeurs possibles incluent **Mettre en veille**, **Mettre en veille prolongée** et **Arrêter**.|  
-|**Autoriser la veille hybride**|La sélection de la valeur **Activé** ou **Désactivé** spécifie si Windows doit enregistrer un fichier de mise en veille prolongée lors de l’entrée en mode veille, qui peut être utilisé pour restaurer l’état de l’ordinateur en cas de perte d’alimentation alors qu’il est en veille.<br /><br /> La mise en veille hybride est conçue pour les ordinateurs de bureau et, par défaut, n'est pas activée sur les ordinateurs portables. Sur les ordinateurs qui exécutent Windows 7, la mise en veille hybride désactive la fonctionnalité de mise en veille prolongée.|  
-|**Autoriser l'état d'attente lors de l'action de mise en veille**|La sélection de la valeur **Activé** ou **Désactivé** permet à l’ordinateur de se mettre en attente, ce qui consomme toujours du courant, mais permet à l’ordinateur de sortir plus rapidement du mode veille. Si ce paramètre a la valeur **Désactivé**, l’ordinateur peut uniquement être mis en veille prolongée ou mis hors tension.|  
-|**Inactivité requise avant la mise en veille (%)**|Spécifie le pourcentage de temps d'inactivité du temps processeur nécessaire à l'ordinateur pour entrer en mode veille. Sur les ordinateurs qui exécutent Windows 7, cette valeur est toujours définie sur **0**.|  
-|**Activer le minuteur de réveil Windows pour les ordinateurs de bureau**|La sélection de la valeur **Activer** ou **Désactiver** peut permettre à la gestion de l’alimentation d’utiliser l’horloge Windows intégrée pour sortir un ordinateur de bureau du mode veille. Lorsqu'un ordinateur de bureau quitte le mode veille grâce au minuteur de réveil Windows, il reste actif pendant 10 minutes par défaut afin de laisser le temps à l'ordinateur d'installer toutes les mises à jour ou de recevoir la stratégie.<br /><br /> Les minuteurs de réveil ne sont pas pris en charge sur les ordinateurs portables afin d'éviter les scénarios dans lesquels ils pourraient se mettre en éveil lorsqu'ils ne sont pas branchés.|  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+|**Bildschirm ausschalten nach (Minuten)**|Gibt die Zeitdauer in Minuten an, die der Computer inaktiv sein muss, bevor der Bildschirm ausgeschaltet wird. Geben Sie den Wert **0** an, wenn Sie nicht möchten, dass der Bildschirm von der Energieverwaltung ausgeschaltet wird.|  
+|**Standbymodus nach (Minuten)**|Gibt die Zeitdauer in Minuten an, die der Computer inaktiv sein muss, bevor er in den Standbymodus versetzt wird. Geben Sie den Wert **0** an, wenn Sie nicht möchten, dass der Computer von der Energieverwaltung in den Standbymodus versetzt wird.|  
+|**Kennwort bei Reaktivierung anfordern**|**Ja** oder **Nein** gibt an, ob ein Kennwort erforderlich ist, um den Computer bei der Reaktivierung zu entsperren.|  
+|**Netzschalteraktion**|Gibt die Aktion an, die ausgeführt wird, wenn der Netzschalter des Computers gedrückt wird. Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Nichts unternehmen**, **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Ein-/Aus-Schalter im Startmenü**|Gibt die Aktion an, die durchgeführt wird, wenn Sie auf den Ein-/Aus-Schalter im **Startmenü** des Computers klicken. Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Energiespartastenaktion**|Gibt die Aktion an, die durchgeführt wird, wenn Sie die **Energiespartaste** des Computers drücken. Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Nichts unternehmen**, **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Zuklappaktion**|Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Nichts unternehmen**, **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Festplatte ausschalten nach (Minuten)**|Gibt die Zeitdauer in Minuten an, die die Festplatte des Computers inaktiv sein muss, bevor sie ausgeschaltet wird. Geben Sie den Wert **0** an, wenn Sie nicht möchten, dass die Festplatte des Computers von der Energieverwaltung ausgeschaltet wird.|  
+|**Ruhezustand nach (Minuten)**|Gibt die Zeitdauer in Minuten an, die der Computer inaktiv sein muss, bevor er in den Ruhezustand versetzt wird. Geben Sie den Wert **0** an, wenn Sie nicht möchten, dass der Computer von der Energieverwaltung in den Ruhezustand versetzt wird.|  
+|**Aktion bei niedriger Akkukapazität**|Gibt die Aktion an, die durchgeführt wird, wenn der Akku des Computers die festgelegte Benachrichtigungsebene für niedrige Akkukapazität erreicht. Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Nichts unternehmen**, **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Aktion bei kritischer Akkukapazität**|Gibt die Aktion an, die durchgeführt wird, wenn der Akku des Computers die festgelegte Benachrichtigungsebene für kritische Akkukapazität erreicht. Gibt die Aktion an, die durchgeführt wird, wenn der Benutzer den tragbaren Computers schließt. Mögliche Werte **Standbymodus**, **Ruhezustand**, und **Herunterfahren**.|  
+|**Hybriden Standbymodus zulassen**|**Ein** oder **Aus** gibt an, ob von Windows beim Wechsel in den Standbymodus eine Ruhezustandsdatei gespeichert wird, die verwendet werden kann, um den Zustand des Computers im Falle eines Stromausfalls beim Wechsel in den Standbymodus wiederherzustellen.<br /><br /> Der hybride Standbymodus wurde für Desktopcomputer entwickelt und ist auf tragbaren Computern standardmäßig nicht aktiviert. Wenn auf Computern, die unter Windows 7 ausgeführt werden, der hybride Standbymodus aktiviert wird, wird die Ruhezustandsfunktion deaktiviert.|  
+|**Wechsel in den Standbymodus auf Benutzeranforderung zulassen**|Mit **Ein** oder **Aus** kann der Computer in den Standbymodus versetzt werden. Dabei verbraucht er immer noch Energie, kann jedoch schneller reaktiviert werden. Wenn für diese Einstellung **Deaktiviert**festgelegt wird, kann der Computer nur in den Ruhezustand versetzt oder ausgeschaltet werden.|  
+|**Erforderlicher Leerlauf für Standbymodus (%)**|Gibt den prozentualen Anteil der Leerlaufzeit an der Computerprozessorzeit an, die erforderlich ist, damit der Computer in den Standbymodus versetzt wird. Auf Computern, auf denen Windows 7 ausgeführt wird, ist dieser Wert immer auf **0**gesetzt.|  
+|**Windows-Aktivierungszeitgeber für Desktopcomputer aktivieren**|Auswählen von **aktivieren** oder **deaktivieren** für den integrierten Windows-Zeitgeber, wodurch die Energieverwaltung zum Reaktivieren eines Desktopcomputers verwendet werden kann. Wird ein Desktopcomputer vom Windows-Aktivierungszeitgeber erneut aktiviert, verbleibt er standardmäßig 10 Minuten im Normalzustand, damit auf dem Computer Updates installiert oder Richtlinien empfangen werden können.<br /><br /> Aktivierungszeitgeber werden auf tragbaren Computern nicht unterstützt, um zu verhindern, dass die Computer aktiviert werden, solange sie sich nicht im Netzbetrieb befinden.|  

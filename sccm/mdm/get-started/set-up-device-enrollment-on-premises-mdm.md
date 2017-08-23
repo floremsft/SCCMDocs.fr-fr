@@ -1,93 +1,89 @@
 ---
-title: "Configurer l’inscription d’appareils | Microsoft Docs"
-description: "Accordez aux utilisateurs l’autorisation d’inscrire leurs appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
+title: "Einrichten der Geräteregistrierung | Microsoft-Dokumentation"
+description: "Erteilen Sie Benutzern die Berechtigung zum Registrieren ihrer Geräte für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ffaea91-1379-4b86-9953-b25e152f56a9
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 1b32d755e23e1b1db2162bb117f45791a95b139b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 16d4106d486d821b7ce92a1de65ebb04469d18de
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-device-enrollment-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="set-up-device-enrollment-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Einrichten der Geräteregistrierung für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Pour permettre aux utilisateurs d’inscrire leurs appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager, vous devez leur accorder l’autorisation de le faire. Pour accorder aux utilisateurs l’autorisation d’inscrire des appareils, effectuez les tâches ci-dessous.
+Damit Benutzer ihre Geräte für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager registrieren können, müssen Sie ihnen die entsprechende Berechtigung erteilen. Führen Sie die folgenden Schritte aus, um Benutzern die Berechtigung zum Registrieren von Geräten zu erteilen:
 
--   [Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents](#bkmk_createProf)  
+-   [Erstellen Sie ein Registrierungsprofil, mit dem Benutzer moderne Geräte registrieren können.](#bkmk_createProf)  
 
--   [Définir des paramètres du client supplémentaires pour des périphériques inscrits](#bkmk_addClient)  
+-   [Einrichten zusätzlicher Clienteinstellungen für registrierte Geräte](#bkmk_addClient)  
 
--   [Permettre aux utilisateurs de recevoir le profil d’inscription des appareils récents](#bkmk_enableUsers)  
+-   [Aktivieren von Benutzern für den Erhalt des Anmeldungsprofils für moderne Geräte](#bkmk_enableUsers)  
 
--   [Stocker le certificat racine sur les appareils à inscrire](#bkmk_storeCert)  
+-   [Speichern des Stammzertifikats auf zu registrierenden Geräten](#bkmk_storeCert)  
 
-##  <a name="bkmk_createProf"></a> Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents  
- Pour transmettre en mode push les paramètres nécessaires pour permettre aux utilisateurs d’inscrire des appareils récents, vous pouvez ajouter un nouveau profil d’inscription aux paramètres client par défaut, qui est appliqué à tous les utilisateurs détectés dans le site Configuration Manager.  
+##  <a name="bkmk_createProf"></a> Erstellen Sie ein Registrierungsprofil, mit dem Benutzer moderne Geräte registrieren können.  
+ Damit die Einstellungen, die den Benutzern die Registrierung moderner Geräte ermöglichen, per Pushübertragung bereitgestellt werden, können Sie ein neues Registrierungsprofil zu den Standardclienteinstellungen hinzufügen, das auf alle erkannten Benutzer am Configuration Manager-Standort angewendet wird.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**, ouvrez **Paramètres client par défaut**, puis sélectionnez **Inscription**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Übersicht** > **Clienteinstellungen**, öffnen Sie **Clientstandardeinstellungen**, und wählen Sie **Registrierung** aus.  
 
-2.  Sous Paramètres du périphérique, spécifiez l’intervalle d’interrogation pour les appareils récents.  
+2.  Geben Sie unter den Geräteeinstellungen das Abrufintervall für moderne Geräte an.  
 
-3.  Sous Paramètres utilisateur, sélectionnez **Oui** pour **Autoriser les utilisateurs à inscrire des appareils récents**.  
+3.  Wählen Sie unter den Benutzereinstellungen für die Option **Benutzern die Registrierung moderner Geräte gestatten** die Einstellung **Ja**aus.  
 
-4.  En regard de **Profil d’inscription des appareils récents**, cliquez sur **Définir un profil**, puis sur **Créer**.  
+4.  Klicken Sie neben **Registrierungsprofil für modernes Gerät** auf **Profil festlegen...** und auf **Erstellen...**  
 
-5.  Dans Créer un profil d’inscription, tapez un nom pour le profil d’inscription et choisissez le code de site de gestion que vous souhaitez que les utilisateurs ayant le profil d’inscription utilisent. Cliquez sur **OK** plusieurs fois pour quitter la page Paramètres par défaut.  
+5.  Geben Sie in „Anmeldungsprofil erstellen“ einen Namen für das Anmeldungsprofil ein, und wählen Sie den Verwaltungsstandortcode aus, den Benutzer mit dem Anmeldungsprofil verwenden sollen. Klicken Sie mehrmals auf **OK** , um die Seite „Standardeinstellungen“ zu verlassen.  
 
 > [!NOTE]  
->  Si vous souhaitez déployer le profil d’inscription vers une partie des utilisateurs découverts, vous pouvez utiliser un regroupement d’utilisateurs et créer des paramètres client personnalisés à déployer dans ce regroupement. Pour plus d’informations sur la création de paramètres client personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
+>  Wenn Sie das Anmeldungsprofil für eine Teilmenge der ermittelten Benutzer bereitstellen möchten, können Sie eine Benutzersammlung verwenden und benutzerdefinierte Clienteinstellungen erstellen, die für diese Sammlung bereitgestellt werden. Informationen zum Erstellen benutzerdefinierter Clienteinstellungen finden Sie unter [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md)  
 
-##  <a name="bkmk_addClient"></a> Définir des paramètres du client supplémentaires pour des périphériques inscrits  
- En plus de définir le profil d’inscription pour des périphériques modernes, vous pouvez définir des paramètres du client supplémentaires pour la configuration de périphériques quand ils sont inscrits.  Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
+##  <a name="bkmk_addClient"></a> Einrichten zusätzlicher Clienteinstellungen für registrierte Geräte  
+ Neben dem Einrichten des Registrierungsprofils für moderne Geräte können Sie zusätzliche Clienteinstellungen für die Konfiguration von Geräten einrichten, wenn sie registriert sind.  Informationen zum Einrichten von Clienteinstellungen finden Sie unter [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
- Tous les paramètres client ne sont pas disponibles pour la gestion des appareils mobiles locale. La version Current Branch de Configuration Manager prend en charge les paramètres client suivants pour la gestion des appareils mobiles locale :  
+ Nicht alle Clienteinstellungen sind für die lokale Verwaltung mobiler Geräte verfügbar. Von Current Branch von Configuration Manager werden die folgenden Clienteinstellungen für die lokale Verwaltung mobiler Geräte unterstützt:  
 
--   Inscription - Ces paramètres spécifient le profil d’inscription de périphériques gérés. Pour plus d’informations sur la façon de configurer un profil d’inscription, consultez [Créer un profil d’inscription qui permet aux utilisateurs d’inscrire des appareils récents](#bkmk_createProf).  
+-   Registrierung: Diese Einstellungen geben das Registrierungsprofil für verwaltete Geräte an. Weitere Informationen zum Einrichten eines Registrierungsprofils finden Sie unter [Einrichten der Geräteregistrierung für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](#bkmk_createProf).  
 
--   Stratégie client - Ces paramètres spécifient la fréquence de téléchargement de la stratégie client sur le périphérique. Vous pouvez également activer des paramètres pour cibler des utilisateurs avec une interrogation de stratégie. Pour plus d’informations sur les paramètres de stratégie client, consultez la section Stratégie du client dans [À propos des paramètres client dans System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
+-   Clientrichtlinie: Diese Einstellungen geben die Häufigkeit für das Herunterladen der Clientrichtlinie auf das Gerät an. Einstellungen für die Zielgruppenadressierung von Benutzern können Sie auch mit dem Richtlinienabruf aktivieren. Weitere Informationen zu den Clientrichtlinieneinstellungen finden Sie im Abschnitt „Clientrichtlinie“ in dem Artikel [Informationen zu Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
--   Déploiement de logiciels - Ce paramètre définit l’intervalle d’évaluation des périphériques clients pour les déploiements de logiciels. Pour plus d’informations sur les paramètres de déploiement de logiciels, consultez la section Déploiement logiciel dans [À propos des paramètres client dans System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
+-   Softwarebereitstellung: Durch diese Einstellung wird das Intervall für die Bewertung von Clientgeräten für Softwarebereitstellungen festgelegt. Weitere Informationen zu den Einstellungen für die Softwarebereitstellung finden Sie im Abschnitt „Softwarebereitstellung“ in dem Artikel [Informationen zu Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
     > [!NOTE]  
-    >  Pour la gestion des appareils mobiles locale, les paramètres de déploiement de logiciels peuvent uniquement servir comme paramètres client par défaut. Vous ne pouvez pas utiliser les paramètres de déploiement de logiciels avec des paramètres client personnalisés dans la version Current Branch de Configuration Manager.  
+    >  Bei der lokalen Verwaltung mobiler Geräte können die Einstellungen für die Softwarebereitstellung nur als Standardclienteinstellungen verwendet werden. Die Einstellungen für die Softwarebereitstellung können in Current Branch von Configuration Manager nicht mit benutzerdefinierten Clienteinstellungen verwendet werden.  
 
-##  <a name="bkmk_enableUsers"></a> Permettre aux utilisateurs de recevoir le profil d’inscription des appareils récents  
- Pour que les utilisateurs reçoivent les paramètres client modifiés avec le profil d’inscription pour la gestion des appareils mobiles locale, ils doivent être découverts par le biais de la méthode de découverte Active Directory. Pour vous assurer que toute personne ayant besoin du profil d’inscription l’obtient, exécutez la découverte des utilisateurs Active Directory. Pour obtenir des instructions sur la façon de découvrir des utilisateurs, consultez [Exécuter la découverte pour System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
+##  <a name="bkmk_enableUsers"></a> Aktivieren von Benutzern für den Erhalt des Anmeldungsprofils für moderne Geräte  
+ Damit Benutzer die geänderten Clienteinstellungen mit dem Registrierungsprofil für die lokale Verwaltung mobiler Geräte erhalten, müssen diese von der Active Directory-Ermittlungsmethode ermittelt werden. Führen Sie die Ermittlung für Active Directory-Benutzer aus, um sicherzustellen, dass alle erforderlichen Personen das Anmeldungsprofil erhalten. Anweisungen zum Ermitteln der Benutzer finden Sie unter [Run discovery for System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
 
-##  <a name="bkmk_storeCert"></a> Stocker le certificat racine sur les appareils à inscrire  
- Les utilisateurs d’appareils appartenant à un domaine auront probablement déjà le certificat racine requis pour établir des communications fiables avec les serveurs hébergeant les rôles de système de site, car la racine a été émise dans le cadre du processus de jonction de domaine Active Directory. Vous devez installer manuellement le certificat racine sur les ordinateurs et les appareils mobiles qui ne sont pas joints à un domaine pour que l’inscription ait lieu. Ces appareils n’auront pas automatiquement le certificat racine nécessaire.  
+##  <a name="bkmk_storeCert"></a> Speichern des Stammzertifikats auf zu registrierenden Geräten  
+ Benutzer mit Geräten, die Domänen angehören, verfügen voraussichtlich bereits über das erforderliche Stammzertifikat für die vertrauenswürdige Kommunikation mit den Servern, die die Standortsystemrollen hosten, da der Stamm im Rahmen der Domänenzuordnung mit Active Directory ausgestellt wurde. Für nicht der Domäne angehörende Computer und mobile Geräte muss das Stammzertifikat manuell auf dem Gerät installiert sein, damit die Registrierung erfolgen kann. Diese Geräte verfügen nicht automatisch über das erforderliche Stammzertifikat.  
 
- Vous devez fournir le fichier de certificat exporté à l’appareil pour l’installation manuelle via e-mail, OneDrive, carte SD, clé USB ou toute autre méthode qui répond le mieux à vos besoins.  
+ Die exportierte Zertifikatsdatei muss für die manuelle Installation auf dem Gerät bereitgestellt werden. Dies kann per E-Mail, OneDrive, SD-Karte, USB-Thumbdrive oder über eine andere geeignete Methode erfolgen.  
 
- Le certificat racine que vous devez utiliser sur les appareils est celui que vous avez exporté dans [Exporter le certificat ayant la même racine que le certificat de serveur web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
+ Bei dem Stammzertifikat, das Sie auf den Geräten verwenden sollten, handelt es sich um das in [Exportieren des Zertifikats mit dem Webserverzertifikat entsprechendem Stamm](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert) exportierte Zertifikat.  
 
-1.  Sur l’appareil à inscrire, recherchez le fichier de certificat racine et double-cliquez dessus.  
+1.  Suchen Sie die Stammzertifikatdatei auf dem zu registrierenden Gerät, und doppelklicken Sie dann auf die Datei.  
 
-2.  Dans la fenêtre Certificat, cliquez sur **Installer un certificat**.  
+2.  Klicken Sie im Zertifikatfenster auf **Zertifikat installieren...**.  
 
-3.  Dans l’Assistant Importation de certificat, sélectionnez **Ordinateur local**et cliquez sur **Suivant**.  
+3.  Wählen Sie im Zertifikatimport-Assistenten die Option **Lokaler Computer**aus, und klicken Sie auf **Weiter**.  
 
-4.  Dans la fenêtre Contrôle de compte d’utilisateur, cliquez sur **Oui**.  
+4.  Klicken Sie im Fenster „Benutzerkontensteuerung“ auf **Ja**.  
 
-5.  Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis cliquez sur **Parcourir**.  
+5.  Wählen Sie die Option **Alle Zertifikate in folgendem Speicher speichern**aus, und klicken Sie auf **Durchsuchen**.  
 
-6.  Cliquez sur **Autorités de certification racine de confiance**, sur **OK**, puis sur **Suivant**.  
+6.  Klicken Sie nacheinander auf **Vertrauenswürdige Stammzertifizierungsstellen**, **OK**und dann auf **Weiter**.  
 
-7.  Cliquez sur **Terminer**.  
-
+7.  Klicken Sie auf **Fertig stellen**.  

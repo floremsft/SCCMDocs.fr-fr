@@ -1,418 +1,414 @@
 ---
-title: "Créer des éléments de configuration pour les appareils iOS et Mac OS X gérés via Microsoft Intune | Microsoft Docs"
-description: "L’élément de configuration System Center Configuration Manager iOS et Mac OS X permet de gérer les paramètres des appareils iOS et Mac OS X."
+title: "Erstellen von Konfigurationselementen für iOS und Mac OS X-Geräte, die mit Intune verwaltet werden | Microsoft-Dokumentation"
+description: "Verwenden Sie das Konfigurationselement für iOS und Mac OS X von System Center Configuration Manager, um Einstellungen für iOS und Mac OS X-Geräte zu verwalten."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 613a48ac-c55d-4c4a-94ea-d3747a1b10cb
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 6e2cb628217598480973d4f728a9e0a7cd5873e7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Comment créer des éléments de configuration pour les appareils iOS et Mac OS X gérés via Microsoft Intune
-Utilisez l’élément de configuration System Center Configuration Manager **iOS et Mac OS X** pour gérer les paramètres des appareils iOS et Mac OS X qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Erstellen von Konfigurationselementen für iOS und Mac OS X-Geräte, die mit Intune verwaltet werden
+Verwenden Sie das Konfigurationselement **iOS und Mac OS X** von System Center Configuration Manager, um Einstellungen für iOS- und Mac OS X-Geräte zu verwalten, die bei Microsoft Intune registriert sind oder lokal von Configuration Manager verwaltet werden.  
   
-### <a name="to-create-an-ios-and-mac-os-x-configuration-item"></a>Pour créer un élément de configuration iOS et Mac OS X  
+### <a name="to-create-an-ios-and-mac-os-x-configuration-item"></a>So erstellen Sie ein Konfigurationselement für iOS und Mac OS X  
   
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**.  
   
-2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Konformität** die **Konformitätseinstellungen**, und klicken Sie auf **Konfigurationselemente**.  
   
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
   
-4.  Dans la page **Général** de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une description éventuelle pour l’élément de configuration.  
+4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen**einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
   
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **iOS et Mac OS X**.  
+5.  Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben**den Typ **iOS und Mac OS X**aus.  
   
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klicken Sie auf **Kategorien**, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
   
-7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes iOS ou Mac OS X spécifiques chargées d’évaluer l’élément de configuration.  
+7.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten die jeweilige iOS- oder Mac OS X-Plattform zur Bewertung des Konfigurationselements aus.  
   
-8.  Dans la page **Paramètres de périphérique** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Informations de référence sur les paramètres d’élément de configuration iOS et Mac OS X](#BKMK_Setref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
-  
-    > [!TIP]  
-    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
-  
-9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
-  
-10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
-  
-    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
-  
-    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
-  
-    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
-  
-    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
-  
-    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
-  
-11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+8.  Wählen Sie auf der Seite **Geräteeinstellungen** des Assistenten die Einstellungsgruppe aus, die Sie konfigurieren möchten. Informieren Sie sich in diesem Thema unter [Referenz zu Einstellungen des Konfigurationselements für iOS und Mac OS X](#BKMK_Setref) über die Details, und klicken Sie dann auf **Weiter**.  
   
     > [!TIP]  
-    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+    >  Ist die gewünschte Einstellung nicht aufgeführt, aktivieren Sie das Kontrollkästchen **Zusätzliche Einstellungen konfigurieren, die in den Standardeinstellungsgruppen nicht enthalten sind**.  
   
-12. Effectuez toutes les étapes de l'Assistant.  
+9. Konfigurieren Sie auf jeder Einstellungsseite die erforderlichen Einstellungen, und legen Sie fest, ob sie korrigiert werden sollen, wenn sie auf Geräten nicht kompatibel sind (sofern unterstützt).  
   
- Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité** .  
+10. Sie können für jede Einstellungsgruppe auch den Schweregrad konfigurieren, der gemeldet wird, wenn die Inkompatibilität eines Konfigurationselements festgestellt wird. Die Einstellungen lauten wie folgt:  
   
-##  <a name="ios-and-mac-os-x-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration iOS et Mac OS X  
+    -   **Keiner**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-###  <a name="password"></a>Mot de passe  
+    -   **Information**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-|Nom du paramètre|Détails|  
+    -   **Warnung**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
+  
+    -   **Kritisch**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
+  
+    -   **Kritisch mit Ereignis**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
+  
+11. Überprüfen Sie auf der Seite **Plattformanwendbarkeit** des Assistenten alle Einstellungen, die mit den zuvor ausgewählten unterstützten Plattformen nicht kompatibel sind. Sie können zurückkehren und diese Einstellungen entfernen oder den Vorgang fortsetzen.  
+  
+    > [!TIP]  
+    >  Nicht unterstützte Einstellungen werden nicht auf Kompatibilität überprüft.  
+  
+12. Schließen Sie den Assistenten ab.  
+  
+ Sie können das neue Konfigurationselement im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Konfigurationselemente** anzeigen.  
+  
+##  <a name="ios-and-mac-os-x-configuration-item-settings-reference"></a>Referenz zu Einstellungen des Konfigurationselements für iOS und Mac OS X  
+  
+###  <a name="password"></a>Kennwort  
+  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Demander des paramètres de mot de passe sur les appareils mobiles**|Exigez un mot de passe sur les appareils pris en charge.|  
-|**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
-|**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
-|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.<br /><br /> (iOS uniquement)|  
-|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.| 
-|**Autoriser les mots de passe simples**|Autorisez les mots de passe simples comme **0000** et **1234**.|
-|**Empreinte digitale pour le déverrouillage**|Autorise l’utilisation d’une empreinte digitale pour déverrouiller l’appareil.|
-|**Modification du code secret** (supervisée uniquement)|Autorisez l’ajout, la modification ou la suppression du mot de passe de l’appareil.|
+|**Kennworteinstellungen auf mobilen Geräten erforderlich**|Auf unterstützten Geräten ein Kennwort erfordern.|  
+|**Minimale Kennwortlänge (Zeichen)**|Die Mindestlänge für das Kennwort.|  
+|**Kennwortablauf in Tagen**|Die Anzahl der Tage, bevor ein Kennwort geändert werden muss.|  
+|**Anzahl der gespeicherten Kennwörter**|Verhindert die Wiederverwendung zuvor verwendeter Kennwörter.|  
+|**Anzahl der gescheiterten Anmeldeversuche vor dem Zurücksetzen eines Geräts**|Setzt das Gerät zurück, wenn diese Anzahl von Anmeldeversuchen fehlschlägt.<br /><br /> (nur iOS)|  
+|**Kennwortkomplexität**|Wählen Sie aus, ob Sie eine PIN wie „1234“ angeben können oder, ob ein sicheres Kennwort erforderlich ist.| 
+|**Einfache Kennwörter zulassen**|Ermöglicht das Verwenden einfacher Kennwörter wie **0000** und **1234**|
+|**Fingerabdruck zum Entsperren**|Ermöglicht das Entsperren des Geräts mittels Fingerabdruck.|
+|**Änderung des Passcodes** (nur überwacht)|Ermöglicht, dass das Kennwort des Geräts hinzugefügt, geändert oder entfernt wird|
   
-###  <a name="device"></a>Appareil  
- Ces paramètres s’appliquent aux appareils iOS et Mac OS X.  
+###  <a name="device"></a>Gerät  
+ Diese Einstellungen gelten für iOS- und Mac OS X-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Ajouter des amis du centre de jeux**|Permet d'ajouter des amis de l'application du centre de jeux.|
-|**Numérotation vocale**|Autorise l'utilisation de la fonctionnalité de numérotation vocale sur l'appareil.|  
-|**Assistant vocal**|Autorise l'utilisation d'une application d'assistance vocale comme Siri.|  
-|**Assistant vocal lors du verrouillage**|Autorise l'utilisation d'une application d'assistance vocale comme Siri lorsque l'appareil est verrouillé.|  
-|**Capture d'écran**|Permet de prendre une capture d'écran de l'affichage de l'appareil.|  
-|**Client chat vidéo**|Autorise l’utilisation des applications de conversation vidéo comme Facetime.|  
-|**Jeux multijoueur**|Permet de jouer avec d'autres joueurs sur Internet.|  
-|**Logiciel de portefeuille personnel lors du verrouillage**|Autorise l'utilisation d'un logiciel de portefeuille personnel comme Passbook.|  
-|**Envoi des données de diagnostic**|Autorisez l'envoi des journaux d'application.|  
-|**Notifications Sécurité et maintenance**|Autorisez l’utilisateur à accéder à l’affichage des notifications sans déverrouiller l’appareil.|
-|**Apple Music** (supervisé uniquement)|Autorisez l’utilisation de l’application Apple Music.|
-|**Podcasts** (supervisés uniquement)|Autorisez l’utilisation de l’application Podcasts.|
-|**Application Messages** (supervisée uniquement)|Autorisez l’utilisation de l’application Messages pour envoyer des messages texte.|
-|**Modification du papier peint** (supervisée uniquement)|Autorisez l’utilisateur à modifier le papier peint de l’appareil.|
-|**Recherche de définition de mot** (supervisée uniquement)|Autorisez la fonctionnalité iOS qui vous permet de surligner un mot et d’en rechercher la définition.|
-|**Détection du poignet pour les Apple Watch jumelées**|Lorsque cette fonctionnalité est activée, l’Apple Watch n’affiche pas les notifications lorsqu’elle n’est pas portée.|
-|**Filtre de vulgarité de Siri** (supervisé uniquement)|Empêche Siri de dicter ou de parler un langage grossier.|
-|**Modification du nom d’appareil** (supervisée uniquement)|Autorisez l’utilisateur à modifier le nom de l’appareil.|
-|**Modification des paramètres d’envoi des diagnostics** (supervisée uniquement)|Autorisez ou empêchez l’appareil d’envoyer les données de diagnostic à Apple.|
-|**Centre de jeux** (supervisé uniquement)|Autorisez l’utilisation de l’application de Centre de jeux.|
-|**iTunes Radio** (supervisé uniquement)|Autorisez l’utilisation de l’application iTunes Radio.|
-|**Apple News** (supervisé uniquement)|Autorisez l’utilisation de l’application Apple News.|
-|**Jumelage de l’Apple Watch** (supervisé uniquement)|Autorisez le jumelage de l’appareil avec une Apple Watch.|
-|**Correction automatique** (supervisée uniquement)|Autorisez l’appareil à corriger automatiquement les fautes d’orthographe.|
-|**Modification de Bluetooth** (supervisée uniquement)|Autorisez l’utilisateur à modifier les paramètres Bluetooth sur l’appareil.|
-|**Modifications des paramètres d’utilisation des données mobiles des applications** (supervisées uniquement)|Autorisez l’utilisateur à contrôler les applications autorisées à utiliser des données cellulaires.|
-|**Raccourcis clavier** (supervisés uniquement)|Autorisez l’utilisation des raccourcis clavier.|
-|**Claviers prédictifs** (supervisés uniquement)|Autorisez l’utilisation de claviers prédictifs suggérant des mots à l’utilisateur.|
-|**Vérification orthographique au clavier** (supervisée uniquement)|Autorisez la vérification orthographique sur l’appareil.|
-|**Modification des paramètres de notification** (supervisée uniquement)|Autorisez l’utilisateur à modifier les paramètres de notification sur l’appareil.|
-|**Retourner les résultats d’Internet dans la recherche Spotlight** (supervisé uniquement)|Autorisez la recherche Spotlight à se connecter à Internet pour fournir davantage de résultats.|
-|**Utiliser Siri pour interroger le contenu généré par l’utilisateur à partir d’Internet** (supervisé uniquement)|Autorisez Siri à accéder à des sites Web pour répondre aux questions.|
+|**Gamecenter-Freunde hinzufügen**|Ermöglicht das Hinzufügen von Freunden in der Gamecenter-App.|
+|**Sprachwahlverfahren**|Ermöglicht die Verwendung des Features „Sprachwahlverfahren“ auf dem Gerät.|  
+|**Sprach-Assistent**|Ermöglicht die Verwendung eines Sprach-Assistenten wie Siri.|  
+|**Sprach-Assistent im gesperrten Modus**|Ermöglicht die Verwendung eines Sprach-Assistenten wie Siri, wenn das Gerät gesperrt ist.|  
+|**Bildschirmaufnahme**|Ermöglicht die Aufnahme eines Screenshots der Geräteanzeige.|  
+|**Videochat-Client**|Ermöglicht die Verwendung von Videochat-Apps wie Facetime.|  
+|**Multiplayerspiele**|Ermöglicht Ihnen das Spielen mit anderen Spielern über das Internet.|  
+|**Persönliche Brieftaschensoftware im gesperrten Modus**|Ermöglicht die Verwendung einer persönlichen Brieftaschensoftware wie Passbook.|  
+|**Übermittlung von Diagnosedaten**|Ermöglicht die Übermittlung von Protokolldateien der App.|  
+|**Info-Center-Benachrichtigungen**|Ermöglicht Benutzern den Zugriff auf die Benachrichtigungsansicht, ohne dass das Gerät entsperrt werden muss|
+|**Apple Music** (nur überwacht)|Ermöglicht die Verwendung der Apple Music-App|
+|**Podcasts** (nur überwacht)|Ermöglicht die Verwendung der Podcasts-App|
+|**Nachrichten-App** (nur überwacht)|Ermöglicht die Verwendung der Nachrichten-App zum Senden von Textnachrichten|
+|**Hintergrundbild ändern** (nur überwacht)|Ermöglicht dem Benutzer, das Hintergrundbild des Geräts zu ändern|
+|**Suche nach Wortdefinition** (nur überwacht)|Ermöglicht die iOS-Funktion, mit der Sie ein Wort markieren und dessen Definition nachschlagen können|
+|**Handgelenkerkennung für gekoppelte Apple Watch-Geräte**|Wenn diese Einstellung aktiviert ist, wird die Apple Watch keine Benachrichtigungen anzeigen, wenn sie nicht getragen wird.|
+|**Siri-Filter für anstößige Ausdrücke** (nur überwacht)|Verhindert, dass Siri anstößige Sprache diktiert oder spricht|
+|**Bearbeitung des Gerätenamens** (nur überwacht)|Ermöglicht dem Benutzer, den Namen des Geräts zu ändern|
+|**Änderung der Einstellungen zur Diagnoseübermittlung** (nur überwacht)|Ermöglicht oder blockiert das Senden von Diagnosedaten des Geräts an Apple|
+|**Game Center** (nur überwacht)|Ermöglicht die Verwendung der Game Center-App|
+|**iTunes Radio** (nur überwacht)|Ermöglicht die Verwendung der iTunes Radio-App|
+|**Apple News** (nur überwacht)|Ermöglicht die Verwendung der Apple News-App|
+|**Apple Watch-Kopplung** (nur überwacht)|Ermöglicht die Kopplung des Geräts mit einer Apple Watch|
+|**Autokorrektur** (nur überwacht)|Ermöglicht, dass das Gerät falsch geschriebene Wörter automatisch korrigiert|
+|**Bluetooth-Änderung** (nur überwacht)|Ermöglicht dem Benutzer, die Bluetooth-Einstellungen auf dem Gerät zu ändern|
+|**Änderungen an den Einstellungen zur App-Mobilfunkdatennutzung** (nur überwacht)|Ermöglicht dem Benutzer, zu steuern, welche Apps Mobilfunkdaten verwenden dürfen|
+|**Tastenkombinationen** (nur überwacht)|Ermöglicht die Verwendung von Tastenkombinationen|
+|**Tastaturwortvorschläge** (nur überwacht)|Ermöglicht die Verwendung von Tastaturwortvorschlägen, die Wörter vorschlagen, die der Benutzer möglicherweise verwenden möchte|
+|**Rechtschreibprüfung über Tastatur** (nur überwacht)|Ermöglicht die Rechtschreibprüfung des Geräts|
+|**Änderung der Benachrichtigungseinstellungen** (nur überwacht)|Ermöglicht dem Benutzer, die Benachrichtigungseinstellungen des Geräts zu ändern|
+|**Ergebnisse aus dem Internet in Spotlight-Suche zurückgeben** (nur überwacht)|Ermöglicht die Verbindung der Spotlight-Suche mit dem Internet, um weitere Ergebnisse bereitzustellen|
+|**Siri zur Abfrage von benutzergeneriertem Inhalt aus dem Internet verwenden** (nur überwacht)|Ermöglicht Siri den Zugriff auf Websites, um Fragen zu beantworten|
 
   
-###  <a name="store"></a>Magasin  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="store"></a>Speicher  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Boutique d'applications**|Permet d'accéder à l'App Store sur l'appareil.|  
-|**Entrer un mot de passe pour accéder à la boutique d'applications**|Les utilisateurs doivent entrer un mot de passe pour accéder à l'App Store.|  
-|**Achats dans l'application**|Autorise les utilisateurs à effectuer des achats dans l'application.|
-|**Installation d’applications à l’aide d’Apple Configurator et iTunes uniquement** (supervisée uniquement)|Active ou désactive l’App Store sur l’écran d’accueil de l’appareil. Les utilisateurs peuvent toujours utiliser iTunes ou l’outil Apple Configurator pour installer des applications et les mettre à jour.|
-|**Accès à l’iBooks Store** (supervisé uniquement)|Autorisez l’utilisateur à parcourir et à acheter des livres dans l’iBooks Store.|
-|**Téléchargements d’application automatiques** (supervisé uniquement)|Autorisez le téléchargement automatique sur cet appareil des applications achetées sur d’autres appareils. Ce paramètre n’affecte pas les mises à jour des applications.|
+|**Anwendungsstore**|Ermöglicht den Zugriff auf den App Store auf dem Gerät.|  
+|**Geben Sie ein Kennwort für den Zugriff auf den Anwendungsstore ein.**|Benutzer müssen ein Kennwort für den Zugriff auf den App Store eingeben.|  
+|**In-App-Käufe**|Bietet Benutzern die Möglichkeit zu In-App-Käufen.|
+|**Apps nur mit Apple Configurator und iTunes installieren** (nur überwacht)|Aktiviert oder deaktiviert den App Store auf der Startseite des Geräts. Benutzer können weiterhin iTunes oder das Apple Configurator-Tool für die Installation und Aktualisierung von Apps verwenden.|
+|**Zugriff auf den iBooks Store** (nur überwacht)|Ermöglicht dem Benutzer das Durchsuchen und Erwerben von Büchern aus dem iBooks Store|
+|**Automatische App-Downloads** (nur überwacht)|Apps, die auf anderen Geräten erworben wurden, können automatisch auf dieses Gerät geladen werden. Diese Einstellung wirkt sich nicht auf App-Updates aus.|
 
   
-###  <a name="browser"></a>Navigateur  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="browser"></a>Browser  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Navigateur par défaut**|L'utilisateur peut modifier le navigateur Internet par défaut.|  
-|**Remplissage automatique**|L'utilisateur peut modifier les paramètres de saisie semi-automatique dans le navigateur.|  
-|**Active scripting**|Le navigateur peut exécuter des scripts, tels que les scripts ActiveX.|  
-|**Bloqueur de fenêtres publicitaires**|Active ou désactive le bloqueur de fenêtres publicitaires du navigateur.|  
-|**Cookies**|Autorisez l'enregistrement des cookies sur l'appareil.|  
-|**Avertissement de fraude**|Activez ou désactivez les avertissements des sites Web frauduleux potentiels.|  
+|**Standardbrowser**|Benutzer können den Standardinternetbrowser wechseln.|  
+|**Automatisch ausfüllen**|Benutzer können die Einstellungen für AutoVervollständigen im Browser ändern.|  
+|**Active Scripting**|Browser können Skripts ausführen, z. B. ActiveX-Skripts.|  
+|**Popupblocker**|Aktiviert oder deaktiviert den Popupblocker des Browsers.|  
+|**Cookies**|Ermöglicht das Speichern von Cookies auf dem Gerät.|  
+|**Betrugswarnung**|Aktivieren oder deaktivieren von Warnungen zu potenziell betrügerischen Websites.|  
   
-###  <a name="content-rating"></a>Contrôle d’accès au contenu  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="content-rating"></a>Inhaltsbewertung  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Contenu explicite dans la boutique multimédia**|Spécifiez si vous autorisez que le contenu pour adultes soit accessible à partir de l'App Store.|  
-|**Région des classifications**|Spécifie le pays pour lequel vous souhaitez appliquer des restrictions de classifications.|  
-|**Classification des films**|Spécifiez la classification maximale de contenu vidéo que vous souhaitez autoriser.|  
-|**Classification des émissions de télévision**|Spécifiez la classification maximale de contenu d'émission de télévision que vous souhaitez autoriser.|  
-|**Classification des applications**|Spécifiez la classification maximale de contenu d'application que vous souhaitez autoriser.| 
-|**Contenu de l’iBook Store marqué comme « Littérature érotique »** (supervisé uniquement)|Autorisez l’utilisateur à télécharger des livres de la catégorie « Littérature érotique ».| 
+|**Anstößiger Inhalt im Medienstore**|Geben Sie an, ob der Zugriff auf nicht jugendfreie Inhalte über den App Store zulässig ist.|  
+|**Bewertungsregion**|Gibt das Land an, für das Sie Bewertungseinschränkungen anwenden möchten.|  
+|**Filmbewertung**|Geben Sie die maximale Bewertung für Filminhalte an, die Sie zulassen möchten.|  
+|**Bewertung des TV-Programms**|Geben Sie die maximale Bewertung für TV-Programminhalte an, die Sie zulassen möchten.|  
+|**App-Bewertung**|Geben Sie die maximale Bewertung für App-Inhalte an, die Sie zulassen möchten.| 
+|**Herunterladen von iBook Store-Inhalt mit der Kennzeichnung „Erotik“** (nur überwacht)|Ermöglicht dem Benutzer, Bücher der Kategorie „Erotik“ herunterzuladen.| 
   
 > [!NOTE]  
->  Les classifications que vous pouvez sélectionner varient en fonction de la **Région des classifications** sélectionnée.  
+>  Die Bewertungen, die Sie auswählen können, variieren je nach **Bewertungsregion** , die Sie ausgewählt haben.  
   
 ###  <a name="cloud"></a>Cloud  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Sauvegarde cloud**|Autorisez les sauvegardes sur un service cloud comme iCloud.|  
-|**Sauvegarde chiffrée**|Autorisez le chiffrement des sauvegardes sur un service cloud.|  
-|**Synchronisation de documents**|Autorisez la synchronisation des documents sur un service cloud.|  
-|**Synchronisation des photos**|Autorisez la synchronisation des photos sur un service cloud.| 
-|**Photothèque iCloud**|Si cette option est définie sur **Non**, l’utilisation de la bibliothèque de photos iCloud permettant aux utilisateurs de stocker des photos et des vidéos dans le cloud est désactivée. Les photos qui ne sont pas entièrement téléchargées à partir de la bibliothèque de photos iCloud sur l’appareil seront supprimées de l’appareil si cette option est définie sur **Non**.|
-|**Partage de photos iCloud**|Définissez cette option sur **Non** pour désactiver le partage de photos iCloud sur l’appareil.|
-|**Handoff pour continuer les activités sur un autre appareil**|Autorisez l’utilisateur à poursuivre le travail démarré sur un appareil iOS sur un autre appareil iOS ou Mac OS X.|
-|**Synchroniser les données des applications gérées dans iCloud**|Autorisez les applications que vous gérez avec Intune à synchroniser des données avec le compte iCloud de l’utilisateur.|
+|**Cloudsicherung**|Ermöglicht die Sicherung in einem Clouddienst wie iCloud.|  
+|**Verschlüsselte Sicherung**|Ermöglicht das Verschlüsseln der Sicherung in einem Clouddienst.|  
+|**Dokumentsynchronisierung**|Ermöglicht die Dokumentsynchronisierung mit einem Clouddienst.|  
+|**Fotosynchronisierung**|Ermöglicht die Fotosynchronisierung mit einem Clouddienst.| 
+|**iCloud-Fotomediathek**|Wenn auf **Nein** festgelegt, wird die Verwendung der iCloud-Fotomediathek deaktiviert, mit der Benutzer Fotos und Videos in der Cloud speichern können. Fotos aus der iCloud-Fotomediathek, die nicht vollständig auf das Gerät heruntergeladen wurden, werden vom Gerät entfernt, wenn dieser Wert auf **Nein** festgelegt ist.|
+|**iCloud-Fotofreigabe**|Legen Sie dies auf **Nein** fest, um die iCloud-Fotofreigabe von Fotos auf dem Gerät zu deaktivieren.|
+|**Aktivitäten mit HandOff auf einem anderen Gerät fortsetzen**|Erlaubt es dem Benutzer, Arbeiten eines iOS-Geräts auf anderen iOS- oder macOS X-Geräten fortzusetzen.|
+|**Daten aus verwalteten Apps mit iCloud synchronisieren**|Ermöglicht es mit Intune verwalteten Apps, Daten mit dem iCloud-Konto des Benutzers zu synchronisieren.|
 
   
-###  <a name="security"></a>Sécurité  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="security"></a>Sicherheit  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Appareil photo**|Autorisez l'utilisation de l'appareil photo.| 
-|**Faire confiance aux nouveaux créateurs d’applications d’entreprise**|Permet à l’utilisateur de choisir de faire confiance aux applications qui n’ont pas été téléchargées à partir de l’App Store.| 
+|**Kamera**|Ermöglicht die Verwendung der Gerätekamera.| 
+|**Neuen Unternehmens-App-Autoren vertrauen**|Ermöglicht es dem Benutzer, ausgewählten Apps zu vertrauen, die nicht aus dem App Store heruntergeladen wurden.| 
   
-###  <a name="roaming"></a>Itinérant  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="roaming"></a>Roaming  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Itinérance vocale**|Autorise les appels vocaux lors de l'itinérance.|  
-|**Synchronisation automatique lors de l’itinérance**|Permet à l'appareil de se synchroniser automatiquement lors de l'itinérance.|  
-|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|  
+|**Sprachroaming**|Ermöglicht Sprachanrufe beim Roaming.|  
+|**Automatische Synchronisierung beim Roaming**|Ermöglicht dem Gerät die automatische Synchronisierung beim Roaming.|  
+|**Datenroaming**|Ermöglicht beim Zugriff auf Daten das Roaming zwischen Netzwerken.|  
   
-###  <a name="system-security"></a>Sécurité système  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="system-security"></a>Systemsicherheit  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**L’utilisateur doit accepter les certificats TLS non approuvés**|Si **Autorisé**, l'utilisateur peut accepter les certificats. Si **Interdit**, les certificats non approuvés sont automatiquement rejetés.|
-|**Autoriser le verrou d’activation (mode supervisé uniquement)**|Utilisez ce paramètre pour activer le verrou d’activation iOS sur les appareils iOS **supervisés** que vous gérez. Pour plus d’informations sur le verrou d’activation, consultez [Gérer le verrou d’activation iOS avec System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
-|**Centre de contrôle sur l’écran de verrouillage**|Détermine si l'application de centre de contrôle est accessible lorsque l'appareil est verrouillé.|  
-|**Affichage des notifications sur l’écran de verrouillage**|Détermine si les notifications peuvent s'afficher lorsque l'appareil est verrouillé.|  
-|**Affichage journée sur l’écran de verrouillage**|Détermine si la vue Aujourd'hui peut s'afficher lorsque l'appareil est verrouillé.|  
-|**Modifier les paramètres de compte** (supervisé uniquement)|Autorisez l’utilisateur à modifier les paramètres du compte, comme les configurations de la messagerie électronique.|
-|**Modifier les paramètres de l’application Localiser mes amis** (supervisé uniquement)|Autorisez l’utilisateur à modifier les paramètres de l’application Localiser mes amis.|
-|**Utiliser le jumelage d’hôtes pour contrôler les appareils avec lesquels un appareil iOS peut être jumelé** (supervisé uniquement)|Autorisez le jumelage d’hôtes pour permettre à l’administrateur de contrôler avec quels appareils un appareil iOS peut être jumelé.|
-|**Effacer tout le contenu et les paramètres** (supervisé uniquement)|Autorisez l’utilisateur à utiliser l’option d’effacement de tout le contenu et des paramètres sur l’appareil.|
-|**Configurer des restrictions sur l’appareil** (supervisé uniquement)|Autorisez l’utilisateur à configurer des restrictions sur l’appareil (contrôle parental).|
-|**Installer des profils de configuration et des certificats** (supervisé uniquement)|Autorisez l’utilisateur à installer des profils de configuration et des certificats.|
-|**Mot de passe pour les demandes sortantes AirPlay**|Demander un mot de passe de jumelage lorsque l’utilisateur utilise AirPlay pour diffuser du contenu sur d’autres appareils Apple.|
+|**Benutzer akzeptiert nicht vertrauenswürdige TLS-Zertifikate**|Bei **Zulässig**kann der Benutzer diese Zertifikate akzeptieren. Bei **Nicht zulässig**werden nicht vertrauenswürdige Zertifikate automatisch abgelehnt.|
+|**Aktivierungssperre zulassen (nur überwachter Modus)**|Verwenden Sie diese Einstellung, um die iOS-Aktivierungssperre auf den von Ihnen **überwachten** iOS-Geräten zu aktivieren. Weitere Informationen zur Aktivierungssperre finden Sie unter [Manage iOS Activation Lock with System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md) (Verwalten der iOS-Aktivierungssperre mit System Center Configuration Manager).
+|**Kontrollzentrum für den Sperrbildschirm**|Steuert, ob auf die Kontrollcenter-App zugegriffen werden kann, wenn das Gerät gesperrt ist.|  
+|**Ansicht „Benachrichtigung“ für den Sperrbildschirm**|Steuert, ob Benachrichtigungen angezeigt werden können, wenn das Gerät gesperrt ist.|  
+|**Ansicht „Heute“ für den Sperrbildschirm**|Steuert, ob die Ansicht „Heute“ angezeigt werden kann, wenn das Gerät gesperrt ist.|  
+|**Kontoeinstellungen ändern** (nur überwacht)|Ermöglicht dem Benutzer das Ändern der Kontoeinstellungen wie z.B. E-Mail-Konfigurationen.|
+|**Änderungen an den Einstellungen der App „Meine Freunde suchen“** (nur überwacht)|Ermöglicht dem Benutzer das Ändern der Einstellungen für die App „Meine Freunde suchen“.|
+|**Hostkopplung zum Steuern der Geräte verwenden, mit denen ein iOS-Gerät gekoppelt werden kann** (nur überwacht)|Ermöglicht die Hostkopplung, mit deren Hilfe der Administrator steuern kann, mit welchen Geräten ein iOS-Gerät verbunden werden kann.|
+|**Gesamten Inhalt und alle Einstellungen löschen** (nur überwacht)|Ermöglicht dem Benutzer, alle Inhalte und Einstellungen auf dem Gerät zu löschen.|
+|**Einschränkungen auf Gerät konfigurieren** (nur überwacht)|Ermöglicht die Konfiguration von Geräteeinschränkungen (Jugendschutz) auf dem Gerät.|
+|**Konfigurationsprofile und Zertifikate installieren** (nur überwacht)|Ermöglicht dem Benutzer die Installation von Konfigurationsprofilen und Zertifikaten.|
+|**Kennwort für ausgehende AirPlay-Anforderungen**|Erfordert ein Kennwort für die Kopplung, wenn der Benutzer zum Streamen von Inhalt auf anderen Apple-Geräten AirPlay verwendet.|
   
-###  <a name="data-protection"></a>Protection des données  
- Ces paramètres s'appliquent aux appareils iOS uniquement.  
+###  <a name="data-protection"></a>Datenschutz  
+ Diese Einstellungen gelten nur für iOS-Geräte.  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Ouvrir les documents des applications gérés dans d’autres applications non gérées**|Pour une utilisation avec les applications gérées par les stratégies de gestion des applications Configuration Manager.|  
-|**Ouvrir les documents des applications non gérées dans d’autres applications gérées**|Pour une utilisation avec les applications gérées par les stratégies de gestion des applications Configuration Manager.| 
-|**Traiter AirDrop comme une destination non gérée** (supervisé uniquement)|Empêche les applications gérées d’être en mesure d’envoyer des données via Airdrop.|
-|**AirDrop** (supervisé uniquement)|Autorisez l’utilisation de la fonctionnalité AirDrop pour échanger du contenu avec des appareils à proximité.|
+|**Dokumente in verwalteten Apps in anderen nicht verwalteten Apps öffnen**|Zur Verwendung mit Apps, die nach Anwendungsverwaltungsrichtlinien von Configuration Manager verwaltet werden|  
+|**Dokumente in nicht verwalteten Apps in anderen verwalteten Apps öffnen**|Zur Verwendung mit Apps, die nach Anwendungsverwaltungsrichtlinien von Configuration Manager verwaltet werden| 
+|**AirDrop als nicht verwaltetes Ziel behandeln** (nur überwacht)|Hindert verwaltete Apps am Senden von Daten. Airdrop.|
+|**AirDrop** (nur überwacht)|Ermöglicht die Verwendung der Funktion AirDrop, um Inhalt mit Geräten in Ihrer Nähe auszutauschen.|
   
-###  <a name="compliant-and-noncompliant-apps-ios"></a>Applications conformes et non conformes (iOS)  
- Permet de spécifier une liste d'applications iOS conformes ou non conformes dans votre entreprise. Vous pouvez ensuite utiliser des rapports pour afficher les appareils sur lesquels sont installées des applications non conformes et l'utilisateur associé.  
+###  <a name="compliant-and-noncompliant-apps-ios"></a>Kompatible und nicht kompatible Apps (iOS)  
+ Dient zum Angeben einer Liste von iOS-Apps, die in Ihrem Unternehmen kompatibel oder nicht kompatibel sind. Anschließend können Sie mithilfe von Berichten Geräte, auf denen nicht kompatible Apps installiert sind, und dazugehörige Benutzer bestimmen.  
   
- Vous ne pouvez pas spécifier à la fois les applications conformes et non conformes dans le même élément de configuration.  
+ Es ist nicht möglich, kompatible und nicht kompatible Apps im selben Konfigurationselement anzugeben.  
   
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Pour spécifier la liste des applications conformes ou non conformes  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>So geben Sie eine Liste mit kompatiblen bzw. nicht kompatiblen Apps an  
   
-1.  Dans la page **Applications conformes et non conformes (iOS)** , spécifiez les informations suivantes :  
+1.  Geben Sie auf der Seite **Kompatible und nicht kompatible Apps (iOS)** die folgenden Informationen ein:  
   
-    -   **Liste des applications non conformes** - Sélectionnez cette option si vous souhaitez spécifier une liste d’applications qui seront signalées comme non conformes en cas d’installation par des utilisateurs.  
+    -   **Liste nicht kompatibler Apps** – Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die als nicht kompatibel gemeldet werden, wenn sie von Benutzern installiert werden.  
   
-    -   **Liste des applications conformes** - Sélectionnez cette option si vous souhaitez spécifier une liste d’applications que les utilisateurs sont autorisés à installer. Toutes les autres applications installées sont signalées comme non conformes.  
+    -   **Liste kompatibler Apps** – Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die Benutzer installieren dürfen. Alle anderen installierten Apps werden als nicht kompatibel gemeldet.  
   
-    -   **Ajouter** - Ajoute une application à la liste sélectionnée. Spécifiez un nom de votre choix, éventuellement l'éditeur de l'application, et l'URL de l'application dans le magasin d'applications.  
+    -   **Hinzufügen** – Fügt eine App zur ausgewählten Liste hinzu. Geben Sie einen Namen Ihrer Wahl sowie die URL zur App im App-Store und optional den Herausgeber der App an.  
   
-         Pour spécifier l'URL, à partir de l'iTunes App Store, recherchez l'application que vous voulez utiliser.  
+         Zum Angeben der URL suchen Sie im iTunes App Store die App, die Sie verwenden möchten.  
   
-         Ouvrez la page de l'application, puis copiez l'URL dans le Presse-papiers. Vous pouvez maintenant utiliser cette URL dans la liste des applications conformes ou non conformes.  
+         Öffnen Sie die Seite der App, und kopieren Sie die URL in die Zwischenablage. Jetzt können Sie diese als URL in der Liste mit kompatiblen oder nicht kompatiblen Apps verwenden.  
   
-         **Exemple :** recherchez l’application **Microsoft Word pour iPad** dans le Store. L'URL que vous utilisez sera **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+         **Beispiel:** Suchen Sie im Store die App **Microsoft Word für iPad** . Die URL, die Sie verwenden, ist **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
-    -   **Modifier** - Vous permet de modifier le nom, l’éditeur et l’URL de l’application sélectionnée.  
+    -   **Bearbeiten** – Ermöglicht Ihnen das Bearbeiten von Name, Herausgeber und URL der ausgewählten App.  
   
-    -   **Supprimer** - Supprime l’application sélectionnée dans la liste.  
+    -   **Entfernen** – Löscht die ausgewählte App aus der Liste.  
   
-    -   **Importer** - Importe une liste d’applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.  
+    -   **Importieren** – Importiert eine Liste von Apps, die Sie in einer CSV-Datei angegeben haben. Verwenden Sie in der Datei das Format Anwendungsname, Herausgeber und App-URL.  
   
-2.  Lorsque vous avez terminé, cliquez sur **Suivant**.  
+2.  Klicken Sie danach auf **Weiter**.  
   
- Vous pouvez utiliser l’un des rapports suivants pour surveiller les applications conformes et non conformes :  
+ Sie können auch einen der folgenden Berichte verwenden, um kompatible und nicht kompatible Apps zu überwachen:  
   
--   **Liste des applications et des appareils non conformes d'un utilisateur spécifié** : affiche des informations sur les utilisateurs et les appareils sur lesquels sont installées des applications non conformes avec une stratégie que vous avez spécifiée.  
+-   **Liste nicht kompatibler Apps und Geräte für einen angegebenen Benutzer** – Zeigt Informationen zu Benutzern und Geräten, die über App-Installationen verfügen, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.  
   
--   **Résumé des utilisateurs ayant des applications non conformes** : affiche des informations sur les utilisateurs qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.  
+-   **Übersicht der Benutzer mit nicht kompatiblen Apps** – Zeigt Informationen zu Benutzern, die Apps installiert haben, die einer von Ihnen angegebenen Richtlinie nicht entsprechen.  
   
- Pour plus d’informations sur la façon d’utiliser les rapports, consultez [Rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Weitere Informationen zur Verwendung von Berichten finden Sie unter [Berichterstattung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
   
-###  <a name="compliant-and-noncompliant-apps-mac-os-x"></a>Applications conformes et non conformes (Mac OS X)  
- Permet de spécifier une liste d’applications Mac OS X conformes ou non conformes dans votre entreprise. Vous pouvez ensuite utiliser des rapports pour afficher les appareils sur lesquels sont installées des applications non conformes et l'utilisateur associé.  
+###  <a name="compliant-and-noncompliant-apps-mac-os-x"></a>Kompatible und nicht kompatible Apps (Mac OS X)  
+ Dient zum Angeben einer Liste von Max OS X-Apps, die in Ihrem Unternehmen kompatibel oder nicht kompatibel sind. Anschließend können Sie mithilfe von Berichten Geräte, auf denen nicht kompatible Apps installiert sind, und dazugehörige Benutzer bestimmen.  
   
- Vous ne pouvez pas spécifier à la fois les applications conformes et non conformes dans le même élément de configuration.  
+ Es ist nicht möglich, kompatible und nicht kompatible Apps im selben Konfigurationselement anzugeben.  
   
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Pour spécifier la liste des applications conformes ou non conformes  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>So geben Sie eine Liste mit kompatiblen bzw. nicht kompatiblen Apps an  
   
-1.  Dans la page **Applications conformes et non conformes (Mac OS X)** , spécifiez les informations suivantes :  
+1.  Geben Sie auf der Seite **Kompatible und nicht kompatible Apps (Mac OS X)** die folgenden Informationen an:  
   
-    -   **Liste des applications non conformes** - Sélectionnez cette option si vous souhaitez spécifier une liste d’applications qui seront signalées comme non conformes en cas d’installation par des utilisateurs.  
+    -   **Liste nicht kompatibler Apps** – Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die als nicht kompatibel gemeldet werden, wenn sie von Benutzern installiert werden.  
   
-    -   **Liste des applications conformes** - Sélectionnez cette option si vous souhaitez spécifier une liste d’applications que les utilisateurs sont autorisés à installer. Toutes les autres applications installées sont signalées comme non conformes.  
+    -   **Liste kompatibler Apps** – Wählen Sie diese Option aus, wenn Sie eine Liste von Apps angeben möchten, die Benutzer installieren dürfen. Alle anderen installierten Apps werden als nicht kompatibel gemeldet.  
   
-    -   **Ajouter** - Ajoute une application à la liste sélectionnée. Spécifiez un nom de votre choix, éventuellement l’éditeur de l’application, et l’ID d’offre groupée de l’application.  
+    -   **Hinzufügen** – Fügt eine App zur ausgewählten Liste hinzu. Geben Sie einen Namen Ihrer Wahl, optional den Herausgeber der App sowie die Paket-ID der App an.  
   
         > [!TIP]  
-        >  Pour rechercher l’ID d’offre groupée d’une application, effectuez les étapes suivantes sur un ordinateur Mac où l’application est installée :  
+        >  Zum Ermitteln der Paket-ID einer App führen Sie auf einem Mac-Computer, auf dem die App installiert ist, die folgenden Schritte aus:  
         >   
-        >  1.  Ouvrez le dossier dans lequel l’application est installée (par exemple, **/Applications**)  
-        > 2.  Sélectionnez l’offre groupée *<Nom de l’application\>***.app** et choisissez **Afficher le contenu du package**.  
-        > 3.  Ouvrez le fichier **Info.plist**  
-        > 4.  Vérifiez la valeur associée à la clé **CFBundleIdentifier**  
+        >  1.  Öffnen Sie den Ordner, in dem die App installiert ist (z. B. **/Programme**).  
+        > 2.  Wählen Sie das Paket *<App-Name\>***.app** und anschließend **Paketinhalt anzeigen** aus.  
+        > 3.  Öffnen Sie die Datei **Info.plist** .  
+        > 4.  Überprüfen Sie den Wert, der dem Schlüssel **CFBundleIdentifier**zugewiesen ist.  
         >   
-        >  L’ID d’offre groupée se présente ainsi : **com.contoso.nomapp**  
+        >  Die Paket-ID weist das Format **com.contoso.appname**auf.  
   
-    -   **Modifier** - Vous permet de modifier le nom, l’éditeur et l’ID d’offre groupée de l’application sélectionnée.  
+    -   **Bearbeiten** – Ermöglicht Ihnen das Bearbeiten der Werte für Name, Herausgeber und Paket-ID der ausgewählten App.  
   
-    -   **Supprimer** - Supprime l’application sélectionnée dans la liste.  
+    -   **Entfernen** – Löscht die ausgewählte App aus der Liste.  
   
-    -   **Importer** - Importe une liste d’applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format, le nom de l’application, l’éditeur et l’ID d’offre groupée dans le fichier.  
+    -   **Importieren** – Importiert eine Liste von Apps, die Sie in einer CSV-Datei angegeben haben. Verwenden Sie das Format, den App-Namen, den Herausgeber und die Paket-ID der App in der Datei.  
   
-2.  Lorsque vous avez terminé, cliquez sur **Suivant**.  
+2.  Klicken Sie danach auf **Weiter**.  
   
- Vous pouvez utiliser l’un des rapports suivants pour surveiller les applications conformes et non conformes :  
+ Sie können auch einen der folgenden Berichte verwenden, um kompatible und nicht kompatible Apps zu überwachen:  
   
--   **Liste des applications et des appareils non conformes d'un utilisateur spécifié** : affiche des informations sur les utilisateurs et les appareils sur lesquels sont installées des applications non conformes avec une stratégie que vous avez spécifiée.  
+-   **Liste nicht kompatibler Apps und Geräte für einen angegebenen Benutzer** – Zeigt Informationen zu Benutzern und Geräten, die über App-Installationen verfügen, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.  
   
--   **Résumé des utilisateurs ayant des applications non conformes** : affiche des informations sur les utilisateurs qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.  
+-   **Übersicht der Benutzer mit nicht kompatiblen Apps** – Zeigt Informationen zu Benutzern, die Apps installiert haben, die einer von Ihnen angegebenen Richtlinie nicht entsprechen.  
   
- Pour plus d’informations sur la façon d’utiliser les rapports, consultez [Rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Weitere Informationen zur Verwendung von Berichten finden Sie unter [Berichterstattung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
   
-### <a name="ios-and-mac-os-x-custom-profile-settings"></a>Paramètres du profil personnalisé iOS et Mac OS X  
- Utilisez des **Profils personnalisés iOS et Mac OS X** pour déployer les paramètres que vous avez créés à l’aide de l’ [outil Apple Configurator](https://itunes.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) sur des appareils iOS et Mac OS X. Cet outil vous permet de créer plusieurs paramètres qui contrôlent le fonctionnement de ces appareils et de les exporter vers un profil de configuration. Vous pouvez ensuite importer ce profil de configuration dans un profil personnalisé iOS et Mac OS X et déployer les paramètres pour les utilisateurs et les appareils de votre organisation.  
+### <a name="ios-and-mac-os-x-custom-profile-settings"></a>Einstellungen für benutzerdefinierte iOS- und Mac OS X-Profile  
+ Verwenden Sie **Benutzerdefinierte iOS-und Mac OS X-Profile** zum Bereitstellen von Einstellungen, die Sie mit dem [Apple Configurator-Tool](https://itunes.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) für iOS- und Mac OS X-Geräte erstellt haben. Mit diesem Tool können Sie zahlreiche Einstellungen zur Betriebssteuerung dieser Geräte erstellen und in ein Konfigurationsprofil exportieren. Sie können dieses Konfigurationsprofil anschließend in ein benutzerdefiniertes iOS-und Mac OS X-Profil importieren und die Einstellungen für Benutzer und Geräte in Ihrer Organisation bereitstellen.  
   
 > [!NOTE]  
->  Vérifiez que les paramètres que vous exportez à partir de l’outil Apple Configurator sont compatibles avec la version d’iOS ou de Mac OS X des appareils sur lesquels vous déployez le profil. Pour plus d'informations sur la résolution des paramètres incompatibles, recherchez Configuration Profile Reference et Mobile Device Management Protocol Reference sur le site web [Apple Developer](https://developer.apple.com/) .  
+>  Stellen Sie sicher, dass die Einstellungen, die Sie aus dem Apple Configurator-Tool exportieren, mit der iOS- oder Mac OS X-Version auf den Geräten kompatibel sind, für die Sie das Profil bereitstellen. Um Informationen zum Korrigieren inkompatibler Einstellungen zu erhalten, suchen Sie nach der Konfigurationsprofilreferenz und der Verwaltungsprotokollreferenz für mobile Geräte auf der [Apple Developer](https://developer.apple.com/) -Website.  
   
-#### <a name="to-create-an-ios-and-mac-os-x-custom-profile"></a>Pour créer un profil personnalisé iOS et Mac OS X  
+#### <a name="to-create-an-ios-and-mac-os-x-custom-profile"></a>So erstellen Sie ein benutzerdefiniertes iOS- und Mac OS X-Profil  
   
-1.  Dans la page **Configurer les paramètres du profil personnalisé iOS et Mac OS X** de l’ **Assistant Création d’élément de configuration**, spécifiez les informations suivantes :  
+1.  Geben Sie auf der Seite **Einstellungen für benutzerdefiniertes iOS- und Mac OS X-Profil konfigurieren** des **** Assistenten zum Erstellen von Konfigurationselementen die folgenden Informationen an:  
   
-    -   **Nom du profil de configuration personnalisé (celui présenté aux utilisateurs)** - Entrez le nom de la stratégie tel qu’il sera affiché sur l’appareil et dans les rapports Configuration Manager.  
+    -   **Name des benutzerdefinierten Konfigurationsprofils (wird Benutzern angezeigt)** – Geben Sie einen Namen für die Richtlinie an, der auf dem Gerät und in Configuration Manager-Berichten angezeigt wird.  
   
-    -   **Importer** - Choisissez un fichier que vous avez exporté à partir de l’outil Apple Configurator.  
+    -   **Importieren** – Wählen Sie eine Datei aus, die Sie aus dem Apple Configurator-Tool exportiert haben.  
   
-    -   **Détails du profil de configuration** - Affiche le code XML du profil de configuration que vous avez importé.  
+    -   **Konfigurationsprofildetails** – Zeigt die Datei an, die Sie importiert haben.  
   
-    -   **Corriger les paramètres non conformes** -  
+    -   **Nicht kompatible Einstellungen wiederherstellen** -  
   
-         Sélectionnez si vous souhaitez corriger les paramètres de configuration non conformes (quand ils sont pris en charge).  
+         Wählen Sie diese Option aus, wenn Sie nicht kompatible Einstellungen wiederherstellen möchten (sofern unterstützt).  
   
-    -   **Gravité de non-compatibilité pour les rapports** - Spécifiez le niveau de gravité signalé si cette stratégie de conformité est évaluée comme non conforme. Les niveaux de gravité disponibles sont les suivants :  
+    -   **Schweregrad der Nichtkompatibilität für Berichte** – Geben Sie den Schweregrad an, der gemeldet wird, wenn diese Kompatibilitätsrichtlinie als nicht kompatibel ausgewertet wird. Die folgenden Schweregrade sind verfügbar:  
   
         > [!NOTE]  
-        >  Quand un appareil Mac OS X est en mode veille, il n’est pas possible de remettre ou d’inventorier les stratégies et les profils. La console Configuration Manager peut donc afficher temporairement l’état Paramètres de stratégie erronés jusqu’à ce que l’appareil sorte du mode veille.  
+        >  Wenn sich ein Mac OS X-Gerät im Energiesparmodus befindet, können keine Richtlinien oder Profile bereitgestellt oder inventarisiert werden. Infolgedessen zeigt die Configuration Manager-Konsole möglicherweise vorübergehend den Status „Richtlinieneinstellungen mit Fehlern“ an, bis der Energiesparmodus beendet wird.  
   
-        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+        -   **Keiner** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-        -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+        -   **Information** – Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+        -   **Warnung** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+        -   **Kritisch** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+        -   **Kritisch mit Ereignis** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
   
-#### <a name="how-to-create-a-configuration-profile-file"></a>Création d’un fichier de profil de configuration  
- Vous pouvez créer le fichier de profil de configuration utilisé par la stratégie personnalisée de deux manières :  
+#### <a name="how-to-create-a-configuration-profile-file"></a>Erstellen einer Konfigurationsprofildatei  
+ Die Konfigurationsprofildatei, die von der benutzerdefinierten Richtlinie verwendet wird, kann auf zwei Weisen erstellt werden:  
   
--   Exportez le fichier (avec l’extension **.mobileconfig**) à partir de l’outil Apple Configurator.  
+-   Exportieren Sie die Datei (mit der Erweiterung **.mobileconfig**) aus dem Apple Configurator-Tool.  
   
--   Créez le fichier en utilisant le schéma approprié fourni dans la [référence des clés de profil de configuration](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html).  
+-   Erstellen Sie die Datei selbst unter Verwendung des entsprechenden Schemas aus der [Apple Configuration Profile Key Reference](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html).  
   
-###  <a name="kiosk-mode-ios"></a>Mode kiosque (iOS)  
- Le mode kiosque vous permet de verrouiller un appareil pour n'autoriser que le fonctionnement de certaines fonctionnalités. Par exemple, vous pouvez autoriser un appareil à exécuter seulement une application gérée que vous spécifiez ou vous pouvez désactiver les boutons de volume sur un appareil. Ces paramètres peuvent être utilisés pour un modèle de démonstration d'un appareil ou pour un appareil dédié à l'exécution d'une seule fonction, par exemple dans un point de vente.  
+###  <a name="kiosk-mode-ios"></a>Kioskmodus (iOS)  
+ Über den Kioskmodus können Sie ein Gerät sperren, damit nur bestimmte Features funktionieren. Beispielsweise können Sie festlegen, dass auf einem Gerät nur eine von Ihnen angegebene verwaltete App ausgeführt werden kann, oder Sie können die Lautstärkeregler eines Geräts deaktivieren. Diese Einstellungen können für ein Demomodell eines Geräts oder ein Gerät nützlich sein, das nur eine bestimmte Funktion ausführen soll, wie z. B. ein Point-of-Sale-Gerät.  
   
-#### <a name="to-configure-kiosk-mode-for-ios-devices"></a>Pour configurer le mode kiosque pour des appareils iOS  
+#### <a name="to-configure-kiosk-mode-for-ios-devices"></a>So konfigurieren Sie den Kioskmodus für iOS-Geräte  
   
-1.  Dans la page **Configurer les paramètres du mode kiosque pour les appareils iOS** de l' **Assistant Création d'élément de configuration**, spécifiez les informations suivantes :  
+1.  Geben Sie auf der Seite zum **Konfigurieren der Kioskmoduseinstellungen für iOS-Geräte** des **Assistenten zum Erstellen von Konfigurationselementen**die folgenden Informationen an:  
   
-    -   **Sélectionner une application** - Sélectionnez l’application qui sera autorisée à s’exécuter quand l’appareil est en mode plein écran. Aucune autre application ne pourra s'exécuter sur l'appareil. Choisissez parmi :  
+    -   **App auswählen** – Wählen Sie die App aus, die ausgeführt werden darf, während sich das Gerät im Kioskmodus befindet. Andere Apps dürfen auf dem Gerät nicht ausgeführt werden. Wählen Sie aus:  
   
-        -   **Application gérée** : cliquez sur Parcourir, puis sélectionnez une application gérée.  
+        -   **Managed App** : Klicken Sie auf „Durchsuchen“, und wählen Sie dann eine verwaltete App aus.  
   
-        -   **Application du Store** : spécifiez l'URL d'une application de l'App Store, puis cliquez sur **Obtenir l'ID de l'application** pour remplir le champ **ID de l'application** .  
+        -   **Store App** : Geben Sie die URL zu einer App im App Store an, und klicken Sie dann auf **Get App ID** , um das Feld **App ID** zu füllen.  
   
-         Pour trouver l'URL de l'application :  
+         So finden Sie die URL der App:  
   
-        -   À l'aide d'un moteur de recherche, recherchez l'application à utiliser dans l'App Store iTunes, puis ouvrez la page de l'application.  
+        -   Suchen Sie mithilfe einer Suchmaschine die gewünschte App im iTunes App Store, und öffnen Sie die Seite für die App.  
   
-        -   Copiez l'URL de la page et utilisez-la en tant qu'URL pour spécifier l'application que vous souhaitez exécuter en mode kiosque.  
+        -   Kopieren Sie die URL der Seite, und verwenden Sie diese als URL zur Angabe der App, die Sie im Kioskmodus ausführen möchten.  
   
-        -   **Exemple :** recherchez **Microsoft Word pour iPad**. L'URL que vous utilisez sera **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+        -   **Beispiel:** Suchen Sie nach **Microsoft Word für iPad**. Die URL, die Sie verwenden, ist **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
-    -   **Tactile** - Active ou désactive l’écran tactile sur l’appareil.  
+    -   **Toucheingabe** – Aktiviert oder deaktiviert den Touchscreen des Geräts.  
   
-    -   **Rotation écran** - Active ou désactive la modification de l’orientation de l’écran quand vous faites pivoter l’appareil.  
+    -   **Automatische Ausrichtung** – Aktiviert oder deaktiviert die Funktion zum Ändern der Bildschirmausrichtung, wenn Sie das Gerät drehen.  
   
-    -   **Boutons de volume** - Active ou désactive l’utilisation des boutons de volume sur l’appareil.  
+    -   **Lautstärketasten** – Aktiviert oder deaktiviert die Verwendung der Lautstärketasten am Gerät.  
   
-    -   **Fonction de sonnerie** - Active ou désactive le commutateur de sonnerie (désactivation du son) sur l’appareil.  
+    -   **Stummschalter** – Aktiviert oder deaktiviert die Stummschaltung (Ruftonschalter) am Gerät.  
   
-    -   **Bouton de mise en veille et en éveil de l’écran** - Active ou désactive le bouton Veille/sortie de veille de l’écran sur l’appareil.  
+    -   **Bildschirm-Standby-Taste** – Aktiviert oder deaktiviert die Taste für Standby/Aktivierung des Bildschirms am Gerät.  
   
-    -   **Verrouillage automatique** - Active ou désactive le verrouillage automatique de l’appareil.  
+    -   **Automatisch sperren** – Aktiviert oder deaktiviert die automatische Sperrung des Geräts.  
   
-    -   **Audio mono** - Active ou désactive le paramètre d’accessibilité **Audio mono**.  
+    -   **Mono-Audio** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **Mono-Audio**.  
   
-    -   **VoiceOver** - Active ou désactive le paramètre d’accessibilité **VoiceOver** qui lit à haute voix le texte sur l’affichage de l’appareil.  
+    -   **VoiceOver** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **VoiceOver**, die den Text auf dem Gerätedisplay laut vorliest.  
   
-    -   **Réglages des commentaires audio** - Active ou désactive les réglages VoiceOver qui vous permettent de régler la fonction VoiceOver (par exemple la vitesse de lecture à haute voix du texte à l’écran).  
+    -   **VoiceOver-Anpassungen** – Aktiviert oder deaktiviert VoiceOver-Anpassungen, die Ihnen das Anpassen der VoiceOver-Funktion ermöglichen (z.B. wie schnell Bildschirmtext vorgelesen wird).  
   
-    -   **Zoom** - Active ou désactive le paramètre d’accessibilité **Zoom** qui vous permet d’utiliser la fonctionnalité tactile pour agrandir l’affichage de l’appareil.  
+    -   **Zoom** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **Zoom**, die Ihnen das Vergrößern des Texts auf dem Gerätedisplay durch Toucheingabe ermöglicht.  
   
-    -   **Réglage du zoom** - Active ou désactive les réglages du zoom qui vous permettent de régler la fonction de zoom.  
+    -   **Zoomanpassungen** – Aktiviert oder deaktiviert Zoomanpassungen zum individuellen Einrichten der Zoomfunktion.  
   
-    -   **Inverser les couleurs** - Active ou désactive le paramètre d’accessibilité **Inverser les couleurs** qui ajuste l’affichage pour aider les utilisateurs ayant des troubles visuels.  
+    -   **Farben umkehren** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **Farben umkehren**, die die Anzeige für Benutzer mit eingeschränkter Sehfähigkeit anpasst.  
   
-    -   **Réglage de l’inversion des couleurs** - Active ou désactive les réglages de couleurs inversées qui vous permettent d’ajuster la fonction de couleurs inversées.  
+    -   **Anpassungen für „Farben umkehren“** – Aktiviert oder deaktiviert Anpassungen für die Farbumkehr, mit denen Sie die Funktion zur Farbumkehr individuell einrichten können.  
   
-    -   **Assistance tactile** - Active ou désactive le paramètre d’accessibilité **Assistance tactile** qui aide les utilisateurs à effectuer des gestes à l’écran qui peuvent être difficiles à effectuer.  
+    -   **AssistiveTouch** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **AssistiveTouch**, die Benutzer bei der Ausführung von Bildschirmgesten unterstützt, die ihnen Schwierigkeiten bereiten können.  
   
-    -   **Réglages de l’assistance tactile** - Active ou désactive les réglages d’assistance tactile qui vous permettent de régler la fonction tactile d’assistance.  
+    -   **AssistiveTouch-Anpassungen** – Aktiviert oder deaktiviert AssistiveTouch-Anpassungen, mit denen Sie die AssistiveTouch-Funktion individuell einrichten können.  
   
-    -   **Sélection de la reconnaissance vocale** - Active ou désactive les paramètres d’accessibilité **Sélection Speak** qui peuvent lire à haute voix le texte que vous sélectionnez.  
+    -   **Sprachauswahl** – Aktiviert oder deaktiviert die Barrierefreiheitseinstellung **Sprachauswahl**, mit der ausgewählter Text vorgelesen werden kann.  
   
-    -   **Résoudre les paramètres non compatibles** - Sélectionnez si vous souhaitez corriger les paramètres de configuration non conformes (si cela est pris en charge).  
+    -   **Nicht kompatible Einstellungen wiederherstellen** – Wählen Sie diese Option aus, wenn Sie nicht kompatible Einstellungen wiederherstellen möchten (sofern unterstützt).  
   
-    -   **Gravité de non-compatibilité pour les rapports** - Spécifiez le niveau de gravité signalé si cette stratégie de conformité est évaluée comme non conforme. Les degrés de gravité disponibles sont les suivants :  
+    -   **Schweregrad der Nichtkompatibilität für Berichte** – Geben Sie den Schweregrad an, der gemeldet wird, wenn diese Kompatibilitätsrichtlinie als nicht kompatibel ausgewertet wird. Die verfügbaren Schweregrade sind:  
   
-        -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+        -   **Keiner** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-        -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+        -   **Information** – Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+        -   **Warnung** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+        -   **Kritisch** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+        -   **Kritisch mit Ereignis** Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
   
-## <a name="see-also"></a>Voir aussi  
- [Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
-
+## <a name="see-also"></a>Siehe auch  
+ [Konfigurationselemente für Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

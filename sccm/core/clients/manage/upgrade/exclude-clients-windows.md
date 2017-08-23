@@ -1,58 +1,54 @@
 ---
-title: "Exclure des mises à niveau de client | Windows | System Center Configuration Manager"
-description: "Découvrez comment empêcher la mise à niveau de clients Windows dans System Center Configuration Manager."
+title: "Ausschließen von Clientupgrades | Windows |System Center Configuration Manager"
+description: "Erfahren Sie, wie Sie Windows-Clients in System Center Configuration Manager von der Aktualisierung ausschließen."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cd6031f-8844-4d0b-8166-b24d6528a94e
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 6451ce59e01254d96ca4aa9bbe07cde829fae9ce
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: de5602179f3ac55b51133b8280a0143f1b0ff30e
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Guide pratique pour empêcher la mise à niveau de clients sur des ordinateurs Windows dans System Center Configuration Manager
+# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Ausschließen von Clientupgrades für Windows-Computer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-À partir de la version 1610, vous pouvez empêcher un regroupement de clients d’installer automatiquement les versions mises à jour du client. Cela s’applique à la mise à niveau automatique ainsi qu’à d’autres méthodes, telles que la mise à niveau de logiciels basée sur la mise à jour, les scripts d’ouverture de session et la stratégie de groupe. Vous pouvez utiliser cette fonctionnalité pour un regroupement d’ordinateurs dont la mise à niveau du client nécessite plus d’attention. Un client qui se trouve dans un regroupement exclu ignore les demandes d’installation du logiciel client mis à jour.
+Ab Version 1610 können Sie eine Clientsammlung von der automatischen Installation aktualisierter Clientversionen ausschließen. Dies gilt sowohl für automatische Upgrades und als auch für andere Methoden, wie Upgrades auf der Basis von Softwareupdates, Registrierungsskripts und Gruppenrichtlinien. Sie können dies für eine Sammlung von Computern nutzen, bei der bei einem Upgrade des Clients größere Sorgfalt notwendig ist. Ein Client, der sich in einer ausgeschlossenen Sammlung befindet, ignoriert Anforderungen zur Installation von aktualisierter Clientsoftware.
 
-## <a name="configure-exclusion-for-automatic-upgrades"></a>Configurer l’exclusion des mises à niveau automatiques
+## <a name="configure-exclusion-for-automatic-upgrades"></a>Konfigurieren des Ausschlusses automatischer Upgrades
 
-1. Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**, puis cliquez sur **Paramètres de hiérarchie**.
+1. Gehen Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**, und klicken Sie anschließend auf **Hierarchieeinstellungen**.
 
-2. Cliquez sur l’onglet **Mise à niveau des clients**.
+2. Klicken Sie auf die Registerkarte **Client Upgrade** (Clientupgrade).
 
-3. Cochez la case **Exclure les clients spécifiés de la mise à niveau**, puis pour Regroupement à exclure, sélectionnez le regroupement à exclure. Vous pouvez sélectionner un seul regroupement à exclure.
+3. Klicken Sie auf das Kontrollkästchen **Exclude specified clients from upgrade** (Angegebene Clients aus Upgrades ausschließen), und wählen Sie für die Ausschlusssammlung die Sammlung aus, die Sie ausschließen möchten. Sie können nur eine einzelne Sammlung für den Ausschluss auswählen.
 
-4.  Cliquez sur **OK** pour fermer et enregistrer la configuration. Ensuite, une fois que les clients ont mis à jour la stratégie, les clients figurant dans le regroupement exclu n’installent plus automatiquement les mises à jour du logiciel client. Pour plus d’informations, consultez [Guide pratique pour mettre à niveau des clients sur les ordinateurs Windows](upgrade-clients-for-windows-computers.md).
+4.  Klicken Sie auf **OK**, um die Konfiguration zu schließen und zu speichern. Nachdem die Clients Richtlinien aktualisiert haben, können Clients in der ausgeschlossenen Sammlung nicht mehr automatisch Updates der Clientsoftware installieren. Weitere Informationen finden Sie unter [Aktualisieren von Clients für Windows-Computer](upgrade-clients-for-windows-computers.md).
 
-![Paramètres d’exclusion de mise à niveau automatique](media/automatic_upgrade_exclusion.png)
+![Einstellungen für automatische Ausschlüsse aus Upgrades](media/automatic_upgrade_exclusion.png)
 
 
 
 >[!NOTE]
->Même si l’interface utilisateur indique que les clients ne seront pas mis à niveau, quelle que soit la méthode, il existe deux méthodes que vous pouvez utiliser pour remplacer ces paramètres. L’installation Push du client et une installation manuelle du client peuvent être utilisées pour remplacer cette configuration. Pour plus d’informations, consultez la section suivante.
+>Obwohl die Benutzeroberfläche angibt, dass Upgrades für Clients nicht mit einer beliebigen Methode durchgeführt werden können, gibt es zwei Methoden, die Sie verwenden können, um diese Einstellungen außer Kraft zu setzen. Die Clientpushinstallation und eine manuelle Clientinstallation können verwendet werden, um diese Konfiguration außer Kraft zu setzen. Weitere Details erfahren Sie im nächsten Abschnitt.
 
-## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Guide pratique pour mettre à niveau un client figurant dans un regroupement exclu
+## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>So führen Sie für einen Client in einer ausgeschlossenen Sammlung ein Upgrade durch
 
-Quand un regroupement est configuré comme exclu, les membres de ce regroupement peuvent mettre à niveau leur logiciel client par seulement deux méthodes, qui ont priorité sur l’exclusion :
- - **Installation Push du client** : Vous pouvez utiliser l’installation Push du client pour mettre à niveau un client figurant dans un regroupement exclu. Cela est autorisé, car cela est considéré comme l’intention de l’administrateur et vous permet de mettre à niveau les clients sans retirer le regroupement complet de l’exclusion.       
+Solange eine Sammlung für den Ausschluss konfiguriert ist, können Mitglieder dieser Sammlung ihre Clientsoftware nur mit einer der beiden Methoden, die den Ausschluss außer Kraft setzen, upgegradet werden:
+ - **Clientpushinstallation** – Sie können die Clientpushinstallation verwenden, um einen Client in einer ausgeschlossen Sammlung upzugraden. Dies ist zulässig, da es als Absicht des Administrators betrachtet wird und Ihnen ermöglicht, Clients upzugraden, ohne die gesamte Sammlung aus der Ausschlussliste zu entfernen.       
 
- - **Installation manuelle du client** : Vous pouvez mettre à niveau manuellement les clients qui se trouvent dans un regroupement exclu en utilisant le commutateur de ligne de commande suivant avec ccmsetup :  ***/ignoreskipupgrade***
+ - **Manuelle Clientinstallation** – Sie können Clients in einer ausgeschlossenen Sammlung unter Verwendung des Befehlszeilenschalters ***/ignoreskipupgrade*** mit ccmsetup manuell upgraden.
 
-  Si vous tentez de mettre à niveau manuellement un client qui est membre du regroupement exclu et que vous n’utilisez pas ce commutateur, le client n’installe pas le nouveau logiciel client. Pour plus d’informations, consultez [Comment installer les clients Configuration Manager manuellement](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
+  Wenn Sie versuchen, einen Client, der Mitglied der ausgeschlossenen Sammlung ist, manuell upzugraden, und diesen Schalter nicht verwenden, wird der Client die neue Clientsoftware nicht installieren. Weitere Informationen finden Sie unter [Manuelles Installieren von Configuration Manager-Clients](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
 
-Pour plus d’informations sur les méthodes d’installation de client, consultez [Comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
-
+Weitere Informationen zu Clientinstallationsmethoden finden Sie unter [Bereitstellen von Clients auf Windows-Computern in System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).

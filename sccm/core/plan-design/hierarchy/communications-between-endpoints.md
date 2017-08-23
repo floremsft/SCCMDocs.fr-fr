@@ -1,266 +1,259 @@
 ---
-title: Communications entre points de terminaison | Microsoft Docs
-description: "Découvrez comment les systèmes de site et les composants System Center Configuration Manager communiquent sur un réseau."
+title: "Datenübertragungen zwischen Endpunkten | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie System Center Configuration Manager-Standortsysteme und -Komponenten über ein Netzwerk kommunizieren."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68fe0e7e-351e-4222-853a-877475adb589
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 2ac9f98dc7b455d3b72d794d4311863186ed53ef
 ms.openlocfilehash: cd94f9ccc7e196b30e5dc7ae9368d073b7cff5d2
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Communications entre points de terminaison dans System Center Configuration Manager
+# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Datenübertragungen zwischen Endpunkten in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="a-nameplanningintra-sitecoma-communications-between-site-systems-in-a-site"></a><a name="Planning_Intra-site_Com"></a> Communications entre les systèmes d’un site  
- Quand des systèmes de site ou des composants Configuration Manager communiquent sur le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
+##  <a name="Planning_Intra-site_Com"></a> Kommunikation zwischen Standortsystemen in einem Standort  
+ Wenn Configuration Manager-Standortsysteme oder -Komponenten über das Netzwerk mit anderen Standortsystemen oder Configuration Manager-Komponenten kommunizieren, wird in Abhängigkeit davon, wie Sie den Standort konfiguriert haben, eines der folgenden Protokolle verwendet:  
 
--   SMB (Server Message Block)  
+-   Server Message Block (SMB)  
 
 -   HTTP  
 
 -   HTTPS  
 
-À l’exception de la communication depuis le serveur de site vers un point de distribution, ces communications de serveur à serveur dans un site peuvent avoir lieu à tout moment et n’utilisent aucun mécanisme de contrôle de la bande passante réseau. Comme vous ne pouvez pas contrôler la communication entre systèmes de site, vérifiez que vous installez des serveurs de système de site à des emplacements dotés de réseaux rapides et bien connectés.  
+Die Kommunikation zwischen den Servern an einem Standort kann jederzeit und ohne Steuerung der Netzwerkbandbreite auftreten. Dies trifft nicht auf die Kommunikation zwischen dem Standortserver und einem Verteilungspunkt zu. Da Sie die Kommunikation zwischen Standortsystemen nicht steuern können, achten Sie darauf, die Standortsystemserver an Orten mit schnellen Netzwerken mit guter Verbindung zu installieren.  
 
-Pour gérer plus facilement le transfert de contenu depuis le serveur de site vers des points de distribution :  
+Für die Verwaltung der Inhaltsübertragung vom Standortserver zu Verteilungspunkten haben Sie folgende Möglichkeiten:  
 
--   Configurez le point de distribution pour la planification et le contrôle de la bande passante réseau. Ces contrôles ressemblent aux configurations utilisées par les adresses intersites et vous pouvez souvent utiliser cette configuration au lieu d’installer un autre site Configuration Manager quand le transfert de contenu vers des emplacements réseau distants est votre préoccupation principale en ce qui concerne la bande passante.  
+-   Konfigurieren Sie den Verteilungspunkt für die Steuerung und Planung der Netzwerkbandbreite. Diese Steuerelemente ähneln den von standortübergreifenden Adressen verwendeten Konfigurationen. Häufig können Sie diese Konfiguration verwenden, anstatt einen weiteren Configuration Manager-Standort zu installieren, falls die Übertragung von Inhalt an Remotenetzwerkorte bei der Bandbreite Priorität hat.  
 
--   Vous pouvez installer un point de distribution comme un point de distribution préparé. Un point de distribution préparé vous permet d'utiliser du contenu qui est placé manuellement sur le serveur de point de distribution et supprime la nécessité de transférer des fichiers de contenu sur le réseau.  
+-   Sie können einen Verteilungspunkt als vorab bereitgestellten Verteilungspunkt installieren. Mithilfe eines vorab bereitgestellten Verteilungspunkts können Sie Inhalt verwenden, der auf dem Verteilungspunktserver manuell abgelegt wird. Die Notwendigkeit, Inhaltsdateien über das Netzwerk zu übertragen, entfällt damit.  
 
-Pour plus d’informations, consultez [Gérer la bande passante réseau pour la gestion de contenu](manage-network-bandwidth.md).
+Weitere Informationen finden Sie unter [Verwalten von Netzwerk-Bandbreite für das Content Management in System Center Configuration Manager](manage-network-bandwidth.md).
 
 
-##  <a name="a-nameplanningclienttositesystema-communications-from-clients-to-site-systems-and-services"></a><a name="Planning_Client_to_Site_System"></a> Communications depuis les clients vers les systèmes de site et les services  
-Les clients lancent des communications vers les rôles de système de site, les services de domaine Active Directory et les services en ligne. Pour activer ces communications, les pare-feu doivent autoriser le trafic réseau entre les clients et le point de terminaison de leurs communications. Les points de terminaison sont les suivants :  
+##  <a name="Planning_Client_to_Site_System"></a> Kommunikation von Clients mit Standortsystemen und Diensten  
+Clients initiieren die Kommunikation mit Standortsystemrollen, Active Directory-Domänendiensten und Onlinediensten. Damit diese Kommunikation möglich ist, müssen die Firewalls den Netzwerkdatenverkehr zwischen Clients und dem Endpunkt der Kommunikation zulassen. Endpunkte können Folgendes sein:  
 
--   **Point du site web du catalogue des applications** : Prend en charge les communications HTTP et HTTPS
+-   **Anwendungskatalog-Websitepunkt**: Unterstützt HTTP- und HTTPS-Kommunikation
 
--   **Ressources cloud** : Inclut Microsoft Azure et Microsoft Intune  
+-   **Cloudbasierte Ressourcen**: Dazu gehören Microsoft Azure und Microsoft Intune  
 
--   **Module de stratégie de Configuration Manager (NDES)** : Prend en charge les communications HTTP et HTTPS
+-   **Configuration Manager-Richtlinienmodul (NDES)**: Unterstützt HTTP- und HTTPS-Kommunikation
 
--   **Points de distribution** : Prennent en charge les communications HTTP et HTTPS. HTTPS est obligatoire pour les points de distribution cloud  
+-   **Verteilungspunkte**: Unterstützt HTTP- und HTTPS-Kommunikation, und HTTPS ist für cloudbasierte Verteilungspunkte erforderlich  
 
--   **Point d’état de secours** : Prend en charge les communications HTTP  
+-   **Fallbackstatuspunkt**: Unterstützt HTTP-Kommunikation  
 
--   **Point de gestion** : Prend en charge les communications HTTP et HTTPS  
+-   **Verwaltungspunkt**: Unterstützt HTTP- und HTTPS-Kommunikation  
 
 -   **Microsoft Update**  
 
--   **Points de mise à jour logicielle** : Prennent en charge les communications HTTP et HTTPS  
+-   **Softwareupdatepunkte**: Unterstützt HTTP- und HTTPS-Kommunikation  
 
--   **Points de migration d’état** : Prennent en charge les communications HTTP et HTTPS  
+-   **Zustandsmigrationspunkt**: Unterstützt HTTP- und HTTPS-Kommunikation  
 
--   **Divers services de domaine**  
+-   **Verschiedene Domänendienste**  
 
-Avant qu’un client puisse communiquer avec un rôle de système de site, le client utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition :  
+Bevor ein Client mit einer Standortsystemrolle kommunizieren kann, verwendet der Client die Dienstidentifizierung, um nach einer Standortsystemrolle zu suchen, die das Protokoll des Clients (HTTP oder HTTPS) unterstützt. Clients verwenden standardmäßig die sicherste Methode, die ihnen zur Verfügung steht:  
 
--   Pour utiliser le protocole HTTPS, vous devez disposer d'une infrastructure à clé publique (PKI) et installer des certificats PKI sur des clients et serveurs. Pour plus d’informations sur la façon d’utiliser des certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Zur Verwendung von HTTPS müssen Sie über eine Public Key-Infrastruktur (PKI) verfügen und PKI-Zertifikate auf Clients und Servern installieren. Informationen zum Verwenden von Zertifikaten finden Sie unter [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
--   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planification de la signature et du chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Wenn Sie eine Standortsystemrolle bereitstellen, die Internetinformationsdienst (IIS) verwendet und die Kommunikation von Clients unterstützt, müssen Sie angeben, ob Clients eine Verbindung mit dem Standortsystem über HTTP oder HTTPS herstellen. Falls Sie sich für HTTP entscheiden, müssen Sie auch Signierungs- und Verschlüsselungsoptionen erwägen. Weitere Informationen finden Sie unter [Planen von Signierung und Verschlüsselung](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) in [Planen der Sicherheit in System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-Pour plus d’informations sur l’emplacement de service par les clients, consultez  [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+Weitere Informationen zur Dienstidentifizierung durch Clients finden Sie unter [Verstehen, wie Clients Standortressourcen und -dienste für System Center Configuration Manager suchen](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-Pour plus d’informations sur les ports et protocoles utilisés par les clients pour communiquer avec ces points de terminaison, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Details zu Ports und Protokollen, die von Clients verwendet werden, wenn diese mit den Endpunkten kommunizieren, finden Sie unter [In System Center Configuration Manager verwendete Ports](../../../core/plan-design/hierarchy/ports.md).  
 
-###  <a name="a-namebkmkclientspana-considerations-for-client-communications-from-the-internet-or-an-untrusted-forest"></a><a name="BKMK_clientspan"></a> Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée  
-Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, comme Internet ou une forêt non approuvée. (Les sites secondaires ne prennent pas en charge les connexions du client à partir d’emplacements non approuvés) :  
+###  <a name="BKMK_clientspan"></a> Überlegungen zur Clientkommunikation aus dem Internet oder einer nicht vertrauenswürdigen Gesamtstruktur  
+Die folgenden, an primären Standorten installierten Standortsystemrollen unterstützen Verbindungen von Clients, die sich an nicht vertrauenswürdigen Standorten wie dem Internet oder einer nicht vertrauenswürdigen Gesamtstruktur befinden. (Sekundäre Standorte unterstützen Clientverbindungen von nicht vertrauenswürdigen Standorten nicht):  
 
--   Point du site web du catalogue des applications  
+-   Anwendungskatalog-Websitepunkt  
 
--   Module de stratégie de Configuration Manager  
+-   Configuration Manager-Richtlinienmodul  
 
--   Point de distribution (HTTPS est requis par les points de distribution cloud)  
+-   Verteilungspunkt (HTTPS ist für cloudbasierte Verteilungspunkte erforderlich)  
 
--   Point proxy d'inscription  
+-   Anmeldungsproxypunkt  
 
--   Point d’état de secours  
+-   Fallbackstatuspunkt  
 
--   Point de gestion  
+-   Verwaltungspunkt  
 
--   Point de mise à jour logicielle  
+-   Softwareupdatepunkt  
 
-**À propos des systèmes de site accessibles sur Internet :**   
-Vous n’avez pas besoin d’une relation d’approbation entre la forêt d’un client et celle du serveur de système de site. Toutefois, quand la forêt qui contient un système de site accessible sur Internet approuve la forêt qui contient les comptes d’utilisateurs, cette configuration prend en charge les stratégies utilisateur pour les appareils sur Internet quand vous activez le paramètre client **Autoriser les demandes de stratégie utilisateur depuis des clients Internet** de la **Stratégie client**.  
+**Informationen zu Standortsystemen mit Internetzugriff:**   
+Eine Vertrauensstellung zwischen der Gesamtstruktur eines Clients und des Standortsystemservers ist nicht erforderlich. Wenn die Gesamtstruktur jedoch mit einem Standortsystem mit Internetzugriff der Gesamtstruktur vertraut, die die Benutzerkonten enthält, unterstützt diese Konfiguration benutzerbasierte Richtlinien für Geräte im Internet, wenn Sie die **Clientrichtlinie**-Clienteinstellung **Benutzerrichtlinienanforderungen von Internetclients aktivieren** aktivieren.  
 
-Par exemple, les configurations suivantes illustrent la prise en charge par la gestion des clients basés sur Internet des stratégies utilisateur pour les appareils situés sur Internet :  
+Aus den nachstehenden Konfigurationsbeispielen geht hervor, unter welchen Umständen Benutzerrichtlinien für Geräte im Internet von der internetbasierten Clientverwaltung unterstützt werden:  
 
--   Le point de gestion basé sur Internet est le réseau de périmètre sur lequel réside un contrôleur de domaine en lecture seule pour authentifier l'utilisateur et un pare-feu qui intervient autorise les paquets Active Directory.  
+-   Der internetbasierte Verwaltungspunkt befindet sich im Umkreisnetzwerk, wo der Benutzer von einem schreibgeschützten Domänencontroller authentifiziert wird und Active Directory-Pakete von einer beteiligten Firewall zugelassen werden.  
 
--   Le compte d'utilisateur se trouve dans la forêt A (Intranet) et le point de gestion basé sur Internet dans la forêt B (le réseau de périmètre). La forêt B approuve la forêt A et un pare-feu qui intervient autorise les paquets d'authentification.  
+-   Das Benutzerkonto befindet sich in Gesamtstruktur A (im Internet) und der internetbasierte Verwaltungspunkt in Gesamtstruktur B (im Umkreisnetzwerk). Gesamtstruktur A wird von Gesamtstruktur B als vertrauenswürdig eingestuft, und die Authentifizierungspakete werden von einer beteiligten Firewall zugelassen.  
 
--   Le compte d'utilisateur et le point de gestion basé sur Internet sont dans la forêt A (Intranet). Le point de gestion est publié sur Internet à l'aide d'un serveur proxy web (comme Forefront Threat Management Gateway).  
+-   Das Benutzerkonto und der internetbasierte Verwaltungspunkt befinden sich in Gesamtstruktur A (im Intranet). Der Verwaltungspunkt wird über einen Webproxyserver im Internet veröffentlicht (wie Forefront Threat Management Gateway).  
 
 > [!NOTE]  
->  Si l'authentification Kerberos échoue, l'authentification NTLM est ensuite automatiquement utilisée.  
+>  Sollte die Kerberos-Authentifizierung nicht möglich sein, wird automatisch die Authentifizierung über NTLM versucht.  
 
-Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site basés sur Internet dans l'Intranet lorsqu'ils sont publiés sur Internet à l'aide d'un serveur proxy Web, tel que ISA Server et Forefront Threat Management Gateway. Ces systèmes de site peuvent être configurés pour la connexion du client à partir d’Internet uniquement, ou pour les connexions du client à partir d’Internet et d’un intranet. Quand vous utilisez un serveur proxy web, vous pouvez le configurer pour le pontage SSL (Secure Sockets Layer) vers SSL (plus sécurisé) ou le tunnel SSL, comme suit :  
+Wie aus dem vorstehenden Beispiel hervorgeht, können Sie internetbasierte Standortsysteme im Intranet platzieren, wenn diese über einen Webproxyserver wie ISA Server und Forefront Threat Management Gateway im Internet veröffentlicht werden. Sie können für diese Standortsysteme festlegen, dass Clientverbindungen nur aus dem Internet oder sowohl aus dem Intranet als auch aus dem Internet unterstützt werden. Einen Webproxyserver können Sie für SSL-zu-SSL-Bridging (Secure Sockets Layer) oder SSL-Tunneling wie folgt konfigurieren (wobei von Ersterem ein höheres Maß an Sicherheit geboten wird):  
 
--   **Pontage SSL vers SSL :**   
-    La configuration recommandée quand vous utilisez des serveurs web proxy pour la gestion de clients sur Internet est le pontage SSL vers SSL, qui utilise une terminaison SSL avec authentification. Les ordinateurs clients doivent être authentifiés à l'aide de l'authentification de l'ordinateur et les clients hérités de l'appareil mobile sont authentifiés à l'aide de l'authentification utilisateur. Les appareils mobiles inscrits par Configuration Manager ne prennent pas en charge le pontage SSL.  
+-   **SSL-zu-SSL-Bridging:**   
+    Wenn Sie Proxywebserver bei der internetbasierten Clientverwaltung einsetzen, ist SSL-zu-SSL-Bridging empfehlenswert, bei dem ein SSL-Tunnelabschluss mit Authentifizierung verwendet wird. Die Authentifizierung von Clientcomputern muss über die Computerauthentifizierung erfolgen. Die Authentifizierung der Legacyclients mobiler Geräte erfolgt über die Benutzerauthentifizierung. SSL-Bridging wird von mobilen Geräten, die mithilfe von Configuration Manager angemeldet wurden, nicht unterstützt.  
 
-     La terminaison SSL au niveau du serveur Web proxy présente l'avantage que les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet. Quand les clients Configuration Manager utilisent un serveur web proxy, leur identité (GUID client) est contenue en toute sécurité dans la charge utile du paquet pour éviter que le point de gestion prenne le serveur web proxy pour le client. Le pontage n’est pas pris en charge dans Configuration Manager de HTTP vers HTTPS ou de HTTPS vers HTTP.  
+     Der SSL-Tunnelabschluss für den Proxywebserver hat den Vorteil, dass Pakete aus dem Internet überprüft werden, bevor sie an das interne Netzwerk weitergeleitet werden. Die vom Client eingehende Verbindung wird vom Proxywebserver authentifiziert und beendet, und dann wird eine neue authentifizierte Verbindung mit dem internetbasierten Standortsystem hergestellt. Wenn von Configuration Manager-Clients ein Proxywebserver verwendet wird, wird die Clientidentität (Client-GUID) sicher als Bestandteil der Paketnutzdaten transportiert, sodass der Proxywebserver vom Verwaltungspunkt nicht als Client betrachtet wird. In Configuration Manager wird kein HTTP-zu-HTTPS- oder HTTPS-zu-HTTP-Bridging unterstützt.  
 
--   **Tunneling** :   
-    Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est aussi pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
+-   **Tunneling**:   
+    Falls die Anforderungen für SSL-Bridging vom Proxywebserver nicht erfüllt werden können oder falls Sie die Internetunterstützung für mobile Geräte, die mithilfe von Configuration Manager registriert wurden, konfigurieren möchten, wird auch SSL-Tunneling unterstützt. Diese Option ist weniger sicher, da die SSL-Pakete aus dem Internet ohne SSL-Tunnelabschluss an die Standortsysteme weitergeleitet werden und daher nicht auf schädliche Inhalte überprüft werden können. Bei der Verwendung von SSL-Tunneling müssen vom Proxywebserver keine Zertifikatanforderungen erfüllt werden.  
 
-##  <a name="a-nameplancomx-foresta-communications-across-active-directory-forests"></a><a name="Plan_Com_X-Forest"></a> Communications dans les forêts Active Directory  
-System Center Configuration Manager prend en charge des sites et des hiérarchies qui recouvrent des forêts Active Directory.  
+##  <a name="Plan_Com_X-Forest"></a> Kommunikation zwischen Active Directory-Gesamtstrukturen  
+System Center Configuration Manager unterstützt Standorte und Hierarchien, die mehrere Active Directory-Gesamtstrukturen umfassen.  
 
-Configuration Manager prend également en charge les ordinateurs de domaine qui ne se trouvent pas dans la même forêt Active Directory que le serveur de site, et les ordinateurs qui se trouvent dans des groupes de travail :  
+Configuration Manager unterstützt auch Domänencomputer, die sich nicht in der gleichen Active Directory-Gesamtstruktur wie der Standortserver befinden, sowie Computer in Arbeitsgruppen:  
 
--   **Pour prendre en charge des ordinateurs de domaine situés dans une forêt qui n’est pas approuvée par la forêt de votre serveur de site**, vous pouvez procéder comme suit :  
+-   **Um Domänencomputer in einer Gesamtstruktur zu unterstützen, die für die Gesamtstruktur Ihres Standortservers nicht vertrauenswürdig ist**, haben Sie folgenden Möglichkeiten:  
 
-    -   Installez des rôles de système de site dans cette forêt non approuvée, en activant l’option de publication des informations de site dans cette forêt Active Directory.  
+    -   Installieren von Standortsystemrollen in dieser nicht vertrauenswürdigen Gesamtstruktur mit der Option, Standortinformationen an diese Active Directory-Gesamtstruktur zu veröffentlichen  
 
-    -   Gérez ces ordinateurs comme des ordinateurs de groupe de travail.  
+    -   Verwalten Sie diese Computer, als wären sie Arbeitsgruppencomputer.  
 
-  Quand vous installez des serveurs de système de site dans une forêt Active Directory non approuvée, les communications des clients de cette forêt vers le serveur restent internes à cette forêt, ce qui permet à Configuration Manager d’authentifier l’ordinateur avec Kerberos. Quand vous publiez des informations de site dans la forêt du client, le client peut récupérer les informations de site, notamment la liste des points de gestion disponibles, à partir de sa forêt Active Directory, au lieu de télécharger ces informations à partir de son point de gestion attribué.  
+  Wenn Sie Standortsystemserver in einer nicht vertrauenswürdigen Active Directory-Gesamtstruktur installieren, erfolgt die Kommunikation zwischen Clients und Servern dieser Gesamtstruktur ausschließlich in der Gesamtstruktur, und Configuration Manager kann die Computer über Kerberos authentifizieren. Wenn Sie Standortinformationen in der Gesamtstruktur des Clients veröffentlichen, hat dies Vorteile für die Clients, denn Standortinformationen, beispielsweise eine Liste verfügbarer Verwaltungspunkte, werden aus ihrer Active Directory-Gesamtstruktur abgerufen und müssen nicht vom ihnen zugewiesenen Verwaltungspunkt heruntergeladen werden.  
 
   > [!NOTE]  
-  >  Pour gérer les appareils qui se trouvent sur Internet, vous pouvez installer des rôles système de site de type Internet dans votre réseau de périmètre lorsque des serveurs de système de site se trouvent dans une forêt Active Directory. Ce scénario ne nécessite pas d’approbation bidirectionnelle entre le réseau de périmètre et la forêt du serveur de site.  
+  >  Wenn Sie Geräte im Internet verwalten möchten, können Sie internetbasierte Standortsystemrollen in Ihrem Umkreisnetzwerk installieren, wenn sich die Standortsystemserver in einer Active Directory-Gesamtstruktur befinden. Für dieses Szenario ist keine bidirektionale Vertrauensstellung zwischen dem Umkreisnetzwerk und der Gesamtstruktur des Standortservers erforderlich.  
 
--   **Pour prendre en charge des ordinateurs situés dans un groupe de travail**, vous devez effectuer les opérations suivantes :  
+-   **Damit Computer in einer Arbeitsgruppe unterstützt werden**, ist Folgendes erforderlich:  
 
-    -   Approuvez manuellement les ordinateurs du groupe de travail qui utilisent des connexions client HTTP pour accéder aux rôles de système de site. En effet, Configuration Manager ne peut pas authentifier ces ordinateurs avec Kerberos.  
+    -   Manuelles Genehmigen von Arbeitsgruppencomputern, wenn für diese HTTP-Clientverbindungen mit Standortsystemrollen verwendet werden. Dies ist erforderlich, weil Configuration Manager diese Computer nicht über Kerberos authentifizieren kann.  
 
-    -   Configurez les clients du groupe de travail avec le compte d’accès réseau pour permettre à ces ordinateurs de récupérer le contenu à partir des points de distribution.  
+    -   Konfigurieren von Arbeitsgruppenclients, sodass sie das Netzwerkzugriffskonto verwenden, damit diese Computer Inhalte vom Verteilungspunkt abrufen können.  
 
-    -   Fournir aux clients du groupe de travail une méthode de remplacement pour rechercher les points de gestion. Vous pouvez utiliser la publication DNS, WINS, ou attribuer directement un point de gestion. Cela est dû au fait que ces clients ne peuvent pas récupérer les informations de site à partir des services de domaine Active Directory.  
+    -   Bereitstellen eines alternativen Mechanismus für Arbeitsgruppenclients, über den sie nach Verwaltungspunkten suchen können. Sie können die DNS-Veröffentlichung oder WINS verwenden oder einen Verwaltungspunkt direkt zuweisen. Dies ist erforderlich, weil diese Clients keine Standortinformationen aus Active Directory-Domänendiensten abrufen können.  
 
-    Ressources connexes dans cette bibliothèque de contenu :  
+    Zugehörige Ressourcen in dieser Inhaltsbibliothek:  
 
-    -   [Gérer les conflits d’enregistrement pour les clients Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
+    -   [Verwalten von in Konflikt stehenden Datensätzen bei Configuration Manager-Clients](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
 
-    -   [Compte d’accès au réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
+    -   [Netzwerkzugriffskonto](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
 
-    -   [Installer des clients Configuration Manager sur des ordinateurs de groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
+    -   [Installieren von Configuration Manager-Clients auf Arbeitsgruppencomputern](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
 
-###  <a name="a-namebkmkspana-scenarios-to-support-a-site-or-hierarchy-that-spans-multiple-domains-and-forests"></a><a name="bkmk_span"></a> Scénarios de prise en charge d’un site ou d’une hiérarchie qui s’étend sur plusieurs domaines et forêts  
+###  <a name="bkmk_span"></a> Szenarien zum Unterstützen eines Standorts oder einer Hierarchie, der oder die sich über mehrere Domänen und Gesamtstrukturen erstreckt  
 
-#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Communication entre les sites d’une hiérarchie qui s’étend sur des forêts  
-Ce scénario nécessite une approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos.  Si vous n’avez pas d’approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos, Configuration Manager ne prend pas en charge de site enfant dans la forêt distante.  
+#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Kommunikation zwischen Standorten in einer Hierarchie, die mehrere Gesamtstrukturen umfasst:  
+Dieses Szenario erfordert eine bidirektionale Vertrauensstellung, die die Kerberos-Authentifizierung unterstützt.  Falls keine bidirektionale Gesamtstrukturvertrauensstellung vorhanden ist, die die Kerberos-Authentifizierung unterstützt, wird von Configuration Manager kein untergeordneter Standort in der Remotegesamtstruktur unterstützt.  
 
- **Configuration Manager prend en charge l’installation d’un site enfant dans une forêt distante qui possède l’approbation bidirectionnelle requise avec la forêt du site parent.**  
+ **Configuration Manager unterstützt das Installieren eines untergeordneten Standorts in einer Remotegesamtstruktur, die über die erforderliche bidirektionale Vertrauensstellung mit der Gesamtstruktur des übergeordneten Standorts verfügt.**  
 
--   Par exemple, vous pouvez placer un site secondaire dans une autre forêt de son site parent principal tant que l’approbation nécessaire existe.  
+-   Beispiel: Sie können einen sekundären Standort in einer Gesamtstruktur platzieren, die nicht mit seinem übergeordneten primären Standort identisch ist, sofern die erforderliche Vertrauensstellung vorliegt.  
 
 > [!NOTE]  
->  Un site enfant peut être un site principal (où le site d’administration centrale est le site parent) ou un site secondaire.  
+>  Bei einem untergeordneten Standort kann es sich um einen primären Standort (wobei der Standort der zentralen Verwaltung der übergeordnete Standort ist) oder um einen sekundären Standort handeln.  
 
-Les communications intersite dans Configuration Manager utilisent la réplication de base de données et les transferts basés sur des fichiers. Quand vous installez un site, vous devez spécifier un compte à utiliser pour installer le site sur le serveur indiqué. Ce compte établit et conserve également la communication entre les sites.  
+Für die standortübergreifende Kommunikation werden in Configuration Manager die Datenbankreplikation und dateibasierte Übertragungen verwendet. Beim Installieren eines Standorts müssen Sie ein Konto angeben, mit dem Sie den Standort auf dem gewünschten Server installieren. Über dieses Konto wird auch die Kommunikation zwischen Standorten hergestellt und verwaltet.  
 
-Une fois que le site a installé et lancé avec succès les transferts basés sur des fichiers et la réplication de base de données, il est inutile de configurer autre chose pour la communication vers le site.  
+Nachdem der Standort erfolgreich installiert wurde und dateibasierte Übertragungen sowie die Datenbankreplikation initiiert wurden, ist die Konfiguration der Kommunikation für diesen Standort abgeschlossen.  
 
-**Lorsqu’une approbation de forêt bidirectionnelle existe, Configuration Manager ne nécessite aucune étape de configuration supplémentaire.**  
+**Wenn eine bidirektionale Vertrauensstellung zwischen Gesamtstrukturen gegeben ist, sind in Configuration Manager keine weiteren Konfigurationsschritte erforderlich.**  
 
-Par défaut, lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager configure les éléments suivants :  
+Bei der Installation eines neuen Standorts, der einem anderen Standort untergeordnet ist, wird von Configuration Manager standardmäßig Folgendes konfiguriert:  
 
--   Un itinéraire de réplication de fichiers intersite sur chaque site qui utilise le compte d’ordinateur du serveur de site. Configuration Manager ajoute le compte d’ordinateur de chaque ordinateur au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** sur l’ordinateur de destination.  
+-   Eine Route für die standortübergreifende, dateibasierte Replikation an jedem Standort, von der das Computerkonto des Standortservers verwendet wird. Configuration Manager fügt das Computerkonto jedes Computers zur Gruppe **SMS_SiteToSiteConnection_&lt;Standortcode\>** auf dem Zielcomputer hinzu.  
 
--   Réplication de base de données entre les serveurs SQL Server sur chaque site.  
+-   Datenbankreplikation zwischen SQL Server an jedem Standort  
 
-Les configurations suivantes doivent également être définies :  
+Außerdem muss Folgendes konfiguriert werden:  
 
--   Les appareils réseau et les pare-feu qui interviennent doivent autoriser les paquets réseau requis par Configuration Manager.  
+-   Die von Configuration Manager benötigten Netzwerkpakete müssen von beteiligten Firewalls und Netzwerkgeräten zugelassen werden.  
 
--   La résolution de noms doit fonctionner entre les forêts.  
+-   Die Namensauflösung muss zwischen den Gesamtstrukturen möglich sein.  
 
--   Pour installer un site ou un rôle de système de site, vous devez spécifier un compte qui dispose des autorisations d'administrateur local sur l'ordinateur spécifié.  
+-   Zum Installieren eines Standorts oder einer Standortsystemrolle müssen Sie ein Konto mit lokalen Administratorrechten auf dem angegebenen Computer angeben.  
 
-#### <a name="communication-in-a-site-that-spans-forests"></a>Communication dans un site qui s’étend sur des forêts  
-Ce scénario ne nécessite aucune approbation de forêt bidirectionnelle.  
+#### <a name="communication-in-a-site-that-spans-forests"></a>Kommunikation an einem Standort, der mehrere Gesamtstrukturen umfasst  
+Dieses Szenario erfordert keine bidirektionale Vertrauensstellung.  
 
-**Les sites principaux prennent en charge l’installation de rôles de système de site sur les ordinateurs des forêts distantes**.  
+**Primäre Standorte unterstützen die Installation von Standortsystemrollen auf Computern in Remotegesamtstrukturen**.  
 
--   Le point de service web du catalogue des applications est la seule exception.  Il est uniquement pris en charge dans la même forêt que le serveur de site.  
+-   Der Anwendungskatalog-Webdienstpunkt ist die einzige Ausnahme.  Er wird nur in derselben Gesamtstruktur wie der Standortserver unterstützt.  
 
--   Si le rôle de système de site accepte les connexions depuis Internet, comme bonne pratique de sécurité, installez ces rôles de système de site dans un emplacement où la limite de forêt fournit une protection pour le serveur de site (par exemple, dans un réseau de périmètre).  
+-   Wenn von einer Standortsystemrolle Verbindungen aus dem Internet akzeptiert werden, wird empfohlen, diese Standortsystemrollen an einem Standort zu installieren, an dem die Gesamtstrukturgrenze Schutz für den Standortserver bereitstellt (z. B. in einem Umkreisnetzwerk).  
 
-**Pour installer un rôle de système de site sur un ordinateur situé dans une forêt non approuvée :**  
+**So installieren Sie eine Standortsystemrolle auf einem Computer in einer nicht vertrauenswürdigen Gesamtstruktur:**  
 
--   Vous devez spécifier un **Compte d’installation du système de site**, utilisé pour installer le rôle de système de site. (Ce compte doit disposer d’informations d’identification administratives locales pour la connexion.) Ensuite, installez les rôles de système de site sur l’ordinateur spécifié.  
+-   Geben Sie ein **Standortsystem-Installationskonto** an, das verwendet wird, um die Standortsystemrolle zu installieren. (Dieses Konto benötigt lokale Administratoranmeldeinformationen für die Verbindung.) Danach installieren Sie Standortsystemrollen auf dem angegebenen Computer.  
 
--   Vous devez sélectionner l'option de système de site **Exiger que le serveur de site établisse des connexions vers ce système de site**. Pour cela, le serveur de site doit établir des connexions au serveur de système de site pour transférer des données. De cette manière, l’ordinateur qui se trouve dans l’emplacement non approuvé ne peut pas établir de contact avec le serveur de site au sein de votre réseau approuvé. Ces connexions utilisent le **Compte d'installation du système de site**.  
+-   Sie müssen die Standortsystemoption **Verbindungen mit diesem Standortsystem müssen vom Standortserver hergestellt werden**aktivieren. Damit müssen vom Standortserver Verbindungen mit dem Standortsystemserver hergestellt werden, um Daten zu übertragen. Dies verhindert, dass der Computer am nicht vertrauenswürdigen Standort einen Kontakt mit dem Standortserver initiiert, der sich in Ihrem vertrauenswürdigen Netzwerk befindet. Diese Verbindungen verwenden das **Standortsystem-Installationskonto**.  
 
-**Pour utiliser un rôle de système de site installé dans une forêt non approuvée,** les pare-feu doivent autoriser le trafic réseau, même quand le serveur de site lance le transfert de données.  
+**Wenn Sie eine Standortsystemrolle verwenden möchten, die in einer nicht vertrauenswürdigen Gesamtstruktur installiert war,** müssen Firewalls den Netzwerkdatenverkehr zulassen, und zwar selbst dann, wenn der Standortserver die Datenübertragung initiiert.  
 
-Par ailleurs, les rôles de système de site suivants requièrent un accès direct à la base de données de site. Par conséquent, les pare-feu doivent autoriser le trafic applicable de la forêt non approuvée vers les sites SQL Server :  
+Außerdem benötigen die folgenden Standortsystemrollen einen direkten Zugriff auf die Standortdatenbank. Aus diesem Grund müssen Firewalls entsprechenden Datenverkehr aus der nicht vertrauenswürdigen Gesamtstruktur an den SQL Server des Standorts zulassen:  
 
--   Point de synchronisation Asset Intelligence  
+-   Asset Intelligence-Synchronisierungspunkt  
 
--   Point Endpoint Protection  
+-   Endpoint Protection-Punkt  
 
--   Point d'inscription  
+-   Anmeldungspunkt  
 
--   Point de gestion  
+-   Verwaltungspunkt  
 
--   Point du service de rapport  
+-   Reporting Services-Punkt  
 
--   Point de migration d'état  
+-   Zustandsmigrationspunkt  
 
-Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Weitere Informationen finden Sie unter [In System Center Configuration Manager verwendete Ports](../../../core/plan-design/hierarchy/ports.md).  
 
-**Vous serez peut-être amené à configurer l’accès des rôles système de site à la base de données du site :**  
+**Sie müssen möglicherweise den Zugriff der Standortsystemrolle auf die Standortdatenbank konfigurieren:**  
 
-Les rôles de système de site de point d’inscription et de point de gestion se connectent à la base de données de site.  
+Von beiden Standortsystemrollen „Verwaltungspunkt“ und „Anmeldungspunkt“ wird eine Verbindung mit der Standortdatenbank hergestellt.  
 
--   Par défaut, quand ces rôles de système de site sont installés, Configuration Manager configure le compte d’ordinateur du nouveau serveur de système de site comme compte de connexion pour le rôle de système de site et ajoute le compte au rôle de base de données SQL Server approprié.  
+-   Bei der Installation dieser Standortsystemrollen wird das Computerkonto des neuen Standortsystemservers von Configuration Manager standardmäßig als Verbindungskonto für die Standortsystemrolle konfiguriert und dann der entsprechenden SQL Server-Datenbankrolle hinzugefügt.  
 
--   Lorsque vous installez ces rôles de système de site dans un domaine non approuvé, vous devez configurer le compte de connexion du rôle de système de site pour autoriser le rôle de système de site à obtenir des informations à partir de la base de données.  
+-   Wenn Sie diese Standortsystemrollen in einer nicht vertrauenswürdigen Domäne installieren, müssen Sie das Verbindungskonto der Standortsystemrolle konfigurieren, damit von der Standortsystemrolle Informationen aus der Datenbank abgerufen werden können.  
 
-Si vous configurez un compte d’utilisateur de domaine comme compte de connexion pour ces rôles de système de site, assurez-vous que le compte d’utilisateur de domaine dispose des accès appropriés à la base de données SQL Server sur ce site :  
+Wenn Sie ein Domänenbenutzerkonto so konfigurieren, dass es das Verbindungskonto für diese Standortsystemrollen ist, müssen Sie darauf achten, dass das Domänenbenutzerkonto geeignete Zugriffsrechte für die SQL Server-Datenbank am Standort hat:  
 
--   Point de gestion : **compte de connexion à la base de données du point de gestion**.  
+-   Verwaltungspunkt: **Verwaltungspunkt-Datenbankverbindungskonto**  
 
--   Point d'inscription : **compte de connexion du point d'inscription**.  
+-   Anmeldungspunkt: **Anmeldungspunkt-Verbindungskonto**  
 
-Lorsque vous planifiez des rôles de système de site dans d'autres forêts, tenez compte des informations supplémentaires suivantes :  
+Erwägen Sie beim Planen von Standortsystemrollen in anderen Gesamtstrukturen auch die folgenden Punkte:  
 
--   Si vous exécutez un pare-feu Windows, configurez les profils de pare-feu applicables pour transmettre les communications entre le serveur de base de données du site et les ordinateurs qui sont installés avec des rôles de système de site distants. Pour plus d’informations sur les profils de pare-feu, consultez [Présentation des profils de Pare-feu](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
+-   Legen Sie bei Verwendung von Windows-Firewall in den entsprechenden Firewall-Profilen fest, dass die Kommunikation zwischen dem Standortdatenbankserver und Computern, auf den Remote-Standortsystemrollen installiert sind, zulässig ist. Informationen zu Firewall-Profilen finden Sie unter [Grundlegendes zu Firewall-Profilen](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
 
--   Lorsque le point de gestion basé sur Internet approuve la forêt contenant les comptes d'utilisateur, les stratégies utilisateur sont prises en charge. Lorsqu'il n'existe aucune relation d'approbation, seules les stratégies d'ordinateur sont prises en charge.  
+-   Wenn die Gesamtstruktur, die die Benutzerkonten enthält, von den internetbasierten Verwaltungspunkten als vertrauenswürdig eingestuft wird, werden Benutzerrichtlinien unterstützt. Wenn keine Vertrauensstellung vorhanden ist, werden nur Computerrichtlinien unterstützt.  
 
-#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Communication entre les clients et les rôles de système de site quand les clients ne se trouvent pas dans la même forêt Active Directory que leur serveur de site  
-Configuration Manager prend en charge les scénarios suivants pour les clients qui ne se trouvent pas dans la même forêt que le serveur de site de leur site :  
+#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Kommunikation zwischen Clients und Standortsystemrollen, wenn die Clients nicht der gleichen Active Directory-Gesamtstruktur wie der zugehörige Standortserver angehören  
+Configuration Manager unterstützt die folgenden Szenarios für Clients, die sich nicht in derselben Gesamtstruktur wie der Standortserver ihres Standorts befinden:  
 
--   Il existe une relation d’approbation de forêt bidirectionnelle entre la forêt du client et celle du serveur du site.  
+-   Zwischen der Gesamtstruktur des Clients und der Gesamtstruktur des Standortservers besteht eine bidirektionale Vertrauensstellung.  
 
--   Le serveur de rôle de système de site se trouve dans la même forêt que le client.  
+-   Der Standortsystemrollenserver befindet sich in der gleichen Gesamtstruktur wie der Client.  
 
--   Le client se trouve sur un ordinateur de domaine sans approbation de forêt bidirectionnelle avec le serveur de site, et les rôles de système de site ne sont pas installés dans la forêt du client.  
+-   Der Client befindet sich auf einem Domänencomputer ohne bidirektionale Vertrauensstellung mit der Gesamtstruktur, und es sind keine Standortsystemrollen in der Gesamtstruktur des Clients installiert.  
 
--   Le client se trouve sur un ordinateur de groupe de travail.  
+-   Der Client befindet sich auf einem Arbeitsgruppencomputer.  
 
-Les clients se trouvant sur un ordinateur joint à un domaine peuvent utiliser les services de domaine Active Directory pour l’emplacement du service si leur site est publié dans leur forêt Active Directory.  
+Die Active Directory-Domänendienste können von Clients auf einem zur Domäne gehörenden Computer zur Dienstidentifizierung verwendet werden, sofern der entsprechende Standort in der Active Directory-Gesamtstruktur veröffentlicht wurde.  
 
-Pour publier des informations de site dans une autre forêt Active Directory, vous devez effectuer les opérations suivantes :  
+Um Standortinformationen in einer anderen Active Directory-Gesamtstruktur zu veröffentlichen, müssen Sie folgende Aktionen ausführen:  
 
--   Spécifiez la forêt et activez la publication dans cette forêt dans le nœud **Forêts Active Directory** de l’espace de travail **Administration** .  
+-   Angeben der Gesamtstruktur und dann Aktivieren der Veröffentlichung in dieser Gesamtstruktur im Arbeitsbereich **Verwaltung** im Knoten **Active Directory-Gesamtstrukturen** .  
 
--   Configurez chaque site pour publier ses données dans les services de domaine Active Directory. Cette configuration permet aux clients se trouvant dans cette forêt d'extraire des informations de site et de trouver des points de gestion. Pour un client qui ne peut pas utiliser les services de domaine Active Directory pour l’emplacement du service, vous pouvez utiliser DNS, WINS ou le point de gestion attribué du client.  
+-   Konfigurieren jedes Standorts, sodass er seine Daten in Active Directory-Domänendiensten veröffentlicht. Von den Clients in dieser Gesamtstruktur können dann Standortinformationen abgerufen und Verwaltungspunkte gefunden werden. Für Clients, von denen Active Directory Domain Services nicht zur Dienstidentifizierung verwendet werden kann, besteht die Möglichkeit, DNS, WINS oder den Verwaltungspunkt zu verwenden, der dem Client zugewiesen wurde.  
 
-###  <a name="a-namebkmkxchangea-put-the-exchange-server-connector-in-a-remote-forest"></a><a name="bkmk_xchange"></a> Placer le connecteur du serveur Exchange Server dans une forêt distante  
-Pour prendre en charge ce scénario, assurez-vous que la résolution de noms fonctionne entre les forêts (par exemple, via une configuration DNS supplémentaire) et spécifiez le nom de domaine complet (FQDN) intranet du serveur Exchange Server au moment où vous configurez le connecteur du serveur Exchange Server. Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+###  <a name="bkmk_xchange"></a> Anordnen des Exchange Server-Connectors in einer Remotegesamtstruktur  
+Damit dieser Fall unterstützt wird, müssen Sie darauf achten, dass die Namensauflösung zwischen Gesamtstrukturen funktioniert (konfigurieren Sie beispielsweise DNS-Weiterleitung), und geben Sie beim Konfigurieren des Exchange Server-Connectors die Intranet-FQDN von Exchange Server an. Weitere Informationen finden Sie unter [Verwalten von mobilen Geräten mit System Center Configuration Manager und Microsoft Intune](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  

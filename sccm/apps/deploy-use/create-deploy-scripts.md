@@ -1,123 +1,118 @@
 ---
-title: "Créer et exécuter des scripts avec Configuration Manager | Microsoft Docs"
-description: "Créez et exécutez des scripts sur les appareils clients avec Configuration Manager."
+title: "Erstellen und Ausführen von Skripts mit Configuration Manager | Microsoft-Dokumentation"
+description: "Erstellen und Ausführen von Skripts auf Clientgeräten mit Configuration Manager."
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 08/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: 14
-caps.handback.revision: 0
+caps.latest.revision: "14"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
+ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
+ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
 ms.translationtype: HT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 4dcda88d4e91347f6da97e8da04c38f9e65e07bc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/11/2017
 ---
+# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Erstellen und Ausführen von PowerShell-Skripts über die Configuration Manager-Konsole
 
-# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+In Configuration Manager können Sie nicht nur mithilfe von Paketen und Programmen Skripts bereitstellen, sondern auch folgende Funktionen nutzen:
 
-Dans Configuration Manager, outre utiliser des packages et des programmes pour déployer des scripts, vous pouvez utiliser les fonctionnalités ci-après pour effectuer les actions suivantes :
-
-- Importer des scripts PowerShell dans Configuration Manager
-- Modifier les scripts à partir de la console Configuration Manager (pour les scripts non signés uniquement)
-- Marquer les scripts comme Approuvés ou Refusés pour améliorer la sécurité
-- Exécuter des scripts sur des collections d’ordinateurs clients Windows, et des ordinateurs Windows gérés localement. Vous ne pouvez pas déployer des scripts : ils sont exécutés presque immédiatement sur les appareils clients.
-- Examinez les résultats retournés par le script dans la console Configuration Manager.
+- Importieren von PowerShell-Skripts in Configuration Manager
+- Bearbeiten von Skripts in der Configuration Manager-Konsole (nur bei nicht signierten Skripts)
+- Markieren von Skripts als „Genehmigt“ oder „Abgelehnt“ zum Verbessern der Sicherheit
+- Anwenden von Skripts auf Sammlungen von Windows-Client-PCs und lokal verwaltete Windows-PCs. Skripts werden nicht bereitgestellt, sondern nahezu in Echtzeit auf Clientgeräten ausgeführt.
+- Überprüfen der Ergebnisse, die vom Skript in der Configuration Manager-Konsole zurückgegeben werden
 
 >[!TIP]
->Dans cette version de Configuration Manager, les scripts sont une fonctionnalité en préversion. Pour activer les scripts, consultez [Fonctionnalités en préversion dans System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+>In dieser Version von Configuration Manager sind Skripts Vorabfeatures. Informationen zum Aktivieren von Skripts finden Sie unter [Features der Vorabversion in System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Voraussetzungen
 
-Pour exécuter des scripts PowerShell, le client doit exécuter PowerShell version 3.0 ou ultérieure. Toutefois, si un script que vous exécutez contient des fonctionnalités d’une version ultérieure de PowerShell, le client sur lequel vous exécutez le script doit exécuter cette version.
+Um PowerShell-Skripts ausführen zu können, muss auf dem Client PowerShell 3.0 installiert sein. Enthält ein Skript jedoch Funktionen aus einer neueren PowerShell-Version, muss diese auch auf dem ausführenden Client installiert sein.
 
-Les clients Configuration Manager doivent exécuter le client à partir de la version Release 1706 ou ultérieure pour exécuter des scripts.
+Das Ausführen von Skripts ist nur auf Clients mit Configuration Manager 1706 oder neuer möglich.
 
-Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
+Um Skripts zu verwenden, müssen Sie Mitglied der entsprechenden Configuration Manager-Sicherheitsrolle sein.
 
-- Pour importer et créer des scripts, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- Pour approuver ou refuser des scripts, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- Pour exécuter des scripts, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- Erstellen und Importieren von Skripts: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** für **SMS-Skript** die Berechtigung **Erstellen**.
+- Genehmigen und Ablehnen von Skripts: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** die Berechtigung **Genehmigen** für **SMS-Skripts**.
+- Ausführen von Skripts: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** die Berechtigung **Skript ausführen** für **Sammlungen**.
 
-Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
+Weitere Informationen zu Configuration Manager-Sicherheitsrollen finden Sie unter [Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager](/sccm/core/understand/fundamentals-of-role-based-administration).
 
-Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont créé. Étant donné que les scripts sont puissants, flexibles et peuvent être déployés sur de nombreux appareils, vous pouvez séparer les rôles entre la personne qui crée le script et celle qui l’approuve. Ces rôles procurent un niveau supplémentaire de sécurité par rapport à l’exécution d’un script sans supervision. Vous pouvez désactiver cette approbation secondaire, pour faciliter le test.
+Standardmäßig können Benutzer kein Skript genehmigen, das sie erstellt haben. Da Skripts leistungsstark und vielseitig sind und auf vielen Geräten bereitgestellt werden können, muss ein von einer Person erstelltes Skript von einer anderen Person genehmigt werden. Dies bietet Ihnen zusätzliche Sicherheit vor der unbeaufsichtigten Ausführung eines Skripts. Die sekundäre Genehmigung lässt sich deaktivieren, um das Testen zu vereinfachen.
 
-## <a name="allow-users-to-approve-their-own-scripts"></a>Autoriser les utilisateurs à approuver leurs propres scripts
+## <a name="allow-users-to-approve-their-own-scripts"></a>Benutzern erlauben, eigene Skripts zu genehmigen
 
-1. Dans la console Configuration Manager, cliquez sur **Administration**.
-2. Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.
-3. Dans la liste des sites, sélectionnez votre site, puis, dans l’onglet **accueil**, sous le groupe **Sites**, cliquez sur **Paramètres de hiérarchie**.
-4. Dans l’onglet **Général** de la boîte de dialogue **Propriétés des paramètres de hiérarchie**, décochez la case **Ne pas autoriser les auteurs à approuver leurs propres scripts**.
-Sites
+1. Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.
+2. Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Standorte**.
+3. Wählen Sie in der Liste der Standorte Ihren Standort aus, und klicken Sie dann auf der Registerkarte **Start** in der Gruppe **Standorte** auf **Hierarchieeinstellungen**.
+4. Deaktivieren Sie im Dialogfeld **Eigenschaften von Hierarchieeinstellungen** auf der Registerkarte **Allgemein** das Kontrollkästchen **Skriptautoren nicht das Genehmigen ihrer eigenen Skripts erlauben**.
 
-## <a name="import-and-edit-a-script"></a>Importer et modifier un script
+## <a name="import-and-edit-a-script"></a>Importieren und Bearbeiten eines Skripts
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un script**.
-4. Dans la page **Script** de l’assistant **Créer un script**, configurez les paramètres éléments suivants :
-    - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais utiliser des noms en double complique la recherche d’un script spécifique dans la console Configuration Manager.
-    - **Langage de script** : seuls les scripts PowerShell sont pris en charge.
-    - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer**  : supprime le script en cours du champ Script.
-    - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
-5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.
+2. Klicken Sie im Arbeitsbereich **Softwarebibliothek** auf **Skripts**.
+3. Klicken Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Skript erstellen**.
+4. Konfigurieren Sie im Assistenten **Skript erstellen** auf der Seite **Skript** die folgenden Einstellungen:
+    - **Skriptname**: Geben Sie einen Namen für das Skript ein. Sie können zwar mehrere Skripts mit dem gleichen Namen erstellen, dies erschwert aber das Auffinden des benötigten Skripts in der Configuration Manager-Konsole.
+    - **Skriptsprache**: Derzeit werden nur PowerShell-Skripts unterstützt.
+    - **Importieren**: Importieren Sie ein PowerShell-Skript in die Konsole. Das Skript wird im Feld **Skript** angezeigt.
+    - **Löschen**: Entfernt das aktuelle Skript aus dem Feld „Skript“
+    - **Skript**: Zeigt das gerade importierte Skript. Sie können das Skript in diesem Feld nach Bedarf bearbeiten.
+5. Schließen Sie den Assistenten ab. Das neue Skript wird in der Liste **Skript** mit dem Status **Warten auf Genehmigung** angezeigt. Bevor Sie dieses Skript auf Clientgeräten ausführen können, müssen Sie es genehmigen.
 
-### <a name="script-examples"></a>Exemples de scripts
+### <a name="script-examples"></a>Beispiele für Skripts
 
-Voici quelques exemples de scripts utilisables avec cette fonctionnalité.
+Hier finden Sie einige Beispiele für Skripts, die sich mit dieser Funktion verwenden lassen.
 
-#### <a name="create-a-folder"></a>Créer un dossier
+#### <a name="create-a-folder"></a>Erstellen eines Ordners
 
 *New-Item "c:\scripts" -type folder name* 
  
  
-#### <a name="create-a-file"></a>Créer un fichier
+#### <a name="create-a-file"></a>Erstellen einer Datei
 
-*New-Item c:\scripts\nouveau_fichier.txt -type file name*
+*New-Item c:\scripts\new_file.txt -type file name*
 
 
-## <a name="approve-or-deny-a-script"></a>Approuver ou refuser un script
+## <a name="approve-or-deny-a-script"></a>Genehmigen oder Ablehnen eines Skripts
 
-Avant de pouvoir exécuter un script, il doit être approuvé. Pour approuver un script :
+Bevor Sie ein Skript ausführen können, muss es genehmigt werden. So genehmigen Sie ein Skript
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans la liste **Script**, sélectionnez le script que vous souhaitez approuver ou refuser puis, dans l’onglet **Accueil**, sous le groupe **Script**, cliquez sur **Approuver/Refuser**.
-4. Dans la boîte de dialogue **Approuver ou refuser le script**, **Approuvez** ou **Refusez** le script et entrez éventuellement un commentaire sur votre décision. Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients.
-5. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, la colonne **État d’approbation** change en fonction de votre action.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.
+2. Klicken Sie im Arbeitsbereich **Softwarebibliothek** auf **Skripts**.
+3. Wählen Sie in der Liste **Skript** das Skript, das Sie genehmigen oder ablehnen möchten. Klicken Sie dann in der Gruppe **Skript** auf der Registerkarte **Start** auf **Genehmigen/Ablehnen**.
+4. Im Dialogfeld **Skript genehmigen oder ablehnen** können Sie es **genehmigen** oder **ablehnen** und optional einen Kommentar zu Ihrer Entscheidung eingeben. Wenn Sie ein Skript ablehnen, kann es nicht auf Clientgeräten ausgeführt werden.
+5. Schließen Sie den Assistenten ab. In der Liste **Skript** ändert sich die Spalte **Genehmigungsstatus** abhängig von der Aktion, die Sie ausgeführt haben.
 
-## <a name="run-a-script"></a>Exécuter un script
-Une fois approuvé, un script peut être exécuté sur une collection que vous choisissez.
+## <a name="run-a-script"></a>Ausführen eines Skripts
+Nachdem ein Skript genehmigt wurde, kann es für die von Ihnen gewählte Sammlung ausgeführt werden.
 
-1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
-2. Dans l’espace de travail Ressources et Conformité, cliquez sur **Regroupements de périphériques**.
-3. Dans la liste **Collections d’appareils**, cliquez sur la collection d’appareils sur laquelle vous souhaitez exécuter le script.
-4. Sous l'onglet **Accueil**, dans le groupe **Tous les systèmes**, cliquez sur **Exécuter le script**.
-5. Sur la page **Script** de l’assistant **Exécuter le Script**, choisissez un script dans la liste. Seuls les scripts approuvés sont affichés.
-6. Cliquez sur **Suivant**, puis complétez l’Assistant.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
+2. Klicken Sie im Arbeitsbereich Bestand und Kompatibilität auf **Gerätesammlungen**.
+3. Klicken Sie in der Liste **Gerätesammlungen** auf die Sammlung von Geräten, auf denen das Skript ausgeführt werden soll.
+4. Klicken Sie auf der Registerkarte **Start** in der Gruppe **Alle Systeme** auf **Skript ausführen**.
+5. Wählen Sie im Assistenten **Skript ausführen** auf der Seite **Skript** ein Skript in der Liste aus. Es werden nur genehmigte Skripts angezeigt.
+6. Klicken Sie auf **Weiter**, und schließen Sie den Assistenten ab.
 
 >[!IMPORTANT]
->Le script dispose alors d’une heure pour s’exécuter. S’il ne s’exécute pas (par exemple, si l’ordinateur est mis hors tension) durant cette période, vous devez le réexécuter.
+>Dem Skript wird für die Ausführung ein einstündiger Zeitraum zugewiesen. Wenn es in diesem Zeitraum nicht ausgeführt wird (z.B. weil der Computer ausgeschaltet ist), müssen Sie die Ausführung erneut anstoßen.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Nächste Schritte
 
-Après avoir exécuté un script sur les appareils clients, utilisez cette procédure pour surveiller la réussite de l’opération.
+Nachdem Sie ein Skript auf Clientgeräten ausgeführt haben, gehen Sie wie folgt vor, um den Erfolg des Vorgangs zu überwachen.
 
-1. Dans la console Configuration Manager, cliquez sur **Surveillance**.
-2. Dans la liste **Surveillance**, cliquez sur **État du script**.
-3. Dans la liste **État du script**, vous pouvez voir les résultats pour chaque script que vous avez exécuté sur des appareils clients. Un code de sortie de script de **0** indique généralement que le script a été exécuté avec succès.
-
+1. Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.
+2. Klicken Sie im Arbeitsbereich **Überwachung** auf **Skriptstatus**.
+3. In der Liste **Skriptstatus** sehen Sie die Ergebnisse für jedes Skript, das Sie auf Clientgeräten ausgeführt haben. Der Exitcode **0** eines Skripts bedeutet im Allgemeinen, dass das Skript erfolgreich ausgeführt wurde.

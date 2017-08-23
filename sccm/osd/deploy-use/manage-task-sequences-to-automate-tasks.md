@@ -1,475 +1,471 @@
 ---
-title: "Gérer les séquences de tâches pour automatiser des tâches | Microsoft Docs"
-description: "Vous pouvez créer, modifier, déployer, importer et exporter des séquences de tâches pour les gérer dans votre environnement System Center Configuration Manager."
+title: Verwalten von Tasksequenzen zum Automatisieren von Tasks | Microsoft-Dokumentation
+description: "Sie können Tasksequenzen erstellen, bearbeiten, bereitstellen, importieren und exportieren, um sie in Ihrer System Center Configuration Manager-Umgebung zu verwalten."
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1f099f1-e9b5-4189-88b3-f53e3b4e4add
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
+# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Verwalten von Tasksequenzen zum Automatisieren von Aufgaben in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Utilisez des séquences de tâches pour automatiser des étapes dans votre environnement System Center Configuration Manager. Ces étapes peuvent déployer une image du système d’exploitation sur un ordinateur de destination, créer et capturer une image du système d’exploitation à partir d’un ensemble de fichiers d’installation de système d’exploitation, et capturer et restaurer des informations d’état utilisateur. Les séquences de tâches sont affichées dans la console Configuration Manager, dans **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquence de tâches**. Le nœud **Séquence de tâches**, contenant les sous-dossiers que vous créez, est répliqué dans toute la hiérarchie Configuration Manager. Pour plus d’informations sur la planification, consultez [Considérations relatives à la planification de l’automatisation des tâches](../plan-design/planning-considerations-for-automating-tasks.md).  
+Verwenden Sie Tasksequenzen, um Schritte in Ihrer System Center Configuration Manager-Umgebung zu automatisieren. Zu diesen Schritten gehören die Bereitstellung eines Betriebssystemimages für einen Zielcomputer, das Erstellen und Erfassen eines Betriebssystemimages aus einem Satz von Betriebssysteminstallationsdateien sowie das Erfassen und Wiederherstellen von Benutzerzustandsinformationen. Die Tasksequenzen befinden sich in der Configuration Manager-Konsole unter **Softwarebibliothek** > **Betriebssysteme** > **Tasksequenzen**. Der Knoten **Tasksequenz** mit den erstellten Unterordnern wird in der gesamten Configuration Manager-Hierarchie repliziert. Planungsinformationen finden Sie unter [Planungsüberlegungen für das Automatisieren von Tasks](../plan-design/planning-considerations-for-automating-tasks.md).  
 
- Aidez-vous des informations des sections suivantes pour gérer vos séquences de tâches.
+ Verwenden Sie die Informationen in den folgenden Abschnitten, um Tasksequenzen zu verwalten.
 
-##  <a name="BKMK_CreateTaskSequence"></a> Créer des séquences de tâches  
- Créez des séquences de tâches à l'aide de l'Assistant Création d'une séquence de tâches. Cet Assistant peut créer les types de séquences de tâches suivants :  
+##  <a name="BKMK_CreateTaskSequence"></a> Erstellen von Tasksequenzen  
+ Erstellen Sie Tasksequenzen mithilfe des Tasksequenzerstellungs-Assistenten. Mit diesem Assistenten können Sie die folgenden Typen von Tasksequenzen erstellen:  
 
-|Type de séquence de tâches|Plus d'informations|  
+|Tasksequenztyp|Weitere Informationen|  
 |------------------------|----------------------|  
-|[Séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour installer un système d’exploitation, ainsi que l’option pour migrer des données utilisateur, inclure des mises à jour logicielles et installer des applications.|  
-|[Séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour mettre à niveau un système d’exploitation, ainsi que l’option pour inclure des mises à jour logicielles et installer des applications.|  
-|[Séquence de tâches pour capturer un système d’exploitation](create-a-task-sequence-to-capture-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour générer et capturer un système d’exploitation à partir d’un ordinateur de référence. Vous pouvez inclure des mises à jour logicielles et installer des applications sur l’ordinateur de référence avant que l’image ne soit capturée.|  
-|[Séquence de tâches pour capturer et restaurer l’état utilisateur](create-a-task-sequence-to-capture-and-restore-user-state.md)|Cette séquence de tâches fournit les étapes à ajouter à une séquence de tâches pour capturer et restaurer des données d’état utilisateur.|  
-|[Séquence de tâches pour gérer des disques durs virtuels](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Ce type de séquence de tâches contient les étapes pour créer un disque dur virtuel, notamment pour installer un système d’exploitation et des applications que vous pouvez publier dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.|  
-|[Séquence de tâches personnalisée](create-a-custom-task-sequence.md)|Ce type de séquence de tâches n’ajoute aucune étape à la séquence de tâches. Vous devez modifier la séquence de tâches et ajouter des étapes à la séquence de tâches après sa création.|  
+|[Tasksequenz zum Installieren eines Betriebssystems](create-a-task-sequence-to-install-an-operating-system.md)|Dieser Tasksequenztyp erstellt die Schritte zum Installieren eines Betriebssystems sowie die Option zum Migrieren von Benutzerdaten, Einschließen von Softwareupdates und Installieren von Anwendungen.|  
+|[Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem](create-a-task-sequence-to-upgrade-an-operating-system.md)|Dieser Tasksequenztyp erstellt die Schritte zum Ausführen eines Betriebssystemupgrades sowie die Option zum Einschließen von Softwareupdates und Installieren von Anwendungen.|  
+|[Tasksequenz zum Erfassen eines Betriebssystems](create-a-task-sequence-to-capture-an-operating-system.md)|Dieser Tasksequenztyp erstellt die Schritte zum Erstellen und Erfassen eines Betriebssystems auf einem Referenzcomputer. Sie können Softwareupdates einschließen und Anwendungen auf dem Referenzcomputer installieren, bevor das Image erfasst wird.|  
+|[Tasksequenz zum Erfassen und Wiederherstellen des Benutzerzustands](create-a-task-sequence-to-capture-and-restore-user-state.md)|Diese Tasksequenz stellt die einer vorhandenen Tasksequenz hinzuzufügenden Schritte zum Erfassen und Wiederherstellen von Benutzerzustandsdaten bereit.|  
+|[Tasksequenz zum Verwalten virtueller Festplatten](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Dieser Tasksequenztyp enthält die Schritte zum Erstellen einer virtuellen Festplatte, einschließlich der Schritte zum Installieren von Betriebssystem und Anwendungen, die Sie über die Configuration Manager-Konsole in System Center Virtual Machine Manager (VMM) veröffentlichen können.|  
+|[Benutzerdefinierte Tasksequenz](create-a-custom-task-sequence.md)|Dieser Tasksequenztyp fügt keine Schritte zur Tasksequenz hinzu. Nach der Erstellung der Tasksequenz müssen Sie sie bearbeiten und ihr Schritte hinzufügen.|  
 
-## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Revenir à la page précédente en cas d’échec d’une séquence de tâches
-À partir de Configuration Manager version 1702, vous pouvez revenir à une page précédente quand vous exécutez une séquence de tâches qui échoue. Avant cette version, vous deviez redémarrer la séquence de tâches en cas d’échec. Par exemple, vous pouvez utiliser le bouton **Précédent** dans les scénarios suivants :
+## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Rückkehr zur vorherigen Seite, wenn eine Tasksequenz fehlschlägt
+Ab Configuration Manager Version 1702 können Sie zu einer vorherigen Seite zurückkehren, wenn Sie eine Tasksequenz ausführen und ein Fehler auftritt. Bevor es diese Version gab, mussten Sie die Tasksequenz neu starten, wenn ein Fehler aufgetreten ist. In den folgenden Szenarios können Sie zum Beispiel die Schaltfläche **Zurück** verwenden:
 
-- Quand un ordinateur démarre dans Windows PE, la boîte de dialogue d’amorçage de la séquence de tâches peut s’afficher avant que la séquence de tâches ne soit disponible. Quand vous cliquez sur Suivant dans ce scénario, la dernière page de la séquence de tâches s’affiche avec un message indiquant qu’aucune séquence de tâches n’est disponible. À présent, vous pouvez cliquer sur **Précédent** pour relancer la recherche des séquences de tâches disponibles. Vous pouvez répéter ce processus jusqu’à ce que la séquence de tâches soit disponible.
-- Quand vous exécutez une séquence de tâches, mais que les packages de contenu dépendants ne sont pas encore disponibles sur les points de distribution, la séquence de tâches échoue. Vous pouvez désormais distribuer le contenu manquant (s’il ne l’a pas encore été) ou attendre qu’il soit disponible sur les points de distribution, puis cliquer sur **Précédent** pour que la séquence de tâches recherche une nouvelle fois le contenu.
+- Beim Starten eines Computers in Windows PE wird möglicherweise der Bootstrap-Dialog der Tasksequenz angezeigt, bevor die Tasksequenz verfügbar ist. Wenn Sie in diesem Szenario auf „Weiter“ klicken, wird auf der letzten Seite der Tasksequenz eine Nachricht angezeigt, die darüber informiert, dass es keine verfügbaren Tasksequenzen gibt. Klicken Sie jetzt auf **Zurück**, um erneut nach verfügbaren Tasksequenzen zu suchen. Sie können diesen Vorgang wiederholen, bis die Tasksequenz verfügbar ist.
+- Wenn die abhängigen Paketinhalte beim Ausführen einer Tasksequenz an den Verteilungspunkten noch nicht verfügbar sind, kann die Tasksequenz nicht ausgeführt werden. Sie können jetzt fehlenden Inhalt (wenn dieser noch nicht verteilt wurde) verteilen oder warten, bis der Inhalt an den Verteilungspunkten verfügbar ist. Klicken Sie dann auf **Zurück**, damit die Tasksequenz wieder nach dem Inhalt sucht.
 
-##  <a name="BKMK_ModifyTaskSequence"></a> Modifier une séquence de tâches  
- Vous pouvez modifier une séquence de tâches en ajoutant ou en supprimant des étapes ou des groupes de séquence de tâches, ou bien en modifiant l'ordre des étapes. Pour modifier une séquence de tâches existante, procédez comme suit.  
+##  <a name="BKMK_ModifyTaskSequence"></a> Bearbeiten einer Tasksequenz  
+ Sie können eine Tasksequenz ändern, indem Sie der Tasksequenz Schritte oder Tasksequenzgruppen hinzufügen, Schritte oder Tasksequenzgruppen aus ihr entfernen oder die Reihenfolge der Schritte ändern. Gehen Sie wie folgt vor, um eine vorhandene Tasksequenz zu ändern.  
 
 > [!IMPORTANT]  
->  Lorsque vous modifiez une séquence de tâches qui avait été créée à l'aide de l'Assistant Création d'une séquence de tâches, le nom de l'étape peut être l'action de l'étape ou le type de l'étape. Par exemple, vous pouvez voir une étape appelée « Partitionner le disque 0 », qui désigne l’action d’une étape de type [Formater et partitionner le disque](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Toutes les étapes de séquence de tâches sont documentées par leur type, pas nécessairement par le nom de l'étape qui est affichée dans l'éditeur.  
+>  Wenn Sie eine Tasksequenz bearbeiten, die mithilfe des Tasksequenzerstellungs-Assistenten erstellt wurde, kann die Aktion des jeweiligen Schritts oder der Typ des Schritts als Schrittname verwendet werden. Ein Schritt kann z.B. den Namen „Festplatte 0 partitionieren“ haben. Dies ist die Aktion für einen Schritt vom Typ [Datenträger formatieren und partitionieren](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Alle Tasksequenzschritte werden nach Ihrem Typ dokumentiert, also nicht unbedingt nach dem im Editor angezeigten Namen des Schritts.  
 
-#### <a name="to-edit-a-task-sequence"></a>Pour modifier une séquence de tâches  
+#### <a name="to-edit-a-task-sequence"></a>So bearbeiten Sie eine Tasksequenz  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous souhaitez modifier.  
+3.  Wählen Sie in der Liste **Tasksequenz** die Tasksequenz aus, die Sie bearbeiten möchten.  
 
-4.  Sous l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier**, puis effectuez l'une des opérations suivantes :  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Tasksequenz** auf **Bearbeiten**, und führen Sie dann eine der folgenden Vorgänge aus:  
 
-    -   Pour ajouter une étape de séquence de tâches, cliquez sur **Ajouter**, sélectionnez le type d'étape, puis cliquez sur la séquence de tâches à ajouter. Par exemple, pour ajouter l'étape Exécuter la ligne de commande, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la ligne de commande**.  
+    -   Wenn Sie einen Tasksequenzschritt hinzufügen möchten, klicken Sie auf **Hinzufügen**, wählen Sie den Typ des Schritts aus, und klicken Sie dann auf den hinzuzufügenden Tasksequenzschritt. Beispiel: Wenn Sie den Schritt "Befehlszeile ausführen" hinzufügen möchten, klicken Sie auf **Hinzufügen**, wählen Sie **Allgemein**aus, und klicken Sie dann auf **Befehlszeile ausführen**.  
 
-         Pour obtenir une liste de toutes les étapes de séquence de tâches et leur type, consultez le tableau qui suit cette procédure.  
+         Eine Liste aller Tasksequenzschritte und des jeweils dazugehörenden Typs finden Sie in der nachfolgenden Tabelle.  
 
-    -   Pour ajouter un groupe à la séquence de tâches, cliquez sur **Ajouter**, puis cliquez sur **Nouveau groupe**. Après avoir ajouté un groupe, vous pouvez ajouter des étapes au groupe.  
+    -   Wenn Sie der Tasksequenz eine Gruppe hinzufügen möchten, klicken Sie zuerst auf **Hinzufügen**und dann auf **Neue Gruppe**. Nachdem Sie der Tasksequenz eine Gruppe hinzugefügt haben, können Sie der Gruppe Schritte hinzufügen.  
 
-    -   Pour modifier l'ordre des étapes et des groupes de la séquence de tâches, sélectionnez l'étape ou le groupe que vous souhaitez réorganiser, puis utilisez les icônes **Déplacer l'élément vers le haut** ou **Déplacer l'élément vers le bas** . Vous pouvez déplacer une seule étape ou un seul groupe à la fois.  
+    -   Wenn Sie die Reihenfolge der Schritte und Gruppen in der Tasksequenz ändern möchten, wählen Sie den neu anzuordnenden Schritt bzw. die Gruppe aus, und verschieben Sie den Schritt dann mithilfe des Symbols **Element nach oben verschieben** oder **Element nach unten verschieben** . Sie können nicht mehrere Schritte oder Gruppen gleichzeitig verschieben.  
 
-    -   Pour supprimer une étape ou un groupe, sélectionnez l'étape ou le groupe, puis cliquez sur **Supprimer**.  
+    -   Wenn Sie einen Schritt oder eine Gruppe entfernen möchten, wählen Sie den Schritt oder die Gruppe aus, und klicken Sie dann auf **Entfernen**.  
 
-5.  Cliquez sur **OK** pour enregistrer les modifications.  
+5.  Klicken Sie zum Speichern der Änderungen auf **OK** .  
 
- Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
+ Eine Liste verfügbarer Tasksequenzschritte finden Sie unter [Tasksequenzschritte](../understand/task-sequence-steps.md).  
 
-## <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
-Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
-1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
-2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
-3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
-  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
-  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
-  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
+## <a name="configure-software-center-properties"></a>Konfigurieren der Eigenschaften des Softwarecenters
+Gehen Sie wie folgt vor, um die Angaben für die Tasksequenz, die im Softwarecenter angezeigt werden, zu konfigurieren. Diese Angaben dienen nur zu Informationszwecken.  
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Betriebssysteme** > **Tasksequenzen**.
+2. Wählen Sie die zu bearbeitende Tasksequenz aus, und klicken Sie anschließend auf **Eigenschaften**.
+3. Auf der Registerkarte **Allgemein** stehen folgende neuen Einstellungen für das Softwarecenter zur Verfügung:
+  - **Neustart erforderlich**: Informiert den Benutzer, ob während der Installation ein Neustart erforderlich ist.
+  - **Downloadgröße (in MB)**: Gibt an, wie viele Megabytes für die Tasksequenz im Softwarecenter angezeigt werden.  
+  - **Geschätzte Laufzeit (in Minuten)**: Gibt die geschätzte Laufzeit in Minuten für die Tasksequenz an; wird im Softwarecenter angezeigt.
 
-## <a name="configure-advanced-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches avancés
-Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
-1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
-2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
-3. L’onglet **Avancé** contient les paramètres suivants :
+## <a name="configure-advanced-task-sequence-settings"></a>Konfigurieren von erweiterten Einstellungen für eine Tasksequenz
+Gehen Sie wie folgt vor, um die Angaben für die Tasksequenz, die im Softwarecenter angezeigt werden, zu konfigurieren. Diese Angaben dienen nur zu Informationszwecken.  
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Betriebssysteme** > **Tasksequenzen**.
+2. Wählen Sie die zu bearbeitende Tasksequenz aus, und klicken Sie anschließend auf **Eigenschaften**.
+3. Auf der Registerkarte **Erweitert** sind die folgenden Einstellungen verfügbar:
 
-    - **Exécuter un autre programme en premier**    
-    Cochez cette case pour exécuter un autre programme (dans un autre package) avant la séquence de tâches. Par défaut, cette case à cocher est désactivée. Le programme dont vous spécifiez l'exécution préalable n'a pas besoin d'être publié séparément.
+    - **Ein anderes Programm zuerst ausführen**    
+    Aktivieren Sie dieses Kontrollkästchen, um ein anderes Programm (in einem anderen Paket) auszuführen, bevor die Tasksequenz ausgeführt wird. Standardmäßig ist dieses Kontrollkästchen deaktiviert. Das zuerst auszuführende Programm muss nicht gesondert angekündigt werden.
 
         > [!IMPORTANT]     
-        Ce paramètre s'applique uniquement aux séquences de tâches qui s'exécutent dans le système d'exploitation complet. Configuration Manager ignore ce paramètre si la séquence de tâches est démarrée à l’aide de l’environnement PXE ou d’un média de démarrage.
+        Diese Einstellung gilt nur für Tasksequenzen, die in der Vollversion des Betriebssystems ausgeführt werden. Diese Einstellung wird von Configuration Manager ignoriert, wenn die Tasksequenz mithilfe von PXE- oder Startmedien gestartet wird.
 
-    - **Package**     
-        Si vous activez l'option **Exécuter un autre programme en premier**, entrez ou recherchez le package contenant le programme qui doit s'exécuter avant cette séquence de tâches.
+    - **Paket**     
+        Wenn Sie **Ein anderes Programm zuerst ausführen** auswählen, geben Sie das Paket mit dem vor dieser Tasksequenz auszuführenden Programm ein, oder suchen Sie danach.
 
-    - **Programme**     
-    Si vous activez l'option **Exécuter un autre programme en premier**, sélectionnez le programme qui doit s'exécuter avant cette séquence de tâches dans la liste déroulante **Programme**.
+    - **Programm**     
+    Wenn Sie **Ein anderes Programm zuerst ausführen** auswählen, wählen Sie in der Dropdownliste **Programm** das vor dieser Tasksequenz auszuführende Programm aus.
 
         > [!NOTE]    
-        > Si l'exécution du programme sélectionné échoue sur un client, la séquence de tâches ne sera pas exécutée. Si l'exécution du programme sélectionné aboutit, il ne sera pas réexécuté, même si la séquence de tâches est exécutée de nouveau sur le même client.
+        > Kann das ausgewählte Programm nicht auf einem Client ausgeführt werden, wird die Tasksequenz nicht ausgeführt. Bei erfolgreicher Ausführung des ausgewählten Programms wird dieses auch bei erneuter Ausführung der Tasksequenz auf dem gleichen Client nicht erneut ausgeführt.
  
-    - **Désactiver cette séquence de tâches sur les ordinateurs sur lesquels elle est publiée**    
-    Si vous sélectionnez cette option, tous les déploiements qui contiennent cette séquence de tâches sont temporairement désactivés. La séquence de tâches est supprimée de la liste des publications à exécuter, et elle sera réexécutée uniquement lorsqu'elle aura été réactivée. Par défaut, cette option est désactivée.
+    - **Diese Tasksequenz auf Computern, auf denen sie bereitgestellt ist, deaktivieren**    
+    Wenn Sie diese Option auswählen, werden alle Bereitstellungen, die diese Tasksequenz enthalten, vorübergehend deaktiviert. Die Tasksequenz wird aus der Liste der zum Ausführen verfügbaren Ankündigungen entfernt und erst wieder ausgeführt, nachdem sie erneut aktiviert wurde. Die Option ist standardmäßig deaktiviert.
 
-    - **Durée maximale d'exécution allouée**    
-    Indique la durée maximale (en minutes) d'exécution de la séquence de tâches sur l'ordinateur de destination. Vous devez utiliser un nombre entier égal ou supérieur à zéro. Par défaut, cette valeur est définie à 120 minutes.
+    - **Maximal zulässige Laufzeit**    
+    Gibt die maximale Zeit (in Minuten) an, die für die Ausführung der Tasksequenz auf dem Zielcomputer erwartet wird. Sie müssen eine ganze Zahl verwenden, die gleich oder größer als null ist. Standardmäßig ist dieser Wert auf 120 Minuten festgelegt.
 
         > [!IMPORTANT]    
-        > Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel cette séquence de tâches est exécutée, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **0**, la séquence de tâches démarre pendant la fenêtre de maintenance et continue son exécution jusqu'à ce qu'elle ait terminé ou échoué après la fermeture de la fenêtre de maintenance. En conséquence, les séquences de tâches dont la durée d'exécution maximale est définie sur **0** peuvent s'exécuter après la fin de leurs fenêtres de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (c’est-à-dire autre que **0**) qui dépasse la durée de toute fenêtre de maintenance disponible, cette séquence de tâches n'est pas exécutée. Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
+        > Wenn Sie bei der Sammlung, für die diese Tasksequenz ausgeführt wird, Wartungsfenster verwenden, kann ein Konflikt auftreten, wenn die **Maximal zulässige Laufzeit** länger ist als das geplante Wartungsfenster. Wenn für die maximal zulässige Laufzeit der Wert **0** festgelegt ist, wird die Tasksequenz während des Wartungsfensters gestartet, und die Ausführung wird am Ende des Wartungsfensters nicht unterbrochen, sondern solange fortgesetzt, bis das Programm abgeschlossen ist oder ein Fehler auftritt. Entsprechend werden Tasksequenzen, bei denen für die maximal zulässige Laufzeit der Wert **0** festgelegt ist, möglicherweise über das Ende ihrer Wartungsfenster hinaus ausgeführt. Wenn Sie für die maximal zulässige Laufzeit einen bestimmten Zeitraum (also nicht **0**) festlegen, der die Dauer aller verfügbaren Wartungsfenster überschreitet, wird diese Tasksequenz nicht ausgeführt. Weitere Informationen finden Sie unter [Verwenden von Wartungsfenstern](/sccm/core/clients/manage/collections/use-maintenance-windows).
  
-        Si la valeur définie est **0**, Configuration Manager fixe la durée d’exécution maximale autorisée à **12** heures (720 minutes) pour suivre la progression. Toutefois, la séquence de tâches démarre tant que la durée du compte à rebours ne dépasse pas la valeur de la fenêtre de maintenance.
+        Wenn der Wert **0** festgelegt ist, verwendet Configuration Manager für die maximal zulässige Laufzeit **12** Stunden (720 Minuten) für die Überwachung des Fortschritts. Allerdings wird die Tasksequenz gestartet, solange die Dauer des Countdowns den Wert für das Wartungsfenster nicht überschreitet.
 
     > [!NOTE]    
-    > Si cette durée maximale est atteinte, Configuration Manager arrête la séquence de tâches s'il est configuré pour s'exécuter avec les droits d'administration et si le paramètre Autoriser les utilisateurs à interagir avec ce programme n'est pas activé. Si la séquence de tâches ne s’arrête pas d’elle-même, Configuration Manager cesse de la surveiller dès que la durée d’exécution maximale autorisée est atteinte. 
+    > Wenn die maximal zulässige Laufzeit erreicht wird, beendet Configuration Manager die Tasksequenz, sofern für die Tasksequenz die Einstellung „Mit Administratorrechten ausführen“ festgelegt und die Einstellung „Benutzerinteraktion mit dem Programm zulassen“ deaktiviert ist. Wenn die Tasksequenz selbst nicht beendet wird, beendet Configuration Manager die Überwachung der Tasksequenz, sobald die maximal zulässige Laufzeit erreicht wurde. 
 
-    - **Utiliser une image de démarrage**   
-        Activez cette option pour utiliser l'image de démarrage sélectionnée lors de l'exécution de la séquence de tâches. 
+    - **Ein Startimage verwenden**   
+        Aktivieren Sie diese Option, um bei der Ausführung der Tasksequenz das ausgewählte Startimage zu verwenden. 
 
-        Cliquez sur **Parcourir** pour sélectionner une autre image de démarrage. Désactivez cette option pour désactiver l’utilisation de l’image de démarrage sélectionnée lors de l’exécution de la séquence de tâches.
+        Klicken Sie auf **Durchsuchen**, um ein anderes Startimage auszuwählen. Deaktivieren Sie diese Option, um bei der Ausführung der Tasksequenz die Verwendung des ausgewählten Startimages zu deaktivieren.
 
-    - **Cette séquence de tâches peut être exécutée sur toute plateforme**     
-        Si vous sélectionnez cette option, Configuration Manager ne vérifie pas le type de plateforme de l'ordinateur de destination lors du déploiement de la séquence de tâches. Cette option est activée par défaut.
+    - **Diese Tasksequenz kann auf jeder Plattform ausgeführt werden**     
+        Wenn Sie diese Option auswählen, überprüft Configuration Manager den Plattformtyp des Zielcomputers nicht, wenn die Tasksequenz bereitgestellt wird. Diese Option ist standardmäßig ausgewählt.
 
-    - **Cette séquence de tâches peut être exécutée uniquement sur les plates-formes clientes spécifiées**    
-        Cette option spécifie les processeurs, les systèmes d'exploitation et les Service Packs sur lesquels cette séquence de tâches peut s'exécuter. Lorsque vous sélectionnez cette option, au moins une plateforme doit être sélectionnée dans la liste. Par défaut, aucune plate-forme n'est sélectionnée. Configuration Manager utilise ces informations pour identifier les ordinateurs de destination d'un regroupement qui reçoivent la séquence de tâches déployée.
+    - **Diese Tasksequenz kann nur auf den angegebenen Clientplattformen ausgeführt werden**    
+        Mit dieser Option werden die Prozessoren, Betriebssysteme und Service Packs angegeben, unter denen diese Tasksequenz ausgeführt werden kann. Wenn Sie diese Option auswählen, muss auch mindestens eine Plattform aus der Liste ausgewählt werden. Standardmäßig ist keine Plattform ausgewählt. Configuration Manager bewertet mithilfe dieser Informationen, welche Zielcomputer in einer Sammlung die bereitgestellte Tasksequenz erhalten sollen.
 
         > [!NOTE]    
-        > Lorsqu'une séquence de tâches est exécutée à partir d'un support de démarrage ou via un démarrage PXE, cette option est ignorée et la séquence de tâches ne s'exécutera que lorsque l'option **Ce programme peut être exécuté sur n'importe quelle plateforme** sera activée.
+        > Wenn eine Tasksequenz von Startmedien oder mittels PXE-Start ausgeführt wird, wird diese Option ignoriert. Die Tasksequenz wird dann so ausgeführt, als ob **Dieses Programm kann auf jeder Plattform ausgeführt werden** aktiviert ist.
 
-## <a name="configure-high-impact-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches à fort impact
-À partir de Configuration Manager version 1702, vous pouvez définir une séquence de tâches à fort impact et personnaliser les messages envoyés aux utilisateurs lorsqu’ils exécutent la séquence de tâches.
+## <a name="configure-high-impact-task-sequence-settings"></a>Konfigurieren von Einstellungen für eine Tasksequenz mit schwerwiegenden Auswirkungen
+Ab Configuration Manager Version 1702 können Sie eine Tasksequenz als Tasksequenz mit schwerwiegenden Auswirkungen festlegen und die Meldungen anpassen, die Benutzer erhalten, wenn sie die Tasksequenz ausführen.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Définir une séquence de tâches comme séquence de tâches à fort impact
-Appliquez la procédure suivante pour définir une séquence de tâches à fort impact.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Festlegen einer Tasksequenz als Tasksequenz mit schwerwiegenden Auswirkungen
+Gehen Sie wie folgt vor, um eine Tasksequenz als Tasksequenz mit schwerwiegenden Auswirkungen festzulegen:
 > [!NOTE]    
-> Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Jede Tasksequenz, die bestimmte Bedingungen erfüllt, wird automatisch als „high-impact“ (mit schwerwiegenden Auswirkungen) definiert. Weitere Informationen finden Sie unter [Verwalten risikoreicher Bereitstellungen](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
-1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
-2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
-3. Sous l’onglet **Notification utilisateur**, sélectionnez **Il s’agit d’une séquence de tâches avec un impact élevé**.
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Betriebssysteme** > **Tasksequenzen**.
+2. Wählen Sie die zu bearbeitende Tasksequenz aus, und klicken Sie anschließend auf **Eigenschaften**.
+3. Wählen Sie in der Registerkarte **Benutzerbenachrichtigung** **Dies ist eine Tasksequenz mit schwerwiegenden Auswirkungen** aus.
 
-### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Créer une notification personnalisée pour les déploiements à haut risque
-Utilisez la procédure suivante pour créer une notification personnalisée pour les déploiements à fort impact.
-1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
-2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
-3. Sous l’onglet **Notification utilisateur**, sélectionnez **Utiliser du texte personnalisé**.
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Erstellen einer benutzerdefinierten Benachrichtigung für risikoreiche Bereitstellungen
+Verwenden Sie die folgende Prozedur, um eine benutzerdefinierte Benachrichtigung zu Bereitstellungen mit schwerwiegenden Auswirkungen zu erstellen.
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Betriebssysteme** > **Tasksequenzen**.
+2. Wählen Sie die zu bearbeitende Tasksequenz aus, und klicken Sie anschließend auf **Eigenschaften**.
+3. Wählen Sie in der Registerkarte **Benutzerbenachrichtigung** **Benutzerdefinierten Text verwenden** aus.
 >  [!NOTE]    
->  Vous pouvez définir le texte de notification utilisateur uniquement quand **Il s’agit d’une séquence de tâches avec un impact élevé** est sélectionné.
+>  Sie können den Text von Benutzerbenachrichtigungen nur festlegen, wenn **Dies ist eine Tasksequenz mit schwerwiegenden Auswirkungen** ausgewählt ist.
 
-4. Configurez les paramètres suivants (maximum 255 caractères pour chaque zone de texte) :
+4. Konfigurieren Sie folgende Einstellungen (maximal 255 Zeichen pro Text):
 
-  **Texte du titre de la notification utilisateur** : spécifie le texte en bleu qui s’affiche sur la notification utilisateur du Centre logiciel. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Confirmez que vous voulez mettre à niveau le système d’exploitation sur cet ordinateur ».
+  **Überschriftentext der Benutzerbenachrichtigung**: Gibt den blauen Text an, der in der Benutzerbenachrichtigung vom Softwarecenter angezeigt wird. In der Standardbenutzerbenachrichtigung enthält dieser Abschnitt beispielsweise folgenden Text: „Bestätigen Sie, dass Sie das Betriebssystem auf diesem Computer aktualisieren möchten“ o.Ä.
 
-  **Texte du message de la notification utilisateur** : trois zones de texte fournissent le corps de la notification personnalisée. Toutes les zones de texte nécessitent la saisie d’un texte.
-  - Première zone de texte : spécifie le corps principal du texte, contenant généralement des instructions destinées à l’utilisateur. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « La mise à niveau du système d’exploitation peut prendre un certain temps et entraîner plusieurs redémarrages de votre ordinateur ».
-  - Deuxième zone de texte : spécifie le texte en gras dans le corps principal du texte. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cette mise à niveau sur place installe le nouveau système d’exploitation et migre automatiquement vos applications, vos données et vos paramètres ».
-  - Troisième zone de texte : spécifie la dernière ligne de texte sous le texte en gras. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cliquez sur Installer pour commencer. Sinon, cliquez sur Annuler. ».   
+  **Nachrichtenrest der Benutzerbenachrichtigung**: Es gibt drei Textfelder, die den Text der benutzerdefinierten Benachrichtigungen enthalten. Sie müssen in jedes Textfeld Text eingeben.
+  - Erstes Textfeld: Gibt den Hauptteil des Texts an, der üblicherweise Anweisungen an den Benutzer enthält. In der Standardbenutzerbenachrichtigung enthält dieser Abschnitt beispielsweise folgenden Text: „Das Upgrade des Betriebssystems kann einige Zeit dauern und mehrere Neustarts des Computers erfordern“ o.Ä.
+  - Zweites Textfeld: Gibt den fetten Text unterhalb des Hauptteils an. In der Standardbenutzerbenachrichtigung enthält dieser Abschnitt beispielsweise folgenden Text: „Dieses direkte Upgrade installiert das neue Betriebssystem und führt eine automatische Migration Ihrer Apps, Daten und Einstellungen durch“ o.Ä.
+  - Drittes Textfeld: Gibt die letzte Textzeile unterhalb des fetten Texts an. In der Standardbenutzerbenachrichtigung enthält dieser Abschnitt beispielsweise folgenden Text: „Klicken Sie auf Installieren, um den Vorgang zu starten. Klicken Sie andernfalls auf Abbrechen.“   
     
-Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
+Angenommen, Sie konfigurieren folgende benutzerdefinierte Benachrichtigung in den Eigenschaften.
 
-![Notification personnalisée pour une séquence de tâches](..\media\user-notification.png)
+![Benutzerdefinierte Benachrichtigung für eine Tasksequenz](..\media\user-notification.png)
 
-Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
+Folgende Benachrichtigung wird angezeigt, wenn der Endbenutzer die Installation aus dem Softwarecenter öffnet.
 
-![Notification personnalisée pour une séquence de tâches](..\media\user-notification-enduser.png)
+![Benutzerdefinierte Benachrichtigung für eine Tasksequenz](..\media\user-notification-enduser.png)
 
 
-##  <a name="BKMK_DistributeTS"></a> Distribuer du contenu référencé par une séquence de tâches  
- Avant que les clients exécutent une séquence de tâches qui référence du contenu, vous devez distribuer ce contenu aux points de distribution. À tout moment, vous pouvez sélectionner la séquence de tâches et distribuer son contenu pour créer une nouvelle liste de packages de référence pour la distribution. Si vous apportez des modifications à la séquence de tâches avec du contenu mis à jour, vous devez redistribuer le contenu avant de le mettre à la disposition des clients. Pour distribuer le contenu qui est référencé par une séquence de tâches, procédez comme suit.  
+##  <a name="BKMK_DistributeTS"></a> Verteilen von Inhalt, auf den von einer Tasksequenz verwiesen wird  
+ Sie müssen Inhalt, auf den von einer Tasksequenz verwiesen wird, an Verteilungspunkte verteilen, bevor diese Tasksequenz von Clients ausgeführt wird. Sie können die Tasksequenz jederzeit auswählen und ihren Inhalt verteilen, um eine neue Liste von Referenzpaketen für die Verteilung zu erstellen. Wenn Sie die Tasksequenz mit aktualisiertem Inhalt ändern, müssen Sie den Inhalt erneut verteilen, bevor er für Clients verfügbar ist. Gehen Sie wie folgt vor, um den Inhalt, auf den von einer Tasksequenz verwiesen wird, zu verteilen.  
 
-#### <a name="to-distribute-referenced-content-to-distribution-points"></a>Pour distribuer le contenu référencé sur des points de distribution  
+#### <a name="to-distribute-referenced-content-to-distribution-points"></a>So verteilen Sie referenzierten Inhalt an Verteilungspunkte  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous souhaitez distribuer.  
+3.  Wählen Sie in der Liste **Tasksequenz** die Tasksequenz aus, die Sie verteilen möchten.  
 
-4.  Sous l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu** pour démarrer l'Assistant Distribuer du contenu.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Inhalt verteilen** , um den Assistenten für die Verteilung von Inhalt zu starten.  
 
-5.  Sur la page **Général** , vérifiez que la séquence de tâches correcte est sélectionnée pour la distribution, puis cliquez sur **Suivant**.  
+5.  Vergewissern Sie sich auf der Seite **Allgemein** , dass die richtige Tasksequenz für die Verteilung ausgewählt ist, und klicken Sie dann auf **Weiter**.  
 
-6.  Sur la page **Contenu** , vérifiez le contenu à distribuer, tel que l'image de démarrage référencée par la séquence de tâches, puis cliquez sur **Suivant**.  
+6.  Überprüfen Sie auf der Seite **Inhalt** den zu verteilenden Inhalt, z. B. das Startabbild, auf das von der Tasksequenz verwiesen wird, und klicken Sie dann auf **Weiter**.  
 
-7.  Sur la page **Destination du contenu** , spécifiez les regroupements, le point de distribution ou le groupe de points de destination où vous souhaitez distribuer le contenu de séquence de tâches, puis cliquez sur **Suivant**.  
+7.  Geben Sie auf der Seite **Inhaltsziel** die Sammlungen, den Verteilungspunkt oder die Verteilungspunktgruppe an, an die der Inhalt der Tasksequenz verteilt werden soll, und klicken Sie dann auf **Weiter**.  
 
     > [!IMPORTANT]  
-    >  Si la séquence de tâches que vous avez sélectionnée référence du contenu qui est déjà distribué sur un point de distribution spécifique, ce point de distribution n'est pas répertorié par l'Assistant.  
+    >  Wenn von der ausgewählten Tasksequenz auf Inhalt verwiesen wird, der bereits an einen bestimmten Verteilungspunkt verteilt wurde, wird der betreffende Verteilungspunkt nicht im Assistenten aufgeführt.  
 
-8.  Effectuez toutes les étapes de l'Assistant.  
+8.  Schließen Sie den Assistenten ab.  
 
- Vous pouvez préparer le contenu référencé dans la séquence de tâches. Configuration Manager crée un fichier de contenu compressé et préparé qui contient les fichiers, les dépendances associées et les métadonnées associées pour le contenu que vous sélectionnez. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution. Pour plus d’informations sur la façon de préparer des fichiers de contenu, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+ Sie können den Inhalt, auf den in der Tasksequenz verwiesen wird, vorab bereitstellen. Configuration Manager erstellt eine komprimierte, vorab bereitgestellte Inhaltsdatei, die die Dateien, zugeordnete Abhängigkeiten und zugeordnete Metadaten für den von Ihnen ausgewählten Inhalt umfasst. Sie können den Inhalt dann manuell in einen Standortserver, sekundären Standort oder Verteilungspunkt importieren. Weitere Informationen zum Vorabbereitstellen von Inhaltsdateien finden Sie unter [Vorabbereitstellen von Inhalt](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
 
-##  <a name="BKMK_DeployTS"></a> Déployer une séquence de tâches  
- Pour déployer une séquence de tâches sur les ordinateurs d'un regroupement, procédez comme suit.  
+##  <a name="BKMK_DeployTS"></a> Bereitstellen einer Tasksequenz  
+ Mithilfe der folgenden Vorgehensweise können Sie eine Tasksequenz auf Computern in einer Sammlung bereitstellen.  
 
 > [!WARNING]  
->  Vous pouvez gérer le comportement des déploiements de séquences de tâches à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches avec comme objectif **Obligatoire** qui déploie un système d'exploitation est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Sie können das Verhalten für Tasksequenzbereitstellungen mit hohem Risiko verwalten. Bei einer Bereitstellung mit hohem Risiko handelt es sich um eine Bereitstellung, die automatisch installiert wird und zu unerwünschten Ergebnissen führen kann. Beispielsweise wird eine Tasksequenz, die als Zweck **Erforderlich** aufweist und ein Betriebssystem bereitstellt, als eine Bereitstellung mit hohem Risiko betrachtet. Weitere Informationen finden Sie unter [Einstellungen für die Verwaltung hochriskanter Bereitstellungen](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 > [!NOTE]  
->  Les messages d'état pour le déploiement d'une séquence de tâches sont affichés dans la fenêtre Message sur un site principal, mais ils ne sont pas affichés sur un site d'administration centrale.  
+>  Die Statusmeldungen für die Tasksequenzbereitstellung werden in einem Meldungsfenster an einem primären Standort, nicht jedoch an einem Standort der zentralen Verwaltung angezeigt.  
 
-#### <a name="to-deploy-a-task-sequence"></a>Pour déployer une séquence de tâches  
+#### <a name="to-deploy-a-task-sequence"></a>So stellen Sie eine Tasksequenz bereit  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous voulez déployer.  
+3.  Wählen Sie in der Liste **Tasksequenz** die Tasksequenz aus, die Sie bereitstellen möchten.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
     > [!NOTE]  
-    >  Si **Déployer** n'est pas disponible, la séquence de tâches a une référence qui n'est pas valide.  Corrigez la référence, puis tentez de déployer à nouveau la séquence de tâches.  
+    >  Wenn **Bereitstellen** nicht verfügbar ist, hat die Tasksequenz eine ungültige Referenz.  Korrigieren Sie die Referenz, und versuchen Sie dann erneut, die Tasksequenz bereitzustellen.  
 
-5.  Sur la page **Général** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+5.  Geben Sie auf der Seite **Allgemein** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
 
-    -   **Séquence de tâches**: Spécifiez la séquence de tâches que vous souhaitez déployer. Par défaut, cette zone affiche la séquence de tâches que vous avez sélectionnée.  
+    -   **Tasksequenz**: Geben Sie die Tasksequenz an, die Sie bereitstellen möchten. In diesem Feld wird standardmäßig die von Ihnen ausgewählte Tasksequenz angezeigt.  
 
-    -   **Regroupement**: Spécifiez le regroupement contenant les ordinateurs qui exécuteront la séquence de tâches.  
+    -   **Sammlung**: Geben Sie die Sammlung an, die die Computer enthält, von denen die Tasksequenz ausgeführt werden soll.  
 
-         Ne déployez pas de séquences de tâches qui installent des systèmes d'exploitation sur des regroupements inappropriés, tels que le regroupement **Tous les systèmes** . N'oubliez pas que le regroupement que vous sélectionnez contient uniquement les ordinateurs que vous souhaitez voir exécuter la séquence de tâches.  
-
-        > [!NOTE]  
-        >  Quand vous effectuez un déploiement à haut risque, par exemple un système d’exploitation, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements personnalisés satisfaisant aux paramètres de vérification de déploiement configurés dans les propriétés du site. Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
-        >   
-        >  Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois que vous avez déployé la séquence de tâches, l'appartenance du regroupement n'est pas réévaluée pour les paramètres de déploiement à haut risque.  
-        >   
-        >  Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
-        >   
-        >  Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :  
-        >   
-        >  -   Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez de bloquer les regroupements contenant des serveurs de système de site, une erreur se produit et vous ne pouvez pas continuer.  
-        > -   Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez d'afficher un avertissement dans le cas où des regroupements contiennent des serveurs de système de site, si  le regroupement dépasse la valeur de taille par défaut, ou si le regroupement contient un serveur, l'Assistant Déploiement logiciel affiche un avertissement de risque élevé. Vous devez accepter de créer un déploiement à risque élevé et un message d'état d'audit est créé.  
-
-    -   **Commentaires (facultatif) :**spécifiez des informations supplémentaires qui décrivent ce déploiement de la séquence de tâches.  
-
-6.  Sur la page **Paramètres de déploiement** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
-
-    -   **Objet**: dans la liste déroulante, choisissez l’une des options suivantes :  
-
-        -   **Disponible**: si la séquence de tâches est déployée auprès d’un utilisateur, celui-ci peut voir la séquence de tâches publiée dans le catalogue des applications et il peut la demander. Si la séquence de tâches est déployée sur un appareil, l'utilisateur peut la voir dans le Centre logiciel et l'installer à la demande.  
-
-        -   **Obligatoire**: la séquence de tâches est déployée automatiquement, d’après le calendrier configuré. Un utilisateur peut toutefois suivre l'état du déploiement de la séquence de tâches (s'il n'est pas masqué) et installer cette séquence de tâches avant l'échéance, à l'aide du Centre logiciel.  
-
-    -   **Déployer automatiquement selon le calendrier avec ou sans connexion de l’utilisateur**: cette option n’est pas disponible quand vous déployez une séquence de tâches.  
-
-    -   **Envoyer des paquets de mise en éveil**: si l’objet du déploiement est défini sur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement, pour sortir les ordinateurs de la veille à l’échéance de l’installation. Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
-
-    -   **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires**: quand votre séquence de tâches installe une application mais ne déploie pas de système d’exploitation, vous pouvez spécifier s’il faut autoriser les clients à télécharger du contenu après l’échéance d’installation quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+         Stellen Sie keine Tasksequenzen bereit, mit denen Betriebssysteme in ungeeigneten Sammlungen wie beispielsweise **Alle Systeme** installiert werden. Achten Sie darauf, dass die von Ihnen ausgewählte Sammlung nur die Computer enthält, von denen die Tasksequenz ausgeführt werden soll.  
 
         > [!NOTE]  
-        >  L'utilisation d'une connexion Internet facturée à l'usage pourrait fonctionner avec les séquences de tâches qui ne déploient pas de système d'exploitation, mais cette possibilité n'est pas prise en charge.  
+        >  Bei einer Bereitstellung mit hohem Risiko, wie z.B. einem Betriebssystem, werden im Fenster **Sammlung auswählen** nur die benutzerdefinierten Sammlungen angezeigt, die den in den Eigenschaften des Standorts konfigurierten Einstellungen zur Bereitstellungsüberprüfung entsprechen. Bereitstellungen mit hohem Risiko sind immer auf benutzerdefinierte Sammlungen, von Ihnen erstellte Sammlungen und die integrierte Sammlung **Unbekannte Computer** beschränkt. Beim Erstellen einer Bereitstellung mit hohem Risiko können Sie keine integrierte Sammlung auswählen, wie z. B. **Alle Systeme**. Deaktivieren Sie die Einstellung **Hide collections with a member count greater than the site's minimum size configuration** (Sammlungen mit einer Anzahl der Mitglieder ausblenden, die größer als die minimale Größenkonfiguration des Standorts ist), um alle benutzerdefinierten Sammlungen anzuzeigen, die weniger Clients als die konfigurierte maximale Größe enthalten. Weitere Informationen finden Sie unter [Einstellungen für die Verwaltung hochriskanter Bereitstellungen](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        >   
+        >  Die Einstellungen zur Bereitstellungsüberprüfung basieren auf der aktuellen Mitgliedschaft der Sammlung. Nach der Bereitstellung der Tasksequenz wird die Sammlungsmitgliedschaft für die Einstellungen für eine Bereitstellung mit hohem Risiko nicht erneut bewertet.  
+        >   
+        >  Angenommen, Sie legen **Standardgröße** auf 100 und **Maximale Größe** auf 1000 fest. Wenn Sie eine Bereitstellung mit hohem Risiko erstellen, werden im Fenster **Sammlung auswählen** nur die Sammlungen angezeigt, die weniger als 100 Clients enthalten. Wenn Sie die Einstellung **Hide collections with a member count greater than the site's minimum size configuration** (Sammlungen mit einer Anzahl der Mitglieder ausblenden, die größer als die minimale Größenkonfiguration des Standorts ist) deaktivieren, werden im Fenster Sammlungen angezeigt, die weniger als 1.000 Clients enthalten.  
+        >   
+        >  Wenn Sie eine Sammlung auswählen, die eine Standortrolle enthält, gilt Folgendes:  
+        >   
+        >  -   Wenn die Sammlung einen Standortsystemserver enthält und Sie die Einstellungen zur Bereitstellungsüberprüfung so konfigurieren, dass Sammlungen mit Standortsystemservern blockiert werden, tritt ein Fehler auf, und Sie können nicht fortfahren.  
+        > -   Wenn die Sammlung einen Standortsystemserver enthält und Sie die Einstellungen zur Bereitstellungsüberprüfung so konfigurieren, dass Sie im Fall von Sammlungen mit Standortsystemservern gewarnt werden, wird im Assistenten zum Bereitstellen von Software eine Warnung über ein hohes Risiko angezeigt, falls die Sammlung den Standardwert für die Größe überschreitet oder falls die Sammlung einen Server enthält. Sie müssen der Erstellung einer Bereitstellung mit hohem Risiko zustimmen, und eine Überwachungsstatusmeldung wird erstellt.  
 
-    -   **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application**: cette option n’est pas disponible quand vous déployez une séquence de tâches.  
+    -   **Kommentare (optional)**: Geben Sie zusätzliche Informationen zur Beschreibung dieser Tasksequenzbereitstellung an.  
 
-    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
+6.  Geben Sie auf der Seite **Bereitstellungseinstellungen** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
+
+    -   **Zweck**: Wählen Sie in der Dropdownliste eine der folgenden Optionen aus:  
+
+        -   **Verfügbar**: Wenn die Tasksequenz für einen Benutzer bereitgestellt wird, wird die veröffentlichte Tasksequenz dem Benutzer im Anwendungskatalog angezeigt, und der Benutzer kann sie bei Bedarf anfordern. Wenn die Tasksequenz auf einem Gerät bereitgestellt wird, wird sie dem Benutzer im Softwarecenter angezeigt, und der Benutzer kann sie bei Bedarf installieren.  
+
+        -   **Erforderlich**: Die Tasksequenz wird gemäß dem konfigurierten Zeitplan automatisch bereitgestellt. Allerdings kann ein Benutzer den Bereitstellungsstatus der Tasksequenz (sofern dieser nicht ausgeblendet ist) nachverfolgen und die Tasksequenz vor Ablauf der Frist über das Softwarecenter installieren.  
+
+    -   **Automatische Bereitstellung nach Zeitplan unabhängig von Benutzeranmeldung**: Diese Option ist nicht verfügbar, wenn Sie eine Tasksequenz bereitstellen.  
+
+    -   **Aktivierungspakete senden**: Wenn der Bereitstellungszweck auf **Erforderlich** festgelegt und diese Option ausgewählt ist, wird vor der Installation der Bereitstellung ein Aktivierungspaket an den Computer gesendet, um ihn zum Zeitpunkt der Installation aus dem Standbymodus zu aktivieren. Sie können diese Option nur verwenden, wenn Computer und Netzwerke für Wake-On-LAN konfiguriert sind.  
+
+    -   **Clients mit einer getakteten Internetverbindung dürfen den Inhalt nach dem Installationsstichtag herunterladen (Zusatzkosten können anfallen)**: Bei einer Tasksequenz, mit der eine Anwendung installiert, aber kein Betriebssystem bereitgestellt wird, können Sie angeben, ob Clients mit einer getakteten Internetverbindung Inhalt nach einem Installationsstichtag herunterladen dürfen. Bei getakteten Internetverbindungen berechnen einige Internetanbieter die anfallenden Gebühren anhand der Datenmenge, die Sie senden und empfangen.  
+
+        > [!NOTE]  
+        >  Die Verwendung einer getakteten Internetverbindung funktioniert zwar möglicherweise für Tasksequenzen, bei denen kein Betriebssystem bereitgestellt wird, aber dies wird nicht unterstützt.  
+
+    -   **Genehmigung durch Administrator erforderlich, wenn Benutzer diese Anwendung anfordern**: Diese Option ist nicht verfügbar, wenn Sie eine Tasksequenz bereitstellen.  
+
+    -   **Verfügbar machen für**: Geben Sie an, ob die Tasksequenz für Configuration Manager-Clients, Medien oder die PXE verfügbar sein soll.  
 
         > [!IMPORTANT]  
-        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média, de sorte que l'ordinateur démarre automatiquement le déploiement sans l'intervention de l'utilisateur. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables intégrées de séquence de tâches](../understand/task-sequence-built-in-variables.md)  
+        >  Verwenden Sie die Einstellung **Nur Medien und PXE (ausgeblendet)** für automatisierte Bereitstellungen von Tasksequenzen. Aktivieren Sie die Option **Unbeaufsichtigte Betriebssystembereitstellung zulassen** , und legen Sie die Variable "SMSTSPreferredAdvertID" als Teil des Mediums fest, damit der Computer bei der Bereitstellung ohne Benutzerinteraktion automatisch gestartet wird. Weitere Informationen zu Tasksequenzvariablen finden Sie unter [Integrierte Tasksequenzvariablen](../understand/task-sequence-built-in-variables.md)  
 
-7.  Sur la page **Planification** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+7.  Geben Sie auf der Seite **Zeitplanung** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
 
     > [!IMPORTANT]  
-    >  Quand un client Windows PE démarre à partir du média de démarrage ou de l'environnement PXE, il n'évalue pas les plannings de déploiement (heures de démarrage ou d'expiration ou échéance). Vous ne devez configurer des plannings de déploiements que sur les clients qui démarrent à partir du système d'exploitation Windows complet. Appliquez d'autres méthodes, telles que des fenêtres de maintenance, pour contrôler les séquences de tâches actives déployées sur les clients qui démarrent à partir de Windows PE.  
+    >  Bei ein Windows PE-Client von PXE oder von Startmedien gestartet wird, wertet der Client keine Bereitstellungspläne (Start-, Ablauf- oder Stichtagzeiten) aus. Konfigurieren Sie Zeitpläne nur in Bereitstellungen auf Clients, die vom vollständigen Windows-Betriebssystem gestartet werden. Ziehen Sie die Verwendung anderer Methoden in Betracht, z. B. Wartungsfenster, um aktive Tasksequenzen für Clients zu steuern, die von Windows PE gestartet werden.  
 
-    -   **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles la séquence de tâches est disponible pour s’exécuter sur l’ordinateur de destination. Lorsque vous activez la case à cocher **UTC** , ce paramètre s'assure que la séquence de tâches est disponible pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
+    -   **Verfügbarkeitsdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem die Tasksequenz zur Ausführung auf dem Zielcomputer verfügbar ist. Wenn Sie das Kontrollkästchen **UTC** aktivieren, ist die Tasksequenz zum gleichen Zeitpunkt für mehrere Zielcomputer verfügbar, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
 
-         Si l'heure de début est antérieure à l'heure requise, le client télécharge la séquence de tâches à l'heure de début que vous spécifiez.  
+         Wenn die Startzeit vor der erforderlichen Zeit liegt, wird die Tasksequenz vom Client zu der von Ihnen angegebenen Startzeit heruntergeladen.  
 
-    -   **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure d’expiration de la séquence de tâches sur l’ordinateur de destination. Lorsque vous activez la case à cocher **UTC** , ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
+    -   **Ablaufdatum der Bereitstellung festlegen**: Geben Sie den Zeitpunkt (Datum und Uhrzeit) an, zu dem die Tasksequenz auf dem Zielcomputer abläuft. Wenn Sie das Kontrollkästchen **UTC** aktivieren, endet die Gültigkeit der Tasksequenz auf mehreren Zielcomputern zum gleichen Zeitpunkt, anstatt der lokalen Zeit auf den Zielcomputern entsprechend zu unterschiedlichen Zeitpunkten.  
 
-    -   **Calendrier d’attribution**: spécifiez quand la séquence de tâches requise est exécutée sur l’ordinateur de destination. Vous pouvez ajouter plusieurs calendriers.  
+    -   **Zuweisungszeitplan**: Geben Sie an, wann die erforderliche Tasksequenz auf dem Zielcomputer ausgeführt wird. Sie können mehrere Zeitpläne hinzufügen.  
 
-         Vous pouvez spécifier la date et l'heure auxquelles le calendrier démarre, si la séquence de tâches s'exécute toutes les semaines, tous les mois ou à un intervalle personnalisé, et si la séquence de tâches s'exécute après un événement tel qu'une ouverture ou une fermeture de session sur l'ordinateur.  
+         Sie können angeben, zu welchem Zeitpunkt der Zeitplan gestartet wird, in welchem Intervall die Ausführung der Tasksequenz erfolgt (wöchentlich, monatlich oder benutzerdefiniert) und ob die Tasksequenz nach einem Ereignis wie dem Anmelden oder Abmelden beim Computer ausgeführt wird.  
 
         > [!NOTE]  
-        >  Si vous planifiez une heure de début pour une séquence de tâches requise antérieure à la date et à l’heure auxquelles la séquence de tâches est disponible, le client Configuration Manager télécharge la séquence de tâches à l’heure de début planifiée, même si elle est disponible plus tôt.  
+        >  Wenn Sie für eine erforderliche Tasksequenz eine Startzeit planen, die vor dem Zeitpunkt liegt, zu dem die Tasksequenz verfügbar ist, wird die Tasksequenz vom Configuration Manager-Client zur geplanten Startzeit heruntergeladen, auch wenn sie bereits früher verfügbar ist.  
 
-    -   **Comportement de réexécution**: spécifiez quand la séquence de tâches est réexécutée. Vous pouvez spécifier l'une des options suivantes.  
+    -   **Verhalten beim erneuten Ausführen**: Geben Sie an, wann die Tasksequenz erneut ausgeführt wird. Sie können eine der folgenden Optionen angeben.  
 
-        -   **Ne jamais exécuter à nouveau un programme déployé**: la séquence de tâches n’est pas réexécutée sur le client si elle a été précédemment exécutée sur le client. La séquence de tâches ne se réexécute pas même si elle a échoué à l'origine ou si les fichiers de séquence de tâches ont été modifiés.  
+        -   **Bereitgestelltes Programm nie erneut ausführen**: Die Tasksequenz wird auf dem Client nicht erneut ausgeführt, wenn sie bereits auf dem Client ausgeführt wurde. Die Tasksequenz wird selbst dann nicht erneut ausgeführt, wenn bei der ursprünglichen Ausführung ein Fehler aufgetreten ist oder die Tasksequenzdateien geändert wurden.  
 
-        -   **Toujours exécuter à nouveau le programme**: la séquence de tâches est toujours réexécutée sur le client quand le déploiement est planifié, même si elle a été exécutée avec succès précédemment. Ce paramètre est particulièrement utile lorsque vous utilisez des déploiements périodiques dans lesquels la séquence de tâches est mise régulièrement à jour.  
+        -   **Programm immer erneut ausführen**: Die Tasksequenz wird auf dem Client immer erneut ausgeführt, wenn die Bereitstellung geplant ist, auch dann, wenn die Tasksequenz bereits erfolgreich ausgeführt wurde. Diese Einstellung ist insbesondere nützlich, wenn Sie wiederholte Bereitstellungen verwenden, bei denen routinemäßig ein Update der Tasksequenz ausgeführt wird.  
 
             > [!IMPORTANT]  
-            >  Même si cette option est définie par défaut, elle n'a aucun effet tant que vous n'attribuez pas un déploiement requis. Des déploiements disponibles peuvent toujours être réexécutés par un utilisateur.  
+            >  Diese Option wird zwar standardmäßig festgelegt, aber sie hat keine Auswirkungen, bis Sie eine erforderliche Bereitstellung zuweisen. Verfügbare Bereitstellungen können stets von einem Benutzer erneut ausgeführt werden.  
 
-        -   **Exécuter à nouveau en cas d’échec de la tentative précédente**: la séquence de tâches est réexécutée quand le déploiement est planifié uniquement si son exécution a échoué précédemment. Ce paramètre est particulièrement utile pour les déploiements requis afin qu'ils réessaient automatiquement de s'exécuter conformément au calendrier d'attribution si la dernière tentative d'exécution a échoué.  
+        -   **Bei fehlgeschlagenem vorherigem Versuch erneut ausführen**: Die Tasksequenz wird bei geplanter Bereitstellung nur dann erneut ausgeführt, wenn bei der vorherigen Ausführung ein Fehler aufgetreten ist. Diese Einstellung ist insbesondere bei erforderlichen Bereitstellungen nützlich. Die Ausführung dieser Bereitstellungen wird dem Zuweisungszeitplan entsprechend automatisch erneut versucht, wenn der letzte Ausführungsversuch nicht erfolgreich war.  
 
-        -   Exécuter à nouveau en cas de réussite de la tentative précédente : la séquence de tâches est réexécutée uniquement si elle a déjà été exécutée correctement sur le client. Ce paramètre est utile lorsque vous utilisez des déploiements périodiques dans lesquels la séquence de tâches est mise régulièrement à jour, et chaque mise à jour requiert que la précédente mise à jour soit installée avec succès.  
-
-        > [!NOTE]  
-        >  Comme un utilisateur peut réexécuter un déploiement de séquence de tâches disponible, avant de déployer une séquence de tâches disponible dans un environnement produit, assurez-vous d'évaluer et de tester scrupuleusement ce qui se passe si un utilisateur réexécute la séquence de tâches plusieurs fois.  
-
-8.  Sur la page **Expérience utilisateur** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
-
-    -   **Autoriser les utilisateurs à exécuter le programme indépendamment des attributions**: spécifiez si l’utilisateur est autorisé à exécuter une séquence de tâches obligatoire indépendamment des attributions de déploiement.  
-
-    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
-
-    -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
-
-    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: spécifiez si l’utilisateur est autorisé à redémarrer l’ordinateur après une installation de logiciel en dehors d’une fenêtre de maintenance configurée après l’heure d’attribution.  
-
-    -   **Autoriser la séquence de tâches à s’exécuter pour le client sur Internet** : spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet que Configuration Manager a détecté comme étant sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
-
-9. Sur la page **Alertes** , spécifiez les paramètres d'alerte que vous souhaitez pour ce déploiement de séquence de tâches, puis cliquez sur **Suivant**.  
-
-10. Sur la page **Points de distribution** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
-
-    -   **Options de déploiement**: spécifiez l’une des options suivantes :  
+        -   Bei erfolgreichem vorherigen Versuch erneut ausführen: Die Tasksequenz wird nur dann erneut ausgeführt, wenn sie auf dem Client bereits erfolgreich ausgeführt wurde. Diese Einstellung ist nützlich, wenn Sie wiederholte Bereitstellungen verwenden, bei denen routinemäßig ein Update der Tasksequenz ausgeführt wird, und jedes dieser Updates nur möglich ist, wenn das vorherige Update erfolgreich installiert wurde.  
 
         > [!NOTE]  
-        >  Lorsque vous utilisez la multidiffusion pour déployer un système d'exploitation, le contenu doit être téléchargé sur les ordinateurs de destination soit lorsque la séquence en a besoin, soit avant l'exécution de la séquence de tâches.  
+        >  Da ein Benutzer eine verfügbare Tasksequenzbereitstellung erneut ausführen kann, prüfen und testen Sie eingehend, welche Auswirkungen die mehrmalige erneute Ausführung der Tasksequenz durch einen Benutzer hat, bevor Sie eine verfügbare Tasksequenz in einer Produktionsumgebung bereitstellen.  
 
-        -   Demandez à ce que les clients téléchargent le contenu du point de distribution vers l'ordinateur de destination au moment où la séquence de tâches en a besoin.  
+8.  Geben Sie auf der Seite **Benutzerfreundlichkeit** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
 
-        -   Demandez à ce que les clients téléchargent l'intégralité du contenu du point de distribution vers l'ordinateur de destination avant l'exécution de la séquence de tâches. Cette option ne s'affiche pas si vous avez indiqué que la séquence de tâches est disponible dans l'environnement PXE et dans les déploiements de média de démarrage (voir la page **Paramètres de déploiement** ).  
+    -   **Benutzern zuweisungsunabhängige Programmausführung erlauben**: Geben Sie an, ob der Benutzer eine erforderliche Tasksequenz unabhängig von den Bereitstellungszuweisungen ausführen darf.  
 
-        -   Demandez à ce que les clients exécutent le contenu à partir du point de distribution. Cette option est disponible uniquement lorsque tous les packages associés à la séquence de tâches sont configurés pour utiliser un partage de package sur le point de distribution. Pour que le contenu utilise un partage de package, consultez l'onglet **Accès aux données** dans les **Propriétés** de chaque package.  
+    -   **Tasksequenzstatus anzeigen**: Geben Sie an, ob der Status der Tasksequenz vom Configuration Manager-Client angezeigt wird.  
 
-    -   **Quand aucun point de distribution local n’est disponible, utiliser un point de distribution distant**: spécifiez si les clients peuvent utiliser les points de distribution qui se trouvent sur des réseaux lents et peu fiables pour télécharger le contenu exigé par la séquence de tâches.  
+    -   **Softwareinstallation**: Geben Sie an, ob der Benutzer außerhalb eines konfigurierten Wartungsfensters nach dem geplanten Zeitpunkt Software installieren darf.  
 
-11. Effectuez toutes les étapes de l'Assistant.  
+    -   **Systemneustart (falls dieser zum Abschluss der Installation erforderlich ist)**: Geben Sie an, ob der Benutzer den Computer im Anschluss an eine Softwareinstallation außerhalb eines konfigurierten Wartungsfensters nach der Zuweisungszeit neu starten darf.  
 
-##  <a name="BKMK_ExportImport"></a> Exporter et importer des séquences de tâches  
- Vous pouvez exporter et importer des séquences de tâches avec ou sans leurs objets liés, tels qu'une image du système d'exploitation, une image de démarrage, un package de l'agent du client, un package de pilotes et des applications qui ont des dépendances.  
+    -   **Ausführung der Tasksequenz für internetbasierten Client zulassen**: Geben Sie an, ob die Tasksequenz auf einem internetbasierten Client ausgeführt werden darf, der von Configuration Manager im Internet erkannt wird. Vorgänge, mit denen Software wie ein Betriebssystem installiert wird, werden von dieser Einstellung nicht unterstützt. Verwenden Sie diese Option nur für generische skriptbasierte Tasksequenzen, mit denen Vorgänge im Standardbetriebssystem ausgeführt werden.  
 
- Considérez les éléments suivants lorsque vous exportez et importez des séquences de tâches.  
+9. Geben Sie auf der Seite **Warnungen** die für diese Tasksequenzbereitstellung gewünschten Warnungseinstellungen an, und klicken Sie dann auf **Weiter**.  
 
--   Les mots de passe stockés dans la séquence de tâches ne sont pas exportés. Si vous exportez et importez une séquence de tâches qui contient des mots de passe, vous devez modifier la séquence de tâches importée et spécifier de nouveau les mots de passe. Veillez à spécifier des mots de passe pour les actions [Joindre le domaine ou le groupe de travail](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Connexion à un dossier réseau](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)et [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine).  
+10. Geben Sie auf der Seite **Verteilungspunkte** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
 
-- Quand vous exportez une séquence de tâches avec l’étape **Définir des variables dynamiques**, aucune valeur n’est exportée pour les variables qui sont configurées avec le paramètre **Valeur secrète**. Vous devez entrer de nouveau les valeurs pour ces variables après avoir importé la séquence de tâches.
+    -   **Bereitstellungsoptionen:**: Geben Sie eine der folgenden Optionen an:  
 
--   Quand vous avez plusieurs sites principaux, nous vous recommandons d'importer des séquences de tâches sur le site d'administration centrale.  
+        > [!NOTE]  
+        >  Wenn Sie zum Bereitstellen eines Betriebssystems einen Multicast verwenden, muss der Inhalt entweder je nach Bedarf oder vor Ausführung der Tasksequenz auf die Zielcomputer heruntergeladen werden.  
 
- Utilisez les procédures suivantes pour exporter et importer une séquence de tâches.  
+        -   Geben Sie an, dass Clients den Inhalt vom Verteilungspunkt auf den Zielcomputer herunterladen, wenn dieser von der Tasksequenz benötigt wird.  
 
-#### <a name="to-export-task-sequences"></a>Pour exporter des séquences de tâches  
+        -   Geben Sie an, dass Clients den gesamten Inhalt vom Verteilungspunkt auf den Zielcomputer herunterladen, bevor die Tasksequenz ausgeführt wird. Diese Option wird nicht angezeigt, wenn Sie angegeben haben, dass die Tasksequenz für die Bereitstellung per PXE und Startmedien verfügbar ist (siehe Seite **Bereitstellungseinstellungen** ).  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+        -   Geben Sie an, dass Clients den Inhalt vom Verteilungspunkt ausführen. Diese Option ist nur verfügbar, wenn alle der Tasksequenz zugeordneten Pakete für die Verwendung einer Paketfreigabe auf dem Verteilungspunkt aktiviert sind. Verwenden Sie für ein Paket unter **Eigenschaften** jeweils die Registerkarte **Datenzugriff** , um für Inhalte die Nutzung einer Paketfreigabe zu aktivieren.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+    -   **Remoteverteilungspunkt verwenden, wenn kein lokaler Verteilungspunkt verfügbar ist**: Geben Sie an, ob Verteilungspunkte in langsamen und unzuverlässigen Netzwerken von Clients zum Herunterladen des Inhalts verwendet werden können, der für die Tasksequenz erforderlich ist.  
 
-3.  Dans la liste **Séquence de tâches** , sélectionnez les séquences de tâches que vous voulez exporter. Si vous sélectionnez plusieurs séquences de tâches, elles sont stockées dans un seul fichier d'exportation.  
+11. Schließen Sie den Assistenten ab.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Exporter** pour démarrer l'Assistant Exportation de séquence de tâches.  
+##  <a name="BKMK_ExportImport"></a> Exportieren und Importieren von Tasksequenzen  
+ Sie können Tasksequenzen exportieren und importieren und dabei nach Wunsch die zugehörigen Objekte einschließen, beispielsweise ein Betriebssystemabbild, ein Startabbild, ein Client-Agent-Paket, ein Treiberpaket sowie Anwendungen mit Abhängigkeiten.  
 
-5.  Sur la page **Général** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+ Beachten Sie beim Exportieren und Importieren von Tasksequenzen die folgenden Punkte.  
 
-    -   Dans la zone **Fichier** , spécifiez l'emplacement et le nom du fichier d'exportation. Si vous entrez directement le nom de fichier, veillez à inclure l'extension .zip au nom du fichier. Si vous indiquez l'emplacement du fichier d'exportation, l'Assistant ajoute automatiquement cette extension de fichier.  
+-   Kennwörter, die in der Tasksequenz gespeichert sind, werden nicht exportiert. Wenn Sie eine Tasksequenz exportieren und importieren, die Kennwörter enthält, müssen Sie die importierte Tasksequenz bearbeiten und sämtliche Kennwörter erneut angeben. Achten Sie darauf, Kennwörter für die Aktionen [Einer Domäne oder Arbeitsgruppe beitreten](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Verbindung mit Netzwerkordner herstellen](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder) und [Befehlszeile ausführen](../understand/task-sequence-steps.md#BKMK_RunCommandLine) anzugeben.  
 
-    -   Désactivez la case à cocher **Exporter toutes les dépendances de séquences de tâches** si vous ne voulez pas exporter les dépendances de séquences de tâches. Par défaut, l'Assistant analyse tous les objets liés et les exporte avec la séquence de tâches. Cela inclut toutes les dépendances des applications.  
+- Wenn Sie eine Tasksequenz mit dem Schritt **Set Dynamic Variables** (Dynamische Variablen festlegen) exportieren, werden keine Werte für Variablen exportiert, die die Einstellung **Secret value** (Geheimer Wert) haben. Sie müssen die Werte für diese Variablen erneut eingeben, nachdem Sie die Tasksequenz importiert haben.
 
-    -   Désactivez la case à cocher **Exporter tout le contenu pour les séquences de tâches et dépendances sélectionnées** si vous ne voulez pas copier le contenu de la source du package vers l'emplacement d'exportation. Si cette case à cocher est activée, l'Assistant Importation de séquence de tâches utilise le chemin d'importation comme nouvel emplacement de la source du package.  
+-   Wenn mehrere primäre Standorte vorliegen, wird empfohlen, Tasksequenzen am Standort der zentralen Verwaltung zu importieren.  
 
-    -   Dans la zone **Commentaires de l'administrateur** , ajoutez une description des séquences de tâches à exporter.  
+ Gehen Sie wie folgt vor, um eine Tasksequenz zu exportieren und zu importieren.  
 
-6.  Effectuez toutes les étapes de l'Assistant.  
+#### <a name="to-export-task-sequences"></a>So exportieren Sie Tasksequenzen  
 
- L'Assistant crée les fichiers de sortie suivants :  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
--   Si vous n'exportez pas de contenu : un fichier .zip.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
--   Si vous exportez du contenu : un fichier .zip et un dossier nommé *exportation*_files, où *exportation* est le nom du fichier .zip qui contient le contenu exporté.  
+3.  Wählen Sie in der Liste **Tasksequenz** die Tasksequenzen aus, die Sie exportieren möchten. Wenn Sie mehrere Tasksequenzen auswählen, werden diese in einer Exportdatei gespeichert.  
 
- Si vous incluez le contenu lorsque vous exportez une séquence de tâches, veillez à copier le fichier .zip et le dossier *exportation*_files, ou l'importation échouera.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Tasksequenz** auf **Exportieren** , um den Assistenten zum Exportieren von Tasksequenzen zu starten.  
 
-#### <a name="to-import-task-sequences"></a>Pour importer des séquences de tâches  
+5.  Geben Sie auf der Seite **Allgemein** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    -   Geben Sie im Feld **Datei** den Speicherort und den Namen der Exportdatei an. Wenn Sie den Dateinamen direkt eingeben, achten Sie darauf, an den Dateinamen die Erweiterung ZIP anzuhängen. Wenn Sie nach der Exportdatei suchen, wird diese Dateinamenerweiterung vom Assistenten automatisch hinzugefügt.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+    -   Deaktivieren Sie das Kontrollkästchen **Alle Tasksequenzabhängigkeiten exportieren** , wenn Sie keine Tasksequenzabhängigkeiten exportieren möchten. Standardmäßig werden alle zugehörigen Objekte vom Assistenten gesucht und zusammen mit der Tasksequenz exportiert. Dazu gehören alle Abhängigkeiten für Anwendungen.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Importer une séquence de tâches** pour démarrer l'Assistant Importation de séquence de tâches.  
+    -   Deaktivieren Sie das Kontrollkästchen **Alle Inhalte für die ausgewählten Anwendungen und Abhängigkeiten exportieren** , wenn Sie den Inhalt nicht von der Paketquelle in den Exportpfad kopieren möchten. Wenn dieses Kontrollkästchen aktiviert ist, wird der Importpfad vom Assistenten zum Importieren von Tasksequenzen als neuer Paketquellpfad verwendet.  
 
-4.  Sur la page **Général** , spécifiez le fichier .zip exporté, puis cliquez sur **Suivant**.  
+    -   Geben Sie im Feld **Administratorkommentare** eine Beschreibung der zu exportierenden Tasksequenzen ein.  
 
-5.  Sur la page **Contenu du fichier** , sélectionnez l'action dont vous avez besoin pour chaque objet que vous importez. Cette page affiche tous les objets que Configuration Manager doit importer.  
+6.  Schließen Sie den Assistenten ab.  
 
-    -   Si l'objet n'a jamais été importé, sélectionnez **Créer nouveau**.  
+ Die folgenden Ausgabedateien werden vom Assistenten erstellt:  
 
-    -   Si l'objet a été importé précédemment, sélectionnez l'une des actions suivantes :  
+-   Wenn Sie keinen Inhalt exportieren, wird eine ZIP-Datei erstellt.  
 
-        -   **Ignorer le doublon** (par défaut) : cette action n’importe pas l’objet. Au lieu de cela, l'Assistant lie l'objet existant à la séquence de tâches.  
+-   Wenn Sie Inhalt exportieren, werden eine ZIP-Datei und ein Ordner namens *Export*_files erstellt. Dabei ist *Export* der Name der ZIP-Datei mit dem exportierten Inhalt.  
 
-        -   **Remplacer**: cette action remplace l’objet existant par l’objet importé. Pour les applications, vous pouvez ajouter une révision pour mettre à jour l'application existante ou créer une nouvelle application.  
+ Wenn Sie beim Exportieren einer Tasksequenz auch den Inhalt einschließen, müssen Sie die ZIP-Datei und den Ordner *Export*_files kopieren. Andernfalls tritt beim Import ein Fehler auf.  
 
-6.  Effectuez toutes les étapes de l'Assistant.  
+#### <a name="to-import-task-sequences"></a>So importieren Sie Tasksequenzen  
 
- Après avoir importé la séquence de tâches, modifiez-la pour spécifier les mots de passe qui se trouvaient dans la séquence de tâches d'origine. Pour des raisons de sécurité, les mots de passe ne sont pas exportés.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-##  <a name="BKMK_CreateTSVariables"></a> Créer des variables de séquence de tâches pour les ordinateurs et les regroupements  
-Vous pouvez définir des variables de séquence de tâches personnalisées pour des ordinateurs et des regroupements. Les variables qui sont définies pour un ordinateur sont appelées variables de séquence de tâches par ordinateur. Les variables définies pour un regroupement sont appelées variables de séquence de tâches par regroupement. S'il existe un conflit, les variables par ordinateur ont préséance sur les variables par regroupement. Cela signifie que les variables de séquence de tâches attribuées à un ordinateur spécifique disposent automatiquement d'une priorité plus importante que celles attribuées au regroupement contenant l'ordinateur.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-Par exemple, si une variable est attribuée au regroupement ABC et qu'une variable avec le même nom est attribuée à l'ordinateur XYZ, qui est un membre du regroupement ABC, la variable attribuée à l'ordinateur XYZ reçoit une priorité plus élevée que celle attribuée au regroupement ABC.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenz importieren** , um den Assistenten zum Importieren von Tasksequenzen zu starten.  
 
-Vous pouvez masquer les variables par ordinateur et par regroupement pour qu’elles ne soient pas visibles dans la console Configuration Manager. Si vous ne souhaitez plus que ces variables soient masquées, vous devez les supprimer et les redéfinir sans sélectionner l'option pour les masquer. Quand vous utilisez l'option **Ne pas afficher cette valeur dans la console Configuration Manager**, la valeur de la variable n'est pas affichée dans la console, mais elle peut encore être utilisée par la séquence de tâches lors de son exécution.  
+4.  Geben Sie auf der Seite **Allgemein** die exportierte ZIP-Datei an, und klicken Sie dann auf **Weiter**.  
+
+5.  Wählen Sie auf der Seite **Dateiinhalt** für jedes importierte Objekt die gewünschte Aktion aus. Auf dieser Seite werden alle Objekte angezeigt, die Configuration Manager importiert.  
+
+    -   Wenn ein Objekt noch nie importiert wurde, wählen Sie **Neu erstellen**aus.  
+
+    -   Wenn ein Objekt bereits importiert wurde, wählen Sie eine der folgenden Aktionen aus:  
+
+        -   **Duplikat ignorieren** (Standard): Bei dieser Aktion wird das Objekt nicht importiert. Stattdessen wird das vorhandene Objekt vom Assistenten mit der Tasksequenz verknüpft.  
+
+        -   **Überschreiben**: Bei dieser Aktion wird das vorhandene Objekt vom importierten Objekt überschrieben. Sie können Anwendungen eine Revision hinzufügen, um ein Update der vorhandenen Anwendung auszuführen oder eine neue Anwendung zu erstellen.  
+
+6.  Schließen Sie den Assistenten ab.  
+
+ Bearbeiten Sie die Tasksequenz nach dem Import, um Kennwörter anzugeben, die bei der ursprünglichen Tasksequenz verwendet wurden. Kennwörter werden aus Sicherheitsgründen nicht exportiert.  
+
+##  <a name="BKMK_CreateTSVariables"></a> Erstellen von Tasksequenzvariablen für Computer und Sammlungen  
+Sie können benutzerdefinierte Tasksequenzvariablen für Computer und Sammlungen definieren. Für einen Computer definierte Variablen werden als computerspezifische Tasksequenzvariablen bezeichnet. Für eine Sammlung definierte Variablen werden als sammlungsspezifische Tasksequenzvariablen bezeichnet. Bei einem Konflikt haben computerspezifische Variablen Vorrang vor den sammlungsspezifischen Variablen. Die einem bestimmten Computer zugewiesenen Tasksequenzvariablen haben also automatisch eine höhere Priorität als Variablen, die der Sammlung zugewiesen wurden, in der der Computer sich befindet.  
+
+Angenommen, der Sammlung ABC und dem Computer XYZ, der Mitglied der Sammlung ABC ist, wurde jeweils eine gleichnamige Variable zugewiesen. In diesem Fall hat die Variable, die dem Computer XYZ zugewiesen wurde, eine höhere Priorität als die der Sammlung ABC zugewiesene Variable.  
+
+Sie können computerspezifische und sammlungsspezifische Variablen ausblenden, damit sie in der Configuration Manager-Konsole nicht sichtbar sind. Wenn Sie wünschen, dass diese Variablen nicht mehr ausgeblendet werden, müssen Sie sie löschen und anschließend erneut definieren, ohne die Option zum Ausblenden der Variablen auszuwählen. Bei Verwendung der Option **Diesen Wert nicht in der Configuration Manager-Konsole anzeigen** wird der Wert der Variablen in der Konsole nicht angezeigt, kann aber immer noch von der Tasksequenz verwendet werden, wenn diese ausgeführt wird.  
 
 > [!WARNING]    
-> Le paramètre **Ne pas afficher cette valeur dans la console Configuration Manager** s’applique à la console Configuration Manager, mais les valeurs des variables sont toujours affichées dans le fichier journal de la séquence de tâches (SMSTS.LOG). 
+> Die Einstellung **Diesen Wert nicht in der Configuration Manager-Konsole anzeigen** gilt für die Configuration Manager-Konsole, aber die Werte für die Variablen werden weiterhin in der Protokolldatei der Tasksequenz (SMSTS.LOG) angezeigt. 
 
-Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
+Sie können computerspezifische Variablen an einem primären Standort oder an einem Standort der zentralen Verwaltung verwalten. Configuration Manager unterstützt je Computer maximal 1000 zugewiesene Variablen.  
 
 > [!IMPORTANT]  
->  Lorsque vous utilisez des variables par regroupement pour des séquences de tâches, considérez les éléments suivants :  
+>  Bei der Verwendung sammlungsspezifischer Variablen für Tasksequenzen ist Folgendes zu beachten:  
 >   
-> - Comme les modifications apportées aux regroupements sont toujours répliquées dans toute la hiérarchie, toutes les modifications que vous apportez à des variables de regroupement ne seront pas appliquées uniquement au site actuel, mais à tous les membres du regroupement dans toute la hiérarchie.  
-> - Lorsque vous supprimez un regroupement, cette action supprime également les variables de séquence de tâches qui sont configurées pour le regroupement.  
+> - Änderungen an Sammlungen werden immer in der gesamten Hierarchie repliziert. Daher gelten alle Änderungen, die Sie an Sammlungsvariablen vornehmen, nicht nur für die Mitglieder des aktuellen Standorts, sondern für alle Mitglieder der Sammlung in der gesamten Hierarchie.  
+> - Wenn Sie eine Sammlung löschen, werden auch die Tasksequenzvariablen gelöscht, die für die Sammlung konfiguriert sind.  
 
- Utilisez les procédures suivantes pour créer des variables de séquence de tâches pour un ordinateur ou un regroupement.  
+ Gehen Sie wie folgt vor, um Tasksequenzvariablen für einen Computer oder eine Sammlung zu erstellen.  
 
-#### <a name="to-create-task-sequence-variables-for-a-computer"></a>Pour créer des variables de séquence de tâches pour un ordinateur  
+#### <a name="to-create-task-sequence-variables-for-a-computer"></a>So erstellen Sie Tasksequenzvariablen für einen Computer  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , développez le regroupement qui contient l'ordinateur que vous souhaitez ajouter la variable.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die Sammlung, die den Computer enthält, dem Sie die Variable hinzufügen möchten.  
 
-3.  Sélectionnez l'ordinateur, puis cliquez sur **Propriétés**.  
+3.  Wählen Sie den Computer aus, und klicken Sie auf **Eigenschaften**.  
 
-4.  Dans la boîte de dialogue **Propriétés** , cliquez sur l'onglet **Variables** .  
+4.  Klicken Sie im Dialogfeld **Eigenschaften** auf die Registerkarte **Variablen** .  
 
-5.  Pour chaque variable à créer, cliquez sur l’icône **Nouveau** dans la boîte de dialogue **<Nouvelle\>Variable**, et spécifiez le nom et la valeur de la variable de séquence de tâches. Décochez la case **Ne pas afficher cette valeur dans la console Configuration Manager** si vous voulez masquer les variables pour qu’elles ne soient pas visibles dans la console Configuration Manager.  
+5.  Klicken Sie im Dialogfeld **<Neue\> Variable** für jede Variable, die Sie erstellen möchten, auf das Symbol **Neu**. Geben Sie dann den Namen und den Wert der Tasksequenzvariablen an. Deaktivieren Sie das Kontrollkästchen **Diesen Wert nicht in der Configuration Manager-Konsole anzeigen**, wenn Sie die Variablen ausblenden möchten, damit sie in der Configuration Manager-Konsole nicht sichtbar sind.  
 
-6.  Après avoir ajouté toutes les variables à l'ordinateur, cliquez sur **OK**.  
+6.  Klicken Sie auf **OK**, nachdem Sie dem Computer alle Variablen hinzugefügt haben.  
 
-#### <a name="to-create-task-sequence-variables-for-a-collection"></a>Pour créer des variables de séquence de tâches pour un regroupement  
+#### <a name="to-create-task-sequence-variables-for-a-collection"></a>So erstellen Sie Tasksequenzvariablen für eine Sammlung  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , sélectionnez le regroupement auquel vous voulez ajouter la variable, puis cliquez sur **Propriétés**.  
+2.  Wählen Sie im Arbeitsbereich **Bestand und Kompatibilität** die Sammlung aus, der Sie die Variable hinzufügen möchten, und klicken Sie auf **Eigenschaften**.  
 
-3.  Dans la boîte de dialogue **Propriétés** , cliquez sur l'onglet **Variables du regroupement** .  
+3.  Klicken Sie im Dialogfeld **Eigenschaften** auf die Registerkarte **Sammlungsvariablen** .  
 
-4.  Pour chaque variable à créer, cliquez sur l’icône **Nouveau** dans la boîte de dialogue **<Nouvelle\>Variable**, et spécifiez le nom et la valeur de la variable de séquence de tâches. Décochez la case **Ne pas afficher cette valeur dans la console Configuration Manager** si vous voulez masquer les variables pour qu’elles ne soient pas visibles dans la console Configuration Manager.  
+4.  Klicken Sie im Dialogfeld **<Neue\> Variable** für jede Variable, die Sie erstellen möchten, auf das Symbol **Neu**. Geben Sie dann den Namen und den Wert der Tasksequenzvariablen an. Deaktivieren Sie das Kontrollkästchen **Diesen Wert nicht in der Configuration Manager-Konsole anzeigen**, wenn Sie die Variablen ausblenden möchten, damit sie in der Configuration Manager-Konsole nicht sichtbar sind.  
 
-5.  Si vous le souhaitez, spécifiez la priorité que Configuration Manager doit utiliser quand les variables de séquence de tâches sont évaluées.  
+5.  Geben Sie optional die Priorität an, die bei der Auswertung der Tasksequenzvariablen durch Configuration Manager gelten soll.  
 
-6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
+6.  Klicken Sie auf **OK**, nachdem Sie der Sammlung alle Variablen hinzugefügt haben.  
 
-##  <a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
- Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez une séquence de tâches.  
+##  <a name="BKMK_AdditionalActionsTS"></a> Zusätzliche Aktionen zum Verwalten von Tasksequenzen  
+ Für die Verwaltung von Tasksequenzen können Sie zusätzliche Aktionen verwenden, wenn Sie die Tasksequenz auswählen.  
 
-#### <a name="to-select-a-task-sequence-to-manage"></a>Pour sélectionner une séquence de tâches à gérer  
+#### <a name="to-select-a-task-sequence-to-manage"></a>So wählen Sie eine Tasksequenz zur Verwaltung aus  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation** , puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme** , und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous voulez gérer et sélectionnez l'une des options disponibles.  
+3.  Wählen Sie in der Liste **Tasksequenz** die Tasksequenz aus, die Sie verwalten möchten. Wählen Sie dann eine der verfügbaren Optionen aus.  
 
- Pour plus d'informations sur certaines des actions supplémentaires afin de gérer des séquences de tâches, utilisez le tableau suivant.  
+ Die folgende Tabelle enthält weitere Informationen zu einigen der zusätzlichen Aktionen zur Verwaltung von Tasksequenzen.  
 
-|Action|Description|  
+|Aktion|Beschreibung|  
 |------------|-----------------|  
-|**Copier**|Effectue une copie de la séquence de tâches sélectionnée. Cette action peut vous être utile lorsque vous voulez créer une nouvelle séquence de tâches basée sur une séquence de tâches existante.<br /><br /> Lorsque vous faites une copie d'une séquence de tâches dans un dossier, la copie est répertoriée dans ce dossier jusqu'à ce que vous actualisiez le nœud de séquence de tâches.  Après l'actualisation, la copie s'affiche dans le dossier racine.|  
-|**Désactiver**|Désactive la séquence de tâches afin qu'elle ne puisse pas s'exécuter sur des ordinateurs. Des séquences de tâches désactivées peuvent être déployées sur des ordinateurs, mais les ordinateurs n'exécutent pas la séquence de tâches tant qu'elle n'est pas activée.|  
-|**Activer**|Active la séquence de tâches afin qu'elle puisse être exécutée. Il est inutile de redéployer une séquence de tâches déployée une fois qu'elle est activée.|  
-|**Créer un fichier de contenu préparé**|Démarre l'Assistant Création du fichier de contenu préparé pour préparer le contenu de séquence de tâches. Pour plus d’informations sur la création d’un fichier de contenu préparé, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
-|**Déplacer**|Déplace la séquence de tâches sélectionnée vers un autre dossier.|  
+|**Kopieren**|Hiermit wird eine Kopie der ausgewählten Tasksequenz erstellt. Diese Aktion kann sich als nützlich erweisen, wenn Sie eine neue Tasksequenz erstellen möchten, die auf einer vorhandenen Tasksequenz basiert.<br /><br /> Wenn Sie in einem Ordner eine Kopie einer Tasksequenz erstellen, wird die Kopie in diesem Ordner aufgeführt, bis Sie den Tasksequenzknoten aktualisieren.  Nach der Aktualisierung wird die Kopie im Stammordner angezeigt.|  
+|**Deaktivieren**|Hiermit wird die Tasksequenz deaktiviert, damit sie nicht auf Computern ausgeführt werden kann. Deaktivierte Tasksequenzen können zwar an Computer bereitgestellt werden, aber sie werden von den Computern erst ausgeführt, nachdem sie aktiviert wurden.|  
+|**Aktivieren**|Hiermit wird die Tasksequenz aktiviert, damit sie ausgeführt werden kann. Es ist nicht notwendig, eine bereitgestellte Tasksequenz nach der Aktivierung erneut bereitzustellen.|  
+|**Datei für vorab bereitgestellten Inhalt erstellen**|Hiermit wird der Assistenten zum Erstellen von vorab bereitgestellten Inhaltsdateien gestartet, mit dem der Inhalt der Tasksequenz vorab bereitgestellt wird. Informationen zum Erstellen einer vorab bereitgestellten Inhaltsdatei finden Sie unter [Vorabbereitstellen von Inhalt](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
+|**Verschieben**|Hiermit wird die ausgewählte Tasksequenz in einen anderen Ordner verschoben.|  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)
-
+## <a name="next-steps"></a>Nächste Schritte
+[Szenarien für die Bereitstellung von Unternehmensbetriebssystemen](scenarios-to-deploy-enterprise-operating-systems.md)

@@ -1,50 +1,50 @@
 ---
-title: "Rechercher le nom d’une famille de packages (NFP) pour un VPN par application | Microsoft Docs"
-description: "Découvrez deux façons de rechercher un nom de famille de packages en vue de configurer un VPN par application."
+title: "Suchen eines Paketfamiliennamens (PFN) für Pro-App-VPN | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über die zwei Methoden, einen Paketfamiliennamen zu suchen, sodass Sie ein Pro-App-VPN konfigurieren können."
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47118499-3d26-4c25-bfde-b129de7eaa59
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: ce50645155ecb14a82d8b982aa69c0f87dd15fbf
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Rechercher un nom de famille de packages (NFP) pour un VPN par application
+# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Suchen eines Paketfamiliennamens (PFN) für Pro-App-VPN
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Il existe deux façons de rechercher un NFP en vue de configurer un VPN par application.
+Es gibt zwei Methoden, einen PFN zu suchen, sodass Sie ein Pro-App-VPN konfigurieren können.
 
-## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Rechercher un NFP pour une application installée sur un ordinateur Windows 10
+## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Suchen eines PFN für eine App, die auf einem Windows-10-Computer installiert ist
 
-Si l’application avec laquelle vous travaillez est déjà installée sur un ordinateur Windows 10, vous pouvez utiliser l’applet de commande PowerShell [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx) pour obtenir le NFP.
+Wenn die App, mit der Sie arbeiten, bereits auf einem Windows-10-Computer installiert ist, können Sie das PowerShell-Cmdlet [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx) zum Abrufen des PFN verwenden.
 
-La syntaxe de Get-AppxPackage est la suivante :
+Die Syntax für Get-AppxPackage lautet:
 
 ` Parameter Set: __AllParameterSets`
 ` Get-AppxPackage [[-Name] <String> ] [[-Publisher] <String> ] [-AllUsers] [-User <String> ] [ <CommonParameters>]`
 
 > [!NOTE]
-> Vous pouvez être amené à exécuter PowerShell en tant qu’administrateur pour récupérer le NFP.
+> Möglicherweise müssen Sie PowerShell als Administrator ausführen, um den PFN abrufen zu können
 
-Par exemple, pour obtenir des informations sur toutes les applications universelles installées sur l’ordinateur, utilisez `Get-AppxPackage`.
+Verwenden Sie beispielsweise `Get-AppxPackage` zum Abrufen von Informationen zu allen universellen Apps, die auf dem Computer installiert sind.
 
-Pour obtenir des informations sur une application dont vous connaissez le nom en tout ou partie, utilisez `Get-AppxPackage *<app_name>`. Comme dans cet exemple, vous pouvez utiliser un caractère générique, ce qui est particulièrement pratique si vous ne connaissez pas le nom complet de l’application. Par exemple, pour obtenir les informations pour OneNote, utilisez `Get-AppxPackage *OneNote`.
+Verwenden Sie `Get-AppxPackage *<app_name>` zum Abrufen von Informationen über eine App, deren Namen Sie kennen oder teilweise kennen. Beachten Sie die Verwendung des Platzhalterzeichens, das vor allem dann nützlich ist, wenn Sie nicht den vollständigen Namen der App kennen. Verwenden Sie beispielsweise beim Abrufen von Informationen für OneNote `Get-AppxPackage *OneNote`.
 
 
-Voici les informations récupérées pour OneNote :
+Hier sind die abgerufenen Informationen für OneNote:
 
 `Name                   : Microsoft.Office.OneNote`
 
@@ -70,14 +70,14 @@ Voici les informations récupérées pour OneNote :
 
 
 
-## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Rechercher un NFP si l’application n’est pas installée sur un ordinateur
+## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Suchen einer PFN, wenn die App nicht auf einem Computer installiert ist
 
-1.  Accédez à https://www.microsoft.com/en-us/store/apps
-2.  Entrez le nom de l’application dans la barre de recherche. Pour notre exemple, recherchez OneNote.
-3.  Cliquez sur le lien vers l’application. Notez que l’URL à laquelle vous accédez se termine par une série de lettres. Dans notre exemple, l’URL se présente comme suit : `https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
-4.  Sous un autre onglet, collez l’URL `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata` en remplaçant `<app id>` par l’ID d’application que vous avez obtenu à l’étape 3 à l’adresse https://www.microsoft.com/en-us/store/apps (la série de lettres située à la fin de l’URL). Pour notre exemple OneNote, nous collerions ceci : `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
+1.  Wechseln Sie zu https://www.microsoft.com/en-us/store/apps
+2.  Geben Sie den Namen der App in der Suchleiste ein. Suchen Sie in unserem Beispiel nach OneNote.
+3.  Klicken Sie auf den Link zur App. Beachten Sie, dass die URL, auf die Sie zugreifen, eine Reihe von Buchstaben am Ende hat. In unserem Beispiel sieht die URL folgendermaßen aus: `https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
+4.  Fügen Sie in einer anderen Registerkarte die folgende URL ein, `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata`, und ersetzen Sie dabei `<app id>` mit der App-ID, die Sie von https://www.microsoft.com/en-us/store/apps erhalten haben - Reihe von Buchstaben am Ende der URL aus Schritt 3. In unserem Beispiel, das Beispiel OneNote, fügen Sie ein: `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
 
-Dans Edge, les informations souhaitées s’affichent d’elles-mêmes ; dans Internet Explorer, cliquez sur **Ouvrir** pour afficher les informations. La valeur de NFP figure dans la première ligne. Voici à quoi ressemblent les résultats pour notre exemple :
+Die gewünschten Informationen werden in Edge angezeigt. Klicken Sie in Internet Explorer auf **Öffnen**, um die Informationen zu sehen. Der PFN-Wert erscheint in der ersten Zeile. Hier ist das Ergebnis in unserem Beispiel:
 
 
 `{`
@@ -86,9 +86,3 @@ Dans Edge, les informations souhaitées s’affichent d’elles-mêmes ; dans I
 `  "windowsPhoneLegacyId": "ca05b3ab-f157-450c-8c49-a1f127f5e71d",`
 `  "publisherCertificateName": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"`
 `}`
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

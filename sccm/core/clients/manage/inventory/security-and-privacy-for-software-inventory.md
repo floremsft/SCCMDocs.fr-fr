@@ -1,65 +1,61 @@
 ---
-title: "Sécurité et confidentialité de l’inventaire logiciel | Microsoft Docs"
-description: "Obtenez des informations de sécurité et de confidentialité pour l’inventaire logiciel dans System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für die Softwareinventur | Microsoft-Dokumentation"
+description: "Rufen Sie Sicherheits- und Datenschutzinformationen für die Softwareinventur in System Center Configuration Manager ab."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e68e1fb-a8ec-4543-bb8a-cbbaf184a418
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: 2144dfa87f40fcb2195f7278a21b47e05d6d6f38
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 7652e46d2168e2de623fa8e6d5b8663701764244
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-software-inventory-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour l’inventaire logiciel dans System Center Configuration Manager
+# <a name="security-and-privacy-for-software-inventory-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Softwareinventur in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour l’inventaire logiciel dans System Center Configuration Manager.  
+Dieses Thema enthält Sicherheits- und Datenschutzinformationen für die Softwareinventur in System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour l’inventaire logiciel  
- Utilisez les meilleures pratiques de sécurité suivantes lorsque vous recueillez des données d'inventaire logiciel à partir de clients :  
+##  <a name="BKMK_Security_HardwareInventory"></a> Bewährte Sicherheitsmethoden für die Softwareinventur  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden beim Sammeln von Softwareinventurdaten der Clients an:  
 
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Bewährte Sicherheitsmethode|Weitere Informationen|  
 |----------------------------|----------------------|  
-|Signer et chiffrer les données d'inventaire|Lorsque les clients communiquent avec les points de gestion à l'aide du protocole HTTPS, toutes les données qu'ils envoient sont chiffrées à l'aide du protocole SSL. Toutefois, lorsque des ordinateurs clients utilisent le protocole HTTP pour communiquer avec des points de gestion sur l'intranet, les données d'inventaire client et les fichiers collectés peuvent être envoyés non signés et non chiffrés. Assurez-vous que le site est configuré pour exiger la signature et utiliser le chiffrement. En outre, si les clients peuvent prendre en charge l'algorithme SHA-256, sélectionnez l'option pour exiger SHA-256.|  
-|N'utilisez pas le regroupement de fichiers pour collecter des fichiers critiques ou des informations sensibles|L’inventaire logiciel Configuration Manager utilise tous les droits du compte LocalSystem, qui permet de recueillir des copies de fichiers système critiques, tels que le Registre ou la base de données du compte de sécurité. Lorsque ces fichiers sont disponibles sur le serveur de site, un individu disposant des droits Lire la ressource ou de droits NTFS sur l'emplacement de stockage du fichier pourrait en analyser le contenu et probablement découvrir des informations essentielles sur le client, ce qui permettrait de compromettre sa sécurité.|  
-|Restreindre les droits d'administrateur local sur les ordinateurs client|Un utilisateur disposant des droits d'administrateur local peut envoyer des données non valides comme informations d'inventaire.|  
+|Signieren und Verschlüsseln von Inventurdaten|Bei der Kommunikation der Clients mit Verwaltungspunkten über HTTPS werden alle von den Clients gesendeten Daten per SSL verschlüsselt. Allerdings werden Clientinventurdaten und gesammelte Dateien möglicherweise nicht signiert und unverschlüsselt gesendet, wenn auf den Clientcomputern HTTP als Protokoll für die Kommunikation mit Verwaltungspunkten im Intranet verwendet wird. Stellen Sie sicher, dass der Standort so konfiguriert ist, dass Signierung und Verschlüsselung erforderlich sind. Wählen Sie zusätzlich die Option "SHA-256 erforderlich" aus, wenn der SHA-256-Algorithmus von den Clients unterstützt wird.|  
+|Verwenden Sie zum Sammeln wichtiger Dateien oder sensibler Informationen keine Dateisammlung.|Von der Configuration Manager-Softwareinventur werden alle Rechte des Kontos „LocalSystem“ verwendet, mit dem Kopien kritischer Systemdateien, wie z.B. der Registrierung oder von Sicherheitskontodatenbanken, gesammelt werden können. Wenn diese Dateien auf dem Standortserver zur Verfügung stehen, kann eine Person mit Leserechten für Ressourcen oder NTFS-Rechten am Speicherort der Datei den Inhalt analysieren, u. U. wichtige Details des Clients ermitteln und damit die Sicherheit kompromittiert.|  
+|Einschränken lokaler Administratorrechte auf Clientcomputern|Ein Benutzer mit lokalen Administratorrechten kann ungültige Daten als Inventurinformationen senden.|  
 
-### <a name="security-issues-for-software-inventory"></a>Problèmes de sécurité pour l’inventaire logiciel  
- La collecte d'inventaires engendre des vulnérabilités potentielles. Les intrus peuvent effectuer les opérations suivantes :  
+### <a name="security-issues-for-software-inventory"></a>Sicherheitsprobleme bei der Softwareinventur  
+ Das Sammeln der Inventur weist potenzielle Sicherheitslücken auf. Angreifer können die folgenden Aktionen ausführen:  
 
--   Envoyer des données non valides qui seront acceptées par le point de gestion, même lorsque le paramètre du client d'inventaire logiciel est désactivé et le regroupement de fichiers n'est pas activé.  
+-   Senden von ungültigen Daten – Diese werden vom Verwaltungspunkt auch dann akzeptiert, wenn die Softwareinventur-Clienteinstellung deaktiviert und keine Dateisammlung aktiviert ist.  
 
--   Envoyer de trop grandes quantités de données dans un seul fichier et dans de nombreux fichiers, ce qui risque provoquer un déni de service.  
+-   Senden von übermäßig großen Datenmengen in einer einzigen Datei und in vielen Dateien – Dies kann zu einem DoS führen.  
 
--   Accéder aux informations d’inventaire lors de leur transfert vers Configuration Manager.  
+-   Zugreifen auf Inventurinformationen während ihrer Übertragung an Configuration Manager  
 
- Si les utilisateurs savent qu'ils peuvent créer un fichier masqué appelé **Skpswi.dat** et le placer à la racine du disque dur d'un client pour l'exclure de l'inventaire logiciel, vous ne pourrez pas recueillir de données d'inventaire logiciel à partir de cet ordinateur.  
+ Wenn Benutzer wissen, dass sie eine ausgeblendete Datei namens **Skpswi.dat** erstellen und im Stammverzeichnis einer Clientfestplatte speichern können, um sie so aus der Softwareinventur auszuschließen, können Sie von diesem Computer keine Softwareinventurdaten sammeln.  
 
- Dans la mesure où un utilisateur bénéficiant de privilèges d’administrateur local peut envoyer n’importe quelles informations comme données d’inventaire, ne considérez pas que les données d’inventaire collectées par Configuration Manager peuvent servir de référence.  
+ Da ein Benutzer mit lokalen Administratorberechtigungen alle Informationen als Inventurdaten senden kann, sollten Sie von Configuration Manager gesammelte Inventurdaten nicht als maßgebliche Datenquelle betrachten.  
 
- L'inventaire logiciel est activé par défaut comme un paramètre client.  
+ Die Softwareinventur ist standardmäßig als Clienteinstellung aktiviert.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour l’inventaire logiciel  
- L’inventaire matériel vous permet de récupérer toutes les informations stockées dans le Registre et dans WMI sur les clients Configuration Manager. L'inventaire logiciel vous permet de découvrir tous les fichiers d'un type donné ou de collecter tous les fichiers spécifiés à partir des clients. Asset Intelligence améliore les capacités de l'inventaire en étendant l'inventaire matériel et logiciel et en ajoutant la nouvelle fonctionnalité de gestion des licences.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informationen zum Datenschutz für die Softwareinventur  
+ Die Hardwareinventur ermöglicht das Abrufen von Informationen, die auf Configuration Manager-Clients in der Registrierung und in WMI gespeichert sind. Die Softwareinventur ermöglicht die Ermittlung aller Dateien eines bestimmten Typs oder die Sammlung bestimmter Dateien von Clients. Asset Intelligence erweitert die Inventurfunktionen, indem die Hardware- und Softwareinventur erweitert und neue Lizenzverwaltungsfunktionen hinzugefügt werden.  
 
- L'inventaire matériel est activé par défaut comme un paramètre client et les informations WMI recueillies sont déterminées par les options que vous sélectionnez. L'inventaire logiciel est activé par défaut, mais les fichiers ne sont pas recueillis par défaut. Le regroupement de données Asset Intelligence est automatiquement activé, bien que vous puissiez sélectionner les classes de rapport d'inventaire matériel à activer.  
+ Die Hardwareinventur ist standardmäßig als Clienteinstellung aktiviert, und die gesammelten WMI-Informationen werden durch die von Ihnen ausgewählten Optionen festgelegt. Die Softwareinventur ist zwar standardmäßig aktiviert, aber Dateien werden standardmäßig nicht gesammelt. Die Asset Intelligence-Datensammlung ist zwar automatisch aktiviert, aber Sie können die zu aktivierenden Hardwareinventur-Berichtsklassen selbst auswählen.  
 
- Les informations d'inventaire ne sont pas envoyées à Microsoft. Les informations d’inventaire sont stockées dans la base de données Configuration Manager. Lorsque les clients utilisent HTTPS pour se connecter à des points de gestion, les données d'inventaire qu'ils envoient au site sont chiffrées pendant le transfert. Si les clients utilisent le protocole HTTP pour se connecter à des points de gestion, vous pouvez activer le chiffrement d'inventaire. Les données d'inventaire ne sont pas stockées au format chiffré dans la base de données. Les informations sont conservées dans la base de données jusqu'à ce qu'elles soient supprimées par les tâches de maintenance du site **Supprimer les historiques d'inventaire anciens** ou **Supprimer les fichiers collectés anciens** tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
+ Die Inventurinformationen werden nicht an Microsoft gesendet. Inventurinformationen werden in der Configuration Manager-Datenbank gespeichert. Wenn auf den Clients HTTPS für die Herstellung der Verbindung zu den Verwaltungspunkten verwendet wird, werden die vom Verwaltungspunkt an den Standort gesendeten Inventurdaten während der Übertragung verschlüsselt. Wenn auf den Clients HTTP für die Herstellung der Verbindung zu den Verwaltungspunkten verwendet wird, haben Sie die Möglichkeit, die Inventurverschlüsselung zu aktivieren. In der Datenbank werden die Inventurdaten unverschlüsselt gespeichert. Informationen werden so lange in der Datenbank gespeichert, bis sie durch die alle 90 Tage durchgeführten Standortwartungstasks **Veralteten Inventurverlauf löschen** oder **Veraltete gesammelte Dateien löschen** gelöscht werden. Sie können das Löschintervall konfigurieren.  
 
- Avant de configurer l'inventaire matériel, l'inventaire logiciel, le regroupement de fichiers ou la collecte de données Asset Intelligence, tenez compte de vos exigences en matière de confidentialité.  
-
+ Berücksichtigen Sie bei der Konfiguration der Hardware- und Softwareinventur, der Dateisammlung oder der Asset Intelligence-Datensammlung Ihre Datenschutzanforderungen.  

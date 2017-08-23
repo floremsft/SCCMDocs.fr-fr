@@ -1,118 +1,111 @@
 ---
-title: "Surveiller les paramètres de compatibilité | Microsoft Docs"
-description: "Utilisez une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité de la base de référence de configuration."
+title: "Überwachen von Konformitätseinstellungen | Microsoft-Dokumentation"
+description: "Verwenden Sie eine oder mehrere der Verfahren aus diesem Thema, um den Kompatibilitätsstatus der Konfigurationsbaselines anzuzeigen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92c1ccca-a748-44cd-a52e-e41d34bf981d
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: 75cd7e811262633d81d978265f21ec7ed3b61a58
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Surveiller les paramètres de compatibilité dans System Center Configuration Manager
+# <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Überwachen von Kompatibilitätseinstellungen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Une fois que vous avez déployé les bases de référence de configuration de System Center Configuration Manager sur les appareils de votre hiérarchie, vous pouvez utiliser une ou plusieurs des procédures de cette rubrique pour afficher l’état de compatibilité d’une base de référence de configuration :
+Nach dem Bereitstellen von Configuration Manager-Konfigurationsbaselines auf Computern in der Hierarchie können Sie eine oder mehrere der folgenden Vorgehensweisen verwenden, um den Kompatibilitätsstatus der Konfigurationsbaselines anzuzeigen:
 
 > [!NOTE]  
->  Les champs des critères de validation dans les rapports des paramètres de compatibilité (l’équivalent dans le rapport côté client est **Contraintes**) s’affichent dans le langage SML (Service Modeling Language) sous-jacent. Par conséquent, les administrateurs qui ont créé l’élément de configuration dans la console Configuration Manager qui ne connaissent pas le langage SML peuvent avoir des difficultés à comprendre les critères de validation. Dans ce cas, utilisez l’espace de travail **Surveillance** dans la console Configuration Manager pour afficher les propriétés de l’élément de configuration et ses critères de validation.  
+>  In den Feldern für die Überprüfungskriterien in Berichten zu Kompatibilitätseinstellungen (dies entspricht bei Clientberichten **Einschränkungen**) wird das zugrunde liegende SML (Service Modeling Language) angezeigt. Dadurch wird Administratoren, die das Konfigurationselement in der Configuration Manager-Konsole erstellt haben und nicht mit SML vertraut sind, die Auswertung der Überprüfungskriterien erschwert. Verwenden Sie in diesem Fall den Arbeitsbereich **Überwachung** in der Configuration Manager-Konsole, um die Eigenschaften des Konfigurationselements und die entsprechenden Überprüfungskriterien anzuzeigen.  
 
-##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Afficher les résultats de compatibilité dans la console Configuration Manager  
- Utilisez cette procédure pour afficher des détails sur la compatibilité des bases de référence de configuration déployées dans la console Configuration Manager.  
+##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Anzeigen von Kompatibilitätsergebnissen in der Configuration Manager-Konsole  
+ Mit dieser Vorgehensweise können Sie Details zur Kompatibilität der bereitgestellten Konfigurationsbaselines in der Configuration Manager-Konsole anzeigen.  
 
-### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Afficher les résultats de compatibilité dans la console Configuration Manager  
+### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Anzeigen von Kompatibilitätsergebnissen in der Configuration Manager-Konsole  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **Déploiements**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung** > **Bereitstellungen**.  
 
-3.  Dans la liste **Déploiements** , sélectionnez le déploiement de la ligne de base de configuration pour lequel vous souhaitez vérifier les informations de compatibilité.  
+3.  Wählen Sie in der Liste **Bereitstellungen** die Bereitstellung der Konfigurationsbasislinie aus, für die Sie die Kompatibilitätsinformationen lesen möchten.  
 
-4.  Vous pouvez consulter un résumé des informations relatives à la compatibilité du déploiement de la ligne de base de configuration dans la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement de la ligne de base de configuration puis, sous l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Afficher l’état** pour afficher la page **État du déploiement** .  
+4.  Zusammenfassende Informationen zur Kompatibilität der Konfigurationsbasislinienbereitstellung finden Sie auf der Hauptseite. Wählen Sie zum Anzeigen ausführlicherer Informationen die Bereitstellung der Konfigurationsbasislinie aus, und klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Status anzeigen** , um die Seite **Bereitstellungsstatus** anzuzeigen.  
 
-     La page **État du déploiement** contient les onglets suivants :  
+     Auf der Seite **Bereitstellungsstatus** sind die folgenden Registerkarten enthalten:  
 
-    -   **Compatible**: affiche la compatibilité de la ligne de base de configuration en fonction du nombre de biens affectés. Vous pouvez cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Ressources et Conformité** , qui contient tous les utilisateurs ou appareils conformes à cette règle. Le volet **Détails du bien** affiche les utilisateurs ou les appareils qui sont compatibles avec la base de référence de configuration. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires.  
+    -   **Kompatibel**: zeigt die Kompatibilität der Konfigurationsbasislinie basierend auf der Anzahl der betroffenen Bestände an. Sie können auf eine Regel klicken, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, die mit dieser Regel kompatibel sind. Im Bereich **Bestandsdetails** werden die Benutzer oder Geräte angezeigt, die mit der Konfigurationsbasislinie kompatibel sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen anzuzeigen.  
 
         > [!IMPORTANT]  
-        >  Une règle d’élément de configuration n’est pas évaluée si elle n’est pas détectée ou si elle n’est pas applicable sur un appareil client. Cependant, la règle est renvoyée comme étant compatible.  
+        >  Eine Konfigurationselementregel wird nicht ausgewertet, wenn sie nicht erkannt wird oder auf einem Clientgerät nicht angewendet werden kann. Dennoch wird die Regel als kompatibel zurückgegeben.  
 
-    -   **Erreur**: affiche la liste de toutes les erreurs pour le déploiement de la ligne de base de configuration sélectionné en fonction du nombre de biens affectés. Vous pouvez cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité** , qui contient tous les utilisateurs ou appareils qui ont généré des erreurs avec cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils qui sont affectés par le problème sélectionné. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires sur le problème.  
+    -   **Fehler**:zeigt eine Liste aller Fehler für die ausgewählte Bereitstellung der Konfigurationsbasislinie basierend auf der Anzahl der betroffenen Bestände an. Sie können auf eine Regel klicken, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, durch die mit dieser Regel Fehler generiert wurden. Wenn Sie einen Benutzer oder ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Benutzer oder Geräte angezeigt, die vom ausgewählten Problem betroffen sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen zum Problem anzuzeigen.  
 
-    -   **Non compatible**: affiche la liste de toutes les règles non compatibles au sein de la ligne de base de configuration en fonction du nombre de biens affectés. Vous pouvez cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité** , qui contient tous les utilisateurs ou appareils qui ne sont pas compatibles avec cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils qui sont affectés par le problème sélectionné. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher d'autres informations sur le problème.  
+    -   **Nicht kompatibel**: Zeigt eine Liste aller nicht kompatiblen Regeln innerhalb der Konfigurationsbasislinie basierend auf der Anzahl der betroffenen Bestände an. Sie können auf eine Regel klicken, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, die nicht mit dieser Regel kompatibel sind. Wenn Sie einen Benutzer oder ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Benutzer oder Geräte angezeigt, die vom ausgewählten Problem betroffen sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen zu diesem Problem anzuzeigen.  
 
-    -   **Inconnu**: affiche la liste de tous les utilisateurs et appareils qui n’ont pas signalé de compatibilité pour le déploiement de la ligne de base de configuration sélectionné avec l’état du client actuel des appareils.  
+    -   **Unbekannt**: Zeigt eine Liste aller Benutzer und Geräte an, von denen keine Kompatibilität der ausgewählten Bereitstellung der Konfigurationsbasislinie zusammen mit dem aktuellen Clientstatus von Geräten gemeldet wurde.  
 
-5.  Sur la page **État du déploiement** , vous pouvez consulter des informations détaillées sur la compatibilité de la ligne de base de configuration déployée. Un nœud temporaire est créé sous le nœud **Déploiements** qui vous aide à retrouver rapidement ces informations.  
+5.  Auf der Seite **Bereitstellungsstatus** finden Sie ausführliche Informationen zur Kompatibilität der bereitgestellten Konfigurationsbasislinie. Unter dem Knoten **Bereitstellungen** wird ein temporärer Knoten erstellt, mit dessen Hilfe Sie die Informationen schnell wiederfinden können.  
 
-##  <a name="view-compliance-results-by-using-reports"></a>Afficher les résultats de compatibilité à l’aide de rapports  
- Dans Configuration Manager, les paramètres de compatibilité incluent un certain nombre de rapports intégrés qui vous permettent de surveiller les informations sur les éléments de configuration, les bases de référence de configuration et les déploiements. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
+##  <a name="view-compliance-results-by-using-reports"></a>Anzeigen von Kompatibilitätsergebnissen mithilfe von Berichten  
+ Kompatibilitätseinstellungen in Configuration Manager umfassen mehrere integrierte Berichte, mit denen Sie Daten zu Konfigurationselementen, Konfigurationsbaselines und Bereitstellungen überwachen können. Diese Berichte verfügen über die Berichtskategorie **Kompatibilitäts- und Einstellungsverwaltung**.  
 
 > [!IMPORTANT]  
->  Vous devez utiliser un caractère générique (**%**) quand vous utilisez les paramètres **Filtre d’appareil** et Filtre d’utilisateur dans les rapports des paramètres de compatibilité.  
+>  Sie müssen ein Platzhalterzeichen (**%**) verwenden, wenn Sie in Berichten zu Kompatibilitätseinstellungen die Parameter **Gerätefilter** und „Benutzerfilter“ verwenden.  
 
- Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Weitere Informationen zum Konfigurieren der Berichterstellung in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md)  
 
-##  <a name="view-compliance-results-on-a-configuration-manager-windows-client-computer"></a>Afficher les résultats de compatibilité sur un ordinateur client Windows Configuration Manager
+##  <a name="view-compliance-results-on-a-configuration-manager-windows-client-computer"></a>Zeigen Sie Kompatibilitätsergebnisse auf einem Configuration Manager-Windows-Clientcomputer an
 
 > [!NOTE]  
->  Vous ne pouvez pas afficher d’informations sur le client Windows Configuration Manager si vous êtes connecté avec un compte Invité du domaine.    
+>  Sie können keine Daten auf dem Configuration Manager-Windows-Client anzeigen, wenn Sie mit einem Domänengastkonto angemeldet sind.    
 
-1.  Accédez à **Configuration Manager** dans le Panneau de configuration de l’ordinateur client et double-cliquez dessus pour ouvrir ses propriétés.  
+1.  Doppelklicken Sie in der Systemsteuerung des Clientcomputers auf **Configuration Manager** , um die Eigenschaften anzuzeigen.  
 
-2.  Cliquez sur l'onglet **Configurations** et affichez la liste des bases de référence de configuration déployées.  
+2.  Klicken Sie auf die Registerkarte **Konfiguration** , und zeigen Sie die Liste der bereitgestellten Konfigurationsbasislinien an.  
 
-3.  Affichez l' **État de compatibilité** pour chaque ligne de base de configuration :  
+3.  Zeigen Sie den **Kompatibilitätszustand** für jede Konfigurationsbasislinie an:  
 
     > [!IMPORTANT]  
-    >  Les résultats de l'évaluation sont mis en cache sur le client pendant 15 minutes. Si vous procédez à une ré-évaluation au cours de cette période de 15 minutes, les résultats de compatibilité sont renvoyés à partir de ce cache mais pas en tant que résultats d’une nouvelle évaluation. Par conséquent, toute modification que vous apportez au client peut avoir une incidence sur les résultats de l'évaluation de la conformité. Patientez jusqu'à ce que les 15 minutes s'écoulent avant de procéder à une ré-évaluation.  
+    >  Die Bewertungsergebnisse werden 15 Minuten lang auf dem Client zwischengespeichert. Wenn Sie innerhalb der 15 Minuten eine erneute Auswertung initiieren, werden die Kompatibilitätsergebnisse aus dem Cache und nicht aus einer erneuten Auswertung zurückgegeben. Aus diesem Grund sollten Sie bei Änderungen am Client, die sich auf die Ergebnisse der Kompatibilitätsbewertung auswirken können, vor dem Initiieren einer erneuten Bewertung 15 Minuten warten.  
 
-    -   **Compatible**: l’ordinateur client est compatible avec la ligne de base de configuration évaluée.  
+    -   **Kompatibel**: Der Clientcomputer ist mit der ausgewerteten Konfigurationsbasislinie kompatibel.  
 
-    -   **Non compatible**: l’ordinateur client est non conforme à la ligne de base de configuration évaluée.  
+    -   **Nicht kompatibel**: Der Clientcomputer ist mit der ausgewerteten Konfigurationsbasislinie nicht kompatibel.  
 
-    -   **Inconnu**: l’ordinateur client n’a pas encore évalué la ligne de base de configuration. Si vous souhaitez initier une évaluation en dehors du calendrier d'évaluation de la compatibilité, sélectionnez les lignes de base de configuration à évaluer, puis cliquez sur **Évaluer**.  
+    -   **Unbekannt**: Die Konfigurationsbasislinie wurde vom Clientcomputer noch nicht bewertet. Wenn Sie die Bewertung außerhalb des Zeitplans für die Kompatibilitätsbewertung initiieren möchten, wählen Sie die zu bewertenden Konfigurationsbasislinien aus, und klicken Sie auf **Bewerten**.  
 
         > [!NOTE]  
-        >  Si vous disposez d’informations d’identification d’administrateur local sur l’ordinateur client, vous pouvez afficher les détails de chaque ligne de base de configuration évaluée pour déterminer quel élément de configuration signale un état de non-compatibilité. À cet effet, sélectionnez la ligne de base de configuration, puis cliquez sur **Afficher le rapport**.  
+        >  Falls Sie auf dem Clientcomputer lokale Administratoranmeldedaten verwenden, können Sie Details jeder ausgewerteten Konfigurationsbasislinie anzeigen, um zu bestimmen, welches Konfigurationselement den Status „Nicht kompatibel“ meldet. Dazu wählen Sie die Konfigurationsbasislinie aus, und klicken Sie auf **Bericht anzeigen**.  
 
-4.  Cliquez sur **OK**.  
+4.  Klicken Sie auf **OK**.  
 
-##  <a name="create-collections-based-on-configuration-baseline-compliance"></a>Créer des regroupements en fonction de la compatibilité de la base de référence de configuration  
- Utilisez la procédure suivante pour créer un regroupement Configuration Manager basé sur des appareils associés à une compatibilité spécifiée. Vous pouvez créer des regroupements à partir des états de compatibilité suivants :  
+##  <a name="create-collections-based-on-configuration-baseline-compliance"></a>Erstellen von Sammlungen auf Basis der Konfigurationsbaselinekompatibilität  
+ Gehen Sie wie folgt vor, um eine Configuration Manager-Sammlung auf der Grundlage von Geräten mit einer angegebenen Kompatibilität zu erstellen. Sie können Sammlungen basierend auf den folgenden Kompatibilitätszuständen erstellen:  
 
--   **Compatible**  
+-   **Kompatibel**  
 
--   **Erreur**  
+-   **Fehler**  
 
 -   **Non-compliant**  
 
--   **Inconnu.**  
+-   **Unbekannt**  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationsbaselines**.  
 
-3.  Dans la liste **Lignes de base de configuration** , sélectionnez la ligne de base de configuration à partir de laquelle vous souhaitez créer un regroupement.  
+3.  Wählen Sie in der Liste **Konfigurationsbasislinien** die Konfigurationsbasislinie aus, aus der Sie eine Sammlung erstellen möchten.  
 
-4.  Sous l’onglet **Déploiement** , dans le groupe **Déploiement**, cliquez sur **Créer un regroupement** , puis, dans la liste déroulante, sélectionnez le niveau de compatibilité pour lequel vous souhaitez créer un regroupement.  
+4.  Klicken Sie auf der Registerkarte **Bereitstellung** in der Gruppe **Bereitstellung**auf **Neue Sammlung erstellen** , und wählen Sie dann aus der Dropdownliste die Kompatibilitätsstufe aus, für die Sie eine Sammlung erstellen möchten.  
 
-5.  L' **Assistant Création d'un regroupement d'utilisateurs** ou l' **Assistant Création d'un regroupement de périphériques** s'ouvre, selon que l'élément de configuration est déployé vers des utilisateurs ou vers des périphériques. L'Assistant est automatiquement renseigné avec les valeurs correctes pour créer le regroupement. Toutefois, vous pouvez modifier ces valeurs.  
+5.  Der **Assistent zum Erstellen von Benutzersammlungen** oder der **Assistent zum Erstellen von Gerätesammlungen** wird geöffnet, je nachdem, ob das Konfigurationselement für Benutzer oder für Geräte bereitgestellt wird. Der Assistent wird automatisch mit den korrekten Werten zum Erstellen der Sammlung aufgefüllt. Sie können diese Werte jedoch auch bearbeiten.  
 
-6.  Une fois que vous avez terminé l’Assistant, le regroupement s’affiche dans le nœud **Regroupements d’utilisateurs** ou **Regroupements de périphériques** de l’espace de travail **Ressources et Conformité** .  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+6.  Wenn Sie den Assistenten abgeschlossen haben, wird die Sammlung im Arbeitsbereich **Bestand und Kompatibilität** entweder im Knoten **Benutzersammlungen** oder im Knoten **Gerätesammlungen** angezeigt.  

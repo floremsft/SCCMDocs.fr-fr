@@ -1,57 +1,50 @@
 ---
-title: "Présentation de la gestion de l’alimentation | Microsoft Docs"
-description: "Obtenez une présentation de la gestion de l’alimentation dans System Center Configuration Manager."
+title: "Einführung in die Energieverwaltung | Microsoft-Dokumentation"
+description: "Erhalten Sie eine Einführung in die Energieverwaltung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3ddff2a7-99eb-4ef8-b969-f3f7f24053db
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: f46c9479021c814b1102d72c7d493f21a7243bf1
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-power-management-in-system-center-configuration-manager"></a>Présentation de la gestion de l’alimentation dans System Center Configuration Manager
+# <a name="introduction-to-power-management-in-system-center-configuration-manager"></a>Einführung in die Energieverwaltung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La gestion de l’alimentation dans System Center Configuration Manager répond au besoin de nombreuses organisations de contrôler et réduire la consommation d’énergie de leurs ordinateurs. Cette fonctionnalité tire parti des fonctionnalités de la gestion de l'alimentation intégrée à Windows pour appliquer les paramètres pertinents et cohérents aux ordinateurs de l'organisation. Vous pouvez appliquer différents paramètres d'alimentation aux ordinateurs pendant les heures de bureau et les heures creuses. Par exemple, vous pouvez souhaiter appliquer un mode d'alimentation plus restrictif aux ordinateurs pendant les heures creuses. Dans les cas où les ordinateurs doivent toujours rester allumés, vous pouvez empêcher l'application des paramètres de gestion de l'alimentation.  
+Die Energieverwaltung in System Center Configuration Manager entspricht dem Bedarf zahlreicher Organisationen, den Energieverbrauch ihrer Computer zu überwachen und zu senken. Von der Funktion werden die Energieverwaltungsfunktionen von Windows genutzt, um relevante sowie konsistente Einstellungen auf die Computer der Organisation anzuwenden. Innerhalb und außerhalb der Geschäftszeiten lassen sich unterschiedliche Energieeinstellungen auf die Computer anwenden. Beispielsweise kann außerhalb der Geschäftszeiten ein restriktiverer Energiesparplan erwünscht sein. Wenn es Computer gibt, die stets eingeschaltet bleiben sollen, können Sie verhindern, dass die Energieverwaltungseinstellungen angewendet werden.  
 
- La gestion de l’alimentation dans Configuration Manager comprend plusieurs rapports permettant d’analyser la consommation énergétique et les paramètres d’alimentation des ordinateurs de votre organisation. Vous pouvez également utiliser les rapports pour vous aider à résoudre les problèmes de gestion de l'alimentation.  
+ In der Energieverwaltung in Configuration Manager sind verschiedene Berichte enthalten, um die Analyse von Energieverbrauch und Energieeinstellungen der Computer Ihrer Organisation zu vereinfachen. Die Berichte können auch zur Problembehandlung bei der Energieverwaltung verwendet werden.  
 
- Pour obtenir un flux de travail détaillé sur la configuration et l’utilisation de la gestion de l’alimentation, consultez [Liste de contrôle de l’administrateur pour la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/administrator-checklist-for-power-management.md).  
-
-> [!IMPORTANT]  
->  La gestion de l’alimentation dans Configuration Manager n’est pas prise en charge sur les ordinateurs virtuels. Vous ne pouvez pas appliquer les modes d'alimentation aux ordinateurs virtuels, ni signaler de données d'alimentation à partir de ces ordinateurs.  
-
-## <a name="the-power-management-workflow"></a>Flux de travail de la gestion de l’alimentation  
- Appliquez les trois étapes suivantes pour planifier et mettre en œuvre la gestion de l’alimentation dans Configuration Manager.  
-
-### <a name="monitoring-and-planning-phase"></a>Phase de surveillance et de planification  
- La gestion de l’alimentation utilise l’inventaire matériel de Configuration Manager pour recueillir des données sur les paramètres d’alimentation et d’utilisation des ordinateurs du site. Il existe un certain nombre de rapports que vous pouvez utiliser pour analyser ces données et déterminer les paramètres optimaux de gestion de l'alimentation pour les ordinateurs. Par exemple, pendant la phase de surveillance et de planification du flux de travail de la gestion de l'alimentation, vous pouvez créer des regroupements à partir des données incluses dans le rapport **Fonctions de gestion de l'alimentation** et utiliser ces données pour identifier les ordinateurs qui ne sont pas capables d'effectuer la gestion de l'alimentation. Ensuite, vous pouvez exclure ces ordinateurs de la gestion de l'alimentation.  
+ Einen ausführlichen Workflow zum Konfigurieren und Verwenden der Energieverwaltung finden Sie unter [Administratorcheckliste für die Energieverwaltung in System Center Configuration Manager](../../../../core/clients/manage/power/administrator-checklist-for-power-management.md).  
 
 > [!IMPORTANT]  
->  N'appliquez pas de modes d'alimentation aux ordinateurs de votre site avant de recueillir et d'analyser les données d'alimentation d'ordinateurs client. Si vous appliquez de nouveaux paramètres de gestion de l'alimentation aux ordinateurs sans examiner préalablement les paramètres existants, vous risquez d'observer une augmentation de la consommation d'énergie.  
+>  Die Configuration Manager-Energieverwaltung wird nicht auf virtuellen Computern unterstützt. Auf virtuelle Maschinen lassen sich keine Energiesparpläne anwenden, und von virtuellen Maschinen werden keine Energieberichtsdaten geliefert.  
 
-### <a name="enforcement-phase"></a>Phase de mise en œuvre  
- La gestion de l'alimentation vous permet de créer des modes d'alimentation que vous pouvez appliquer aux regroupements d'ordinateurs de votre site. Ces modes d'alimentation configurent les paramètres de gestion de l'alimentation Windows sur les ordinateurs. Vous pouvez utiliser les modes de gestion de l’alimentation inclus dans Configuration Manager ou configurer vos propres modes personnalisés. Vous pouvez utiliser les données d'alimentation recueillies pendant la phase de surveillance et de planification comme ligne de base pour vous aider à évaluer les économie d'énergie après avoir appliqué un mode d'alimentation aux ordinateurs. Pour plus d’informations, consultez [Liste de contrôle de l’administrateur pour la gestion de l’alimentation dans System Center Configuration Manager](../../../../core/clients/manage/power/administrator-checklist-for-power-management.md).  
+## <a name="the-power-management-workflow"></a>Workflow bei der Energieverwaltung  
+ Planen Sie die Energieverwaltung, und implementieren Sie sie in den folgenden drei Phasen in Configuration Manager.  
 
-### <a name="compliance-phase"></a>Phase de compatibilité  
- Dans la phase de compatibilité, vous pouvez exécuter des rapports qui vous aident à évaluer les économies à réaliser en matière de consommation énergétique et de coût de l'alimentation dans votre organisation. Vous pouvez également exécuter des rapports décrivant les améliorations relatives à la quantité de CO2 générée par les ordinateurs. Il existe également des rapports qui vous aident à vérifier que les paramètres d'alimentation ont été correctement appliqués aux ordinateurs, ce qui vous aide à résoudre les problèmes liés à la fonction de gestion de l'alimentation.  
+### <a name="monitoring-and-planning-phase"></a>Überwachungs- und Planungsphase  
+ Von der Energieverwaltung wird die Configuration Manager-Hardwareinventur zum Sammeln von Daten über Verwendung und Energieeinstellungen der Standortcomputer verwendet. Sie können mehrere Berichte verwenden, um diese Daten zu analysieren und die optimalen Energieverwaltungseinstellungen für die Computer zu bestimmen. Beispielsweise können Sie in der Überwachungs- und Planungsphase des Energieverwaltungs-Workflows Sammlungen auf Basis der Daten erstellen, die im Bericht **Energiefunktionen** enthalten sind, und sie zur Identifikation von Computern verwenden, bei denen keine Energieverwaltung möglich ist. Dann können Sie diese Computer von der Energieverwaltung ausschließen.  
 
+> [!IMPORTANT]  
+>  Wenden Sie keine Energiesparpläne auf Computer in Ihrem Standort an, bevor Sie die Energiedaten der Clientcomputer gesammelt und ausgewertet haben. Wenn Sie neue Energieverwaltungseinstellungen auf Computer anwenden, ohne die bestehenden Einstellungen zu untersuchen, könnten Sie einen Anstieg im Energieverbrauch erleben.  
 
+### <a name="enforcement-phase"></a>Erzwingungsphase  
+ Mit der Energieverwaltung können Sie Energiesparpläne erstellen und auf Sammlungen von Computern des Standorts anwenden. Von diesen Energiesparplänen werden die Einstellungen der Windows-Energieverwaltung auf den Computern konfiguriert. Sie können die Energiesparpläne verwenden, die in Configuration Manager integriert sind, oder Ihre eigenen benutzerdefinierten Energiesparpläne konfigurieren. Sie können die Energiedaten, die in der Überwachungs- und Planungsphase gesammelt wurden, als Basislinie verwenden, um die Energieeinsparungen nach Anwendung des Energiesparplans auf die Computer zu beurteilen. Weitere Informationen finden Sie unter [Administratorcheckliste für die Energieverwaltung in System Center Configuration Manager](../../../../core/clients/manage/power/administrator-checklist-for-power-management.md).  
 
-<!--HONumber=Dec16_HO3-->
-
-
+### <a name="compliance-phase"></a>Kompatibilitätsphase  
+ In der Kompatibilitätsphase können Sie Berichte ausführen, die Ihnen bei der Beurteilung des Energieverbrauchs und der Energiekosteneinsparungen in Ihrem Unternehmen helfen. Zudem können Sie Berichte ausführen, die Optimierungen beim CO2-Ausstoß von Computern dokumentieren. Anhand weiterer Berichte können Sie überprüfen, ob die Energieeinstellungen korrekt auf die Computer angewendet wurden. Sie können die Berichte auch zur Problembehandlung bei der Energieverwaltungsfunktion nutzen.  

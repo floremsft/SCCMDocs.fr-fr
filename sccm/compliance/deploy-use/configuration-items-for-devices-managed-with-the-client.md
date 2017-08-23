@@ -1,38 +1,34 @@
 ---
-title: "Éléments de configuration des appareils gérés par un client - Configuration Manager | Microsoft Docs"
-description: "Découvrez comment configurer des appareils Windows et Mac gérés avec le client System Center Configuration Manager."
+title: "Konfigurationselemente für clientverwaltete Geräte – Configuration Manager | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie Windows- und Macintosh-Geräte konfigurieren, die mit dem System Center Configuration Manager-Client verwaltet werden."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7daf71dc-3775-40d7-92e0-8679d7d90a78
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9e850bdbdf91d3b40a2044e5d5c04f468ed4809f
 ms.openlocfilehash: 093d24951e8d741bfcf2cedb7618ecf75300e035
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuration-items-for-devices-managed-with-the-system-center-configuration-manager-client"></a>Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager
+# <a name="configuration-items-for-devices-managed-with-the-system-center-configuration-manager-client"></a>Konfigurationselemente für Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique répertorie les types d’éléments de configuration de System Center Configuration Manager disponibles pour les appareils qui sont gérés par le client Configuration Manager, par exemple des PC Windows et des ordinateurs Mac.  
+Dieses Thema enthält eine Liste der verfügbaren System Center Configuration Manager-Konfigurationselementtypen für Geräte, die vom Configuration Manager-Client verwaltet werden, z.B. Windows- und Macintosh-Computer.  
 
--   [Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client.md)  
+-   [Erstellen von Konfigurationselementen für Windows 10-Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client.md)  
 
--   [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md)  
+-   [Erstellen von Konfigurationselementen für Mac OS X-Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md)  
 
--   [Guide pratique pour créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md)  
-
+-   [Erstellen benutzerdefinierter Konfigurationselemente für Windows-Desktop- und -Servercomputer, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md)  

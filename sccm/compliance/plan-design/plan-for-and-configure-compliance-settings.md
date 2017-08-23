@@ -1,60 +1,53 @@
 ---
-title: "Planifier et configurer les paramètres de compatibilité | Microsoft Docs"
-description: "Découvrez les prérequis et les tâches de configuration pour l’utilisation des paramètres de compatibilité dans System Center Configuration Manager."
+title: "Planen und Konfigurieren von Konformitätseinstellungen | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr zu den Voraussetzungen und Konfigurationsaufgaben für die Arbeit mit Kompatibilitätseinstellungen in System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ea20b01-676a-4cc2-b328-0098a41b202e
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: d26ac3de58d2f0ef447725e63fc2d8adda6ea06c
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager
+# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planen und Konfigurieren von Kompatibilitätseinstellungen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Avant de commencer à utiliser les paramètres de compatibilité System Center Configuration Manager, vous devez prendre connaissance de certains prérequis et de certaines tâches à effectuer.  
+Bevor Sie beginnen, mit System Center Configuration Manager-Kompatibilitätseinstellungen zu arbeiten, gibt es einige Voraussetzungen, die Sie kennen sollten, und einige Konfigurationsaufgaben, die Sie ausführen müssen.  
 
-## <a name="prerequisites-for-compliance-settings"></a>Conditions préalables pour les paramètres de compatibilité  
+## <a name="prerequisites-for-compliance-settings"></a>Voraussetzungen für Kompatibilitätseinstellungen  
 
-|Configuration requise|Plus d'informations|  
+|Voraussetzung|Weitere Informationen|  
 |------------------|----------------------|  
-|Les clients Windows Configuration Manager doivent être activés et configurés pour l’évaluation de la compatibilité.|Voir ci-dessous|  
-|Si vous souhaitez exécuter des rapports, vous devez configurer la création de rapports pour votre site.|[Rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
-|Autorisations de sécurité requises.|Le rôle de sécurité **Gestionnaire de paramètres de compatibilité** inclut les autorisations nécessaires pour gérer les paramètres de compatibilité, les éléments de configuration des profils et données utilisateur, ainsi que les profils de connexion à distance.<br /><br /> [Configurer l’administration basée sur des rôles](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
+|Windows Configuration Manager-Clients müssen für die Kompatibilitätsauswertung aktiviert und konfiguriert werden.|Informationen hierzu finden Sie weiter unten.|  
+|Wenn Sie Berichte ausführen möchten, müssen Sie die Berichterstellung für Ihren Standort konfigurieren.|[Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
+|Erforderliche Sicherheitsberechtigungen|Die Sicherheitsrolle **Kompatibilitätseinstellungs-Manager** beinhaltet die erforderlichen Berechtigungen, um Kompatibilitätseinstellungen, Konfigurationselemente für Benutzerdaten und -profile sowie Remoteverbindungsprofile verwalten zu können.<br /><br /> [Configure role-based administration (Konfigurieren der rollenbasierten Verwaltung)](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
 
-##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Activer et configurer les paramètres de compatibilité (pour les PC Windows uniquement)  
+##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Aktivieren und Konfigurieren von Kompatibilitätseinstellungen (nur für Windows-PCs)  
 
-Cette procédure définit les paramètres de compatibilité client par défaut et s’applique à tous les ordinateurs de votre hiérarchie. Si vous voulez appliquer ces paramètres à certains ordinateurs seulement, créez un paramètre client d’appareil personnalisé et affectez-le à un regroupement qui contient les ordinateurs pour lesquels vous souhaitez utiliser des paramètres de compatibilité. Pour plus d’informations sur la création de paramètres d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).  
+In dieser Vorgehensweise werden die Standardclienteinstellungen für Kompatibilitätseinstellungen konfiguriert und auf alle Computer in Ihrer Hierarchie angewendet. Wenn Sie diese Einstellungen nur auf manche Computer anwenden möchten, erstellen Sie eine benutzerdefinierte Geräteclienteinstellung, und weisen Sie diese einer Sammlung zu, die die Computer enthält, für die Sie die Kompatibilitätseinstellungen anwenden möchten. Weitere Informationen zum Erstellen von benutzerdefinierten Geräteeinstellungen finden Sie unter [How to configure client settings (Konfigurieren von Clienteinstellungen)](../../core/clients/deploy/configure-client-settings.md).  
 
 > [!TIP]  
->  Les autres types d’appareils ne nécessitent aucune configuration spécifique pour évaluer les paramètres de compatibilité.  
+>  Andere Gerätetypen erfordern keine besondere Konfiguration für die Auswertung von Kompatibilitätseinstellungen.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Paramètres client** > **Paramètres par défaut**.  
-2.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
-3.  Dans la boîte de dialogue **Paramètres par défaut** , cliquez sur **Paramètres de compatibilité**.  
-4.  Définissez les paramètres client suivants pour les paramètres de compatibilité :
-    - **Activer l’évaluation de compatibilité sur les clients** : Affectez la valeur **Vrai** si vous souhaitez évaluer la compatibilité sur les appareils clients.
-    - **Planifier l’évaluation de compatibilité** : Cliquez sur **Calendrier** si vous souhaitez modifier la planification d’évaluation de compatibilité par défaut sur les appareils clients.
-    - **Activer les données et profils utilisateurs** : Activez cette option si vous souhaitez créer et déployer des éléments de configuration de profils et données utilisateur sur les ordinateurs Windows. Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-remote-connection-profiles).
-5. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Clienteinstellungen** > **Standardeinstellungen**.  
+2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
+3.  Klicken Sie im Dialogfeld **Standardeinstellungen** auf **Kompatibilitätseinstellungen**.  
+4.  Konfigurieren Sie die folgenden Clienteinstellungen für Kompatibilitätseinstellungen:
+    - **Kompatibilitätsauswertung auf Clients aktivieren:** Legen Sie diese Einstellung auf **TRUE** fest, wenn Sie die Kompatibilität auf Clientgeräten auswerten möchten.
+    - **Kompatibilitätsauswertung planen:** Klicken Sie auf **Zeitplan**, wenn Sie den Standardzeitplan der Kompatibilitätsauswertung auf Clientgeräten ändern möchten.
+    - **Benutzerdaten und -profile aktivieren:** Aktivieren Sie diese Option, wenn Sie Konfigurationselemente für Benutzerdaten und -profile auf Windows-Computern erstellen und bereitstellen möchten. Ausführlichere Informationen finden Sie unter [Erstellen von Konfigurationselementen für Benutzerdaten und -profile](/sccm/compliance/deploy-use/create-remote-connection-profiles).
+5. Klicken Sie auf **OK** , um das Dialogfeld **Standardeinstellungen** zu schließen.  
 
-Les ordinateurs clients sont configurés avec ces paramètres la prochaine fois qu’ils téléchargent la stratégie du client.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+Die Clientcomputer werden beim nächsten Download der Clientrichtlinien mit diesen Einstellungen konfiguriert.  

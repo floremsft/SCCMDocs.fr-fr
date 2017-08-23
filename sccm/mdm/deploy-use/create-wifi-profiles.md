@@ -1,50 +1,47 @@
 ---
-title: "Créer des profils Wi-Fi dans System Center Configuration Manager | Microsoft Docs"
-description: "Découvrez comment utiliser des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs mobiles de votre organisation."
+title: Erstellen von WLAN-Profilen in System Center Configuration Manager | Microsoft-Dokumentation
+description: "Hier erfahren Sie, wie Sie in Configuration Manager mithilfe von WLAN-Profilen Einstellungen für drahtlose Netzwerke für Benutzer mobiler Geräte in Ihrer Organisation bereitstellen."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c72612d4-0b3d-4e71-b3c9-35782701b78a
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 6c6f56dd2b68b8c87d87842ab2b0f782e16c7f9c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 362bcbd368fd49979c554cd009b3ba72f20d5fbd
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-wi-fi-profiles-for-mobile-devices-in-system-center-configuration-manager"></a>Comment créer des profils Wi-Fi pour les appareils mobiles dans System Center Configuration Manager
+# <a name="how-to-create-wi-fi-profiles-for-mobile-devices-in-system-center-configuration-manager"></a>Erstellen von WLAN-Profilen für mobile Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, utilisez des profils Wi-Fi pour déployer des paramètres de réseau sans fil pour les utilisateurs mobiles de votre organisation. En déployant ces paramètres, il est plus facile pour les utilisateurs de se connecter au Wi-Fi.  
+Verwenden Sie WLAN-Profile in System Center Configuration Manager, um für Benutzer mobiler Geräte in Ihrer Organisation Einstellungen für drahtlose Netzwerke bereitzustellen. Durch die Bereitstellung dieser Einstellungen erleichtern Sie den Benutzern das Herstellen einer WLAN-Verbindung.  
 
-Vous pouvez configurer les types d’appareil mobile suivants avec des profils Wi-Fi :  
+Sie können folgende mobile Gerätetypen mit WLAN-Profilen konfigurieren:  
 
--   Appareils qui exécutent Windows Phone 8.1  
+-   Geräte unter Windows Phone 8.1  
 
--   Appareils qui exécutent Windows 10 Desktop ou Mobile  
+-   Geräte unter Windows 10 Desktop oder Mobile  
 
--   Appareils IPhone qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
+-   iPhone-Geräte mit iOS 5, iOS 6, iOS 7 und iOS 8  
 
--   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
+-   iPad-Geräte mit iOS 5, iOS 6, iOS 7 und iOS 8  
 
--   Appareils Android qui exécutent la version 4 ou ultérieure
+-   Android-Geräte mit Version 4 oder höher
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
+>  Um Profile für Android-, iOS-, Windows Phone- und registrierte Windows 8.1-Geräte (und höher) bereitzustellen, müssen diese Geräte bei Microsoft Intune registriert werden. Informationen zum Registrieren von Geräten finden Sie unter [Enroll devices for management in Intune (Registrieren von Geräten für die Verwaltung in Intune)](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
 
-La section [Créer des profils Wi-Fi](../../protect/deploy-use/create-wifi-profiles.md#create-a-wi-fi-profile) fournit des informations d’ordre général sur l’utilisation des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs.
+[Erstellen eines WLAN-Profils](../../protect/deploy-use/create-wifi-profiles.md#create-a-wi-fi-profile) bietet allgemeine Informationen, wie Sie in Configuration Manager mit WLAN-Profilen Einstellungen für drahtlose Netzwerke für Benutzer bereitstellen.
 
-Pour en savoir plus sur le déploiement des profils Wi-Fi, voir [Déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).
-
+Weitere Informationen zum Bereitstellen von WLAN-Profilen finden Sie unter [Bereitstellen von WLAN-, VPN-, E-Mail- und Zertifikatprofilen](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).

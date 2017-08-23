@@ -1,106 +1,101 @@
 ---
-title: Configurer les alertes Endpoint Protection | Microsoft Docs
-description: "Découvrez comment configurer les alertes Endpoint Protection dans System Center Configuration Manager."
+title: Konfigurieren von Endpoint Protection-Warnungen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Endpoint Protection-Warnungen in System Center Configuration Manager konfigurieren.
 ms.custom: na
 ms.date: 03/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f504de3e-4caf-455c-80d7-a63f13f4c5d9
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 7f4329b289b606dee5bf31aad8207de52667229f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Konfigurieren von Warnungen für Endpoint Protection in Configuration Manager
 
-#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurer des alertes pour Endpoint Protection dans Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+ Sie können Endpoint Protection-Warnungen in Microsoft System Center Configuration Manager konfigurieren, um Administratoren zu benachrichtigen, wenn bestimmte Ereignisse in der Hierarchie auftreten, wie Infektionen mit Schadsoftware. Das Endpoint Protection-Dashboard in der Configuration Manager-Konsole zeigt Benachrichtigungen im Knoten **Warnungen** des Arbeitsbereichs **Überwachung** an, oder kann per E-Mail an angegebene Benutzer versendet werden.
 
- Vous pouvez configurer des alertes Endpoint Protection dans Microsoft System Center Configuration Manager pour avertir les utilisateurs administratifs quand des événements spécifiques, comme une infection par un logiciel malveillant, se produisent dans votre hiérarchie. Les notifications s’affichent dans le tableau de bord Endpoint Protection, dans la console Configuration Manager, dans le nœud **Alertes** de l’espace de travail **Surveillance**. Elles peuvent aussi être envoyées par e-mail à des utilisateurs spécifiés.
-
- Utilisez les étapes suivantes et les procédures supplémentaires de cette rubrique pour configurer des alertes pour Endpoint Protection dans Configuration Manager.
+ Führen Sie die folgenden Schritte und zusätzlichen Verfahren aus, die in diesem Thema beschrieben werden, um Warnungen für Endpoint Protection in Configuration Manager zu konfigurieren.
 
 > [!IMPORTANT]
->  Vous devez disposer de l’autorisation **Appliquer la sécurité** pour les regroupements pour pouvoir configurer des alertes Endpoint Protection.
+>  Sie benötigen die Berechtigung **Sicherheit erzwingen** für Sammlungen, um Endpoint Protection-Warnungen zu konfigurieren.
 
-## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Étapes de configuration des alertes pour Endpoint Protection dans Configuration Manager
+## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Schritte zum Konfigurieren von Warnungen für Endpoint Protection in Configuration Manager
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
 
-2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements d’appareils**.
+2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**.
 
-3.  Dans la liste **Regroupements d’appareils** , sélectionnez le regroupement pour lequel vous voulez configurer des alertes, puis cliquez sur **Propriétés** dans le groupe **Propriétés** sous l’onglet **Accueil**.
-
-    > [!NOTE]
-    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.
-
-4.  Sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<Nom du regroupement\>**, sélectionnez **Afficher ce regroupement dans le tableau de bord Endpoint Protection** si vous voulez afficher des détails sur les opérations anti-programme malveillant pour ce regroupement dans l’espace de travail **Surveillance** de la console Configuration Manager.
+3.  Wählen Sie in der Liste **Gerätesammlungen** die Sammlung aus, für die Sie Warnungen konfigurieren möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.
 
     > [!NOTE]
-    >  Cette option n'est pas disponible pour le regroupement **Tous les systèmes** .
+    >  Es können keine Benachrichtigungen für Benutzersammlungen konfiguriert werden.
 
-5.  Sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<Nom du regroupement\>**, cliquez sur **Ajouter**.
+4.  Wählen Sie auf der Registerkarte **Warnungen** des Dialogfelds *<Sammlungsname\>***Eigenschaften** die Option **Diese Sammlung im Endpoint Protection-Dashboard anzeigen** aus, wenn Details der Antischadsoftware-Vorgänge für diese Sammlung im Arbeitsbereich **Überwachung** der Configuration Manager-Konsole angezeigt werden sollen.
 
-6.  Dans la section **Générer une alerte lorsque ces conditions s’appliquent** de la boîte de dialogue **Ajouter de nouvelles alertes de regroupement**, sélectionnez les alertes que doit générer Configuration Manager lorsque les événements Endpoint Protection spécifiés se produisent, puis cliquez sur **OK**.
+    > [!NOTE]
+    >  Diese Option ist nicht für die Sammlung **Alle Systeme** verfügbar.
 
-7.  Dans la liste  **Conditions** de l’onglet **Alertes**, sélectionnez chaque alerte Endpoint Protection, puis spécifiez ce qui suit :
+5.  Klicken Sie auf der Registerkarte **Warnungen** des Dialogfelds *<Sammlungsname\>***Eigenschaften** auf **Hinzufügen**.
 
-    -   **Nom d’alerte** : acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.
+6.  Wählen Sie im Dialogfeld **Neue Sammlungswarnungen hinzufügen** im Bereich **Warnung generieren, wenn die folgenden Bedingungen erfüllt sind** die Warnungen aus, die von Configuration Manager generiert werden sollen, wenn festgelegte Endpoint Protection-Ereignisse eintreten, und klicken Sie dann auf **OK**.
 
-    -   **Gravité d’alerte** : dans la liste, sélectionnez le niveau d’alerte à afficher dans la console Configuration Manager.
+7.  Wählen Sie in der Liste **Bedingungen** auf der Registerkarte **Warnungen** jede Endpoint Protection-Warnung aus, und geben Sie die folgenden Informationen an:
 
-8.  Selon l’alerte que vous sélectionnez, spécifiez les informations supplémentaires suivantes :
+    -   **Warnungsname** ‒ Übernehmen Sie den Standardnamen, oder geben Sie einen neuen Namen für die Warnung ein.
 
-    -   **Détection d’un programme malveillant** : cette alerte est générée si un logiciel malveillant est détecté sur un ordinateur du regroupement que vous surveillez. Le **seuil de détection des programmes malveillants** indique les niveaux de détection auxquels cette alerte est générée :
+    -   **Warnungsschweregrad** ‒ Wählen Sie aus der Liste den Schweregrad aus, der in der Configuration Manager-Konsole angezeigt werden soll.
 
-        -   **Haute - Toutes les détections** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, quelle que soit l’action qu’exécute le client Endpoint Protection.
+8.  Geben Sie je nach ausgewählter Warnung die folgenden zusätzlichen Informationen an:
 
-        -   **Moyenne - Détectée, action en attente** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et que vous devez le supprimer manuellement.
+    -   **Schadsoftwareerkennung** ‒ Diese Warnung wird generiert, wenn auf einem Computer in der überwachten Sammlung Schadsoftware erkannt wird. Der **Schwellenwert für die Schadsoftwareerkennung** gibt den Schwellenwert für die Schadsoftwareerkennung an, bei der diese Warnung generiert wird:
 
-        -   **Faible - Détectée, toujours active** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et qu’il est toujours actif.
+        -   **Hoch – Alle Erkennungen** ‒ Diese Warnung wird generiert, wenn auf mindestens einem Computer der angegebenen Sammlung Schadsoftware erkannt wird, unabhängig davon, welche Aktion vom Endpoint Protection-Client ausgeführt wird.
 
-    -   **Apparition d’un programme malveillant** : cette alerte est générée si un programme malveillant spécifié est détecté sur un pourcentage donné d’ordinateurs du regroupement que vous surveillez.
+        -   **Mittel – Erkannt, Aktion steht aus** ‒ Diese Warnung wird generiert, wenn auf mindestens einem Computer der angegebenen Sammlung Schadsoftware erkannt wird, die manuell entfernt werden muss.
 
-        -   **Pourcentage d’ordinateurs sur lesquels un programme malveillant a été détecté** : l’alerte est générée quand le pourcentage d’ordinateurs avec un programme malveillant détecté dans le regroupement est supérieur au pourcentage que vous spécifiez. Spécifiez un pourcentage compris entre **1** et **99**.
+        -   **Niedrig – Erkannt, noch aktiv** ‒ Diese Warnung wird generiert, wenn auf mindestens einem Computer der angegebenen Sammlung Schadsoftware erkannt wird, die noch aktiv ist.
+
+    -   **Schadsoftwareausbruch** ‒ Diese Warnung wird generiert, wenn auf einem bestimmten Prozentsatz aller Computer der überwachten Sammlung eine bestimmte Schadsoftware erkannt wird.
+
+        -   **Prozentsatz der von Schadsoftware betroffenen Computer** ‒ Diese Warnung wird generiert, wenn der Prozentsatz der Computer mit Schadsoftware, die in der Sammlung erkannt werden, Ihren angegebenen Prozentsatz übersteigt. Geben Sie einen Prozentsatz von **1** bis **99**an.
 
             > [!NOTE]
-            >  La valeur du pourcentage est basée sur le nombre d’ordinateurs du regroupement, mais exclut les ordinateurs sur lesquels aucun client Configuration Manager n’est installé. Il inclut les ordinateurs sur lesquels le client Endpoint Protection n’est pas encore installé.
+            >  Der Prozentwert basiert auf der Anzahl der Computer in der Sammlung, wobei Computer ausgeschlossen sind, auf denen kein Configuration Manager-Client installiert ist. Eingeschlossen sind Computer, auf denen der Endpoint Protection-Client noch nicht installiert ist.
 
-    -   **Détection de logiciel malveillant répétée** : cette alerte est générée si un logiciel malveillant spécifique est détecté un nombre spécifié de fois sur un nombre spécifié d’heures sur les ordinateurs du regroupement que vous surveillez. Spécifiez les informations suivantes pour configurer cette alerte :
+    -   **Wiederholte Erkennung von Malware** ‒ Diese Warnung wird generiert, wenn bestimmte Schadsoftware häufiger als eine angegebene Anzahl über eine angegebene Anzahl von Stunden auf den Computern in der Sammlung, die Sie überwachen, gefunden wird. Geben Sie die folgenden Informationen ein, um diese Warnung zu konfigurieren:
 
-        -   **Nombre de fois où un programme malveillant a été détecté :** l’alerte est générée quand le nombre de détections d’un même programme malveillant sur les ordinateurs du regroupement est supérieur au nombre d’occurrences spécifié. Spécifiez un nombre compris entre **2** et **32**.
+        -   **Häufigkeit der Erkennung der Schadsoftware:** Die Warnung wird generiert, wenn dieselbe Schadsoftware auf Computern in der Sammlung öfter erkannt wird, als festgelegt wurde. Geben Sie eine Zahl von **2** bis **32**an.
 
-        -   **Intervalle de détection (heures) :** spécifiez l’intervalle de détection (en heures) au cours duquel le nombre de détections de programme malveillant doit être exécuté. Spécifiez un nombre compris entre **1** et **168**.
+        -   **Erkennungsintervall (Stunden):** Geben Sie das Erkennungsintervall (in Stunden) an, in dem die festgelegte Anzahl von Schadsoftware-Erkennungen erfolgen muss. Geben Sie eine Zahl von **1** bis **168**an.
 
-    -   **Détection de plusieurs logiciels malveillants** : cette alerte est générée si le nombre de types de programmes malveillants détectés pendant un nombre d’heures donné sur les ordinateurs du regroupement que vous surveillez est supérieur au nombre défini. Spécifiez les informations suivantes pour configurer cette alerte :
+    -   **Erkennung mehrerer Schadsoftwaretypen** – Diese Warnung wird generiert, wenn mehr als eine angegebene Anzahl von Schadsoftwaretypen über eine angegebene Anzahl von Stunden auf Computern in der Sammlung, die Sie überwachen, erkannt werden. Geben Sie die folgenden Informationen ein, um diese Warnung zu konfigurieren:
 
-        -   **Nombre de types de programmes malveillants détectés :** l’alerte est générée quand le nombre spécifié de types différents de programmes malveillants sur les ordinateurs du regroupement est détecté. Spécifiez un nombre compris entre **2** et **32**.
+        -   **Anzahl der entdeckten Schadsoftwaretypen:** Die Warnung wird generiert, wenn eine angegebene Anzahl unterschiedlicher Schadsoftwaretypen auf Computern in der Sammlung erkannt wird. Geben Sie eine Zahl von **2** bis **32**an.
 
-        -   **Intervalle de détection (heures) :** spécifiez l’intervalle de détection, en heures, au cours duquel le nombre de détections de programme malveillant doit être exécuté. Spécifiez un nombre compris entre **1** et **168**.
+        -   **Erkennungsintervall (Stunden):** Geben Sie das Erkennungsintervall (in Stunden) an, in dem die festgelegte Anzahl von Schadsoftware-Erkennungen erfolgen muss. Geben Sie eine Zahl von **1** bis **168**an.
 
-9. Cliquez sur **OK** pour fermer la boîte de dialogue *Propriétés de***<Nom du regroupement\>**.  
+9. Klicken Sie auf **OK**, um das Dialogfeld *<Sammlungsname\>***Eigenschaften** zu schließen.  
 
-## <a name="alert-for-outdated-malware-client"></a>Alerte pour les clients contre les programmes malveillants obsolètes
+## <a name="alert-for-outdated-malware-client"></a>Warnung für veralteten Malwareclient
 
-Depuis la version 1702 de Configuration Manager, vous pouvez configurer une alerte pour vous assurer que les clients Endpoint Protection ne sont pas obsolètes. Vous pouvez maintenant afficher **Version du client de logiciel anti-programme malveillant** et **État du déploiement d’Endpoint Protection** en accédant à **Actifs et Conformité** > **Vue d’ensemble** > **Appareils** > **Tous les clients bureau et serveur**. Pour vérifier une alerte, affichez **Alertes** dans l’espace de travail **Surveillance**. Si plus de 20 % des clients gérés exécutent une version de logiciel anti-programme malveillant ayant expiré, l’alerte « La version du client de logiciel anti-programme malveillant est obsolète » s’affiche. Cette alerte n’apparaît pas sous l’onglet **Surveillance** > **Vue d’ensemble**. Pour mettre à jour les clients de logiciel anti-programme malveillant ayant expiré, activez les mises à jour logicielles pour les clients de logiciel anti-programme malveillant.
+Ab der Configuration Manager-Version 1702 können Sie eine Warnung konfigurieren, um sicherzustellen, dass Endpoint Protection-Clients nicht veraltet sind. Jetzt können Sie sich die **Clientversionen der Antischadsoftware** und den **Bereitstellungsstatus von Endpoint Protection** anschauen, indem Sie zu **Bestand und Kompatibilität** > **Übersicht** > **Geräte** > **Alle Desktop- und Serverclients** navigieren. Sie können die Warnungen im Arbeitsbereich **Überwachung** über den Knoten **Warnungen** überprüfen. Wenn mehr als 20 % der verwalteten Clients mit abgelaufenen Versionen der Antischadsoftware ausgeführt werden wird die Warnmeldung „Die Antischadsoftware-Clientversion ist veraltet“ angezeigt. Diese Warnmeldung wird nicht in der Registerkarte **Überwachung** > **Übersicht** angezeigt. Aktivieren Sie Softwareupdates für Antischadsoftwareclients, um die abgelaufenen Antischadsoftwareclients zu aktualisieren.
 
-Pour configurer le pourcentage auquel l’alerte est générée, développez **Surveillance** > **Alertes** > **Toutes les alertes**, double-cliquez sur **Clients de logiciel anti-programme malveillant obsolètes** et modifiez l’option **Générez une alerte si le pourcentage de clients gérés avec une version obsolète du client de logiciel anti-programme malveillant est supérieur à**.
-
-> [!div class="button"]
-[Étape suivante >](endpoint-definition-updates.md)
+Um die Prozentzahl, aber der die Warnung generiert wird, zu konfigurieren, erweitern Sie **Überwachung** > **Warnungen** > **Alle Warnungen**, doppelklicken Sie auf **Antischadsoftwareclients veraltet**, und passen Sie die Option **Warnung ausgeben, wenn der Prozentsatz verwalteter Clients mit veralteter Version des Antischadsoftwareclients höher ist als** entsprechend an.
 
 > [!div class="button"]
-[Retour >](endpoint-protection-site-role.md)
+[Nächster Schritt >](endpoint-definition-updates.md)
 
+> [!div class="button"]
+[Zurück >](endpoint-protection-site-role.md)

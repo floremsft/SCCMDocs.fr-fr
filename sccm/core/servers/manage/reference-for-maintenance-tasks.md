@@ -1,314 +1,310 @@
 ---
-title: "Référence des tâches de maintenance | Microsoft Docs"
-description: "Lisez les détails de chaque tâche de maintenance de site de System Center Configuration Manager, et déterminez si ces tâches sont activées par défaut."
+title: "Referenz für Wartungstasks | Microsoft-Dokumentation"
+description: "Hier finden Sie ausführliche Informationen zu den einzelnen Wartungstasks für System Center Configuration Manager-Standorte sowie dazu, ob diese Tasks standardmäßig aktiviert sind."
 ms.custom: na
 ms.date: 3/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
-caps.latest.revision: 16
-caps.handback.revision: 0
+caps.latest.revision: "16"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
 ms.openlocfilehash: a2d4420c2274a9b1ceb47ffd267849fdb5a55a61
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Référence des tâches de maintenance pour System Center Configuration Manager
+# <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Referenz für Wartungstasks für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique répertorie les détails de chaque tâche de maintenance de site de System Center Configuration Manager et spécifie les types de sites sur lesquels la tâche est disponible. Chaque entrée indique également si la tâche est activée ou non par défaut. Pour plus d’informations sur la planification et la configuration de sites pour exécuter des tâches de maintenance, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md).  
+Dieses Thema enthält eine Liste der Details zu jedem Wartungstask für System Center Configuration Manager-Standorte und gibt die Standorttypen an, für die der Task verfügbar ist. Jeder Eintrag gibt auch an, ob der Task aktiviert ist oder nicht. Informationen zum Planen und Konfigurieren von Standorten zur Ausführung von Wartungstasks finden Sie unter [Wartungstasks für System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md).  
 
-**Serveur de site de sauvegarde** : cette tâche permet de préparer la récupération des données critiques. Vous pouvez créer une sauvegarde de vos informations critiques pour restaurer un site et la base de données Configuration Manager. Pour plus d’informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+**Standortserver sichern**: Verwenden Sie diesen Task, um die Wiederherstellung wichtiger Daten vorzubereiten. Sie können eine Sicherung Ihrer wichtigen Informationen erstellen, um einen Standort und die Configuration Manager-Datenbank wiederherzustellen. Weitere Informationen finden Sie unter [Sicherung und Wiederherstellung für System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
--   **Site d’administration centrale** : activé    
--   **Site principal**non activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Nicht aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Vérifier le titre de l’application à l’aide des informations d’inventaire** : cette tâche permet de maintenir la cohérence entre les titres de logiciels rapportés dans l’inventaire logiciel et les titres de logiciels du catalogue Asset Intelligence. Pour plus d’informations, consultez [Présentation d’Asset Intelligence dans System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
+**Anwendungstitel mit Inventurinformationen prüfen**: Verwenden Sie diesen Task, um die Konsistenz zwischen Softwaretiteln in der Softwareinventur und Softwaretiteln im Asset Intelligence-Katalog zu gewährleisten. Weitere Informationen finden Sie unter [Einführung in Asset Intelligence in System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Remettre à zéro l’indicateur d’installation** : cette tâche permet de supprimer l’indicateur installé pour les clients qui n’envoient pas d’enregistrement de découverte par pulsations d’inventaire durant la période de **Redécouverte du client**. L’indicateur installé empêche l’installation push automatique du client sur un ordinateur pouvant disposer d’un client Configuration Manager actif.  
+**Installationsflag löschen**: Verwenden Sie diesen Task, um das Installationsflag für Clients zu entfernen, die während des **Clientneuermittlungs-Zeitraums** keinen von der Frequenzermittlung erstellten Datensatz übermitteln. Durch das Installationsflag wird die automatische Clientpushinstallation auf einen Computer verhindert, auf dem ein aktiver Configuration Manager-Client vorhanden ist.  
 
--   Site d’administration centrale : non disponible    
--   **Site principal**non activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Nicht aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de demande d’application** : cette tâche permet de supprimer les demandes d’application anciennes de la base de données. Pour plus d’informations sur les demandes d’application, consultez [Créer et déployer une application avec System Center Configuration Manager](/sccm/apps/get-started/create-and-deploy-an-application).  
+**Veraltete Anwendungsanforderungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Anwendungsanforderungen aus der Datenbank zu löschen. Weitere Informationen über Anwendungsanforderungen finden Sie unter [Create and deploy an application with System Center Configuration Manager (Erstellen und Bereitstellen einer Anwendung mit System Center Configuration Manager)](/sccm/apps/get-started/create-and-deploy-an-application).  
 
--   Site d’administration centrale : non disponible
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer l’historique de téléchargement de clients anciens** : utilisez cette tâche pour supprimer les données historiques relatives à la source de téléchargement utilisée par les clients. Les informations relatives à la source du téléchargement permettent de remplir le [tableau de bord Sources de données du client](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).  
--  Site d’administration centrale : non disponible
--     **Site principal ** - Activée
--  Site secondaire - Non disponible
+**Veralteten Client-Downloadverlauf löschen**: Verwenden Sie diesen Task, um Verlaufsdaten über die von Clients verwendete Downloadquelle zu löschen. Das Herunterladen von Quellinformationen wird zum Auffüllen des [Dashboards „Clientdatenquellen“](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) verwendet.  
+-  Standortserver der zentralen Verwaltung: Nicht verfügbar
+-    **Primärer Standort** – Aktiviert
+-  Sekundärer Standort: Nicht verfügbar
 
-**Supprimer les anciennes opérations des clients** : cette tâche permet de supprimer de la base de données de site toutes les anciennes données pour les opérations des clients. Cela comprend par exemple les données pour les notifications des clients anciennes ou ayant expiré (comme les demandes de téléchargement pour les stratégies utilisateur ou ordinateur) et pour Endpoint Protection (comme les demandes effectuées par un utilisateur administratif pour que les clients exécutent une analyse ou téléchargent des définitions mises à jour).
+**Veraltete Clientvorgänge löschen**: Verwenden Sie diesen Task, um alle veralteten Daten für Clientvorgänge aus der Standortdatenbank zu löschen. Dies umfasst beispielsweise Daten für veraltete oder abgelaufene Clientbenachrichtigungen (z.B. Downloadanforderungen für Computer- oder Benutzerrichtlinien) und für Endpoint Protection (z.B. Anforderungen eines administrativen Benutzers, dass auf den Clients eine Überprüfung ausgeführt werden soll oder aktualisierte Definitionen heruntergeladen werden sollen).
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer historique de présence de clients anciens** : cette tâche permet de supprimer les informations d’historique sur le statut de connexion des clients, enregistrées par la notification client, qui sont antérieures à l’heure spécifiée. Pour plus d’informations sur la notification client, consultez [Comment surveiller des clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+**Veralteten Anwesenheitsverlauf für Clients löschen**: Verwenden Sie diesen Task zum Löschen von Verlaufsdaten über den (von der Clientbenachrichtigung erfassten) Onlinestatus von Clients, wenn sie seit dem angegebenen Zeitpunkt nicht aktualisiert wurden. Weitere Informationen zur Clientbenachrichtigung finden Sie unter [How to monitor clients in System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md) (So überwachen Sie Clients in System Center Configuration Manager).  
 
--   **Site d’administration centrale** : activé   
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert   
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de trafic de la passerelle de gestion cloud** : cette tâche permet de supprimer toutes les anciennes données sur le trafic de la base de données du site qui transite via la [passerelle de gestion cloud](/sccm/core/clients/manage/plan-cloud-management-gateway). Cela inclut par exemple les données sur le nombre de demandes, le nombre total d’octets des demandes et des réponses, ainsi que le nombre de demandes ayant échoué et le nombre maximum de demandes simultanées.  
-- **Site d’administration centrale** - Activée
-- **Site principal ** - Activée
-- Site secondaire - Non disponible
+**Veraltete Daten zum Cloudverwaltungsgateway-Datenverkehr löschen**: Verwenden Sie diesen Task, um alle veraltete Daten über den Datenverkehr zu löschen, die die [Cloudverwaltungsgateway](/sccm/core/clients/manage/plan-cloud-management-gateway) aus der Standortdatenbank durchlaufen. Dies enthält z.B. Daten zur Anzahl von Anforderungen, gesamten Anforderungsbytes, gesamten Antwortbytes, die Anzahl von fehlerhaften Anforderungen und die maximale Anzahl gleichzeitiger Anforderungen.  
+- **Standort der zentralen Verwaltung** – Aktiviert
+- **Primärer Standort** – Aktiviert
+- Sekundärer Standort: Nicht verfügbar
 
 
-**Supprimer les fichiers collectés anciens** : cette tâche permet de supprimer de la base de données d’anciennes informations sur les fichiers collectés. Cette tâche supprime également les fichiers collectés à partir de la structure de dossier du serveur de site sur le site sélectionné. Par défaut, les cinq copies les plus récentes des fichiers collectés sont stockées sur le serveur de site dans le répertoire **Inboxes\sinv.box\FileCol**. Pour plus d’informations, consultez [Présentation de l’inventaire logiciel dans System Center Configuration Manager](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
+**Veraltete gesammelte Dateien löschen**: Verwenden Sie diesen Task, um veraltete Informationen zu gesammelten Dateien aus der Datenbank zu löschen. Mit diesem Task werden darüber hinaus die gesammelten Dateien aus der Ordnerstruktur des Standortservers auf dem ausgewählten Standort gelöscht. Standardmäßig werden die fünf neuesten Kopien der gesammelten Dateien auf dem Standortserver im Verzeichnis **Inboxes\sinv.box\FileCol** gespeichert. Weitere Informationen finden Sie unter [Introduction to software inventory in System Center Configuration Manager (Einführung in die Softwareinventur in System Center Configuration Manager)](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les données d’associations d’ordinateurs anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données d’associations d’ordinateur du déploiement de système d’exploitation. Ces informations sont utilisées dans le cadre de l'exécution de restaurations de l'état utilisateur. Pour plus d’informations sur les associations d’ordinateurs, consultez [Gérer l’état utilisateur dans System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+**Veraltete Computerzuordnungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Computerzuordnungsdaten für die Bereitstellung von Betriebssystemen aus der Datenbank zu löschen. Diese Informationen werden beim Wiederherstellen des Benutzerzustands verwendet. Weitere Informationen zu Computerzuordnungen finden Sie unter [Verwalten des Benutzerzustands in System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les données de détection de suppression anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données ayant été créées par Extraction Views. Par défaut, Extraction Views est désactivé. Vous pouvez uniquement l’activer à l’aide du SDK Configuration Manager. Sauf si Extraction Views est activé, il n'y a pas de données à supprimer pour cette tâche.  
+**Veraltete Erkennungsdaten von Löschvorgängen löschen**: Verwenden Sie diesen Task, um veraltete Daten aus der Datenbank zu löschen, die mithilfe von Extraktionsansichten erstellt wurden. Standardmäßig sind Extraktionsansichten deaktiviert. Sie werden nur über das Configuration Manager SDK aktiviert. Wenn Extraktionsansichten deaktiviert sind, sind für diesen Task keine zu löschenden Daten vorhanden.  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer l’ancien enregistrement de réinitialisation de périphérique** : cette tâche permet de supprimer de la base de données d’anciennes données d’actions de réinitialisation d’appareils mobiles. Pour plus d’informations sur la réinitialisation des appareils mobiles, consultez [Protéger les données à l’aide de la réinitialisation à distance, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager](/sccm/mdm/deploy-use/wipe-lock-reset-devices).  
+**Veralteten Datensatz für Zurücksetzen von Geräten löschen**: Verwenden Sie diesen Task, um veraltete Daten zu Zurücksetzungsaktionen für mobile Geräte aus der Datenbank zu löschen. Weitere Informationen zum Zurücksetzen mobiler Geräte finden Sie unter [Schützen von Daten mit Remotezurücksetzung, Remotesperre oder Kennungsrücksetzung mithilfe von System Center Configuration Manager](/sccm/mdm/deploy-use/wipe-lock-reset-devices).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciens périphériques gérés par le connecteur du serveur Exchange Server** : cette tâche permet de supprimer d’anciennes données d’appareils mobiles gérés par le connecteur Exchange Server. Ces données sont supprimées en fonction de l’intervalle configuré pour l’option **Ignorer les appareils mobiles inactifs depuis plus de (jours)** sous l’onglet **Découverte** des propriétés du connecteur Exchange Server. Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+**Veraltete, mithilfe von Exchange Server Connector verwaltete Geräte löschen**: Verwenden Sie diesen Task, um veraltete Daten zu mobilen Geräten zu löschen, die mithilfe des Exchange Server-Connectors verwaltet werden. Diese Daten werden auf der Basis des Intervalls gelöscht, das für die Option **Anzahl der Tage der Inaktivität, nach der mobile Geräte ignoriert werden** auf der Registerkarte **Ermittlung** der Eigenschaften für den Exchange Server-Connector festgelegt wurde. Weitere Informationen finden Sie unter [Verwalten von mobilen Geräten mit System Center Configuration Manager und Microsoft Intune](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
--   Site d’administration centrale : non disponible   
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar   
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les données de découverte anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données de découverte. Ces données peuvent inclure les enregistrements résultant des méthodes de découverte par pulsations, de découverte réseau et de découverte Active Directory Domain Services (Système, Utilisateur et Groupe). Lorsque cette tâche s’exécute sur un site, les données associées à celui-ci sont supprimées, et ces modifications sont répliquées vers d’autres sites. Pour plus d'informations sur la découverte, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Veraltete Ermittlungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Ermittlungsdaten aus der Datenbank zu löschen. Dabei kann es sich um Daten aus der Frequenzermittlung, aus der Netzwerkermittlung und aus Ermittlungsmethoden von Active Directory Domain Services (System, Benutzer und Gruppe) handeln. Bei Ausführung dieses Tasks an einem Standort werden mit diesem Standort verknüpfte Daten gelöscht. Die Änderungen werden anschließend an andere Standort repliziert. Informationen zur Ermittlung finden Sie unter [Run discovery for System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les données d’utilisation de l’ancien point de distribution** : cette tâche permet de supprimer de la base de données d’anciennes données des points de distribution ayant été stockées plus longtemps que la durée spécifiée.  
+**Veraltete Nutzungsdaten für Verteilungspunkte löschen**: Verwenden Sie diesen Task, um veraltete Daten für Verteilungspunkte aus der Datenbank zu löschen, deren Aufbewahrungsdauer überschritten ist.  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de l’historique de l’état d’intégrité Endpoint Protection** : cette tâche permet de supprimer de la base de données d’anciennes informations d’état Endpoint Protection. Pour plus d’informations sur les informations d’état Endpoint Protection, consultez [Comment surveiller Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md).  
+**Veraltete Verlaufsdaten zum Endpoint Protection-Integritätsstatus löschen**: Verwenden Sie diesen Task, um veraltete Statusinformationen für Endpoint Protection aus der Datenbank zu löschen. Weitere Informationen zu Endpoint Protection-Statusinformationen finden Sie unter [Überwachen von Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciens périphériques inscrits** : à compter de la mise à jour pour la version 1602, cette tâche est désactivée par défaut. Vous pouvez utiliser cette tâche pour supprimer de la base de données de site d’anciennes données concernant les appareils mobiles qui n’ont signalé aucune information au site pendant une durée spécifiée.
+**Veraltete angemeldete Geräte löschen**: Seit dem Update für 1602 ist dieser Task standardmäßig deaktiviert. Mit diesem Task können Sie veraltete Daten zu mobilen Geräten aus der Datenbank löschen, die über einen bestimmten Zeitraum keine Informationen an den Standort übermittelt haben.
 
-Cette tâche s’applique aux appareils qui sont inscrits à l’aide de Microsoft Intune (hybride) ou de la gestion des appareils mobiles locale de Configuration Manager. Pour plus d’informations sur les systèmes d’exploitation des appareils inscrits à l’aide de Configuration Manager ou d’Intune, consultez la section [Appareils mobiles inscrits par Microsoft Intune](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mobile-devices-enrolled-by-microsoft-intune) dans [Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).
+Dieser Task gilt für Geräte, die über Microsoft Intune (hybrid) oder über die lokale Configuration Manager-Verwaltung mobiler Geräte registriert wurden. Informationen über die Betriebssysteme von Geräten, die über Configuration Manager oder Intune registriert werden, finden Sie unter [Unterstützte Betriebssysteme für Clients und Geräte für System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) im Abschnitt [Durch Microsoft Intune registrierte mobile Geräte](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mobile-devices-enrolled-by-microsoft-intune).
 
--   Site d’administration centrale : non disponible    
--   **Site principal**non activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Nicht aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les historiques d’inventaire anciens** : cette tâche permet de supprimer des données d’inventaire ayant été stockées dans la base de données pendant une durée plus longue que celle spécifiée. Pour plus d’informations sur l’historique d’inventaire, consultez [Comment utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+**Veralteten Inventurverlauf löschen**: Verwenden Sie diesen Task, um Inventurdaten aus der Datenbank zu löschen, deren Aufbewahrungsdauer überschritten ist. Informationen zum Inventurverlauf finden Sie unter [Anzeigen des Hardwareinventars mit dem Ressourcen-Explorer in System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de journal** : cette tâche permet de supprimer d’anciennes données de journal utilisées pour le dépannage de la base de données. Ces données ne sont pas liées à des opérations de composants Configuration Manager.  
+**Veraltete Protokolldaten löschen**: Verwenden Sie diesen Task, um veraltete, für die Problembehandlung verwendete Protokolldaten aus der Datenbank zu löschen. Diese Daten stehen nicht im Zusammenhang mit Configuration Manager-Komponentenvorgängen.  
 
 > [!IMPORTANT]  
-> Par défaut, cette tâche s'exécute quotidiennement sur chaque site. Au niveau du site d'administration centrale et des sites principaux, la tâche supprime les données datant de plus de 30 jours. Quand vous utilisez SQL Server Express sur un site secondaire, veillez à ce que cette tâche soit exécutée chaque jour et à ce qu’elle supprime bien les données inactives depuis sept jours.  
+> Standardmäßig wird dieser Task an jedem Standort täglich ausgeführt. An einem Standort der zentralen Verwaltung und primären Standorten werden mit dem Task Daten gelöscht, die älter als 30 Tage sind. Stellen Sie beim Verwenden von SQL Server Express an einem sekundären Standort sicher, dass dieser Task täglich ausgeführt wird und Daten gelöscht werden, die seit sieben Tagen inaktiv sind.  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   **Site secondaire** : activé  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   **Sekundärer Standort**: Aktiviert  
 
-**Supprimer l’historique d’anciennes tâches de notification** : cette tâche permet de supprimer de la base de données du site des informations sur des tâches de notification client quand elles n’ont pas été mises à jour pendant une période spécifiée. Pour plus d’informations sur la notification client, consultez [Tâches de déploiement du client pour System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+**Veralteten Benachrichtigungstaskverlauf löschen**: Verwenden Sie diesen Task zum Löschen von Informationen über Clientbenachrichtigungstasks aus der Standortdatenbank, wenn die Daten innerhalb eines angegebenen Zeitraums nicht aktualisiert wurden. Weitere Informationen zur Clientbenachrichtigung finden Sie unter [Clientbereitstellungstasks für System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de synthèse de la réplication** : cette tâche permet de supprimer de la base de données du site d’anciennes données de synthèse de la réplication quand elles n’ont pas été mises à jour pendant une période spécifiée. Pour plus d'informations, voir la section [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+**Veraltete Zusammenfassungsdatenreplikation löschen**: Verwenden Sie diesen Task zum Löschen von Informationen über veraltete Zusammenfassungsdaten für die Replikation aus der Standortdatenbank, wenn die Daten innerhalb eines angegebenen Zeitraums nicht aktualisiert wurden. Weitere Informationen finden Sie im Abschnitt [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) des Themas [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) .  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   **Site secondaire** : activé  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   **Sekundärer Standort**: Aktiviert  
 
-**Supprimer les anciens enregistrements de code secret** : utilisée sur le site de niveau supérieur de votre hiérarchie, cette tâche permet de supprimer d’anciennes données de réinitialisation de code d’accès pour des appareils Android et Windows Phone. Les données de réinitialisation de code secret sont chiffrées, mais n’incluent pas le code confidentiel des appareils. Par défaut, cette tâche est activée et supprime les données datant de plus d’un jour.  
+**Veraltete Kennungsdatensätze löschen**: Verwenden Sie diesen Task am Standort auf oberster Ebene der Hierarchie, um veraltete Daten zu Kennungszurücksetzungen für Android- und Windows Phone-Geräte zu löschen. Daten zum Zurücksetzen der Kennung sind verschlüsselt, enthalten allerdings die PIN für Geräte. Standardmäßig ist dieser Task aktiviert und löscht Daten, die älter als 1 Tag sind.  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de suivi de réplication** : cette tâche permet de supprimer de la base de données d’anciennes données sur la réplication de base de données entre sites Configuration Manager. Lorsque vous modifiez la configuration de cette tâche de maintenance, la configuration s'applique à chaque site concerné de la hiérarchie. Pour plus d'informations, voir la section [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+**Veraltete Replikationsüberwachungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Daten zur Datenbankreplikation zwischen Configuration Manager-Standorten aus der Datenbank zu löschen. Wenn Sie die Konfiguration dieses Wartungstasks ändern, wirkt sich die Konfiguration auf jeden entsprechenden Standort in der Hierarchie aus. Weitere Informationen finden Sie im Abschnitt [How to monitor database replication links and replication status](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) des Themas [Monitor hierarchy and replication infrastructure in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) .  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   **Site secondaire** : activé  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   **Sekundärer Standort**: Aktiviert  
 
-**Supprimer les données de contrôle de logiciel anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données du contrôle de logiciel ayant été stockées plus longtemps que la durée spécifiée. Pour plus d’informations, consultez [Contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+**Veraltete Softwaremessungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Softwaremessungsdaten, deren Aufbewahrungsdauer überschritten ist, aus der Datenbank zu löschen. Weitere Informationen finden Sie unter [Softwaremessung in System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les données de résumé de contrôle de logiciel anciennes** : cette tâche permet de supprimer de la base de données d’anciennes données de résumé du contrôle de logiciel ayant été stockées plus longtemps que la durée spécifiée. Pour plus d’informations, consultez [Contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+**Veraltete Softwaremessungs-Zusammenfassungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Softwaremessungs-Zusammenfassungsdaten, deren Aufbewahrungsdauer überschritten ist, aus der Datenbank zu löschen. Weitere Informationen finden Sie unter [Softwaremessung in System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les messages d’état anciens** : cette tâche permet de supprimer de la base de données d’anciennes données de message d’état en fonction de la configuration des règles de filtre d’état. Pour plus d’informations, consultez la section « Surveiller l’état du système de Configuration Manager » dans la rubrique [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+**Veraltete Statusmeldungen löschen**: Verwenden Sie diesen Task, um veraltete, über Statusfilterregeln konfigurierte Statusmeldungsdaten aus der Datenbank zu löschen. Informationen finden Sie im Abschnitt „Überwachen des Statussystems für Configuration Manager“ unter [Verwenden von Benachrichtigungen und des Statussystems für System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données de menace** : cette tâche permet de supprimer de la base de données d’anciennes données de menace Endpoint Protection ayant été stockées plus longtemps que la période spécifiée. Pour plus d’informations sur Endpoint Protection, consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+**Veraltete Bedrohungsdaten löschen**: Verwenden Sie diesen Task, um veraltete Endpoint Protection-Bedrohungsdaten, deren Aufbewahrungsdauer überschritten ist, aus der Datenbank zu löschen. Weitere Informationen zu Endpoint Protection finden Sie unter [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md) (Endpoint Protection in System Center Configuration Manager).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciens ordinateurs inconnus** : cette tâche permet de supprimer de la base de données de site des informations sur des ordinateurs inconnus quand elles n’ont pas été mises à jour pendant une période spécifiée. Pour plus d’informations, consultez [Préparer les déploiements d’ordinateurs inconnus dans System Center Configuration Manager](../../../osd/get-started/prepare-for-unknown-computer-deployments.md).  
+**Veraltete unbekannte Computer löschen**: Verwenden Sie den Task zum Löschen von Daten über unbekannte Computer aus der Standortdatenbank, wenn diese im Verlauf eines festgelegten Zeitraums nicht aktualisiert wurden. Weitere Informationen finden Sie unter [Vorbereiten auf Bereitstellungen für unbekannte Computer in System Center Configuration Manager](../../../osd/get-started/prepare-for-unknown-computer-deployments.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les anciennes données d’affinité entre périphérique et utilisateur** : cette tâche permet de supprimer de la base de données d’anciennes données d’affinité entre appareil et utilisateur. Pour plus d’informations, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
+**Veraltete Daten zur Affinität zwischen Benutzer und Gerät löschen**: Verwenden Sie diesen Task, um veraltete Daten zur Affinität zwischen Benutzer und Gerät aus der Datenbank zu löschen. Weitere Informationen finden Sie unter [Verknüpfen von Benutzern und Geräten mit Affinität zwischen Benutzer und Gerät in System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les enregistrements de package d’inscription en bloc MDM expirés** : utilisez cette tâche pour supprimer les anciens certificats d’inscription en bloc et les profils correspondants après l’expiration du certificat d’inscription. Pour plus d’informations, consultez [Créer des profils de certificat](/sccm/protect/deploy-use/create-certificate-profiles).
--   **Site d’administrations centrales** : activé
--   **Site principal ** : activé
--   Site secondaire : non disponible
+**Löschen von abgelaufenen MDM-Massenregistrierungspaket-Datensätzen**: Verwenden Sie diesen Task, um alte Massenregistrierungszertifikate und dazugehörige Profile zu löschen, nachdem das Registrierungszertifikat abgelaufen ist. Weitere Informationen finden Sie unter [Erstellen von Zertifikatprofilen](/sccm/protect/deploy-use/create-certificate-profiles).
+-   **Standort der zentralen Verwaltung**: Aktiviert
+-   **Primärer Standort**: Aktiviert
+-   Sekundärer Standort: Nicht verfügbar
 
-**Supprimer les données de découverte des clients inactifs** : cette tâche permet de supprimer de la base de données des données de découverte de clients inactifs. Les clients sont marqués comme inactifs quand le client est marqué comme obsolète et par les configurations effectuées pour l’état du client.
+**Inaktive Clientermittlungsdaten löschen**: Verwenden Sie diesen Task, um Ermittlungsdaten für inaktive Clients aus der Datenbank zu löschen. Clients werden als inaktiv gekennzeichnet, wenn der Client als veraltet markiert wird, sowie durch für den Clientstatus vorgenommene Konfigurationen.
 
-Cette tâche ne fonctionne que sur les ressources qui des clients Configuration Manager. Elle est différente de la tâche **Supprimer les données de découverte anciennes** qui supprime tous les anciens enregistrements de données de découverte. Lorsque cette tâche s'exécute sur un site, elle supprime les données de la base de données de tous les sites d'une hiérarchie. Pour plus d’informations, voir [Comment configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
-
-> [!IMPORTANT]  
-> Quand elle est activée, configurez cette tâche pour qu’elle s’exécute à un intervalle plus important que celui planifié pour la **Découverte par pulsations d’inventaire**. Les clients actifs peuvent ainsi envoyer un enregistrement de type Découverte par pulsations d’inventaire pour marquer leur enregistrement de client comme actif, de sorte que cette tâche ne les supprime pas.  
-
--   Site d’administration centrale : non disponible    
--   **Site principal**non activé    
--   Site secondaire : non disponible  
-
-**Supprimer les alertes obsolètes** : cette tâche permet de supprimer de la base de données des alertes expirées ayant été stockées pendant une période plus longue que celle spécifiée. Pour plus d'informations, voir [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
-
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
-
-**Supprimer les données obsolètes de découverte des clients** : cette tâche permet de supprimer de la base de données des enregistrements de client obsolètes. Un enregistrement marqué comme obsolète a généralement été remplacé par un enregistrement plus récent pour le même client. L’enregistrement plus récent devient l’enregistrement actuel du client. Pour plus d'informations sur la découverte, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+Dieser Task kann nur für Ressourcen ausgeführt werden, bei denen es sich um Configuration Manager-Clients handelt. Er unterscheidet sich vom Task **Veraltete Ermittlungsdaten löschen**, über den alle veralteten Ermittlungsdatensätze gelöscht werden. Wenn dieser Task an einem Standort ausgeführt wird, werden Daten auf allen Standorten in der Hierarchie aus der Datenbank gelöscht. Weitere Informationen finden Sie unter [Konfigurieren des Clientstatus in System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
 > [!IMPORTANT]  
-> Quand elle est activée, configurez cette tâche pour qu’elle s’exécute à un intervalle plus important que celui planifié pour la Découverte par pulsations d’inventaire. Cela permet au client d'envoyer un enregistrement de découverte par pulsations d'inventaire qui définit l'état obsolète correctement.  
+> Wenn Sie diesen Task aktivieren, legen Sie als Ausführungsintervall einen höheren Wert fest als beim Zeitplan für die **Frequenzermittlung**. Dadurch können aktive Clients einen Frequenzermittlungsdatensatz senden, um Ihre Clientdatensätze als aktiv zu kennzeichnen, sodass sie von diesem Task nicht gelöscht werden.  
 
--   Site d’administration centrale : non disponible    
--   **Site principal**non activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Nicht aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les sites et sous-réseaux de découverte de forêts obsolètes** : cette tâche permet de supprimer des données de sites, de sous-réseaux et de domaines Active Directory n’ayant pas été découverts par la méthode de découverte de forêt Active Directory au cours des 30 derniers jours. Cela supprime les données de découverte, mais n’affecte pas les limites créées à partir de ces données de découverte. Pour plus d’informations, voir [Exécuter la découverte pour System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Veraltete Warnungen löschen**: Verwenden Sie diesen Task, um abgelaufene Warnungen aus der Datenbank zu löschen, deren Aufbewahrungsdauer überschritten ist. Weitere Informationen finden Sie unter [Use alerts and the status system for System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Supprimer les enregistrements d’état du déploiement des clients orphelins** : cette tâche permet de purger régulièrement la table qui contient les informations sur l’état du déploiement d’un client. Cette tâche nettoie les enregistrements associés aux appareils obsolètes ou désactivés.  
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible
+**Veraltete Clientermittlungsdaten löschen**: Mithilfe dieses Tasks können Sie veraltete Clientdatensätze aus der Datenbank löschen. Ein als veraltet markierter Datensatz wurde normalerweise durch einen neueren Datensatz für den gleichen Client ersetzt. Der neue Datensatz wird als aktiver Datensatz des Clients übernommen. Informationen zur Ermittlung finden Sie unter [Run discovery for System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
-**Supprimer les révisions d’application inutilisées** : cette tâche permet de supprimer les révisions d’application qui ne sont plus référencées. Pour plus d’informations, consultez [Comment modifier et remplacer des applications dans System Center Configuration Manager](../../../apps/deploy-use/revise-and-supersede-applications.md).  
+> [!IMPORTANT]  
+> Wenn Sie diesen Task aktivieren, legen Sie als Ausführungsintervall einen höheren Wert fest als beim Zeitplan für die Frequenzermittlung. Dadurch kann der Client einen Frequenzermittlungsdatensatz senden, um den Status „Veraltet“ ordnungsgemäß festzulegen.  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Nicht aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Évaluer les membres du regroupement** : vous configurez l’évaluation de l’appartenance au regroupement comme composant de site. Pour plus d'informations sur les composants de site, voir [Site components for System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
+**Veraltete Standorte und Subnetze der Gesamtstrukturermittlung löschen**: Verwenden Sie diesen Task, um Daten zu Active Directory-Standorten, -Subnetzen und -Domänen zu löschen, die innerhalb der letzten 30 Tage nicht mithilfe der Active Directory-Gesamtstrukturermittlung ermittelt wurden. Dadurch werden zwar die Ermittlungsdaten gelöscht, jedoch werden mithilfe dieser Ermittlungsdaten erstellte Grenzen nicht beeinträchtigt. Weitere Informationen finden Sie unter [Run discovery for System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Contrôler les clés** : cette tâche permet de surveiller l’intégrité des clés primaires de la base de données Configuration Manager. Une clé primaire est une colonne (ou une combinaison de colonnes) qui identifie de manière unique une ligne et la distingue des autres lignes dans une table de base données Microsoft SQL Server.  
+**Statusdatensätze zur verwaisten Clientbereitstellung löschen**: Verwenden Sie diesen Task, um in regelmäßigen Abständen die Tabelle zu löschen, die Statusinformationen zur Clientbereitstellung enthält. Dieser Task bereinigt Datensätze, die veralteten oder außer Betrieb genommenen Geräten zugeordnet sind.  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar
 
--   **Site d’administration centrale** : activé    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+**Nicht verwendete Anwendungsrevisionen löschen**: Verwenden Sie diesen Task, um Anwendungsrevisionen zu löschen, die nicht mehr referenziert werden. Weitere Informationen finden Sie unter [Überarbeiten und Ablösen von Anwendungen in System Center Configuration Manager](../../../apps/deploy-use/revise-and-supersede-applications.md).  
 
-**Reconstruire les index** : cette tâche permet de reconstruire les index des bases de données Configuration Manager. Un index désigne une structure de base de données créée dans une table de base de données pour accélérer le processus d'extraction des données. Par exemple, il est souvent plus rapide d’effectuer une recherche dans une colonne indexée que dans une colonne qui ne l’est pas.
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-Pour des performances optimales, les index de base de données Configuration Manager sont mis à jour fréquemment pour être synchronisés avec les données changeant constamment stockées dans la base de données. Cette tâche permet de créer et de placer des index dans des colonnes de base de données uniques à moins de 50 % et de reconstruire tous les index existants conformes aux critères d'unicité des données.  
+**Sammlungsmitglieder auswerten**: Sie konfigurieren die Auswertung der Sammlungsmitgliedschaft als Standortkomponente. Informationen zu Standortkomponenten finden Sie unter [Site components for System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
--   **Site d’administration centrale** : non activé    
--   **Site principal**non activé    
--   **Site secondaire** : non activé  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Résumer les données du logiciel installé** : cette tâche permet de synthétiser les données de logiciels installés de plusieurs enregistrements en un seul enregistrement général. La synthèse des données permet de compresser la quantité de données stockées dans la base de données Configuration Manager. Pour plus d’informations, consultez [Présentation de l’inventaire logiciel dans System Center Configuration Manager](../../clients/manage/inventory\introduction-to-software-inventory.md).  
+**Schlüssel überwachen**: Verwenden Sie diesen Task, um die Integrität der primären Schlüssel der Configuration Manager-Datenbank zu überwachen. Ein primärer Schlüssel ist eine Spalte (oder eine Spaltenkombination), mit der eine Zeile eindeutig identifiziert und von allen übrigen Zeilen in einer Microsoft SQL Server-Datenbanktabelle unterschieden wird.  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Aktiviert    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
-**Résumer les données d’utilisation de fichier de contrôle de logiciel** : cette tâche permet de synthétiser les données de plusieurs enregistrements pour l’utilisation de fichier de contrôle logiciel en un seul enregistrement général. La synthèse des données permet de compresser la quantité de données stockées dans la base de données Configuration Manager.
+**Indizes neu erstellen**: Verwenden Sie diesen Task, um die Configuration Manager-Datenbankindizes neu zu erstellen. Ein Index ist eine Datenbankstruktur, die für eine Datenbanktabelle erstellt wird, um das Abrufen von Daten zu beschleunigen. So führt das Suchen in einer indizierten Spalte häufig wesentlich schneller zum Ziel als das Suchen in einer nicht indizierten Spalte.
 
-Vous pouvez utiliser cette tâche avec la tâche **Résumer les données d’utilisation mensuelle de contrôle de logiciel** pour synthétiser les données de contrôle de logiciel et pour préserver de l’espace disque dans la base de données Configuration Manager. Pour plus d’informations, consultez [Contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+Zu Verbesserung der Leistung werden die Configuration Manager-Datenbankindizes häufig aktualisiert, damit sie mit den sich ständig verändernden Daten in der Datenbank synchronisiert bleiben. Dieser Task erstellt Indizes für Datenbankspalten, die zu mindestens 50 % eindeutig sind, löscht Indizes für Spalten, die zu weniger als 50 % eindeutig sind, und erstellt alle vorhandenen Indizes neu, die die Kriterien der Eindeutigkeit der Daten erfüllen.  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   **Standort der zentralen Verwaltung**: Nicht aktiviert    
+-   **Primärer Standort**: Nicht aktiviert    
+-   **Sekundärer Standort**: Nicht aktiviert  
 
-**Résumer les données d’utilisation mensuelle de contrôle de logiciel** : cette tâche permet de synthétiser les données de plusieurs enregistrements pour l’utilisation mensuelle du contrôle de logiciel en un seul enregistrement général. La synthèse des données permet de compresser la quantité de données stockées dans la base de données Configuration Manager.
+**Daten installierter Software zusammenfassen**: Verwenden Sie diesen Task, um die Daten für installierte Software aus mehreren Datensätzen in einem allgemeinen Datensatz zusammenzufassen. Mithilfe der Datenzusammenfassung kann die Datenmenge in der Configuration Manager-Datenbank komprimiert werden. Weitere Informationen finden Sie unter [Introduction to software inventory in System Center Configuration Manager (Einführung in die Softwareinventur in System Center Configuration Manager)](../../clients/manage/inventory\introduction-to-software-inventory.md).  
 
-Vous pouvez utiliser cette tâche avec la tâche **Résumer les données d’utilisation de fichier de contrôle de logiciel** pour synthétiser les données de contrôle de logiciel et pour préserver de l’espace dans la base de données Configuration Manager. Pour plus d’informations, consultez [Contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+**Softwaremessungsdaten der Dateinutzung zusammenfassen**: Mit diesem Task werden die Softwaremessungsdaten der Dateinutzung aus verschiedenen Datensätzen in einem allgemeinen Datensatz zusammengefasst. Mithilfe der Datenzusammenfassung kann die Datenmenge in der Configuration Manager-Datenbank komprimiert werden.
 
-**Mettre à jour le ciblage disponible de l’application** : cette tâche permet de faire en sorte que Configuration Manager recalcule le mappage des déploiements de stratégies et d’applications aux ressources dans des regroupements. Quand vous déployez une stratégie ou des applications dans un regroupement, Configuration Manager crée un mappage initial entre les objets que vous déployez et les membres du regroupement.
+Sie können diesen Task in Kombination mit dem Task **Softwaremessungsdaten der monatlichen Nutzung zusammenfassen** verwenden, um Softwaremessungsdaten zusammenzufassen und die Speicherplatznutzung in der Configuration Manager-Datenbank zu verringern. Weitere Informationen finden Sie unter [Softwaremessung in System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
-Ces mappages sont stockés dans une table à des fins de référence rapide. Quand l’appartenance à un regroupement change, ces mappages stockés sont mis à jour afin de refléter ces modifications. Toutefois, il est possible que ces mappages soient désynchronisés. Par exemple, si le site ne parvient pas à traiter correctement un fichier de notification, il se peut que cette modification ne soit pas reflétée dans une modification des mappages. Cette tâche actualise ce mappage en fonction de l’appartenance au regroupement actuel.  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+**Softwaremessungsdaten der monatlichen Nutzung zusammenfassen**: Verwenden Sie diesen Task, um die Softwaremessungsdaten für die monatliche Nutzung aus mehreren Datensätzen in einem allgemeinen Datensatz zusammenzufassen. Mithilfe der Datenzusammenfassung kann die Datenmenge in der Configuration Manager-Datenbank komprimiert werden.
 
-**Mettre à jour les tables du catalogue des applications** : cette tâche permet de synchroniser le cache de base de données du site web du catalogue des applications avec les dernières informations sur les applications. Lorsque vous modifiez la configuration de cette tâche de maintenance, la configuration s'applique à tous les sites principaux de la hiérarchie.  
+Sie können diesen Task in Kombination mit dem Task **Softwaremessungsdaten der Dateinutzung zusammenfassen** verwenden, um Softwaremessungsdaten zusammenzufassen und die Speicherplatznutzung in der Configuration Manager-Datenbank zu verringern. Weitere Informationen finden Sie unter [Softwaremessung in System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Site d’administration centrale : non disponible    
--   **Site principal ** : activé    
--   Site secondaire : non disponible  
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
 
+**In der Anwendung verfügbare Ziele aktualisieren**: Verwenden Sie diesen Task, um Configuration Manager die Zuordnung von Richtlinien und Anwendungsbereitstellungen zu Ressourcen in Sammlungen neu berechnen zu lassen. Beim Bereitstellen von Richtlinien oder Anwendungen in einer Sammlung erstellt Configuration Manager eine anfängliche Zuordnung zwischen den Objekten, die Sie bereitstellen, und den Mitgliedern der Sammlung.
+
+Diese Zuordnungen werden zur schnellen Bezugnahme in einer Tabelle gespeichert. Wenn sich die Mitgliedschaft von Sammlungen ändern, werden diese gespeicherten Zuordnungen entsprechend diesen Änderungen aktualisiert. Es ist jedoch möglich, dass diese Zuordnungen ihre Synchronität verlieren. Wenn z. B. der Standort eine Benachrichtigungsdatei nicht ordnungsgemäß verarbeiten kann, wird diese Änderung ggf. nicht als Änderung an den Zuordnungen wiedergegeben. Dieser Task aktualisiert diese Zuordnung basierend auf der aktuellen Mitgliedschaft in der Sammlung.  
+
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  
+
+**Tabellen für Anwendungskatalog-Updates**: Verwenden Sie diesen Task, um den Datenbankcache der Anwendungskatalog-Website mit den aktuellen Anwendungsinformationen zu synchronisieren. Wenn Sie die Konfiguration dieses Wartungstasks ändern, wirkt sich die Konfiguration auf alle primären Standorte der Hierarchie aus.  
+
+-   Standortserver der zentralen Verwaltung: Nicht verfügbar    
+-   **Primärer Standort**: Aktiviert    
+-   Sekundärer Standort: Nicht verfügbar  

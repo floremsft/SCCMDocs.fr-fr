@@ -1,62 +1,57 @@
 ---
-title: "Définitions de programmes malveillants Endpoint Protection à partir d’un partage réseau | Microsoft Docs"
-description: "Découvrez comment télécharger manuellement les dernières mises à jour de définitions de Microsoft et configurer ensuite les clients pour le téléchargement de ces définitions."
+title: Endpoint Protection-Schadsoftwaredefinitionen von der Netzwerkfreigabe | Microsoft-Dokumentation
+description: "Erfahren Sie, wie Sie die neuesten Definitionsupdates von Microsoft herunterladen und anschließend Clients so konfigurieren, dass sie diese Definitionen herunterladen."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ddef4d2a-f481-4020-9ddd-9cca5f9795cb
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 6b1780c4ea4304d950188fbb6201d810e940c4fc
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 110bd9a9d04b27ef6794145fae66dbd910308bdc
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Aktivieren der Endpoint Protection-Schadsoftwaredefinitionen zum Herunterladen aus der Netzwerkfreigabe für Configuration Manager
 
-# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Activer le téléchargement des définitions de programmes malveillants pour Endpoint Protection à partir d’un partage réseau dans Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
- Vous pouvez télécharger manuellement les dernières mises à jour de définition à partir de Microsoft et configurer les clients pour télécharger ces définitions à partir d’un dossier partagé sur le réseau. Les utilisateurs peuvent également lancer des mises à jour de définition quand vous utilisez cette source de mise à jour.
+ Sie können die neuesten Definitionsupdates von Microsoft manuell herunterladen und dann die Clients so konfigurieren, dass diese Definitionen aus einem freigegebenen Ordner im Netzwerk heruntergeladen werden. Bei Verwendung dieser Updatequelle können auch die Benutzer Definitionsupdates einleiten.
 
 > [!NOTE]
->  Les clients doivent avoir un accès en lecture au dossier partagé pour pouvoir télécharger des mises à jour de définition.
+>  Die Clients benötigen Lesezugriff auf den freigegebenen Ordner, um Definitionsupdates herunterladen zu können.
 
- Pour plus d’informations sur le téléchargement des mises à jour des définitions et des moteurs à stocker sur le partage de fichiers, consultez [Install the latest Microsoft antimalware and antispyware software](http://www.microsoft.com/security/portal/Definitions/HowToForeFront.aspx) (Installer les derniers logiciels anti-programme malveillant et anti-espion de Microsoft).
+ Weitere Informationen zum Herunterladen der Definitions- und Modulupdates zum Speichern in der Dateifreigabe finden Sie unter [Installieren der neuesten Antischadsoftware und Antispyware von Microsoft](http://www.microsoft.com/security/portal/Definitions/HowToForeFront.aspx).
 
-## <a name="to-configure-definition-downloads-from-a-file-share"></a>Pour configurer les téléchargements de définitions à partir d’un partage de fichiers
+## <a name="to-configure-definition-downloads-from-a-file-share"></a>So konfigurieren Sie das Herunterladen von Definitionen von einer Dateifreigabe
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
 
-2.  Dans l’espace de travail **Ressources et Conformité** , développez **Endpoint Protection**, puis cliquez sur **Stratégies anti-programme malveillant**.
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** den Knoten **Endpoint Protection**, und klicken Sie dann auf **Richtlinien für Antischadsoftware**.
 
-3.  Ouvrez la page de propriétés de la **Stratégie de logiciel anti-programme malveillant par défaut** ou créez une stratégie de logiciel anti-programme malveillant. Pour plus d’informations sur la création de stratégies de logiciel anti-programme malveillant, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
+3.  Öffnen Sie die Eigenschaftenseite für die **Standardrichtlinie für Antischadsoftware** , oder erstellen Sie eine neue Richtlinie für Antischadsoftware. Weitere Informationen zum Erstellen von Richtlinien für Antischadsoftware finden Sie unter [Erstellen und Bereitstellen von Richtlinien für Antischadsoftware für Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-4.  Dans la section **Mises à jour de définitions** de la boîte de dialogue des propriétés du logiciel anti-programme malveillant, cliquez sur **Définir la source**.
+4.  Klicken Sie im Abschnitt **Definitionsupdates** des Dialogfelds mit Eigenschaften von Antischadsoftware auf **Quelle festlegen**.
 
-5.  Dans la boîte de dialogue **Configurer les sources de mise à jour de définition** , sélectionnez **Mises à jour à partir des partages de fichier UNC**.
+5.  Wählen Sie im Dialogfeld **Definitionsupdatequellen konfigurieren** die Option **Updates von UNC-Dateifreigaben**aus.
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Configurer les sources de mise à jour de définition** .
+6.  Klicken Sie auf **OK** , um das Dialogfeld **Definitionsupdatequellen konfigurieren** zu schließen.
 
-7.  Cliquez sur **Définir les chemins**. Ensuite, dans la boîte de dialogue **Configurer les chemins d’accès UNC de mise à jour de définition** , ajoutez un ou plusieurs chemins UNC à l’emplacement des fichiers de mise à jour de définition sur un partage réseau.
+7.  Klicken Sie auf **Pfade festlegen**. Fügen Sie dann im Dialogfeld **UNC-Pfade für Definitionsupdates konfigurieren** mindestens einen UNC-Pfad zum Speicherort der Definitionsupdatedateien in einer Netzwerkfreigabe hinzu.
 
-8.  Cliquez sur **OK** pour fermer la boîte de dialogue **Configurer les chemins d’accès UNC de mise à jour de définition** .
+8.  Klicken Sie auf **OK** , um das Dialogfeld **UNC-Pfade für Definitionsupdates konfigurieren** zu schließen.
 
-
-> [!div class="button"]
-[Étape suivante >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Retour >](endpoint-configure-alerts.md)
+[Nächster Schritt >](endpoint-antimalware-policies.md)
 
+> [!div class="button"]
+[Zurück >](endpoint-configure-alerts.md)

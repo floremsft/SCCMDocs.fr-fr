@@ -1,141 +1,138 @@
 ---
-title: "Gérer les mises à jour | Microsoft Docs"
-description: "Gérer les mises à jour que vous déployez et créez avec l’éditeur de mise à jour System Center"
+title: Verwalten von Updates | Microsoft-Dokumentation
+description: Verwalten von mit System Center Updates Publisher bereitgestellten und erstellten Updates
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cd64994c-b426-4465-96cd-54b0edc2778d
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
 ms.openlocfilehash: 1d6c3b1db14867bdbc5cae8ded099d9024a79549
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-software-updates-in-updates-publisher"></a>Gérer les mises à jour logicielles dans l’éditeur de mise à jour
+# <a name="manage-software-updates-in-updates-publisher"></a>Verwalten von Softwareupdates in Updates Publisher
 
-*S’applique à : l'éditeur de mise à jour System Center*     
+*Gilt für: System Center Updates Publisher*     
 
-Dans l’éditeur de mise à jour System Center, vous utilisez l**’espace de travail Mises à jour** pour gérer les mises à jour logicielles et offres groupées que vous avez importées dans le référentiel.  
+Im **Arbeitsbereich „Updates“** von System Center Updates Publisher verwalten Sie Softwareupdates und -pakete, die Sie in das Repository importiert haben.  
 
-Les tâches de gestion incluent la duplication, la modification et l’expiration ou la réactivation des mises à jour et offres groupées, ainsi que l’affectation de mises à jour et d’offres groupées à des publications. Vous pouvez également exporter des catalogues personnalisés pour une utilisation avec d’autres installations de l’éditeur de mise à jour.
+Zu den Verwaltungsaufgaben zählen das Duplizieren, Bearbeiten, Ablaufenlassen oder erneute Aktivieren von Updates und Paketen, sowie das Zuweisen von Updates und Paketen zu Veröffentlichungen. Sie können auch benutzerdefinierte Kataloge für die Verwendung mit anderen Updates Publisher-Installationen exportieren.
 
-Pour obtenir des mises à jour que vous pouvez gérer :
--  [Ajoutez un catalogue de mises à jour](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) à votre installation de l’éditeur de mise à jour
--  [Importez](/sccm/sum/tools/updates-publisher-catalogs#import-updates) dans votre référentiel les mises à jour à partir de ce catalogue.
+So rufen Sie Updates ab, die Sie verwalten können:
+-  [Fügen Sie ein Updatekatalog](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) zu Ihrer Updates Publisher-Installation hinzu.
+-  [Importieren](/sccm/sum/tools/updates-publisher-catalogs#import-updates) Sie die Updates aus diesem Katalog in Ihr Repository.
 
-Vous pouvez également [créer vos propres mises à jour](/sccm/sum/tools/create-updates-with-updates-publisher).
+Sie können auch [eigene Updates erstellen](/sccm/sum/tools/create-updates-with-updates-publisher).
 
 
 
-## <a name="create-a-duplicate-of-an-update"></a>Créer un doublon d’une mise à jour
-Vous pouvez créer des doublons, ou copies, des mises à jour dans votre référentiel. Vous pouvez ensuite modifier la copie au lieu de modifier la mise à jour originale. Vous ne pouvez pas créer de copies d’offres groupées de mises à jour.
+## <a name="create-a-duplicate-of-an-update"></a>Erstellen eines Duplikats von Updates
+Sie können Duplikate oder Kopien von Updates, die sich in Ihrem Repository befinden, erstellen. Dann können Sie die Kopie anstelle des ursprünglichen Updates ändern. Sie können keine Kopien von Updatepaketen erstellen.
 
-Pour créer une copie, sélectionnez une mise à jour dans l**’espace de travail Mises à jour**, puis choisissez **Dupliquer**. La copie de la mise à jour s’affiche au même emplacement dans l’espace de travail Mises à jour avec la mention *Copie de* ajoutée à son nom.
+Um eine Kopie zu erstellen, wählen Sie ein Update im **Arbeitsbereich „Updates“** und anschließend **Duplizieren** aus. Die Kopie des Updates wird an derselben Stelle im Arbeitsbereich „Updates“ angezeigt, wobei der Name mit dem Zusatz *Kopie von* versehen ist.
 
-La nouvelle copie que vous créez affiche l’état **Non expirée** mais conserve les paramètres de la version originale.
+Neue Kopien, die Sie erstellen, weisen den Status **Nicht abgelaufen** auf, behalten jedoch die Einstellungen des Originals bei.
 
-## <a name="edit-updates-and-bundles"></a>Modifier des mises à jour et des offres groupées
-Vous pouvez sélectionner et modifier des mises à jour et des offres groupées figurant dans votre référentiel.
+## <a name="edit-updates-and-bundles"></a>Bearbeiten von Updates und Paketen
+Sie können Updates und Pakete in Ihrem Repository auswählen, um diese zu ändern.
 
-Dans l**’espace de travail Mises à jour**, sélectionnez une mise à jour ou une offre groupée, puis choisissez **Modifier** dans l’onglet **Accueil** pour ouvrir l’Assistant de modification. Les mises à jour et les offres groupées disposent d’assistants étroitement liés mais distincts qui présentent les mêmes options que les Assistants [Création d’une mise à jour](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard) ou [Création d’une offre groupée](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-bundle-wizard).
+Wählen Sie im **Arbeitsbereich „Updates“** ein Update oder Paket aus, und anschließend **Bearbeiten** auf der Registerkarte **Start**, um den Bearbeitungsassistenten zu öffnen. Für Updates und Pakete stehen separate, aber eng verwandte Assistenten zur Verfügung, die dieselben Optionen aufweisen wie die Assistenten [Update erstellen](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard) oder [Bündel erstellen](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-bundle-wizard).
 
-Lors de la modification, vous pouvez modifier les détails disponibles concernant la mise à jour ou l’offre groupée afin de l’utiliser dans votre environnement. Par exemple, vous pouvez modifier les règles de mise en application, de priorité ou la langue. Vous pouvez également modifier le produit et le fournisseur pour déplacer la mise à jour ou l’offre groupée vers un dossier personnalisé et regrouper les mises à jour pour votre usage personnel.
+Bei der Bearbeitung können Sie alle verfügbaren Details zum Update oder Paket ändern, um sie in Ihrer Umgebung verwenden zu können. Beispielsweise können Sie die Regeln für die Anwendbarkeit oder Rangfolge bearbeiten, oder die Sprache ändern. Zudem können Sie das Produkt und den Anbieter ändern, um das Update oder das Paket in einen benutzerdefinierten Ordner zu verschieben und so Updates für den eigenen Gebrauch gruppieren.
 
-## <a name="assign-updates-and-bundles-to-a-publication"></a>Affecter des mises à jour et des offres groupées à une publication
-Vous pouvez sélectionner des mises à jour et des offres groupées dans l**’espace de travail Mises à jour**, puis les **affecter** à partir de l’onglet **Accueil** du ruban afin de les ajouter à une publication. Cette opération lance l’Assistant **Affectation de mises à jour logicielles**.
--  Consultez la rubrique [Publier des mises à jour et des offres groupées](#publish-updates-and-bundles-from-the-updates-workspace) pour plus d’informations sur la sélection et la publication de mises à jour et d’offres groupées en une seule tâche.
--  Consultez la rubrique [Gérer les publications](/sccm/sum/tools/updates-publisher-publications) pour plus d’informations sur la gestion de groupes de mises à jour et d’offres groupées comme un seul objet. Après avoir affecté des mises à jour à une publication, vous pouvez gérer cette publication, qui à son tour inclut toutes ses mises à jour affectées.
+## <a name="assign-updates-and-bundles-to-a-publication"></a>Zuweisen von Updates und Paketen zu einer Veröffentlichung
+Im **Arbeitsbereich „Updates“** können Sie Updates und Pakete auswählen und zum Hinzufügen zu einer Veröffentlichung anschließend auf der Registerkarte **Start** des Menübands die Option **Zuweisen** wählen. Daraufhin wird der Assistent **Softwareupdates zuweisen** gestartet.
+-  Unter [Veröffentlichen von Updates und Paketen](#publish-updates-and-bundles-from-the-updates-workspace) finden Sie Informationen zum Auswählen und Veröffentlichen von Updates und Paketen als einzelne Aufgabe.
+-  Informationen zum Verwalten von Update- und Paketgruppen als einzelnes Objekt finden Sie unter [Verwalten von Veröffentlichungen](/sccm/sum/tools/updates-publisher-publications). Nachdem Sie einer Veröffentlichung Updates zugewiesen haben, können Sie diese Veröffentlichung verwalten, die wiederum alle zugewiesenen Updates enthält.
 
-Lorsque vous affectez des mises à jour à une publication :
+Bei der Zuweisung von Updates zu einer Veröffentlichung gilt Folgendes:
 
--   Vous pouvez inclure des mises à jour expirées et non expirées ainsi que des offres groupées dans la même publication.
+-   Sie können abgelaufene und nicht abgelaufene Updates und Pakete in derselben Veröffentlichung einschließen.
 
--   Spécifiez le type de publication :
+-   Legen Sie den Veröffentlichungstyp fest:
 
-    -   **Tout le contenu** : cette option publie tout le contenu de la mise à jour sur votre serveur WSUS. Cela inclut les métadonnées et les fichiers binaires des mises à jour.
+    -   **Vollständiger Inhalt** – Diese Option veröffentlicht den vollständigen Inhalt des Updates auf Ihrem WSUS-Server. Dazu gehören Metadaten und die Updatebinärdateien.
 
-    -   **Métadonnées uniquement** : cette option publie uniquement les métadonnées ; les fichiers binaires des mises à jour ne sont pas publiés. Vous pouvez choisir cette option si vous souhaitez regrouper les données de conformité.
+    -   **Nur Metadaten** – Diese Option veröffentlicht nur die Metadaten; Updatebinärdateien werden nicht veröffentlicht. Sie können diese Option auswählen, wenn Sie Kompatibilitätsinformationen sammeln möchten.
 
-    -   **Automatique** : ce mode est uniquement disponible si l’éditeur de mise à jour est connecté à Configuration Manager (voir l’option [Serveur ConfigMgr](/sccm/sum/tools/updates-publisher-options#configmgr-server).)
+    -   **Automatisch** – Dieser Modus ist nur verfügbar, wenn Sie eine Verbindung zwischen Updates Publisher und Configuration Manager hergestellt haben (siehe [ConfigMgr-Server](/sccm/sum/tools/updates-publisher-options#configmgr-server)-Option).
 
-    Avec ce type, l’éditeur de mise à jour interroge Configuration Manager pour déterminer si les mises à jour ou les offres groupées doivent être publiées avec tout le contenu ou uniquement les métadonnées. Tout le contenu d’une mise à jour est publié uniquement si cette mise à jour respecte le **seuil du nombre de clients demandé** et le **seuil de taille source du package,** qui sont spécifiés dans la page **Serveur ConfigMgr** des options de l’éditeur de mise à jour.
+    Bei diesem Typ fragt Updates Publisher Configuration Manager ab, um festzustellen, ob die Updates oder Pakete mit vollständigem Inhalt oder nur mit Metadaten veröffentlicht werden sollen. Die vollständigen Inhalte eines Updates werden nur veröffentlicht, wenn dieses Update den **Schwellenwert für die geforderte Clientanzahl** und den **Schwellenwert für die Paketquellgröße** erfüllt, die auf der Seite **ConfigMgr-Server** der Updates Publisher-Optionen festgelegt werden.
 
--   Sélectionnez une publication :
+-   Wählen Sie eine Veröffentlichung aus:
 
-    -   Utilisez l’option **Affecter une mise à jour logicielle aux publications existantes** si vous avez déjà créé une publication que vous souhaitez utiliser. Cette option n’est disponible que si au moins une publication existe.
+    -   Verwenden Sie die Option **Softwareupdate zu vorhandenen Veröffentlichungen** zuweisen, wenn Sie bereits eine Veröffentlichung erstellt haben, die Sie verwenden möchten. Diese Option ist erst verfügbar, wenn mindestens eine Veröffentlichung vorhanden ist.
 
-    -   Utilisez l’option **Affecter une mise à jour logicielle à une nouvelle publication** si vous ne disposez d’aucune publication appropriée. Elle créera une nouvelle publication portant le nom que vous spécifiez.
+    -   Verwenden Sie die Option **Softwareupdate einer neuen Veröffentlichung zuweisen**, wenn Sie keine geeignete Veröffentlichung besitzen. Daraufhin wird eine neue Veröffentlichung mit dem von Ihnen festgelegten Namen erstellt.
 
-Après avoir affecté des mises à jour à une publication, vous pouvez utiliser l**’espace de travail Publications** pour [publier](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) ou [exporter](/sccm/sum/tools/updates-publisher-publications#export-a-pubilcation) la publication en tant que groupe.
+Nachdem Sie einer Veröffentlichung Updates zugewiesen haben, können Sie die Veröffentlichung über den **Arbeitsbereich „Veröffentlichung“** als Gruppe [veröffentlichen](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) oder [exportieren](/sccm/sum/tools/updates-publisher-publications#export-a-pubilcation).
 
-## <a name="publish-updates-and-bundles-from-the-updates-workspace"></a>Publier des mises à jour et des offres groupées à partir de l’espace de travail Mises à jour
-Lorsque vous publiez des mises à jour et des offres groupées, l’éditeur de mise à jour ajoute des informations sur ces mises à jour et offres (métadonnées) et éventuellement les fichiers binaires des mises à jour (tout le contenu) à un serveur de mise à jour pour le déploiement sur des appareils.
+## <a name="publish-updates-and-bundles-from-the-updates-workspace"></a>Veröffentlichen von Updates und Paketen über den Arbeitsbereich „Updates“
+Bei der Veröffentlichung von Updates und Paketen fügt Updates Publisher Informationen zu diesen Updates und Paketen (Metadaten) und möglicherweise Binärdateien für die Updates (vollständiger Inhalt) zu einem Updateserver für die Bereitstellung auf Geräten hinzu.
 
-Avant de pouvoir publier une mise à jour, vous devez configurer l’option [Serveur de mise à jour](/sccm/sum/tools/updates-publisher-options#update-server) de l’éditeur de mise à jour. Pour ouvrir cette option de configuration, accédez à l**’espace de travail Mises à jour** &gt; **Vue d’ensemble** et sélectionnez **Configurer WSUS et le certificat de signature.** Vous pouvez également accéder à la page Serveur de mise à jour dans les options de l’éditeur de mise à jour.
+Damit die Option zum Veröffentlichen angezeigt wird, müssen Sie die Option [Updateserver](/sccm/sum/tools/updates-publisher-options#update-server) für Updates Publisher konfigurieren. Um diese Konfigurationsoption zu öffnen, wechseln Sie zum **Arbeitsbereich „Updates“** &gt; **Übersicht**, und wählen Sie **WSUS-Server und Signaturzertifikat konfigurieren** aus. Sie können auch in den Updates Publisher-Optionen zur Seite „Updateserver“ wechseln.
 
-Il existe deux façons de publier des mises à jour et des offres groupées :
--   Directement depuis l'espace de travail Mises à jour. (Consultez la procédure suivante *pour publier des mises à jour et des offres groupées*.)
--   En tant que [publication](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) depuis l’espace de travail Publications.  
+Es gibt zwei Möglichkeiten zum Veröffentlichen von Updates und Paketen:
+-   Direkt über den Arbeitsbereich „Updates“ (siehe folgendes Verfahren zum *Veröffentlichen von Updates und Paketen*)
+-   Als [Veröffentlichung](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) über den Arbeitsbereich „Veröffentlichungen“  
 
 > [!NOTE]   
-> Le serveur de mise à jour peut uniquement publier des mises à jour d’une taille maximale de 375 mégaoctets (Mo).
+> Updates Publisher kann nur Updates mit einer Größe von max. 375 Megabyte (MB) veröffentlichen.
 
-### <a name="to-publish-updates-and-bundles"></a>Pour publier des mises à jour et des offres groupées
-1.  Accédez à l**’espace de travail Mises à jour**, puis sélectionnez une ou plusieurs mises à jour et offres groupées que vous souhaitez publier. Puis choisissez **Publier** dans l’onglet **Accueil** du ruban.
+### <a name="to-publish-updates-and-bundles"></a>Veröffentlichen von Updates und Paketen
+1.  Wechseln Sie zum **Arbeitsbereich „Updates“**, und wählen Sie ein oder mehrere Updates und Pakete aus, die Sie veröffentlichen möchten. Wählen Sie dann auf der Registerkarte **Start** des Menübands die Option **Veröffentlichen**.
 
-2.  Sur la page **Sélectionner** de l’Assistant **Publication**, indiquez comment vous voulez publier les mises à jour. Les options sont les mêmes que pour l[’attribution des mises à jour](#assign-updates-and-bundles-to-a-publication) : **Tout le contenu**, **Uniquement les métadonnées** ou **Automatique**.
+2.  Wählen Sie auf der Seite **Auswählen** im **Veröffentlichungs-Assistenten** aus, wie die Updates veröffentlicht werden sollen. Die Optionen sind mit denen für die [Zuweisung von Updates](#assign-updates-and-bundles-to-a-publication) identisch: **Vollständiger Inhalt**, **Nur Metadaten** oder **Automatisch**.
 
-    Vous pouvez également choisir de signer toutes les mises à jour avec un nouveau certificat de publication.
+    Sie können auch festlegen, dass alle Updates mit einem neuen Herausgeberzertifikat signiert werden.
 
-3.  Effectuez toutes les étapes de l'Assistant.
+3.  Schließen Sie den Assistenten ab.
 
-Si la publication échoue, vous recevez un lien vers le fichier UpdatesPublisher.log apparaît qui peut fournir plus d’informations.
+Wenn die Veröffentlichung fehlschlägt, wird ein Link zur UpdatesPublisher.log-Datei angezeigt, die weitere Informationen bereitstellen kann.
 
-## <a name="export-updates"></a>Exporter des mises à jour
-Vous pouvez exporter des mises à jour et des offres groupées depuis le référentiel de l’éditeur de mise à jour afin de créer un catalogue personnalisé de mises à jour. Vous pouvez ensuite [ajouter](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) puis [importer](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) ce catalogue vers une autre instance de l’éditeur de mise à jour. (Vous pouvez également [exporter des mises à jour sous la forme d’une publication](/sccm/sum/tools/updates-publisher-publications##export-a-publication).)
+## <a name="export-updates"></a>Exportieren von Updates
+Sie können Updates und Pakete aus Ihrem Updates Publisher-Repository exportieren, um einen benutzerdefinierten Updatekatalog zu erstellen. Anschließend können Sie diesen Katalog [hinzufügen](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) und dann in eine andere Instanz von Updates Publisher [importieren](/sccm/sum/tools/updates-publisher-catalogs#mport-updates). (Sie können [Updates auch als Veröffentlichung exportieren](/sccm/sum/tools/updates-publisher-publications##export-a-publication).)
 
-Pour exporter directement des mises à jour, accédez à l**’espace de travail Mises à jour** > **Toutes les mises à jour logicielles** et sélectionnez une ou plusieurs mises à jour et offres groupées. Vous ne pouvez pas exporter un fournisseur ou un dossier de produit, mais vous pouvez sélectionner un dossier puis les mises à jour de ce dossier pour l’exportation.
+Navigieren Sie zum direkten Exportieren zum **Arbeitsbereich „Updates“** > **Alle Softwareupdates**, und wählen Sie ein oder mehrere Updates und Pakete aus. Sie können keinen Anbieter- oder Produktordner exportieren, jedoch einen Ordner und anschließend die Updates in diesem Ordner für den Export auswählen.
 
-Après avoir sélectionné une ou plusieurs mises à jour, choisissez **Exporter** dans l’onglet **Accueil** du ruban, puis indiquez un chemin d’accès et un nom de fichier pour l’exportation du catalogue.
+Nachdem Sie ein oder mehrere Updates ausgewählt haben, wählen Sie auf der Registerkarte **Start** des Menübands die Option **Exportieren**, und geben Sie dann einen Pfad und Dateinamen für den Katalogexport an.
 
-Vous pourrez également exporter (inclure) des mises à jour de logiciels dépendantes.
+Sie haben dann die Option abhängige Softwareupdates zu exportieren (einzuschließen).
 
-## <a name="delete-updates-and-bundles"></a>Supprimer des mises à jour et des offres groupées
-Vous pouvez supprimer des mises à jour et des offres groupées de mises à jour afin de les supprimer du référentiel de l’éditeur de mise à jour.
+## <a name="delete-updates-and-bundles"></a>Löschen von Updates und Paketen
+Sie können Updates und Pakete von Updates löschen, um sie aus dem Updates Publisher-Repository zu entfernen.
 
-Accédez à l**’espace de travail Mises à jour** > **Toutes les mises à jour logicielles** et sélectionnez une ou plusieurs mises à jour individuelles. Puis choisissez **Supprimer** dans l’onglet **Accueil** du ruban.
+Navigieren Sie zum **Arbeitsbereich „Updates“** > **Alle Softwareupdates**, und wählen Sie ein oder mehrere einzelne Updates aus. Wählen Sie dann auf der Registerkarte **Start** des Menübands die Option **Löschen**.
 
--   Si votre sélection contient uniquement des mises à jour ou des offres groupées qui n’ont pas été publiées ou qui ont expiré, vous êtes invité à confirmer la suppression.
+-   Wenn Ihre Auswahl nur Softwareupdates oder -pakete enthält, die nicht veröffentlicht wurden oder abgelaufen sind, werden Sie aufgefordert, den Löschvorgang zu bestätigen, bevor sie entfernt werden.
 
--   Si votre sélection contient une mise à jour ou une offre groupée qui a été publiée mais n’a pas encore expiré, vous recevez un avertissement. Vous devez [faire expirer](/sccm/sum/tools/updates-publisher-pubilcations#expire-or-reactivate-updates-and-bundles) ces mises à jour puis publier cette modification avant de supprimer les mises à jour du référentiel.  
+-   Wenn Ihre Auswahl ein Update oder ein Paket enthält, das veröffentlicht wurde und noch nicht abgelaufen ist, wird eine Warnung angezeigt. Bevor Sie Updates aus dem Repository löschen, sollten Sie diese [ablaufen](/sccm/sum/tools/updates-publisher-pubilcations#expire-or-reactivate-updates-and-bundles) lassen und die Änderung dann veröffentlichen.  
 
-Si vous supprimez une mise à jour ou une offre groupée d’un fournisseur puis importez de nouveau ce catalogue, cette mise à jour est restaurée dans votre référentiel.
+Wenn Sie ein Update oder Paket von einem Anbieter löschen und diesen Katalog dann wieder importieren, wird dieses Update in Ihrem Repository wiederhergestellt.
 
-## <a name="manage-vendor-and-product-folders"></a>Gérer des dossiers de produit et de fournisseur
-Pour afficher une liste des fournisseurs et des produits de chaque fournisseur pour lequel vous avez importé ou créé des mises à jour, accédez à l**’espace de travail Mises à jour** > **Vue d’ensemble** > **Toutes les mises à jour logicielles**.
+## <a name="manage-vendor-and-product-folders"></a>Verwalten von Anbieter- und Produktordnern
+Um eine Liste von Anbietern und Produkten für jeden Anbieter, für den Sie Updates importiert oder erstellt haben, anzuzeigen, navigieren Sie zum **Arbeitsbereich „Updates“** > **Übersicht** > **Alle Softwareupdates**.
 
-Les dossiers des fournisseurs et des produits sont automatiquement créés par l’éditeur de mise à jour lorsque vous utilisez un Assistant pour importer ou créer une mise à jour logicielle ou une offre groupée. Vous pouvez également créer manuellement ces dossiers.
+Ordner für Anbieter und Produkte werden automatisch von Updates Publisher erstellt, wenn Sie einen Assistenten zum Importieren oder Erstellen eines Softwareupdates oder -pakets verwenden. Sie können diese Ordner auch manuell erstellen.
 
--   Pour créer un dossier de fournisseur, dans le volet de navigation de l**’espace de travail Mises à jour**, cliquez avec le bouton droit sur **Toutes les mises à jour logicielles**, puis choisissez **Créer un fournisseur**.
+-   Um einen Anbieterordner zu erstellen, klicken Sie im Navigationsbereich im **Arbeitsbereich „Updates“** mit der rechten Maustaste auf **Alle Softwareupdates**, und wählen Sie dann **Anbieter erstellen**.
 
--   Pour créer un dossier de produit dans un dossier de fournisseur, cliquez avec le bouton droit sur le dossier de fournisseur et choisissez **Créer un produit**.
+-   Um einen Produktordner in einem Anbieterordner zu erstellen, klicken Sie mit der rechten Maustaste auf den Anbieterordner, und wählen Sie **Produkt erstellen** aus.
 
-Outre la création de dossiers, vous pouvez renommer ou supprimer n’importe quel dossier de fournisseur ou de produit de votre référentiel. Pour cela, cliquez avec le bouton droit sur le dossier puis choisissez l’option souhaitée, **Renommer** ou **Supprimer**. La suppression d’un dossier supprime toutes les mises à jour et offres groupées de ce dossier ainsi que ses dossiers de produit du référentiel de l’éditeur de mise à jour.
+Neben der Erstellung von Ordnern können Sie einen beliebigen Anbieter- oder Produktordner in Ihrem Repository umbenennen oder löschen. Klicken Sie hierzu mit der rechten Maustaste auf den Ordner, und wählen Sie die gewünschte Option **Umbenennen** oder **Löschen** aus. Durch das Löschen eines Ordners werden alle Updates und Pakete in diesem Ordner und den jeweiligen Produktordnern aus dem Updates Publisher-Repository entfernt.
 
-Vous pouvez déplacer des mises à jour entre des dossiers de fournisseurs et de produits, y compris les dossiers que vous créez. Pour déplacer une mise à jour ou une offre groupée vers un nouveau dossier, vous devez sélectionner puis **modifier** la mise à jour ou l’offre groupée. Puis, dans la page **Informations** de l’Assistant Modification d’une mise à jour, vous pouvez réaffecter le produit et le fournisseur. À la fin de l’Assistant **Modification d’une mise à jour**, la modification est appliquée et la mise à jour est déplacée vers le nouveau dossier.
+Sie können Updates zwischen Anbieter- und Produktordnern verschieben, einschließlich in die von Ihnen erstellten Ordner. Um ein Update oder ein Paket in einen neuen Ordner zu verschieben, müssen Sie das Update oder Paket auswählen und dann auf **Bearbeiten** klicken. Auf der Seite **Informationen** des Assistenten „Update bearbeiten“ können Sie dann den Anbieter und das Produkt neu zuweisen. Wenn der Assistent **Update bearbeiten** abgeschlossen ist, wird die Änderung angewendet und das Update wird in den neuen Ordner verschoben.
 
-## <a name="view-the-xml-of-an-update-or-bundle"></a>Afficher la structure XML d’une mise à jour ou d’une offre groupée
-Pour sélectionner une mise à jour ou une offre groupée unique, dans l**’espace de travail Mises à jour**, choisissez **Affichage** XML pour afficher la structure XML de cette mise à jour. Il n’existe aucune option permettant de modifier directement la structure XML.
-
+## <a name="view-the-xml-of-an-update-or-bundle"></a>Anzeigen des XML-Codes eines Updates oder Pakets
+Im **Arbeitsbereich „Updates“** können Sie ein einzelnes Update oder Paket auswählen, und dann auf **XML anzeigen** klicken, um die XML-Struktur dieses Updates anzuzeigen. Es sind keine Optionen zum direkten Bearbeiten der XML-Struktur vorhanden.

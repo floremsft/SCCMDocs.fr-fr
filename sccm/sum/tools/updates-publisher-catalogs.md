@@ -1,108 +1,105 @@
 ---
-title: "Gérer des catalogues de mises à jour | Microsoft Docs"
-description: "Gérer des catalogues de mises à jour logicielles pour l’éditeur de mise à jour System Center"
+title: Verwalten von Updatekatalogen | Microsoft-Dokumentation
+description: "Verwalten von Softwareupdatekatalogen für System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 887f8029-1a3a-423c-a9c1-31dc0d693386
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
 ms.openlocfilehash: 7451d699e0e5e146b0538a57deca595188d113bf
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-software-update-catalogs-in-updates-publisher"></a>Gérer des catalogues de mises à jour logicielles dans l’éditeur de mise à jour
+# <a name="manage-software-update-catalogs-in-updates-publisher"></a>Verwalten von Softwareupdatekatalogen in Updates Publisher
 
-*S’applique à : l'éditeur de mise à jour System Center*
+*Gilt für: System Center Updates Publisher*
 
-Utilisez l’**espace de travail** **Catalogues** pour gérer les catalogues de mises à jour logicielles. Cela inclut l’ajout de nouveaux catalogues, la gestion d’abonnements à des catalogues existants et l’importation d’informations sur les mises à jour d’un catalogue vers le référentiel de l’éditeur de mise à jour.
+Verwenden Sie den **Arbeitsbereich** **„Kataloge“** zum Verwalten von Softwareupdatekatalogen. Hierzu gehört das Hinzufügen neuer Kataloge, Verwalten vorhandener Katalogabonnements und Importieren von Informationen zu den Updates aus einem Katalog in das Updates Publisher-Repository.
 
-Les catalogues de mises à jour logicielles contiennent des informations sur les mises à jour créées par des organisations autres que Microsoft. Ces autres organisations incluent votre propre organisation et les fournisseurs de logiciels tiers qui ont inscrit leurs catalogues auprès de Microsoft. Les catalogues inscrits par des fournisseurs de logiciels sont appelés *catalogues partenaires*. Les catalogues que vous créez et qui ne sont pas inscrits auprès de Microsoft sont appelés catalogues *utilisateur*.
+Softwareupdatekataloge enthalten Informationen über die zugehörigen Updates, die von anderen Organisationen als Microsoft erstellt werden. Zu anderen Organisationen zählen Ihre eigene Organisation und Drittanbieter-Softwarehersteller, die ihre Kataloge bei Microsoft registriert haben. Registrierte Kataloge von Softwareherstellern werden als *Partnerkataloge* bezeichnet. Von Ihnen erstellte Kataloge, die nicht bei Microsoft registriert sind, werden als *Benutzerkataloge* bezeichnet.
 
-## <a name="add-software-update-catalogs"></a>Ajouter des catalogues de mises à jour logicielles
-Vous devez ajouter un catalogue de mises à jour à l’éditeur de mise à jour avant de pouvoir gérer les mises à jour qu’il contient. Lorsque vous ajoutez un catalogue, l’éditeur de mise à jour :
--   Crée un abonnement à ce catalogue afin de pouvoir vérifier les mises à jour de ce catalogue.
--   Ajoute le catalogue à une liste dans la fenêtre **Mes catalogues de mises à jour logiciels** de l**’espace de travail Catalogues**.  
+## <a name="add-software-update-catalogs"></a>Hinzufügen von Softwareupdatekatalogen
+Sie müssen einen Updatekatalog zu Updates Publisher hinzufügen, bevor Sie die darin enthaltenen Updates verwalten können. Wenn Sie einen Katalog hinzufügen, führt Updates Publisher folgende Aktionen aus:
+-   Erstellen eines Abonnements für diesen Katalog, um nach Updates dieses Katalogs zu suchen.
+-   Hinzufügen des Katalogs zu einer Liste im Fenster **My Software Update Catalogs** (Eigene Softwareupdatekataloge) des **Arbeitsbereichs „Kataloge“**.  
 
-Vous trouverez dans la console des informations sur chaque catalogue auquel vous êtes abonné. Ces Informations incluent l’URL ou l’emplacement de téléchargement, le nom de la société ou de l’organisation qui a créé le catalogue, et la date de la dernière importation ou modification.
+Informationen zu jedem abonnierten Katalog sind in der Konsole verfügbar. Zu den Informationen zählen Download-URL oder -Speicherort, der Name des Unternehmens bzw. der Organisation, das bzw. die den Katalog erstellt hat, und wann er zuletzt importiert oder geändert wurde.
 
-À chaque démarrage, l’éditeur de mise à jour peut vérifier automatiquement les modifications apportées aux abonnements. Ce paramètre est configuré comme une [option avancée](/sccm/sum/tools/updates-publisher-options#advanced). Dans ce cas, l’éditeur de mise à jour référence les informations concernant l’URL ou l’emplacement de téléchargement pour l’abonnement et vous alerte lorsque des modifications ont été apportées au catalogue depuis la dernière fois que vous l’avez importé dans le référentiel.
+Updates Publisher kann automatisch bei jedem Start Ihre Abonnements auf Änderungen überprüfen. Dies wird als [Erweiterte Option](/sccm/sum/tools/updates-publisher-options#advanced) konfiguriert. Sofern konfiguriert, referenziert Updates Publisher auf die Informationen zum Download-URL oder -Speicherort für das Abonnement und warnt Sie bei Änderungen des Katalogs, die vorgenommen wurden, seit Sie ihn zuletzt in das Repository importiert haben.
 
-Pour rechercher manuellement une mise à jour de catalogue, sélectionnez le catalogue dans la liste **Mes catalogues de mises à jour logicielles**, puis choisissez **Actualiser** dans le ruban.
+Um manuell nach einem Katalogupdate zu suchen, wählen Sie den Katalog in der Liste **My Software Update Catalogs** (Eigene Softwareupdatekataloge) aus, und wählen Sie dann im Menüband **Aktualisieren**.
 
-Outre l’ajout de catalogues et l’affichage des informations sur les catalogues auxquels vous êtes abonné, vous pouvez :
--  **Modifier** les informations concernant les catalogues *utilisateur*.
--  **Supprimer** un catalogue de l’éditeur de mise à jour.
--  **Importer** des mises à jour d’un catalogue vers le référentiel de l’éditeur de mise à jour. Lorsque vous importez des mises à jour, vous importez toutes les mises à jour contenues dans ce catalogue. Vous pouvez ensuite afficher les mises à jour dans l’espace de travail Mises à jour, où vous pouvez ensuite sélectionner et publier des mises à jour vers le serveur de mise à jour.
+Zusätzlich zum Hinzufügen von Katalogen und Anzeigen von Informationen zu abonnierten Kataloge können Sie folgende Aktionen ausführen:
+-  **Bearbeiten** von Informationen für *Benutzerkataloge*.
+-  **Löschen** (Entfernen) eines Katalogs aus Updates Publisher.
+-  **Importieren** von Updates aus einem Katalog in das Updates Publisher-Repository. Wenn Sie Updates importieren, importieren Sie alle Updates, die im Katalog enthalten sind. Sie können dann die Updates im „Arbeitsbereich „Updates““ anzeigen, wo Sie dann Updates auswählen und auf Ihrem Updateserver veröffentlichen können.
 
 > [!NOTE]   
-> La suppression d’un catalogue de l’éditeur de mise en jour entraîne la suppression des mises à jour de ce catalogue de votre référentiel. Cela n’affecte pas les mises à jour que vous avez publiées sur votre serveur de mise à jour. Pour supprimer de votre serveur de mise à jour des mises à jour qui ne figurent plus dans votre référentiel, consultez la rubrique [Faire expirer des mises à jour logicielles non référencées](/sccm/sum/tools/updates-publisher-options#expire-unreferenced-software-updates).
+> Beim Löschen eines Katalogs aus Updates Publisher werden die Updates in diesem Katalog aus Ihrem Repository entfernt. Dies betrifft nicht die Updates, die Sie auf Ihrem Updateserver veröffentlicht haben. Informationen zum Entfernen von Updates von Ihrem Updateserver, die sich nicht mehr in Ihrem Repository befinden, finden Sie unter [Ablaufen nicht referenzierter Softwareupdates](/sccm/sum/tools/updates-publisher-options#expire-unreferenced-software-updates).
 
-## <a name="manage-update-catalogs"></a>Gérer des catalogues de mises à jour
-Vous pouvez afficher la liste des catalogues que vous avez importés dans la fenêtre **Mes catalogues de mises à jour logiciels** de l**’espace de travail Catalogues**. À partir de cet espace de travail, vous pouvez :
+## <a name="manage-update-catalogs"></a>Verwalten von Updatekatalogen
+Sie können die Listenkataloge, die Sie importiert haben, im Fenster **My Software Update Catalogs** (Eigene Softwareupdatekataloge) des **Arbeitsbereichs „Kataloge“** anzeigen. Von diesem Arbeitsbereich aus können Sie folgende Aktionen ausführen:
 
--   **Ajouter un catalogue partenaire :** utilisez l’une des opérations suivantes pour rechercher des catalogues partenaires :
+-   **Hinzufügen eines Partnerkatalogs**: Um neue Partnerkataloge zu finden, verwenden Sie eine der folgenden Methoden:
 
-    -   Dans la console, accédez à l**’espace de travail Mises à jour** > **Vue d’ensemble**. Dans la fenêtre **Prise en main**, choisissez **Ajouter des catalogues de mises à jour logicielles partenaires**.
+    -   Wechseln Sie in der Konsole zu **Arbeitsbereich „Updates“** > **Übersicht**. Wählen Sie im **Erste Schritte**-Fenster **Add Partner Software Updates Catalogs** (Softwareupdatekataloge von Partnern hinzufügen).
 
-    -   Dans la console, accédez à l**’espace de travail Catalogues** > **Mes catalogues**. Puis, dans le ruban, choisissez **Ajouter des catalogues**.
+    -   Wechseln Sie in der Konsole zu **Arbeitsbereich „Kataloge“** > **My Catalogs** (Eigene Kataloge). Wählen Sie dann aus dem Menüband **Kataloge hinzufügen**.
 
--   **Ajouter un catalogue utilisateur :** dans la console, accédez à l**’espace de travail Catalogues** > **Mes catalogues**. Puis, dans le ruban, choisissez **Ajouter des catalogues**. Outre l’emplacement du fichier .cab, vous devez spécifier un éditeur, un nom et une description pour identifier le catalogue.
+-   **Hinzufügen eines Benutzerkatalogs**: Wechseln Sie in der Konsole zu **Arbeitsbereich „Kataloge“** > **My Catalogs** (Eigene Kataloge). Wählen Sie dann aus dem Menüband **Kataloge hinzufügen**. Zusätzlich zum Speicherort der CAB-Datei müssen Sie einen Herausgeber, Namen und eine Beschreibung zum Identifizieren des Katalogs angeben.
 
 
--   **Rechercher les mises à jour des catalogues :** sélectionnez un ou plusieurs catalogues, puis choisissez **Actualiser** dans le ruban.
+-   **Check for updates to catalogs** (Nach Updates dieses Katalogs suchen): Wählen Sie einen oder mehrere Kataloge aus, und wählen Sie dann **Aktualisieren** aus dem Menüband.
 
--   **Modifier un catalogue utilisateur :** sélectionnez un catalogue *utilisateur*, puis choisissez **Modifier** dans le ruban. Vous pouvez ensuite modifier les propriétés définies par l’utilisateur.
+-   **Bearbeiten eines Benutzerkatalogs**: Wählen Sie einen *Benutzerkatalog* aus, und wählen Sie dann **Bearbeiten** aus dem Menüband. Sie können dann die benutzerdefinierten Eigenschaften ändern.
 
--   **Supprimer des catalogues :** sélectionnez un ou plusieurs catalogues, puis choisissez **Supprimer** dans le ruban. Cette opération supprime le catalogue, votre abonnement et les mises à jour de ces catalogues du référentiel de votre éditeur de mise à jour.
+-   **Löschen von Katalogen**: Wählen Sie einen oder mehrere Kataloge aus, und wählen Sie dann **Entfernen** aus dem Menüband. Damit werden der Katalog, Ihr Abonnement und die Updates aus diesen Katalogen aus dem Updates Publisher-Repository entfernt.
 
--   **Ajouter des mises à jour d’un catalogue à votre référentiel**: choisissez **Importer** dans le ruban pour démarrer l’Assistant **Importation de catalogue**. Pour plus d’informations, consultez la rubrique [Importer des mises à jour](#import-updates)
+-   **Hinzufügen von Updates aus einem Katalog in Ihr Repository**: Wählen Sie **Importieren** aus dem Menüband, um den **Katalog importieren**-Assistenten zu starten. Weitere Informationen hierzu finden Sie unter [Importieren von Updates](#import-updates).
 
-## <a name="import-updates"></a>Importer des mises à jour
-Lorsque vous importez un catalogue, Updates Manager ajoute les mises à jour de ce catalogue vers le référentiel de l’éditeur de mise à jour. Une fois les mises à jour importées, vous pouvez les publier sur votre serveur de mise à jour pour les mettre à disposition des appareils gérés.
+## <a name="import-updates"></a>Importieren von Updates
+Wenn Sie einen Katalog importieren, fügt der Updates-Manager die Updates aus diesem Katalog dem Updates Publisher-Repository hinzu. Nach dem Importieren der Updates können Sie sie auf Ihrem Updateserver veröffentlichen, damit sie für verwaltete Geräte verfügbar sind.
 
-### <a name="to-import-updates"></a>Pour importer des mises à jour
-1.  Pour démarrer l’Assistant **Importation de catalogue**, choisissez **Importer** dans le ruban des espaces de travail suivants :
+### <a name="to-import-updates"></a>So importieren Sie Updates
+1.  Um den **Katalog importieren**-Assistenten zu starten, wählen Sie in einem der folgenden Arbeitsbereiche aus dem Menüband **Importieren**:
 
-    -   Espace de travail Catalogues
+    -   Arbeitsbereich „Kataloge“
 
-    -   Espace de travail Mises à jour
+    -   Arbeitsbereich „Updates“
 
-2.  Sur la page **Type d’importation**, sélectionnez un ou plusieurs catalogues que vous avez ajoutés à l’éditeur de mise à jour, ou spécifiez un chemin d’accès à un catalogue que vous n’avez pas encore ajouté comme abonnement. Choisissez **Suivant** pour afficher l’écran de résumé puis, lorsque vous êtes prêt, cliquez sur **Suivant** pour démarrer l’importation.
+2.  Wählen Sie auf der **Importtyp**-Seite einen oder mehrere Kataloge aus, die Sie Updates Publisher hinzugefügt haben, oder geben Sie einen Pfad zu einem Katalog an, den Sie noch nicht als Abonnement hinzugefügt haben. Wählen Sie **Weiter**, um die Zusammenfassung anzuzeigen, und sobald Sie bereit sind, wählen Sie **Weiter**, um den Importvorgang zu starten.
 
-3.  Dans la fenêtre **Avertissement de sécurité : validation du catalogue**, examinez le certificat du catalogue puis, lorsque vous êtes prêt, choisissez **Accepter** pour importer les mises à jour.
+3.  Überprüfen Sie im Fenster **Security Warning – Catalog Validation** (Sicherheitswarnung – Katalogüberprüfung) das Katalogzertifikat, und sobald Sie bereit sind, wählen Sie **Annehmen**, um die Updates zu importieren.
 
     > [!CAUTION]    
-    > Acceptez uniquement les mises à jour d’éditeurs de confiance. Les mises à jour logicielles provenant d’éditeurs qui n’ont pas été approuvés peuvent endommager les ordinateurs clients lors de la recherche de mises à jour.
+    > Akzeptieren Sie nur Updates von Herausgebern, denen Sie vertrauen. Softwareupdates von Herausgebern, die nicht vertrauenswürdig sind, können potenziell Clientcomputer bei der Überprüfung auf Updates beschädigen.
 
-    >  Si vous n’approuvez plus un éditeur, supprimez-le de la liste des éditeurs approuvés. Pour plus d’informations sur l’acceptation de catalogues, cliquez sur **En savoir plus** dans la boîte de dialogue **Avertissement de sécurité : validation du catalogue**.
+    >  Wenn Sie einem Herausgeber nicht mehr vertrauen, entfernen Sie ihn aus der Liste vertrauenswürdiger Herausgeber. Um weitere Informationen zum Akzeptieren von Katalogen zu finden, klicken Sie auf **Weitere Informationen** im Dialogfeld **Security Warning – Catalog Validation** (Sicherheitswarnung – Katalogüberprüfung).
 
-    Si vous souhaitez toujours accepter les catalogues provenant d’un éditeur, cet éditeur est ajouté à la [liste des éditeurs approuvés](/sccm/sum/tools/updates-publisher-options#trusted-publishers). Vous pouvez consulter et modifier cette liste comme une option de l’éditeur de mise à jour.
+    Wenn Sie sich entscheiden, die Kataloge eines Herausgebers immer zu akzeptieren, wird dieser Herausgeber der [Liste vertrauenswürdiger Herausgeber](/sccm/sum/tools/updates-publisher-options#trusted-publishers) hinzugefügt. Sie können diese Liste als Updates Publisher-Option überprüfen und bearbeiten.
 
-4.  L’importation ignore les mises à jour qui figurent déjà dans le référentiel et si l’une des opérations suivantes est vraie :
+4.  Beim Importieren wird das Importieren eines Updates übersprungen, wenn das Update sich bereits im Repository befindet und eine der folgenden Aussagen zutrifft:
 
-    -   La mise à jour n’a pas été modifiée depuis qu’elle a été importée.
+    -   Das Update ist seit dem letzten Import nicht geändert worden.
 
-    -   La mise à jour a été modifiée et contient un nouveau hachage numérique. La modification d’une mise à jour empêche le remplacement d’une nouvelle mise à jour car cela entraînerait la suppression des modifications que vous auriez déployées.
+    -   Das Update wurde bearbeitet und verfügt über einen neuen digitalen Hash. Das Bearbeiten eines Updates verhindert, dass ein neues Update das ursprüngliche überschreibt, da so Änderungen überschrieben würden, die Sie bereitgestellt haben könnten.
 
-5.  Sur la page **Confirmation**, examinez les résultats de l’importation.
+5.  Überprüfen Sie auf der Seite **Bestätigung** die Importergebnisse.
 
-6.  Cliquez sur **Fermer** pour terminer l’Assistant. Vous pouvez désormais afficher les mises à jour de ce catalogue dans l’espace de travail Mises à jour.
+6.  Klicken Sie auf **Schließen**, um den Assistenten abzuschließen. Sie können jetzt die Updates für diesen Katalog im Arbeitsbereich „Updates“ anzeigen.
 
-## <a name="next-steps"></a>Étapes suivantes
-Après avoir importé les mises à jour, les actions courantes sont les suivantes :
--   [Gérer les mises à jour](/sccm/sum/tools/manage-updates-with-updates-publisher) pour les regrouper, les affecter et les déployer sur votre serveur de mise à jour.
--   [Créer des règles de mise en application](/sccm/sum/tools/updates-publisher-applicability-rules) pour mieux déterminer le moment où les mises à jour sont déployées sur le serveur de mise à jour.
-
+## <a name="next-steps"></a>Nächste Schritte
+Nach dem Importieren von Updates sind folgende Aktionen üblich:
+-   [Verwalten Sie Updates](/sccm/sum/tools/manage-updates-with-updates-publisher), um sie zusammenzustellen, zuzuweisen und für Ihren Updateserver bereitzustellen.
+-   [Erstellen Sie Anwendbarkeitsregeln](/sccm/sum/tools/updates-publisher-applicability-rules), um zu bestimmen, wann Updates für Ihren Updateserver bereitgestellt werden müssen.

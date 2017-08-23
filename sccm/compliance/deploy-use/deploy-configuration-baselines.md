@@ -1,65 +1,58 @@
 ---
-title: "Déployer des lignes de base de configuration | Microsoft Docs"
-description: "Déployez des bases de référence de configuration pour définir les déploiements de bases de référence de configuration et pour ajouter ou supprimer des bases de référence de configuration dans les déploiements."
+title: Bereitstellen von Konfigurationsbaselines | Microsoft-Dokumentation
+description: "Stellen Sie Konfigurationsbaselines bereit, um Bereitstellungen von Konfigurationsbaselines zu definieren und um Konfigurationsbaselines zu Bereitstellungen hinzuzufügen oder aus diesen zu entfernen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9be8aaf3-075e-4acd-abd2-7459254e16e2
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: 9c9e6b7780c7c10c20a60dbbbf506e916031eb88
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Comment déployer des lignes de base de configuration dans System Center Configuration Manager
+# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Bereitstellen von Konfigurationsbasislinien in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les bases de référence de configuration dans System Center Configuration Manager doivent être déployées vers un ou plusieurs regroupements d’utilisateurs ou d’appareils avant que les appareils clients de ces mêmes regroupements ne puissent évaluer leur conformité avec la base de référence de configuration.  
+In System Center Configuration Manager müssen Konfigurationsbaselines für eine oder mehrere Sammlungen von Benutzern oder Geräten bereitgestellt werden, bevor von den Clientgeräten in diesen Sammlungen die Kompatibilität mit der Konfigurationsbaseline ausgewertet werden kann.  
 
-Utilisez la boîte de dialogue **Déployer des lignes de base de configuration** pour définir les déploiements des lignes de base de configuration, y compris l'ajout ou la suppression de lignes de base de configuration dans des déploiements et la définition du calendrier d'évaluation.  
+Mithilfe des Dialogfelds **Konfigurationsbasislinien bereitstellen** , können Sie Bereitstellungen für Konfigurationsbasislinien definieren. Dazu gehören das Hinzufügen oder Entfernen von Konfigurationsbasislinien zu bzw. von Bereitstellungen sowie das Angeben des Auswertungszeitplans.  
 
-## <a name="deploy-a-configuration-baseline"></a>Déployer une base de référence de configuration  
+## <a name="deploy-a-configuration-baseline"></a>Bereitstellen einer Konfigurationsbasislinie  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationsbaselines**.  
 
-3.  Dans la liste **Lignes de base de configuration** , sélectionnez la ligne de base de configuration que vous souhaitez déployer, puis, dans l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+3.  Wählen Sie in der Liste **Konfigurationsbasislinien** die Konfigurationsbasislinie aus, die Sie bereitstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
-4.  Dans la boîte de dialogue **Déployer des lignes de base de configuration** , sélectionnez les lignes de base de configuration que vous souhaitez déployer dans la liste **Lignes de base de configuration disponibles** . Cliquez sur **Ajouter** pour ajouter celles-ci à la liste **Lignes de base de configuration sélectionnées** .  
+4.  Wählen Sie im Dialogfeld **Konfigurationsbasislinien bereitstellen** die bereitzustellenden Konfigurationsbasislinien in der Liste **Verfügbare Konfigurationsbasislinien** aus. Klicken Sie auf **Hinzufügen** , um diese zur Liste **Ausgewählte Konfigurationsbasislinien** hinzuzufügen.  
 
     > [!IMPORTANT]  
-    >  Si vous modifiez un élément de configuration qui a été ajouté à une ligne de base de configuration déployée, la conformité de l’élément de configuration révisé ne sera évaluée que lors de sa prochaine évaluation programmée.  
+    >  Wenn Sie ein Konfigurationselement ändern, das einer bereitgestellten Konfigurationsbasislinie hinzugefügt wurde, wird das überarbeitete Konfigurationselement bis zum nächsten geplanten Auswertungszeitpunkt nicht auf Kompatibilität geprüft.  
 
-5.  Spécifiez les informations supplémentaires suivantes :  
+5.  Geben Sie die folgenden zusätzlichen Informationen an:  
 
-    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.  
+    -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird:** Stellt automatisch Regeln wieder her, die nicht mit der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI), der Registrierung, den Skripts und sämtlichen Einstellungen für die von Configuration Manager registrierten mobile Geräte kompatibel sind.  
 
-    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la ligne de base de configuration, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Wiederherstellung außerhalb des Wartungsfensters zulassen:** Wenn ein Wartungsfenster für die Sammlung konfiguriert wurde, für die Sie die Konfigurationsbasislinie bereitstellen, aktivieren Sie diese Option, um Kompatibilitätseinstellungen zum Wiederherstellen des Werts außerhalb des Wartungsfensters zuzulassen. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-6.  **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
+6.  **Warnung generieren:** Konfiguriert eine Warnung, die generiert wird, sobald die Kompatibilität einer Konfigurationsbaseline zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.  
 
-7.  **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la ligne de base de configuration.  
+7.  **Sammlung:** Klicken Sie auf **Durchsuchen** , um die Sammlung auszuwählen, in der Sie die Konfigurationsbasislinie bereitstellen möchten.  
 
-8.  **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifie le calendrier d’évaluation de la base de référence de configuration déployée sur des ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
+8.  **Geben Sie den Zeitplan für die Kompatibilitätsauswertung dieser Konfigurationsbaseline an:** Gibt den Zeitplan an, nach dem die bereitgestellte Konfigurationsbaseline auf Clientcomputern ausgewertet wird. Dabei kann es sich um einen einfachen oder benutzerdefinierten Zeitplan handeln.  
 
     > [!NOTE]  
-    >  Si la ligne de base de configuration est déployée vers un ordinateur, sa conformité est évaluée dans les deux heures suivant l’heure de début que vous programmez. Si elle est déployée vers un utilisateur, sa conformité est évaluée quand l’utilisateur se connecte.  
+    >  Wenn die Konfigurationsbasislinie für einen Computer bereitgestellt wird, wird sie innerhalb von zwei Stunden ab der von Ihnen geplanten Startzeit auf Kompatibilität ausgewertet. Wenn sie für einen Benutzer bereitgestellt wird, wird sie beim Anmelden des Benutzers auf Kompatibilität ausgewertet.  
 
-9. Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer des lignes de base de configuration** et pour créer le déploiement. Pour plus d’informations sur la surveillance du déploiement, consultez [Surveiller les paramètres de compatibilité](/sccm/compliance/deploy-use/monitor-compliance-settings).  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+9. Klicken Sie auf **OK** , um das Dialogfeld **Konfigurationsbasislinien bereitstellen** zu schließen und die Bereitstellung zu erstellen. Weitere Informationen zum Überwachen der Bereitstellung finden Sie unter [Überwachen von Kompatibilitätseinstellungen](/sccm/compliance/deploy-use/monitor-compliance-settings).  

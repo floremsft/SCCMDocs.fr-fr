@@ -1,55 +1,51 @@
 ---
-title: Surveiller la passerelle de gestion cloud - Configuration Manager | Microsoft Docs
+title: "Überwachen des Cloudverwaltungsgateways – Configuration Manager | Microsoft-Dokumentation"
 description: 
 ms.date: 04/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.assetid: 15f72f80-9850-40ce-9c3a-443ba04b6a03
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 199096db7a23fb14db98b95e75246ed254848ab7
-ms.openlocfilehash: df32a7d95799d8ae685fd66e2d9ddf25e32b37d0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: daa0790995dc13ec2c78ae2d98a9eb38c0bcf8ae
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="monitor-cloud-management-gateway-in-configuration-manager"></a>Überwachen des Cloudverwaltungsgateways in Configuration Manager
 
-# <a name="monitor-cloud-management-gateway-in-configuration-manager"></a>Surveiller la passerelle de gestion cloud dans Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+Ab Version 1610 können Sie, wenn der Cloudverwaltungsgateway-Dienst ausgeführt wird und Clients über diesen eine Verbindung herstellen, Clients und Netzwerkdatenverkehr überwachen, um sicherzustellen, dass Sie wissen, wie der Dienst arbeitet.
 
-Depuis la version 1610, une fois que le service de passerelle de gestion cloud est en cours d’exécution et que les clients se connectent par son intermédiaire, vous pouvez surveiller le trafic réseau et les clients pour vérifier que le service fonctionne comme vous pensez qu’il fonctionne.
+## <a name="monitor-clients"></a>Überwachen von Clients
 
-## <a name="monitor-clients"></a>Surveiller les clients
+Clients, die über den Cloudverwaltungsgateway-Dienst verbunden sind, erscheinen genauso wie lokale Clients in der Configuration Manager-Konsole. Weitere Informationen finden Sie unter [Überwachen von Clients in System Center Configuration Manager](monitor-clients.md).
 
-Les clients connectés via le service de passerelle de gestion cloud s’affichent dans la console Configuration Manager de la même façon que les clients locaux. Pour plus d’informations, consultez [Guide pratique pour surveiller des clients](monitor-clients.md).
+## <a name="monitor-traffic-in-the-console"></a>Überwachen von Datenverkehr in der Konsole
 
-## <a name="monitor-traffic-in-the-console"></a>Surveiller le trafic dans la console
+Sie können Datenverkehr über das Cloudverwaltungsgateway mithilfe der Configuration Manager-Konsole überwachen:
 
-Vous pouvez surveiller le trafic sur la passerelle de gestion cloud à l’aide de la console Configuration Manager :
+1. Gehen Sie zu **Verwaltung > Clouddienste > Cloud Management Gateway** (Cloudverwaltungsgateway).
 
-1. Accédez à **Administration > Services cloud > Passerelle de gestion cloud**.
+2. Wählen Sie im Listenbereich den Cloudverwaltungsgateway-Dienst aus.
 
-2. Sélectionnez le service de passerelle de gestion cloud dans le volet Liste.
+3. Sehen Sie sich die Informationen über den Datenverkehr im Detailbereich für die Cloudverwaltungsgateway-Verbindungsrolle und die Standortsystemrollen an, mit denen eine Verbindung hergestellt wird.
 
-3. Affichez les informations de trafic dans le volet Détails pour le rôle de connexion de passerelle de gestion cloud et les rôles de système de site auxquels il se connecte.
+## <a name="set-up-outbound-traffic-alerts"></a>Einrichten von Warnungen für ausgehenden Datenverkehr
 
-## <a name="set-up-outbound-traffic-alerts"></a>Configurer des alertes de trafic sortant
+Warnungen für ausgehenden Datenverkehr helfen Ihnen beim Verständnis, wann der Datenverkehr an einen Schwellenwert von 14 Tagen (2 Wochen) gelangt. Sie erhalten die Möglichkeit, Warnungen für den Datenverkehr einzurichten, wenn Sie den Cloudverwaltungsgateway-Dienst erstellen. Wenn Sie diesen Teil übersprungen haben, können Sie noch immer die Warnungen einrichten, wenn der Dienst ausgeführt wird. Sie können ebenso die Warnungseinstellungen jederzeit anpassen.
 
-Les alertes de trafic sortant vous permettent de savoir quand le trafic est proche d’un niveau de seuil de 14 jours (2 semaines). Vous avez la possibilité de configurer des alertes de trafic quand vous créez le service de passerelle de gestion cloud. Si vous avez ignoré cette partie, vous pouvez toujours configurer les alertes une fois que le service est en cours d’exécution. Vous pouvez également régler les paramètres d’alerte à tout moment.
+1. Gehen Sie zu **Verwaltung > Clouddienste > Cloud Management Gateway** (Cloudverwaltungsgateway).
 
-1. Accédez à **Administration > Services cloud > Passerelle de gestion cloud**.
+2. Klicken Sie mit der rechten Maustaste im Listenbereich den Cloudverwaltungsgateway-Dienst, und wählen Sie **Eigenschaften** aus.
 
-2. Cliquez avec le bouton droit sur le service de passerelle de gestion cloud dans le volet Liste, puis choisissez **Propriétés**.
+3. Klicken Sie auf die Registerkarte „Warnungen“, und wählen Sie zum Aktivieren (oder Deaktivieren) den Schwellenwert und Warnungen aus. Geben Sie anschließend den 14-tägigen Schwellenwert (in GB) und Prozentsätze des Schwellenwerts für die Auslösung der verschiedenen Warnstufen an.
 
-3. Cliquez sur l’onglet Alertes, puis choisissez d’activer (ou de désactiver) le seuil et les alertes. Spécifiez ensuite le seuil de 14 jours (en Go) et les pourcentages du seuil pour déclencher les différents niveaux d’alerte.
+4. Klicken Sie auf **OK**, wenn Sie fertig sind.
 
-4. Cliquez sur **OK** quand vous avez terminé.
+## <a name="monitor-logs"></a>Überwachungsprotokolle
 
-## <a name="monitor-logs"></a>Surveiller les journaux
-
-Le service de passerelle de gestion cloud génère des entrées dans plusieurs fichiers journaux. Pour plus d’informations, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).
-
+Der Cloudverwaltungsgateway-Dienst generiert Einträge in einigen Protokolldateien. Weitere Informationen finden Sie unter [Protokolldateien in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).

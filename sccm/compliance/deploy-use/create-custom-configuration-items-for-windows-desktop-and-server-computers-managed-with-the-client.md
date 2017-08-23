@@ -1,82 +1,79 @@
 ---
-title: "Créer des éléments de configuration pour des ordinateurs Windows gérés par un client - Configuration Manager | Microsoft Docs"
-description: "Gérer les paramètres des ordinateurs et des serveurs Windows avec un élément de configuration Ordinateurs de bureau et serveurs Windows."
+title: "Erstellen von Konfigurationselementen für clientverwaltete Windows-Computer – Configuration Manager | Microsoft-Dokumentation"
+description: "Verwalten Sie Windows-Computer und -Server mithilfe benutzerdefinierter Konfigurationselemente für Windows-Desktop- und -Servercomputer."
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1eb2fcaf-acac-4388-9b31-6cccafacaabe
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
 ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager
+# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Erstellen benutzerdefinierter Konfigurationselemente für Windows-Desktop- und -Servercomputer, die mit dem System Center Configuration Manager-Client verwaltet werden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Windows (personnalisés)** pour gérer les paramètres des ordinateurs de bureau et serveurs Windows qui sont gérés par le client  Configuration Manager.  
+Verwenden Sie das System Center Configuration Manager-Konfigurationselement des Typs **Windows-Desktops und -Server (benutzerdefiniert)** zum Verwalten der Einstellungen für Windows-Computer und -Server, die durch den Configuration Manager-Client verwaltet werden.  
 
-## <a name="start-the-create-configuration-item-wizard"></a>Démarrer l'Assistant Création d'élément de configuration
+## <a name="start-the-create-configuration-item-wizard"></a>Starten Sie den Assistenten zum Erstellen von Konfigurationselementen.
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Konfigurationselemente**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
 
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen**einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
 
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Ordinateurs et serveurs Windows (personnalisés)**.  
+5.  Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben**den Typ **Windows-Desktops und -Server (benutzerdefiniert)**aus.  
 
     > [!TIP]  
-    >  Si vous voulez fournir des paramètres de méthode de détection pour vérifier l’existence d’une application, sélectionnez **Cet élément de configuration contient des paramètres d’application**.  
+    >  Wenn Sie Einstellungen für Erkennungsmethoden bereitstellen möchten, mit denen überprüft wird, ob eine Anwendung vorhanden ist, wählen Sie **Dieses Konfigurationselement enthält Anwendungseinstellungen**aus.  
 
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klicken Sie auf **Kategorien**, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
 
-## <a name="provide-detection-method-information"></a>Fournir des informations de méthode de détection  
- Utilisez cette procédure pour fournir les informations de méthode de détection de l'élément de configuration.  
+## <a name="provide-detection-method-information"></a>Bereitstellen von Informationen zur Erkennungsmethode  
+ Verwenden Sie dieses Verfahren, um Informationen zur Erkennungsmethode für das Konfigurationselement bereitzustellen.  
 
 > [!NOTE]  
->  S'applique uniquement si vous avez sélectionné **cet élément de configuration contient des paramètres d'application** sur la **Général** page de l'Assistant.  
+>  Gilt nur, wenn Sie ausgewählt **dieses Konfigurationselement enthält Anwendungseinstellungen** auf der **Allgemeine** Seite des Assistenten.  
 
- Une méthode de détection dans Configuration Manager contient des règles qui sont utilisées pour déterminer si une application est installée sur un ordinateur. La détection a lieu avant l'évaluation de la compatibilité de l'élément de configuration. Pour déterminer si une application est installée, vous pouvez détecter la présence du Windows Installer de l'application, utiliser un script personnalisé ou sélectionner **Toujours partir du principe que l'application est installée** pour évaluer la compatibilité de l'élément de configuration, que l'application soit installée ou non.  
+ Eine Erkennungsmethode in Configuration Manager enthält Regeln zur Erkennung, ob eine Anwendung auf einem Computer installiert ist. Diese Erkennung erfolgt, bevor die Kompatibilität des Konfigurationselements bewertet wird. Um zu erkennen, ob eine Anwendung installiert ist, können Sie die Anwesenheit einer Windows Installer-Datei für die Anwendung prüfen, ein benutzerdefiniertes Skript verwenden oder **Immer annehmen, dass die Anwendung installiert ist** auswählen, um die Kompatibilität des Konfigurationselements unabhängig davon zu bewerten, ob die Anwendung installiert ist.  
 
- Utilisez ces procédures pour configurer des méthodes de détection dans System Center Configuration Manager.  
+ Verwenden Sie diese Verfahren zum Konfigurieren von Erkennungsmethoden in System Center Configuration Manager.  
 
-### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Pour détecter une installation d'application en utilisant le fichier Windows Installer  
+### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>So erkennen Sie eine Anwendungsinstallation anhand der Windows Installer-Datei  
 
-1.  Sur le **des méthodes de détection** page de la **Assistant Création d'un élément de Configuration**, sélectionnez le **utiliser Windows Installer detection** case à cocher.  
+1.  Auf der **Erkennungsmethoden** auf der Seite der **Assistenten zum Erstellen von Konfigurationselementen**, wählen die **mit Windows Installer-Erkennung** Kontrollkästchen.  
 
-2.  Cliquez sur **Open**, recherchez le fichier Windows Installer (.msi) que vous souhaitez détecter, puis cliquez sur **Open**.  
+2.  Klicken Sie auf **Öffnen**, suchen Sie die Windows Installer (MSI)-Datei, die Sie verwenden möchten, zu erkennen, und klicken Sie dann auf **Öffnen**.  
 
-3.  Le **Version** zone est automatiquement renseignée avec le numéro de version du fichier Windows Installer que vous avez sélectionné. Si la valeur affichée est incorrecte, vous pouvez entrer un nouveau numéro de version dans cette zone.  
+3.  Die **Version** Feld wird automatisch ausgefüllt, mit der Versionsnummer des Windows Installer-Datei, die Sie ausgewählt haben. Sie können eine neue Versionsnummer in dieses Feld eingeben, wenn der angezeigte Wert nicht korrekt ist.  
 
-4.  Cochez la case **Cette application n’est pas installée pour un ou plusieurs utilisateurs** pour détecter chaque profil utilisateur sur l’ordinateur.  
+4.  Aktivieren Sie das Kontrollkästchen **Diese Anwendung wurde für mindestens einen Benutzer installiert** , wenn jedes Benutzerprofil auf dem Computer erkannt werden soll.  
 
-### <a name="to-detect-a-specific-application-and-deployment-type"></a>Pour détecter un type d’application et de déploiement spécifique  
+### <a name="to-detect-a-specific-application-and-deployment-type"></a>So erkennen Sie einen bestimmten Anwendungs- und Bereitstellungstyp  
 
-1.  Dans la page **Méthodes de détection** de l’ **Assistant Création d’élément de configuration**, cochez la case **Détecter un type d’application et de déploiement spécifique** , puis cliquez sur **Sélectionner**.  
+1.  Aktivieren Sie auf der Seite **Erkennungsmethoden** des **Assistenten zum Erstellen von Konfigurationselementen**das Kontrollkästchen **Bestimmten Anwendungs- und Bereitstellungstyp erkennen** , und klicken Sie dann auf **Auswählen**.  
 
-2.  Dans la boîte de dialogue **Spécifier une application** , sélectionnez l’application et un type de déploiement associé à détecter.  
+2.  Wählen Sie im Dialogfeld **Anwendung angeben** die Anwendung und einen zugeordneten Bereitstellungstyp aus, den Sie erkennen möchten.  
 
-### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>Pour détecter une installation d’application à l’aide d’un script personnalisé  
+### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>So erkennen Sie eine Anwendungsinstallation mithilfe eines benutzerdefinierten Skripts  
 
-1.  Sur le **méthodes de détection** page de la **Assistant Création d'un élément de Configuration**, sélectionnez le **utiliser un script personnalisé pour détecter cette application** case à cocher.  
+1.  Auf der **Erkennungsmethoden** auf der Seite der **Assistenten zum Erstellen von Konfigurationselementen**, wählen die **Verwenden Sie ein benutzerdefiniertes Skript zum Erkennen dieser Anwendung** Kontrollkästchen.  
 
-2.  Dans la liste, sélectionnez la langue du script que vous souhaitez ouvrir. Choisissez les scripts suivants :  
+2.  Wählen Sie in der Liste die Sprache des Skripts, die Sie öffnen möchten. Wählen Sie aus den folgenden Skripts:  
 
     -   **VBScript**  
 
@@ -84,278 +81,277 @@ Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Wind
 
     -   **PowerShell**  
 
-3.  Cliquez sur **Ouvrir**, accédez au script à utiliser, puis cliquez sur **Ouvrir**.  
+3.  Klicken Sie auf **Öffnen**, suchen Sie das Skript, das Sie verwenden möchten, und klicken Sie auf **Öffnen**.  
 
-##  <a name="configure-settings"></a>Configurer les paramètres  
- Utilisez cette procédure pour configurer les paramètres dans l'élément de configuration.  
+##  <a name="configure-settings"></a>Konfigurieren der Einstellungen  
+ Verwenden Sie dieses Verfahren zum Konfigurieren der Einstellungen im Konfigurationselement.  
 
- Représentent les paramètres de l'entreprise ou critères techniques sont utilisées pour évaluer la conformité des périphériques clients. Vous pouvez configurer un nouveau paramètre ou accéder à un paramètre existant sur un ordinateur de référence.  
+ Einstellungen repräsentieren die geschäftlichen oder technischen Maßnahmen, die zur Bewertung der Kompatibilität auf Clientcomputern verwendet werden. Sie können eine neue Einstellung konfigurieren oder eine bestehende Einstellung auf einem Referenzcomputer verwenden.  
 
-1.  Dans la page **Paramètres** de l' **Assistant Création d'élément de configuration**, cliquez sur **Nouveau**.  
+1.  Klicken Sie im **Assistenten zum Erstellen von Konfigurationselementen** auf der Seite **Einstellungen**auf **Neu**.  
 
-2.  Sur l'onglet **Général** de la boîte de dialogue **Créer un paramètre** , fournissez les informations suivantes :  
+2.  Geben Sie auf der Registerkarte **Allgemein** des Dialogfelds **Einstellung erstellen** die folgenden Informationen an:  
 
-    -   **Nom :** Entrez un nom unique pour le paramètre. Vous pouvez utiliser jusqu'à 256 caractères.  
+    -   **Name:** Geben Sie einen eindeutigen Namen für die Einstellung ein. Sie können maximal 256 Zeichen verwenden.  
 
-    -   **Description :** Entrez une description pour le paramètre. Vous pouvez utiliser jusqu'à 256 caractères.  
+    -   **Beschreibung:** Geben Sie eine Beschreibung für die Einstellung ein. Sie können maximal 256 Zeichen verwenden.  
 
-    -   **Type de paramètre :** Dans la liste, choisissez et configurez l’un des types de paramètres suivants à utiliser pour ce paramètre :  
+    -   **Einstellungstyp:** Wählen Sie in der Liste einen der folgenden Einstellungstypen aus, der für diese Einstellung verwendet werden soll, und konfigurieren Sie ihn:  
 
-        -   **Requête Active Directory**  
+        -   **Active Directory-Abfrage**  
 
-             **Préfixe LDAP** : désigne un préfixe valide pour la requête des services de domaine Active Directory afin d’évaluer la compatibilité sur les ordinateurs clients. Vous pouvez utiliser **LDAP: / /** pour un ou **GC: / /** pour effectuer une recherche de catalogue global...  
+             **LDAP-Präfix** : Geben Sie ein gültiges Präfix für die Active Directory-Domänendienste-Abfrage an, mit der die Kompatibilität auf Clientcomputern bewertet wird. Verwenden Sie entweder **LDAP: / /** für einen oder **GC: / /** globalen Katalog gesucht werden soll.  
 
-             **Nom unique (DN)** -spécifier le nom unique de l'objet Services de domaine Active Directory qui est évaluée pour la conformité sur les ordinateurs clients.  
+             **Distinguished Name (DN)** – Geben Sie den definierten Namen des Active Directory-Domänendienste-Objekts, das auf Clientcomputern auf Kompatibilität bewertet wird.  
 
-             Par exemple, si vous voulez évaluer une valeur associée à un utilisateur nommé John Smith dans le domaine corp.contoso.com, entrez ce qui suit :  
+             Wenn Sie beispielsweise einen Wert im Zusammenhang mit einem Benutzer namens John Smith in der Domäne "corp.contoso.com" auswerten möchten, geben Sie Folgendes ein:  
 
-            -   **Filtre de recherche** : indique le filtre LDAP facultatif permettant d'affiner les résultats de la requête Services de domaine Active Directory pour évaluer la compatibilité sur les ordinateurs clients.  
+            -   **Suchfilter** : Geben Sie einen optionalen LDAP-Filter an, mit dem die Ergebnisse der Active Directory-Domänendiensteabfrage zur Bewertung der Kompatibilität auf Clientcomputern optimiert werden.  
 
-                 Pour renvoyer tous les résultats de la requête, entrez **(objectclass=\*)**.  
+                 Geben Sie zum Zurückzugeben aller Ergebnisse der Abfrage **(objectclass=\*)** ein.  
 
-            -   **Zone de recherche :** indique la zone de recherche dans les services de domaine Active Directory. Les choix sont les suivants :  
+            -   **Suchbereich:** Geben Sie den Suchbereich in den Active Directory-Domänendiensten an. Sie können Folgendes auswählen:  
 
-                -   **Base** -interroge uniquement l'objet spécifié.  
+                -   **Basis** -Abfragen nur die angegebenen Objekts.  
 
-                -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
+                -   **Eine Ebene** – Diese Option wird in dieser Version von Configuration Manager nicht verwendet.  
 
-                -   **Sous-arborescence** -interroge l'objet spécifié et son sous-arbre dans l'annuaire.  
+                -   **Unterstruktur** -Abfragen die angegebenen Objekts und dessen vollständige untergeordnete Struktur im Verzeichnis.  
 
-            -   **Propriété** -spécifier la propriété de l'objet Services de domaine Active Directory qui est utilisé pour évaluer la conformité sur les ordinateurs clients.  
+            -   **Eigenschaft** -Geben Sie die Eigenschaft des Active Directory-Domänendienste-Objekts, das zur Bewertung der Kompatibilität auf Clientcomputern verwendet wird.  
 
-                 Par exemple, si vous souhaitez interroger la propriété Active Directory **badPwdCount**, qui stocke le nombre de fois qu'un utilisateur entre incorrectement un mot de passe, entrez **badPwdCount** dans ce champ.  
+                 Beispielsweise, wenn Sie die Active Directory-Eigenschaft abfragen möchten **BadPwdCount**, die an, wie oft ein Benutzer ein Kennwort falsch eingibt speichert, geben Sie **BadPwdCount** in dieses Feld.  
 
-            -   **Requête** -affiche la requête créée à partir des entrées dans **préfixe LDAP**, **nom unique (DN)**, **filtre de recherche** (si spécifiée), et **propriété**, qui sont utilisés pour évaluer la conformité sur les ordinateurs clients.  
+            -   **Abfrage** -zeigt die Abfrage erstellt, die aus den Einträgen in **LDAP-Präfix**, **Distinguished Name (DN)**, **Suchfilter** (falls angegeben), und **Eigenschaft**, die zum Bewerten der Kompatibilität auf Clientcomputern verwendet werden.  
 
-             Pour plus d'informations sur la construction des requêtes LDAP, voir la documentation de Windows Server.  
+             Weitere Informationen zu LDAP-Abfragen erstellen finden Sie in der Windows Server-Dokumentation.  
 
         -   **Assembly**  
 
-             Configurez les éléments suivants pour ce type de paramètre :  
+             Konfigurieren Sie Folgendes für diesen Einstellungstyp:  
 
-            -   **Nom de l'assembly :** Spécifie le nom de l'objet de l'assembly que vous souhaitez rechercher. Ce nom doit être différent des autres objets assembly de même type et il doit être enregistré dans le GAC (Global Assembly Cache). Le nom de l'assembly peut comporter jusqu'à 256 caractères.  
+            -   **Assemblyname:** Gibt den Namen der Assembly-Objekts, das Sie suchen möchten. Der Name kann nicht mit dem anderer Assemblyobjekte des gleichen Typs identisch sein und muss im globalen Assemblycache (Global Assembly Cache, GAC) registriert werden. Der Assemblyname kann bis zu 256 Zeichen lang sein.  
 
-             Un assembly est un fragment de code qui peut être partagé entre plusieurs applications. Les assemblys peuvent comporter l'extension de fichier .dll ou .exe. Le Global Assembly Cache est un dossier appelé *%systemroot%\Assembly* sur client ordinateurs où tous les assemblys partagés sont stockés.  
+             Eine Assembly ist ein Programmcode, der zwischen Anwendungen freigegeben werden kann. Assemblys können die Dateinamenerweiterung DLL oder EXE haben. Der globale Assemblycache ist ein Ordner namens *%systemroot%\Assembly* auf Clientcomputern, in dem alle freigegebenen Assemblys gespeichert werden.  
 
-        -   **Système de fichiers**  
+        -   **Dateisystem**  
 
-            -   **Type** : dans la liste, indiquez si vous voulez rechercher un **fichier** ou un **dossier**.  
+            -   **Typ** : Wählen Sie in der Liste aus, ob Sie nach einer **Datei** oder nach einem **Ordner**suchen möchten.  
 
-            -   **Chemin** -spécifier le chemin d'accès du fichier spécifié ou du dossier sur les ordinateurs clients. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le chemin.  
+            -   **Pfad** – Geben Sie den Pfad der angegebenen Datei bzw. des Ordners auf Clientcomputern. Sie können Systemumgebungsvariablen und die Umgebungsvariable *%USERPROFILE%* im Pfad angeben.  
 
                 > [!NOTE]  
-                >  Si vous utilisez la variable d’environnement *%USERPROFILE%* dans les zones **Chemin** ou **Nom de fichier ou de dossier** , tous les profils utilisateur sont recherchés sur l’ordinateur client et plusieurs instances du fichier ou du dossier peuvent être trouvées.  
+                >  Wenn Sie die Umgebungsvariable *%USERPROFILE%* in den Feldern **Pfad** oder **Datei- oder Ordnername** verwenden, werden alle Benutzerprofile auf dem Clientcomputer durchsucht, was dazu führen kann, dass mehrere Instanzen einer Datei oder eines Ordners gefunden werden.  
                 >   
-                >  Si les paramètres de compatibilité n’ont pas accès au chemin spécifié, une erreur de découverte est générée. En outre, si le fichier que vous recherchez est actuellement en cours d'utilisation, une erreur de découverte est générée.  
+                >  Wenn die Kompatibilitätseinstellungen keinen Zugriff auf den angegebenen Pfad haben, wird ein Ermittlungsfehler generiert. Wenn die gesuchte Datei zurzeit verwendet wird, wird außerdem ein Ermittlungsfehler generiert.  
 
-            -   **Nom de fichier ou dossier** -spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez aussi utiliser les caractères génériques * et ? dans le nom du fichier.  
-
-                > [!NOTE]  
-                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center 2012 Configuration Manager.  
-
-            -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
-
-            -   **Ce fichier ou dossier est associé à une application 64 bits** - si activé, seuls les emplacements de fichiers 64 bits (tel que *% ProgramFiles%*) sera vérifié sur les ordinateurs 64 bits. Si cette option n’est pas activée, les emplacements 32 bits (tels que *%ProgramFiles(x86)%*) et 64 bits sont vérifiés.  
+            -   **Datei-oder Ordnernamen** – Geben Sie den Namen des zu suchenden Objekts Datei oder eines Ordners. Sie können Systemumgebungsvariablen und die *%USERPROFILE%* -Umgebungsvariable im Datei- oder Ordnernamen angeben. Sie können auch die Platzhalter * und ? im Dateinamen verwenden.  
 
                 > [!NOTE]  
-                >  Si le même fichier ou dossier existe dans les emplacements de systèmes de fichiers 64 bits et 32 bits sur le même ordinateur 64 bits, la condition globale détecte plusieurs fichiers.  
+                >  Wenn Sie einen Datei- oder Ordnernamen angeben und Platzhalter verwenden, kann diese Kombination dazu führen, dass zahlreiche Ergebnisse generiert werden, die Ressourcen auf dem Clientcomputer stark beansprucht werden und bei der Übertragung der Ergebnisse an Configuration Manager ein hoher Netzwerkdatenverkehr entsteht.  
 
-             Le paramètre **Système de fichiers** ne permet pas de définir un chemin UNC de partage réseau dans la zone **Chemin** .  
+            -   **Unterordner einschließen** : Aktivieren Sie diese Option, wenn auch Unterordner unter dem angegebenen Pfad durchsucht werden sollen.  
 
-        -   **Métabase IIS**  
-
-            -   **Chemin de la métabase** : spécifiez un chemin valide à la métabase Internet Information Services (IIS).  
-
-            -   **ID de propriété** : indique la propriété numérique du paramètre Métabase IIS.  
-
-        -   **Clé du Registre**  
-
-            -   **Ruche** : dans la liste, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
-
-            -   **Clé** : indiquez le nom de clé de Registre à rechercher. Utilisez le format *clé\sous-clé*.  
-
-            -   **Cette clé de Registre est associée à une application 64 bits** -Spécifie si les clés de Registre 64 bits doivent être recherchés en plus des clés de Registre 32 bits sur les clients qui exécutent une version 64 bits de Windows.  
+            -   **Datei oder des Ordners ist ein 64-Bit-Anwendung zugeordnet** – Wenn aktiviert, nur 64-Bit-Speicherorte (wie z. B. *% ProgramFiles%*) wird auf 64-Bit-Computern aktiviert werden. Wenn diese Option nicht aktiviert ist, werden sowohl 32-Bit-Speicherorte (z. B. *%ProgramFiles(x86)%*) als auch 64-Bit-Speicherorte überprüft.  
 
                 > [!NOTE]  
-                >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+                >  Wenn dieselbe Datei bzw. derselbe Ordner sowohl am 64-Bit-Systemdatei- als auch am 32-Bit-Systemdateispeicherort desselben 64-Bit-Computers vorhanden ist, werden von der globalen Bedingung mehrere Dateien ermittelt.  
 
-        -   **Valeur de Registre**  
+             Die Angabe eines UNC-Pfads zu einer Netzwerkfreigabe im Feld **Pfad** wird vom Einstellungstyp **Dateisystem** nicht unterstützt.  
 
-            -   **Ruche** : dans la liste, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+        -   **IIS-Metabasis**  
 
-            -   **Clé** : indiquez le nom de clé de Registre à rechercher. Utilisez le format *clé\sous-clé*.  
+            -   **Metabasispfad** : Geben Sie einen gültigen Pfad zur IIS-Metabasis (Internetinformationsdienste) an.  
 
-            -   **Valeur** : indiquez la valeur qui doit être contenue dans la clé de Registre spécifiée.  
+            -   **Eigenschafts-ID** : Geben Sie die numerische Eigenschaft der IIS-Metabasiseinstellung an.  
 
-            -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit être effectuée dans les clés de Registre 64 bits en plus des clés de Registre 32 bits sur les clients qui exécutent une version Windows 64 bits.  
+        -   **Registrierungsschlüssel**  
 
-                > [!NOTE]  
-                >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+            -   **Struktur** : Wählen Sie aus der Liste die Registrierungsstruktur aus, die durchsucht werden soll.  
 
-             Vous pouvez également cliquer sur **Parcourir** pour accéder à un emplacement de Registre sur l’ordinateur ou sur un ordinateur distant. Pour rechercher un ordinateur distant, vous devez disposer des droits d'administrateur sur l'ordinateur distant et l'ordinateur distant doit exécuter le service Registre distant.  
+            -   **Schlüssel** : Geben Sie den Namen des Registrierungsschlüssels an, nach dem gesucht werden soll. Verwenden Sie das Format *schlüssel\unterschlüssel*.  
 
-        -   **Script**  
-
-            -   **Script de découverte** : cliquez sur **Ajouter** pour entrer ou rechercher le script que vous souhaitez utiliser. Vous pouvez utiliser des scripts Windows PowerShell, VBScript ou Microsoft JScript.  
-
-            -   **Exécuter des scripts avec les informations d’identification d’utilisateur dont la session est ouverte** : si vous activez cette option, le script s’exécute sur les ordinateurs clients qui utilisent les informations d’identification des utilisateurs connectés.  
+            -   **Dieser Registrierungsschlüssel ist einer 64-Bit-Anwendung zugeordnet** -gibt an, ob die 64-Bit-Registrierungsschlüssel zusätzlich zu den 32-Bit-Registrierungsschlüsseln auf Clients durchsucht werden sollen, die eine 64-Bit-Version von Windows ausgeführt werden.  
 
                 > [!NOTE]  
-                >  La valeur renvoyée par le script est utilisée pour évaluer la compatibilité de la condition globale. Par exemple, quand vous utilisez VBScript, vous pouvez utiliser la commande **WScript.Echo Result** pour renvoyer la valeur de la variable *Result* vers la condition globale.  
+                >  Wenn derselbe Registrierungsschlüssel sowohl in der 64-Bit-Registrierung als auch in der 32-Bit-Registrierung desselben 64-Bit-Computers vorhanden ist, werden von der globalen Bedingung beide Registrierungsschlüssel ermittelt.  
 
-        -   **Requête SQL**  
+        -   **Registrierungswert**  
 
-            -   **Instance SQL Server** : indiquez si vous préférez que la requête SQL soit exécutée sur l'instance par défaut, sur toutes les instances ou sur le nom d'une instance de base de données spécifique.  
+            -   **Struktur** : Wählen Sie aus der Liste die Registrierungsstruktur aus, die durchsucht werden soll.  
+
+            -   **Schlüssel** : Geben Sie den Namen des Registrierungsschlüssels an, nach dem gesucht werden soll. Verwenden Sie das Format *schlüssel\unterschlüssel*.  
+
+            -   **Wert** : Geben Sie den Wert an, der im angegebenen Registrierungsschlüssel enthalten sein muss.  
+
+            -   **Dieser Registrierungsschlüssel ist einer 64-Bit-Anwendung zugeordnet** : Gibt an, ob auf Clients mit einer 64-Bit-Version von Windows die 64-Bit-Registrierungsschlüssel zusätzlich zu den 32-Bit-Registrierungsschlüsseln gesucht werden sollen.  
 
                 > [!NOTE]  
-                >  Le nom de l'instance doit faire référence à une instance locale de SQL Server. Pour faire référence à une instance SQL Server en cluster, utilisez plutôt un paramètre de script.  
+                >  Wenn derselbe Registrierungsschlüssel sowohl in der 64-Bit-Registrierung als auch in der 32-Bit-Registrierung desselben 64-Bit-Computers vorhanden ist, werden von der globalen Bedingung beide Registrierungsschlüssel ermittelt.  
 
-            -   **Base de données** -spécifiez le nom de la base de données Microsoft SQL Server sur lequel vous souhaitez exécuter la requête SQL.  
+             Sie können auch auf **Durchsuchen** klicken, um zu einem Registrierungspfad auf dem Computer oder einem Remotecomputer zu navigieren. Um einen Remotecomputer zu durchsuchen, benötigen Sie Administratorrechte auf dem Remotecomputer, und der Remotecomputer muss den Remoteregistrierungsdienst ausgeführt werden.  
 
-            -   **Colonne** -Indiquez le nom de la colonne renvoyée par l'instruction Transact-SQL qui est utilisée pour évaluer la conformité de la condition globale.  
+        -   **Skript**  
 
-            -   **Instruction Transact-SQL** : permet d'indiquer la requête SQL complète que vous souhaitez utiliser pour la condition globale. Vous pouvez également cliquer sur **Ouvrir** pour ouvrir une requête SQL existante.  
+            -   **Ermittlungsskript** – klicken Sie auf **Hinzufügen** , um ein zu verwendendes Skript einzugeben oder zu suchen. Sie können Windows PowerShell, VBScript oder Microsoft JScript-Skripts verwenden.  
+
+            -   **Skripts durch Verwendung der Anmeldeinformationen angemeldeter Benutzer ausführen** : Wenn Sie diese Option aktivieren, wird das Skript auf Clientcomputern ausgeführt, die die Anmeldeinformationen der angemeldeten Benutzer verwenden.  
+
+                > [!NOTE]  
+                >  Der Wert, der vom Skript zurückgegeben wird, wird zur Bewertung der Kompatibilität der globalen Bedingung verwendet. Bei der Verwendung von VBScript können Sie beispielsweise den Befehl **WScript.Echo Result** verwenden, um den Wert der *Result* -Variablen an die globale Bedingung zurückzugeben.  
+
+        -   **SQL-Abfrage**  
+
+            -   **SQL Server-Instanz** – Wählen Sie aus, ob die SQL-Abfrage auf der Standardinstanz, allen Instanzen oder einem bestimmten Datenbankinstanznamen ausgeführt werden soll.  
+
+                > [!NOTE]  
+                >  Der Instanzname muss sich auf eine lokale Instanz von SQL Server beziehen. Verwenden Sie eine Skripteinstellung, um sich auf eine gruppierte SQL-Serverinstanz zu beziehen.  
+
+            -   **Datenbank** – Geben Sie den Namen der Microsoft SQL Server-Datenbank für die SQL-Abfrage ausgeführt werden soll.  
+
+            -   **Spalte** – Geben Sie den Namen der Spalte zurückgegeben, die von der Transact-SQL-Anweisung, die zur Bewertung der Kompatibilität der globalen Bedingung verwendet.  
+
+            -   **Transact-SQL-Anweisung** – Geben Sie die vollständige SQL-Abfrage an, die Sie für die globale Bedingung verwenden möchten. Sie können zum Öffnen einer vorhandenen SQL-Abfrage auch auf **Öffnen** klicken.  
 
                 > [!IMPORTANT]  
-                >  Les paramètres de requête SQL ne prennent pas en charge les commandes SQL qui modifient la base de données. Vous pouvez uniquement utiliser les commandes SQL qui lisent des informations à partir de la base de données.  
+                >  SQL-Abfrageeinstellungen unterstützen keine SQL-Befehle, durch die die Datenbank geändert wird. Sie können nur SQL-Befehle verwenden, mit denen Informationen aus der Datenbank gelesen werden.  
 
-        -   **Requête WQL**  
+        -   **WQL-Abfrage**  
 
-            -   **Espace de noms** -spécifiez l'espace de noms Windows Management Instrumentation (WMI) qui est utilisé pour créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients. La valeur par défaut est Root\cimv2.  
+            -   **Namespace** – Geben Sie den Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI)-Namespace dient zum Erstellen einer WQL-Abfrage, deren Kompatibilität auf Clientcomputern bewertet wird. Der Standardwert ist "Root\cimv2".  
 
-            -   **Classe** -spécifie la classe WMI qui permet de créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients.  
+            -   **Klasse** -gibt die WMI-Klasse dient zum Erstellen einer WQL-Abfrage, deren Kompatibilität auf Clientcomputern bewertet wird.  
 
-            -   **Propriété** -spécifie la propriété WMI qui permet de créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients.  
+            -   **Eigenschaft** -gibt die WMI-Eigenschaft dient zum Erstellen einer WQL-Abfrage, deren Kompatibilität auf Clientcomputern bewertet wird.  
 
-            -   **Clause WHERE de la requête WQL** : vous pouvez utiliser l'élément **Clause WHERE de la requête WQL** pour indiquer la clause WHERE à appliquer à l'espace de noms, à la classe et à la propriété spécifiés sur les ordinateurs clients.  
+            -   **WQL-Abfrage, WHERE-Klausel** : Mithilfe des Elements **WQL-Abfrage, WHERE-Klausel** können Sie eine WHERE-Klausel angeben, die auf Clientcomputern auf den angegebenen Namespace, die Klasse und die Eigenschaft angewendet wird.  
 
-        -   **Requête XPath**  
+        -   **XPath-Abfrage**  
 
-            -   **Chemin** : spécifiez le chemin du fichier .xml sur les ordinateurs clients utilisé pour évaluer la compatibilité. Configuration Manager prend en charge l’utilisation de toutes les variables d’environnement système Windows et de la variable utilisateur *% USERPROFILE%* dans le nom de chemin.  
+            -   **Pfad** – Geben Sie den Pfad zur XML-Datei auf Clientcomputern an, die zur Bewertung der Kompatibilität verwendet wird. Configuration Manager unterstützt im Pfadnamen die Verwendung aller Windows-Systemumgebungsvariablen und der Benutzervariablen *%USERPROFILE%*.  
 
-            -   **Nom du fichier XML** -spécifier le nom du fichier contenant la requête XML qui est utilisée pour évaluer la conformité sur les ordinateurs clients.  
+            -   **XML-Dateiname** – Geben Sie den Dateinamen, die mit der XML-Abfrage, die zur Bewertung der Kompatibilität auf Clientcomputern verwendet wird.  
 
-            -   **Inclure les sous-dossiers** : activez cette option si vous voulez également rechercher dans tous les sous-dossiers sous le chemin spécifié.  
+            -   **Unterordner einschließen** – Aktivieren Sie diese Option, wenn auch Unterordner unter dem angegebenen Pfad durchsucht werden sollen.  
 
-            -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\System32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\Syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
+            -   **Diese Datei ist mit einer 64-Bit-Anwendung verknüpft** – Geben Sie an, ob der Speicherort der 64-Bit-Systemdatei (*%windir%*\System32) zusätzlich zum Speicherort der 32-Bit-Systemdatei (*%windir%*\Syswow64) auf Configuration Manager-Clients durchsucht werden soll, auf denen eine 64-Bit-Version von Windows ausgeführt wird.  
 
-            -   **Requête XPath** -spécifier une valide complet requête XML path language (XPath) qui est utilisée pour évaluer la conformité sur les ordinateurs clients.  
+            -   **XPath-Abfrage** – Geben Sie eine gültige vollständige XML Path Language (XPath)-Abfrage, die zur Bewertung der Kompatibilität auf Clientcomputern verwendet wird.  
 
-            -   **Espaces de noms** : ouvre la boîte de dialogue **Espaces de noms XML** pour identifier les espaces de noms et les préfixes à utiliser pendant la requête XPath.  
+            -   **Namespaces** – öffnet das Dialogfeld **XML-Namespaces** zum Identifizieren von Namespaces und Präfixen, die bei der XPath-Abfrage verwendet werden sollen.  
 
-             Si vous tentez de détecter un fichier .xml chiffré, les paramètres de compatibilité trouvent le fichier, mais la requête XPath ne produit aucun résultat, et aucune erreur n’est générée.  
+             Wenn Sie versuchen, eine verschlüsselte XML-Datei zu ermitteln, wird diese Datei zwar durch die Kompatibilitätseinstellungen gefunden, die XPath-Abfrage führt jedoch zu keinen Ergebnissen. Es wird auch kein Fehler generiert.  
 
-             Si la requête XPath n’est pas valide, le paramètre est évalué comme étant non compatible sur les ordinateurs clients.  
+             Wenn die XPath-Abfrage ungültig ist, wird die Einstellung auf Clientcomputern als nicht kompatibel bewertet.  
 
-    -   **Type de données :** dans la liste, choisissez le format dans lequel la condition retourne les données avant de les utiliser pour évaluer le paramètre. Le **type de données** liste n'est pas affichée pour tous les types de paramètre.  
+    -   **Datentyp** : Wählen Sie aus der Liste das Format aus, in dem die Daten von der Bedingung zurückgegeben werden, bevor sie zum Bewerten der Einstellung verwendet werden. Die **Datentyp** Liste ist nicht für alle Einstellungstypen angezeigt.  
 
         > [!NOTE]  
-        >  Le type de données **Virgule flottante** prend en charge uniquement 3 chiffres après la virgule décimale.  
+        >  Vom Datentyp **Gleitkomma** werden nur 3 Ziffern nach dem Dezimalkomma unterstützt.  
 
-3.  Configurer des détails supplémentaires sur ce paramètre sous la **définition de type** liste. Les éléments que vous pouvez configurer varient selon le type de paramètre que vous avez sélectionné.  
+3.  Konfigurieren Sie zusätzliche Details zu dieser Einstellung unter der **Einstellungstyp** Liste. Die Elemente, die Sie konfigurieren können, variiert je nach Einstellung, die Sie ausgewählt haben.  
 
     > [!NOTE]  
-    >  Lorsque vous créez des paramètres de type **système de fichiers**, **clé de Registre**, et **valeur de Registre**, vous pouvez cliquer sur **Parcourir** pour configurer le paramètre à partir de valeurs sur un ordinateur de référence. Pour accéder à une clé de Registre ou une valeur sur un ordinateur distant, l'ordinateur distant doit avoir le service Registre distant est activé.  
+    >  Beim Erstellen von Einstellungen des Typs **Dateisystem**, **Registrierungsschlüssel**, und **Registrierungswert**, klicken Sie auf **Durchsuchen** die Einstellung von Werten auf einem Referenzcomputer zu konfigurieren. Um einen Registrierungsschlüssel oder-Wert auf einem Remotecomputer zu suchen, muss der Remotecomputer den Remoteregistrierungsdienst aktiviert haben.  
 
-4.  Cliquez sur **OK** pour enregistrer le paramètre et fermer la boîte de dialogue **Créer un paramètre** .  
+4.  Klicken Sie auf **OK** , um die Einstellung zu speichern, und schließen Sie das Dialogfeld **Einstellung erstellen** .  
 
-##  <a name="configure-compliance-rules"></a>Configurer des règles de compatibilité  
- Procédez comme suit pour configurer des règles de compatibilité pour l'élément de configuration.  
+##  <a name="configure-compliance-rules"></a>Konfigurieren von Kompatibilitätsregeln  
+ Gehen Sie wie folgt vor, um Kompatibilitätsregeln für das Konfigurationselement zu konfigurieren.  
 
- Les règles de compatibilité spécifient les critères qui définissent la compatibilité d'un élément de configuration. Avant que la compatibilité d'un paramètre puisse être évaluée, celui-ci doit comporter au moins une règle de compatibilité. WMI, Registre et les paramètres de script vous permettent de corriger les valeurs qui sont identifiés comme étant non conforme. Vous pouvez créer de nouvelles règles ou accédez à un paramètre existant dans n'importe quel élément de configuration pour sélectionner les règles qu'il contient.  
+ Mit Kompatibilitätsregeln werden die Bedingungen angegeben, mit denen die Kompatibilität eines Konfigurationselements definiert wird. Damit eine Einstellung auf Kompatibilität bewertet werden kann, muss sie über mindestens eine Kompatibilitätsregel verfügen. WMI, Registrierung und skripteinstellungen können Sie die Werte zu beheben, die gefunden werden, nicht kompatibel ist. Sie können neue Regeln erstellen oder suchen Sie eine vorhandene Einstellung innerhalb eines beliebigen Konfigurationselements auf Regeln aktivieren.  
 
-### <a name="to-create-a-compliance-rule"></a>Pour créer une règle de compatibilité  
+### <a name="to-create-a-compliance-rule"></a>So erstellen Sie eine Kompatibilitätsregel  
 
-1.  Sur la page **Règles de compatibilité** de l' **Assistant Création d'élément de configuration**, cliquez sur **Nouveau**.  
+1.  Klicken Sie im **Assistenten zum Erstellen von Konfigurationselementen** auf der Seite **Kompatibilitätsregeln**auf **Neu**.  
 
-2.  Dans la boîte de dialogue **Créer une règle** , indiquez les informations suivantes :  
+2.  Geben Sie im Dialogfeld **Regel erstellen** die folgenden Informationen an:  
 
-    -   **Nom :** Entrez un nom pour la règle de conformité.  
+    -   **Name:** Geben Sie einen Namen für die Kompatibilitätsregel ein.  
 
-    -   **Description :** Entrez une description pour la règle de conformité.  
+    -   **Beschreibung:** Geben Sie eine Beschreibung für die Kompatibilitätsregel ein.  
 
-    -   **Paramètre sélectionné :** Cliquez sur **Parcourir** pour ouvrir le **Sélectionner le paramètre** boîte de dialogue. Sélectionnez le paramètre que vous souhaitez définir une règle, ou cliquez sur **nouveau paramètre**. Lorsque vous avez terminé, cliquez sur **Sélectionner**.  
+    -   **Ausgewählte Einstellung:** Klicken Sie auf **Durchsuchen** So öffnen die **Einstellung auswählen** (Dialogfeld). Wählen Sie die Einstellung, die Sie verwenden möchten, eine Regel definieren, oder klicken Sie auf **neue Einstellung**. Klicken Sie dann auf **Auswählen**.  
 
         > [!NOTE]  
-        >  Vous pouvez également cliquer sur **Propriétés** pour afficher des informations sur le paramètre actuellement sélectionné.  
+        >  Sie können zum Anzeigen von Informationen über die derzeit ausgewählte Einstellung auch auf **Eigenschaften** klicken.  
 
-    -   **Type de règle :** Sélectionnez le type de règle de compatibilité que vous souhaitez utiliser :  
+    -   **Regeltyp:** Wählen Sie den Typ der Compliance-Regel, die Sie verwenden möchten:  
 
-        -   **Valeur** créer une règle qui compare la valeur renvoyée par l'élément de configuration par rapport à une valeur que vous spécifiez.  
+        -   **Wert** erstellen Sie eine Regel, die den Rückgabewert von das Konfigurationselement mit einem von Ihnen angegebenen Wert vergleicht.  
 
-        -   **Existentiel** créer une règle qui évalue le paramètre, selon qu'elle existe sur un périphérique client ou sur le nombre de fois où il se trouve.  
+        -   **Existenziell** erstellen Sie eine Regel, die ausgewertet wird die Einstellung abhängig davon, ob es vorhanden ist, auf einem Client-Gerät oder an, wie oft sie gefunden wird.  
 
-    -   Pour un type de règle **Valeur**, spécifiez les informations suivantes :  
+    -   Geben Sie für eine Regel des Typs **Wert**die folgenden Informationen an:  
 
-        -   **Le paramètre doit respecter la règle suivante** – sélectionnez un opérateur et une valeur d'évaluation de la compatibilité avec le paramètre sélectionné. Vous pouvez utiliser les opérateurs suivants :  
+        -   **Die Einstellung muss die folgende Regel entsprechen** – wählen Sie einen Operator und einen Wert, der mit der ausgewählten Einstellung auf Kompatibilität bewertet wird. Folgende Operatoren können verwendet werden:  
 
-            |Opérateur|Plus d'informations|  
+            |Operator|Weitere Informationen|  
             |--------------|----------------------|  
-            |Égal à|Aucune information supplémentaire|  
-            |N'est pas égal à|Aucune information supplémentaire|  
-            |Supérieur à|Aucune information supplémentaire|  
-            |Inférieur à|Aucune information supplémentaire|  
-            |Entre|Aucune information supplémentaire|  
-            |Supérieur ou égal à|Aucune information supplémentaire|  
-            |Inférieur ou égal à|Aucune information supplémentaire|  
-            |L'un des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
-            |Aucun des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
+            |Gleich|keine zusätzlichen Informationen|  
+            |Ungleich|keine zusätzlichen Informationen|  
+            |Größer als|keine zusätzlichen Informationen|  
+            |Kleiner als|keine zusätzlichen Informationen|  
+            |Zwischen|keine zusätzlichen Informationen|  
+            |Größer als oder gleich|keine zusätzlichen Informationen|  
+            |Kleiner als oder gleich|keine zusätzlichen Informationen|  
+            |Eine von|Geben Sie im Textfeld pro Zeile einen Eintrag an.|  
+            |Keine von|Geben Sie im Textfeld pro Zeile einen Eintrag an.|  
 
-        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles. Configuration Manager.peut corriger automatiquement les types de règles suivants :  
+        -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird** : Wählen Sie diese Option aus, wenn nicht kompatible Regeln von Configuration Manager automatisch wiederhergestellt werden sollen. Von Configuration Manager können automatisch folgende Regeltypen behoben werden:  
 
-            -   **Valeur de Registre** – la valeur de Registre est mis à jour si elle est non conforme et créé s'il n'existe pas.  
+            -   **Registrierungswert** – der Registrierungswert wurde wiederhergestellt, wenn er nicht konform ist, ist und erstellt, wenn er nicht vorhanden ist.  
 
-            -   **Script** (en exécutant automatiquement un script de correction).  
+            -   **Skript** – (durch das automatische Ausführen eines Wiederherstellungsskripts)  
 
-            -   **Requête WQL**  
+            -   **WQL-Abfrage**  
 
             > [!IMPORTANT]  
-            >  Vous ne pouvez corriger que les règles non compatibles lorsque l'opérateur de règle est défini sur **Égal à**.  
+            >  Sie können nicht kompatible Regeln nur wiederherstellen, wenn der Regeloperator auf **Ist gleich**festgelegt ist.  
 
-        -   **Rapport de non-conformité si cette définition de l'instance est introuvable** : l'élément de configuration des rapports non-conformité si ce paramètre n'est pas disponible sur les ordinateurs clients.  
+        -   **Nichtkompatibilität gemeldet, wenn diese Einstellung nicht gefunden wird** – das Konfigurationselement meldet Nichtkompatibilität, wenn diese Einstellung nicht auf Clientcomputern gefunden wird.  
 
-        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Schweregrad der Nichtkompatibilität für Berichte:** Geben Sie den Schweregrad an, der in Configuration Manager-Berichten gemeldet wird, wenn bei dieser Kompatibilitätsregel ein Fehler auftritt. Die folgenden Schweregrade sind verfügbar:  
 
-            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
+            -   **Keine** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad gemeldet.  
 
-            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
+            -   **Informationen** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Informationen** gemeldet.  
 
-            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
+            -   **Warnung** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** gemeldet.  
 
-            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
+            -   **Kritisch** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** gemeldet.  
 
-            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+            -   **Kritisch mit Ereignis** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
 
-        -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
+        -   Geben Sie für eine Regel des Typs **Existenziell**die folgenden Informationen an:  
 
             > [!NOTE]  
-            >  Les options affichées peuvent varier selon le type de paramètre pour lequel vous configurez une règle.  
+            >  Die angezeigten Optionen sind möglicherweise unterschiedlich, je nach Einstellungstyp, für den Sie eine Regel konfigurieren.  
 
-            -   **Le paramètre doit exister sur les appareils clients**  
+            -   **Diese Einstellung muss auf Clientgeräten vorhanden sein.**  
 
-            -   **Le paramètre ne doit pas exister sur les appareils clients**  
+            -   **Diese Einstellung darf auf Clientgeräten nicht vorhanden sein.**  
 
-            -   **Le paramètre se produit le nombre de fois suivant :**  
+            -   **Häufigkeit des Auftretens dieser Einstellung:**  
 
-        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Schweregrad der Nichtkompatibilität für Berichte:** Geben Sie den Schweregrad an, der in Configuration Manager-Berichten gemeldet wird, wenn bei dieser Kompatibilitätsregel ein Fehler auftritt. Die folgenden Schweregrade sind verfügbar:  
 
-            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
+            -   **Keine** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad gemeldet.  
 
-            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
+            -   **Informationen** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Informationen** gemeldet.  
 
-            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
+            -   **Warnung** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** gemeldet.  
 
-            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
+            -   **Kritisch** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** gemeldet.  
 
-            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+            -   **Kritisch mit Ereignis** – Von Computern, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
 
-3.  Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une règle** .  
+3.  Klicken Sie auf **OK** , um das Dialogfeld **Regel erstellen** zu schließen.  
 
-##  <a name="specify-supported-platforms"></a>Spécifier les plateformes prises en charge  
- Les plateformes prises en charge sont les systèmes d’exploitation sur lesquels la compatibilité d’un élément de configuration est évaluée.  
+##  <a name="specify-supported-platforms"></a>Angeben unterstützter Plattformen  
+ Unterstützte Plattformen sind die Betriebssysteme, auf denen die Kompatibilität von Konfigurationselementen bewertet wird.  
 
-Dans la page **Plateformes prises en charge** de l’ **Assistant Création d’élément de configuration**, dans la liste, sélectionnez les versions Windows sur lesquelles vous voulez évaluer la compatibilité de l’élément de configuration ou cliquez sur **Sélectionner tout**.  
+Wählen Sie aus der Liste auf der Seite **Unterstützte Plattformen** des **Assistenten zum Erstellen von Konfigurationselementen**die Windows-Versionen aus, auf denen die Kompatibilität des Konfigurationselements bewertet werden soll, oder klicken Sie auf **Alle auswählen**.  
 
-## <a name="complete-the-wizard"></a>Effectuer toutes les étapes de l'Assistant  
- Dans la page **Résumé** de l’Assistant, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouvel élément de configuration est affiché dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité**.  
-
+## <a name="complete-the-wizard"></a>Abschließen des Assistenten  
+ Überprüfen Sie auf der Seite **Zusammenfassung** des Assistenten die auszuführenden Aktionen, und schließen Sie dann den Assistenten ab. Das neue Konfigurationselement wird angezeigt, der **Konfigurationselemente** Knoten in der **Bestand und Kompatibilität** Arbeitsbereich.  

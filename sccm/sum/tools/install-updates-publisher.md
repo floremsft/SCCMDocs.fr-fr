@@ -1,126 +1,123 @@
 ---
-title: "Installer l’éditeur de mise à jour | Microsoft Docs"
-description: "Installer l'éditeur de mise à jour System Center"
+title: Installieren von Updates Publisher | Microsoft-Dokumentation
+description: Installieren von System Center Updates Publisher in der Umgebung
 ms.custom: na
 ms.date: 07/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ab5cda93-b67c-4aa5-904d-7b63ce790aa0
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 70772ba7d08560aa66abcce29dc6cc6334aa2032
-ms.openlocfilehash: 63ea0383497a3f06870c0907c732010259d1a809
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/03/2017
-
+ms.openlocfilehash: 5c95a8b99b91531773392a77d25377465079b070
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-updates-publisher"></a>Installer l'éditeur de mise à jour
+# <a name="install-updates-publisher"></a>Installieren von Updates Publisher
 
-*S’applique à : l'éditeur de mise à jour System Center*
+*Gilt für: System Center Updates Publisher*
 
-Les informations de cette rubrique peuvent vous aider à obtenir, installer et configurer l’éditeur de mise à jour pour une utilisation avec votre environnement.
+Mithilfe der Informationen in diesem Thema können Sie Updates Publisher abrufen, installieren und für die Verwendung in Ihrer Umgebung einrichten.
 
 
-## <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
-Les sections suivantes détaillent la configuration requise pour installer et utiliser l’éditeur de mise à jour ainsi que limitations ou problèmes connus liés à son utilisation.
+## <a name="prerequisites-and-limitations"></a>Voraussetzungen und Einschränkungen
+Die folgenden Abschnitte enthalten Informationen über die Anforderungen zur Installation und Verwendung von Updates Publisher sowie Einschränkungen und bekannte Probleme für die Verwendung.
 
-### <a name="operating-systems"></a>Systèmes d'exploitation
-Installez et exécutez l’éditeur de mise à jour sur des éditions 64 bits des systèmes d’exploitation suivants. Il n’existe aucune condition préalable minimale pour les mises à jour cumulatives ou les Service Pack.
+### <a name="operating-systems"></a>Betriebssysteme
+Installieren Sie Updates Publisher auf einer 64-Bit-Version von folgenden Betriebssystemen und führen Sie es aus. Es gibt keine Mindestanforderungen in Bezug auf kumulative Updates oder Service Packs.
 
 -   Windows Server 2016 (Standard, Datacenter)
 -   Windows Server 2012 R2 (Standard, Datacenter)
--   Windows 10 (Professionnel, Éducation, Professionnel Éducation, Entreprise)
--   Windows 8.1 (Professionnel, Entreprise)
+-   Windows 10 (Pro, Education, Pro Education, Enterprise)
+-   Windows 8.1 (Professional, Enterprise)
 
-### <a name="prerequisites"></a>Conditions préalables
-Les éléments suivants sont requis sur l’ordinateur qui exécute l’éditeur de mise à jour.
+### <a name="prerequisites"></a>Voraussetzungen
+Die folgenden Voraussetzungen gelten für Computer, auf denen Updates Publisher ausgeführt wird.
 
--   **Système d’exploitation 64 bits**: l’ordinateur sur lequel vous installez l’éditeur de mise à jour doit exécuter un système d’exploitation 64 bits.
--   **WSUS 4.0 ou version ultérieure** :
-    -   Sur Windows Server, installez la console d’administration par défaut pour répondre à cette exigence.
-    -   Pour Windows 10 et Windows 8.1, installez [Remote Server Administration Tools (RSAT) pour les systèmes d’exploitation Windows](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems). Cette opération installe la prise en charge nécessaire pour utiliser l’éditeur de mise à jour (*applets de commande PowerShell et API*, et *Console de gestion de l’interface utilisateur*).
--   **Autorisations** :
-    -   Installation : administrateur local
-    -   La plupart des opérations : utilisateur local
-    -   Publication ou opérations impliquant WSUS : membre du groupe Administrateurs WSUS sur le serveur WSUS.
+-   **64-Bit-Betriebssystem**: Auf dem Computer, auf dem Sie Updates Publisher installieren, muss ein 64-Bit-Betriebssystem ausgeführt werden.
+-   **WSUS 4.0 oder höher**:
+    -   Installieren Sie auf Windows Server die standardmäßige Verwaltungskonsole, um diese Anforderung zu erfüllen.
+    -   Installieren Sie für Windows 10 und Windows 8.1 die [Remoteserver-Verwaltungstools (Remote Server Administration Tools, RSAT) für Windows-Betriebssysteme](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems). Hierdurch werden die benötigten Supportdateien für die Verwendung von Updates Publisher (*API und PowerShell-Cmdlets* sowie *Benutzeroberfläche der Verwaltungskonsole*) installiert.
+-   **Berechtigungen**:
+    -   Installation: Lokaler Administrator
+    -   Großteil der Vorgänge: Lokaler Benutzer
+    -   Veröffentlichung oder Vorgänge mit WSUS: Mitglied der WSUS-Administratorengruppe auf dem WSUS-Server.
 
-### <a name="supported-languages"></a>Langues prises en charge
-L’éditeur de mise à jour est disponible uniquement en anglais mais peut gérer les mises à jour pour d’autres langues. La prise en charge de la langue dépend de la tâche, par exemple la publication, la création ou la modification de mises à jour.
+### <a name="supported-languages"></a>Unterstützte Sprachen
+Updates Publisher ist nur in Englisch verfügbar, kann jedoch Updates für andere Sprachen verwalten. Die Sprachunterstützung hängt von der Aufgabe ab, z.B. Veröffentlichen, Erstellen oder Bearbeiten von Updates.
 
-Lors de l’exportation ou de la publication de mises à jour, l’éditeur de mise à jour affiche le titre et la description de la mise à jour en fonction des paramètres régionaux de l’ordinateur sur lequel l’éditeur de mise à jour est installé.
+Beim Exportieren oder Veröffentlichen von Updates zeigt Updates Publisher den Titel und die Beschreibung des Softwareupdates basierend auf dem Gebietsschema des Computers an, auf dem Updates Publisher installiert ist.
 
-Par exemple, vous créez une mise à jour logicielle avec un titre en anglais et en espagnol.
+Beispiel: Sie erstellen ein Softwareupdate mit einem englisch- und spanischsprachigen Titel.
 
--   Si vous créez la mise à jour sur un ordinateur dont les paramètres régionaux sont définis sur Anglais, par défaut, le titre et la description s’affichent en anglais.
--   Si vous exportez ou publiez ensuite cette mise à jour sur un ordinateur dont les paramètres régionaux sont définis sur Espagnol, le titre et la description apparaissent en espagnol sur cet ordinateur.
+-   Wenn Sie das Update auf einem Computer erstellen, dessen Gebietsschema Englisch ist, sehen Sie den Titel und die Beschreibung standardmäßig in englischer Sprache.
+-   Wenn Sie das Update anschließend auf einen Computer exportieren oder auf einem Computer veröffentlichen, dessen Gebietsschema Spanisch ist, würde Sie auf diesem Computer Titel und Beschreibung in spanischer Sprache sehen.
 
-### <a name="publishing"></a>Publication
-Lorsque vous publiez des mises à jour logicielles, vous pouvez spécifier la langue du fichier binaire de la mise à jour logicielle. Vous pouvez également spécifier que le fichier binaire est indépendant de la langue. Les langues suivantes sont prises en charge :
+### <a name="publishing"></a>Veröffentlichung
+Bei der Veröffentlichung von Softwareupdates können Sie die Sprache der Softwareupdate-Binärdatei angeben. Sie können auch angeben, dass die Binärdatei sprachneutral ist. Folgende Sprachen werden unterstützt:
 
--   Arabe
--   Chinois (Hong Kong)
--   Chinois (traditionnel)
--   Chinois (simplifié)
--   Tchèque
--   Danois
--   Néerlandais
--   Anglais
--   Finnois
--   Français
--   Allemand
--   Grec
--   Hébreu
--   Hongrois
--   Italien
--   Japonais
--   Coréen
--   Norvégien
--   Polonais
--   Portugais
--   Portugais (Brésil)
--   Russe
--   Espagnol
--   Suédois
--   Turc
+-   Arabisch
+-   Chinesisch (Hongkong SAR)
+-   und SharePoint 2010 angezeigten Optionen
+-   Chinesisch (vereinfacht)
+-   Tschechisch
+-   Dänisch
+-   Niederländisch
+-   Englisch
+-   Finnisch
+-   Französisch
+-   Deutsch
+-   Griechisch
+-   Hebräisch
+-   Ungarisch
+-   Italienisch
+-   Japanisch
+-   Koreanisch
+-   Norwegisch
+-   Polnisch
+-   Portugiesisch
+-   Portugiesisch (Brasilien)
+-   Russisch
+-   Spanisch
+-   Schwedisch
+-   Türkisch
 
-### <a name="software-update-titles-and-descriptions"></a>Titres et descriptions des mises à jour logicielles
-Les langues suivantes sont prises en charge pour les titres et les descriptions des mises à jour logicielles.
+### <a name="software-update-titles-and-descriptions"></a>Titel und Beschreibung von Softwareupdates
+Für Titel und Beschreibungen von Softwareupdates werden folgende Sprachen unterstützt.
 
--   Chinois (traditionnel)
--   Chinois (simplifié)
--   Anglais
--   Français
--   Allemand
--   Italien
--   Japonais
--   Coréen
--   Portugais (Brésil)
--   Russe
--   Espagnol
+-   und SharePoint 2010 angezeigten Optionen
+-   Chinesisch (vereinfacht)
+-   Englisch
+-   Französisch
+-   Deutsch
+-   Italienisch
+-   Japanisch
+-   Koreanisch
+-   Portugiesisch (Brasilien)
+-   Russisch
+-   Spanisch
 
 
 
-## <a name="install-updates-publisher"></a>Installer l'éditeur de mise à jour
-Obtenez le fichier **UpdatesPubliser.msi** pour installer l’éditeur de mise à jour System Center à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?linkid=847967).
+## <a name="install-updates-publisher"></a>Installieren von Updates Publisher
+Rufen Sie die Datei **UpdatesPubliser.msi** zur Installation von System Center Updates Publisher über das [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=847967) ab.
 
-Pour installer l’éditeur de mise à jour, exécutez le fichier **UpdatesPublisher.msi** sur un ordinateur remplissant les *conditions préalables*. Le programme d’installation crée le dossier suivant contenant les fichiers nécessaires pour exécuter l’éditeur de mise à jour : *&lt;chemin&gt;\Program Files\Microsoft\UpdatesPublisher*.
+Führen Sie zur Installation von Updates Publisher **UpdatesPublisher.msi** auf einem Computer aus, der die *Voraussetzungen* erfüllt. Das Installationsprogramm erstellt den folgenden Ordner, der die erforderlichen Dateien zum Ausführen von Updates Publisher enthält: *&lt;path&gt;\Program Files\Microsoft\UpdatesPublisher*.
 
-Comme ce dossier contient tous les fichiers nécessaires pour utiliser l’éditeur de mise à jour, vous pouvez copier le dossier et son contenu vers un nouvel emplacement ou ordinateur, puis utiliser l’éditeur de mise à jour depuis cet emplacement. Toutefois, le nouvel emplacement ou ordinateur doit remplir les conditions requises pour exécuter l’éditeur de mise à jour.
+Da dieser Ordner alle Dateien enthält, die zur Verwendung von Updates Publisher erforderlich sind, können Sie den Ordner und dessen Inhalte an einem neuen Speicherort oder auf einen anderen Computer kopieren und Updates Publisher dann von diesem Speicherort aus verwenden. Der neue Speicherort bzw. der andere Computer muss jedoch die Voraussetzung zum Ausführen von Updates Publisher erfüllen.
 
-Une fois l’installation terminée, exécutez le fichier **UpdatesPublisher.exe** depuis le dossier *UpdatesPublisher* pour démarrer l’éditeur de mise à jour.
+Um Updates Publisher zu starten, führen Sie nach der Installation **UpdatesPublisher.exe** im *UpdatesPublisher*-Ordner aus.
 
-## <a name="next-steps"></a>Étapes suivantes
- Après avoir installé l’éditeur de mise à jour, nous vous recommandons de [configurer ses options](updates-publisher-options.md). Vous devez configurer quelques options avant de pouvoir utiliser certaines fonctionnalités de l’éditeur de mise à jour.
+## <a name="next-steps"></a>Nächste Schritte
+ Es wird empfohlen, nach der Installation von Updates Publisher die [Optionen für Updates Publisher zu konfigurieren](updates-publisher-options.md). Bevor Sie bestimmte Funktionen von Updates Publisher verwenden können, müssen Sie einige Optionen konfigurieren.
 
- Toutefois, si vous souhaitez utiliser les valeurs par défaut et n’envisagez pas de déployer des mises à jour sur un serveur de mise à jour ou sur des appareils gérés, vous pouvez passer directement à la [gestion des catalogues de mises à jour logicielles](updates-publisher-catalogs.md) ou à la [création de mises à jour logicielles](create-updates-with-updates-publisher.md) et créer vos propres catalogues de mises à jour.
-
+ Wenn Sie jedoch die Standardwerte verwenden möchten und nicht die Bereitstellung von Updates auf einem Updateserver oder auf verwalteten Geräten planen, können Sie direkt mit [Verwalten von Softwareupdatekatalogen](updates-publisher-catalogs.md) oder [Erstellen von Softwareupdates](create-updates-with-updates-publisher.md) fortfahren und eigenständig Updatekataloge erstellen.
 

@@ -1,528 +1,525 @@
 ---
-title: "Méthodes de découverte | Microsoft Docs"
+title: Ermittlungsmethoden | Microsoft-Dokumentation
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed931751-18f2-4230-a09e-a0a329fbfa1c
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 442e5e1fbddd00248819a8de79adc78929474fc0
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-discovery-methods-for-system-center-configuration-manager"></a>À propos des méthodes de découverte pour System Center Configuration Manager
+# <a name="about-discovery-methods-for-system-center-configuration-manager"></a>About discovery methods for System Center Configuration Manager (Informationen zu Ermittlungsmethoden in System Center Configuration Manager)
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les méthodes de découverte de System Center Configuration Manager permettent de rechercher des appareils différents sur votre réseau, ou encore des appareils et des utilisateurs dans Active Directory. Pour utiliser efficacement une méthode de découverte, vous devez en comprendre les configurations disponibles et les limitations.  
+Mit System Center Configuration Manager-Ermittlungsmethoden können Sie andere Geräte im Netzwerk oder Geräte und Benutzer aus Active Directory suchen. Um effizient eine Ermittlungsmethode zu verwenden, sollten Sie die verfügbaren Konfigurationen und Einschränkungen kennen.  
 
-##  <a name="bkmk_aboutForest"></a> Découverte de forêts Active Directory  
- **Configurable :** Oui  
+##  <a name="bkmk_aboutForest"></a> Active Directory-Gesamtstrukturermittlung  
+ **Konfigurierbar:** Ja  
 
- **Activée par défaut :** Non  
+ **Standardmäßig aktiviert:** Nein  
 
- **Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+ **Konten** zum Ausführen dieser Methode:  
 
--   **Compte de découverte de forêts Active Directory** (défini par l’utilisateur)  
+-   **Active Directory-Gesamtstruktur-Ermittlungskonto** (Benutzerdefiniert)  
 
--   **Compte d'ordinateur** du serveur de site  
+-   **Computerkonto** des Standortservers  
 
-À la différence des autres méthodes de découverte Active Directory, la découverte de forêts Active Directory ne découvre pas des ressources que vous pouvez gérer. En effet, cette méthode découvre les emplacements réseau qui sont configurés dans Active Directory et peut convertir ces emplacements en limites à utiliser dans votre hiérarchie.  
+Im Unterschied zu anderen Active Directory-Ermittlungsmethoden werden von der Active Directory-Gesamtstrukturermittlung keine Ressourcen, die Sie verwalten können, erkannt. Stattdessen erkennt diese Methode Netzwerkorte, die in Active Directory konfiguriert sind, und kann diese Orte zur hierarchieweiten Verwendung in Grenzen konvertieren.  
 
-Quand cette méthode est exécutée, elle effectue une recherche dans la forêt Active Directory locale, chaque forêt approuvée et chaque forêt supplémentaire que vous configurez dans le nœud **Forêts Active Directory** de la console Configuration Manager.  
+Wenn diese Methode ausgeführt wird, sucht sie in der lokalen Active Directory-Gesamtstruktur, in allen vertrauenswürdigen Gesamtstrukturen und in allen weiteren Gesamtstrukturen, die Sie im Knoten **Active Directory-Gesamtstrukturen** der Configuration Manager-Konsole konfigurieren.  
 
-Utilisez la découverte de forêts Active Directory pour :  
+Verwenden Sie die Active Directory-Gesamtstrukturermittlung zu folgenden Zwecken:  
 
--   Découvrir les sites et sous-réseaux Active Directory, puis créer les limites de Configuration Manager en fonction de ces emplacements réseau.  
+-   Ermitteln von Active Directory-Standorten und -Subnetzen und anschließendes Erstellen von Configuration Manager-Grenzen basierend auf diesen Netzwerkorten  
 
--   Identifier les sur-réseaux qui sont affectés à un site Active Directory et convertir chaque sur-réseau en limite de plage d’adresses IP.  
+-   Identifizieren von Supernetzen, die einem Active Directory-Standort zugewiesen sind, und Konvertieren der einzelnen Supernetze in eine IP-Adressbereichsgrenze  
 
--   Publier sur Active Directory Domain Services (AD DS) dans une forêt lorsque la publication est activée pour cette forêt et que le compte de forêt Active Directory spécifié dispose d’autorisations sur cette forêt.  
+-   Veröffentlichen in Active Directory Domain Services (AD DS) in einer Gesamtstruktur, sofern die Veröffentlichung in dieser Gesamtstruktur aktiviert ist und dem angegebenen Active Directory-Gesamtstrukturkonto entsprechende Berechtigungen für diese Gesamtstruktur erteilt wurden  
 
-Vous pouvez gérer la découverte de forêts Active Directory dans la console Active Directory à partir des nœuds suivants sous **Configuration de la hiérarchie** dans l'espace de travail **Administration** :  
+Sie können die Active Directory-Gesamtstrukturermittlung in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** unter **Hierarchiekonfiguration** in den folgenden Knoten verwalten:  
 
--   **Méthodes de découverte**: À partir d'ici, vous pouvez activer la découverte de forêts Active Directory pour l'exécution sur le site de niveau supérieur de votre hiérarchie. Vous pouvez également spécifier un calendrier simple pour exécuter la découverte, et la configurer pour créer automatiquement des limites à partir des sous-réseaux IP et des sites Active Directory qui sont découverts. La découverte de forêts Active Directory ne peut pas s'exécuter sur un site principal enfant ou un site secondaire.  
+-   **Ermittlungsmethoden**: Hier können Sie die Ausführung der Active Directory-Gesamtstrukturermittlung am Standort der obersten Ebene Ihrer Hierarchie aktivieren. Sie können außerdem einen einfachen Zeitplan für die Ausführung der Ermittlung angeben, und Sie können die automatische Erstellung von Grenzen aus den ermittelten IP-Subnetzen und Active Directory-Standorten konfigurieren. Die Active Directory-Gesamtstrukturermittlung kann weder an untergeordneten primären Standorten noch an sekundären Standorten ausgeführt werden.  
 
--   **Forêts Active Directory**: À partir d'ici, vous configurez les forêts Active Directory supplémentaires que vous souhaitez découvrir, spécifiez le compte à utiliser comme compte de forêt Active Directory pour chaque forêt et configurez la publication de chaque forêt. En outre, vous pouvez surveiller le processus de découverte et ajouter des sous-réseaux IP, ainsi que des sites Active Directory à Configuration Manager en tant que limites et membres des groupes de limites.  
+-   **Active Directory-Gesamtstrukturen**: Hier konfigurieren Sie die zusätzlichen Active Directory-Gesamtstrukturen, die ermittelt werden sollen, geben das Konto zur Verwendung als Active Directory-Gesamtstrukturkonto für jede Gesamtstruktur an und konfigurieren das Veröffentlichen in jeder Gesamtstruktur. Zusätzlich können Sie den Ermittlungsvorgang überwachen und Configuration Manager IP-Subnetze sowie Active Directory-Standorte als Grenzen und Mitglieder von Begrenzungsgruppen hinzufügen.  
 
-Pour configurer la publication pour les forêts Active Directory pour chaque site de votre hiérarchie, connectez votre console Configuration Manager au site de niveau supérieur de votre hiérarchie. L’onglet **Publication** dans la boîte de dialogue **Propriétés** d’un site Active Directory peut uniquement afficher le site actuel et ses sites enfants. Quand la publication est activée pour une forêt et que le schéma de cette forêt est étendu pour Configuration Manager, les informations suivantes sont publiées pour chaque site autorisé à publier dans cette forêt Active Directory :  
+Zum Konfigurieren aller Standorte in einer Hierarchie für die Veröffentlichung in Active Directory-Gesamtstrukturen verbinden Sie die Configuration Manager-Konsole mit dem Standort auf der obersten Ebene der Hierarchie. Im Dialogfeld **Eigenschaften** eines Active Directory-Standorts werden auf der Registerkarte **Veröffentlichen** nur der aktuelle Standort und dessen untergeordnete Standorte angezeigt. Wenn die Veröffentlichung für eine Gesamtstruktur aktiviert ist und das Gesamtstrukturschema für Configuration Manager erweitert wurde, werden für jeden Standort, bei dem die Veröffentlichung in dieser Active Directory-Gesamtstruktur aktiviert ist, die folgenden Informationen veröffentlicht:  
 
--    **SMS-Site-&lt;code_site>**
+-    **SMS-Standort-&lt;Standortcode>**
 
--   **SMS-MP-&lt;<code_site>-&lt;nom_serveur_de_site>**  
+-   **SMS-MP-&lt;Standortcode>-&lt;System-Standortservername>**  
 
--   **SMS-SLP-&lt;<code_site>-&lt;nom_serveur_de_site>**  
+-   **SMS-SLP-&lt;Standortcode>-&lt;System-Standortservername>**  
 
--   **SMS-&lt;code_site>-&lt;nom_site_Active_Directory_ou sous-réseau>**  
-
-> [!NOTE]  
->  Les sites secondaires utilisent toujours le compte d'ordinateur du serveur de site secondaire pour publier dans Active Directory. Si vous voulez que les sites secondaires publient dans Active Directory, vérifiez que le compte d’ordinateur du serveur de site secondaire dispose d’autorisations de publication dans Active Directory. Un site secondaire ne peut pas publier de données dans une forêt non approuvée.  
-
-> [!CAUTION]  
->  Si vous décochez l’option de publication d’un site sur une forêt Active Directory, toutes les informations publiées précédemment pour ce site, notamment des rôles de systèmes de site disponibles, sont supprimées d’Active Directory.  
-
-Les actions de la découverte de forêts Active Directory sont enregistrées dans les journaux suivants :  
-
--   Toutes les actions, à l’exception des actions liées à la publication, sont enregistrées dans le fichier **ADForestDisc.Log** du dossier **&lt;Chemin_installation>\Logs** sur le serveur de site.  
-
--   Les actions de publication de la découverte de forêts Active Directory sont enregistrées dans les fichiers **hman.log** et **sitecomp.log** du dossier **&lt;Chemin_installation>\Logs** sur le serveur de site.  
-
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
-
-##  <a name="bkmk_aboutGroup"></a> Découverte de groupes Active Directory  
-**Configurable :** Oui  
-
-**Activée par défaut :** Non  
-
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
-
--   **Compte de découverte de groupes Active Directory** (défini par l’utilisateur)  
-
--   **Compte d'ordinateur** du serveur de site  
-
-> [!TIP]  
->  Pour plus d’informations,voir la section [Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory](#bkmk_shared).  
-
-Utilisez cette méthode pour effectuer une recherche dans Active Directory Domain Services et identifier ce qui suit :  
-
--   Groupes de sécurité local, global et universel.  
-
--   Appartenance aux groupes.  
-
--   Informations limitées sur les ordinateurs des membres d’un groupe et les utilisateurs, notamment quand une autre méthode de découverte n’a pas encore découvert ces ordinateurs et utilisateurs.  
-
-Cette méthode de découverte est prévue pour identifier les groupes et les relations du groupe des membres des groupes. Par défaut, seuls les groupes de sécurité sont découverts. Si vous voulez également découvrir l’appartenance aux groupes de distribution, vous devez cocher la case de l’option **Découvrir l’appartenance aux groupes de distribution** sous l’onglet **Option** de la boîte de dialogue des **propriétés de découverte de groupes Active Directory**.  
-
-La découverte de groupes Active Directory ne prend pas en charge les attributs Active Directory étendus qui peuvent être identifiés à l'aide de la découverte de systèmes Active Directory ou de la découverte d'utilisateurs Active Directory. Puisque cette méthode de découverte n'est pas optimisée pour la découverte des ressources d'ordinateur et d'utilisateur, envisagez de l'exécuter après avoir exécuté la découverte de systèmes Active Directory et la découverte d'utilisateurs Active Directory En effet, cette méthode crée un enregistrement de données de découverte complet pour les groupes (DDR), mais seulement un DDR limité pour les ordinateurs et les utilisateurs qui appartiennent à des groupes.  
-
-Vous pouvez configurer les étendues de découverte suivantes, qui contrôlent la manière dont cette méthode recherche des informations :  
-
--   **Emplacement**: Utilisez un emplacement si vous souhaitez rechercher un ou plusieurs conteneurs Active Directory. Cette option d’étendue prend en charge une recherche récursive des conteneurs Active Directory spécifiés et recherche également chaque conteneur enfant sous le conteneur spécifié. Ce processus continue jusqu'à ne plus trouver de conteneur enfant.  
-
--   **Groupes**: Utilisez les groupes si vous souhaitez rechercher un ou plusieurs groupes Active Directory spécifiques. Vous pouvez configurer **Domaine Active Directory** de manière à utiliser le domaine et la forêt par défaut ou limiter la recherche à un contrôleur de domaine individuel. En outre, vous pouvez spécifier un ou plusieurs groupes à rechercher. Si vous ne spécifiez pas au moins un groupe, tous les groupes trouvés à l'emplacement **Domaine Active Directory** spécifié sont recherchés.  
-
-> [!CAUTION]  
->  Quand vous configurez une étendue de découverte, choisissez uniquement les groupes que vous devez découvrir. En effet, la découverte de groupes Active Directory tente de découvrir chaque membre de chaque groupe dans l’étendue de découverte. La découverte de grands groupes peut demander l'utilisation extensive de bande passante et de ressources Active Directory.  
+-   **SMS-&lt;Standortcode>-&lt;Active Directory-Standortname oder Subnetz>**  
 
 > [!NOTE]  
->  Pour créer des regroupements basés sur des attributs Active Directory étendus (et assurer des résultats de découverte précis pour les ordinateurs et les utilisateurs), exécutez la découverte de systèmes Active Directory ou la découverte d'utilisateurs Active Directory, en fonction de ce que vous voulez découvrir.  
+>  Die Veröffentlichung in Active Directory durch sekundäre Standorte erfolgt immer über das Computerkonto des sekundären Standortservers. Wenn Sie die Veröffentlichung durch sekundäre Standorte in Active Directory wünschen, stellen Sie sicher, dass das Computerkonto des sekundären Standortservers zur Veröffentlichung in Active Directory berechtigt ist. In einer nicht vertrauenswürdigen Gesamtstruktur können von einem sekundären Standort keine Daten veröffentlicht werden.  
 
-Les actions de la découverte de groupes Active Directory sont enregistrées dans le fichier **adsgdis.log** du dossier **&lt;Chemin_installation\>\LOGS** sur le serveur de site.  
+> [!CAUTION]  
+>  Wenn Sie die Option zum Veröffentlichen eines Standorts in einer Active Directory-Gesamtstruktur deaktivieren, werden alle bereits veröffentlichten Informationen dieses Standorts, einschließlich der verfügbaren Standortsystemrollen, aus Active Directory entfernt.  
 
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+Aktionen im Rahmen der Active Directory-Gesamtstrukturermittlung werden in den folgenden Protokollen aufgezeichnet:  
 
-##  <a name="bkmk_aboutSystem"></a> Découverte de systèmes Active Directory  
-**Configurable :** Oui  
+-   Alle Aktionen, mit Ausnahme von Aktionen im Zusammenhang mit der Veröffentlichung, werden auf dem Standortserver in der Datei **ADForestDisc.Log** im Ordner **&lt;InstallationPath>\Logs** aufgezeichnet.  
 
-**Activée par défaut :** Non  
+-   Veröffentlichungsaktionen im Zusammenhang mit der Active Directory-Gesamtstrukturermittlung werden auf dem Standortserver in den Dateien **hman.log** und **sitecomp.log** im Ordner **&lt;InstallationPath>\Logs** aufgezeichnet.  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
 
--   **Compte de découverte de systèmes Active Directory** (défini par l’utilisateur)  
+##  <a name="bkmk_aboutGroup"></a> Active Directory-Gruppenermittlung  
+**Konfigurierbar:** Ja  
 
--   **Compte d'ordinateur** du serveur de site  
+**Standardmäßig aktiviert:** Nein  
 
-> [!TIP]  
->  Pour plus d’informations,voir la section [Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory](#bkmk_shared).  
+**Konten** zum Ausführen dieser Methode:  
 
-Utilisez cette méthode de découverte pour rechercher dans les emplacements Active Directory Domain Services spécifiés des ressources d’ordinateurs pouvant être utilisées pour créer des regroupements et des requêtes. Vous pouvez également installer le client Configuration Manager sur un appareil détecté à l’aide de l’installation Push du client.  
+-   **Active Directory-Gesamtstruktur-Ermittlungskonto** (Benutzerdefiniert)  
 
-Par défaut, cette méthode découvre des informations de base sur l’ordinateur, notamment :  
-
--   Nom de l'ordinateur  
-
--   Système d'exploitation et version  
-
--   nom du conteneur Active Directory.  
-
--   Adresse IP  
-
--   Site Active Directory  
-
--   Horodateur de la dernière ouverture de session  
-
-Pour réussir la création d’un DDR pour un ordinateur, la découverte de systèmes Active Directory doit pouvoir identifier le compte d’ordinateur, puis traduire correctement le nom de l’ordinateur en une adresse IP.  
-
-Dans la boîte de dialogue des **propriétés de découverte de systèmes Active Directory**, sous l’onglet **Attributs Active Directory**, vous pouvez afficher la liste complète des attributs d’objets par défaut retournés par la découverte de systèmes Active Directory. Vous pouvez également configurer cette méthode pour découvrir des attributs supplémentaires (étendus).  
-
-Les actions de la découverte de systèmes Active Directory sont enregistrées dans le fichier **adsysdis.log** du dossier **&lt;Chemin_installation\>\LOGS** sur le serveur de site.  
-
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
-
-##  <a name="bkmk_aboutUser"></a> Découverte d’utilisateurs Active Directory  
-**Configurable :** Oui  
-
-**Activée par défaut :** Non  
-
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
-
--   **Compte de découverte d’utilisateurs Active Directory** (défini par l’utilisateur)  
-
--   **Compte d'ordinateur** du serveur de site  
+-   **Computerkonto** des Standortservers  
 
 > [!TIP]  
->  Pour plus d’informations,voir la section [Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory](#bkmk_shared).  
+>  Neben den Informationen in diesem Abschnitt finden Sie weitere unter [Allgemeine Features von Active Directory-Gruppe, System und Ermittlung](#bkmk_shared).  
 
-Utilisez cette méthode de découverte pour rechercher dans Active Directory Domain Services des comptes d’utilisateur et les attributs associés. Par défaut, cette méthode découvre des informations de base sur le compte d’utilisateur, notamment :  
+Verwenden Sie diese Methode zum Durchsuchen von Active Directory Domain Services, um Folgendes zu identifizieren:  
 
--   Nom d'utilisateur  
+-   Lokale, globale und universelle Sicherheitsgruppen  
 
--   Nom d'utilisateur unique (y compris le nom de domaine)  
+-   Mitgliedschaft in Gruppen  
 
--   Domaine  
+-   Eingeschränkte Informationen über die Mitgliedscomputer und Benutzer einer Gruppe, auch wenn diese Computer und Benutzer zuvor nicht von einer anderen Ermittlungsmethode ermittelt wurden  
 
--   Noms de conteneurs Active Directory  
+Mithilfe dieser Ermittlungsmethode lassen sich Gruppen sowie Gruppenbeziehungen der Mitglieder von Gruppen identifizieren. Standardmäßig werden nur Sicherheitsgruppen ermittelt. Sie können auch die Mitgliedschaften in Verteilergruppen ermitteln, indem Sie im Dialogfeld **Eigenschaften von Active Directory-Gruppenermittlung** auf der Registerkarte **Option** das Kontrollkästchen für die Option **Mitgliedschaft von Verteilergruppen ermitteln** aktivieren.  
 
-Dans la boîte de dialogue des **propriétés de découverte d’utilisateurs Active Directory**, sous l’onglet **Attributs Active Directory**, vous pouvez afficher la liste par défaut complète des attributs d’objets retournés par la découverte d’utilisateurs Active Directory. Vous pouvez également configurer cette méthode pour découvrir des attributs supplémentaires (étendus).
+Die Active Directory-Gruppenermittlung unterstützt nicht die erweiterten Active Directory-Attribute, die mithilfe der Active Directory-Systemermittlung oder der Active Directory-Benutzerermittlung identifiziert werden können. Da diese Ermittlungsmethode nicht für die Ermittlung von Computer- und Benutzerressourcen optimiert ist, sollten Sie sie ausführen, nachdem Sie die Active Directory-Systemermittlung und die Active Directory-Benutzerermittlung ausgeführt haben. Dies liegt daran, dass von dieser Methode ein vollständiger Discovery Data Record (DDR) für Gruppen erstellt wird, während für Computer und Benutzer, die Mitglieder von Gruppen sind, nur ein eingeschränkter DDR erstellt wird.  
 
-Les actions de la découverte d’utilisateurs Active Directory sont enregistrées dans le fichier **adusrdis.log** du dossier **&lt;Chemin_installation\>\LOGS** sur le serveur de site.  
+Sie können die folgenden Ermittlungsbereiche konfigurieren; von diesen wird gesteuert, auf welche Art von dieser Methode nach Informationen gesucht wird:  
 
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+-   **Speicherort**: Verwenden Sie einen Speicherort, wenn Sie einen oder mehrere Active Directory-Container durchsuchen möchten. Von dieser Bereichsoption wird ein rekursives Durchsuchen der angegebenen Active Directory-Container unterstützt, wobei auch die untergeordneten Container des angegebenen Containers durchsucht werden. Dieser Prozess wird fortgesetzt, bis keine untergeordneten Container mehr gefunden werden.  
 
-## <a name="azureaddisc"></a> Découverte des utilisateurs Azure Active Directory
-Depuis la version 1706, vous pouvez utiliser la découverte des utilisateurs Azure Active Directory (Azure AD) quand vous configurez votre environnement pour utiliser les services Azure.
-Utilisez cette méthode de découverte pour rechercher dans votre annuaire Azure AD les utilisateurs qui s’authentifient auprès de votre instance d’Azure AD, notamment les attributs suivants :  
--   objectId
+-   **Gruppen**: Verwenden Sie Gruppen, wenn Sie eine oder mehrere bestimmte Active Directory-Gruppen durchsuchen möchten. Sie können die **Active Directory-Domäne** zum Verwenden von Standarddomäne und Standardgesamtstruktur konfigurieren, oder Sie können die Suche auf einen einzelnen Domänencontroller beschränken. Zusätzlich können Sie eine oder mehrere zu durchsuchende Gruppen angeben. Wenn Sie nicht mindestens eine Gruppe angeben, werden alle Gruppen, die am angegebenen ****  Active Directory-Domänenspeicherort gefunden werden, durchsucht.  
+
+> [!CAUTION]  
+>  Wenn Sie einen Ermittlungsbereich konfigurieren, wählen Sie nur die Gruppen aus, die ermittelt werden müssen. Dies ist notwendig, weil die Active Directory-Gruppenermittlung versucht, jedes Mitglied in allen Gruppen innerhalb des Ermittlungsbereichs zu ermitteln. Bei der Ermittlung großer Gruppen kann es zu einer übermäßigen Beanspruchung von Bandbreite und Active Directory-Ressourcen kommen.  
+
+> [!NOTE]  
+>  Je nachdem, was Sie ermitteln möchten, müssen Sie entweder die Active Directory-Systemerkennung oder die Active Directory-Benutzererkennung ausführen, um Sammlungen auf Basis von erweiterten Active Directory-Attributen zu erstellen und um zu gewährleisten, dass die Ermittlungsergebnisse für Computer und Benutzer korrekt sind.  
+
+Die Aktionen der Active Directory-Gruppenermittlung werden in der Datei **adsgdis.log** im Ordner **&lt;InstallationPath\>\LOGS** auf dem Standortserver aufgezeichnet.  
+
+Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+##  <a name="bkmk_aboutSystem"></a> Active Directory-Systemermittlung  
+**Konfigurierbar:** Ja  
+
+**Standardmäßig aktiviert:** Nein  
+
+**Konten** zum Ausführen dieser Methode:  
+
+-   **Konto für Active Directory-Systemermittlung** (Benutzerdefiniert)  
+
+-   **Computerkonto** des Standortservers  
+
+> [!TIP]  
+>  Neben den Informationen in diesem Abschnitt finden Sie weitere unter [Allgemeine Features von Active Directory-Gruppe, System und Ermittlung](#bkmk_shared).  
+
+Verwenden Sie diese Ermittlungsmethode, um nach den angegebenen Active Directory Domain Services-Speicherorten für Computerressourcen zu suchen, die zum Erstellen von Sammlungen und Abfragen verwendet werden können. Sie können auch Configuration Manager-Client für ein ermitteltes Gerät mithilfe der Clientpushinstallation installieren.  
+
+Von dieser Methode werden standardmäßig Basisinformationen über den Computer einschließlich der folgenden Informationen ermittelt:  
+
+-   Computername  
+
+-   Betriebssystem und Version  
+
+-   Active Directory-Containername  
+
+-   IP-Adresse  
+
+-   Active Directory-Standort  
+
+-   Zeitstempel der letzten Anmeldung  
+
+Damit erfolgreich ein DDR für einen Computer erstellt werden kann, muss das Computerkonto von der Active Directory-Systemermittlung identifiziert werden, und der Computername muss erfolgreich in eine IP-Adresse aufgelöst werden.  
+
+Im Dialogfeld **Eigenschaften von Active Directory-Systemermittlung** können Sie auf der Registerkarte **Active Directory-Attribute** die vollständige Liste der Standardobjektattribute anzeigen, die von der Active Directory-Systemermittlung zurückgegeben wurden. Sie können die Methode auch zum Ermitteln zusätzlicher (erweiterter) Attribute konfigurieren.  
+
+Die Aktionen der Active Directory-Systemermittlung werden in der Datei **adsysdis.log** im Ordner **&lt;InstallationPath\>\LOGS** auf dem Standortserver aufgezeichnet.  
+
+Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+##  <a name="bkmk_aboutUser"></a> Active Directory-Benutzerermittlung  
+**Konfigurierbar:** Ja  
+
+**Standardmäßig aktiviert:** Nein  
+
+**Konten** zum Ausführen dieser Methode:  
+
+-   **Konto für Active Directory-Benutzerermittlung** (Benutzerdefiniert)  
+
+-   **Computerkonto** des Standortservers  
+
+> [!TIP]  
+>  Neben den Informationen in diesem Abschnitt finden Sie weitere unter [Allgemeine Features von Active Directory-Gruppe, System und Ermittlung](#bkmk_shared).  
+
+Verwenden Sie diese Ermittlungsmethode zum Durchsuchen von Active Directory Domain Services, um Benutzerkonten und zugeordnete Attribute zu identifizieren. Standardmäßig ermittelt diese Methode grundlegende Informationen über das Benutzerkonto, einschließlich der folgenden:  
+
+-   Benutzername  
+
+-   Eindeutiger Benutzername (einschließlich Domänenname)  
+
+-   Domain  
+
+-   Active Directory-Containernamen  
+
+Im Dialogfeld **Eigenschaften von Active Directory-Benutzerermittlung** können Sie auf der Registerkarte **Active Directory-Attribute** die vollständige Standardliste der Objektattribute anzeigen, die von der Active Directory-Benutzerermittlung zurückgegeben wurden. Sie können die Methode auch zum Ermitteln zusätzlicher (erweiterter) Attribute konfigurieren.
+
+Die Aktionen der Active Directory-Benutzerermittlung werden in der Datei **adusrdis.log** im Ordner **&lt;InstallationPath\>\LOGS** auf dem Standortserver aufgezeichnet.  
+
+Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+## <a name="azureaddisc"></a>Azure Active Directory-Benutzerermittlung
+Ab Version 1706 können Sie beim Konfigurieren Ihrer Umgebung für Azure-Dienste die Azure Active Directory-Benutzerermittlung (Azure AD) verwenden.
+Verwenden Sie diese Ermittlungsmethode, um in Azure AD nach Benutzern zu suchen, die sich gegenüber Ihrer Azure AD-Instanz authentifizieren müssen, und die folgenden Attribute zu finden:  
+-   ObjectId
 -   displayName
--   messagerie
+-   mail
 -   mailNickname
 -   onPremisesSecurityIdentifier
 -   userPrincipalName
 -   AAD tenantID
 
-Cette méthode prend en charge une synchronisation complète et une synchronisation delta des données utilisateur à partir d’Azure AD. Vous pouvez ensuite utiliser ces informations avec les données de découverte que vous collectez par le biais des autres méthodes de découverte.
+Diese Methode unterstützt sowohl die vollständige Synchronisierung als auch die Deltasynchronisierung von Benutzerdaten aus Azure AD. Die gewonnenen Informationen lassen sich gemeinsam mit Ermittlungsdaten aus anderen Ermittlungsmethoden verwenden.
 
-Les actions de la découverte des utilisateurs Azure AD sont enregistrées dans le fichier SMS_AZUREAD_DISCOVERY_AGENT.log sur le serveur de site de niveau supérieur de la hiérarchie.
+Aktionen der Azure AD-Benutzerermittlung werden in der Datei SMS_AZUREAD_DISCOVERY_AGENT.log auf dem obersten Standortserver der Hierarchie gespeichert.
 
-Pour configurer la découverte des utilisateurs Azure AD, vous utilisez l’Assistant Services Azure.  Pour plus d’informations sur la configuration de cette méthode de découverte, consultez [Configurer la découverte des utilisateurs Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods).
-
-
+Für die Konfiguration der Azure AD-Benutzerermittlung verwenden Sie den Assistenten für Azure-Dienste.  Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Konfigurieren der Azure AD-Benutzerermittlung](/sccm/core/servers/deploy/configure/configure-discovery-methods).
 
 
 
-##  <a name="bkmk_aboutHeartbeat"></a> Découverte par pulsations d’inventaire  
-**Configurable :** Oui  
 
-**Activée par défaut :** Oui  
 
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
+##  <a name="bkmk_aboutHeartbeat"></a> Frequenzermittlung  
+**Konfigurierbar:** Ja  
 
--   **Compte d'ordinateur** du serveur de site  
+**Standardmäßig aktiviert:** Ja  
 
-La découverte par pulsations d'inventaire diffère des autres méthodes de découverte de Configuration Manager. Elle est activée par défaut et s’exécute sur chaque client de l’ordinateur (et non sur un serveur de site) pour créer un DDR. Pour les clients d’appareils mobiles, ce DDR est créé par le point de gestion qui est utilisé par le client de l’appareil mobile. Pour permettre la tenue à jour de l’enregistrement de base de données des clients Configuration Manager, ne désactivez pas la découverte par pulsations d'inventaire. Par ailleurs, cette méthode peut forcer la découverte d'un ordinateur en tant que nouvel enregistrement de ressource ou de nouveau remplir l'enregistrement de base de données d'un ordinateur qui a été supprimé de la base de données.  
+**Konten** zum Ausführen dieser Methode:  
 
-La découverte par pulsations d'inventaire est exécutée selon un calendrier configuré pour tous les clients de la hiérarchie ou, si elle est appelée manuellement, sur un client spécifique en exécutant le **Cycle de collecte de données de découverte** dans l'onglet **Action** du programme Configuration Manager d'un client. Le calendrier par défaut pour la découverte par pulsations d'inventaire est défini sur tous les 7 jours. Si vous modifiez l'intervalle de découverte par pulsations d'inventaire, assurez-vous qu'il est exécuté plus fréquemment que la tâche de maintenance de site **Supprimer les données de découverte anciennes**, qui supprime les enregistrements de clients inactifs de la base de données de site. Vous pouvez configurer la tâche **Supprimer les données de découverte anciennes** uniquement pour les sites principaux.  
+-   **Computerkonto** des Standortservers  
 
-Durant son exécution, la découverte par pulsations d’inventaire crée un DDR comprenant les informations actuelles du client. Le client copie ensuite ce petit fichier (d’environ 1 Ko) sur un point de gestion pour qu’un site principal puisse le traiter. Le fichier comprend les informations suivantes :  
+Die Frequenzermittlung unterscheidet sich von anderen Configuration Manager-Ermittlungsmethoden. Sie ist standardmäßig aktiviert und wird auf jedem Computerclient (statt auf einem Standortserver) ausgeführt, um einen DDR zu erstellen. Für mobile Geräteclients wird dieser DDR von dem Verwaltungspunkt erstellt, der vom mobilen Geräteclient verwendet wird. Es wird empfohlen, die Frequenzermittlung nicht zu deaktivieren, um den Datenbankdatensatz von Configuration Manager-Clients aufrechtzuerhalten. Zusätzlich zum Erhalt des Datenbankdatensatzes kann bei dieser Methode die Ermittlung eines Computers als neuer Ressourceneintrag erzwungen oder der Datenbankdatensatz eines aus der Datenbank gelöschten Computers neu aufgefüllt werden.  
 
--   Emplacement réseau  
+Die Frequenzermittlung wird entweder nach einem für alle Clients in der Hierarchie festgelegten Zeitplan ausgeführt oder manuell für einen bestimmten Client aufgerufen. Zur manuellen Ausführung muss im Configuration Manager-Programm des betreffenden Clients auf der Registerkarte **Aktion** der **Ermittlungsdaten-Sammlungszyklus** ausgeführt werden. Laut Standardzeitplan wird die Frequenzermittlung alle 7 Tage ausgeführt. Achten Sie bei einer Änderung des Frequenzermittlungsintervalls darauf, dass die Frequenzermittlung häufiger als der Standortwartungstask **Veraltete Ermittlungsdaten löschen**ausgeführt wird. Von diesem Task werden inaktive Clientdatensätze aus der Standortdatenbank gelöscht. Sie können den Task **Veraltete Ermittlungsdaten löschen** nur für primäre Standorte konfigurieren.  
 
--   Nom NetBIOS  
+Bei der Frequenzermittlung wird ein DDR erstellt, der die aktuellen Informationen des Clients enthält. Der Client kopiert anschließend diese kleine Datei (ca. 1 KB) an einen Verwaltungspunkt, damit sie von einem primären Standort verarbeitet werden kann. Die Datei enthält die folgenden Informationen:  
 
--   Version de l’agent client  
+-   Netzwerkadresse  
 
--   Détails sur l’état opérationnel  
+-   NetBIOS-Name  
 
-La découverte par pulsations d'inventaire est la seule méthode de découverte qui fournit des détails sur l'état de l'installation du client. Pour cela, elle met à jour l’attribut du client de la ressource système avec une valeur égale à **Oui**.  
+-   Version des Client-Agents  
 
-> [!NOTE]  
->  Même lorsque la découverte par pulsations d'inventaire est désactivée, les enregistrements de découverte de données sont toujours créés et soumis pour les clients d’appareils mobiles actifs. Cela garantit que la tâche **Supprimer les données de découverte anciennes** n'affecte pas les appareils mobiles actifs. En effet, lorsque la tâche **Supprimer les données de découverte anciennes** supprime un enregistrement de base de données pour un appareil mobile, elle révoque également le certificat de l’appareil et empêche l’appareil mobile de se connecter aux points de gestion.  
+-   Betriebsstatusdetails  
 
-Les actions de la découverte par pulsations d'inventaire sont consignées aux emplacements suivants :  
-
--   Pour les ordinateurs clients, les actions de la découverte par pulsations d’inventaire sont enregistrées sur le client dans le fichier **InventoryAgent.log** du dossier *%Windir%\CCM\Logs*.  
-
--   Pour les clients d’appareils mobiles, les actions de découverte par pulsations d’inventaire sont enregistrées dans le fichier **DMPRP.log** du dossier *%Program Files%\CCM\Logs* du point de gestion que le client d’appareil mobile utilise.  
-
-Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
-
-##  <a name="bkmk_aboutNetwork"></a> Découverte du réseau  
-**Configurable :** Oui  
-
-**Activée par défaut :** Non  
-
-**Comptes** que vous pouvez utiliser pour exécuter cette méthode :  
-
--   **Compte d'ordinateur** du serveur de site  
-
-Utilisez cette méthode pour découvrir la topologie de votre réseau et les appareils de votre réseau qui ont une adresse IP. La découverte du réseau cherche sur votre réseau des ressources sur lesquelles IP est activé en interrogeant des serveurs qui exécutent une implémentation Microsoft du protocole DHCP, de caches ARP (Address Resolution Protocol) dans les routeurs, les périphériques compatibles SNMP et les domaines Active Directory.  
-
-Pour utiliser la découverte du réseau, vous devez spécifier le *niveau* de découverte à exécuter. Vous configurez également un ou plusieurs mécanismes de découverte qui permettent à la découverte du réseau d'interroger des segments ou périphériques réseau. Vous pouvez également configurer des paramètres qui permettent de contrôler des actions de découverte sur le réseau. Enfin, vous définissez un ou plusieurs calendriers d'exécution de la découverte du réseau.  
-
-Pour que cette méthode découvre une ressource, elle doit identifier l’adresse IP et le masque de sous-réseau de la ressource. Les méthodes suivantes sont utilisées pour identifier le masque de sous-réseau d'un objet :  
-
--   **Mémoire cache ARP de routeur :** La découverte du réseau interroge la mémoire cache ARP d'un routeur pour rechercher des informations de sous-réseau. En règle générale, les données situées dans la mémoire cache ARP d'un routeur ont une courte durée de vie. Par conséquent, quand la découverte du réseau interroge la mémoire cache ARP, celle-ci peut ne plus avoir d’informations sur l’objet demandé.  
-
--   **DHCP :** La découverte du réseau interroge chaque serveur DHCP que vous spécifiez pour découvrir les appareils pour lesquels le serveur DHCP a fourni un bail. La découverte du réseau prend en charge uniquement les serveurs DHCP qui exécutent l'implémentation Microsoft du protocole DHCP.  
-
--   **Unités SNMP** : la découverte du réseau peut interroger directement une unité SNMP. Pour que la découverte du réseau puisse interroger un périphérique, celui-ci doit avoir un agent SNMP local installé. Vous devez également configurer la découverte du réseau pour utiliser le nom de communauté utilisé par l’agent SNMP.  
-
-Quand la découverte identifie un objet IP et peut déterminer le masque de sous-réseau des objets, elle crée un DDR pour cet objet. Étant donné que différents types d’appareils peuvent se connecter au réseau, la découverte du réseau peut découvrir des ressources qui ne peuvent pas prendre en charge le logiciel client Configuration Manager. Par exemple, parmi les périphériques qui peuvent être découverts mais qui ne peuvent pas être gérés, citons les imprimantes et les routeurs.  
-
-La découverte du réseau peut retourner plusieurs attributs dans le cadre de l’enregistrement de découverte qu’elle crée, à savoir :  
-
--   Nom NetBIOS  
-
--   Adresses IP  
-
--   Domaine de la ressource  
-
--   Rôles de système  
-
--   Nom de communauté SNMP  
-
--   Adresses MAC  
-
-L’activité de la découverte du réseau est enregistrée dans le fichier **Netdisc.log** dans *&lt;Chemin_installation\>\Logs* sur le serveur de site qui exécute la découverte.  
-
- Pour plus d'informations sur la configuration de cette méthode de découverte, voir [Configurer les méthodes de découverte pour System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+Die Frequenzermittlung ist die einzige Ermittlungsmethode, von der Details zum Clientinstallationsstatus bereitgestellt werden. Dabei wird das Clientattribut der Systemressource auf den Wert **Ja** aktualisiert.  
 
 > [!NOTE]  
->  Les réseaux complexes et les connexions à faible bande passante peuvent ralentir la découverte du réseau et générer un important trafic réseau. Comme meilleure pratique, exécutez la découverte du réseau uniquement lorsque les autres méthodes de découverte ne peuvent pas trouver les ressources que vous devez découvrir. Par exemple, utilisez la découverte du réseau si vous devez découvrir des ordinateurs du groupe de travail. D’autres méthodes de découverte ne découvrent pas les ordinateurs du groupe de travail.  
+>  Selbst wenn die Frequenzermittlung deaktiviert ist, werden dennoch DDRs für aktive mobile Geräteclients erstellt und übermittelt. Auf diese Weise wird sichergestellt, dass aktive mobile Geräte vom Task **Veraltete Ermittlungsdaten löschen** nicht beeinträchtigt werden. Denn wenn ein Datenbankeintrag für ein mobiles Gerät vom Task **Veraltete Ermittlungsdaten löschen** gelöscht wird, wird auch das Gerätezertifikat aufgehoben, und die Verbindung des mobilen Geräts mit Verwaltungspunkten wird blockiert.  
 
-###  <a name="BKMK_NetDiscLevels"></a> Niveaux de découverte du réseau  
-Lorsque vous configurez la découverte du réseau, vous spécifiez l'un des trois niveaux de découverte :  
+Frequenzermittlungsaktionen werden an den folgenden Speicherorten protokolliert:  
 
-|Niveau de découverte|Détails|  
+-   Für Computerclients werden Frequenzermittlungsaktionen auf dem Client in der Datei **InventoryAgent.log** im Ordner *%Windir%\CCM\Logs* aufgezeichnet.  
+
+-   Für mobile Clients werden Frequenzermittlungsaktionen in der Datei **DMPRP.log** im Ordner *%Program Files%\CCM\Logs* des vom mobilen Geräteclient verwendeten Verwaltungspunkts aufgezeichnet.  
+
+Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+##  <a name="bkmk_aboutNetwork"></a> Netzwerkermittlung  
+**Konfigurierbar:** Ja  
+
+**Standardmäßig aktiviert:** Nein  
+
+**Konten** zum Ausführen dieser Methode:  
+
+-   **Computerkonto** des Standortservers  
+
+Verwenden Sie diese Methode zum Ermitteln der Topologie Ihres Netzwerks und von Geräten in Ihrem Netzwerk, die über eine IP-Adresse verfügen. Bei der Netzwerkermittlung wird ein Netzwerk nach IP-fähigen Ressourcen durchsucht. Dazu werden Server abgefragt, auf denen eine Microsoft-Implementierung von DHCP, ARP-Caches (Address Resolution Protocol) in Routern, SNMP-fähige Geräte und Active Directory-Domänen ausgeführt werden.  
+
+Falls Sie die Netzwerkermittlung verwenden möchten, müssen Sie die auszuführende *Ermittlungsebene* festlegen. Sie müssen außerdem mindestens einen Ermittlungsmechanismus konfigurieren, mit dessen Hilfe von der Netzwerkermittlung eine Abfrage nach Netzwerksegmenten oder -geräten ausgeführt werden kann. Außerdem können Sie Einstellungen festlegen, die die Steuerung von Ermittlungsaktionen im Netzwerk erleichtern. Abschließend definieren Sie mindestens einen Zeitplan für die Ausführung der Netzwerkermittlung.  
+
+Die erfolgreiche Ermittlung einer Ressource mit dieser Methode setzt voraus, dass die IP-Adresse und die Subnetzmaske der Ressource von der Netzwerkermittlung identifiziert werden. Die folgenden Methoden werden verwendet, um die Subnetzmaske eines Objekts zu identifizieren:  
+
+-   **Router-ARP-Cache:** Bei der Netzwerkermittlung wird der ARP-Cache eines Routers abgefragt, um Subnetzinformationen zu identifizieren. Daten in einem Router-ARP-Cache sind in der Regel nicht lange gültig. Wenn der ARP-Cache im Rahmen der Netzwerkermittlung abgefragt wird, sind Informationen zum angeforderten Objekt möglicherweise nicht mehr im ARP-Cache vorhanden.  
+
+-   **DHCP:** Bei der Netzwerkermittlung wird jeder angegebene DHCP-Server abgefragt, um die Geräte zu ermitteln, für die eine Lease des DHCP-Servers verfügbar ist. Bei der Netzwerkermittlung werden nur DHCP-Server unterstützt, auf denen die Microsoft-Implementierung von DHCP ausgeführt wird.  
+
+-   **SNMP-Gerät:** Bei der Netzwerkermittlung kann ein SNMP-Gerät direkt abgefragt werden. Damit ein Gerät bei der Netzwerkermittlung abgefragt werden kann, muss auf dem Gerät ein lokaler SNMP-Agent installiert sein. Sie müssen die Netzwerkermittlung für die Verwendung des Communitynamens konfigurieren, der vom SNMP-Agent verwendet wird.  
+
+Wenn bei der Ermittlung ein IP-fähiges Objekt identifiziert wird und die Subnetzmaske des Objekts bestimmt werden kann, wird für dieses Objekt ein DDR erstellt. Da unterschiedliche Gerätetypen eine Verbindung mit dem Netzwerk herstellen können, werden bei der Netzwerkermittlung gegebenenfalls Ressourcen ermittelt, von denen die Configuration Manager-Clientsoftware nicht unterstützt werden kann. Zu den Geräten, die ermittelt, aber nicht verwaltet werden können, gehören beispielsweise Drucker und Router.  
+
+Von der Netzwerkermittlung können mehrere Attribute als Teil des von ihr erstellten Ermittlungsdatensatzes zurückgegeben werden. Dazu gehören:  
+
+-   NetBIOS-Name  
+
+-   IP-Adressen  
+
+-   Domäne der Ressource  
+
+-   Systemrollen  
+
+-   SNMP-Communityname  
+
+-   MAC-Adressen  
+
+Die Netzwerkermittlungsaktivität wird in der Datei **Netdisc.log** im Ordner *&lt;InstallationPath\>\Logs* auf dem Standortserver aufgezeichnet, auf dem die Ermittlung ausgeführt wird.  
+
+ Weitere Informationen zum Konfigurieren dieser Ermittlungsmethode finden Sie unter [Configure discovery methods for System Center Configuration Manager (Konfigurieren der Active Directory-Ermittlung in Configuration Manager)](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+
+> [!NOTE]  
+>  Durch komplexe Netzwerke und Verbindungen mit geringer Bandbreite kann die Ausführung der Netzwerkermittlung beeinträchtigt werden und ein starker Netzwerkdatenverkehr entstehen. Es wird empfohlen, die Netzwerkermittlung nur auszuführen, wenn die zu ermittelnden Ressourcen von den anderen Ermittlungsmethoden nicht gefunden werden. Die Netzwerkermittlung bietet sich beispielsweise an, wenn Sie Arbeitsgruppencomputer ermitteln müssen. Arbeitsgruppencomputer werden von anderen Ermittlungsmethoden nicht erkannt.  
+
+###  <a name="BKMK_NetDiscLevels"></a> Ebenen der Netzwerkermittlung  
+Beim Konfigurieren der Netzwerkermittlung stehen drei Ermittlungsebenen zur Auswahl:  
+
+|Ermittlungsebene|Details|  
 |------------------------|-------------|  
-|Topologie|Ce niveau découvre des routeurs et des sous-réseaux mais n'identifie pas un masque de sous-réseau pour les objets.|  
-|Topologie et client ;|En plus de la topologie, ce niveau découvre des clients potentiels, comme des ordinateurs, et des ressources, comme des imprimantes et des routeurs. Ce niveau de découverte tente d’identifier le masque de sous-réseau des objets qu’il trouve.|  
-|Topologie, client et système d’exploitation.|Outre la topologie et les clients potentiels, ce niveau tente de découvrir le nom et la version du système d’exploitation de l’ordinateur. Ce niveau utilise l'Explorateur Windows et les appels de gestion de réseau Windows.|  
+|Topologie|Auf dieser Ebene werden Router und Subnetze ermittelt. Es werden keine Subnetzmasken für Objekte identifiziert.|  
+|Topologie und Client|Auf dieser Ebene werden zusätzlich zur Topologie auch potenzielle Clients wie Computer sowie Ressourcen wie Drucker und Router ermittelt. Es wird versucht, die Subnetzmaske der gefundenen Objekte zu identifizieren.|  
+|Topologie, Client und Clientbetriebssystem|Auf dieser Ebene wird versucht, zusätzlich zur Topologie und zu potenziellen Clients den Namen und die Version des Computerbetriebssystems zu ermitteln. Dabei werden Windows-Browser- und Windows-Netzwerkaufrufe verwendet.|  
 
- Avec chaque niveau incrémentiel, la découverte du réseau augmente son activité et l'utilisation de la bande passante du réseau. Tenez compte du trafic réseau qui peut être généré avant d'activer tous les aspects de la découverte du réseau.  
+ Je höher die Stufe, desto stärker die Aktivität der Netzwerkermittlung und die Auslastung der Netzwerkbandbreite. Es empfiehlt sich, die Folgen für den Netzwerkdatenverkehr sorgfältig zu erwägen, bevor Sie alle Optionen der Netzwerkermittlung aktivieren.  
 
- Par exemple, lorsque vous utilisez la découverte du réseau pour la première fois, vous pouvez commencer avec le niveau de topologie uniquement pour identifier votre infrastructure réseau. Ensuite, vous pouvez reconfigurer la découverte du réseau pour découvrir des objets et les systèmes d’exploitation de leur périphérique. Vous pouvez également configurer des paramètres qui limitent la découverte du réseau à une plage spécifique de segments de réseau. De cette façon, vous pouvez découvrir des objets dans des emplacements réseau dont vous avez besoin et éviter tout trafic réseau inutile, et vous pouvez découvrir des objets à partir de routeurs de périphérie ou à l’extérieur de votre réseau.  
+ Beispielsweise wäre es sinnvoll, sich beim ersten Einsatz der Netzwerkermittlung mit der Topologieebene zu begnügen und nur die Netzwerkinfrastruktur zu ermitteln. Anschließend können Sie die Netzwerkermittlung neu konfigurieren, damit auch Objekte und deren Gerätebetriebssysteme ermittelt werden. Sie können auch Einstellungen konfigurieren, durch die die Netzwerkermittlung auf einen bestimmten Bereich von Netzwerksegmenten beschränkt wird. Auf diese Weise können Sie Objekte an benötigten Netzwerkadressen ermitteln und unnötigen Netzwerkdatenverkehr vermeiden. Zudem können Sie Objekte von Edgeroutern oder von Standorten außerhalb Ihres Netzwerks aus ermitteln.  
 
-###  <a name="BKMK_NetDiscOptions"></a> Options de découverte du réseau  
-Pour permettre à la découverte du réseau de rechercher des appareils avec adresse IP, vous devez configurer une ou plusieurs des options suivantes spécifiant comment rechercher des appareils.  
-
-> [!NOTE]  
->  La découverte du réseau est exécutée dans le contexte du compte d'ordinateur du serveur de site qui exécute la découverte. Si le compte d’ordinateur ne dispose pas d’autorisation sur un domaine non approuvé, les configurations du domaine et du serveur DHCP peuvent ne pas réussir à découvrir des ressources.  
-
-**DHCP :**  
-
-Spécifiez chaque serveur DHCP que la découverte du réseau devra interroger. (La découverte du réseau prend en charge uniquement les serveurs DHCP qui exécutent l’implémentation Microsoft du protocole DHCP.)  
-
--   La découverte du réseau récupère les informations en émettant des appels de procédure distante vers la base de données sur le serveur DHCP.  
-
--   La découverte du réseau peut interroger des serveurs DHCP 32 bits et 64 bits pour une liste de périphériques qui sont enregistrés avec chaque serveur.  
-
--   Pour que la découverte du réseau interroge avec succès un serveur DHCP, le compte d'ordinateur du serveur qui exécute la découverte doit être membre du groupe d'utilisateurs DHCP sur le serveur DHCP. Par exemple, ce niveau d'accès existe lorsque l'une des affirmations suivantes est vraie :  
-
-    -   Le serveur DHCP spécifié est le serveur DHCP du serveur qui exécute la découverte.  
-
-    -   L'ordinateur qui exécute la découverte et le serveur DHCP se trouvent dans le même domaine.  
-
-    -   Il existe une relation d'approbation bidirectionnelle entre l'ordinateur qui exécute la découverte et le serveur DHCP.  
-
-    -   Le serveur de site est membre du groupe d’utilisateurs DHCP.  
-
--   Lorsque la découverte du réseau énumère un serveur DHCP, elle ne découvre pas toujours des adresses IP statiques. La découverte du réseau ne trouve pas d’adresses IP appartenant à une plage exclue d’adresses IP sur le serveur DHCP. Par ailleurs, elle ne découvre pas d’adresses IP réservées à l’attribution manuelle.  
-
-**Domaines :**  
-
-Spécifiez chaque domaine que la découverte du réseau devra interroger.  
-
--   Le compte d’ordinateur du serveur de site qui exécute la découverte doit disposer d'autorisations pour lire les contrôleurs de domaine dans chaque domaine spécifié.  
-
--   Pour découvrir les ordinateurs du domaine local, vous devez activer le service du navigateur d’ordinateur sur au moins un ordinateur qui se trouve sur le même sous-réseau que le serveur de site qui exécute la découverte du réseau.  
-
--   La découverte du réseau peut découvrir n'importe quel ordinateur que vous pouvez consulter à partir de votre serveur de site lorsque vous parcourez le réseau.  
-
--   La découverte du réseau récupère l'adresse IP, puis utilise une demande d'écho ICMP (Internet Control Message Protocol) pour effectuer un test ping sur chaque périphérique qu'elle trouve. La commande **ping** permet de déterminer quels ordinateurs sont actuellement actifs.  
-
-**Unités SNMP :**  
-
-Spécifiez chaque unité SNMP que la découverte du réseau devra interroger.  
-
--   La découverte du réseau récupère la valeur ipNetToMediaTable depuis toute unité SNMP qui répond à la requête. Cette valeur retourne des groupes d’adresses IP qui sont des ordinateurs clients ou autres ressources, comme des imprimantes, des routeurs ou d’autres périphériques IP.  
-
--   Pour interroger un périphérique, vous devez spécifier l’adresse IP ou le nom NetBIOS du périphérique.  
-
--   Vous devez configurer la découverte du réseau de sorte qu'elle utilise le nom de communauté du périphérique ; dans le cas contraire, le périphérique rejette la requête basée sur SNMP.  
-
-###  <a name="BKMK_LimitNetDisc"></a> Limitation de la découverte du réseau  
-Lorsque la découverte du réseau interroge un périphérique SNMP sur le bord de votre réseau, elle peut identifier des informations sur les sous-réseaux et les périphériques SNMP qui sont en dehors de votre réseau immédiat. Utilisez les informations suivantes pour limiter la découverte du réseau en configurant les unités SNMP avec lesquelles la découverte peut communiquer et en spécifiant les segments réseau à interroger.  
-
-**Sous-réseaux :**  
-
-Configurez les sous-réseaux que la découverte du réseau interroge lorsqu'elle utilise les options DHCP et SNMP. Ces deux options cherchent uniquement les sous-réseaux activés.  
-
-Par exemple, une requête DHCP peut renvoyer des périphériques à partir d'emplacements situés dans l'ensemble de votre réseau. Si vous souhaitez découvrir uniquement des périphériques situés sur un sous-réseau spécifique, spécifiez et activez ce sous-réseau spécifique sous l’onglet **Sous-réseaux** de la boîte de dialogue **Propriétés de la découverte du réseau**. Quand vous spécifiez et activez des sous-réseaux, vous limitez les futures tâches de découverte DHCP et SNMP à ces sous-réseaux.  
+###  <a name="BKMK_NetDiscOptions"></a> Optionen für die Netzwerkermittlung  
+Damit bei der Netzwerkermittlung IP-fähige Geräte gesucht werden können, müssen Sie durch Konfigurieren mindestens einer der folgenden Optionen angeben, wie Geräte abgefragt werden sollen.  
 
 > [!NOTE]  
->  Les configurations de sous-réseau ne limitent pas les objets que l’option de découverte **Domaines** découvre.  
+>  Die Netzwerkermittlung wird im Kontext des Computerkontos auf dem Standortserver, auf dem die Ermittlung ausgeführt wird, ausgeführt. Falls das Computerkonto keine Berechtigungen für eine nicht vertrauenswürdige Domäne hat, kann es vorkommen, dass von den Konfigurationen der Domäne und des DHCP-Servers keine Ressourcen ermittelt werden können.  
 
-**Noms de communautés SNMP :**  
+**DHCP:**  
 
-Pour permettre à la découverte du réseau d'interroger avec succès un périphérique SNMP, configurez la découverte du réseau avec le nom de communauté du périphérique. Si la découverte du réseau n'est pas configurée à l'aide du nom de communauté du périphérique SNMP, le périphérique rejette la requête.  
+Geben Sie alle DHCP-Server an, die bei der Netzwerkermittlung abgefragt werden sollen. (Bei der Netzwerkermittlung werden nur DHCP-Server unterstützt, auf denen die Microsoft-Implementierung von DHCP ausgeführt wird.)  
 
-**Nombre maximal de sauts :**  
+-   Bei der Netzwerkermittlung werden Informationen mithilfe von Remoteprozeduraufrufen an die Datenbank auf dem DHCP-Server abgerufen.  
 
-Lorsque vous configurez le nombre maximal de sauts de routeur, vous limitez le nombre de segments réseau et de routeurs que la découverte du réseau peut interroger à l'aide du protocole SNMP.  
+-   Bei der Netzwerkermittlung können sowohl 32-Bit- als auch 64-Bit-DHCP-Server nach einer Liste der Geräte abgefragt werden, die bei den einzelnen Servern registriert sind.  
 
-Le nombre de sauts que vous configurez limite le nombre de périphériques supplémentaires et de segments réseau que la découverte du réseau peut interroger.  
+-   Ein DHCP-Server kann bei der Netzwerkermittlung nur erfolgreich abgefragt werden, wenn das Computerkonto des Servers, auf dem die Ermittlung ausgeführt wird, ein Mitglied der DHCP-Benutzergruppe auf dem DHCP-Server ist. Beispielsweise ist diese Zugriffsebene gegeben, wenn eine der folgenden Aussagen zutrifft:  
 
-Par exemple, une découverte pour la topologie uniquement avec **0** (zéro) saut de routeur découvre le sous-réseau sur lequel réside le serveur d’origine. Elle inclut tous les routeurs de ce sous-réseau.  
+    -   Der angegebene DHCP-Server ist der DHCP-Server des Servers, auf dem die Ermittlung ausgeführt wird.  
 
-Le diagramme suivant illustre le résultat d’une requête de découverte du réseau pour la topologie, uniquement quand elle est exécutée sur le serveur 1 avec 0 saut de routeur spécifié : sous-réseau D et routeur 1.  
+    -   Der Computer, auf dem die Ermittlung ausgeführt wird, und der DHCP-Server befinden sich in der gleichen Domäne.  
 
- ![Image de découverte avec zéro saut de routeur](media/Disc-0.gif)  
+    -   Zwischen dem Computer, auf dem die Ermittlung ausgeführt wird, und dem DHCP-Server ist eine bidirektionale Vertrauensstellung vorhanden.  
 
- Le diagramme suivant illustre le résultat d’une requête de découverte du réseau pour la topologie et le client, quand elle est exécutée sur le serveur 1 avec 0 saut de routeur spécifié : sous-réseau D et routeur 1, ainsi que tous les clients potentiels du sous-réseau D.  
+    -   Der Standortserver ist ein Mitglied der DHCP-Benutzergruppe.  
 
- ![Image de découverte avec un saut de routeur](media/Disc-1.gif)  
+-   Wenn bei der Netzwerkermittlung ein DHCP-Server aufgezählt wird, können statische IP-Adressen nicht immer ermittelt werden. Bei der Netzwerkermittlung werden keine IP-Adressen gefunden, die einem ausgeschlossenen IP-Adressbereich auf dem DHCP-Server angehören. IP-Adressen, die für die manuelle Zuweisung reserviert sind, werden ebenfalls nicht ermittelt.  
 
- Pour mieux comprendre comment les sauts de routeur supplémentaires peuvent augmenter la quantité de ressources réseau découvertes, prenez l'exemple de réseau suivant :  
+**Domänen:**  
 
- ![Image de découverte avec deux sauts de routeur](media/Disc-2.gif)  
+Geben Sie alle Domänen an, die bei der Netzwerkermittlung abgefragt werden sollen.  
 
- L'exécution d'une découverte du réseau pour la topologie uniquement à partir du serveur 1 avec un saut de routeur permet de découvrir les éléments suivants :  
+-   Das Computerkonto des Standortservers, auf dem die Ermittlung ausgeführt wird, muss für die Domänencontroller in allen angegebenen Domänen über eine Leseberechtigung verfügen.  
 
--   Routeur 1 et sous-réseau 10.1.10.0 (détectés avec zéro saut)  
+-   Zum Ermitteln von Computern in der lokalen Domäne müssen Sie auf mindestens einem Computer den Computersuchdienst aktivieren. Der Computer muss sich dabei im gleichen Subnetz wie der Standortserver befinden, auf dem die Netzwerkermittlung ausgeführt wird.  
 
--   Sous-réseaux 10.1.20.0 et 10.1.30.0, sous-réseau A et routeur 2 (détectés sur le premier saut)  
+-   Bei der Netzwerkermittlung kann jeder Computer ermittelt werden, den Sie beim Durchsuchen des Netzwerks auf dem Standortserver anzeigen können.  
 
-> [!WARNING]  
->  Chaque augmentation du nombre de sauts de routeur peut considérablement augmenter le nombre de ressources à découvrir et augmenter la bande passante réseau utilisée par la découverte du réseau.  
+-   Zuerst wird die IP-Adresse abgerufen, und dann wird jedes gefundene Gerät mit einer ICMP-Echoanforderung (Internet Control Message-Protokoll) gepingt. Mit dem Befehl **ping** können Sie feststellen, welche Computer zurzeit aktiv sind.  
 
-##  <a name="bkmk_aboutServer"></a> Découverte de serveurs  
-**Configurable :** Non  
+**SNMP-Geräte:**  
 
-Outre ces méthodes de découverte pouvant être configurées par l’utilisateur, Configuration Manager utilise un processus appelé **découverte de serveurs** (SMS_WINNT_SERVER_DISCOVERY_AGENT). Cette méthode de découverte crée des enregistrements de ressources pour les ordinateurs qui sont des systèmes de site, par exemple un ordinateur configuré comme point de gestion.  
+Geben Sie alle SNMP-Geräte an, die bei der Netzwerkermittlung abgefragt werden sollen.  
 
-##  <a name="bkmk_shared"></a> Fonctionnalités communes de la découverte de groupes, de systèmes et d’utilisateurs Active Directory  
-Cette section fournit des informations sur les fonctionnalités qui sont communes aux méthodes de découverte suivantes :  
+-   Bei der Netzwerkermittlung wird von jedem SNMP-Gerät, von dem keine Antwort auf die Abfrage eingeht, der Wert „ipNetToMediaTable“ abgerufen. Von diesem Wert werden Arrays von IP-Adressen zurückgegeben, bei denen es sich um Clientcomputer oder andere Ressourcen wie Drucker, Router oder sonstige IP-fähige Geräte handelt.  
 
--   Découverte de groupes Active Directory  
+-   Zum Abfragen eines Geräts müssen Sie die IP-Adresse oder den NetBIOS-Namen dieses Geräts angeben.  
 
--   Découverte de systèmes Active Directory  
+-   Sie müssen die Netzwerkermittlung für die Verwendung des Communitynamens des Geräts konfigurieren. Andernfalls wird die SNMP-basierte Abfrage vom Gerät abgelehnt.  
 
--   Découverte d’utilisateurs Active Directory  
+###  <a name="BKMK_LimitNetDisc"></a> Beschränken der Netzwerkermittlung  
+Beim Abfragen eines SNMP-Geräts am Rand des Netzwerks können von der Netzwerkermittlung Informationen über Subnetze und SNMP-Geräte identifiziert werden, die sich außerhalb des unmittelbaren Netzwerks befinden. Sie können mithilfe der folgenden Informationen die Netzwerkermittlung beschränken. Dazu konfigurieren Sie die SNMP-Geräte, bei denen die Kommunikation mit der Ermittlung möglich ist, und geben die abzufragenden Netzwerksegmente an.  
+
+**Subnetze:**  
+
+Konfigurieren Sie die Subnetze, die bei der Netzwerkermittlung abgefragt werden, sofern die Ermittlungsoptionen SNMP-Geräte und DHCP ausgewählt wurden. Bei diesen beiden Optionen werden nur die aktivierten Subnetze durchsucht.  
+
+Beispielsweise können von einer DHCP-Anforderung Geräte von Orten im gesamten Netzwerk zurückgegeben werden. Falls Sie nur Geräte in einem bestimmten Subnetz ermitteln möchten, müssen Sie im Dialogfeld **Eigenschaften von Netzwerkermittlung** auf der Registerkarte **Subnetze** das jeweilige Subnetz angeben und aktivieren. Wenn Sie Subnetze angeben und aktivieren, beschränken Sie künftige DHCP- und SNMP-Ermittlungsaufgaben auf diese Subnetze.  
 
 > [!NOTE]  
->  Les informations dans cette section ne s'appliquent pas à la découverte de forêts Active Directory.  
+>  Die Objekte, die von der Ermittlungsoption **Domänen** ermittelt werden, werden durch die Subnetzkonfigurationen nicht beschränkt.  
 
-Ces trois méthodes de découverte sont similaires au niveau de la configuration et du fonctionnement. Elles peuvent découvrir des ordinateurs, des utilisateurs et des informations sur les appartenances aux groupes des ressources qui sont stockées dans Active Directory Domain Services. Le processus de découverte est géré par un agent de découverte qui s'exécute sur le serveur de site sur chaque site où l'exécution de la découverte est configurée. Vous pouvez configurer chacune de ces méthodes de découverte pour rechercher un ou plusieurs emplacements Active Directory en tant qu'instances d'emplacement dans la forêt locale ou dans les forêts distantes.  
+**SNMP-Communitynamen:**  
 
-Lorsque la découverte recherche des ressources dans une forêt non approuvée, l'agent de découverte doit être en mesure de résoudre les éléments suivants pour fonctionner correctement :  
+Damit ein SNMP-Gerät erfolgreich abgefragt werden kann, müssen Sie beim Konfigurieren der Netzwerkermittlung den Communitynamen des Geräts angeben. Wird die Netzwerkermittlung nicht anhand des Communitynamens des SNMP-Geräts konfiguriert, wird die Abfrage vom Gerät abgelehnt.  
 
--   Pour découvrir une ressource d’ordinateur à l’aide de la découverte de systèmes Active Directory, l’agent de découverte doit pouvoir résoudre le nom de domaine complet de la ressource. Dans le cas contraire, il devra ensuite tenter de résoudre la ressource par son nom NetBIOS.  
+**Maximale Hopanzahl:**  
 
--   Pour découvrir une ressource d’utilisateur ou de groupe à l’aide de la découverte d’utilisateurs Active Directory ou de la découverte de groupes Active Directory, l’agent de découverte doit pouvoir résoudre le nom de domaine complet du contrôleur de domaine spécifié pour l’emplacement Active Directory.  
+Wenn Sie die maximale Anzahl der Routerhops festlegen, schränken Sie die Anzahl der Netzwerksegmente und Router ein, die von der Netzwerkermittlung mithilfe von SNMP abgefragt werden kann.  
 
-Pour chaque emplacement que vous spécifiez, vous pouvez configurer des options de recherche individuelles, comme l’activation d’une recherche récursive des emplacements de conteneurs enfants Active Directory. Vous pouvez également configurer un compte unique à utiliser lors de la recherche de cet emplacement. Vous bénéficiez ainsi de flexibilité dans la configuration d'une méthode de découverte sur un site pour rechercher plusieurs emplacements Active Directory dans plusieurs forêts, sans devoir configurer un compte unique avec des autorisations à tous les emplacements.  
+Durch die konfigurierte Hopanzahl wird die Anzahl der zusätzlichen Geräte und Netzwerksegmente eingeschränkt, die bei der Netzwerkermittlung abgefragt werden können.  
 
-Quand l’une de ces trois méthodes de découverte s’exécute sur un site spécifique, le serveur de site Configuration Manager sur le site contacte le contrôleur de domaine le plus proche dans la forêt Active Directory spécifiée pour localiser les ressources Active Directory. Le domaine et la forêt peuvent être dans n’importe quel mode Active Directory pris en charge. Le compte que vous attribuez à chaque instance d’emplacement doit disposer de l’autorisation d’accès **Lecture** aux emplacements Active Directory spécifiés.
+Beispielsweise wird bei einer auf die Topologie beschränkten Ermittlung mit **0** (null) Routerhops das Subnetz ermittelt, in dem sich der ursprüngliche Server befindet. Alle Router in diesem Subnetz werden mit eingeschlossen.  
 
-La découverte recherche des objets aux emplacements spécifiés, puis tente de recueillir des informations sur ces objets. Lorsque suffisamment d'informations sur une ressource sont identifiées, un enregistrement de données de découverte est créé. Les informations requises varient en fonction de la méthode de découverte utilisée.  
+Im folgenden Diagramm ist dargestellt, was bei einer auf die Topologie beschränkten Abfrage der Netzwerkermittlung gefunden wird, wenn sie auf Server 1 ausgeführt wird und 0 Routerhops angegeben sind: Subnetz D und Router 1.  
 
-Si vous configurez l'exécution d'une même méthode de découverte dans différents sites Configuration Manager pour tirer profit de l'interrogation des serveurs Active Directory locaux, vous pouvez configurer chaque site à l'aide d'un ensemble unique d'options de découverte. Étant donné que les données de découverte sont partagées avec chaque site de la hiérarchie, évitez la superposition entre ces configurations pour découvrir de manière efficace chaque ressource une seule fois.
+ ![Bild der Ermittlung mit 0 (null) Routerjumps](media/Disc-0.gif)  
 
-Dans les environnements plus petits, envisagez d’exécuter chaque méthode de découverte sur un seul site dans votre hiérarchie pour réduire les charges administratives supplémentaires et la possibilité de multiples actions de découverte redécouvrant les mêmes ressources. Quand vous limitez le nombre de sites exécutant des découvertes, vous pouvez réduire la bande passante réseau globale utilisée par la découverte. Vous pouvez également réduire le nombre global de DDR qui sont créés et qui doivent être traités par vos serveurs de site.  
+ Im folgenden Diagramm ist dargestellt, was bei einer Abfrage der Topologie- und Clientnetzwerkermittlung gefunden wird, wenn sie auf Server 1 ausgeführt wird und 0 Routerhops angegeben sind: Subnetz D, Router 1 und alle potenziellen Clients in Subnetz D.  
 
-De nombreuses configurations de méthode de découverte sont intuitives. Utilisez les sections suivantes pour en savoir plus sur les options de découverte qui requièrent plus d'informations préalables à la configuration.  
+ ![Bild der Ermittlung mit 1 (einem) Routerjump](media/Disc-1.gif)  
 
-Les options suivantes peuvent être utilisées avec plusieurs méthodes de découverte Active Directory :  
+ Damit Sie besser verstehen, wie Routerhops die Anzahl der ermittelten Netzwerkressourcen erhöhen können, stellen Sie sich folgendes Netzwerk vor:  
 
--   [Découverte delta](#bkmk_delta)  
+ ![Bild der Ermittlung mit 2 (zwei) Routerjumps](media/Disc-2.gif)  
 
--   [Filtrer les enregistrements d’ordinateurs obsolètes par connexion au domaine](#bkmk_stalelogon)  
+ Beim Ausführen einer nur auf die Topologie bezogenen Netzwerkermittlung auf Server 1 mit einem einzigen Routerhop wird Folgendes ermittelt:  
 
--   [Filtrer les enregistrements obsolètes par mot de passe de l'ordinateur](#bkmk_stalepassword)  
+-   Router 1 und Subnetz 10.1.10.0 (nach 0 Hops gefunden)  
 
--   [Rechercher les attributs Active Directory personnalisés](#bkmk_customAD)  
-
-###  <a name="bkmk_delta"></a> Découverte delta  
-Disponible pour :  
-
--   Découverte de groupes Active Directory  
-
--   Découverte de systèmes Active Directory  
-
--   Découverte d’utilisateurs Active Directory  
-
-La découverte delta n’est pas une méthode de découverte indépendante, mais une option disponible pour les méthodes de découverte applicables. La découverte delta recherche dans des attributs Active Directory spécifiques des modifications qui ont été apportées depuis le dernier cycle de découverte complète de la méthode de détection applicable. Les modifications d’attributs sont soumises à la base de données Configuration Manager pour mettre à jour l’enregistrement de découverte de la ressource.  
-
-Par défaut, la découverte delta s'exécute sur un cycle de cinq minutes. Autrement dit, elle a lieu beaucoup plus fréquemment qu’un cycle de découverte complète.  Cette fréquence est possible car la découverte delta utilise moins de ressources de serveur de site et de ressources réseau qu’un cycle de découverte complète. Lorsque vous utilisez la découverte delta, vous pouvez réduire la fréquence du cycle de découverte complète pour cette méthode de découverte.  
-
-Les modifications les plus courantes détectées par la découverte delta sont les suivantes :  
-
--   Ajout de nouveaux ordinateurs ou utilisateurs à Active Directory  
-
--   Modifications des informations de base de l'ordinateur et de l'utilisateur  
-
--   Ajout de nouveaux ordinateurs ou utilisateurs à un groupe  
-
--   Suppression d'ordinateurs ou d'utilisateurs d'un groupe  
-
--   Modifications apportées aux objets de groupes de systèmes  
-
-Bien que la découverte delta puisse détecter de nouvelles ressources et des modifications de l’appartenance à un groupe, elle ne peut pas détecter qu’une ressource a été supprimée d’Active Directory. Les enregistrements de données de découverte (DDR) créés par la découverte delta sont traités de la même manière que les DDR qui sont créés par un cycle de découverte complète.  
-
-Vous configurez la découverte delta à partir de l'onglet **Calendrier d'interrogation** dans les propriétés de chaque méthode de découverte.  
-
-###  <a name="bkmk_stalelogon"></a> Filtrer les enregistrements d’ordinateurs obsolètes par connexion au domaine  
-Disponible pour :  
-
--   Découverte de groupes Active Directory  
-
--   Découverte de systèmes Active Directory  
-
-Vous pouvez configurer la découverte de manière à exclure les ordinateurs ayant un enregistrement d’ordinateur obsolète en fonction de la dernière connexion de l'ordinateur au domaine. Quand cette option est activée, la découverte de systèmes Active Directory évalue chaque ordinateur identifié. La découverte de groupes Active Directory évalue chaque ordinateur membre d'un groupe qui est découvert.  
-
-Pour utiliser cette option :  
-
--   Les ordinateurs doivent être configurés pour mettre à jour l’attribut **lastLogonTimeStamp** dans les services de domaine Active Directory.  
-
--   Le niveau fonctionnel du domaine Active Directory doit être défini sur Windows Server 2003 ou version ultérieure.  
-
-Quand vous configurez le délai entre la dernière connexion et l’utilisation de ce paramètre, prenez en compte l’intervalle de réplication entre les contrôleurs de domaine.  
-
-Configurez le filtrage sous l’onglet **Option** dans les boîtes de dialogue des **propriétés de découverte des systèmes Active Directory** et des **propriétés de découverte de groupes Active Directory**. Choisissez l’option **Découvrir uniquement les ordinateurs qui se sont connectés à un domaine pendant une période donnée**.  
+-   Subnetze 10.1.20.0 und 10.1.30.0, Subnetz A und Router 2 (auf dem ersten Hop gefunden)  
 
 > [!WARNING]  
->  Quand vous configurez ce filtre et **Filtrer les enregistrements obsolètes par mot de passe de l’ordinateur**, les ordinateurs qui répondent aux critères de l’un des filtres sont exclus de la découverte.  
+>  Durch jede Erhöhung der Anzahl von Routerhops kann die Anzahl der ermittelten Ressourcen deutlich erhöht und die von der Netzwerkermittlung verwendete Netzwerkbandbreite gesteigert werden.  
 
-###  <a name="bkmk_stalepassword"></a> Filtrer les enregistrements obsolètes par mot de passe de l’ordinateur  
-Disponible pour :  
+##  <a name="bkmk_aboutServer"></a> Serverermittlung  
+**Konfigurierbar:** Nein  
 
--   Découverte de groupes Active Directory  
+Zusätzlich zu den benutzerkonfigurierbaren Ermittlungsmethoden wird von Configuration Manager ein als **Serverermittlung** (SMS_WINNT_SERVER_DISCOVERY_AGENT) bezeichneter Prozess verwendet. Bei dieser Ermittlungsmethode werden Ressourceneinträge für Computer erstellt, bei denen es sich um Standortsysteme handelt. Dazu gehören beispielsweise Computer, die als Verwaltungspunkte konfiguriert sind.  
 
--   Découverte de systèmes Active Directory  
+##  <a name="bkmk_shared"></a> Allgemeine Funktionen der Active Directory-Gruppenermittlung, Systemermittlung und Benutzerermittlung  
+Dieser Abschnitt enthält Informationen zu den Funktionen, die folgende Ermittlungsmethoden gemeinsam haben:  
 
-Vous pouvez configurer la découverte de manière à exclure les ordinateurs ayant un enregistrement d’ordinateur obsolète en fonction de la dernière mise à jour du mot de passe du compte d'ordinateur par l'ordinateur. Quand cette option est activée, la découverte de systèmes Active Directory évalue chaque ordinateur identifié. La découverte de groupes Active Directory évalue chaque ordinateur membre d'un groupe qui est découvert.  
+-   Active Directory-Gruppenermittlung  
 
-Pour utiliser cette option :  
+-   Active Directory-Systemermittlung  
 
--   Les ordinateurs doivent être configurés pour mettre à jour l’attribut **pwdLastSet** dans les services de domaine Active Directory.  
+-   Active Directory-Benutzerermittlung  
 
-Quand vous configurez cette option, prenez en compte l’intervalle pour la mise à jour de cet attribut en plus de l’intervalle de réplication entre les contrôleurs de domaine.  
+> [!NOTE]  
+>  Die Informationen in diesem Abschnitt gelten nicht für die Active Directory-Gesamtstrukturermittlung.  
 
-Configurez le filtrage sous l’onglet **Option** dans les boîtes de dialogue des **propriétés de découverte des systèmes Active Directory** et des **propriétés de découverte de groupes Active Directory**. Choisissez l’option **Découvrir uniquement les ordinateurs qui ont mis à jour le mot de passe de leur compte d’ordinateur pendant une période donnée**.  
+Diese drei Ermittlungsmethoden ähneln sich im Hinblick auf Konfiguration und Betrieb. Sie dienen zum Ermitteln von Computern, Benutzern und Informationen über die Gruppenmitgliedschaften von Ressourcen, die in Active Directory Domain Services gespeichert sind. Der Ermittlungsprozess wird von einem Ermittlungs-Agent verwaltet. Dieser wird an jedem Standort, an dem die Ermittlung konfigurationsgemäß ausgeführt werden soll, auf dem Standortserver ausgeführt. Sie können für jede dieser Ermittlungsmethoden festlegen, dass mindestens ein Active Directory-Ort als Ortsinstanz in der lokalen Gesamtstruktur oder in Remotegesamtstrukturen durchsucht werden soll.  
+
+Beim Durchsuchen einer als nicht vertrauenswürdig eingestuften Gesamtstruktur nach Ressourcen muss vom Ermittlungs-Agent Folgendes aufgelöst werden können:  
+
+-   Der FQDN der Ressource muss vom Ermittlungs-Agent aufgelöst werden können, um eine Computerressource mit der Active Directory-Systemermittlung zu ermitteln. Ist dies nicht möglich, wird versucht, die Ressource anhand ihres NetBIOS-Namens aufzulösen.  
+
+-   Der FQDN des von Ihnen für den Active Directory-Standort angegebenen Domänencontrollernamens muss vom Ermittlungs-Agent aufgelöst werden können, um eine Benutzer- oder eine Gruppenressource mit der Active Directory-Benutzerermittlung bzw. der Active Directory-Gruppenermittlung zu ermitteln.  
+
+Sie können für jeden von Ihnen angegebenen Ort individuelle Suchoptionen konfigurieren. Beispielsweise können Sie das rekursive Durchsuchen der untergeordneten Active Directory-Container an diesen Standorten aktivieren. Außerdem können Sie ein eindeutiges Konto konfigurieren, das beim Durchsuchen dieses Orts verwendet werden soll. Sie haben somit die flexible Möglichkeit, eine Ermittlungsmethode an einem Standort zu konfigurieren und zum Durchsuchen mehrerer Active Directory-Orte in vielen Gesamtstrukturen anzuweisen, ohne ein einzelnes Konto mit Berechtigungen für sämtliche Orte konfigurieren zu müssen.  
+
+Bei der Ausführung dieser drei Ermittlungsmethoden an einem bestimmten Standort wird vom Configuration Manager-Standortserver an diesem Standort eine Verbindung mit dem nächstgelegenen Domänencontroller in der angegebenen Active Directory-Gesamtstruktur hergestellt, um Active Directory-Ressourcen zu suchen. Die Domäne und die Gesamtstruktur können in einem beliebigen unterstützten Active Directory-Modus befinden. Das Konto, das Sie jeder Standortinstanz zuweisen, muss über die Berechtigung **Lesen** für die angegebenen Active Directory-Standorte verfügen.
+
+Bei der Ermittlung werden zunächst die angegebenen Orte nach Objekten durchsucht. Anschließend wird versucht, Informationen über diese Objekte zu sammeln. Falls genügend Informationen zu einer Ressource identifiziert werden können, wird ein DDR erstellt. Welche Informationen erforderlich sind, hängt jeweils von der verwendeten Ermittlungsmethode ab.  
+
+Sie können die gleiche Ermittlungsmethode für die Ausführung an mehreren Configuration Manager-Standorten konfigurieren, um den Vorteil von Abfragen an die lokalen Active Directory-Server zu nutzen. In diesem Fall können Sie jeden Standort mit einem eindeutigen Satz von Ermittlungsoptionen konfigurieren. Da die Ermittlungsdaten für alle Standorte in der Hierarchie freigegeben werden, sollten Sie ein Überlappen zwischen diesen Konfigurationen vermeiden, um jede Ressource effektiv ein Mal ermitteln zu können.
+
+In kleineren Umgebungen können Sie erwägen, jede Ermittlungsmethode nur an einem einzigen Standort in der Hierarchie auszuführen. So können Sie den Verwaltungsaufwand gering halten und die Wahrscheinlichkeit senken, dass die gleichen Ressourcen von mehreren Ermittlungsaktionen ermittelt werden. Wenn Sie die Anzahl der Standorte, in denen die Ermittlung ausgeführt wird, auf ein Mindestmaß beschränken, können Sie die von der Ermittlung verwendete Netzwerkbandbreite insgesamt verringern. Sie können auch die Anzahl der DDRs reduzieren, die erstellt und von Ihren Standortservern verarbeitet werden müssen.  
+
+Viele Konfigurationen von Ermittlungsmethoden sind selbsterklärend. In den nachfolgenden Abschnitten finden Sie weitere Informationen, die Sie möglicherweise benötigen, bevor Sie sie die entsprechenden Ermittlungsoptionen konfigurieren.  
+
+Die folgenden Optionen stehen für die Verwendung mit mehreren Active Directory-Ermittlungsmethoden zur Verfügung:  
+
+-   [Deltaermittlung](#bkmk_delta)  
+
+-   [Filtern veralteter Computerdatensätze bei der Domänenanmeldung](#bkmk_stalelogon)  
+
+-   [Filtern veralteter Datensätze nach Computerkennwort](#bkmk_stalepassword)  
+
+-   [Suchen nach benutzerdefinierten Attributen von Active Directory](#bkmk_customAD)  
+
+###  <a name="bkmk_delta"></a> Deltaermittlung  
+Verfügbar für:  
+
+-   Active Directory-Gruppenermittlung  
+
+-   Active Directory-Systemermittlung  
+
+-   Active Directory-Benutzerermittlung  
+
+Deltaermittlung ist eine unabhängige Ermittlungsmethode, jedoch als Option für die entsprechenden Methoden verfügbar. Die Deltaermittlung sucht bestimmte Active Directory-Attribute für Änderungen, die seit dem letzten vollständigen Ermittlungszyklus der entsprechenden Ermittlungsmethode vorgenommen wurden. Die Attributänderungen werden an die Configuration Manager-Datenbank gesendet, um den Ermittlungsdatensatz der Ressource zu aktualisieren.  
+
+Die Deltaermittlung wird standardmäßig in einem Fünfminutenzyklus ausgeführt. Dies ist sehr viel häufiger als der normale Zeitplan für einen vollständigen Ermittlungszyklus vorsieht.  Dieser häufige Zyklus ist möglich, da Deltaermittlung weniger Standortserver- und Netzwerkressourcen verwendet als ein vollständiger Ermittlungszyklus. Bei der Verwendung der Deltaermittlung können Sie die Häufigkeit des vollständigen Ermittlungszyklus der betreffenden Ermittlungsmethode reduzieren.  
+
+Die gängigsten Änderungen, die von der Deltaermittlung erkannt werden, sind:  
+
+-   Neue Computer oder Benutzer, die Active Directory hinzugefügt wurden  
+
+-   Änderungen an grundlegenden Computer- und Benutzerinformationen  
+
+-   Neue Computer oder Benutzer, die einer Gruppe hinzugefügt wurden  
+
+-   Computer oder Benutzer, die aus einer Gruppe entfernt wurden  
+
+-   Änderungen an Systemgruppenobjekten  
+
+Bei der Deltaermittlung können zwar neue Ressourcen und Änderungen an der Gruppenmitgliedschaft erkannt werden, jedoch nicht, ob eine Ressource aus Active Directory gelöscht wurde. DDRs, die von der Deltaermittlung erstellt werden, werden wie von einem vollständigen Ermittlungszyklus erstellte DDRs verarbeitet.  
+
+Die Deltaermittlung wird in den Eigenschaften einer Ermittlungsmethode auf der Registerkarte **Abfragezeitplan** konfiguriert.  
+
+###  <a name="bkmk_stalelogon"></a> Filtern veralteter Computerdatensätze bei der Domänenanmeldung  
+Verfügbar für:  
+
+-   Active Directory-Gruppenermittlung  
+
+-   Active Directory-Systemermittlung  
+
+Sie können die Ermittlung so konfigurieren, dass veraltete Computerdatensätze auf Basis der letzten Domänenanmeldung des Computers von der Ermittlung ausgeschlossen werden. Wenn diese Option aktiviert ist, wird jeder identifizierte Computer von der Active Directory-Systemermittlung ausgewertet. Von der Active Directory-Gruppenermittlung wird jeder Computer ausgewertet, der Mitglied in einer ermittelten Gruppe ist.  
+
+Voraussetzungen für die Verwendung dieser Option:  
+
+-   Computer müssen so konfiguriert werden, dass das Attribut **LastLogonTimeStamp** in Active Directory Domain Services aktualisiert wird.  
+
+-   Die Active Directory-Domänenfunktionsebene muss auf Windows Server 2003 oder höher festgelegt sein.  
+
+Berücksichtigen Sie das Intervall der Replikation zwischen Domänencontrollern, wenn Sie die Zeit nach der letzten Anmeldung konfigurieren, die Sie für diese Einstellung verwenden möchten.  
+
+Sie konfigurieren die Filterung auf der Registerkarte **Option** in den Dialogfeldern **Eigenschaften von Active Directory-Systemermittlung** und **Eigenschaften von Active Directory-Gruppenermittlung**. Wählen Sie die Option **Nur Computer ermitteln, die in einem bestimmten Zeitraum bei einer Domäne angemeldet waren**.  
 
 > [!WARNING]  
->  Quand vous configurez ce filtre et **Filtrer les enregistrements obsolètes par connexion au domaine**, les ordinateurs qui répondent aux critères de l’un des filtres sont exclus de la découverte.  
+>  Wenn Sie diesen Filter konfigurieren und **Filtern veralteter Datensätze nach Computerkennwort** verwenden, werden Computer, die die Kriterien mindestens eines Filters erfüllen, von der Ermittlung ausgeschlossen.  
 
-###  <a name="bkmk_customAD"></a> Rechercher les attributs Active Directory personnalisés  
- Disponible pour :  
+###  <a name="bkmk_stalepassword"></a> Filtern veralteter Datensätze nach Computerkennwort  
+Verfügbar für:  
 
--   Découverte de systèmes Active Directory  
+-   Active Directory-Gruppenermittlung  
 
--   Découverte d’utilisateurs Active Directory  
+-   Active Directory-Systemermittlung  
 
-Chaque méthode de découverte prend en charge une liste unique d'attributs Active Directory pouvant être découverts.  
+Sie können die Ermittlung so konfigurieren, dass Computer mit veralteten Computerdatensätzen auf Basis der letzten Aktualisierung des Computerkontokennworts von der Ermittlung ausgeschlossen werden. Wenn diese Option aktiviert ist, wird jeder identifizierte Computer von der Active Directory-Systemermittlung ausgewertet. Von der Active Directory-Gruppenermittlung wird jeder Computer ausgewertet, der Mitglied in einer ermittelten Gruppe ist.  
 
-Vous pouvez afficher et configurer les liste des attributs personnalisés sous l’onglet **Attributs Active Directory** des boîtes de dialogue des **propriétés de découverte des systèmes Active Directory** et des **propriétés de découverte d’utilisateurs Active Directory**.  
+Voraussetzungen für die Verwendung dieser Option:  
 
+-   Computer müssen so konfiguriert werden, dass das Attribut **pwdLastSet** in Active Directory Domain Services aktualisiert wird.  
+
+Berücksichtigen Sie beim Konfigurieren dieser Option das Updateintervall des Attributs sowie das Intervall der Replikation zwischen Domänencontrollern.  
+
+Sie konfigurieren die Filterung auf der Registerkarte **Option** in den Dialogfeldern **Eigenschaften von Active Directory-Systemermittlung** und **Eigenschaften von Active Directory-Gruppenermittlung**. Wählen Sie die Option **Nur Computer ermitteln, von denen in einem bestimmten Zeitraum das Kennwort für das Computerkonto aktualisiert wurde**.  
+
+> [!WARNING]  
+>  Wenn Sie diesen Filter konfigurieren und **Filtern veralteter Datensätze nach Anmeldung an der Domäne** verwenden, werden Computer, die die Kriterien mindestens eines Filters erfüllen, von der Ermittlung ausgeschlossen.  
+
+###  <a name="bkmk_customAD"></a> Suchen nach benutzerdefinierten Attributen von Active Directory  
+ Verfügbar für:  
+
+-   Active Directory-Systemermittlung  
+
+-   Active Directory-Benutzerermittlung  
+
+Von jeder Ermittlungsmethode wird eine eindeutige Liste von Active Directory Attributen, die ermittelt werden können, unterstützt.  
+
+Prüfen und konfigurieren Sie die Liste benutzerdefinierter Attribute auf der Registerkarte **Active Directory-Attribute** im Dialogfeld **Eigenschaften der Active Directory-Systemermittlung** und im Dialogfeld **Eigenschaften der Active Directory-Benutzerermittlung**.  

@@ -1,80 +1,77 @@
 ---
-title: "Fonctionnalités de Technical Preview 1611 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1611 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1611 für Configuration Manager"
+description: "Erfahren Sie mehr über Funktionen, die in System Center Configuration Manager Technical Preview 1611 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.topic: article
 ms.assetid: d2ad00e8-9f10-41b6-816a-d8542c23a22e
-caps.latest.revision: 2
+caps.latest.revision: "2"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
 ms.openlocfilehash: 5e77ebbfd3f3d573d903fe58024a22feb9884e4a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1611 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1611 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
-
-
-
-Cet article présente les fonctionnalités disponibles dans la version d’évaluation technique 1611 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
-
-**Problèmes connus dans cette version d’évaluation technique :**   
-- ***État des prérequis*** : Quand vous installez la version 1611, l’état global des prérequis peut indiquer une installation réussie avec des avertissements. Toutefois, les prérequis à l’origine des avertissements ne sont pas répertoriés. Cela peut être dû aux deux prérequis suivants :
-  - Options de création d’index en mémoire SQL
-  - Vérifications de la version de SQL Server prise en charge  
-
- Comme il s’agit uniquement d’avertissements, vous pouvez les ignorer.
-
-- ***PowerShell*** : quand vous vous connectez à Windows PowerShell à partir de la console Configuration Manager, vous pouvez recevoir l’erreur suivante : **Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml n’est pas signé numériquement**.  
-
-   Vous pouvez résoudre ce problème en remplaçant certains fichiers par les versions signées de la version 1610. Copiez tous les fichiers avec les extensions suivantes qui figurent dans le dossier **&lt;répertoire d’installation>\AdminConsole\bin\** de l’installation de la version 1610 : **.psd1**, **.ps1xml** et **.psm1**. Collez-les dans le dossier **&lt;répertoire_installation>\AdminConsole\bin\** de l’installation de la version d’évaluation technique 1611, en remplaçant la version 1611 des fichiers.
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Mettre préalablement en cache le contenu pour les déploiements et les séquences de tâches disponibles
-Cette version d’évaluation technique propose une fonctionnalité de mise en cache préalable des séquences de tâches et des déploiements disponibles. De cette façon, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
+In diesem Artikel werden die Funktionen beschrieben, die in der Technical Preview 1611 für System Center Configuration Manager verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
 
-Supposons que vous souhaitiez déployer une séquence de tâches de mise à niveau sur place de Windows 10, que vous ne vouliez qu’une seule séquence de tâches pour tous les utilisateurs, et que vous ayez plusieurs architectures et/ou langues. Dans Current Branch, si vous créez un déploiement disponible et que l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est téléchargé à ce moment-là. Ceci a pour effet de retarder la disponibilité de l’installation. Si vous choisissez de créer un déploiement de séquence de tâches disponible dans Current Branch, tout le contenu référencé dans la séquence de tâches est téléchargé (c’est-à-dire tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture). Si chaque package fait environ 3 Go, le package de téléchargement peut être très volumineux.
+**Bekannte Probleme in dieser Technical Preview:**   
+- ***Voraussetzungsstatus***: Bei der Installation von Version 1611 wird möglicherweise für den Gesamtstatus der Voraussetzungen „mit Warnungen bestanden“ angezeigt, allerdings wird nicht angegeben, welche Voraussetzungen die Warnungen verursacht haben. Diese Warnung kann durch die beiden folgenden Voraussetzungen verursacht werden:
+  - Optionen für „SQL-Speicher für Indexerstellung“
+  - Überprüfungen auf unterstützte SQL Server-Version  
 
-La fonctionnalité de mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local.
+ Da es sich nur um Warnungen handelt, können sie ignoriert werden.
 
-### <a name="to-configure-the-pre-cache-feature"></a>Pour configurer la fonctionnalité de mise en cache préalable
+- ***PowerShell***: Wenn Sie über die Configuration Manager-Konsole eine Verbindung zu Windows PowerShell herstellen, wird möglicherweise folgende Fehlermeldung angezeigt: **Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml ist nicht digital signiert**.  
 
-1. Créez des packages de mise à niveau du système d’exploitation pour des architectures et des langues spécifiques. Spécifiez l’architecture et la langue sous l’onglet **Source de données** du package. Pour la langue, utilisez la conversion décimale (par exemple, pour l’anglais, 1033 est l’identifiant décimal et 0x0409 l’identifiant hexadécimal). Pour plus d’informations, consultez [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
-
-    Les valeurs de l’architecture et de la langue sont mises en correspondance avec les conditions de la séquence de tâches que vous allez créer à l’étape suivante pour déterminer si le package de mise à niveau du système d’exploitation doit être préalablement mis en cache.
-2. Créez une séquence de tâches avec des étapes conditionnelles pour les différentes langues et architectures. Par exemple, pour la version anglaise, vous pouvez créer une étape comme suit :
-
-    ![propriétés de mise en cache préalable](media/precacheproperties2.png)
-
-    ![options de mise en cache préalable](media/precacheoptions2.png)  
-
-3. déployer la séquence de tâches. Pour configurer la fonctionnalité de mise en cache préalable, configurez ce qui suit :
-    - Sous l’onglet **Général**, sélectionnez **Prétélécharger le contenu pour cette séquence de tâches**.
-    - Sous l’onglet **Paramètres de déploiement**, configurez la séquence de tâches avec **Disponible** comme **Objectif**. Si vous créez un déploiement **Exigé**, la fonctionnalité de mise en cache préalable ne fonctionne pas.
-    - Sous l’onglet **Planification**, pour le paramètre **Planifier la disponibilité de ce déploiement**, choisissez une heure future qui donne aux clients le temps de mettre préalablement en cache le contenu avant que le déploiement ne soit accessible aux utilisateurs. Par exemple, vous pouvez définir un délai de 3 heures pour allouer suffisamment de temps à la mise en cache préalable du contenu.  
-    - Sous l’onglet **Points de distribution**, configurez les paramètres **Options de déploiement**. Si le contenu n’est pas préalablement mis en cache sur un client avant le démarrage de l’installation, ces paramètres sont utilisés.
+   Sie können dieses Problem beheben, indem Sie bestimmte Dateien durch signierte Versionen aus Version 1610 ersetzen. Kopieren Sie alle Dateien mit den folgenden Erweiterungen in Ihrem Ordner **&lt;Installationsverzeichnis>\AdminConsole\bin\** Ihrer Installation von Version 1610: **.psd1**, **.ps1xml** und **.psm1**. Fügen Sie diese Dateien im Ordner *&lt;Installationsverzeichnis>\AdminConsole\bin\** Ihrer Installation der Technical Preview 1611 ein, und überschreiben Sie so die Version 1611 der betreffenden Dateien.
 
 
-### <a name="user-experience"></a>Expérience utilisateur
-- Quand le client reçoit la stratégie de déploiement, il commence la mise en cache préalable du contenu. Il s’agit du contenu référencé (tout autre type de package) et du package de mise à niveau du système d’exploitation correspondant au client (en fonction des conditions définies dans la séquence de tâches).
-- Une fois le déploiement accessible aux utilisateurs (paramètre défini sous l’onglet **Planification** du déploiement), une notification s’affiche pour informer les utilisateurs du nouveau déploiement. Le déploiement apparaît alors dans le Centre logiciel. L’utilisateur peut accéder au Centre logiciel et cliquer sur **Installer** pour démarrer l’installation.
-- Si tout le contenu n’est pas préalablement mis en cache, les paramètres spécifiés sous l’onglet **Option de déploiement** du déploiement sont utilisés. Nous vous recommandons de définir un délai suffisant entre la création du déploiement et l’heure à laquelle le déploiement est accessible aux utilisateurs pour que les client aient le temps de mettre préalablement en cache le contenu.
+**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
+
+## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Zwischenspeichern von Inhalt für verfügbare Bereitstellungen und Tasksequenzen
+In diesem Technical Preview können Sie für verfügbare Bereitstellungen und Tasksequenzen die Zwischenspeicherungsfunktion verwenden, damit Clients nur relevante Inhalte herunterladen, bevor ein Benutzer den Inhalt installiert.
+
+Ein Beispiel: Es soll eine Tasksequenz für ein direktes Upgrade von Windows 10 bereitgestellt werden, es soll nur eine einzige Tasksequenz für alle Benutzer verwendet werden und es sollen mehrere Architekturen und/oder Sprachen verfügbar sein. Wenn Sie in Current Branch eine verfügbare Bereitstellung erstellen und der Benutzer anschließend im Software Center auf **Installieren** klickt, wird der Inhalt zu diesem Zeitpunkt heruntergeladen. Dadurch verzögert sich der Installationsstart. Wenn Sie alternativ in Current Branch eine verfügbare Tasksequenzbereitstellung erstellen, wird der gesamte in der Tasksequenz referenzierte Inhalt heruntergeladen. Dies schließt das Betriebssystem-Aktualisierungspaket für alle Sprachen und Architekturen mit ein. Wenn jede Sprache/Architektur ungefähr 3 GB groß ist, kann das Downloadpaket sehr groß sein.
+
+Mit der Funktion zum Zwischenspeichern von Inhalten können Sie den Client dahingehend einschränken, dass er nur zutreffenden Inhalt herunterladen darf, wenn er die Bereitstellung empfängt. Wenn der Benutzer dann im Softwarecenter auf **Installieren** klickt, steht der Inhalt bereit, und die Installation startet sofort, da der Inhalt bereits auf der lokalen Festplatte gespeichert ist.
+
+### <a name="to-configure-the-pre-cache-feature"></a>So konfigurieren Sie die Zwischenspeicherungsfunktion
+
+1. Erstellen Sie Betriebssystem-Aktualisierungspakete für bestimmte Architekturen und Sprachen. Geben Sie die Architektur und die Sprache auf der Registerkarte **Datenquelle** des Pakets an. Verwenden Sie für die Sprache die Dezimalkonvertierung (1033 ist beispielsweise der Dezimalwert für Englisch, 0x0409 seine hexadezimale Entsprechung). Weitere Informationen finden Sie unter [Erstellen einer Tasksequenz zum Durchführen eines Upgrades für ein Betriebssystem](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+
+    Die Architektur- und Sprachwerte werden verwendet, um Tasksequenz-Schrittbedingungen abzugleichen, die Sie im nächsten Schritt erstellen, um festzulegen, ob das Betriebssystem-Aktualisierungspaket zwischengespeichert werden soll.
+2. Erstellen Sie eine Tasksequenz mit bedingten Schritten für die verschiedenen Sprachen und Architekturen. Für die englische Version könnten Sie z.B. wie folgt einen Schritt erstellen:
+
+    ![Zwischenspeicherungseigenschaften](media/precacheproperties2.png)
+
+    ![Zwischenspeicherungsoptionen](media/precacheoptions2.png)  
+
+3. Bereitstellen der Tasksequenz Konfigurieren Sie für die Zwischenspeicherungsfunktion Folgendes:
+    - Wählen Sie auf der Registerkarte **Allgemein** die Option **Inhalt für diese Tasksequenz vorab herunterladen** aus.
+    - Konfigurieren Sie auf der Registerkarte **Bereitstellungseinstellungen** die Tasksequenz mit der Einstellung **Verfügbar** für **Zweck**. Bei der Erstellung einer Bereitstellung des Typs **Erforderlich** ist die Zwischenspeicherfunktion nicht verfügbar.
+    - Wählen Sie auf der Registerkarte **Planung** für die Einstellung **Verfügbarkeitsdatum der Bereitstellung festlegen** einen in der Zukunft liegenden Zeitpunkt aus, der Clients genügend Zeit bietet, um den Inhalt zwischenzuspeichern, bevor die Bereitstellung für Benutzer verfügbar gemacht wird. Sie können den Verfügbarkeitszeitpunkt beispielsweise auf drei Stunden später setzen, um ausreichend Zeit für das Zwischenspeichern des Inhalts vorzusehen.  
+    - Konfigurieren Sie auf der Registerkarte **Verteilungspunkte** die Einstellungen der **Bereitstellungsoptionen**. Wenn der Inhalt noch nicht auf einem Client zwischengespeichert ist, wenn ein Benutzer die Installation startet, werden diese Einstellungen verwendet.
 
 
-## <a name="see-also"></a>Voir aussi
-[Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)
+### <a name="user-experience"></a>Benutzerfreundlichkeit
+- Wenn der Client die Bereitstellungsrichtlinie erhält, startet er mit der Zwischenspeicherung des Inhalts. Dies umfasst alle referenzierten Inhalte (alle anderen Pakettypen) und nur das Betriebssystem-Aktualisierungspaket, das dem Client entspricht, und zwar basierend auf den von Ihnen in der Tasksequenz festgelegten Bedingungen.
+- Wenn die Bereitstellung Benutzern verfügbar gemacht wird (Einstellung auf der Registerkarte **Planung** der Bereitstellung), wird eine Benachrichtigung angezeigt, um Benutzer über die neue Bereitstellung zu informieren. Die Bereitstellung wird dann ferner im Softwarecenter angezeigt. Der Benutzer kann zum Softwarecenter navigieren und auf **Installieren** klicken, um die Installation zu starten.
+- Wenn der Inhalt nicht vollständig zwischengespeichert ist, werden die Einstellungen verwendet, die auf der Registerkarte **Bereitstellungsoptionen** der Bereitstellung angegeben wurden. Es wird empfohlen, genügend Zeit zwischen der Erstellung der Bereitstellung und dem Zeitpunkt der Verfügbarmachung der Bereitstellung für Benutzer vorzusehen, damit Clients ausreichend Zeit haben, um den Inhalt zwischenzuspeichern.
 
+
+## <a name="see-also"></a>Siehe auch
+[Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md)

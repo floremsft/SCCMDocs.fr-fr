@@ -1,116 +1,111 @@
 ---
-title: "Point de distribution d’extraction | Microsoft Docs"
-description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager."
+title: Pullverteilungspunkt | Microsoft-Dokumentation
+description: "Erfahren Sie mehr über Konfigurationen und Einschränkungen zur Verwendung eines Pullverteilungspunkts mit System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b366262ae59a8cb57c0f1760b961194d17bcf52
 ms.openlocfilehash: db5039ff6cb93e3099b096196d49a1f06c315a6b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Verwenden eines Pullverteilungspunkts mit System Center Configuration Manager
 
-# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution d’extraction avec System Center Configuration Manager
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Un point de distribution d’extraction pour System Center Configuration Manager est un point de distribution standard qui obtient le contenu distribué en le téléchargeant à partir d’un emplacement source tel qu’un client, au lieu de recevoir le contenu du serveur de site.  
+Ein Pullverteilungspunkt für System Center Configuration Manager ist ein Standardverteilungspunkt, der verteilte Inhalte abruft, indem diese aus einem Quellspeicherort wie einem Client heruntergeladen werden, ohne dass eine Pushübertragung der Inhalte vom Standortserver erfolgt.  
 
- Lorsque vous déployez du contenu sur un grand nombre de points de distribution au niveau d’un site, les points de distribution d’extraction contribuent à réduire la charge de traitement du serveur de site et accélèrent le transfert du contenu vers chaque point de distribution. Pour cela, vous devez décharger le processus de transfert du contenu sur chaque point de distribution à partir du processus du gestionnaire de distribution sur le serveur de site.  
+ Wenn Sie Inhalt für zahlreiche Verteilungspunkte an einem Standort bereitstellen, können Sie mithilfe von Pullverteilungspunkten nicht nur die Verarbeitungslast auf dem Standortserver verringern, sondern auch die Übertragung des Inhalts an die einzelnen Verteilungspunkte beschleunigen. Hierzu wird der Prozess der Inhaltsübertragung an jeden Verteilungspunkt vom Verteilungs-Manager-Prozess des Standortservers ausgelagert.  
 
--   Vous configurez des points de distribution comme des points de distribution d’extraction.  
+-   Sie können einzelne Verteilungspunkte als Pullverteilungspunkte konfigurieren.  
 
--   Pour chaque point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels il peut obtenir des déploiements. (Un point de distribution d’extraction ne peut obtenir du contenu qu’à partir d’un point de distribution spécifié comme point de distribution source.)  
+-   Für jeden Pullverteilungspunkt müssen Sie mindestens einen Quellverteilungspunkt angeben, von dem Bereitstellungen abgerufen werden können (ein Pullverteilungspunkt kann Inhalte nur von einem Verteilungspunkt abrufen, der als Quellverteilungspunkt definiert ist).  
 
--   Quand vous distribuez du contenu vers un point de distribution d’extraction, le serveur de site avertit ce point de distribution, qui lance alors le téléchargement (transfert) du contenu à partir d’un point de distribution source. Chaque point de distribution d’extraction gère individuellement le transfert du contenu en téléchargeant le contenu à partir d’un point de distribution qui possède déjà une copie du contenu.  
+-   Wenn Sie Inhalte an einen Pullverteilungspunkt verteilen, wird der Pullverteilungspunkt vom Standortserver benachrichtigt. Daraufhin wird vom Pullverteilungspunkt das Herunterladen (Übertragen) des Inhalts von einem Quellverteilungspunkt eingeleitet. Die Inhaltsübertragung wird von jedem Pullverteilungspunkt separat verwaltet, und der Inhalt wird von einem Verteilungspunkt heruntergeladen, auf dem eine Kopie des Inhalts bereits verfügbar ist.  
 
-Les points de distribution d’extraction prennent en charge les mêmes configurations et fonctionnalités que les points de distribution classiques de Configuration Manager. Par exemple, un point de distribution configuré en tant que point de distribution d'extraction prend en charge l'utilisation de configurations de multidiffusion et PXE, la validation de contenu et la distribution de contenu à la demande. Un point de distribution d'extraction prend en charge les communications des clients HTTP ou HTTPS, gère les mêmes options de certificat que les autres points de distribution et peut être géré individuellement ou en tant que membre d'un groupe de points de distribution.  
+Von Pullverteilungspunkten werden die gleichen Konfigurationen und Funktionen wie von herkömmlichen Configuration Manager-Verteilungspunkten unterstützt. Beispielsweise werden von einem als Pullverteilungspunkt konfigurierten Verteilungspunkt Multicast- und PXE-Konfigurationen, Inhaltsprüfung und bedarfsgesteuerte Inhaltsverteilung unterstützt. Von einem Pullverteilungspunkt werden neben der HTTP- bzw. HTTPS-Kommunikation von Clients die gleichen Zertifikatoptionen wie bei anderen Verteilungspunkten unterstützt. Zudem können Pullverteilungspunkte einzeln oder als Mitglied einer Verteilungspunktgruppe verwaltet werden.  
 
 > [!IMPORTANT]
-> Bien qu’un point de distribution d’extraction prenne en charge les communications par HTTP et HTTPS, lorsque vous utilisez Configuration Manager, vous ne pouvez spécifier que des points de distribution sources configurés pour HTTP. Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS.  
+> Zwar wird von einem Pullverteilungspunkt die Kommunikation über HTTP und HTTPS unterstützt, doch wenn Sie Configuration Manager verwenden, können Sie nur für HTTP konfigurierte Quellverteilungspunkte angeben. Sie können mit dem Configuration Manager SDK einen Quellverteilungspunkt angeben, der für HTTPS konfiguriert ist.  
 
- **Quand vous distribuez du contenu vers un point de distribution d’extraction, la séquence d’événements est la suivante :**  
+ **Im Folgenden wird die Abfolge der Ereignisse bei der Verteilung von Inhalten an einen Pullverteilungspunkt dargestellt:**  
 
--   Dès que du contenu est distribué à un point de distribution d'extraction, sur le serveur de site, le composant Package Transfer Manager vérifie la base de données de site pour confirmer si le contenu est disponible sur un point de distribution source. Si Package Transfer Manager ne peut pas confirmer que le contenu se trouve sur un point de distribution source pour le point de distribution d'extraction, la vérification est répétée toutes les 20 minutes jusqu'à ce que le contenu soit disponible.  
+-   Sobald Inhalt an einen Pullverteilungspunkt verteilt wird, wird vom Paketübertragungs-Manager auf dem Standortserver die Standortdatenbank überprüft, um zu ermitteln, ob der Inhalt auf einem Quellverteilungspunkt verfügbar ist. Wenn der Inhalt auf keinem Quellverteilungspunkt für den Pullverteilungspunkt verfügbar ist, wird diese Überprüfung alle 20 Minuten wiederholt, bis der Inhalt verfügbar ist.  
 
--   Une fois la disponibilité du contenu confirmée par Package Transfer Manager, une notification est adressée au point de distribution d'extraction pour télécharger le contenu. Après avoir reçu cette notification, le point de distribution d'extraction tente de télécharger le contenu auprès de ses points de distribution source.  
+-   Wenn vom Paketübertragungs-Manager die Verfügbarkeit des Inhalts bestätigt wird, wird der Pullverteilungspunkt benachrichtigt, damit der Inhalt heruntergeladen wird. Nach Eingang dieser Benachrichtigung auf dem Pullverteilungspunkt wird versucht, den Inhalt von den Quellverteilungspunkten herunterzuladen.  
 
--   Une fois le téléchargement du contenu terminé, le point de distribution d'extraction soumet cet état à un point de gestion. Toutefois, si l’état n’est pas reçu après 60 minutes, Package Transfer Manager sort de veille et vérifie auprès du point de distribution d’extraction si le contenu a été téléchargé. Si le téléchargement du contenu est en cours, Package Transfer Manager se met en veille pendant 60 minutes avant de vérifier de nouveau auprès du point de distribution d'extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
+-   Sobald das Herunterladen auf den Pullverteilungspunkt abgeschlossen ist, wird dieser Status an den Verwaltungspunkt übermittelt. Wenn dieser Status allerdings nach 60 Minuten nicht empfangen wurde, wird der Paketübertragungs-Manager aktiviert, um auf dem Pullverteilungspunkt zu überprüfen, ob der Inhalt heruntergeladen wurde. Ist das Herunterladen des Inhalts noch nicht abgeschlossen, wird der Paketübertragungs-Manager für 60 Minuten deaktiviert, bevor der Pullverteilungspunkt erneut überprüft wird. Dieser Zyklus wird bis zum Abschluss der Inhaltsübertragung an den Pullverteilungspunkt fortgesetzt.  
 
-**Vous pouvez configurer un point de distribution d’extraction** pendant l’installation du point de distribution ou après son installation en modifiant les propriétés du rôle de système de site du point de distribution.  
+**Ein Pullverteilungspunkt kann bei der Installation des Verteilungspunkts bzw. danach konfiguriert werden** , indem Sie die Eigenschaften der Standortsystemrolle „Verteilungspunkt“ bearbeiten.  
 
-**Vous pouvez supprimer la configuration de point de distribution d’extraction** en modifiant les propriétés du point de distribution. Lorsque vous supprimez la configuration de point de distribution d’extraction, le point de distribution reprend un fonctionnement normal et les prochains transferts de contenu vers le point de distribution sont alors gérés par le serveur de site.  
+**Die Konfiguration als Pullverteilungspunkt kann durch Bearbeiten der Eigenschaften des Verteilungspunkts entfernt werden**. Wenn Sie die Konfiguration als Pullverteilungspunkt entfernen, wird der normale Betrieb vom Verteilungspunkt wiederaufgenommen. Nachfolgende Inhaltsübertragungen an den Verteilungspunkt werden vom Standortserver verwaltet.  
 
-## <a name="limitations-for-pull-distribution-points"></a>Limitations des points de distribution d’extraction  
+## <a name="limitations-for-pull-distribution-points"></a>Einschränkungen für Pullverteilungspunkte  
 
--   Un point de distribution cloud ne peut pas être configuré en tant que point de distribution d'extraction.  
+-   Ein cloudbasierter Verteilungspunkt kann nicht als Pullverteilungspunkt konfiguriert werden.  
 
--   Un point de distribution sur un serveur de site ne peut pas être configuré en tant que point de distribution d'extraction.  
+-   Ein Verteilungspunkt auf einem Standortserver kann nicht als Pullverteilungspunkt konfiguriert werden.  
 
--   **La configuration de contenu préparé se substitue à la configuration du point de distribution d’extraction**. Un point de distribution d'extraction configuré pour du contenu préparé attend le contenu. Il n’extrait pas de contenu d’un point de distribution source et, comme un point de distribution standard avec la configuration de contenu préparé, il ne reçoit pas de contenu du serveur de site.  
+-   **Mit der Konfiguration für vorab bereitgestellte Inhalte wird die Konfiguration des Pullverteilungspunkts überschrieben**. Von einem für vorab bereitgestellten Inhalt konfigurierten Verteilungspunkt wird auf den Inhalt gewartet. Der Inhalt wird nicht vom Quellverteilungspunkt mithilfe von Pull übertragen, und gleichermaßen wird auf einem Standardverteilungspunkt mit der Konfiguration für vorab bereitgestellten Inhalt kein Inhalt vom Standortserver empfangen.  
 
--   **Un point de distribution d’extraction n’utilise pas les limites de taux de transfert configurées** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé en tant que point de distribution d'extraction, les limites de taux configurées sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d’extraction, les limites de taux configurées sont implémentées selon la configuration précédente.  
+-   **Bei der Inhaltsübertragung werden von einem Pullverteilungspunkt keine Konfigurationen für die Begrenzung der Datenübertragungsrate verwendet** . Wenn Sie einen bereits installierten Verteilungspunkt als Pullverteilungspunkt konfigurieren, werden Konfigurationen für die Begrenzung der Datenübertragungsrate zwar gespeichert, aber nicht verwendet. Wenn Sie die Konfiguration des Pullverteilungspunkts zu einem späteren Zeitpunkt entfernen, werden die Konfigurationen für die Begrenzung der Datenübertragungsrate wie vorgesehen implementiert.  
 
     > [!NOTE]  
-    >  Lorsqu'un point de distribution est configuré en tant que point de distribution d'extraction, l'onglet **Limites du taux de transfert** n'est pas disponible dans les propriétés du point de distribution.  
+    >  Wenn ein Verteilungspunkt als Pullverteilungspunkt konfiguriert ist, wird die Registerkarte **Begrenzung der Datenübertragungsrate** in den Eigenschaften des Verteilungspunkts nicht angezeigt.  
 
--   Un point de distribution d’extraction n’utilise pas les **paramètres de nouvelle tentative** pour la distribution de contenu. Les**Paramètres de nouvelle tentative** peuvent être configurés dans le cadre des **Propriétés du composant de distribution de logiciels** pour chaque site. Pour afficher ou configurer ces propriétés, dans l’espace de travail **Administration** de la console Configuration Manager, développez **Configuration du site**, puis sélectionnez **Sites**. Ensuite, dans le volet des résultats, sélectionnez un site puis, dans l’onglet **Accueil**, sélectionnez **Configurer les composants de site**. Enfin, sélectionnez **Distribution de logiciels**.  
+-   Bei der Inhaltsverteilung werden von einem Verteilungspunkt die **Wiederholungseinstellungen** nicht verwendet. **Wiederholungseinstellungen** können als Teil der **Eigenschaften der Softwareverteilungskomponente** für jeden Standort konfiguriert werden. Sie können diese Einstellungen konfigurieren, indem Sie im Arbeitsbereich **Verwaltung** der Configuration Manager-Konsole **Standortkonfiguration** erweitern und anschließend **Standorte** auswählen. Wählen Sie im Ergebnisbereich einen Standort aus, und wählen Sie dann auf der Registerkarte **Startseite** die Option **Standortkomponenten konfigurieren** aus. Abschließend wählen Sie **Softwareverteilung** aus.  
 
--   Pour transférer du contenu depuis un point de distribution source dans une forêt distante, un client Configuration Manager doit être installé sur l’ordinateur qui héberge le point de distribution d’extraction. Un compte d'accès réseau qui peut accéder au point de distribution source doit être configuré.  
+-   Zur Übertragung von Inhalt von einem Quellverteilungspunkt in einer Remotegesamtstruktur muss auf dem Computer, auf dem der Pullverteilungspunkt gehostet wird, ein Configuration Manager-Client installiert sein. Außerdem muss ein Netzwerkzugriffskonto konfiguriert sein, über das der Zugriff auf den Quellverteilungspunkt möglich ist.  
 
--   Sur un ordinateur configuré comme point de distribution d’extraction et exécutant un client Configuration Manager, la version du client doit correspondre à celle du site Configuration Manager qui installe le point de distribution d’extraction. Le point de distribution d’extraction doit impérativement utiliser le composant CCMFramework qui est commun au point de distribution d’extraction et au client Configuration Manager.  
+-   Auf einem als Pullverteilungspunkt konfigurierten Computer mit einem Configuration Manager-Client muss die Version des Clients mit der des Configuration Manager-Standorts übereinstimmen, von dem der Pullverteilungspunkt installiert wird. Diese Anforderung gilt für den Pullverteilungspunkt, damit die Komponente „CCMFramework“ verwendet werden kann, die vom Pullverteilungspunkt und dem Configuration Manager-Client genutzt wird.  
 
-## <a name="about-source-distribution-points"></a>À propos des points de distribution sources  
- Quand vous configurez le point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources :  
+## <a name="about-source-distribution-points"></a>Informationen zu Quellverteilungspunkten  
+ Beim Konfigurieren des Pullverteilungspunkts müssen Sie mindestens einen Quellverteilungspunkt angeben.  
 
--   Seuls les points de distribution considérés comme points de distribution source possibles sont affichés.  
+-   Es werden nur Verteilungspunkte angezeigt, die als Quellverteilungspunkte infrage kommen.  
 
--   Un point de distribution d'extraction peut être spécifié en tant que point de distribution source d'un autre point de distribution d'extraction.  
+-   Ein Pullverteilungspunkt kann als Quellverteilungspunkt für einen anderen Pullverteilungspunkt angegeben werden.  
 
--   Si vous utilisez Configuration Manager, seuls les points de distribution prenant en charge le protocole HTTP peuvent être spécifiés comme des points de distribution sources.  
+-   Nur Verteilungspunkte, von denen HTTP unterstützt wird, können als Quellverteilungspunkte angegeben werden, wenn Sie Configuration Manager verwenden.  
 
--   Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS. Pour utiliser un point de distribution source configuré pour le protocole HTTPS, le point de distribution d’extraction doit se trouver sur l’ordinateur qui exécute le client Configuration Manager.  
+-   Sie können mit dem Configuration Manager SDK einen Quellverteilungspunkt angeben, der für HTTPS konfiguriert ist. Damit Sie einen für HTTPS konfigurierten Quellverteilungspunkt verwenden können, muss sich der Pullverteilungspunkt auch auf einem Computer mit dem Configuration Manager-Client befinden.  
 
-Une priorité peut être attribuée à chaque point de distribution figurant dans la liste de points de distribution sources utilisée par le point de distribution d’extraction :  
+Jedem Verteilungspunkt in einer Punktliste mit Pull- und Quellverteilungspunkten kann eine Priorität zugewiesen werden:  
 
--   Vous pouvez affecter une priorité distincte à chaque point de distribution source ou affecter la même priorité à plusieurs points de distribution source.  
+-   Sie können jedem Quellverteilungspunkt eine gesonderte Priorität zuweisen, Sie können aber auch mehreren Quellverteilungspunkten die gleiche Priorität zuweisen.  
 
--   La priorité détermine l'ordre dans lequel le point de distribution d'extraction demande du contenu auprès de ses points de distribution source.  
+-   Über die Priorität wird bestimmt, in welcher Reihenfolge vom Pullverteilungspunkt Inhalt von dessen Quellverteilungspunkten angefordert wird.  
 
--   Les points de distribution d'extraction contactent initialement le point de distribution source présentant la valeur de priorité la plus basse.  Si plusieurs points de distribution source présentent la même priorité, le point de distribution d'extraction sélectionne de façon non déterminante l'un des points de distribution source partageant cette priorité.  
+-   Zuerst wird vom Pullverteilungspunkt eine Verbindung mit einem Quellverteilungspunkt mit dem niedrigsten Wert für die Priorität hergestellt.  Wenn es mehrere Quellverteilungspunkte mit der gleichen Priorität gibt, wird vom Pullverteilungspunkt auf nicht deterministische Weise einer der Quellverteilungspunkte mit dieser Priorität ausgewählt.  
 
--   Si le contenu n’est pas disponible sur une source sélectionnée, le point de distribution d’extraction tente de télécharger le contenu à partir d’un autre point de distribution présentant le même niveau de priorité.  
+-   Ist der Inhalt in der ausgewählten Quelle nicht verfügbar, wird vom Pullverteilungspunkt versucht, den Inhalt von einem anderen Verteilungspunkt mit der gleichen Priorität herunterzuladen.  
 
--   Si le contenu n'est pas disponible sur les points de distribution présentant la priorité donnée, le point de distribution d'extraction essaie de télécharger le contenu auprès du point de distribution présentant le niveau de priorité suivant et continue ainsi jusqu'à trouver le contenu, ou bien le point de distribution d'extraction se met en veille pendant 30 minutes et recommence le processus.  
+-   Wenn der Inhalt auf keinem der Verteilungspunkte mit einer bestimmten Priorität vorhanden ist, wird vom Pullverteilungspunkt versucht, den Inhalt von einem Verteilungspunkt herunterzuladen, dem eine Priorität mit dem nächstgrößeren Wert zugewiesen wurde. Dieser Prozess wird wiederholt, bis der Inhalt gefunden wurde, oder der Pullverteilungspunkt wird für 30 Minuten deaktiviert, bevor der Prozess erneut beginnt.  
 
-Quand un point de distribution d’extraction télécharge du contenu à partir d’un point de distribution source, il est considéré comme un client dans la colonne **Client consulté (unique)** du rapport **Résumé de l’utilisation des points de distribution** .  
+Wenn von einem Pullverteilungspunkt Inhalt von einem Quellverteilungspunkt heruntergeladen wird, wird dieser Pullverteilungspunkt im Bericht **Verwendungsdatenzusammenfassung für Verteilungspunkt** in der Spalte **Clients mit Zugriff (eindeutig)** als Client gezählt.  
 
- Par défaut, un point de distribution d’extraction utilise son **compte d’ordinateur** pour transférer le contenu d’un point de distribution source. Toutefois, lorsque le point de distribution d’extraction transfère du contenu à partir d’un point de distribution source qui se trouve dans une forêt distante, il utilise toujours le compte d’accès réseau. Ce processus nécessite que le client Configuration Manager soit installé sur l’ordinateur et qu’un compte d’accès réseau soit configuré pour utiliser le point de distribution source et ait accès à celui-ci.  
+ Die Inhaltsübertragung von einem Quellverteilungspunkt erfolgt standardmäßig über das **Computerkonto** des Pullverteilungspunkts. Wenn aber Inhalt von einem Quellverteilungspunkt übertragen wird, der sich in einer Gesamtstruktur befindet, wird vom Pullverteilungspunkt immer das Netzwerkzugriffskonto verwendet. Dieser Vorgang setzt voraus, dass der Configuration Manager-Client auf dem Computer installiert ist. Außerdem muss ein Netzwerkzugriffskonto konfiguriert sein, über das der Zugriff auf den Quellverteilungspunkt möglich ist.  
 
-## <a name="about-content-transfers"></a>À propos des transferts de contenu  
- Pour gérer le transfert de contenu, les points de distribution d’extraction utilisent le composant **CCMFramework** du logiciel client Configuration Manager.  
+## <a name="about-content-transfers"></a>Informationen zur Übertragung von Inhalten  
+ Die Inhaltsübertragung wird von den Pullverteilungspunkten über die Komponente **CCMFramework** der Configuration Manager-Clientsoftware verwaltet.  
 
--   Cette infrastructure est installée par **Pulldp.msi** lors de la configuration du point de distribution comme point de distribution d’extraction. Elle n’a pas besoin du client Configuration Manager.  
+-   Dieses Framework wird von **Pulldp.msi** installiert, wenn Sie den Verteilungspunkt als Pullverteilungspunkt konfigurieren. Der Configuration Manager-Client ist für das Framework nicht erforderlich.  
 
--   Une fois le point de distribution d'extraction installé, le service CCMExec doit être opérationnel sur l'ordinateur du point de distribution pour permettre au point de distribution d'extraction de fonctionner.  
+-   Nach der Installation des Pullverteilungspunkts muss der Dienst „CCMExec“ auf dem Verteilungspunktcomputer funktionstüchtig sein, damit der Pullverteilungspunkt eingesetzt werden kann.  
 
--   Quand le point de distribution d’extraction transfère du contenu, il utilise le **service de transfert intelligent en arrière-plan** (BITS) et consigne ses opérations dans les fichiers journaux **datatransferservice.log** et **pulldp.log** sur l’ordinateur du point de distribution.  
+-   Der Vorgang der Inhaltsübertragung wird vom Pullverteilungspunkt mithilfe der **intelligenten Hintergrundübertragung** (Background Intelligent Transfer Service, BITS) ausgeführt und auf dem Verteilungspunktcomputer in **datatransferservice.log** und **pulldp.log** protokolliert.  
 
-## <a name="see-also"></a>Voir aussi  
- [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   
-
+## <a name="see-also"></a>Weitere Informationen:  
+ [Grundlegende Konzepte für die Inhaltsverwaltung in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   

@@ -1,58 +1,54 @@
 ---
-title: "Afficher l’inventaire logiciel | Microsoft Docs | Explorateur de ressources"
-description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager."
+title: Anzeigen des Softwareinventars | Microsoft-Dokumentation | Ressourcen-Explorer
+description: Zeigen Sie die Softwareinventur mit dem Ressourcen-Explorer in System Center Configuration Manager an.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4b7aa5f6-5ebd-49be-b7f3-4206caadc187
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9206b82eca02877c30eebf146d42bcca7290eb42
-ms.openlocfilehash: 6189726bbcade8229e0b2e929ebedeefdbf266a4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: b76bcf65c61b0a2690a468d375ac95b1334d5298
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Comment utiliser l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager
+# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Anzeigen des Softwareinventars mit dem Ressourcen-Explorer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire logiciel collecté auprès des ordinateurs de votre hiérarchie.  
+Zeigen Sie mithilfe des Ressourcen-Explorers in System Center Configuration Manager Softwareinventurinformationen an, die von Computern in Ihrer Hierarchie gesammelt wurden.  
 
 > [!NOTE]  
->  L’Explorateur de ressources n’affiche pas de données d’inventaire tant qu’un cycle d’inventaire logiciel n’a pas été exécuté sur le client.  
+>  Der Ressourcen-Explorer zeigt erst dann Inventurdaten an, wenn auf dem Client ein Softwareinventurzyklus ausgeführt wurde.  
 
- L’Explorateur de ressources fournit les informations d’inventaire matériel et logiciel suivantes :  
+ Der Ressourcen-Explorer bietet folgende Informationen zu Hardware- und Softwareinventur:  
 
--   **Logiciels** :  
+-   **Software**:  
 
-    -   **Fichiers collectés** : fichiers collectés lors de l’inventaire logiciel.  
+    -   **Gesammelte Dateien**: Dateien, die während der Softwareinventur gesammelt wurden.  
 
-    -   **Détails du fichier** : fichiers qui ont été inventoriés pendant l’inventaire logiciel, et qui ne sont pas associés à un produit ou un fabricant spécifique.  
+    -   **Dateidetails**: Dateien, die bei der Softwareinventur inventarisiert wurden und keinem bestimmten Produkt oder Hersteller zugeordnet sind.  
 
-    -   **Dernière analyse logicielle** : date et heure de la dernière collecte d’inventaire logiciel et de fichiers pour l’ordinateur client.  
+    -   **Letzte Softwareüberprüfung**: Datum und Uhrzeit der letzten Softwareinventur und Dateisammlung, die auf dem Clientcomputer ausgeführt wurde.  
 
-    -   **Détails du produit** : produits logiciels qui ont été inventoriés par l’inventaire logiciel, regroupés par fabricant.  
+    -   **Produktdetails**: Nach Herstellern gruppierte Softwareprodukte, die von der Softwareinventur inventarisiert wurden.  
 
-## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Pour exécuter l'Explorateur de ressources à partir de la console Configuration Manager  
+## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>So führen Sie den Ressourcen-Explorer über die Configuration Manager-Konsole aus  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
+1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Konformität** aus.
 
-2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Appareils** ou ouvrez un regroupement qui affiche des appareils.  
+2.  Wählen Sie im Arbeitsbereich **Bestand und Konformität** die Option **Geräte** aus, oder öffnen Sie eine beliebige Sammlung, in der Geräte angezeigt werden.  
 
-3.  Choisissez l’ordinateur contenant l’inventaire que vous voulez afficher puis, sous l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** > **Explorateur de ressources**.
+3.  Wählen Sie den Computer aus, der die anzuzeigende Inventur enthält. Wählen Sie danach auf der Registerkarte **Start** > Gruppe **Geräte** **Start** > **Ressourcen-Explorer** aus.
 
-4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre Explorateur de ressources, puis choisir **Propriétés** pour visualiser les informations d’inventaire collectées dans un format plus lisible.  
+4.  Sie können mit der rechten Maustaste auf ein beliebiges Element im Fenster „Ressourcen-Explorer“ klicken und **Eigenschaften** auswählen, um die gesammelten Inventurinformationen in einem besser lesbaren Format anzuzeigen.  
  
-

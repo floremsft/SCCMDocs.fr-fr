@@ -1,110 +1,106 @@
 ---
-title: "Paramètres Windows Hello Entreprise | Microsoft Docs"
-description: "Découvrez comment intégrer Windows Hello Entreprise dans System Center Configuration Manager."
+title: Windows Hello for Business-Einstellungen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Windows Hello for Business in System Center Configuration Manager integrieren.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0593c07-5dd7-4d23-a0d8-d30165f49ef7
-caps.latest.revision: 17
+caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c7bf901caa49c8585a9ed3913d4a5a2aac57013
-ms.openlocfilehash: 7ac2baeb3c10ce90eb643fa28a953186b571d037
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: a97b3d97eb302e4133b0a79a8c7e27004872c8b1
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Paramètres Windows Hello Entreprise dans System Center Configuration Manager (hybride)
+# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Windows Hello for Business-Einstellungen in System Center Configuration Manager (hybrid)
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager permet d’intégrer Windows Hello Entreprise (anciennement Microsoft Passport pour Windows), qui constitue une méthode alternative de connexion pour les appareils Windows 10. Hello Entreprise utilise Active Directory ou un compte Azure Active Directory pour remplacer un mot de passe, une carte à puce ou une carte à puce virtuelle.  
+Mit System Center Configuration Manager können Sie die Integration in Windows Hello for Business (früher Microsoft Passport für Windows) durchführen, eine alternative Anmeldemethode für Windows 10-Geräte. Hello for Business verwendet Active Directory oder ein Azure Active Directory-Konto, um ein Kennwort, eine Smartcard oder eine virtuelle Smartcard zu ersetzen.  
 
-Hello Entreprise vous permet d’utiliser un **geste utilisateur** pour vous connecter, au lieu d’un mot de passe. Un geste utilisateur peut être un simple code confidentiel, une authentification biométrique ou un appareil externe tel qu’un lecteur d’empreintes digitales.  
+Mit Hello for Business können Sie anstelle eines Kennworts eine **Benutzeraktion** zur Anmeldung verwenden. Eine Benutzeraktion kann eine einfache PIN, eine biometrische Authentifizierung oder ein externes Gerät wie ein Fingerabdruckleser sein.  
 
- Configuration Manager s’intègre avec Windows Hello Entreprise de deux manières :  
+ Configuration Manager kann auf zwei Wegen in Windows Hello for Business integriert werden:  
 
--   Vous pouvez utiliser Configuration Manager pour contrôler les gestes que les utilisateurs peuvent et ne peuvent pas utiliser pour se connecter.  
+-   Sie können mithilfe von Configuration Manager steuern, welche Aktionen von Benutzern zum Anmelden verwendet werden können.  
 
--   Vous pouvez stocker des certificats d’authentification dans le fournisseur de stockage de clés Windows Hello Entreprise. Pour plus d’informations, consultez [Profils de certificat](create-pfx-certificate-profiles.md).  
+-   Sie können Authentifizierungszertifikate im Windows Hello for Business-Schlüsselspeicheranbieter (Key Storage Provider; KSP) speichern. Weitere Informationen finden Sie unter [Zertifikatprofile](create-pfx-certificate-profiles.md).  
 
-- Vous pouvez déployer des stratégies Windows Hello Entreprise sur des appareils Windows 10 joints à un domaine qui exécutent le client Configuration Manager. Cette configuration est décrite dans la section [Configurer Windows Hello Entreprise sur des appareils Windows 10 joints à un domaine](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices). Lorsque vous utilisez Configuration Manager avec Intune (hybride), vous pouvez configurer ces paramètres sur les appareils Windows 10 et Windows 10 Mobile, mais pas sur les appareils joints à un domaine qui exécutent le client Configuration Manager.   
+- Sie können Richtlinien von „Windows Hello for Business“ für Windows 10-Geräte bereitstellen, die in eine Domäne eingebunden sind und auf denen der Configuration Manager-Client ausgeführt wird. Diese Konfiguration wird unter [Konfigurieren von Windows Hello for Business auf einer Domäne angehörenden Windows 10-Geräten](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices) beschrieben. Bei Verwendung von Configuration Manager mit Intune (Hybrid) können Sie diese Einstellungen auf Windows 10- und Windows 10 Mobile-Geräten, aber nicht auf Geräten konfigurieren, die zu einer Domäne gehören und auf denen der Configuration Manager-Client ausgeführt wird.   
 
-Pour en savoir plus sur la configuration des paramètres de Windows Hello Entreprise, voir [Paramètres Windows Hello Entreprise dans System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
+Weitere Informationen zur Konfigurierung von Windows Hello for Business-Einstellungen finden Sie unter [Windows Hello for Business-Einstellungen in System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
 
-## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Configurer les paramètres Windows Hello Entreprise (hybride)  
+## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Konfigurieren von Windows Hello for Business-Einstellungen (hybrid)  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Services cloud** > **Abonnements Microsoft Intune**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Clouddienste** > **Microsoft Intune-Abonnements**.  
 
-3.  Dans la liste, sélectionnez votre abonnement Microsoft Intune, puis, sous l’onglet **Accueil** , dans le groupe **Abonnement** , cliquez sur **Configurer des plateformes** > **Windows (MDM)**.  
+3.  Wählen Sie aus der Liste Ihr Microsoft Intune-Abonnement aus. Klicken Sie auf der Registerkarte **Start** in der Gruppe **Abonnement** auf **Plattformen konfigurieren** > **Windows (MDM)**.  
 
-4.  Sous l’onglet **Windows Hello Entreprise** de la boîte de dialogue **Propriétés de l’abonnement Microsoft Intune** , choisissez parmi les valeurs suivantes celles que vous voulez appliquer à tous les appareils Windows 10 et Windows 10 Mobile inscrits :  
+4.  Wählen Sie auf der Registerkarte **Windows Hello for Business** des Dialogfelds **Microsoft Intune-Abonnementeigenschaften** aus folgenden Werten aus, die Auswirkungen auf alle registrierten Windows 10- und Windows 10 Mobile-Geräte haben:  
 
-    -   **Désactiver Windows Hello Entreprise sur les appareils inscrits** ou **Activer Windows Hello Entreprise sur les appareils inscrits** : active ou désactive l’utilisation de Windows Hello Entreprise sur tous les appareils Windows 10 et Windows 10 Mobile inscrits.  
+    -   **Windows Hello for Business auf registrierten Geräten deaktivieren** oder **Windows Hello for Business auf registrierten Geräten aktivieren** : Aktiviert oder deaktiviert die Verwendung von Windows Hello for Business auf allen registrierten Windows 10 und Windows 10 Mobile-Geräten.  
 
-    -   **Utiliser un module de plateforme sécurisée (TPM)** : une puce de module de plateforme sécurisée (TPM) fournit une couche supplémentaire de sécurité des données. Choisissez l'une des valeurs suivantes :  
+    -   **Trusted Platform Module (TPM) verwenden** : Ein Trusted Platform Module-Chip (TPM) bietet eine zusätzliche Sicherheitsebene für Daten. Wählen Sie einen der folgenden Werte aus:  
 
-        -   **Requis** (par défaut) : seuls les appareils avec un module de plateforme sécurisée accessible peuvent configurer Windows Hello Entreprise.  
+        -   **Erforderlich** (Standard) – Nur Geräte mit verfügbarem TPM können Windows Hello for Business bereitstellen.  
 
-        -   **Préféré** : les appareils tentent d’abord d’utiliser un module de plateforme sécurisée. Si ce n’est pas possible, ils peuvent utiliser un chiffrement logiciel.  
+        -   **Bevorzugt** – Geräte versuchen zunächst, ein TPM zu verwenden. Wenn diese Option nicht verfügbar ist, können sie die Softwareverschlüsselung verwenden.  
 
-    -   **Exiger une longueur minimale du code confidentiel** : spécifiez le nombre minimal de caractères nécessaire pour le code confidentiel Windows Hello Entreprise. Vous devez utiliser au moins 4 caractères (la valeur par défaut est 6 caractères).  
+    -   **Mindestlänge für PIN anfordern** : Geben Sie die Mindestanzahl von Zeichen an, die für die Windows Hello for Business-PIN erforderlich ist. Sie müssen mindestens vier Zeichen verwenden (der Standardwert ist sechs Zeichen).  
 
-    -   **Exiger une longueur maximale du code confidentiel** : spécifiez le nombre maximal de caractères autorisé pour le code confidentiel Windows Hello Entreprise. Vous pouvez entrer jusqu’à 127 caractères.  
+    -   **Höchstlänge für PIN anfordern** : Geben Sie die maximale Anzahl von Zeichen an, die für die Windows Hello for Business-PIN zulässig ist. Sie können bis zu 127 Zeichen verwenden.  
 
-    -   **Exiger des minuscules dans le code confidentiel** : spécifie si des lettres minuscules doivent être utilisées dans le code confidentiel Windows Hello Entreprise. Choisissez parmi :  
+    -   **Kleinbuchstaben in PIN vorschreiben** : Gibt an, ob in der Windows Hello for Business-PIN Kleinbuchstaben verwendet werden müssen. Wählen Sie aus:  
 
-        -   **Autorisé** : les utilisateurs peuvent utiliser des minuscules dans leur code confidentiel.  
+        -   **Zulässig** – Benutzer können in ihrer PIN Kleinbuchstaben verwenden.  
 
-        -   **Requis** : les utilisateurs doivent inclure au moins un caractère en minuscule dans leur code confidentiel.  
+        -   **Erforderlich** – Benutzer müssen in ihre PIN mindestens einen Kleinbuchstaben einbeziehen.  
 
-        -   **Non autorisé** (par défaut) : les utilisateurs ne doivent pas utiliser de caractères minuscules dans leur code confidentiel.  
+        -   **Nicht zulässig** – (Standardeinstellung) Benutzer dürfen in ihrer PIN keine Kleinbuchstaben verwenden.  
 
-    -   **Exiger des majuscules dans le code confidentiel** : spécifie si des lettres majuscules doivent être utilisées dans le code confidentiel Windows Hello Entreprise. Choisissez parmi :  
+    -   **Großbuchstaben in PIN vorschreiben** : Gibt an, ob in der Windows Hello for Business-PIN Großbuchstaben verwendet werden müssen. Wählen Sie aus:  
 
-        -   **Autorisé** : les utilisateurs peuvent utiliser des majuscules dans leur code confidentiel.  
+        -   **Zulässig** – Benutzer können in ihrer PIN Großbuchstaben verwenden.  
 
-        -   **Requis** : les utilisateurs doivent inclure au moins un caractère en majuscule dans leur code confidentiel.  
+        -   **Erforderlich** – Benutzer müssen in ihre PIN mindestens einen Großbuchstaben einbeziehen.  
 
-        -   **Non autorisé** (par défaut) : les utilisateurs ne doivent pas utiliser de caractères majuscules dans leur code confidentiel.  
+        -   **Nicht zulässig** – (Standardeinstellung) Benutzer dürfen in ihrer PIN keine Großbuchstaben verwenden.  
 
-    -   **Exiger des caractères spéciaux** : spécifie l’utilisation de caractères spéciaux dans le code confidentiel. Choisissez parmi :  
+    -   **Sonderzeichen anfordern** : Gibt die Verwendung von Sonderzeichen in der PIN an. Wählen Sie aus:  
 
-        -   **Autorisé** : les utilisateurs peuvent utiliser des caractères spéciaux dans leur code confidentiel.  
+        -   **Zulässig** – Benutzer können in ihrer PIN Sonderzeichen verwenden.  
 
-        -   **Requis** : les utilisateurs doivent inclure au moins un caractère spécial dans leur code confidentiel.  
+        -   **Erforderlich** – Benutzer müssen in ihre PIN mindestens ein Sonderzeichen einbeziehen.  
 
-        -   **Non autorisé** (par défaut) : les utilisateurs ne doivent pas utiliser de caractères spéciaux dans leur code confidentiel (ce comportement vaut également si le paramètre n’est pas configuré).  
+        -   **Nicht zulässig,** (Standard) – Benutzer dürfen keine Sonderzeichen in ihrer PIN verwenden (dies trifft auch zu, wenn die Einstellung nicht konfiguriert ist).  
 
-         Les caractères spéciaux sont les suivants : **! " # $ % & ' ( ) \* + , - . / : ; < = > ? @ [ \ ] ^ _ ` { &#124; } ~**.  
+         Sonderzeichen umfassen: **! " # $ % & ' ( ) \* + , - . / : ; < = > ? @ [ \ ] ^ _ ` { &#124; } ~**.  
 
-    -   **Exiger un délai d’expiration du code confidentiel (en jours)** : spécifie le nombre de jours avant de devoir modifier le code confidentiel de l’appareil. La valeur par défaut est 41 jours.  
+    -   **PIN-Ablauf (in Tagen) anfordern**: Gibt die Anzahl der Tage an, bevor die Geräte-PIN geändert werden muss. Die Standardeinstellung ist 41 Tage.  
 
-    -   **Empêcher la réutilisation de codes confidentiels précédents** : utilisez ce paramètre pour limiter la réutilisation des codes confidentiels précédemment utilisés. Par défaut, les 5 derniers codes confidentiels utilisés ne peuvent pas être réutilisés.  
+    -   **Wiederverwendung vorheriger PINs verhindern** : Verwenden Sie diese Einstellung, um die Wiederverwendung zuvor verwendeter PINs einzuschränken. Standardmäßig können die letzten fünf PINs nicht erneut verwendet werden.  
 
-    -   **Activer les mouvements biométriques** : permet d’utiliser l’authentification biométrique, telle que la reconnaissance des visages ou les empreintes digitales, à la place d’un code confidentiel pour Windows Hello Entreprise. Les utilisateurs doivent toujours configurer un code confidentiel professionnel en cas d’échec de l’authentification biométrique.  
+    -   **Biometrische Erkennung aktivieren** : Aktiviert die biometrische Authentifizierung, z.B. die Gesichtserkennung oder Fingerabdrücke, als Alternative zu einer PIN für Windows Hello for Business. Benutzer müssen für den Fall dennoch eine PIN konfigurieren, dass die biometrische Authentifizierung fehlschlägt.  
 
-         Si vous choisissez **Activé**, Windows Hello Entreprise autorise l’authentification biométrique.  Si vous choisissez **Désactivé**, Windows Hello Entreprise empêche l’authentification biométrique (pour tous les types de compte).  
+         Wenn diese Eigenschaft auf **Aktiviert**festgelegt ist, lässt Windows Hello for Business die biometrische Authentifizierung zu.  Wenn diese Eigenschaft auf **Deaktiviert**festgelegt ist, verhindert Windows Hello for Business die biometrische Authentifizierung (für alle Kontotypen).  
 
-    -   **Utiliser la détection d’usurpation avancée, si disponible** : détermine si la détection d’usurpation avancée est utilisée sur les appareils qui la prennent en charge.  
+    -   **Erweitertes Antispoofing verwenden, falls verfügbar** : Konfiguriert, ob das erweiterte Antispoofing auf Geräten verwendet wird, die diese Option unterstützen.  
 
-         Si cette option est définie sur **Activé**, Windows nécessite que tous les utilisateurs utilisent la détection d’usurpation pour les fonctions de reconnaissance faciale, si disponible.  
+         Wenn diese Option auf **Aktiviert**festgelegt ist, fordert Windows von allen Benutzern die Verwendung von Antispoofing für Gesichtsmerkmale, sofern dies unterstützt wird.  
 
-    -   **Utiliser Remote Passport** : si cette option a la valeur **Activé**, les utilisateurs peuvent utiliser un appareil Remote Passport comme appareil mobile pour l’authentification d’ordinateur du bureau. L’ordinateur de bureau doit être joint à Azure Active Directory, et l’appareil mobile doit être configuré avec un code confidentiel Windows Hello Entreprise.  
+    -   **** : Wenn diese Option auf **Aktiviert**festgelegt ist, können die Benutzer eine Remote-Version von Hello for Business als tragbares Begleitgerät für die Authentifizierung von Desktopcomputern verwenden. Der Desktopcomputer muss mit Azure Active Directory verknüpft sein, und das Begleitgerät muss mit einer Windows Hello for Business-PIN konfiguriert werden.  
 
-5.  Lorsque vous avez terminé, cliquez sur **OK**.  
+5.  Klicken Sie zum Abschluss auf **OK**.  
 
-### <a name="see-also"></a>Voir aussi  
- [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+### <a name="see-also"></a>Weitere Informationen:  
+ [Schützen der Daten und Standortinfrastruktur mit System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
 
- [Gérer la vérification d’identité à l’aide de Windows Hello Entreprise](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  
-
+ [Verwalten der Überprüfung der Identität mit Windows Hello for Business](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  

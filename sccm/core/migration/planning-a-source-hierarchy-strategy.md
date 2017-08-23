@@ -1,115 +1,108 @@
 ---
-title: "Stratégie de hiérarchie source | Microsoft Docs"
-description: "Configurez une hiérarchie source et collectez les données d’un site source avant de configurer une tâche de migration System Center Configuration Manager."
+title: "Strategie für Quellhierarchien | Microsoft-Dokumentation"
+description: Konfigurieren Sie eine Quellhierarchie und sammeln Sie Daten von einem Quellstandort, bevor Sie einen System Center Configuration Manager-Migrationsauftrag konfigurieren.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4800a800-66c8-4c35-aebe-e413a23790c1
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: cb5f7bf52a53935ca61b0e1b66822919b17d33e2
 ms.openlocfilehash: 0619de32f859f512ee1c9f5a9c83ef8d04a256ca
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Planifier une stratégie de hiérarchie source dans System Center Configuration Manager
+# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Planen einer Strategie für Quellhierarchien in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Avant de configurer une tâche de migration dans votre environnement System Center Configuration Manager, vous devez configurer une hiérarchie source et collecter des données depuis au moins un site source de cette hiérarchie. Servez-vous des sections suivantes pour planifier la configuration de hiérarchies sources et de sites sources, ainsi que pour déterminer la manière dont Configuration Manager collecte les informations à partir des sites sources de la hiérarchie source. 
+Bevor Sie einen Migrationsauftrag in der System Center Configuration Manager-Umgebung einrichten können, müssen Sie eine Quellhierarchie konfigurieren und Daten aus mindestens einem Quellstandort in dieser Hierarchie sammeln. Verwenden Sie die folgenden Abschnitte, um Quellhierarchien zu planen, Quellstandorte zu konfigurieren und zu bestimmen, wie Configuration Manager Daten von Quellstandorten in der Quellhierarchie sammeln soll. 
 
-##  <a name="a-namebkmksourcehierarchiesa-source-hierarchies"></a><a name="BKMK_Source_Hierarchies"></a> Hiérarchies sources  
-Une hiérarchie source est une hiérarchie Configuration Manager qui contient les données à migrer. Quand vous configurez la migration et spécifiez une hiérarchie source, vous spécifiez le site de niveau supérieur de cette hiérarchie. Ce site est également appelé un site source. Les sites supplémentaires à partir desquels vous pouvez migrer des données dans la hiérarchie source sont également appelés des sites source.  
+##  <a name="BKMK_Source_Hierarchies"></a> Quellhierarchien  
+Eine Quellhierarchie ist eine Configuration Manager-Hierarchie, die zu migrierende Daten beinhaltet. Beim Einrichten einer Migration und Festlegen der dazugehörigen Quellhierarchie muss zuerst der Standort der obersten Ebene der Quellhierarchie angegeben werden. Dieser Standort wird auch als Quellstandort bezeichnet. Zusätzliche Standorte, aus denen Sie Daten in der Quellhierarchie migrieren können, werden ebenfalls als Quellstandorte bezeichnet.  
 
--   Quand vous configurez une tâche de migration pour migrer des données à partir d’une hiérarchie source Configuration Manager 2007, vous la configurez pour migrer les données d’un ou plusieurs sites sources spécifiques de la hiérarchie source.  
+-   Wenn Sie einen Migrationsauftrag zum Migrieren von Daten von einer Configuration Manager 2007-Quellhierarchie einrichten, legen Sie fest, dass Daten aus einem oder mehreren bestimmten, der Quellhierarchie angehörenden Quellstandorten überführt werden.  
 
--   Quand vous configurez une tâche de migration pour migrer les données d’une hiérarchie source qui exécute System Center 2012 Configuration Manager ou version ultérieure, vous devez uniquement spécifier le site de niveau supérieur.  
+-   Wenn Sie einen Migrationsauftrag zum Migrieren von Daten aus einer Quellhierarchie für System Center 2012 Configuration Manager oder höher einrichten, müssen Sie nur den Standort der obersten Ebene angeben.  
 
-Vous pouvez configurer une seule hiérarchie source à la fois.  
+Sie können jeweils nur eine Quellhierarchie einrichten.  
 
--   Si vous configurez une nouvelle hiérarchie source, cette hiérarchie devient automatiquement la hiérarchie source actuelle et remplace la hiérarchie source précédente.  
+-   Beim Einrichten einer neuen Quellhierarchie wird diese automatisch zur aktuellen Quellhierarchie und ersetzt die vorherige.  
 
--   Quand vous configurez une hiérarchie source, vous devez spécifier son site de niveau supérieur, ainsi que les informations d’identification nécessaires à Configuration Manager pour se connecter au fournisseur SMS et à la base de données du site source.  
+-   Zum Einrichten einer Quellhierarchie müssen Sie den Standort auf oberster Ebene der Quellhierarchie und die Anmeldeinformationen für Configuration Manager angeben, um eine Verbindung mit dem SMS-Anbieter und mit der Standortdatenbank am Quellstandort herzustellen.  
 
--   Configuration Manager utilise ces informations d’identification pour collecter des données et récupérer des informations sur les objets et les points de distribution à partir du site source.  
+-   Diese Anmeldeinformationen werden von Configuration Manager für die Datensammlung verwendet, um Informationen über Objekte und Verteilungspunkte vom Quellstandort abzurufen.  
 
--   Dans le cadre du processus de collecte des données, les sites enfants de la hiérarchie source sont identifiés.  
+-   Beim Durchführen der Datensammlung werden die untergeordneten Standorte der Quellhierarchie ermittelt.  
 
--   Si la hiérarchie source est une hiérarchie Configuration Manager 2007, vous pouvez configurer ces sites supplémentaires comme sites sources, avec des informations d’identification distinctes pour chaque site source.  
+-   Handelt es sich bei der Quellhierarchie um eine Configuration Manager 2007-Hierarchie, können Sie diese weiteren Standorte als Quellstandorte einrichten, wobei Sie für jeden Quellstandort eigene Anmeldedaten eingeben können.  
 
-Même si vous pouvez configurer plusieurs hiérarchies sources successivement, la migration est active pour une seule hiérarchie source à la fois.  
+Sie können zwar mehrere Quellhierarchien nacheinander einrichten, die Migration kann aber jeweils nur für eine Quellhierarchie aktiv sein.  
 
--   Si vous configurez une hiérarchie source supplémentaire avant d’effectuer la migration à partir de la hiérarchie source actuelle, Configuration Manager annule les tâches de migration actives et reporte les tâches de migration planifiées pour la hiérarchie source actuelle.  
+-   Wenn Sie eine zusätzliche Quellhierarchie einrichten, bevor die Migration aus der aktuellen Quellhierarchie abgeschlossen ist, werden alle aktiven Migrationsaufträge in Configuration Manager abgebrochen und alle Migrationsaufträge für die aktuelle Quellhierarchie verschoben.  
 
--   La nouvelle hiérarchie source configurée devient alors la hiérarchie source actuelle, et la hiérarchie source d’origine devient inactive.  
+-   Die neu konfigurierte Quellhierarchie wird zur aktuellen Quellhierarchie, und die ursprüngliche Quellhierarchie ist nun inaktiv.  
 
--   Vous pouvez ensuite configurer les informations d’identification de connexion, les sites sources supplémentaires et les tâches de migration pour la nouvelle hiérarchie source.  
+-   Anschließend können Sie Anmeldedaten, weitere Quellstandorte und Migrationsaufträge für die neue Quellhierarchie einrichten.  
 
-Si vous restaurez une hiérarchie source inactive et que vous n’avez pas utilisé **Nettoyer les données de migration** précédemment, vous pouvez afficher les tâches de migration configurées pour cette hiérarchie source. Cependant, avant de pouvoir continuer la migration à partir de cette hiérarchie, vous devez reconfigurer les informations d'identification pour vous connecter à chaque site source applicable et replanifier les tâches de migration qui n'ont pas été terminées.  
+Wenn Sie eine inaktive Quellhierarchie wiederherstellen, ohne vorher die Aktion **Migrationsdaten bereinigen** verwendet zu haben, dann können Sie sich die zuvor konfigurierten Migrationsaufträge für diese Quellhierarchie anzeigen lassen. Bevor Sie die Migration aus dieser Hierarchie fortsetzen können, müssen Sie die Anmeldeinformationen neu konfigurieren, um eine Verbindung mit den entsprechenden Quellstandorten in der Hierarchie herzustellen und dann alle Migrationsaufträge neu einplanen, die nicht abgeschlossen werden konnten.  
 
 > [!CAUTION]  
->  Si vous migrez des données à partir de plusieurs hiérarchies source, chaque hiérarchie source supplémentaire doit contenir un ensemble unique de codes de site.  
+>  Wenn Sie Daten aus mehreren Quellhierarchien migrieren, dann muss jede zusätzliche Quellhierarchie einen eindeutigen Satz von Standortcodes enthalten.  
 
-Pour plus d’informations sur la configuration d’une hiérarchie source, consultez [Configuration des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
+Weitere Informationen zum Konfigurieren einer Quellhierarchie finden Sie unter [Konfigurieren von Quellhierarchien und Quellstandorten für die Migration zu System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
 
-##  <a name="a-namebkmksourcesitesa-source-sites"></a><a name="BKMK_Source_Sites"></a> Sites source  
- Les sites source sont des sites dans la hiérarchie source qui contiennent des données à migrer. Le site de niveau supérieur de la hiérarchie source est toujours le premier site source. Lorsque la migration collecte des données à partir du premier site source d'une nouvelle hiérarchie source, elle découvre des informations à propos des sites supplémentaires dans cette hiérarchie.  
+##  <a name="BKMK_Source_Sites"></a> Quellstandorte  
+ Quellstandorte sind Standorte in der Quellhierarchie, die zu migrierende Daten enthalten. Der Standort auf oberster Ebene der Quellhierarchie ist immer der erste Quellstandort. Wenn bei der Migration Daten vom ersten Quellstandort einer neuen Quellhierarchie gesammelt werden, dann werden Informationen zu zusätzlichen Standorten in dieser Hierarchie entdeckt.  
 
- À la fin de la collecte de données du site source initial, les actions suivantes que vous effectuez dépendent de la version du produit de la hiérarchie source.  
+ Nach Abschluss der Datensammlung für den ersten Quellstandort hängt die nachfolgende Aktion von der Produktversion der Quellhierarchie ab.  
 
-### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Sites sources exécutant Configuration Manager 2007 SP2  
- Une fois les données collectées à partir du site source initial de la hiérarchie Configuration Manager 2007 SP2, vous n’avez pas à configurer de sites sources supplémentaires pour créer des tâches de migration. Toutefois, pour pouvoir migrer les données à partir de sites supplémentaires, vous devez configurer les sites supplémentaires comme des sites sources, et System Center Configuration Manager doit collecter les données à partir de ces sites.  
+### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Quellstandorte, die Configuration Manager 2007 SP2 ausführen können  
+ Nach dem Sammeln von Daten vom ersten Quellstandort der Configuration Manager 2007-SP2-Hierarchie müssen Sie keine zusätzlichen Quellstandorte einrichten, bevor Sie Migrationsaufträge erstellen. Bevor Sie jedoch Daten aus zusätzlichen Standorten migrieren können, müssen Sie zusätzliche Standorte als Quellstandorte einrichten, und über System Center Configuration Manager müssen von diesen Standorten erfolgreich Daten gesammelt werden.  
 
- Pour collecter des données à partir de sites supplémentaires, vous devez configurer individuellement chaque site comme un site source. Vous devez définir les informations d’identification pour la connexion de System Center Configuration Manager au fournisseur SMS et à la base de données de site de chaque site source. Après avoir configuré les informations d’identification d’un site source, le processus de collecte de données commence pour ce site.  
+ Für das Sammeln von Daten aus zusätzlichen Standorten richten Sie jeden Standort einzeln als Quellstandort ein. Dazu müssen Sie die Anmeldeinformationen für System Center Configuration Manager angeben, um eine Verbindung mit dem SMS-Anbieter und der Standortdatenbank für jeden Quellstandort herzustellen. Nach dem Einrichten der Anmeldeinformationen für einen Quellstandort beginnt der Datensammlungsvorgang für diesen Standort.  
 
- Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 SP2, vous devez configurer les sites sources du haut vers le bas, ce qui signifie que vous configurez les sites de niveau inférieur en dernier. Vous pouvez configurer des sites sources dans une branche de la hiérarchie à tout moment, mais vous devez configurer un site comme site source pour pouvoir configurer ses sites enfants comme sites sources.  
-
-> [!NOTE]  
->  Seuls les sites principaux d’une hiérarchie Configuration Manager 2007 SP2 sont pris en charge pour la migration.  
-
-### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Sites sources exécutant System Center 2012 Configuration Manager ou version ultérieure  
- Une fois les données collectées à partir du site source initial de la hiérarchie System Center 2012 Configuration Manager ou version ultérieure, vous n’avez pas à configurer de sites sources supplémentaires dans cette hiérarchie source. En effet, contrairement à Configuration Manager 2007, ces versions de Configuration Manager utilisent une base de données partagée qui vous permet d’identifier, puis de migrer tous les objets disponibles à partir du site source initial.  
-
- Quand vous configurez les comptes d’accès pour collecter des données, vous devez peut-être accorder l’accès **Compte fournisseur SMS du site source** à plusieurs ordinateurs de la hiérarchie source. Cela peut être nécessaire lorsque le site source prend en charge plusieurs instances du fournisseur SMS, chacune sur un ordinateur différent. Lorsque la collecte des données commence, le site de niveau supérieur de la hiérarchie de destination contacte le site de niveau supérieur de la hiérarchie source pour identifier les emplacements du fournisseur SMS de ce site. Seule la première instance du fournisseur SMS est identifiée. Si le processus de collecte des données ne peut pas accéder au fournisseur SMS à l'emplacement identifié, le processus échoue et ne tente pas de se connecter à d'autres ordinateurs qui exécutent une instance du fournisseur SMS pour le site.  
-
-##  <a name="a-namebkmkdatagatheringa-data-gathering"></a><a name="BKMK_Data_Gathering"></a> Collecte des données  
- Dès que vous avez spécifié une hiérarchie source, configuré les informations d’identification de chaque site source supplémentaire dans une hiérarchie source ou partagé les points de distribution d’un site source, Configuration Manager commence à collecter des données à partir du site source.  
-
- La collecte de données se répète ensuite selon une planification simple pour maintenir la synchronisation avec les modifications apportées aux données dans le site source. Par défaut, le processus se répète toutes les quatre heures. Vous pouvez modifier la planification du cycle en modifiant les **Propriétés** du site source. Le processus de collecte de données initial doit vérifier tous les objets de la base de données Configuration Manager, ce qui peut prendre un certain temps. Les processus de collecte de données suivants identifient uniquement les modifications apportées aux données et ils s'exécutent plus rapidement.  
-
- Pour collecter des données, le site de niveau supérieur dans la hiérarchie de destination se connecte au fournisseur SMS et à la base de données du site source pour récupérer une liste d'objets et les points de distribution. Ces connexions utilisent les comptes d'accès de site source. Pour plus d’informations sur les configurations nécessaires pour la collecte des données, consultez [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
-
- Vous pouvez démarrer et arrêter le processus de collecte des données à l’aide de **Collecter les données maintenant** et **Arrêter la collecte de données** dans la console Configuration Manager.  
-
- Une fois que vous avez utilisé **Arrêter la collecte de données** pour un site source pour une raison quelconque, vous devez reconfigurer les informations d’identification du site pour pouvoir collecter à nouveau les données de ce site. Configuration Manager ne peut pas identifier les nouveaux objets ni les modifications apportées aux objets migrés tant que vous ne reconfigurez pas le site source.  
+ Wenn Sie zusätzliche Quellstandorte in einer Configuration Manager 2007 SP2-Quellhierarchie einrichten, müssen Sie die Quellstandorte von oben nach unten einrichten, d.h. Sie richten die untersten Standorte zuletzt ein. Sie können Quellstandorte in einem Zweig der Hierarchie jederzeit einrichten, Sie müssen jedoch einen Standort als Quellstandort einrichten, bevor Sie dessen untergeordneten Standorte als Quellstandorte definieren können.  
 
 > [!NOTE]  
->  Avant de développer un site principal autonome dans une hiérarchie avec un site d’administration centrale, vous devez arrêter toutes les collectes des données. Vous pouvez reconfigurer la collecte des données quand le développement du site est terminé.  
+>  Für die Migration werden nur primäre Standorte in einer Configuration Manager 2007 SP2-Hierarchie unterstützt.  
 
-### <a name="gather-data-now"></a>Collecter les données maintenant  
- Après l'exécution du processus initial de collecte des données d'un site, le processus se répète pour identifier les objets mis à jour depuis le dernier cycle de collecte des données. Vous pouvez également utiliser l’action **Collecter les données maintenant** dans la console Configuration Manager pour démarrer immédiatement le processus et réinitialiser l’heure de début du cycle suivant.  
+### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Quellstandorte, an denen System Center 2012 Configuration Manager oder höher ausgeführt wird  
+ Nach dem Sammeln von Daten vom ursprünglichen Quellstandort der System Center 2012 Configuration Manager-Hierarchie oder einer Hierarchie mit einer höheren Version von System Center müssen Sie keine zusätzlichen Quellstandorte in dieser Quellhierarchie einrichten. Das liegt daran, dass im Gegensatz zu Configuration Manager 2007 bei diesen Versionen von Configuration Manager eine freigegebene Datenbank verwendet wird, mit deren Hilfe Sie alle verfügbaren Objekte am ursprünglichen Quellstandort identifizieren und anschließend migrieren können.  
 
- Lorsqu'un processus de collecte de données aboutit pour un site source, vous pouvez partager les points de distribution à partir du site source et configurer des tâches de migration pour migrer les données depuis le site. La collecte des données est un processus répétitif pour la migration et il se poursuit jusqu’à ce que vous changiez la hiérarchie source ou utilisiez **Arrêter la collecte de données** pour mettre fin au processus de collecte des données du site.  
+ Wenn Sie die Zugriffskonten für die Datensammlung einrichten, müssen Sie dem **Konto, das für den SMS-Anbieter des Quellstandorts** verwendet wird, möglicherweise Zugriff auf mehrere Computer in der Quellhierarchie gewähren. Dies ist ggf. erforderlich, wenn der Quellstandort mehrere Instanzen des SMS-Anbieters auf jeweils einem anderen Computer unterstützt. Zu Beginn der Datensammlung wird ein Kontakt zwischen dem Standort auf oberster Ebene der Zielhierarchie und dem Standort auf oberster Ebene der Quellhierarchie hergestellt, um die Orte des SMS-Anbieters für diesen Standort zu ermitteln. Es wird nur die erste Instanz des SMS-Anbieters identifiziert. Wenn über den Datensammlungsprozess nicht auf den SMS-Anbieter am angegebenen Ort zugegriffen werden kann, tritt während des Vorgangs ein Fehler auf, und es wird kein Versuch unternommen, eine Verbindung mit zusätzlichen Computern herzustellen, die eine Instanz des SMS-Anbieters für diesen Standort ausführen.  
 
-### <a name="stop-gathering-data"></a>Arrêter la collecte de données  
- Vous pouvez utiliser **Arrêter la collecte de données** pour mettre fin à la collecte des données d’un site source quand vous ne souhaitez plus que Configuration Manager identifie les objets nouveaux et modifiés du site. Cette action empêche également Configuration Manager de proposer aux clients de la hiérarchie de destination des points de distribution partagés de la source en tant qu’emplacements pour le contenu que vous avez migré.  
+##  <a name="BKMK_Data_Gathering"></a> Datensammlung  
+ Direkt nach der Angabe einer Quellhierarchie, nach dem Einrichten von Anmeldeinformationen für einen zusätzlichen Quellstandort in einer Quellhierarchie oder nach der Freigabe der Verteilungspunkte für einen Quellstandort wird die Datensammlung am Quellstandort von Configuration Manager gestartet.  
 
- Pour arrêter la collecte des données de chaque site source, vous devez exécuter **Arrêter la collecte de données** sur les sites sources de niveau inférieur, puis répéter le processus sur chaque site parent. Le site de niveau supérieur de la hiérarchie source doit être le dernier site sur lequel vous arrêtez la collecte des données. Vous devez arrêter la collecte des données sur chaque site enfant avant d'effectuer cette action sur un site parent. En règle générale, vous arrêtez la collecte de données uniquement lorsque vous êtes prêt à exécuter le processus de migration.  
+ Der Datensammlungsvorgang wird dann nach einem einfachen Zeitplan wiederholt, um die Synchronisierung mit allen Änderungen der Daten am Quellstandort aufrechtzuerhalten. In der Standardeinstellung wird der Prozess alle vier Stunden wiederholt. Sie können den Zeitplan für diesen Zyklus verändern, indem Sie die **Eigenschaften** des Quellstandorts bearbeiten. Der erste Datensammlungsvorgang beinhaltet eine Prüfung sämtlicher Objekte in der Configuration Manager-Datenbank und kann einige Zeit in Anspruch nehmen. Bei den nachfolgenden Datensammlungsvorgängen werden nur noch Änderungen an den Daten identifiziert. Diese Vorgänge werden rascher abgeschlossen.  
 
- Quand vous arrêtez la collecte des données d’un site source, les informations collectées précédemment sur les objets et les regroupements du site peuvent toujours être utilisées quand vous configurez de nouvelles tâches de migration. Toutefois, vous ne voyez pas les nouveaux objets ou regroupements, ni les modifications apportées aux objets existants. Si vous reconfigurez le site source et recommencez à collecter les données, vous voyez les informations et l'état des objets précédemment migrés.  
+ Zur Datensammlung wird eine Verbindung des Standorts der obersten Ebene der Zielhierarchie mit dem SMS-Anbieter und der Datenbank des Quellstandorts hergestellt, um eine Liste von Objekten und Verteilungspunkten abzurufen. Für diese Verbindungen werden die Zugriffskonten des Quellstandorts verwendet. Informationen zu erforderlichen Konfigurationen für das Sammeln von Daten finden Sie unter [Voraussetzungen für die Migration in System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
+ Mit den Aktionen **Daten jetzt sammeln** und **Sammeln von Daten beenden** in der Configuration Manager-Konsole können Sie den Datensammlungsprozess starten und beenden.  
 
+ Nachdem Sie die Option **Sammeln von Daten beenden** für einen Quellstandort verwendet haben, müssen Sie die Anmeldeinformationen für den Standort neu konfigurieren, bevor Sie wieder Daten von diesem Standort sammeln können. Bis zur Neukonfiguration des Quellstandorts können von Configuration Manager keine neuen Objekte oder Änderungen an zuvor migrierten Objekten an diesem Standort erkannt werden.  
 
-<!--HONumber=Jan17_HO1-->
+> [!NOTE]  
+>  Bevor Sie einen eigenständigen primären Standort in eine Hierarchie mit einem zentralen Verwaltungsstandort erweitern, müssen Sie sämtliche Datensammlungen stoppen. Sie können die Datensammlung nach Abschluss der Standorterweiterung neu konfigurieren.  
 
+### <a name="gather-data-now"></a>Daten jetzt sammeln  
+ Nach dem ersten Datensammlungsvorgang für einen Standort wird der Vorgang wiederholt, um Objekte zu erkennen, die seit dem letzten Datensammlungszyklus aktualisiert wurden. Sie können auch die Aktion **Daten jetzt sammeln** in der Configuration Manager-Konsole verwenden, um den Vorgang sofort zu starten und die Startzeit für den nächsten Zyklus zurückzusetzen.  
 
+ Ist der Datensammlungsvorgang für einen Quellstandort erfolgreich abgeschlossen, können die Verteilungspunkte des Quellstandorts freigegeben und Migrationsaufträge konfiguriert werden, um Daten vom Standort zu migrieren. Der Datensammlungsvorgang wird wiederholt, bis Sie die Quellhierarchie ändern oder **Sammeln von Daten beenden** verwenden, um den Datensammlungsvorgang für diesen Standort zu beenden.  
+
+### <a name="stop-gathering-data"></a>Sammeln von Daten beenden  
+ Mit **Sammeln von Daten beenden** können Sie den Datensammlungsvorgang für einen Quellstandort beenden, wenn keine neuen oder geänderten Objekte dieses Standorts mehr von Configuration Manager identifiziert werden sollen. Mit dieser Aktion wird außerdem verhindert, dass den Clients in der Zielhierarchie von Configuration Manager freigegebene Verteilungspunkte aus der Quelle als Inhaltsstandorte für den migrierten Inhalt angeboten werden.  
+
+ Sollen keine Daten mehr von einem Quellstandort gesammelt werden, führen Sie die Aktion **Sammeln von Daten beenden** bei den Quellstandorten der untersten Ebene aus und wiederholen den Vorgang dann bei jedem übergeordneten Standort. Der Standort der obersten Ebene der Quellhierarchie muss der letzte Standort sein, an dem Sie die Datensammlung beenden. Beenden Sie die Datensammlung bei jedem untergeordneten Standort, ehe Sie sie bei einem übergeordneten Standort beenden. Üblicherweise wird die Datensammlung erst dann beendet, wenn der Migrationsprozess abgeschlossen werden kann.  
+
+ Wenn Sie die Datensammlung bei einem Quellstandort beendet haben, bleiben zuvor gesammelte Informationen über Objekte und Sammlungen dieses Standorts verfügbar, wenn Sie neue Migrationsaufträge einrichten. Allerdings werden weder neue Objekte und Sammlungen angezeigt noch Änderungen, die an bestehenden Objekten vorgenommen wurden. Wenn Sie den Quellstandort neu konfigurieren und wieder mit der Datensammlung beginnen, sehen Sie Informationen und Statusangaben zu bereits migrierten Objekten.  

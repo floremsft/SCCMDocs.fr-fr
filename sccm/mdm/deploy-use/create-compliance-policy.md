@@ -1,13 +1,12 @@
 ---
-title: "Créer et déployer une stratégie de conformité d’appareil | Microsoft Docs"
-description: "Apprenez à créer et déployer des stratégie de conformité d’appareil dans System Center Configuration Manager."
+title: "Erstellen und Bereitstellen einer Gerätekonformitätsrichtlinie | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie eine Gerätekonformitätsrichtlinie in System Center Configuration Manager erstellen und bereitstellen."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0fd76043-d7ee-423d-8c5f-aa7e9ed58ce0
@@ -16,309 +15,306 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 6630d0170df22f46f14df241ffd8d48266c69263
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="create-and-deploy-a-device-compliance-policy"></a>Erstellen und Bereitstellen einer Gerätekonformitätsrichtlinie
 
-# <a name="create-and-deploy-a-device-compliance-policy"></a>Créer et déployer une stratégie de conformité d’appareil
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-## <a name="create-a-compliance-policy"></a>Créer une stratégie de conformité
+## <a name="create-a-compliance-policy"></a>Erstellen einer Konformitätsrichtlinie
 
-1.  Dans la console System Center Configuration Manager, choisissez **Ressources et Conformité**.
+1.  Wählen Sie in der System Center Configuration Manager-Konsole **Bestand und Kompatibilität** aus.
 
-2.  Dans l'espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité**, puis choisissez **Stratégies de conformité**.
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die **Kompatibilitätseinstellungen**, und wählen Sie **Kompatibilitätsrichtlinien**.
 
-3.  Sous l'onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une stratégie de conformité**.
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** **Kompatibilitätsrichtlinie erstellen**.
 
-4.  Dans la page **Général** de l'Assistant Création d'élément de configuration, spécifiez les informations suivantes :
+4.  Geben Sie auf der Seite **Allgemein** des Assistenten zum Erstellen von Kompatibilitätsrichtlinien die folgenden Informationen an:
 
-  * **Nom**. Affectez un nom unique à la stratégie de conformité. Vous pouvez entrer jusqu’à 256 caractères.
+  * **Name**. Geben Sie einen eindeutigen Namen für die Konformitätsrichtlinie ein. Sie können bis zu 256 Zeichen verwenden.
 
-  * **Description**. Entrez une description qui donne un aperçu du profil VPN et permette son identification dans la console Configuration Manager. Vous pouvez entrer jusqu’à 256 caractères.
+  * **Beschreibung**. Geben Sie eine Beschreibung ein, die Ihnen einen Überblick über das VPN-Profil verschafft und dabei behilflich ist, das Profil in der Configuration Manager-Konsole zu ermitteln. Sie können bis zu 256 Zeichen verwenden.
 
-  * **Type de stratégie de conformité**. Sélectionnez le type de stratégie à créer selon que l’appareil est géré ou non par Configuration Manager. Cela s’applique à la version ou à une version ultérieure.<br /><br /> Pour les appareils gérés par Intune, optez pour les **règles de conformité applicables aux appareils gérés sans client Configuration Manager** . Cette option vous permet également de sélectionner le type de plateforme auquel appliquer cette stratégie.
+  * **Typ der Konformitätsrichtlinie**. Wählen Sie den Richtlinientyp, den Sie erstellen möchten, auf Grundlage der Tatsache aus, ob Ihr Gerät von Configuration Manager verwaltet wird. Dies trifft auf Version  oder höher zu.<br /><br /> Wählen Sie für Geräte, die von Intune verwaltet werden, die Option **Compliance rules for devices managed without configuration manager client** (Kompatibilitätsregeln für Geräte, die ohne den Configuration Manager-Client verwaltet werden). Bei Wahl dieser Option können Sie auch den Typ der Plattform auswählen, dem Sie diese Richtlinie zuweisen möchten.
 
-  * **Gravité de la non conformité pour les rapports**. Spécifiez le niveau de gravité signalé si cette stratégie de conformité est évaluée comme non conforme. Les degrés de gravité disponibles sont les suivants :
+  * **Schweregrad der Nichtkompatibilität für Berichte**. Geben Sie den Schweregrad an, der gemeldet wird, wenn diese Konformitätsrichtlinie als nicht konform ausgewertet wird. Die verfügbaren Schweregrade sind:
 
-     * **Aucun**. Les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.
-     * **Informations**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.   
-     * **Avertissement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.
-     * **Critique**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.
-     * **Critique avec événement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.      
+     * **Keiner**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.
+     * **Information**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.   
+     * **Warnung**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.
+     * **Kritisch**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.
+     * **Kritisch mit Ereignis**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.      
 
-5.  Dans la page **Plateformes prises en charge**, choisissez les plateformes d'appareils qui seront évaluées par cette stratégie de conformité, ou choisissez **Sélectionner tout** pour choisir toutes les plateformes d'appareils. Plates-formes prises en charge : Windows 7, Windows 8.1 et Windows 10 ; Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016.
+5.  Wählen Sie auf der Seite **Unterstützte Plattformen** die Geräteplattformen, für die diese Kompatibilitätsrichtlinie ausgewertet wird, oder wählen Sie **Alle auswählen**, um alle Geräteplattformen auszuwählen. Folgende Plattformen werden unterstützt: Windows 7, Windows 8.1 und Windows 10; Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 und Windows Server 2016.
 
-6.  Dans la page **Règles** , vous définissez une ou plusieurs règles qui définissent la configuration dont les appareils doivent disposer pour être évalués comme étant conformes. Quand vous créez une stratégie de conformité, certaines règles sont activées par défaut, mais vous pouvez les modifier ou les supprimer. Pour obtenir la liste complète de toutes les règles, consultez la section Règles de stratégie de conformité plus loin dans cette rubrique.
+6.  Auf der Seite **Regeln** definieren Sie eine oder mehrere Regeln, die die Konfiguration bestimmen, die Geräte aufweisen müssen, um als kompatibel eingestuft zu werden. Wenn Sie eine Kompatibilitätsrichtlinie erstellen, sind einige Regeln standardmäßig aktiviert, die Sie aber bearbeiten oder löschen können. Eine vollständige Liste aller Regeln finden Sie unter „Regeln für Kompatibilitätsrichtlinien“ weiter unten in diesem Thema.
 
   > [!NOTE]  
-  >  Sur les PC Windows, la version du système d’exploitation Windows 8.1 apparaît comme étant la version 6.3 au lieu de 8.1. Si la règle de la version du système d’exploitation est définie sur Windows 8.1 pour Windows, l’appareil sera signalé comme non conforme, même si l’appareil possède Windows 8.1. Assurez-vous que vous définissez la version *signalée* correcte de Windows pour les règles de version minimale et maximale du système d’exploitation. Le numéro de version doit correspondre à la version que la commande **winver** retourne. Les téléphones Windows Phone n’ont pas ce problème, car la version signalée est 8.1 comme prévu. Pour les PC Windows avec le système d’exploitation Windows 10, la version doit être définie comme étant **10.0** plus le numéro de version du système d’exploitation que la commande **winver** retourne.
+  >  Auf Windows-PCs wird die Windows-Betriebssystemversion 8.1 als Version 6.3 gemeldet (anstelle von 8.1). Wenn die Betriebssystem-Versionsregel für Windows auf die Version Windows 8.1 festgelegt ist, wird das betreffende Gerät als nicht kompatibel gemeldet, selbst wenn auf ihm Windows 8.1 installiert ist. Stellen Sie deshalb sicher, dass Sie in den Regeln für das minimal oder maximal zulässige Betriebssystem die richtige *gemeldete* Version von Windows festlegen. Die Versionsnummer muss derjenigen entsprechen, die durch den **winver**-Befehl zurückgegeben wird. Bei Windows Phones tritt dieses Problem nicht auf. Dort wird als Version wie erwartet 8.1 gemeldet. Für Windows-PCs mit dem Betriebssystem Windows 10 muss die Version auf **10.0** plus OS-Buildnummer festgelegt werden, die vom Befehl **winver** zurückgegeben wird.
 
-7.  Dans la page **Résumé** de l'Assistant, passez en revue les paramètres que vous avez définis, puis terminez l'Assistant.
+7.  Überprüfen Sie auf der Seite **Zusammenfassung** des Assistenten die von Ihnen festgelegten Einstellungen, und schließen Sie dann den Assistenten ab.
 
- La nouvelle stratégie apparaît sous le nœud **Stratégies de conformité** de l'espace de travail **Ressources et Conformité**.
+ Die neue Richtlinie wird im Knoten **Kompatibilitätsrichtlinien** im Arbeitsbereich **Bestand und Kompatibilität** angezeigt.
 
-## <a name="deploy-a-compliance-policy"></a>Déployer une stratégie de conformité
+## <a name="deploy-a-compliance-policy"></a>Bereitstellen einer Konformitätsrichtlinie
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
+1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Kompatibilität** aus.
 
-2.  Dans l'espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité**, puis choisissez **Stratégies de conformité**.
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die **Kompatibilitätseinstellungen**, und wählen Sie **Kompatibilitätsrichtlinien**.
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer**.
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** die Option **Bereitstellen** aus.
 
-4.  Dans la boîte de dialogue **Déployer une stratégie de conformité**, choisissez **Parcourir** pour sélectionner le regroupement d'utilisateurs pour lesquels déployer la stratégie.
+4.  Wählen Sie im Dialogfeld **Kompatibilitätsrichtlinien bereitstellen** die Option **Durchsuchen**, um die Benutzersammlung auszuwählen, für die Sie die Richtlinie bereitstellen möchten.
 
-     En outre, vous pouvez sélectionner des options pour générer des alertes quand la stratégie n'est pas conforme et définir le calendrier selon lequel cette stratégie sera évaluée pour la conformité.
+     Darüber hinaus können Sie Optionen auswählen, um Warnungen zu generieren, wenn die Richtlinie nicht befolgt wird, und Sie können den Zeitplan festlegen, gemäß dem diese Richtlinie auf Kompatibilität ausgewertet wird.
 
-5.  Une fois que vous avez terminé, choisissez **OK**.
+5.  Wählen Sie abschließend **OK** aus.
 
-## <a name="monitor-the-compliance-policy"></a>Analyser la stratégie de conformité
+## <a name="monitor-the-compliance-policy"></a>Überwachen der Konformitätsrichtlinie
 
-#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>Pour afficher les résultats de compatibilité dans la console Configuration Manager
+#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>So zeigen Sie Kompatibilitätsergebnisse in der Configuration Manager-Konsole an
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance**.
+1.  Wählen Sie in der Configuration Manager-Konsole die Option **Überwachung** aus.
 
-2.  Dans l'espace de travail **Surveillance**, choisissez **Déploiements**.
+2.  Wählen Sie im Arbeitsbereich **Überwachung** die Option **Bereitstellungen**.
 
-3.  Dans la liste **Déploiements** , sélectionnez le déploiement de la stratégie de conformité dont vous souhaitez vérifier les informations de conformité.
+3.  Wählen Sie in der Liste **Bereitstellungen** die Kompatibilitätsrichtlinienbereitstellung aus, für die Sie die Kompatibilitätsinformationen prüfen möchten.
 
-4.  Vous pouvez consulter un résumé des informations relatives à la conformité du déploiement de la stratégie dans la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement, puis, sous l'onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Afficher l'état** pour ouvrir la page **État du déploiement**.
+4.  Zusammenfassende Informationen zur Kompatibilität der Richtlinienbereitstellung finden Sie auf der Hauptseite. Wählen Sie zum Anzeigen ausführlicherer Informationen die Bereitstellung aus, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Status anzeigen**, um die Seite **Bereitstellungsstatus** anzuzeigen.
 
-    La page **État du déploiement** contient les onglets suivants :
+    Die Seite **Bereitstellungsstatus** enthält die folgenden Registerkarten:
 
-    -   **Conforme**. Affiche la conformité de la stratégie en fonction du nombre de biens affectés. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou périphériques conformes à cette règle. Le volet **Détails du bien** affiche les utilisateurs ou les appareils conformes à la stratégie. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires.
+    -   **Kompatibel**. Zeigt die Kompatibilität mit der Richtlinie basierend auf der Anzahl der betroffenen Bestände an. Sie können eine Regel wählen, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, die mit dieser Regel kompatibel sind. Im Bereich **Bestandsdetails** werden die Benutzer oder Geräte angezeigt, die mit der Richtlinie kompatibel sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen anzuzeigen.
 
-    -   **Erreur**. Affiche une liste de toutes les erreurs pour le déploiement de stratégie sélectionné en fonction du nombre de ressources concernées. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou appareils qui ont généré des erreurs avec cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils affectés par un problème. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires sur le problème.
+    -   **Fehler**. Zeigt eine Liste aller Fehler für die ausgewählte Bereitstellung der Richtlinie basierend auf der Anzahl der betroffenen Bestände an. Sie können eine Regel wählen, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, durch die mit dieser Regel Fehler generiert wurden. Wenn Sie einen Benutzer oder ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Benutzer oder Geräte angezeigt, die von einem Problem betroffen sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen zum Problem anzuzeigen.
 
-    -   **Non conforme**. Affiche une liste de toutes les règles non conformes au sein de la stratégie en fonction du nombre de ressources affectées. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou périphériques non conformes à cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils affectés par un problème. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher d'autres informations sur le problème.
+    -   **Nicht kompatibel**. Zeigt eine Liste aller nicht kompatiblen Regeln innerhalb der Richtlinie basierend auf der Anzahl der betroffenen Bestände an. Sie können eine Regel wählen, um unter dem Knoten **Benutzer** oder **Geräte** im Arbeitsbereich **Bestand und Kompatibilität** einen temporären Knoten zu erstellen, in dem alle Benutzer oder Geräte enthalten sind, die mit dieser Regel nicht kompatibel sind. Wenn Sie einen Benutzer oder ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Benutzer oder Geräte angezeigt, die von einem Problem betroffen sind. Doppelklicken Sie auf einen Benutzer oder ein Gerät in der Liste, um weitere Informationen zu diesem Problem anzuzeigen.
 
-    -   **Inconnu**. Affiche une liste de tous les utilisateurs et appareils qui n’ont pas signalé leur conformité pour le déploiement de stratégie sélectionné, ainsi que l’état du client actuel des appareils.
+    -   **Unbekannt**. Zeigt eine Liste aller Benutzer und Geräte an, für die keine Kompatibilität mit der ausgewählten Richtlinienbereitstellung zusammen mit dem aktuellen Clientstatus von Geräten gemeldet wurde.
 
-#### <a name="to-monitor-the-compliance-status-of-an-individual-device"></a>Pour surveiller l’état de conformité d’un appareil individuel
+#### <a name="to-monitor-the-compliance-status-of-an-individual-device"></a>So überwachen Sie den Konformitätsstatus eines einzelnen Geräts
 
-1.  Dans la console Configuration Manager, choisissez l’espace de travail **Actifs et conformité**.
+1.  Wählen Sie in der Configuration Manager-Konsole den Arbeitsbereich **Bestand und Konformität**.
 
-2.  Choisissez **Appareils**.
+2.  Wählen Sie **Geräte**.
 
-3.  Cliquez avec le bouton droit sur une des colonnes pour en ajouter d’autres.
+3.  Klicken Sie mit der rechten Maustaste auf eine der Spalten, um mehr Spalten zu aktivieren.
 
-  Vous pouvez ajouter les colonnes suivantes :
+  Sie können die folgenden Spalten hinzufügen:
 
-  - **ID de l’appareil Azure Active Directory**.  Identificateur unique de l’appareil dans Azure Active Directory.
+  - **Azure Active Directory-Geräte-ID**.  Eindeutiger Bezeichner für das Gerät in Azure Active Directory.
 
-  - **Détails de l’erreur de conformité**.  Détails du message d’erreur en cas de problème avec le processus de bout en bout. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé.
+  - **Kompatibilität: Fehlerdetails**.  Ausführliche Fehlermeldung, wenn beim End-to-End-Prozess ein Fehler auftritt. Wenn diese Spalte leer ist, bedeutet dies, dass keine Fehler gefunden wurden und der Konformitätsstatus erfolgreich gemeldet wurde.
 
-  - **Emplacement de l’erreur de conformité**.  Plus de détails sur l’emplacement où la conformité a échoué. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé. Exemples d’emplacements où le processus de conformité est susceptible d’échouer : 
-      - Client ConfigMgr
-      - Point de gestion
+  - **Kompatibilität: Fehlerort**.  Weitere Informationen zu dem Ort, an dem ein Kompatibilitätsfehler auftrat. Wenn diese Spalte leer ist, bedeutet dies, dass keine Fehler gefunden wurden und der Konformitätsstatus erfolgreich gemeldet wurde. Beispiele, wo ein Fehler im Kompatibilitätsprozess auftreten könnte: 
+      - ConfigMgr-Client
+      - Verwaltungspunkt
       - Intune
       - Azure Active Directory
 <br></br>
-  - **Heure d’évaluation de la conformité**. Heure de la dernière vérification de la conformité.
+  - **Kompatibilität: Zeitpunkt der Überprüfung**. Wann die Kompatibilität zuletzt überprüft wurde.
 
-  - **Heure définie de la conformité**. Dernière fois où la conformité a été mise à jour vers Azure Active Directory.
+  - **Kompatibilität: Zeitpunkt der Festlegung**. Letzte Aktualisierung der Kompatibilität mit Azure Active Directory.
 
-  - **Conformité de l’accès conditionnel**.  Indique si la machine est conforme ou non aux stratégies d’accès conditionnel.
+  - **Kompatibel mit bedingtem Zugriff**.  Ob der Computer mit Richtlinien für bedingten Zugriff kompatibel ist oder nicht.
 
   > [!IMPORTANT]
-  > Par défaut, ces colonnes ne sont pas affichées.
+  > Diese Spalten werden standardmäßig nicht angezeigt.
 
-#### <a name="to-view-intune-compliance-policies-charts"></a>Pour afficher les graphiques de stratégies de conformité Intune
-1. À compter de la version 1610 de Configuration Manager, dans la console Configuration Manager, choisissez **Analyse**.
+#### <a name="to-view-intune-compliance-policies-charts"></a>Anzeigen von Diagrammen zu Konformitätsrichtlinien von Intune
+1. Wählen Sie ab Version 1610 von Configuration Manager in der Configuration Manager-Konsole **Überwachung**.
 
-2. Dans l’espace de travail **Analyse**, accédez à **Vue d’ensemble** > **Paramètres de compatibilité** > **Stratégies de conformité**.
+2. Wechseln Sie im Arbeitsbereich **Überwachung** zu **Übersicht** > **Konformitätseinstellungen** > **Konformitätsrichtlinien**.
 
-   Les graphiques suivants s’affichent :
+   Die folgenden Diagramme werden angezeigt:
 
-    - **Conformité globale des appareils**. Affiche la conformité globale des appareils pour toutes les stratégies de conformité.
-    - **Principales raisons de non-conformité**. Affiche les principales stratégies pour lesquelles les appareils ne sont pas conformes.
+    - **Gerätekompatibilität insgesamt**. Zeigt die Gesamtkonformität von Geräten für alle Konformitätsrichtlinien.
+    - **Hauptgründe für Inkompatibilität**. Zeigt an, mit welchen Richtlinien Geräte vorwiegend nicht kompatibel sind.
 
-3. Choisissez une section dans l’un des deux graphiques pour afficher la liste des appareils dans cette catégorie.
+3. Wählen Sie einen Bereich in einem beliebigen Diagramm, um einen Drilldown zu einer Liste der Geräte innerhalb dieser Kategorie auszuführen.
 
-#### <a name="to-view-a-health-attestation-report"></a>Pour afficher un rapport d’attestation d’intégrité
+#### <a name="to-view-a-health-attestation-report"></a>So zeigen Sie einen Integritätsnachweisbericht an
 
-1.  À compter de la version 1602 de Configuration Manager, dans la console Configuration Manager, choisissez **Analyse**.
+1.  Wählen Sie ab Version 1602 von Configuration Manager in der Configuration Manager-Konsole **Überwachung**.
 
-2.  Pour afficher un rapport de synthèse sur l’état de conformité actuel des appareils, choisissez **Sécurité**, puis **Attestation d’intégrité**.
+2.  Wählen Sie zum Anzeigen eines Übersichtsberichts mit dem aktuellen Status von Geräten, angeordnet nach Konformitätsstatus, **Sicherheit** und anschließend **Integritätsnachweis**.
 
-3.  Pour afficher un rapport qui répertorie tous les appareils et tous les attributs d’attestation d’intégrité, choisissez **Sécurité**,puis **Attestation d’intégrité**.
+3.  Wählen Sie zum Anzeigen eines Berichts, in dem alle Geräte und die Integritätsnachweisattribute aufgeführt sind, **Sicherheit** und anschließend **Integritätsnachweis**.
 
-## <a name="compliance-policy-rules"></a>Règles de stratégie de conformité
-* **Demander des paramètres de mot de passe sur les appareils mobiles**. Vous pouvez forcer les utilisateurs à entrer un mot de passe avant qu'ils ne puissent accéder à leur appareil.
+## <a name="compliance-policy-rules"></a>Regeln für Kompatibilitätsrichtlinien
+* **Kennworteinstellungen auf mobilen Geräten erforderlich**. Sie können festlegen, dass Benutzer ein Kennwort eingeben müssen, bevor sie auf ihr Gerät zugreifen können.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
     * Windows Phone 8+
     * iOS 6+
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 
-* **Exiger un mot de passe pour déverrouiller un appareil inactif** (mise à jour 1602). Vous pouvez forcer les utilisateurs à entrer un mot de passe pour accéder à l’appareil verrouillé.
+* **Kennwort zum Entsperren eines inaktiven Geräts anfordern** (Update 1602). Sie können festlegen, dass Benutzer für den Zugriff auf ein gesperrtes Gerät ein Kennwort eingeben müssen.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Minutes d’inactivité avant demande du mot de passe** (mise à jour 1602). Vous pouvez spécifier la durée d'inactivité au terme de laquelle l'utilisateur doit entrer à nouveau son mot de passe. Sélectionnez l’une des valeurs disponibles suivantes : **1 minute**, **5 minutes**, **15 minutes**, **30 minutes**, **1 heure**.
+* **Minuten Inaktivität vor Anforderung des Kennworts** (Update 1602). Sie können die Leerlaufzeit festlegen, nach der ein Benutzer sein Kennwort erneut eingeben muss. Legen Sie den Wert auf eine der verfügbaren Optionen fest: **1 Minute**, **5 Minuten**, **15 Minuten**, **30 Minuten**, **1 Stunde**.
 
-  Cette règle doit être utilisée avec l’option **Exiger un mot de passe pour déverrouiller un appareil inactif**. La valeur définie ici détermine quand l’appareil est considéré comme inactif puis est verrouillé. Si l’option **Exiger un mot de passe pour déverrouiller un appareil inactif**  est définie sur **True**, l’utilisateur doit entrer un mot de passe pour accéder à l’appareil verrouillé.
+  Diese Regel muss mit der Option **Kennwort zum Entsperren eines inaktiven Geräts anfordern** verwendet werden. Der hier festgelegte Wert bestimmt, wann das Gerät als inaktiv betrachtet und gesperrt wird. Wenn **Kennwort zum Entsperren eines inaktiven Geräts anfordern** auf **True** gesetzt ist, muss der Benutzer ein Kennwort für den Zugriff auf das gesperrte Gerät eingeben.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
   * Windows RT/8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Exiger les mises à jour automatiques** (mise à jour 1602). Vous pouvez exiger que des appareils disposant de Windows 8.1 ou version ultérieure installent automatiquement les mises à jour, et spécifier la classe de celles-ci.
+* **Automatische Updates erforderlich** (Update 1602). Sie können anfordern, dass Geräte mit Windows 8.1 oder höher Updates automatisch installieren, und Sie können die Klasse der Updates angeben.
 
-  La valeur doit être définie sur **Aucun** pour empêcher l’installation automatique, sur **Recommandé** pour installer automatiquement toutes les mises à jour recommandées, ou sur **Important** pour installer uniquement les mises à jour classées comme importantes.
+  Der Wert sollte auf **Kein** festgelegt werden, um eine automatische Installation zu verhindern, auf **Empfohlen** , um alle empfohlenen Updates automatisch zu installieren oder auf **Wichtig** , um nur Updates zu installieren, die als wichtig eingestuft wurden.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
 
-* **Autoriser les mots de passe simples**. Vous pouvez autoriser les utilisateurs à créer des mots de passe simples, comme « 1234 » ou « 1111 ». Ce paramètre est désactivé par défaut.
+* **Einfache Kennwörter zulassen**. Sie können Benutzern erlauben, einfache Kennwörter wie „1234“ oder „1111“ zu verwenden. Diese Einstellung ist standardmäßig deaktiviert.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
   * iOS 6+
 
-* **Longueur minimale du mot de passe**. Vous pouvez spécifier le nombre minimal de chiffres ou de caractères que le mot de passe de l'utilisateur doit contenir (6 par défaut).
+* **Minimale Kennwortlänge**. Sie können die Mindestanzahl an Ziffern oder Zeichen angeben, die das Benutzerkennwort enthalten muss (standardmäßig 6).
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
   >[!NOTE]
-  >Pour les appareils qui exécutent Windows et qui sont sécurisés avec un compte Microsoft, la stratégie de conformité n’est pas évaluée correctement si l’option **Longueur minimale du mot de passe** a une valeur supérieure à 8 caractères ou si l’option **Nombre minimum de jeux de caractères** a une valeur supérieure à 2.
+  >Für Geräte, die Windows ausführen und mit einem Microsoft-Konto gesichert sind, ist keine korrekte Auswertung mit der Konformitätsrichtlinie möglich, wenn **Minimale Kennwortlänge** größer als 8 Zeichen oder die **Minimale Anzahl von Zeichensätzen:** größer als 2 ist.
 
-* **Chiffrement des fichiers sur l'appareil mobile**. Vous pouvez exiger le chiffrement de l'appareil pour la connexion aux ressources. Les appareils qui exécutent Windows Phone 8 sont automatiquement chiffrés. Les appareils qui exécutent iOS sont chiffrés quand vous configurez le paramètre **Demander des paramètres de mot de passe sur les périphériques mobiles**. Ce paramètre est activé par défaut.
+* **Dateiverschlüsselung auf mobilem Gerät**. Sie können festlegen, dass das Gerät verschlüsselt sein muss, um eine Verbindung mit Ressourcen herstellen zu können. Geräte unter Windows Phone 8 werden automatisch verschlüsselt. Geräte unter iOS werden verschlüsselt, wenn Sie die Einstellung **Kennworteinstellungen auf mobilen Geräte erforderlich**konfigurieren. Diese Einstellung ist standardmäßig aktiviert.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **L'appareil ne doit pas être jailbreaké ou rooté**. Si vous activez ce paramètre, les appareils jailbreakés (iOS) ou rootés (Android) ne sont pas conformes. Ce paramètre est désactivé par défaut.
+* **Gerät darf nicht per Jailbreak oder Rooting manipuliert worden sein**. Wenn Sie diese Einstellung aktivieren, sind Jailbreak- oder Rooting-Geräte (iOS bzw. Android) nicht kompatibel. Diese Einstellung ist standardmäßig deaktiviert.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Le profil de messagerie doit être géré par Intune**. Lorsque vous définissez cette option sur **Oui**, l’appareil doit utiliser le profil d’e-mail déployé sur l’appareil. L’appareil est considéré comme non conforme si le profil d’e-mail n’est pas déployé sur le groupe d’utilisateurs ciblé par la stratégie de conformité.
+* **E-Mail-Profil muss von Intune verwaltet werden**. Wenn Sie diese Option auf **Ja** festlegen, muss das Gerät das E-Mail-Profil verwenden, das ihm bereitgestellt wurde. Das Gerät gilt als nicht kompatibel, wenn das E-Mail-Profil nicht für dieselbe Benutzergruppe bereitgestellt wird, für die die Kompatibilitätsrichtlinie gilt.
 
-  De même, l’appareil n’est pas conforme si l’utilisateur a déjà configuré sur l’appareil un compte e-mail qui correspond au profil d’e-mail Intune déployé sur l’appareil. Dans ce cas, Intune ne peut pas remplacer le profil configuré par l’utilisateur et ne peut donc pas le gérer. L’utilisateur peut mettre l’appareil en conformité en supprimant les paramètres d’e-mail existants, ce qui permet à Intune d’installer le profil d’e-mail géré.
+  Es wird ebenso als nicht kompatibel gemeldet, wenn der Benutzer bereits ein E-Mail-Konto auf dem Gerät eingerichtet hat, das mit dem Intune-E-Mail-Profil übereinstimmt, das auf dem Gerät bereitgestellt wurde. Intune kann das vom Benutzer bereitgestellte Profil in diesem Fall nicht überschreiben und daher nicht verwalten. Der Benutzer kann die Kompatibilität seines Geräts herstellen, indem er die vorhandenen E-Mail-Einstellungen entfernt, sodass Intune das verwaltete E-Mail-Profil installieren kann.
 
-  Pour plus d'informations sur les profils de messagerie, consultez [Activer l'accès à la messagerie professionnelle à l'aide de profils de messagerie avec Microsoft Intune](https://technet.microsoft.com/library/dn800672.aspx). Ce paramètre est désactivé par défaut.
+  Weitere Informationen zu E-Mail-Profilen finden Sie unter [Aktivieren des Zugriffs auf Unternehmens-E-Mail mithilfe von E-Mail-Profilen in Microsoft Intune](https://technet.microsoft.com/library/dn800672.aspx). Diese Einstellung ist standardmäßig deaktiviert.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * iOS 6+
 
-* **Profil de messagerie**. Si l'option **Le compte de messagerie doit être géré par Intune** est sélectionnée, choisissez **Sélectionner** pour choisir le profil de messagerie qui doit gérer les appareils. Le profil de messagerie doit être présent sur l'appareil.
+* **E-Mail-Profil**. Wenn **E-Mail-Konto muss von Intune verwaltet werden** aktiviert ist, wählen Sie **Auswählen**, um das E-Mail-Profil auszuwählen, von dem Geräte verwaltet werden müssen. Das E-Mail-Profil muss auf dem Gerät vorhanden sein.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * iOS 6+
 
-* **Système d’exploitation minimal requis**. Quand un appareil ne satisfait pas la condition de version minimale du système d’exploitation que vous spécifiez, il est signalé comme non conforme. Un lien avec des informations sur la mise à niveau s’affiche. L’utilisateur peut choisir de mettre à niveau son appareil. Une fois cette opération effectuée, il peut accéder aux ressources de l’entreprise.
+* **Minimal erforderliches Betriebssystem**. Wenn ein Gerät die von Ihnen festgelegten Minimalanforderungen an die Betriebssystemversion nicht erfüllt, wird es als nicht kompatibel gemeldet. Ein Link mit Informationen zur Vorgehensweise beim Upgraden wird angezeigt. Die Benutzer können ein Upgrade des Geräts durchführen und anschließend auf die Unternehmensressourcen zugreifen.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Version maximale autorisée du système d’exploitation**. Quand un appareil utilise une version du système d’exploitation ultérieure à celle que vous spécifiez dans la règle, l’accès aux ressources de l’entreprise est bloqué et l’utilisateur est invité à contacter son administrateur. Tant que vous n’avez pas modifié la règle pour autoriser la version du système d’exploitation, cet appareil ne peut pas être utilisé pour accéder aux ressources de l’entreprise.
+* **Maximal zulässige Betriebssystemversion**. Wenn ein Gerät eine neuere Betriebssystemversion verwendet, als Sie in der Regel festlegen, wird der Zugriff auf Unternehmensressourcen gesperrt, und der Benutzer wird gebeten, sich an den IT-Administrator zu wenden. Solange Sie die Regel nicht ändern und die betreffende Betriebssystemversion zulassen, kann das Gerät nicht auf Unternehmensressourcen zugreifen.
 
-  **Pris en charge sur :**
+  **Unterstützt auf:**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Exiger que les appareils soient signalés comme intègres**(mise à jour 1602). Vous pouvez définir une règle exigeant que les appareils Windows 10 soient signalés comme intègres dans les stratégies de conformité nouvelles ou existantes. Si vous activez ce paramètre, les appareils Windows 10 sont évalués via le service d’attestation de l’intégrité (HAS, Health Attestation Service) pour les points de données suivants :
+* **Geräte müssen als fehlerfrei gemeldet werden** (Update 1602). Sie können eine Regel festlegen, die fordert, dass Windows 10-Geräte in neuen oder vorhandenen Kompatibilitätsrichtlinien als fehlerfrei gemeldet werden müssen. Wenn Sie diese Einstellung aktivieren, werden Windows 10-Geräte vom Integritätsnachweisdienst (Health Attestation Service, HAS) auf die folgenden Kriterien untersucht:
 
-  - **BitLocker est activé**. Quand BitLocker est activé, l’appareil peut protéger les données stockées sur le lecteur contre tout accès non autorisé, en cas de mise hors tension ou en veille prolongée du système.
+  - **BitLocker ist aktiviert**. Wenn BitLocker aktiviert ist, kann das Gerät Daten, die auf dem Laufwerk gespeichert sind, vor unbefugtem Zugriff schützen, wenn das Gerät ausgeschaltet wird oder in den Ruhezustand wechselt.
 
-   Le chiffrement de lecteur BitLocker Windows chiffre toutes les données stockées sur le volume hébergeant le système d’exploitation Windows. BitLocker utilise le Module de plateforme sécurisée (TPM) pour protéger le système d’exploitation Windows et les données utilisateur. Il contribue également à prévenir toute falsification d’un ordinateur, même si celui-ci est laissé sans assistance, perdu ou volé.
+   Die Windows BitLocker-Laufwerkverschlüsselung verschlüsselt alle Daten, die auf dem Windows-Betriebssystemvolume gespeichert sind. BitLocker verwendet das TPM, um Windows-Betriebssystem und Benutzerdaten zu schützen. TPM stellt sicher, dass ein Computer auch dann nicht manipuliert wird, wenn er unbeaufsichtigt gelassen, verloren oder gestohlen wird.
    
-   Si l’ordinateur est équipé d’un TPM compatible, BitLocker utilise celui-ci pour verrouiller les clés de chiffrement qui protègent les données. Par conséquent, les clés sont inaccessibles tant que le TPM n’a pas vérifié l’état de l’ordinateur.
+   Wenn der Computer mit einem kompatiblen TPM ausgestattet ist, verwendet BitLocker das TPM zum Sperren der Verschlüsselungsschlüssel, die die Daten schützen. Daher kann erst auf die Schlüssel zugegriffen werden, nachdem das TPM den Zustand des Computers überprüft hat.
 
-  - **L’intégrité du code est activée**. L’intégrité du code est une fonctionnalité qui valide l’intégrité d’un pilote ou d’un système de fichiers à chaque chargement en mémoire. L’intégrité du code détecte si un pilote ou un fichier système non signé est chargé dans le noyau. Elle détecte également si un fichier système a été modifié par un logiciel malveillant exécuté par un compte d’utilisateur disposant de privilèges d’administrateur.
+  - **Codeintegrität ist aktiviert**. Codeintegrität ist ein Feature zum Überprüfen der Integrität von Treibern oder Systemdateien, sobald diese in den Arbeitsspeicher geladen werden. Codeintegrität erkennt, ob ein nicht signierter Treiber oder eine nicht signierte Systemdatei in den Kernel geladen wird. Außerdem wird erkannt, ob eine Systemdatei durch böswillige, von einem Benutzerkonto mit Administratorrechten ausgeführte Software geändert wurde.
 
-  - **Le démarrage sécurisé est activé**. Lorsque le démarrage sécurisé est activé, le système est contraint de démarrer dans un état approuvé par défaut. En outre, lorsque le démarrage sécurisé est activé, les composants principaux utilisés pour démarrer la machine doivent avoir des signatures de chiffrement appropriées, approuvées par le fabricant de l’appareil. Le microprogramme UEFI vérifie cela avant de laisser la machine démarrer. Si des fichiers ont été falsifiés, avec pour effet d’annuler leur signature, le système ne démarre pas.
+  - **Sicherer Start ist aktiviert**. Wenn der sichere Start aktiviert ist, wird das System gezwungen, in einem vom Hersteller als vertrauenswürdig eingestuften Zustand zu starten. Bei aktiviertem sicheren Start müssen auch die Kernkomponenten, die zum Starten des Computers verwendet werden, über ordnungsgemäße kryptografische Signaturen verfügen, denen das Unternehmen vertraut, das das Gerät hergestellt hat. Die UEFI-Firmware überprüft dies, bevor sie den Computer starten lässt. Wenn Dateien so manipuliert wurden, dass ihre Signatur nicht mehr stimmt, startet das System nicht.
 
-  - **Le logiciel anti-programme malveillant à lancement anticipé est activé**. Ce paramètre s’applique uniquement aux PC. Le logiciel anti-programme malveillant à lancement anticipé assure la protection des ordinateurs de votre réseau au démarrage et avant l’initialisation de pilotes tiers.
+  - **Early-launch antimalware is enabled** (Frühstart-Antischadsoftware ist aktiviert). Diese Einstellung gilt nur für PCs. Dieses Feature bietet Schutz für Computer in Ihrem Netzwerk, sobald diese gestartet und bevor Treiber von Drittanbietern initialisiert werden.
   
-   Cette règle est désactivée par défaut.
+   Diese Regel ist standardmäßig deaktiviert.
 
-  Pour plus d’informations sur le fonctionnement du service HAS, consultez [Health Attestation CSP](https://msdn.microsoft.com/library/dn934876.aspx)(Fournisseur de services de configuration pour l’attestation de l’intégrité).
+  Informationen zur Funktionsweise des Integritätsnachweisdiensts finden Sie unter [HealthAttestation CSP](https://msdn.microsoft.com/library/dn934876.aspx)(HealthAttestation-Kryptografiedienstanbieter).
 
-  **Pris en charge sur :**
-  * Windows 10 et Windows 10 Mobile
+  **Unterstützt auf:**
+  * Windows 10 und Windows 10 Mobile
 
-- **Applications qui ne peuvent pas être installées sur l’appareil**. Si les utilisateurs installent une application à partir de la liste des applications non conformes de l’administrateur, ils seront bloqués lorsqu’ils tenteront d’accéder à la messagerie de l’entreprise et à d’autres ressources de l’entreprise qui prennent en charge l’accès conditionnel. Cette règle requiert le nom de l’application et l’ID de l’application lors de l’ajout d’une application à la liste des applications non conformes définies par l’administrateur. L’éditeur de l’application peut également être ajouté, mais ce n’est pas obligatoire.
+- **Apps, die auf dem Gerät nicht installiert werden können**. Wenn Benutzer Apps installieren, die sich auf der Administratorliste der nicht kompatiblen Apps befinden, werden diese blockiert, wenn versucht wird, auf Geschäftsmails oder andere Geschäftsressourcen, die den bedingten Zugriff unterstützen, zuzugreifen. Für diese Regel wird der Name der App benötigt; wenn Sie eine App auf diese Administratorliste der nicht kompatiblen Apps setzen möchten, benötigen Sie dafür zusätzlich die App-ID. Ebenso kann der App-Herausgeber hinzugefügt werden; dies ist jedoch nicht zwingend notwendig.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
       * iOS 6+
       * Android 4.0+
       * Samsung KNOX Standard 4.0+
 <br></br>
-* **Type de mot de passe requis**. Spécifie si les utilisateurs doivent créer un mot de passe de type alphanumérique ou numérique. Pour les mots de passe alphanumériques, vous spécifiez également le nombre minimal de jeux de caractères que le mot de passe doit avoir. Les quatre jeux de caractères sont : lettres minuscules, lettres majuscules, symboles et chiffres.
+* **Erforderlicher Kennworttyp**. Legen Sie fest, ob Benutzer ein alphanumerisches oder numerisches Kennwort erstellen müssen. Bei alphanumerischen Kennwörtern legen Sie außerdem die erforderliche Mindestzahl an Zeichen fest. Die vier Zeichengruppen sind Kleinbuchstaben, Großbuchstaben, Symbole und Zahlen.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Windows Phone 8+
     * Windows 8.1+
     * iOS 6+
 <br></br>
-* **Bloquer le débogage USB sur l’appareil**. Vous n’avez pas à configurer ce paramètre, car le débogage USB est déjà désactivé pour les appareils Android for Work.
+* **USB-Debugging auf Gerät blockieren**. Sie müssen diese Einstellungen nicht konfigurieren, da USB-Debuggen bereits auf Android for Work-Geräten deaktiviert ist.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Bloquer les applications provenant de sources inconnues**. Exiger que les appareils interdisent l’installation des applications provenant de sources inconnues. Vous n’avez pas à configurer ce paramètre, car les appareils Android for Work limitent toujours l’installation à partir de sources inconnues.
+* **Apps von unbekannten Quellen blockieren**. Fordert an, dass Geräte die Installation von Apps aus unbekannten Quellen verhindern. Sie müssen diese Einstellung nicht konfigurieren, da Android for Work-Geräte die Installation aus unbekannten Quellen stets einschränken.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Exiger l’analyse des menaces sur les applications**. Ce paramètre spécifie que la fonction Vérifier les applications est activée sur l’appareil. 
+* **Bedrohungsüberprüfung für Apps erzwingen**. Diese Einstellung gibt an, dass die Funktion „Apps überprüfen“ auf dem Gerät aktiviert ist. 
 
-    **Pris en charge sur :**
-    * Android 4.2 à 4.4
+    **Unterstützt auf:**
+    * Android 4.2 bis 4.4
     * Samsung KNOX Standard 4.0+
 
-### <a name="find-an-app-id"></a>Trouver l’ID d’une application
+### <a name="find-an-app-id"></a>Finden einer App-ID
 
-L’ID d’une application est un identificateur qui identifie de façon unique l’application dans les services d’application Apple et Google. Par exemple : com.contoso.myapp. Pour rechercher un ID :
+Eine App-ID ist ein Bezeichner, der die App in den Anwendungsdiensten Apple und Google eindeutig identifiziert. Ein Beispiel ist „com.contoso.myapp“. So finden Sie eine:
 
 - **Android**
-    - Vous trouverez l’ID de l’application dans l’URL Google Play Store utilisée pour créer l’application. Exemple d’ID de l’application : *…?id=com.companyname.appname&hl=en*
+    - Die App-ID finden Sie in der URL des Google Play Stores, die für die Erstellung der App verwendet wurde. Eine Beispiel-App-ID ist: *…?id=com.companyname.appname&hl=en*.
 
 - **iOS**
-    1. Dans l’URL iTunes Store, trouvez le numéro d’identification, comme celui de cet exemple : */id875948587?mt=8*
+    1. In der URL des iTunes-Stores finden Sie die ID-Nummer, Beispiel: */id875948587?mt=8*.
 
-    2. Dans un navigateur web, accédez à l’URL suivante, en remplaçant le chiffre par le numéro d’identification que vous venez de trouver (dans ce cas, l’exemple précédent) : https://itunes.apple.com/lookup?id=875948587
+    2. Wechseln Sie in einem Webbrowser zur folgenden URL, und ersetzen Sie die Nummer durch die ID-Nummer, die Sie gerade gefunden haben (in diesem Fall im vorherigen Beispiel): „https://itunes.apple.com/lookup?id=875948587“.
 
-    3. Téléchargez et ouvrez le fichier texte.
+    3. Laden Sie die Textdatei herunter und öffnen Sie sie.
   
-    4. Recherchez le texte **bundleId**.
+    4. Suchen Sie nach dem Text **bundleId**.
 
-    Exemple d’ID de l’application : "*bundleId*":"*com.companyname.appname*" 
-
+    Eine Beispiel-App-ID ist: „*bundleId*“:„*com.companyname.appname*“. 
 

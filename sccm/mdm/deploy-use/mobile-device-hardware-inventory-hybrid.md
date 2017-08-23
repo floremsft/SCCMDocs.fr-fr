@@ -1,143 +1,139 @@
 ---
-title: "Configurer l’inventaire matériel | Microsoft Docs | appareils mobiles"
-description: "Configurez l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager."
+title: "Hardwareinventur konfigurieren | Microsoft-Dokumentation | mobile Geräte"
+description: "Konfigurieren von Hardwareinventur für mobile Geräte, die von Microsoft Intune und System Center Configuration Manager registriert werden."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 9b94330221548da15cda8423c2a47568fd22342e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 7ab9042a525e07b8e3107479cedeec6b99f7bc86
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager
+# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Konfigurieren von Hardwareinventur für mobile Geräte, die von Microsoft Intune und System Center Configuration Manager registriert werden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans Configuration Manager, vous pouvez collecter l’inventaire matériel sur des appareils iOS, Android et Windows à l’aide du connecteur Microsoft Intune. Pour plus d’informations sur la manière de configurer l’inventaire matériel, consultez [Guide pratique pour étendre l’inventaire matériel dans System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+In Configuration Manager können Sie die Hardwareinventur auf iOS-, Android- und Windows-Geräten mithilfe des Microsoft Intune-Connectors erfassen. Informationen zum Konfigurieren der Hardwareinventur finden Sie unter [Erweitern der Hardwareinventur in System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- Pour plus d’informations sur la façon d’inscrire des appareils dans Microsoft Intune, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+ Informationen zum Registrieren von Geräten bei Microsoft Intune finden Sie unter [Registrieren von Geräten für die Verwaltung in Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
-## <a name="hardware-inventory-for-mobile-devices"></a>Inventaire matériel pour les appareils mobiles  
- Les tableaux suivants répertorient les classes d’inventaire disponibles pour l’inventaire matériel sur les plateformes mobiles couramment utilisées.  
+## <a name="hardware-inventory-for-mobile-devices"></a>Hardwareinventur für mobile Geräte  
+ In den folgenden Tabellen sind die für die Hardwareinventur auf häufig verwendeten mobilen Plattformen verfügbaren Inventurklassen aufgelistet.  
 
  **iOS**  
 
-|Classe d'inventaire matériel|iOS|  
+|Hardwareinventurklasse|iOS|  
 |------------------------------|---------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.UDID|  
-|Numéro de série|Device_ComputerSystem.SerialNumber|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|Non applicable|  
-|Version du système d'exploitation|Device_OSInformation.OSVersion|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Device_Memory.DeviceCapacity|  
-|Espace de stockage libre|Device_Memory.AvailableDeviceCapacity|  
-|IMEI (International Mobile Equipment Identity)|Device_ComputerSystem.IMEI|  
-|MEID (Mobile Equipment Identifier)|Device_ComputerSystem.MEID|  
-|Fabricant|Non applicable|  
-|Modèle|ModelName|  
-|Numéro de téléphone<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
-|Opérateur de l'abonné|Device_ComputerSystem.SubscriberCarrierNetwork|  
-|Technologie cellulaire|Device_ComputerSystem.CellularTechnology|  
-|Adresse MAC du réseau Wi-Fi|Device_WLAN.WiFiMAC|  
+|Name|Device_ComputerSystem.DeviceName|  
+|Eindeutige Geräte-ID|Device_ComputerSystem.UDID|  
+|Seriennummer|Device_ComputerSystem.SerialNumber|  
+|E-Mail-Adresse|Device_Email.OwnerEmailAddress|  
+|Betriebssystemtyp|Nicht zutreffend|  
+|Version des Betriebssystems|Device_OSInformation.OSVersion|  
+|Buildversion|Nicht zutreffend|  
+|Service Pack-Hauptversion|Nicht zutreffend|  
+|Service Pack-Nebenversion|Nicht zutreffend|  
+|Betriebssystemsprache|Nicht zutreffend|  
+|Gesamtmenge des Speicherplatzes|Device_Memory.DeviceCapacity|  
+|Freier Speicherplatz|Device_Memory.AvailableDeviceCapacity|  
+|International Mobile Equipment Identity oder IMEI|Device_ComputerSystem.IMEI|  
+|Mobile Equipment Identifier (MEID)|Device_ComputerSystem.MEID|  
+|Hersteller|Nicht zutreffend|  
+|Modell|ModelName|  
+|Telefonnummer<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
+|Netzbetreiber des Abonnenten|Device_ComputerSystem.SubscriberCarrierNetwork|  
+|Mobilfunktechnologie|Device_ComputerSystem.CellularTechnology|  
+|WiFi-MAC|Device_WLAN.WiFiMAC|  
 
  **Android**  
 
 > [!NOTE]  
->  **REMARQUE :** les classes d’inventaire Android sont disponibles lors de l’utilisation de l’application Portail d’entreprise Android.  
+>  **HINWEIS:** Android-Inventurklassen sind bei Verwendung der Android-Unternehmensportal-App verfügbar.  
 
-|Classe d'inventaire matériel|Android|  
+|Hardwareinventurklasse|Android|  
 |------------------------------|-------------|  
-|Nom|Non applicable|  
-|ID d'appareil unique|Non applicable|  
-|Numéro de série|Device_ComputerSystem.SerialNumber|  
-|Adresse de messagerie|Non applicable|  
-|Type de système d'exploitation|Device_OSInformation.Platform|  
-|Version du système d'exploitation|Device_OSInformation.Version|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Device_Memory.StorageTotal|  
-|Espace de stockage libre|Device_Memory.StorageFree|  
-|IMEI (International Mobile Equipment Identity)|Device_ComputerSystem.IMEI|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Device_Info.Manufacturer|  
-|Modèle|Device_Info.Model|  
-|Numéro de téléphone<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
-|Opérateur de l'abonné|Device_ComputerSystem.SubscriberCarrierNetwork|  
-|Technologie cellulaire|Device_ComputerSystem.CellularTechnology|  
-|Adresse MAC du réseau Wi-Fi|Device_WLAN.WiFiMAC|  
+|Name|Nicht zutreffend|  
+|Eindeutige Geräte-ID|Nicht zutreffend|  
+|Seriennummer|Device_ComputerSystem.SerialNumber|  
+|E-Mail-Adresse|Nicht zutreffend|  
+|Betriebssystemtyp|Device_OSInformation.Platform|  
+|Version des Betriebssystems|Device_OSInformation.Version|  
+|Buildversion|Nicht zutreffend|  
+|Service Pack-Hauptversion|Nicht zutreffend|  
+|Service Pack-Nebenversion|Nicht zutreffend|  
+|Betriebssystemsprache|Nicht zutreffend|  
+|Gesamtmenge des Speicherplatzes|Device_Memory.StorageTotal|  
+|Freier Speicherplatz|Device_Memory.StorageFree|  
+|International Mobile Equipment Identity oder IMEI|Device_ComputerSystem.IMEI|  
+|Mobile Equipment Identifier (MEID)|Nicht zutreffend|  
+|Hersteller|Device_Info.Manufacturer|  
+|Modell|Device_Info.Model|  
+|Telefonnummer<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
+|Netzbetreiber des Abonnenten|Device_ComputerSystem.SubscriberCarrierNetwork|  
+|Mobilfunktechnologie|Device_ComputerSystem.CellularTechnology|  
+|WiFi-MAC|Device_WLAN.WiFiMAC|  
 
- **Windows Phone 8/8.1**  
+ **Windows Phone 8/8.1**  
 
-|Classe d'inventaire matériel|Windows Phone 8 et Windows Phone 8.1|  
+|Hardwareinventurklasse|Windows Phone 8 und Windows Phone 8.1|  
 |------------------------------|-------------------------------------------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.DeviceClientID|  
-|Numéro de série|Non applicable|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|Device_OSInformation.Platform|  
-|Version du système d'exploitation|Device_ComputerSystem.SoftwareVersion|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Device_OSInformation.Language|  
-|Espace de stockage total|Non applicable|  
-|Espace de stockage libre|Non applicable|  
-|IMEI (International Mobile Equipment Identity)|Non applicable|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Device_ComputerSystem.DeviceManufacturer|  
-|Modèle|Device_ComputerSystem.DeviceModel|  
-|Numéro de téléphone<sup>1</sup>|Non applicable|  
-|Opérateur de l'abonné|Non applicable|  
-|Technologie cellulaire|Non applicable|  
-|Adresse MAC du réseau Wi-Fi|Non applicable|  
+|Name|Device_ComputerSystem.DeviceName|  
+|Eindeutige Geräte-ID|Device_ComputerSystem.DeviceClientID|  
+|Seriennummer|Nicht zutreffend|  
+|E-Mail-Adresse|Device_Email.OwnerEmailAddress|  
+|Betriebssystemtyp|Device_OSInformation.Platform|  
+|Version des Betriebssystems|Device_ComputerSystem.SoftwareVersion|  
+|Buildversion|Nicht zutreffend|  
+|Service Pack-Hauptversion|Nicht zutreffend|  
+|Service Pack-Nebenversion|Nicht zutreffend|  
+|Betriebssystemsprache|Device_OSInformation.Language|  
+|Gesamtmenge des Speicherplatzes|Nicht zutreffend|  
+|Freier Speicherplatz|Nicht zutreffend|  
+|International Mobile Equipment Identity oder IMEI|Nicht zutreffend|  
+|Mobile Equipment Identifier (MEID)|Nicht zutreffend|  
+|Hersteller|Device_ComputerSystem.DeviceManufacturer|  
+|Modell|Device_ComputerSystem.DeviceModel|  
+|Telefonnummer<sup>1</sup>|Nicht zutreffend|  
+|Netzbetreiber des Abonnenten|Nicht zutreffend|  
+|Mobilfunktechnologie|Nicht zutreffend|  
+|WiFi-MAC|Nicht zutreffend|  
 
  **Windows RT**  
 
-|Classe d'inventaire matériel|Windows RT|  
+|Hardwareinventurklasse|Windows RT|  
 |------------------------------|----------------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.DeviceName|  
-|Numéro de série|Non applicable|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|CCM_OperatingSystem .SystemType|  
-|Version du système d'exploitation|Win32_OperatingSystem.version|  
-|Version de build|Win32_OperatingSystem.BuildNumber|  
-|Version majeure du Service Pack|Win32_OperatingSystem.ServicePackMajorVersion|  
-|Version mineure du Service Pack|Win32_OperatingSystem.ServicePackMinorVersion|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Win32_PhysicalMemory.Capacity|  
-|Espace de stockage libre|Win32_OperatingSystem.FreePhysicalMemory|  
-|IMEI (International Mobile Equipment Identity)|Non applicable|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Win32_ComputerSystem.Manufacturer|  
-|Modèle|Win32_ComputerSystem.Model|  
-|Numéro de téléphone<sup>1</sup>|Non applicable|  
-|Opérateur de l'abonné|Non applicable|  
-|Technologie cellulaire|Non applicable|  
-|Adresse MAC du réseau Wi-Fi|Win32_NetworkAdapter.MACAddress|  
+|Name|Device_ComputerSystem.DeviceName|  
+|Eindeutige Geräte-ID|Device_ComputerSystem.DeviceName|  
+|Seriennummer|Nicht zutreffend|  
+|E-Mail-Adresse|Device_Email.OwnerEmailAddress|  
+|Betriebssystemtyp|CCM_OperatingSystem.SystemType|  
+|Version des Betriebssystems|Win32_OperatingSystem.Version|  
+|Buildversion|Win32_OperatingSystem.BuildNumber|  
+|Service Pack-Hauptversion|Win32_OperatingSystem.ServicePackMajorVersion|  
+|Service Pack-Nebenversion|Win32_OperatingSystem.ServicePackMinorVersion|  
+|Betriebssystemsprache|Nicht zutreffend|  
+|Gesamtmenge des Speicherplatzes|Win32_PhysicalMemory.Capacity|  
+|Freier Speicherplatz|Win32_OperatingSystem.FreePhysicalMemory|  
+|International Mobile Equipment Identity oder IMEI|Nicht zutreffend|  
+|Mobile Equipment Identifier (MEID)|Nicht zutreffend|  
+|Hersteller|Win32_ComputerSystem.Manufacturer|  
+|Modell|Win32_ComputerSystem.Model|  
+|Telefonnummer<sup>1</sup>|Nicht zutreffend|  
+|Netzbetreiber des Abonnenten|Nicht zutreffend|  
+|Mobilfunktechnologie|Nicht zutreffend|  
+|WiFi-MAC|Win32_NetworkAdapter.MACAddress|  
 
- <sup>1</sup> Le numéro de téléphone est masqué par des * sauf les 4 derniers chiffres.  
+ <sup>1</sup> Die Telefonnummer wird mit Ausnahme der letzten 4 Ziffern mit „*“ maskiert.  
 
- Pour que l’inventaire recueille le numéro de téléphone, une carte SIM doit être insérée dans l’appareil et un numéro de téléphone mis en service par l’opérateur de cette carte SIM.  
-
+ Damit bei der Inventur die Telefonnummer erfasst wird, muss in das Gerät eine SIM-Karte eingelegt sein, und der Netzbetreiber muss für diese SIM-Karte eine Rufnummer bereitgestellt haben.  

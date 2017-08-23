@@ -1,13 +1,12 @@
 ---
-title: Configurer votre abonnement avec Lookout| System Center Configuration Manager
-description: "Cette rubrique fournit des détails sur la configuration du service Lookout de protection des appareils contre les menaces."
+title: Einrichten Ihres Lookout-Abonnements | System Center Configuration Manager
+description: "Das vorliegende Thema enthält Details dazu, wie Sie den Lookout-Schutz vor Gerätebedrohungen konfigurieren."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6087b279-ba05-4824-b5e3-3af14f3d3cfe
@@ -15,120 +14,117 @@ caps.latest.revision:
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 2d01b6d327e98a433030faebbff8f80fa6a8f48e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: b777140c753e709f4048a30e63d8ae730d3e8723
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-your-subscription-for--lookout-device-threat-protection"></a>Configurer votre abonnement pour le service Lookout de protection des appareils contre les menaces
+# <a name="set-up-your-subscription-for--lookout-device-threat-protection"></a>Einrichten Ihres Lookout-Abonnements zum Schutz vor Gerätebedrohungen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Pour pouvoir préparer votre abonnement au service Lookout de protection des appareils contre les menaces, le support technique Lookout (enterprisesupport@lookout.com) a besoin des informations suivantes sur votre abonnement Azure Active Directory (Azure AD). Votre locataire Lookout Mobility Endpoint Security sera associé à votre abonnement Azure AD pour intégrer Lookout à Intune. 
+Für die Vorbereitung Ihres Lookout-Abonnements zum Schutz vor Gerätebedrohungen benötigt der Lookout-Support (enterprisesupport@lookout.com) folgende Informationen zu Ihrem Azure Active Directory-Abonnement (Azure AD). Ihr Lookout Mobility Endpoint Security-Mandant wird Ihrem Azure AD-Abonnement zugeordnet, um Lookout in Intune zu integrieren. 
 
-* **ID de locataire Azure AD**
-* **ID d’objet de groupe Azure AD** pour l’accès **complet** à la console Lookout
-* **ID d’objet de groupe Azure AD** pour l’accès **restreint** à la console Lookout (facultatif)
+* **Azure AD-Mandanten-ID**
+* **Azure AD-Gruppenobjekt-ID** für einen **vollständigen** Lookout-Konsolenzugriff
+* **Azure AD-Gruppenobjekt-ID** für einen **eingeschränkten** Lookout-Konsolenzugriff (optional)
 
 > [!IMPORTANT]
-> Un locataire Lookout Mobile Endpoint Security existant qui n’est pas déjà associé à votre locataire Azure AD ne peut pas être utilisé pour l’intégration à Azure AD et Intune. Contactez le support technique Lookout pour créer un locataire Lookout Mobile Endpoint Security. Utilisez le nouveau locataire pour intégrer vos utilisateurs Azure AD.
+> Ein vorhandener Lookout Mobility Endpoint Security-Mandant, der nicht bereits Ihrem Azure AD-Mandanten zugeordnet ist, kann nicht für die Integration mit Azure AD und Intune verwendet werden. Wenden Sie sich an den Lookout-Support, um einen neuen Lookout Mobility Endpoint Security-Mandanten zu erstellen. Verwenden Sie den neuen Mandanten für die Integration Ihrer Azure AD-Benutzer.
 
-Consultez la section suivante pour collecter les informations demandées par l’équipe du support technique Lookout.  
+Im folgenden Abschnitt erfahren Sie, wie Sie die Informationen zusammenstellen, die das Lookout-Supportteam benötigt.  
 
-## <a name="get-your-azure-ad-information"></a>Obtenir vos informations Azure AD
-### <a name="azure-ad-tenant-id"></a>ID de locataire Azure AD
-Connectez-vous au [portail de gestion Azure AD](https://manage.windowsazure.com) et sélectionnez votre abonnement. 
+## <a name="get-your-azure-ad-information"></a>Zusammenstellen Ihrer Informationen zu Azure AD
+### <a name="azure-ad-tenant-id"></a>Azure AD-Mandanten-ID
+Melden Sie sich beim [Azure AD-Verwaltungsportal](https://manage.windowsazure.com) an, und wählen Sie Ihr Abonnement aus. 
 
-![capture d’écran de la page Azure AD indiquant le nom du locataire](media/aad_tenant_name.png) Quand vous choisissez le nom de votre abonnement, l’URL résultante inclut l’ID de l’abonnement.  Si vous ne trouvez pas votre ID d’abonnement, consultez cet [article du support technique Microsoft](https://support.office.com/en-us/article/Find-your-Office-365-tenant-ID-6891b561-a52d-4ade-9f39-b492285e2c9b?ui=en-US&rs=en-US&ad=US) qui fournit des conseils à cette fin.   
-### <a name="azure-ad-group-id"></a>ID de groupe Azure AD
-La console Lookout offre deux niveaux d’accès :  
-* **Accès complet :** l’administrateur Azure AD peut créer un groupe rassemblant les utilisateurs qui bénéficieront d’un accès complet et, éventuellement, créer un autre groupe pour les utilisateurs qui auront un accès restreint.  Seuls les utilisateurs qui sont membres de ces groupes seront autorisés à se connecter à la **console Lookout**.
-* **Accès restreint :** les utilisateurs de ce groupe n’auront pas accès à plusieurs modules d’inscription et de configuration dans la console Lookout, et pourront accéder en lecture seule au module **Stratégie de sécurité** dans la console Lookout.  
+![Screenshot der Azure AD-Seite mit dem Namen des Mandanten](media/aad_tenant_name.png) Wenn Sie den Namen Ihres Abonnements auswählen, enthält die resultierende URL die Abonnement-ID.  Wenn Sie Ihre Abonnement-ID nicht finden können, lesen Sie folgenden [Microsoft-Supportartikel](https://support.office.com/en-us/article/Find-your-Office-365-tenant-ID-6891b561-a52d-4ade-9f39-b492285e2c9b?ui=en-US&rs=en-US&ad=US), der Tipps für die Suche nach Ihrer Abonnement-ID enthält.   
+### <a name="azure-ad-group-id"></a>Azure AD-Gruppen-ID
+Die Lookout-Konsole unterstützt zwei Zugriffsebenen:  
+* **Vollzugriff:** Der Azure AD-Administrator kann eine Gruppe für Benutzer erstellen, die Vollzugriff haben, und optional eine Gruppe für Benutzer, die über eingeschränkten Zugriff verfügen.  Nur die Benutzer dieser Gruppen können sich an der **Lookout-Konsole** anmelden.
+* **Eingeschränkter Zugriff:** Benutzer dieser Gruppe haben keinen Zugriff auf verschiedene Konfigurations- und Registrierungsmodule in der Lookout-Konsole. Sie verfügen lediglich über Lesezugriff auf das **Sicherheitsrichtlinienmodul** der Lookout-Konsole.  
 
-Pour plus d’informations sur les autorisations, consultez [cet article](https://personal.support.lookout.com/hc/en-us/articles/114094105653) sur le site web de Lookout.
+Weitere Einzelheiten zu den Berechtigungen finden Sie in [ diesem Artikel](https://personal.support.lookout.com/hc/en-us/articles/114094105653) auf der Lookout-Website.
 
-L’**ID d’objet de groupe** est indiqué dans la page **Propriétés** du groupe dans la **console de gestion Azure AD**.
+Die **Gruppenobjekt-ID**  befindet sich auf der Seite **Eigenschaften** der Gruppe in der **Azure AD-Verwaltungskonsole**.
 
-![capture d’écran de la page Propriétés avec le champ GroupID mis en surbrillance](media/aad_group_object_id.png)
+![Screenshot der Eigenschaftenseite mit hervorgehobenem GroupID-Feld](media/aad_group_object_id.png)
 
-Une fois que vous avez collecté ces informations, contactez le support technique Lookout (adresse e-mail : enterprisesupport@lookout.com).
+Nachdem Sie diese Informationen zusammengestellt haben, wenden Sie sich an den Lookout-Support (E-Mail-Adresse: enterprisesupport@lookout.com).
 
-Le support technique Lookout travaillera avec votre contact principal pour intégrer votre abonnement et créer votre compte d’entreprise Lookout sur la base des informations que vous avez collectées.
+Der Lookout-Support wendet sich an Ihren primären Kontakt, um Ihr Abonnement zu integrieren und Ihr Lookout Enterprise-Konto anhand der von Ihnen gesammelten Informationen zu erstellen.
 
 
-## <a name="configure-your-subscription-with-lookout-device-threat-protection"></a>Configurer votre abonnement avec le service Lookout de protection des appareils contre les menaces
-### <a name="step-1-set-up-your-device-threat-protection"></a>Étape 1 : Configurer la protection des appareils contre les menaces
-Une fois que le support technique Lookout a créé votre compte d’entreprise Lookout, vous pouvez vous connecter à la console Lookout.   Lookout envoie un e-mail au contact principal de votre entreprise, avec un lien vers l’URL de connexion https://aad.lookout.com/les?action=consent
+## <a name="configure-your-subscription-with-lookout-device-threat-protection"></a>Konfigurieren Ihres Lookout-Abonnements zum Schutz vor Gerätebedrohungen
+### <a name="step-1-set-up-your-device-threat-protection"></a>Schritt 1: Einrichten des Schutzes vor Gerätebedrohungen
+Nachdem Ihr Lookout Enterprise-Konto vom Lookout-Support erstellt wurde, können Sie sich an der Lookout-Konsole anmelden.   Der primäre Kontakt für Ihr Unternehmen erhält eine E-Mail von Lookout, die einen Link mit einer Anmelde-URL enthält: https://aad.lookout.com/les?action=consent
 
-Quand vous vous connectez à la console Lookout pour la première fois, vous devez utiliser un compte d’utilisateur ayant le rôle Azure AD Administrateur général, car Lookout a besoin de ces informations pour inscrire votre locataire Azure AD.   Pour les connexions suivantes, il n’est pas nécessaire d’avoir ce niveau de privilège Azure AD.  À la première connexion, une page de consentement s’affiche. Choisissez **Accepter** pour terminer l’inscription.
+Sie müssen bei Ihrer ersten Anmeldung an der Lookout-Konsole ein Benutzerkonto mit der Azure AD-Rolle des globalen Administrators verwenden, da Lookout diese Informationen benötigt, um Ihren Azure AD-Mandanten zu registrieren.   Bei nachfolgenden Anmeldungen ist diese Ebene der Azure AD-Berechtigungen für die Benutzer nicht erforderlich.  Bei dieser ersten Anmeldung wird eine Zustimmungsseite angezeigt. Wählen Sie **Annehmen** aus, um die Registrierung durchzuführen.
 
-![capture d’écran de la page de première connexion de la console Lookout](media/lookout-initial-login.png)
+![Screenshot der Seite für die erste Anmeldung an der Lookout-Konsole](media/lookout-initial-login.png)
 
-Une fois que vous avez donné votre consentement, vous êtes redirigé vers la console Lookout. Après l’inscription initiale, vous pouvez vous connecter directement en utilisant l’URL https://aad.lookout.com
+Nachdem Sie die Bedingungen akzeptiert und ihnen zustimmt haben, werden Sie an die Lookout-Konsole weitergeleitet. Nachfolgende Anmeldungen im Anschluss an die erste Registrierung erfolgen mithilfe folgender URL: https://aad.lookout.com
 
-Consultez l’[article sur le dépannage]() si vous rencontrez des problèmes de connexion.
+Wenn Sie bei der Anmeldung Probleme haben, finden Sie weitere Informationen im [Artikel zur Problembehandlung]().
 
-Les étapes suivantes décrivent les tâches que vous devez effectuer pour terminer la configuration de Lookout dans la [console Lookout](https://aad.lookout.com).
+Die nächsten Schritte beschreiben, was Sie tun müssen, um das Lookout-Setup innerhalb der [Lookout-Konsole](https://aad.lookout.com) durchzuführen.
 
-### <a name="step-2-configure-the-intune-connector"></a>Étape 2 : Configurer le connecteur Intune
+### <a name="step-2-configure-the-intune-connector"></a>Schritt 2: Konfigurieren des Intune-Connectors
 
-1.  Dans la console Lookout, à partir du module **Système**, choisissez l’onglet **Connecteurs**, puis sélectionnez **Intune**.
+1.  Wählen Sie in der Lookout-Konsole aus dem Modul **System** die Registerkarte **Connectors** und anschließend **Intune** aus.
 
-  ![capture d’écran de la console Lookout avec l’onglet Connecteurs ouvert et l’option Intune mise en surbrillance](media/lookout-setup-intune-connector.png)
+  ![Screenshot der Lookout-Konsole mit der geöffneten Registerkarte „Connectors“ und der hervorgehobenen Intune-Option](media/lookout-setup-intune-connector.png)
 
-2.  Dans l’option Paramètres de connexion, définissez la fréquence de pulsations (en minutes).  Votre connecteur Intune est maintenant prêt.  
+2.  Konfigurieren Sie in den Einstellungsoptionen des Connectors die Taktfrequenz in Minuten.  Der Intune-Connector ist nun bereit.  
 
-  ![capture d’écran de l’onglet Paramètres de connexion indiquant la fréquence de pulsations configurée](media/lookout-connection-settings.png)
+  ![Screenshot der Registerkarte für die Verbindungseinstellungen mit der konfigurierten Taktfrequenz](media/lookout-connection-settings.png)
 
-### <a name="step-3-configure-enrollment-groups"></a>Étape 3 : Configurer les groupes d’inscription
-Dans l’option **Gestion des inscriptions**, définissez un ensemble d’utilisateurs dont les appareils doivent être inscrits dans Lookout. La bonne pratique consiste à commencer avec un petit groupe d’utilisateurs pour faire des tests et vous familiariser avec le fonctionnement de l’intégration.  Quand vous êtes satisfait de vos résultats de test, vous pouvez étendre l’inscription à d’autres groupes d’utilisateurs.
+### <a name="step-3-configure-enrollment-groups"></a>Schritt 3: Konfigurieren von Registrierungsgruppen
+Legen Sie in der Option für die **Registrierungsverwaltung** eine Gruppe von Benutzern fest, deren Geräte mit Lookout registriert werden sollen. Es hat sich bewährt, zunächst einen Test mit einer kleinen Gruppe von Benutzern durchzuführen, um sich mit der Funktionsweise der Integration vertraut zu machen.  Wenn Sie mit den Testergebnissen zufrieden sind, können Sie die Registrierung auf weitere Gruppen von Benutzern ausweiten.
 
-Pour commencer à utiliser les groupes d’inscription, définissez d’abord un groupe de sécurité Azure AD pour un ensemble initial d’utilisateurs que vous souhaitez inscrire dans le service Lookout de protection des appareils contre les menaces. Après avoir créé le groupe dans Azure AD, dans la console Lookout, accédez à l’option **Gestion des inscriptions** et ajoutez le **nom complet** du groupe de sécurité Azure AD à inscrire.
+Legen Sie zum Einstieg in die Registrierungsgruppen zunächst eine Azure AD-Sicherheitsgruppe fest. Sie sollte aus Benutzern bestehen, die sich für eine erste Registrierung beim Lookout-Schutz vor Gerätebedrohungen eignen. Nachdem Sie die Gruppe in der Lookout-Konsole in Azure AD erstellt haben, wechseln Sie zur Option **Registrierungsverwaltung**, und fügen Sie der Azure AD-Sicherheitsgruppe den **Anzeigenamen** für die Registrierung hinzu.
 
-Quand un utilisateur est membre d’un groupe d’inscription, tous ses appareils qui sont identifiés et pris en charge dans Azure AD sont inscrits et activables dans le service Lookout de protection des appareils contre les menaces.  La première fois que l’utilisateur ouvre l’application Lookout for Work sur un appareil pris en charge, ce dernier est activé dans Lookout.
+Wenn ein Benutzer zu einer Registrierungsgruppe gehört, werden alle in Azure AD erkannten und unterstützten Geräte registriert und sind für den Lookout-Schutz vor Gerätebedrohungen berechtigt.  Beim ersten Öffnen der Lookout for Work-App auf dem unterstützten Gerät wird dieses in Lookout aktiviert.
 
-![capture d’écran de la page d’inscription du connecteur Intune](media/lookout-enrollment.png)
+![Screenshot der Seite mit der Intune Connector-Registrierung](media/lookout-enrollment.png)
 
-La bonne pratique consiste à utiliser la valeur par défaut (5 minutes) pour l’incrément de durée de recherche de nouveaux appareils.
+Es wird empfohlen, beim Suchen nach neuen Geräten als Zeitintervall den Standardwert (5 Minuten) zu verwenden.
 
 >[!IMPORTANT]
-> Le nom complet respecte la casse.  Utilisez le **nom complet** indiqué dans la page **Propriétés** du groupe de sécurité dans le portail Azure. Notez que le nom complet utilise une casse mixte dans la page **Propriétés** du groupe de sécurité illustrée ci-dessous.  Le titre, qui est entièrement en minuscules, ne doit pas être utilisé pour accéder à la console Lookout.
->![capture d’écran du portail Azure, service Azure Active Directory, page Propriétés](media/aad-group-display-name.png)
+> Beachten Sie bei der Eingabe des Anzeigenamens die Groß- und Kleinschreibung.  Verwenden Sie den **Anzeigenamen** wie auf der Seite **Eigenschaften** der Sicherheitsgruppe im Azure-Portal gezeigt. Beachten Sie in der Abbildung unten, dass auf der Seite **Eigenschaften** der Sicherheitsgruppe für den Anzeigenamen die Camel-Case-Schreibweise gilt.  Der Titel hingegen wird in Kleinbuchstaben angezeigt und sollte nicht für die Eingabe in die Lookout-Konsole verwendet werden.
+>![Screenshot des Azure-Portals, Azure Active Directory-Dienst, Eigenschaftenseite](media/aad-group-display-name.png)
 
-La version actuelle présente les limitations suivantes :  
-* Les noms complets des groupes ne sont pas validés.  Veillez à utiliser la valeur du champ **NOM COMPLET** affiché dans le portail Azure pour le groupe de sécurité Azure AD.
-* La création de groupes à l’intérieur d’autres groupes n’est pas prise en charge.  Les groupes de sécurité Azure AD spécifiés ne peuvent contenir que des utilisateurs (les groupes imbriqués ne sont pas autorisés).
+Die aktuelle Version weist die folgenden Nachteile auf:  
+* Es gibt keine Validierung für die Anzeigenamen der Gruppe.  Verwenden Sie immer den Wert im Feld **ANZEIGENAMEN**, das im Azure-Portal für die Azure AD-Sicherheitsgruppe angezeigt wird.
+* Das Erstellen von Gruppen innerhalb anderer Gruppen wird derzeit nicht unterstützt.  Angegebene Azure AD-Sicherheitsgruppen dürfen nur Benutzer und keine verschachtelten Gruppen enthalten.
 
 
-### <a name="step-4-configure-state-sync"></a>Étape 4 : Configurer la synchronisation des états
-Dans l’option **Synchronisation des états**, spécifiez le type de données à envoyer à Intune.  Actuellement, vous devez activer l’état de l’appareil et l’état de la menace pour que l’intégration Lookout Intune fonctionne correctement.  Ces deux états sont activés par défaut.
-### <a name="step-5-configure-error-report-email-recipient-information"></a>Étape 5 : Configurer le destinataire des rapports d’erreurs envoyés par e-mail
-Dans l’option **Gestion des erreurs**, entrez l’adresse e-mail à laquelle doivent être envoyés les rapports d’erreurs.
+### <a name="step-4-configure-state-sync"></a>Schritt 4: Konfigurieren der Statussynchronisierung
+Geben Sie in der Option **State Sync** (Statussynchronisierung) den Typ der Daten an, die an Intune gesendet werden sollen.  Derzeit müssen Sie sowohl den Geräte- als auch den Bedrohungsstatus aktivieren, damit die Integration von Lookout in Intune ordnungsgemäß ausgeführt wird.  Diese Einstellungen sind standardmäßig aktiviert.
+### <a name="step-5-configure-error-report-email-recipient-information"></a>Schritt 5: Konfigurieren der E-Mail-Empfänger von Fehlerberichten
+Geben Sie in der Option zur **Fehlerverwaltung** die E-Mail-Adresse der Person ein, die die Fehlerberichte erhalten soll.
 
-![capture d’écran de la page Gestion des erreurs du connecteur Intune](media/lookout-connector-error-notifications.png)
+![Screenshot der Seite mit der Intune-Connector-Fehlerverwaltung](media/lookout-connector-error-notifications.png)
 
-### <a name="step-6-configure-enrollment-settings"></a>Étape 6 : Configurer les paramètres d’inscription
-Dans le module **Système**, dans la page **Connecteurs**, spécifiez le nombre de jours au terme desquels un appareil est considéré comme déconnecté.  Les appareils déconnectés sont considérés comme non conformes et ne peuvent pas accéder à vos applications d’entreprise en fonction des stratégies d’accès conditionnel SCCM. Vous pouvez spécifier des valeurs comprises entre 1 et 90 jours.
+### <a name="step-6-configure-enrollment-settings"></a>Schritt 6: Konfigurieren der Registrierungseinstellungen
+Geben Sie im Modul **System** auf der Seite **Connectors** ein, nach wie vielen Tagen ein Gerät als getrennt gilt.  Getrennte Geräte gelten als nicht konform und dürfen nicht auf Ihre Unternehmensanwendungen zugreifen. Dies wird durch die SCCM-Richtlinien für bedingten Zugriff geregelt. Sie können Werte zwischen 1 und 90 Tagen angeben.
 
 ![](media/lookout-console-enrollment-settings.png)
 
-### <a name="step-7-configure-email-notifications"></a>Étape 7 : Configurer les notifications par e-mail
-Si vous souhaitez recevoir des alertes sur les menaces par e-mail, connectez-vous à la [console Lookout](https://aad.lookout.com) avec le compte d’utilisateur qui doit recevoir les notifications. Sous l’onglet **Préférences** du module **Système**, définissez les notifications souhaitées sur **ACTIVÉ**. Enregistrez vos modifications.
+### <a name="step-7-configure-email-notifications"></a>Schritt 7: Konfigurieren von E-Mail-Benachrichtigungen
+Wenn Sie bei Bedrohungen E-Mail-Benachrichtigungen erhalten möchten, melden Sie sich an der [Lookout-Konsole](https://aad.lookout.com) mit dem Benutzerkonto an, das die Benachrichtigung erhalten soll. Wählen Sie auf der Registerkarte**Preferences** (Voreinstellungen) im Modul **System** die gewünschten Benachrichtigungen aus, und setzen Sie sie auf **ON** (Ein). Speichern Sie die Änderungen.
 
-![capture d’écran de la page Préférences avec le compte d’utilisateur affiché](media/lookout-email-notifications.png) Si vous ne souhaitez plus recevoir de notifications par e-mail, définissez les notifications avec la valeur **DÉSACTIVÉ**, puis enregistrez vos modifications.
-### <a name="step-8-configure-threat-classification"></a>Étape 8 : Configurer la classification des menaces
-Le service Lookout de protection des appareils contre les menaces classe les différents types de menaces mobiles. Les [classifications des menaces dans Lookout](http://personal.support.lookout.com/hc/en-us/articles/114094130693) ont des niveaux de risque par défaut qui leur sont associés. Ces niveaux peuvent être modifiés à tout moment en fonction des besoins de votre entreprise.
+![Screenshot der Voreinstellungsseite mit dem angezeigten Benutzerkonto ](media/lookout-email-notifications.png) Wenn Sie keine E-Mail-Benachrichtigungen mehr erhalten möchten, setzen Sie die Benachrichtigungen auf **OFF** (Aus), und speichern Sie die Änderungen.
+### <a name="step-8-configure-threat-classification"></a>Schritt 8: Konfigurieren der Bedrohungsklassifizierung
+Der Lookout-Schutz vor Gerätebedrohungen sieht unterschiedliche Klassifizierungen mobiler Bedrohungen vor. Mit jeder [Lookout-Bedrohungsklassifizierung](http://personal.support.lookout.com/hc/en-us/articles/114094130693) ist eine standardmäßige Risikostufe verknüpft. Diese kann jederzeit entsprechend den Anforderungen Ihres Unternehmen geändert werden.
 
-![capture d’écran de la page de stratégie montrant des menaces et des classifications](media/lookout-threat-classification.png)
+![Screenshot der Richtlinienseite, die Bedrohungsarten und Klassifizierungen anzeigt](media/lookout-threat-classification.png)
 
 >[!IMPORTANT]
-> Les niveaux de risque spécifiés ici sont un aspect important du service Lookout de protection des appareils contre les menaces, car le processus d’intégration Intune s’en sert pour évaluer la conformité des appareils au moment de l’exécution. En d’autres termes, l’administrateur Intune définit une règle de stratégie qui identifie un appareil comme non conforme si celui-ci présente une menace active du niveau minimum configuré (haut, moyen ou faible). La stratégie de classification des menaces dans le service Lookout de protection des appareils contre les menaces a donc un impact direct sur l’évaluation de la conformité des appareils dans Intune.
+> Die hier angegebenen Risikostufen stellen einen wichtigen Aspekt des Schutzes vor Gerätebedrohungen dar, denn bei der Intune-Integration wird die Gerätekonformität gemäß den Risikostufen bei Laufzeit berechnet. Anders ausgedrückt: Der Intune-Administrator legt eine Regel in der Richtlinie fest, um ein Gerät als nicht konform zu identifizieren, wenn für das Gerät eine aktive Bedrohung mit folgender Mindeststufe gilt: hoch, mittel oder niedrig. Die Richtlinie zur Bedrohungsklassifizierung im Lookout-Schutz vor Gerätebedrohungen bestimmt auf direkte Art und Weise die Berechnung der Gerätekonformität in Intune.
 
-## <a name="watching-enrollment"></a>Surveillance de l’inscription
-Une fois la configuration terminée, le service Lookout de protection des appareils contre les menaces commence à interroger Azure AD pour rechercher les appareils qui correspondent aux groupes d’inscription spécifiés.  Les informations sur les appareils inscrits se trouvent dans le module Appareils.  Les appareils s’affichent dans l’état initial En attente.  L’état de l’appareil change une fois que l’application Lookout for Work est installée, ouverte et activée sur l’appareil.  Pour plus d’informations sur le transfert (pushing) de l’application Lookout for Work sur l’appareil, consultez la rubrique [Configurer et déployer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md).
-## <a name="next-steps"></a>Étapes suivantes
-[Activer la connexion à Lookout MTP dans Intune](enable-lookout-connection-in-intune.md)
-
+## <a name="watching-enrollment"></a>Überwachen der Registrierung
+Nach Abschluss des Setups beginnt der Lookout-Schutz vor Gerätebedrohung mit der Suche nach Geräten in Azure AD, die den angegebenen Registrierungsgruppen entsprechen.  Informationen zu den registrierten Geräten finden Sie im Gerätemodul.  Der anfängliche Status für Geräte wird als „ausstehend“ angezeigt.  Dieser Status ändert sich, sobald die Lookout for Work-App installiert, geöffnet und auf dem Gerät aktiviert wird.  Weitere Informationen zum Installieren der Lookout for Work-App auf dem Gerät finden Sie unter dem Thema [Configure and deploy Lookout for work apps (Konfigurieren und Bereitstellen von Lookout for Work-Apps)](configure-and-deploy-lookout-for-work-apps.md).
+## <a name="next-steps"></a>Nächste Schritte
+[Enable Lookout MTP connection in Intune (Aktivieren einer Lookout MTP-Verbindung in Intune)](enable-lookout-connection-in-intune.md)

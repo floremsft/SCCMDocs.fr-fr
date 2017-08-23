@@ -1,78 +1,76 @@
 ---
-title: "Configurer des applications iOS avec des stratégies de configuration d’application | Microsoft Docs"
-description: "Évitez les problèmes de configuration sur les appareils exécutant iOS 8 ou version ultérieure en déployant des stratégies de configuration des applications sur les appareils avant que les utilisateurs exécutent les applications."
+title: "Konfigurieren von iOS-Apps mit Konfigurationsrichtlinien für Apps | Microsoft-Dokumentation"
+description: "Vermeidung von Konfigurationsproblemen auf Geräten, die iOS 8 oder höher ausführen, durch Bereitstellung von Richtlinien zur Konfiguration von Apps an Benutzer vor dem Ausführen von Apps."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0a78038-ea22-4826-9c07-1771b7dd2e8d
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
 ms.openlocfilehash: 50aea2afaf34974ca92ac58b6569bff56403a9ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Appliquer des paramètres aux applications iOS à l’aide de stratégies de configuration d’application dans System Center Configuration Manager
+# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Einstellungen anwenden für iOS-Apps mit Konfigurationsrichtlinien in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Vous pouvez utiliser des stratégies de configuration des applications disponibles dans System Center Configuration Manager (Configuration Manager) pour distribuer les paramètres pouvant être nécessaires quand un utilisateur exécute une application. Par exemple, une application peut exiger qu’un utilisateur spécifie les détails suivants :
-- Un numéro de port personnalisé
-- Paramètres de langue
-- Paramètres de sécurité
-- Paramètres de personnalisation, comme le logo de l’entreprise
+Sie können Konfigurationsrichtlinien für Apps in System Center Configuration Manager verwenden, um Einstellungen bereitzustellen, die beim Ausführen einer App durch den Benutzer erforderlich sein können. Beispielsweise kann eine App vom Benutzer Folgendes anfordern:
+- Eine benutzerdefinierte Portnummer
+- Spracheinstellungen
+- Sicherheitseinstellungen
+- Brandingeinstellungen wie z.B. ein Unternehmenslogo
 
-Si l’utilisateur entre les paramètres incorrectement, il est de la responsabilité du support technique de les corriger, ce qui ralentit le déploiement de l’application.
-Pour éviter ces problèmes, vous pouvez utiliser des stratégies de configuration d’application pour déployer les paramètres obligatoires sur les utilisateurs avant qu’ils n’exécutent l’application. Les paramètres sont automatiquement associés à un utilisateur. Aucune intervention de la part de l’utilisateur n’est nécessaire.
-Pour utiliser une stratégie de configuration d’application dans Configuration Manager au lieu de déployer les stratégies de configuration directement sur des utilisateurs et des appareils, associez une stratégie à un type de déploiement quand vous déployez l’application. Les paramètres de stratégie sont appliqués chaque fois que l’application les vérifie (en général, lors de sa première exécution).
+Wenn der Benutzer die Einstellungen falsch eingibt, liegt die Last, sie zu beheben, auf Ihrem Help Desk, und die App-Bereitstellung ist langsam.
+Zur Vermeidung dieser Probleme können Sie App-Konfigurationsrichtlinien verwenden, um erforderliche Einstellungen für Benutzer bereitzustellen, bevor sie die App ausführen. Die Einstellungen werden automatisch einem Benutzer zugeordnet. Der Benutzer muss keine Maßnahmen ergreifen.
+Zur Verwendung einer App-Konfigurationsrichtlinie in Configuration Manager, verknüpfen Sie eine Richtlinie mit einem Bereitstellungstyp, wenn Sie die App bereitstellen, anstatt die Konfigurationsrichtlinien direkt für Benutzer und Geräte bereitzustellen. Die Richtlinieneinstellungen werden immer dann verwendet, wenn die App danach sucht (in der Regel beim ersten Ausführen der App).
 
-Les stratégies de configuration des applications ne sont actuellement disponibles que sur les appareils exécutant iOS 8 et versions ultérieures, et pour les types d’application suivants :
+Konfigurationsrichtlinien für Apps sind derzeit nur auf Geräten mit iOS 8 und höher verfügbar, und für die folgenden Anwendungstypen:
 
-- **package d’application pour iOS (*fichier .ipa)**
-- **Package d’application pour iOS de l’App Store**
+- **App-Paket für iOS (*IPA-Datei)**
+- **App-Paket für iOS aus App Store**
 
-Pour plus d’informations sur les types d’installation d’application, consultez [Introduction à la gestion des applications](/sccm/apps/understand/introduction-to-application-management).
+Weitere Informationen zu App-Installationstypen finden Sie unter [Einführung in die Anwendungsverwaltung](/sccm/apps/understand/introduction-to-application-management).
 
-## <a name="create-an-app-configuration-policy"></a>Créer une stratégie de configuration des applications
+## <a name="create-an-app-configuration-policy"></a>Erstellen einer Konfigurationsrichtlinie für Apps
 
-1. Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Stratégies de configuration des applications**.
-2. Sous l’onglet **Accueil**, dans le groupe **Stratégies de configuration des applications**, choisissez **Créer une stratégie de configuration d’applications**.
-3. Dans la page **Général** de l’Assistant Création d’une stratégie de configuration d’applications, définissez les informations de cette stratégie :
-  - **Nom**. Entrez un nom unique pour la stratégie.
-  - **Description**. (Facultatif) Pour identifier plus facilement la stratégie, vous pouvez ajouter une description.
-  - **Catégories attribuées pour améliorer la recherche et le filtrage**. (Facultatif) Pour créer et attribuer des catégories à la stratégie, choisissez **Catégories**. L’utilisation de catégories facilite le tri et la recherche d’éléments dans la console Configuration Manager.
-4. Dans la page **Stratégie iOS**, choisissez de quelle façon les informations sur la stratégie de configuration sont définies :
-  - **Spécifier des paires nom/valeur**. Vous pouvez utiliser cette option pour les fichiers de liste de propriétés simples sans imbrication.
+1. Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungsverwaltung** > **App-Konfigurationsrichtlinien** aus.
+2. Wählen Sie auf der Registerkarte **Start** in der Gruppe **App-Konfigurationsrichtlinien** **Neue App-Konfigurationsrichtlinie erstellen** aus.
+3. Geben Sie auf der Seite **Allgemein** des Assistenten zum Erstellen einer App-Konfigurationsrichtlinie die folgenden Richtlinieninformationen an:
+  - **Name**. Geben Sie einen eindeutigen Namen für die Richtlinie ein.
+  - **Beschreibung**. Zur leichteren Identifizierung der Richtlinie können Sie optional eine Beschreibung hinzufügen.
+  - **Zugewiesene Kategorien zum leichteren Suchen und Filtern**. Wählen Sie optional zum Erstellen und Zuweisen von Kategorien für die Richtlinie **Kategorien** aus. Kategorien machen es einfacher für Sie, Elemente in der Configuration Manager-Konsole zu sortieren und zu finden.
+4. Wählen Sie auf der Seite **iOS-Richtlinie** aus, wie Sie die Informationen zur Konfigurationsrichtlinie angeben wollen:
+  - **Name und Wert-Paare angeben**. Sie können diese Option für Daten der Eigenschaftsliste verwenden, die keine Schachtelung verwenden.
 
-      *Pour spécifier une paire nom/valeur*
-        1. Pour ajouter une nouvelle paire, choisissez **Nouveau**.
-        2. Dans la boîte de dialogue **Ajouter une paire nom/valeur**, spécifiez les éléments suivants :
-            - **Type**. Dans la liste, sélectionnez le type de valeur que vous souhaitez spécifier.
-            - **Nom**. Entrez le nom de la clé de liste de propriétés pour laquelle vous voulez spécifier une valeur.
-            - **Valeur**. Entrez la valeur à appliquer à la clé spécifiée.
+      *Name und Wert-Paare angeben*
+        1. Wählen Sie **Neu** aus, um ein neues Paar hinzuzufügen.
+        2. Geben Sie im Dialogfeld **Name/Wert-Paar hinzufügen** folgendes an:
+            - **Typ**. Wählen Sie aus der Liste den Typ des Werts aus, den Sie angeben möchten.
+            - **Name**. Geben Sie den Namen des Eigenschaftslistenschlüssels an, für den Sie einen Wert angeben möchten.
+            - **Wert**. Geben Sie den Wert an, der für den eingegebenen Schlüssel festgelegt wird.
 
-  - **Accéder à un fichier de liste de propriétés**. Utilisez cette option si vous avez déjà un fichier XML de configuration d’applications, ou pour les fichiers de liste de propriétés plus complexes avec imbrication.
+  - **Wechseln Sie zu einer Eigenschaftslistendatei**. Verwenden Sie diese Option, wenn Sie bereits über eine XML-Datei zum Konfigurieren einer App verfügen, oder für komplexere Dateien, die Schachtelung verwenden.
 
-    *Pour accéder à un fichier de liste de propriétés*
+    *Zu einer Eigenschaftslistendatei navigieren*
 
-      1.  Dans le champ **Stratégie de configuration des applications**, entrez les informations de la liste de propriétés au format XML correct.
+      1.  Geben Sie im Feld **App-Konfigurationsrichtlinie** die Informationen zur Eigenschaftsliste im richtigen XML-Format an.
 
-      Pour en savoir plus sur les listes de propriétés XML, consultez [Understanding XML Property Lists](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) (Présentation des listes de propriétés XML) sur le site iOS Developer Library.
+      Weitere Informationen zu XML-Eigenschaftenlisten finden Sie unter [Understanding XML Property Lists (XML-Eigenschaftslisten verstehen)](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) in der iOS Developer Library.
 
-Le format de la liste de propriétés XML varie en fonction de l’application que vous configurez. Pour connaître le format à utiliser, contactez le fournisseur de l’application.
-Intune prend en charge les types de données suivants dans une liste de propriétés :
+Das Format der XML-Eigenschaftenliste variiert je nach der App, die Sie konfigurieren. Wenden Sie sich an den Hersteller der App, um ausführliche Informationen über das zu verwendende Format zu erhalten.
+Intune unterstützt die folgenden Datentypen in einer Eigenschaftenliste:
             
             ```
             <integer>
@@ -82,8 +80,8 @@ Intune prend en charge les types de données suivants dans une liste de proprié
             <dict>
             <true /> or <false />
             ```
-Pour plus d’informations sur les types de données, consultez [About Property Lists](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) (À propos des listes de propriétés) sur le site iOS Developer Library.
-De plus, Intune prend en charge les types de jeton suivants dans la liste des propriétés :
+Weitere Informationen zu Datentypen finden Sie unter [About Property Lists (Über Eigenschaftslisten)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) in der iOS Developer Library.
+Intune unterstützt auch die folgenden Tokentypen in der Eigenschaftsliste:
             
             ```
             {{userprincipalname}} - (Example: John@contoso.com)
@@ -97,24 +95,24 @@ De plus, Intune prend en charge les types de jeton suivants dans la liste des pr
             {{serialnumberlast4digits}} - (Example: G5V2) for iOS devices
             ```
 
-Les caractères {{ et }} sont exclusivement utilisés par les types de jetons et ne doivent pas être utilisés à d’autres fins.
+Die Zeichen {{ und }} werden nur von Tokentypen verwendet und dürfen nicht für andere Zwecke verwendet werden.
             
-5. Pour importer un fichier XML créé précédemment, choisissez **Sélectionner le fichier**.
-6. Choisissez **Suivant**. Si le code XML contient des erreurs, vous devez le corriger avant de continuer.
-7. Terminez les étapes de l’Assistant.
+5. Zum Importieren einer zuvor erstellten XML-Datei wählen Sie **Datei auswählen** aus.
+6. Wählen Sie **Weiter** aus. Falls Sie Fehler im XML-Code feststellen, müssen Sie diese korrigieren, bevor Sie fortfahren.
+7. Schließen Sie die im Assistenten gezeigten Schritte ab.
 
-La nouvelle stratégie de configuration des applications s’affiche dans le nœud **Stratégies de configuration des applications** de l’espace de travail **Bibliothèque de logiciels**.
+Die neue App-Konfigurationsrichtlinie wird im Knoten **App-Konfigurationsrichtlinien** des Arbeitsbereichs **Softwarebibliothek** angezeigt.
 
-## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Associer une stratégie de configuration des applications à une application de Configuration Manager
+## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Zuordnen einer Konfigurationsrichtlinie für Apps zu einer Configuration Manager-Anwendung
 
-Pour associer une stratégie de configuration des applications au déploiement d’une application iOS, déployez l’application comme vous le faites habituellement, en suivant la procédure décrite dans la rubrique [Déployer des applications](/sccm/apps/deploy-use/deploy-applications).
+Um eine App-Konfigurationsrichtlinie mit der Bereitstellung einer iOS-App zuzuordnen, stellen Sie die Anwendung wie gewohnt bereit, indem Sie die Vorgehensweise im Thema [Bereitstellen von Anwendungen](/sccm/apps/deploy-use/deploy-applications) durchführen.
 
-Dans la page **Stratégies de configuration d’application** de l’Assistant Déploiement logiciel, choisissez **Nouveau**. Dans la boîte de dialogue **Sélectionner la stratégie de configuration des applications**, choisissez un type de déploiement d’application et la stratégie de configuration des applications à laquelle l’associer.
-Quand le type de déploiement est installé, les paramètres de la stratégie de configuration des applications sont automatiquement appliqués.
+Wählen Sie im Assistenten zum Bereitstellen von Software auf der Seite **App-Konfigurationsrichtlinien** **Neu**. Wählen Sie anschließend im Dialogfeld **App-Konfigurationsrichtlinie auswählen** einen Bereitstellungstyp und die App-Konfigurationsrichtlinie aus, die Sie zuordnen möchten.
+Bei der Installation des Bereitstellungstyps werden die Einstellungen der App-Konfigurationsrichtlinie automatisch angewendet.
 
-## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Exemple de format pour le fichier XML de configuration des applications mobiles
+## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Beispiel für das Format für die XML-Konfigurationsdatei für mobile Apps
 
-Quand vous créez un fichier de configuration des applications mobiles, vous pouvez utiliser ce format pour spécifier une ou plusieurs des valeurs suivantes :
+Wenn Sie eine Konfigurationsdatei für mobile Apps erstellen, können Sie mithilfe dieses Formats einen oder mehrere der folgenden Werte angeben:
 
 ```
 <dict>
@@ -140,4 +138,3 @@ Quand vous créez un fichier de configuration des applications mobiles, vous pou
   <string>{{udidlast4digits}}</string>
 </dict>
 ```
-

@@ -1,100 +1,93 @@
 ---
-title: "Gérer les packages de mise à niveau de système d’exploitation | Documents Microsoft"
-description: "Découvrez comment gérer des packages de mise à niveau de système d’exploitation dans System Center Configuration Manager."
+title: Verwalten von Betriebssystem-Upgradepaketen | Microsoft Docs
+description: "Erfahren Sie, wie Sie Betriebssystem-Upgradepakete in System Center Configuration Manager verwalten können."
 ms.custom: na
 ms.date: 12/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b9b22655-b8c1-461f-8047-3a7e906f647a
-caps.latest.revision: 12
-caps.handback.revision: 0
+caps.latest.revision: "12"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 3f44505c977b511223a083a960f871371c0ff133
 ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gérer des packages de mise à niveau de système d’exploitation avec System Center Configuration Manager
+# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Verwalten von Betriebssystem-Upgradepaketen mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, un package de mise à niveau contient les fichiers sources d’installation de Windows utilisés pour mettre à niveau un système d’exploitation existant sur un ordinateur. Aidez-vous des informations des sections suivantes pour gérer les packages de mise à niveau de système d’exploitation dans Configuration Manager.
+Ein Upgradepaket in Configuration Manager enthält die Quelldateien für Windows Setup, mit denen ein vorhandenes Betriebssystem auf einem Computer upgegradet wird. Verwenden Sie die folgenden Abschnitte zum Verwalten von Betriebssystem-Upgradepaketen in Configuration Manager.
 
-##  <a name="a-namebkmkaddosupgradepkgsa-add-operating-system-upgrade-packages-to-configuration-manager"></a><a name="BKMK_AddOSUpgradePkgs"></a> Ajouter des packages de mise à niveau de système d’exploitation à Configuration Manager  
- Avant d’utiliser un package de mise à niveau de système d’exploitation, vous devez l’ajouter à un site Configuration Manager. Pour ajouter un package de mise à niveau de système d’exploitation à un site, procédez comme suit.  
+##  <a name="BKMK_AddOSUpgradePkgs"></a> Hinzufügen von Betriebssystem-Upgradepaketen zu Configuration Manager  
+ Bevor Sie ein Betriebssystem-Upgradepaket verwenden können, müssen Sie das Paket zu einem Configuration Manager-Standort hinzufügen. Gehen Sie wie folgt vor, um ein Betriebssystem-Upgradepaket zu einem Standort hinzuzufügen.  
 
-#### <a name="to-add-an-operating-system-upgrade-package"></a>Pour ajouter un package de mise à niveau de système d’exploitation  
+#### <a name="to-add-an-operating-system-upgrade-package"></a>So fügen Sie ein Betriebssystem-Upgradepaket hinzu  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels** , développez **Systèmes d’exploitation**, puis cliquez sur **Packages de mise à niveau du système d’exploitation**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Betriebssystem-Upgradepakete**.  
 
-3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter un package de mise à niveau du système d’exploitation** pour démarrer l’Assistant Ajout d’un package de mise à niveau du système d’exploitation.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Betriebssystem-Upgradepaket hinzufügen** , um den Assistenten zum Hinzufügen von Betriebssystem-Upgradepaketen zu starten.  
 
-4.  Dans la page **Source de données** , spécifiez le chemin d’accès réseau aux fichiers sources d’installation du package de mise à niveau de système d’exploitation. Par exemple, spécifiez le chemin UNC **\\\serveur\chemin** des fichiers sources d’installation.  
+4.  Geben Sie auf der Seite **Datenquelle** den Netzwerkpfad zu den Installationsquelldateien des Betriebssystem-Upgradepakets an. Geben Sie z.B. mit **\\\server\path** den UNC-Pfad zu den Installationsquelldateien an.  
 
     > [!NOTE]  
-    >  Les fichiers sources d’installation contiennent Setup.exe et d’autres fichiers et dossiers pour installer le système d’exploitation.  
+    >  Zu den Installationsquelldateien gehören „Setup.exe“ sowie andere Dateien und Ordner zum Installieren des Betriebssystems.  
 
     > [!IMPORTANT]  
-    >  Limiter l’accès aux fichiers sources d’installation pour empêcher toute falsification indésirable.  
+    >  Schränken Sie den Zugriff auf die Installationsquelldateien ein, um unerwünschte Manipulationen zu verhindern.  
 
-5.  Sur la page **Général** , spécifiez les informations suivantes, puis cliquez sur **Suivant**. Cette information est utile à des fins d'identification lorsque vous avez plusieurs programmes d'installation de système d'exploitation.  
+5.  Geben Sie auf der Seite **Allgemein** die folgenden Informationen an, und klicken Sie dann auf **Weiter**. Diese Informationen sind für Identifikationszwecke hilfreich, wenn Sie über mehrere Betriebssysteminstallationspakete verfügen.  
 
-    -   **Nom**: Spécifiez le nom du programme d'installation de système d'exploitation.  
+    -   **Name**: Geben Sie den Namen des Betriebssysteminstallationspakets an.  
 
-    -   **Version**: Spécifiez la version du programme d'installation de système d'exploitation.  
+    -   **Version**: Geben Sie die Version des Betriebssysteminstallationspakets an.  
 
-    -   **Commentaire**: spécifiez une brève description du programme d'installation de système d'exploitation.  
+    -   **Comment**: Geben Sie eine kurze Beschreibung des Betriebssysteminstallationspakets an.  
 
-6.  Effectuez toutes les étapes de l'Assistant.  
+6.  Schließen Sie den Assistenten ab.  
 
- Vous pouvez désormais distribuer le programme d'installation de système d'exploitation aux points de distribution auxquels vos séquences de tâches de déploiement accèdent.  
+ Das Betriebssysteminstallationspaket kann nun auf die Verteilungspunkte verteilt werden, auf die von Ihren Bereitstellungs-Tasksequenzen zugegriffen wird.  
 
-##  <a name="a-namebkmkdistributebootimagesa-distribute-operating-system-images-to-a-distribution-point"></a><a name="BKMK_DistributeBootImages"></a> Distribuer des images de système d’exploitation à un point de distribution  
- Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+##  <a name="BKMK_DistributeBootImages"></a> Verteilen von Betriebssystemabbildern an einen Verteilungspunkt  
+ Betriebssystemabbilder werden genau wie anderer Inhalt an Verteilungspunkte verteilt. In den meisten Fällen müssen Sie das Betriebssystemabbild an mindestens einen Verteilungspunkt verteilen, bevor Sie das Betriebssystem bereitstellen. Die Schritte zum Verteilen von Betriebssystemabbildern finden Sie unter [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-##  <a name="a-namebkmkosupgradepkgapplyupdatesa-apply-software-updates-to-an-operating-system-upgrade-package"></a><a name="BKMK_OSUpgradePkgApplyUpdates"></a> Appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
- À compter de Configuration Manager version 1602, vous pouvez appliquer les nouvelles mises à jour logicielles à l’image de système d’exploitation dans votre package de mise à niveau du système d’exploitation. Avant de pouvoir appliquer des mises à jour logicielles à un package de mise à niveau, votre infrastructure de mises à jour logicielles doit être en place, et vous devez avoir synchronisé les mises à jour logicielles et téléchargé les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  
+##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Anwenden von Softwareupdates auf ein Betriebssystem-Upgradepaket  
+ Ab Configuration Manager Version 1602 können Sie neue Softwareupdates auf das Betriebssystemimage in Ihrem Betriebssystem-Upgradepaket anwenden. Vor dem Anwenden von Softwareupdates auf ein Upgradepaket müssen die Softwareupdateinfrastruktur vorhanden, Softwareupdates erfolgreich synchronisiert und die Softwareupdates aus der Inhaltsbibliothek auf den Standortserver heruntergeladen worden sein. Weitere Informationen finden Sie unter [Bereitstellen von Softwareupdates](../../sum/deploy-use/deploy-software-updates.md).  
 
- Vous pouvez appliquer les mises à jour logicielles appropriées à un package de mise à niveau selon une planification définie. Aux heures planifiées, Configuration Manager applique les mises à jour logicielles sélectionnées au package de mise à niveau du système d’exploitation puis, si vous le souhaitez, distribue le package de mise à niveau mis à jour aux points de distribution. Les informations sur le package de mise à niveau du système d’exploitation sont stockées dans la base de données du site, y compris les mises à jour logicielles qui ont été appliquées au moment de l’importation. Les mises à jour logicielles appliquées au package de mise à niveau depuis son ajout initial sont également stockées dans la base de données du site. Lorsque vous ouvrez l’Assistant pour appliquer des mises à jour logicielles au package de mise à niveau du système d’exploitation, l’Assistant récupère la liste des mises à jour logicielles applicables qui n’ont pas encore été appliquées au package de mise à niveau, pour vous permettre de les sélectionner. Configuration Manager copie les mises à jour logicielles de la bibliothèque de contenu sur le serveur de site, puis applique les mises à jour logicielles au package de mise à niveau du système d’exploitation.  
+ Sie können relevante Softwareupdates nach einem festgelegten Zeitplan auf ein Upgradepaket anwenden. Basierend auf dem von Ihnen festgelegten Zeitplan wendet Configuration Manager die ausgewählten Softwareupdates auf das Betriebssystem-Upgradepaket an und verteilt das aktualisierte Upgradepaket anschließend optional an Verteilungspunkte. Die Informationen zum Betriebssystem-Upgradepaket werden in der Standortdatenbank gespeichert. Dazu gehören beispielsweise die Softwareupdates, die während des Imports angewendet wurden. Softwareupdates, die nach dem ursprünglichen Hinzufügen auf das Upgradepaket angewendet wurden, werden ebenfalls in der Standortdatenbank gespeichert. Wenn Sie den Assistenten starten, um Softwareupdates auf das Betriebssystem-Upgradepaket anzuwenden, ruft der Assistent eine Liste mit den verfügbaren Softwareupdates ab, die noch nicht auf das Upgradepaket angewendet wurden und ausgewählt werden können. Configuration Manager kopiert die Softwareupdates aus der Inhaltsbibliothek auf dem Standortserver und wendet die Softwareupdates auf das Betriebssystem-Upgradepaket an.  
 
- Pour appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation, procédez comme suit.  
+ Verwenden Sie das folgende Verfahren, um Softwareupdates auf ein Betriebssystem-Upgradepaket anzuwenden.  
 
-#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Pour appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
+#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>So wenden Sie Softwareupdates auf ein Betriebssystem-Upgradepaket an  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels** , développez **Systèmes d’exploitation**, puis cliquez sur **Packages de mise à niveau du système d’exploitation**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Betriebssystem-Upgradepakete**.  
 
-3.  Sélectionnez le package de mise à niveau du système d’exploitation auquel appliquer les mises à jour logicielles.  
+3.  Wählen Sie das Betriebssystem-Upgradepaket aus, auf das Softwareupdates angewendet werden sollen.  
 
-4.  Sous l’onglet **Accueil** , dans le groupe **Packages de mise à niveau du système d’exploitation** , cliquez sur **Planifier les mises à jour** pour démarrer l’Assistant.  
+4.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Betriebssystem-Upgradepakete** auf **Updates planen** , um den Assistenten zu starten.  
 
-5.  Sur la page **Choisir des mises à jour** , sélectionnez les mises à jour logicielles à appliquer à l'image du sytème d'exploitation, puis cliquez sur **Suivant**.  
+5.  Wählen Sie auf der Seite **Updates auswählen** die Softwareupdates aus, die auf das Betriebssystemabbild angewendet werden sollen, und klicken Sie dann auf **Weiter**.  
 
-6.  Sur la page **Définir le calendrier** , spécifiez les paramètres suivants, puis cliquez sur **Suivant**.  
+6.  Geben Sie auf der Seite **Zeitplan festlegen** die folgenden Einstellungen an, und klicken Sie dann auf **Weiter**.  
 
-    1.  **Calendrier**: définissez le calendrier d’application des mises à jour logicielles à l’image du système d’exploitation.  
+    1.  **Zeitplan**: Geben Sie den Zeitplan dafür an, wann die Softwareupdates auf das Betriebssystemabbild angewendet werden sollen.  
 
-    2.  **Continuer en cas d’erreur**: sélectionnez cette option pour continuer à appliquer les mises à jour logicielles à l’image même si une erreur survient.  
+    2.  **Bei Fehler fortsetzen**: Aktivieren Sie diese Option, um anzugeben, dass Softwareupdates auch beim Auftreten eines Fehlers auf das Abbild angewendet werden sollen.  
 
-    3.  **Distribuer l’image aux points de distribution**: sélectionnez cette option pour mettre à jour l’image du système d’exploitation sur les points de distribution après l’application des mises à jour logicielles.  
+    3.  **Abbild an Verteilungspunkte verteilen**: Wählen Sie diese Option aus, um das Betriebssystemabbild auf Verteilungspunkten zu aktualisieren, nachdem die Softwareupdates angewendet wurden.  
 
-7.  Vérifiez les informations figurant sur la page **Résumé** , puis cliquez sur **Suivant**.  
+7.  Überprüfen Sie auf der Seite **Zusammenfassung** die Informationen, und klicken Sie dann auf **Weiter**.  
 
-8.  Sur la page **Dernière étape** , vérifiez que les mises à jour logicielles ont été correctement appliquées à l'image de système d'exploitation.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+8.  Überprüfen Sie auf der Seite **Abschluss des Vorgangs** , ob die Softwareupdates erfolgreich auf das Betriebssystemabbild angewendet wurden.  

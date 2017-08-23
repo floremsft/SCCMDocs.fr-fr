@@ -1,80 +1,76 @@
 ---
-title: Configurer les ports de communication des clients | Microsoft Docs
-description: Configurez les ports de communication des clients dans System Center Configuration Manager.
+title: Konfigurieren von Clientkommunikationsports | Microsoft-Dokumentation
+description: Legen Sie Clientkommunikationsports in System Center Configuration Manager fest.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 406bbdbf-ab4a-4121-a68b-154f96ea14ec
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstack
 ms.author: robstackmsft
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 12e7b8e96dc29a97dc9f81b43618fd7d0faeb1bb
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 63e033fdb436930ac5f37e7408ca9292bc444560
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Comment configurer les ports de communication des clients dans System Center Configuration Manager
+# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Konfigurieren von Clientkommunikationsports in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez modifier les numéros des ports de demande utilisés par les clients System Center Configuration Manager pour communiquer avec les systèmes de site qui utilisent des protocoles HTTP et HTTPS pour les communications. Même si les protocoles HTTP ou HTTPS sont sans doute déjà configurés pour les pare-feu, une notification de client utilisant le protocole HTTP ou HTTPS consomme plus de ressources processeur et de mémoire sur l'ordinateur du point de gestion qu'en utilisant un numéro de port personnalisé. Vous pouvez également spécifier le numéro de port de site à utiliser si vous réveillez les clients à l'aide de paquets de réveil traditionnels.  
+Sie können die Anforderungsportnummern ändern, die von System Center Configuration Manager-Clients zur Kommunikation mit Standortsystemen verwendet werden, bei denen HTTP und HTTPS für die Kommunikation verwendet werden. Auch wenn es wahrscheinlicher ist, dass HTTP oder HTTPS für Firewalls bereits konfiguriert ist, bewirkt eine Clientbenachrichtigung mit Verwendung von HTTP oder HTTPS auf dem Verwaltungspunktcomputer eine höhere CPU- und Arbeitsspeicherauslastung als bei Verwendung einer benutzerdefinierten Portnummer. Sie können darüber hinaus die Standortportnummern für die Clientaktivierung über herkömmliche Aktivierungspakete angeben.  
 
- Lorsque vous spécifiez les ports de demande HTTP et HTTPS, vous pouvez spécifier un numéro de port par défaut et un autre numéro de port. Les clients essaient automatiquement le port alternatif après un échec de communication avec le port par défaut. Vous pouvez spécifier des paramètres pour la communication de données HTTP et HTTPS.  
+ Für HTTP- und HTTPS-Anforderungsports können Sie sowohl eine Standardportnummer als auch eine alternative Portnummer angeben. Wenn bei der Kommunikation mit dem Standardport Fehler auftreten, wird automatisch die Kommunikation über den alternativen Port versucht. Sie können Einstellungen für HTTP- und HTTPS-Datenkommunikation angeben.  
 
- Les valeurs par défaut des ports de demande client sont **80** pour le trafic HTTP et **443** pour le trafic HTTPS. Modifiez-les uniquement si vous ne souhaitez pas utiliser ces valeurs par défaut. Un exemple typique d'utilisation des ports personnalisés est lorsque vous utilisez un site Web personnalisé dans IIS, plutôt que le site Web par défaut. Si vous modifiez les numéros de port par défaut pour le site Web par défaut dans IIS et que d'autres applications utilisent également le site Web par défaut, ils sont susceptibles d'échouer.  
+ Die Standardwerte für Clientanforderungsports lauten für HTTP-Verkehr **80** und für HTTPS-Verkehr **443** . Sie sollten diese nur ändern, wenn Sie die Standardwerte nicht verwenden möchten. Benutzerdefinierte Ports sind zum Beispiel dann sinnvoll, wenn Sie in IIS anstelle der Standardwebsite eine benutzerdefinierte Website verwenden. Wenn Sie die Standardportnummern für die Standardwebsite in IIS ändern und von anderen Anwendungen ebenfalls auf die Standardwebsite zugegriffen wird, kommt es zu Verbindungsfehlern.  
 
 > [!IMPORTANT]  
->  Avant de modifier des numéros de port dans Configuration Manager, pensez aux conséquences. Exemples :  
+>  Ändern Sie die Portnummern in Configuration Manager nur, wenn Sie sich der Konsequenzen bewusst sind. Beispiele:  
 >   
->  -   Si vous changez les numéros de port des services de demande client en tant que configuration du site et que des clients existants ne sont pas reconfigurés de façon à utiliser les nouveaux numéros de port, ceux-ci ne seront pas gérés.  
-> -   Avant de configurer un numéro de port non défini par défaut, assurez-vous que les pare-feu et tous les périphériques réseau intermédiaires peuvent prendre en charge cette configuration, puis effectuez la reconfiguration en conséquence. Si vous allez gérer des clients sur Internet et modifier le numéro de port HTTPS par défaut 443, les routeurs et les pare-feu d'Internet pourraient bloquer cette communication.  
+>  -   Wenn Sie die Portnummern für die Clientanforderungsdienste in der Standortkonfiguration ändern und vorhandene Clients nicht für die neuen Portnummern umkonfigurieren, sind diese Clients nicht mehr verwaltet.  
+> -   Vergewissern Sie sich vor dem Konfigurieren einer nicht standardmäßigen Portnummer, dass diese Konfiguration von Firewalls und allen beteiligten Netzwerkgeräten unterstützt wird, und ändern Sie ggf. deren Konfiguration. Wenn Sie Clients über das Internet verwalten möchten und die HTTPS-Standardportnummer 443 ändern, wird diese Verbindung von Routern und Firewalls im Internet möglicherweise blockiert.  
 
- Pour vous assurer que les clients ne sont pas non gérés après la modification des numéros de port de demande, les clients doivent être configurés pour utiliser les nouveaux numéros de port de demande. Lorsque vous modifiez les ports de requêtes sur un site principal, tout site secondaire associé héritera automatiquement de la même configuration de port. Utilisez la procédure décrite dans cette rubrique pour configurer les ports de requêtes sur le site principal.  
+ Clients müssen für die neuen Anforderungsportnummern konfiguriert werden, damit diese Clients nach dem Ändern der Anforderungsportnummern weiterhin verwaltet werden können. Wenn Sie die Anforderungsports an einem primären Standort ändern, übernehmen alle damit verbundenen sekundären Standorte automatisch dieselbe Portkonfiguration. Konfigurieren Sie die Ports am primären Standort anhand des in diesem Thema beschriebenen Verfahrens.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la façon de configurer les ports de demande pour les clients sur les ordinateurs qui exécutent Linux et UNIX, consultez [Configurer des ports de demande pour le client pour Linux et UNIX](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
+>  Informationen zum Konfigurieren der Anforderungsports für Clients auf Computern, auf denen Linux und UNIX ausgeführt wird, finden Sie unter [Configure Request Ports for the Client for Linux and UNIX (Konfigurieren von Anforderungsports für den Client für Linux und UNIX)](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
 
- Lorsque le site Configuration Manager est publié dans les services de domaine Active Directory, les nouveaux clients et les clients existants qui peuvent accéder à ces informations seront automatiquement configurés avec leurs paramètres de port du site. Vous ne devez effectuer aucune opération ultérieure. Les clients qui ne peuvent pas accéder à ces informations publiées dans les services de domaine Active Directory incluent les clients des groupes de travail, les clients d'une autre forêt Active Directory, les clients configurés pour la gestion Internet uniquement et les clients qui se trouvent actuellement sur Internet. Si vous modifiez les numéros de ports par défaut après l'installation de ces clients, réinstallez-les et installez tout nouveau client à l'aide de l'une des méthodes suivantes :  
+ Wenn der Configuration Manager-Standort in den Active Directory-Domänendiensten veröffentlicht wird, werden neue und vorhandene Clients, die auf diese Informationen zugreifen können, automatisch mit den Porteinstellungen ihres Standorts konfiguriert. Sie müssen keine weiteren Maßnahmen ergreifen. Zu den Clients, die nicht auf diese in den Active Directory-Domänendiensten veröffentlichten Informationen zugreifen können, gehören Arbeitsgruppenclients, Clients aus einer anderen Active Directory-Gesamtstruktur, nur für das Internet konfigurierte Clients sowie Clients, die aktuell mit dem Internet verbunden sind. Wenn Sie die Standardportnummer ändern, nachdem diese Clients installiert wurden, installieren Sie sie erneut, und installieren Sie alle neuen Clients anhand einer der folgenden Methoden:  
 
--   Réinstallez les clients en utilisant l'Assistant Installation poussée du client. L'Installation poussée du client configure automatiquement les clients avec la configuration de port de site en cours. Pour plus d’informations sur l’utilisation de l’Assistant Installation Push du client, consultez [Guide pratique pour installer des clients Configuration Manager à l’aide d’une installation Push](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
+-   Installieren Sie die Clients mithilfe des Clientpushinstallations-Assistenten neu. Bei einer Clientpushinstallation werden Clients automatisch mit der aktuellen Portkonfiguration des Standorts konfiguriert. Weitere Informationen zur Verwendung des Clientpushinstallations-Assistenten finden Sie unter [How to Install Configuration Manager Clients by Using Client Push (Installieren von Configuration Manager-Clients mithilfe von Clientpush)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
 
--   Réinstallez les clients à l'aide du programme CCMSetup.exe ainsi que les propriétés d'installation du client.msi de CCMHTTPPORT et CCMHTTPSPORT. Pour plus d’informations sur ces propriétés, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+-   Installieren Sie die Clients mithilfe von CCMSetup.exe sowie den client.msi-Installationseigenschaften CCMHTTPPORT und CCMHTTPSPORT neu. Weitere Informationen zu diesen Eigenschaften finden Sie unter [About client installation properties in System Center Configuration Manager (Informationen zu Clientinstallationseigenschaften in System Center Configuration Manager)](../../../core/clients/deploy/about-client-installation-properties.md).  
 
--   Réinstallez les clients à l'aide d'une méthode qui permet de rechercher les propriétés d'installation du client Configuration Manager dans les Services de domaine Active Directory. Pour plus d’informations, consultez [À propos de la publication des propriétés d’installation du client sur les services de domaine Active Directory dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
+-   Installieren Sie die Clients mittels einer Methode neu, bei der die Active Directory-Domänendienste nach Configuration Manager-Clientinstallationseigenschaften durchsucht werden. Weitere Informationen finden Sie unter [Informationen zu Clientinstallationseigenschaften in System Center Configuration Manager, die in Active Directory-Domänendiensten veröffentlicht wurden](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
 
- Pour reconfigurer les numéros de port de clients existants, vous pouvez également utiliser le script PORTSWITCH.VBS fourni avec le support d'installation dans le dossier SMSSETUP\Tools\PortConfiguration .  
+ Die Portnummern für vorhandene Clients können Sie auch mithilfe des Skripts PORTSWITCH.VBS neu konfigurieren, das zusammen mit den Installationsmedien im Ordner SMSSETUP\Tools\PortConfiguration bereitgestellt wird.  
 
 > [!IMPORTANT]  
->  Pour les clients existants et les nouveaux clients sur Internet, vous devez configurer les numéros de port par défaut en utilisant les propriétés CCMSetup.exe client.msi de CCMHTTPPORT et CCMHTTPSPORT.  
+>  Für vorhandene und neue Clients, die zurzeit mit dem Internet verbunden sind, müssen Sie die nicht standardmäßigen Portnummern mithilfe der client.msi-Eigenschaften CCMHTTPPORT und CCMHTTPSPORT von CCMSetup.exe konfigurieren.  
 
- Après avoir modifié les ports de demande sur le site, les nouveaux clients installés à l'aide de la méthode d'installation poussée du client à l'échelle du site seront automatiquement configurés avec les numéros de port du site en cours.  
+ Im Anschluss an die Änderung der Anforderungsports auf dem Standort werden neue Clients, die mithilfe der standortweiten Clientpushinstallations-Methode installiert werden, automatisch mit den aktuellen Portnummern des Standorts konfiguriert.  
 
-#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>Pour configurer les numéros de port de communication client pour un site  
+#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>So konfigurieren Sie die Portnummern für die Clientkommunikation für einen Standort  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.  
 
-2.  Dans l'espace de travail **Administration** développez **Configuration du site**, cliquez sur **Sites**et sélectionnez le site principal à configurer.  
+2.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Knoten **Standortkonfiguration**, klicken Sie auf **Standorte**, und wählen Sie den zu konfigurierenden primären Standort aus.  
 
-3.  Dans l'onglet **Accueil** , cliquez sur **Propriétés**, puis sur l'onglet **Ports** .  
+3.  Klicken Sie auf der Registerkarte **Startseite** auf **Eigenschaften**, und klicken Sie dann auf die Registerkarte **Ports** .  
 
-4.  Sélectionnez l'un des éléments et cliquez sur l'icône Propriétés pour ouvrir la boîte de dialogue **Détails du port** .  
+4.  Wählen Sie die gewünschten Objekte aus, und klicken Sie auf das Symbol "Eigenschaften", um das Dialogfeld **Portdetail** anzuzeigen.  
 
-5.  Dans la boîte de dialogue **Détails du port** , spécifiez le numéro de port et la description de l'élément et cliquez sur **OK**.  
+5.  Geben Sie im Dialogfeld **Portdetail** die Portnummer und die Objektbeschreibung an, und klicken Sie dann auf **OK**.  
 
-6.  Sélectionnez **Utiliser un site Web personnalisé** si vous souhaitez utiliser le nom du site Web personnalisé de **SMSWeb** pour les systèmes de site qui exécutent IIS.  
+6.  Wählen Sie **Benutzerdefinierte Website verwenden** aus, wenn Sie planen, den benutzerdefinierten Websitenamen **SMSWeb** für Standortsysteme zu verwenden, auf denen IIS ausgeführt wird.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés du site.  
+7.  Klicken Sie auf **OK** , um das Eigenschaftendialogfeld für den Standort zu schließen.  
 
- Répétez cette procédure pour tous les sites principaux de la hiérarchie.
-
+ Wiederholen Sie diesen Vorgang für alle primären Standorte in der Hierarchie.

@@ -1,46 +1,42 @@
 ---
-title: "Protéger les données et l’infrastructure des sites | Microsoft Docs"
-description: "Découvrez comment protéger les ressources de votre organisation contre toute exposition ou attaque malveillante grâce à System Center Configuration Manager."
+title: "Schützen der Daten und Standortinfrastruktur | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr darüber, wie Sie die Ressourcen Ihrer Organisation mit System Center Configuration Manager vor Risiken oder böswilligen Angriffen schützen."
 ms.custom: na
 ms.date: 11/27/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2117f786-d521-4790-9e8d-ec096c63c9d7
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Robstack
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8679df3f8a3b692391537bacd6144a4f2fae357b
 ms.openlocfilehash: d527cb4bfb55ca50c8d2a0fed7c427af5747fe99
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Protéger les données et l’infrastructure des sites avec System Center Configuration Manager
+# <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Schützen der Daten und Standortinfrastruktur mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux ressources de votre organisation, pour que votre infrastructure et vos données soient protégées contre toute exposition ou attaque malveillante. Les informations dans ces rubriques décrivent comment utiliser System Center Configuration Manager (également appelé ConfigMgr ou SCCM) pour activer cet accès et aider à protéger les ressources de votre organisation.  
+Sie möchten, dass Ihre Benutzer sicher auf die Ressourcen Ihrer Organisation zugreifen können, und zwar so, dass sowohl Ihre Infrastruktur als auch Ihre Daten vor Offenlegung und böswilligen Angriffen geschützt sind. In den folgenden Themen wird beschrieben, wie Sie System Center Configuration Manager (ConfigMgr bzw. SCCM) verwenden, um diesen Zugriff zu aktivieren und die Ressourcen Ihres Unternehmens zu schützen.  
 
--   Vous pouvez réduire les efforts de vos utilisateurs pour se connecter aux ressources d’entreprise en activant la connectivité VPN à l’aide de profils VPN. Pour plus d’informations, consultez [Profils VPN dans System Center Configuration Manager](../deploy-use/vpn-profiles.md).  
+-   Sie können den Aufwand Ihrer Benutzer zum Herstellen einer Verbindung mit Unternehmensressourcen minimieren, indem Sie VPN-Verbindungen mithilfe von VPN-Profilen aktivieren. Weitere Informationen finden Sie unter [VPN profiles in System Center Configuration Manager (VPN-Profile in System Center Configuration Manager)](../deploy-use/vpn-profiles.md).  
 
--   Les profils Wi-Fi fournissent un ensemble d’outils et de ressources qui vous aident à créer, à déployer et à surveiller les paramètres de réseau sans fil sur les appareils de votre organisation. En déployant ces paramètres, vous réduisez l'effort fourni par l'utilisateur pour se connecter aux réseaux sans fil d'entreprise. Pour plus d’informations, consultez [Profils Wi-Fi dans System Center Configuration Manager](/sccm/protect/deploy-use/create-wifi-profiles).  
+-   Über WLAN-Profile stehen eine Reihe von Tools und Ressourcen zur Verfügung, mit deren Hilfe Sie Einstellungen für Funknetzwerke für Geräte in Ihrer Organisation erstellen, bereitstellen und überwachen können. Durch Bereitstellen dieser Einstellungen erleichtern Sie den Endbenutzern das Herstellen einer Verbindung mit Unternehmens-WLANs. Weitere Informationen finden Sie unter [Wi-Fi Profiles in System Center Configuration Manager (WLAN-Profile in System Center Configuration Manager)](/sccm/protect/deploy-use/create-wifi-profiles).  
 
--   [Profils de certificat dans System Center Configuration Manager](../deploy-use/introduction-to-certificate-profiles.md) décrit comment approvisionner les appareils de vos utilisateurs avec les certificats dont ils ont besoin pour se connecter aux ressources de l’entreprise.  
+-   [Certificate profiles in System Center Configuration Manager (Zertifikatprofile in System Center Configuration Manager)](../deploy-use/introduction-to-certificate-profiles.md) wird das Bereitstellen der Zertifikate auf den Geräten Ihrer Benutzer beschrieben, die diese zum Verbinden mit Unternehmensressourcen benötigen.  
 
--   [System Center Endpoint Protection](../deploy-use/endpoint-protection.md) permet de gérer les stratégies anti-programme malveillant et la sécurité du Pare-feu Windows pour les ordinateurs clients.  
+-   Mithilfe von [System Center Endpoint Protection](../deploy-use/endpoint-protection.md) können Sie Richtlinien für Antischadsoftware und die Sicherheit der Windows-Firewall für Clientcomputer verwalten.  
 
--   Vous pouvez utiliser l’accès conditionnel pour mieux sécuriser la messagerie électronique et d’autres services sur les appareils inscrits auprès de Microsoft Intune, comme décrit dans [Gérer l’accès aux services dans System Center Configuration Manager](../deploy-use/manage-access-to-services.md).  
+-   Verwenden Sie den bedingten Zugriff, um E-Mail- und andere Dienste auf Geräten, die bei Microsoft Intune registriert sind, wie unter [Manage access to services in System Center Configuration Manager (Verwalten des Zugriffs auf Dienste in System Center Configuration Manager)](../deploy-use/manage-access-to-services.md) beschrieben zu schützen.  
 
--   Les profils de messagerie fournissent un ensemble d’outils et de ressources pour vous aider à créer, à déployer et à surveiller les paramètres de messagerie électronique sur les appareils. Cela permet aux utilisateurs d'accéder au courrier électronique d'entreprise sur leurs appareils personnels sans qu'aucune installation ne soit nécessaire de leur part. Pour plus d’informations, consultez [Profils de messagerie dans System Center Configuration Manager](../deploy-use/introduction-to-email-profiles.md).  
+-   E-Mail-Profile stellen eine Reihe von Tools und Ressourcen zum Erstellen, Bereitstellen und Überwachen von E-Mail-Einstellungen auf Geräten bereit. Dies gibt Benutzern die Möglichkeit, von ihren persönlichen Geräten aus auf Unternehmens-E-Mails zuzugreifen, ohne dass eine Konfiguration ihrerseits erforderlich ist. Weitere Informationen finden Sie unter [Email profiles in System Center Configuration Manager (E-Mail-Profile in System Center Configuration Manager)](../deploy-use/introduction-to-email-profiles.md).  
 
--   Configuration Manager vous permet d’adopter Windows Hello Entreprise (anciennement Microsoft Passport for Work), qui est une méthode de connexion alternative qui utilise Active Directory ou un compte Azure Active Directory en remplacement d’un mot de passe, d’une carte à puce ou d’une carte à puce virtuelle. Pour plus d’informations, consultez [Paramètres Windows Hello Entreprise dans System Center Configuration Manager](../deploy-use/windows-hello-for-business-settings.md).  
-
+-   Configuration Manager ermöglicht die Integration in Windows Hello for Business (ehemals Microsoft Passport for Work), eine alternative Anmeldemethode, die Active Directory oder ein Azure Active Directory-Konto verwendet, um ein Kennwort, eine Smartcard oder eine virtuelle Smartcard zu ersetzen. Weitere Informationen finden Sie unter [Windows Hello for Business settings in System Center Configuration Manager (Windows Hello for Business-Einstellungen in System Center Configuration Manager)](../deploy-use/windows-hello-for-business-settings.md).  

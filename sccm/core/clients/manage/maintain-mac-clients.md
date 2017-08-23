@@ -1,166 +1,161 @@
 ---
-title: "Gérer des clients Mac | Documents Microsoft"
-description: "Tâches de maintenance pour les clients Mac de Configuration Manager."
+title: Verwalten von Mac-Clients | Microsoft-Dokumentation
+description: "Wartungstasks für Configuration Manager-Mac-Clients"
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cf6337a2-700c-47f3-b6f8-5814f9b81e59
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c74b553ab76a2b77b0d893151351132da05a640d
-ms.openlocfilehash: 5b75f3296dc20a6766a894f463e958455ca1d65f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/03/2017
-
-
+ms.openlocfilehash: 3bf6651f58dc0c2aa4773f77115c3fbcd4a33221
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="maintain-mac-clients"></a>Warten von Macintosh-Clients
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-# <a name="maintain-mac-clients"></a>Gérer les clients Mac
-*S’applique à : System Center Configuration Manager (Current Branch)*
+Es folgen Verfahren zum Deinstallieren von Mac-Clients und Verlängern ihrer Zertifikate.
 
-Voici des procédures relatives à la désinstallation de clients Mac et au renouvellement de leurs certificats.
+##  <a name="uninstalling-the-mac-client"></a>Deinstallieren des Mac-Clients  
 
-##  <a name="uninstalling-the-mac-client"></a>Désinstallation du client Mac  
+1.  Öffnen Sie auf dem Mac-Computer ein Terminalfenster, und navigieren Sie zum Ordner, der **macclient.dmg** enthält.  
 
-1.  Sur un ordinateur Mac, ouvrez une fenêtre de terminal et accédez au dossier contenant **macclient.dmg**.  
-
-2.  Accédez au dossier Outils, puis entrez la ligne de commande suivante :  
+2.  Navigieren Sie zum Ordner Tools, und geben Sie die folgende Befehlszeile ein:  
 
      **./CMUninstall -c**  
 
     > [!NOTE]  
-    >  La propriété **-c** demande au programme de désinstallation du client de supprimer aussi les fichier journaux et les journaux d’incidents du client. Nous recommandons d’utiliser cette propriété pour éviter toute confusion si vous réinstallez le client ultérieurement.  
+    >  Bei Angabe der Eigenschaft **-c** werden bei der Deinstallation des Clients auch die Absturzprotokolle und die Protokolldateien des Clients entfernt. Dies wird empfohlen, um Verwechslungen zu vermeiden, wenn Sie den Client später erneut installieren.  
 
-3.  Si nécessaire, supprimez manuellement le certificat d’authentification de client que Configuration Manager utilisait, ou révoquez-le. CMUnistall ne supprime et ne révoque pas ce certificat.  
+3.  Entfernen Sie bei Bedarf manuell das Clientauthentifizierungszertifikat, das von Configuration Manager verwendet wurde, oder widerrufen Sie es. Von „CMUninstall“ wird dieses Zertifikat nicht entfernt oder widerrufen.  
 
-##  <a name="renewing-the-mac-client-certificate"></a>Renouvellement du certificat client Mac  
- Pour renouveler le certificat client Mac, utilisez une des méthodes suivantes :  
+##  <a name="renewing-the-mac-client-certificate"></a>Erneuern des Zertifikats für den Macintosh-Client  
+ Verwenden Sie eines der folgenden Verfahren, um das Zertifikat für den Macintosh-Client zu erneuern:  
 
--   [Assistant Renouveler le certificat](#renew-certificate-wizard)  
+-   [Assistent zum Verlängern von Zertifikaten](#renew-certificate-wizard)  
 
--   [Renouveler le certificat manuellement](#renew-certificate-manually)  
+-   [Manuelles Verlängern des Zertifikats](#renew-certificate-manually)  
 
-###  <a name="renew-certificate-wizard"></a>Assistant Renouveler le certificat  
+###  <a name="renew-certificate-wizard"></a>Assistent zum Verlängern von Zertifikaten  
 
-1.  Configurez les valeurs suivantes comme *chaînes* dans le fichier ccmclient.plist qui contrôle l’ouverture de l’Assistant Renouveler le certificat :  
+1.  Konfigurieren Sie in der Datei „ccmclient.plist“ die folgenden Werte als *Zeichenfolgen*, mit denen gesteuert wird, wann der Assistent zum Verlängern von Zertifikaten geöffnet wird:  
 
- -   **RenewalPeriod1** : spécifie, en secondes, la première période de renouvellement pendant laquelle les utilisateurs peuvent renouveler le certificat. La valeur par défaut correspond à 3 888 000 secondes (45 jours). Ne configurez pas de valeur inférieure à 300, sinon la période est rétablie à la valeur par défaut. 
+ -   **RenewalPeriod1** – Hiermit wird der erste Erneuerungszeitraum (in Sekunden) angegeben, in dem Benutzer das Zertifikat erneuern können. Der Standardwert beträgt 3.888.000 Sekunden (45 Tage). Legen Sie keinen Wert kleiner als 300 fest, da der Zeitraum auf den Standardwert zurückgesetzt wird. 
 
- -   **RenewalPeriod2** : spécifie, en secondes, la deuxième période de renouvellement pendant laquelle les utilisateurs peuvent renouveler le certificat. La valeur par défaut correspond à 259 200 secondes (3 jours). Si cette valeur est configurée sur une valeur supérieure ou égale à 300 secondes et inférieure ou égale à **RenewalPeriod1**, la valeur configurée est utilisée. Si **RenewalPeriod1** est supérieure à 3 jours, une valeur de 3 jours sera utilisée pour **RenewalPeriod2**.  Si **RenewalPeriod1** est inférieure à 3 jours, **RenewalPeriod2** est définie sur la même valeur que **RenewalPeriod1**.  
+ -   **RenewalPeriod2** – Hiermit wird der zweite Erneuerungszeitraum (in Sekunden) angegeben, in dem Benutzer das Zertifikat erneuern können. Der Standardwert beträgt 259.200 Sekunden (3 Tage). Wenn dieser Wert konfiguriert ist und größer gleich 300 Sekunden und kleiner gleich **RenewalPeriod1** ist, wird der Wert verwendet. Wenn **RenewalPeriod1** größer als 3 Tage ist, wird ein Wert von 3 Tagen für **RenewalPeriod2**verwendet.  Wenn **RenewalPeriod1** kleiner als 3 Tage ist, dann wird **RenewalPeriod2** auf denselben Wert wie **RenewalPeriod1**festgelegt.  
 
- -   **RenewalReminderInterval1** : spécifie, en secondes, la fréquence à laquelle l’Assistant Renouveler le certificat sera affiché pour les utilisateurs lors de la première période de renouvellement. La valeur par défaut correspond à 86 400 secondes (1 jour). Si **RenewalReminderInterval1** est supérieur à 300 secondes et inférieur à la valeur configurée pour **RenewalPeriod1**, la valeur configurée sera utilisée. Dans le cas contraire, la valeur par défaut de 1 jour sera utilisée.  
+ -   **RenewalReminderInterval1** – Gibt das Intervall an (in Sekunden), in dem Benutzern während des ersten Erneuerungszeitraums der Assistent zum Erneuern von Zertifikaten angezeigt wird. Der Standardwert beträgt 86.400 Sekunden (1 Tag). Wenn **RenewalReminderInterval1** größer als 300 Sekunden, aber kleiner als der für **RenewalPeriod1**konfigurierte Wert ist, wird der konfigurierte Wert verwendet. Andernfalls wird der Standardwert 1 Tag verwendet.  
 
- -   **RenewalReminderInterval2** : spécifie, en secondes, la fréquence à laquelle l’Assistant Renouveler le certificat sera affiché pour les utilisateurs lors de la deuxième période de renouvellement. La valeur par défaut correspond à 28 800 secondes (8 heures). Si **RenewalReminderInterval2** est supérieure à 300 secondes, inférieure ou égale à **RenewalReminderInterval1** et inférieure ou égale à **RenewalPeriod2**, la valeur configurée sera utilisée. Sinon, une valeur de 8 heures sera utilisée.  
+ -   **RenewalReminderInterval2** – Gibt das Intervall an (in Sekunden), in dem Benutzern während des zweiten Erneuerungszeitraums der Assistent zum Erneuern von Zertifikaten angezeigt wird. Der Standardwert beträgt 28.800 Sekunden (8 Stunden). Wenn **RenewalReminderInterval2** größer als 300 Sekunden, aber kleiner oder gleich **RenewalReminderInterval1** und kleiner oder gleich **RenewalPeriod2**ist, wird der konfigurierte Wert verwendet. Andernfalls wird ein Wert von 8 Stunden verwendet.  
 
-     **Exemple** : si les valeurs sont laissées sur leurs valeurs par défaut, 45 jours avant l’expiration du certificat, l’Assistant s’ouvre toutes les 24 heures.  Dans les 3 jours de la date d'expiration du certificat, l'Assistant s'ouvre toutes les 8 heures.  
+     **Beispiel:** Werden die Standardwerte nicht geändert, dann wird der Assistent 45 Tage vor Ablauf des Zertifikats alle 24 Stunden geöffnet.  In den letzten 3 Tagen vor Zertifikatsablauf wird der Assistent alle 8 Stunden geöffnet.  
 
-     **Exemple** : utilisez la ligne de commande suivante, ou un script, pour définir la première période de renouvellement sur 20 jours.  
+     **Beispiel:** Legen Sie mit der folgenden Befehlszeile oder einem Skript den ersten Erneuerungszeitraum auf 20 Tage fest.  
 
      `sudo defaults write com.microsoft.ccmclient RenewalPeriod1 1728000`  
 
-2.  Quand l’Assistant Renouveler le certificat s’ouvre, les champs **Nom d’utilisateur** et **Nom du serveur** sont en général déjà remplis et l’utilisateur peut simplement entrer qu’un mot de passe pour renouveler le certificat.  
+2.  Wenn der Assistent zum Verlängern von Zertifikaten geöffnet wird, sind die Felder **Benutzername** und **Servername** normalerweise bereits ausgefüllt, und der Benutzer muss bloß ein Kennwort eingeben, um das Zertifikat zu verlängern.  
 
     > [!NOTE]  
-    >  Si l'Assistant ne s'ouvre pas ou si vous fermez l'Assistant par inadvertance, cliquez sur **Renouveler** sur la page des préférences **Configuration Manager** pour ouvrir l'Assistant.  
+    >  Wird der Assistent nicht geöffnet, oder haben Sie ihn versehentlich geschlossen, dann klicken Sie auf der Einstellungsseite von **Configuration Manager** auf **Erneuern** , um den Assistenten zu öffnen.  
 
-###  <a name="renew-certificate-manually"></a>Renouveler le certificat manuellement  
- La période de validité classique pour le certificat client Mac est de 1 an. Configuration Manager ne renouvelle pas automatiquement le certificat utilisateur demandé à l’inscription ; vous devez donc procéder comme suit pour renouveler manuellement le certificat.  
+###  <a name="renew-certificate-manually"></a>Manuelles Verlängern des Zertifikats  
+ Der typische Gültigkeitszeitraum für das Macintosh-Clientzertifikat beträgt 1 Jahr. Das während der Registrierung angeforderte Benutzerzertifikat wird von Configuration Manager nicht automatisch erneuert, weswegen Sie wie folgt vorgehen müssen, um das Zertifikat zu erneuern.  
 
 > [!IMPORTANT]  
->  Si le certificat a expiré, vous devez désinstaller, réinstaller et réinscrire le client Mac.  
+>  Wenn das Zertifikat abläuft, müssen Sie den Macintosh-Client deinstallieren, neu installieren und dann erneut anmelden.  
 
- Cette procédure supprime l'ID SMS, qui est requis pour demander un nouveau certificat pour le même ordinateur Mac. Lorsque vous supprimez et remplacez l’ID SMS client, tout historique client stocké, tel que l’inventaire, est supprimé après la suppression du client de la console Configuration Manager.  
+ Durch dieses Verfahren wird die SMS-ID entfernt, die zur Anforderung eines neuen Zertifikats für denselben Macintosh-Computer erforderlich ist. Wenn Sie die Client-SMS-ID entfernen und ersetzen, wird der gesamte gespeicherte Clientverlauf, wie beispielsweise der Bestand, nach dem Löschen des Clients über die Configuration Manager-Konsole gelöscht.  
 
-1.  Créez et remplissez un regroupement d’appareils pour les ordinateurs Mac qui doivent renouveler les certificats utilisateur.  
+1.  Erstellen Sie für die Mac-Computer, deren Benutzerzertifikate verlängert werden müssen, eine Gerätesammlung.  
 
     > [!WARNING]  
-    >  Configuration Manager ne surveille pas la période de validité du certificat qu’il inscrit pour les ordinateurs Mac. Vous devez surveiller cette validité indépendamment de Configuration Manager pour identifier les ordinateurs Mac à ajouter à ce regroupement.  
+    >  Der Gültigkeitszeitraum des für Macintosh-Computer registrierten Zertifikats wird von Configuration Manager nicht überwacht. Dies müssen Sie unabhängig von Configuration Manager übernehmen, um die Macintosh-Computer zu identifizieren, die dieser Sammlung hinzugefügt werden müssen.  
 
-2.  Dans l'espace de travail **Ressources et compatibilité** , démarrez l' **Assistant Création d'élément de configuration**.  
+2.  Starten Sie im Arbeitsbereich **Bestand und Kompatibilität** den **Assistenten zum Erstellen von Konfigurationselementen**.  
 
-3.  Sur la page **Général** , spécifiez informations suivantes :  
+3.  Geben Sie auf der Seite **Allgemein** die folgenden Informationen an:  
 
-    -   **Nom :Supprimer l’ID SMS pour Mac**  
+    -   **Name:SMS-ID für Mac entfernen**  
 
-    -   **Type :Mac OS X**  
+    -   **Typ:Mac OS X**  
 
-4.  Dans la page **Plateformes prises en charge**, vérifiez que toutes les versions de Mac OS X sont sélectionnées.  
+4.  Vergewissern Sie sich auf der Seite **Unterstützte Plattformen**, dass alle Mac OS X-Versionen ausgewählt sind.  
 
-5.  Dans la page **Paramètres**, choisissez **Nouveau**, puis dans la boîte de dialogue **Créer un paramètre**, spécifiez les informations suivantes :  
+5.  Klicken Sie auf der Seite **Einstellungen** auf **Neu**, und geben Sie anschließend im Dialogfeld **Einstellung erstellen** die folgenden Informationen an:  
 
-    -   **Nom :Supprimer l’ID SMS pour Mac**  
+    -   **Name:SMS-ID für Mac entfernen**  
 
-    -   **Type de paramètre :Script**  
+    -   **Einstellungstyp:Skript**  
 
-    -   **Type de données :Chaîne**  
+    -   **Datentyp:Zeichenfolge**  
 
-6.  Dans la boîte de dialogue **Créer un paramètre**, sous **Script de découverte**, choisissez **Ajouter un script** pour spécifier un script de découverte des ordinateurs Mac configurés avec un SMSID configuré.  
+6.  Wählen Sie im Dialogfeld **Einstellung erstellen** für **Ermittlungsskript** **Skript hinzufügen** aus, um ein Skript anzugeben, mit dem Mac-Computer ermittelt werden können, die über eine konfigurierte SMSID verfügen.  
 
-7.  Dans la boîte de dialogue **Modifier un script de découverte** , entrez le script Shell suivant :  
+7.  Geben Sie im Dialogfeld **Ermittlungsskript bearbeiten** das folgende Shellskript ein:  
 
     ```  
     defaults read com.microsoft.ccmclient SMSID  
     ```  
 
-8.  Choisissez **OK** pour fermer la boîte de dialogue **Modifier un script de découverte**.  
+8.  Wählen Sie **OK** aus, um das Dialogfeld **Ermittlungsskript bearbeiten** zu schließen.  
 
-9. Dans la boîte de dialogue **Créer un paramètre**, sous **Script de correction (facultatif)**, choisissez **Ajouter un script** pour spécifier un script de suppression du SMSID détecté sur les ordinateurs Mac.  
+9. Wählen Sie im Dialogfeld **Einstellung erstellen** für **Wiederherstellungsskript (optional)** **Skript hinzufügen** aus, um ein Skript anzugeben, mit dem die SMSID von Mac-Computern entfernt wird, wenn sie gefunden wird.  
 
-10. Dans la boîte de dialogue **Créer un script de correction** , entrez le script Shell suivant :  
+10. Geben Sie im Dialogfeld **Wiederherstellungsskript erstellen** das folgende Shellskript ein:  
 
     ```  
     defaults delete com.microsoft.ccmclient SMSID  
     ```  
 
-11. Choisissez **OK** pour fermer la boîte de dialogue **Créer un script de correction**.  
+11. Wählen Sie **OK** aus, um das Dialogfeld **Wiederherstellungsskript erstellen** zu schließen.  
 
-12. Sur la page **Règles de compatibilité** de l'Assistant, cliquez sur **Nouveau**, puis dans la boîte de dialogue **Créer une règle** , spécifiez les informations suivantes :  
+12. Klicken Sie auf der Seite **Kompatibilitätsregeln** des Assistenten auf **Neu**, und geben Sie anschließend im Dialogfeld **Regel erstellen** die folgenden Informationen an:  
 
-    -   **Nom :Supprimer l’ID SMS pour Mac**  
+    -   **Name:SMS-ID für Mac entfernen**  
 
-    -   **Paramètre sélectionné :** Choisissez **Parcourir**, puis sélectionnez le script de découverte que vous avez spécifié précédemment.  
+    -   **Ausgewählte Einstellung:** Wählen Sie **Durchsuchen** aus, und wählen Sie anschließend das Ermittlungsskript aus, das Sie zuvor angegeben haben.  
 
-    -   Dans **les valeurs suivantes** , entrez **la paire domaine/par défaut (com.microsoft.ccmclient, ID SMS) n'existe pas**.  
+    -   Geben Sie im Feld **die folgenden Werte** **Das Domänen-/Standardpaar (com.microsoft.ccmclient, SMS-ID) existiert nicht**ein.  
 
-    -   Activez l'option **Exécuter le script de correction spécifié lorsque ce paramètre n'est pas compatible**.  
+    -   Aktivieren Sie die Option **Das angegebene Wiederherstellungsskript ausführen, wenn diese Einstellung nicht kompatibel ist**.  
 
-13. Effectuez toutes les étapes de l'Assistant Création d'élément de configuration.  
+13. Beenden Sie den Assistenten zum Erstellen von Konfigurationselementen.  
 
-14. Créez une base de référence de configuration contenant l’élément de configuration que vous venez de créer, puis déployez-la sur le regroupement d’appareils créé à l’étape 1.  
+14. Erstellen Sie eine Konfigurationsbaseline mit dem Konfigurationselement, das Sie gerade erstellt haben, und stellen Sie es für die Gerätesammlung bereit, die Sie in Schritt 1 erstellt haben.  
 
-     Pour plus d’informations sur la création et le déploiement de lignes de base de configuration, consultez [Comment créer des bases de référence de configuration dans System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) et [Comment déployer des lignes de base de configuration dans System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
+     Weitere Informationen zum Erstellen und Bereitstellen von Konfigurationsbaselines finden Sie unter [Erstellen von Konfigurationsbaselines in System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) und [Bereitstellen von Konfigurationsbaselines in System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
 
-15. Sur les ordinateurs Mac sur lesquels l'ID SMS a été supprimé, exécutez la commande suivante pour installer un nouveau certificat :  
+15. Führen Sie auf Macintosh-Computern, auf denen die SMS-ID entfernt wurde, den folgenden Befehl aus, um ein neues Zertifikat zu installieren:  
 
     ```  
     sudo ./CMEnroll -s <enrollment_proxy_server_name> -ignorecertchainvalidation -u <'user name'>  
     ```  
 
-     Lorsque vous y êtes invité, fournissez le mot de passe du compte de superutilisateur qui exécute la commande, puis le mot de passe du compte d'utilisateur Active Directory.  
+     Geben Sie das Kennwort für das Administratorkonto ein, wenn Sie dazu aufgefordert werden, um den Befehl auszuführen. Geben Sie dann das Kennwort für das Active Directory-Benutzerkonto ein.  
 
-16. Pour limiter le certificat inscrit à Configuration Manager, sur l’ordinateur Mac, ouvrez une fenêtre de terminal et apportez les modifications suivantes :  
+16. Öffnen Sie auf dem Macintosh-Computer ein Terminalfenster, und nehmen Sie folgende Änderungen vor, um das registrierte Zertifikat auf Configuration Manager zu beschränken:  
 
-    a.  Entrez la commande **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+    a.  Geben Sie den Befehl **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**ein.  
 
-    b.  Dans la boîte de dialogue **Trousseau d’accès**, dans la zone **Trousseaux**, choisissez **Système**, puis dans la zone **Catégorie**, choisissez **Clés**.  
+    b.  Wählen Sie im Dialogfeld **Schlüsselbundverwaltung** im Abschnitt **Schlüsselbunde** **System** aus, und im Abschnitt **Kategorie** anschließend **Schlüssel**.  
 
-    c.  Développez les clés pour afficher les certificats clients. Lorsque vous avez identifié le certificat avec une clé privée que vous venez d'installer, double-cliquez sur la clé.  
+    c.  Erweitern Sie die Schlüssel, um die Clientzertifikate anzuzeigen. Wenn Sie das Zertifikat mit einem gerade installierten privaten Schlüssel identifiziert haben, doppelklicken Sie auf dem Schlüssel.  
 
-    d.  Sous l’onglet **Contrôle d’accès**, choisissez **Confirmer avant d’autoriser l’accès**.  
+    d.  Wählen Sie auf der Registerkarte **Zugriffssteuerung** die Option **Confirm before allowing access** (Bestätigen, bevor Zugriff zugelassen wird) aus.  
 
-    e.  Accédez à **/Library/Application Support/Microsoft/CCM**, sélectionnez **CCMClient**, puis choisissez **Ajouter**.  
+    e.  Navigieren Sie zum Ordner **/Library/Application Support/Microsoft/CCM**, wählen Sie **CCMClient** aus, und wählen Sie dann **Hinzufügen** aus.  
 
-    f.  Choisissez **Enregistrer les modifications** et fermez la boîte de dialogue **Trousseau d’accès**.  
+    f.  Wählen Sie **Änderungen sichern** aus, und schließen Sie das Dialogfeld **Schlüsselbundverwaltung**.  
 
-17. Redémarrez l'ordinateur Mac.  
-
+17. Starten Sie den Macintosh-Computer neu.  
 

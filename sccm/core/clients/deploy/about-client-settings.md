@@ -1,672 +1,669 @@
 ---
-title: "Paramètres client | Microsoft Docs"
-description: "Choisissez les paramètres client à l’aide de la console d’administration de System Center Configuration Manager."
+title: Clienteinstellungen | Microsoft Docs
+description: Auswahl von Clienteinstellungen mithilfe der Verwaltungskonsole in System Center Configuration Manager.
 ms.custom: na
 ms.date: 08/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-client-settings-in-system-center-configuration-manager"></a>À propos des paramètres client dans System Center Configuration Manager
+# <a name="about-client-settings-in-system-center-configuration-manager"></a>Informationen zu Clienteinstellungen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Tous les paramètres client dans System Center Configuration Manager se gèrent dans la console Configuration Manager à partir du nœud **Paramètres client** de l’espace de travail **Administration**. Configuration Manager est fourni avec un ensemble de paramètres par défaut. Quand vous modifiez les paramètres client par défaut, ces paramètres sont appliqués à tous les clients de la hiérarchie. Vous pouvez également configurer des paramètres client personnalisés, qui remplacent les paramètres client par défaut lorsque vous les affectez à des regroupements. Pour plus d'informations sur la configuration des paramètres client, voir [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
+Alle Clienteinstellungen in System Center Configuration Manager werden in der Configuration Manager-Konsole über den Knoten **Clienteinstellungen** im Arbeitsbereich **Verwaltung** verwaltet. Mit Configuration Manager wird ein Satz Standardeinstellungen geliefert. Wenn Sie die Clientstandardeinstellungen verändern, werden diese Einstellungen auf alle Clients in der Hierarchie angewendet. Sie können auch benutzerdefinierte Clienteinstellungen konfigurieren. Wenn Sie diese Einstellungen Sammlungen zuweisen, werden die Clientstandardeinstellungen überschrieben. Informationen zum Konfigurieren von Clienteinstellungen finden Sie unter [How to configure client settings in System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
 
-La plupart des paramètres client sont explicites. Les autres sont décrits ici.  
+Viele der Clienteinstellungen sind selbsterklärend. Andere werden hier beschrieben.  
 
-## <a name="background-intelligent-transfer-service"></a>Service de transfert intelligent en arrière-plan (BITS)  
+## <a name="background-intelligent-transfer-service"></a>Background Intelligent Transfer Service  
 
--   **Limiter la bande passante réseau maximale pour les transferts BITS en arrière-plan**  
+-   **Maximale Netzwerkbandbreite für BITS-Übertragungen im Hintergrund begrenzen**  
 
-   Si cette option a la valeur **Vrai** ou **Oui**, les clients utilisent la limitation de bande passante BITS.  
+   Wenn für diese Option **Wahr** oder **Ja** festgelegt ist, verwenden die Clients die BITS-Bandbreiteneinschränkung.  
 
--   **Heure de début de la fenêtre de limitation**  
+-   **Beginn des Einschränkungszeitfensters**  
 
-   Spécifiez l’heure locale de début de la fenêtre de limitation BITS.  
+   Geben Sie die lokale Startzeit für das BITS-Einschränkungszeitfenster an.  
 
--   **Heure de fin de la fenêtre de limitation**  
+-   **Ende des Einschränkungszeitfensters**  
 
-   Spécifiez l’heure locale de fin de la fenêtre de limitation BITS. Si elle est égale à l’**Heure de début de la fenêtre de limitation**, la limitation BITS est toujours activée.  
+   Geben Sie die lokale Endzeit für das BITS-Einschränkungszeitfenster an. Entspricht dieser Wert dem Wert von **Throttling window start time** (Beginn des Einschränkungszeitfensters), ist die BITS-Einschränkung immer aktiviert.  
 
--   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
+-   **Maximale Übertragungsrate während des Einschränkungszeitfensters (KBit/s)**  
 
-   Spécifie le taux de transfert maximal que les clients peuvent utiliser pendant la fenêtre.  
+   Geben Sie die maximale Übertragungsrate an, die den Clients während des Zeitfensters zur Verfügung steht.  
 
--   **Autoriser les téléchargements BITS en dehors de la fenêtre de limitation**  
+-   **BITS-Downloads außerhalb des Einschränkungszeitfensters zulassen**  
 
-   Choisissez cette option pour permettre aux clients Configuration Manager d’utiliser des paramètres BITS distincts en dehors de la fenêtre spécifiée.  
+   Wählen Sie diese Option aus, damit Configuration Manager-Clients separate BITS-Einstellungen außerhalb des angegebenen Fensters verwenden können.  
 
--   **Taux de transfert maximal en dehors de la fenêtre de limitation (Kbit/s)**  
+-   **Maximale Übertragungsrate außerhalb des Einschränkungszeitfensters (KBit/s)**  
 
-   Spécifiez le taux de transfert maximal utilisé par les clients en dehors de la fenêtre de limitation BITS quand vous avez choisi d’autoriser la limitation BITS en dehors de la fenêtre.  
+   Geben Sie die maximale Übertragungsrate an, die von Clients außerhalb des BITS-Einschränkungszeitfensters verwendet werden kann, sofern die BITS-Einschränkung außerhalb des Zeitfensters zugelassen wurde.  
 
-## <a name="client-cache-settings"></a>Paramètres du cache du client
+## <a name="client-cache-settings"></a>Einstellungen des Clientcaches
 
-- **Configurer BranchCache**
+- **BranchCache konfigurieren**
 
-  À compter de la version 1606, utilisez ce paramètre pour configurer l’ordinateur client pour [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Pour autoriser la mise en cache BranchCache sur le client, définissez **Activer BranchCache** sur **Oui**.
+  Ab Version 1606 wird diese Einstellung verwendet, um den Clientcomputer für [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache) einzurichten. Um die BranchCache-Zwischenspeicherung auf dem Client zuzulassen, legen Sie **BranchCache aktivieren** auf **Ja** fest.
 
-- **Activer BranchCache**
+- **BranchCache aktivieren**
 
-Active BranchCache sur les ordinateurs clients.
+aktiviert BranchCache auf Clientcomputern.
 
-- **Taille maximale du cache BranchCache (pourcentage du disque)**.
+- **Maximale BranchCache-Cachegröße (Prozentsatz des Datenträgers)**
 
-- **Configurer la taille du cache du client**
+- **Konfigurieren der Cachegröße des Clients**
 
-  Le cache du client sur les ordinateurs Windows stocke les fichiers temporaires utilisés pour installer des applications et des programmes. Choisissez **Oui** puis spécifiez :
-    - **Taille maximale du cache** (mégaoctets). 
-    - **Taille maximale du cache** (pourcentage du disque).
-La taille du cache du client peut augmenter jusqu’à la taille maximale en Mo ou au pourcentage du disque, **selon la valeur la moins élevée des deux**. Si cette option a la valeur **Non**, la taille par défaut est de 5 120 Mo.
+  Der Clientcache auf Windows-Computern speichert temporäre Dateien, die zum Installieren von Anwendungen und Programmen verwendet werden. Klicken Sie auf **Ja** und geben Sie Folgendes an:
+    - **Maximale Cachegröße** (MB) 
+    - **Maximale Cachegröße** (Prozentsatz des Datenträgers)
+Die Cachegröße kann auf die maximale Größe in MB oder den Prozentsatz des Datenträgers erweitern werden, je nach dem, **welcher Wert kleiner ist**. Wenn die Option **Nein** festgelegt ist, beträgt die Standardgröße 5.120 MB.
 
-- **Permettre au client Configuration Manager exécutant le système d’exploitation complet de partager du contenu**
+- **Configuration Manager-Client in vollständigem Betriebssystem zur Freigabe von Inhalten aktivieren**
 
-Active le cache d’homologue pour les clients Configuration Manager. Ensuite, spécifiez les informations relatives au port par lequel le client communique avec l’ordinateur homologue. Configuration Manager configure automatiquement les règles de pare-feu Windows pour autoriser ce trafic. Si vous utilisez un autre pare-feu, vous devez configurer manuellement des règles pour autoriser ce trafic.
-
-
+Aktiviert den Peercache für Configuration Manager-Clients. Geben Sie dann die Portinformationen ein, über die der Client mit dem Peercomputer kommuniziert. Configuration Manager wird Windows-Firewall-Regeln automatisch so konfigurieren, dass dieser Datenverkehr zugelassen wird. Bei Verwendung einer anderen Firewall müssen Sie die Regeln manuell konfigurieren, um diesen Datenverkehr zuzulassen.
 
 
-## <a name="client-policy"></a>Stratégie du client  
 
--   **Intervalle d'interrogation de stratégie client (minutes)**  
 
-   Spécifiez la fréquence à laquelle les clients Configuration Manager suivants téléchargent la stratégie client :  
+## <a name="client-policy"></a>Clientrichtlinie  
 
-  -   Ordinateurs Windows (par exemple, ordinateurs de bureau, serveurs, ordinateurs portables)  
+-   **Clientrichtlinien-Abrufintervall (Minuten)**  
 
-  -   Appareils mobiles inscrits par Configuration Manager  
+   Geben Sie an, wie häufig die Clientrichtlinie von den folgenden Configuration Manager-Clients heruntergeladen werden soll:  
 
-  -   Ordinateurs Mac  
+  -   Windows-Computer (z. B. Desktops, Server, Laptops)  
 
-  -   Ordinateurs qui exécutent Linux ou UNIX  
+  -   Von Configuration Manager registrierte mobile Geräte  
 
--   **Activer l'interrogation de la stratégie utilisateur sur les clients**  
+  -   Macintosh-Computer  
 
-   Si vous affectez à cette option la valeur **Vrai** ou **Oui**, et que Configuration Manager a [découvert l’utilisateur](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), les clients sur les ordinateurs reçoivent les applications et les programmes qui sont ciblés sur l’utilisateur connecté.  
+  -   Computer, auf denen Linux oder UNIX ausgeführt wird  
 
-   Étant donné que le catalogue d’applications reçoit la liste des logiciels disponibles pour les utilisateurs à partir du serveur de site, ce paramètre ne doit pas avoir la valeur **Vrai** ou **Oui** pour que les utilisateurs voient et demandent des applications à partir du catalogue d’applications. Mais si ce paramètre a la valeur **Faux** ou **Non**, ce qui suit ne fonctionne pas quand les utilisateurs utilisent le catalogue d’applications :  
+-   **Benutzerrichtlinienabruf auf Clients aktivieren**  
 
-  -   Les utilisateurs ne peuvent pas installer les applications qu’ils voient dans le catalogue des applications.  
+   Wenn Sie diese Option auf **Wahr** oder **Ja** festlegen, und Configuration Manager [den Benutzer ermittelt hat](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), erhalten Clients auf Computern speziell auf den angemeldeten Benutzer abgestimmte Anwendungen und Programme.  
 
-  -   Les utilisateurs ne verront pas les notifications concernant leurs demandes d'approbation d'application. Au lieu de cela, ils doivent actualiser le catalogue d'applications et vérifier l'état d'approbation.  
+   Da die Liste der für Benutzer verfügbaren Software vom Standortserver an den Anwendungskatalog übertragen wird, muss für diese Einstellung die Option **Wahr** oder **Ja** ausgewählt werden, damit Benutzer die Anwendungen über den Anwendungskatalog anzeigen und anfordern können. Wenn diese Einstellung aber auf **Falsch** oder **Nein**festgelegt wurde, wird die Verwendung des Anwendungskatalogs wie folgt eingeschränkt:  
 
-  -   Les utilisateurs ne recevront pas de révisions et de mises à jour pour les applications qui sont publiées dans le catalogue d'applications. Toutefois, ils verront les modifications apportées aux informations de l’application dans le catalogue d’applications.  
+  -   Den Benutzern ist es nicht möglich, die im Anwendungskatalog angezeigten Anwendungen zu installieren.  
 
-  -   Si vous supprimez le déploiement d'une application après que le client a installé l'application en question à partir du catalogue d'applications, les clients continuent à vérifier que l'application est installée pendant une durée qui peut atteindre 2 jours.  
+  -   Benutzer sehen keine Benachrichtigungen zu ihren Genehmigungsanforderungen für Anwendungen. Sie müssen stattdessen den Anwendungskatalog aktualisieren und den Genehmigungsstatus überprüfen.  
 
-   En outre, quand ce paramètre a la valeur **Faux** ou **Non**, les utilisateurs ne recevront pas les applications exigées que vous déployez sur les utilisateurs ou toute autre tâche de gestion dans les stratégies utilisateur.  
+  -   Benutzer erhalten keine Revisionen und Updates für Anwendungen, die im Anwendungskatalog veröffentlicht werden. Sie können jedoch im Anwendungskatalog Änderungen an Anwendungsinformationen sehen.  
 
-   Ce paramètre s’applique aux utilisateurs si leur ordinateur se trouve sur l’intranet et Internet. Il doit avoir la valeur **Vrai** ou **Oui** si vous souhaitez également activer les stratégies utilisateur sur Internet.  
+  -   Wenn Sie eine Anwendungsbereitstellung nach der Installation der Anwendung aus dem Anwendungskatalog entfernen, wird noch bis zu 2 Tage lang von den Clients geprüft, ob die Anwendung installiert ist.  
 
--   **Autoriser les demandes de stratégie utilisateur depuis des clients Internet**  
+   Wenn für diese Einstellung die Option **Falsch** oder **Nein** gewählt wurde, erhalten Benutzer zudem keine erforderlichen Anwendungen, die Sie für Benutzer bereitstellen, und auch keine anderen Verwaltungsaufgaben, die in Benutzerrichtlinien enthalten sind.  
 
-   Si le client et le site sont configurés pour la gestion de client basée sur Internet, que vous affectez à cette option la valeur **Vrai** ou **Oui** et que les deux conditions suivantes s’appliquent, les utilisateurs reçoivent leur stratégie utilisateur quand leur ordinateur se trouve sur Internet :  
+   Diese Einstellung gilt für Benutzer, deren Computer mit dem Intranet und dem Internet verbunden sind. Es muss **Wahr** oder **Ja** festgelegt sein, wenn Sie auch Benutzerrichtlinien im Internet aktivieren möchten.  
 
-  -   Le paramètre client **Activer l’interrogation de la stratégie utilisateur sur les clients** a la valeur **Vrai** ou **Activer la stratégie utilisateur sur les clients** a la valeur **Oui**.  
+-   **Benutzerrichtlinienanforderungen von Internetclients aktivieren**  
 
-  -   Le point de gestion basé sur Internet authentifie correctement l'utilisateur à l'aide de l'authentification Windows (Kerberos ou NTLM).  
+   Wenn der Client und der Standort für die internetbasierte Clientverwaltung konfiguriert sind, und Sie diese Option auf **Wahr** oder **Ja** setzen, erhalten Benutzer eine Benutzerrichtlinie, wenn ihr Computer mit dem Internet verbunden ist, und die beiden folgenden Bedingungen erfüllt sind:  
 
-   Si vous laissez cette option configurée sur la valeur **Faux** ou **Non**, ou si l’une des conditions échoue, un ordinateur sur Internet reçoit uniquement les stratégies ordinateur. Dans ce cas, les utilisateurs peuvent toujours voir, demander et installer des applications à partir d'un catalogue d'applications basé sur Internet. Si ce paramètre a la valeur **Faux** ou **Non**, mais que **Activer l’interrogation de la stratégie utilisateur sur les clients** a la valeur **Vrai** ou que **Activer la stratégie utilisateur sur les clients** a la valeur **Oui**, les utilisateurs ne reçoivent pas les stratégies utilisateur tant que l’ordinateur n’est pas connecté à l’intranet.  
+  -   Die Clienteinstellung **Enable user policy polling on clients** (Benutzerrichtlinie auf Clients aktivieren) ist auf **Wahr** oder **Enable user policy polling on clients** (Benutzerrichtlinie auf Clients aktivieren) ist auf **Ja** festgesetzt.  
 
-   Pour plus d’informations sur la gestion des clients sur Internet, consultez [Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) dans [Communications entre points de terminaison dans System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+  -   Der Benutzer wird vom internetbasierten Verwaltungspunkt erfolgreich mithilfe der Windows-Authentifizierung (Kerberos oder NTLM) authentifiziert.  
+
+   Wenn Sie für diese Einstellungen **Falsch** oder **Nein**verwenden oder eine der Bedingungen nicht zutrifft, werden an einen Computer im Internet nur Computerrichtlinien übertragen. In diesem Fall können Benutzer weiterhin Anwendungen über einen internetbasierten Anwendungskatalog anzeigen, anfordern und installieren. Wenn diese Einstellung auf **Falsch** oder **Nein** gesetzt wurde, aber die Option **Enable user policy polling on clients** (Benutzerrichtlinienabruf auf Clients aktivieren) auf **Wahr** oder die Option **Benutzerrichtlinie auf Clients aktivieren** auf **Ja**gesetzt ist, erhalten Benutzer erst nach Trennen der Internetverbindung Benutzerrichtlinien.  
+
+   Weitere Informationen zur Clientverwaltung im Internet finden Sie unter [Considerations for client communications from the Internet or an untrusted forest (Überlegungen zur Clientkommunikation aus dem Internet oder aus einer nicht vertrauenswürdigen Gesamtstruktur)](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) in [Communications between endpoints in System Center Configuration Manager(Datenübertragungen zwischen Endpunkten in System Center Configuration Manager)](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
   > [!NOTE]  
-  >  Les demandes d'approbation d'application des utilisateurs ne requièrent pas de stratégies utilisateur ou l'authentification utilisateur.  
+  >  Genehmigungsanforderungen für Anwendungen von Benutzern erfordern keine Benutzerrichtlinien oder Benutzerauthentifizierung.  
 
-##  <a name="compliance-settings"></a>Paramètres de compatibilité  
+##  <a name="compliance-settings"></a>Kompatibilitätseinstellungen  
 
--   **Planifier l'évaluation de compatibilité**  
+-   **Kompatibilitätsauswertung planen**  
 
-     Choisissez **Calendrier** pour créer le calendrier par défaut proposé aux utilisateurs quand ils déploient une base de référence de configuration. Cette valeur peut être configurée pour chaque ligne de base dans la boîte de dialogue **Déployer la ligne de base de la configuration** .  
+     Wählen Sie **Zeitplan** aus, um den Standardzeitplan zu erstellen, der Benutzern angezeigt, wenn diese eine Konfigurationsbaseline bereitstellen. Dieser Wert kann im Dialogfeld **Konfigurationsbasislinie bereitstellen** für jede Basislinie konfiguriert werden.  
 
--   **Activer les données et profils utilisateurs**  
+-   **Benutzerdaten und Profile aktivieren**  
 
-     Choisissez **Oui** si vous voulez déployer des éléments de configuration de [données et de profils utilisateur](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) sur les ordinateurs Windows 8 de votre hiérarchie.  
+     Wählen Sie **Ja** aus, wenn Sie Konfigurationselemente für [Benutzerdaten und Profile](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) auf Windows 8-Computern in der Hierarchie bereitstellen möchten.  
 
-## <a name="computer-agent"></a>Agent ordinateur  
+## <a name="computer-agent"></a>Computer-Agent  
 
--   **Point de site Web du catalogue d'applications par défaut**  
+-   **Websitepunkt des Standardanwendungskatalogs**  
 
-     Configuration Manager utilise ce paramètre pour connecter les utilisateurs au catalogue d’applications du Centre logiciel. Vous pouvez spécifier un serveur qui héberge le point de site Web du catalogue d'applications par son nom NetBIOS ou son nom de domaine complet, spécifier la détection automatique ou spécifier une URL pour les déploiements personnalisés. Dans la plupart des cas, la détection automatique est le meilleur choix car elle offre les avantages suivants :  
+     Diese Einstellung wird von Configuration Manager verwendet, um Benutzer über das Softwarecenter mit dem Anwendungskatalog zu verbinden. Sie können für einen Server, von dem der Anwendungskatalog-Websitepunkt gehostet wird, den NetBIOS-Namen oder FQDN angeben. Alternativ können Sie die automatische Erkennung verwenden oder eine URL für benutzerdefinierte Bereitstellungen angeben. Die automatische Erkennung stellt aus folgenden Gründen meist die beste Lösung dar:  
 
-    -   Les clients reçoivent automatiquement un point du site web du catalogue des applications à partir de leur site, si leur site a un point du site web du catalogue des applications.  
+    -   Clients wird automatisch ein Anwendungskatalog-Websitepunkt von ihrem Standort zugewiesen, sofern ihr Standort über einen Anwendungskatalog-Websitepunkt verfügt.  
 
-    -   Les points de site web du catalogue des applications sur l’intranet qui sont configurés pour HTTPS ont priorité par rapport à ceux qui ne le sont pas. Cela permet d’éviter un serveur non autorisé.
+    -   Anwendungskatalog-Websitepunkte im Intranet, die für HTTPS konfiguriert sind, haben Vorrang vor Anwendungskatalog-Websitepunkten, die nicht für HTTPS konfiguriert sind. Dadurch wird der Schutz vor nicht autorisierten Servern verstärkt.
 
-    -   Quand les clients sont configurés pour la gestion des clients basés sur l’intranet et Internet, ils reçoivent un point de site web du catalogue d’applications basé sur Internet quand ils se trouvent sur Internet et un point de site web du catalogue d’applications basé sur l’intranet quand ils se trouvent sur l’intranet.  
+    -   Clients, die für die intranet- und internetbasierte Clientverwaltung konfiguriert sind, wird ein internetbasierter Anwendungskatalog-Websitepunkt zugewiesen, wenn sie sich im Internet befinden. Wenn sie sich im Intranet befinden, wird ihnen ein intranetbasierter Anwendungskatalog-Websitepunkt zugewiesen.  
 
-     La détection automatique ne garantit pas que les clients recevront un point de site Web du catalogue d'applications qui est le plus proche d'eux. Vous pouvez décider de ne pas utiliser **Détecter automatiquement** pour les raisons suivantes :  
+     Bei der automatischen Ermittlung kann nicht garantiert werden, dass Clients der nächstgelegene Anwendungskatalog-Websitepunkt zugewiesen wird. Aus den folgenden Gründen ist die Verwendung von **Automatisch ermitteln** für Ihre Zwecke möglicherweise nicht geeignet:  
 
-     -   Vous voulez configurer manuellement le serveur le plus proche pour les clients ou vous assurer qu'ils ne connectent pas à un serveur via une connexion réseau lente.  
+     -   Sie möchten den nächstgelegenen Server für Clients manuell konfigurieren oder dafür sorgen, dass die Verbindung mit dem Server nicht über eine langsame Netzwerkverbindung erfolgt.  
 
-     -   Vous souhaitez contrôler quels clients se connectent à quel serveur. Cette configuration convient pour des raisons professionnelles ou de performances ou à des fins de tests.  
+     -   Sie möchten steuern, von welchen Clients mit welchen Servern eine Verbindung hergestellt wird. Dies kann zu Testzwecken bzw. aus leistungsbezogenen oder geschäftlichen Gründen erforderlich sein.  
 
-     -   Vous ne souhaitez pas patienter jusqu'à 25 heures ou attendre une modification du réseau pour que les clients soient configurés avec un autre point de site web du catalogue d'applications.  
+     -   Sie möchten nicht bis zu 25 Stunden auf eine Netzwerkänderung für Clients warten, die mit einem anderen Anwendungskatalog-Websitepunkt konfiguriert werden sollen.  
 
-     Si vous spécifiez le point de site web du catalogue d’applications au lieu d’utiliser la détection automatique, spécifiez le nom NetBIOS plutôt que le nom de domaine complet de l’intranet. Il y a moins de risque que les utilisateurs soient invités à entrer des informations d’identification quand ils se connectent au catalogue d’applications sur l’intranet. Pour utiliser le nom NetBIOS, les conditions suivantes doivent s'appliquer :  
+     Wenn Sie den Anwendungskatalog-Websitepunkt angeben, anstatt die automatische Erkennung zu verwenden, geben Sie anstelle des Intranet-FQDN den NetBIOS-Namen an. Dadurch verringert sich die Wahrscheinlichkeit, dass Benutzer zur Eingabe von Anmeldeinformationen aufgefordert werden, wenn Sie eine Verbindung mit dem Anwendungskatalog im Intranet herstellen. Sie können den NetBIOS-Namen nur verwenden, wenn die folgenden Bedingungen erfüllt sind:  
 
-     -   Le nom NetBIOS est spécifié dans les propriétés du point du site Web du catalogue d'applications.  
+     -   Der NetBIOS-Name ist in den Eigenschaften des Anwendungskatalog-Websitepunkts angegeben.  
 
-     -   Vous utilisez WINS ou tous les clients sont dans le même domaine que le point du site web du catalogue des applications.  
+     -   Sie verwenden WINS, oder alle Clients befinden sich in der gleichen Domäne wie der Anwendungskatalog-Websitepunkt.  
 
-     -   Le point du site web du catalogue des applications est soit configuré pour les connexions client HTTP, soit configuré pour les connexions client HTTPS (le certificat du serveur web contient le nom NetBIOS).  
+     -   Der Anwendungskatalog-Websitepunkt ist für HTTP- oder HTTPS-Clientverbindungen konfiguriert. Das Webserverzertifikat enthält den NetBIOS-Namen.  
 
-     En règle générale, les utilisateurs sont invités à entrer leurs informations d’identification quand l’URL contient un nom de domaine complet, mais pas quand l’URL est un nom NetBIOS. Les utilisateurs doivent s'attendre à être toujours invités à saisir leurs informations d'identification lorsqu'ils se connectent à partir d'Internet, car cette connexion doit utiliser le nom de domaine complet Internet. Si les utilisateurs sont invités à saisir leurs informations d'identification lorsqu'ils sont connectés à Internet, assurez-vous que le serveur qui exécute le point de site Web du catalogue d'applications puisse se connecter à un contrôleur de domaine pour le compte de l'utilisateur, de sorte que l'utilisateur puisse être authentifié à l'aide de Kerberos.  
-
-    > [!NOTE]  
-    >  Fonctionnement de la détection automatique :  
-    >   
-    >  le client effectue une demande d'emplacement de service à un point de gestion. S'il existe un point de site Web du catalogue d'applications dans le même site que le client, ce serveur est donné au client en tant que le serveur du catalogue d'applications à utiliser. Si plusieurs point du site web du catalogue des applications sont disponibles dans le site, un serveur HTTPS est prioritaire sur un serveur qui n’est pas activé pour le protocole HTTPS. Après ce filtrage, tous les clients reçoivent l’un des serveurs à utiliser comme catalogue d’applications ; Configuration Manager n’équilibre pas la charge entre plusieurs serveurs. Quand le site du client ne contient pas de point du site web du catalogue des applications, le point de gestion retourne de manière non déterministique un point du site web du catalogue des applications à partir de la hiérarchie.  
-    >   
-    >  Quand le client se trouve sur l’intranet, si le point du site web du catalogue des applications sélectionné est configuré avec un nom NetBIOS pour l’URL du catalogue d’applications, les clients reçoivent ce nom NetBIOS plutôt que le nom de domaine complet de l’intranet. Lorsque le client est détecté sur Internet, seul le nom de domaine complet Internet est donné au client.  
-    >   
-    >  Le client effectue cette demande d'emplacement de service toutes les 25 heures ou chaque fois qu'il détecte un changement de réseau. Par exemple, si le client passe de l'Intranet à Internet et si le client peut localiser un point de gestion basé sur Internet, le point de gestion basé sur Internet fournit aux clients des serveurs de points de site Web du catalogue d'applications basé sur Internet.  
-
--   **Ajoute un site Web du catalogue d'applications par défaut à la zone des sites de confiance d'Internet Explorer**  
-
-     Si cette option a la valeur **Vrai** ou **Oui**, l’URL actuelle du site web du catalogue d’applications par défaut est automatiquement ajoutée à la zone des sites approuvés dans Internet Explorer sur les clients.  
-
-     Ce paramètre garantit que le paramètre Internet Explorer en mode protégé n'est pas activé. Si le mode protégé est activé, le client Configuration Manager peut ne pas être en mesure d’installer des applications à partir du catalogue d’applications. Par défaut, la zone des sites de confiance prend également en charge l'ouverture de session utilisateur pour le catalogue d'applications, ce qui requiert l'authentification Windows.  
-
-     Si vous laissez cette option définie sur **Faux**, les clients Configuration Manager peuvent ne pas être en mesure d’installer des applications à partir du catalogue d’applications, sauf si ces paramètres Internet Explorer sont configurés dans une autre zone pour l’URL du catalogue d’applications que les clients utilisent.  
+     Benutzer werden in der Regel zur Eingabe von Anmeldeinformationen aufgefordert, wenn die URL über einen FQDN verfügt. Dies ist nicht der Fall, wenn die URL ein NetBIOS-Name ist. Sie können davon ausgehen, dass Benutzer beim Herstellen einer Verbindung über das Internet immer zur Eingabe von Anmeldeinformationen aufgefordert werden, da für diese Verbindung der Internet-FQDN verwendet werden muss. Wenn Benutzer im Internet zur Eingabe von Anmeldeinformationen aufgefordert werden, achten Sie darauf, dass von dem Server, von dem der Anwendungskatalog-Websitepunkt ausgeführt wird, eine Verbindung mit einem Domänencontroller für das Benutzerkonto hergestellt werden kann, damit die Authentifizierung des Benutzers über Kerberos möglich ist.  
 
     > [!NOTE]  
-    >  Chaque fois que Configuration Manager ajoute un catalogue d’applications par défaut à la zone de sites de confiance, une ancienne URL du catalogue d’applications par défaut ajoutée avant l’ajout de cette nouvelle entrée est supprimée.  
+    >  Funktionsweise der automatischen Erkennung:  
     >   
-    >  Configuration Manager ne peut pas ajouter l’URL si elle est déjà spécifiée dans l’une des zones de sécurité. Dans ce cas, vous devez supprimer l’URL de l’autre zone ou configurer manuellement les paramètres Internet Explorer nécessaires.  
+    >  Vom Client wird eine Dienstidentifizierungsanforderung an einen Verwaltungspunkt gesendet. Wenn es an dem Standort, an dem der Client sich befindet, einen Anwendungskatalog-Websitepunkt gibt, wird der Client angewiesen, diesen Server als Anwendungskatalog-Server zu verwenden. Wenn an dem Standort mehrere Anwendungskatalog-Websitepunkte verfügbar sind, hat ein HTTPS-fähiger Server Vorrang vor einem Server, der nicht für HTTPS aktiviert ist. Nach dieser Filterung wird allen Clients einer der Server als Anwendungskatalog zugewiesen. In Configuration Manager wird kein Lastenausgleich zwischen mehreren Servern ausgeführt. Wenn der Standort des Clients nicht über einen Anwendungskatalog-Websitepunkt verfügt, wird vom Verwaltungspunkt auf nicht deterministische Weise ein Anwendungskatalog-Websitepunkt aus der Hierarchie zurückgegeben.  
+    >   
+    >  Wenn der Client sich im Intranet befindet und der ausgewählte Anwendungskatalog-Websitepunkt mit einem NetBIOS-Namen für die Anwendungskatalog-URL konfiguriert ist, wird dieser NetBIOS-Name anstelle des Intranet-FQDN an Clients übermittelt. Wenn der Client sich im Internet befindet, wird nur der Internet-FQDN an ihn übermittelt.  
+    >   
+    >  Diese Dienstidentifizierungsanforderung wird vom Client alle 25 Stunden sowie bei jeder Netzwerkänderung gestellt. Wenn der Client beispielsweise vom Internet zum Internet verschoben und ein internetbasierter Verwaltungspunkt gefunden wird, werden den Clients vom internetbasierten Verwaltungspunkt Server für internetbasierte Anwendungskatalog-Websitepunkte zugewiesen.  
 
--   **Autoriser les applications Silverlight à s'exécuter en mode de confiance élevé**  
+-   **Standardanwendungskatalog-Website zur Internet Explorer-Zone der vertrauenswürdigen Sites hinzufügen**  
 
-     Ce paramètre doit avoir la valeur **Oui** si les utilisateurs exécutent le client Configuration Manager et utilisent le catalogue d’applications.  
+     Wenn diese Option auf **Wahr** oder **Ja**eingestellt ist, wird die URL für die Website des aktuellen Standardanwendungskatalogs im Internet Explorer auf Clients automatisch der Zone der vertrauenswürdigen Sites hinzugefügt.  
 
-     Si vous modifiez ce paramètre, il prend effet au prochain chargement du navigateur par les utilisateurs ou lorsqu'ils actualisent la fenêtre du navigateur actuellement ouverte.  
+     Durch diese Einstellung wird sichergestellt, dass die Internet Explorer-Einstellung für Geschützter Modus nicht aktiviert wird. Ist der geschützte Modus aktiviert, können vom Configuration Manager-Client möglicherweise keine Anwendungen aus dem Anwendungskatalog installiert werden. Von der Zone der vertrauenswürdigen Sites wird standardmäßig auch die Benutzeranmeldung beim Anwendungskatalog unterstützt, für die die Windows-Authentifizierung erforderlich ist.  
 
-     Pour plus d’informations sur ce paramètre, consultez [Certificats pour Microsoft Silverlight 5 et mode de confiance élevée requis pour le catalogue d’applications](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) dans [Sécurité et confidentialité pour la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+     Wenn Sie diese Option als **Falsch**konfigurieren, können von Configuration Manager-Clients möglicherweise keine Anwendungen aus dem Anwendungskatalog installiert werden, es sei denn, diese Internet Explorer-Einstellungen sind für die von den Clients verwendete Anwendungskatalog-URL in einer anderen Zone konfiguriert.  
 
--   **Nom d'organisation affiché dans le Centre logiciel**  
+    > [!NOTE]  
+    >  Wenn ein Standardanwendungskatalog von Configuration Manager der Zone der vertrauenswürdigen Standorte hinzugefügt wird, wird von Configuration Manager zunächst eine frühere Standardanwendungskatalog-URL entfernt, die von Configuration Manager hinzugefügt wurde. Danach wird ein neuer Eintrag hinzugefügt.  
+    >   
+    >  Die URL kann von Configuration Manager nicht hinzugefügt werden, wenn sie bereits in einer der Sicherheitszonen angegeben ist. In diesem Fall müssen Sie entweder die URL aus der anderen Zone entfernen, oder die erforderlichen Internet Explorer-Einstellungen manuell konfigurieren.  
 
-     Tapez le nom que les utilisateurs voient dans le Centre logiciel. Ces informations personnalisées aident les utilisateurs à identifier cette application comme une source approuvée.  
+-   **Ausführen von Silverlight-Anwendungen im Modus mit höherer Vertrauensstellung zulassen**  
 
--   **Utiliser le nouveau Centre logiciel**  
+     Diese Einstellung muss auf **Ja** festgelegt sein, wenn Benutzer den Configuration Manager-Client ausführen und den Anwendungskatalog verwenden.  
 
-     Si cette option est activée, tous les ordinateurs clients ciblés par ces paramètres client utilisent le nouveau Centre logiciel. Le Centre logiciel répertorie les applications accessibles à l’utilisateur qui étaient auparavant uniquement disponibles dans le catalogue d’applications dépendant de Silverlight.  
+     Eine Änderung dieser Einstellung wird wirksam, wenn Benutzer ihren Browser das nächste Mal laden oder wenn sie das gegenwärtig geöffnete Browserfenster aktualisieren.  
 
-     Les rôles de système de site Point du site web du catalogue des applications et Point de service web du catalogue des applications sont toujours exigés pour que les applications accessibles à l’utilisateur apparaissent dans le Centre logiciel.  
+     Weitere Informationen zu dieser Einstellung finden Sie unter [Certificates for Microsoft Silverlight 5 and Elevated Trust Mode Required for the Application Catalog (Zertifikate für Microsoft Silverlight 5 und für den Anwendungskatalog erforderlicher Modus mit höherer Vertrauensstellung)](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) in [Security and Privacy for Application Management in System Center Configuration Manager (Sicherheit und Datenschutz für die Anwendungsverwaltung in System Center Configuration Manager)](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
 
-     Pour plus d’informations, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+-   **Im Softwarecenter angezeigter Organisationsname**  
 
--   **Autorisations d'installation**  
+     Geben Sie den Namen ein, den Benutzer im Softwarecenter sehen. Diese Branding-Informationen helfen den Benutzern, diese Anwendung als vertrauenswürdige Quelle zu identifizieren.  
 
-    > [!WARNING]  
-    >  Ce paramètre s'applique au catalogue des applications et au Centre logiciel. Ce paramètre n'a aucun effet lorsque les utilisateurs utilisent le portail d'entreprise.  
+-   **Verwenden des neuen Softwarecenters**  
 
-     Configurez la manière dont les utilisateurs peuvent lancer l'installation des logiciels, des mises à jour logicielles et des séquences de tâches :  
+     Wenn aktiviert, verwenden alle Clientcomputer, für die diese Clienteinstellungen gelten, das neue Softwarecenter. Das Softwarecenter zeigt für Benutzer verfügbare Apps an, auf die vorher nur im Silverlight-abhängigen Anwendungskatalog zugegriffen werden konnte.  
 
-    -   **Tous les utilisateurs**: les utilisateurs connectés à un ordinateur client avec toutes les autorisations à l’exception de l’autorisation Invité peuvent lancer l’installation des logiciels, mises à jour logicielles et séquences de tâches.  
+     Die Standortsystemrollen „Anwendungskatalog-Websitepunkt“ und „Anwendungskatalog-Webdienstpunkt“ sind nach wie vor erforderlich, damit für Benutzer verfügbare Apps im Softwarecenter angezeigt werden.  
 
-    -   **Administrateurs uniquement**: les utilisateurs connectés à un ordinateur client doivent être membres du groupe Administrateurs local pour lancer l’installation des logiciels, mises à jour logicielles et séquences de tâches.  
+     Weitere Informationen finden Sie unter [Planen und Konfigurieren der Anwendungsverwaltung in System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
-    -   **Administrateurs et utilisateurs principaux uniquement**: les utilisateurs connectés à un ordinateur client doivent être membres du groupe Administrateurs local ou être des utilisateurs principaux de l’ordinateur pour lancer l’installation des logiciels, mises à jour logicielles et séquences de tâches.  
-
-    -   **Aucun utilisateur**: aucun utilisateur connecté à un ordinateur client ne peut lancer l’installation des logiciels, mises à jour logicielles et séquences de tâches. Les déploiements exigés pour l’ordinateur sont toujours installés à la date d’échéance. Les utilisateurs ne peuvent pas lancer l’installation du logiciel à partir du catalogue d’applications ou du Centre logiciel.  
-
--   **Interrompre l'entrée du code confidentiel BitLocker au redémarrage**  
-
-     Si l'entrée du code confidentiel BitLocker est configurée sur les ordinateurs, cette option peut contourner la nécessité d'entrer un code confidentiel lorsque l'ordinateur redémarre après l'installation d'un logiciel.  
-
-    -   **Toujours**: Configuration Manager suspend temporairement BitLocker après l'installation d'un logiciel nécessitant un redémarrage de l'ordinateur et qu’un redémarrage a été effectué. Ce paramètre s'applique uniquement au redémarrage d’ordinateur qui est lancé par Configuration Manager et il ne suspend pas l'obligation de saisir le code confidentiel BitLocker lorsque l'utilisateur redémarre l'ordinateur. L'obligation de saisir un code confidentiel BitLocker reprend après le démarrage de Windows.
-
-    -   **Jamais**: Configuration Manager ne suspend pas BitLocker au prochain démarrage de l'ordinateur après avoir installé un logiciel qui nécessite un redémarrage. Dans ce cas, l'installation du logiciel ne peut être finalisée que lorsque l'utilisateur entre le code confidentiel pour terminer le processus de démarrage standard et charger Windows.
-
--   **D’autres logiciels gèrent le déploiement d’applications et de mises à jour logicielles**  
-
-     Activez cette option uniquement si l'une des conditions suivantes s'applique :  
-
-    -   Vous utilisez une solution de fabricant qui nécessite l'activation de ce paramètre.  
-
-    -   Vous utilisez le kit de développement logiciel (SDK) Configuration Manager pour gérer les notifications d’agent client et l’installation d’applications et de mises à jour logicielles.  
+-   **Installationsberechtigungen**  
 
     > [!WARNING]  
-    >  Si vous choisissez cette option quand aucune de ces conditions ne s’applique, les mises à jour logicielles et les applications exigées ne sont pas installées sur les clients. Ce paramètre n’empêche pas les utilisateurs d’installer des applications à partir du catalogue d’applications ou empêche l’installation des packages, programmes et séquences de tâches sur les ordinateurs clients.  
+    >  Diese Einstellung gilt für den Anwendungskatalog und das Softwarecenter. Diese Einstellung hat keine Auswirkungen, wenn Benutzer das Unternehmensportal verwenden.  
 
--   **Stratégie d'exécution de PowerShell**  
+     Konfigurieren Sie, wie Benutzer die Installation von Software, Softwareupdates und Tasksequenzen initiieren können:  
 
-     Configurez la façon dont les clients Configuration Manager peuvent exécuter des scripts Windows PowerShell. Ces scripts sont souvent utilisés pour la détection dans les éléments de configuration de paramètres de conformité. Ils peuvent également être envoyés dans un déploiement sous la forme d’un script standard.  
+    -   **Alle Benutzer**: Benutzer, die sich mit einer beliebigen Berechtigung mit Ausnahme von "Gast" bei einem Clientcomputer angemeldet haben, können die Installation von Software, Softwareupdates und Tasksequenzen initiieren.  
 
-    -   **Ignorer** : le client Configuration Manager ignore la configuration Windows PowerShell sur l’ordinateur client afin que les scripts non signés puissent s’exécuter.  
+    -   **Nur Administratoren**: Benutzer, die sich bei einem Clientcomputer angemeldet haben, müssen der lokalen Administratorengruppe angehören, um die Installation von Software, Softwareupdates und Tasksequenzen zu initiieren.  
 
-    -   **Restreint** : le client Configuration Manager utilise la configuration Windows PowerShell actuelle sur l’ordinateur client. Cette configuration détermine si les scripts non signés peuvent s’exécuter.  
+    -   **Nur Administratoren und Hauptbenutzer**: Benutzer, die sich bei einem Clientcomputer angemeldet haben, müssen der lokalen Administratorengruppe angehören oder ein Hauptbenutzer des Computers sein, um die Installation von Software, Softwareupdates und Tasksequenzen zu initiieren.  
 
-    -   **Toutes signées** : le client Configuration Manager exécute les scripts uniquement s’ils sont signés par un éditeur approuvé. Cette restriction s'applique indépendamment de la configuration Windows PowerShell actuelle sur l'ordinateur client.  
+    -   **Keine Benutzer**: Keiner der Benutzer, die sich bei einem Clientcomputer angemeldet haben, kann die Installation von Software, Softwareupdates und Tasksequenzen initiieren. Erforderliche Bereitstellungen für den Computer werden immer am Stichtag installiert. Benutzer können die Installation von Software über den Anwendungskatalog oder das Softwarecenter nicht initiieren.  
 
-     Cette option nécessite au minimum la version 2.0 de Windows PowerShell. La valeur par défaut est **Toutes signées**.  
+-   **BitLocker-PIN-Eingabe bei Neustart anhalten**  
+
+     Wenn die BitLocker-PIN-Eingabe auf Computern konfiguriert ist, kann die obligatorische Eingabe einer PIN bei einem Computerneustart nach einer Softwareinstallation umgangen werden.  
+
+    -   **Immer**: BitLocker wird von Configuration Manager nach der Installation von Software, für die ein Neustart erforderlich ist, und der Initiierung eines Computerneustarts vorübergehend ausgesetzt. Diese Einstellung gilt nur für einen Computerneustart, der von Configuration Manager initiiert wird. Wenn der Benutzer den Computer neu startet, ist die Eingabe einer BitLocker-PIN weiterhin erforderlich. Die BitLocker-Anforderung zur Eingabe einer PIN wird nach dem Start von Windows wieder eingesetzt.
+
+    -   **Nie**: BitLocker wird von Configuration Manager nach der Installation von Software, für die ein Neustart erforderlich ist, nicht ausgesetzt. In diesem Fall kann die Softwareinstallation erst abgeschlossen werden, wenn der Benutzer die PIN eingibt, um den Standardstartprozess abzuschließen und Windows zu laden.
+
+-   **Bereitstellung von Anwendungen und Softwareupdates wird von zusätzlicher Software verwaltet**  
+
+     Aktivieren Sie diese Option nur, wenn eine der folgenden Bedingungen zutrifft:  
+
+    -   Sie verwenden eine Anbieterlösung, für die diese Einstellung aktiviert werden muss.  
+
+    -   Sie verwalten Client-Agent-Benachrichtigungen und die Installation von Anwendungen und Softwareupdates mit dem Configuration Manager SDK (Software Development Kit).  
+
+    > [!WARNING]  
+    >  Wenn Sie diese Option auswählen, obwohl keine dieser Bedingungen erfüllt ist, werden Softwareupdates und erforderliche Anwendungen nicht auf Clients installiert. Durch diese Einstellung wird nicht verhindert, dass Benutzer Anwendungen über den Anwendungskatalog installieren, oder dass Pakete, Programme und Tasksequenzen auf Clientcomputern installiert werden.  
+
+-   **PowerShell-Ausführungsrichtlinie**  
+
+     Konfigurieren Sie, wie Windows PowerShell-Skripts von Configuration Manager-Clients ausgeführt werden können. Diese Skripts werden oft zur Erkennung von Konformitätseinstellungen in Konfigurationselementen eingesetzt. Sie können aber auch als Standardskripts in einer Bereitstellung gesendet werden.  
+
+    -   **Umgehen**: Die Windows PowerShell-Konfiguration auf dem Clientcomputer wird vom Configuration Manager-Client umgangen, sodass nicht signierte Skripts ausgeführt werden können.  
+
+    -   **Eingeschränkt**: Der Configuration Manager-Client verwendet die aktuelle Windows PowerShell-Konfiguration auf dem Client-Computer. Diese Konfiguration bestimmt, ob nicht signierte Skripts ausgeführt werden können.  
+
+    -   **Alle signiert**: Nur die von einem vertrauenswürdigen Herausgeber signierten Skripts werden vom Configuration Manager-Client ausgeführt. Diese Einschränkung gilt unabhängig von der aktuellen Windows PowerShell-Konfiguration auf dem Clientcomputer.  
+
+     Für diese Option ist mindestens Windows PowerShell 2.0 erforderlich. Der Standardwert ist **Alle Signiert**.  
 
     > [!TIP]  
-    >  Si les scripts non signés ne parviennent pas à s’exécuter en raison de ce paramètre client, Configuration Manager signale cette erreur ainsi :  
+    >  Wenn nicht signierte Skripts wegen dieser Clienteinstellung nicht ausgeführt werden können, wird dieser Fehler von Configuration Manager wie folgt gemeldet:  
     >   
-    > -   ID de l’erreur **0X87D00327** et description **Le script n’est pas signé** en tant qu’erreur d’état de déploiement dans l’espace de travail **Surveillance** de la console Configuration Manager.  
-    > -   Codes d’erreur et descriptions **0X87D00327** et **Le script n’est pas signé** ou **0X87D00320** et **L’environnement d’exécution de scripts n’a pas encore été installé** avec le type d’erreur **Erreur de découverte** dans les rapports. Par exemple : **Détails des erreurs des éléments de configuration dans la base de référence de configuration d’un composant**.  
-    > -   Message **Script is not signed (Error: 87D00327; Source: CCM)** dans le fichier **DcmWmiProvider.log** .  
+    > -   Die Fehler-ID **0X87D00327** und die Beschreibung **Das Skript wurde nicht signiert** werden in der Configuration Manager-Konsole im Arbeitsbereich **Überwachung** als Bereitstellungsstatusfehler angezeigt.  
+    > -   Der Fehlercode **0X87D00327** mit der Beschreibung **Script is not signed** (Das Skript wurde nicht signiert) bzw. **0X87D00320** mit der Beschreibung **The script host has not been installed yet** (Der Skripthost wurde noch nicht installiert) und dem Fehlertyp **Ermittlungsfehler** wird in Berichten angezeigt. Ein Beispiel ist **Details zu Fehlern von Konfigurationselementen in einer Konfigurationsbaseline für einen Bestand**.  
+    > -   Die Meldung **Script is not signed (Error: 87D00327; Source: CCM)** wird in der Datei **DcmWmiProvider.log** angezeigt.  
 
--   **Afficher les notifications de nouveaux déploiements**  
+-   **Benachrichtigung für neue Bereitstellungen anzeigen**  
 
-     Choisissez **Oui** si vous souhaitez afficher une notification pour les déploiements qui ont été disponibles moins d’une semaine.  Ce message s’affiche à chaque démarrage de l’agent du client.
+     Wählen Sie **Ja** aus, wenn eine Benachrichtigung für Bereitstellungen angezeigt werden soll, die erst seit weniger als einer Woche verfügbar sind.  Diese Nachricht wird jedes Mal angezeigt, wenn der Client-Agent startet wird.
 
--   **Désactiver la randomisation des échéances**  
+-   **Zufällige Stichtaganordnung deaktivieren**  
 
-     Ce paramètre détermine si le client utilise un délai d’activation pouvant aller jusqu’à deux heures pour installer les mises à jour logicielles nécessaires quand la date limite est atteinte. Par défaut, le délai d'activation est désactivé.  
+     Mit dieser Einstellung bestimmen Sie, ob vom Client bei der Installation erforderlicher Softwareupdates eine Aktivierungsverzögerung von bis zu zwei Stunden verwendet wird, wenn der Stichtag erreicht wurde. Die Aktivierungsverzögerung ist standardmäßig deaktiviert.  
 
-     Pour les scénarios d’infrastructure VDI (Virtual Desktop Infrastructure), ce délai peut permettre de distribuer le traitement par le processeur et le transfert de données pour un ordinateur doté de plusieurs machines virtuelles qui exécutent le client Configuration Manager. Même si vous n’utilisez pas d’infrastructure VDI, si de nombreux clients installent les même mises à jour en même temps, cela peut augmenter l’utilisation du processeur de manière négative sur le serveur de site. Cela peut également ralentir les points de distribution et réduire considérablement la bande passante réseau disponible.  
+     Bei Verwendung einer virtuellen Desktopinfrastruktur (VDI) lassen sich dank dieser Verzögerung die Prozessorauslastung und die Datenübertragung für einen Computer, der mehrere virtuelle Maschinen mit dem Configuration Manager-Client hat, verteilen. Selbst wenn Sie VDI nicht verwenden, und die gleichen Updates von vielen Clients gleichzeitig installiert werden, kann dies zu einer negativen Steigerung der CPU-Auslastung auf dem Standortserver führen. Außerdem kann es zu einer Verlangsamung der Verteilungspunkte und einer erheblichen Verringerung der verfügbaren Netzwerkbandbreite kommen.  
 
-     Si les mises à jour logicielles nécessaires doivent être installées sans délai quand la date limite configurée est atteinte, choisissez **Oui** pour ce paramètre.  
+     Wenn erforderliche Softwareupdates am Stichtag ohne Verzögerung installiert werden müssen, wählen Sie für diese Einstellung **Ja** aus.  
 
--   **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)**
+-   **Karenzzeit für Erzwingung nach Bereitstellungsfrist (Stunden)**
 
-     Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour. Par exemple, si un utilisateur vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard. Pour résoudre ce problème, vous pouvez définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+     In einigen Fällen empfiehlt es sich, Benutzern mehr Zeit zum Installieren von erforderlichen Anwendungsbereitstellungen oder Softwareupdates, über die von Ihnen konfigurierten Fristen hinaus, zu geben. Dies kann erforderlich sein, wenn ein Computer für einen längeren Zeitraum ausgeschaltet war und eine große Anzahl von Anwendungs- oder Updatebereitstellungen installieren muss. Wenn z.B. ein Endbenutzer gerade aus dem Urlaub zurückgekehrt ist, muss er möglicherweise sehr lange warten, bis überfällige Anwendungsbereitstellungen installiert werden. Sie können eine Karenzzeit für die Erzwingung definieren, um dieses Problem zu lösen, indem Sie die Configuration Manager-Clienteinstellungen für eine Sammlung bereitstellen.
 
-     Vous pouvez définir une période de grâce comprise entre 1 et 120 heures. Ce paramètre est utilisé conjointement avec la propriété de déploiement **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur**. Pour plus d’informations, consultez [Déployer des applications](/sccm/apps/deploy-use/deploy-applications).
+     Sie können eine Karenzzeit von 1 bis 120 Stunden festlegen. Diese Einstellung wird in Verbindung mit der Bereitstellungseigenschaft **Erzwingung für diese Bereitstellung basierend auf den Benutzereinstellungen verzögern** verwendet. Weitere Informationen finden Sie unter [Bereitstellen von Anwendungen](/sccm/apps/deploy-use/deploy-applications).
 
-##  <a name="computer-restart"></a>Redémarrage de l’ordinateur  
- Lorsque vous spécifiez ces paramètres de redémarrage de l'ordinateur, assurez-vous que la valeur de l'intervalle de notification temporaire du redémarrage et la valeur de l'intervalle du compte à rebours final sont plus courtes que la fenêtre de maintenance la plus courte appliquée à l'ordinateur.  
+##  <a name="computer-restart"></a>Computerneustart  
+ Achten Sie beim Angeben dieser Einstellungen für den Computerneustart darauf, dass die Intervalle für die temporäre Neustartbenachrichtigung und den endgültigen Countdown kürzer sind als das kürzeste auf den Computer angewendete Wartungsfenster.  
 
- Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+ Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern in System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 
--   **Gérer le client Endpoint Protection sur les ordinateurs clients**  
+-   **Verwalten des Endpoint Protection-Clients auf Clientcomputern**  
 
-     Choisissez **Vrai** ou **Oui** si vous souhaitez gérer les clients Endpoint Protection existants sur des ordinateurs de la hiérarchie.  
+     Wählen Sie **Wahr** oder **Ja** aus, wenn Sie vorhandene Endpoint Protection-Clients auf Computern in Ihrer Hierarchie verwalten möchten.  
 
-     Choisissez cette option si vous avez déjà installé le client Endpoint Protection et que vous souhaitez le gérer avec Configuration Manager.  
+     Wählen Sie diese Option aus, wenn der Endpoint Protection-Client bereits installiert ist, und Sie ihn mit Configuration Manager verwalten möchten.  
 
-     De plus, choisissez cette option si vous voulez créer un script de désinstallation d’une solution anti-programme malveillant existante, installer le client Endpoint Protection et déployer ce script en utilisant une application ou un package et un programme Configuration Manager.  
+     Wählen Sie diese Option auch dann aus, wenn Sie ein Skript zum Deinstallieren einer bestehenden Antischadsoftwarelösung sowie zum Installieren des Endpoint Protection-Clients erstellen und das Skript mithilfe einer Configuration Manager-Anwendung bzw. eines Pakets und Programms bereitstellen möchten.  
 
--   **Installer le client Endpoint Protection sur les ordinateurs clients**  
+-   **Installieren des Endpoint Protection-Clients auf Clientcomputern**  
 
-     Choisissez **Vrai** ou **Oui** pour installer et activer le client Endpoint Protection sur les ordinateurs clients où il n’est pas déjà installé.  
+     Wählen Sie **Wahr** oder **Ja** aus, um den Endpoint Protection-Client auf Clientcomputern zu installieren und zu aktivieren, auf denen er noch nicht installiert wurde.  
 
     > [!NOTE]  
-    >  Si le client Endpoint Protection est déjà installé, le fait de choisir la valeur **Faux** ou **Non** ne désinstalle pas le client Endpoint Protection. Pour désinstaller le client Endpoint Protection, affectez au paramètre client **Gérer le client Endpoint Protection sur les ordinateurs clients** la valeur **Faux** ou **Non**. Ensuite, déployez un package et un programme pour désinstaller le client Endpoint Protection.  
+    >  Wenn der Endpoint Protection-Client bereits installiert ist, wird dieser durch die Auswahl von **Falsch** oder **Nein** nicht deinstalliert. Legen Sie zum Deinstallieren des Endpoint Protection-Clients die Clienteinstellung **Endpoint Protection-Client auf Clientcomputern verwalten** auf **Falsch** oder **Nein** fest. Stellen Sie dann ein Paket und Programm zum Deinstallieren des Endpoint Protection-Clients bereit.  
 
--   **Pour les appareils Windows Embedded munis de filtres d'écriture, valider l'installation du client Endpoint Protection (nécessite un redémarrage)**  
+-   **Für Windows Embedded-Geräte mit Schreibfiltern Commit für Endpoint Protection-Clientinstallation ausführen (hierdurch werden Neustarts erforderlich)**  
 
-     Choisissez **Oui** pour désactiver le filtre d’écriture sur l’appareil Windows Embedded et le redémarrer. Cela valide l'installation sur l'appareil.  
+     Wählen Sie **Ja** aus, um den Schreibfilter auf dem Windows Embedded-Gerät zu deaktivieren und das Gerät neu zu starten. Hierdurch wird für die Installation auf dem Gerät ein Commit ausgeführt.  
 
-     Si vous spécifiez **Non** , le client est installé sur un segment de recouvrement temporaire qui est effacé lorsque l'appareil est redémarré. Dans ce scénario, le client Endpoint Protection n'est pas validé jusqu'à ce qu'une autre installation valide les modifications apportées à l'appareil. Il s'agit du paramètre par défaut.  
+     Bei Angabe von **Nein** wird der Client auf einem temporären Overlay installiert, das beim Neustart des Geräts gelöscht wird. In diesem Fall wird für den Endpoint Protection-Client erst dann ein Commit ausgeführt, wenn von einer anderen Installation Änderungen auf dem Gerät ausgeführt werden. Dies ist die Standardeinstellung.  
 
--   **Supprimer tout redémarrage de l’ordinateur requis après l’installation du client Endpoint Protection**  
+-   **Erforderliche Neustarts nach der Installation des Endpoint Protection-Clients unterdrücken**  
 
-     Choisissez **Vrai** ou **Oui** pour supprimer le redémarrage de l’ordinateur s’il est exigé après l’installation du client Endpoint Protection.  
+     Wählen Sie **Wahr** oder **Ja** aus, um einen Computerneustart zu unterdrücken, sofern dieser nach der Installation des Endpoint Protection-Clients erforderlich ist.  
 
     > [!IMPORTANT]  
-    >  Si le client Endpoint Protection nécessite un redémarrage de l’ordinateur et que ce paramètre a la valeur **Faux**, le redémarrage a lieu sans tenir compte des fenêtres de maintenance que vous avez configurées.  
+    >  Wenn für den Endpoint Protection-Client ein Computerneustart erforderlich ist und diese Einstellung als **Falsch** festgelegt ist, wird der Neustart unabhängig von konfigurierten Wartungsfenstern ausgeführt.  
 
--   **Durée pendant laquelle les utilisateurs sont autorisés à différer un redémarrage nécessaire pour terminer l’installation de Endpoint Protection (heures)**  
+-   **Zulässiges Zeitintervall (Stunden), um das Benutzer einen für den Abschluss der Installation von Endpoint Protection erforderlichen Neustart verschieben können**  
 
-     Spécifiez le nombre d’heures de report du démarrage de l’ordinateur par les utilisateurs si cela est requis après l’installation du client Endpoint Protection. Cette option peut être configurée uniquement si l’option **Supprimer tout redémarrage d’ordinateur requis après l’installation du client Endpoint Protection** a la valeur **Faux**.  
+     Geben Sie die Anzahl der Stunden an, um die Benutzer einen Computerneustart verschieben können, sofern dieser nach der Installation des Endpoint Protection-Clients erforderlich ist. Diese Option kann nur dann konfiguriert werden, wenn für die Option **Erforderliche Neustarts nach der Installation des Endpoint Protection-Clients unterdrücken** die Einstellung **Falsch** festgelegt wird.  
 
--   **Désactiver les autres sources (comme Microsoft Windows Update, Microsoft Windows Server Update Services ou les partages UNC) pour la mise à jour initiale des définitions sur les ordinateurs clients**  
+-   **Disable alternate sources (like Windows Update, Microsoft Windows Server Update Services, or UNC shares) for the initial definition update on client computers** (Alternative Quellen (wie z.B. Windows Update, Microsoft Windows Server Update Services oder UNC-Freigaben) für das erste Definitionsupdate auf Clientcomputern deaktivieren)  
 
-     Choisissez **Vrai** ou **Oui** si vous souhaitez que Configuration Manager installe uniquement la mise à jour de définition initiale sur les ordinateurs clients. Ce paramètre peut s'avérer pratique pour éviter les connexions réseau inutiles et réduire la bande passante réseau pendant l'installation initiale de la mise à jour de définition.  
+     Wählen Sie **Wahr** oder **Ja** aus, wenn durch Configuration Manager nur das erste Definitionsupdate auf Clientcomputern installiert werden soll. Diese Einstellung kann hilfreich sein, um bei der ersten Installation des Definitionsupdates überflüssige Netzwerkverbindungen zu vermeiden und die Auslastung der Netzwerkbandbreite zu verringern.  
 
-##  <a name="hardware-inventory"></a>Inventaire matériel  
+##  <a name="hardware-inventory"></a>Hardwareinventur  
 
--   **Taille maximale du fichier MIF personnalisé (Ko)**  
+-   **Maximale benutzerdefinierte MIF-Dateigröße (KB)**  
 
-     Spécifiez la taille maximale, en kilo-octets, autorisée pour chaque fichier Management Information Format (MIF) personnalisé qui sera collecté sur un client lors d’un cycle d’inventaire matériel. Si des fichiers MIF dépassent cette taille, l’inventaire matériel de Configuration Manager ne les traite pas. Vous pouvez spécifier une taille comprise entre 1 et 5 000 Ko. Par défaut, cette valeur est définie à 250 Ko. Ce paramètre n'affecte pas la taille du fichier de données d'inventaire matériel ordinaire.  
-
-    > [!NOTE]  
-    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut.  
-
--   **Classes d'inventaire matériel**  
-
-     Dans Configuration Manager, vous pouvez étendre les informations matérielles que vous recueillez auprès de clients sans modifier manuellement le fichier sms_def.mof. Choisissez **Définir des classes** pour étendre l’inventaire matériel de Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
-
--   **Collecter des fichiers MIF**  
-
-     Utilisez ce paramètre pour spécifier si vous souhaitez collecter des fichiers MIF à partir de clients Configuration Manager pendant l’inventaire matériel.  
-
-     Pour qu’un fichier MIF soit collecté par un inventaire matériel, il doit se trouver à l’emplacement approprié sur l’ordinateur client. Par défaut, les fichiers se trouvent aux emplacements suivants :  
-
-    -   Les fichiers IDMIF doivent être dans le dossier Windows\System32\CCM\Inventory\Idmif.  
-
-    -   Les fichiers NOIDMIF doivent être dans le dossier Windows\System32\CCM\Inventory\Noidmif.  
+     Geben Sie die maximale zulässige Größe (in Kilobytes) einer einzelnen benutzerdefinierten MIF-Datei (Management Information Format) an, die auf einem Client während eines Hardwareinventurzyklus gesammelt wird. Wenn eine MIF-Datei diese Größe überschreitet, wird sie von der Configuration Manager-Hardwareinventur nicht verarbeitet. Sie können eine Größe von 1 bis 5.000 KB angeben. Standardmäßig ist diese Option auf 250 KB festgelegt. Diese Einstellung wirkt sich nicht auf die Größe der regulären Hardwareinventur-Datendatei aus.  
 
     > [!NOTE]  
-    >  Ce paramètre est disponible uniquement dans les paramètres client par défaut.
+    >  Diese Einstellung ist nur in den Clientstandardeinstellungen verfügbar.  
 
--   **Délai aléatoire maximal**
+-   **Hardwareinventurklassen**  
 
-    La collecte d’informations matérielles s’effectue dans un délai aléatoire pouvant atteindre quatre heures. L’opération n’a donc pas lieu simultanément sur tous les clients. Vous pouvez définir le délai maximal pour limiter la durée pendant laquelle l’opération a lieu.      
+     In Configuration Manager können Sie die von Clients gesammelten Hardwareinformationen ohne manuelles Editieren der Datei sms_def.mof erweitern. Wählen Sie **Klassen festlegen** aus, wenn Sie die Configuration Manager-Hardwareinventur erweitern möchten. Weitere Informationen finden Sie unter [How to configure hardware inventory in System Center Configuration Manager (Konfigurieren der Hardwareinventur in System Center Configuration Manager)](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
 
-##  <a name="metered-internet-connections"></a>Connexions Internet facturées à l’usage  
- Vous pouvez gérer la manière dont les ordinateurs clients Windows 8 communiquent avec les sites Configuration Manager quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+-   **MIF-Dateien sammeln**  
+
+     Mit dieser Einstellung können Sie angeben, ob bei der Hardwareinventur MIF-Dateien von Configuration Manager-Clients gesammelt werden sollen.  
+
+     Damit eine MIF-Datei durch die Hardwareinventur gesammelt werden kann, muss sie sich im korrekten Verzeichnis auf dem Clientcomputer befinden. Standardmäßig befinden sich die Dateien in folgenden Verzeichnissen:  
+
+    -   IDMIF-Dateien sollten sich im Ordner „Windows\System32\CCM\Inventory\Idmif“ befinden.  
+
+    -   NOIDMIF-Dateien sollten sich im Ordner „Windows\System32\CCM\Inventory\Noidmif“ befinden.  
+
+    > [!NOTE]  
+    >  Diese Einstellung ist nur in den Clientstandardeinstellungen verfügbar.
+
+-   **Maximale zufällige Verzögerung**
+
+    Die Sammlung von Hardwareinformationen wird um bis zu vier Stunden zufällig festgelegt, damit der Vorgang nicht auf allen Clients gleichzeitig stattfindet. Sie können die maximale Verzögerung festlegen, um die Zeit zu beschränken, während der Vorgang durchgeführt wird.      
+
+##  <a name="metered-internet-connections"></a>Getaktete Internetverbindungen  
+ Sie können die Kommunikation zwischen Windows 8-Clientcomputern und Configuration Manager-Standorten verwalten, sofern getaktete Internetverbindungen verwendet werden. Bei getakteten Internetverbindungen berechnen einige Internetanbieter die anfallenden Gebühren anhand der Datenmenge, die Sie senden und empfangen.  
 
 > [!NOTE]  
->  Le paramètre client configuré n'est pas appliqué aux ordinateurs clients Windows 8 dans les scénarios suivants :  
+>  Die konfigurierte Clienteinstellung wird in den folgenden Fällen nicht auf Windows 8-Clientcomputer angewendet:  
 >   
-> -   L’ordinateur se trouve sur une connexion de données itinérante : le client Configuration Manager n’exécute aucune tâche nécessitant le transfert de données vers des sites Configuration Manager.  
-> -   Les propriétés de la connexion réseau Windows sont configurées pour une connexion non facturée à l’usage : le client Configuration Manager se comporte comme s’il existait une connexion Internet non facturée à l’usage et transfère donc les données vers les sites Configuration Manager.  
+> -   Der Computer befindet sich in einer Roamingdatenverbindung: Vom Configuration Manager-Client werden keine Vorgänge ausgeführt, bei denen Daten an Configuration Manager-Standorte übertragen werden müssen.  
+> -   Die Eigenschaften der Windows-Netzwerkverbindung sind als nicht getaktet konfiguriert: Die Daten werden vom Configuration Manager-Client wie bei nicht getakteten Internetverbindungen an die Configuration Manager-Standorte übertragen.  
 
--   **Communication des clients sur des connexions Internet facturées à l’usage**  
+-   **Clientkommunikation über getaktete Internetverbindungen**  
 
-     Dans la liste déroulante, choisissez une des valeurs suivantes pour les ordinateurs clients Windows 8 :  
+     Wählen Sie in der Dropdownliste eine der folgenden Optionen für Windows 8-Clientcomputer aus:  
 
-    -   **Autoriser**: toutes les communications client sont autorisées via la connexion Internet facturée à l’usage, sauf si l’appareil client utilise une connexion de données itinérante.  
+    -   **Zulassen**: Die gesamte Clientkommunikation kann über die getaktete Internetverbindung stattfinden, es sei denn, vom Clientgerät wird eine Roamingdatenverbindung verwendet.  
 
-    -   **Limite**: seules les communications client suivantes sont autorisées via la connexion Internet facturée à l’usage :  
+    -   **Grenzwert**: Nur die folgende Clientkommunikation ist über die getaktete Internetverbindung zulässig:  
 
-        -   Récupération de stratégie client  
+        -   Clientrichtlinienabruf  
 
-        -   Messages d'état du client à envoyer au site  
+        -   An den Standort zu sendende Meldungen zum Clientzustand  
 
-        -   Demandes d'installation de logiciels à l'aide du catalogue des applications  
+        -   Softwareinstallationsanforderungen über den Anwendungskatalog  
 
-        -   Déploiements requis (lorsque la date limite d'installation est atteinte)  
+        -   Erforderliche Bereitstellungen (bei Erreichen des Installationsstichtags)  
 
         > [!IMPORTANT]  
-        >  Si un utilisateur lance l'installation d'un logiciel à partir du Centre logiciel ou du catalogue des applications, celle-ci est toujours autorisée, quels que soient les paramètres de la connexion Internet facturée à l'usage.  
+        >  Softwareinstallationen, die von einem Benutzer über das Softwarecenter oder den Anwendungskatalog initiiert werden, sind unabhängig von den Einstellungen der getakteten Internetverbindung stets zulässig.  
 
-         Si la limite de transfert de données est atteinte pour la connexion Internet facturée à l’usage, le client n’essaie plus de communiquer avec les sites Configuration Manager.  
+         Wenn das Datenübertragungslimit der getakteten Internetverbindung erreicht wurde, wird vom Client nicht mehr versucht, mit Configuration Manager-Standorten zu kommunizieren.  
 
-    -   **Bloc** : le client Configuration Manager n’essaie pas de communiquer avec les sites Configuration Manager quand il est sur une connexion Internet limitée. Il s'agit de la valeur par défaut.  
+    -   **Blockieren**: Vom Configuration Manager-Client wird nicht versucht, mit Configuration Manager-Standorten zu kommunizieren, wenn eine getaktete Internetverbindung vorliegt. Dies ist der Standardwert.  
 
-##  <a name="power-management"></a>Gestion de l'alimentation  
+##  <a name="power-management"></a>Energieverwaltung  
 
--   **Autoriser les utilisateurs à exclure leur appareil de la gestion de l'alimentation**  
+-   **Benutzern das Ausschließen ihres Geräts aus der Energieverwaltung gestatten**  
 
-     Dans la liste déroulante, choisissez **Vrai** ou **Oui** pour permettre aux utilisateurs du Centre logiciel d’exclure leur ordinateur des paramètres de gestion de l’alimentation configurés.  
+     Wählen Sie in der Dropdownliste **Wahr** oder **Ja** aus, damit Softwarecenter-Benutzer ihre Computer von den konfigurierten Energieverwaltungseinstellungen ausschließen können.  
 
--   **Autoriser le proxy de mise en éveil**  
+-   **Aktivierungsproxy zulassen**  
 
-     Spécifiez **Oui** pour compléter le paramètre d'éveil par appel réseau du site lorsqu'il est configuré pour les paquets monodiffusion.  
+     Geben Sie **Ja** an, um die Wake-On-LAN-Einstellung des Standorts zu ergänzen, wenn diese für Unicastpakete konfiguriert ist.  
 
-     Pour plus d’informations sur le proxy de mise en éveil, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+     Weitere Informationen zum Aktivierungsproxy finden Sie unter [Plan how to wake up clients in System Center Configuration Manager (Planen der Aktivierung von Clients in System Center Configuration Manager)](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
 
     > [!WARNING]  
-    >  N'activez pas le proxy de mise en éveil dans un réseau de production sans d'abord comprendre comment il fonctionne et l'évaluer dans un environnement de test.  
+    >  Machen Sie sich mit der Funktionsweise eines Aktivierungsproxys vertraut, und bewerten Sie ihn in einer Testumgebung, bevor Sie ihn in einem Produktionsnetzwerk aktivieren.  
 
--   **Numéro de port du proxy de mise en éveil (UDP)**  
+-   **Portnummer für Aktivierungsproxy (UDP)**  
 
-     Conservez la valeur par défaut pour le numéro de port que les ordinateurs gérés utilisent pour envoyer des paquets de mise en éveil aux ordinateurs en veille. Vous pouvez aussi la remplacer par la valeur de votre choix.  
+     Übernehmen Sie den Standardwert für die Portnummer, über die Aktivierungspakete von Manager-Computern an Computer im Energiesparmodus gesendet werden. Sie können die Nummer auch durch einen beliebigen Wert ersetzen.  
 
-     Le numéro de port indiqué ici est configuré automatiquement pour les clients qui exécutent le Pare-feu Windows quand vous utilisez l’option **Exception du Pare-feu Windows pour le proxy de mise en éveil**. Si les clients exécutent un autre pare-feu, vous devez le configurer manuellement pour qu'il autorise le numéro de port UDP spécifié pour ce paramètre.  
+     Die hier angegebene Portnummer wird automatisch für Clients konfiguriert, auf denen Windows-Firewall ausgeführt wird, wenn Sie die Option **Windows-Firewall-Ausnahme für Aktivierungsproxy** verwenden. Falls auf Clients eine andere Firewall ausgeführt wird, müssen Sie diese manuell so konfigurieren, dass die für diese Einstellung angegebene UDP-Portnummer zugelassen wird.  
 
--   **Numéro de port Wake On LAN (UDP)**  
+-   **Wake-On-LAN-Portnummer (UDP)**  
 
-     Conservez la valeur par défaut (9), sauf si vous avez modifié le numéro du port Wake On LAN (UDP) sous l’onglet **Ports**des **Propriétés** du site.  
-
-    > [!IMPORTANT]  
-    >  Ce numéro doit correspondre au numéro figurant dans les **Propriétés**du site. Si vous modifiez ce numéro dans un seul emplacement, sachez qu’il n’est pas actualisé automatiquement dans l’autre emplacement.  
-
-##  <a name="remote-tools"></a>outils de contrôle à distance.  
-
--   **Activer le contrôle à distance sur des clients** et **Profils d'exception de pare-feu**  
-
-     Indiquez si le contrôle à distance Configuration Manager est activé pour tous les ordinateurs clients qui reçoivent ces paramètres client. Choisissez **Configurer** pour activer le contrôle à distance. Vous pouvez éventuellement configurer les paramètres du pare-feu pour autoriser le contrôle à distance sur des ordinateurs clients.  
-
-     Le contrôle à distance est désactivé par défaut.  
+     Behalten Sie den Standardwert 9 bei, es sei denn, Sie haben die Wake-On-LAN-Portnummer (UDP) in den **Eigenschaften** des Standorts auf der Registerkarte **Ports** geändert.  
 
     > [!IMPORTANT]  
-    >  Si les paramètres de pare-feu ne sont pas configurés, le contrôle à distance risque de ne pas fonctionner correctement.  
+    >  Dieser Wert muss mit dem Wert in den **Eigenschaften**des Standorts übereinstimmen. Wenn Sie den Wert an einem Ort ändern, wird er am anderen Ort nicht automatisch aktualisiert.  
 
--   **Les utilisateurs peuvent modifier les paramètres de stratégie ou de notification dans le Centre logiciel**  
+##  <a name="remote-tools"></a>Remotetools  
 
-     Indiquez si les utilisateurs peuvent modifier les options de contrôle à distance à partir du Centre logiciel.  
+-   **Remotesteuerung auf Clients aktivieren** mit der Beschreibung **Firewallausnahmeprofile**  
 
--   **Autoriser le contrôle à distance d'un ordinateur autonome**  
+     Wählen Sie aus, ob die Configuration Manager-Remotesteuerung für alle Clientcomputer aktiviert wird, die diese Clienteinstellungen erhalten. Wählen Sie **Konfigurieren** aus, um die Remotesteuerung zu aktivieren. Konfigurieren Sie optional die Firewall-Einstellungen zum Zulassen der Remotesteuerung auf Clientcomputern.  
 
-     Indiquez si un administrateur peut utiliser le contrôle à distance pour accéder à un ordinateur client qui est déconnecté ou verrouillé. Seul un ordinateur connecté et déverrouillé peut être contrôlé à distance quand ce paramètre est désactivé.  
-
--   **Inviter l'utilisateur à autoriser le contrôle à distance**  
-
-     Indiquez si l’ordinateur client affichera un message demandant l’autorisation de l’utilisateur avant qu’il n’autorise une session de contrôle à distance.  
-
--   **Accorder l'autorisation de contrôle à distance au groupe Administrateurs local**  
-
-     Indiquez si les administrateurs locaux sur le serveur qui lance la connexion de contrôle à distance peuvent établir des sessions de contrôle à distance vers des ordinateurs client.  
-
--   **Niveau d'accès autorisé**  
-
-     Spécifiez le niveau d'accès de contrôle à distance autorisé. Vous pouvez choisir :  
-
-    -   Contrôle intégral  
-
-    -   Afficher uniquement  
-
-    -   aucune.  
-
--   **Observateurs autorisés**  
-
-     Choisissez **Définir des observateurs** pour ouvrir la boîte de dialogue **Configurer le paramètre client** et spécifiez les noms des utilisateurs Windows qui peuvent établir des sessions de contrôle à distance vers des ordinateurs client.  
-
--   **Afficher l'icône de notification de session sur la barre des tâches**  
-
-     Choisissez cette option pour afficher une icône sur la barre des tâches d’ordinateurs client pour indiquer qu’une session de contrôle à distance est active.  
-
--   **Afficher la barre de connexion de session**  
-
-     Choisissez cette option pour afficher une barre de connexion de session de haute visibilité sur les ordinateurs client pour indiquer qu’une session de contrôle à distance est active.  
-
--   **Émettre un signal sonore sur le client**  
-
-     Choisissez cette option afin d’utiliser le son pour indiquer qu’une session de contrôle à distance est active sur un ordinateur client. Vous pouvez émettre un son lorsque la session se connecte ou se déconnecte ou vous pouvez émettre un son à plusieurs reprises pendant la session.  
-
--   **Gérer les paramètres de l'Assistance à distance non sollicités**  
-
-     Choisissez cette option pour autoriser Configuration Manager à gérer les sessions d’assistance à distance non sollicitées.  
-
-     Dans une session d’assistance à distance non sollicitée, l’utilisateur de l’ordinateur client n’effectue pas une demande d’assistance pour lancer la session.  
-
--   **Gérer les paramètres de l'Assistance à distance sollicités**  
-
-     Choisissez cette option pour autoriser Configuration Manager à gérer les sessions d’assistance à distance sollicitées.  
-
-     Dans une session d’assistance à distance sollicitée, l’utilisateur de l’ordinateur client envoie une demande d’assistance à distance à l’administrateur.  
-
--   **Niveau d'accès de l'Assistance à distance**  
-
-     Choisissez le niveau d’accès à attribuer aux sessions d’assistance à distance lancées à partir de la console Configuration Manager.  
-
-    > [!NOTE]  
-    >  L'utilisateur de l'ordinateur client doit toujours autoriser l'ouverture d'une session d'assistance à distance.  
-
--   **Gérer les paramètres du Bureau à distance**  
-
-     Choisissez cette option pour autoriser Configuration Manager à gérer les sessions Bureau à distance des ordinateurs.  
-
--   **Autoriser la connexion des observateurs autorisés à l'aide d'une connexion Bureau à distance**  
-
-     Choisissez cette option pour permettre aux utilisateurs spécifiés dans la liste des observateurs autorisés d’être ajoutés au groupe d’utilisateurs locaux Bureau à distance sur les ordinateurs clients.  
-
--   **Exiger l'authentification au niveau du réseau sur les ordinateurs exécutant le système d'exploitation Windows Vista et versions ultérieures**  
-
-     Choisissez cette option plus sécurisée si vous souhaitez utiliser l’authentification au niveau du réseau pour établir des connexions Bureau à distance avec les ordinateurs clients qui exécutent Windows Vista ou une version ultérieure. L’authentification au niveau du réseau nécessite au départ moins de ressources d’ordinateur distant, car l’authentification des utilisateurs se termine avant l’établissement de la connexion Bureau à distance. Cette méthode est plus sûre, car elle contribue à protéger l'ordinateur des utilisateurs et logiciels malveillants, et réduit le risque d'attaque par déni de service.  
-
-## <a name="software-deployment"></a>Déploiement logiciel  
-
--   **Planifier la réévaluation des déploiements**  
-
-     Configurez une planification pour la réévaluation des règles de spécifications par Configuration Manager pour tous les déploiements. La valeur par défaut est tous les 7 jours.  
+     Die Remotesteuerung ist standardmäßig deaktiviert.  
 
     > [!IMPORTANT]  
-    >  Nous vous recommandons de ne pas choisir une valeur inférieure à la valeur par défaut, car vous risqueriez d’affecter négativement les performances du réseau et des ordinateurs clients.  
+    >  Wenn die Firewall-Einstellungen nicht konfiguriert werden, funktioniert die Remotesteuerung möglicherweise nicht ordnungsgemäß.  
 
-     Vous pouvez également lancer cette action à partir d’un ordinateur client Configuration Manager en choisissant l’action **Cycle d’évaluation du déploiement de l’application** sous l’onglet **Actions** de **Configuration Manager** dans le Panneau de configuration.  
+-   **Benutzer können Richtlinien- oder Benachrichtigungseinstellungen im Softwarecenter ändern**  
 
-##  <a name="software-inventory"></a>Inventaire logiciel  
+     Wählen Sie aus, ob Benutzer die Remotesteuerungsoptionen im Softwarecenter ändern können.  
 
--   **Détails sur le rapport d'inventaire**  
+-   **Remotesteuerung eines unbeaufsichtigten Computers zulassen**  
 
-     Spécifiez le niveau d'informations sur les fichiers à inventorier. Vous pouvez inventorier des informations sur un fichier, sur le produit associé au fichier ou toutes les informations sur le fichier.  
+     Wählen Sie aus, ob ein Administrator die Remotesteuerung verwenden kann, um auf einen abgemeldeten oder gesperrten Computer zuzugreifen. Wenn diese Option deaktiviert ist, können nur angemeldete und nicht gesperrte Computer remote gesteuert werden.  
 
--   **Inventorier ces types de fichiers**  
+-   **Benutzer zur Vergabe der Berechtigung für Remotesteuerung auffordern**  
 
-     Si vous souhaitez spécifier les types de fichiers à inventorier, choisissez **Définir des types**, puis configurez les options suivantes dans la boîte de dialogue **Configurer le paramètre client** :  
+     Wählen Sie aus, ob vom Clientcomputer eine Meldung angezeigt werden soll, in der die Erlaubnis des Benutzers angefordert wird, bevor eine Remotesitzung zugelassen wird.  
+
+-   **Der lokalen Administratorgruppe Berechtigung zur Remotesteuerung gewähren**  
+
+     Wählen Sie aus, ob lokale Administratoren auf dem Server, von dem die Remotesteuerungsverbindung initiiert wurde, Remotesteuerungssitzungen auf Clientcomputern herstellen können.  
+
+-   **Zulässige Zugriffsstufe**  
+
+     Geben Sie die zulässige Zugriffsstufe für die Remotesteuerung an. Es gibt folgende Auswahlmöglichkeiten:  
+
+    -   Vollzugriff  
+
+    -   Nur anzeigen  
+
+    -   Keine  
+
+-   **Zugelassene Viewer**  
+
+     Wählen Sie **Betrachter festlegen** aus, um das Dialogfeld **Clienteinstellung konfigurieren** zu öffnen, und geben Sie die Namen der Windows-Benutzer an, die Remotesteuerungssitzungen auf Clientcomputern herstellen können.  
+
+-   **Benachrichtigungssymbol für Sitzung auf Taskleiste anzeigen**  
+
+     Wählen Sie diese Option aus, um ein Symbol auf der Taskleiste von Clientcomputern anzuzeigen, mit dem angegeben wird, dass eine Remotesteuerungssitzung aktiv ist.  
+
+-   **Sitzungsverbindungsleiste anzeigen**  
+
+     Wählen Sie diese Option aus, um eine deutlich sichtbare Sitzungsverbindungsleiste auf Clientcomputern anzuzeigen, mit der angegeben wird, dass eine Remotesteuerungssitzung aktiv ist.  
+
+-   **Sound auf Client wiedergeben**  
+
+     Wählen Sie diese Option aus, damit über einen Sound angegeben wird, dass eine Remotesteuerungssitzung auf einem Clientcomputer aktiv ist. Sie können einen Sound wiedergeben, wenn die Sitzung hergestellt oder getrennt wird. Weiterhin können Sie einen Sound auch wiederholt während der Sitzung wiedergeben.  
+
+-   **Einstellungen für nicht angeforderte Remoteunterstützung verwalten**  
+
+     Wählen Sie diese Option aus, um die Verwaltung nicht angeforderter Remoteunterstützungssitzungen durch Configuration Manager zuzulassen.  
+
+     Bei nicht angeforderten Remoteunterstützungssitzungen hat der Benutzer am Clientcomputer zum Initiieren einer Sitzung keine Unterstützung angefordert.  
+
+-   **Einstellungen für angeforderte Remoteunterstützung verwalten**  
+
+     Wählen Sie diese Option aus, um die Verwaltung angeforderter Remoteunterstützungssitzungen durch Configuration Manager zuzulassen.  
+
+     Bei angeforderten Remoteunterstützungssitzungen hat der Benutzer am Clientcomputer zum Initiieren einer Sitzung Unterstützung angefordert.  
+
+-   **Zugriffsstufe für Remoteunterstützung**  
+
+     Wählen Sie die Zugriffsstufe für Remoteunterstützungssitzungen aus, die über die Configuration Manager-Konsole initiiert werden.  
 
     > [!NOTE]  
-    >  Si plusieurs paramètres client personnalisés sont appliqués à un ordinateur, l’inventaire retourné par chaque paramètre est fusionné.  
+    >  Vor jeder Remoteunterstützungssitzung muss der Benutzer am Clientcomputer dafür die Berechtigung gewähren.  
 
-    -   Choisissez l’icône **Nouveau** pour ajouter un nouveau type de fichier à l’inventaire. Ensuite, spécifiez les informations suivantes dans la boîte de dialogue **Propriétés du fichier inventorié** :  
+-   **Einstellungen für Remotedesktop verwalten**  
 
-        -   **Nom** : définissez le nom du fichier à inventorier. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n'importe quel caractère. Par exemple, si vous souhaitez inventorier tous les fichiers portant l’extension .doc, spécifiez le nom de fichier **\*.doc**.  
+     Wählen Sie diese Option aus, um die Verwaltung von Remotedesktopsitzungen für Computer durch Configuration Manager zuzulassen.  
 
-        -   **Emplacement** : choisissez **Définir** pour ouvrir la boîte de dialogue **Propriétés du chemin d’accès**. Vous pouvez configurer l’inventaire logiciel pour rechercher le fichier défini sur tous les disques durs des clients, effectuer une recherche dans un chemin donné (tel que **C:\Dossier**) ou rechercher une variable (telle que *%windir%*). Vous pouvez également exécuter une recherche dans tous les sous-dossiers du chemin indiqué.  
+-   **Zugelassenen Betrachtern das Herstellen einer Verbindung über Remotedesktopverbindung erlauben**  
 
-        -   **Exclure les fichiers chiffrés et compressés** : quand vous choisissez cette option, tous les fichiers qui ont été compressés ou chiffrés ne sont pas inventoriés.  
+     Wählen Sie diese Option aus, um das Hinzufügen von Benutzern, die in der Liste der zugelassenen Betrachter angegeben sind, zur lokalen Remotedesktop-Benutzergruppe auf Clientcomputern zuzulassen.  
 
-        -   **Exclure des fichiers dans le dossier Windows** : quand vous choisissez cette option, tous les fichiers dans le dossier Windows et ses sous-répertoires ne sont pas inventoriés.  
+-   **Bei Computern mit Windows Vista oder höher Authentifizierung auf Netzwerkebene verlangen**  
 
-    -   Choisissez **OK** pour fermer la boîte de dialogue **Propriétés du fichier inventorié**.  
+     Wählen Sie diese sicherere Option aus, wenn Sie die Authentifizierung auf Netzwerkebene für das Herstellen von Remotedesktopverbindungen zu Clientcomputern verwenden möchten, auf denen Windows Vista oder höher ausgeführt wird. Für die Authentifizierung auf Netzwerkebene werden anfangs weniger Remotecomputerressourcen verbraucht, da die Benutzerauthentifizierung abgeschlossen ist, bevor eine Remotedesktopverbindung hergestellt wird. Diese Methode ist sicherer, da hierdurch der Computer vor böswilligen Benutzern oder Schadsoftware besser geschützt werden kann und das Risiko von DoS-Angriffen verringert wird.  
 
-    -   Ajoutez tous les fichiers à inventorier et choisissez **OK** pour fermer la boîte de dialogue **Configurer le paramètre client**.  
+## <a name="software-deployment"></a>Softwarebereitstellung  
 
--   **Collecter des fichiers**  
+-   **Erneute Auswertung für Bereitstellungen planen**  
 
-     Si vous souhaitez collecter des fichiers stockés sur les ordinateurs clients, choisissez **Définir des fichiers**, puis configurez les options suivantes :  
+     Konfigurieren Sie einen Zeitplan für die Neuauswertung der Anforderungsregeln für alle Bereitstellungen durch Configuration Manager. Der Standardwert ist 7 Tage.  
+
+    > [!IMPORTANT]  
+    >  Es wird empfohlen, diesen Wert nicht auf einen niedrigeren Wert als den Standardwert zu ändern. Dies könnte sich negativ auf die Leistung des Netzwerks und der Clientcomputer auswirken.  
+
+     Sie können diese Aktion auch auf einem Configuration Manager-Clientcomputer initiieren, indem Sie in der Systemsteuerung im Modul **Configuration Manager** auf der Registerkarte **Aktionen** die Aktion **Evaluationszyklus für die Anwendungsbereitstellung** auswählen.  
+
+##  <a name="software-inventory"></a>Softwareinventur  
+
+-   **Inventurberichtsdetail**  
+
+     Geben Sie die Ebene der zu inventarisierenden Dateiinformationen an. Sie können Details zu der Datei, Details zu dem mit der Datei verknüpften Produkt oder alle Informationen zur Datei inventarisieren.  
+
+-   **Diese Dateitypen inventarisieren**  
+
+     Wenn Sie die Typen der zu inventarisierenden Dateien festlegen möchten, wählen Sie **Typen festlegen...** aus, und konfigurieren Sie dann im Dialogfeld **Clienteinstellung konfigurieren** die folgenden Einstellungen:  
 
     > [!NOTE]  
-    >  Si plusieurs paramètres client personnalisés sont appliqués à un ordinateur, l’inventaire retourné par chaque paramètre est fusionné.  
+    >  Wenn mehr als eine benutzerdefinierte Clienteinstellung auf einen Computer angewendet wurde, werden die von allen Einstellungen zurückgegebenen Inventare zusammengeführt.  
 
-    -   Dans la boîte de dialogue **Configurer le paramètre client**, choisissez l’icône **Nouveau** pour ajouter un fichier à collecter.  
+    -   Wählen Sie das Symbol **Neu** aus, um einen neuen Dateityp zum Inventar hinzuzufügen. Geben Sie anschließend im Dialogfeld **Eigenschaften für inventarisierte Datei(en)** die folgenden Informationen an:  
 
-    -   Dans la boîte de dialogue **Propriétés du fichier collecté** , fournissez les informations suivantes :  
+        -   **Name**: Geben Sie einen Namen für die Datei an, die Sie inventarisieren möchten. Sie können das Sternchen (*\**) stellvertretend für eine beliebige Textzeichenfolge und das Fragezeichen (**?** ) stellvertretend für ein beliebiges einzelnes Zeichen angeben. Geben Sie als Dateinamen z.B. **\*.doc** an, um alle Dateien mit der Erweiterung „.doc“ zu inventarisieren.  
 
-        -   **Nom** : définissez le nom du fichier à collecter. Vous pouvez utiliser le caractère **\** pour représenter une chaîne de texte et le caractère **?** pour représenter n'importe quel caractère.  
+        -   **Ort**: Wählen Sie **Festlegen** aus, um das Dialogfeld **Pfadeigenschaften** zu öffnen. Sie können die Softwareinventur so konfigurieren, dass alle Clientfestplatten nach der angegebenen Datei, nach einem angegebenen Pfad (z.B. **C:\Ordner**) oder nach einer angegebenen Variablen (z.B. *%windir%*) durchsucht werden. Sie können auch alle Unterordner unter dem angegebenen Pfad durchsuchen.  
 
-        -   **Emplacement** : choisissez **Définir** pour ouvrir la boîte de dialogue **Propriétés du chemin d’accès**. Vous pouvez configurer l’inventaire logiciel pour rechercher le fichier à collecter sur tous les disques durs des clients, effectuer une recherche dans un chemin donné (tel que **C:\Dossier**) ou rechercher une variable (telle que *%windir%*). Vous pouvez également exécuter une recherche dans tous les sous-dossiers du chemin indiqué.  
+        -   **Verschlüsselte und komprimierte Dateien ausschließen**: Wenn Sie diese Option aktivieren, werden alle komprimierten oder verschlüsselten Dateien nicht inventarisiert.  
 
-        -   **Exclure les fichiers chiffrés et compressés** : quand vous choisissez cette option, tous les fichiers qui ont été compressés ou chiffrés ne sont pas collectés.  
+        -   **Dateien im Windows-Ordner ausschließen**: Wenn Sie diese Option aktivieren, werden alle Dateien im Windows-Ordner und seinen Unterordnern nicht inventarisiert.  
 
-        -   **Arrêter le regroupement de fichiers lorsque la taille totale dépasse (Ko)** : définissez la taille de fichier (en kilo-octets) au-delà de laquelle aucun autre des fichiers définis sous **Nom** ne sera collecté.  
+    -   Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften für inventarisierte Datei(en)** zu schließen.  
+
+    -   Fügen Sie alle zu inventarisierenden Dateien hinzu, und wählen Sie dann **OK** aus, um das Dialogfeld **Clienteinstellung konfigurieren** zu schließen.  
+
+-   **Dateien sammeln**  
+
+     Wenn Sie Dateien von Clientcomputern sammeln möchten, wählen Sie **Dateien festlegen** aus, und konfigurieren Sie dann Folgendes:  
+
+    > [!NOTE]  
+    >  Wenn mehr als eine benutzerdefinierte Clienteinstellung auf einen Computer angewendet wurde, werden die von allen Einstellungen zurückgegebenen Inventare zusammengeführt.  
+
+    -   Wählen Sie im Dialogfeld **Clienteinstellung konfigurieren** das Symbol **Neu** aus, um eine zu sammelnde Datei hinzuzufügen.  
+
+    -   Geben Sie im Dialogfeld **Eigenschaften für gesammelte Datei(en)** die folgenden Informationen an:  
+
+        -   **Name**: Geben Sie einen Namen für die Datei an, die Sie sammeln möchten. Sie können das Sternchen (*\**) stellvertretend für eine beliebige Textzeichenfolge und das Fragezeichen (**?** ) stellvertretend für ein beliebiges einzelnes Zeichen angeben.  
+
+        -   **Ort**: Wählen Sie **Festlegen** aus, um das Dialogfeld **Pfadeigenschaften** zu öffnen. Sie können die Softwareinventur so konfigurieren, dass alle Clientfestplatten nach der zu sammelnden Datei, nach einem angegebenen Pfad (z.B. **C:\Ordner**) oder nach einer angegebenen Variable (z.B. *%windir%*) durchsucht werden. Sie können auch alle Unterordner unter dem angegebenen Pfad durchsuchen.  
+
+        -   **Verschlüsselte und komprimierte Dateien ausschließen**: Wenn Sie diese Option auswählen, werden keine komprimierten oder verschlüsselten Dateien gesammelt.  
+
+        -   **Dateisammlung beenden, wenn die Gesamtgröße der Dateien folgenden Wert (KB) überschreitet**: Geben Sie die Dateigröße (in KB) an, ab der keine der unter **Name** angegebenen Dateien mehr gesammelt wird.  
 
           > [!NOTE]  
-          >  Le serveur de site collecte les cinq dernières versions modifiées des fichiers collectés et les enregistre dans le répertoire *&lt;répertoire_installation_ConfigMgr\>*\Inboxes\Sinv.box\Filecol. Si un fichier n'a pas été modifié depuis le dernier inventaire logiciel, il n'est pas recollecté.  
+          >  Die fünf zuletzt geänderten Versionen von gesammelten Dateien werden vom Standortserver gesammelt und im Verzeichnis *&lt;ConfigMgr-Installationsverzeichnis\>*\Inboxes\Sinv.box\Filecol gespeichert. Wenn eine Datei seit der letzten Softwareinventursammlung nicht geändert wurde, wird die Datei nicht noch einmal gesammelt.  
           >   
-          >  L’inventaire logiciel ne collecte pas les fichiers de plus de 20 Mo.  
+          >  Dateien mit mehr als 20 MB werden von der Softwareinventur nicht gesammelt.  
           >   
-          >  La valeur **Taille maximale pour tous les fichiers regroupés (Ko)** dans la boîte de dialogue **Configurer le paramètre client** indique la taille maximale de tous les fichiers collectés. Lorsque cette taille est atteinte, la collecte de fichiers s'arrête. Tous les fichiers déjà regroupés sont conservés et envoyés au serveur de site.  
+          >  Im Dialogfeld **Clienteinstellung konfigurieren** wird mit dem Wert **Maximale Größe aller gesammelten Dateien (KB)** die maximale Größe für alle gesammelten Dateien angezeigt. Wenn diese Größe erreicht ist, wird die Dateisammlung beendet. Alle bereits gesammelten Dateien werden beibehalten und an den Standortserver gesendet.  
 
           > [!IMPORTANT]
-          >  Si vous configurez l'inventaire logiciel pour regrouper un grand nombre de fichiers volumineux, vous risquez d'affecter négativement les performances du serveur de site et du réseau.  
+          >  Wenn Sie die Softwareinventur so konfigurieren, dass viele große Dateien gesammelt werden, kann sich dies nachteilig auf die Leistung des Netzwerks und Standortservers auswirken.  
 
-        Pour plus d’informations sur l’affichage des fichiers collectés, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
+        Informationen zum Anzeigen gesammelter Dateien finden Sie unter [How to use Resource Explorer to view software inventory in System Center Configuration Manager (Verwenden von Ressourcen-Explorer zum Anzeigen des Softwarebestands in System Center Configuration Manager)](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
 
-    -   Choisissez **OK** pour fermer la boîte de dialogue **Propriétés du fichier collecté**.  
+    -   Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften für gesammelte Datei(en)** zu schließen.  
 
-    -   Ajoutez tous les fichiers à collecter, puis choisissez **OK** pour fermer la boîte de dialogue **Configurer le paramètre client**.  
+    -   Fügen Sie alle zu sammelnden Dateien hinzu, und klicken Sie dann auf **OK**, um das Dialogfeld **Clienteinstellung konfigurieren** zu schließen.  
 
--   **Définir des noms**  
+-   **Namen festlegen**  
 
-     Lors d'un inventaire logiciel, les noms des fabricants et des produits sont extraits des informations d'en-tête des fichiers installés sur les clients du site. Du fait que ces noms ne sont pas systématiquement normalisés dans les informations d'en-tête de fichier, lorsque vous affichez les informations de l'inventaire logiciel dans l'Explorateur de ressources ou exécutez des requêtes, différentes versions du même nom de fabricant ou de produit peuvent parfois apparaître. Si vous souhaitez normaliser ces noms d’affichage, choisissez **Définir des noms** et configurez les éléments suivants dans la boîte de dialogue **Configurer le paramètre client** :  
+     Während der Softwareinventur werden Hersteller- und Produktnamen aus den Kopfzeileninformationen der Dateien abgerufen, die auf Clients am Standort installiert sind. Da diese Namen in den Dateiheaderinformationen nicht immer in standardisierter Form vorliegen, werden beim Anzeigen der Softwareinventurinformationen im Ressourcen-Explorer oder beim Ausführen von Abfragen mitunter verschiedene Versionen desselben Hersteller- oder Produktnamens angezeigt. Wenn Sie diese Anzeigenamen standardisieren möchten, wählen Sie **Namen festlegen** aus, und konfigurieren Sie dann im Dialogfeld **Clienteinstellung konfigurieren** die folgenden Einstellungen:  
 
-    -   **Type de nom**  : l’inventaire logiciel collecte des informations sur les produits et les fabricants. Dans la liste déroulante, indiquez si vous souhaitez configurer des noms complets pour un **fabricant** ou un **produit**.  
+    -   **Namenstyp**: Von der Softwareinventur werden Informationen zu Herstellern und Produkten gesammelt. Wählen Sie in der Dropdownliste aus, ob Sie Anzeigenamen für einen **Hersteller** oder ein **Produkt**konfigurieren möchten.  
 
-    -   **Nom complet** : spécifiez le nom complet que vous souhaitez utiliser à la place des noms dans la liste **Noms inventoriés**. Vous pouvez choisir l’icône **Nouveau** pour spécifier un nouveau nom complet.  
+    -   **Anzeigename**: Dient zum Festlegen des Anzeigenamens, den Sie anstelle der Namen in der Liste **Inventarisierte Namen** verwenden möchten. Sie können das Symbol **Neu** auswählen, um einen neuen Anzeigenamen anzugeben.  
 
-    -   **Noms inventoriés** : choisissez l’icône **Nouveau** pour ajouter un nouveau nom inventorié qui sera remplacé dans l’inventaire logiciel par le nom sélectionné dans la liste **Nom complet**. Vous pouvez ajouter plusieurs noms qui seront remplacés.  
+    -   **Inventarisierte Namen:**: Wählen Sie das Symbol **Neu** aus, um einen neuen inventarisierten Namen hinzuzufügen, der bei der Softwareinventur durch den in der Liste **Anzeigename** markierten Namen ersetzt wird. Sie können mehrere Namen hinzufügen, die ersetzt werden.  
 
-##  <a name="software-updates"></a>Mises à jour logicielles  
+##  <a name="software-updates"></a>Softwareupdates  
 
--   **Activer les mises à jour logicielles sur les clients**  
+-   **Softwareupdates auf Clients aktivieren**  
 
-     Utilisez ce paramètre pour activer les mises à jour logicielles sur les clients Configuration Manager. Quand vous désactivez ce paramètre, Configuration Manager supprime les stratégies de déploiement existantes du client. Lorsque vous réactivez ce paramètre, le client télécharge la stratégie de déploiement actuelle.  
+     Verwenden Sie diese Einstellung, um Softwareupdates auf Configuration Manager-Clients zu aktivieren. Wenn Sie diese Einstellung deaktivieren, werden die vorhandenen Bereitstellungsrichtlinien von Configuration Manager vom Client entfernt. Wenn Sie diese Einstellung wieder aktivieren, wird vom Client die aktuelle Bereitstellungsrichtlinie heruntergeladen.  
 
     > [!IMPORTANT]  
-    >  Si vous désactivez ce paramètre, les stratégies NAP et les stratégies de paramètres de compatibilité qui s’appuient sur le paramètre d’appareil des mises à jour logicielles ne fonctionneront plus.  
+    >  Wenn Sie diese Einstellung deaktivieren, funktionieren NAP- und Konformitätseinstellungsrichtlinien nicht mehr, die auf der Softwareupdate-Geräteeinstellung basieren.  
 
--   **Calendrier d'analyse des mises à jour logicielles**  
+-   **Zeitplan für Softwareupdateprüfung**  
 
-     utilisez ce paramètre pour indiquer la fréquence d'exécution d'une analyse d'évaluation de la conformité des mises à jour logicielles par le client. L'analyse d'évaluation de la conformité détermine l'état des mises à jour logicielles sur le client (par exemple, requis ou installé). Pour plus d’informations sur l’évaluation de la conformité, consultez [Évaluation de la conformité des mises à jour logicielles](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
+     Mit dieser Einstellung geben Sie an, wie häufig vom Client eine Überprüfung der Softwareupdatekompatibilität initiiert wird. Bei der Kompatibilitätsüberprüfung wird der Zustand von Softwareupdates auf dem Client (z. B. erforderlich oder installiert) bestimmt. Weitere Informationen zur Kompatibilitätsbewertung finden Sie unter [Software updates compliance assessment (Bewertung der Kompatibilität von Softwareupdates)](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
 
-     Un calendrier simple est utilisé par défaut et l’analyse de la conformité est lancée tous les sept jours. Vous pouvez choisir de créer un calendrier personnalisé pour spécifier une date et une heure exactes de début, d'utiliser UTC ou l'heure locale et de configurer l'intervalle de récurrence d'un jour spécifique de la semaine.  
+     Standardmäßig wird ein einfacher Zeitplan verwendet. Die Konformitätsprüfung wird alle 7 Tage initiiert. Nach Wunsch können Sie einen benutzerdefinierten Zeitplan erstellen und die genaue Startzeit am gewünschten Tag angeben. Sie können außerdem angeben, ob UTC oder die lokale Zeit verwendet werden soll, und das Wiederholungsintervall für einen bestimmten Wochentag konfigurieren.  
 
     > [!NOTE]  
-    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
+    >  Wenn Sie ein Intervall von weniger als 1 Tag angeben können, wird in Configuration Manager automatisch der Standardwert von 1 Tag angezeigt.  
 
     > [!WARNING]  
-    >  L'heure de début réelle sur les ordinateurs clients est l'heure de début plus une durée aléatoire de deux heures maximum. Ceci évite que les ordinateurs clients lancent l'analyse et se connectent à Windows Server Update Services (WSUS) sur le serveur du point de mise à jour logicielle actif en même temps.  
+    >  Die tatsächliche Startzeit auf Clientcomputern ist die Startzeit plus ein zufälliger Zeitraum von maximal 2 Stunden. Dies verhindert, dass mehrere Clientcomputer am aktiven Softwareupdatepunkt auf dem Server gleichzeitig den Suchvorgang starten und eine Verbindung mit Windows Server Update Services (WSUS) herstellen.  
 
--   **Planifier la réévaluation du déploiement**  
+-   **Bereitstellungsneuauswertung planen**  
 
-     Utilisez ce paramètre pour configurer la fréquence à laquelle l’agent client des mises à jour logicielles réévalue les mises à jour logicielles pour en déterminer l’état de l’installation sur les ordinateurs clients Configuration Manager. Si des mises à jour logicielles installées auparavant ne sont plus disponibles sur des ordinateurs clients mais restent nécessaires, elles sont réinstallées.
+     Geben Sie mit dieser Einstellung an, wie oft der Installationsstatus von Softwareupdates auf Configuration Manager-Clientcomputern vom Softwareupdateclient-Agent erneut bewertet werden soll. Wenn bereits installierte Softwareupdates nicht mehr auf Clientcomputern vorhanden, aber weiterhin erforderlich sind, werden sie erneut installiert.
 
-     Le calendrier de réévaluation du déploiement doit être ajusté en fonction de la stratégie d’entreprise en matière de conformité des mises à jour logicielles, de la capacité ou non des utilisateurs à désinstaller les mises à jour logicielles, etc. N’oubliez pas que chaque cycle de réévaluation du déploiement provoque une activité processeur sur l’ordinateur client et le réseau. Un calendrier simple est utilisé par défaut et l’analyse de la réévaluation du déploiement est lancée tous les sept jours.  
-
-    > [!NOTE]  
-    >  Si vous spécifiez un intervalle inférieur à une journée, Configuration Manager rétablit automatiquement la valeur par défaut (1 jour).  
-
--   **Dès que l'échéance d'un déploiement de mise à jour logicielle est atteinte, installer tous les autres déploiements de mise à jour logicielle avec une échéance pendant une période de temps spécifiée**  
-
-     Utilisez ce paramètre pour installer toutes les mises à jour logicielles dans les déploiements requis dont les échéances ont lieu pendant une période spécifiée. Quand l’échéance pour un déploiement de mises à jour logicielles obligatoire est atteinte, l’installation est lancée sur les clients pour les mises à jour logicielles du déploiement. Ce paramètre détermine si l'installation des mises à jour logicielles définies dans d'autres déploiements obligatoires dont l'échéance est configurée pour la même période doit également être lancée.  
-
-     Utilisez ce paramètre pour accélérer l'installation des mises à jour logicielles pour les mises à jour logicielles requises, accroître potentiellement la sécurité, réduire potentiellement l'affichage des notifications et réduire potentiellement les redémarrages du système sur les ordinateurs clients. Par défaut, ce paramètre n'est pas activé.  
-
--   **Durée pendant laquelle tous les déploiements en attente avec une échéance dans cette période seront également installés**  
-
-     Utilisez ce paramètre pour spécifier le laps de temps pour le paramètre précédent. Vous pouvez entrer une valeur comprise entre 1 et 23 heures et entre 1 et 365 jours. Par défaut, ce paramètre est configuré pour 7 jours.  
-
--   **Activer l’installation des fichiers d’installation rapide sur les clients**
-
--   **Port utilisé pour télécharger du contenu pour les fichiers d’installation rapide**
-
--   **Activer la gestion de l’agent client Office 365** Utilisez ce paramètre pour activer la gestion de l’agent client Office 365. Si vous choisissez **Oui**, vous avez la possibilité de configurer les paramètres d’installation Office 365, de télécharger des fichiers à partir de réseaux de distribution de contenu (CDN) Office et de déployer les fichiers en tant qu’application dans Configuration Manager.
-
-##  <a name="user-and-device-affinity"></a>Affinité entre utilisateur et appareil  
-
--   **Seuil d'utilisation de l'affinité entre utilisateur et appareil (minutes)**  
-
-     Spécifiez le nombre de minutes avant que Configuration Manager ne crée un mappage d’affinité entre utilisateur et appareil.  
-
--   **Seuil d'utilisation de l'affinité entre utilisateur et appareil (jour)**  
-
-     Spécifiez une période (en jours) pendant laquelle le seuil de l’affinité basé sur l’utilisation est mesuré.  
+     Der Zeitplan für die erneute Bewertung der Bereitstellung sollte basierend auf Unternehmensrichtlinien für Softwareupdatekonformität, der Eigenschaft von Benutzern, Softwareupdates zu deinstallieren und Ähnlichem angepasst werden. Beachten Sie dabei, dass bei jedem Zyklus der Bereitstellungsneuauswertung das Netzwerk und die CPU der Clientcomputer in gewissem Umfang in Anspruch genommen werden. Standardmäßig wird ein einfacher Zeitplan verwendet. Die Bereitstellungsneuauswertung wird alle 7 Tage initiiert.  
 
     > [!NOTE]  
-    >  Par exemple, si le **Seuil d’utilisation de l’affinité entre utilisateur et appareil (minutes)** a la valeur **60** minutes et que le **Seuil d’utilisation de l’affinité entre utilisateur et appareil (jours)** a la valeur **5** jours, l’utilisateur doit utiliser l’appareil pendant 60 minutes sur une période de 5 jours pour pouvoir créer automatiquement une affinité entre utilisateur et appareil.  
+    >  Wenn Sie ein Intervall von weniger als 1 Tag angeben können, wird in Configuration Manager automatisch der Standardwert von 1 Tag angezeigt.  
 
--   **Configurer automatiquement l'affinité entre utilisateur et appareil à partir des données d'utilisation**  
+-   **Wenn der Stichtag für eine beliebige Softwareupdatebereitstellung erreicht wird, auch alle anderen Softwarebereitstellungen mit Stichtag innerhalb eines angegebenen Zeitraums installieren**  
 
-     Choisissez **Vrai** ou **Oui** pour permettre à Configuration Manager de créer automatiquement des affinités entre appareil et utilisateur à partir des données d’utilisation recueillies.  
+     Verwenden Sie diese Einstellung, um alle Softwareupdates in erforderlichen Bereitstellungen zu installieren, deren Stichtage innerhalb eines angegebenen Zeitraums liegen. Wenn der Stichtag für eine erforderliche Softwareupdatebereitstellung erreicht wird, wird auf den Clients die Installation der Softwareupdates in der Bereitstellung initiiert. Mit dieser Einstellung wird bestimmt, ob auch die Installation von Softwareupdates in anderen erforderlichen Bereitstellungen, deren konfigurierter Stichtag innerhalb des angegebenen Zeitraums liegt, initiiert wird.  
 
-##  <a name="mobile-devices"></a>Appareils mobiles  
+     Verwenden Sie diese Einstellung, um die Installation der erforderlichen Softwareupdates zu beschleunigen, die Sicherheit zu verbessern, Benachrichtigungsanzeigen zu reduzieren und Systemneustarts auf Clientcomputern zu verringern. Diese Einstellung ist standardmäßig deaktiviert.  
 
--   **Profil d'inscription d'appareil mobile**  
+-   **Alle anstehenden Bereitstellungen mit Stichtag in diesem Zeitraum werden auch installiert**  
 
-     Afin de configurer ce paramètre, vous devez d'abord définir le paramètre **Autoriser les utilisateurs à inscrire des appareils mobiles** sur **Vrai**. Vous pouvez ensuite choisir **Définir un profil** pour spécifier un profil d’inscription contenant des informations sur le modèle de certificat à utiliser lors du processus d’inscription, le site contenant un point d’inscription et un point proxy d’inscription, ainsi que le site qui sera chargé de gérer l’appareil après l’inscription.  
+     Verwenden Sie diese Einstellung, um den Zeitrahmen für die vorherige Einstellung anzugeben. Sie können einen Wert von 1 bis 23 Stunden und von 1 bis 365 Tagen eingeben. Der Standardwert liegt bei 7 Tagen.  
+
+-   **Installation von Express-Installationsdateien auf Clients aktivieren**
+
+-   **Port zum Herunterladen von Inhalten für Express-Installationsdateien**
+
+-   **Erneutes Aktivieren des Office 365-Clients** Verwenden Sie diese Einstellung zum Aktivieren der Verwaltung des Office 365-Client-Agents. Wenn Sie den Wert auf **Ja** festlegen, können Sie Office 365-Installationseinstellungen konfigurieren, Dateien aus Office Content Delivery Networks (CDNs) herunterladen und die Dateien als Anwendung in Configuration Manager bereitstellen.
+
+##  <a name="user-and-device-affinity"></a>Affinität zwischen Benutzer und Gerät  
+
+-   **Nutzungsschwellenwert (Minuten) für Affinität zwischen Benutzer und Gerät**  
+
+     Geben Sie die Nutzungsdauer in Minuten an, nach der von Configuration Manager eine Affinität zwischen Benutzer und Gerät erstellt wird.  
+
+-   **Nutzungsschwellenwert (Tage) für Affinität zwischen Benutzer und Gerät**  
+
+     Geben Sie die Anzahl von Tagen an, über die der Nutzungsschwellenwert für die Affinität zwischen Benutzer und Gerät gemessen wird.  
+
+    > [!NOTE]  
+    >  Beispiel: Wenn für **Nutzungsschwellenwert (Minuten) für Affinität zwischen Benutzer und Gerät** ein Wert von **60** Minuten angegeben ist und für **Nutzungsschwellenwert (Tage) für Affinität zwischen Benutzer und Gerät** ein Wert von **5** Tagen, muss der Benutzer das Gerät über einen Zeitraum von fünf Tagen insgesamt 60 Minuten lang nutzen, damit eine Affinität zwischen Benutzer und Gerät automatisch erstellt wird.  
+
+-   **Affinität zwischen Benutzer und Gerät automatisch aus Verwendungsdaten konfigurieren**  
+
+     Wählen Sie **Wahr** oder **Ja** aus, damit von Configuration Manager automatisch Affinitäten zwischen Benutzern und Geräten erstellt werden, die auf gesammelten Nutzungsstatistiken beruhen.  
+
+##  <a name="mobile-devices"></a>Mobile Geräte  
+
+-   **Anmeldungsprofil für mobile Geräte**  
+
+     Bevor Sie diese Einstellung konfigurieren können, müssen Sie zunächst die Benutzereinstellung **Benutzern das Anmelden mobiler Geräte gestatten** für das mobile Gerät auf **Wahr**festlegen. Anschließend können Sie **Profil festlegen** auswählen, um ein Anmeldungsprofil mit Informationen zur Zertifikatvorlage für die Anmeldung, zum Standort, der einen Anmeldungspunkt und einen Anmeldungsproxypunkt enthält, und zum Standort anzugeben, über den das Gerät nach der Anmeldung verwaltet wird.  
 
     > [!IMPORTANT]  
-    >  Assurez-vous d'avoir configuré un modèle de certificat à utiliser pour l'inscription d'appareils mobiles avant de pouvoir configurer cette option.  
+    >  Stellen Sie vor dem Konfigurieren dieser Option sicher, dass Sie eine Zertifikatvorlage zur Verwendung für die Anmeldung mobiler Geräte konfiguriert haben.  
 
-##  <a name="enrollment"></a>Inscription  
+##  <a name="enrollment"></a>Anmeldung  
 
--   **Profil d'inscription d'appareil mobile**  
+-   **Anmeldungsprofil für mobile Geräte**  
 
-     Afin de configurer ce paramètre, vous devez définir le paramètre **Autoriser les utilisateurs à inscrire des appareils mobiles et des ordinateurs Mac** sur **Oui**. Vous pouvez ensuite choisir **Définir un profil** pour spécifier un profil d’inscription contenant des informations sur le modèle de certificat à utiliser lors du processus d’inscription, le site contenant un point d’inscription et un point proxy d’inscription, ainsi que le site qui sera chargé de gérer l’appareil après l’inscription.  
+     Bevor Sie diese Einstellung konfigurieren können, müssen Sie zunächst die Benutzereinstellung **Benutzern die Anmeldung mobiler Geräte und von Macintosh-Computern gestatten** für die Anmeldung auf **Ja**festlegen. Anschließend können Sie **Profil festlegen** auswählen, um ein Anmeldungsprofil mit Informationen zur Zertifikatvorlage für die Anmeldung, zum Standort, der einen Anmeldungspunkt und einen Anmeldungsproxypunkt enthält, und zum Standort anzugeben, über den das Gerät nach der Anmeldung verwaltet wird.  
 
     > [!IMPORTANT]  
-    >  Avant de configurer cette option, vous devez voir configuré un modèle de certificat à utiliser pour l'inscription de l'appareil mobile ou du certificat de client Mac.  
+    >  Stellen Sie vor dem Konfigurieren dieser Option sicher, dass Sie eine Zertifikatvorlage für die Anmeldung mobiler Geräte oder für die Anmeldung per Macintosh-Clientzertifikat konfiguriert haben.  
 
-## <a name="user-and-device-affinity"></a>Affinité entre utilisateur et appareil  
+## <a name="user-and-device-affinity"></a>Affinität zwischen Benutzer und Gerät  
 
--   **Autoriser les utilisateurs à définir leurs appareils principaux**  
+-   **Benutzer das Festlegen primärer Geräte gestatten**  
 
-     Spécifiez si les utilisateurs sont autorisés à identifier leurs propres appareils principaux sous l’onglet **Mes appareils** du catalogue d’applications.  
-
+     Geben Sie an, ob es Benutzern gestattet werden soll, im Anwendungskatalog auf der Registerkarte **Eigene Geräte** ihre eigenen primären Geräte zu identifizieren.  

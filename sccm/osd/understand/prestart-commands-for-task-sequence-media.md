@@ -1,35 +1,34 @@
 ---
-title: "Commandes de prédémarrage pour les médias de séquence de tâches | Microsoft Docs"
-description: "Créez un script à utiliser avec la commande de prédémarrage, distribuez le contenu associé à la commande de prédémarrage et configurez la commande de prédémarrage dans le média."
+title: "Prestart-Befehle für Tasksequenzmedien | Microsoft-Dokumentation"
+description: "Erstellen Sie ein Skript zur Verwendung für den Prestart-Befehl, verteilen Sie die zugeordneten Inhalte mit dem Prestart-Befehl, und konfigurieren Sie den Prestart-Befehl in den Medien."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ccc9f652-2953-4c38-8a90-c799484105ca
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Commandes de prédémarrage pour les médias de séquence de tâches dans System Center Configuration Manager
+# <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Prestart-Befehle für Tasksequenzmedien in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez créer une commande de prédémarrage dans System Center Configuration Manager à utiliser avec un média de démarrage, un média autonome et un média préparé. La commande de prédémarrage est un script ou un exécutable qui s'exécute avant la sélection de la séquence de tâches et qui peut interagir avec l'utilisateur dans Windows PE. La commande de prédémarrage peut demander des informations à l'utilisateur et les enregistrer dans l'environnement de la séquence de tâches, ou interroger une variable de séquence de tâches pour obtenir des informations. Au démarrage de l'ordinateur de destination, la ligne de commande est exécutée avant que la stratégie ne soit téléchargée auprès du point de gestion. Suivez les procédures ci-dessous pour créer un script qui sera utilisé avec la commande de prédémarrage, distribuer le contenu associé à la commande de prédémarrage et configurer la commande de prédémarrage dans le média.  
+Sie können in System Center Configuration Manager einen Prestart-Befehl zur Verwendung mit Startmedien, eigenständigen Medien und vorab bereitgestellten Medien erstellen. Der Prestart-Befehl ist ein Skript oder eine ausführbare Datei, das bzw. die ausgeführt wird, bevor die Tasksequenz ausgewählt wird, und mit dem Benutzer unter Windows PE interagieren kann. Über den Prestart-Befehl können Benutzer zur Eingabe von Informationen aufgefordert werden, die dann in der Tasksequenzumgebung gespeichert werden, oder es können Informationen von einer Tasksequenzvariablen abgefragt werden. Beim Starten des Zielcomputers wird der Befehl in der Befehlszeile ausgeführt, bevor die Richtlinie vom Verwaltungspunkt heruntergeladen wird. Verwenden Sie die folgenden Verfahren, um ein Skript für den Prestart-Befehl zu erstellen, die zugeordneten Inhalte mit dem Prestart-Befehl zu verteilen und den Prestart-Befehl in den Medien zu konfigurieren.  
 
-## <a name="create-a-script-file-to-use-for-the-prestart-command"></a>Créer un fichier de script à utiliser avec la commande de prédémarrage  
- Vous pouvez lire et écrire les variables de séquence de tâches à l’aide de l’objet COM Microsoft.SMS.TSEnvironment pendant l’exécution de la séquence de tâches. L'exemple suivant illustre un fichier de script Visual Basic qui interroge la variable de séquence de tâches _SMSTSLogPath afin d'obtenir l'emplacement actuel du fichier journal. Le script définit également une variable personnalisée.  
+## <a name="create-a-script-file-to-use-for-the-prestart-command"></a>Erstellen einer Skriptdatei für den Prestart-Befehl  
+ Tasksequenzvariablen können während der Ausführung der Tasksequenz mithilfe des COM-Objekts "Microsoft.SMS.TSEnvironment" gelesen und geschrieben werden. Im folgenden Beispiel sehen Sie eine Visual Basic-Skriptdatei, mit der die Tasksequenzvariable _SMSTSLogPath nach dem aktuellen Protokollpfad abgefragt wird. Das Skript legt außerdem eine benutzerdefinierte Variable fest.  
 
 ```  
 dim osd: set env = CreateObject("Microsoft.SMS.TSEnvironment")  
@@ -40,47 +39,41 @@ logPath = env("_SMSTSLogPath")
 env("MyCustomVariable") = "varname"  
 ```  
 
-## <a name="create-a-package-for-the-script-file-and-distribute-the-content"></a>Créer un package pour le fichier de script et distribuer le contenu  
- Une fois que vous avez créé le script ou l'exécutable de la commande de prédémarrage, vous devez créer une source de package pour héberger les fichiers du script ou de l'exécutable, créer un package pour les fichiers (aucun programme n'est requis), puis distribuer le contenu auprès d'un point de distribution.  
+## <a name="create-a-package-for-the-script-file-and-distribute-the-content"></a>Erstellen eines Pakets für die Skriptdatei und Verteilen des Inhalts  
+ Nach dem Erstellen des Skripts oder der ausführbaren Datei für den Prestart-Befehl müssen Sie eine Paketquelle zum Hosten der Dateien für das Skript oder die ausführbare Datei erstellen, ein Paket für die Dateien erstellen (kein Programm erforderlich) und den Inhalt dann an einen Verteilungspunkt verteilen.  
 
- Pour plus d’informations sur la création d’un package, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
+ Weitere Informationen zum Erstellen eines Pakets finden Sie unter [Pakete und Programme](../../apps/deploy-use/packages-and-programs.md).  
 
- Pour plus d’informations sur la distribution du contenu, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+ Weitere Informationen zum Verteilen von Inhalten finden Sie unter [Distribute content (Verteilen von Inhalt)](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
-## <a name="configure-the-prestart-command-in-media"></a>Configurer la commande de prédémarrage dans le média  
- Vous pouvez configurer une commande de prédémarrage pour un média autonome, un média de démarrage ou un média préparé dans l'Assistant Création d'un média de séquence de tâches. Pour plus d’informations sur les types de médias, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md). Suivez la procédure ci-dessous pour créer une commande de prédémarrage dans le média.  
+## <a name="configure-the-prestart-command-in-media"></a>Konfigurieren des Prestart-Befehls in Medien  
+ Sie können im Assistenten zum Erstellen von Tasksequenzmedien einen Prestart-Befehl für eigenständige Medien, startbare Medien oder vorab bereitgestellte Medien konfigurieren. Weitere Informationen zu den Medientypen finden Sie unter [Create task sequence media (Erstellen von Tasksequenzmedien)](../deploy-use/create-task-sequence-media.md). Verwenden Sie das folgende Verfahren, um in Medien einen Prestart-Befehl zu erstellen.  
 
-#### <a name="to-create-a-prestart-command-in-media"></a>Pour créer une commande de prédémarrage dans le média  
+#### <a name="to-create-a-prestart-command-in-media"></a>So erstellen Sie einen Prestart-Befehl in Medien  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenzmedien erstellen** , um den Assistenten zum Erstellen von Tasksequenzmedien zu starten.  
 
-4.  Sur la page **Sélectionner le type de média** , sélectionnez **Média autonome**, **Média de démarrage**ou **Média préparé**, puis cliquez sur **Suivant**.  
+4.  Wählen Sie auf der Seite **Medientyp wählen** die Option **Eigenständige Medien**, **Startbare Medien**oder **Vorab bereitgestellte Medien**aus, und klicken Sie auf **Weiter**.  
 
-5.  Accédez à la page **Personnalisation** de l'Assistant. Pour plus d’informations sur la configuration des autres pages de l’Assistant, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md).  
+5.  Navigieren Sie zur Seite **Anpassung** des Assistenten. Weitere Informationen zum Konfigurieren der anderen Seiten im Assistenten finden Sie unter [Create task sequence media (Erstellen von Tasksequenzmedien)](../deploy-use/create-task-sequence-media.md).  
 
-6.  Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+6.  Geben Sie auf der Seite **Anpassung** die folgenden Informationen an, und klicken Sie dann auf **Weiter**.  
 
-    -   Sélectionnez **Activer une commande de prédémarrage**.  
+    -   Wählen Sie **Prestart-Befehl aktivieren**.  
 
-    -   Dans la zone de texte **Ligne de commande** , entrez le script ou l'exécutable créé pour la commande de prédémarrage.  
+    -   Geben Sie im Textfeld **Befehlszeile** das Skript oder die ausführbare Datei ein, das bzw. die Sie für den Prestart-Befehl erstellt haben.  
 
         > [!IMPORTANT]  
-        >  Pour spécifier la commande de prédémarrage, exécutez **cmd /C <commande_prédémarrage\>**. Par exemple, si le nom du script de votre commande de prédémarrage est TSScript.vbs, entrez la ligne de commande **cmd /C TSScript.vbs** . **cmd /C** ouvre une nouvelle fenêtre d’interpréteur de commandes Windows et utilise la variable d’environnement Path pour trouver le script ou l’exécutable de la commande de prédémarrage. Vous pouvez également indiquer le chemin d'accès complet à la commande de prédémarrage, mais sachez que la lettre de lecteur peut varier d'un ordinateur à l'autre, selon la configuration des lecteurs.  
+        >  Verwenden Sie **cmd /C <Prestart-Befehl\>**, um den Prestart-Befehl anzugeben. Wenn Sie z. B. "TSScript.vbs" als Namen für das Skript des Prestart-Befehls verwendet haben, geben Sie **cmd /C TSScript.vbs** in die Befehlszeile ein. Mit **cmd /C** wird ein neues Fenster für den Windows-Befehlsinterpreter geöffnet und mithilfe der Path-Umgebungsvariablen nach dem Skript oder der ausführbaren Datei des Prestart-Befehls gesucht. Sie können auch den vollständigen Pfad zum Prestart-Befehl angeben. Achten Sie dabei darauf, dass der Laufwerkbuchstabe auf Computern mit abweichender Laufwerkkonfiguration anders lauten kann.  
 
-    -   Sélectionnez **Inclure les fichiers pour la commande de prédémarrage**.  
+    -   Wählen Sie **Dateien für den Prestart-Befehl einbeziehen**.  
 
-    -   Cliquez sur **Définir** pour sélectionner le package associé aux fichiers de la commande de prédémarrage.  
+    -   Klicken Sie auf **Festlegen** , um das Paket auszuwählen, das den Prestart-Befehlsdateien zugeordnet ist.  
 
-    -   Cliquez sur **Parcourir** pour sélectionner le point de distribution hébergeant le contenu de la commande de prédémarrage.  
+    -   Klicken Sie auf **Durchsuchen** , um den Verteilungspunkt auszuwählen, der den Inhalt für den Prestart-Befehl hostet.  
 
-7.  Effectuez toutes les étapes de l'Assistant.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+7.  Schließen Sie den Assistenten ab.  

@@ -1,80 +1,74 @@
 ---
-title: "Déployer des profils Wi-Fi, VPN, de messagerie et de certificat | Microsoft Docs"
-description: "Découvrez comment déployer des profils de certificat, de messagerie, VPN et Wi-Fi dans System Center Configuration Manager."
+title: Bereitstellen von WLAN-, VPN-, E-Mail- und Zertifikatprofilen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie WLAN-, VPN-, E-Mail- und Zertifikatprofile in System Center Configuration Manager bereitstellen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3753608d-b539-44dc-8e3f-b631319e7687
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: c2e3aef41e9a890d136039f85777ab07284e5c27
 ms.openlocfilehash: 70372d5df13034b48f3e43b766776442f1be5823
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-profiles-in-system-center-configuration-manager"></a>Déployer des profils dans System Center Configuration Manager
+# <a name="deploy-profiles-in-system-center-configuration-manager"></a>Bereitstellen von Profilen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les profils doivent être déployés dans un ou plusieurs regroupements avant de pouvoir être utilisés.  
+Profile müssen in einer oder mehreren Sammlungen bereitgestellt werden, bevor sie verwendet werden können.  
 
- Utilisez la boîte de dialogue **Déployer le profil Wi-Fi**, **Déployer le profil VPN**, **Déployer un profil Exchange ActiveSync** ou **Déployer le profil de certificat** pour configurer le déploiement de ces profils. Dans le cadre de la configuration, vous définissez le regroupement sur lequel le profil doit être déployé et spécifiez la fréquence à laquelle la conformité du profil est évaluée.  
+ Verwenden Sie das Dialogfeld **WLAN-Profil bereitstellen**, **VPN-Profil bereitstellen**, **Exchange ActiveSync-Profil bereitstellen** oder **Zertifikatprofil bereitstellen**, um die Bereitstellung dieser Profile zu konfigurieren. Dabei definieren Sie die Sammlung, für die das Profil bereitgestellt wird, und geben an, wie häufig das Profil auf Kompatibilität ausgewertet wird.  
 
 > [!NOTE]  
->  Si vous déployez plusieurs profils d'accès aux ressources de l'entreprise pour le même utilisateur, le comportement suivant se produit :  
+>  Wenn Sie für denselben Benutzer mehrere Zugriffsprofile für Unternehmensressourcen bereitstellen, tritt das folgende Verhalten auf:  
 >   
->  -   Si un paramètre en conflit contient une valeur facultative, elle ne sera pas envoyée à l'appareil.  
-> -   Si un paramètre en conflit contient une valeur obligatoire, la valeur par défaut est envoyée à l'appareil. S'il n'existe aucune valeur par défaut, le profil d'accès aux ressources de l'entreprise échoue. Par exemple, si vous déployez deux profils de messagerie pour le même utilisateur et que les valeurs spécifiées pour **Hôte Exchange ActiveSync** ou **Adresse de messagerie** sont différents, les deux profils de messagerie échouent car il s'agit de paramètres obligatoires.  
+>  -   Wenn eine in Konflikt stehende Einstellung einen optionalen Wert enthält, wird dieser nicht an das Gerät gesendet.  
+> -   Wenn eine in Konflikt stehende Einstellung einen erforderlichen Wert enthält, wird der Standardwert an das Gerät gesendet. Wenn kein Standardwert vorhanden ist, tritt beim gesamten Zugriffsprofil für die Unternehmensressource ein Fehler auf. Wenn Sie z. B. zwei E-Mail-Profile für denselben Benutzer bereitstellen und die für **Exchange ActiveSync-Host** oder **E-Mail-Adresse** angegebenen Werte unterschiedlich sind, tritt bei beiden E-Mail-Profilen ein Fehler auf, da es sich um erforderliche Einstellungen handelt.  
 
-> -   Pour déployer des profils de certificat, vous devez d'abord configurer l'infrastructure et créer des profils de certificat. Pour plus d'informations, consultez les rubriques suivantes :  
+> -   Bevor Sie Zertifikatprofile bereitstellen können, müssen Sie zunächst die Infrastruktur konfigurieren und Zertifikatprofile erstellen. Weitere Informationen finden Sie unter den folgenden Themen:  
 >   
->  -   [Configuration d’une infrastructure de certificats dans System Center Configuration Manager](certificate-infrastructure.md)  
-> -   [Guide pratique pour créer des profils de certificat dans System Center Configuration Manager](create-certificate-profiles.md)    
+>  -   [Configuring certificate infrastructure in System Center Configuration Manager (Konfigurieren der Zertifikatinfrastruktur in System Center Configuration Manager)](certificate-infrastructure.md)  
+> -   [How to create certificate profiles in System Center Configuration Manager (So erstellen Sie Zertifikatprofile in System Center Configuration Manager)](create-certificate-profiles.md)    
 
 > [!IMPORTANT]  
->  Quand un déploiement de profil VPN est supprimé, il n’est pas supprimé des appareils clients. Si vous souhaitez supprimer le profil des appareils, vous devez le supprimer manuellement.
+>  Beim Entfernen einer VPN-Profilbereitstellung wird sie nicht von den Clientgeräten entfernt. Soll das Profil selbst von den Geräten entfernt werden, müssen Sie dies manuell erledigen.
 >   
 
-## <a name="deploying--profiles"></a>Déploiement de profils  
+## <a name="deploying--profiles"></a>Bereitstellen von Profilen  
 
 
-1.  Dans la console System Center Configuration Manager, choisissez **Ressources et Conformité**.  
+1.  Wählen Sie in der System Center Configuration Manager-Konsole **Bestand und Kompatibilität** aus.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité** et **Accès aux ressources de l’entreprise**, puis choisissez le type de profil approprié, tel que **Profils Wi-Fi**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die **Kompatibilitätseinstellungen**, den **Zugriff auf Unternehmensressourcen**, und wählen sie dann den entsprechenden Profiltyp aus, z.B. **WLAN-Profile**.  
 
-3.  Dans la liste des profils, sélectionnez le profil que vous souhaitez déployer, puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Déployer**.  
+3.  Wählen Sie in der Liste der Profile das Profil aus, das Sie bereitstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
-4.  Dans la boîte de dialogue de déploiement de profil, spécifiez les informations suivantes :  
+4.  Geben Sie im Dialogfeld „Profil bereitstellen“ die folgenden Informationen an:  
 
-    -   **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer le profil.  
+    -   **Sammlung**: Klicken Sie auf **Durchsuchen**, um die Sammlung auszuwählen, in der Sie das Profil bereitstellen möchten.  
 
-    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la conformité du profil est inférieure à un pourcentage spécifié à une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
+    -   **Warnung generieren**: Aktivieren Sie diese Option zum Konfigurieren einer Warnung, die generiert wird, sobald die Kompatibilität eines Profils zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.  
 
-    -   -   **Délai aléatoire (heure)** : (uniquement pour les profils de certificat contenant des paramètres de protocole d’inscription de certificats simple) spécifie un délai pour éviter un traitement excessif sur le service d’inscription de périphérique réseau. La valeur par défaut est **64** heures.  
+    -   -   **Zufällige Verzögerung (Stunden)**: (Nur für Zertifikatprofile, die Einstellungen für das Simple Certificate Enrollment-Protokoll enthalten) Geben Sie ein Verzögerungsfenster an, um übermäßige Verarbeitung im Registrierungsdienst für Netzwerkgeräte zu vermeiden. Der Standardwert beträgt **64** Stunden.  
 
-    -   **Spécifier le calendrier d’évaluation de la compatibilité pour ce profil <type>** : spécifie le calendrier par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
+    -   **Geben Sie den Zeitplan für die Kompatibilitätsauswertung dieses <type>Profils** an: Geben Sie den Zeitplan an, nach dem das bereitgestellte Profil auf Clientcomputern ausgewertet wird. Dabei kann es sich um einen einfachen oder benutzerdefinierten Zeitplan handeln.  
 
         > [!NOTE]  
-        >  Lorsque l'utilisateur ouvre une session, le profil est évalué par les ordinateurs clients.  
+        >  Das Profil wird von Clientcomputern ausgewertet, wenn sich der Benutzer anmeldet.  
 
-5.  Cliquez sur **OK** pour fermer la boîte de dialogue et pour créer le déploiement.
+5.  Klicken Sie auf **OK**, um das Dialogfeld zu schließen und die Bereitstellung zu erstellen.
 
-### <a name="see-also"></a>Voir aussi  
+### <a name="see-also"></a>Weitere Informationen:  
 
-[Guide pratique pour surveiller les profils de messagerie, VPN et Wi-Fi dans System Center Configuration Manager](monitor-wifi-email-vpn-profiles.md)
+[Monitor Email, Wi-Fi and VPN profiles in System Center Configuration Manager (Überwachen von WLAN-, VPN- und E-Mail-Profilen in System Center Configuration Manager)](monitor-wifi-email-vpn-profiles.md)
 
-[Guide pratique pour surveiller les profils de certificat dans System Center Configuration Manager](monitor-certificate-profiles.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+[Überwachen von Zertifikatprofilen in System Center Configuration Manager](monitor-certificate-profiles.md)

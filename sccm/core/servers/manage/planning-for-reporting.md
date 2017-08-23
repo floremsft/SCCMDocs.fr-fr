@@ -1,75 +1,68 @@
 ---
-title: "Planification de la création de rapports | Microsoft Docs"
-description: "Qu’il s’agisse des détails de l’installation, de la sécurité ou de la bande passante réseau, il est important de planifier la création de rapports dans Configuration Manager."
+title: Planen der Berichterstellung | Microsoft-Dokumentation
+description: "Die Berichterstellung in Configuration Manager zu planen ist wichtig. Dies gilt von Installationsdetails über die Sicherheit bis hin zur Netzwerkbandbreite."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ff920c84-d5c8-458c-b67f-bc7219b05690
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 119f501057bf44e483be31db20b88326b3d05ebb
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Planification de la création de rapports dans System Center Configuration Manager
+# <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Planen der Berichterstellung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La création de rapports dans System Center Configuration Manager propose un ensemble d’outils et de ressources vous permettant d’utiliser les fonctionnalités de création de rapports avancées de SQL Server Reporting Services. Utilisez les sections suivantes pour vous aider à planifier la création de rapports dans Configuration Manager.  
+Zur Berichterstellung in System Center Configuration Manager gehören mehrere Tools und Ressourcen, mit deren Hilfe Sie die erweiterten Berichterstellungsfunktionen von SQL Server Reporting Services nutzen können. Anhand der folgenden Abschnitte können Sie die Berichterstellung in Configuration Manager planen.  
 
-##  <a name="a-namebkmkinstallreportingservicespointa-determine-where-to-install-the-reporting-services-point"></a><a name="BKMK_InstallReportingServicesPoint"></a> Déterminer où installer le point de Reporting Services  
- Lorsque vous exécutez des rapports Configuration Manager sur un site, les rapports ont accès aux informations de la base de données de site à laquelle ils se connectent. Utilisez les sections suivantes pour vous aider à déterminer où installer le point de Reporting Services et quelle source de données utiliser.  
-
-> [!NOTE]  
->  Pour plus d’informations sur la planification de systèmes de site dans Configuration Manager, consultez [Ajouter des rôles système de site](../deploy/configure/add-site-system-roles.md).  
-
-###  <a name="a-namebkmksupportedsiteserversa-supported-site-system-servers"></a><a name="BKMK_SupportedSiteServers"></a> Serveurs de système de site pris en charge  
- Vous pouvez installer le point de Reporting Services sur un site d'administration centrale et sur des sites principaux, ainsi que sur plusieurs systèmes de site d'un ou plusieurs sites de la hiérarchie. Le point de Reporting Services n'est pas pris en charge sur les sites secondaires. Le premier point de Reporting Services sur un site est configuré comme le serveur de rapports par défaut. Vous pouvez ajouter plus de points de Reporting Services sur un site, mais le serveur de rapports par défaut sur chaque site est activement utilisé pour les rapports Configuration Manager. Vous pouvez installer le point de Reporting Services sur le serveur de site ou sur un système de site distant. Il est toutefois plus judicieux d'utiliser Reporting Services sur un serveur de système de site distant pour des raisons d'efficacité.  
-
-###  <a name="a-namebkmkdatareplicationa-data-replication-considerations"></a><a name="BKMK_DataReplication"></a> Considérations relatives à la réplication des données  
- Configuration Manager classe les données qu’il réplique en tant que données globales ou données de site. Les données globales font référence à des objets ayant été créés par des utilisateurs administratifs et qui sont répliquées sur tous les sites de la hiérarchie, alors que les sites secondaires ne reçoivent qu'un sous-ensemble de données globales. Les déploiements de logiciels, les mises à jour logicielles, les regroupements et les étendues de sécurité de l'administration basée sur des rôles sont des exemples de données globales. Les données de site font référence aux informations opérationnelles créées par les sites principaux Configuration Manager et les clients qui sont sous la hiérarchie de sites principaux. Les données de site sont répliquées vers le site d'administration centrale mais pas vers d'autres sites principaux. Les données d'inventaire matériel, les messages d'états, les alertes et les résultats de regroupements basés sur des requêtes sont des exemples de données de site. Les données de site ne sont visibles que sur le site d'administration centrale et sur le site principal dont les données sont originaires.  
-
- Prenez les facteurs suivants en compte pour vous aider à déterminer où installer vos points de Reporting Services :  
-
--   Un point de Reporting Services dont la base de données du site d’administration centrale est la source des données des rapports doit avoir accès à toutes les données globales et les données de site de la hiérarchie Configuration Manager. Si vous avez besoin de rapports qui contiennent les données de site de plusieurs sites d’une hiérarchie, il peut être intéressant d’installer le point de Reporting Services sur un système de site, du site d’administration centrale et d’utiliser la base de donnée de ce site comme la source des données des rapports.  
-
--   Un point de Reporting Services dont la base de données du site principal enfant est la source des données des rapport ne doit avoir accès aux données globales et aux données de site que pour le site principal local et les sites secondaires enfants. Les données de site d’autres sites principaux de la hiérarchie Configuration Manager ne sont pas répliquées sur le site principal, et ainsi, Reporting Services n’y a pas accès. Si vous avez besoin de rapports qui contiennent des données de site d’un site principal spécifique ou des données globales, mais que vous ne souhaitez pas que l’utilisateur du rapport ait accès aux données de site d’autres sites principaux, installez un point de Reporting Services sur un système de site du site principal et utilisez la base de données du site principal comme source des données des rapports.  
-
-###  <a name="a-namebkmknetworkbandwidtha-network-bandwidth-considerations"></a><a name="BKMK_NetworkBandwidth"></a> Considérations relatives à la bande passante réseau  
- Les serveurs de système de site du même site communiquent entre eux à l'aide du protocole SMB, HTTP ou HTTPS, selon la configuration du site. Comme ces communications ne sont pas gérées et qu'elles peuvent se produire à tout moment sans contrôle de la bande passante réseau, vérifiez la bande passante réseau disponible avant d'installer le rôle du point de Reporting Services sur un système de site.  
+##  <a name="BKMK_InstallReportingServicesPoint"></a> Bestimmen des Installationsorts für den Reporting Services-Punkt  
+ Beim Ausführen von Configuration Manager-Berichten an einem Standort sind die Informationen in der Standortdatenbank für die Berichte zugänglich. Anhand der folgenden Abschnitte können Sie festlegen, wo der Reporting Services-Punkt installiert und welche Datenquelle verwendet werden soll.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la planification de systèmes de site, consultez [Ajouter des rôles système de site](../deploy/configure/add-site-system-roles.md).  
+>  Weitere Informationen zur Planung der Standortsysteme finden Sie unter [Hinzufügen von Standortsystemrollen](../deploy/configure/add-site-system-roles.md).  
 
-##  <a name="a-namebkmkrolebaseadministrationa-planning-for-role-based-administration-for-reports"></a><a name="BKMK_RoleBaseAdministration"></a> Planification de l’administration basée sur des rôles pour les rapports  
- La sécurité des rapports est très similaire à celles d’autres objets de Configuration Manager pour lesquels il est possible d’attribuer des rôles de sécurité et des autorisations à des utilisateurs administratifs. Les utilisateurs administratifs ne peuvent exécuter et modifier que les rapports pour lesquels ils disposent de droits de sécurité appropriés. Pour exécuter des rapports sur la console Configuration Manager, vous devez disposer d’un droit de **Lecture** pour les autorisations du **Site** et les autorisations configurées pour des objets spécifiques.  
+###  <a name="BKMK_SupportedSiteServers"></a> Unterstützte Standortsystemserver  
+ Sie können den Reporting Services-Punkt an einem Standort der zentralen Verwaltung und an primären Standorten sowie auf mehreren Standortsystemen an einem Standort und an anderen Standorten in der Hierarchie installieren. Der Reporting Services-Punkt wird nicht an sekundären Standorten unterstützt. Der erste Reporting Services-Punkt an einem Standort wird als Standardberichtsserver konfiguriert. Sie können einem Standort zwar weitere Reporting Services-Punkte hinzufügen, für die Configuration Manager-Berichte wird jedoch der Standardberichtsserver jedes Standorts aktiv verwendet. Sie können den Reporting Services-Punkt auf dem Standortserver oder einem Remote-Standortsystem installieren. Aus Leistungsgründen wird jedoch empfohlen, die Reporting Services auf einem Remote-Standortsystemserver zu verwenden.  
 
- Cependant, contrairement à d’autres objets dans Configuration Manager, les droits de sécurité que vous avez définis pour les utilisateurs administratifs dans la console Configuration Manager doivent également être configurés dans Reporting Services. Quand vous configurez des droits de sécurité dans la console Configuration Manager, le point de Reporting Services se connecte à Reporting Services et définit les autorisations appropriées pour les rapports. Par exemple, le rôle de sécurité **Gestionnaire des mises à jour logicielles** est associé aux autorisations **Exécuter le rapport** et **Modifier le rapport** . Les utilisateurs administratifs qui ne disposent que du rôle **Gestionnaire des mises à jour logicielles** ne peuvent exécuter et modifier des rapports que pour les mises à jour logicielles. Les rapports d’autres objets ne sont pas affichés dans la console Configuration Manager. L’exception à ce principe est que certains rapports ne sont pas associés à des objets sécurisables Configuration Manager spécifiques. Pour ces rapports, l'utilisateur administratif doit disposer du droit **Lecture** pour que le **Site** puisse exécuter les rapports et du droit **Modifier** pour que le **Site** puisse modifier les rapports.  
+###  <a name="BKMK_DataReplication"></a> Überlegungen zur Datenreplikation  
+ Von Configuration Manager replizierte Daten werden entweder als globale Daten oder als Standortdaten klassifiziert. Als globale Daten werden Objekte bezeichnet, die von Administratoren erstellt wurden und die an alle Standorte innerhalb der Hierarchie repliziert werden. Sekundäre Standorte erhalten dagegen nur eine Untergruppe globaler Daten. Zu den globalen Daten werden beispielsweise Softwarebereitstellungen, Softwareupdates, Sammlungen und rollenbasierte Verwaltungssicherheitsbereiche gezählt. Als Standortdaten werden Betriebsinformationen bezeichnet, die von primären Configuration Manager-Standorten und den Clients, die primären Standorten unterstellt sind, erstellt werden. Standortdaten werden am Standort der zentralen Verwaltung repliziert, jedoch nicht an anderen Standorten. Zu den Standortdaten werden beispielsweise Hardwareinventurdaten, Statusmeldungen, Warnungen und die Ergebnisse von abfragebasierten Sammlungen gezählt. Standortdaten können nur am Standort der zentralen Verwaltung und an dem primären Standort, von dem sie stammen, angezeigt werden.  
 
- Les rapports sont entièrement activés pour l’administration basée sur les rôles. Les données de tous les rapports inclus dans Configuration Manager sont filtrées en fonction des autorisations de l’utilisateur administratif qui exécute le rapport. Les utilisateurs administratifs dotés de rôles spécifiques ne peuvent afficher que les informations définies pour leurs rôles.  
+ Berücksichtigen Sie bei der Entscheidung, wo die Reporting Services-Punkte installiert werden soll, folgende Faktoren:  
 
- Pour plus d’informations sur les droits de sécurité pour les rapports, consultez [Configurer la création de rapports](configuring-reporting.md).  
+-   Einem Reporting Services-Punkt mit der Datenbank des Standorts der zentralen Verwaltung als Berichtsdatenquelle ist der Zugriff auf alle globalen Daten und alle Standortdaten in der Configuration Manager-Hierarchie möglich. Wenn Sie Berichte benötigen, in denen Standortdaten mehrerer Standorte einer Hierarchie enthalten sind, erwägen Sie, den Reporting Services-Punkt auf einem Standortsystem des Standorts der zentralen Verwaltung zu installieren und die Datenbank des Standorts der zentralen Verwaltung als Berichtsdatenquelle zu verwenden.  
 
- Pour plus d’informations sur l’administration basée sur des rôles dans Configuration Manager, consultez [Configurer l’administration basée sur des rôles](../deploy/configure/configure-role-based-administration.md).  
+-   Einem Reporting Services-Punkt mit der untergeordneten primären Standortdatenbank als Datenquelle ist nur der Zugriff auf die globalen Daten und Standortdaten des lokalen primären Standorts und ggf. von untergeordneten sekundären Standorten möglich. Die Standortdaten anderer primärer Standorte in der Configuration Manager-Hierarchie werden nicht am primären Standort repliziert und sind für Reporting Services daher nicht verfügbar. Wenn Sie Berichte mit Standortdaten eines bestimmten Standorts oder mit globalen Daten benötigen, den Berichtbenutzern jedoch keinen Zugriff auf Standortdaten anderer primärer Standorte gewähren möchten, installieren Sie einen Reporting Services-Punkt auf einem Standortsystem am primären Standort, und verwenden Sie die Datenbank des primären Standorts als Berichtsdatenquelle.  
 
-## <a name="next-steps"></a>Étapes suivantes  
- Utilisez les rubriques supplémentaires suivantes pour vous aider à planifier les rapports dans Configuration Manager :  
+###  <a name="BKMK_NetworkBandwidth"></a> Überlegungen zur Netzwerkbandbreite  
+ Die Kommunikation zwischen Standortsystemservern des gleichen Standorts erfolgt je nach Ihrer Standortkonfiguration über SMB (Server Message Block), HTTP oder HTTPS. Diese Kommunikation wird nicht verwaltet und kann jederzeit ohne Steuerung der Netzwerkbandbreite erfolgen. Prüfen Sie daher die verfügbare Netzwerkbandbreite, bevor Sie den Reporting Services-Punkt auf einem Standortsystem installieren.  
 
--   [Prérequis de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/prerequisites-for-reporting.md)  
--   [Bonnes pratiques pour la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/best-practices-for-reporting.md)  
+> [!NOTE]  
+>  Weitere Informationen zur Planung der Standortsysteme finden Sie unter [Hinzufügen von Standortsystemrollen](../deploy/configure/add-site-system-roles.md).  
 
+##  <a name="BKMK_RoleBaseAdministration"></a> Planen der rollenbasierten Verwaltung von Berichten  
+ Das Sicherheitskonzept bei der Berichterstattung ist mit dem vieler anderer Objekte in Configuration Manager vergleichbar: Sie können Sicherheitsrollen und Berechtigungen an Administratoren vergeben. Administratoren können nur Berichte ausführen und ändern, bei denen sie über die entsprechenden Sicherheitsrechte verfügen. Zum Ausführen der Berichte in der Configuration Manager-Konsole benötigen Sie das Recht **Lesen** für die Berechtigung **Standort** sowie konfigurierte Berechtigungen für bestimmte Objekte.  
 
+ Im Gegensatz zu anderen Objekten in Configuration Manager müssen die Sicherheitsrechte, die Sie in der Configuration Manager-Konsole für Administratoren festlegen, auch in Reporting Services konfiguriert werden. Beim Konfigurieren der Sicherheitsrechte in der Configuration Manager-Konsole wird vom Reporting Services-Punkt eine Verbindung mit Reporting Services hergestellt, und es werden entsprechende Berechtigungen für die Berichte eingeholt. Beispielsweise sind der Sicherheitsrolle **Softwareupdate-Manager** die Berechtigungen **Bericht ausführen** und **Bericht ändern** zugeordnet. Administratoren, denen nur die Rolle **Softwareupdate-Manager** zugewiesen ist, können nur Berichte für Softwareupdates ausführen und ändern. Berichte für andere Objekte werden in der Configuration Manager-Konsole nicht angezeigt. Die einzige Ausnahme besteht darin, dass einige Berichte keinen bestimmten sicherungsfähigen Configuration Manager-Objekten zugeordnet sind. Bei solchen Berichten benötigen Administratoren das Recht **Schreiben** für die Berechtigung **Standort** , um die Berichte auszuführen, und das Recht **Ändern** für die Berechtigung **Standort** , um die Berichte zu ändern.  
 
-<!--HONumber=Dec16_HO3-->
+ Berichte sind für die rollenbasierte Verwaltung komplett aktiviert. Bei allen in Configuration Manager verfügbaren Berichten werden die Daten auf Basis der Berechtigungen des Administrators gefiltert, der den Bericht ausführt. Administratoren mit eng festgelegten Rollen können nur für die jeweilige Rolle definierte Informationen anzeigen.  
 
+ Weitere Informationen zu Sicherheitsrechten für die Berichterstellung finden Sie unter [Konfigurieren der Berichterstellung](configuring-reporting.md).  
 
+ Weitere Informationen zur rollenbasierten Verwaltung in Configuration Manager finden Sie unter [Konfigurieren einer rollenbasierten Verwaltung](../deploy/configure/configure-role-based-administration.md).  
+
+## <a name="next-steps"></a>Nächste Schritte  
+ Bei der Planung der Berichterstellung in Configuration Manager sind folgende zusätzliche Themen hilfreich:  
+
+-   [Voraussetzungen für die Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/prerequisites-for-reporting.md)  
+-   [Bewährte Methoden für die Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/best-practices-for-reporting.md)  

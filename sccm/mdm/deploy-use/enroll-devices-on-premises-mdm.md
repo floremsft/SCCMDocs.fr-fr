@@ -1,49 +1,44 @@
 ---
-
-title: "Inscrire des appareils | Microsoft Docs"
-description: "Découvrez les méthodes permettant d’inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
+title: "Registrieren von Geräten | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über Geräteregistrierungsmethoden für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: b58472e3-31a5-4305-8eb6-2522befebe02
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
 ms.openlocfilehash: 4abaef35969ef1a5340ae8ca8aa5699cd3942642
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Registrieren von Geräten für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Pour gérer des ordinateurs et des appareils avec la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager, les appareils doivent être inscrits pour permettre à Configuration Manager de communiquer avec eux pour les tâches de gestion. Configuration Manager propose deux méthodes pour inscrire les appareils :  
+Zum Verwalten von Computern und Geräten mit der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager müssen die Geräte registriert werden, damit Configuration Manager für Verwaltungstasks mit den Geräten kommunizieren kann. Configuration Manager bietet zwei Methoden zum Registrieren von Geräten:  
 
--   **Inscription utilisateur** : avec cette méthode, les utilisateurs lancent le processus d’inscription sur leurs appareils. Pour que l’inscription utilisateur aboutisse, un certificat racine approuvé doit être installé sur l’appareil et l’utilisateur doit être configuré pour l’inscription par Configuration Manager.  Pour inscrire un appareil, l’utilisateur fournit simplement des informations d’identification professionnelles et l’appareil est inscrit pour être géré.  
+-   **Benutzerregistrierung** : Bei dieser Methode initiieren Benutzer den Registrierungsvorgang auf ihren Geräten. Damit die Benutzerregistrierung erfolgreich ist, muss auf dem Gerät ein vertrauenswürdiges Stammzertifikat installiert sein, und der Benutzer muss für die Registrierung von Configuration Manager bereitgestellt sein.  Zum Registrieren eines Geräts braucht der Benutzer lediglich seine Unternehmensanmeldeinformationen anzugeben, und das Gerät wird für die Verwaltung registriert.  
 
-     Pour plus d’informations, consultez [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
+     Weitere Informationen finden Sie unter [Informationen zur Registrierung von Geräten mit der lokalen Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
--   **Inscription en bloc** : avec cette méthode, l’utilisateur de l’appareil n’a pas besoin de lancer l’inscription. Au lieu de cela, un package d’inscription en bloc est créé dans Configuration Manager puis placé sur l’appareil et ouvert. Lors de son ouverture, le package fournit les informations nécessaires pour inscrire l’appareil.  
+-   **Massenregistrierung** : Bei dieser Methode braucht der Benutzer des Geräts die Registrierung nicht zu initiieren. Stattdessen wird ein Massenregistrierungspaket in Configuration Manager erstellt, auf dem Gerät abgelegt und geöffnet. Das Paket stellt nach dem Öffnen die erforderlichen Informationen zum Registrieren des Geräts bereit.  
 
-     Pour plus d’informations, consultez [Guide pratique pour inscrire en bloc des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md).  
+     Weitere Informationen finden Sie unter [Massenregistrierung von Geräten mit der lokalen Verwaltung von Geräten in System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md).  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  Configuration Manager Current Branch unterstützt die Registrierung bei der lokalen Verwaltung mobiler Geräte für Geräte, auf denen folgende Betriebssysteme ausgeführt werden:  
 >   
->  -   Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration 
+>  -   Windows 10 Enterprise  
+> -   Windows 10 Pro  
+> -   Windows 10 Team 
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Entreprise   
-
+> -   Windows 10 Mobile Enterprise   

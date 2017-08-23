@@ -1,45 +1,41 @@
 ---
-title: "Conditions préalables pour les profils de messagerie | Microsoft Docs"
-description: "Découvrez les profils de messagerie dans System Center Configuration Manager et leurs dépendances externes et internes au produit."
+title: "Voraussetzungen für E-Mail-Profile | Microsoft-Dokumentation"
+description: "Hier finden Sie Informationen zu E-Mail-Profilen in System Center Configuration Manager sowie zu den entsprechenden externen Abhängigkeiten und Abhängigkeiten innerhalb des Produkts."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: dccf0b73-43bd-4545-8914-114168ebad36
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
-ms.openlocfilehash: bdb7f78480f73bc4559c4ff49ecb7b047581780a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 451317db1d7aab888c03d1a099b9ce25311e06d0
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="email-profile-prerequisites"></a>Conditions préalables pour les profils de messagerie
+# <a name="email-profile-prerequisites"></a>Voraussetzungen für E-Mail-Profile
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les profils de messagerie dans System Center Configuration Manager ont des dépendances à la fois externes et internes au produit.  
+E-Mail-Profile in System Center Configuration Manager weisen externe Abhängigkeiten sowie Abhängigkeiten innerhalb des Produkts auf.  
 
-## <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
+## <a name="configuration-manager-dependencies"></a>Abhängigkeiten in Configuration Manager  
 
-|Dépendance|Plus d'informations|  
+|Abhängigkeit|Weitere Informationen|  
 |----------------|----------------------|  
-|Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les profils de messagerie.|Vous devez disposer des autorisations de sécurité suivantes pour gérer les paramètres d'accès aux ressources entreprise, telles que les profils de messagerie :<br /><br /> - Pour afficher et gérer les alertes et les rapports pour les profils de messagerie : autorisations **Créer**, **Supprimer**, **Modifier**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Alertes**.<br /><br /> - Pour créer et gérer des profils de certificat : autorisations **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de certificat**.<br /><br /> Pour gérer les déploiements de profils de messagerie : autorisations **Déployer des stratégies de configuration**, **Modifier l’alerte relative à l’état du client**, **Lecture** et **Lire la ressource** pour l’objet **Regroupement**.<br /><br /> - Pour gérer toutes les stratégies de configuration : autorisations **Créer**, **Supprimer**, **Modifier**, **Lecture** et **Définir l’étendue de sécurité** pour l’objet **Stratégie de configuration**.<br /><br /> - Pour exécuter des requêtes liées aux profils de messagerie : autorisation **Lecture** pour l’objet **Requête**.<br /><br /> - Pour afficher les informations sur les profils de messagerie dans la console System Center Configuration Manager : autorisation **Lecture** pour l’objet **Site**.<br /><br /> - Pour afficher les messages d’état pour les profils de messagerie : autorisation **Lecture** pour l’objet **Messages d’état**.<br /><br /> - Pour créer et gérer des profils de messagerie : autorisations **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de préparation des communications**.<br /><br /> Le rôle de sécurité **Gestionnaire d’accès aux ressources de l’entreprise** intègre les autorisations permettant de gérer les profils de messagerie dans System Center Configuration Manager. Pour plus d’informations, consultez [Configurer la sécurité dans System Center Configuration Manager](../../core/plan-design/security/configure-security.md).|  
-|Attribut de messagerie dans Active Directory|Si vous souhaitez générer l’adresse email des utilisateurs dans un profil de messagerie en utilisant l’adresse SMTP principale de l’utilisateur, la découverte d’utilisateur System Center Configuration Manager doit être configurée pour détecter l’attribut **mail** à partir d’Active Directory (ceci est configuré par défaut).|  
+|Für die Verwaltung von E-Mail-Profilen sind spezielle Sicherheitsberechtigungen erforderlich.|Sie müssen über die folgenden Sicherheitsberechtigungen verfügen, um Einstellungen für den Zugriff auf Unternehmensressourcen wie z. B. E-Mail-Profile zu verwalten:<br /><br /> - So zeigen Sie Warnungen und Berichte für E-Mail-Profile an und verwalten sie: Berechtigung **Erstellen**, **Löschen**, **Ändern**, **Bericht ändern**, **Lesen** und **Bericht ausführen** für das Objekt **Warnungen**.<br /><br /> - So erstellen und verwalten Sie Zertifikatprofile: Berechtigung **Richtlinie erstellen**, **Bericht ändern**, **Lesen** und **Bericht ausführen** für das Objekt **Zertifikatprofil**.<br /><br /> - So verwalten Sie Bereitstellungen von E-Mail-Profilen: **Konfigurationsrichtlinien bereitstellen**, **Warnung zu Clientstatus ändern**, **Lesen** und **Ressource lesen** für das Objekt **Sammlung**.<br /><br /> - So verwalten Sie alle Konfigurationsrichtlinien: Berechtigung **Erstellen**, **Löschen**, **Ändern**, **Lesen** und **Sicherheitsbereich festlegen** für das Objekt **Konfigurationsrichtlinie**.<br /><br /> - So führen Sie mit E-Mail-Profilen verknüpfte Abfragen aus: Berechtigung **Lesen** für das Objekt **Abfrage**.<br /><br /> - So zeigen Sie E-Mail-Profilinformationen in der System Center Configuration Manager-Konsole an: Berechtigung **Lesen** für das Objekt **Standort**.<br /><br /> - So zeigen Sie Statusmeldungen für E-Mail-Profile an: Berechtigung **Lesen** für das Objekt **Statusmeldungen**.<br /><br /> - So erstellen und verwalten Sie E-Mail-Profile: Berechtigung **Richtlinie erstellen**, **Bericht ändern**, **Lesen** und **Bericht ausführen** für das Objekt **Profil zur Kommunikationsvermittlung**.<br /><br /> In der Sicherheitsrolle **Zugriffs-Manager für Unternehmensressourcen** sind diese Berechtigungen zum Verwalten der E-Mail-Profile in System Center Configuration Manager enthalten. Weitere Informationen finden Sie unter [Configure security in System Center Configuration Manager (Konfigurieren der Sicherheit in System Center Configuration Manager)](../../core/plan-design/security/configure-security.md).|  
+|Mail-Attribut in Active Directory|Wenn Sie E-Mail-Adressen von Benutzern in einem E-Mail-Profil mithilfe der primären SMTP-Adresse des Benutzers generieren möchten, muss die System Center Configuration Manager-Benutzerermittlung so konfiguriert sein, dass sie das **mail**-Attribut von Active Directory ermitteln kann (dies ist standardmäßig konfiguriert).|  
 
-## <a name="external-dependencies"></a>Dépendances externes  
+## <a name="external-dependencies"></a>Externe Abhängigkeiten  
 
-|Dépendance|Plus d'informations|  
+|Abhängigkeit|Weitere Informationen|  
 |----------------|----------------------|  
-|Attribut de messagerie dans Active Directory|Si vous souhaitez générer l’adresse email des utilisateurs dans un profil de messagerie à l’aide de l’adresse SMTP principale de l’utilisateur, cette adresse doit exister dans l’attribut **mail** dans Active Directory.<br /><br /> Pour plus d'informations, consultez la documentation de Windows Server.|
-
+|Mail-Attribut in Active Directory|Wenn Sie E-Mail-Adressen von Benutzern in einem E-Mail-Profil mithilfe der primären SMTP-Adresse des Benutzers generieren möchten, muss diese Adresse im **mail**-Attribut in Active Directory enthalten sein.<br /><br /> Weitere Informationen finden Sie in der Windows Server-Dokumentation.|

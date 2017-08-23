@@ -1,68 +1,64 @@
 ---
-title: Utiliser les limites et les groupes de limites | Microsoft Docs
-description: "Utilisez les limites et les groupes de limites pour définir les emplacements réseau et les systèmes de site accessibles pour les appareils que vous gérez."
+title: Verwenden von Standortgrenzen und Begrenzungsgruppen | Microsoft-Dokumentation
+description: "Verwenden Sie die Standortgrenzen und Begrenzungsgruppen zum Definieren von Netzwerkadressen und zugänglichen Standortsystemen für Geräte, die Sie verwalten."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 54aa20d5-791e-4416-9db4-5aaea472c0b7
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dda2f4c01078fbbd174cbcb30357554c24f6abeb
 ms.openlocfilehash: 0fea1dece0768a2b7bcd3fcedc2288ea2d52e73d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Définir des limites de site et les groupes de limites pour System Center Configuration Manager
+# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Definieren von Standortgrenzen und Begrenzungsgruppen für Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les limites pour System Center Configuration Manager définissent les emplacements réseau sur votre intranet pouvant contenir des appareils que vous souhaitez gérer. Les groupes de limites sont des groupes logiques de limites que vous configurez.
+Mithilfe von Grenzen für System Center Configuration Manager werden Netzwerkadressen in Ihrem Intranet definiert, die Geräte enthalten können, die Sie verwalten möchten. Begrenzungsgruppen sind logische Gruppen von Grenzen, die Sie konfigurieren.
 
- Une hiérarchie peut inclure n’importe quel nombre de groupes de limites, et chaque groupe de limites peut contenir n’importe quelle combinaison des types de limites suivants :  
+ Eine Hierarchie kann eine beliebige Anzahl von Begrenzungsgruppen enthalten, und jede Begrenzungsgruppe kann eine beliebige Kombination der folgenden Grenztypen enthalten:  
 
--   Sous-réseau IP  
--   Nom de site Active Directory  
--   Préfixe IPv6  
--   Plage d'adresses IP  
+-   IP-Subnetz,  
+-   Active Directory-Standortname  
+-   IPv6-Präfix  
+-   IP-Adressbereich  
 
-Les clients intranet évaluent leur emplacement réseau actuel, puis utilisent ces informations pour identifier les groupes de limites auxquels ils appartiennent.  
+Clients im Intranet bewerten ihre aktuelle Adresse im Netzwerk und bestimmen anhand dieser Informationen Begrenzungsgruppen, zu denen sie gehören.  
 
- Les clients utilisent des groupes de limites pour :  
--   **Trouver un site attribué** : les groupes de limites permettent aux clients de trouver un site principal pour l’attribution du client (attribution automatique de site).  
--   **Trouver des rôles de système de site spécifiques disponibles** : quand vous associez un groupe de limites à certains rôles de système de site, le groupe de limites fournit aux clients la liste des systèmes de site à utiliser pour l’emplacement du contenu et en tant que points de gestion préférés.  
+ Clients nutzen Begrenzungsgruppen für folgende Zwecke:  
+-   **Suchen eines zugewiesenen Standorts:** Mithilfe von Begrenzungsgruppen können Clients einen primären Standort für die Clientzuweisung finden (automatische Standortzuweisung).  
+-   **Suchen bestimmter Standortsystemrollen, die Sie verwenden können:** Wenn Sie eine Begrenzungsgruppe bestimmten Standortsystemrollen zuordnen, bietet die Begrenzungsgruppe Clients eine Liste mit Standortsystemen, die während der Inhaltssuche und als bevorzugte Verwaltungspunkte verwendet werden sollen.  
 
-Les clients Internet ou les clients configurés en tant que clients Internet uniquement n’utilisent pas les informations sur les limites. Ces clients ne peuvent pas utiliser l’attribution automatique de site. Ils peuvent toujours télécharger le contenu de n’importe quel point de distribution sur leur site attribué quand le point de distribution est configuré pour autoriser les connexions clientes depuis Internet.  
+Von Clients, die sich im Internet befinden oder nur für Internetverbindungen konfiguriert sind, werden keine Begrenzungsinformationen verwendet. Die automatische Standortzuweisung kann von diesen Clients nicht verwendet werden. Wenn der Verteilungspunkt für das Zulassen von Clientverbindungen aus dem Internet konfiguriert ist, werden Inhalte stets von einem beliebigen Verteilungspunkt im Standort heruntergeladen, der dem Client zugeordnet ist.  
 
-**Pour bien démarrer :**
-- Tout d’abord, [définissez les emplacements réseau en tant que limites](/sccm/core/servers/deploy/configure/boundaries).
-- Puis, poursuivez en [configurant des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) pour associer les clients dans ces limites aux serveurs de système de site qu’ils peuvent utiliser.
+**Erste Schritte:**
+- Erstens, [define network locations as boundaries (Netzwerkorte als Grenzen definieren)](/sccm/core/servers/deploy/configure/boundaries).
+- Fahren Sie anschließend mit [configuring boundary groups (Begrenzungsgruppen konfigurieren)](/sccm/core/servers/deploy/configure/boundary-groups) fort, um Clients in diesen Grenzen dem Standortsystemserver zuzuordnen.
 
 
 
-##  <a name="BKMK_BoundaryBestPractices"></a> Meilleures pratiques en matière de limites et de groupes de limites  
+##  <a name="BKMK_BoundaryBestPractices"></a> Empfohlene Methoden für Standortgrenzen und Begrenzungsgruppen  
 
--   **Utilisez une combinaison du plus petit nombre de limites qui répondent à vos besoins :**  
-   Dans le passé, nous vous avons conseillé d’utiliser certains types de limites plus que d’autres. Compte-tenu des modifications apportées pour améliorer les performances, nous vous conseillons dorénavant d’utiliser le ou les types de votre choix qui fonctionnent dans votre environnement et qui vous permettent d’utiliser le plus petit nombre de limites possible pour simplifier vos tâches de gestion.      
+-   **Verwenden Sie eine Kombination aus den wenigsten Grenzen, die Ihren Anforderungen entsprechen:**  
+   In der Vergangenheit empfahlen wir die Verwendung von einigen Typen von Grenzen gegenüber anderen. Mit Änderungen zur Verbesserung der Leistung empfehlen wir Ihnen, die von Ihnen gewählten Grenzen oder Typen für Ihre Umgebung zu verwenden, sodass Sie die wenigsten möglichen Grenzen verwenden können, um Ihre Verwaltungsaufgaben zu vereinfachen.      
 
--   **Éviter le chevauchement des limites pour l’attribution automatique de site :**  
-     Chaque groupe de limites prend en charge les configurations d’attribution de site et d’emplacement du contenu, mais il est recommandé de créer un ensemble de groupes de limites à utiliser uniquement pour l’attribution de site. Cela signifie que vous devez vérifier qu’aucune limite d’un groupe de limites n’est membre d’un autre groupe de limites ayant une attribution de site différente. La raison est la suivante :  
+-   **Vermeiden Sie überlappende Grenzen bei der automatischen Standortzuweisung:**  
+     Obwohl jede Begrenzungsgruppe sowohl Konfigurationen der Standortzuweisung als auch für die Inhaltssuche unterstützt, ist es eine bewährte Methode, einen getrennten Satz von Begrenzungsgruppen nur für die Standortzuweisung zu nutzen. Achten Sie also darauf, dass in einer Begrenzungsgruppe enthaltene Grenzen nicht gleichzeitig einer anderen Begrenzungsgruppe mit abweichender Standortzuweisung angehören. Der Grund ist wie folgt:  
 
-    -   Une limite peut être incluse dans plusieurs groupes de limites.  
+    -   Eine einzelne Grenze kann zu mehreren Begrenzungsgruppen gehören.  
 
-    -   Chaque groupe de limites peut être associé à un site principal différent pour l’attribution de site.  
+    -   Jede Begrenzungsgruppe kann für die Standortzuweisung einem anderen primären Standort zugeordnet werden.  
 
-    -   Un client sur une limite qui est membre de deux groupes de limites ayant des attributions de site différentes sélectionne au hasard un site auquel se joindre, site qui n’est pas nécessairement le site que vous avez prévu à cet effet.  Cette configuration est appelée chevauchement des limites.  
+    -   Ein Client auf einer Grenze, die zu zwei verschiedenen Begrenzungsgruppen mit unterschiedlichen Standortzuweisungen gehört, wählt für den Beitritt zu einem Standort das Zufallsprinzip, wobei dies ggf. nicht der Standort ist, dem der Client beitreten möchte.  Diese Konfiguration wird als überlappende Grenzen bezeichnet.  
 
-     Le chevauchement des limites n’est pas un problème pour l’emplacement du contenu. Il s’agit souvent d’une configuration souhaitée qui fournit aux clients des ressources ou emplacements de contenu supplémentaires qu’ils peuvent utiliser.  
-
+     Überlappende Grenzen sind kein Problem für die Inhaltssuche und stattdessen häufig eine gewünschte Konfiguration, um Clients zusätzliche Ressourcen oder Inhaltsorte zu bieten, die sie verwenden können.  

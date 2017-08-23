@@ -1,61 +1,54 @@
 ---
-title: "Utiliser les données de diagnostic | Microsoft Docs"
-description: "Découvrez comment Microsoft utilise les données de diagnostic et d’utilisation collectées par System Center Configuration Manager."
+title: Verwenden von Diagnosedaten | Microsoft-Dokumentation
+description: "Erfahren Sie mehr darüber, wie Microsoft die Diagnose- und Nutzungsdaten verwendet, die System Center Configuration Manager sammelt."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a8021bc8-2799-41f4-83c2-e27d1242028c
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 24a233516058e645df2a43623855665b97b041b0
 ms.openlocfilehash: 9864f6ba7b9a2211c99b1a5d9ebd582e01ccfeb6
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Utilisation des données d’utilisation et de diagnostic pour System Center Configuration Manager
+# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Nutzung von Diagnose- und Verwendungsdaten für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les données de diagnostic et d’utilisation que System Center Configuration Manager collecte fournissent à Microsoft un retour d’expérience quasi immédiat sur la manière dont le produit fonctionne, et permettent d’améliorer les mises à jour ultérieures. Nous pouvons également voir des données de configuration qui nous aident à concevoir et tester les configurations qui sont en production. Exemple :  
+Die von System Center Configuration Manager erfassten Diagnose- und Nutzungsdaten stellen Microsoft ein nahezu unmittelbares Feedback zum Betrieb des Produkts bereit und dienen zur Anpassung zukünftiger Updates. Außerdem werden Konfigurationsdaten bereitgestellt, mit deren Hilfe in der Produktion befindliche Konfigurationen entwickelt und getestet werden können. Beispiel:  
 
--   Versions de Windows Server utilisées par les serveurs de site  
+-   Die vom Standortserver verwendeten Windows Server-Versionen  
 
--   Modules linguistiques installés  
+-   Installierte Sprachpakete  
 
--   Différentiel du schéma SQL par rapport aux paramètres par défaut du produit  
+-   Das Delta zwischen SQL-Schema und Standardwert des Produkts  
 
-Ces données aident l’équipe de conception à planifier les prochains tests visant à garantir la meilleure expérience possible pour les configurations les plus courantes. Les mises à jour de Configuration Manager étant publiées à un rythme plus soutenu (pour mieux prendre en charge les technologies qui évoluent rapidement, telles que Windows 10 et Microsoft Intune), ces données sont cruciales pour une adaptation rapide.  
+Mithilfe dieser Daten kann das Entwicklungsteam zukünftige Tests planen, um die beste Lösung für die am häufigsten verwendeten Konfigurationen zu finden. Da Updates für Configuration Manager in kürzeren Intervallen veröffentlicht werden (um eine bessere Unterstützung für Technologien zu bieten, die schnellen Veränderungen unterliegen, wie Windows 10 und Microsoft Intune), sind diese Daten für eine rasche Anpassung und Optimierung von entscheidender Bedeutung.  
 
-Il est également important de savoir à quoi les données de diagnostic et d’utilisation ne sont pas utilisées. Microsoft n’utilise pas ces données pour ce qui suit :  
+Ebenso wichtig ist, wofür die Diagnose- und Nutzungsdaten nicht eingesetzt werden. Microsoft verwendet diese Daten nicht zu folgenden Zwecken:  
 
--   Audits de licence (par exemple, comparer l’utilisation des clients avec les contrats de licence)  
+-   Lizenzierungsüberwachung, z.B. Vergleich der Verwendung mit Lizenzverträgen  
 
--   Audit de produits non pris en charge  
+-   Überwachung von Produkten, die nicht mehr unterstützt werden  
 
--   Publicité basée sur des données disponibles, telles que l’utilisation de fonctionnalités ou la géolocalisation (fuseau horaire)  
+-   Werbung basierend auf verfügbaren Daten wie z.B. Featureverwendung oder geografischem Standort (Zeitzone)  
 
-##  <a name="a-namebkmkimprovea-examples-of-how-diagnostics-and-usage-data-improves-the-product"></a><a name="bkmk_improve"></a> Exemples de la manière dont les données de diagnostic et d’utilisation contribuent à améliorer le produit  
-Microsoft utilise les données disponibles pour améliorer le produit. Voici quelques exemples :  
+##  <a name="bkmk_improve"></a> Beispiele für die Verbesserung des Produkts anhand von Diagnose- und Nutzungsdaten  
+Microsoft verwendet die verfügbaren Daten zur Verbesserung des Produkts. Im Folgenden sind einige Beispiele aufgeführt:  
 
--   **Prise en charge révisée pour les systèmes d’exploitation serveur plus anciens :**  
+-   **Überarbeitete Unterstützung für ältere Serverbetriebssysteme:**  
 
-     La prise en charge initiale offerte par System Center Configuration Manager (Current Branch) limitait la période de prise en charge de Windows Server 2008 R2. Après examen des données d’utilisation de clients qui avaient effectué une mise à niveau vers la version Current Branch de Configuration Manager, nous avons jugé utile de modifier et d’étendre cette période pour prendre en charge les clients qui continuaient d’utiliser ce système d’exploitation serveur pour héberger des serveurs de site et des rôles de système de site.  
+     In der anfänglichen Unterstützung, die vom aktuellen Branch von System Center Configuration Manager angeboten wurde, war der Unterstützungszeitraum für Windows Server 2008 R2 eingeschränkt. Nach der Untersuchung der Nutzungsdaten von Kunden, die ein Upgrade auf den aktuellen Branch von Configuration Manager durchgeführt haben, stellten wir fest, dass dieser Zeitraum überarbeitet und erweitert werden musste, um Kunden zu unterstützen, die dieses Serverbetriebssystem noch immer zum Hosten von Standortservern und Standortsystemrollen verwenden.  
 
--   **Vérifications de configuration requise améliorées :**  
+-   **Verbesserte Voraussetzungsprüfungen:**  
 
-     Sur la base des données d’utilisation, nous avons amélioré les vérifications des conditions préalables à l’installation d’une mise à jour pour supprimer des règles obsolètes, tenir compte de cas supplémentaires et, dans certains cas, résoudre automatiquement certains problèmes.  
-
-
-
-<!--HONumber=Dec16_HO5-->
-
-
+     Anhand der Nutzungsdaten haben wir die Voraussetzungsprüfungen für die Installation eines Updates verbessert und veraltete Regeln entfernt sowie zusätzliche Fälle berücksichtigt. In einigen Fällen werden Probleme automatisch behoben.  

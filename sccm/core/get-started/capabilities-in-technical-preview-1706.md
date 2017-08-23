@@ -1,11 +1,10 @@
 ---
-title: Technical Preview 1706 | Microsoft Docs
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager."
+title: Technical Preview 1706 | Microsoft-Dokumentation
+description: "Erfahren Sie mehr über die Funktionen, die in der Technical Preview-Version 1706 von System Center Configuration Manager zur Verfügung stehen."
 ms.custom: na
 ms.date: 06/30/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,18 +13,17 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
 ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/07/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1706 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Funktionen in der Technical Preview-Version 1706 von System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.     
+In diesem Artikel werden die Funktionen erläutert, die in der Technical Preview-Version 1706 von System Center Configuration Manager verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bevor Sie diese Technical Preview-Version installieren, lesen Sie [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview-Version vertraut zu machen und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Funktionen in einer Technical Preview-Version geben können.     
 
 
 <!--  Known Issues Template   
@@ -33,17 +31,17 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 -   **Issue Name**. Details
     Workaround details.
 -->
-**Problèmes connus dans cette version d’évaluation technique :**
+**Bekannte Probleme in dieser Technical Preview:**
 
--   **Déplacer le point de distribution** : les options de la console pour déplacer un point de distribution entre sites ne peuvent pas être utilisées avec cette version en raison de la limite technique de la version préliminaire d’un seul site principal.
+-   **Verschieben eines Verteilungspunkts**: Die Optionen in der Konsole zum Verschieben eines Verteilungspunkts zwischen Standorten können in dieser Version aufgrund der Beschränkung der Technical Preview auf einen einzigen primären Standort nicht genutzt werden.
 
--   **Paramètres de conformité d’appareil** : vous pouvez rencontrer le comportement opposé lorsque vous utilisez les deux nouveaux paramètres de conformité d’appareil :
-    - **Bloquer le débogage USB sur l’appareil**
-    - **Bloquer les applications provenant de sources inconnues**
+-   **Gerätekonformitätseinstellungen**: Bei Verwenden der beiden neuen Gerätekonformitätseinstellungen kann das entgegengesetzte Verhalten auftreten:
+    - **USB-Debugging auf Gerät blockieren**
+    - **Apps von unbekannten Quellen blockieren**
 
-        Par exemple, si l’administrateur définit **Bloquer le débogage USB sur l’appareil** sur **true**, tous les appareils qui n’ont pas activé le débogage USB sont marqués comme non conformes.
+        Wenn Administratoren beispielsweise **USB-Debugging auf Gerät blockieren** auf **TRUE** festlegen, werden alle Geräte, für die USB-Debuggen nicht aktiviert ist, als nicht konform markiert.
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+**Im Folgenden werden neue Funktionen aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
 <!--  Rough Section Template
 ##  FEATURE
@@ -55,531 +53,530 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
  -  Task 2              
 -->
 
-## <a name="improved-boundary-groups-for-software-update-points"></a>Améliorations des groupes de limites pour les points de mise à jour logicielle
+## <a name="improved-boundary-groups-for-software-update-points"></a>Verbesserte Begrenzungsgruppen für Softwareupdatepunkte
 <!-- 1324591 -->
-Cette version inclut des améliorations pour le fonctionnement des points de mise à jour logicielle avec des groupes de limites. Voici qui résume le nouveau comportement de secours :
--   L’action de secours pour les points de mise à jour logicielle utilise désormais un temps configurable pour le repli sur les groupes de limites voisins, avec une durée minimale de 120 minutes.
+Diese Version bietet Verbesserungen dahingehend, wie Softwareupdatepunkte mit Begrenzungsgruppen arbeiten. Im Folgenden wird das neue Ausweichverhalten zusammengefasst:
+-   Für Softwareupdatepunkte gibt es nun einen konfigurierbaren Zeitraum (mindestens 120 Minuten) für ein Ausweichen auf benachbarte Begrenzungsgruppen.
 
--   Indépendamment de la configuration de secours, un client essaie d’atteindre le dernier point de mise à jour logicielle qu'il a utilisé pendant 120 minutes. Après l’échec de communication avec ce serveur pendant 120 minutes, le client vérifie ensuite son pool de points de mise à jour logicielle disponibles, afin d’en trouver un nouveau.
+-   Unabhängig von der Konfiguration des Ausweichens versucht ein Client, den letzten Softwareupdatepunkt zu erreichen, den er 120 Minuten verwendet hat. Sollte dieser Server in diesen 120 Minuten nicht erreicht werden, überprüft der Client seinen Pool verfügbarer Softwareupdatepunkte auf einen neuen.
 
-  -   Tous les points de mise à jour logicielle dans le groupe de limites actuel du client sont ajoutés immédiatement au pool du client.
+  -   Alle Softwareupdatepunkte in der aktuellen Begrenzungsgruppe des Clients werden dem Pool des Clients sofort hinzugefügt.
 
-  -   Comme un client tente d’utiliser son serveur d’origine pendant 120 minutes avant d’en rechercher d’un nouveau, aucun des serveurs supplémentaires n’est contacté jusqu'à ce que deux heures s’écoulent.
+  -   Da ein Client 120 Minuten versucht, seinen ursprünglichen Server zu nutzen, bevor er einen neuen sucht, werden zusätzliche Server erst kontaktiert, nachdem zwei Stunden verstrichen sind.
 
-  -   Si le repli sur un groupe voisin est configuré pour un minimum de 120 minutes, les points de mise à jour logicielle à partir de ce groupe de limites voisin feront partie du pool de serveurs disponibles du client .
+  -   Wenn das Ausweichen zu einer Nachbargruppe mit dem Mindestzeitraum von 120 Minuten konfiguriert ist, gehören Softwareupdatepunkte aus dieser benachbarten Begrenzungsgruppe zum Pool verfügbarer Server des Clients.
 
--   Après avoir échoué pendant deux heures à atteindre le serveur d’origine, le client passe à un cycle plus court pour contacter un nouveau point de mise à jour logicielle.
+-   Nachdem der Client seinen ursprünglichen Server zwei Stunden nicht erreicht hat, wechselt er beim Kontaktieren eines neuen Softwareupdatepunkts zu einem kürzeren Zyklus.
 
-    Cela signifie que si un client ne parvient pas à se connecter avec un nouveau serveur, il sélectionne rapidement le serveur suivant à partir de son pool de serveurs disponibles et tente de le contacter.
+    Wenn also ein Client keine Verbindung mit einem neuen Server herstellen kann, wählt er rasch den nächsten Server in seinem Pool verfügbarer Server aus und versucht, diesen zu kontaktieren.
 
-  -   Ce cycle se poursuit jusqu'à ce que le client se connecte à un point de mise à jour logicielle qu’il peut utiliser.
-  -   Jusqu'à ce que le client trouve un point de mise à jour logicielle, les serveurs supplémentaires sont ajoutés à un pool de serveurs disponibles lorsque le temps de secours pour chaque groupe de limites voisin est atteint.
+  -   Dieser Zyklus wird so lange fortgesetzt, bis der Client eine Verbindung mit einem Softwareupdatepunkt hergestellt hat, der verwendet werden kann.
+  -   Bis der Client einen Softwareupdatepunkt gefunden hat, werden dem Pool verfügbarer Server zusätzliche Server hinzugefügt, sobald die Ausweichzeit für jede benachbarte Begrenzungsgruppe erreicht ist.
 
-Pour plus d’informations, consultez la section [Points de mise à jour logicielle](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) dans la rubrique Groupes de limites pour Current Branch.
+Weitere Informationen finden Sie im Thema zu Begrenzungsgruppen unter [Softwareupdatepunkte](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) für den Current Branch.
 
 
-## <a name="site-server-role-high-availability"></a>Rôle serveur site haute disponibilité
+## <a name="site-server-role-high-availability"></a>Hohe Verfügbarkeit der Standortserverrolle
 <!-- 1128774 -->
-La haute disponibilité pour le rôle de serveur de site est une solution basée sur Configuration Manager pour installer un serveur de site principal supplémentaire en mode *Passif*. Le serveur de site en mode passif vient s’ajouter à votre serveur de site principal existant qui se trouve en mode *Actif*. Un serveur de site en mode passif est disponible pour une utilisation immédiate, si nécessaire.
+Hohe Verfügbarkeit der Standortserverrolle ist eine auf Configuration Manager basierende Lösung zum Installieren eines weiteren primären Standortservers im *passiven* Modus. Der Standortserver im passiven Modus ist zusätzlich zu Ihrem primären Standortserver vorhanden, der sich im *aktiven* Modus befindet. Ein Standortserver im passiven Modus ist bei Bedarf sofort einsatzbereit.
 
-Un serveur de site principal en mode passif :
--   Utilise la même base de données de site en tant que serveur de site actif.
--   Reçoit une copie de la bibliothèque de contenu des serveurs de site actifs, qui est ensuite synchronisée.
--   N’écrit pas les données dans la base de données du site tant qu’il est en mode passif.
--   Ne prend pas en charge l’installation ou la suppression de rôles de système de site facultatifs tant que le mode passif est activé.
+Für einen primären Standortserver im passiven Modus gilt Folgendes:
+-   Verwendet die gleiche Standortdatenbank wie Ihr aktiver Standortserver.
+-   Empfängt eine Kopie der Inhaltsbibliothek des aktiven Standortservers, die synchron gehalten wird.
+-   Überschreibt keine Daten in der Standortdatenbank, solange er sich im passiven Modus befindet.
+-   Unterstützt nicht die Installation oder Entfernung optionaler Standortsystemrollen, solange er sich im passiven Modus befindet.
 
-Pour faire du serveur de site en mode passif le serveur de site en mode actif, vous le promouvez manuellement. Le serveur de site actif devient alors le serveur de site passif. Les rôles de système de site disponibles sur le serveur en mode actif d’origine restent disponibles tant l’ordinateur est accessible. Seul le rôle de serveur de site bascule entre mode passif et mode actif.
+Um den Standortserver im passiven Modus zu Ihrem Standortserver im aktiven Modus zu machen, müssen Sie ihn manuell höher stufen. Dadurch wird der aktive Standortserver zum passiven Standortserver. Die Standortsystemrollen, die auf dem ursprünglichen Server im aktiven Modus verfügbar sind, bleiben verfügbar, solange auf diesen Computer zugegriffen werden kann. Nur die Standortserverrolle wird zwischen aktivem und passivem Modus umgeschaltet.
 
-Pour installer un serveur de site en mode passif, vous utilisez **l’Assistant Création d’un serveur de système de site** pour configurer un nouveau serveur de site avec le type **Serveur de site principal** et le mode **Passif**. L’assistant exécute ensuite le programme d’installation de Configuration Manager sur le serveur spécifié pour installer le nouveau serveur de site en mode passif. Une fois l’installation terminée, le serveur de site en mode actif assure la synchronisation du serveur de site en mode passif et de sa bibliothèque de contenu avec les modifications ou configurations que vous apportez sur le serveur de site actif.
+Um einen Standortserver im passiven Modus zu installieren, verwenden Sie den **Assistenten zum Erstellen von Standortsystemservern**, um einen neuen Standortserver des Typs **Primärer Standortserver** und mit dem Modus **Passiv** zu konfigurieren. Der Assistent führt dann das Configuration Manager-Setup auf dem angegebenen Server aus, um den neuen Standortserver im passiven Modus zu installieren. Nach Abschluss der Installation hält der Standortserver im aktiven Modus den Standortserver im passiven Modus und dessen Inhaltsbibliothek mit Änderungen oder Konfigurationen synchron, die Sie auf dem aktiven Standortserver vornehmen.
 
-### <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
--   Un serveur de site unique en mode passif est pris en charge sur chaque site principal.
+### <a name="prerequisites-and-limitations"></a>Voraussetzungen und Einschränkungen
+-   Ein einzelner Standortserver im passiven Modus wird an jedem primären Standort unterstützt.
 
--   Le serveur de site en mode passif peut être local ou sur le cloud dans Azure.
+-   Der Standortserver im passiven Modus kann entweder lokal oder in der Azure-Cloud vorhanden sein.
 
--   Les serveurs de site en mode actif et ceux en mode passif doivent être dans le même domaine.
+-   Die Standortserver im aktiven und passiven Modus müssen sich in derselben Domäne befinden.
 
--   Les serveurs de site en mode actif et ceux en mode passif doivent utiliser la même base de données, qui doit être distante par rapport aux ordinateurs de chaque serveur de site.
+-   Die Standortserver im aktiven und passiven Modus müssen dieselbe Standortdatenbank verwenden, die für die Computer der einzelnen Standortserver remote sein muss.
 
-    -   Le serveur SQL qui héberge la base de données peut utiliser une instance par défaut, appelée instance, cluster SQL Server ou groupe de disponibilité AlwaysOn.
+    -   Die SQL-Server-Instanz, die die Datenbank hostet, kann eine Standardinstanz, benannte Instanz, einen SQL Server-Cluster oder eine Always On-Verfügbarkeitsgruppe verwenden.
 
-    -   Le serveur de site en mode passif est configuré pour utiliser la même base de données de site que le serveur de site en mode actif. Toutefois, le serveur de site en mode passif n’utilise pas cette base de données jusqu'à sa promotion en mode actif.
+    -   Der Standortserver im passiven Modus ist für die Verwendung der gleichen Datenbank wie der Standortserver im aktiven Modus konfiguriert. Doch der Standortserver im passiven Modus verwendet diese Datenbank erst, nachdem er in den aktiven Modus höher gestuft wurde.
 
--   L’ordinateur qui exécutera le serveur de site en mode passif :
+-   Für den Computer, auf dem der Standortserver im passiven Modus ausgeführt wird, gilt Folgendes:
 
-    -   Doit respecter les [conditions requises pour installer un site principal](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
+    -   Muss die [Voraussetzungen für die Installation eines primären Standorts](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site) erfüllen.
 
-    -   Installe à l’aide de fichiers sources correspondant à la version du serveur de site en mode actif.
+    -   Wird mit Quelldateien installiert, deren Version der des Standortservers im aktiven Modus entsprechen.
 
-    -   Ne peut pas avoir un rôle de système de site à partir d’un autre site avant d’installer le site en mode passif.
+    -   Kann vor der Installation des Standorts im passiven Modus keine Standortsystemrollen eines beliebigen Standorts aufweisen.
 
--   Les ordinateurs de serveur de site en mode passif et actif peuvent exécuter différents systèmes d’exploitation ou versions de service pack, tant les deux restent pris en charge par votre version de Configuration Manager.
+-   Die Standortservercomputer im aktiven und passiven Modus können mit verschiedenen Betriebssystemen oder Service Pack-Versionen ausgeführt werden, solange diese von Ihrer Version von Configuration Manager unterstützt werden.
 
--   La promotion du serveur de site en mode passif en serveur en mode actif est manuelle. Il n’y a pas de basculement automatique.
+-   Das Höherstufen des Standortservers im passiven Modus zum Server im aktiven Modus erfolgt manuell. Es findet kein automatisches Failover statt.
 
--   Les rôles de système de site peuvent être installés uniquement sur le serveur de site qui est en mode actif.
+-   Standortsystemrollen können nur auf dem Standortserver installiert werden, der sich im aktiven Modus befindet.
 
-    -   Un serveur de site en mode actif prend en charge tous les rôles de système de site. Vous ne pouvez pas installer des rôles de système de site sur le serveur lorsqu’il est en mode passif.
+    -   Ein Standortserver im aktiven Modus unterstützt alle Standortsystemrollen. Sie können Standortsystemrollen nicht auf einem Server im passiven Modus installieren.
 
-    -   Les rôles de système de site qui utilisent une base de données (comme le point de rapport) doivent avoir cette base de données sur un serveur distant à la fois le serveur de site en mode actif et celui en mode passif.
+    -   Bei Standortsystemrollen, die eine Datenbank (z.B. für den Berichterstattungspunkt) verwenden, muss sich die Datenbank auf einem Server befinden, der für die Standortserver im aktiven und passiven Modus remote ist.
 
-    -   SMS_Provider n’installe pas sur le serveur de site en mode passif. Étant donné que vous devez vous connecter à un SMS_Provider pour le site afin de promouvoir manuellement le serveur de site du mode passif au mode actif, nous vous recommandons [l’installation d’au moins une instance supplémentaire du fournisseur](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) sur un autre ordinateur.
+    -   Der SMS-Anbieter wird nicht auf dem Standortserver im passiven Modus installiert. Da Sie für das manuelle Höherstufen des Standortserver vom passiven in den aktiven Modus eine Verbindung mit einem SMS-Anbieter herstellen müssen, empfehlen wir das [Installieren von mindestens einer zusätzlichen Instanz des Anbieters](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) auf einem zusätzlichen Computer.
 
-**Problème connu** :   
-Avec cette version, **l’état** pour que les conditions suivantes s’affichent dans la console en tant que valeurs numériques au lieu de texte lisible :
--   131071 – L’installation du serveur de site a échoué
--   720895 : Échec de désinstallation du rôle de serveur de site
--   851967 : Échec du basculement
+**Bekanntes Problem**:   
+Bei dieser Version wird der **Status** der folgenden Bedingungen in der Konsole als numerischer Wert anstatt als lesbarer Text angezeigt:
+-   131071: Fehler bei der Installation des Standortservers
+-   720895: Fehler bei der Deinstallation der Standortserverrolle
+-   851967: Fehler beim Failover
 
-### <a name="add-a-site-server-in-passive-mode"></a>Ajouter un serveur de site en mode passif
-1.  Dans la console, accédez à **Administration** > **Configuration du site** > **Sites** et sélectionnez [Assistant d’ajout de rôles de système de site](/sccm/core/servers/deploy/configure/install-site-system-roles). Vous pouvez également utiliser **l'Assistant Création de serveur de système de site**.
+### <a name="add-a-site-server-in-passive-mode"></a>Hinzufügen eines Standortservers im passiven Modus
+1.  Wechseln Sie in der Konsole zu **Verwaltung** > **Standortkonfiguration** > **Standorte**, und starten Sie den [Assistenten zum Hinzufügen von Standortsystemrollen](/sccm/core/servers/deploy/configure/install-site-system-roles). Sie können auch den **Assistenten zum Erstellen von Standortsystemservern** verwenden.
 
-2.  Sur la page **Général**, spécifiez le serveur qui hébergera le serveur de site en mode passif. Le serveur que vous spécifiez ne peut pas héberger les rôles de système de site avant d’installer un serveur de site en mode passif.
+2.  Geben Sie auf der Seite **Allgemein** den Server an, der den Standortserver im passiven Modus hostet. Der Server, den Sie angeben, kann Standortsystemrollen erst dann hosten, nachdem ein Standortserver im passiven Modus installiert wurde.
 
-3.  Sur la page **Sélection du rôle système**, sélectionnez uniquement **Serveur de site principal en mode passif**.
+3.  Wählen Sie auf der Seite **Systemrollenauswahl** nur **Primärer Standortserver im passiven Modus** aus.
 
-4.  Pour terminer l’assistant, vous devez fournir les informations suivantes qui sont utilisées pour exécuter le programme d’installation et installer le rôle de serveur de site sur le serveur spécifié :
-    -   Choisissez de copier les fichiers d’installation du serveur de site actif vers le nouveau serveur de site en mode passif, ou spécifiez un chemin d’accès à un emplacement qui contient le contenu du dossier **CD.Latest** du serveur de site actif.
+4.  Zum Abschließen des Assistenten müssen Sie die folgenden Informationen bereitstellen, die verwendet werden, um das Setup auszuführen und die Standortserverrolle auf dem angegebenen Server zu installieren:
+    -   Wählen Sie die Option zum Kopieren der Installationsdateien vom aktiven Standortserver auf den neuen Standortserver im passiven Modus, oder geben Sie einen Pfad zu einem Speicherort an, der den Inhalt des Ordners **CD.Latest** des aktiven Standortservers enthält.
 
-    -   Spécifiez le même serveur de base de données de site et le même nom de base de données que ceux utilisés par le serveur de site en mode actif.
+    -   Geben Sie den gleichen Standortdatenbankserver- und Datenbanknamen an, der vom Standortserver im aktiven Modus verwendet wird.
 
-5.  Configuration Manager installe ensuite le serveur de site en mode passif sur le serveur spécifié.
+5.  Configuration Manager installiert dann den Standortserver im passiven Modus auf dem angegebenen Server.
 
-Pour l’état d’installation détaillé, accédez à **Administration** > **Configuration du Site** > **Sites**.
--   L’état du serveur de site en mode passif s’affiche sous la forme **Installation**.
+Detaillierte Informationen zum Installationsstatus finden Sie unter **Verwaltung** > **Standortkonfiguration** > **Standorte**.
+-   Der Status des Standortservers im passiven Modus wird als **Wird installiert** angezeigt.
 
--   Sélectionnez le serveur, puis cliquez sur **Afficher l’état** pour ouvrir **État d’installation de serveur de site** pour plus d’informations.
-
-
-
-### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>Promouvoir le serveur de site en mode passif au mode actif
-Lorsque vous souhaitez promouvoir le serveur de site en mode passif au mode actif, vous pouvez le faire à partir du volet **Nœuds** dans **Administration** > **Configuration du site** > **Sites**. Tant que vous pouvez accéder à une instance de SMS_Provider, vous pouvez accéder au site pour effectuer cette modification.
-1.  Dans le volet **nœuds** de la console Configuration Manager, sélectionnez le serveur de site en mode passif, puis choisissez **Promouvoir en actif** dans le ruban.
-
-2.  **L’état** simple pour le serveur que vous promouvez s’affiche dans le volet **Nœuds** sous la forme **Promotion**.
-
-3.  Une fois la promotion terminée, la colonne **État** affiche **OK** à la fois pour le nouveau serveur de site en mode *Actif* et le nouveau serveur de site en mode *Passif*.
-
-4.  Dans **Administration** > **Configuration du site** > **Sites**, le nom du serveur de site principal affiche désormais le nom du nouveau serveur de site en mode *Actif*.
-Pour l’état détaillé, accédez à **Surveillance** > **État du serveur de site**.
-    -   La colonne **Mode** identifie le serveur *Actif* et le serveur *Passif*.
-
-    -   Lors de la promotion d’un serveur du mode passif au mode actif, sélectionnez le serveur de site que vous promouvez au mode actif, puis choisissez **Afficher l’état** à partir du ruban. Cette opération ouvre la fenêtre **État de promotion du serveur de site** qui affiche des détails supplémentaires sur le processus.
-
-Lorsqu’un serveur de site en mode actif bascule sur le mode passif, seul le rôle de système de site est rendu passif. Tous les autres rôles de système de site installés sur cet ordinateur restent actifs et accessibles aux clients.
+-   Wählen Sie den Server aus, und klicken Sie dann auf **Status anzeigen**, um die Seite mit dem **Status der Standortserverinstallation** mit detaillierteren Informationen zu öffnen.
 
 
-### <a name="daily-monitoring"></a>Surveillance quotidienne
-Lorsque vous avez un site principal en mode passif, surveillez-le quotidiennement pour vous assurer qu’il reste synchronisé avec le serveur de site en mode actif et est prêt à être utilisé. Pour ce faire, accédez à **Surveillance** > **État du serveur de site**. Ici, vous pouvez afficher les serveurs de site en mode actif et ceux en mode passif.
 
-L’onglet **Résumé** :
--   La colonne **Mode** identifie le serveur Actif et le serveur Passif.
--   La colonne **État** indique **OK** lorsque le serveur en mode passif est synchronisé avec le serveur en mode actif.
--   Pour afficher des détails supplémentaires sur l’état de synchronisation du contenu, cliquez sur **Afficher l’état** à partir de l’état de synchronisation du contenu. Cela ouvre l’onglet Bibliothèque de contenu où vous pouvez essayer de résoudre les problèmes de synchronisation du contenu.
+### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>Höherstufen des Standortservers im passiven Modus in den aktiven Modus
+Wenn Sie den Standortserver im passiven Modus in den aktiven Modus ändern möchten, wechseln Sie unter **Verwaltung** > **Standortkonfiguration** > **Standorte** zum Bereich **Knoten**. Solange Sie Zugriff auf eine Instanz des SMS-Anbieters haben, können Sie auf den Standort zugreifen, um diese Änderung vorzunehmen.
+1.  Wählen Sie in der Configuration Manager-Konsole im Bereich **Knoten** den Standortserver im passiven Modus aus, und klicken Sie dann im Menüband auf **In den aktiven Modus höher stufen**.
 
-L’onglet **Bibliothèque de contenu** :
--   Affichez **l’état** pour le contenu qui se synchronise du serveur de site actif vers le serveur de site en mode passif.
--   Vous pouvez sélectionner le contenu avec un état **Échec**, puis choisir **Synchroniser les éléments sélectionnés** à partir du ruban. Cette action tente de resynchroniser ce contenu de la source de contenu vers le serveur de site en mode passif. Lors de la récupération, l’état s’affiche sous la forme **En cours**, et si le serveur est synchronisé, l’état est **Succès**.
+2.  Der einfache **Status** des Servers, den Sie höher stufen, wird im Bereich **Knoten** als **Wird höher gestuft** angezeigt.
 
-### <a name="try-it-out"></a>Essayez !
-Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaires** à partir de l’onglet **Accueil** du ruban pour nous dire comment cela a fonctionné pour vous :
--   Je peux installer un site principal en mode passif.
--   Je peux utiliser la console pour promouvoir le serveur de site en mode passif pour en faire le serveur de site en mode actif et confirmer le changement d’état pour les deux serveurs de site.
+3.  Nach Abschluss der Höherstufung wird **OK** in der Spalte **Status** für sowohl den neuen Standortserver im Modus *Aktiv* als auch für den neuen Standortserver im Modus *Passiv* angezeigt.
+
+4.  Unter **Verwaltung** > **Standortkonfiguration** > **Standorte** wird der Name des primären Standortservers jetzt als der Name des neuen Standortservers im Modus *Aktiv* angezeigt.
+Ausführliche Statusinformationen finden Sie unter **Überwachung** > **Status des Standortservers**.
+    -   Die Spalte **Modus** gibt an, welcher Server *Aktiv* oder *Passiv* ist.
+
+    -   Wählen Sie beim Höherstufen eines Servers aus dem passiven in den aktiven Modus den Standortserver aus, den Sie auf aktiv höher stufen, und klicken Sie dann im Menüband auf **Status anzeigen**. Daraufhin wird das Fenster mit dem **Status der Höherstufung des Standortservers** mit zusätzlichen Details zum Prozess angezeigt.
+
+Wenn ein Standortserver im aktiven Modus in den passiven Modus wechselt, ändert sich nur die Standortsystemrolle in passiv. Alle anderen Standortsystemrollen, die auf diesem Computer installiert sind, bleiben aktiv, sodass Clients weiter Zugriff darauf haben.
 
 
-## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Inclure la confiance pour des fichiers et dossiers spécifiques dans une stratégie de protection des appareils
+### <a name="daily-monitoring"></a>Tägliche Überwachung
+Wenn Sie über einen primären Standort im passiven Modus verfügen, überwachen Sie diesen täglich, um sicherzustellen, dass er mit dem Standortserver im aktiven Modus synchron und einsatzbereit bleibt. Wechseln Sie hierfür zu **Überwachung** > **Status des Standortservers**. Hier können Sie sowohl den Standortserver im aktiven als auch den Standortserver im passiven Modus überprüfen.
+
+Inhalt der Registerkarte **Zusammenfassung**:
+-   Die Spalte **Modus** gibt an, welcher Server „Aktiv“ oder „Passiv“ ist.
+-   Die Spalte **Status** enthält **OK**, wenn der Server im passiven Modus mit dem Server im aktiven Modus synchron ist.
+-   Um zusätzliche Details zum Status der Inhaltssynchronisierung anzuzeigen, klicken Sie in „Status der Inhaltssynchronisierung“ auf **Status anzeigen**. Daraufhin wird die Registerkarte „Inhaltsbibliothek“ geöffnet, auf der Sie versuchen können, Probleme bei der Synchronisierung von Inhalten zu beheben.
+
+Inhalt der Registerkarte **Inhaltsbibliothek**:
+-   In der Spalte **Status** finden Sie Inhalte, die vom aktiven Standortserver auf den Standortserver im passiven Modus synchronisiert werden.
+-   Sie können Inhalt mit dem Status **Fehler** auswählen und dann im Menüband **Ausgewählte Elemente synchronisieren** wählen. Diese Aktion versucht eine erneute Synchronisierung dieses Inhalts aus der Quelle des Inhalts auf den Standortserver im passiven Modus. Während der Wiederherstellung wird der Status als **In Bearbeitung** und bei Synchronität als **Erfolg** angezeigt.
+
+### <a name="try-it-out"></a>Probieren Sie es aus!
+Versuchen Sie, die folgenden Aufgaben auszuführen, und senden Sie uns dann **Feedback** über die Registerkarte **Start** des Menübands, um uns zu wissen zu lassen, wie es funktioniert hat:
+-   Ich kann einen primären Standort im passiven Modus installieren.
+-   Ich kann mithilfe der Konsole den Standortserver im passiven Modus zum Standortserver im aktiven Modus höher stufen und die Änderung des Status für beide Standortserver bestätigen.
+
+
+## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Einbeziehen einer Vertrauensstellung für bestimmte Dateien und Ordner in eine Device Guard-Richtlinie
 <!-- 1324676 -->
-Dans cette version, nous avons ajouté des fonctionnalités supplémentaires à la gestion des stratégies [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)
+In dieser Version haben wir der Gruppenrichtlinienverwaltung mit [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager) weitere Funktionen hinzugefügt.
 
-Vous pouvez éventuellement ajouter l’approbation pour des fichiers spécifiques pour les dossiers dans une stratégie Device Guard. Cela vous permet de :
+Sie können jetzt einer Device Guard-Richtlinie optional eine Vertrauensstellung für bestimmte Dateien oder Ordner hinzufügen. Dies ermöglicht Ihnen Folgendes:
 
-1.  Résoudre les problèmes avec les comportements des programmes d’installation gérés
-2.  Approuver les applications métier qui ne peuvent pas être déployées avec Configuration Manager
-3.  Approuver des applications qui sont incluses dans une image de déploiement de système d’exploitation.
+1.  Beheben von Problemen mit dem Verhalten verwalteter Installationsprogramme
+2.  Vertrauen branchenspezifischer Apps, die nicht mit Configuration Manager bereitgestellt werden können
+3.  Vertrauen von Apps, die in einem Betriebssystemabbild für ein Betriebssystem enthalten sind
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-1.  Lorsque vous créez une stratégie Device Guard, sous l’onglet Inclusions de l’assistant de création de stratégie Device Guard, cliquez sur **Ajouter**.
-2.  Dans la boîte de dialogue **Ajouter fichier ou dossier approuvé**, spécifiez les informations sur le fichier ou dossier que vous souhaitez approuver. Vous pouvez spécifier un chemin d’accès de dossier ou de fichier local, ou vous connecter à un appareil distant auquel vous êtes autorisé à vous connecter et spécifier un chemin d’accès de fichier ou de dossier sur cet appareil.
-3.  Effectuez toutes les étapes de l'Assistant.
+1.  Klicken Sie beim Erstellen einer Device Guard-Richtlinie im Assistenten zum Erstellen von Device Guard-Richtlinien auf der Registerkarte „Einschlüsse“ auf **Hinzufügen**.
+2.  Geben Sie im Dialogfeld **Vertrauenswürdige Dateien oder Ordner hinzufügen** Informationen zur Datei bzw. zum Ordner an, der bzw. dem vertraut werden soll. Sie können einen lokalen Datei- oder Ordnerpfad angeben oder eine Verbindung mit einem Remotegerät herstellen, für das Sie über eine entsprechende Berechtigung verfügen, und einen Datei- oder Ordnerpfad auf diesem Gerät angeben.
+3.  Schließen Sie den Assistenten ab.
 
 
-## <a name="hide-task-sequence-progress"></a>Masquer la progression de la séquence de tâches
+## <a name="hide-task-sequence-progress"></a>Ausblenden des Tasksequenzstatus
 <!-- 1354291 -->
-Dans cette version, vous pouvez contrôler le moment auquel la progression de la séquence de tâches s’affiche pour les utilisateurs finaux à l’aide d’une nouvelle variable. Dans votre séquence de tâches, suivez l’étape **Définir une variable de séquence de tâches** pour définir la valeur de la variable **TSDisableProgressUI** pour masquer ou afficher la progression de la séquence de tâches. Vous pouvez suivre l’étape Définir une variable de séquence de tâches plusieurs fois dans une séquence de tâches pour modifier la valeur de la variable. Cela vous permet de masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches.
+In dieser Version können Sie mithilfe einer neuen Variablen steuern, wann Endbenutzern der Tasksequenzstatus angezeigt wird. Verwenden Sie in der Tasksequenz den Schritt **Tasksequenzvariable festlegen** zum Festlegen des Werts der Variablen **TSDisableProgressUI**, um den Tasksequenzstatus ein- oder auszublenden. Den Schritt „Tasksequenzvariable festlegen“ können Sie in einer Tasksequenz mehrmals verwenden, um den Wert der Variablen zu ändern. Dadurch können Sie den Tasksequenzstatus in unterschiedlichen Abschnitten der Tasksequenz anzeigen oder ausblenden.
 
-#### <a name="to-hide-task-sequence-progress"></a>Pour afficher la progression de la séquence de tâches
-Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **True** pour masquer la progression de la séquence de tâches.
+#### <a name="to-hide-task-sequence-progress"></a>So blenden Sie den Tasksequenzstatus aus
+Verwenden Sie im Tasksequenz-Editor den Schritt [Tasksequenzvariable festlegen](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) zum Festlegen des Werts der Variablen **TSDisableProgressUI** auf **TRUE**, um den Tasksequenzstatus auszublenden.
 
-#### <a name="to-display-task-sequence-progress"></a>Pour afficher la progression des séquences de tâches
-Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **False** pour afficher la progression de la séquence de tâches.
+#### <a name="to-display-task-sequence-progress"></a>So zeigen Sie den Tasksequenzstatus an
+Verwenden Sie im Tasksequenz-Editor den Schritt [Tasksequenzvariable festlegen](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) zum Festlegen des Werts der Variablen **TSDisableProgressUI** auf **FALSE**, um den Tasksequenzstatus anzuzeigen.
 
-## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Spécifier un autre emplacement de contenu pour installer et désinstaller le contenu
+## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Angeben eines unterschiedlichen Inhaltsspeicherorts für zu installierende und zu deinstallierende Inhalte
 <!-- 1097546 -->
-Aujourd’hui, dans Configuration Manager, vous spécifiez l’emplacement d’installation qui contient les fichiers d’installation pour une application. Lorsque vous spécifiez un emplacement d’installation, ce dernier est également utilisé comme emplacement de désinstallation pour le contenu de l’application.
-Sur la base de vos retours, lorsque vous souhaitez désinstaller une application déployée, et que le contenu de l’application ne se trouve pas sur l’ordinateur client, le client va à nouveau télécharger tous les fichiers de configuration d’application à nouveau avant que l’application soit désinstallée.
-Pour résoudre ce problème, vous pouvez maintenant spécifier à la fois un emplacement de contenu d’installation et éventuellement un emplacement de contenu de désinstallation. En outre, vous pouvez choisir ne pas spécifier d’emplacement de contenu de désinstallation.
+Derzeit geben Sie im Configuration Manager den Installationsspeicherort an, der die Setupdateien einer App enthält. Wenn Sie einen Installationsspeicherort angeben, wird dieser auch als Speicherort für die Deinstallation des Anwendungsinhalts verwendet.
+Basierend auf Ihrem Feedback gilt Folgendes: Wenn Sie eine bereitgestellte Anwendung deinstallieren möchten und sich deren Inhalt nicht auf dem Clientcomputer befindet, lädt der Client alle Setupdateien der App erneut herunter, ehe die Anwendung deinstalliert wird.
+Um dieses Problem zu beheben, können Sie jetzt sowohl einen Speicherort für zu installierenden Inhalt und optional einen Speicherort für zu deinstallierenden Inhalt angeben. Sie können darüber hinaus auch auf das Angeben eines Speicherorts für zu deinstallierenden Inhalt verzichten.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-1. Dans les propriétés de type de déploiement d’une application, cliquez sur l’onglet **Contenu**.
-2. Configurez **l’emplacement de contenu d’installation** normalement.
-3. Pour **Désinstaller les paramètres de contenu**, choisissez une des options suivantes :
-    - **Identique au contenu d’installation** : le même emplacement sera utilisé, que vous installiez ou désinstalliez l’application.
-    - **Aucun contenu de désinstallation** : choisissez cette option si vous ne souhaitez pas fournir d’emplacement de contenu de désinstallation de l’application.
-    - **Différent du contenu d’installation** : choisissez cette option si vous souhaitez spécifier un emplacement de contenu de désinstallation différent de l’emplacement du contenu d’installation.
-5. Si vous avez sélectionné **Différent du contenu d’installation**, recherchez ou entrez l’emplacement du contenu de l’application qui sera utilisé pour désinstaller l’application.
-6. Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
+1. Klicken Sie in den Eigenschaften des Bereitstellungstyps der Anwendung auf die Registerkarte **Inhalt**.
+2. Konfigurieren Sie den **Speicherort für zu installierenden Inhalt** wie gewohnt.
+3. Wählen Sie für **Einstellungen für zu deinstallierenden Inhalt** eine der folgenden Optionen aus:
+    - **Übereinstimmend mit zu installierendem Inhalt**: Unabhängig davon, ob Sie die Anwendung installieren oder deinstallieren, wird derselbe Inhaltsspeicherort verwendet.
+    - **Nicht zu deinstallierender Inhalt**: Wählen Sie diese Option, wenn Sie für die Anwendung keinen Speicherort für zu deinstallierenden Inhalt angeben möchten.
+    - **Abweichend von zu installierendem Inhalt**: Wählen Sie diese Option, wenn Sie einen Speicherort für zu deinstallierenden Inhalt angeben möchten, der sich vom Speicherort für zu installierenden Inhalt unterscheidet.
+5. Wenn Sie **Abweichend von zu installierendem Inhalt** ausgewählt haben, können Sie zum Speicherort des Anwendungsinhalts navigieren oder diesen eingeben, der zum Deinstallieren der Anwendung verwendet wird.
+6. Klicken Sie auf **OK**, um das Dialogfeld zu Bereitstellungstyp-Eigenschaften zu schließen.
 
 
-## <a name="accessibility-improvements"></a>Améliorations d’accessibilité  
+## <a name="accessibility-improvements"></a>Verbesserungen der Barrierefreiheit  
 <!--1253000 -->
-Cette version préliminaire apporte plusieurs améliorations aux [fonctionnalités d’accessibilité](/sccm/core/understand/accessibility-features) dans la console Configuration Manager. à savoir :     
+Diese Vorschauversion bietet mehrere Verbesserungen der [Barrierefreiheitsfunktionen](/sccm/core/understand/accessibility-features) in der Configuration Manager-Konsole. Dazu gehören:     
 
-**Nouveaux raccourcis clavier pour vous déplacer dans la console :**
--   CTRL + M - Définit le focus sur le volet principal (central).
--   CTRL + T - Définit le focus sur le nœud supérieur dans le volet de navigation. Si le focus était déjà dans ce volet, le focus est défini sur le dernier nœud que vous avez visité.
--   CTRL + I - Définit le focus sur la barre de navigation, sous le ruban.
--   CTRL + L - Définit le focus sur le champ **Recherche**, lorsqu’il est disponible.
--   CTRL + D - Définit le focus sur le volet de détails, lorsqu’il est disponible.
--   ALT - Fait basculer le focus vers et hors du ruban.
+**Neue Tastenkombinationen, um sich in der Konsole zu bewegen:**
+-   STRG+M: Legt den Fokus auf den Hauptbereich in der Mitte fest.
+-   STRG+T: Legt den Fokus auf den obersten Knoten im Navigationsbereich fest. Wenn sich der Fokus bereits in diesem Bereich befand, wird er auf den letzten besuchten Knoten festgelegt.
+-   STRG+I: Legt den Fokus auf die Breadcrumb-Leiste unter dem Menüband fest.
+-   STRG+L: Legt den Fokus auf das Feld **Suchen** fest, sofern verfügbar.
+-   STRG+D: Legt den Fokus auf den Detailbereich fest, sofern verfügbar.
+-   ALT-TASTE: Schaltet den Fokus auf das Menüband ein und aus.
 
-**Améliorations générales :**
--   Amélioration de la navigation dans le volet de navigation lorsque vous saisissez les lettres d’un nom de nœud.
--   La navigation au clavier via la vue principale et le ruban est désormais circulaire.
--   La navigation au clavier dans le volet d’informations est désormais circulaire. Pour revenir à l’objet ou au volet précédent, utilisez Ctrl + D, puis MAJ + TAB.
--   Après l’actualisation d’une vue de l’espace de travail, le focus est défini sur le volet principal de cet espace de travail.
--   Correction d’un problème pour activer les lecteurs d’écran pour annoncer les noms des éléments de liste.
--   Ajout des noms accessibles de plusieurs contrôles sur la page qui active les lecteurs d’écran pour annoncer des informations importantes.
+**Allgemeine Verbesserungen:**
+-   Verbesserte Navigation im Navigationsbereich, wenn Sie die Buchstaben eines Knotennamens eingeben.
+-   Die Tastaturnavigation durch die Hauptansicht und das Menüband erfolgt jetzt kreisförmig.
+-   Die Tastaturnavigation im Detailbereich erfolgt jetzt kreisförmig. Um zum vorherigen Objekt oder Bereich zurückzukehren, drücken Sie STRG+D und dann UMSCHALT+TAB.
+-   Nach der Aktualisierung einer Arbeitsbereichsansicht wird der Fokus auf den Hauptbereich des jeweiligen Arbeitsbereichs festgelegt.
+-   Ein Problem beim Aktivieren von Sprachausgaben zum Mitteilen der Namen von Listenelementen wurde behoben.
+-   Es wurden barrierefreie Namen für mehrere Steuerelemente auf der Seite hinzugefügt, die es Sprachausgaben ermöglichen, wichtige Informationen mitzuteilen.
 
 
-## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Modifications apportées à l’assistant de services Azure pour prendre en charge Upgrade Readiness
+## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Änderungen am Assistenten für Azure-Dienste zur Unterstützung der Funktion „Upgradebereitschaft“
 <!-- 1353331 -->
-À partir de cette version, utilisez l’assistant de services Azure pour configurer une connexion de Configuration Manager vers [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics). L’utilisation de l’assistant simplifie la configuration du connecteur à l’aide d’un assistant commun pour les services Azure associés.   
+Ab dieser Version wird der Assistent für Azure-Dienste zum Konfigurieren einer Verbindung aus Configuration Manager für [Upgradebereitschaft](/sccm/core/clients/manage/upgrade/upgrade-analytics) verwendet. Die Verwendung des Assistenten vereinfacht die Konfiguration des Connectors durch Nutzen eines allgemeinen Assistenten für verwandte Azure-Dienste.   
 
-Bien que la méthode pour configurer la connexion a changé, les conditions préalables requises pour la connexion et l’utilisation d’Upgrade Readiness restent inchangées.   
+Obwohl die Methode zum Konfigurieren der Verbindung geändert wurde, bleiben die Voraussetzungen für die Verbindung mit und zur Verwendung von Upgradebereitschaft unverändert.   
 
-### <a name="prerequisites-for-upgrade-readiness"></a>Configuration requise pour Upgrade Readiness
-La configuration requise pour une [connexion à Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) est identique à celle détaillée pour la Current Branch de Configuration Manager. Nous la reprenons ici par commodité :  
+### <a name="prerequisites-for-upgrade-readiness"></a>Voraussetzungen für Upgradebereitschaft
+Die Voraussetzungen für eine [Verbindung mit Upgradebereitschaft](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) unterscheiden sich nicht von denjenigen, die für den Current Branch von Configuration Manager gelten. Sie werden hier der Einfachheit halber wiederholt:  
 
-**Conditions préalables**
--   Pour ajouter la connexion, votre environnement Configuration Manager doit d’abord configurer un [point de connexion de service](/sccm/core/servers/deploy/configure/about-the-service-connection-point) dans un [mode en ligne](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). Quand vous ajoutez la connexion à votre environnement, Microsoft Monitoring Agent est également installé sur l’ordinateur exécutant ce rôle de système de site.
--   Inscrivez Configuration Manager comme outil de gestion « Application web et/ou API web » et obtenez l’[ID de client résultant de cette inscription](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
--   Créer une clé de client pour l’outil de gestion inscrit dans Azure Active Directory.
--   Dans le portail de gestion Azure, accordez à l’application web inscrite l’autorisation d’accès à OMS, comme décrit dans [Accorder à Configuration Manager les autorisations d’accès à OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
+**Voraussetzungen**
+-   Um der Configuration Manager-Umgebung eine Verbindung hinzuzufügen, müssen Sie zunächst einen [Dienstverbindungspunkt](/sccm/core/servers/deploy/configure/about-the-service-connection-point) in einem [Onlinemodus](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation) konfigurieren. Wenn Sie Ihrer Umgebung eine Verbindung hinzufügen, wird auch der Microsoft Monitoring Agent auf dem Computer installiert, auf dem die Standortsystemrolle ausgeführt wird.
+-   Registrieren Sie Configuration Manager als „Webanwendung und/oder Web-API”-Verwaltungstool, und rufen Sie die [Client-ID dieser Registrierung](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/) ab.
+-   Erstellen Sie für das registrierte Verwaltungstool in Azure Active Directory einen Clientschlüssel.
+-   Geben Sie der registrierten Web-App im Azure-Verwaltungsportal Zugriff auf OMS, wie unter [Provide Configuration Manager with permissions to OMS (Bereitstellen von Configuration Manager mit Berechtigungen für OMS)](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms) beschrieben.
 
 > [!IMPORTANT]       
-> Quand vous configurez l’autorisation d’accès à OMS, choisissez le rôle **Collaborateur** et accordez-lui les autorisations sur le groupe de ressources de l’application inscrite.
+> Achten Sie beim Konfigurieren der OMS-Zugriffsberechtigung darauf, dass Sie die Rolle **Mitwirkender** auswählen, und weisen Sie ihr Berechtigungen für die Ressourcengruppe der registrierten App zu.
 
-Après avoir établi la configuration requise, vous pouvez utiliser l’assistant pour créer la connexion.
+Sobald die Voraussetzungen erfüllt sind, können Sie mithilfe des Assistenten die Verbindung herstellen.
 
-### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Utilisez l’assistant de services Azure pour configurer Upgrade Readiness
-1.  Dans la console, accédez à **Administration** > **Présentation** > **Services cloud** > **Services Azure**, puis choisissez **Configurer les services Azure** à partir de l’onglet **Accueil** du ruban pour démarrer **l’Assistant Services Azure**.
+### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Konfigurieren von Upgradebereitschaft mit dem Assistenten für Azure-Dienste
+1.  Wechseln Sie in der Konsole zu **Verwaltung** > **Übersicht** > **Clouddienste** > **Azure-Dienste**, und wählen Sie dann **Azure-Dienste konfigurieren** auf der Registerkarte **Start** im Menüband aus, um den **Assistenten für Azure-Dienste** zu starten.
 
-2.  Dans la page **Services Azure**, sélectionnez le **connecteur Upgrade Readiness**, puis cliquez sur **Suivant**.
+2.  Wählen Sie auf der Seite **Azure-Dienste** den **Connector für Upgradebereitschaft** aus, und klicken Sie dann auf **Weiter**.
 
-3.  Sur la page **Application**, spécifiez votre **environnement Azure** (la version Technical Preview prend en charge uniquement le cloud public). Ensuite, cliquez sur **Importer** pour ouvrir la fenêtre **Importer des applications**.
+3.  Geben Sie auf der Seite **App** Ihre **Azure-Umgebung** an (die Technical Preview unterstützt nur die öffentliche Cloud). Klicken Sie dann auf **Importieren**, um das Fenster **Apps importieren** zu öffnen.
 
-4.  Dans la fenêtre **Importer des applications**, spécifiez les détails pour une application web qui existe déjà dans Azure AD.
-    -   Indiquez un nom convivial pour le nom de client Azure AD. Ensuite, spécifiez l’ID de client, le nom de l’application, l’ID du client, la clé secrète pour l’application web Azure et l’URI d’ID d’application.
-    -   Cliquez sur **Vérifier** et, en cas de réussite, cliquez sur **OK** pour continuer.
+4.  Geben Sie im Fenster **Apps importieren** Details einer Web-App an, die bereits in Ihrem Azure Active Directory (AD) vorhanden ist.
+    -   Geben Sie einen Anzeigenamen für den Azure AD-Mandantennamen an. Geben Sie dann die Mandanten-ID, den Anwendungsnamen, die Client-ID, den geheimen Schlüssel für die Azure-Web-App und den App-ID-URI an.
+    -   Klicken Sie auf **Überprüfen** und, sofern erfolgreich, auf **OK**, um den Vorgang fortzusetzen.
 
-5.   Sur la page **Configuration**, spécifiez l’abonnement, le groupe de ressources et l’espace de travail Windows Analytics à utiliser avec cette connexion pour Upgrade Readiness.  
+5.   Geben Sie auf der Seite **Konfiguration** das Abonnement, die Ressourcengruppe und den Windows Analytics-Arbeitsbereich an, den Sie für diese Verbindung mit Upgradebereitschaft verwenden möchten.  
 
-6.  Cliquez sur **Suivant** pour accéder à la page **Résumé**, puis terminez l’assistant pour créer la connexion.
+6.  Klicken Sie auf **Weiter**, um zur Seite **Zusammenfassung** zu gelangen. Schließen Sie dann den Assistenten ab, um die Verbindung herzustellen.
 
 
-## <a name="new-client-settings-for-cloud-services"></a>Nouveaux paramètres client pour les services cloud
+## <a name="new-client-settings-for-cloud-services"></a>Neue Clienteinstellungen für Clouddienste
 <!-- 1319883 -->
 
-Dans cette version, nous avons ajouté deux nouveaux paramètres client à Configuration Manager. Vous les trouverez dans la section **Services cloud**.  Ces paramètres vous offrent les fonctionnalités suivantes :
+In dieser Version haben wir Configuration Manager zwei neue Clienteinstellungen hinzugefügt. Sie finden diese im Abschnitt **Clouddienste**.  Diese Einstellungen bieten Ihnen folgende Möglichkeiten:
 
-- Contrôlez les clients Configuration Manager qui peuvent accéder à une passerelle de gestion cloud configurée.
-- Inscrivez automatiquement des clients Configuration Manager joints à un domaine Windows 10 avec Azure Active Directory.
+- Steuern, welche Configuration Manager-Clients auf ein konfiguriertes Cloud Management Gateway zugreifen können.
+- Automatisches Registrieren von einer Windows 10-Domäne beigetretenen Configuration Manager-Clients bei Azure Active Directory.
 
-Ces nouveaux paramètres vous aident à effectuer les fonctions décrites dans [Configuration Manager 1705 Technical Preview](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management).
+Diese neuen Einstellungen helfen Ihnen beim Realisieren der in [Technical Preview 1705 von Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management) beschriebenen Möglichkeiten.
 
-### <a name="before-you-start"></a>Avant de commencer
+### <a name="before-you-start"></a>Vorbereitung
 
-Vous devez avoir installé et configuré Azure AD Connect entre votre annuaire Active Directory local et votre client Azure AD.
+Azure AD Connect muss zwischen Ihrem lokalen Active Directory und Ihrem Azure AD-Mandanten installiert und konfiguriert sein.
 
-Si vous supprimez la connexion, les appareils ne sont pas désinscrits, mais aucun nouvel appareil n’est inscrit.
+Wenn Sie die Verbindung entfernen, wird die Registrierung von Geräten nicht aufgehoben, aber neue Geräte können sich nicht registrieren.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-1. Configurer la section suivante de paramètres client (figurant dans les services cloud) en utilisant les informations dans [Guide pratique pour configurer les paramètres client](/sccm/core/clients/deploy/configure-client-settings).
-    -   **Inscrire automatiquement les nouveaux appareils joints à un domaine Windows 10 avec Azure Active Directory** : réglez sur**Oui** (valeur par défaut) ou **Non**.
-    -   **Permettre aux clients d’utiliser une passerelle de gestion cloud** : réglez sur **Oui** (valeur par défaut) ou **Non**.
-2.  Déployez les paramètres client sur la collection requise d’appareils.
+1. Konfigurieren Sie die folgenden Clienteinstellungen im Abschnitt „Clouddienste“ anhand der Informationen in [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
+    -   **Automatische Registrierung neuer einer Windows 10-Domäne beigetretener Geräte mit Azure Active Directory**: Legen Sie diese Option auf **Ja** (Standard) oder **Nein** fest.
+    -   **Clients die Verwendung eines Cloudverwaltungsgateways ermöglichen**: Legen Sie diese Option auf **Ja** (Standard) oder **Nein** fest.
+2.  Stellen Sie die Clienteinstellungen in der gewünschten Sammlung von Geräten bereit.
 
-Pour confirmer que l’appareil est joint à Azure AD, exécutez la commande **dsregcmd.exe /status** dans une fenêtre d’invite de commandes. Le champ **AzureAdjoined** dans les résultats affiche **OUI** si l’appareil est joint à Azure AD.
+Um zu bestätigen, dass das Gerät Azure AD beigetreten ist, führen Sie in einem Eingabeaufforderungsfenster **dsregcmd.exe /status** aus. Im Feld **AzureAdjoined** in den Ergebnissen wird **YES** angezeigt, wenn das Gerät Azure AD beigetreten ist.
 
-## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
+## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Erstellen und Ausführen von PowerShell-Skripts über die Configuration Manager-Konsole
 <!-- 1236459 -->
 
-Dans Configuration Manager, vous pouvez déployer des scripts sur des appareils clients à l’aide de packages et de programmes. Dans la Technical Preview, nous avons ajouté de nouvelles fonctionnalités qui vous permettent d’effectuer les actions suivantes :
+In Configuration Manager können Sie mithilfe von Paketen und Programmen Skripts auf Clientgeräten bereitstellen. In dieser Technical Preview haben wir neue Funktionen hinzugefügt, mit denen Sie die folgenden Aktionen ausführen können:
 
-- Importer des scripts PowerShell dans Configuration Manager
-- Modifier les scripts à partir de la console Configuration Manager (pour les scripts non signés uniquement)
-- Marquer les scripts comme Approuvés ou Refusés pour améliorer la sécurité
-- Exécuter des scripts sur des collections d’ordinateurs clients Windows, et des ordinateurs Windows gérés localement. Vous ne pouvez pas déployer des scripts : ils sont exécutés en temps quasi réel sur les appareils clients.
-- Examinez les résultats retournés par le script dans la console Configuration Manager.
-
-
-### <a name="prerequisites"></a>Conditions préalables
-
-Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
-
-- **Pour importer et créer des scripts**, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- **Pour approuver ou refuser des scripts**, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- **Pour exécuter des scripts**, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-
-Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
-
-Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont créé. Étant donné que les scripts sont puissants, flexibles et peuvent être déployés sur de nombreux appareils, nous avons ajouté un nouveau concept avec la possibilité de séparer les rôles entre la personne qui crée le script et celle qui l’approuve. Cela procure un niveau supplémentaire de sécurité par rapport à l’exécution d’un script sans supervision. Vous pouvez désactiver cette approbation secondaire, pour faciliter les tests, particulièrement en version Technical Preview.
-
-Pour autoriser les utilisateurs à approuver leurs propres scripts :
-
-1. Dans la console Configuration Manager, cliquez sur **Administration**.
-2. Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.
-3. Dans la liste des sites, sélectionnez votre site, puis, dans l’onglet **accueil**, sous le groupe **Sites**, cliquez sur **Paramètres de hiérarchie**.
-4. Dans l’onglet **Général** de la boîte de dialogue **Propriétés des paramètres de hiérarchie**, décochez la case **Ne pas autoriser les auteurs à approuver leurs propres scripts**.
+- Importieren von PowerShell-Skripts in Configuration Manager
+- Bearbeiten von Skripts in der Configuration Manager-Konsole (nur bei nicht signierten Skripts)
+- Markieren von Skripts als „Genehmigt“ oder „Abgelehnt“ zum Verbessern der Sicherheit
+- Anwenden von Skripts auf Sammlungen von Windows-Client-PCs und lokal verwaltete Windows-PCs. Sie stellen Skripts nicht bereit, sondern diese werden stattdessen nahezu in Echtzeit auf Clientgeräten ausgeführt.
+- Überprüfen der Ergebnisse, die vom Skript in der Configuration Manager-Konsole zurückgegeben werden
 
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="prerequisites"></a>Voraussetzungen
 
-#### <a name="import-and-edit-a-script"></a>Importer et modifier un script
+Um Skripts zu verwenden, müssen Sie Mitglied der entsprechenden Configuration Manager-Sicherheitsrolle sein.
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un script**.
-4. Sur la page **Script** de l’assistant **Créer un script**, configurez les éléments suivants :
-    - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais il sera alors difficile de trouver le script dont vous avez besoin dans la console Configuration Manager.
-    - **Langage du script** : actuellement, seuls les scripts **PowerShell** sont pris en charge.
-    - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer**  : supprime le script en cours du champ **Script**.
-    - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
-5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
+- **Importieren und Erstellen von Skripts**: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** die Berechtigung **Erstellen** für **SMS-Skripts**.
+- **Genehmigen und Ablehnen von Skripts**: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** die Berechtigung **Genehmigen** für **SMS-Skripts**.
+- **Ausführen von Skripts**: Ihr Konto benötigt in der Sicherheitsrolle **Konformitätseinstellungs-Manager** die Berechtigung **Skript ausführen** für **Sammlungen**.
+
+Weitere Informationen zu Configuration Manager-Sicherheitsrollen finden Sie unter [Grundlagen der rollenbasierten Verwaltung für System Center Configuration Manager](/sccm/core/understand/fundamentals-of-role-based-administration).
+
+Standardmäßig können Benutzer kein Skript genehmigen, das sie erstellt haben. Da Skripts leistungsstark und vielseitig sind und auf vielen Geräten bereitgestellt werden können, haben wir ein neues Konzept eingeführt. Es bietet die Möglichkeit, die Rollen zwischen der Person, die das Skript erstellt, und der Person, die es genehmigt, zu trennen. Dies bietet einen zusätzlichen Grad an Sicherheit zum Verhindern des unbeaufsichtigten Ausführens eines Skripts. Sie können zur Vereinfachung von Tests diese sekundäre Genehmigung, insbesondere in der Technical Preview-Phase, deaktivieren.
+
+So ermöglichen Sie Benutzern das Genehmigen ihrer eigenen Skripts
+
+1. Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.
+2. Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Standortkonfiguration**, und klicken Sie dann auf **Standorte**.
+3. Wählen Sie in der Liste der Standorte Ihren Standort aus, und klicken Sie dann auf der Registerkarte **Start** in der Gruppe **Standorte** auf **Hierarchieeinstellungen**.
+4. Deaktivieren Sie im Dialogfeld **Eigenschaften von Hierarchieeinstellungen** auf der Registerkarte **Allgemein** das Kontrollkästchen **Skriptautoren nicht das Genehmigen ihrer eigenen Skripts erlauben**.
 
 
-#### <a name="approve-or-deny-a-script"></a>Approuver ou refuser un script
+### <a name="try-it-out"></a>Probieren Sie es aus!
+
+#### <a name="import-and-edit-a-script"></a>Importieren und Bearbeiten eines Skripts
+
+1. Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.
+2. Klicken Sie im Arbeitsbereich **Softwarebibliothek** auf **Skripts**.
+3. Klicken Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** auf **Skript erstellen**.
+4. Konfigurieren Sie im Assistenten **Skript erstellen** auf der Seite **Skript** Folgendes:
+    - **Skriptname**: Geben Sie einen Namen für das Skript ein. Obwohl Sie mehrere Skripts mit dem gleichen Namen erstellen können, wird dadurch das Auffinden des benötigten Skripts in der Configuration Manager-Konsole erschwert.
+    - **Skriptsprache**: Derzeit werden nur **PowerShell**-Skripts unterstützt.
+    - **Importieren**: Importieren Sie ein PowerShell-Skript in die Konsole. Das Skript wird im Feld **Skript** angezeigt.
+    - **Löschen**: Entfernt das aktuelle Skript aus dem Feld **Skript**.
+    - **Skript**: Zeigt das gerade importierte Skript. Sie können das Skript in diesem Feld nach Bedarf bearbeiten.
+5. Schließen Sie den Assistenten ab. Das neue Skript wird in der Liste **Skript** mit dem Status **Warten auf Genehmigung** angezeigt. Bevor Sie dieses Skript auf Clientgeräten ausführen können, müssen Sie es genehmigen.
+
+
+#### <a name="approve-or-deny-a-script"></a>Genehmigen oder Ablehnen eines Skripts
 
 
 
-Avant de pouvoir exécuter un script, il doit être approuvé. Pour approuver un script :
+Bevor Sie ein Skript ausführen können, muss es genehmigt werden. So genehmigen Sie ein Skript
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans la liste **Script**, sélectionnez le script que vous souhaitez approuver ou refuser puis, dans l’onglet **Accueil**, sous le groupe **Script**, cliquez sur **Approuver/Refuser**.
-4. Dans la boîte de dialogue **Approuver ou refuser le script**, **Approuvez** ou **Refusez** le script et entrez éventuellement un commentaire sur votre décision. Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients.
-5. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, vous verrez la colonne **État d’approbation** changer en fonction de votre action.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.
+2. Klicken Sie im Arbeitsbereich **Softwarebibliothek** auf **Skripts**.
+3. Wählen Sie in der Liste **Skript** das Skript, das Sie genehmigen oder ablehnen möchten. Klicken Sie dann in der Gruppe **Skript** auf der Registerkarte **Start** auf **Genehmigen/Ablehnen**.
+4. Im Dialogfeld **Skript genehmigen oder ablehnen** können Sie das Skript **genehmigen** oder **ablehnen** und optional einen Kommentar zu Ihrer Entscheidung eingeben. Wenn Sie ein Skript ablehnen, kann es nicht auf Clientgeräten ausgeführt werden.
+5. Schließen Sie den Assistenten ab. In der Liste **Skript** ändert sich die Spalte **Genehmigungsstatus** abhängig von der Aktion, die Sie durchgeführt haben.
 
-#### <a name="run-a-script"></a>Exécuter un script
+#### <a name="run-a-script"></a>Ausführen eines Skripts
 
-Une fois qu’un script a été approuvé, il peut être exécuté sur une collection que vous choisissez.
+Nachdem ein Skript genehmigt wurde, kann es für die von Ihnen gewählte Sammlung ausgeführt werden.
 
-1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
-2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements de périphériques**.
-3. Dans la liste **Collections d’appareils**, cliquez sur la collection d’appareils sur laquelle vous souhaitez exécuter le script.
-3. Sous l'onglet **Accueil**, dans le groupe **Tous les systèmes**, cliquez sur **Exécuter le script**.
-4. Sur la page **Script** de l’assistant **Exécuter le Script**, choisissez un script dans la liste. Seuls les scripts approuvés sont affichés. Cliquez sur **Suivant**, puis complétez l’Assistant.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
+2. Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**.
+3. Klicken Sie in der Liste **Gerätesammlungen** auf die Sammlung von Geräten, auf denen das Skript ausgeführt werden soll.
+3. Klicken Sie auf der Registerkarte **Start** in der Gruppe **Alle Systeme** auf **Skript ausführen**.
+4. Wählen Sie im Assistenten **Skript ausführen** auf der Seite **Skript** ein Skript in der Liste aus. Es werden nur genehmigte Skripts angezeigt. Klicken Sie auf **Weiter**, und schließen Sie den Assistenten ab.
 
-#### <a name="monitor-a-script"></a>Surveiller un script
+#### <a name="monitor-a-script"></a>Überwachen eines Skripts
 
-Après avoir exécuté un script sur les appareils clients, utilisez cette procédure pour surveiller la réussite de l’opération.
+Nachdem Sie ein Skript auf Clientgeräten ausgeführt haben, gehen Sie wie folgt vor, um den Erfolg des Vorgangs zu überwachen.
 
-1. Dans la console Configuration Manager, cliquez sur **Surveillance**.
-2. Dans la liste **Surveillance** , cliquez sur **Résultats du script**.
-3. Dans la liste **Résultats du script**, vous pouvez voir les résultats pour chaque script que vous avez exécuté sur des appareils clients. Un code de sortie de script de **0** indique généralement que le script a été exécuté avec succès.
+1. Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.
+2. Klicken Sie im Arbeitsbereich **Überwachung** auf **Skriptergebnisse**.
+3. In der Liste **Skriptergebnisse** sehen Sie die Ergebnisse für jedes Skript, das Sie auf Clientgeräten ausgeführt haben. Der Exitcode **0** eines Skripts bedeutet im Allgemeinen, dass das Skript erfolgreich ausgeführt wurde.
 
-## <a name="pxe-network-boot-support-for-ipv6"></a>Prise en charge du démarrage réseau PXE pour IPv6
+## <a name="pxe-network-boot-support-for-ipv6"></a>PXE-Netzwerkstartunterstützung für IPv6
 <!-- 1269793 -->
-Vous pouvez maintenant activer la prise en charge du démarrage réseau PXE pour IPv6 afin de démarrer un déploiement de système d’exploitation de séquence de tâches. Lorsque vous utilisez ce paramètre, les points de distribution compatibles PXE prendront en charge à la fois IPv4 et IPv6. Cette option ne nécessite pas de WDS arrête WDS s’il est présent.
+Sie können jetzt die PXE-Netzwerkstartunterstützung für IPv6 aktivieren, um eine Tasksequenz des Typs „Betriebssystembereitstellung“ zu starten. Bei Verwenden dieser Einstellung unterstützen PXE-fähige Verteilungspunkte sowohl IPv4 als auch IPv6. Diese Option erfordert nicht die Windows-Bereitstellungsdienste und beendet diese, sofern sie vorhanden sind.
 
-#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>Pour activer la prise en charge du démarrage PXE pour IPv6
-Utilisez la procédure suivante pour activer l’option de prise en charge IPv6 pour PXE.
+#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>So aktivieren Sie die PXE-Startunterstützung für IPv6
+Gehen Sie wie folgt vor, um die IPv6-Unterstützung für PXE zu aktivieren.
 
-1. Dans la console Configuration Manager, accédez à **Administration** > **vue d’ensemble** > **Points de distribution**, puis cliquez sur **Propriétés** pour les points de distribution compatibles PXE.
-2. Dans l’onglet **PXE**, sélectionnez **Prise en charge d’IPv6** pour activer la prise en charge d’IPv6 pour PXE.
+1. Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Verteilungspunkte**, und klicken Sie für PXE-fähige Verteilungspunkte auf **Eigenschaften**.
+2. Wählen Sie auf der Registerkarte **PXE** die Option **IPv6 unterstützen** aus, um die IPv6-Unterstützung für PXE zu aktivieren.
 
-## <a name="manage-microsoft-surface-driver-updates"></a>Gérer les mises à jour du pilote Microsoft Surface
+## <a name="manage-microsoft-surface-driver-updates"></a>Verwalten von Microsoft Surface-Treiberupdates
 <!-- 1098490 -->
-Vous pouvez maintenant utiliser Configuration Manager pour gérer les mises à jour du pilote Microsoft Surface.
+Sie können Configuration Manager jetzt zum Verwalten von Microsoft Surface-Treiberupdates verwenden.
 
-### <a name="prerequisites"></a>Conditions préalables
-Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016.
+### <a name="prerequisites"></a>Voraussetzungen
+Auf allen Softwareupdatepunkten muss Windows Server 2016 ausgeführt werden.
 
-### <a name="try-it-out"></a>Essayez !
-Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaires** à partir de l’onglet **Accueil** du ruban pour nous dire comment cela a fonctionné pour vous :
-1. Activer la synchronisation pour les pilotes Microsoft Surface. Utilisez la procédure décrite dans [Configurer la classification et les produits](/sccm/sum/get-started/configure-classifications-and-products) et sélectionnez **Inclure les pilotes Microsoft Surface et les mises à jour du microprogramme** dans l’onglet **Classifications** pour activer les pilotes Surface.
-2. [Synchroniser les pilotes Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates.md).
-3. [Déployer des pilotes Microsoft Surface synchronisés](/sccm/sum/deploy-use/deploy-software-updates)
+### <a name="try-it-out"></a>Probieren Sie es aus!
+Versuchen Sie, die folgenden Aufgaben auszuführen, und senden Sie uns dann **Feedback** über die Registerkarte **Start** des Menübands, um uns zu wissen zu lassen, wie es funktioniert hat:
+1. Aktivieren Sie „Synchronisierung für Microsoft Surface-Treiber“. Befolgen Sie das Verfahren unter [Konfigurieren von Klassifizierung und Produkten](/sccm/sum/get-started/configure-classifications-and-products), und wählen Sie auf der Registerkarte **Klassifizierungen** die Option **Microsoft Surface-Treiber und Firmwareupdates einbeziehen** aus, um Surface-Treiber zu aktivieren.
+2. [Synchronisieren Sie die Microsoft Surface-Treiber](/sccm/sum/get-started/synchronize-software-updates.md).
+3. [Stellen Sie die synchronisierten Microsoft Surface-Treiber bereit](/sccm/sum/deploy-use/deploy-software-updates).
 
-## <a name="configure-windows-update-for-business-deferral-policies"></a>Configuration de Windows Update pour les stratégies d’entreprise de report d’entreprise
+## <a name="configure-windows-update-for-business-deferral-policies"></a>Konfigurieren von Windows Update for Business-Zurückstellungsrichtlinien
 <!-- 1290890 -->
-Vous pouvez maintenant configurer des stratégies de report pour les appareils Windows 10 avec mises à jour de fonctionnalités ou de qualité gérés directement par Windows Update for Business. Vous pouvez gérer les stratégies de report du nouveau nœud **Stratégies Windows Update for Business** sous **Bibliothèque de logiciels** > **Maintenance de Windows 10**.
+Sie können jetzt Zurückstellungsrichtlinien für Funktions- oder Qualitätsupdates für Windows 10 für Windows 10-Geräte konfigurieren, die von Windows Update for Business direkt verwaltet werden. Sie können die Zurückstellungsrichtlinien im neuen Knoten **Windows Update for Business-Richtlinien** unter **Softwarebibliothek** > **Windows 10-Wartung** verwalten.
 
-### <a name="prerequisites"></a>Conditions préalables
-Les appareils Windows 10 gérés par Windows Update for Business doivent avoir une connectivité Internet.
+### <a name="prerequisites"></a>Voraussetzungen
+Windows 10-Geräte, die von Windows Update for Business verwaltet werden, benötigen Internetzugriff.
 
-#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Pour créer une stratégie de report Windows Update for Business
-1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
-2. Sous l’onglet **Accueil**, dans le groupe **Créer**, sélectionnez **Créer une stratégie Windows Update for Business** pour ouvrir l’assistant de création de stratégie Windows Update for Business.
-3. Dans la page **Général**, indiquez un nom et une description pour la stratégie.
-4. Sur la page **Stratégies de report**, choisissez de différer ou suspendre les mises à jour de fonctionnalités.    
-    Les mises à jour de fonctionnalités sont généralement de nouvelles fonctionnalités pour Windows. Après avoir configuré le paramètre **Niveau de préparation de la branche**, vous pouvez définir si et pour quelle durée vous souhaitez différer la réception des fonctionnalités mises à jour après leur disponibilité auprès de Microsoft.
-    - **Niveau de préparation de la branche** : définissez la branche pour laquelle l’appareil recevra les mises à jour de Windows (Current Branch ou Current Branch for Business).
-    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
-    - **Suspendre le démarrage des mises à jour de fonctionnalités** : choisissez de suspendre la réception des mises à jour de fonctionnalités sur vos appareils pendant une période de 60 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de fonctionnalités en désactivant la case à cocher.   
-5. Choisissez de différer ou suspendre les mises à jour de qualité.     
-    Les mises à jour de qualité sont généralement des améliorations et correctifs apportés aux fonctionnalités existantes de Windows, et sont généralement publiées le premier mardi de chaque mois, même si la publication peut être effectuée à tout moment par Microsoft. Vous pouvez définir si et pour combien de temps vous souhaitez différer la réception des mises à jour de qualité après leur disponibilité.
-    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
-    - **Suspendre le démarrage des mises à jour de qualité** : choisissez de suspendre la réception des mises à jour de qualité sur vos appareils pendant une période de 35 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de qualité en désactivant la case à cocher.
-6. Sélectionnez **Installer les mises à jour à partir d’autres produits Microsoft** pour activer le paramètre de stratégie de groupe qui rend les paramètres de report applicables à Microsoft Update, ainsi qu’aux mises à jour de Windows.
-7. Sélectionnez **Inclure les pilotes avec Windows Update** pour mettre à jour automatiquement les pilotes proposés avec les mises à jour de Windows. Si vous désactivez ce paramètre, les mises à jour de pilotes ne sont pas téléchargées à partir des mises à jour de Windows.
-8. Terminez l'Assistant pour créer la stratégie de report.
+#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Sie erstellen Sie eine Windows Update for Business-Zurückstellungsrichtlinie
+1. In **Softwarebibliothek** > **Windows 10-Wartung** > **Windows Update for Business-Richtlinien**
+2. Wählen Sie auf der Registerkarte **Start** in der Gruppe **Erstellen** die Option **Windows Update for Business-Richtlinie erstellen** aus, um den Assistenten für das Erstellen von Windows Update for Business-Richtlinien zu öffnen.
+3. Geben Sie auf der Seite **Allgemein** einen Namen und eine Beschreibung für die Richtlinie ein.
+4. Konfigurieren Sie auf der Seite **Zurückstellungsrichtlinien**, ob Sie Funktionsupdates zurückstellen oder anhalten möchten.    
+    Funktionsupdates bieten in der Regel neue Funktionen für Windows. Nach dem Konfigurieren der Einstellung **Branchbereitschaftsniveau** können Sie dann festlegen, ob und wie lange Sie das Empfangen von Funktionsupdates zurückstellen möchten, sobald diese verfügbar sind.
+    - **Branchbereitschaftsniveau**: Legen Sie den Branch fest, für den das Gerät Windows-Updates erhält (Current Branch oder Current Branch for Business).
+    - **Zurückstellungszeitraum (Tage)**: Geben Sie die Anzahl der Tage an, die Funktionsupdates verzögert werden. Sie können den Empfang dieser Funktionsupdates für einen Zeitraum von 180 Tagen nach ihrer Veröffentlichung verzögern.
+    - **Anhalten von Funktionsupdates ab**: Wählen Sie aus, ob Sie das Empfangen von Funktionsupdates für einen Zeitraum von bis zu 60 Tagen ab dem Zeitpunkt des Anhaltens der Updates anhalten möchten. Nach Ablauf der maximalen Anzahl von Tagen läuft die Anhaltefunktion automatisch ab, sodass das Gerät in Windows Update nach in Frage kommenden Updates sucht. Nach diesem Suchvorgang können Sie die Updates erneut anhalten. Sie können das Anhalten von Funktionsupdates beenden, indem Sie das Kontrollkästchen deaktivieren.   
+5. Wählen Sie aus, ob Qualitätsupdates zurückgestellt oder angehalten werden sollen.     
+    Qualitätsupdates sind meist Korrekturen und Verbesserungen an vorhandener Windows-Funktionalität und werden in der Regel am ersten Dienstag jedes Monats veröffentlicht, wenngleich sie jederzeit von Microsoft veröffentlicht werden können. Sie können festlegen, ob und wie lange Sie Qualitätsupdates nach deren Verfügbarkeit zurückstellen möchten.
+    - **Zurückstellungszeitraum (Tage)**: Geben Sie die Anzahl der Tage an, die Funktionsupdates verzögert werden. Sie können den Empfang dieser Funktionsupdates für einen Zeitraum von 180 Tagen nach ihrer Veröffentlichung verzögern.
+    - **Anhalten von Qualitätsupdates ab**: Wählen Sie aus, ob Sie das Empfangen von Qualitätsupdates für einen Zeitraum von bis zu 35 Tagen ab dem Zeitpunkt des Anhaltens der Updates anhalten möchten. Nach Ablauf der maximalen Anzahl von Tagen läuft die Anhaltefunktion automatisch ab, sodass das Gerät in Windows Update nach in Frage kommenden Updates sucht. Nach diesem Suchvorgang können Sie die Updates erneut anhalten. Sie können das Anhalten von Qualitätsupdates beenden, indem Sie das Kontrollkästchen deaktivieren.
+6. Wählen Sie **Updates aus anderen Microsoft-Produkten installieren** aus, um die Gruppenrichtlinieneinstellung zu aktivieren, mit deren Hilfe Zurückstellungseinstellungen auf Microsoft Update sowie auf Windows-Updates angewendet werden können.
+7. Wählen Sie **Treiber in Windows-Updates einschließen** aus, um Treiber automatisch über Windows-Updates zu aktualisieren. Wenn Sie diese Einstellung deaktivieren, werden Treiberupdates nicht von Windows-Updates heruntergeladen.
+8. Schließen Sie den Assistenten ab, um die neue Zurückstellungsrichtlinie zu erstellen.
 
-#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Pour déployer une stratégie de report Windows Update for Business
-1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
-2. Sous l’onglet **Accueil** du groupe **Déploiement**, sélectionnez **Déployer la stratégie Windows Update for Business**.
-3. Configurez les paramètres suivants :
-    - **Stratégie de configuration à déployer** : sélectionnez la stratégie Windows Update for Business que vous souhaitez déployer.
-    - **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la stratégie.
-    - **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.
-    - **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la stratégie, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
-    - **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.
-    - **Délai aléatoire (heures)** : spécifie un délai pour éviter un traitement excessif sur le service d’inscription d’appareils réseau. La valeur par défaut est 64 heures.
-    - **Calendrier** : Spécifier le calendrier d’évaluation de la compatibilité par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé. Lorsque l'utilisateur ouvre une session, le profil est évalué par les ordinateurs clients.
-4.  Terminez l’assistant pour déployer le profil.
+#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>So stellen Sie eine Windows Update for Business-Zurückstellungsrichtlinie bereit
+1. In **Softwarebibliothek** > **Windows 10-Wartung** > **Windows Update for Business-Richtlinien**
+2. Aktivieren Sie auf der Registerkarte **Start** in der Gruppe **Bereitstellung** die Option **Windows Update for Business-Richtlinie bereitstellen**.
+3. Konfigurieren Sie die folgenden Einstellungen:
+    - **Bereitzustellende Konfigurationsrichtlinie**: Wählen Sie die Windows Update for Business-Richtlinie aus, die Sie bereitstellen möchten.
+    - **Sammlung**: Klicken Sie auf **Durchsuchen**, um die Sammlung auszuwählen, in der Sie die Richtlinie bereitstellen möchten.
+    - **Nicht konforme Regeln wiederherstellen, falls dies unterstützt wird**: Wählen Sie diese Option aus, um Regeln automatisch wiederherzustellen, die nicht mit der Windows-Verwaltungsinstrumentation (Windows Management Instrumentation, WMI), der Registrierung, Skripts und sämtlichen Einstellungen für die von Configuration Manager registrierten mobilen Geräte konform sind.
+    - **Wiederherstellung außerhalb des Wartungsfensters zulassen:** Wenn ein Wartungsfenster für die Sammlung konfiguriert wurde, für die Sie die Richtlinie bereitstellen, aktivieren Sie diese Option, um Konformitätseinstellungen zum Wiederherstellen des Werts außerhalb des Wartungsfensters zuzulassen. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](/sccm/core/clients/manage/collections/use-maintenance-windows).
+    - **Warnung generieren:** Konfiguriert eine Warnung, die generiert wird, sobald die Konformität einer Konfigurationsbaseline zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.
+    - **Zufällige Verzögerung (Stunden)**: Gibt ein Verzögerungsfenster an, um eine übermäßige Verarbeitung im Registrierungsdienst für Netzwerkgeräte zu vermeiden. Der Standardwert ist 64 Stunden.
+    - **Zeitplan**: Geben Sie den Zeitplan für die Auswertung der Konformität an, gemäß dem das bereitgestellte Profil auf Clientcomputern ausgewertet wird. Dabei kann es sich um einen einfachen oder benutzerdefinierten Zeitplan handeln. Das Profil wird von Clientcomputern ausgewertet, wenn sich der Benutzer anmeldet.
+4.  Schließen Sie den Assistenten ab, um das Profil bereitzustellen.
 
 
 
-## <a name="support-for-entrust-certification-authorities"></a>Prise en charge des autorités de certification Entrust
+## <a name="support-for-entrust-certification-authorities"></a>Unterstützung für Entrust-Zertifizierungsstellen
 <!-- 1350740 -->
-Configuration Manager prend désormais en charge les autorités de certification Entrust ; Cela permet la remise de certificats PFX pour les appareils inscrits dans Microsoft Intune.
+Configuration Manager unterstützt jetzt Entrust-Zertifizierungsstellen. Dadurch können PFX-Zertifikate an Geräte übermittelt werden, die bei Microsoft Intune registriert sind.
 
-Vous pouvez configurer Entrust en tant qu’autorité de certification lors de l’ajout d’un rôle de point d’enregistrement de certificat dans Configuration Manager. Lorsque vous ajoutez un nouveau profil de certificat qui émet des certificats PFX, vous pouvez sélectionner une autorité de certification Microsoft ou Entrust.
+Sie können Entrust als Zertifizierungsstelle konfigurieren, wenn Sie in Configuration Manager die Rolle „Zertifikatregistrierungspunkt“ hinzufügen. Beim Hinzufügen eines neuen Zertifikatprofils, das PFX-Zertifikate ausstellt, können Sie entweder eine Microsoft- oder Entrust-Zertifizierungsstelle auswählen.
 
-**Problème connu** : dans la Technical Preview 1706, les certificats PFX ne sont pas émis pour les autorités de certification Microsoft. Cela n’affecte pas les certificats PFX importés ou les profils SCEP.
+**Bekanntes Problem**: In der Technical Preview 1706 werden für Microsoft-Zertifizierungsstellen keine PFX-Zertifikate ausgestellt. Dies wirkt sich nicht auf importierte PFX-Zertifikate oder SCEP-Profile aus.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Prise en charge de Cisco (IPsec) pour les profils VPN macOS
+## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Cisco (IPsec)-Unterstützung für macOS-VPN-Profile
 <!-- 1321367 -->
 
-Vous pouvez créer un profil VPN macOS avec Cisco (IPsec) comme type de connexion. Pour plus d’informations, consultez [Créer des profils VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+Sie können ein macOS-VPN-Profil mit Cisco (IPsec) als Verbindungstyp erstellen. Weitere Informationen finden Sie unter [Erstellen von VPN-Profilen](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
-## <a name="new-windows-configuration-item-settings"></a>Nouveaux paramètres d’élément de configuration Windows
+## <a name="new-windows-configuration-item-settings"></a>Neue Einstellungen für Windows-Konfigurationselemente
 <!-- 1354715 -->
 
-Dans cette version, nous avons ajouté les nouveaux paramètres suivants, que vous pouvez utiliser dans les éléments de configuration Windows :
+In dieser Version haben wir die folgenden neuen Einstellungen hinzugefügt, die Sie in Windows-Konfigurationselementen verwenden können:
 
-### <a name="password"></a>Mot de passe
+### <a name="password"></a>Kennwort
 
-- **Chiffrement de l’appareil**
+- **Geräteverschlüsselung**
 
-### <a name="device"></a>Appareil
+### <a name="device"></a>Gerät
 
-- **Modification des paramètres de région (version de bureau uniquement)**
-- **Modification des paramètres d’alimentation et de mise en veille**
-- **Modification des paramètres de langue**
-- **Modification de l’heure du système**
-- **Changement de nom d’appareil**
+- **Änderung der Regionseinstellungen (nur Desktop)**
+- **Änderung der Energie- und Energiesparmoduseinstellungen**
+- **Änderung der Spracheinstellungen**
+- **Änderung der Systemzeit**
+- **Änderung des Gerätenamens**
 
-### <a name="store"></a>Magasin
+### <a name="store"></a>Speicher
 
-- **Mettre à jour automatiquement les applications du Store**
-- **Utiliser uniquement le magasin privé**
-- **Stocker le démarrage de l’application d’origine**
+- **Apps aus Store automatisch aktualisieren**
+- **Nur privaten Store verwenden**
+- **Store-App starten**
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- **Bloquer l’accès à about:flags**
-- **Remplacement de l’invite de commandes SmartScreen**
-- **Remplacement de l’invite de commandes SmartScreen pour les fichiers**
-- **Adresse IP localhost WebRTC**
-- **Moteur de recherche par défaut**
-- **URL OpenSearch XML**
-- **Pages d’accueil (version de bureau uniquement)**
+- **Zugriff auf about:flags-Seite blockieren**
+- **Außerkraftsetzen von SmartScreen-Aufforderung verhindern**
+- **Außerkraftsetzen von SmartScreen-Aufforderung für Dateien verhindern**
+- **WebRTC-LocalHost-IP-Adresse**
+- **Standardsuchmodul**
+- **OpenSearch-XML-URL**
+- **Homepages (nur Desktop)**
 
-Pour plus d'informations sur les paramètres de compatibilité, consultez [Garantir la conformité des appareils](/sccm/compliance/understand/ensure-device-compliance).
+Weitere Informationen zu Konformitätseinstellungen finden Sie unter [Sicherstellen der Gerätekonformität](/sccm/compliance/understand/ensure-device-compliance).
 
 
-## <a name="new-device-compliance-policy-rules"></a>Nouvelles règles de stratégie de conformité d’appareil
+## <a name="new-device-compliance-policy-rules"></a>Neue Konformitätsrichtlinienregeln für Geräte
 
-* **Type de mot de passe requis**. Spécifie si les utilisateurs doivent créer un mot de passe de type alphanumérique ou numérique. Pour les mots de passe alphanumériques, vous spécifiez également le nombre minimal de jeux de caractères que le mot de passe doit avoir. Les quatre jeux de caractères sont : lettres minuscules, lettres majuscules, symboles et chiffres.
+* **Erforderlicher Kennworttyp**. Gibt an, ob Benutzer ein alphanumerisches oder numerisches Kennwort erstellen müssen. Geben Sie für alphanumerische Kennwörter außerdem die Mindestanzahl von Zeichengruppen an, die das Kennwort enthalten muss. Die vier Zeichengruppen sind Kleinbuchstaben, Großbuchstaben, Symbole und Zahlen.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Windows Phone 8+
     * Windows 8.1+
     * iOS 6+
 <br></br>
-* **Bloquer le débogage USB sur l’appareil**. Vous n’avez pas à configurer ce paramètre, car le débogage USB est déjà désactivé pour les appareils Android for Work.
+* **USB-Debugging auf Gerät blockieren**. Sie müssen diese Einstellungen nicht konfigurieren, da USB-Debuggen bereits auf Android for Work-Geräten deaktiviert ist.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Bloquer les applications provenant de sources inconnues**. Exiger que les appareils interdisent l’installation des applications provenant de sources inconnues. Vous n’avez pas à configurer ce paramètre, car les appareils Android for Work limitent toujours l’installation à partir de sources inconnues.
+* **Apps von unbekannten Quellen blockieren**. Fordert an, dass Geräte die Installation von Apps aus unbekannten Quellen verhindern. Sie müssen diese Einstellung nicht konfigurieren, da Android for Work-Geräte die Installation aus unbekannten Quellen stets einschränken.
 
-    **Pris en charge sur :**
+    **Unterstützt auf:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Exiger l’analyse des menaces sur les applications**. Ce paramètre spécifie que la fonction Vérifier les applications est activée sur l’appareil.
+* **Bedrohungsüberprüfung für Apps erzwingen**. Diese Einstellung gibt an, dass die Funktion „Apps überprüfen“ auf dem Gerät aktiviert ist.
 
-    **Pris en charge sur :**
-    * Android 4.2 à 4.4
+    **Unterstützt auf:**
+    * Android 4.2 bis 4.4
     * Samsung KNOX Standard 4.0+
 
-Consultez [Créer et déployer une stratégie de conformité d’appareil](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) pour essayer les nouvelles règles de conformité d’appareil.
+Unter [Erstellen und Bereitstellen einer Konformitätsrichtlinie für Geräte](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) finden Sie Informationen zu den neuen Gerätekonformitätsregeln.
 
-## <a name="new-mobile-application-management-policy-settings"></a>Nouveaux paramètres de stratégie de gestion d’application mobile
-À partir de cette version, vous pouvez utiliser trois nouveaux paramètres de stratégie de gestion des applications mobiles (MAM) :
+## <a name="new-mobile-application-management-policy-settings"></a>Neue Richtlinieneinstellungen für die Verwaltung mobiler Anwendungen
+Ab dieser Version können Sie drei neue Richtlinieneinstellungen für die Verwaltung mobiler Anwendungen verwenden:
 
-- **Bloquer la capture d’écran (appareils Android uniquement)** : spécifie que les fonctionnalités de capture d'écran de l'appareil sont bloquées lors de l'utilisation de cette application.
+- **Bildschirmaufnahme blockieren (Nur Android-Geräte):** Gibt an, dass die Bildschirmaufnahmefunktionen des Geräts blockiert werden, wenn Sie diese App verwenden.
 
-- **Désactiver la synchronisation des contacts :** empêche l’application d’enregistrer des données sur l’application Contacts native de l’appareil.
+- **Kontaktsynchronisierung deaktivieren:** Verhindert, dass die App Daten in der nativen App „Kontakte“ auf dem Gerät speichert.
 
-- **Désactiver l’impression :** empêche l’application d’imprimer des données scolaires ou de travail.
+- **Drucken deaktivieren:** Verhindert, dass die App Geschäfts-, Schul- oder Unidaten druckt.
 
-Consultez [Protéger les applications à l’aide des stratégies de protection des applications de Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) pour essayer de nouveaux paramètres de stratégie de protection d’application.
+Unter [Schützen von Apps mithilfe von App-Schutzrichtlinien in Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) finden Sie Informationen zu den neuen Richtlinieneinstellungen zum Schutz von Apps.
 
-## <a name="android-and-ios-enrollment-restrictions"></a>Restrictions de l’inscription Android et iOS
+## <a name="android-and-ios-enrollment-restrictions"></a>Registrierungseinschränkungen bei Android und iOS
 <!-- 1290826 -->
-À partir de cette version, les administrateurs peuvent spécifier que les utilisateurs ne peuvent pas inscrire des appareils Android ou iOS personnels dans leur environnement hybride. Cela vous permet de limiter les appareils inscrits aux appareils prédéclarés, appareils d’entreprise ou appareils iOS inscrits avec le programme d’inscription des appareils.
+Ab dieser Version können Administratoren angeben, dass Benutzer private Android- oder iOS-Geräte nicht in ihrer Hybridumgebung registrieren können. Dies ermöglicht das Begrenzen registrierter Geräte auf vorab festgelegte unternehmenseigene Geräte bzw. auf iOS-Geräte, die ausschließlich mit dem Programm zur Geräteregistrierung registriert werden.
 
-### <a name="try-it-out"></a>Essayez
-1. Dans la console Configuration Manager, dans l’espace de travail **Administration** , accédez à **Services cloud** > **Abonnement Microsoft Intune**.
-2. Sous l’onglet **Accueil**, dans le groupe **Abonnement**, choisissez **Configurer des plateformes**, puis **Android** ou **iOS**.
-3. Sélectionnez **Bloquer les appareils personnels**.
+### <a name="try-it-out"></a>Probieren Sie es aus
+1. Wechseln Sie in der Configuration Manager-Konsole im Arbeitsbereich **Verwaltung** zu **Clouddienste** > **Microsoft Intune-Abonnement**.
+2. Wählen Sie auf der Registerkarte **Start** in der Gruppe **Abonnement** zunächst **Plattformen konfigurieren** und dann **Android** oder **iOS** aus.
+3. Aktivieren Sie **Nur unternehmenseigenen Geräten die Registrierung erlauben**.
 
-## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Stratégie de gestion des applications Android for Work pour le copier-coller
-Nous avons mis à jour les descriptions de paramètre pour les éléments de configuration Android for Work pour **Autoriser le partage de données entre le profil de travail et le profil personnel**.
+## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Android for Work-Anwendungsverwaltungsrichtlinie für Kopieren und Einfügen
+Wir haben die Einstellungsbeschreibungen für Android for Work-Konfigurationselemente für **Datenfreigabe zwischen Arbeits- und persönlichem Profil zulassen** geändert.
 
-|Avant la Technical Preview 1706 | Nouveau nom de l’option | Comportement|
+|Vor Technical Preview 1706 | Name der neuen Option | Verhalten|
 |-|-|-|
-|Empêcher le partage au-delà des limites| Restrictions du partage par défaut| Travail vers personnel : Par défaut (doit être bloqué sur toutes les versions) <br>Personnel vers travail : Par défaut (autorisé sur 6.x+, bloqué sur 5.x)|
-|Sans restriction|   Les applications dans le profil personnel peuvent traiter les demandes de partage du profil professionnel| Travail vers personnel : autorisé  <br>Personnel vers travail : autorisé|
-|Les applications dans le profil professionnel peuvent traiter les demandes de partage du profil personnel |Les applications dans le profil professionnel peuvent traiter les demandes de partage du profil personnel |Travail vers personnel : par défaut<br>Personnel vers travail : autorisé<br>(Utile uniquement sur 5.x, où personnel vers travail est bloqué)|
+|Grenzübergreifende Freigaben verhindern| Standardeinschränkungen für Freigabe| Geschäftlich zu privat: Standard (soll für alle Versionen blockiert werden) <br>Privat zu geschäftlich: Standard (für 6.x+ zugelassen, für 5.x blockiert)|
+|Keine Einschränkungen|   Apps im persönlichen Profil können Anforderungen des geschäftlichen Profils verarbeiten| Geschäftlich zu privat: Zulässig  <br>Privat zu geschäftlich: Zulässig|
+|Apps im geschäftlichen Profil können Anforderungen des privaten Profils verarbeiten |Apps im geschäftlichen Profil können Anforderungen des privaten Profils verarbeiten |Geschäftlich zu privat: Standard<br>Privat zu geschäftlich: Zulässig<br>(Nur zweckmäßig für 5.x, da geschäftlich zu privat blockiert ist)|
 
-Aucune de ces options n’empêche directement le comportement de copier-coller. Nous avons ajouté un paramètre personnalisé au service et à l’application de portail d’entreprise dans la version 1704. Il peut être configuré pour éviter le copier-coller. Vous pouvez le définir via une URI personnalisée.
+Keine dieser Optionen verhindern das Kopier- und Einfügeverhalten direkt. Wir haben der Dienst- und Unternehmensportal-App in der Version 1704 eine benutzerdefinierte Einstellung hinzugefügt, die zum Verhindern von Kopieren und Einfügen konfiguriert werden kann. Diese kann mithilfe eines benutzerdefinierten URI festgelegt werden.
 
--   OMA-URI:  ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
--   Type de valeur : booléen
+-   OMA-URI: ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
+-   Werttyp: Boolesch
 
-Le paramètre DisallowCrossProfileCopyPaste réglé sur true empêche le comportement de copier-coller entre le profil personnel et le profil de travail Android for Work.
+Durch Festlegen von „DisallowCrossProfileCopyPaste“ auf TRUE wird das Kopier- und Einfügeverhalten zwischen privaten und geschäftlichen Android for Work-Profilen verhindert.
 
-### <a name="try-it-out"></a>Essayez
-1. Dans la console Configuration Manager, sélectionnez **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de conformité** > **Éléments de configuration**.
-2. Choisissez **Créer** pour créer un nouvel élément de configuration, et spécifiez **Nom** et **Android for Work**.
-3. Dans les groupes de paramètres d’appareil à configurer, sélectionnez **Profil de travail**, puis **suivant**.
-4. Sélectionnez la valeur **Autoriser le partage de données entre les profils personnels et professionnels**, puis terminez l’assistant.
+### <a name="try-it-out"></a>Probieren Sie es aus
+1. Klicken Sie in der Configuration Manager-Konsole auf **Assets und Konformität** > **Übersicht** > **Konformitätseinstellungen** > **Konfigurationselemente**.
+2. Klicken Sie auf **Erstellen**, um ein neues Konfigurationselement zu erstellen, und geben Sie **Name** und **Android for Work** an.
+3. Wählen Sie in den auf dem Gerät zu konfigurierenden Einstellungsgruppen **Android for Work-Profil** aus, und klicken Sie auf **Weiter**.
+4. Wählen Sie den Wert für **Datenfreigabe zwischen Arbeits- und persönlichen Profilen zulassen** aus, und schließen Sie den Assistenten ab.
 
-## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Évaluation de l’attestation de l’intégrité des appareils pour les stratégies de conformité pour l’accès conditionnel
+## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Bewertung für den Integritätsnachweis für Geräte für Konformitätsrichtlinien für bedingten Zugriff
 <!-- 1097546 -->
-Depuis cette version, vous pouvez utiliser l’état d’attestation d’intégrité de l’appareil en tant que règle de stratégie de conformité pour l’accès conditionnel aux ressources d’entreprise.
+Ab dieser Version können Sie den Status von „Integritätsnachweis für Geräte“ als Konformitätsrichtlinienregel für den bedingten Zugriff auf Unternehmensressourcen verwenden.
 
-### <a name="try-it-out"></a>Essayez
-Sélectionnez une règle d’attestation d’intégrité de l’appareil dans le cadre d’une évaluation de stratégie de conformité.
-
+### <a name="try-it-out"></a>Probieren Sie es aus
+Wählen Sie eine Regel für den Integritätsnachweis für Geräte als Teil einer Bewertung einer Konformitätsrichtlinie aus.

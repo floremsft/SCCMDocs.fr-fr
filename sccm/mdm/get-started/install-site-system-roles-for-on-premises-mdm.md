@@ -1,76 +1,72 @@
 ---
-title: "Installer des rôles pour la gestion des appareils mobiles locale - Configuration Manager | Microsoft Docs"
-description: "Installez des rôles système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
+title: "Installieren von Rollen für die lokale Verwaltung mobiler Geräte – Configuration Manager | Microsoft-Dokumentation"
+description: "Installieren Sie Standortsystemrollen für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c3cf9f64-c2b9-4ace-9527-2aba6d4eef04
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3743c80b0c2b5142f3a537ba3855ffd14794d42b
-ms.openlocfilehash: 916b971f851f968f6534ac834bd3182cc61614aa
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 4913606e2f8a36e0004f711b24ecd836d0485124
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-site-system-roles-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="install-site-system-roles-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Installieren von Standortsystemrollen für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La gestion des appareils mobiles locale de System Center Configuration Manager nécessite les rôles système de site suivants dans votre infrastructure de site Configuration Manager :  
+Die lokale Verwaltung mobiler Geräte für System Center Configuration Manager erfordert die folgenden Standortsystemrollen in der Infrastruktur Ihres Configuration Manager-Standorts:  
 
--   Point d'inscription  
+-   Anmeldungspunkt  
 
--   Point proxy d'inscription  
+-   Anmeldungsproxypunkt  
 
--   Point de distribution  
+-   Verteilungspunkt  
 
--   Point de gestion d’appareil  
+-   Geräteverwaltungspunkt  
 
--   Point de connexion de service  
+-   Dienstverbindungspunkt  
 
- Si vous ajoutez la gestion des appareils mobiles locale à votre organisation et que la plupart des ordinateurs et appareils de celle-ci sont gérés à l’aide du logiciel client Configuration Manager, la plupart des rôles système de site sont peut-être déjà installés dans le cadre de votre infrastructure existante. Dans le cas contraire, consultez [Ajouter des rôles système de site pour System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md) pour plus d’informations sur la façon de les ajouter à votre site.  
-
-> [!NOTE]  
->  Si vous utilisez des réplicas de base de données avec votre rôle de système de site de point de gestion de l’appareil, les appareils nouvellement inscrits échouent à se connecter au point de gestion de l’appareil tant que le réplica de base de données ne s’est pas synchronisé avec celui-ci. Cet échec de connexion se produit car le réplica de base de données n’a pas les informations sur l’appareil nouvellement inscrit nécessaires pour que la connexion réussisse. Les réplicas se synchronisent toutes les 5 minutes : les appareils vont échouer à se connecter pendant les 5 premières minutes après l’inscription (généralement 2 tentatives de connexion), après quoi l’appareil va se connecter avec succès.  
-
- Que vous utilisiez des rôles de système de site existants ou que vous en ajoutiez de nouveaux, vous devez les configurer de manière à pouvoir les utiliser pour gérer les appareils récents. Suivez les étapes ci-dessous pour configurer le point de distribution et le point de gestion d’appareil afin qu’ils fonctionnent correctement pour la gestion des appareils mobiles locale :  
+ Wenn Sie die lokale Verwaltung mobiler Geräte zu Ihrer Organisation hinzufügen, in der die meisten PCs und Geräte mithilfe der Configuration Manager-Clientsoftware verwaltet werden, sind möglicherweise bereits die meisten Standortsystemrollen im Rahmen der vorhandenen Infrastruktur installiert. Falls nicht, gehen Sie auf die Seite [Hinzufügen von Standortsystemrollen für System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md), um Informationen zu erhalten, wie Sie diese zu Ihrem Standort hinzufügen.  
 
 > [!NOTE]  
->  La branche Current Branch de Configuration Manager prend uniquement en charge les connexions intranet depuis les appareils vers les points de distribution et les points de gestion d’appareil dans le cadre de la gestion des appareils mobiles locale. Toutefois, si vous gérez également des ordinateurs Mac OS X, ces clients nécessitent des connexions internet à ces rôles de système de site. Dans ce cas, quand vous configurez les propriétés du point de distribution et du point de gestion d’appareil, vous devez plutôt utiliser le paramètre **Autoriser les connexions intranet et Internet**.  
+>  Wenn Sie Datenbankreplikate mit Ihrer Standortsystemrolle „Geräteverwaltungspunkt“ verwenden, können sich neu registrierte Geräte anfänglich so lange nicht mit dem Geräteverwaltungspunkt verbinden, bis das Datenbankreplikat mit diesem synchronisiert wurde. Dieser Verbindungsfehler tritt auf, da das Datenbankreplikat nicht über die Informationen zum neu registrierten Gerät verfügt, die für eine erfolgreiche Verbindung erforderlich sind. Replikate werden alle 5 Minuten synchronisiert, weshalb Geräte in den ersten 5 Minuten nach der Registrierung (meist bei zwei Verbindungsversuchen) keine Verbindung herstellen können. Im Anschluss kann sich das Gerät erfolgreich verbinden.  
 
-### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>Pour configurer les rôles de système de site pour gérer les appareils récents :  
+ Unabhängig davon, ob Sie vorhandene Standortsystemrollen verwenden oder neue hinzufügen, müssen Sie die Rollen konfigurieren, damit sie zum Verwalten moderner Geräte verwendet werden können. Führen Sie die folgenden Schritte aus, um den Verteilungs- und Geräteverwaltungspunkt zu konfigurieren, damit diese für die lokale Verwaltung mobiler Geräte ordnungsgemäß funktionieren:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Configuration du site** > **Serveurs et rôles de système de site**.  
+> [!NOTE]  
+>  Der aktuelle Branch von Configuration Manager unterstützt nur Intranetverbindungen von Geräten mit den Verteilungs- und Geräteverwaltungspunkten für die lokale Verwaltung mobiler Geräte. Wenn Sie jedoch auch Mac OS X-Computer verwalten, erfordern diese Clients Internetverbindungen mit diesen Standortsystemrollen. Wenn Sie in diesem Fall die Eigenschaften des Verteilungspunkts und Geräteverwaltungspunkts konfigurieren, sollten Sie stattdessen die Einstellung **Intranet- und Internetverbindungen zulassen** verwenden.  
 
-2.  Sélectionnez le serveur de système de site possédant le point de distribution ou le point de gestion d’appareil à configurer, ouvrez les propriétés de **Système de site** et vérifiez qu’un nom de domaine complet est spécifié. Cliquez sur **OK**.  
+### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>So konfigurieren Sie Standortsystemrollen für die Verwaltung moderner Geräte:  
 
-3.  Ouvrez les propriétés du rôle de système de site du point de distribution . Sous l’onglet Général, assurez-vous que **HTTPS** est sélectionné, puis sélectionnez **Autoriser les connexions intranet uniquement**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Übersicht** > **Standortkonfiguration** > **Server und Standortsystemrollen**.  
 
-     Si vous gérez également des ordinateurs Mac séparément avec le client Configuration Manager, utilisez **Autoriser les connexions intranet et Internet** à la place.  
+2.  Wählen Sie den Standortsystemserver mit dem zu konfigurierenden Verteilungspunkt oder Geräteverwaltungspunkt aus, öffnen Sie die Eigenschaften für **Standortsystem**, und stellen Sie sicher, dass ein FQDN angegeben ist. Klicken Sie auf **OK**.  
+
+3.  Öffnen Sie die Eigenschaften für die Standortsystemrolle „Verteilungspunkt“. Vergewissern Sie sich auf der Registerkarte „Allgemein“, dass **HTTPS** ausgewählt ist, und wählen Sie **Nur Intranet-Clientverbindungen zulassen** aus.  
+
+     Wenn Sie Macintosh-Computer auch separat mit dem Configuration Manager-Client verwalten, verwenden Sie stattdessen die Option **Intranet- und Internetverbindungen zulassen**.  
 
     > [!NOTE]  
-    >  Les points de distribution configurés pour les connexions intranet nécessitent une configuration particulière des limites du site. La branche Current Branch de Configuration Manager prend uniquement en charge les limites de plage IPv4 pour la gestion des appareils mobiles locale. Pour plus d’informations sur la configuration des limites de site, consultez [Définir les limites de site et les groupes de limites pour System Center Configuration Manager](../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
+    >  Für Intranetverbindungen konfigurierte Verteilungspunkte erfordern entsprechend konfigurierte Standortgrenzen. Der aktuelle Branch von Configuration Manager unterstützt nur IPv4-Bereichsgrenzen für die lokale Verwaltung mobiler Geräte. Informationen zum Konfigurieren von Bereichsgrenzen finden Sie unter [Definieren von Standortgrenzen und Begrenzungsgruppen für Configuration Manager](../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
 
-4.  Cochez la case **Autoriser les appareils mobiles à se connecter à ce point de distribution**, puis cliquez sur **OK**.  
+4.  Klicken Sie auf das Kontrollkästchen neben **Mobilen Geräten die Verbindung mit diesem Verteilungspunkt gestatten**, und klicken Sie dann auf **OK**.  
 
-5.  Ouvrez les propriétés du rôle de système de site du point de gestion. Sous l’onglet Général, assurez-vous que **HTTPS** est sélectionné, puis sélectionnez **Autoriser les connexions intranet uniquement**.  
+5.  Öffnen Sie die Eigenschaften für die Standortsystemrolle „Verwaltungspunkt“. Vergewissern Sie sich auf der Registerkarte „Allgemein“, dass **HTTPS** ausgewählt ist, und wählen Sie **Nur Intranet-Clientverbindungen zulassen** aus.  
 
-     Si vous gérez également des ordinateurs Mac séparément avec le client Configuration Manager, utilisez **Autoriser les connexions intranet et Internet** à la place.  
+     Wenn Sie Macintosh-Computer auch separat mit dem Configuration Manager-Client verwalten, verwenden Sie stattdessen die Option **Intranet- und Internetverbindungen zulassen**.  
 
-6.  Cochez la case **Autoriser les appareils mobiles et les ordinateurs Mac à utiliser ce point de gestion**. Cliquez sur **OK**.  
+6.  Klicken Sie auf das Kontrollkästchen neben **Verwendung dieses Verwaltungspunkts durch mobile Geräte und Macintosh-Computer zulassen**. Klicken Sie auf **OK**.  
 
-     Le point de gestion est alors converti en point de gestion d’appareil.  
+     Dadurch wird der Verwaltungspunkt faktisch zu einem Geräteverwaltungspunkt.  
 
- Une fois que les rôles de système de site ont été ajoutés et configurés pour la gestion des appareils récents, vous devez configurer les serveurs hébergeant les rôles en tant que points de terminaison approuvés pour inscrire les appareils gérés et communiquer avec ces derniers. Pour plus d’informations, consultez [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
-
+ Nachdem die Standortsystemrollen hinzugefügt und für die Verwaltung von modernen Geräte konfiguriert wurden, müssen Sie die Server konfigurieren, die die Rollen als vertrauenswürdige Endpunkte für die Registrierung und die Kommunikation mit verwalteten Geräten hosten. Weitere Informationen finden Sie unter [Set up certificates for trusted communications for On-premises Mobile Device Management in System Center Configuration Manager (Einrichten von Zertifikaten für vertrauenswürdige Verbindungen für die lokale Verwaltung von mobilen Geräten in System Center Configuration Manager)](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  

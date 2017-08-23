@@ -1,338 +1,334 @@
 ---
-title: Configurations prises en charge pour LTSB | Microsoft Docs
-description: "Découvrez quels systèmes d’exploitation et produits dépendants fonctionnent avec la branche Long-Term Servicing Branch de System Center Configuration Manager."
+title: "Unterstützte Konfiguration für LTSB | Microsoft-Dokumentation"
+description: "Hier finden Sie Informationen dazu, welche Betriebssysteme und abhängigen Produkte mit LTSB (Long-Term Servicing Branch) von System Center Configuration Manager verwendet werden."
 ms.custom: na
 ms.date: 5/10/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0f818d4-7f45-402f-8758-dc88bc024953
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0ba955aa7f854c3fa2c06ccf9ccd8ed354758b0
 ms.openlocfilehash: 31bddee83b2365cfa903077ffaa1d7116b194378
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/12/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-configurations-for-the-long-term-servicing-branch-of-system-center-configuration-manager"></a>Configurations prises en charge pour la branche Long-Term Servicing Branch de System Center Configuration Manager
+# <a name="supported-configurations-for-the-long-term-servicing-branch-of-system-center-configuration-manager"></a>Unterstützte Konfigurationen für LTSB (Long-Term Servicing Branch) von System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Long-Term Servicing Branch)*
+*Gilt für: System Center Configuration Manager (Long-Term Servicing Branch)*
 
-Utilisez les informations de cette rubrique pour découvrir les systèmes d’exploitation et dépendances de produits pris en charge par la branche Long-Term Servicing Branch (LTSB) de Configuration Manager.
-Sauf indication contraire dans cette rubrique (ou les rubriques spécifiques à LTSB), les configurations et limitations qui s’appliquent à la branche Current Branch version 1606 s’appliquent également à la branche LTSB.  En cas de conflits, utilisez les informations qui s’appliquent à l’édition dont vous vous servez. En règle générale, LTSB est plus limité que Current Branch.
+Dieses Thema enthält Informationen dazu, welche Betriebssysteme und Produktabhängigkeiten von LTSB (Long-Term Servicing Branch) von Configuration Manager unterstützt werden.
+Wenn in diesem oder in anderen Themen zum LTSB nicht anders angegeben, gelten die Konfigurationen und Einschränkungen für die Current Branch-Version 1606 auch für den LTSB.  Wenn Konflikte auftreten, verwenden Sie die Informationen zur jeweils verwendeten Edition. In der Regel gelten für den LTSB dieselben Einschränkungen wie für Current Branch.
 
-## <a name="general-statement-of-support"></a>Informations  générales sur la prise en charge
-Les produits et technologies suivants sont pris en charge par cette branche de Configuration Manager. En revanche, leur inclusion dans ce contenu ne signifie pas une extension de prise en charge des produits ou versions au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations, visitez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) et lisez la page [Politique de support Microsoft - FAQ](http://go.microsoft.com/fwlink/p/?LinkId=31976).
+## <a name="general-statement-of-support"></a>Allgemeine Unterstützungserklärung
+Die folgenden Produkte und Technologien werden von diesem Branch von Configuration Manager unterstützt. Die Tatsache, dass diese Produkte und Technologien hier beschrieben werden, bedeutet jedoch nicht, dass damit der Support über den Support Lifecycle der jeweiligen Produkte oder Versionen hinaus erweitert wurde. Produkte, deren Support Lifecycle überschritten ist, werden nicht für die Verwendung mit Configuration Manager unterstützt. Weitere Informationen finden Sie auf der Website [Microsoft Lifecycle-Richtlinie](http://go.microsoft.com/fwlink/p/?LinkId=208270) und unter [Support Lifecycle-Richtlinie – FAQ](http://go.microsoft.com/fwlink/p/?LinkId=31976).
 
-En outre, les produits et versions de produits non répertoriés dans les rubriques suivantes ne sont pas pris en charge, sauf s’ils ont été annoncés dans le [Blog Enterprise Mobility + Security](https://blogs.technet.microsoft.com/enterprisemobility/).
+Darüber hinaus werden auch Produkte und Produktversionen, die in den folgenden Themen nicht aufgeführt sind, nur dann unterstützt, wenn sie im [Enterprise Mobility + Security-Blog](https://blogs.technet.microsoft.com/enterprisemobility/) angekündigt wurden.
 
-**Limitations de la prise en charge future :** LTSB offre une prise en charge limitée pour les futures versions des systèmes d’exploitation client/serveur et dépendances de produits. La liste des plateformes pour LTSB est fixée pour la durée de vie de la version :
+**Einschränkungen für zukünftigen Support:** Der LTSB bietet für zukünftige Server- und Clientbetriebssysteme sowie Produktabhängigkeiten nur eingeschränkten Support. Die Liste der Plattformen für den LTSB ist für die Lebensdauer des Releases festgeschrieben:
 
-**Windows :**
-- Seules les mises à jour de qualité et de sécurité pour Windows sont prises en charge.
-- Aucune prise en charge n’est ajoutée pour les branches CB (Current Branch), CBB (Current Branch For Business) ou LTSB de Windows 10.
--   Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de Windows Server.
+**Windows:**
+- Es werden nur Qualitäts- und Sicherheitsupdates für Windows unterstützt.
+- Current Branches (CB), Current Branches for Business (CBB) oder LTSB von Windows 10 werden nicht unterstützt.
+-   Neue Hauptversionen von Windows Server werden nicht unterstützt.
 
-**SQL Server :**
-- Seules les mises à jour de qualité et de sécurité, ou les mises à niveau mineures comme les Service Packs, sont prises en charge pour SQL Server.
-- Aucune prise en charge n’est ajoutée pour les nouvelles versions majeures de SQL Server.  
+**SQL Server:**
+- Es werden nur Qualitäts- und Sicherheitsupdates bzw. kleinere Updates für SQL Server wie Service Packs unterstützt.
+- Neue Hauptversionen von SQL Server werden nicht unterstützt.  
 
-## <a name="site-systems-and-servers"></a>Systèmes et serveurs de site
-LTSB prend en charge l’utilisation des systèmes d’exploitation Windows suivants comme systèmes de site.  Chaque système d’exploitation a les mêmes exigences et limitations que l’entrée correspondante dans [Systèmes d’exploitation pris en charge pour les serveurs de système de site](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  Par exemple, l’installation minimale de Windows 2012 R2 doit être une version x64, elle est prise en charge uniquement pour l’hébergement d’un point de distribution et elle ne prend pas en charge PXE ou la multidiffusion.
+## <a name="site-systems-and-servers"></a>Standortsysteme und Server
+LTSB bietet Unterstützung unter Verwendung der folgenden Windows-Computerbetriebssysteme als Standortsysteme.  Für jedes Betriebssystem gelten dieselben Anforderungen und Einschränkungen wie im entsprechenden Eintrag unter [Unterstützte Betriebssysteme für Standortsystemserver](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers) beschrieben.  So muss es sich bei der Server Core-Installation von Windows 2012 R2 beispielsweise um eine x64-Version handeln. Zudem wird für diese Installation nur das Hosten eines Verteilungspunkts unterstützt. PXE bzw. Multicast wird nicht unterstützt.
 
-**Systèmes d’exploitation pris en charge** :
-- Windows Server 2016
-- Windows Server 2012 R2 (x64) : Standard, Datacenter
-- Windows Server 2012 (x64) : Standard, Datacenter
-- Windows Server 2008 R2 avec SP1 (x64) : Standard, Entreprise, Datacenter
-- Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise, Datacenter *(voir la remarque 1)*
-- Windows 10 Entreprise 2015 LTSB (x86, x64)
-- Windows 10 Entreprise 2016 LTSB (x86, x64)
-- Windows 8.1 (x86, x64) : Professionnel, Entreprise
-- Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise, Édition Intégrale
-- Installation minimale de Windows Server 2012
-- Installation minimale de Windows Server 2012 R2    
+**Unterstützte Betriebssysteme:**
+- Windows Server 2016
+- Windows Server 2012 R2 (x64) – Standard, Datacenter
+- Windows Server 2012 (x64) – Standard, Datacenter
+- Windows Server 2008 R2 mit SP1 (x64) – Standard, Enterprise, Datacenter
+- Windows Server 2008 mit SP2 (x86, x64): Standard, Enterprise, Datacenter *(siehe Hinweis 1)*
+- Windows 10 Enterprise 2015 LTSB (x86, x64)
+- Windows 10 Enterprise 2016 LTSB (x86, x64)
+- Windows 8.1 (x86, x64) – Professional, Enterprise
+- Windows 7 mit SP1 (x86, x64) – Professional, Enterprise, Ultimate
+- Die Server Core-Installation von Windows Server 2012
+- Server Core-Installation von Windows Server 2012 R2    
 
-*Remarque 1* : Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095).
+*Hinweis 1*: Dieses Betriebssystem wird für Standortserver oder Standortsystemrollen mit Ausnahme des Verteilungspunkts und des Pullverteilungspunkts nicht unterstützt. Sie können dieses Betriebssystem weiterhin als Verteilungspunkt verwenden, bis die Einstellung dieses Supports angekündigt wird oder der erweiterte Support für dieses Betriebssystem abläuft. Weitere Informationen finden Sie unter [Installation of System Center Configuration Manager CB and LTSB fails on Windows Server 2008 (Bei der Installation von System Center Configuration Manager CB und LTSB auf Windows Server 2008 tritt ein Fehler auf)](https://support.microsoft.com/help/4015095).
 
-## <a name="client-management"></a>Gestion des clients
-Les sections suivantes identifient les systèmes d’exploitation clients que vous pouvez gérer à l’aide de LTSB. LTSB ne prend pas en charge l’ajout de nouveaux systèmes d’exploitation comme clients pris en charge.
+## <a name="client-management"></a>Clientverwaltung
+In den folgenden Abschnitten sind die Clientbetriebssysteme aufgeführt, die mit LTSB verwaltet werden können. Vom LTSB werden neue, als unterstützte Clients hinzugefügte Betriebssysteme nicht unterstützt.
 
-### <a name="windows-computers"></a>Ordinateurs Windows
-Vous pouvez utiliser LTSB pour gérer les systèmes d’exploitation Windows suivants avec le logiciel client Configuration Manager inclus dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+### <a name="windows-computers"></a>Windows-Computer
+Die folgenden Windows-Computerbetriebssysteme können vom LTSB mit der in Configuration Manager enthaltenen Configuration Manager-Clientsoftware verwaltet werden. Weitere Informationen finden Sie unter [Bereitstellen von Clients auf Windows-Computern in System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
 
-**Systèmes d’exploitation pris en charge** :
-- Windows Server 2016
-- Windows Server 2012 R2 (x64) : Standard, Datacenter (Remarque 1)
-- Windows Server 2012 (x64) : Standard, Datacenter (Remarque 1)
-- Windows Storage Server 2012 R2 (x64)
-- Windows Storage Server 2012 (x64)
-- Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise, Datacenter (Remarque 1)
-- Windows Storage Server 2008 R2 (x86, x64) : Workgroup, Standard, Enterprise
-- Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise, Datacenter (Remarque 1)
-- Windows 10 Entreprise 2015 LTSB (x86, x64)
-- Windows 10 Entreprise 2016 LTSB (x86, x64)
-- Windows 8.1 (x86, x64) : Professionnel, Entreprise
-- Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise, Édition Intégrale
-- Installation minimale de Windows Server 2012 R2 (x64) (Remarque 2)
-- Installation minimale de Windows Server 2012 (x64) (Remarque 2)
-- Installation minimale de Windows Server 2008 R2 SP1 (x64)
-- Installation minimale de Windows Server 2008 SP2 (x86, x64)
+**Unterstützte Betriebssysteme:**
+- Windows Server 2016
+- Windows Server 2012 R2 (x64) – Standard, Datacenter (Hinweis 1)
+- Windows Server 2012 (x64) – Standard, Datacenter (Hinweis 1)
+- Windows Storage Server 2012 R2 (x64)
+- Windows Storage Server 2012 (x64)
+- Windows Server 2008 R2 mit SP1 (x64) – Standard, Enterprise, Datacenter (Hinweis 1)
+- Windows Storage Server 2008 R2 (x86, x64) – Workgroup, Standard, Enterprise
+- Windows Server 2008 mit SP2 (x86, x64) – Standard, Enterprise, Datacenter (Hinweis 1)
+- Windows 10 Enterprise 2015 LTSB (x86, x64)
+- Windows 10 Enterprise 2016 LTSB (x86, x64)
+- Windows 8.1 (x86, x64) – Professional, Enterprise
+- Windows 7 mit SP1 (x86, x64) – Professional, Enterprise, Ultimate
+- Die Server Core-Installation von Windows Server 2012 R2 (x64) (Hinweis 2)
+- Die Server Core-Installation von Windows Server 2012 (x64) (Hinweis 2)
+- Die Server Core-Installation von Windows Server 2008 R2 SP1 (x64)
+- Server Core-Installation von Windows Server 2008 SP2 (x86, x64)
 
-**(Remarque 1)** Les versions de Datacenter sont prises en charge mais ne sont pas certifiées pour Configuration Manager.  
-**(Remarque 2)** Pour prendre en charge l’installation Push du client, l’ordinateur exécutant cette version du système d’exploitation doit exécuter le service de rôle Serveur de fichiers pour le rôle serveur Services de fichiers et de stockage. Pour plus d’informations sur l’installation des fonctionnalités Windows sur un ordinateur Server Core, consultez [Installer des rôles et fonctionnalités de serveur sur un serveur en mode d’installation minimale](https://technet.microsoft.com/library/jj574158(v=ws.11).aspx) dans la bibliothèque TechNet de Windows Server 2012.
+**(Hinweis 1)** Datacenter-Releases werden von Configuration Manager zwar unterstützt, sind jedoch nicht dafür zertifiziert.  
+**(Hinweis 2)** Zur Unterstützung der Clientpushinstallation muss auf dem Computer, auf dem diese Betriebssystemversion ausgeführt wird, der Dateiserver-Rollendienst für die Serverrolle „Datei- und Speicherdienste“ ausgeführt werden. Informationen zum Installieren von Windows-Features auf einem Server Core-Computer finden Sie unter [Installieren von Serverrollen und -features auf einem Server Core-Server](https://technet.microsoft.com/library/jj574158(v=ws.11).aspx) in der TechNet-Bibliothek für Windows Server 2012.
 
 ### <a name="windows-embedded"></a>Windows Embedded
-Vous pouvez utiliser LTSB pour gérer les appareils Windows Embedded suivants en installant le logiciel client sur l’appareil.  Pour plus d’informations, consultez [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices).
+Sie können den LTSB zum Verwalten der folgenden Windows Embedded-Geräte verwenden, indem Sie die Clientsoftware auf dem Gerät installieren.  Weitere Informationen finden Sie unter [Planen der Clientbereitstellung auf Windows Embedded-Geräten in System Center Configuration Manager](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices).
 
-**Configuration requise et limitations :**  
+**Anforderungen und Einschränkungen:**  
 
--   Toutes les fonctionnalités du client sont prises en charges sur les systèmes Windows Embedded pris en charge qui ne disposent pas de filtres d’écriture activés.  
+-   Alle Clientfeatures werden auf unterstützten Windows Embedded-Systemen ohne aktivierte Schreibfilter unterstützt.  
 
--   Les clients qui utilisent l’un des éléments suivants sont pris en charge pour toutes les fonctionnalités, à l’exception de la gestion de l’alimentation :  
+-   Clients, die einen der folgenden Filter verwenden, werden für alle Features (ausgenommen Energieverwaltung) unterstützt:  
 
-    -   Filtres d’écriture améliorés (EWF)    
+    -   Erweiterte Schreibfilter (Enhanced Write Filters, EWF)    
 
-    -   Filtres d’écriture basés sur des fichiers RAM (FBWF)    
+    -   RAM-dateibasierte Schreibfilter (File Based Write Filters, FBWF)    
 
-    -   Filtres d’écriture unifiés (UWF)  
+    -   Vereinheitlichte Schreibfilter (Unified Write Filters, UWF)  
 
--   Le catalogue des applications n’est pris en charge pour aucun appareil Windows Embedded.  
+-   Der Anwendungskatalog wird für Windows Embedded-Geräte grundsätzlich nicht unterstützt.  
 
--   Avant de pouvoir surveiller les programmes malveillants détectés sur les appareils Windows Embedded basés sur Windows XP, vous devez installer le package de script Microsoft Windows WMI sur les appareils intégrés. Utilisez Windows Embedded Target Designer pour installer ce package. Les fichiers *WBEMDISP.DLL* et *WBEMDISP.TLB* doivent exister et être inscrits dans le dossier %windir%\System32\WBEM sur l’appareil Windows Embedded pour garantir que les programmes malveillants sont signalés.  
+-   Bevor Sie erkannte Schadsoftware auf Windows XP-basierten Windows Embedded-Geräten überwachen können, müssen Sie das Microsoft Windows-WMI-Skriptpaket auf dem eingebetteten Gerät installieren. Verwenden Sie Windows Embedded Target Designer zur Installation dieses Pakets. Die Dateien *WBEMDISP.DLL* und *WBEMDISP.TLB* müssen vorhanden und im Ordner %windir%\System32\WBEM auf dem Embedded-Gerät registriert sein, um sicherzustellen, dass die erkannte Schadsoftware gemeldet wird.  
 
-**Systèmes d’exploitation pris en charge** :  
--   Windows 10 Entreprise 2016 LTSB (x86, x64)  
--   Windows 10 Entreprise 2015 LTSB (x86, x64)  
--   Windows Embedded 8.1 Industry (x86, x64)    
+**Unterstützte Betriebssysteme:**  
+-   Windows 10 Enterprise 2016 LTSB (x86, x64)  
+-   Windows 10 Enterprise 2015 LTSB (x86, x64)  
+-   Windows Embedded 8.1 Industry (x86, x64)    
 -   Windows Thin PC (x86, x64)    
--   Windows Embedded POSReady 7 (x86, x64)    
--   Windows Embedded Standard 7 avec SP1 (x86, x64)    
--   Windows Embedded POSReady 2009 (x86)   
--   Windows Embedded Standard 2009 (x86)  
+-   Windows Embedded POSReady 7 (x86, x64)    
+-   Windows Embedded Standard 7 mit SP1 (x86, x64)    
+-   Windows Embedded POSReady 2009 (x86)   
+-   Windows Embedded Standard 2009 (x86)  
 
 ### <a name="windows-ce"></a>Windows CE  
- Vous pouvez gérer les appareils Windows CE avec le client hérité d’appareil mobile Configuration Manager inclus dans Configuration Manager.  
+ Sie können Windows CE-Geräte mit dem Configuration Manager-Legacyclient für mobile Geräte verwalten, der im Configuration Manager enthalten ist.  
 
-**Configuration requise et limitations :**  
+**Anforderungen und Einschränkungen:**  
 
--   L’installation du client d’appareil mobile nécessite 0,78 Mo d’espace de stockage. La connexion sur l’appareil mobile peut nécessiter jusqu’à 256 Ko d’espace de stockage supplémentaire.    
+-   Zur Installation des Clients für mobile Geräte sind 0,78 MB Speicherplatz erforderlich. Die Anmeldung auf dem mobilen Gerät kann bis zu 256 KB zusätzlichen Speicherplatz erfordern.    
 
--   Les fonctionnalités de ces appareils mobiles varient selon la plateforme et le type de client. Pour plus d’informations sur le type des fonctions de gestion que Configuration Manager prend en charge pour un client hérité d’appareil mobile, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](/sccm/core/plan-design/choose-a-device-management-solution).  
+-   Die für diese mobilen Geräte verfügbaren Funktionen sind von Plattform und Clienttyp abhängig. Informationen dazu, welche Verwaltungsfunktionen Configuration Manager für den Legacyclient für mobile Geräte unterstützt, finden Sie unter [Wählen einer Geräteverwaltungslösung für System Center Configuration Manager](/sccm/core/plan-design/choose-a-device-management-solution).  
 
-**Systèmes d’exploitation pris en charge** :  
+**Unterstützte Betriebssysteme:**  
 
--   Windows CE 7.0 (processeurs ARM et x86)  
+-   Windows CE 7.0 (ARM- und x86-Prozessoren)  
 
-**Langues prises en charge :**  
--   Chinois (simplifié et traditionnel)    
--   Anglais (États-Unis)    
--   Français (France)    
--   Allemand    
--   Italien    
--   Japonais  
--   Coréen  
--   Portugais (Brésil)  
--   Russe  
--   Espagnol (Espagne)  
+**Zu den unterstützten Sprachen zählen:**  
+-   Chinesisch (vereinfacht und traditionell)    
+-   Englisch (USA)    
+-   Französisch (Frankreich)    
+-   Deutsch    
+-   Italienisch    
+-   Japanisch  
+-   Koreanisch  
+-   Portugiesisch (Brasilien)  
+-   Russisch  
+-   Spanisch (Spanien)  
 
-### <a name="mac-computers"></a>Ordinateurs Mac  
- Vous pouvez utiliser LTSB pour gérer les ordinateurs Mac OS X avec le client Configuration Manager pour Mac.
+### <a name="mac-computers"></a>Macintosh-Computer  
+ Sie können den LTSB verwenden, um Mac OS X-Computer mit dem Configuration Manager-Client für Macintosh zu verwalten.
 
-Le package d’installation de client Mac n’est pas fourni avec le support d’installation de Configuration Manager. Vous pouvez le télécharger en même temps que les « clients pour d’autres systèmes d’exploitation » à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
+Das Macintosh-Clientinstallationspaket wird nicht mit den Configuration Manager-Medien geliefert. Sie können es als Teil des „Clients für zusätzliche Betriebssysteme“ im [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=525184) herunterladen.  
 
-La prise en charge des systèmes d’exploitation Mac est limitée à ceux qui sont répertoriés dans cette section. Elle n’inclut pas d’autres systèmes d’exploitation pouvant être pris en charge par une mise à jour future des packages d’installation de client Mac pour Current Branch.
+Unterstützung für Macintosh-Betriebssysteme ist auf die in diesem Abschnitt aufgeführten Clients beschränkt. Zusätzliche Betriebssysteme, die möglicherweise von einem zukünftigen Update für Mac-Clientinstallationspakete für Current Branch unterstützt werden, werden nicht unterstützt.
 
-Pour plus d’informations, consultez [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-macs).
+Weitere Informationen finden Sie unter [How to deploy clients to Macs in System Center Configuration Manager (Bereitstellen von Clients auf Macs in System Center Configuration Manager)](/sccm/core/clients/deploy/deploy-clients-to-macs).
 
-**Versions prises en charge :**  
--   Mac OS X 10.9 (Mavericks)  
--   Mac OS X 10.10 (Yosemite)  
--   Mac OS X 10.11 (El Capitan)  
+**Unterstützte Versionen:**  
+-   Mac OS X 10.9 (Mavericks)  
+-   Mac OS X 10.10 (Yosemite)  
+-   Mac OS X 10.11 (El Capitan)  
 
-## <a name="linux-and-unix-servers"></a>Serveurs Linux et UNIX
-Vous pouvez utiliser LTSB pour gérer les serveurs Linux et UNIX avec le client Configuration Manager pour Linux et UNIX.
+## <a name="linux-and-unix-servers"></a>Linux- und UNIX-Server
+Sie können LTSB verwenden, um Linux- und UNIX-Server mit dem Configuration Manager-Client für Linux und UNIX zu verwalten.
 
-Les packages d’installation du client Linux et UNIX ne sont pas fournis avec le média Configuration Manager. Vous pouvez les télécharger en même temps que les « clients pour d’autres systèmes d’exploitation » à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). En plus des packages d’installation du client, le client inclut le script d’installation qui gère l’installation du client sur chaque ordinateur.
+Die Clientinstallationspakete für Linux und UNIX werden nicht mit den Configuration Manager-Medien geliefert. Sie können sie als Teil des „Clients für weitere Betriebssysteme“ im [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=525184) herunterladen. Zusätzlich zu den Clientinstallationspaketen umfasst der Clientdownload das Installationsskript zur Verwaltung der Clientinstallation auf den einzelnen Computern.
 
-La prise en charge des systèmes d’exploitation Linux et UNIX est limitée à ceux qui sont répertoriés dans cette section. Elle n’inclut pas d’autres systèmes d’exploitation pouvant être pris en charge par une mise à jour future des packages de client Linux et UNIX pour Current Branch.
+Unterstützung für Linux- und UNIX-Betriebssysteme ist auf die in diesem Abschnitt aufgeführten Clients beschränkt. Zusätzliche Betriebssysteme, die möglicherweise von einem zukünftigen Update für Linux- und UNIX-Clientinstallationspakete für Current Branch unterstützt werden, werden nicht unterstützt.
 
-**Configuration requise et limitations :**  
+**Anforderungen und Einschränkungen:**  
 
--   Pour vérifier les dépendances des fichiers du système d’exploitation pour le client pour Linux et UNIX, consultez [Conditions préalables pour le déploiement du client pour les serveurs Linux et UNIX](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers#bkmk_clientdeployprereqforlnu).  
--   Pour une vue d’ensemble des fonctionnalités de gestion prises en charge pour les ordinateurs exécutant Linux ou UNIX, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).  
--   Pour versions prises en charge de Linux et UNIX, la version répertoriée inclut toutes les versions mineures suivantes. Par exemple, quand la prise en charge est indiquée pour CentOS version 6, elle inclut également toute version mineure suivante de CentOS 6, telle CentOS 6.3. De même, quand la prise en charge est indiquée pour un système d’exploitation utilisant des Service Packs, comme SUSE Linux Enterprise Server 11 SP1, elle inclut les Service Packs suivants pour cette version du système d’exploitation.
--   Pour plus d’informations sur les packages d’installation client et l’agent universel, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).
+-   Informationen zum Überprüfen von Betriebssystemdateiabhängigkeiten für den Client für Linux und UNIX finden Sie unter [Prerequisites for Client Deployment to Linux and UNIX Servers (Voraussetzungen für die Clientbereitstellung auf Linux- und UNIX-Servern)](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers#bkmk_clientdeployprereqforlnu).  
+-   Eine Übersicht über die Verwaltungsfunktionen, die für Computer unterstützt werden, auf denen Linux oder UNIX ausgeführt wird, finden Sie unter [How to deploy clients to UNIX and Linux servers in System Center Configuration Manager (Bereitstellen von Clients auf UNIX- und Linux-Servern in System Center Configuration Manager)](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).  
+-   Für unterstützte Versionen von Linux- und UNIX-Clients schließt die aufgeführte Version alle nachfolgenden Nebenversionen ein. Wenn beispielsweise Unterstützung für CentOS Version 6 angegeben ist, schließt dies alle nachfolgenden Nebenversionen von CentOS 6 ein, z. B. CentOS 6.3. Wenn die Unterstützung für ein Betriebssystem angegeben ist, das Service Packs verwendet (z. B. SUSE Linux Enterprise Server 11 SP1), schließt die Unterstützung entsprechend alle nachfolgenden Service Packs für diese Betriebssystemversion ein.
+-   Informationen zu Clientinstallationspaketen und zum universellen Agent finden Sie unter [How to deploy clients to UNIX and Linux servers in System Center Configuration Manager (Bereitstellen von Clients auf UNIX- und Linux-Servern in System Center Configuration Manager)](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).
 
 
-**Versions prises en charge :**   
-Les versions suivantes sont prises en charge à l’aide du fichier .tar indiqué.  
+**Unterstützte Versionen:**   
+Die folgenden Versionen werden mit der angegebenen TAR-Datei unterstützt.  
 ### <a name="aix"></a>AIX  
 
-|Version|Fichier|  
+|Version|Datei|  
 |-|-|  
-|Version 5.3 (Power)|ccm-Aix53ppc.&lt;version\>.tar|  
-|Version 6.1 (Power)|ccm-Aix61ppc.&lt;version\>.tar|  
-|Version 7.1 (Power)|ccm-Aix71ppc.&lt;version\>.tar|  
+|Version 5.3 (Power)|ccm-Aix53ppc.&lt;build\>.tar|  
+|Version 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
+|Version 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
 
 ### <a name="centos"></a>CentOS  
 
-|Version|Fichier|  
+|Version|Datei|  
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="debian"></a>Debian  
 
-|Version|Fichier|    
+|Version|Datei|    
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 7 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 8 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 8 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 7 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 8 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 8 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="hp-ux"></a>HP-UX  
 
-|Version|Fichier|  
+|Version|Datei|  
 |-|-|  
-|Version 11iv2 IA64|ccm-HpuxB.11.23i64.&lt;version\>.tar|  
-|Version 11iv2 PA-RISC|ccm-HpuxB.11.23PA.&lt;version\>.tar|  
-|Version 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;version\>.tar|  
-|Version 11iv3 PA-RISC|ccm-HpuxB.11.31PA.&lt;version\>.tar|  
+|Version 11iv2 IA64|ccm-HpuxB.11.23i64.&lt;build\>.tar|  
+|Version 11iv2 PA-RISC|ccm-HpuxB.11.23PA.&lt;build\>.tar|  
+|Version 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
+|Version 11iv3 PA-RISC|ccm-HpuxB.11.31PA.&lt;build\>.tar|  
 
 ### <a name="oracle-linux"></a>Oracle Linux  
 
-|Version|Fichier|    
+|Version|Datei|    
 |-|-|  
-|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
-|Version|Fichier|  
+|Version|Datei|  
 |-|-|  
-|Version 4 x86|ccm-RHEL4x86.&lt;version\>.tar|  
-|Version 4 x64|ccm-RHEL4x64.&lt;version\>.tar|  
-|Version 5 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 5 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 6 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 6 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 7 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 4 x86|ccm-RHEL4x86.&lt;build\>.tar|  
+|Version 4 x64|ccm-RHEL4x64.&lt;build\>.tar|  
+|Version 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="solaris"></a>Solaris  
 
-|Version|Fichier|   
+|Version|Datei|   
 |-|-|  
-|SPARC version 9|ccm-Sol9sparc.&lt;version\>.tar|  
-|Version 10 x86|ccm-Sol10x86.&lt;version\>.tar|  
-|SPARC version 10|ccm-Sol10sparc.&lt;version\>.tar|  
-|Version 11 x86|ccm-Sol11x86.&lt;version\>.tar|  
-|SPARC version 11|ccm-Sol11sparc.&lt;version\>.tar|  
+|Version 9 SPARC|ccm-Sol9sparc.&lt;build\>.tar|  
+|Version 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
+|Version 10 SPARC|ccm-Sol10sparc.&lt;build\>.tar|  
+|Version 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
+|Version 11 SPARC|ccm-Sol11sparc.&lt;build\>.tar|  
 
 ### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
-|Version|Fichier|  
+|Version|Datei|  
 |-|-|  
-|Version 9 x86|ccm-SLES9x86.&lt;version\>.tar|  
-|Version 10 SP1 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 10 SP1 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 11 SP1 x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 11 SP1 x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 12 x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 9 x86|ccm-SLES9x86.&lt;build\>.tar|  
+|Version 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 11 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 12 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="ubuntu"></a>Ubuntu  
 
-|Version|Fichier|    
+|Version|Datei|    
 |-|-|  
-|Version 10.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 10.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 12.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 12.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
-|Version 14.04 LTS x86|ccm-Universalx86.&lt;version\>.tar|  
-|Version 14.04 LTS x64|ccm-Universalx64.&lt;version\>.tar|  
+|Version 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 12.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 12.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Version 14.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Version 14.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="exchange-server-connector"></a>Connecteur Exchange Server
- LTSB prend en charge une gestion limitée des appareils qui se connectent à votre instance Exchange Server, sans installation d’un logiciel client. Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](/sccm/mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).
+### <a name="exchange-server-connector"></a>Exchange Server-Connector
+ Von LTSB wird die Verwaltung der Geräte, die Sie mit Ihrer Exchange Server-Instanz verbinden, ohne die Clientsoftware zu installieren, mit Einschränkungen unterstützt. Weitere Informationen finden Sie unter [Verwalten von mobilen Geräten mit System Center Configuration Manager und Microsoft Intune](/sccm/mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).
 
- **Configuration requise et limitations :**  
+ **Anforderungen und Einschränkungen:**  
 
--   Configuration Manager permet une gestion limitée des appareils mobiles. La gestion limitée est disponible quand vous utilisez le connecteur du serveur Exchange Server pour les appareils compatibles EAS (Exchange Active Sync) qui se connectent à un serveur exécutant Exchange Server ou Exchange Online.  
+-   Configuration Manager bietet begrenzte Verwaltungsfunktionen für mobile Geräte. Begrenzte Verwaltung ist verfügbar, wenn Sie den Exchange Server-Connector für EAS-fähige (Exchange Active Sync) Geräte verwenden, die mit einem Server kommunizieren, auf dem Exchange Server oder Exchange Online ausgeführt wird.  
 
--   Pour plus d’informations sur les fonctions de gestion que Configuration Manager prend en charge pour les appareils mobiles gérés par le connecteur du serveur Exchange Server, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](/sccm/core/plan-design/choose-a-device-management-solution).  
+-   Weitere Informationen zu den Verwaltungsfunktionen, die Configuration Manager für mobile Geräte unterstützt, die vom Exchange Server-Connector verwaltet werden, finden Sie unter [Wählen einer Geräteverwaltungslösung für System Center Configuration Manager](/sccm/core/plan-design/choose-a-device-management-solution).  
 
-**Versions d’Exchange Server prises en charge** :  
--   Exchange Server 2010 SP1  
--   Exchange Server 2010 SP2  
--   Exchange Server 2013  
+**Unterstützte Versionen von Exchange Server:**  
+-   Exchange Server 2010 SP1  
+-   Exchange Server 2010 SP2  
+-   Exchange Server 2013  
 
 > [!NOTE]
-> LTSB ne prend pas en charge la gestion des appareils qui se connectent via un service en ligne, comme Exchange Online (Office 365).
+> Der LTSB bietet keine Unterstützung für die Verwaltung von Geräten, die über einen Onlinedienst wie Exchange Online (Office 365) eine Verbindung herstellen.
 
 
-## <a name="configuration-manager-console"></a>Console Configuration Manager
-LTSB prend en charge les systèmes d’exploitation suivants pour l’exécution de la console Configuration Manager. Chaque ordinateur qui héberge la console doit avoir au minimum .NET Framework version 4.5.2, sauf pour Windows 10, qui nécessite au minimum .NET Framework 4.6.
+## <a name="configuration-manager-console"></a>Configuration Manager-Konsole
+Vom LTSB wird die Ausführung der Configuration Manager-Konsole unter den folgenden Betriebssystemen unterstützt. Auf einem Computer, auf dem die Konsole gehostet wird, muss mindestens .NET Framework Version 4.5.2 installiert sein, für Windows 10 mindestens .NET Framework 4.6.
 
-**Systèmes d’exploitation pris en charge** :
-- Windows Server 2016
-- Windows Server 2012 R2 (x64) : Standard, Datacenter
-- Windows Server 2012 (x64) : Standard, Datacenter
-- Windows Server 2008 R2 avec SP1 (x64) : Standard, Entreprise, Datacenter
-- Windows Server 2008 avec SP2 (x86, x64) : Standard, Entreprise, Datacenter
-- Windows 10 Entreprise 2016 LTSB (x86, x64)
-- Windows 10 Entreprise 2015 LTSB (x86, x64)
-- Windows 8.1 (x86, x64) : Professionnel, Entreprise
-- Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise, Édition Intégrale
+**Unterstützte Betriebssysteme:**
+- Windows Server 2016
+- Windows Server 2012 R2 (x64) – Standard, Datacenter
+- Windows Server 2012 (x64) – Standard, Datacenter
+- Windows Server 2008 R2 mit SP1 (x64) – Standard, Enterprise, Datacenter
+- Windows Server 2008 mit SP2 (x86, x64) - Standard, Enterprise, Datacenter
+- Windows 10 Enterprise 2016 LTSB (x86, x64)
+- Windows 10 Enterprise 2015 LTSB (x86, x64)
+- Windows 8.1 (x86, x64) – Professional, Enterprise
+- Windows 7 mit SP1 (x86, x64) – Professional, Enterprise, Ultimate
 
 
-## <a name="sql-server-versions-supported-for-the-site-database-and-reporting-point"></a>Versions de SQL Server prises en charge pour la base de données du site et le point de rapport
-LTSB prend en charge les versions suivantes de SQL Server pour héberger la base de données du site et le point de rapport. Pour chaque version prise en charge, les mêmes exigences et limitations de configuration apparaissant dans [Prise en charge des versions de SQL Server](/sccm/core/plan-design/configs/support-for-sql-server-versions) pour Current Branch s’appliquent à LTSB.  Cela inclut l’utilisation d’un cluster SQL Server ou d’un groupe de disponibilité AlwaysOn SQL Server.  
+## <a name="sql-server-versions-supported-for-the-site-database-and-reporting-point"></a>Für die Standortdatenbank und den Berichterstattungspunkt unterstützte SQL Server-Versionen
+Vom LTSB wird das Hosten der Standortdatenbank und des Berichterstattungspunkts durch die folgenden Versionen von SQL Server unterstützt. Für die unterstützten Versionen gelten für den LTSB die Konfigurationsanforderungen und -einschränkungen, die unter [Unterstützung für SQL Server-Versionen](/sccm/core/plan-design/configs/support-for-sql-server-versions) für Current Branch beschrieben werden.  Dies schließt die Verwendung eines SQL Server-Clusters oder einer SQL Server-Always On-Verfügbarkeitsgruppe ein.  
 
-**Versions prises en charge :**
+**Unterstützte Versionen:**
 
-- SQL Server 2016 : Standard, Enterprise
-- SQL Server 2014 SP2 : Standard, Enterprise
-- SQL Server 2014 SP1 : Standard, Enterprise
-- SQL Server 2012 SP3 : Standard, Enterprise
-- SQL Server 2008 R2 SP3 : Standard, Enterprise, Datacenter
-- SQL Server 2016 Express
-- SQL Server 2014 Express SP2
+- SQL Server 2016: Standard, Enterprise
+- SQL Server 2014 SP2: Standard, Enterprise
+- SQL Server 2014 SP1: Standard, Enterprise
+- SQL Server 2012 SP3: Standard, Enterprise
+- SQL Server 2008 R2 SP3: Standard, Enterprise, Datacenter
+- SQL Server 2016 Express
+- SQL Server 2014 Express SP2
 - SQL Server 2014 Express SP1
 - SQL Server 2012 Express SP3
 
-## <a name="support-for-active-directory-domains"></a>Prise en charge des domaines Active Directory
-Tous les systèmes de site LTSB doivent être membres d’un domaine Windows Active Directory pris en charge. La prise en charge des domaines Active Directory présente les mêmes exigences et limitations que celles décrites dans [Prise en charge des domaines Active Directory](/sccm/core/plan-design/configs/support-for-active-directory-domains). Toutefois, elle se limite aux niveaux fonctionnels de domaine suivants :
+## <a name="support-for-active-directory-domains"></a>Unterstützung für Active Directory-Domänen
+Alle LTSB-Standortsysteme müssen Mitglieder einer unterstützten Windows Active Directory-Domäne sein. Für die Unterstützung von Active Directory-Domänen gelten die Anforderungen und Einschränkungen, die unter [Unterstützung für Active Directory-Domänen](/sccm/core/plan-design/configs/support-for-active-directory-domains) aufgeführt sind. Die Unterstützung ist jedoch auf die folgenden Domänenfunktionsebenen beschränkt:
 
-**Niveaux pris en charge :**
+**Unterstützte Ebenen:**
 - Windows Server 2008
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-## <a name="additional-support-topics-that-apply-to-the-long-term-servicing-branch"></a>Rubriques de prise en charge supplémentaires qui s’appliquent à Long-Term Servicing Branch
-Les informations contenues dans les rubriques Current Branch suivantes s’appliquent à LTSB :
-- [Taille et échelle en chiffres](/sccm/core/plan-design/configs/size-and-scale-numbers)
-- [Prérequis des sites et systèmes de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites)
-- [Options de haute disponibilité](/sccm/protect/understand/high-availability-options)
-- [Matériel recommandé](/sccm/core/plan-design/configs/recommended-hardware)
-- [Prise en charge des fonctionnalités et réseaux Windows](/sccm/core/plan-design/configs/support-for-windows-features-and-networks)
-- [Prise en charge des environnements de virtualisation](/sccm/core/plan-design/configs/support-for-virtualization-environments)
-
+## <a name="additional-support-topics-that-apply-to-the-long-term-servicing-branch"></a>Weitere Themen zur Unterstützung, die für Long-Term Servicing Branch gelten
+Die Informationen in den folgenden Current Branch-Themen gelten für den LTSB:
+- [Size and scale numbers (Anpassen und Skalieren von Zahlen)](/sccm/core/plan-design/configs/size-and-scale-numbers)
+- [Voraussetzungen für Standorte und Standortsysteme](/sccm/core/plan-design/configs/site-and-site-system-prerequisites)
+- [High availability options (Optionen für hohe Verfügbarkeit)](/sccm/protect/understand/high-availability-options)
+- [Empfohlene Hardware](/sccm/core/plan-design/configs/recommended-hardware)
+- [Unterstützung für Windows-Features und Netzwerke](/sccm/core/plan-design/configs/support-for-windows-features-and-networks)
+- [Unterstützung für Virtualisierungsumgebungen](/sccm/core/plan-design/configs/support-for-virtualization-environments)

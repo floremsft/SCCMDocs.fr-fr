@@ -1,72 +1,65 @@
 ---
-title: "Sécurité et confidentialité de la migration | Microsoft Docs"
-description: "Bonnes pratiques et informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für die Migration | Microsoft-Dokumentation"
+description: "Hier finden Sie bewährte Sicherheitsmethoden und Datenschutzinformationen für die Migration zur System Center Configuration Manager-Umgebung."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6893fce1-7ad5-4151-9ba9-3096871e8e4a
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 5e3d3f4194b06442e34c10988a20fe9ca40ac5d7
 ms.openlocfilehash: 8aa6971d75924ab5bcacd70c330913097ecf8717
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Sécurité et confidentialité pour la migration vers System Center Configuration Manager
+# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Migration zu System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient les bonnes pratiques en matière de sécurité et les informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager.  
+Dieses Thema enthält bewährte Sicherheitsmethoden und Datenschutzinformationen zur Migration zur System Center Configuration Manager-Umgebung.  
 
-## <a name="security-best-practices-for-migration"></a>Meilleures pratiques de sécurité pour la migration  
- Utilisez les meilleures pratiques de sécurité suivantes pour la migration.  
+## <a name="security-best-practices-for-migration"></a>Bewährte Sicherheitsmethoden für die Migration  
+ Wenden Sie die folgende bewährte Sicherheitsmethode bei der Migration an.  
 
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Bewährte Sicherheitsmethode|Weitere Informationen|  
 |----------------------------|----------------------|  
-|Utilisez le compte d'ordinateur pour le compte du fournisseur SMS du site source et le compte SQL Server du site source plutôt qu'un compte d'utilisateur.|Si vous devez utiliser un compte d'utilisateur pour la migration, supprimez les détails du compte une fois la migration terminée.|  
-|Lorsque vous migrez le contenu d'un point de distribution d'un site source vers un point de distribution d'un site de destination, utilisez IPsec.|Bien que le contenu migré soit haché pour détecter la falsification, si les données sont modifiées pendant leur transfert, la migration échoue.|  
-|Veillez à restreindre et surveiller les utilisateurs administratifs qui peuvent créer des tâches de migration.|L'intégrité de la base de données de la hiérarchie de destination dépend de l'intégrité des données que l'utilisateur administratif décide d'importer à partir de la hiérarchie source. En outre, cet utilisateur administratif peut lire toutes les données de la hiérarchie source.|  
+|Verwenden Sie statt eines Benutzerkontos das Computerkonto für SMS-Anbieterkonto und SQL Server-Konto des Quellstandorts.|Wenn Sie zur Migration ein Benutzerkonto verwenden müssen, entfernen Sie nach Abschluss der Migration die Kontodetails.|  
+|Verwenden Sie IPsec, wenn Sie Inhalte von einem Verteilungspunkt an einem Quellstandort zu einem Verteilungspunkt Ihres Zielstandorts migrieren.|Auf die migrierten Inhalte wird zwar ein Hashwert angewendet, um Manipulationen festzustellen, doch wenn die Daten während der Übertragung geändert werden, kann die Migration nicht ausgeführt werden.|  
+|Überwachen Sie die Administratoren, die Migrationsaufträge erstellen können, und beschränken Sie ihre Anzahl.|Die Integrität der Zielhierarchiedatenbank hängt von der Integrität der Daten ab, die der Administrator für den Import aus der Quellhierarchie auswählt. Außerdem kann dieser Administrator alle Daten der Quellhierarchie lesen.|  
 
-### <a name="security-issues-for-migration"></a>Problèmes de sécurité pour la migration  
-La migration présente les problèmes de sécurité suivants :  
+### <a name="security-issues-for-migration"></a>Sicherheitsprobleme bei der Migration  
+Die Migration birgt folgende Sicherheitsprobleme:  
 
--   Les clients dont l'accès à un site source a été bloqué peuvent être attribués correctement à la hiérarchie de destination, avant que leur enregistrement de client n'ait été migré.  
+-   Clients, für die der Zugriff auf einen Quellstandort gesperrt ist, können ggf. der Zielhierarchie zugewiesen werden, bevor ihr Clientdatensatz migriert wird.  
 
-     Bien que Configuration Manager conserve l'état de blocage des clients que vous migrez, ces derniers peuvent être correctement affectés à la hiérarchie de destination si cette affectation a lieu avant la fin de la migration de l'enregistrement de client.  
+     Obwohl Configuration Manager den Status „Gesperrt“ eines Clients bei der Migration beibehält, kann der Client der Zielhierarchie zugewiesen werden, wenn die Zuweisung erfolgt, bevor die Migration des Clientdatensatzes abgeschlossen ist.  
 
--   Les messages d'audit ne sont pas migrés.  
+-   Überwachungsmeldungen werden nicht migriert.  
 
-Lorsque vous migrez les données d'un site source vers un site de destination, vous perdez toutes les informations d'audit de la hiérarchie source.  
+Wenn Sie Daten von einem Quellstandort zu einem Zielstandort migrieren, gehen alle Überwachungsinformationen der Quellhierarchie verloren.  
 
-## <a name="privacy-information-for-migration"></a>Informations de confidentialité pour la migration  
- La migration découvre des informations à partir des bases de données de site que vous identifiez dans une infrastructure source et stocke ces données dans la base de données de la hiérarchie de destination. Les informations que System Center Configuration Manager peut découvrir à partir d'un site ou d'une hiérarchie source dépendent des fonctionnalités qui ont été activées dans l'environnement source, ainsi que des opérations de gestion réalisées dans cet environnement.  
+## <a name="privacy-information-for-migration"></a>Datenschutzinformationen zur Migration  
+ Bei der Migration werden Informationen in den Standortdatenbanken ermittelt, die Sie in einer Quellinfrastruktur identifizieren, und in der Datenbank der Zielhierarchie gespeichert. Welche Informationen von System Center Configuration Manager für einen Quellstandort oder eine Quellhierarchie ermittelt werden können, richtet sich nach den Features, die in der Quellumgebung aktiviert wurden. Außerdem ist dies von den Verwaltungsvorgängen abhängig, die in der Quellumgebung ausgeführt wurden.  
 
- Pour plus d'informations sur la sécurité et la confidentialité, consultez l'une des rubriques suivantes :  
+ Weitere Informationen zu Sicherheit und Datenschutz finden Sie unter folgenden Themen:  
 
--   Pour plus d'informations sur les informations de confidentialité pour Configuration Manager 2007, voir [Sécurité et confidentialité pour Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) dans la bibliothèque de documentation de Configuration Manager 2007.  
+-   Weitere Informationen zum Configuration Manager 2007-Datenschutz finden Sie unter [Sicherheit und Datenschutz für Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) in der Configuration Manager 2007-Dokumentationsbibliothek.  
 
--   Pour plus d'informations sur les informations de confidentialité pour System Center 2012 Configuration Manager, voir [Sécurité et confidentialité pour System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) dans la bibliothèque de documentation de System Center 2012 Configuration Manager.  
+-   Weitere Informationen zum System Center 2012 Configuration Manager-Datenschutz finden Sie unter [Sicherheit und Datenschutz für System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) in der System Center 2012 Configuration Manager-Dokumentationsbibliothek.  
 
--   Pour plus d’informations sur les informations de confidentialité pour System Center Configuration Manager, voir [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+-   Weitere Informationen zum System Center Configuration Manager-Datenschutz finden Sie unter [Sicherheit und Datenschutz für System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
-Vous pouvez migrer l'intégralité des données prises en charge d'un site source vers une hiérarchie de destination ou uniquement une partie de ces données.  
+Sie können einige oder alle unterstützten Daten von einem Quellstandort zu einer Zielhierarchie migrieren.  
 
-La migration n'est pas activée par défaut et nécessite plusieurs étapes de configuration. Les informations relatives à la migration ne sont pas envoyées à Microsoft.  
+Die Migration ist in der Standardeinstellung nicht aktiviert und erfordert mehrere Konfigurationsschritte. Es werden keine Migrationsinformationen an Microsoft gesendet.  
 
-Avant de migrer les données d'une hiérarchie source, analysez vos besoins en matière de confidentialité.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+Berücksichtigen Sie Ihre Datenschutzanforderungen, bevor Sie Daten aus einer Quellhierarchie migrieren.  

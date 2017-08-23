@@ -1,129 +1,126 @@
 ---
-title: "Installation à partir de la ligne de commande | Microsoft Docs"
-description: "Découvrez comment exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour diverses installations de site."
+title: Installieren mittels Befehlszeile | Microsoft-Dokumentation
+description: "Erfahren Sie, wie Sie das System Center Configuration Manager-Setup über eine Eingabeaufforderung für eine Vielzahl von Standortinstallationen ausführen."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e7cdb1a9-140a-436e-ac71-72d083110223
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
 ms.openlocfilehash: 8ff48b08d1abb7481592c0ea076d4efa15c3d8ee
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/06/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utiliser la ligne de commande pour installer des sites System Center Configuration Manager
+# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Verwenden einer Befehlszeile zum Installieren von System Center Configuration Manager-Standorten
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
- Vous pouvez exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour installer divers types de site.
+ Sie können das System Center Configuration Manager-Setup über eine Eingabeaufforderung für die Installation einer Vielzahl von Standorttypen ausführen.
 
-## <a name="supported-tasks-for-command-line-installations"></a>Tâches prises en charge pour des installations via la ligne de commande
- Cette méthode consistant à exécuter le programme d’installation prend en charge les tâches d’installation de site et de maintenance de site suivantes :
+## <a name="supported-tasks-for-command-line-installations"></a>Unterstützte Tasks für Befehlszeileninstallationen
+ Diese Methode zum Ausführen des Setups unterstützt die folgenden Standortinstallations- und Standortwartungstasks:
 
--   **Installer un site d’administration centrale ou un site principal à partir de la ligne de commande**  
-  Consultez la rubrique [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).
+-   **Installieren Sie einen Standort der zentralen Verwaltung oder einen primären Standort über eine Eingabeaufforderung**  
+  Anzeigen von [Befehlszeilenoptionen für Setup](../../../../core/servers/deploy/install/command-line-options-for-setup.md)
 
--  **Modifier les langues utilisées sur un site d’administration centrale ou un site principal**  
-    Pour modifier les langues installées sur un site à partir de la ligne de commande (y compris les langues des appareils mobiles), effectuez les opérations suivantes :  
+-  **Ändern Sie die an einem Standort der zentralen Verwaltung oder einem primären Standort verwendeten Sprachen**  
+    Um die an einem Standort installierten Sprachen über die Eingabeaufforderung zu ändern (einschließlich Sprachen für Mobilgeräte), verfahren Sie wie folgt:  
 
-     -   Exécutez le programme d’installation à partir de **&lt;chemin_installation_Configuraton_Manager\>\Bin\X64** sur le serveur de site.
-     -   Utilisez l’option de ligne de commande **/MANAGELANGS**.
-     -   Spécifiez un fichier de jeu de caractères qui définit les langues à ajouter ou supprimer.  
+     -   Führen Sie das Setup im Ordner **&lt;ConfigMgrInstallationPath\>\Bin\X64** auf dem Standortserver aus,
+     -   Verwenden Sie die Befehlszeilenoption **/MANAGELANGS**,
+     -   Geben Sie eine Sprachskriptdatei an, die die Sprachen bestimmt, die Sie hinzufügen oder entfernen möchten,  
 
-    Par exemple, utilisez la syntaxe de commande suivante : **setupwpf.exe /MANAGELANGS &lt;fichier de script de langue\>**.  
+    Verwenden Sie z.B. die folgende Befehlssyntax: **setupwpf.exe /MANAGELANGS &lt;Sprachskriptdatei\>**  
 
-    Pour créer le fichier de script de langue, utilisez les informations fournies dans [Options de ligne de commande pour gérer les langues](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
+    Um die Sprachskriptdatei zu erstellen, verwenden Sie die Informationen unter [Befehlszeilenoptionen zum Verwalten von Sprachen](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
 
--  **Utiliser un fichier de script d’installation pour une installation sans assistance de site ou une récupération de site**  
-    Vous pouvez exécuter le programme d’installation à partir d’une invite de commandes en utilisant un script d’installation et en effectuant une installation sans assistance de site. Vous pouvez aussi utiliser cette option pour récupérer un site.    
+-  **Verwenden Sie eine Skriptdatei für die unbeaufsichtigte Installation oder Wiederherstellung von Standorten**  
+    Sie können Setup über eine Eingabeaufforderung ausführen, indem Sie ein Installationsskript verwenden, und Sie können eine unbeaufsichtigte Standortinstallation ausführen. Sie können diese Option auch zur Wiederherstellung eines Standorts verwenden.    
 
-    Pour utiliser un script avec le programme d’installation :  
+    So verwenden Sie ein Skript mit Setup:  
 
-    -   Exécutez le programme d’installation avec l’option de ligne de commande **/SCRIPT** et spécifiez un fichier de script.  
+    -   Führen Sie Setup mit der Befehlszeilenoption **/SCRIPT** aus, und geben Sie eine Skriptdatei an.  
 
-    -   Le fichier de script doit être configuré avec les clés et les valeurs requises.  
+    -   Die Skriptdatei muss mit den erforderlichen Schlüsseln und Werten konfiguriert werden.  
 
-    Pour effectuer une installation sans assistance d’un site d’administration centrale ou d’un site principal, le fichier de script doit comporter les sections suivantes :  
+    Für eine unbeaufsichtigte Installation eines Standorts der zentralen Verwaltung oder eines primären Standorts muss die Skriptdatei die folgenden Abschnitte aufweisen:  
 
     -   Identification    
-    -   Options    
+    -   Optionen    
     -   SQLConfigOptions    
       -   HierarchyOptions    
     -   CloudConnectorOptions   
 
-    Pour récupérer un site, vous devez inclure également les sections suivantes du fichier de script :  
+    Zum Wiederherstellen eines Standorts müssen Sie auch die folgenden Abschnitte der Skriptdatei einbeziehen:  
 
     -   Identification  
-    -   Récupération
+    -   Wiederherstellung
 
-Pour plus d’informations, consultez [Récupération de site sans assistance pour Configuration Manager](/sccm/protect/understand/unattended-recovery).  
+Weitere Informationen finden Sie unter [Unbeaufsichtigte Standortwiederherstellung für Configuration Manager](/sccm/protect/understand/unattended-recovery).  
 
-Pour obtenir la liste des clés et des valeurs à utiliser dans un fichier de script d’installation sans assistance, consultez [Clés du fichier de script d’installation sans assistance](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
+Eine Liste mit Schlüsseln und Werten, die in einer unbeaufsichtigten Installationsskriptdatei verwendet werden sollen, finden Sie unter [Skriptdateischlüssel für unbeaufsichtigtes Setup](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
-## <a name="about-the-command-line-script-file"></a>À propos du fichier de script de ligne de commande  
- Pour réaliser une installation sans assistance de Configuration Manager, vous pouvez exécuter le programme d’installation avec l’option de ligne de commande **/SCRIPT** et spécifier un fichier de script contenant les options d’installation. Avec cette méthode, vous pouvez effectuer les tâches suivantes :  
+## <a name="about-the-command-line-script-file"></a>Informationen zur Befehlszeilen-Skriptdatei  
+ Für unbeaufsichtigte Installationen von Configuration Manager können Sie Setup mit der Befehlszeilenoption **/SCRIPT** ausführen und eine Skriptdatei angeben, die Installationsoptionen enthält. Die folgenden Aufgaben werden von dieser Methode unterstützt:  
 
--   Installer un site d’administration centrale  
--   Installer un site principal  
--   Installer une console Configuration Manager  
--   Récupérer un site  
+-   Installieren eines Standorts der zentralen Verwaltung  
+-   Installieren eines primären Standorts  
+-   Installieren einer Configuration Manager-Konsole  
+-   Wiederherstellen eines Standorts  
 
 > [!NOTE]  
->  Vous ne pouvez pas utiliser le fichier de script d’installation sans assistance pour mettre à niveau un site d’évaluation vers une installation sous licence de Configuration Manager.  
+>  Sie können die Skriptdatei für die unbeaufsichtigte Installation nicht verwenden, um ein Upgrade einer Evaluierungsversion auf eine lizenzierte Version von Configuration Manager auszuführen.  
 
-### <a name="the-cdlatest-key-name"></a>Le nom de la clé CDLatest
-Lorsque vous utilisez un média à partir du dossier CD.Latest pour exécuter une installation scriptée des quatre options d’installation suivantes, votre script doit inclure la clé **CDLatest** avec la valeur **1** :
-- Installer un nouveau site d’administration centrale
-- Installer un nouveau site principal
-- Récupérer un site d’administration centrale
-- Récupérer un site principal
+### <a name="the-cdlatest-key-name"></a>Der Schlüsselname „CDLatest“
+Wenn Sie Medien aus dem Ordner „CD.Latest“ verwenden, um eine Skriptinstallation der folgenden vier Installationsoptionen auszuführen, muss Ihr Skript den Schlüssel **CDLatest** mit einem Wert von **1** enthalten:
+- Installieren eines neuen Standorts der zentralen Verwaltung
+- Installieren eines neuen primären Standorts
+- Wiederherstellen eines Standorts der zentralen Verwaltung
+- Wiederherstellen eines primäre Standorts
 
-Cette valeur n’est pas prise en charge pour l’utilisation avec le média d’installation que vous obtenez à partir du site de licence en volume de Microsoft.
-Consultez les [options de ligne de commande](/sccm/core/servers/deploy/install/command-line-options-for-setup) pour plus d’informations sur l’utilisation de ce nom de clé dans le fichier de script.
+Dieser Wert wird nicht für das Verwenden mit Installationsmedien unterstützt, die Sie vom Standort von Microsoft Volume License erhalten.
+Weitere Informationen zum Verwenden dieses Schlüsselnamens in der Skriptdatei finden Sie unter [Befehlszeilenoptionen](/sccm/core/servers/deploy/install/command-line-options-for-setup).
 
 
 
-### <a name="create-the-script"></a>Créer le script
-Le script d’installation est automatiquement créé lorsque vous [exécutez le programme d’installation pour installer un site à l’aide de l’interface utilisateur](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quand vous confirmez les paramètres dans la page **Résumé** de l’Assistant :  
+### <a name="create-the-script"></a>Erstellen des Skripts
+Das Installationsskript wird automatisch erstellt, wenn Sie das [Setup ausführen, um einen Standort über die Benutzeroberfläche](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) zu installieren.  Wenn Sie die Einstellungen auf der Seite **Zusammenfassung** des Assistenten bestätigen, geschieht Folgendes:  
 
--   Le programme d’installation crée le script **%TEMP%\ConfigMgrAutoSave.ini**.  Vous pouvez renommer ce fichier avant de l’utiliser, en veillant à conserver l’extension de fichier .ini.  
--   Le script d'installation sans assistance contient les paramètres que vous avez sélectionnés dans l'Assistant.  
--   Une fois que le script est créé, vous pouvez le modifier pour installer d'autres sites dans votre hiérarchie.  
--   Vous pouvez ensuite utiliser ce script pour effectuer une installation sans assistance de Configuration Manager.  
+-   Setup erstellt das Skript **%TEMP%\ConfigMgrAutoSave.ini**.  Sie können diese Datei vor dem Verwenden umbenennen, müssen aber die Dateierweiterung „.ini“ beibehalten.  
+-   Das Skript für die unbeaufsichtigte Installation enthält die Einstellungen, die Sie im Assistenten ausgewählt haben.  
+-   Nach der Erstellung des Skripts können Sie es ändern, um andere Standorte in Ihrer Hierarchie zu installieren.  
+-   Anschließend können Sie das Skript verwenden, um eine unbeaufsichtigte Installation von Configuration Manager durchzuführen.  
 
-Le fichier de script fournit les mêmes informations que l’Assistant Installation demande, à l’exception des paramètres par défaut.   
-Vous devez spécifier toutes les valeurs pour les clés d’installation qui s’appliquent au type d’installation utilisé.   
+Mit der Skriptdatei werden die gleichen Informationen bereitgestellt, die vom Setup-Assistenten angefordert werden. Das Skript enthält jedoch keine Standardeinstellungen.   
+Alle Werte müssen für die Setup-Schlüssel angegeben werden, die für den jeweils verwendeten Installationstyp gelten.   
 
-Lorsque le programme d’installation crée le script d’installation sans assistance, la valeur de clé de produit que vous entrez pendant l’installation est renseignée dans le script. Cette valeur peut être une clé de produit valide, ou **EVAL** lorsque vous installez une version d’évaluation de Configuration Manager. La valeur de clé de produit est renseignée dans le script pour permettre à la vérification des prérequis d’aboutir.   
+Bei der Erstellung des Skripts für die unbeaufsichtigte Installation durch Setup wird dort der Wert für den Product Key eingetragen, den Sie während des Setups eingegeben haben. Dies kann ein gültiger Product Key oder **EVAL** sein, wenn Sie eine Evaluierungsversion von Configuration Manager installieren. Der Product Key-Wert im Skript wird eingetragen, damit die Voraussetzungsprüfung abgeschlossen werden kann.   
 
-Lorsque le programme d'installation démarre l'installation effective du site, le script créé automatiquement fait l'objet d'une nouvelle écriture pour effacer la valeur de clé de produit dans le script créé. Avant d’utiliser le script pour une installation sans assistance d’un nouveau site, vous pouvez modifier le script pour fournir une clé de produit valide ou spécifier une installation d’évaluation de Configuration Manager.  
+Wenn von Setup die Installation des tatsächlichen Standorts gestartet wird, wird erneut in das automatisch erstellte Skript geschrieben, um den Product Key-Wert im erstellten Skript zu löschen. Bevor Sie das Skript für die unbeaufsichtigte Installation eines neuen Standorts verwenden, können Sie es bearbeiten und einen gültigen Product Key eingeben oder eine Evaluierungsinstallation von Configuration Manager angeben.  
 
-### <a name="section-names-key-names-and-values"></a>Noms des sections, noms des clés et valeurs
-Le script contient les noms de section, les noms de clé et les valeurs. Gardez à l’esprit les informations suivantes :
--   Les noms des clés de section requis varient en fonction du type d'installation faisant l'objet du script.
--   L’ordre des clés dans les sections et l’ordre des sections dans le fichier n’ont pas d’importance.     
--   Les clés ne tiennent pas compte de la casse.  
--   Lorsque vous attribuez des valeurs aux clés, le nom de la clé doit être suivi du signe égal (=) et de la valeur de la clé.    
+### <a name="section-names-key-names-and-values"></a>Abschnittsnamen, Schlüsselnamen und Werte
+Das Skript enthält Abschnittsnamen, Schlüsselnamen und Werte. Beachten Sie die folgenden Informationen:
+-   Welche Abschnitts- und Schlüsselnamen erforderlich sind, hängt von der Installationsart ab, für die Sie das Skript erstellen.
+-   Die Reihenfolge der Schlüssel in den Abschnitten und die Reihenfolge der Abschnitte in der Datei spielen keine Rolle.     
+-   Bei Schlüsseln wird die Groß-/Kleinschreibung nicht beachtet.  
+-   Wenn Sie Werte für Schlüssel angeben, müssen dem Namen des Schlüssels ein Gleichheitszeichen (=) und der Wert für den Schlüssel folgen.    
 
 > [!TIP]  
->  Pour connaître l’ensemble complet des options, consultez [Options de ligne de commande pour le programme d’installation et les scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+>  Eine vollständige Übersicht über die Optionen finden Sie unter [Befehlszeilenoptionen für Setup und Skripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 
-## <a name="use-the-script-setup-command-line-option"></a>Utiliser l’option de ligne de commande /SCRIPT du programme d’installation
+## <a name="use-the-script-setup-command-line-option"></a>So verwenden Sie die Setup-Befehlszeilenoption /SCRIPT
 
--   Vous devez utiliser un fichier de script d’installation et spécifier le nom du fichier après l’option de ligne de commande **/SCRIPT** du programme d’installation. Gardez à l’esprit les informations suivantes :   
-    -   Le nom du fichier doit avoir l’extension de nom de fichier **.ini**.  
-    -   Quand vous faites référence au fichier de script du programme d’installation à l’invite de commandes, indiquez le chemin complet du fichier. Par exemple, si votre fichier d’initialisation du programme d’installation est nommé Setup.ini et se trouve dans le dossier C:\Setup, à l’invite de commandes, tapez :  **setup /script c:\setup\setup.ini**.  
+-   Sie müssen eine Setupskriptdatei verwenden und den Namen der Datei nach der Setup-Befehlszeilenoption **/SCRIPT** angeben. Beachten Sie die folgenden Informationen:   
+    -   Der Name der Datei muss die Dateinamenerweiterung **.ini** aufweisen.  
+    -   Wenn Sie an der Eingabeaufforderung auf die Setupskriptdatei verweisen, muss der vollständige Dateipfad angegeben werden. Wenn die Setup-Initialisierungsdatei beispielsweise „Setup.ini“ heißt und sich im Ordner „C:\Setup“ befindet, geben Sie an der Eingabeaufforderung Folgendes ein:  **setup /script c:\setup\setup.ini**.  
 
--   Le compte qui exécute le programme d’installation doit avoir des droits d’**administrateur** sur l’ordinateur. Si vous exécutez le programme d’installation avec le script sans assistance, ouvrez la fenêtre d’invite de commandes en utilisant l’option **Exécuter en tant qu’administrateur**.   
-
+-   Das Konto für die Ausführung von Setup benötigt **Administrator**rechte auf dem Computer. Wenn Sie Setup mit dem Skript für die unbeaufsichtigte Installation ausführen, öffnen Sie das Eingabeaufforderungsfenster mit der Option **Als Administrator ausführen**.   

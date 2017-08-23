@@ -1,49 +1,45 @@
 ---
-title: "Étapes de préparation | Microsoft Docs"
-description: "Préparez-vous à gérer les appareils avec la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager."
+title: Schritte zur Vorbereitung | Microsoft-Dokumentation
+description: "Bereiten Sie die lokale Verwaltung mobiler Geräte in System Center Configuration Manager vor."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1ef60106-8f31-46d6-95a6-25a6495f22c7
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 2ba11c8e2d8214ce9aca7c887fcb539b38da4e84
-ms.contentlocale: fr-fr
-ms.lasthandoff: 03/06/2017
-
-
+ms.openlocfilehash: 85bdadaaaeed9a42cfa5165d2b9f0f3ef434dc03
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Étapes de préparation pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Vorbereitungsschritte für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Gérer les appareils à l’aide de la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager exige que l’infrastructure Configuration Manager soit configurée de telle sorte que les rôles de système de site requis (point proxy d’inscription, point d’inscription, point de gestion d’appareil et point de distribution) puissent communiquer avec les appareils mobiles à gérer sur un canal fiable.  
+Für die lokale Verwaltung mobiler Geräte mit System Center Configuration Manager muss die Configuration Manager-Infrastruktur so eingerichtet sein, dass die erforderlichen Standortsystemrollen (Registrierungsproxypunkt, Registrierungspunkt, Geräteverwaltungspunkt und Verteilungspunkt) über einen vertrauenswürdigen Kanal mit den zu verwaltenden mobilen Geräten kommunizieren können.  
 
- Les tâches principales suivantes sont nécessaires à la préparation du système Configuration Manager à la gestion des appareils mobiles locale :  
+ Die folgenden hochrangigen Aufgaben sind erforderlich, um das Configuration Manager-System für das lokale Mobile Device Management vorzubereiten:  
 
--   [Configurer un abonnement Microsoft Intune pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
+-   [Einrichten eines Microsoft Intune-Abonnements in System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
 
-     Dans cette tâche, vous vous inscrivez à Microsoft Intune et ajoutez ensuite l’abonnement à Configuration Manager via la console Configuration Manager. Cette étape est nécessaire uniquement pour la licence. Intune n’est utilisé ni pour gérer les appareils ni pour stocker les informations de gestion. La coordination et la gestion des appareils est entièrement assurée dans votre entreprise à l’aide de l’infrastructure Configuration Manager locale.  
+     Bei diesem Task registrieren Sie sich für Microsoft Intune und fügen anschließend das Abonnement für Configuration Manager über die Configuration Manager-Konsole hinzu. Dieser Schritt ist nur für Lizenzierungszwecke erforderlich. Intune wird nicht zum Verwalten der Geräte oder zum Speichern von Verwaltungsinformationen verwendet. Die gesamte Koordination und Verwaltung von Geräten erfolgt mithilfe der lokalen Configuration Manager-Infrastruktur in Ihrer Organisation.  
 
--   [Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
+-   [Installieren von Standortsystemrollen für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
 
-     Dans cette tâche, vous installez et configurez les rôles de système de site nécessaires à la gestion des appareils avec l’infrastructure Configuration Manager locale. La fonctionnalité de gestion des appareils mobiles locale exige au minimum les rôles de système de site Point proxy d’inscription, Point d’inscription, Point de gestion d’appareil et Point de distribution.  
+     Bei diesem Task installieren und konfigurieren Sie die Standortsystemrollen, die zum Verwalten von Geräten mit einer lokalen Configuration Manager-Infrastruktur erforderlich sind. Lokales Mobile Device Management erfordert mindestens die Standortsystemrollen Registrierungsproxypunkt, Registrierungspunkt, Geräteverwaltungspunkt und Verteilungspunkt.  
 
--   [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
+-   [Einrichten von Zertifikaten für vertrauenswürdige Verbindungen für die lokale Verwaltung von Mobilgeräten in System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
 
-     Dans cette tâche, vous configurez l’infrastructure Configuration Manager locale pour autoriser les communications fiables (HTTPS) entre les appareils gérés et les serveurs hébergeant les rôles de système de site requis.  
+     Bei diesem Task konfigurieren Sie die lokale Configuration Manager-Infrastruktur, um die vertrauenswürdige Übertragung (HTTPS) zwischen verwalteten Geräten und den Servern zu ermöglichen, die die erforderlichen Standortsystemrollen hosten.  
 
--   [Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Einrichten der Geräteregistrierung für die lokale Verwaltung mobiler Geräte in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
-     Dans cette tâche, vous autorisez les utilisateurs à inscrire des ordinateurs et des appareils, et vous installez le certificat racine approuvé sur les appareils (en général, ceux qui ne sont pas membres du domaine) pour autoriser les connexions HTTPS aux serveurs de système de site.  
-
+     In diesem Task erteilen Sie den Benutzern die Berechtigung zum Registrieren von Computern und Geräten. Zudem installieren Sie das vertrauenswürdige Stammzertifikat auf Geräten (in der Regel Geräte, die keiner Domäne angehören), um HTTPS-Verbindungen mit den Standortsystemservern zuzulassen.  

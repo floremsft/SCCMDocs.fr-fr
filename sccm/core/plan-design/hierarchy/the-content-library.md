@@ -1,69 +1,66 @@
 ---
-title: "Bibliothèque de contenu | Microsoft Docs"
-description: "Découvrez la bibliothèque de contenu qu’utilise System Center Configuration Manager pour réduire la taille globale du contenu distribué."
+title: Inhaltsbibliothek | Microsoft-Dokumentation
+description: "Erfahren Sie mehr über die Inhaltsbibliothek, die System Center Configuration Manager verwendet, um die Gesamtgröße der verteilten Inhalte zu reduzieren."
 ms.custom: na
 ms.date: 2/14/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 65c88e54-3574-48b0-a127-9cc914a89dca
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d31fecdb71b498864df2bce7403a4290ea9700ae
 ms.openlocfilehash: 0fa9f431c00476d71b2b08f92f914d76636d1a27
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-content-library-in-system-center-configuration-manager"></a>Bibliothèque de contenu System Center Configuration Manager
+# <a name="the-content-library-in-system-center-configuration-manager"></a>Die Inhaltsbibliothek in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-La bibliothèque de contenu est l’emplacement de stockage SIS (Single-Instance Store) utilisé par Configuration Manager pour réduire la taille globale de l’ensemble du contenu que vous distribuez. Elle stocke tous les fichiers de contenu des mises à jour logicielles, des applications, des déploiements de système d’exploitation, etc.
+Die Inhaltsbibliothek ist ein Einzelinstanz-Inhaltsspeicher, der von System Center Configuration Manager verwendet wird, um die Gesamtgröße des kombinierten Inhaltstexts, den Sie verteilen, zu reduzieren. In der Inhaltsbibliothek werden alle Inhaltsdateien für Softwareupdates, Anwendungen, Betriebssystembereitstellungen usw. gespeichert.
 
- - Une copie de la bibliothèque de contenu est automatiquement créée et gérée sur chaque **serveur de site** et chaque **point de distribution**.
+ - Auf jedem **Standortserver** und auf jedem **Verteilungspunkt** wird automatisch eine Kopie der Inhaltsbibliothek erstellt und verwaltet.
 
- - Avant de télécharger les fichiers de contenu vers le serveur de site ou de copier les fichiers sur les points de distribution, Configuration Manager vérifie si chaque fichier de contenu se trouve déjà dans la bibliothèque de contenu.
- - Si le fichier de contenu est disponible, Configuration Manager ne le copie pas et associe le fichier de contenu existant à l’application ou au package.
+ - Bevor von Configuration Manager Inhaltsdateien auf den Standortserver heruntergeladen oder die Dateien auf Verteilungspunkte kopiert werden, überprüft Configuration Manager, ob die einzelnen Inhaltsdateien bereits in der Inhaltsbibliothek vorhanden sind.
+ - Wenn die entsprechende Inhaltsdatei verfügbar ist, wird die Datei von Configuration Manager nicht kopiert. Stattdessen wird der Anwendung oder dem Paket die vorhandene Inhaltsdatei zugeordnet.
 
-Sur les ordinateurs sur lesquels vous installez un point de distribution, vous pouvez configurer les éléments suivants :
+Auf Computern, auf denen Sie einen Verteilungspunkt installieren, können Sie Folgendes konfigurieren:
 
-- un ou plusieurs lecteurs de disque sur lesquels vous voulez créer la bibliothèque de contenu ;
-- une priorité pour chaque lecteur que vous utilisez.
+- Mindestens ein Laufwerk, auf dem Sie die Inhaltsbibliothek erstellen möchten.
+- Eine Priorität für jedes verwendete Laufwerk.
 
-Lorsque Configuration Manager copie des fichiers de contenu, il les copie sur le lecteur ayant la plus haute priorité, sauf si ce lecteur dispose d’une quantité d’espace libre inférieure à la quantité minimale spécifiée.
-- Vous configurez les paramètres de lecteur lors de l'installation du point de distribution.
-- Vous ne pouvez pas configurer les paramètres de lecteur dans les propriétés du point de distribution, une fois l’installation terminée.
+Von Configuration Manager werden die Inhaltsdateien auf das Laufwerk mit der höchsten Priorität kopiert, sofern auf dem Laufwerk der von Ihnen angegebene freie Mindestspeicherplatz verfügbar ist.
+- Sie konfigurieren die Laufwerkseinstellungen bei der Installation des Verteilungspunkts.
+- Nach Abschluss der Installation können Sie die Laufwerkseinstellungen in den Verteilungspunkteigenschaften nicht mehr konfigurieren.
 
 
-Pour plus d’informations sur la configuration des paramètres de lecteur pour le point de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+Weitere Informationen zum Konfigurieren der Laufwerkseigenschaften für den Verteilungspunkt finden Sie unter [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 >  [!IMPORTANT]  
->  Pour déplacer la bibliothèque de contenu vers un autre emplacement sur un point de distribution après l’installation, utilisez l’**outil Content Library Transfer** dans la boîte à outils de System Center 2012 R2 Configuration Manager. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
+>  Wenn Sie die Inhaltsbibliothek auf einem Verteilungspunkt nach der Installation in ein anderes Verzeichnis verschieben möchten, verwenden Sie dazu das im System Center 2012 R2 Configuration Manager-Toolkit enthaltene Tool zum Übertragen der Inhaltsbibliothek (**Content Library Transfer Tool**). Das Toolkit steht im [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566)als Download zur Verfügung.  
 
-## <a name="about-the-content-library-on-the-central-administration-site"></a>À propos de la bibliothèque de contenu sur le site d’administration centrale  
- Par défaut, Configuration Manager crée une bibliothèque de contenu sur le site d’administration centrale, lors de l’installation du site. La bibliothèque de contenu est placée sur le lecteur du serveur de site possédant l'espace disponible le plus important. Comme vous ne pouvez pas installer un point de distribution sur le site d’administration centrale, vous ne pouvez pas attribuer une priorité aux lecteurs à utiliser pour la bibliothèque de contenu. Comme la bibliothèque de contenu sur d'autres serveurs de site ou sur des points de distribution, lorsque le lecteur contenant la bibliothèque de contenu n'a plus d'espace disponible, la bibliothèque de contenu s'étend sur le lecteur disponible suivant.  
+## <a name="about-the-content-library-on-the-central-administration-site"></a>Informationen zur Inhaltsbibliothek am Standort der zentralen Verwaltung  
+ Von Configuration Manager wird beim Installieren des Standorts standardmäßig eine Inhaltsbibliothek am Standort der zentralen Verwaltung erstellt. Die Inhaltsbibliothek wird auf dem Standortserver auf dem Laufwerk mit dem meisten freien Speicherplatz gespeichert. Da es Ihnen nicht möglich ist, am Standort der zentralen Verwaltung einen Verteilungspunkt zu installieren, können Sie keine Prioritäten für die Laufwerke zur Verwendung der Inhaltsbibliothek festlegen. Wenn auf dem Laufwerk, auf dem die Inhaltsbibliothek gespeichert ist, nicht mehr genügend Speicherplatz verfügbar ist, wird die Inhaltsbibliothek auf vergleichbare Weise wie eine Inhaltsbibliothek auf anderen Standortservern und Verteilungspunkten automatisch auf das nächste verfügbare Laufwerk ausgedehnt.  
 
- Configuration Manager utilise la bibliothèque de contenu sur le site d’administration centrale dans les scénarios suivants :  
+ Die Inhaltsbibliothek wird in den folgenden Szenarios von Configuration Manager am Standort der zentralen Verwaltung verwendet:  
 
--   Lorsque vous créez un contenu sur le site d’administration centrale.  
+-   Beim Erstellen von Inhalt am Standort der zentralen Verwaltung.  
 
--   Lorsque vous migrez le contenu depuis un autre site Configuration Manager et désignez le site d’administration centrale comme site de gestion du contenu.  
+-   Beim Migrieren von Inhalt von einem anderen Configuration Manager-Standort und Festlegen des Standorts der zentralen Verwaltung als Standort für die Inhaltsverwaltung.  
 
 > [!NOTE]  
->  Lorsque vous créez un contenu sur un site principal, puis le distribuez à un autre site principal ou à un site secondaire sous un autre site principal, le site d'administration centrale stocke temporairement ce contenu dans la boîte de réception du planificateur sur le site d'administration centrale, sans toutefois ajouter ce contenu à sa bibliothèque de contenu.  
+>  Wenn Sie Inhalt an einem primären Standort erstellen und den Inhalt dann an einen anderen primären Standort oder an einen sekundären Standort unterhalb eines anderen primären Standorts verteilen, wird der Inhalt vorübergehend am Standort der zentralen Verwaltung in der Eingangsbox des Planers gespeichert. Der Inhalt wird jedoch nicht der zugehörigen Inhaltsbibliothek hinzugefügt.  
 
- Utilisez les options suivantes pour gérer la bibliothèque de contenu sur le site d'administration centrale :  
+ Verwenden Sie die folgenden Optionen zum Verwalten der Inhaltsbibliothek am Standort der zentralen Verwaltung:  
 
--   Pour empêcher l’installation de la bibliothèque de contenu sur un lecteur spécifique, créez un fichier vide nommé **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant la création de la bibliothèque de contenu.  
+-   Wenn die Inhaltsbibliothek nicht auf einem bestimmten Laufwerk installiert werden soll, erstellen Sie eine leere Datei mit dem Namen **no_sms_on_drive.sms**, und kopieren Sie die Datei vor dem Erstellen der Inhaltsbibliothek in den Stammordner des Laufwerks.  
 
--   Une fois la bibliothèque de contenu créée, utilisez l’**outil Content Library Transfer** de la boîte à outils System Center 2012 R2 Configuration Manager pour gérer l’emplacement de la bibliothèque de contenu. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
-
+-   Verwenden Sie nach dem Erstellen der Inhaltsbibliothek das im System Center 2012 R2 Configuration Manager-Toolkit enthaltene Tool zum Übertragen der Inhaltsbibliothek (**Content Library Transfer Tool**), um den Speicherort der Inhaltsbibliothek zu verwalten. Das Toolkit steht im [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566)als Download zur Verfügung.  

@@ -1,67 +1,63 @@
 ---
-title: Dossier CD.Latest | Microsoft Docs
-description: "Découvrez le nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager."
+title: "Der Ordner „CD.Latest“ | Microsoft-Dokumentation"
+description: "Enthält Informationen über den neuen Updatevorgang, in dem Updates des Produkts aus der Configuration Manager-Konsole heraus bereitstellt werden."
 ms.custom: na
 ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8db92d67-5d9c-4e9c-80d0-ae6fa0dd4817
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
 ms.openlocfilehash: 5c39e09b44500fa2f356f83579bb2fb2c1d0e937
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>Dossier CD.Latest pour System Center Configuration Manager
+# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>Der Ordner „CD.Latest“ für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager inaugure un nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager. Pour prendre en charge cette nouvelle méthode de mise à jour de Configuration Manager, un nouveau dossier est créé sous le nom **CD.Latest** : il contient une copie des fichiers d’installation de Configuration Manager pour la version mise à jour de votre site.  
+In System Center Configuration Manager wird ein neuer Updatevorgang eingeführt, der Updates des Produkts aus der Configuration Manager-Konsole heraus bereitstellt. Zur Unterstützung dieser neuen Methode zur Aktualisierung von Configuration Manager wird ein neuer Ordner namens **CD.Latest** erstellt, der eine Kopie der Configuration Manager-Installationsdateien für die aktualisierte Version der Website enthält.  
 
-À compter de la mise à jour 1606, le dossier CD.Latest contient un dossier nommé **Redist** qui contient les fichiers redistribuables téléchargés et utilisés par le programme d’installation. Ces fichiers sont mis en correspondance avec la version des fichiers de Configuration Manager dans ce dossier CD.Latest. Quand vous exécutez le programme d’installation à partir d’un dossier CD.Latest, vous devez utiliser les fichiers qui correspondent à cette version du programme d’installation. Pour ce faire, vous pouvez faire en sorte que le programme d’installation télécharge les fichiers nouveaux et existants à partir de Microsoft, ou faire en sorte qu’il utilise les fichiers présents dans le dossier Redist du dossier CD.Latest.
+Ab dem Update 1606 enthält der Ordner „CD.Latest“ einen Ordner namens **Redist** , der die verteilbaren Dateien enthält, die während des Setupvorgangs heruntergeladen und verwendet werden. Diese Dateien sind der Version der Configuration Manager-Dateien zugeordnet, die sich im Ordner „CD.Latest“ befinden. Wenn Sie den Setupvorgang aus einem „CD.Latest“-Ordner ausführen, müssen Sie Dateien verwenden, die zu dieser Setup-Version passen. Dazu können sie Setup anweisen, neue und aktuelle Dateien von Microsoft herunterzuladen, oder die Dateien aus dem „Redist“-Ordner verwenden, der sich im „CD.Latest“-Ordner befindet.
 
-Toutefois, le média de base de référence, comme la version de base de référence 1606 publiée en octobre 2016, ne comprend pas de dossier Redist. Le dossier Redist n’est créé qu’au terme de l’installation d’une mise à jour dans la console. En attendant, utilisez le dossier Redist auquel vous avez eu recours lors de l’installation de sites à partir du média de base de référence.  
+Baselinemedien beinhalten genau wie die Baselineversion 1606, die im Oktober 2016 herausgegeben wurde, keinen Redist-Ordner. Der Ordner „Redist“ wird nicht erstellt, bis Sie ein Update in der Konsole installieren. Verwenden Sie in der Zwischenzeit den Redist-Ordner, den Sie auch bei der Installation von Standorten mit dem Baselinemedium verwendet haben.  
 
 > [!TIP]
-> Si vous n’avez pas encore installé la version 1606, vous devez vérifier que les fichiers de redistribution que vous utilisez sont à jour. Si vous n’avez pas téléchargé les fichiers de redistribution récemment, prévoyez d’autoriser le programme d’installation à le faire à partir du site web de Microsoft.   
+> Wenn Sie Version 1606 noch nicht installiert haben, stellen Sie sicher, dass die von Ihnen verwendeten „Redist“-Dateien aktuell sind. Falls Sie die „Redist“-Dateien noch nicht heruntergeladen haben, weisen Sie das Setup an, diese von Microsoft herunterzuladen.   
 
- Vous trouverez ci-dessous des scénarios permettant de créer ou de mettre à jour le dossier CD.Latest sur un serveur de site d’administration centrale ou de site principal :  
+ In den folgenden Szenarien wird der Ordner „CD.Latest“ an einem Standort der zentralen Verwaltung oder auf dem primären Standortserver erstellt oder aktualisiert:  
 
--   Vous installez une mise à jour ou un correctif logiciel à partir de la console Configuration Manager : le dossier est créé ou mis à jour dans le dossier d’installation de Configuration Manager.  
+-   Sie installieren ein Update oder Hotfix aus der Configuration Manager-Konsole heraus: Der Ordner wird im Configuration Manager-Installationsordner erstellt oder aktualisiert.  
 
--   Vous exécutez la tâche de sauvegarde intégrée de Configuration Manager : le dossier est créé ou mis à jour à l’emplacement du dossier de sauvegarde désigné.  
+-   Sie führen den integrierten Configuration Manager-Sicherungstask aus: Der Ordner wird im angegebenen Sicherungsordner erstellt oder aktualisiert.  
 
--  Depuis la version 1606, le dossier CD.Latest est créé lorsque vous installez un nouveau site en utilisant un support de la base de référence (version 1606 ou 1702 par exemple).
+-  Ab Version 1606 wird der CD.Latest-Ordner erstellt, wenn Sie mithilfe des Baselinemediums (z.B. Version 1606 oder 1702) einen neuen Standort erstellen.
 
-Les fichiers sources du dossier CD.Latest sont pris en charge pour les opérations suivantes :  
+Die Quelldateien aus dem Ordner „CD.Latest“ werden für Folgendes unterstützt:  
 
-1.  **Sauvegarde et récupération :** pour récupérer un site, vous devez utiliser les fichiers source d’un dossier CD.Latest correspondant à votre site. Lorsque vous exécutez une sauvegarde de site à l’aide de la tâche de sauvegarde de site intégrée, le dossier CD.Latest est inclus dans le cadre de la sauvegarde.
+1.  **Sicherung und Wiederherstellung:** Zum Wiederherstellen eines Standorts müssen Sie die Quelldateien aus einem CD.Latest-Ordner verwenden, die zu Ihrem Standort passen. Wenn Sie eine Standortsicherung mithilfe des integrierten Standortsicherungstask ausführen, wird der CD.Latest-Ordner als Teil der Sicherung eingeschlossen.
 
-    -   **Quand vous réinstallez le site dans le cadre d’une récupération de site** , vous installez le site à partir du dossier CD.Latest inclus dans votre sauvegarde. Cette opération installe le site à l’aide des versions de fichier correspondant à la sauvegarde et à la base de données de votre site.  Si vous n’avez pas accès à la version appropriée du dossier CD.Latest, vous pouvez obtenir un dossier CD.Latest avec les versions de fichiers appropriées en installant un site dans un environnement de laboratoire, puis en mettant à jour ce site afin qu’il corresponde à la version que vous souhaitez récupérer.
+    -   **Wenn Sie den Standort im Rahmen einer Standortwiederherstellung neu installieren,** wird der Standort aus dem Ordner „CD.Latest“ installiert, der in der Sicherung enthalten ist. Dadurch wird der Standort anhand der Dateiversionen installiert, die der Standortsicherung und der Standortdatenbank entsprechen.  Wenn Sie keinen Zugriff auf die richtige CD.Latest-Ordnerversion haben, können Sie einen CD.Latest-Ordner mit den richtigen Dateiversionen erhalten, indem Sie einen Standort in einer Testumgebung erstellen und diesen Standort dann aktualisieren, sodass er mit der Version, die Sie wiederherstellen möchten, übereinstimmt.
 
         > [!IMPORTANT]  
-        >  Si le dossier CD.Latest approprié et son contenu ne sont pas disponibles, vous ne pouvez pas récupérer un site et devez le réinstaller.  
+        >  Wenn Sie nicht über den richtigen Ordner „CD.Latest“ und dessen Inhalte verfügen, können Sie einen Standort nicht wiederherstellen, und er muss neu installiert werden.  
 
-    -   Lorsque vous n’avez pas de dossier CD.Latest mais disposez d’un site principal enfant ou d’un site d’administration centrale opérationnels, vous pouvez utiliser ce site en tant que site de référence pour la récupération d’un site.  
+    -   Wenn Sie keinen Ordner „CD.Latest“ haben, aber einen funktionierenden untergeordneten primären Standort oder Standort der zentralen Verwaltung, können Sie diesen Standort als Referenzstandort für eine Standortwiederherstellung verwenden.  
 
-2.  **Pour installer un site principal enfant :** quand vous souhaitez installer un nouveau site principal enfant sous un site d’administration centrale qui a installé une ou plusieurs mises à jour dans la console, vous devez utiliser le programme d’installation et les fichiers sources figurant dans le dossier CD.Latest du site d’administration centrale. Lorsque le programme d’installation s’exécute à partir d’une copie du dossier CD.Latest figurant sur le site d’administration centrale, il utilise les fichiers sources d’installation correspondant à la version du site d’administration centrale. Pour plus d’informations, consultez [Utiliser l’Assistant Installation pour installer des sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+2.  **So installieren Sie einen untergeordneten primären Standort:** Wenn Sie einen neuen untergeordneten primären Standort unterhalb eines Standorts der zentralen Verwaltung installieren möchten, auf dem ein oder mehrere In-Console-Updates installiert sind, müssen Sie Setup und die Quelldateien des Ordners „CD.Latest“ vom Standort der zentralen Verwaltung verwenden. Wenn Setup von einer Kopie des Ordners „CD.Latest“ vom Standort der zentralen Verwaltung ausgeführt wird, werden Installationsquelldateien verwendet, die mit der Version des Standorts der zentralen Verwaltung übereinstimmen. Weitere Informationen finden Sie unter [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Verwenden des Setup-Assistenten zum Installieren von Standorten).  
 
-3.  **Pour étendre un site principal autonome :** quand vous étendez un site principal autonome en installant un nouveau site d’administration centrale, vous devez utiliser le programme d’installation et les fichiers sources figurant dans le dossier CD.Latest du site principal pour installer le nouveau site d’administration centrale. Lorsque vous exécutez à partir d’une copie du dossier CD.Latest du site principal, les fichiers sources d’installation utilisés correspondent à la version du site principal. Pour plus d’informations, consultez [Étendre un site principal autonome](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand)) dans [Utiliser l’Assistant Installation pour installer des sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).
+3.  **So erweitern Sie einen eigenständigen primären Standort:** Wenn Sie einen eigenständigen primären Standort durch Installation eines neuen Standorts der zentralen Verwaltung erweitern, müssen Sie das Setup und die Quelldateien des Ordners „CD.Latest“ vom primären Standort verwenden, um den neuen Standort der zentralen Verwaltung zu installieren. Bei Ausführung von einer Kopie des Ordners „CD.Latest“ vom primären Standort werden Installationsquelldateien verwendet, die der Version des primären Standorts entsprechen. Weitere Informationen finden Sie unter [Expand a stand-alone primary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) (Erweitern eines eigenständigen primären Standorts) im Thema [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Verwenden des Setup-Assistenten zum Installieren von Standorten).
 
 > [!IMPORTANT]  
->  Les fichiers sources mis à jour du dossier CD.Latest ne sont pas pris en charge pour les opérations suivantes :  
+>  Die aktualisierten „CD.Latest“-Quelldateien werden nicht unterstützt für:  
 >   
->  -   installation d’un nouveau site pour une nouvelle hiérarchie ;  
->  -   Mise à niveau d’un site Microsoft System Center 2012 Configuration Manager vers System Center Configuration Manager
-
+>  -   Installieren eines neuen Standorts für eine neue Hierarchie  
+>  -   Upgrade eines System Center 2012 Configuration Manager-Standorts auf System Center Configuration Manager

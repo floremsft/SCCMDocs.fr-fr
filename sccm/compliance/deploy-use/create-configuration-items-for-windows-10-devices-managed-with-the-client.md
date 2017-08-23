@@ -1,143 +1,139 @@
 ---
-title: "Créer des éléments de configuration pour un appareil Windows 10 géré par un client - Configuration Manager | Microsoft Docs"
-description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager."
+title: "Erstellen von Konfigurationselementen für clientverwaltete Windows 10-Computer – Configuration Manager | Microsoft-Dokumentation"
+description: "Verwenden Sie das System Center Configuration Manager-Konfigurationselement für Windows 10, um Einstellungen für Windows 10-Geräte zu verwalten, die mit dem Configuration Manager-Client verwaltet werden"
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 14226fbe-dd07-4432-910b-130790624a4e
-caps.latest.revision: 17
-caps.handback.revision: 0
+caps.latest.revision: "17"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: e0a42a1d4706ab29617f3b6f8960ece27672908b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des périphériques Windows 10 gérés avec le client System Center Configuration Manager
-Utilisez l’élément de configuration System Center Configuration Manager **Windows 10** pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Erstellen von Konfigurationselementen für Windows 10-Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden
+Verwenden Sie das System Center Configuration Manager-Konfigurationselement für **Windows 10**, um Einstellungen für Windows 10-Geräte zu verwalten, die mit dem Configuration Manager-Client verwaltet werden.  
   
 > [!IMPORTANT]  
->  Dans cette version, si vous avez créé un paramètre **Mot de passe** pour un élément de configuration de type **Windows 10** (pour un appareil géré avec le client Configuration Manager), il est évalué à tort comme étant compatible si le paramètre n’existe pas déjà ou s’il n’a pas été configuré sur l’appareil Windows 10.  
+>  Wenn Sie in diesem Release eine **Kennwort**-Einstellung als Teil eines Konfigurationselements vom Typ **Windows 10** erstellt haben (für ein durch den Configuration Manager-Client verwaltetes Gerät), dann wird die Einstellung fälschlicherweise auch als kompatibel ausgewertet, wenn sie noch nicht vorhanden ist oder auf dem Windows 10-Gerät nicht konfiguriert wurde.  
 >   
->  Pour résoudre ce problème, quand vous créez un paramètre pour ces périphériques, assurez-vous de sélectionner **Résoudre les paramètres non compatibles** dans les pages de paramètres de l’Assistant Création d’élément de configuration. De plus, quand vous déployez une base de référence de configuration contenant un élément de configuration Windows 10 qui inclue des paramètres de mot de passe, sélectionnez **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** dans la boîte de dialogue Déployer des lignes de base de configuration. En utilisant cette solution de contournement, le paramètre est analysé et corrigé s’il n’est pas compatible. Après la correction, le paramètre est correctement signalé comme **Compatible** (sauf si un problème est rencontré, auquel cas une **Erreur**est signalée).  
+>  Um das Problem beim Erstellen einer Einstellung für diese Geräte zu umgehen, stellen sicher, dass auf den Einstellungsseiten des Assistenten zum Erstellen von Konfigurationselementen **Nicht kompatible Einstellungen wiederherstellen** ausgewählt ist. Wenn Sie darüber hinaus eine Konfigurationsbasislinie mit einem Windows 10-Konfigurationselement bereitstellen, das Kennworteinstellungen enthält, wählen Sie im Dialogfeld "Konfigurationsbasislinien bereitstellen" die Option **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird** aus. Bei dieser Problemumgehung wird die Einstellung überwacht und korrigiert, falls sie nicht kompatibel ist. Nach der Wiederherstellung wird die Einstellung ordnungsgemäß als **Kompatibel** angegeben (es sei denn, aufgrund eines Problems wird ein **Fehler**festgestellt).  
   
-### <a name="to-create-a-windows-10-configuration-item"></a>Pour créer un élément de configuration Windows 10  
+### <a name="to-create-a-windows-10-configuration-item"></a>So erstellen Sie ein Windows 10-Konfigurationselement  
   
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
   
-2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Konformität** die **Konformitätseinstellungen**, und klicken Sie auf **Konfigurationselemente**.  
   
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
   
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et éventuellement une description pour l’élément de configuration.  
+4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen**einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
   
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Windows 10**.  
+5.  Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben**den Typ **Windows 10**aus.  
   
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klicken Sie auf **Kategorien**, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
   
-7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes Windows 10 spécifiques qui évaluent l’élément de configuration.  
+7.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten die jeweiligen Windows 10-Plattformen zur Bewertung des Konfigurationselements aus.  
   
-8.  Dans la page **Paramètres de périphérique** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Windows 10 configuration item settings reference](#BKMK_Ref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
-  
-    > [!TIP]  
-    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
-  
-9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
-  
-10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
-  
-    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
-  
-    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
-  
-    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
-  
-    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
-  
-    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
-  
-11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+8.  Wählen Sie auf der Seite **Geräteeinstellungen** des Assistenten die Einstellungsgruppe aus, die Sie konfigurieren möchten. Informieren Sie sich in diesem Thema unter [Windows 10 configuration item settings reference](#BKMK_Ref) über die Details, und klicken Sie dann auf **Weiter**.  
   
     > [!TIP]  
-    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+    >  Ist die gewünschte Einstellung nicht aufgeführt, aktivieren Sie das Kontrollkästchen **Zusätzliche Einstellungen konfigurieren, die in den Standardeinstellungsgruppen nicht enthalten sind**.  
   
-12. Effectuez toutes les étapes de l'Assistant.  
+9. Konfigurieren Sie auf jeder Einstellungsseite die erforderlichen Einstellungen, und legen Sie fest, ob sie korrigiert werden sollen, wenn sie auf Geräten nicht kompatibel sind (sofern unterstützt).  
   
- Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et conformité** .  
+10. Sie können für jede Einstellungsgruppe auch den Schweregrad konfigurieren, der gemeldet wird, wenn die Inkompatibilität eines Konfigurationselements festgestellt wird. Die Einstellungen lauten wie folgt:  
   
-##  <a name="windows-10-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Windows 10  
+    -   **Keiner**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-### <a name="password"></a>Mot de passe  
+    -   **Information**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-|Paramètre|Détails|  
+    -   **Warnung**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
+  
+    -   **Kritisch**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
+  
+    -   **Kritisch mit Ereignis**: Von Geräten, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
+  
+11. Überprüfen Sie auf der Seite **Plattformanwendbarkeit** des Assistenten alle Einstellungen, die mit den zuvor ausgewählten unterstützten Plattformen nicht kompatibel sind. Sie können zurückkehren und diese Einstellungen entfernen oder den Vorgang fortsetzen.  
+  
+    > [!TIP]  
+    >  Nicht unterstützte Einstellungen werden nicht auf Kompatibilität überprüft.  
+  
+12. Schließen Sie den Assistenten ab.  
+  
+ Sie können das neue Konfigurationselement im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Konfigurationselemente** anzeigen.  
+  
+##  <a name="windows-10-configuration-item-settings-reference"></a>Referenz zu Einstellungen des Konfigurationselements für Windows 10  
+  
+### <a name="password"></a>Kennwort  
+  
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Exiger des paramètres de mot de passe sur les appareils**|Exigez un mot de passe sur les appareils pris en charge.|  
-|**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe en caractères.|  
-|**Expiration du mot de passe en jours**|Nombre de jours avant de devoir modifier le mot de passe.|  
-|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe précédents.|  
-|**Nombre d’échecs de tentative de connexion avant la réinitialisation du périphérique**|Réinitialise le périphérique si la connexion échoue ce nombre de fois.|  
-|**Durée d’inactivité avant le verrouillage de l’appareil**|Indique le nombre de minutes pendant lequel le périphérique doit être inactif avant d’être automatiquement bloqué.|  
-|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|
-|**Nombre de jeux de caractères complexes requis dans le mot de passe**|Si vous avez sélectionné un mot de passe **Fort**, utilisez ce paramètre pour configurer le nombre de jeux de caractères complexes requis. Pour un mot de passe fort, ce paramètre doit avoir au moins la valeur **3**, ce qui signifie qu’il doit comporter à la fois des chiffres et des lettres. Sélectionnez **4** si vous souhaitez exiger un mot de passe qui contienne des caractères spéciaux comme **(% $**.<br>(Windows 10 uniquement)  |
+|**Kennworteinstellungen auf Geräten erforderlich**|Auf unterstützten Geräten ein Kennwort erfordern.|  
+|**Minimale Kennwortlänge (Zeichen)**|Die Mindestlänge für das Kennwort in Zeichen.|  
+|**Kennwortablauf in Tagen**|Die Anzahl der Tage, bevor ein Kennwort geändert werden muss.|  
+|**Anzahl der gespeicherten Kennwörter**|Verhindert die Wiederverwendung vorheriger Kennwörter.|  
+|**Anzahl der gescheiterten Anmeldeversuche vor dem Zurücksetzen eines Geräts**|Setzt das Gerät zurück, wenn die angegebene Anzahl fehlgeschlagener Anmeldeversuche erreicht ist.|  
+|**Leerlaufzeit vor dem Sperren des Geräts**|Gibt an, wie viele Minuten das Gerät inaktiv sein muss, bevor es automatisch gesperrt wird.|  
+|**Kennwortkomplexität**|Wählen Sie aus, ob Sie eine PIN wie „1234“ angeben können oder, ob ein sicheres Kennwort erforderlich ist.|
+|**Anzahl komplexer Zeichengruppen, die im Kennwort erforderlich sind**|Wenn Sie ein **Sicheres** Kennwort ausgewählt haben, verwenden Sie diese Einstellung, um die Anzahl der erforderlichen komplexen Zeichensätze zu konfigurieren. Bei einem sicheren Kennwort sollte diese auf mindestens **3** festgelegt werden, was bedeutet, dass sowohl Buchstaben als auch Zahlen erforderlich sind. Wählen Sie **4** aus, wenn Sie ein Kennwort erzwingen möchten, das zusätzlich Sonderzeichen wie z.B. **(%$** erfordert.<br>(ausschließlich Windows 10)  |
   
-###  <a name="device"></a>Appareil  
+###  <a name="device"></a>Gerät  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**BlueTooth**|Permet l’utilisation de la fonctionnalité Bluetooth sur le périphérique.|  
+|**Bluetooth**|Ermöglicht die Verwendung des Bluetooth-Features auf dem Gerät.|  
   
 ### <a name="cloud"></a>Cloud  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Synchronisation des paramètres**|Permet la synchronisation des paramètres entre les appareils.|  
-|**Synchronisation des informations d'identification**|Permet la synchronisation des informations d'identification entre les appareils.|  
-|**Synchronisation des paramètres via des connexions limitées**|Autorisez la synchronisation des paramètres quand la connexion Internet est mesurée.|  
+|**Synchronisierung der Einstellungen**|Ermöglicht die Synchronisierung von Einstellungen zwischen Geräten.|  
+|**Synchronisierung der Anmeldeinformationen**|Ermöglicht die Synchronisierung von Anmeldeinformationen zwischen Geräten.|  
+|**Synchronisierung von Einstellungen über getaktete Verbindungen**|Ermöglicht die Synchronisierung von Einstellungen, wenn die Internetverbindung getaktet ist.|  
   
-### <a name="roaming"></a>Itinérant  
+### <a name="roaming"></a>Roaming  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|  
+|**Datenroaming**|Ermöglicht beim Zugriff auf Daten das Roaming zwischen Netzwerken.|  
   
-### <a name="encryption"></a>Chiffrement  
+### <a name="encryption"></a>Verschlüsselung  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Chiffrement de fichiers sur le périphérique**|Exige que les fichiers soient chiffrés sur le périphérique.|  
+|**Dateiverschlüsselung auf Gerät**|Erfordert die Verschlüsselung der Dateien auf dem Gerät.|  
   
-### <a name="system-security"></a>Sécurité système  
+### <a name="system-security"></a>Systemsicherheit  
   
-|Nom du paramètre|Détails|  
+|Name der Einstellung|Details|  
 |------------------|-------------|  
-|**Contrôle de compte d'utilisateur**|Configure le fonctionnement du contrôle de compte d’utilisateur Windows sur le périphérique.<br />Par exemple, vous pouvez le désactiver ou définir le niveau auquel vous êtes notifié.|  
-|**Pare-feu réseau**|Active ou désactive le pare-feu Windows.|  
-|**SmartScreen**|Activez ou désactivez Windows SmartScreen.|  
-|**Protection antivirus**|Exige l’installation et la configuration du logiciel antivirus.|  
-|**Les signatures de la protection antivirus sont à jour**|Exige que les fichiers de signature du logiciel antivirus de l’appareil soient à jour.|  
+|**Benutzerkontensteuerung**|Konfiguriert die Funktionsweise der Windows-Benutzerkontensteuerung auf dem Gerät.<br />Sie können sie z. B. deaktivieren oder die Stufe festlegen, bei der Sie benachrichtigt werden.|  
+|**Netzwerkfirewall**|Aktiviert oder deaktiviert die Windows-Firewall.|  
+|**SmartScreen**|Aktivieren oder deaktivieren von Windows SmartScreen.|  
+|**Virenschutz**|Erfordert, dass Antivirensoftware installiert und konfiguriert ist.|  
+|**Virenschutzsignaturen sind aktuell**|Erfordert, dass die Signaturdateien für die Antivirensoftware auf dem Gerät auf dem aktuellen Stand sind|  
   
-### <a name="windows-information-protection-wip"></a>Protection des informations Windows (WIP)
+### <a name="windows-information-protection-wip"></a>Windows Information Protection (WIP)
 
-Avec l’augmentation du nombre d’appareils appartenant aux employés au sein de l’entreprise, il existe un risque accru de fuites accidentelles de données via les applications et les services, tels que le courrier électronique, les réseaux sociaux et le cloud public, qui sont en dehors du contrôle de l’entreprise. C’est par exemple le cas quand un employé envoie les dernières photos de conception à partir de son compte de messagerie personnel, quand il copie et colle des informations sur des produits dans un tweet ou quand il enregistre un rapport des ventes en cours dans son stockage cloud public.
+Mit dem Anstieg von Geräten im Besitz der Mitarbeiter im Unternehmen entsteht auch ein höheres Risiko unbeabsichtigter Datenpreisgabe durch Apps und Dienste, z.B. E-Mail, soziale Medien und die öffentliche Cloud, die sich außerhalb der Kontrolle des Unternehmens befinden. Wenn ein Mitarbeiter beispielsweise die aktuellsten technischen Zeichnungen von seinem privaten E-Mail-Konto versendet, Produktinformationen kopiert und in einen Tweet einfügt oder einen Verkaufsbericht, der sich in Bearbeitung befindet, im öffentlichen Cloudspeicher speichert.
 
-La Protection des informations Windows (anciennement, Enterprise Data Protection) vous protège contre ces fuites de données potentielles sans interférer avec l’expérience de l’employé. WIP contribue aussi à protéger les données et les applications d’entreprise contre les fuites accidentelles de données sur les appareils d’entreprise et les appareils personnels que les employés apportent sur leur lieu de travail, sans exiger de modifications au niveau de votre environnement ou d’autres applications.
+Windows Information Protection (ehemals Unternehmensdatenschutz) bietet hierbei einen Schutz gegen potenzielle Datenlecks, ohne dass die Benutzerfreundlichkeit für die Mitarbeiter darunter leidet. WIP schützt auch Unternehmens-Apps und -daten vor unbeabsichtigter Datenpreisgabe auf unternehmenseigenen und privaten Geräten, die Mitarbeiter mit zur Arbeit bringen, ohne dass Änderungen in Ihrer Umgebung oder anderen Apps nötig sind.
 
- Les éléments de configuration WIP de Configuration Manager permettent de gérer la liste des applications protégées par WIP, les emplacements réseau de l’entreprise, le niveau de protection et les paramètres de chiffrement.
+ Configuration Manager-WIP-Konfigurationselemente verwalten die Liste der von WIP geschützten Apps, Unternehmens-Netzwerkadressen, Schutzebenen und Verschlüsselungseinstellungen.
   
 
-Pour plus d’informations sur la Protection des informations Windows avec Configuration Manager, consultez [Protéger vos données d’entreprise à l’aide de la Protection des informations Windows (WIP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
+Weitere Informationen zum Konfigurieren von WIP mit Configuration Manager finden Sie unter [Schützen von Unternehmensdaten mit Windows Information Protection (WIP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
   
-## <a name="see-also"></a>Voir aussi  
- [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
-
+## <a name="see-also"></a>Siehe auch  
+ [Konfigurationselemente für Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)

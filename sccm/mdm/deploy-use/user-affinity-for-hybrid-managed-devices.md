@@ -1,58 +1,55 @@
 ---
-title: "Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager | Microsoft Docs"
-description: "Configurez l’affinité utilisateur pour les appareils gérés dans Configuration Manager."
+title: "Benutzeraffinität für hybridverwaltete Geräte in Configuration Manager | Microsoft-Dokumentation"
+description: "Konfigurieren der Benutzeraffinität für verwaltete Geräte in Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b5d520a7-e9e5-40ee-91f9-f2684214beb6
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 74dcc0f4e680893db804956615248b7e1230d2b5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
+ms.openlocfilehash: d039792a88b9e7704f37718a88f841dd9216d1b1
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager
+# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Benutzeraffinität für hybridverwaltete Geräte in Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Quand vous configurez des profils pour des appareils d’entreprise, l’administrateur peut spécifier si les appareils gérés peuvent avoir une *affinité utilisateur* qui identifie un utilisateur spécifique avec l’appareil.  
+Beim Konfigurieren von Profilen für firmeneigene Geräte kann der Administrator angeben, ob die verwalteten Geräte *Benutzeraffinität* haben können, die einen bestimmten Benutzer mit dem Gerät identifiziert.  
 
-##  <a name="BKMK_iOSCP"></a> Appareils gérés avec une affinité utilisateur  
- Des appareils configurés avec une **affinité utilisateur** peuvent installer et exécuter l’application Portail d’entreprise pour télécharger des applications et gérer des appareils. Lorsque les utilisateurs reçoivent leurs appareils, ils doivent effectuer un certain nombre d’étapes supplémentaires pour achever l’exécution de l’Assistant Installation et installer l’application Portail d’entreprise.  
+##  <a name="BKMK_iOSCP"></a> Verwaltete Geräte mit Benutzeraffinität  
+ Auf mit **user affinity** konfigurierten Geräten kann die Unternehmensportal-App installiert und ausgeführt werden, um Apps herunterzuladen und Geräte zu verwalten. Sobald Benutzer ihre Geräte erhalten haben, müssen Sie verschiedene zusätzliche Schritte ausführen, um den Setup-Assistenten abzuschließen und die Unternehmensportal-App zu installieren.  
 
-#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Comment inscrire des appareils iOS avec une affinité utilisateur  
+#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Registrieren von iOS-Geräten mit Benutzeraffinität  
 
-1.  Quand les utilisateurs mettent sous tension leurs nouveaux appareils pour la première fois, ils sont invités à exécuter l’Assistant Configuration. Le profil d’inscription peut spécifier de demander des informations d’identification lors de la configuration. Les utilisateurs doivent utiliser les informations d’identification (c’est-à-dire le nom d’utilisateur principal, ou UPN) associées à leur abonnement dans Intune.  
+1.  Wenn Benutzer ihr neues Gerät zum ersten Mal einschalten, werden sie aufgefordert, den Setup-Assistenten zu durchlaufen. Das Registrierungsprofil kann angeben, dass während des Setups eine Eingabeaufforderung für Anmeldeinformationen angezeigt werden soll. Sie müssen die Anmeldeinformationen (d.h. den eindeutigen persönlichen Namen oder UPN) verwenden, die ihrem Abonnement in Intune zugeordnet sind.  
 
-2.  Pendant la configuration, les utilisateurs peuvent également être invités à fournir un ID Apple. Un ID Apple doit être fourni avant que l’appareil puisse installer le portail d’entreprise. Les utilisateurs peuvent fournir un ID Apple une fois la configuration terminée, à partir du menu **Paramètres** d’iOS.  
+2.  Während des Setups können Benutzer auch zur Eingabe einer Apple ID aufgefordert werden. Eine Apple ID muss angegeben werden, damit das Gerät das Unternehmensportal installieren kann. Eine Apple ID kann auch nach Abschluss des Setups im iOS-Menü **Einstellungen** angegeben werden.  
 
-3.  Une fois la configuration terminée, l’appareil iOS doit installer l’application Portail d’entreprise à partir de l’App Store ; par exemple, [Application Portail d’entreprise](https://itunes.apple.com/us/app/id719171358).  
+3.  Nach Abschluss des Setups muss auf dem Gerät die Unternehmensportal-App aus dem App Store installiert werden, z.B. [Unternehmensportal-App](https://itunes.apple.com/us/app/id719171358).  
 
-4.  L’utilisateur peut désormais se connecter au portail d’entreprise avec l’UPN utilisé lors de la configuration de l’appareil.  
+4.  Der Benutzer kann sich nun mit dem eindeutigen persönlichen Namen, der beim Setup des Geräts verwendet wurde, am Unternehmensportal anmelden.  
 
-5.  Une fois connecté, l’utilisateur est invité à inscrire son appareil. La première étape consiste à **identifier l’appareil**. L’application présente la liste des appareils iOS inscrits par l’entreprise et affectés au compte Intune de l’utilisateur final. Choisissez l’appareil approprié.  
+5.  Nach der Anmeldung wird der Benutzer aufgefordert, sein Gerät zu registrieren. Der erste Schritt besteht im **Identifizieren des Geräts**. Die App zeigt eine Liste von iOS-Geräten, die bereits vom Unternehmen registriert und dem Intune-Konto des Benutzers zugewiesen wurden. Wählen Sie das entsprechende Gerät aus.  
 
-     Si cet appareil n’est pas encore inscrit par l’entreprise, sélectionnez « Nouveau périphérique » pour poursuivre le flux d’inscription standard.  
+     Wenn das Gerät nicht bereits vom Unternehmen registriert wurde, wählen Sie „Neues Gerät“, um den standardmäßigen Registrierungsvorgang fortzusetzen.  
 
-6.  Sur l’écran suivant, l’utilisateur doit confirmer le numéro de série du nouvel appareil. L’utilisateur peut appuyer sur le lien « Confirmez le numéro de série » pour lancer l’application Paramètres afin de vérifier le numéro de série. L’utilisateur doit ensuite entrer les 4 derniers caractères du numéro de série dans l’application Portail d’entreprise.  
+6.  Auf dem nächsten Bildschirm muss der Benutzer die Seriennummer des neuen Geräts bestätigen. Der Benutzer kann auf den Link „Seriennummer bestätigen“ tippen, um zum Bestätigen der Seriennummer die App „Einstellungen“ zu starten. Der Benutzer muss dann die letzten 4 Zeichen der Seriennummer in die Unternehmensportal-App eingeben.  
 
-     Cette étape vérifie que l’appareil est l’appareil d’entreprise inscrit dans Intune. Si le numéro de série de l’appareil ne correspond pas, l’appareil sélectionné est incorrect. Revenez à l’écran précédent et sélectionnez un autre appareil.  
+     Dieser Schritt dient zum Überprüfen, ob das Gerät das vom Unternehmen in Intune registrierte Gerät ist. Wenn die Seriennummer des Geräts nicht übereinstimmt, wurde der falsche Gerät ausgewählt. Kehren Sie zum vorherigen Bildschirm zurück, und wählen Sie ein anderes Gerät aus.  
 
-7.  Une fois le numéro de série vérifié, l’application Portail d’entreprise redirige l’utilisateur vers le site web Portail d’entreprise pour finaliser l’inscription, puis l’invite à retourner à l’application.  
+7.  Nachdem die Seriennummer überprüft wurde, wird die Unternehmensportal-App zur Unternehmensportal-Website umgeleitet, um die Registrierung abzuschließen. Anschließend wird der Benutzer aufgefordert, zur App zurückzukehren.  
 
-8.  L’inscription est alors terminée. Vous pouvez désormais utiliser cet appareil avec toutes les fonctionnalités.  
+8.  Die Registrierung ist damit abgeschlossen. Sie können nun die Funktionen des Geräts in vollem Umfang nutzen.  
 
-##  <a name="BKMK_noUA"></a> Appareils gérés sans affinité utilisateur  
- Des appareils configurés avec **Pas d’affinité utilisateur** ne prennent pas en charge le Portail d’entreprise et ne doivent pas installer l’application. Le Portail d’entreprise est conçu pour les utilisateurs détenteurs d’informations d’identification d’entreprise, qui ont besoin d’accéder à des ressources d’entreprise personnalisées (par exemple, au courrier électronique). Les appareils inscrits avec **Pas d’affinité utilisateur** ne sont pas destinés à un utilisateur dédié. Une borne, un point de vente (PDV) ou un appareil de démonstration partagé sont des exemples caractéristiques d’utilisation d’appareils inscrits sans aucune affinité utilisateur. Si une affinité utilisateur est requise, vérifiez qu’une **affinité utilisateur** est sélectionnée pour le profil d’inscription de l’appareil avant d’inscrire celui-ci. Pour modifier l’état d’affinité sur un appareil, vous devez le mettre hors service, puis le réinscrire.
-
+##  <a name="BKMK_noUA"></a> Verwaltete Geräte ohne Benutzeraffinität  
+ Auf mit **no user affinity** konfiguriert wurden, unterstützen sie auch das Unternehmensportal nicht. Die App sollte auf solchen Geräten nicht installiert werden. Das Unternehmensportal ist für Benutzer gedacht, die über Anmeldeinformationen ihres Unternehmens verfügen und Zugriff auf personalisierte Unternehmensressourcen (z. B. E-Mail) benötigen. Geräte, die **ohne Benutzeraffinität** registriert wurden, bieten keine Anmeldung für dedizierte Benutzer. Kiosk-, Verkaufsstellen- (POS-) oder gemeinsam genutzte Geräte sind typisch Anwendungsfälle für Geräte, die ohne Benutzeraffinität registriert werden. Wenn Benutzeraffinität erforderlich ist, muss vor der Registrierung des Geräts in dessen Registrierungsprofil **Benutzeraffinität** ausgewählt worden sein. Zum Ändern des Affinitätsstatus eines Geräts müssen Sie das Gerät abkoppeln und erneut registrieren.

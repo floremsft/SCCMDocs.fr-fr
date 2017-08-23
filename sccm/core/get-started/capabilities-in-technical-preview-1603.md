@@ -1,97 +1,94 @@
 ---
-title: "Fonctionnalités de Technical Preview 1603 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1603 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1603 für Configuration Manager"
+description: "Erfahren Sie mehr zu Funktionen, die in System Center Configuration Manager Technical Preview 1603 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5f861b72-9f14-4d17-a512-4a79b660abe6
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: 1d3adcf3310d88b1266388aa03ae5ea03e23f2a5
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: dee2b4ce042bb4a434bb019e17a6b16e2807945c
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1603 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1603 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1603 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager. Ou bien, lorsque vous utilisez System Center Technical Preview 5, cette version s’installe comme une version de référence de la version d’évaluation technique de System Center Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+In diesem Artikel werden die Funktionen erläutert, die in der Technical Preview für System Center Configuration Manager 1603 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen. Bei Verwendung von System Center Technical Preview 5 wird diese Version auch als eine Baselineversion von System Center Configuration Manager Technical Preview installiert. Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
 
- **Problèmes connus relatifs à cette version d’évaluation technique :**  
+ **Bekannte Probleme für diese Technical Preview:**  
 
--   Cette version inclut des mises à jour de fonctionnalités publiées précédemment, mais n’en introduit pas de nouvelles. Par conséquent, la page Fonctionnalités de l’Assistant Mise à jour est vide si vous avez précédemment opéré une mise à niveau vers la version 1602 et activé toutes les fonctionnalités incluses dans celle-ci.  
+-   Diese Version enthält Updates für zuvor veröffentlichte Features, umfasst jedoch keine neuen Features. Aus diesem Grund ist die Seite „Features“ des Update-Assistenten leer, wenn Sie zuvor ein Upgrade auf 1602 durchgeführt und alle in 1602 enthaltenen Features aktiviert haben.  
 
--   Une fois que votre serveur opère une mise à jour vers Technical Preview 1603, les clients ne peuvent pas utiliser les fonctionnalités de contrôle à distance tant qu’ils n’ont pas eux aussi procédé à la mise à jour vers la version 1603.  
+-   Nach dem Update Ihres Standortservers auf Technical Preview 1603 können Sie auf Clients erst dann wieder Remotesteuerungsfunktionen verwenden, wenn diese ebenfalls auf Version 1603 aktualisiert werden.  
 
- **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+ **Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-##  <a name="BKMK_SC1603"></a> Améliorations apportées au Centre logiciel  
+##  <a name="BKMK_SC1603"></a> Verbesserungen für Software Center  
 
-### <a name="new-tiled-view-for-apps"></a>Nouvel affichage en mode Mosaïque pour les applications  
- Les utilisateurs finaux ont désormais le choix entre une liste d’applications ou un affichage en mode Mosaïque des applications sous l’onglet **Applications** du Centre logiciel.  
+### <a name="new-tiled-view-for-apps"></a>Neue Kachelansicht für Apps  
+ Endbenutzer können jetzt in Software Center auf der Registerkarte **Anwendungen** zwischen einer Liste von Apps oder einer Kachelansicht von Apps auswählen.  
 
-### <a name="select-multiple-updates-in-software-center"></a>Sélection de plusieurs mises à jour dans le Centre logiciel  
- Sous l’onglet **Mises à jour** du Centre logiciel, vous pouvez désormais sélectionner plusieurs mises à jour ou sélectionner **Tout mettre à jour** pour commencer à installer plusieurs mises à jour simultanément.  
+### <a name="select-multiple-updates-in-software-center"></a>Auswählen mehrerer Updates in Software Center  
+ Auf der Registerkarte **Updates** in Software Center können Sie jetzt mehrere Updates oder **Alle aktualisieren** auswählen, um mehrere Updates gleichzeitig zu installieren.  
 
-##  <a name="BKMK_RC1603"></a> Améliorations apportées au contrôle à distance  
+##  <a name="BKMK_RC1603"></a> Verbesserungen an der Remotesteuerung  
 
-### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Limitation de l’accès au Presse-papiers partagé dans une session de contrôle à distance  
- Vous pouvez désormais activer le nouveau paramètre du client pour les outils à distance, **Inviter l’utilisateur à accorder une autorisation de transfert de fichier de Presse-papiers partagé**, pour limiter l’accès au Presse-papiers partagé dans une session de contrôle à distance.  
+### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Beschränken des Zugriffs auf die freigegebene Zwischenablage in einer Remotesteuerungssitzung  
+ Sie können in den Remotetools jetzt die neue Clienteinstellung **Benutzer zum Erteilen der Berechtigung zur Freigabe der Zwischenablage für Dateiübertragungen auffordern** aktivieren, um den Zugriff auf die freigegebene Zwischenablage in einer Remotesteuerungssitzung zu beschränken.  
 
- Quand ce paramètre est activé, l’utilisateur final qui partage une session à distance doit accorder au spectateur qui visionne la session l’autorisation de transférer des fichiers de celle-ci sur son ordinateur local via le Presse-papiers partagé.  
+ Wenn diese Option aktiviert ist, muss der Endbenutzer, der eine Remotesitzung freigibt, dem Remotebetrachter dieser Sitzung die entsprechenden Berechtigungen erteilen, damit der Remotebetrachter Dateien aus der Sitzung über die freigegebene Zwischenablage auf seinen lokalen Computer übertragen kann.  
 
- Cela ajoute une couche de protection pour l’utilisateur final car, précédemment, si le spectateur recevait le contrôle total de l’ordinateur de l’utilisateur final, il était en mesure d’utiliser le Presse-papiers partagé pour transférer des fichiers de la session sur son ordinateur local d’une manière totalement transparente pour l’utilisateur final.  
+ Dadurch wird für den Endbenutzer eine weitere Sicherheitsebene hinzugefügt. Wenn dem Remotebetrachter zuvor Vollzugriff auf den Computer des Endbenutzers erteilt wurde, hatte er über die freigegebene Zwischenablage die Möglichkeit, Dateien unbemerkt vom Endbenutzer aus der Sitzung auf den lokalen Computer zu übertragen.  
 
-##  <a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
- Dans Technical Preview 1603, vous pouvez personnaliser les tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
-Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
+##  <a name="BKMK_RamDiskTFTP"></a> Anpassen der RamDisk-TFTP-Blockgröße und der Fenstergröße auf PXE-fähigen Verteilungspunkten  
+ In Technical Preview 1603 können Sie die RamDisk-TFTP-Blockgröße und die Fenstergröße für PXE-fähige Verteilungspunkte anpassen. Wenn Sie Ihr Netzwerk angepasst haben, kann dies wegen übermäßiger Block- oder Fenstergröße zu einem Timeout beim Herunterladen des Startimages führen. Durch Anpassen der RamDisk-TFTP-Blockgröße und der Fenstergröße können Sie den TFTP-Datenverkehr bei Verwendung von PXE für Ihre spezifischen Netzwerkanforderungen optimieren.   
+Sie müssen die benutzerdefinierten Einstellungen in Ihrer Umgebung testen, um die effizienteste Einstellung zu ermitteln.  
 
--   **Taille de bloc TFTP**: la taille de bloc est la taille des paquets de données que le serveur envoie au client qui télécharge le fichier (comme indiqué dans RFC 2347). Plus la taille de bloc est importante, moins le serveur envoie de paquets. Il y a donc moins de délais d’aller et retour entre le serveur et le client. Toutefois, une taille de bloc importante entraîne une fragmentation des paquets, incompatible avec la plupart des implémentations du client PXE.  
+-   **TFTP-Blockgröße:**Die Blockgröße ist die Größe der Datenpakete, die vom Server an den Client gesendet werden, der die Datei herunterlädt (wie in RFC 2347 erörtert). Mit einer größeren Blockgröße kann der Server weniger Pakete senden, sodass weniger Roundtripverzögerungen zwischen dem Server und dem Client auftreten. Große Blöcke führen jedoch zu fragmentierten Paketen, die von den meisten PXE-Clientimplementierungen nicht unterstützt werden.  
 
--   **Taille de fenêtre TFTP**: le protocole TFTP nécessite le renvoi d’un paquet d’accusé de réception (ACK) pour chaque bloc de données envoyé. Le serveur n’envoie pas le bloc suivant dans la séquence tant qu’il n’a pas reçu le paquet ACK pour le bloc précédent. Le fenêtrage TFTP est une fonctionnalité des Services de déploiement Windows qui permet de définir le nombre de blocs de données nécessaires pour le remplissage d’une fenêtre. Le serveur envoie les blocs de données dos à dos jusqu’à ce que la fenêtre soit remplie, et le client renvoie un paquet ACK. L’augmentation de cette taille de fenêtre réduit le nombre de délais d’aller et retour entre le client et le serveur, et raccourcit le temps global nécessaire au téléchargement d’une image de démarrage.  
+-   **TFTP-Fenstergröße:**TFTP erfordert ein Bestätigungspaket (acknowledgment packet; ACK) für jeden gesendeten Datenblock. Der Server sendet den nächsten Block in der Sequenz erst, wenn er das ACK-Paket für den vorherigen Block empfangen hat. TFTP-Fenster sind ein Feature in den Windows-Bereitstellungsdiensten, mit dem Sie definieren können, wie viele Datenblöcke ein Fenster füllen. Der Server sendet die Datenblöcke nach dem Back-to-Back-Prinzip, bis das Fenster gefüllt ist. Anschließend sendet der Client ein ACK-Paket. Durch Erhöhen diese Fenstergröße reduzieren Sie die Anzahl von Roundtripverzögerungen zwischen Client und Server und verringern die Gesamtzeit, die zum Herunterladen eines Startimages erforderlich ist.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’accomplir les tâches suivantes, puis utilisez les informations relatives à l’envoi de commentaires au début de cette rubrique pour nous faire savoir comment cela a fonctionné :  
+### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Versuchen Sie, die folgenden Aufgaben durchzuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
 
--   Je peux personnaliser la taille de fenêtre TFTP RamDisk pour le point de distribution compatible PXE.  
+-   Ich kann die RamDisk-TFTP-Fenstergröße auf dem PXE-fähigen Verteilungspunkt anpassen.  
 
--   Je peux personnaliser la taille de bloc TFTP RamDisk pour le point de distribution compatible PXE.  
+-   Ich kann die RamDisk-TFTP-Blockgröße auf dem PXE-fähigen Verteilungspunkt anpassen.  
 
-### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Pour modifier la taille de fenêtre TFTP RamDisk  
+### <a name="to-modify-the-ramdisk-tftp-window-size"></a>So ändern Sie die RamDisk-TFTP-Fenstergröße  
 
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
+-   Fügen Sie auf PXE-fähigen Verteilungspunkten den folgenden Registrierungsschlüssel hinzu, um die RamDisk-TFTP-Fenstergröße anzupassen:  
 
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPWindowSize  
+     **Speicherort:**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Name: RamDiskTFTPWindowSize  
 
-     **Type**: REG_DWORD  
+     **Typ:**REG_DWORD  
 
-     **Valeur**: &lt;taille de fenêtre personnalisée\>  
+     **Wert**: &lt;angepasste Fenstergröße\>  
 
- La valeur par défaut est 1 (1 bloc de données remplit la fenêtre).  
+ Der Standardwert ist 1 (1 Datenblock füllt das Fenster aus)  
 
-### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Pour modifier la taille de bloc TFTP RamDisk  
+### <a name="to-modify-the-ramdisk-tftp-block-size"></a>So ändern Sie die RamDisk-TFTP-Blockgröße  
 
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
+-   Fügen Sie auf PXE-fähigen Verteilungspunkten den folgenden Registrierungsschlüssel hinzu, um die RamDisk-TFTP-Fenstergröße anzupassen:  
 
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPBlockSize  
+     **Speicherort:**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Name: RamDiskTFTPBlockSize  
 
-     **Type**: REG_DWORD  
+     **Typ:**REG_DWORD  
 
-     **Valeur** : &lt;taille de bloc personnalisée\>  
+     **Wert**: &lt;angepasste Blockgröße\>  
 
- La valeur par défaut est 4096 (4k).  
-
+ Der Standardwert ist 4096 (4 KB).  

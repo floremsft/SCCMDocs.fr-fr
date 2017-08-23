@@ -1,59 +1,52 @@
 ---
-title: "Ressources d’installation de sites | Microsoft Docs"
-description: "Consultez une liste de rubriques d’aide sur l’installation de System Center Configuration Manager ou l’ajout de sites à votre hiérarchie."
+title: "Ressourcen für die Standortinstallation | Microsoft-Dokumentation"
+description: "Gehen Sie die Liste der Themen durch, die Ihnen dabei helfen, System Center Configuration Manager zu installieren oder Standorte zu Ihrer Hierarchie hinzuzufügen."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d0e4ddc3-d9c4-4f5c-8b1f-af098e54f5c8
-caps.latest.revision: 31
-caps.handback.revision: 0
+caps.latest.revision: "31"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 9fa9a9b2f57106e36c45248feb400ec125adcad1
 ms.openlocfilehash: 75511c744d7d2bae960273c845ce68f06a82b697
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Ressources d’installation de sites System Center Configuration Manager
+# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Ressourcen für die Installation von System Center Configuration Manager-Standorten
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les rubriques suivantes peuvent vous aider à installer System Center Configuration Manager ou à ajouter des sites à votre hiérarchie Configuration Manager existante.
+Die folgenden Themen unterstützen Sie beim Installieren von System Center Configuration Manager bzw. beim Hinzufügen von Standorten zu Ihrer vorhandenen Configuration Manager-Hierarchie.
 
-- [Préparer l’installation des sites](prepare-to-install-sites.md)
+- [Vorbereitung zur Installation von Standorten ](prepare-to-install-sites.md)
 
-  Cette rubrique contient des informations essentielles destinées à vous aider à installer un site dans une hiérarchie nouvelle ou existante. Elle indique notamment les cas où vous devez utiliser d’autres fichiers sources que ceux par défaut, les limitations qui s’appliquent à tous les sites, et les actions facultatives que vous pouvez effectuer pour simplifier l’installation de plusieurs sites.
+  Dieses Thema enthält wichtige Informationen, die Ihnen helfen, einen Standort in einer neuen oder vorhandenen Hierarchie zu installieren. Sie erhalten Hilfestellung, wann Sie nicht standardmäßige Quelldateien auswählen können, welche Einschränkungen für alle Standorte gelten und welche optionalen Aktionen Sie ausführen können, um Ihre Tasks zu vereinfachen, wenn Sie mehrere Standorte installieren müssen.
 
-- [Conditions préalables à l’installation d’un site](prerequisites-for-installing-sites.md)
+- [Voraussetzungen für die Installation von Standorten](prerequisites-for-installing-sites.md)
 
-  Découvrez quels sont les droits d’utilisateur et les autorisations que votre compte doit avoir pour installer un site, et quelles sont les conditions préalables à vérifier pour chaque type de site que vous pouvez installer.
+  Erfahren Sie mehr über die für Ihr Konto erforderlichen Benutzerrechte und Berechtigungen, um einen Standort zu installieren, sowie über verwandte Voraussetzungen für die einzelnen Arten von Standorten, die Sie installieren können.
 
-- [Installer des sites à l’aide de l’Assistant Installation](use-the-setup-wizard-to-install-sites.md)
+- [Verwenden des Setup-Assistenten zum Installieren von System Center Configuration Manager-Standorten](use-the-setup-wizard-to-install-sites.md)
 
-  Cette rubrique vous guide tout au long de l’Assistant Installation de site. Il fournit des détails sur des options qui peuvent ne pas être suffisamment claires dans l’interface utilisateur de l’Assistant.  
+  Dieses Thema führt Sie durch den Assistenten zum Installieren von Standorten. Es enthält ausführliche Informationen zu Optionen, die in der Benutzeroberfläche des Assistenten möglicherweise nicht verständlich sind.  
 
-- [Installer des sites à l’aide d’une ligne de commande et d’un script](use-a-command-line-to-install-sites.md)
+- [Verwenden einer Befehlszeile zum Installieren von System Center Configuration Manager-Standorten](use-a-command-line-to-install-sites.md)
 
-  Découvrez comment obtenir un script d’installation de site et comment l’utiliser pour installer un site sans assistance.
+  Erfahren Sie, wie Sie ein Standortinstallationsskript erhalten und für unbeaufsichtigte Standortinstallationen verwenden.
 
-- [Installer la console Configuration Manager](install-consoles.md)
+- [Installieren von System Center Configuration Manager-Konsolen](install-consoles.md)
 
-  Cette rubrique offre des conseils sur la façon d’installer la console Configuration Manager sur un ordinateur sur lequel vous n’installez pas de site.
+  Dieses Thema enthält eine Anleitung zum Installieren der Configuration Manager-Konsole auf einem Computer, auf dem Sie keinen Standort installieren.
 
-- [Mettre à niveau une installation d’évaluation vers une installation complète](upgrade-an-evaluation-install-to-a-full-install.md)
+- [Upgrade von Evaluierungsinstallationen von System Center Configuration Manager auf eine vollständige Installation](upgrade-an-evaluation-install-to-a-full-install.md)
 
-  Lisez cette rubrique quand vous êtes prêt à mettre à niveau votre site d’évaluation vers un site Configuration Manager sous licence complète.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+  Lesen Sie dieses Thema, wenn Sie bereit sind, die Evaluierungsversion Ihres Standorts auf eine voll lizenzierte Configuration Manager-Version upzugraden.

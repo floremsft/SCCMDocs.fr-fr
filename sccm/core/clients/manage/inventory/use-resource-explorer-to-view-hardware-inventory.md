@@ -1,55 +1,51 @@
 ---
-title: "Afficher l’inventaire matériel | Microsoft Docs | Explorateur de ressources"
-description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager."
+title: Anzeigen des Hardwareinventars | Microsoft-Dokumentation | Resource Explorer
+description: Verwenden Sie den Ressourcen-Explorer zum Anzeigen des Hardwareinventars in System Center Configuration Manager.
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 375912f5-436d-4315-bdbe-d77afee6c9f3
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: e39fa60a5d215fa1b0a98d4463058497e63a4d4f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/29/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Comment utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager
+# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Anzeigen des Hardwareinventars mit dem Ressourcen-Explorer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire matériel collecté à partir de clients de votre hiérarchie.  
+Zeigen Sie mithilfe des Ressourcen-Explorers in System Center Configuration Manager Hardwareinventarinformationen an, die von Clients in Ihrer Hierarchie gesammelt wurden.  
 
 > [!NOTE]  
->  L'Explorateur de ressources n'affichera pas de données d'inventaire avant qu'un cycle d'inventaire matériel ait été exécuté sur le client auquel vous êtes connecté.  
+>  Im Ressourcen-Explorer werden keine Inventurdaten angezeigt, bis auf dem Client, mit dem eine Verbindung hergestellt wird, ein Hardwareinventurzyklus ausgeführt wurde.  
 
- L’Explorateur de ressources contient les sections suivantes relatives à l’inventaire matériel :  
+ Der Ressourcen-Explorer enthält die folgenden Bereiche im Zusammenhang mit Hardwareinventur:  
 
--   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client indiqué.  **État de la station de travail** : indique l’heure et la date du dernier inventaire matériel effectué par l’appareil.  
+-   **Hardware**: Enthält das neueste Hardwareinventar, das vom angegebenen Clientgerät gesammelt wird.  **Status der Arbeitsstation**: Enthält Uhrzeit und Datum der letzten Ausführung einer Hardwareinventur.  
 
--   **Historique du matériel** : contient un historique des éléments d’inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément contient un nœud **En cours** et un ou plusieurs nœuds *<date\>*. Vous pouvez comparer les informations du nœud en cours à l’un des nœuds historiques pour découvrir les éléments qui ont été modifiés.  
+-   **Hardwareverlauf**: Enthält einen Verlauf inventarisierter Elemente, die sich seit der letzten Hardwareinventur geändert haben. Jedes Element verfügt über einen **Current**-Knoten (Aktuell) und mindestens einen *<date\>*-Knoten (Datum). Sie können die Daten im aktuellen Knoten mit denen eines Verlaufsknotens vergleichen, um Elemente zu ermitteln, die sich geändert haben.  
 
     > [!NOTE]  
-    >  Configuration Manager conserve l'historique de l'inventaire matériel pendant le nombre de jours que vous spécifiez dans la tâche de maintenance du site **Supprimer les historiques d'inventaire anciens**.  
+    >  Der Hardwareinventurverlauf wird von Configuration Manager für die Anzahl von Tagen beibehalten, die Sie im Standortwartungstask **Veralteten Inventurverlauf löschen** festlegen.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la façon d’afficher l’inventaire matériel des clients qui exécutent Linux et UNIX, consultez [Guide pratique pour surveiller les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
+>  Informationen zum Anzeigen der Hardwareinventur von Clients, auf denen Linux und UNIX ausgeführt werden, finden Sie unter [Überwachen von Clients für Linux- und UNIX-Server in System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
 
-### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Comment exécuter l’Explorateur de ressources à partir de la console Configuration Manager  
+### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Ausführen des Ressourcen-Explorers über die Configuration Manager-Konsole  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Appareils**, ou ouvrez un regroupement qui affiche des appareils.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Konformität** > **Geräte** aus, oder öffnen Sie eine beliebige Sammlung, die Geräte anzeigt.  
 
-3.  Choisissez l’ordinateur contenant l’inventaire que vous souhaitez afficher puis, dans l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** >  **Explorateur de ressources**.   
+3.  Wählen Sie den Computer aus, der die anzuzeigende Inventur enthält. Wählen Sie danach auf der Registerkarte **Start** > Gruppe **Geräte** **Start** >  **Ressourcen-Explorer** aus.   
 
-4.  Cliquez avec le bouton droit sur un élément dans le volet droit de la fenêtre **Explorateur de ressources**, puis choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés de** *<nom_élément\>* et visualiser les informations d’inventaire recueillies sous un format plus lisible.  
-
+4.  Klicken Sie mit der rechten Maustaste auf ein beliebiges Element im rechten Bereich des Fensters **Ressourcen-Explorer**, und wählen Sie anschließend **Eigenschaften** aus, um das Dialogfeld *<Elementname\>***Eigenschaften** zu öffnen. Dort werden die gesammelten Inventurinformationen in einem besser lesbaren Format angezeigt.  
 

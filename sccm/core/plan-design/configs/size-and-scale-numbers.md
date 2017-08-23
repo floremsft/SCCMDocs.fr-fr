@@ -1,197 +1,194 @@
 ---
-title: "Taille et échelle | Microsoft Docs"
-description: "Déterminez le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils dans votre environnement System Center Configuration Manager."
+title: "Größe und Skalierung von Zahlen | Microsoft-Dokumentation"
+description: "Ermitteln Sie die Anzahl der Standortsystemrollen und Standorte, die für die Unterstützung von Geräten in Ihrer System Center Configuration Manager-Umgebung notwendig sind."
 ms.custom: na
 ms.date: 07/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5a42100-2f60-4952-b495-918025ea6559
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
 ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
+# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Größe und Skalierung von Zahlen für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-
-
-Chaque déploiement de System Center Configuration Manager comporte un nombre maximal de sites, de rôles système de site et d’appareils qu’il peut prendre en charge. Ces nombres varient selon la structure hiérarchique (les types et nombres de sites que vous utilisez) et les rôles de système de site que vous déployez.  Les informations des zones suivantes peuvent vous aider à déterminer le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils que vous envisagez de gérer avec votre environnement.
-
-Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
--   [Matériel recommandé](../../../core/plan-design/configs/recommended-hardware.md)
--   [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
--   [Systèmes d’exploitation pris en charge pour les clients et appareils](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
--   [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Les numéros de support suivants sont basés sur l’utilisation du matériel recommandé pour Configuration Manager et les paramètres par défaut pour toutes les fonctionnalités disponibles de Configuration Manager. Si vous n’utilisez pas le matériel recommandé ou utilisez des paramètres personnalisés plus agressifs (par exemple, que vous exécutez l’inventaire matériel ou logiciel plus d’une fois tous les 7 jours, ce qui est la valeur par défaut), les performances des systèmes de site peuvent être réduites et ne pas atteindre les niveaux de support indiqués.
 
-##  <a name="bkmk_SiteSystemScale"></a> Types de sites  
- **Site d’administration centrale :**  
+Jede Bereitstellung von System Center Configuration Manager hat eine maximale Anzahl von Standorten, Standortsystemrollen und Geräten, die unterstützt werden können. Diese Zahlen sind von Ihrer Hierarchiestruktur (welche Typen und welche Anzahl von Standorten Sie verwenden) und den Standortsystemrollen abhängig, die Sie bereitstellen.  Die Informationen in den folgenden Bereichen unterstützen Sie dabei, die Anzahl von Standortsystemrollen und Standorten zu ermitteln, die für die Unterstützung der Geräte notwendig sind, die voraussichtlich in Ihrer Umgebung verwaltet werden.
 
--   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
+Verwenden Sie die Informationen in diesem Thema zusammen mit den Informationen in den folgenden Artikeln:
+-   [Empfohlene Hardware](../../../core/plan-design/configs/recommended-hardware.md)
+-   [Unterstützte Betriebssysteme für Standortsystemserver](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+-   [Unterstützte Betriebssysteme für Clients und Geräte](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
+-   [Voraussetzungen für Standorte und Standortsysteme](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
-**Site principal :**  
 
--   Chaque site principal prend en charge jusqu’à 250 sites secondaires.  
+Die Zahlen zur Unterstützung in diesem Artikel basieren auf der Verwendung der empfohlenen Hardware für Configuration Manager sowie auf den Standardeinstellungen für alle verfügbaren Configuration Manager-Funktionen. Wird die empfohlene Hardware nicht verwendet oder werden aggressivere benutzerdefinierte Einstellungen verwendet (wenn beispielsweise eine Hardware- oder Softwareinventur entgegen der Standardeinstellung häufiger als alle sieben Tage ausgeführt wird), wird die Leistung von Standortsystemen möglicherweise beeinträchtigt und die Leistung entspricht unter Umständen nicht dem angegebenen Unterstützungsgrad.
 
--   Le nombre de sites secondaires par site principal est basé sur des connexions réseau WAN continues et fiables. Pour les emplacements de moins de 500 clients, envisagez à un point de distribution au lieu d'un site secondaire.  
+##  <a name="bkmk_SiteSystemScale"></a> Standorttypen  
+ **Standort der zentralen Verwaltung:**  
 
- Pour plus d’informations sur le nombre de clients et d’appareils qu’un site principal peut prendre en charge, consultez [Nombres de clients pour les hiérarchies et les sites](#bkmk_clientnumbers) dans cette rubrique.  
+-   Ein Standort der zentralen Verwaltung unterstützt bis zu 25 untergeordnete primäre Standorte.  
 
-**Site secondaire :**  
+**Primärer Standort:**  
 
--   Les sites secondaires ne prennent pas en charge les sites enfants.  
+-   Jeder primäre Standort unterstützt bis zu 250 sekundäre Standorte.  
 
--   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
+-   Die maximale Anzahl sekundärer Standorte pro primärem Standort wurde auf Basis von kontinuierlich verbundenen und stabilen WAN (Wide Area Network)-Verbindungen ermittelt. Für Standorte mit weniger als 500 Clients können Sie einen Verteilungspunkt anstatt eines sekundären Standorts erwägen.  
 
-**Point du site web du catalogue des applications :**  
+ Informationen zur Anzahl von Clients und Geräten, die von einem primären Standort unterstützt werden können, finden Sie in diesem Thema unter [Anzahl der Clients für Standorte und Hierarchien](#bkmk_clientnumbers).  
 
--   Vous pouvez installer plusieurs instances du point de site Web du catalogue d'applications sur des sites principaux.  
+**Sekundärer Standort:**  
 
-    > [!TIP]  
-    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
+-   Sekundäre Standorte unterstützen keine untergeordneten Standorte.  
 
-    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
+-   Ein Standort der zentralen Verwaltung unterstützt bis zu 25 untergeordnete primäre Standorte.  
 
-    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
+**Anwendungskatalog-Websitepunkt:**  
 
-## <a name="bkmk_roles"></a> Rôles système de site    
-
-**Point de service web du catalogue des applications :**  
-
--   Vous pouvez installer plusieurs instances du point de service web du catalogue d'applications sur des sites principaux.  
+-   An primären Standorten können Sie mehrere Instanzen des Anwendungskatalog-Websitepunkts installieren.  
 
     > [!TIP]  
-    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
+    >  Es wird empfohlen, den Anwendungskatalog-Websitepunkt und den Anwendungskatalog-Webservicepunkt gemeinsam auf dem gleichen Standortsystem zu installieren, wenn die Dienste für Clients im Intranet bereitgestellt werden.  
 
-    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
+    -   Planen Sie aus Leistungsgründen, bis zu 50.000 Clients pro Instanz zu unterstützen.  
 
-    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
+    -   Jede Instanz dieser Standortsystemrolle unterstützt die maximale Anzahl von Clients, die von der Hierarchie unterstützt werden.  
 
-**Point de distribution :**  
+## <a name="bkmk_roles"></a> Standortsystemrolle    
 
--   Points de distribution par site :  
+**Anwendungskatalog-Webdienstpunkt:**  
 
-    -   Chaque site principal et chaque site secondaire prend en charge jusqu'à 250 points de distribution.  
+-   An primären Standorten können Sie mehrere Instanzen des Anwendungskatalog-Webservicepunkts installieren.  
 
-    -   Chaque site principal et secondaire prend en charge jusqu’à 2 000 points de distribution supplémentaires configurés comme points de distribution d’extraction. **Par exemple**, un même site principal prend en charge 2 250 points de distribution quand 2 000 d’entre eux sont configurés comme points de distribution d’extraction.  
+    > [!TIP]  
+    >  Es wird empfohlen, den Anwendungskatalog-Websitepunkt und den Anwendungskatalog-Webservicepunkt gemeinsam auf dem gleichen Standortsystem zu installieren, wenn die Dienste für Clients im Intranet bereitgestellt werden.  
 
-    -   Chaque point de distribution prend en charge jusqu'à 4 000 connexions de clients.  
+    -   Planen Sie aus Leistungsgründen, bis zu 50.000 Clients pro Instanz zu unterstützen.  
 
-    -   Un point de distribution d’extraction agit comme un client quand il accède au contenu d’un point de distribution source.  
+    -   Jede Instanz dieser Standortsystemrolle unterstützt die maximale Anzahl von Clients, die von der Hierarchie unterstützt werden.  
 
--   Chaque site principal prend en charge un total combiné de 5 000 points de distribution maximum. Ce total inclut tous les points de distribution sur le site principal et tous les points de distribution qui appartiennent aux sites secondaires enfants du site principal.  
+**Verteilungspunkt:**  
 
--   Chaque point de distribution prend en charge un total combiné allant jusqu'à 10 000 packages et applications.  
+-   Verteilungspunkte pro Standort:  
+
+    -   An jedem primären und sekundären Standort werden bis zu 250 Verteilungspunkte unterstützt.  
+
+    -   Jeder primäre und sekundäre Standort unterstützt bis zu 2000 zusätzliche Verteilungspunkte, die als Pullverteilungspunkte konfiguriert sind. **Beispiel:** Ein einzelner primärer Standort unterstützt 2250 Verteilungspunkte, wenn 2000 dieser Verteilungspunkte als Pullverteilungspunkte konfiguriert sind.  
+
+    -   Jeder Verteilungspunkt unterstützt Verbindungen von bis zu 4.000 Clients.  
+
+    -   Ein Pullverteilungspunkt verhält sich wie ein Client, wenn er auf Inhalte von einem Quellverteilungspunkt zugreift.  
+
+-   An jedem primären Standort werden insgesamt bis zu 5.000 Verteilungspunkte unterstützt. Darin eingeschlossen sind alle Verteilungspunkte des primären Standorts und alle Verteilungspunkte, die zu den untergeordneten sekundären Standorten des primären Standorts gehören.  
+
+-   Jeder Verteilungspunkt unterstützt eine Gesamtgröße von bis zu 10.000 Paketen und Anwendungen.  
 
 > [!WARNING]  
->  Le nombre réel de clients qu’un point de distribution peut prendre en charge dépend de la vitesse du réseau et de la configuration matérielle de l’ordinateur du point de distribution.  
+>  Die tatsächliche Anzahl von Clients, die von einem Verteilungspunkt unterstützt werden können, hängt von der Netzwerkgeschwindigkeit und der Hardwarekonfiguration des Verteilungspunktcomputers ab.  
 >   
->  De la même façon, le nombre de points de distribution d’extraction qu’un point de distribution source peut prendre en charge dépend de la vitesse du réseau et de la configuration matérielle de l’ordinateur du point de distribution source. Mais ce nombre est également affecté par la quantité de contenu que vous avez déployé. En effet, contrairement aux clients qui accèdent généralement au contenu à des moments différents durant un déploiement, tous les points de distribution d’extraction demandent du contenu en même temps. Ils peuvent demander tout le contenu disponible et pas seulement le contenu qui leur est applicable, comme le ferait un client. Quand une trop grande charge de traitement est placée sur un point de distribution source, des retards imprévus peuvent se produire dans la distribution du contenu aux points de distribution attendus dans votre environnement.  
+>  Die Anzahl von Pullverteilungspunkten, die von einem Quellverteilungspunkt unterstützt werden, hängt entsprechend von der Netzwerkgeschwindigkeit und der Hardwarekonfiguration des Quellverteilungspunkt-Computers ab. Ein weiterer Faktor ist die bereitgestellte Menge von Inhalten. Dies liegt daran, dass alle Pullverteilungspunkte zur gleichen Zeit Inhalte anfordern und zudem den gesamten verfügbaren Inhalt und nicht nur (wie ein Client) den auf sie anwendbaren Inhalt abrufen können. Darin unterscheiden sie sich von Clients, die in der Regel zu unterschiedlichen Zeiten während einer Bereitstellung auf Inhalte zugreifen. Wenn die Verarbeitungslast für einen Quellverteilungspunkt zu hoch wird, kann dies zu unerwarteten Verzögerungen bei der Verteilung von Inhalten an die erwarteten Verteilungspunkte in der Umgebung führen.  
 
 
-**Point d’état de secours :**  
+**Fallbackstatuspunkt:**  
 
--   Chaque point d'état de secours peut prendre en charge jusqu'à 100 000 clients.  
+-   Von jedem Fallbackstatuspunkt können bis zu 100.000 Clients unterstützt werden.  
 
-**Point de gestion :**  
+**Verwaltungspunkt:**  
 
--   Chaque site principal prend en charge jusqu’à 15 points de gestion.  
+-   Jeder primäre Standort unterstützt bis zu 15 Verwaltungspunkte.  
 
     > [!TIP]  
-    >  N’installez pas de point de gestion sur des serveurs qui sont sur une liaison lente à partir du serveur de site principal ou du serveur de bases de données du site.  
+    >  Installieren Sie Verwaltungspunkte nicht auf Servern, die über eine langsame Verbindung mit dem primären Standortserver oder Standortdatenbankserver verbunden sind.  
 
--   Chaque site secondaire prend en charge un seul point de gestion qui doit être installé sur le serveur de site secondaire.  
+-   An jedem sekundären Standort wird nur ein Verwaltungspunkt unterstützt, der auf dem sekundären Standortserver installiert sein muss.  
 
- Pour plus d’informations sur le nombre de clients et d’appareils qu’un point de gestion peut prendre en charge, consultez la section [Points de gestion](#bkmk_mp) de cette rubrique.  
+ Informationen zur Anzahl von Clients und Geräten, die von einem Verwaltungspunkt unterstützt werden können, finden Sie in diesem Thema im Abschnitt [Verwaltungspunkte](#bkmk_mp).  
 
-**Point de mise à jour logicielle :**  
+**Softwareupdatepunkt:**  
 
--   Un point de mise à jour logicielle installé sur le serveur de site peut prendre en charge jusqu'à 25 000 clients.  
+-   Von einem Softwareupdatepunkt, der auf dem Standortserver installiert ist, können bis zu 25.000 Clients unterstützt werden.  
 
--   Un point de mise à jour logicielle distant du serveur de site peut prendre en charge jusqu’à 150 000 clients quand l’ordinateur distant répond à la configuration requise de WSUS (Windows Server Update Services) consistant à prendre en charge ce nombre de clients.  
+-   Ein remote vom Standortserver installierter Softwareupdatepunkt kann bis zu 150.000 Clients unterstützen, wenn der Remotecomputer die WSUS-Anforderungen (Windows Server Update Services) zur Unterstützung dieser Anzahl von Clients erfüllt.  
 
--   Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Toutefois, vous pouvez utiliser le kit SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster NLB.  
+-   Die Konfiguration von Softwareupdatepunkten als NLB-Cluster (Network Load Balancing, Netzwerklastenausgleich) wird nicht standardmäßig von Configuration Manager unterstützt. Sie können jedoch das Configuration Manager SDK verwenden, um bis zu vier Softwareupdatepunkte in einem NLB-Cluster zu konfigurieren.  
 
-##  <a name="bkmk_clientnumbers"></a> Nombres de clients pour les hiérarchies et les sites  
- Utilisez les informations suivantes pour déterminer le nombre de clients et leurs types que vous pouvez prendre en charge sur un site ou dans une hiérarchie.  
+##  <a name="bkmk_clientnumbers"></a> Anzahl der Clients für Standorte und Hierarchien  
+ Ermitteln Sie anhand der folgenden Informationen, wie viele Clients – und welchen Typs – Sie an einem Standort oder in einer Hierarchie unterstützen können.  
 
-###  <a name="bkmk_cas"></a> Hiérarchie avec un site d’administration centrale  
-Un site d’administration centrale prend en charge un nombre total d’appareils pouvant atteindre le nombre d’appareils répertoriés pour les trois groupes suivants :  
+###  <a name="bkmk_cas"></a> Hierarchie mit Standort der zentralen Verwaltung  
+Ein Standort der zentralen Verwaltung unterstützt eine Gesamtanzahl an Geräten, die maximal der Anzahl an Geräten entspricht, die für die folgenden drei Gruppen aufgelistet ist:  
 
--   700 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
+-   700.000 Desktops (Computer, auf denen Windows, Linux und UNIX ausgeführt wird). Weitere Informationen finden Sie auch in der Unterstützung für [Embedded-Geräte](#embedded).
 
--   25 000 appareils exécutant Mac et Windows CE 7.0  
+-   25.000 Macintosh- und Windows CE 7.0-Geräte  
 
--   L’un des nombres suivants, selon la manière dont votre déploiement prend en charge la gestion des appareils mobiles :  
+-   Einen der folgenden Einträge, je nachdem, wie die Bereitstellung die Verwaltung mobiler Geräte (MDM, Mobile Device Management) unterstützt:  
 
-    -   100 000 appareils que vous gérez à l’aide de la gestion MDM locale  
+    -   100.000 Geräte, die Sie mithilfe der lokalen Verwaltung mobiler Geräte verwalten  
 
-    -   300 000 appareils cloud  
+    -   300.000 cloudbasierte Geräte  
 
- Par exemple, dans une hiérarchie, vous pouvez prendre en charge 700 000 ordinateurs de bureau, jusqu’à 25 000 clients Mac et Windows CE 7.0, et jusqu’à 300 000 appareils cloud quand vous intégrez Microsoft Intune, soit un total de 1 025 000 appareils. Si vous prenez en charge des appareils gérés par la gestion MDM locale, la hiérarchie compte 825 000 appareils au total.  
+ In einer Hierarchie können beispielsweise 700.000 Desktops, bis zu 25.000 Clients für Macintosh und Windows CE 7.0 sowie bis zu 300.000 cloudbasierte Geräte bei der Integration von Microsoft Intune unterstützt werden. Das sind insgesamt 1.025.000 Geräte. Wenn mithilfe der lokalen Verwaltung mobiler Geräte verwaltete Geräte unterstützt werden, können in der Hierarchie insgesamt 825.000 Geräte unterstützt werden.  
 
 > [!IMPORTANT]  
->  Une hiérarchie où le site d’administration centrale utilise une édition Standard de SQL Server prend en charge un maximum de 50 000 ordinateurs de bureau et appareils. L’édition de SQL Server utilisée sur un site principal autonome ne limite pas la capacité du site consistant à prendre en charge au maximum le nombre indiqué de clients.  
+>  In einer Hierarchie, in der für den Standort der zentralen Verwaltung eine Standardedition von SQL Server verwendet wird, werden in der Hierarchie bis zu 50.000 Desktops und Geräte unterstützt. Die an einem eigenständigen primären Standort eingesetzte Edition von SQL Server beschränkt nicht die Kapazität dieses Standorts zur Unterstützung der angegebenen maximalen Anzahl von Clients.  
 
 
-###  <a name="bkmk_chipri"></a> Site principal enfant  
-Chaque site principal enfant dans une hiérarchie avec un site d’administration centrale prend en charge les éléments suivants :  
+###  <a name="bkmk_chipri"></a> Untergeordneter primärer Standort  
+Jeder untergeordnete primäre Standort in einer Hierarchie mit einem zentralen Verwaltungsstandort unterstützt Folgendes:  
 
--   Un total de 150 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie. Consultez également la prise en charge des [appareils embarqués](#embedded).
+-   Insgesamt 150.000 Clients und Geräte, nicht beschränkt auf bestimmte Gruppen oder Typen, solange die unterstützte Gesamtanzahl in der Hierarchie nicht überschritten wird. Weitere Informationen finden Sie auch in der Unterstützung für [Embedded-Geräte](#embedded).
 
-Par exemple, un site principal qui prend en charge 25 000 ordinateurs exécutant des clients Mac et Windows CE 7.0 (la limite d’une hiérarchie) peut prendre en charge 125 000 ordinateurs de bureau supplémentaires. Le nombre total d’appareils pris en charge atteint alors la limite maximale de 150 000 prise en charge par le site principal enfant.
+An einem primären Standort, an dem 25.000 Computer unterstützt werden, auf denen Macintosh und Windows CE 7.0 ausgeführt wird (da dies der Grenzwert für eine Hierarchie ist), können weitere 125.000 Desktopcomputer unterstützt werden. Somit erhöht sich die Anzahl der insgesamt unterstützten Geräten auf die für einen untergeordneten primären Standort geltende maximale Anzahl von 150.000 Geräten.
 
-###  <a name="bkmk_pri"></a> Site principal autonome  
-Un site principal autonome prend en charge le nombre suivant d’appareils :  
+###  <a name="bkmk_pri"></a> Eigenständiger primärer Standort  
+Ein eigenständiger primärer Standort unterstützt die folgende Anzahl von Geräten:  
 
--   Total de 175 000 clients et appareils, sans dépasser :  
+-   175.000 Clients und Geräte insgesamt, nicht überschreiten:  
 
-    -   150 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
+    -   150.000 Desktops (Computer, auf denen Windows, Linux und UNIX ausgeführt wird). Weitere Informationen finden Sie auch in der Unterstützung für [Embedded-Geräte](#embedded).
 
-    -   25 000 appareils exécutant Mac et Windows CE 7.0
+    -   25.000 Macintosh- und Windows CE 7.0-Geräte
 
-    -   L’un des nombres d’éléments suivants, selon la manière dont votre déploiement prend en charge la gestion des appareils mobiles :  
+    -   Einen der folgenden Einträge, je nachdem, wie die Bereitstellung die Verwaltung mobiler Geräte unterstützt:  
 
-        -   50 000 appareils que vous gérez à l’aide de la gestion MDM locale  
+        -   50.000 Geräte, die mithilfe der lokalen Verwaltung mobiler Geräte verwaltet werden  
 
-        -   150 000 appareils cloud  
+        -   150.000 cloudbasierte Geräte  
 
 
-Par exemple, un site principal autonome prenant en charge 150 000 ordinateurs de bureau et 10 000 clients Mac ou Windows CE 7.0 ne peut prendre en charge que 15 000 appareils supplémentaires. Ces appareils peuvent être basés sur le cloud ou gérés à l’aide de la gestion MDM locale.  
+Beispielsweise können an einem eigenständigen primären Standort, an dem 150.000 Desktops und 10.000 Macintosh- oder Windows CE 7.0-Geräte unterstützt werden, nur zusätzliche 15.000 Geräte unterstützt werden. Diese Geräte können cloudbasiert oder mit der lokalen Verwaltung mobiler Geräte verwaltet werden.  
 
-### <a name="embedded"></a>Sites principaux et appareils Windows Embedded
-Les sites principaux prennent en charge les appareils embarqués Windows Embedded où les filtres d'écriture basés sur des fichiers (FBWF) sont activés. Quand les appareils embarqués n’ont pas les filtres d'écriture activés, un site principal peut prendre en charge un nombre d'appareils embarqués pouvant atteindre le nombre d’appareils autorisés pour ce site. Sur le nombre total d’appareils qu'un site principal prend en charge, un maximum de 10 000 peuvent être des appareils Windows Embedded si ces appareils sont configurés pour les exceptions répertoriées dans la section Important que vous trouverez dans [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Un site principal prend en charge seulement 3 000 appareils Windows Embedded où EWF est activé et qui ne sont pas configurés pour les exceptions.
+### <a name="embedded"></a> Primäre Standorte und Windows Embedded-Geräte
+Primäre Standorte unterstützen Windows Embedded-Geräte, für die dateibasierte Schreibfilter (File Based Write Filter, FBWF) aktiviert sind. Wenn für eingebettete Geräte keine Schreibfilter aktiviert sind, kann ein primärer Standort eingebettete Geräte bis zur zulässigen Anzahl von Geräten für diesen Standort unterstützen. Von der Gesamtanzahl der Geräte, die ein primärer Standort unterstützt, können maximal 10.000 Geräte Windows Embedded-Geräte sein, wenn diese Geräte für die unter dem wichtigen Hinweis aufgeführten Ausnahmen konfiguriert sind, die unter [Planen der Clientbereitstellung für Windows Embedded-Geräte](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices) gefunden wurden. Ein primärer Standort unterstützt nur 3.000 Windows Embedded-Geräte, für die EWF aktiviert ist. Für diese Geräte dürfen keine Ausnahmen konfiguriert werden.
 
-###  <a name="bkmk_sec"></a> Sites secondaires  
-Les sites secondaires prennent en charge les éléments suivants :  
+###  <a name="bkmk_sec"></a> Sekundäre Standorte  
+Sekundäre Standorte unterstützen Folgendes:  
 
--   15 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
+-   15.000 Desktops (Computer, auf denen Windows, Linux und UNIX ausgeführt wird)  
 
-###  <a name="bkmk_mp"></a> Points de gestion  
-Chaque point de gestion peut prendre en charge le nombre suivant d’appareils :  
+###  <a name="bkmk_mp"></a> Verwaltungspunkte  
+Von jedem Verwaltungspunkt kann die folgende Anzahl von Geräten unterstützt werden:  
 
--   Total de 25 000 clients et appareils, sans dépasser :  
+-   25.000 Clients und Geräte insgesamt, nicht überschreiten:  
 
-    -   25 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
+    -   25.000 Desktops (Computer, auf denen Windows, Linux und UNIX ausgeführt wird)  
 
-    -   L’un des nombres d’éléments suivants (pas les deux) :  
+    -   Eine der folgenden Alternativen (nicht beide):  
 
-        -   10 000 appareils que vous gérez à l’aide de la gestion MDM locale  
+        -   10.000 Geräte, die mithilfe der lokalen Verwaltung mobiler Geräte verwaltet werden  
 
-        -   10 000 appareils exécutant des clients Mac et Windows CE 7.0
-
+        -   10.000 Macintosh- und Windows CE 7.0-Clients

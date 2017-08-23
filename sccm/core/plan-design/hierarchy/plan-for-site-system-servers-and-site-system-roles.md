@@ -1,157 +1,153 @@
 ---
-title: "Planifier des rôles de système de site | Documents Microsoft"
-description: "Envisagez l’utilisation de serveurs de système de site et de rôles de système de site au moment de planifier votre hiérarchie System Center Configuration Manager."
+title: Planen von Standortsystemrollen | Microsoft Docs
+description: Betrachten Sie die Standortsystemserver und Standortsystemrollen bei der Planung Ihrer System Center Configuration Manager-Hierarchie.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 0a7415ba-2c53-4433-983e-780e92aa662f
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
 ms.openlocfilehash: 0a3704a2d3b75ed7e0a7f718b681448ab6fc078d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager
+# <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Planen für Standortsystemserver und Standortsystemrollen für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Chaque site System Center Configuration Manager que vous installez comprend un serveur de site qui est un **serveur de système de site**. Le site peut également inclure des serveurs de système de site supplémentaires sur des ordinateurs distants par rapport au serveur de site. Les serveurs de système de site (serveur de site ou serveur de système de site distant) prennent en charge les **rôles de système de site**.
-
-
-##  <a name="bkmk_siteservers"></a> Serveurs de système de site  
- Lorsque vous installez un rôle de système de site sur un ordinateur, celui-ci devient un serveur de système de site. Sur chaque site, vous pouvez installer un ou plusieurs serveurs de système de site supplémentaires. Vous pouvez également décider de ne pas installer de serveurs de système de site supplémentaires et exécuter tous les rôles de système de site directement sur l’ordinateur serveur de site. Chaque serveur de système de site prend en charge un ou plusieurs rôles de système de site. Les serveurs supplémentaires permettent d’augmenter les fonctionnalités et capacités d’un site en partageant la charge de traitement du processeur que les rôles de système de site font peser sur un serveur.  
-
- Lorsque vous envisagez l’ajout d’un serveur de système de site, assurez-vous que le serveur répond aux conditions requises pour l’utilisation prévue. Il est également judicieux de l’ajouter à un emplacement réseau bénéficiant d’une bande passante suffisante pour communiquer avec les points de terminaison attendus, y compris le serveur de site, les ressources de domaine, un emplacement cloud, les serveurs de système de site et les clients).  
-
- Si vous configurez le serveur de système de site avec un proxy pour une utilisation par des rôles de système de site, consultez [Rôles système de site pouvant utiliser un serveur proxy](#bkmk_proxy).  
-
-##  <a name="bkmk_planroles"></a> Rôles système de site  
- Des rôles système de site sont installés sur un ordinateur pour fournir au site des fonctionnalités supplémentaires. En voici quelques exemples :  
-
--   Points de gestion supplémentaires permettant au site de prendre en charge davantage d’appareils, jusqu’à sa capacité maximale.  
-
--   Points de distribution supplémentaires pour développer votre infrastructure de contenu, ce qui améliore les performances des distributions de contenu aux appareils et utilisateurs.  
-
--   Un ou plusieurs rôles de système de site propres aux fonctions. Par exemple, un point de mise à jour logicielle vous permet de gérer les mises à jour logicielles des appareils pris en charge. Un point de Reporting Services vous permet de générer des rapports pour analyser et comprendre votre déploiement, ou partager des informations sur ce dernier.  
+Jeder System Center Configuration Manager-Standort, den Sie installieren, umfasst einen Standortserver, bei dem es sich um einen **Standortsystemserver** handelt. Der Standort kann auch weitere Standortsystemserver auf Computern umfassen, die sich geografisch getrennt vom Standortserver befinden. Die Standortsystemserver (der Standortserver oder ein Remotestandortsystemserver) unterstützen **Standortsystemrollen**.
 
 
-Différents sites Configuration Manager peuvent prendre en charge différents ensembles de rôles de système de site. L’ensemble pris en charge de rôles de système de site dépend du type de site (site d’administration centrale, site principal ou site secondaire). La topologie de votre hiérarchie peut limiter le placement de certains rôles sur certains types de sites. Par exemple, le point de connexion de service est pris en charge uniquement sur le site de niveau supérieur de la hiérarchie, qui peut être un site d’administration centrale ou un site principal autonome. Ce rôle n’est pas pris en charge sur un site principal enfant ou sur des sites secondaires.  
+##  <a name="bkmk_siteservers"></a> Standortsystemserver  
+ Wenn Sie eine Standortsystemrolle auf einem Computer installieren, wird dieser Computer zu einem Standortsystemserver. Sie können an jedem Standortsystem mehrere zusätzliche Standortsystemserver installieren. Sie haben auch die Möglichkeit, keine weiteren Standortsystemserver zu installieren und alle Standortsystemrollen direkt auf dem Standortservercomputer auszuführen. Jeder Standortsystemserver unterstützt eine oder mehrere Standortsystemrollen. Zusätzliche Server können die Erweiterung der Funktionalität und Kapazität eines Standorts durch Aufteilen der CPU-Verarbeitungslast unterstützen, die durch Standortsystemrollen auf einem Server entsteht.  
 
-Après l’installation d’un site, vous pouvez déplacer certains rôles de système de site depuis leur emplacement par défaut sur le serveur de site vers un autre serveur. Cela vaut notamment pour le point de gestion ou le point de distribution, qui sont installés par défaut sur un serveur de site principal ou secondaire. Vous pouvez également installer des instances supplémentaires de certains rôles de système de site pour étendre les capacités de votre site (fournir davantage de services aux clients) et répondre aux besoins de votre entreprise. Certains rôles sont obligatoires, tandis que d’autres sont facultatifs.  
+ Wenn Sie in Erwägung ziehen, einen Standortsystemserver hinzuzufügen, stellen Sie sicher, dass der Server die Voraussetzungen für die beabsichtigte Verwendung erfüllt. Es wird zudem empfohlen, ihn an einer Netzwerkadresse hinzuzufügen, die über genügend Bandbreite zur Kommunikation mit den erwarteten Endpunkten verfügt. Zu diesen Endpunkten gehören der Standortserver, Domänenressourcen, cloudbasierte Speicherorte, Standortsystemserver sowie Clients.  
 
--   **Serveur de site Configuration Manager**. Ce rôle identifie le serveur sur lequel le programme d’installation de Configuration Manager est exécuté pour installer un site, ou le serveur sur lequel vous installez un site secondaire. Ce rôle ne peut pas être déplacé ni désinstallé tant que le site n’a pas été désinstallé.  
+ Weitere Informationen zum Konfigurieren eines Standortsystemservers mit einem Proxy zur Verwendung durch die Standortsystemrollen finden Sie unter [Standortsystemrollen, die einen Proxyserver verwenden können](#bkmk_proxy).  
 
--   **Système de site Configuration Manager**. Ce rôle est attribué à tout ordinateur sur lequel vous installez un site ou un rôle de système de site. Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site n’a pas été supprimé de l’ordinateur.  
+##  <a name="bkmk_planroles"></a> Standortsystemrolle  
+ Standortsystemrollen werden auf einem Computer installiert, um zusätzliche Funktionen am Standort bereitzustellen. Beispiele:  
 
--   **Rôle de système de site de composant Configuration Manager**. Ce rôle identifie un système de site exécutant une instance du service SMS Executive. Il est obligatoire pour prendre en charge d’autres rôles, comme des points de gestion. Ce rôle ne peut pas être déplacé ni désinstallé tant que le dernier rôle de système de site applicable n’a pas été supprimé de l’ordinateur.  
+-   Zusätzliche Verwaltungspunkte, damit ein Standort mehr Geräte verwalten kann (bis die unterstützte Kapazität des Standorts erreicht ist).  
 
--   **Serveur de base de données de site Configuration Manager**. Ce rôle est attribué aux serveurs de système de site qui contiennent une instance de la base de données d’un site. Il ne peut être déplacé vers un nouveau serveur qu’en modifiant le site pour qu’il héberge la base de données du site sur un autre serveur SQL Server.  
+-   Zusätzliche Verteilungspunkte für die Erweiterung Ihrer Inhaltsinfrastruktur, wodurch die Leistung bei der Verteilung Inhalt auf Geräte und Benutzer verbessert wird.  
 
--   **Fournisseur SMS**. Ce rôle est attribué à chaque ordinateur qui héberge une instance du fournisseur SMS (l’interface entre une console Configuration Manager et la base de données du site). Par défaut, ce rôle est installé automatiquement sur le serveur d’un site d’administration centrale et les sites principaux. Vous pouvez installer des instances supplémentaires sur chaque site pour fournir un accès à d’autres utilisateurs administratifs.  
-
-     Pour installer des fournisseurs SMS supplémentaires, exécutez le programme d’installation de Configuration Manager afin de [gérer le fournisseur SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider). Ensuite, installez d’autres fournisseurs sur d’autres ordinateurs. Vous ne pouvez installer qu’une seule instance du fournisseur SMS sur un ordinateur, et celui-ci doit être dans le même domaine que le serveur de site.  
-
--   **Point de service web du catalogue des applications**. Un rôle de système de site qui fournit des informations logicielles au site Web du catalogue d'applications à partir de la bibliothèque de logiciels. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
-
--   **Point du site web du catalogue des applications**. Un rôle de système de site qui fournit aux utilisateurs une liste des logiciels disponibles à partir du catalogue d'applications. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
-
-     Si le catalogue d’applications prend en charge des ordinateurs clients sur Internet, il est plus sûr d’installer le point de site Web du catalogue des applications dans un réseau de périmètre et le point de service web du catalogue des applications sur l’intranet.  
-
--   **Point de synchronisation Asset Intelligence**. Ce rôle de système de site se connecte à Microsoft afin de télécharger des informations pour le catalogue Asset Intelligence. Il charge également les titres sans catégorie, en vue de leur éventuelle future intégration dans le catalogue. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit se trouver sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal, puis l’installer sur le site d’administration centrale.   Pour plus d’informations, consultez [Asset Intelligence dans System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
-
--   **Point d’enregistrement de certificat**. Ce rôle de système de site communique avec un serveur qui exécute le Service d’inscription de périphériques réseau. Il gère les demandes de certificat de périphérique qui utilisent le protocole SCEP (Simple Certificate Enrollment Protocol). Ce rôle est pris en charge uniquement sur des sites principaux et le site d’administration centrale.
-
-     Bien qu’un point d’enregistrement de certificat puisse fournir une fonctionnalité à une hiérarchie entière, vous pouvez installer plusieurs instances de ce rôle sur un site et sur plusieurs sites dans la même hiérarchie. Cela facilite l’équilibrage de charge. Quand plusieurs instances existent dans une hiérarchie, des clients sont affectés de façon aléatoire à l’un des points d’enregistrement de certificat.  
-
-     Chaque point d'enregistrement de certificat requiert l'accès à une instance distincte d'un service d'inscription d'appareils réseau. Vous ne pouvez pas configurer plusieurs points d'enregistrement de certificat pour utiliser le même service d'inscription d'appareils réseau. En outre, le point d’enregistrement de certificat ne doit pas être installé sur le serveur exécutant le service d’inscription de périphérique réseau.  
-
-- **Point de connecteur de passerelle de gestion cloud**. Ce rôle de système de site communique avec la [passerelle de gestion cloud](/sccm/core/clients/manage/setup-cloud-management-gateway).
-
--   **Point de distribution**. Un rôle de système de site qui contient des fichiers sources que les clients peuvent télécharger, notamment le contenu de l'application, les packages logiciels, les mises à jour logicielles, les images du système d'exploitation et les images de démarrage. Par défaut, ce rôle est installé sur l’ordinateur du serveur de site de nouveaux sites principaux et secondaires lors de l’installation du site. Ce rôle n’est pas pris en charge sur un site d’administration centrale. Vous pouvez installer plusieurs instances de ce rôle sur un site pris en charge et sur plusieurs sites dans la même hiérarchie. Pour plus d’informations, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) et [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   **Point d’état de secours**. Ce rôle de système de site vous aide à surveiller l’installation des clients et à identifier ceux qui ne sont pas pris en charge, car ils ne peuvent pas communiquer avec leur point de gestion. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site et sur plusieurs sites dans la même hiérarchie.     
+-   Eine oder mehrere featurespezifische Standortsystemrollen. Beispielsweise ein Softwareupdatepunkt, den Sie zur Verwaltung von Softwareupdates für verwaltete Geräte verwenden, oder ein Reporting Services-Punkt, mit dem Sie Berichte zur Überwachung ausführen und Informationen über Ihre Bereitstellung sammeln oder freigeben können.  
 
 
--   **Point Endpoint Protection.** Configuration Manager utilise ce rôle de système de site pour accepter le contrat de licence Endpoint Protection et configurer l’appartenance par défaut à Microsoft Active Protection Service. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit se trouver sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal, puis l’installer sur le site d’administration centrale. Pour plus d’informations, consultez [Endpoint Protection](../../../protect/deploy-use/endpoint-protection.md).  
+Verschiedene Configuration Manager-Standorte können unterschiedliche Sätze von Standortsystemrollen unterstützen. Welche Standortsystemrollen unterstützt werden, richtet sich nach dem Typ des Standorts (Standort der zentralen Verwaltung, primärer Standort oder sekundärer Standort). Die Topologie Ihrer Hierarchie kann die Platzierung einiger Rollen bei bestimmten Standorttypen einschränken. Der Dienstverbindungspunkt wird z. B. nur am Standort auf der obersten Ebene der Hierarchie unterstützt – hierbei kann es sich um einen Standort der zentralen Verwaltung oder einen eigenständigen primären Standort handeln. Diese Rolle wird an einem untergeordneten primären Standort oder an sekundären Standorten nicht unterstützt.  
 
--   **Point d’inscription.** Ce rôle de système de site utilise des certificats PKI pour permettre à Configuration Manager d’inscrire des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
+Nach der Installation eines Standorts, können Sie die Adresse einiger Standortsystemrollen von ihrem Standardspeicherort auf dem Standortserver auf einen anderen Server verschieben. Dies trifft z. B. für den Verwaltungspunkt oder Verteilungspunkt zu, der standardmäßig auf einem primären oder sekundären Standortserver installiert wird. Sie können auch zusätzliche Instanzen einiger Standortsystemrollen installieren, um die Funktionalität Ihres Standorts zu erweitern (um mehr Dienste für Clients bereitzustellen) und Ihre geschäftlichen Anforderungen zu erfüllen. Einige Rollen sind erforderlich, andere dagegen optional.  
 
-     Si un utilisateur inscrit des appareils mobiles à l’aide de Configuration Manager et que son compte Active Directory se trouve dans une forêt non approuvée par la forêt du serveur de site, vous devez installer un point d’inscription dans la forêt de l’utilisateur. L’utilisateur peut alors être authentifié.  
+-   **Configuration Manager-Standortserver** Diese Rolle identifiziert den Server, auf dem das Configuration Manager-Setup ausgeführt wird, um einen Standort oder den Server zu installieren, auf dem Sie einen sekundären Standort installieren. Diese Rolle kann nur verschoben oder deinstalliert werden, wenn der gesamte Standort deinstalliert wird.  
 
--   **Point proxy d’inscription**. Rôle de système de site qui gère les demandes d'inscription Configuration Manager issues des appareils mobiles et des ordinateurs Mac. Bien que ce rôle soit pris en charge uniquement sur des sites principaux, vous pouvez en installer plusieurs instances sur un site ou sur plusieurs sites dans la même hiérarchie.  
+-   **Configuration Manager-Standortsystem** Diese Rolle wird jedem Computer zugewiesen, auf dem Sie einen Standort oder eine Standortsystemrolle installieren. Diese Rolle kann erst verschoben oder deinstalliert werden, wenn die letzte Standortsystemrolle von dem Computer entfernt wurde.  
 
-     Lors de la prise en charge d’appareils mobiles sur Internet, installez le point proxy d’inscription dans un réseau de périmètre et le point d’inscription sur l’intranet.  
+-   **Standortsystemrolle für Configuration Manager-Komponente** Diese Rolle identifiziert ein Standortsystem, in dem eine Instanz des SMS-Executive-Diensts ausgeführt wird, und ist zur Unterstützung anderer Rollen erforderlich, z. B. von Verwaltungspunkten. Diese Rolle kann erst verschoben oder deinstalliert werden, wenn die letzte anwendbare Standortsystemrolle von dem Computer entfernt wurde.  
 
--   **Connecteur Exchange Server**. Pour plus d’informations sur ce rôle, consultez [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+-   **Configuration Manager-Standortdatenbankserver** Diese Rolle wird Standortsystemservern zugeordnet, auf denen sich eine Instanz der Standortdatenbank eines Standorts befindet. Diese Rolle kann erst auf einen neuen Server verschoben werden, wenn der Standort für die Verwendung einer anderen SQL Server-Instanz zum Hosten der Standortdatenbank modifiziert wurde.  
 
--   **Point de gestion**. Ce rôle de système de site fournit aux clients des informations sur l’emplacement du service et de la stratégie, et reçoit les données de configuration de la part des clients.  
+-   **SMS-Anbieter** Die SMS-Anbieterrolle wird jedem Computer zugewiesen, der eine Instanz des SMS-Anbieters hostet, der die Schnittstelle zwischen einer Configuration Manager-Konsole und der Standortdatenbank darstellt. Standardmäßig wird diese Rolle automatisch auf dem Standortserver eines zentralen Verwaltungsstandorts und von primären Standorten installiert. Sie können zusätzliche Instanzen an jedem Standort installieren, um weiteren Administratoren Zugriff zu bieten.  
 
-    Par défaut, ce rôle est installé sur l’ordinateur du serveur de site de nouveaux sites principaux et secondaires lors de l’installation du site. Les sites principaux prennent en charge plusieurs instances de ce rôle. Les sites secondaires prennent en charge un seul point de gestion comme point de contact local permettant aux clients d’obtenir des stratégies d’ordinateur et d’utilisateur. (Sur un site secondaire, un point de gestion est appelé point de gestion proxy.)  
+     Sie müssen das Configuration Manager-Setup zum [Verwalten der SMS-Anbieter](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider) ausführen, um zusätzliche Anbieter zu installieren. Dann installieren Sie zusätzliche Anbieter auf weiteren Computern. Sie können nur eine Instanz des SMS-Anbieters auf einem Computer installieren, und dieser Computer muss sich in derselben Domäne wie der Standortserver befinden.  
 
-     Vous pouvez configurer des points de gestion pour prendre en charge le protocole HTTP ou HTTPS, ainsi que les appareils mobiles que vous gérez via la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager. Vous pouvez utiliser des [réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) pour réduire la charge processeur placée sur le serveur de base de données du site par les points de gestion à mesure qu’ils traitent les demandes des clients.  
+-   **Anwendungskatalog-Webdienstpunkt** Über diese Standortsystemrolle werden der Anwendungskatalog-Website Softwareinformationen aus der Softwarebibliothek bereitgestellt. Diese Rolle wird zwar nur an primären Standorten unterstützt, Sie können jedoch mehrere Instanzen dieser Rolle an einem Standort oder an mehreren Standorten in der gleichen Hierarchie installieren.  
 
--   **Point de Reporting Services**. Rôle de système de site qui est intégré à SQL Server Reporting Services pour créer et gérer des rapports pour Configuration Manager. Ce rôle est pris en charge sur les sites principaux et le site d’administration centrale, et vous pouvez en installer plusieurs instances sur un site pris en charge. Pour plus d’informations, consultez [Planification de la création de rapports dans System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
+-   **Anwendungskatalog-Websitepunkt** Über diese Standortsystemrolle wird Benutzern eine Liste der verfügbaren Software aus dem Anwendungskatalog bereitgestellt. Diese Rolle wird zwar nur an primären Standorten unterstützt, Sie können jedoch mehrere Instanzen dieser Rolle an einem Standort oder an mehreren Standorten in der gleichen Hierarchie installieren.  
 
--   **Point de connexion de service**. Ce rôle de système de site permet de gérer les appareils mobiles avec Microsoft Intune et d’assurer la gestion MDM locale. Il charge aussi les données d’utilisation à partir de votre site et est nécessaire pour mettre les mises à jour de Configuration Manager disponibles dans la console Configuration Manager. Une hiérarchie ne prend en charge qu’une seule instance de ce rôle, qui doit se trouver sur le site de niveau supérieur de votre hiérarchie (site d’administration centrale ou site principal autonome). Si vous étendez un site principal autonome à une hiérarchie plus importante, vous devez désinstaller ce rôle du site principal, puis l’installer sur le site d’administration centrale. Pour plus d’informations, voir [À propos du point de connexion de service dans System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+     Wenn vom Anwendungskatalog Clientcomputer im Internet unterstützt werden, installieren Sie den Anwendungskatalog-Websitepunkt aus Sicherheitsgründen in einem Umkreisnetzwerk und den Anwendungskatalog-Webdienstpunkt im Intranet.  
 
--   **Point de mise à jour logicielle**. Un rôle de système de site qui est intégré à Windows Server Update Services (WSUS) pour fournir des mises à jour logicielles aux clients Configuration Manager. Ce rôle est pris en charge sur tous les sites :  
+-   **Asset Intelligence-Synchronisierungspunkt** Eine Standortsystemrolle, die eine Verbindung mit Microsoft herstellt, um Informationen für den Asset Intelligence-Katalog herunterzuladen. Diese Rolle lädt außerdem nicht kategorisierte Titel hoch, damit diese für die zukünftige Aufnahme in den Katalog berücksichtigt werden können. Eine Hierarchie unterstützt nur eine einzige Instanz dieser Rolle und diese muss sich am Standort der obersten Ebene Ihrer Hierarchie befinden (einem Standort der zentralen Verwaltung oder dem eigenständigen primären Standort). Wenn Sie einen eigenständigen primären Standort in eine größere Hierarchie erweitern, müssen Sie diese Rolle am primären Standort deinstallieren und können sie dann am Standort der zentralen Verwaltung installieren.   Weitere Informationen finden Sie unter [Asset Intelligence in System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
-    -   Installez ce système de site sur le site d’administration centrale pour une synchronisation avec WSUS.  
+-   **Zertifikatregistrierungspunkt** Eine Standortsystemrolle, die mit einem Server kommuniziert, der den Registrierungsdienst für Netzwerkgeräte ausführt. Diese Rolle verwaltet Gerätezertifikatanforderungen, die das SCEP (Simple Certificate Enrollment Protocol) verwenden. Diese Rolle wird nur an primären Standorten und am Standort der zentralen Verwaltung unterstützt.
 
-    -   Configurez chaque instance de ce rôle sur les sites principaux enfants à synchroniser avec le site d’administration centrale.  
+     Zwar kann ein einzelner Zertifikatregistrierungspunkt die erforderliche Funktionalität für die gesamte Hierarchie bereitstellen, aber möglicherweise möchten Sie mehrere Instanzen dieser Rolle an einem Standort sowie an mehreren Standorten in der gleichen Hierarchie installieren. Dies kann beim Lastenausgleich helfen. Wenn in einer Hierarchie mehrere Instanzen vorhanden sind, werden Clients nach dem Zufallsprinzip einem der Zertifikatregistrierungspunkte zugewiesen.  
 
-    -   Envisagez d’installer un point de mise à jour logicielle sur des sites secondaires quand le transfert de données sur le réseau est lent.  
+     Jeder Zertifikatregistrierungspunkt benötigt Zugriff auf eine separate Instanz eines Registrierungsdiensts für Netzwerkgeräte. Sie können die Verwendung desselben Registrierungsdiensts für Netzwerkgeräte nicht für zwei oder mehr Zertifikatregistrierungspunkte konfigurieren. Der Zertifikatregistrierungspunkt darf außerdem nicht auf dem Server installiert sein, auf dem der Registrierungsdienst für Netzwerkgeräte ausgeführt wird.  
 
-    Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+- **Connectorpunkt für Cloudverwaltungsgateway** Eine neue Standortsystemrolle für die Kommunikation mit dem [Cloudverwaltungsgateway](/sccm/core/clients/manage/setup-cloud-management-gateway).
 
--   **Point de migration d’état**. Un rôle de système de site qui stocke les données d'état utilisateur lorsqu'un ordinateur est migré vers un nouveau système d'exploitation. Ce rôle est pris en charge sur les sites principaux et les sites secondaires. Vous pouvez installer plusieurs instances de ce rôle sur un site et sur plusieurs sites dans la même hiérarchie. Pour plus d’informations sur le stockage de l’état utilisateur quand vous déployez un système d’exploitation, consultez [Gérer l’état utilisateur dans System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+-   **Verteilungspunkt** Dies ist eine Standortsystemrolle mit Quelldateien, die von Clients heruntergeladen werden können, darunter Anwendungsinhalt, Softwarepakete, Softwareupdates, Betriebssystemabbilder und Startabbilder. Diese Rolle wird bei der Installation neuer primärer und sekundärer Standorte standardmäßig auf dem Standortservercomputer dieser Standorte installiert. Diese Rolle wird am zentralen Verwaltungsstandort nicht unterstützt. Sie können mehrere Instanzen dieser Rolle an einem unterstützten Standort oder an mehreren Standorten in der gleichen Hierarchie installieren. Weitere Informationen finden Sie unter [Fundamental concepts for content management in System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) (Grundlegende Konzepte von Content Management in System Center Configuration Manager) und [Verwalten von Inhalt und Inhaltsinfrastruktur für System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   **Point du programme de validation d’intégrité système**. Ce rôle de système de site est toujours visible dans la console Configuration Manager, mais il n’est plus utilisé.  
-
-###  <a name="bkmk_proxy"></a> Rôles système de site pouvant utiliser un serveur proxy  
- Certains rôles de système de site Configuration Manager requièrent des connexions à Internet et utilisent un serveur proxy quand le serveur de système de site hébergeant le rôle est configuré pour cela. En règle générale, cette connexion est établie dans le **système** de l’ordinateur sur lequel le rôle de système de site est installé. La connexion ne peut pas utiliser une configuration proxy pour les comptes d’utilisateurs standard. Quand un serveur proxy est requis pour établir une connexion à Internet, vous devez configurer l’ordinateur pour qu’il utilise un serveur proxy :  
-
--   Vous pouvez configurer un serveur proxy lors de l’installation d’un rôle de système de site.  
-
--   Vous pouvez ajouter ou modifier une configuration de serveur proxy quand vous utilisez la console Configuration Manager.  
-
--   Tous les rôles de système de site sur un serveur de système de site qui peuvent utiliser une configuration de serveur proxy adoptent la même configuration. S'il est nécessaire que différents rôles de système de site utilisent différents serveurs proxy, vous devez installer les rôles de système de site sur différents ordinateurs de serveur de système de site.  
-
--   Si vous modifiez la configuration du serveur proxy, ou installez un nouveau rôle système de site sur un ordinateur ayant déjà une configuration du serveur proxy, la configuration d’origine est remplacée par la nouvelle.  
+-   **Fallbackstatuspunkt** Über diese Standortsystemrolle können Sie die Clientinstallation überwachen und Clients ermitteln, die nicht verwaltet werden, weil die Kommunikation mit dem zugehörigen Verwaltungspunkt nicht möglich ist. Diese Rolle wird zwar nur an primären Standorten unterstützt, Sie können jedoch mehrere Instanzen dieser Rolle an einem Standort und an mehreren Standorten in der gleichen Hierarchie installieren.     
 
 
-Pour connaître les procédures de configuration du serveur proxy pour des rôles de système de site, consultez la rubrique [Ajouter des rôles de système de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/add-site-system-roles.md).  
+-   **Endpoint Protection-Punkt** Mithilfe dieser Standortsystemrolle werden die Endpunkt Protection-Lizenzbedingungen in Configuration Manager akzeptiert und die Standardmitgliedschaft für Cloud Protection Service konfiguriert. Eine Hierarchie unterstützt nur eine einzige Instanz dieser Rolle und diese muss sich am Standort der obersten Ebene Ihrer Hierarchie befinden (einem Standort der zentralen Verwaltung oder dem eigenständigen primären Standort). Wenn Sie einen eigenständigen primären Standort in eine größere Hierarchie erweitern, müssen Sie diese Rolle am primären Standort deinstallieren und können sie dann am Standort der zentralen Verwaltung installieren. Weitere Informationen finden Sie unter [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
-Les rôles système de site pouvant utiliser un serveur proxy sont les suivants :  
+-   **Registrierungspunkt** Diese Standortsystemrolle verwendet die PKI-Zertifikate für Configuration Manager, um mobile Geräte und Macintosh-Computer zu registrieren. Diese Rolle wird zwar nur an primären Standorten unterstützt, Sie können jedoch mehrere Instanzen dieser Rolle an einem Standort oder an mehreren Standorten in der gleichen Hierarchie installieren.  
 
--   **Point de synchronisation Asset Intelligence**. Ce rôle de système de site se connecte à Microsoft et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le point de synchronisation Asset Intelligence.  
+     Wenn ein Benutzer mobile Geräte bei Configuration Manager registriert und sein Active Directory-Konto sich in einer Gesamtstruktur befindet, die von der Gesamtstruktur des Standortservers als nicht vertrauenswürdig eingestuft wird, müssen Sie in der Gesamtstruktur des Benutzers einen Registrierungspunkt installieren. Der Benutzer kann dann authentifiziert werden.  
 
--   **Point de distribution cloud**. Lorsque vous utilisez un point de distribution cloud, le site principal qui gère ce point doit pouvoir se connecter à Microsoft Azure pour configurer, surveiller et distribuer un contenu au point de distribution. Si un serveur proxy est requis pour cette connexion, vous devez configurer le serveur proxy sur le serveur de site principal. Vous ne pouvez pas configurer un serveur proxy sur le point de distribution cloud dans Azure. Pour plus d’informations, consultez la section [Configurer les paramètres de proxy pour des sites principaux gérant des services cloud](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md#BKMK_ConfigProxyforCloud) dans la rubrique [Installer des points de distribution cloud dans Microsoft Azure pour System Center Configuration Manager](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).  
+-   **Registrierungsproxypunkt** Eine Standortsystemrolle, mit der Configuration Manager-Anmeldungsanforderungen von mobilen Geräten und Macintosh-Computern verwaltet werden. Diese Rolle wird zwar nur an primären Standorten unterstützt, Sie können jedoch mehrere Instanzen dieser Rolle an einem Standort oder an mehreren Standorten in der gleichen Hierarchie installieren.  
 
--   **Connecteur Exchange Server**. Ce rôle de système de site se connecte à un serveur Exchange Server et utilise une configuration de serveur proxy sur l’ordinateur qui héberge le connecteur Exchange Server.  
+     Wenn Sie mobile Geräte im Internet unterstützen, installieren Sie den Anmeldungsproxypunkt aus Sicherheitsgründen in einem Umkreisnetzwerk und den Anmeldungspunkt im Intranet.  
 
--   **Point de mise à jour logicielle**. Ce rôle de système de site peut nécessiter des connexions à Microsoft Update pour télécharger des correctifs et synchroniser les informations sur les mises à jour. En règle générale, lorsque vous configurez le serveur proxy, chaque rôle de système de site sur l’ordinateur qui prend en charge l’utilisation du serveur proxy utilise le serveur proxy. Aucune configuration manuelle n'est requise. Le point de mise à jour logicielle est une exception à cette règle. Par défaut, un point de mise à jour logicielle n’utilise pas de serveur proxy disponible, sauf si vous activez également les options suivantes lors de la configuration du point de mise à jour logicielle :  
+-   **Exchange Server-Connector** Informationen zu dieser Lösung finden Sie unter [Verwalten mobiler Geräte mit System Center Configuration Manager und Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-    -   **Utiliser un serveur proxy lors de la synchronisation des mises à jour logicielles**  
+-   **Verwaltungspunkt** Über diese Standortsystemrolle werden Informationen zu Richtlinien und Dienstorten für Clients bereitgestellt, und bei ihr gehen Konfigurationsdaten von Clients ein.  
 
-    -   **Utiliser un serveur proxy lors du téléchargement du contenu avec des règles de déploiement automatiques**  
+    Diese Rolle wird bei der Installation neuer primärer und sekundärer Standorte standardmäßig auf dem Standortservercomputer dieser Standorte installiert. Primäre Standorte unterstützen mehrere Instanzen dieser Rolle. Sekundäre Standorte unterstützen einen einzelnen Verwaltungspunkt, um einen lokalen Kontaktpunkt bereitzustellen, von dem Clients Computer- und Benutzerrichtlinien abrufen können (ein Verwaltungspunkt an einem sekundären Standort wird als Proxyverwaltungspunkt bezeichnet).  
+
+     Verwaltungspunkte können zur Unterstützung von HTTP oder HTTPs sowie zur Unterstützung mobiler Geräte eingerichtet werden, die Sie mit der Verwaltung mobiler Geräte von System Center Configuration Manager verwalten. Sie können [Datenbankreplikate für Verwaltungspunkte für System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) verwenden, um die CPU-Last des Standortdatenbankservers mithilfe von Verwaltungspunkten zu verringern, da Verwaltungspunkte Anforderungen von Clients erfüllen.  
+
+-   **Reporting Services-Punkt** Diese in SQL Server Reporting Services integrierte Standortsystemrolle wird zum Erstellen und Verwalten von Berichten für Configuration Manager verwendet. Diese Rolle wird an primären Standorten und dem Standort der zentralen Verwaltung unterstützt, und Sie können mehrere Instanzen dieser Rolle an einem unterstützten Standort installieren. Weitere Informationen finden Sie unter [Planen der Berichterstellung in System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
+
+-   **Dienstverbindungspunkt** Über diese Standortsystemrolle werden mobile Geräte mit Microsoft Intune und lokalem MDM verwaltet. Diese Rolle lädt auch Nutzungsdaten von Ihrem Standort hoch und ist erforderlich, um Updates für Configuration Manager durchzuführen, die in der Configuration Manager verfügbar sind. Eine Hierarchie unterstützt nur eine einzige Instanz dieser Rolle und diese muss sich am Standort der obersten Ebene Ihrer Hierarchie befinden (einem Standort der zentralen Verwaltung oder dem eigenständigen primären Standort). Wenn Sie einen eigenständigen primären Standort in eine größere Hierarchie erweitern, müssen Sie diese Rolle am primären Standort deinstallieren und können sie dann am Standort der zentralen Verwaltung installieren. Weitere Informationen finden Sie unter [Informationen zum Dienstverbindungspunkt in System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+
+-   **Softwareupdatepunkt** Diese Standortsystemrolle ist in Windows Server Update Services (WSUS) integriert, um Softwareupdates für Configuration Manager-Clients bereitzustellen. Diese Rolle wird an allen Standorten unterstützt:  
+
+    -   Installieren Sie dieses Standortsystem am Standort der zentralen Verwaltung, um eine Synchronisierung mit WSUS zu ermöglichen.  
+
+    -   Richten Sie jede Instanz dieser Rolle an den primären untergeordneten Standorten so ein, dass eine Synchronisierung mit dem Standort der zentralen Verwaltung erfolgt.  
+
+    -   Erwägen Sie, einen Softwareupdatepunkt an sekundären Standorten zu installieren, wenn die Datenübertragung über das Netzwerk langsam ist.  
+
+    Weitere Informationen finden Sie unter [Planen von Softwareupdates in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+
+-   **Zustandsmigrationspunkt** Über diese Standortsystemrolle werden Benutzerzustandsdaten gespeichert, wenn ein Computer zu einem neuen Betriebssystem migriert wird. Diese Rolle wird an untergeordneten primären Standorten oder an sekundären Standorten unterstützt. Sie können mehrere Instanzen dieser Rolle an einem Standort oder an mehreren Standorten in der gleichen Hierarchie installieren. Weitere Informationen zum Speichern des Benutzerzustands beim Bereitstellen eines Betriebssystems finden Sie unter [Verwalten des Benutzerzustands in System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+
+-   **Systemintegritätsprüfungspunkt** Obwohl diese Standortsystemrolle in der Configuration Manager-Konsole weiterhin angezeigt wird, wird sie nicht mehr verwendet.  
+
+###  <a name="bkmk_proxy"></a> Standortsystemrollen, die einen Proxyserver verwenden können  
+ Einige Configuration Manager-Standortsystemrollen erfordern eine Verbindung mit dem Internet und verwenden einen Proxyserver, wenn der Standortsystemserver, der die Rolle hostet, für einen Proxyserver konfiguriert ist. Normalerweise wird diese Verbindung im **Systemkontext** des Computers hergestellt, auf dem die Standortsystemrolle installiert ist. Für die Verbindung kann für die typischen Benutzerkonten keine Proxykonfiguration verwendet werden. Wenn für die Herstellung einer Internetverbindung ein Proxyserver erforderlich ist, müssen Sie den Computer für die Verwendung eines Proxyservers einrichten:  
+
+-   Sie können während der Installation einer Standortsystemrolle einen Proxyserver einrichten.  
+
+-   Sie können eine Proxyserverkonfiguration hinzufügen oder ändern, wenn Sie die Configuration Manager-Konsole verwenden.  
+
+-   Alle Standortsystemrollen auf einem Standortsystemserver, die eine Proxyserverkonfiguration verwenden können, verwenden die gleiche Proxyserverkonfiguration. Wenn Sie andere Standortsystemrollen mit anderen Proxyservern benötigen, dann müssen Sie die Standortsystemrollen auf anderen Computern des Standortsystemservers installieren.  
+
+-   Wenn Sie die Proxyserverkonfiguration ändern oder eine neue Standortsystemrolle auf einem Computer installieren, auf dem bereits eine Proxyserverkonfiguration vorhanden ist, wird die ursprüngliche Konfiguration durch die neue Konfiguration überschrieben.  
+
+
+Informationen zu Prozeduren zum Einrichten des Proxyservers für Standortsystemrollen finden Sie im Thema [Hinzufügen von Standortsystemrollen für System Center Configuration Manager](../../../core/servers/deploy/configure/add-site-system-roles.md).  
+
+Nachfolgend finden Sie die Standortsystemrollen, die einen Proxyserver verwenden können:  
+
+-   **Asset Intelligence-Synchronisierungspunkt** Für diese Standortsystemrolle wird eine Verbindung zu Microsoft hergestellt, und es wird eine Proxyserverkonfiguration auf dem Computer verwendet, auf dem der Asset Intelligence-Synchronisierungspunkt gehostet wird.  
+
+-   **Cloudbasierter Verteilungspunkt** Wenn Sie einen cloudbasierten Verteilungspunkt verwenden, muss für den primären Standort, auf dem der cloudbasierte Verteilungspunkt verwaltet wird, eine Verbindung zu Microsoft Azure hergestellt werden können, um am Verteilungspunkt Inhalte bereitstellen, überwachen und verteilen zu können. Wenn für diese Verbindung ein Proxyserver erforderlich ist, müssen Sie den Proxyserver auf dem primären Standortserver einrichten. Sie können keinen Proxyserver auf dem cloudbasierten Verteilungspunkt in Azure einrichten. Weitere Informationen finden Sie im Abschnitt [Konfigurieren von Proxyeinstellungen für primäre Standorte, die Clouddienste verwalten](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md#BKMK_ConfigProxyforCloud) des Themas [Installieren von cloudbasierten Verteilungspunkten in Microsoft Azure für System Center Configuration Manager](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).  
+
+-   **Exchange Server-Connector** Für diese Standortsystemrolle wird eine Verbindung zu einem Exchange Server hergestellt und es wird eine Proxyserverkonfiguration auf dem Computer verwendet, auf dem der Exchange Server-Connector gehostet wird.  
+
+-   **Softwareupdatepunkt** Für diese Standortsystemrolle sind möglicherweise Verbindungen zu Microsoft Update erforderlich, um Patches herunterzuladen und Informationen zu Updates zu synchronisieren. Wenn Sie den Proxyserver einrichten, wird der Proxyserver in der Regel von jeder Standortsystemrolle auf dem Computer verwendet, der die Verwendung des Proxyservers unterstützt. Es ist keine weitere Konfiguration erforderlich. Eine Ausnahme ist hier der Softwareupdatepunkt. Standardmäßig werden von einem Softwareupdatepunkt keine verfügbaren Proxyserver verwendet, es sei denn, Sie haben die folgenden Optionen beim Einrichten des Softwareupdatepunkts aktiviert:  
+
+    -   **Verwenden von Proxyserver beim Synchronisieren von Softwareupdates**  
+
+    -   **Verwenden von Proxyserver beim Herunterladen von Inhalt mit automatischen Bereitstellungsregeln**  
 
     > [!TIP]  
-    >  Pour pouvoir sélectionner l’une ou l’autre option, vous devez configurer un serveur proxy sur le serveur de système de site qui héberge le point de mise à jour logicielle. Le serveur proxy est utilisé uniquement pour les options spécifiques que vous sélectionnez.  
+    >  Ein Proxyserver muss auf dem Standortsystemserver eingerichtet werden, auf dem der Softwareupdatepunkt gehostet wird, bevor Sie eine Option auswählen können. Der Proxyserver wird nur für bestimmte Optionen verwendet, die Sie auswählen.  
 
- Pour plus d’informations sur les serveurs proxy associés aux points de mise à jour logicielle, consultez la section Paramètres du serveur proxy dans la rubrique [Installer et configurer un point de mise à jour logicielle](../../../sum/get-started/install-a-software-update-point.md).  
+ Weitere Informationen zu Proxyservern für Softwareupdatepunkte finden Sie im Abschnitt zu Proxyservereinstellungen im Thema [Softwareupdatepunkt installieren](../../../sum/get-started/install-a-software-update-point.md).  
 
--   **Point de connexion de service**. Lorsque ce rôle de système de site est configuré pour être en ligne (et non hors connexion), il se connecte à Microsoft Intune et au service cloud Microsoft.  
-
+-   **Dienstverbindungspunkt** Wenn diese Standortsystemrolle nicht für die Offline-, sondern für die Onlineverwendung eingerichtet ist, stellt sie eine Verbindung zu Microsoft Intune und dem Microsoft-Clouddienst her.  

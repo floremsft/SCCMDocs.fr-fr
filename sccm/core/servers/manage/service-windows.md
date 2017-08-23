@@ -1,47 +1,44 @@
 ---
-title: "Fenêtres de maintenance | Microsoft Docs"
-description: "Utilisez les fenêtres de maintenance pour contrôler l’installation des mises à jour par les sites System Center Configuration Manager."
+title: Dienstfenster | Microsoft-Dokumentation
+description: "Verwenden Sie Dienstfenster, um den Zeitpunkt von Updateinstallationen für System Center Configuration Manager-Standorte zu steuern."
 ms.custom: na
 ms.date: 1/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ca4886d4-7173-46be-8dcd-1657d5b0deb9
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 0d0735c170820259ac8bb6706aac7cc5569a1628
 ms.openlocfilehash: d06a2a955ff59fa84bb844033fe31874fc735087
-ms.lasthandoff: 01/12/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-#  <a name="service-windows-for-site-servers"></a>Fenêtres de maintenance pour les serveurs de site
+#  <a name="service-windows-for-site-servers"></a>Dienstfenster für Standortserver
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez configurer les fenêtres de maintenance sur les sites d’administration centrale et les sites principaux pour contrôler l’installation des mises à jour dans la console.  Vous pouvez configurer plusieurs fenêtres, avec la fenêtre autorisée pour l’installation des mises à jour déterminée par une combinaison de toutes les fenêtres de maintenance pour ce serveur de site.
+Sie können Dienstfenster an Standorten der zentralen Verwaltung und primären Standorten konfigurieren, um den Installationszeitpunkt von konsoleninternen Updates zu steuern.  Sie können mehrere Fenster konfigurieren. Dabei wird das für die Installation zugelassene Fenster von einer Kombination aller Dienstfenster für diesen Standortserver bestimmt.
 
-Quand aucune fenêtre de maintenance n’est configurée :
-- **Sur votre site de niveau supérieur** (site d’administration centrale ou site principal autonome) vous choisissez quand démarrer l’installation de la mise à jour.
-- **Sur un site principal enfant**, la mise à jour s’installe automatiquement après que le site d’administration centrale a installé la mise à jour.
-- **Sur un site secondaire**, les mises à jour ne démarrent jamais automatiquement. Vous devez démarrer manuellement l’installation de la mise à jour à partir de la console, après que le site principal parent a installé la mise à jour.
+Wenn kein Dienstfenster konfiguriert ist:
+- **Für den Standort der obersten Ebene** (ein Standort der zentralen Verwaltung oder ein eigenständiger primärer Standort) entscheiden Sie, wann die Updateinstallation gestartet werden soll.
+- **An untergeordneten primären Standorten** wird das Update automatisch installiert, sobald die Installation des Updates am Standort der zentralen Verwaltung abgeschlossen ist.
+- **An einem sekundären Standort** werden Updates nicht automatisch gestartet. Dort müssen Sie die Updateinstallation manuell aus der Konsole starten, nachdem das Update am übergeordneten primären Standort installiert wurde.
 
-Quand une fenêtre de maintenance est configurée :
-- **Sur votre site de niveau supérieur**, vous ne serez pas en mesure de démarrer l’installation d’une nouvelle mise à jour dans la console Configuration Manager. Même avec une fenêtre de maintenance configurée, le site télécharge automatiquement les mises à jour afin qu’elles soient prêtes à être installées.  
-- **Sur un site principal enfant**, les mises à jour installées sur un site d’administration centrale sont téléchargées sur le site principal, mais ne démarrent pas automatiquement. Vous ne pouvez pas démarrer manuellement l’installation d’une mise à jour pendant une période bloquée par l’utilisation d’une fenêtre de maintenance. Lorsque les fenêtres de maintenance ne bloquent plus l’installation de la mise à jour, celle-ci démarre automatiquement.
-- Les **sites secondaires** ne prennent pas en charge les fenêtres de maintenance et n’installent pas automatiquement les mises à jour. Une fois que le site parent principal d’un site secondaire installe une mise à jour, vous pouvez démarrer la mise à jour du site secondaire à partir de la console.
+Wenn ein Dienstfenster konfiguriert ist:
+- **An Ihrem Standort der obersten Ebene** können Sie die Installation von neuen Updates nicht von der Configuration Manager-Konsole aus starten. Selbst bei konfigurierten Dienstfenstern werden am Standort automatisch Updates heruntergeladen, damit sie bereit für die Installation sind.  
+- **An einem untergeordneten primären Standort** werden Updates, die am Standort der zentralen Verwaltung installiert wurden, zwar am primären Standort herunterladen, aber nicht automatisch gestartet. Sie können die Installation eines Updates nicht während eines Zeitraums manuell starten, der durch ein Dienstfenster blockiert ist. Wenn die Updateinstallation nicht mehr von einem Dienstfenster blockiert wird, wird die Installation des Updates automatisch gestartet.
+- **An sekundären Standorten** werden Dienstfenster und die automatische Installation von Updates nicht unterstützt. Nachdem am übergeordneten primären Standort eines sekundären Standorts ein Update installiert wurde, können Sie das Update des sekundären Standorts aus der Konsole starten.
 
-## <a name="to-configure-a-service-window"></a>Pour configurer une fenêtre de maintenance
+## <a name="to-configure-a-service-window"></a>Konfigurieren eines Dienstfensters
 
-1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le serveur de site sur lequel vous voulez configurer une fenêtre de maintenance.  
+1.  Öffnen Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte**, und wählen Sie anschließend den Standort aus, für den Sie ein Dienstfenster konfigurieren möchten.  
 
-2.  Ensuite, modifiez les **Propriétés** des serveurs de site et sélectionnez l’onglet **Fenêtre de service** , où vous pouvez ensuite définir une ou plusieurs fenêtres de service pour ce serveur de site.  
-
+2.  Als Nächstes bearbeiten Sie die **Eigenschaften** der Standortserver und wählen die Registerkarte **Dienstfenster** aus, auf der Sie mindestens ein Dienstfenster für den jeweiligen Standortserver festlegen können.  

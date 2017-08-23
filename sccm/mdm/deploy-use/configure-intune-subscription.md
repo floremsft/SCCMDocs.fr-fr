@@ -1,86 +1,83 @@
 ---
-title: "Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager | Microsoft Docs"
-description: "Configurez votre abonnement Microsoft Intune à l’aide de System Center Configuration Manager."
+title: Konfigurieren Ihres Intune-Abonnements unter Verwendung von System Center Configuration Manager | Microsoft-Dokumentation
+description: Konfigurieren Ihres Intune-Abonnements unter Verwendung von System Center Configuration Manager.
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99de8fe7-560e-401a-8ab2-6d87d091be17
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
 ms.openlocfilehash: 22d890c972d3166f9c7b583d8d3fa917c1897880
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager
+# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Konfigurieren Ihres Intune-Abonnements mit System Center Configuration Manager und Microsoft Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-L’abonnement Intune vous permet de gérer des appareils via Internet. Vous pouvez notamment spécifier le regroupement d’utilisateurs pouvant inscrire des appareils, et définir les informations présentées aux utilisateurs. Lorsque vous créez un abonnement à Microsoft Intune, vous pouvez également ajouter votre marque de société au portail d’entreprise Intune, avec le logo de l’entreprise et des modèles de couleurs personnalisés.
+Das Intune-Abonnement ermöglicht die Verwaltung von Geräten über das Internet. Dazu gehört auch, Benutzersammlungen anzugeben, die Geräte registrieren können, und Informationen zu definieren, die für Benutzer angezeigt werden. Während der Erstellung des Intune-Abonnements können Sie auch Unternehmensbranding zum Intune-Unternehmensportal mit Ihrem Firmenlogo und benutzerdefinierten Farbschemata hinzufügen.
 
-L’abonnement Intune effectue les opérations suivantes :
+Die Intune-Abonnement dient zu folgenden Zwecken:
 
--   Récupération du certificat dont a besoin le point de connexion de service pour se connecter au service Intune
--   Définition du regroupement d’utilisateurs permettant aux utilisateurs d’inscrire des appareils mobiles
--   Définition et configuration des plateformes mobiles que vous souhaitez prendre en charge
+-   Abrufen des Zertifikats, das vom Dienstverbindungspunkt zum Herstellen einer Verbindung mit dem Intune-Dienst benötigt wird
+-   Definieren der Benutzersammlung, die Benutzern das Anmelden ihrer mobilen Geräte ermöglicht
+-   Definieren und Konfigurieren der mobilen Plattformen, die Sie unterstützen möchten
 
 > [!IMPORTANT]
->  La création d’un abonnement pour Microsoft Intune dans Configuration Manager place le point de connexion de service de votre site en « mode en ligne ». Consultez [À propos du point de connexion de service dans System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
+>  Durch das Erstellen eines Abonnements für Microsoft Intune in Configuration Manager wechselt der Dienstverbindungspunkt Ihres Standorts in den „Onlinemodus“. Weitere Informationen finden Sie unter [Informationen zum Dienstverbindungspunkt in System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
 
-## <a name="to-create-the-microsoft-intune-subscription"></a>Pour créer l'abonnement Microsoft Intune
+## <a name="to-create-the-microsoft-intune-subscription"></a>So erstellen Sie das Microsoft Intune-Abonnement
 
-1.  Si vous n’avez pas encore de compte Microsoft Intune, créez-en un sur [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216).  Une fois que vous avez créé votre compte Intune, vous n’avez pas besoin d’y ajouter des utilisateurs ou d’effectuer des configurations de paramètres supplémentaires.
+1.  Registrieren Sie sich für ein Microsoft Intune-Konto bei [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216), falls dies noch nicht geschehen ist.  Nachdem Sie Ihr Intune-Konto erstellt haben, ist es nicht erforderlich, Benutzer dem Intune-Konto hinzuzufügen oder zusätzliche Einstellungen zu konfigurieren.
 
-2.  Dans la console Configuration Manager, cliquez sur **Administration**.
+2.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung**.
 
-3.  Dans l'espace de travail **Administration** , développez **Services cloud**, puis cliquez sur **Abonnements Microsoft Intune**. Sous l'onglet **Accueil** , cliquez sur **Ajouter un abonnement Microsoft Intune**.
+3.  Erweitern Sie im Arbeitsbereich **Verwaltung** den Bereich **Clouddienste**, und klicken Sie auf **Microsoft Intune-Abonnements**. Klicken Sie auf der Registerkarte **Startseite** auf **Microsoft Intune-Abonnement hinzufügen**.
 
-![Créer un abonnement Intune](../media/mdm-set-intune.png)
+![Erstellen eines Intune-Abonnements](../media/mdm-set-intune.png)
 
-4.  Dans la page **Introduction** de l'Assistant Créer un abonnement Microsoft Intune, lisez le texte et cliquez sur **Suivant**.
+4.  Lesen Sie im Assistenten zum Erstellen von Microsoft Intunes-Abonnements den Text auf der Seite **Einleitung** , und klicken Sie dann auf **Weiter**.
 
-5.  Dans la page **Abonnement** , cliquez sur **Se connecter** , puis connectez-vous en utilisant votre compte professionnel ou scolaire. Dans la boîte de dialogue **Définir l’autorité de gestion des appareils mobiles**, cochez la case permettant de gérer uniquement les appareils mobiles à l’aide de Configuration Manager via la console Configuration Manager. Pour poursuivre la procédure d'abonnement, vous devez sélectionner cette option.
+5.  Klicken Sie auf der Seite **Abonnement** auf **Anmelden** , und melden Sie sich mit Ihrem Geschäfts- oder Schulkonto an. Aktivieren Sie im Dialogfeld **Autorität für die Verwaltung mobiler Geräte festlegen** das Kontrollkästchen für die alleinige Verwaltung mobiler Geräte mit Configuration Manager über die Configuration Manager-Konsole. Sie müssen diese Option auswählen, um den Vorgang zum Erstellen Ihres Abonnements fortsetzen zu können.
 
     > [!IMPORTANT]
-    >  Lorsque vous sélectionnez Configuration Manager comme autorité de gestion, vous pouvez uniquement remplacer votre autorité de gestion par Microsoft Intune dans Configuration Manager version 1610 ou version ultérieure et Microsoft Intune version 1705 sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](/sccm/mdm/deploy-use/change-mdm-authority).
+    >  Nachdem Sie Configuration Manager als Autorität für die Verwaltung ausgewählt haben, können Sie die Autorität für die Verwaltung erst ab Configuration Manager, Version 1610 oder höher, und Microsoft Intune, Version 1705, auf Microsoft Intune umstellen, ohne den Microsoft Support um Hilfe zu bitten und ohne die Registrierung Ihrer vorhandenen verwalteten Geräten aufzuheben und sie anschließend erneut zu registrieren. Einzelheiten finden Sie unter [Umstellen der MDM-Autorität](/sccm/mdm/deploy-use/change-mdm-authority).
 
-6.  Pour prendre connaissance de la déclaration de confidentialité, cliquez sur les liens correspondants. Cliquez ensuite sur **Suivant**.
+6.  Klicken Sie auf die Datenschutzlinks, um die entsprechenden Informationen zu lesen, und klicken Sie dann auf **Weiter**.
 
-7.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.
+7.  Geben Sie auf der Seite **Allgemein** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.
 
-  -   **Regroupement**: spécifiez un regroupement d'utilisateurs contenant les utilisateurs qui sont appelés à inscrire leurs appareils mobiles.
+  -   **Sammlung**: Geben Sie eine Benutzersammlung an, in der die Benutzer enthalten sind, die ihre mobilen Geräte anmelden dürfen.
 
       > [!NOTE]
-      >  Si un utilisateur est supprimé d’un regroupement, l’appareil de l’utilisateur continue d’être géré pendant 24 heures au maximum, le temps que l’enregistrement soit supprimé de la base de données utilisateur.
+      >  Wird ein Benutzer aus der Sammlung entfernt, wird das Gerät des Benutzers noch bis zu 24 Stunden verwaltet, nachdem der Benutzerdatensatz aus der Benutzerdatenbank entfernt wurde.
 
-  -   **Nom de la société**: spécifiez le nom de votre entreprise.
+  -   **Firmenname**: Geben Sie den Namen Ihres Unternehmens ein.
 
-  -   **URL vers la documentation de confidentialité**: si vous publiez des informations de confidentialité sur votre société par le biais d’un lien accessible sur Internet, fournissez un lien auquel les utilisateurs puissent accéder à partir du portail d’entreprise, par exemple http://www.contoso.com/CP_privacy.html. Les informations de confidentialité permettent de donner des précisions sur les informations que les utilisateurs partagent avec votre entreprise.
+  -   **Datenschutzdokumentations-URL des Untern.**: Wenn Sie die Datenschutzinformationen Ihres Unternehmens über einen Link veröffentlichen, auf den über das Internet zugegriffen werden kann, stellen Sie einen Link bereit, auf den die Benutzer über das Unternehmensportal zugreifen können, z. B. „http://www.contoso.com/CP_privacy.html“. Aus den Datenschutzinformationen geht hervor, welche Informationen Benutzer für Ihr Unternehmen freigeben.
 
-  -   **Modèle de couleurs pour le portail de la société**: modifiez éventuellement la couleur bleue par défaut des portails d'entreprise.
+  -   **Farbschema für Unternehmensportal**: Sie können optional die Standardfarbe Blau für Unternehmensportale ändern.
 
-  -   **Code de site Configuration Manager**: spécifiez le code de site d'un site principal pour gérer les appareils mobiles.
+  -   **Configuration Manager-Standortcode**: Geben Sie einen Standortcode für einen primären Standort zum Verwalten der mobilen Geräte an.
 
     > [!NOTE]
-    >  La modification du code de site affecte uniquement les nouvelles inscriptions et n'affecte pas les appareils inscrits existants.
+    >  Das Ändern des Standortcodes wirkt sich nur auf neue Anmeldungen aus und beeinflusst gegenwärtig angemeldete Geräte nicht.
 
-8.  Dans la page **Coordonnées de contact de l’entreprise**, spécifiez les informations de contact de l’entreprise visibles par les utilisateurs, sous **Contacter le service informatique**, dans l’application Portail d’entreprise. Fournissez les informations de contact de votre entreprise, puis cliquez sur **Suivant**.
+8.  Geben Sie auf der Seite **Kontaktdaten des Unternehmens** die Kontaktdaten des Unternehmens an, die unter **An IT-Abteilung wenden** in der Unternehmensportal-App angezeigt werden. Geben Sie Kontaktinformationen für Ihr Unternehmen ein, und klicken Sie dann auf **Weiter**.
 
-9. Dans la page **Logo de l’entreprise**, choisissez d’afficher éventuellement un logo dans le Portail d’entreprise, puis cliquez sur **Suivant**.
+9. Auf der Seite **Firmenlogo** können Sie wählen, ob Logos im Unternehmensportal angezeigt werden sollen. Klicken Sie dann auf **Weiter**.
 
-10. Effectuez toutes les étapes de l'Assistant.
+10. Schließen Sie den Assistenten ab.
 
 > [!div class="button"]
-[< Étape précédente](confirm-dns.md) [Étape suivante >](terms-and-conditions.md)
-
+[< Vorheriger Schritt](confirm-dns.md) [Nächster Schritt >](terms-and-conditions.md)

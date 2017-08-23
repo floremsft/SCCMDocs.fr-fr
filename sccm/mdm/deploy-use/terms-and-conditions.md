@@ -1,127 +1,123 @@
 ---
-title: "Conditions générales de System Center Configuration Manager | Microsoft Docs"
-description: "Déployez les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs."
+title: "Geschäftsbedingungen von System Center Configuration Manager | Microsoft-Dokumentation"
+description: "Stellen Sie Geschäftsbedingungen für Benutzergruppen in System Center Configuration Manager bereit."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
 ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Ajouter des conditions générales dans System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Hinzufügen von Geschäftsbedingungen mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez déployer les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs pour expliquer en quoi l’inscription d’appareils, l’accès aux ressources de travail et l’utilisation du Portail d’entreprise affectent les utilisateurs et les appareils. Les utilisateurs doivent accepter les conditions générales avant de pouvoir utiliser le Portail d’entreprise pour s’inscrire et accéder à leur travail.  
+Sie können die Geschäftsbedingungen von System Center Configuration Manager für Benutzergruppen zur Erläuterung bereitstellen, wie sich die Geräteregistrierung, der Zugriff auf Arbeitsressourcen und die Verwendung des Unternehmensportals auf Geräte und Benutzer auswirken. Benutzer müssen die Geschäftsbedingungen akzeptieren, bevor sie sich über das Unternehmensportal registrieren und auf ihre Arbeit zugreifen können.  
 
- ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Utilisation de stratégies associées aux conditions générales dans System Center Configuration Manager  
- Vous pouvez créer et déployer plusieurs ensembles de conditions générales. Vous pouvez également produire des versions des mêmes conditions générales dans différentes langues et les déployer pour les groupes appropriés.  
+ ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Arbeiten mit Geschäftsbedingungsrichtlinien in System Center Configuration Manager  
+ Sie können mehrere Sätze von Geschäftsbedingungen erstellen und bereitstellen. Sie können auch Versionen derselben Nutzungsbedingungen in verschiedenen Sprachen erstellen und diese dann für die entsprechenden Gruppen bereitstellen.  
 
-## <a name="to-create-a-terms-and-conditions"></a>Pour créer des conditions générales  
+## <a name="to-create-a-terms-and-conditions"></a>So erstellen Sie Geschäftsbedingungen  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Kompatibilitätseinstellungen** > **Geschäftsbedingungen**.  
 
-2.  Cliquez sur **Créer les conditions générales** pour créer des conditions générales.  
+2.  Klicken Sie auf **Geschäftsbedingungen erstellen** , um neue Geschäftsbedingungen zu erstellen.  
 
-3.  Sur la page **Général** , spécifiez informations suivantes :  
+3.  Geben Sie auf der Seite **Allgemein** die folgenden Informationen an:  
 
-    -   **Nom** : nom unique affiché dans la console Configuration Manager.  
+    -   **Name**: Ein eindeutiger Name, der in der Configuration Manager-Konsole angezeigt wird  
 
-    -   **Description** : détails qui vous aident à identifier les conditions générales dans la console Configuration Manager.  
+    -   **Beschreibung**: Details, die Ihnen dabei helfen, die Geschäftsrichtlinien in der Configuration Manager-Konsole zu identifizieren  
 
-     Puis cliquez sur **Suivant**.  
+     Klicken Sie dann auf **Weiter**.  
 
-4.  Dans la page **Termes** , spécifiez les informations suivantes :  
+4.  Geben Sie auf der Seite für die **Bestimmungen** die folgenden Informationen an:  
 
-    -   **Titre** : titre affiché dans le Portail d’entreprise.  
+    -   **Titel** : Der für Benutzer im Unternehmensportal angezeigte Titel.  
 
-    -   **Texte pour les conditions** : conditions générales affichées dans le Portail d’entreprise.  
+    -   **Text der Nutzungsbedingungen** : Die für Benutzer im Unternehmensportal angezeigten Geschäftsbedingungen.  
 
-    -   **Texte expliquant ce que cela signifie si l'utilisateur accepte** : étiquette informant les utilisateurs des conséquence de l'acceptation. **Exemple** : « J’accepte les conditions générales. »  
+    -   **Text zur Erläuterung der Bedeutung, wenn der Benutzer zustimmt** : Die für Benutzer angezeigte Bezeichnung hinsichtlich der Zustimmung. **Beispiel:** „Ich stimme den Nutzungsbedingungen zu.“  
 
-     Puis cliquez sur **Suivant**.  
+     Klicken Sie dann auf **Weiter**.  
 
-5.  Terminez l’Assistant pour créer les conditions générales. Les nouvelles conditions générales sont affichées dans le nœud Conditions générales de l’espace de travail Ressources et Conformité.  
+5.  Schließen Sie den Assistenten ab, um die neuen Geschäftsbedingungen zu erstellen. Die neuen Geschäftsbedingungen werden im Knoten für die Geschäftsbedingungen im Arbeitsbereich „Bestand und Kompatibilität“ angezeigt.  
 
-## <a name="to-deploy-a-terms-and-conditions"></a>Pour déployer des conditions générales  
+## <a name="to-deploy-a-terms-and-conditions"></a>So stellen Sie Geschäftsbedingungen bereit  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Kompatibilitätseinstellungen** > **Geschäftsbedingungen**.  
 
-2.  Dans la liste **Conditions générales** , sélectionnez l’élément à déployer, puis cliquez sur **Gérer**.  
+2.  Wählen Sie in der Liste der **Geschäftsbedingungen** das bereitzustellende Element aus, und klicken Sie dann auf **Bereitstellen**.  
 
-3.  Cliquez sur**Parcourir** et accédez au **Regroupement** dans lequel vous souhaitez déployer les conditions générales, puis cliquez sur **OK**.  
+3.  **Navigieren** Sie zur **Sammlung** , für die Sie die Geschäftsbedingungen bereitstellen möchten, und klicken Sie dann auf **OK**.  
 
-     Quand des appareils ciblés accèdent à l’application Portail d’entreprise, les conditions générales que vous avez déployées sont affichées. Les utilisateurs doivent accepter ces conditions générales avant de pouvoir accéder aux ressources de l'entreprise.  
+     Wenn die vorgesehenen Geräte auf die Unternehmensportal-App zugreifen, werden die bereitgestellten Geschäftsbedingungen angezeigt. Benutzer müssen diese Nutzungsbedingungen akzeptieren, bevor sie Zugriff auf Unternehmensressourcen erhalten.  
 
     > [!NOTE]  
-    >  Si vous déployez un ensemble de conditions générales dans plusieurs regroupements d’utilisateurs auxquels appartient un utilisateur, il verra plusieurs copies de conditions générales identiques quand il ouvrira le Portail d’entreprise. Étant donné que les utilisateurs peuvent uniquement accepter ou refuser toutes les conditions générales, il n’existe aucun risque d’être dans un état d’acceptation ambigu où l’utilisateur aurait à la fois accepté et refusé les conditions générales. Le rapport d’acceptation des conditions générales comprend une seule ligne par ensemble de conditions générales et par utilisateur. Il ne contient donc aucune erreur.  
+    >  Wenn Sie eine Reihe von Geschäftsbedingungen für mehrere Benutzersammlungen bereitstellen, denen ein Benutzer angehört, werden diesem Benutzer beim Öffnen des Unternehmensportals mehrere Kopien identischer Geschäftsbedingungen angezeigt. Da Benutzer jeweils nur alle Geschäftsbedingungen annehmen oder ablehnen können, besteht keine Gefahr, dass sich ein mehrdeutiger Zustand ergibt, in dem der Benutzer Geschäftsbedingungen sowohl angenommen als auch abgelehnt hat. Der Akzeptanzbericht für die Geschäftsbedingungen umfasst nur eine Zeile für jeden Satz von Geschäftsbedingungen für den jeweiligen Benutzer, damit in dem Bericht kein Fehler auftritt.  
 
-## <a name="to-monitor-terms-and-conditions"></a>Pour surveiller des conditions générales  
+## <a name="to-monitor-terms-and-conditions"></a>So überwachen Sie die Geschäftsbedingungen  
 
-1.  Vous pouvez surveiller les déploiements de conditions générales dans la console Configuration Manager. Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
+1.  Sie können Bereitstellungen von Geschäftsbedingungen in der Configuration Manager-Konsole überwachen. Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Bereitstellungen**.  
 
-2.  Sélectionnez le déploiement de conditions générales dans la liste des déploiements.  
+2.  Wählen Sie die Bereitstellung der Geschäftsbedingungen in der Liste der Bereitstellungen aus.  
 
-     La zone récapitulative affiche les statistiques suivantes :  
+     Der Zusammenfassungsbereich enthält die folgenden Statistiken:  
 
-    -   **Conforme** - Les utilisateurs ont accepté la dernière version des conditions générales  
+    -   **Kompatibel** : Benutzer haben die neueste Version der Geschäftsbedingungen akzeptiert.  
 
-    -   **Erreur**  
+    -   **Fehler**  
 
-    -   **Non conforme** - Les utilisateurs ont accepté une version des conditions générales, mais pas la dernière  
+    -   **Nicht Kompatibel** : Benutzer haben eine Version der Geschäftsbedingungen, aber nicht die neueste akzeptiert.  
 
-    -   **Inconnu** - Les utilisateurs n’ont jamais accepté les conditions générales, y compris celles sans un appareil inscrit  
+    -   **Unbekannt** : Benutzer haben die Geschäftsbedingungen nie akzeptiert, einschließlich derjenigen ohne registriertes Gerät.  
 
-3.  Sélectionnez un déploiement de conditions générales, puis **Exécuter le résumé** pour afficher l’État du déploiement des utilisateurs.  
+3.  Wählen Sie eine Bereitstellung von Geschäftsbedingungen und dann **Zusammenfassung ausführen** aus, um den Bereitstellungsstatus einzelner Benutzer anzuzeigen.  
 
-     Sur l’écran État du déploiement, vous pouvez sélectionner les onglets d’état pour afficher les utilisateurs avec cet état. Vous pouvez cliquer sur **Exécuter le résumé** pour mettre à jour les données dans toute la hiérarchie. Cliquez sur **Actualiser** pour mettre à jour les données dans la console  
+     Auf dem Bildschirm „Bereitstellungsstatus“ können Sie die Statusregisterkarten auswählen, um Benutzer mit dem jeweiligen Status anzuzeigen. Klicken Sie zum Aktualisieren der Daten in der gesamten Hierarchie auf **Zusammenfassung ausführen** . Klicken Sie zum Aktualisieren von Daten in der Konsole auf **Aktualisieren** .  
 
-## <a name="to-view--a-terms-and-conditions-report"></a>Pour afficher un rapport de conditions générales  
+## <a name="to-view--a-terms-and-conditions-report"></a>So zeigen Sie einen Bericht zu den Geschäftsbedingungen an  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Reporting** > **Rapport**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Überwachung** > **Übersicht** > **Berichterstellung** > **Bericht**.  
 
-2.  Sélectionnez **Acceptation des conditions générales** , puis cliquez sur **Exécuter**. Le rapport d’acceptation des conditions générales s’ouvre. Le rapport affiche chaque utilisateur pour lequel des conditions générales ont été déployées. Les champs sont les suivants :  
+2.  Wählen Sie **Bestimmungen akzeptieren** aus, und klicken Sie anschließend auf **Ausführen**. Der Bericht für die Akzeptanz von Geschäftsbedingungen wird geöffnet. Der Bericht zeigt alle Benutzer, denen die Geschäftsbedingungen bereitgestellt wurden. Es gibt u. a. die folgenden Felder:  
 
-    -   Nom des conditions générales  
+    -   Name der Geschäftsbedingungen  
 
-    -   Nom d'utilisateur  
+    -   Benutzername  
 
-    -   Version acceptée  
+    -   Akzeptierte Version  
 
-    -   Date d’acceptation  
+    -   Datum der Annahme  
 
-    -   Dernière version acceptée  
+    -   Neueste akzeptiert  
 
-## <a name="updates-and-version-control-for-terms-and-conditions"></a>Mises à jour et contrôle de version pour les conditions générales  
- Quand vous modifiez des conditions générales existantes, vous pouvez choisir le comportement lors de leur déploiement. Appliquez la procédure suivante pour vous aider à mettre à jour des conditions générales existantes.  
+## <a name="updates-and-version-control-for-terms-and-conditions"></a>Updates und Versionskontrolle für Geschäftsbedingungen  
+ Beim Bearbeiten vorhandener Geschäftsbedingungen können Sie das Verhalten für die Bereitstellung der Geschäftsbedingungen auswählen. Verwenden Sie das folgende Verfahren, das Sie beim Aktualisieren vorhandener Geschäftsbedingungen unterstützt.  
 
-### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Utilisation de plusieurs versions des conditions générales  
+### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Arbeiten mit mehreren Versionen der Nutzungsbedingungen  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Wechseln Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität** > **Übersicht** > **Kompatibilitätseinstellungen** > **Geschäftsbedingungen**.  
 
-2.  Sélectionnez l’instance de conditions générales à modifier, puis double-cliquez pour l’ouvrir.  
+2.  Wählen Sie die Instanz der zu bearbeitenden Geschäftsbedingungen aus, und doppelklicken Sie dann darauf, um sie zu öffnen.  
 
-3.  Vous pouvez modifier le contenu dans la page **Général** ou **Termes** pour effectuer les modifications nécessaires.  
+3.  Sie können den Inhalt auf der Seite **Allgemeine** oder **Bestimmungen** ändern, sofern eine Bearbeitung erforderlich ist.  
 
-4.  Dans la page **Termes** , vous pouvez ensuite spécifier si cette nouvelle version exige que tous les utilisateurs acceptent les conditions générales ou si seuls les nouveaux utilisateurs verront la nouvelle version.  
+4.  Auf der Seite für die **Bestimmungen** können Sie dann angeben, ob diese neue Version erfordert, dass die Geschäftsbedingungen von allen Benutzern angenommen werden, oder es ausreicht, wenn die neue Version nur neuen Benutzern angezeigt wird.  
 
-     Nous vous recommandons d’incrémenter le numéro de version et d’exiger l’acceptation chaque fois que vous apportez des modifications majeures à vos conditions générales. Conservez le numéro de version actuel si vous corrigez des fautes de frappe ou si vous modifiez la mise en forme, par exemple.
+     Es wird empfohlen, dass Sie die Versionsnummer erhöhen und jedes Mal die Zustimmung zu den Geschäftsbedingungen anfordern, wenn Sie wichtige Änderungen an den Geschäftsbedingungen vornehmen. Behalten Sie die aktuelle Versionsnummer bei, wenn Sie z. B. Tippfehler korrigieren oder die Formatierung ändern.
 
 > [!div class="button"]
-[< Étape précédente](configure-intune-subscription.md) [Étape suivante >](create-service-connection-point.md)
-
+[< Vorheriger Schritt](configure-intune-subscription.md) [Nächster Schritt >](create-service-connection-point.md)

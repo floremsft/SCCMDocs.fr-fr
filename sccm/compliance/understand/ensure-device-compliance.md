@@ -1,79 +1,72 @@
 ---
-title: "Garantir la conformité des appareils | Microsoft Docs"
-description: "Gérez la configuration et la conformité des appareils de votre organisation à l’aide de System Center Configuration Manager."
+title: "Sicherstellen der Gerätekonformität | Microsoft-Dokumentation"
+description: "Mithilfe von System Center Configuration Manager verwalten Sie die Konfiguration und die Kompatibilität von Geräten in Ihrer Organisation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7568c9aa-b99e-4466-bfc8-0301aa376930
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: f7ecfe550d2e28579ea873442b2a68dc1c7c5483
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Garantir la conformité des appareils avec System Center Configuration Manager
+# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Sicherstellen der Gerätekompatibilität mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les paramètres de compatibilité dans System Center Configuration Manager vous donnent les outils et ressources nécessaires pour gérer la configuration et la conformité des appareils de votre organisation. Cela vous permet de prendre en charge les exigences de l’entreprise suivantes :  
+Kompatibilitätseinstellungen in System Center Configuration Manager bieten Ihnen die Tools und Ressourcen, die Sie benötigen, um die Konfiguration und Kompatibilität von Geräten in Ihrer Organisation verwalten zu können. Damit können Sie die folgenden Geschäftsanforderungen umsetzen:  
 
--   Comparer la configuration des PC Windows, des ordinateurs Mac, des serveurs et des appareils mobiles que vous gérez avec les configurations recommandées que vous créez ou que vous obtenez d’autres fournisseurs  
+-   Vergleichen der Konfiguration von Windows-PCs, Macintosh-Computern, Servern und mobilen Geräten, die Sie verwalten, mit bewährten Konfigurationen, die Sie erstellt oder von anderen Herstellern bekommen haben  
 
--   Identifier les configurations d’appareil non autorisées  
+-   Erkennen von nicht autorisierten Gerätekonfigurationen  
 
--   Signaler la conformité avec les stratégies réglementaires et les stratégies de sécurité internes  
+-   Melden der Kompatibilität mit vorgeschriebenen Richtlinien und internen Sicherheitsrichtlinien  
 
--   Identifier les failles de sécurité  
+-   Erkennen von Sicherheitsrisiken  
 
--   Fournir au personnel du support technique les informations permettant de détecter les causes probables des incidents et problèmes signalés en identifiant les configurations non conformes  
+-   Bereitstellen von Informationen für den Helpdesk, damit mögliche Ursachen von gemeldeten Vorfällen und Problemen durch Identifizieren von nicht kompatiblen Konfigurationen erkannt werden können  
 
--   Corriger automatiquement certains paramètres non conformes sur les appareils mobiles  
+-   Automatisches Beheben von einigen nicht kompatiblen Einstellungen auf mobilen Geräten  
 
--   Corriger la non-conformité en déployant des applications, des packages et des programmes ou bien des scripts dans un regroupement automatiquement rempli par des appareils qui indiquent leur non-conformité  
-
-
-## <a name="get-started"></a>Prise en main  
- Découvrez les principes de base des paramètres de compatibilité et les tâches associées que vous pouvez effectuer.  
-
- [Bien démarrer avec les paramètres de compatibilité](../../compliance/get-started/get-started-with-compliance-settings.md)  
-
-## <a name="plan-and-design"></a>Planifier et concevoir  
- Avant de commencer à manipuler les paramètres de compatibilité, assurez-vous d’avoir implémenté les conditions préalables que vous trouverez dans cette rubrique.  
-
- [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
-
-## <a name="common-tasks"></a>Tâches courantes  
- Cette section décrit quelques scénarios courants qui vous aideront à vous familiariser avec l’utilisation des paramètres de compatibilité dans Configuration Manager.  
-
- [Tâches courantes de gestion de la conformité](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
-
-## <a name="remote-connection-profiles"></a>Profils de connexion à distance  
- Ce type d’élément de configuration vous permet de configurer les PC de vos utilisateurs de sorte qu’ils se connectent à distance aux ordinateurs professionnels quand ils ne sont pas connectés au domaine ou si leurs ordinateurs personnels sont connectés via Internet.  
-
- [Créer des profils de connexion à distance](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
-
-## <a name="user-data-and-profiles"></a>Données et profils utilisateur  
- Ce type d’élément de configuration contient des paramètres qui peuvent gérer la redirection des dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie.  
-
- [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
-
-## <a name="windows-edition-upgrade-policy"></a>Stratégie de mise à niveau d’édition Windows  
- La stratégie de mise à niveau d’édition vous permet de mettre automatiquement à niveau les appareils Windows 10 vers une version plus récente. Vous pouvez spécifier une clé de produit pour mettre à niveau les versions de Windows 10 Desktop ou un fichier de licence qui permet de mettre à niveau les appareils exécutant Windows 10 Mobile et Windows 10 Holographique.  
-
- [Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition](/sccm/compliance/deploy-use/upgrade-windows-version)  
+-   Beseitigen der Nichtkompatibilität durch Bereitstellen von Anwendungen, Paketen, Programmen oder Skripts für eine Sammlung, die automatisch mit Geräten aufgefüllt wird, von denen eine Nichtkompatibilität gemeldet wird  
 
 
+## <a name="get-started"></a>Erste Schritte  
+ Lernen Sie die Grundlagen von Kompatibilitätseinstellungen und die Aufgaben kennen, die Sie damit ausführen können.  
 
-<!--HONumber=Dec16_HO3-->
+ [Erste Schritte mit Kompatibilitätseinstellungen](../../compliance/get-started/get-started-with-compliance-settings.md)  
 
+## <a name="plan-and-design"></a>Planung und Entwurf  
+ Stellen Sie vor Beginn der Arbeit mit Kompatibilitätseinstellungen sicher, dass die in diesem Thema beschriebenen Voraussetzungen erfüllt sind.  
 
+ [Planen und Konfigurieren von Kompatibilitätseinstellungen](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
+
+## <a name="common-tasks"></a>Gängige Tasks  
+ In diesem Abschnitt finden Sie einige gängige Szenarios, mit denen gezeigt wird, wie Kompatibilitätseinstellungen in Configuration Manager verwendet werden.  
+
+ [Allgemeine Tasks zur Verwaltung der Kompatibilität](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
+
+## <a name="remote-connection-profiles"></a>Remoteverbindungsprofile  
+ Dieser Konfigurationselementtyp ermöglicht Ihnen das Konfigurieren der PCs Ihrer Benutzer für das Herstellen von Remoteverbindungen mit Arbeitscomputern, wenn keine Verbindung mit der Domäne besteht oder ihre PCs über das Internet verbunden sind.  
+
+ [Erstellen von Remoteverbindungsprofilen](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
+
+## <a name="user-data-and-profiles"></a>Benutzerdaten und Profile  
+ Dieser Konfigurationselementtyp enthält Einstellungen, mit denen die Ordnerumleitung, Offlinedateien und Roamingprofile auf Windows 8-Computern für Benutzer in Ihrer Hierarchie verwaltet werden können.  
+
+ [Erstellen von Konfigurationselementen für Benutzerdaten und -profile](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
+
+## <a name="windows-edition-upgrade-policy"></a>Windows-Upgraderichtlinie für die Edition  
+ Die Upgraderichtlinie für die Edition ermöglicht Ihnen ein automatisches Upgrade von Windows 10-Geräten auf eine neuere Version. Sie können einen Product Key für das Upgrade von Windows 10-Desktopversionen oder eine Lizenzdatei angeben, die zum Aktualisieren von Geräten mit Windows 10 Mobile und Windows 10 Holographic verwendet werden kann.  
+
+ [Aktualisieren von Windows-Geräten mithilfe der Upgraderichtlinie für die Edition](/sccm/compliance/deploy-use/upgrade-windows-version)  

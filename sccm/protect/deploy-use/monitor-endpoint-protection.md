@@ -1,86 +1,82 @@
 ---
-title: "Surveiller l’état d’Endpoint Protection | Microsoft Docs"
-description: "Découvrez comment surveiller Endpoint Protection dans votre hiérarchie System Center Configuration Manager."
+title: "Überwachen des Endpoint Protection-Status | Microsoft-Dokumentation"
+description: "Erfahren Sie, wie Sie Endpoint Protection in der System Center Configuration Manager-Hierarchie überwachen."
 ms.custom: na
 ms.date: 03/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f4a1335c-bb3d-493e-a124-83a32a107dc8
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0fa837c68eb073d2ceaf48c938137a94141a102e
-ms.openlocfilehash: 99e266e44f718d97c2a6e61e8e6816752751ed7b
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: b5771f4faebc06076bdbf84727848c881fc1dfb4
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-endpoint-protection-status"></a>Guide pratique pour surveiller l’état d’Endpoint Protection
+# <a name="how-to-monitor-endpoint-protection-status"></a>So überwachen Sie den Endpoint Protection-Status
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft System Center Configuration Manager à l’aide du nœud **État Endpoint Protection** sous **Sécurité** dans l’espace de travail **Surveillance**, à l’aide du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité** et à l’aide de rapports.  
+Sie können Endpoint Protection in der Microsoft System Center Configuration Manager-Hierarchie mithilfe des Knotens **Endpoint Protection-Status** unter **Sicherheit** im Arbeitsbereich **Überwachung**, mithilfe des Knotens **Endpoint Protection** im Arbeitsbereich **Bestand und Kompatibilität** und mithilfe von Berichten überwachen.  
 
-##  <a name="BKMK_1"></a> Guide pratique pour surveiller Endpoint Protection à l’aide du nœud État Endpoint Protection  
+##  <a name="BKMK_1"></a> Überwachen von Endpoint Protection mithilfe des Knotens „Endpoint Protection-Status“  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
 
-2.  Dans l’espace de travail **Surveillance**, développez **Sécurité**, puis cliquez sur **État Endpoint Protection**.  
+2.  Erweitern Sie im Arbeitsbereich **Überwachung** die Option **Sicherheit**, und klicken Sie auf **Endpoint Protection-Status**.  
 
-3.  Dans la liste **Regroupement** , sélectionnez le regroupement pour lequel vous souhaitez afficher des informations sur l'état.  
+3.  Wählen Sie in der Liste **Sammlung** die Sammlung aus, für die Sie Statusinformationen anzeigen möchten.  
 
     > [!IMPORTANT]  
-    >  Les regroupements peuvent être sélectionnés dans les cas suivants :  
+    >  Sammlungen können in den folgenden Fällen ausgewählt werden:  
     >   
-    >  -   Quand vous sélectionnez **Afficher ce regroupement dans le tableau de bord Endpoint Protection** sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<nom_regroupement\>**.  
-    > -   Quand vous déployez une stratégie de logiciel anti-programme malveillant Endpoint Protection sur le regroupement.  
-    > -   Quand vous activez et déployez les paramètres client Endpoint Protection sur le regroupement.  
+    >  -   Wenn Sie **Diese Sammlung im Endpoint Protection-Dashboard anzeigen** auf der Registerkarte **Warnungen** im Dialogfeld *<Sammlungsname\>***Eigenschaften** auswählen.  
+    > -   Wenn Sie eine Endpoint Protection-Antischadsoftware-Richtlinie für die Sammlung bereitstellen.  
+    > -   Wenn Sie Endpoint Protection-Clienteinstellungen für die Sammlung aktivieren und bereitstellen.  
 
-4.  Examinez les informations affichées dans le **état de sécurité** et **état opérationnel** sections. Vous pouvez cliquer sur n'importe quel lien d'état pour créer un regroupement temporaire dans le nœud **Périphériques** de l'espace de travail **Ressources et Conformité**. Le regroupement temporaire contient les ordinateurs dont l'état est sélectionné.  
+4.  Überprüfen Sie die Informationen, die angezeigt wird, in der **Sicherheitsstatus** und **Betriebsstatus** Abschnitte. Sie können auf eine beliebige Statusverknüpfung klicken, um im Arbeitsbereich **Bestand und Kompatibilität** unter dem Knoten **Geräte** eine temporäre Sammlung zu erstellen. Die temporäre Sammlung enthält die Computer mit dem ausgewählten Status.  
 
     > [!IMPORTANT]  
-    >  Les informations affichées dans le nœud **État Endpoint Protection** se basent sur les dernières données de synthèse de la base de données Configuration Manager et peuvent ne pas être actualisées. Si vous voulez récupérer les dernières données, sous l’onglet **Accueil** , cliquez sur **Exécuter le résumé**ou cliquez sur **Planifier le résumé** pour régler l’intervalle de résumé.  
+    >  Informationen, die im Knoten **Endpoint Protection-Status** angezeigt werden, basieren auf den letzten Daten, die von der Configuration Manager-Datenbank zusammengefasst wurden, und sind möglicherweise nicht aktuell. Wenn Sie die aktuellen Daten abrufen möchten, klicken Sie auf der Registerkarte **Startseite** auf **Zusammenfassung ausführen**, oder klicken Sie auf **Zusammenfassung planen** , um das Zusammenfassungsintervall anzupassen.  
 
-##  <a name="BKMK_2"></a> Guide pratique pour surveiller Endpoint Protection dans l’espace de travail Ressources et Conformité  
+##  <a name="BKMK_2"></a> Überwachen von Endpoint Protection im Arbeitsbereich „Bestand und Kompatibilität“  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
 
-2.  Dans l'espace de travail **Ressources et Conformité**, exécutez l'une des actions suivantes :  
+2.  Führen Sie im Arbeitsbereich **Bestand und Kompatibilität** eine der folgenden Aktionen aus:  
 
-    -   Cliquez sur **Périphériques**. Dans la liste **Périphériques** , sélectionnez un ordinateur, puis cliquez sur l'onglet **Détail du programme malveillant** .  
+    -   Klicken Sie auf **Geräte**. Wählen Sie in der Liste **Geräte** einen Computer aus, und klicken Sie dann auf die Registerkarte **Schadsoftwaredetails** .  
 
-    -   Cliquez sur **Regroupements de périphériques**. Dans la liste **Regroupements d’appareils** , sélectionnez le regroupement qui contient l’ordinateur que vous voulez surveiller puis, sous l’onglet **Accueil** , dans le groupe **Regroupement** , cliquez sur **Afficher les membres**.  
+    -   Klicken Sie auf **Gerätesammlungen**. Wählen Sie in der Liste **Gerätesammlungen** die Sammlung mit dem zu überwachenden Computer aus, und klicken Sie anschließend auf der Registerkarte **Startseite** in der Gruppe **Sammlung** auf **Mitglieder anzeigen**.  
 
-3.  Dans la liste *<Nom_regroupement\>*, sélectionnez un ordinateur, puis cliquez sur l’onglet **Détail du programme malveillant**.  
+3.  Wählen Sie in der Liste *<Sammlungsname\>* einen Computer aus, und klicken Sie dann auf die Registerkarte **Schadsoftwaredetails**.  
 
-##  <a name="BKMK_3"></a> Guide pratique pour surveiller Endpoint Protection à l’aide de rapports  
- Utilisez les rapports suivants pour obtenir des informations sur Endpoint Protection dans votre hiérarchie. Vous pouvez aussi vous servir de ces rapports pour résoudre les problèmes liés à Endpoint Protection. Pour plus d’informations sur la configuration de la création de rapports dans Configuration Manager, consultez [Création de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md) et [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Les rapports Endpoint Protection sont dans le dossier Endpoint Protection.  
+##  <a name="BKMK_3"></a> Überwachen von Endpoint Protection in Configuration Manager  
+ Verwenden Sie die folgenden Berichte, um Informationen zu Endpoint Protection in der Hierarchie übersichtlich angezeigt zu bekommen. Sie können diese Berichte auch verwenden, um Probleme mit Endpoint Protection zu beheben. Weitere Informationen zum Konfigurieren der Berichterstellung in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md) und [Protokolldateien in System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Die Endpoint Protection-Berichte befinden sich im Ordner „Endpoint Protection“.  
 
-|Nom du rapport|Description|  
+|Berichtsname|Beschreibung|  
 |-----------------|-----------------|  
-|**Rapport d'activité des logiciels anti-programme malveillant**|Affiche une vue d'ensemble de l'activité des logiciels anti-programme malveillant pour un regroupement spécifié.|  
-|**Ordinateurs infectés**|Affiche une liste des ordinateurs sur lesquels une menace spécifique est détectée.|  
-|**Utilisateurs récurrents par menace**|Affiche la liste des utilisateurs ayant le plus grand nombre de menaces détectées.|  
-|**Liste des menaces utilisateur**|Affiche une liste des menaces qui ont été trouvées pour un compte d'utilisateur spécifié.|  
+|**Aktivitätsbericht für Antischadsoftware**|Zeigt eine Übersicht der Antischadsoftware-Aktivität für eine bestimmte Sammlung an.|  
+|**Infizierte Computer**|Zeigt eine Liste der Computer, auf denen eine angegebene Bedrohung erkannt wird.|  
+|**Benutzer nach häufigsten Bedrohungen**|Zeigt eine Liste der Benutzer mit der höchsten Anzahl an erkannten Bedrohungen an.|  
+|**Benutzerspezifische Bedrohungsliste**|Zeigt eine Liste von Risiken, die für eine angegebene Benutzerkonto gefunden wurden.|  
 
-## <a name="malware-alert-levels"></a>Niveaux d'alerte contre les logiciels malveillants  
- Utilisez le tableau suivant pour identifier les différents niveaux d’alerte Endpoint Protection qui peuvent apparaître dans les rapports ou dans la console Configuration Manager.  
+## <a name="malware-alert-levels"></a>Malwarewarnstufen  
+ Verwenden Sie die folgende Tabelle zum Identifizieren der verschiedenen Endpoint Protection-Benachrichtigungsebenen, die in Berichten oder in der Configuration Manager-Konsole angezeigt werden können.  
 
-|Niveau d'alerte|Description|  
+|Warnstufe|Beschreibung|  
 |-----------------|-----------------|  
-|**Échec**|Endpoint Protection n’a pas pu remédier au logiciel malveillant. Vérifiez les journaux pour plus de détails de l'erreur.<br /><br /> **Remarque :** pour obtenir la liste des fichiers journaux Configuration Manager et Endpoint Protection, consultez la section « Endpoint Protection » dans la rubrique [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
-|**Supprimé**|Endpoint Protection a correctement supprimé le logiciel malveillant.|  
-|**En quarantaine**|Endpoint Protection a déplacé le logiciel malveillant vers un emplacement sécurisé et a empêché son exécution en attendant que vous le supprimiez ou que vous en autorisiez l’exécution.|  
-|**Nettoyage effectué**|Les logiciels malveillants ont été supprimés du fichier infecté.|  
-|**Autorisé**|Un utilisateur administratif est activée, le logiciel qui contient le logiciel malveillant de s'exécuter.|  
-|**Aucune Action**|Endpoint Protection n’a pris aucune mesure contre le logiciel malveillant. Cela peut se produire si l'ordinateur est redémarré une fois le logiciel malveillant est détecté et le logiciel malveillant n'est plus détecté ; par exemple, si un réseau mappé lecteur sur le logiciel malveillant est détecté n'est pas reconnecté lorsque l'ordinateur redémarre.|  
-|**Bloqué**|Endpoint Protection a empêché le logiciel malveillant de s’exécuter. Cela peut se produire si un processus sur l'ordinateur se trouve à contenir des logiciels malveillants.|
-
+|**Fehlgeschlagen**|Fehler von Endpoint Protection beim Beheben der Schadsoftware. Überprüfen Sie die Protokolle für die Details des Fehlers.<br /><br /> **Hinweis:** Eine Liste der Configuration Manager- und Endpoint Protection-Protokolldateien finden Sie im Abschnitt „Endpoint Protection“ im Thema [Protokolldateien in System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
+|**Entfernt**|Endpoint Protection hat die Schadsoftware erfolgreich entfernt.|  
+|**Isoliert**|Endpoint Protection hat die Schadsoftware an einen sicheren Speicherort verschoben und verhindert, dass sie ausgeführt wird, bis Sie sie entfernen oder erlauben, dass sie ausgeführt wird.|  
+|**Bereinigt**|Die Malware wurde aus der infizierten Datei bereinigt.|  
+|**Zulässig**|Ein Administrator ausgewählt, um die Software zu ermöglichen, die die Malware ausgeführt wird.|  
+|**Keine Aktion**|Endpoint Protection hat keine Aktion auf der Schadsoftware ausgeführt. Dies kann vorkommen, wenn der Computer neu gestartet wird, nach Malware erkannt wird, und die Malware wird nicht mehr erkannt; z. B. wenn ein zugeordnetes Netzlaufwerk auf ist denen Malware entdeckt wurde keine Verbindung beim Neustart des Computers.|  
+|**Gesperrt**|Endpoint Protection hat das Ausführen der Schadsoftware blockiert. Dies kann auftreten, wenn ein Prozess auf dem Computer gefunden wird, um Malware enthalten.|

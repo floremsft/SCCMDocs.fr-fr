@@ -1,48 +1,44 @@
 ---
-title: Services de composants et leurs commandes sur des clients UNIX/Linux | Microsoft Docs
-description: En savoir plus sur les services de composants et leurs commandes sur des clients Linux et UNIX dans System Center Configuration Manager.
+title: UNIX- und Linux-Clientkomponentendienste und -befehle | Microsoft-Dokumentation
+description: "Erfahren Sie mehr über Komponentendienste und -befehle auf Linux- und UNIX-Clients in System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e5a8c79f-5791-49c5-8055-086d742e5559
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 4a10d3a59aa6417857abc163dd5416f167049f65
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 89668f3e2e0a3e2e0178e5b2c91b2508f583649f
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>Services de composants et leurs commandes sur des clients Linux et UNIX pour System Center Configuration Manager
+# <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>UNIX- und Linux-Clientkomponentendienste und -befehle für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
- Le tableau ci-dessous identifie les services de composants clients du client Configuration Manager pour Linux et UNIX.  
+ In der folgenden Tabelle sind die Clientkomponentendienste des Configuration Manager-Clients für Linux und UNIX enthalten.  
 
-|Nom de fichier|Plus d'informations|  
+|Dateiname|Weitere Informationen|  
 |---------------|----------------------|  
-|ccmexec.bin|Ce service équivaut au service ccmexc sur un client Windows. Il est responsable de toutes les communications avec les rôles de système de site Configuration Manager et communique également avec le service omiserver.bin pour procéder à l’inventaire matériel de l’ordinateur local.<br /><br /> Pour obtenir la liste des arguments de ligne de commande pris en charge, exécutez **ccmexec -h**|  
-|omiserver.bin|Ce service est le serveur CIM. Le serveur CIM fournit une infrastructure pour des modules logiciels enfichables appelés fournisseurs. Les fournisseurs interagissent avec les ressources informatiques Linux et UNIX, et recueillent les données de l’inventaire matériel. Par exemple, le **fournisseur process** pour une Linux ordinateur collecte les données associées avec les processus du système d'exploitation Linux.|  
+|ccmexec.bin|Dieser Dienst ist gleichbedeutend mit dem ccmexc-Dienst auf einem Windows-basierten Client. Er ist verantwortlich für die gesamte Kommunikation mit Configuration Manager-Standortsystemrollen. Zudem kommuniziert er mit dem omiserver.bin-Dienst, um eine Hardwareinventur auf dem lokalen Computer zu ermitteln.<br /><br /> Führen Sie **ccmexec -h**aus, um eine Liste der unterstützten Befehlszeilenargumente zu erhalten.|  
+|omiserver.bin|Dieser Dienst ist der CIM-Server. Der CIM-Server stellt ein Framework für austauschbare Softwaremodule bereit, die als Anbieter bezeichnet werden. Anbieter interagieren mit Linux- und UNIX-Computerressourcen und erfassen die Hardwareinventurdaten. Zum Beispiel die **Anbieter** für eine Linux-Computer sammelt Daten, die das Linux-Betriebssystem-Prozessen zugeordnet.|  
 
- Les commandes de liste de tables suivantes que vous pouvez utiliser pour démarrer, arrêter ou redémarrer les services du client (ccmexec.bin et omiserver.bin) sur chaque version de Linux ou UNIX. Quand vous démarrez ou arrêtez le service ccmexec, le service omiserver démarre ou s’arrête également.  
+ Die folgenden Tabellen List-Befehle, die Sie verwenden können, um zu starten, beenden oder Neustarten der Dienste für Clients (ccmexec.bin und omiserver.bin) unter jeder Version von Linux oder UNIX. Beim Starten oder Beenden des ccmexec-Diensts wird der Dienst „omiserver“ ebenfalls gestartet oder beendet.  
 
-|Système d'exploitation|Commandes|  
+|Betriebssystem|Befehle|  
 |----------------------|--------------|  
-|Agent universel<br /><br /> RHEL 4 et SLES 9|Démarrer : **/etc/init d/ccmexecd start**<br /><br /> Arrêter : **/etc/init d/ccmexecd stop**<br /><br /> Redémarrer : **/etc/init d/ccmexecd restart**|  
-|Solaris 9|Démarrer : **/etc/init d/ccmexecd start**<br /><br /> Arrêter : **/etc/init d/ccmexecd stop**<br /><br /> Redémarrer : **/etc/init d/ccmexecd restart**|  
-|Solaris 10|Démarrer :<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Arrêter :<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
-|Solaris 11|Démarrer :<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Arrêter :<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
-|AIX|Démarrer :<br /><br /> **startsrc -s omiserver**<br /><br /> **startsrc -s ccmexec**<br /><br /> Arrêter :<br /><br /> **stopsrc -s ccmexec**<br /><br /> **stopsrc -s omiserver**|  
-|HP-UX|Démarrer : **/sbin/init.d/ccmexecd start**<br /><br /> Arrêter : **/sbin/init.d/ccmexecd stop**<br /><br /> Redémarrer : **/sbin/init.d/ccmexecd restart**|  
-
+|Universal Agent<br /><br /> RHEL 4 und SLES 9|Starten: **/etc/init d/ccmexecd start**<br /><br /> Beenden: **/etc/init d/ccmexecd stop**<br /><br /> Neu starten: **/etc/init d/ccmexecd restart**|  
+|Solaris 9|Starten: **/etc/init d/ccmexecd start**<br /><br /> Beenden: **/etc/init d/ccmexecd stop**<br /><br /> Neu starten: **/etc/init d/ccmexecd restart**|  
+|Solaris 10|Starten:<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Beenden:<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
+|Solaris 11|Starten:<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Beenden:<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
+|AIX|Starten:<br /><br /> **startsrc -s omiserver**<br /><br /> **startsrc -s ccmexec**<br /><br /> Beenden:<br /><br /> **stopsrc -s ccmexec**<br /><br /> **stopsrc -s omiserver**|  
+|HP-UX|Starten: **/sbin/init.d/ccmexecd start**<br /><br /> Beenden: **/sbin/init.d/ccmexecd stop**<br /><br /> Neu starten: **/sbin/init.d/ccmexecd restart**|  

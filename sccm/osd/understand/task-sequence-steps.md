@@ -1,903 +1,901 @@
 ---
-title: "Étapes de séquence de tâches - Configuration Manager | Microsoft Docs"
-description: "Découvrez les différentes étapes de séquence de tâches que vous pouvez ajouter à une séquence de tâches Configuration Manager."
+title: "Tasksequenzschritte – Configuration Manager | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über die Tasksequenzschritte, die einer Configuration Manager-Tasksequenz hinzugefügt werden können."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: 26
-caps.handback.revision: 0
+caps.latest.revision: "26"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
+# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Tasksequenzschritte in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui peuvent être ajoutées à une séquence de tâches Configuration Manager. Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+Die folgenden Tasksequenzschritte können einer Configuration Manager-Tasksequenz hinzugefügt werden. Weitere Informationen zum Bearbeiten einer Tasksequenz finden Sie unter [Edit a task sequence](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
 
-##  <a name="BKMK_ApplyDataImage"></a> Étape de séquence de tâches Appliquer l’image de données  
- L'étape de séquence de tâches **Appliquer l'image de données** permet de copier l'image de données sur la partition de destination indiquée.  
+##  <a name="BKMK_ApplyDataImage"></a> Anwenden eines Tasksequenzschritts „Datenimage anwenden“  
+ Mithilfe des Tasksequenzschritts **Datenabbild anwenden** können Sie das Datenabbild auf die angegebene Zielpartition kopieren.  
 
- Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
+ Dieser Schritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Tasksequenz-Aktionsvariablen](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Package d’images**  
- Cliquez sur **Parcourir** pour préciser le **package d'images**que doit utiliser cette étape de la séquence de tâches. Sélectionnez le package à installer dans la boîte de dialogue **Sélectionner un package** . Les informations des propriétés associées à chaque package d'images s'affichent en bas de la boîte de dialogue **Sélectionner un package** . Utilisez la liste déroulante pour choisir l' **image** que vous souhaitez installer à partir du **package d'images**sélectionné.  
+ **Imagepaket**  
+ Gibt das **Abbildpaket** an, das von diesem Tasksequenzschritt verwendet wird. Klicken Sie dazu auf **Durchsuchen**. Wählen Sie das zu installierende Paket im Dialogfeld **Paket auswählen** aus. Die zugeordneten Eigenschaftsinformationen für jedes vorhandene Abbildpaket werden unten im Dialogfeld **Paket auswählen** angezeigt. Wählen Sie mithilfe der Dropdownliste das zu installierende **Abbild** aus dem ausgewählten **Abbildpaket**aus.  
 
 > [!NOTE]  
->  L'action de la séquence de tâches traite l'image en tant que fichier de données et n'effectue aucune configuration nécessaire pour le redémarrage de l'image en tant que système d'exploitation.  
+>  Bei dieser Tasksequenzaktion wird das Abbild wie eine Datendatei behaltet; es werden keine der erforderlichen Konfigurationsmaßnahmen ergriffen, damit das Abbild als Betriebssystem gestartet werden kann.  
 
- **Destination**  
- Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
+ **Ziel**  
+ Gibt eine vorhandene formatierte Partition und Festplatte, einen bestimmten Buchstaben für ein logisches Laufwerk oder den Namen einer Tasksequenzvariablen an, die den Buchstaben für das logische Laufwerk enthält.  
 
--   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
+-   **Nächste verfügbare Partition**: Verwendet die nächste verfügbare Partition, die in dieser Tasksequenz nicht bereits für eine Aktion „Betriebssystem anwenden“ oder „Datenimage anwenden“ verwendet wurde.  
 
--   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
+-   **Bestimmter Datenträger und Partition**: Wählen Sie die Nummer des **Datenträgers** (beginnend mit 0) und die Nummer der **Partition** (beginnend mit 1) aus.  
 
--   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
+-   **Bestimmter Buchstabe für logisches Laufwerk**: Geben Sie den **Laufwerkbuchstaben** ein, der der Partition von Windows PE zugewiesen wurde. Beachten Sie, dass sich dieser Laufwerkbuchstabe von dem Laufwerkbuchstaben unterscheiden kann, der von dem neu bereitgestellten Betriebssystem zugewiesen wird.  
 
--   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
+-   **In Variable gespeicherter Buchstabe für logisches Laufwerk**: Geben Sie die Tasksequenzvariable an, die den der Partition von Windows PE zugewiesenen Laufwerksbuchstaben enthält. Diese Variable wurde in der Regel im Bereich „Erweitert“ des Dialogfelds **Partitionseigenschaften** für die Tasksequenzaktion **Datenträger formatieren und partitionieren** eingestellt.  
 
- **Supprimer l’intégralité du contenu de la partition avant d’appliquer l’image**  
- Précise que tous les fichiers de la partition cible seront supprimés avant l'installation de l'image. Si vous ne supprimez pas le contenu de la partition, cette étape peut être utilisée pour appliquer le contenu supplémentaire à une partition précédemment ciblée.  
+ **Vor dem Anwenden des Images den gesamten Inhalt der Partition löschen**  
+ Gibt an, dass alle Dateien in der Zielpartition gelöscht werden, bevor das Abbild installiert wird. Indem der Inhalt dieser Partition nicht gelöscht wird, kann mit diesem Schritt einer zuvor eingerichteten Partition weiterer Inhalt zugewiesen werden.  
 
-##  <a name="BKMK_ApplyDriverPackage"></a> Appliquer le package de pilotes  
- Utilisez l'étape de séquence de tâches **Appliquer le package de pilotes** pour télécharger tous les pilotes du package de pilotes et les installer sur le système d'exploitation Windows.
+##  <a name="BKMK_ApplyDriverPackage"></a> Treiberpaket anwenden  
+ Mithilfe des Tasksequenzschritts **Treiberpaket anwenden** können Sie alle Treiber im Treiberpaket herunterladen und auf dem Windows-Betriebssystem installieren.
 
- L'étape de séquence de tâches **Appliquer le package de pilotes** rend disponibles tous les pilotes d'appareils d'un package de pilotes pour l'utilisation avec Windows. Vous pouvez ajouter cette étape à une séquence de tâches entre les étapes **Appliquer le système d'exploitation**  et **Configurer Windows et ConfigMgr** pour que les pilotes de périphérique du package de pilotes soient disponibles sous Windows. Généralement, l'étape **Appliquer le package de pilotes** est placée après l'étape de séquence de tâches **Appliquer automatiquement les pilotes** . L'étape de séquence de tâches **Appliquer le package de pilotes** est également utile avec des scénarios de déploiement de médias autonomes.  
+ Mit dem Tasksequenzschritt **Treiberpaket anwenden** können Sie alle Gerätetreiber eines Treiberpakets zur Verwendung in Windows bereitstellen. Dieser Schritt kann in einer Tasksequenz zwischen den Schritten **Betriebssystem anwenden**  und **Windows und ConfigMgr einrichten** eingefügt werden, um Windows die im Treiberpaket enthaltenen Gerätetreiber zur Verfügung zu stellen. Der Schritt **Treiberpaket anwenden** wird in der Regel hinter dem Schritt **Treiber automatisch anwenden** eingefügt. Der Tasksequenzschritt **Treiberpaket anwenden** ist auch für die Bereitstellung mithilfe eigenständiger Medien nützlich.  
 
- Assurez-vous que les pilotes de périphérique identiques sont placés dans un package de pilotes et distribuez-les aux points de distribution appropriés. Une fois qu’ils sont distribués, les ordinateurs client Configuration Manager peuvent les installer. Par exemple, vous pouvez placer tous les pilotes de périphérique d'un fabricant dans un package de pilotes, puis distribuer le package aux points de distribution à un emplacement où les ordinateurs associés peuvent y accéder.
+ Stellen Sie sicher, dass ähnliche Gerätetreiber in einem Treiberpaket zusammengestellt werden, und verteilen Sie diese auf die entsprechenden Verteilungspunkte. Nachdem die Treiber verteilt sind, können sie von Configuration Manager-Clientcomputern installiert werden. Beispiel: Sie können alle Gerätetreiber eines Herstellers in einem Treiberpaket zusammenstellen und das Paket dann an Verteilungspunkte verteilen, an denen die zugeordneten Computer auf das Paket zugreifen können.
 
- Cette étape est utile pour les médias autonomes et pour les administrateurs souhaitant installer un ensemble spécifique de pilotes, y compris des pilotes d'appareils qu'une analyse Plug-and-Play ne détecte pas (par exemple les imprimantes réseau).  
+ Dieser Schritt unterstützt eigenständige Medien und Administratoren, die bestimmte Treiber installieren möchten, darunter Treiber für Geräte, die im Rahmen einer Plug-and-Play-Prüfung nicht erkannt würden (beispielsweise Netzwerkdrucker).  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer le package de pilotes](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Apply Driver Package Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Package de pilotes**  
- Spécifiez le package de pilotes qui contient les pilotes d'appareils nécessaires en cliquant sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package** . Spécifiez un package existant à rendre disponible. Les propriétés du package associé s'affichent dans la partie inférieure de la boîte de dialogue.  
+ **Treiberpaket**  
+ Klicken Sie auf **Durchsuchen** , und öffnen Sie das Dialogfeld **Paket auswählen** , um das Treiberpaket anzugeben, das die erforderlichen Gerätetreiber enthält. Geben Sie ein vorhandenes Paket an, das verfügbar gemacht werden soll. Die zugehörigen Paketeigenschaften werden unten im Dialogfeld angezeigt.  
 
- **Sélectionner le pilote de stockage de masse au sein du package devant être installé avant la configuration sur les systèmes d’exploitation antérieurs à Windows Vista**  
- Spécifiez les pilotes de stockage de masse nécessaires aux installations des systèmes d'exploitation antérieurs à Windows Vista.  
+ **Wählen Sie den Massenspeichertreiber im Paket aus, der bei allen Betriebssystemen vor Vista vor dem Setup installiert werden muss**  
+ Geben Sie alle Massenspeichertreiber an, die für die Installation von Betriebssystemen vor Windows Vista erforderlich sind.  
 
- **Pilote**  
- Sélectionnez le fichier du pilote de stockage de masse à installer avant la configuration des déploiements des systèmes d'exploitation antérieurs à Windows Vista. La liste déroulante est complétée à partir du package spécifié.  
+ **Treiber**  
+ Wählen Sie die Massenspeicher-Treiberdatei aus, die installiert werden muss, bevor das Setup auf Bereitstellungen von Betriebssystemen vor Windows Vista durchgeführt werden kann. Die Dropdownliste wird mit den Treibern aus dem angegebenen Paket aufgefüllt.  
 
- **Modèle**  
- Spécifiez l'appareil critique au démarrage nécessaire aux déploiements des systèmes d'exploitation antérieurs à Windows Vista.  
+ **Modell**  
+ Geben Sie das für den Systemstart erforderliche Gerät an, das für Bereitstellungen von Betriebssystemen vor Windows Vista erforderlich ist.  
 
- **Effectuer une installation autonome des pilotes non signés sur les versions de Windows le permettant**  
- Sélectionnez cette option pour autoriser Windows à installer les pilotes non signés sur l'ordinateur de référence.  
+ **Unbeaufsichtigte Installation von nicht signierten Treibern bei Windows-Versionen ausführen, wenn zulässig**  
+ Wählen Sie diese Option aus, um Windows die Installation von nicht signierten Treibern auf dem Referenzcomputer zu gewähren.  
 
-##  <a name="BKMK_ApplyNetworkSettings"></a> Étape Appliquer les paramètres réseau  
- L'étape de séquence de tâches **Appliquer les paramètres réseau** permet de spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination. Les valeurs spécifiées sont stockées au format approprié d'un fichier de réponses afin d'être utilisées par le programme d'installation Windows lors de l'exécution de l'étape de séquence de tâches **Configurer Windows et ConfigMgr** .  
+##  <a name="BKMK_ApplyNetworkSettings"></a> Schritt „Netzwerkeinstellungen anwenden“  
+ Mithilfe des Tasksequenzschritts **Netzwerkeinstellungen anwenden** können Sie die Konfigurationsinformationen für das Netzwerk oder die Arbeitsgruppe des Zielcomputers angeben. Die angegebenen Werte werden im entsprechenden Antwortdateiformat gespeichert und für die Verwendung durch Windows-Setup beim Ausführen des Tasksequenzschritts **Windows und ConfigMgr einrichten** zur Verfügung gestellt.  
 
- Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer les paramètres réseau](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
+ Dieser Tasksequenzschritt wird entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Apply Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Joindre un groupe de travail**  
- Sélectionnez cette option pour que l'ordinateur de destination fasse partie du groupe de travail spécifié. Entrez le nom du groupe de travail sur la ligne **Groupe de travail** . Cette valeur peut être remplacée par la valeur capturée par l'étape de séquence de tâches **Capturer les paramètres réseau** .  
+ **Einer Arbeitsgruppe beitreten**  
+ Wählen Sie diese Option aus, um den Zielcomputer einer angegebenen Arbeitsgruppe hinzuzufügen. Geben Sie den Namen der Arbeitsgruppen in die Zeile **Arbeitsgruppe** ein. Dieser Wert kann durch den Wert überschrieben werden, der mit dem Tasksequenzschritt **Netzwerkeinstellungen erfassen** erfasst wird.  
 
- **Joindre un domaine**  
- Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié. Spécifiez ou accédez au domaine, tel que *fabricam.com*. Spécifiez un chemin d’accès LDAP (Lightweight Directory Access Protocol) à une unité d’organisation ou accédez-y (par ex. LDAP//OU=computers, DC=Fabricam.com, C=com).  
+ **Einer Domäne beitreten**  
+ Wählen Sie diese Option aus, um den Zielcomputer einer angegebenen Domäne hinzuzufügen. Geben Sie die Domäne an, oder klicken Sie auf "Durchsuchen", um die Domäne auszuwählen, z. B. *fabricam.com*. Geben Sie einen LDAP-Pfad (Lightweight Directory Access Protocol) für eine Organisationseinheit an, oder suchen Sie nach dem LDAP-Pfad (z.B. LDAP//OU=computers, DC=Fabricam.com, C=com).  
 
- **Compte**  
- Cliquez sur **Définir** pour spécifier un compte bénéficiant des autorisations nécessaires pour associer l'ordinateur au domaine. Dans la boîte de dialogue **Compte d’utilisateur Windows** , vous pouvez entrer le nom d’utilisateur au format suivant : **Domaine\Utilisateur** .  
+ **Konto**  
+ Klicken Sie auf **Festlegen** , um ein Konto anzugeben, das die für den Beitritt zur Domäne erforderlichen Berechtigungen aufweist. Im Dialogfeld **Windows-Benutzerkonto** können Sie den Benutzernamen in folgendem Format eingeben: **Domäne\Benutzer** .  
 
- **Paramètres de carte**  
- Spécifiez les configurations réseau pour chaque carte réseau dans l'ordinateur. Cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Paramètres réseau** , puis spécifiez les paramètres réseau. Si les paramètres réseau ont été capturés dans une précédente étape de séquence de tâches **Capturer les paramètres réseau** , les paramètres précédents sont appliqués à la carte réseau et les paramètres spécifiés dans cette étape ne sont pas appliqués. Si les paramètres réseau n'ont pas été capturés au préalable, les paramètres spécifiés à l'étape **Appliquer les paramètres réseau** sont appliqués aux cartes réseau dans l'ordre d'énumération des appareils Windows.  
+ **Netzwerkkarteneinstellungen**  
+ Geben Sie die Netzwerkkonfigurationen für alle Netzwerkadapter auf dem Computer an. Klicken Sie auf **Neu** , um das Dialogfeld **Netzwerkeinstellungen** zu öffnen, und geben Sie dann die Netzwerkeinstellungen an. Wenn die Netzwerkeinstellungen in einem vorherigen Tasksequenzschritt **Netzwerkeinstellungen erfassen** erfasst wurden, werden die vorherigen Einstellungen auf den Netzwerkadapter angewendet und die in diesem Schritt angegebenen Einstellungen werden ignoriert. Wenn zuvor noch keine Netzwerkeinstellungen erfasst wurden, werden die im Schritt **Netzwerkeinstellungen anwenden** angegebenen Einstellungen in der Reihenfolge der Windows-Geräteaufzählung auf Netzwerkadapter angewendet.  
 
-##  <a name="BKMK_ApplyOperatingSystemImage"></a> Appliquer l’image du système d’exploitation  
- Utilisez l'étape de séquence de tâches **Appliquer l'image du système d'exploitation** pour installer un système d'exploitation sur l'ordinateur de destination. Cette étape de séquence de tâches exécute un ensemble d'actions selon qu'elle utilise une image de système d'exploitation ou un package d'installation de système d'exploitation pour installer le système d'exploitation.  
+##  <a name="BKMK_ApplyOperatingSystemImage"></a> Betriebssystemimage anwenden  
+ Mithilfe des Tasksequenzschritts **Betriebssystemabbild anwenden** können Sie ein Betriebssystem auf dem Zielcomputer installieren. Bei dieser Tasksequenzaktion wird eine Reihe von Aktionen ausgeführt, die davon abhängen, ob ein Betriebssystemabbild oder ein Installationspaket für ein Betriebssystem verwendet wird.  
 
- L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'une image de système d'exploitation est utilisée.  
+ Wenn ein Betriebssystemabbild verwendet wird, werden mit dem Schritt **Betriebssystemabbild anwenden** die folgenden Aktionen ausgeführt:  
 
-1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
+1.  Mit Ausnahme der Dateien in dem mit der Tasksequenzvariablen &#95;SMSTSUserStatePath angegebenen Ordner wird der gesamte Inhalt auf dem Zielvolumen gelöscht.  
 
-2.  Extrait le contenu des fichiers .wim spécifiés sur la partition de destination indiquée.  
+2.  Extrahiert den Inhalt der angegebenen WIM-Datei in die angegebene Zielpartition.  
 
-3.  Prépare le fichier de réponses :  
+3.  Bereitet die Antwortdatei vor:  
 
-    1.  Crée un nouveau fichier de réponses par défaut du programme d'installation Windows (sysprep.inf ou unattend.xml) pour le système d'exploitation en cours de déploiement.  
+    1.  Eine neue Standardantwortdatei für Windows Setup (sysprep.inf oder unattend.xml) wird für das bereitzustellende Betriebssystem erstellt.  
 
-    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponse fourni par l'utilisateur.  
+    2.  Übernimmt alle Werte aus der vom Benutzer bereitgestellten Antwortdatei.  
 
-4.  Copie les chargeurs de démarrage Windows dans la partition active.  
+4.  Kopiert Windows-Startladeprogramme in die aktive Partition.  
 
-5.  Configure boot.ini ou BCD (Boot Configuration Database) pour référencer le système d'exploitation nouvellement installé.  
+5.  Konfiguriert die Datei „boot.ini“ bzw. die Startkonfigurationsdaten (Boot Configuration Data, BCD) mit einem Verweis auf das neu installierte Betriebssystem.  
 
- L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'un package d'installation de système d'exploitation est utilisé.  
+ Wenn ein Installationspaket für das Betriebssystemabbild verwendet wird, werden mit dem Schritt **Betriebssystemabbild anwenden** die folgenden Aktionen ausgeführt:  
 
-1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
+1.  Mit Ausnahme der Dateien in dem mit der Tasksequenzvariablen &#95;SMSTSUserStatePath angegebenen Ordner wird der gesamte Inhalt auf dem Zielvolumen gelöscht.  
 
-2.  Prépare le fichier de réponses :  
+2.  Bereitet die Antwortdatei vor:  
 
-    1.  Crée un nouveau fichier de réponses contenant les valeurs standard produites par Configuration Manager.  
+    1.  Erstellt eine neue Antwortdatei mit von Configuration Manager erstellten Standardwerten.  
 
-    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponses fourni par l'utilisateur.  
+    2.  Übernimmt alle Werte aus der vom Benutzer bereitgestellten Antwortdatei.  
 
 > [!NOTE]  
->  L'installation proprement dite de Windows est déclenchée par l'étape de séquence de tâches **Configurer Windows et ConfigMgr** . À l'issue de l'exécution de l'action de séquence de tâches **Appliquer le système d'exploitation** , la variable OSDTargetSystemDrive est réglée sur la lettre de lecteur de la partition contenant les fichiers de système d'exploitation.  
+>  Die eigentliche Windows-Installation wird vom Tasksequenzschritt **Windows und ConfigMgr einrichten** gestartet. Nach Ausführung der Tasksequenzaktion **Betriebssystem anwenden** wird die Tasksequenzvariable „OSDTargetSystemDrive“ auf den Laufwerksbuchstaben der Partition gesetzt, in der sich die Betriebssystemdateien befinden.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer l’image du système d’exploitation](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Apply Operating System Image Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   **Accéder au contenu directement depuis le point de distribution**:  
+-   **Auf Inhalt direkt vom Verteilungspunkt aus zugreifen**:  
 
-     Utilisez cette option pour spécifier si vous souhaitez que la séquence de tâches accède à l'image du système d'exploitation directement depuis le point de distribution. Par exemple, vous pouvez utiliser cette option lorsque vous déployez des systèmes d'exploitation sur des appareils intégrés ayant une capacité de stockage limitée. Lorsque cette option est sélectionnée, vous devez également configurer les paramètres de partage du package sous l'onglet **Accès aux données** des propriétés du package.  
+     Verwenden Sie diese Option, um anzugeben, ob die Tasksequenz direkt vom Verteilungspunkt aus auf das Betriebssystemabbild zugreifen soll. Sie können diese Option z. B. verwenden, wenn Sie Betriebssysteme für eingebettete Geräte mit begrenzter Speicherkapazität bereitstellen. Wenn diese Option aktiviert ist, müssen Sie auch die Einstellungen für die Paketfreigabe auf der Registerkarte **Datenzugriff** der Paketeigenschaften konfigurieren.  
 
     > [!NOTE]  
-    >  Ce paramètre remplace l'option de déploiement configurée dans la page **Points de distribution** de l' **Assistant Déploiement logiciel** uniquement pour l'image de système d'exploitation spécifiée lors de cette étape, et non tout le contenu de l'ensemble de la séquence de tâches.  
+    >  Mit dieser Einstellung wird die auf der Seite **Verteilungspunkte** im **Assistenten zum Bereitstellen von Software** abgegebene Bereitstellungsoption nur für das Betriebssystemabbild überschrieben, das in diesem Tasksequenzschritt angegeben ist, nicht jedoch für den ganzen Inhalt der gesamten Tasksequenz.  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Appliquer le système d’exploitation à partir d’une image capturée**  
- Installer une image du système d'exploitation qui a été précédemment capturée. Cliquez sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package** , puis sélectionnez le package d'image existant à installer. Si plusieurs images sont associées au **Package d'images**spécifié, utilisez la liste déroulante pour spécifier l'image associée utilisée pour ce déploiement. Vous pouvez afficher des informations de base sur chaque image existante en cliquant sur l'image en question.  
+ **Betriebssystem von einem erfassten Image übernehmen**  
+ Installiert ein zuvor erfasstes Betriebssystemabbild. Klicken Sie auf **Durchsuchen** , um das Dialogfeld **Paket auswählen** zu öffnen, und wählen Sie dann das vorhandene Abbildpaket aus, das Sie installieren möchten. Wenn mehrere Abbilder mit dem angegebenen **Abbildpaket**verknüpft sind, geben Sie das zugehörige Abbild für diese Bereitstellung mithilfe der Dropdownliste an. Sie können zu jedem vorhandenen Abbild grundlegende Informationen anzeigen, indem Sie auf das Abbild klicken.  
 
- **Appliquer l’image du système d’exploitation à partir d’une source d’installation d’origine**  
- Installe un système d'exploitation à l'aide d'une source d'installation d'origine. Cliquez sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package d'installation de système d'exploitation** , puis sélectionnez le package d'installation du système d'exploitation existant à utiliser. Vous pouvez afficher des informations de base sur chaque source d'image existante en cliquant sur l'image source en question. Les propriétés de la source d'image associée s'affichent dans le volet des résultats dans la partie inférieure de la boîte de dialogue. Si plusieurs éditions sont associées au package spécifié, utilisez la liste déroulante pour spécifier l' **Édition** associée qui est utilisée.  
+ **Betriebssystem von einer ursprünglichen Installationsquelle übernehmen**  
+ Installiert ein Betriebssystem mithilfe einer ursprünglichen Installationsquelle. Klicken Sie auf **Durchsuchen** , um das Dialogfeld **Betriebssysteminstallationspaket auswählen** zu öffnen, und wählen Sie dann das Betriebssysteminstallationspaket aus, das Sie verwenden möchten. Sie können zu jeder vorhandenen Abbildquelle grundlegende Informationen anzeigen, indem Sie auf die Abbildquelle klicken. Die zugeordneten Eigenschaften der Abbildquelle werden unten im Dialogfeld im Ergebnisbereich angezeigt. Falls dem angegebenen Paket mehrere Editionen zugeordnet sind, geben Sie die verwendete zugeordnete **Edition** in der Dropdownliste an.  
 
- **Utiliser un fichier de réponse Sysprep ou autonome pour une installation personnalisée**  
- Utilisez cette option pour fournir un fichier de réponses d'installation Windows (**unattend.xml**, **unattend.txt**ou **sysprep.inf**) selon la version du système d'exploitation et la méthode d'installation. Le fichier que vous spécifiez peut inclure toutes les options de configuration standard prises en charge par les fichiers de réponse. Par exemple, vous pouvez l'utiliser pour spécifier la page d'accueil par défaut d'Internet Explorer. Vous devez spécifier le package qui comprend le fichier de réponses et le chemin d'accès associé au fichier dans le package.  
+ **Datei für unbeaufsichtigte Installation oder Antwortdatei für Systemvorbereitung bei benutzerdefinierter Installation verwenden**  
+ Stellen Sie mit dieser Option je nach Betriebssystemversion und Installationsmethode eine Windows Setup-Antwortdatei (**unattend.xml**, **unattend.txt**oder **sysprep.inf**) bereit. Die von Ihnen angegebene Datei kann alle Standardkonfigurationsoptionen enthalten, die von Windows-Antwortdateien unterstützt werden. Sie können damit beispielsweise die Standardstartseite im Internet Explorer angeben. Sie müssen das Paket mit der Antwortdatei sowie den entsprechenden Pfad zu der Datei im Paket angeben.  
 
 > [!NOTE]  
->  Le fichier de réponses d'installation Windows que vous fournissez peut contenir des variables de séquence de tâches incorporées au format %*varname*%, « varname » correspondant au nom de la variable. La chaîne %*varname*% sera remplacée par les valeurs réelles de la variable dans l'action de séquence de tâches **Configurer Windows et ConfigMgr** . Toutefois, notez qu'il n'est pas possible d'utiliser des variables de séquence de tâches incorporées dans les champs exclusivement numériques d'un fichier de réponses unattend.xml.  
+>  Die angegebene Windows Setup-Antwortdatei kann eingebettete Tasksequenzvariablen im Format %*varname*% enthalten, wobei „varname“ der Name der Variable ist. Die Zeichenfolge %*varname*% wird in der Tasksequenzaktion **Windows und ConfigMgr einrichten** durch die richtigen Variablenwerte ersetzt. Beachten Sie jedoch, dass diese eingebetteten Tasksequenzvariablen in den Antwortdateien „unattend.xml“ nicht in rein numerischen Feldern verwendet werden können.  
 
- Si vous n'indiquez pas de fichier de réponses d'installation Windows, cette action de séquence de tâches génère automatiquement un fichier de réponses.  
+ Wenn Sie keine Windows Setup-Antwortdatei angeben, generiert diese Tasksequenzaktion automatisch eine Antwortdatei.  
 
- **Destination**  
- Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
+ **Ziel**  
+ Gibt eine vorhandene formatierte Partition und Festplatte, einen bestimmten Buchstaben für ein logisches Laufwerk oder den Namen einer Tasksequenzvariablen an, die den Buchstaben für das logische Laufwerk enthält.  
 
--   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
+-   **Nächste verfügbare Partition**: Verwendet die nächste verfügbare Partition, die in dieser Tasksequenz nicht bereits für eine Aktion „Betriebssystem anwenden“ oder „Datenimage anwenden“ verwendet wurde.  
 
--   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
+-   **Bestimmter Datenträger und Partition**: Wählen Sie die Nummer des **Datenträgers** (beginnend mit 0) und die Nummer der **Partition** (beginnend mit 1) aus.  
 
--   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
+-   **Bestimmter Buchstabe für logisches Laufwerk**: Geben Sie den **Laufwerkbuchstaben** ein, der der Partition von Windows PE zugewiesen wurde. Beachten Sie, dass sich dieser Laufwerkbuchstabe von dem Laufwerkbuchstaben unterscheiden kann, der von dem neu bereitgestellten Betriebssystem zugewiesen wird.  
 
--   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
+-   **In Variable gespeicherter Buchstabe für logisches Laufwerk**: Geben Sie die Tasksequenzvariable an, die den der Partition von Windows PE zugewiesenen Laufwerksbuchstaben enthält. Diese Variable wurde in der Regel im Bereich „Erweitert“ des Dialogfelds **Partitionseigenschaften** für die Tasksequenzaktion **Datenträger formatieren und partitionieren** eingestellt.  
 
-##  <a name="BKMK_ApplyWindowsSettings"></a> Appliquer les paramètres Windows  
- Utilisez l'étape de séquence de tâches **Appliquer les paramètres Windows** pour configurer les paramètres Windows de l'ordinateur de destination. Les valeurs spécifiées sont stockées au format approprié d'un fichier de réponses afin d'être utilisées par le programme d'installation Windows lors de l'exécution de l'étape de séquence de tâches **Configurer Windows et ConfigMgr** .  
+##  <a name="BKMK_ApplyWindowsSettings"></a> Windows-Einstellungen anwenden  
+ Mithilfe des Tasksequenzschritts **Windows-Einstellungen anwenden** können Sie die Windows-Einstellungen für den Zielcomputer konfigurieren. Die angegebenen Werte werden im entsprechenden Antwortdateiformat gespeichert und für die Verwendung durch Windows-Setup beim Ausführen des Tasksequenzschritts **Windows und ConfigMgr einrichten** zur Verfügung gestellt.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer les paramètres Windows](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Apply Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court, défini par l'utilisateur, qui décrit l'action effectuée dans cette étape  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Nom d’utilisateur**  
- Spécifiez le nom d'utilisateur inscrit qui est associé à l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'action de séquence de tâches **Capturer les paramètres Windows** .  
+ **Benutzername**  
+ Geben Sie den registrierten Benutzernamen an, der dem Zielcomputer zugeordnet ist. Dieser Wert kann durch den Wert überschrieben werden, der mit der Tasksequenzaktion **Windows-Einstellungen erfassen** erfasst wird.  
 
- **Nom de l’organisation**  
- Spécifiez le nom de l'organisation inscrite qui est associé à l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'action de séquence de tâches **Capturer les paramètres Windows** .  
+ **Name der Organisation**  
+ Geben Sie den registrierten Organisationsnamen an, der dem Zielcomputer zugeordnet ist. Dieser Wert kann durch den Wert überschrieben werden, der mit der Tasksequenzaktion **Windows-Einstellungen erfassen** erfasst wird.  
 
- **Clé du produit**  
- Spécifiez la clé du produit qui est utilisée pour l'installation de Windows sur l'ordinateur de destination.  
+ **Product Key**  
+ Geben Sie den Product Key an, der für die Windows-Installation auf dem Bereitstellungszielcomputer verwendet wird.  
 
- **Licence serveur**  
- Spécifiez le mode de licence serveur. Vous pouvez sélectionner le mode **Par serveur** ou **Par utilisateur** . Si vous sélectionnez le mode de licence Par serveur, vous devrez également spécifier le nombre maximal de connexions autorisées selon les termes de votre contrat de licence. Sélectionnez **Ne pas spécifier** si l'ordinateur de destination n'est pas un serveur ou si vous ne souhaitez pas spécifier le mode de licence.  
+ **Serverlizenzierung**  
+ Geben Sie den Serverlizenzierungsmodus an. Sie können als Lizenzierungsmodus **Pro Server** oder **Pro Benutzer** auswählen. Wenn Sie „Pro Server“ als Lizenzierungsmodus auswählen, müssen Sie auch die maximale Anzahl der Verbindungen angeben, die gemäß Ihrem Lizenzvertrag zulässig sind. Falls der Bereitstellungszielcomputer kein Server ist oder Sie den Lizenzierungsmodus nicht angeben möchten, wählen Sie **Nicht angeben** aus.  
 
- **Nombre maximal de connexions**  
- Spécifiez le nombre maximal de connexions disponibles pour cet ordinateur comme spécifié dans votre accord de licence.  
+ **Maximale Verbindungen**  
+ Geben Sie die maximale Anzahl der Verbindungen an, die für diesen Computer gemäß Ihrem Lizenzvertrag zulässig sind.  
 
- **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge (recommandé)**  
- Sélectionnez cette option si vous souhaitez qu'un mot de passe d'administrateur local soit généré de façon aléatoire. Elle crée un mot de passe d'administrateur local et fait se désactiver le compte sur les plates-formes prises en charge.  
+ **Lokales Administratorkennwort zufällig erstellen und das Konto auf allen unterstützten Plattformen deaktivieren (empfohlen)**  
+ Wählen Sie diese Option aus, um ein lokales Administratorkennwort zufällig zu generieren. Hiermit wird ein lokales Administratorkennwort erstellt und veranlasst, dass das Konto auf unterstützten Plattformen deaktiviert wird.  
 
- **Activer le compte et spécifier le mot de passe de l’administrateur local**  
- Sélectionnez cette option pour activer le compte d'administrateur local et créer le mot de passe correspondant. Entrez le mot de passe dans la ligne **Mot de passe** et confirmez-le dans la ligne **Confirmer le mot de passe** .  
+ **Konto aktivieren und lokales Administratorkennwort angeben**  
+ Wählen Sie diese Option aus, wenn Sie das lokale Administratorkonto aktivieren und das lokale Administratorkennwort erstellen möchten. Geben Sie das Kennwort in der Zeile **Kennwort** ein, und bestätigen Sie es in der Zeile **Kennwort bestätigen** .  
 
- **Fuseau horaire**  
- Spécifiez le fuseau horaire à configurer sur l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'étape de séquence de tâches **Capturer les paramètres Windows** .  
+ **Zeitzone**  
+ Geben Sie die zu konfigurierende Zeitzone auf dem Zielcomputer an. Dieser Wert kann durch den Wert überschrieben werden, der mit dem Tasksequenzschritt **Windows-Einstellungen erfassen** erfasst wird.  
 
-##  <a name="BKMK_AutoApplyDrivers"></a> Appliquer automatiquement les pilotes  
- Utilisez l'étape de séquence de tâches **Appliquer automatiquement les pilotes** pour faire correspondre et installer des pilotes dans le cadre du déploiement du système d'exploitation.  
+##  <a name="BKMK_AutoApplyDrivers"></a> Treiber automatisch anwenden  
+ Mithilfe des Tasksequenzschritts **Treiber automatisch anwenden** können Sie die geeigneten Treiber als Teil einer Betriebssystembereitstellung auswählen und installieren.  
 
- L'étape de séquence de tâches **Appliquer automatiquement les pilotes** effectue les actions suivantes :  
+ Mit dem Tasksequenzschritt **Treiber automatisch anwenden** werden folgende Aktionen ausgeführt:  
 
-1.  Analyse le matériel et localise les ID Plug-and-Play de tous les appareils présents sur le système.  
+1.  Überprüft die Hardware und ermittelt die Plug-and-Play-IDs für alle auf dem System vorhandenen Geräte.  
 
-2.  Envoie la liste des appareils et leurs ID Plug-and-Play au point de gestion. Celui-ci retourne une liste de pilotes compatibles pour chaque périphérique provenant du catalogue de pilotes. Le point de gestion prend en compte tous les pilotes, quel que soit le package de pilotes dans lequel ils se trouvent. Seuls les pilotes correspondant à la catégorie de pilotes spécifiée et ceux qui ne sont pas marqués comme désactivés sont pris en compte.  
+2.  Sendet die Liste mit den Geräten und den ihnen zugeordneten Plug-and-Play-IDs an den Verwaltungspunkt. Der Verwaltungspunkt gibt für jedes Gerät eine Liste mit kompatiblen Treibern aus dem Treiberkatalog zurück. Der Verwaltungspunkt berücksichtigt alle Treiber unabhängig davon, in welchem Treiberpaket sie enthalten sind. Nur mit der angegebenen Treiberkategorie gekennzeichnete Treiber und Treiber, die nicht als deaktiviert gekennzeichnet sind, werden berücksichtigt.  
 
-3.  Pour chaque périphérique, le client choisit le pilote le plus approprié au système d'exploitation sur lequel il est déployé et qui se trouve sur un point de distribution accessible.  
+3.  Der Client wählt für jedes Gerät den Treiber aus, der sich für das Betriebssystem, auf dem er installiert wird, am besten eignet, und der sich auf einem verfügbaren Verteilungspunkt befindet.  
 
-4.  Le ou les pilotes sélectionnés sont téléchargés à partir d'un point de distribution et préparés sur le système d'exploitation cible.  
+4.  Die ausgewählten Treiber werden von einem Verteilungspunkt heruntergeladen und auf dem Zielbetriebssystem bereitgestellt.  
 
-    1.  Pour les installations à base d’image, les pilotes sont placés dans le magasin de pilotes du système d’exploitation.  
+    1.  Für abbildbasierte Installationen werden die Treiber im Treiberspeicher des Betriebssystems abgelegt.  
 
-    2.  Pour les installations basées sur la configuration, le programme d'installation Windows est configuré avec les informations permettant de localiser les pilotes.  
+    2.  Bei setupbasierten Installationen wird im Windows-Setup festgelegt, wo die Treiber zu finden sind.  
 
-5.  Lorsque l'action de séquence de tâches **Configurer Windows et ConfigMgr** s'exécute et que Windows démarre pour la première fois, il localise les pilotes préparés par cette action.  
+5.  Wenn die Tasksequenzaktion **Windows und ConfigMgr einrichten** ausgeführt wird, werden die von dieser Aktion bereitgestellten Treiber beim ersten Windows-Start gefunden.  
 
 > [!IMPORTANT]
->  L’étape de séquence de tâches **Appliquer automatiquement les pilotes** ne peut pas être utilisée avec un média autonome, car le programme d’installation Windows ne disposera d’aucune connexion au site Configuration Manager.
+>  Der Tasksequenzschritt **Treiber automatisch anwenden** kann nicht auf eigenständigen Medien verwendet werden, da Windows Setup in diesem Fall nicht über eine Verbindung mit dem Configuration Manager-Standort verfügt.
 
-Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer automatiquement les pilotes](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
+Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Auto Apply Drivers Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Installer uniquement les pilotes compatibles les plus appropriés**  
- Indique que l'étape de séquence de tâches installe uniquement le pilote le plus approprié pour chaque périphérique matériel détecté.  
+ **Nur Treiber mit der höchsten Kompatibilität installieren**  
+ Hiermit wird angegeben, dass vom Tasksequenzschritt nur der am besten geeignete Treiber für das jeweilige erkannte Hardwaregerät installiert wird.  
 
- **Installer tous les pilotes compatibles**  
- Indique que l'étape de séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et autorise le programme d'installation Windows à choisir le meilleur pilote. Cette option utilise davantage de bande passante réseau et d'espace disque car elle télécharge davantage de pilotes, mais un meilleur pilote est éventuellement sélectionné.  
+ **Alle kompatiblen Treiber installieren**  
+ Hiermit wird angegeben, dass vom Tasksequenzschritt alle kompatiblen Treiber für das jeweilige erkannte Hardwaregerät installiert werden und der beste Treiber von Windows Setup ausgewählt werden kann. Von dieser Option werden mehr Netzwerkbandbreite und Speicherplatz beansprucht, da mit ihr mehr Treiber heruntergeladen werden. Möglicherweise wird dadurch jedoch ein besserer Treiber ausgewählt.  
 
- **Considérer les pilotes de toutes les catégories**  
- Indique que l'action de séquence de tâches recherche toutes les catégories de pilotes disponibles pour les pilotes d'appareils appropriés.  
+ **Treiber aller Kategorien berücksichtigen**  
+ Hiermit wird angegeben, dass von der Tasksequenzaktion in allen verfügbaren Treiberkategorien nach den geeigneten Gerätetreibern gesucht wird.  
 
- **Limiter la correspondance des pilotes aux pilotes des catégories sélectionnées uniquement**  
- Indique que l'action de séquence de tâches recherche les pilotes de périphérique dans les catégories de pilote indiquées pour les pilotes d'appareils appropriés.  
+ **Nur Treiber in bestimmten Kategorien berücksichtigen**  
+ Hiermit wird angegeben, dass von der Tasksequenzaktion in angegebenen Treiberkategorien nach den geeigneten Gerätetreibern gesucht wird.  
 
- **Effectuer une installation autonome des pilotes non signés sur les versions de Windows le permettant**  
- Autorise cette action de la séquence de tâches à installer des pilotes d'appareils Windows non signés.  
+ **Unbeaufsichtigte Installation von nicht signierten Treibern bei Windows-Versionen ausführen, wenn zulässig**  
+ Ermöglicht dieser Tasksequenzaktion, nicht signierte Windows-Gerätetreiber zu installieren.  
 
 > [!IMPORTANT]  
->  Cette option ne s'applique pas aux systèmes d'exploitation sur lesquels la stratégie de signature de pilotes ne peut pas être configurée.  
+>  Diese Option gilt nicht für Betriebssysteme, deren Richtlinie für Treibersignierung nicht konfiguriert werden kann.  
 
-##  <a name="BKMK_CaptureNetworkSettings"></a> Capturer les paramètres réseau  
- L'étape de la séquence de tâches **Capturer les paramètres réseau** permet de capturer les paramètres réseau Microsoft de l'ordinateur exécutant la séquence de tâches. Les paramètres sont enregistrés dans des variables de séquence de tâches qui remplacent les paramètres par défaut que vous configurez à l'étape de séquence de tâches **Appliquer les paramètres réseau** .  
+##  <a name="BKMK_CaptureNetworkSettings"></a> Netzwerkeinstellungen erfassen  
+ Verwenden Sie den Tasksequenzschritt **Netzwerkeinstellungen erfassen** zum Erfassen der Microsoft-Netzwerkeinstellungen des Computers, auf dem die Tasksequenz ausgeführt wird. Die Einstellungen werden in Tasksequenzvariablen gespeichert, die die im Tasksequenzschritt **Netzwerkeinstellungen anwenden** konfigurierten Standardeinstellungen außer Kraft setzen.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer les paramètres réseau](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Capture Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Gibt einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt vorgenommene Aktion beschreibt.  
 
- **Description**  
- Fournit davantage d'informations sur l'action effectuée à cette étape.  
+ **Beschreibung**  
+ Bietet ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Migrer l’appartenance au groupe de travail ou au domaine**  
- Capture les informations d'appartenance du domaine et du groupe de travail de l'ordinateur de destination.  
+ **Domänen- und Arbeitsgruppenmitgliedschaft migrieren**  
+ Hiermit werden Informationen zur Domänen- und Arbeitsgruppenmitgliedschaft des Zielcomputers erfasst.  
 
- **Migrer la configuration de la carte réseau**  
- Capture la configuration de la carte réseau de l'ordinateur de destination. Les informations capturées sont constituées des paramètres réseau globaux, du nombre de cartes et des paramètres réseau associés à chaque carte. Les paramètres sont constitués de paramètres associés à DNS, WINS, IP et aux filtres de port.  
+ **Netzwerkkartenkonfiguration migrieren**  
+ Hiermit wird die Netzwerkadapterkonfiguration des Zielcomputers erfasst. Diese Informationen umfassen die globalen Netzwerkeinstellungen, die Anzahl der Netzwerkkarten und die den Karten zugeordneten Netzwerkeinstellungen. Diese Einstellungen umfassen auch DNS-, WINS-, IP- und Portfiltereinstellungen.  
 
-##  <a name="BKMK_CaptureOperatingSystemImage"></a> Capturer l’image du système d’exploitation  
- Utilisez l'étape de séquence de tâches **Capturer l'image du système d'exploitation** pour capturer une ou plusieurs images à partir d'un ordinateur de référence et les stocke dans un fichier .WIM sur le partage réseau spécifié. L’Assistant Ajout d’un package d’image de système d’exploitation peut ensuite être utilisé pour importer ce fichier .WIM dans Configuration Manager et ainsi permettre le déploiement de systèmes d’exploitation à base d’image.  
+##  <a name="BKMK_CaptureOperatingSystemImage"></a> Betriebssystemabbild erfassen  
+ Mithilfe des Tasksequenzschritts **Betriebssystemabbild erfassen** können Sie Abbilder von einem Referenzcomputer erfassen und in einer WIM-Datei auf der angegebenen Netzwerkfreigabe speichern. Diese WIM-Datei kann dann mithilfe des Assistenten zum Hinzufügen eines Betriebssystemimages in Configuration Manager importiert werden, damit sie für imagebasierte Betriebssystembereitstellungen genutzt werden kann.  
 
- Chaque volume (lecteur) sur l'ordinateur de référence est capturé en tant qu'image distincte dans le fichier .WIM. Si l'ordinateur référencé comporte des volumes multiples, le fichier .WIM obtenu contiendra une image distincte pour chaque volume. Seuls les volumes formatés au format NTFS ou FAT32 sont capturés. Les volumes d'un autre format et les volumes USB sont ignorés.  
+ Jedes Volume (Laufwerk) auf dem Referenzcomputer wird als ein separates Abbild in der WIM-Datei erfasst. Wenn der Referenzcomputer über mehrere Volumes verfügt, enthält die erstellte WIM-Datei für jedes Volume ein separates Abbild. Es werden nur als NTFS oder FAT32 formatierte Volumes erfasst. Volumes in anderen Formaten sowie USB-Volumes werden nicht berücksichtigt.  
 
- Le système d’exploitation installé sur l’ordinateur de référence doit être une version de Windows prise en charge par Configuration Manager et doit avoir été préparé à l’aide de l’outil SysPrep. Le volume du système d'exploitation installé et le volume de démarrage doivent correspondre.  
+ Das auf dem Referenzcomputer installierte Betriebssystem muss in einer von Configuration Manager unterstützten Windows-Version vorliegen und mithilfe des SysPrep-Tools vorbereitet worden sein. Bei dem Volume mit dem installierten Betriebssystem und dem Startvolume muss es sich um dasselbe Volume handeln.  
 
- Vous devez également entrer un compte Windows qui dispose d'autorisations en écriture au partage réseau que vous avez sélectionné.  
+ Sie müssen außerdem ein Windows-Konto eingeben, das über Schreibberechtigung für die von Ihnen ausgewählte Netzwerkfreigabe verfügt.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer l’image du système d’exploitation](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Capture Operating System Image Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Cible**  
- Nom de chemin du système de fichiers menant à l’emplacement qu’utilise Configuration Manager pour stocker l’image de système d’exploitation capturée.  
+ **Ziel**  
+ Dies ist der Name des Dateisystempfads, der von Configuration Manager zum Speichern des erfassten Betriebssystemimages verwendet wird.  
 
- **Description**  
- Description facultative définie par l'utilisateur de l'image du système d'exploitation capturée qui est stockée dans le fichier WIM.  
+ **Beschreibung**  
+ Eine optionale benutzerdefinierte Beschreibung des erfassten Betriebssystemabbilds, die in der WIM-Datei gespeichert wird.  
 
  **Version**  
- Numéro de version facultatif défini par l'utilisateur à attribuer à l'image du système d'exploitation capturée. Cette valeur peut représenter n'importe quelle combinaison de lettres et de chiffres et est stockée dans le fichier WIM.  
+ Eine optionale benutzerdefinierte Versionsnummer, die dem erfassten Betriebssystemabbild zugewiesen wird. Dieser Wert kann aus einer beliebigen Kombination aus Buchstaben und Ziffern bestehen und wird in der WIM-Datei gespeichert.  
 
- **Créé par**  
- (facultatif) Nom de l'utilisateur qui a créé l'image du système d'exploitation et qui est stocké dans le fichier WIM.  
+ **Erstellt von**  
+ Der optionale Name des Benutzers, der das Betriebssystemabbild erstellt hat. Dieser Name wird in der WIM-Datei gespeichert.  
 
- **Compte Capturer l’image du système d’exploitation**  
- Vous devez entrer le compte Windows qui dispose des droits d'accès au partage réseau que vous avez spécifié. Cliquez sur **Définir** pour indiquer le nom de ce compte Windows.  
+ **Konto für die Erfassung des Betriebssystemimages**  
+ Sie müssen das Windows-Konto eingeben, das über Berechtigungen für den Zugriff auf die von Ihnen ausgewählte Netzwerkfreigabe verfügt. Klicken Sie auf **Festlegen** , um den Namen dieses Windows-Kontos anzugeben.  
 
-##  <a name="BKMK_CaptureUserState"></a> Capturer l’état utilisateur  
- L'étape de la séquence de tâches **Capturer l'état utilisateur** permet d'utiliser l'outil de migration de l'état utilisateur (USMT) pour capturer l'état et les paramètres utilisateur de l'ordinateur exécutant la séquence de tâches. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Restaurer l'état utilisateur** . Dans USMT 3.0.1 et ultérieur, cette option chiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
+##  <a name="BKMK_CaptureUserState"></a> Benutzerzustand erfassen  
+ Verwenden Sie den Tasksequenzschritt **Benutzerzustand erfassen** , um mithilfe von Windows-EasyTransfer bzw. USMT den Benutzerzustand und die Benutzereinstellungen des Computers zu erfassen, auf dem die Tasksequenz ausgeführt wird. Dieser Tasksequenzschritt wird in Verbindung mit dem Tasksequenzschritt **Benutzerzustand wiederherstellen** verwendet. In USMT 3.0.1 und höher wird der USMT-Zustandsspeicher mit dieser Option stets mit einem von Configuration Manager generierten und verwalteten Verschlüsselungsschlüssel verschlüsselt.  
 
- Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
+ Weitere Informationen zum Verwalten des Benutzerzustands beim Bereitstellen von Betriebssystemen finden Sie unter [Verwalten des Benutzerzustands](../get-started/manage-user-state.md).  
 
- Vous pouvez aussi utiliser l’étape de séquence de tâches **Capturer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager.  
+ Sie können auch den Tasksequenzschritt **Benutzerzustand erfassen** zusammen mit den Tasksequenzschritten **Zustandsspeicher anfordern** und **Zustandsspeicher freigeben** verwenden, wenn Sie die Zustandseinstellungen in einem Zustandsmigrationspunkt am Configuration Manager-Standort speichern oder von dort aus wiederherstellen möchten.  
 
- L'étape de séquence de tâches **Capturer l'état utilisateur** permet de contrôler un sous-ensemble des options USMT les plus couramment utilisées. D'autres options de ligne de commande peuvent être spécifiées au moyen de la variable de séquence de tâches OSDMigrateAdditionalCaptureOptions.  
+ Mit dem Tasksequenzschritt **Benutzerzustand erfassen** kann eine begrenzte Teilmenge der am häufigsten verwendeten USMT-Optionen gesteuert werden. Zusätzliche Befehlszeilenoptionen können mithilfe der Tasksequenzvariablen „OSDMigrateAdditionalCaptureOptions“ angegeben werden.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer l’état utilisateur](task-sequence-action-variables.md#BKMK_CaptureUserState).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Capture User State Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Package de l’outil de migration de l’état utilisateur**  
- Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape de séquence de tâches pour l’utiliser pendant la capture des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 de USMT en fonction de l'architecture du système d'exploitation à partir duquel vous capturez l'état.  
+ **USMT-Paket (Migrationsprogramm für den Benutzerzustand)**  
+ Geben Sie das Configuration Manager-Paket ein, das die USMT-Version enthält, die von diesem Tasksequenzschritt beim Erfassen des Benutzerzustands und der Einstellungen verwendet werden soll. Für dieses Paket ist kein Programm erforderlich. Beim Ausführen des Tasksequenzschritts wird die USMT-Version im angegebenen Paket ausgeführt. Geben Sie je nach Architektur des Betriebssystems, von dem Sie den Zustand erfassen, ein Paket an, das die 32-Bit-Version oder die x64-Version von USMT enthält.  
 
- **Capturer tous les profils utilisateur présentant les options standard**  
- Sélectionnez cette option pour migrer toutes les informations des profils utilisateur. Cette option est activée par défaut.  
+ **Alle Benutzerprofile mit Standardoptionen erfassen**  
+ Wählen Sie diese Option aus, um alle Benutzerprofilinformationen zu migrieren. Diese Option ist standardmäßig ausgewählt.  
 
- Si vous sélectionnez cette option sans sélectionner l’option Restaurer les profils utilisateur de l’ordinateur local dans l’étape de séquence de tâches Restaurer l’état utilisateur, la séquence de tâches échouera, car Configuration Manager ne peut pas migrer les nouveaux comptes sans leur attribuer des mots de passe. De même, si vous faites appel à l'Assistant **Nouvelle séquence de tâches** et créez une séquence de tâches pour **Installer un package d'images existant**, la séquence de tâches obtenue prend par défaut la valeur Capturer tous les profils utilisateur présentant les options standard, mais ne sélectionne pas l'option Restaurer les profils utilisateur de l'ordinateur local (c.-à-d. des comptes qui sont pas des comptes de domaine).  
+ Wenn Sie diese Option auswählen, nicht jedoch die Option zum Wiederherstellen der lokalen Benutzerprofile im Tasksequenzschritt „Benutzerzustand wiederherstellen“, tritt ein Fehler in der Tasksequenz auf, da die neuen Konten nicht von Configuration Manager migriert werden können, ohne dass ihnen Kennwörter zugewiesen werden. Zusätzlich gilt: Wenn Sie im Tasksequenzerstellungs-Assistenten eine Tasksequenz erstellen, um ein bestehendes Abbildpaket zu installieren, wird für die Tasksequenz standardmäßig die Option **Alle Benutzerprofile mit Standardoptionen erfassen** ausgewählt, nicht jedoch die Option **Lokale Computerbenutzerprofile wiederherstellen**(d. h. Nicht-Domänenkontos).  
 
- Sélectionnez **Restaurer les profils utilisateur de l'ordinateur local** et spécifiez un mot de passe pour le compte à migrer. Dans une séquence de tâches qui a été manuellement créée, ce paramètre est disponible sous l'étape Restaurer l'état utilisateur. Dans une séquence de tâches créée à l'aide de l'Assistant **Nouvelle séquence de tâches** , ce paramètre est disponible sur la page de l'assistant d'étape **Restaurer les fichiers et paramètres utilisateur** .  
+ Wählen Sie **Lokale Computerbenutzerprofile wiederherstellen** aus, und geben Sie für das zu migrierende Konto ein Kennwort ein. In einer manuell erstellten Tasksequenz finden Sie diese Einstellung im Schritt „Benutzerzustand wiederherstellen“. Wird die Tasksequenz vom **Tasksequenzerstellungs-Assistenten** erstellt, befindet sich diese Einstellung auf der Seite **Benutzerdateien und -einstellungen wiederherstellen** des Assistenten.  
 
- Si vous ne disposez d'aucun compte d'utilisateur local, ceci ne s'applique pas.  
+ Wenn Sie über keine lokalen Benutzerkonten verfügen, ist dies nicht relevant.  
 
- **Personnaliser la façon dont les profils utilisateur sont capturés**  
- Sélectionnez cette option pour indiquer une migration de fichiers de profils personnalisée. Cliquez sur **Fichiers** pour sélectionner les fichiers de configuration pour l'outil de migration de l'état utilisateur à utiliser avec cette étape. Vous devez indiquer un fichier .xml personnalisé contenant les règles qui définissent les fichiers de l'état utilisateur à migrer.  
+ **Erfassung der Benutzerprofile anpassen**  
+ Wählen Sie diese Option aus, um eine benutzerdefinierte Profildateimigration anzugeben. Klicken Sie auf **Dateien** , um die von USMT bei diesem Schritt zu verwendenden Konfigurationsdateien auszuwählen. Sie müssen eine benutzerdefinierte XML-Datei angeben, die Rollen zur Definition der zu migrierenden Benutzerzustandsdateien enthält.  
 
- **Cliquez ici pour sélectionner les fichiers de configuration :**  
- Sélectionnez cette option pour sélectionner les fichiers de configuration dans le package USMT que vous souhaitez utiliser pour capturer les profils utilisateur. Cliquez sur le bouton **Fichiers** pour lancer la boîte de dialogue **Fichiers de configuration** . Pour indiquer un fichier de configuration, entrez son nom sur la ligne **Nom de fichier** , puis cliquez sur le bouton **Ajouter** .  
+ **Klicken Sie zum Auswählen der Konfigurationsdateien auf diese Schaltfläche:**  
+ Wählen Sie diese Option aus, um im USMT-Paket die Konfigurationsdateien auszuwählen, die Sie zum Erfassen von Benutzerprofilen verwenden möchten. Klicken Sie auf die Schaltfläche **Dateien** , um das Dialogfeld **Konfigurationsdateien** zu öffnen. Zum Angeben einer Konfigurationsdatei geben Sie in die Zeile **Dateiname** den Dateinamen ein und klicken auf die Schaltfläche **Hinzufügen** .  
 
- **Activer la journalisation documentée**  
- Activez cette option pour générer des informations de fichiers journaux plus détaillées. Lors de la capture de l'état, le fichier Scanstate.log est généré et stocké par défaut dans le dossier de journalisation de la séquence de tâches du dossier \windows\system32\ccm\logs .  
+ **Ausführliche Protokollierung aktivieren**  
+ Aktivieren Sie diese Option, um ausführlichere Protokolldateiinformationen zu generieren. Beim Erfassen des Zustands wird das Protokoll „Scanstate.log“ generiert und standardmäßig im Tasksequenzprotokoll im Ordner „\windows\system32\ccm\Logs “ gespeichert.  
 
- **Ignorer les fichiers utilisant le système de fichiers chiffrés (EFS)**  
- Activez cette option si vous souhaitez ignorer la capture des fichiers chiffrés au moyen d'EFS (Encrypted File System, Système de fichiers chiffrés), y compris les fichiers de profils. Selon le système d'exploitation et la version d'USMT, les fichiers chiffrés peuvent ne pas être accessibles après la restauration. Pour plus d'informations, consultez la documentation d'USMT.  
+ **Dateien mit EFS (Encrypted File System) überspringen**  
+ Aktivieren Sie diese Option, wenn Sie mit Encrypted File System (EFS) verschlüsselte Dateien (einschließlich Profildateien) beim Erfassen überspringen möchten. Je nach Betriebssystem und USMT-Version sind verschlüsselte Dateien nach der Wiederherstellung möglicherweise nicht lesbar. Weitere Informationen finden Sie in der USMT-Dokumentation.  
 
- **Copier en utilisant l’accès au système de fichiers**  
- Activez cette option pour spécifier les paramètres suivants :  
+ **Mithilfe des normalen Dateisystemzugriffs kopieren**  
+ Aktivieren Sie diese Option, um alle oder einige der folgenden Einstellungen anzugeben:  
 
--   **Continuer si certains fichiers ne peuvent pas être capturés**: activez ce paramètre pour continuer le processus de migration même si certains fichiers ne peuvent pas être capturés. Si vous désactivez cette option et qu'un fichier ne peut pas être capturé, l'étape de la séquence de tâches échouera. Cette option est activée par défaut.  
+-   **Fortsetzen, wenn einige Dateien nicht erfasst werden können**: Aktivieren Sie diese Einstellung, um den Migrationsprozess auch dann fortzusetzen, wenn einige Dateien nicht erfasst werden können. Wenn Sie diese Option deaktivieren und eine Datei nicht erfasst werden kann, kann der Tasksequenzschritt nicht ausgeführt werden. Diese Option ist standardmäßig aktiviert.  
 
--   **Capturer localement en utilisant les liens au lieu de copier les fichiers**: activez ce paramètre pour utiliser des liens physiques NTFS pour capturer les fichiers.  
+-   **Lokal erfassen mithilfe von Links statt durch Kopieren von Dateien**: Aktivieren Sie diese Einstellung, um feste NTFS-Links zum Erfassen von Dateien zu verwenden.  
 
-     Pour plus d'informations sur la migration de données à l'aide de liens directs, consultez [Magasin de migration de lien direct](http://go.microsoft.com/fwlink/p/?LinkId=240222)  
+     Weitere Informationen zum Migrieren von Daten mithilfe von festen Links finden Sie unter [Migrationsspeicher mit festem Link](http://go.microsoft.com/fwlink/p/?LinkId=240222).  
 
--   **Capturer en mode hors-ligne (Windows PE uniquement)**: activez ce paramètre pour capturer l’état utilisateur dans Windows PE au lieu du système d’exploitation complet.  
+-   **Im Offlinemodus erfassen (nur Windows PE)**: Aktivieren Sie diese Einstellung, um den Benutzerzustand nicht im vollständigen Betriebssystem, sondern in Windows PE zu erfassen.  
 
- **Capturer en utilisant Volume Copy Shadow Service (VSS)**  
- Cette option vous permet de capturer des fichiers même s’ils sont verrouillés pour modification par une autre application.  
+ **Mithilfe des Volumeschattenkopie-Diensts (VSS) erfassen**  
+ Mithilfe dieser Option können Sie Dateien sogar dann erfassen, wenn sie durch eine andere Anwendung für die Bearbeitung gesperrt sind.  
 
-##  <a name="BKMK_CaptureWindowsSettings"></a> Capturer les paramètres Windows  
- Utilisez l'étape de la séquence de tâches **Capturer les paramètres Windows** pour capturer les paramètres Windows de l'ordinateur exécutant la séquence de tâches. Les paramètres sont enregistrés dans des variables de séquence de tâches qui remplacent les paramètres par défaut que vous configurez à l'étape de séquence de tâches **Appliquer les paramètres Windows** .  
+##  <a name="BKMK_CaptureWindowsSettings"></a> Windows-Einstellungen erfassen  
+ Verwenden Sie den Tasksequenzschritt **Windows-Einstellungen erfassen** zum Erfassen der Windows-Einstellungen des Computers, auf dem die Tasksequenz ausgeführt wird. Die Einstellungen werden in Tasksequenzvariablen gespeichert, die die im Tasksequenzschritt **Windows-Einstellungen anwenden** konfigurierten Standardeinstellungen außer Kraft setzen.  
 
- Cette étape de séquence de tâches s'exécute dans Windows PE ou un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer les paramètres Windows](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
+ Dieser Tasksequenzschritt wird entweder in Windows PE oder in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Capture Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Migrer le nom de l’ordinateur**  
- Sélectionnez cette option pour capturer le nom NetBIOS de l'ordinateur.  
+ **Computernamen migrieren**  
+ Wählen Sie diese Option aus, um den NetBIOS-Computernamen des Computers zu erfassen.  
 
- **Migrer les noms d’organisations et d’utilisateurs inscrits**  
- Sélectionnez cette option pour capturer les noms de l'utilisateur enregistré et de l'organisation à partir de l'ordinateur.  
+ **Registrierte Benutzer- und Organisationsnamen migrieren**  
+ Wählen Sie diese Option aus, um auf dem Computer die Namen registrierter Benutzer und Organisationen zu erfassen.  
 
- **Migrer le fuseau horaire**  
- Sélectionnez cette option pour capturer le paramètre de fuseau horaire sur l'ordinateur.  
+ **Zeitzone migrieren**  
+ Mit dieser Option werden die Zeitzoneneinstellungen auf dem Computer erfasst.  
 
-##  <a name="BKMK_CheckReadiness"></a> Vérifier la préparation  
- Utilisez la séquence de tâches **Vérifier la préparation** pour vérifier que l'ordinateur cible remplit les conditions requises spécifiées pour le déploiement.  
+##  <a name="BKMK_CheckReadiness"></a> Bereitschaft überprüfen  
+ Mit dem Tasksequenzschritt **Bereitschaft überprüfen** können Sie überprüfen, ob der Zielcomputer die angegebenen Bereitstellungsvoraussetzungen erfüllt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape. Pour cette étape, ne sélectionnez pas ce paramètre, sinon l'étape n'enregistre que les vérifications de préparation et la séquence de tâches ne s'arrête pas en cas d'échec d'une vérification.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt Wählen Sie diese Einstellung für diesen Schritt nicht aus, da der Schritt andernfalls lediglich die Bereitschaftsprüfungen protokolliert, die Tasksequenz bei einem Überprüfungsfehler aber nicht beendet wird.  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Garantir une mémoire minimum (Mo)**  
- Sélectionnez ce paramètre pour vérifier que la quantité de mémoire, en mégaoctets, installée sur l'ordinateur cible atteint ou dépasse la taille spécifiée. Ce paramètre est activé par défaut.  
+ **Mindestens erforderlicher Arbeitsspeicher (MB)**  
+ Wählen Sie diese Einstellung, um zu überprüfen, ob der auf dem Zielcomputer installierte Arbeitsspeicher (in Megabytes) dem angegebenen Speicherplatz entspricht oder diesen übersteigt. Diese Einstellung ist standardmäßig aktiviert.  
 
- **Garantir une vitesse de processeur minimum (MHz)**  
- Sélectionnez ce paramètre pour vérifier que la vitesse du processeur, en mégahertz (MHz), installée sur l'ordinateur cible atteint ou dépasse la taille spécifiée. Ce paramètre est activé par défaut.  
+ **Mindestens erforderliche Prozessorgeschwindigkeit (MHz)**  
+ Wählen Sie diese Einstellung, um zu überprüfen, ob die Geschwindigkeit des im Zielcomputer installierten Prozessors in Megahertz (MHz) dem angegebenen Wert entspricht oder diesen übersteigt. Diese Einstellung ist standardmäßig aktiviert.  
 
- **Garantir un espace disque libre minimum (Mo)**  
- Sélectionnez ce paramètre pour vérifier que la quantité d'espace disque disponible, en mégaoctets, sur l'ordinateur cible atteint ou dépasse la taille spécifiée.  
+ **Mindestens erforderlicher freier Speicherplatz (MB)**  
+ Wählen Sie diese Einstellung aus, um zu überprüfen, ob der auf dem Zielcomputer freie Speicherplatz in Megabytes dem angegebenen Wert entspricht oder diesen übersteigt.  
 
- **S’assurer que le SE à actualiser est**  
- Sélectionnez ce paramètre pour vérifier que le système d'exploitation installé sur l'ordinateur cible remplit la condition que vous spécifiez. Par défaut, ce paramètre est sélectionné avec la valeur **CLIENT**.  
+ **Aktuelles Betriebssystem, das aktualisiert wird**  
+ Wählen Sie diese Einstellung aus, um zu überprüfen, ob das auf dem Zielcomputer installierte Betriebssystem die angegebene Anforderung erfüllt. Standardmäßig ist diese Einstellung aktiviert und auf **CLIENT**festgelegt.  
 
-##  <a name="BKMK_ConnectToNetworkFolder"></a> Se connecter à un dossier réseau  
- Utilisez l'action de la séquence de tâches **Connexion à un dossier réseau** pour établir une connexion avec un dossier réseau partagé.  
+##  <a name="BKMK_ConnectToNetworkFolder"></a> Verbindung mit Netzwerkordner herstellen  
+ Verwenden Sie die Tasksequenzaktion **Verbindung mit Netzwerkordner herstellen** , um eine Verbindung mit einem freigegebenen Netzwerkordner herzustellen.  
 
- Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Se connecter à un dossier réseau](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
+ Dieser Tasksequenzschritt wird in einem Standardbetriebssystem oder in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Connect to Network Folder Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a> Convertir en disque dynamique  
- Utilisez la séquence de tâches **Convertir en disque dynamique** pour convertir un disque physique de type standard en disque dynamique.  
+##  <a name="BKMK_ConvertDisktoDynamic"></a> In dynamischen Datenträger konvertieren  
+ Mit der Tasksequenz **In dynamischen Datenträger konvertieren** können Sie einen physischen Datenträger von einem Basisdatenträgertyp in einen dynamischen Datenträgertyp konvertieren.  
 
- Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Convertir en disque dynamique](task-sequence-action-variables.md#BKMK_ConvertDisk).  
+ Dieser Schritt wird entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Convert Disk to Dynamic Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConvertDisk).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Numéro du disque**  
- Numéro du disque physique à convertir.  
+ **Datenträgernummer**  
+ Die Nummer des physischen Datenträgers, der konvertiert werden soll.  
 
-##  <a name="BKMK_DisableBitLocker"></a> Désactiver BitLocker  
- Utilisez l'étape de la séquence de tâches **Désactiver BitLocker** pour désactiver le chiffrement BitLocker sur le disque du système d'exploitation actuel ou sur un lecteur spécifique. Cette action laisse les protecteurs de clé visibles en texte clair sur le disque dur, mais elle ne déchiffre pas le contenu du lecteur. En conséquence, cette action est terminée presque instantanément.  
+##  <a name="BKMK_DisableBitLocker"></a> BitLocker deaktivieren  
+ Mit dem Tasksequenzschritt **BitLocker deaktivieren** können Sie die BitLocker-Verschlüsselung auf dem aktuellen Betriebssystemlaufwerk oder einem bestimmten Laufwerk deaktivieren. Nach dieser Aktion sind die Schlüsselschutzkomponenten im Klartext auf der Festplatte sichtbar, die Inhalte des Laufwerks werden jedoch nicht entschlüsselt. Dieser Vorgang ist daher praktisch sofort beendet.  
 
 > [!NOTE]  
->  Le chiffrement de lecteur BitLocker propose un cryptage de bas niveau du contenu d'un volume de disque.  
+>  BitLocker-Laufwerkverschlüsselung bietet eine niedrige Verschlüsselungsstufe der Inhalte eines Datenträgervolumes.  
 
- Si vous avez plusieurs lecteurs chiffrés, vous devez désactiver BitLocker sur chaque lecteur de données avant de désactiver BitLocker sur le lecteur du système d'exploitation.  
+ Wenn Sie über mehrere verschlüsselte Laufwerke verfügen, müssen Sie „BitLocker deaktivieren“ zuerst für alle Datenlaufwerke anwenden, bevor Sie die BitLocker-Verschlüsselung des Betriebssystemlaufwerks deaktivieren können.  
 
- Cette étape s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+ Dieser Schritt wird nur in Standardbetriebssystemen ausgeführt. Er wird nicht in Windows PE ausgeführt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Gibt einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt vorgenommene Aktion beschreibt.  
 
- **Description**  
- Fournit davantage d'informations sur l'action effectuée à cette étape.  
+ **Beschreibung**  
+ Bietet ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Lecteur du système d’exploitation actuel**  
- Désactive BitLocker sur le disque du système d'exploitation courant.  
+ **Aktuelles Betriebssystemlaufwerk**  
+ Deaktiviert BitLocker auf dem aktuellen Betriebssystemlaufwerk.  
 
- **Lecteur spécifique**  
- Désactive BitLocker sur un disque spécifique. Dans la liste déroulante, sélectionnez le disque sur lequel BitLocker est désactivé.  
+ **Bestimmtes Laufwerk**  
+ Deaktiviert BitLocker auf einem bestimmten Laufwerk. Geben Sie in der Dropdownliste das Laufwerk an, auf dem BitLocker deaktiviert ist.  
 
-##  <a name="BKMK_DownloadPackageContent"></a> Télécharger le contenu du package  
- Utilisez l’étape de séquence de tâches **Télécharger le contenu du package** pour télécharger un des types de package suivants :  
+##  <a name="BKMK_DownloadPackageContent"></a> Paketinhalt herunterladen  
+ Verwenden Sie den Tasksequenzschritt **Paketinhalt herunterladen** , um die folgenden Pakettypen herunterzuladen:  
 
--   Images du système d'exploitation  
+-   Betriebssystemabbilder  
 
--   Packages de mise à niveau du système d’exploitation  
+-   Betriebssystem-Upgradepakete  
 
--   Packages de pilotes  
+-   Treiberpakete  
 
--   Packages  
+-   Pakete  
 
- Cette étape fonctionne bien dans une séquence de tâches pour mettre à niveau un système d’exploitation dans les scénarios suivants :  
+ Dieser Schritt funktioniert gut in einer Tasksequenz zum Aktualisieren eines Betriebssystems in den folgenden Szenarien:  
 
--   Pour utiliser une seule séquence de tâches de mise à niveau qui peut fonctionner avec les plateformes x86 et x64. Pour cela, incluez deux étapes **Télécharger le contenu du package** dans le groupe **Préparer pour la mise à niveau** avec des conditions pour détecter l’architecture du client et télécharger uniquement le package de mise à niveau de système d’exploitation approprié. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour le chemin du support à l’étape **Mettre à niveau le système d’exploitation** .  
+-   Zum Verwenden einer einzigen Upgradetasksequenz für x86- und x64-Plattformen. Um dies zu erreichen, fügen Sie zwei **Paketinhalt herunterladen** -Schritte zur Gruppe **Vorbereitung auf das Upgrade** hinzu, und geben Sie Bedingungen an, um die Clientarchitektur zu ermitteln und nur das entsprechende Betriebssystemupgradepaket herunterzuladen. Konfigurieren Sie jeden **Paketinhalt herunterladen** -Schritt zur Verwendung derselben Variablen, und verwenden Sie die Variable für den Medienpfad im Schritt **Betriebssystem aktualisieren** .  
 
--   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
+-   Um dynamisch ein passendes Treiberpaket herunterzuladen, verwenden Sie zwei **Paketinhalt herunterladen** -Schritte mit Bedingungen zum Ermitteln des geeigneten Hardwaretyps für jedes Treiberpaket. Konfigurieren Sie jeden **Paketinhalt herunterladen** -Schritt zur Verwendung derselben Variablen, und verwenden Sie die Variable für den **Bereitgestellter Inhalt** -Wert im Bereich „Treiber“ im Schritt **Betriebssystem aktualisieren** .  
 
 > [!NOTE]    
-> Lorsque vous déployez une séquence de tâches contenant l’étape Télécharger le contenu du package, ne sélectionnez pas **Télécharger tout le contenu localement avant de démarrer la séquence de tâches** pour les **Options de déploiement** sur la page **Points de distribution** de l’assistant de déploiement de logiciels.  
+> Wenn Sie eine Tasksequenz bereitstellen, die den Schritt „Paketinhalt herunterladen“ enthält, aktivieren Sie im Assistenten zum Bereitstellen von Software auf der Seite **Verteilungspunkte** für **Bereitstellungsoptionen** nicht **Alle Inhalte vor dem Start der Tasksequenz lokal herunterladen**.  
 
-Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Toutefois, la possibilité d’enregistrer le package dans le cache du client Configuration Manager n’est pas prise en charge dans WinPE.
+Dieser Schritt wird entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt. WinPE unterstützt die Option, die Pakete im Clientcache des Configuration Manager zu speichern, jedoch nicht.
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Gibt einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt vorgenommene Aktion beschreibt.  
 
- **Description**  
- Fournit davantage d'informations sur l'action effectuée à cette étape.  
+ **Beschreibung**  
+ Bietet ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- Icône**Sélectionner un package**  
- Cliquez sur l’icône pour sélectionner le package à télécharger. Après avoir sélectionné un package, vous pouvez cliquer une nouvelle fois sur l’icône pour choisir un autre package.  
+ **Paket auswählen** -Symbol  
+ Klicken Sie auf das Symbol, um das Paket zum Herunterladen auszuwählen. Nachdem Sie ein Paket ausgewählt haben, können Sie erneut auf das Symbol klicken, um ein anderes Paket auszuwählen.  
 
- **Placez à l’emplacement suivant**  
- Choisissez d’enregistrer le package à l’un des emplacements suivants :  
+ **In folgendem Verzeichnis speichern**  
+ Sie können das Paket in einem der folgenden Verzeichnisse speichern:  
 
- -   **Répertoire de travail de séquence de tâches**  
+ -   **Tasksequenz-Arbeitsverzeichnis**  
 
- -   **Cache du client Configuration Manager**: vous utilisez cette option pour stocker le contenu dans le cache du client. Cela permet au client de servir de source de cache homologue pour d’autres clients de cache homologue. Pour plus d’informations, consultez [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Configuration Manager-Clientcache**: Sie verwenden diese Option, um den Inhalt im Clientcache zu speichern. Dadurch kann der Client als Peercachequelle für andere Peercacheclients fungieren. Weitere Informationen finden Sie unter [Vorbereiten des Windows PE-Peercache zum Reduzieren des WAN-Datenverkehrs](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Chemin personnalisé**  
+ -   **Benutzerdefinierter Pfad**  
 
- **Enregistrez le chemin d’accès en tant que variable**  
- Vous pouvez enregistrer le chemin en tant que variable que vous pouvez utiliser dans une autre étape de séquence de tâches. Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %*mon_contenu*% en tant que variable personnalisée, il s’agit de la racine du stockage de tout le contenu référencé (qui peut correspondre à plusieurs packages). Lorsque vous faites référence à la variable, vous ajoutez un suffixe numérique à la variable. Par exemple, pour le premier package, vous ferez référence à la variable %*mycontent01*%. Lorsque vous faites référence à la variable dans des étapes ultérieures, par exemple la mise à niveau du système d’exploitation, vous utiliseriez %*mycontent02*% ou %*mycontent03*% où le nombre correspond à l’ordre dans lequel le package est répertorié dans l’étape.  
+ **Pfad als Variable speichern**  
+ Sie können den Pfad als Variable speichern, die in einem anderen Tasksequenzschritt verwendet werden kann. Configuration Manager fügt dem Variablennamen ein numerisches Suffix hinzu. Wenn Sie beispielsweise eine Variable %*mycontent*% als eine benutzerdefinierte Variable angeben, ist dies das Stammverzeichnis, in dem alle referenzierten Inhalte gespeichert werden (dies können mehrere Pakete sein). Wenn Sie auf die Variable verweisen, fügen Sie der Variablen ein numerisches Suffix hinzu. Beispielsweise verweisen Sie für das erste Paket auf die Variable %*mycontent01*% Wenn Sie auf die Variable in einem Untersequenzschritt verweisen, z.B. „Betriebssystem aktualisieren“, verwenden Sie %*mycontent02*% oder %*mycontent03*%, wobei die Anzahl der Reihenfolge entspricht, in dem das Paket im Schritt aufgelistet wird.  
 
- **En cas d’échec de téléchargement d’un package, continuer le téléchargement des autres packages de la liste**  
- Spécifie que si le téléchargement d’un package échoue, le package suivant dans la liste est sélectionné et son téléchargement démarré.  
+ **Wenn ein Fehler bei einem Paketdownload auftritt, mit anderen Paketen in der Liste fortfahren**  
+ Gibt an, dass im Falle eines Fehlers beim Paketdownload zum nächsten Paket in der Liste gewechselt und der Download gestartet wird.  
 
-##  <a name="BKMK_EnableBitLocker"></a> Activer BitLocker  
- Utilisez l'étape de séquence de tâches **Activer BitLocker** pour activer le chiffrement BitLocker sur au moins deux partitions sur le disque dur. La première partition active contient le code d'amorçage Windows. Une autre partition contient le système d'exploitation. La partition d'amorçage ne doit pas être chiffrée.  
+##  <a name="BKMK_EnableBitLocker"></a> BitLocker aktivieren  
+ Verwenden Sie den Tasksequenzschritt **BitLocker aktivieren** , um die BitLocker-Verschlüsselung auf mindestens zwei Partitionen auf der Festplatte zu aktivieren. Die erste aktive Partition enthält den Windows-Bootstrap-Code. Eine weitere Partition beinhaltet das Betriebssystem. Die Bootstrap-Partition muss unverschlüsselt bleiben.  
 
- Utilisez l'étape de séquence de tâches **Préconfigurer BitLocker** pour activer BitLocker sur un lecteur dans Windows PE. Pour plus d'informations, voir la section [Préconfigurer BitLocker](#BKMK_PreProvisionBitLocker) de cette rubrique.  
+ Verwenden Sie den Tasksequenzschritt **BitLocker vorab bereitstellen** zum Aktivieren von BitLocker auf einem Laufwerk in Windows PE. Weitere Informationen finden Sie im Abschnitt [BitLocker vorab bereitstellen](#BKMK_PreProvisionBitLocker) in diesem Thema.  
 
 > [!NOTE]  
->  Le chiffrement de lecteur BitLocker propose un cryptage de bas niveau du contenu d'un volume de disque.  
+>  BitLocker-Laufwerkverschlüsselung bietet eine niedrige Verschlüsselungsstufe der Inhalte eines Datenträgervolumes.  
 
- L'étape **Activer BitLocker** s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Activer BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+ Der Schritt **BitLocker aktivieren** wird nur in Standardbetriebssystemen ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Enable BitLocker Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
- Le Module de plateforme sécurisée (TPM) doit être à l'état suivant lorsque vous spécifiez **TPM uniquement**, **TPM et clé de démarrage sur USB** ou **TPM et code confidentiel**pour que vous puissiez effectuer l'étape **Activer BitLocker** :  
+ Das Trusted Platform Module (TPM) muss bei Angabe von **Nur TPM**, **TPM &amp; Schlüssel zum Systemstart auf USB** oder **TPM-und-PIN**den folgende Zustand aufweisen, bevor Sie den Schritt **BitLocker aktivieren** ausführen können:  
 
--   Permis  
+-   Aktiviert  
 
--   Activé  
+-   Aktiviert  
 
--   Propriété autorisée  
+-   Besitz zulässig  
 
- L'étape de la séquence de tâches peut terminer toute initialisation d'un module de plateforme sécurisée (TPM) restante, car les étapes restantes ne requièrent ni une présence physique ni des redémarrages de l'ordinateur. Les étapes d'initialisation d'un module de plate-forme sécurisée (TPM) restantes qui peuvent être terminées de manière transparente par **Activer BitLocker** (le cas échéant) incluent :  
+ Mit dem Tasksequenzschritt kann jegliche verbleibende TPM-Initialisierung abgeschlossen werden, da für die restlichen Schritte keine physische Präsenz und keine Neustarts erforderlich sind. Zu den verbleibenden TPM-Initialisierungsschritten, die bei Bedarf transparent über **BitLocker aktivieren** abgeschlossen werden können, gehören:  
 
--   Créer une paire de clés de validité  
+-   Endorsement Key-Paar erstellen  
 
--   Créer une valeur d'autorisation du propriétaire et la déposer dans Active Directory, qui doit avoir été développé afin de prendre en charge cette valeur.  
+-   Besitzerauthentifizierungswert erstellen und in Active Directory hinterlegen, welches zur Unterstützung dieses Werts erweitert worden sein muss  
 
--   Se définir comme propriétaire  
+-   Besitz übernehmen  
 
--   Créer la clé racine de stockage ou la réinitialiser si elle existe déjà mais qu'elle est incompatible.  
+-   Storage Root Key (SRK, Speicherstammschlüssel) erstellen bzw. zurücksetzen, falls bereits einer vorhanden ist, der jedoch inkompatibel ist  
 
- Si vous voulez que l'étape **Activer BitLocker** soit mise en attente et qu'elle ait lieu après la fin du processus de chiffrement du disque et avant de passer à l'étape suivante de la séquence de tâches, activez la case à cocher **Attente** . Si vous n'activez pas la case à cocher **Attente** , le processus de chiffrement du disque est effectué en arrière-plan et l'exécution de la séquence de tâches passe immédiatement à l'étape suivante.  
+ Wenn der Schritt **BitLocker aktivieren** verzögert werden soll, bis der Laufwerksverschlüsselungsvorgang abgeschlossen ist, bevor mit dem nächsten Schritt in der Tasksequenz fortgefahren wird, aktivieren Sie das Kontrollkästchen **Warten** . Wenn Sie das Kontrollkästchen **Warten** nicht aktivieren, wird die Laufwerksverschlüsselung im Hintergrund ausgeführt und in der Tasksequenzausführung sofort der nächste Schritt aufgerufen.  
 
- BitLocker peut être utilisé pour chiffrer plusieurs lecteurs sur un système d'ordinateurs (système d'exploitation et lecteurs de données). Pour chiffrer un lecteur de données, le système d'exploitation doit déjà être chiffré et le processus de chiffrement doit être terminé, car les protecteurs de clé des lecteurs de données sont stockés sur le lecteur du système d'exploitation. Par conséquent, si vous chiffrez le lecteur du système d'exploitation et le lecteur de données lors du même processus, l'option d'attente doit être sélectionnée pour l'étape qui active BitLocker sur le lecteur du système d'exploitation.  
+ Mithilfe von BitLocker können mehrere Laufwerke in einem Computersystem (sowohl Betriebssystem- als auch Datenlaufwerke) verschlüsselt werden. Zur Verschlüsselung eines Datenlaufwerks muss das Betriebssystem bereits verschlüsselt und der Verschlüsselungsvorgang abgeschlossen sein, da die Schlüsselschutzvorrichtungen für Datenlaufwerke auf dem Betriebssystemlaufwerk gespeichert werden. Wenn Sie also das Betriebssystemlaufwerk und das Datenlaufwerk im Rahmen desselben Vorgangs verschlüsseln, muss für den Schritt, bei dem BitLocker für das Betriebssystemlaufwerk aktiviert wird, die Option „Warten“ aktiviert werden.  
 
- Si le disque est déjà chiffré mais que BitLocker est désactivé, Activer BitLocker active de nouveau le ou les protecteurs des clés. Cette opération sera pratiquement immédiate. Dans ce cas, il n'est pas nécessaire de chiffrer de nouveau le disque.  
+ Wenn die Festplatte bereits verschlüsselt, BitLocker jedoch deaktiviert ist, werden durch „Bitlocker aktivieren“ die Schlüsselschutzvorrichtung(en) erneut aktiviert, und der Schritt wird nahezu umgehend abgeschlossen. Eine erneute Verschlüsselung des Laufwerks ist in diesem Fall nicht notwendig.  
 
- Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Activer BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+ Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Enable BitLocker Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Indique un nom descriptif pour cette étape de séquence de tâches.  
+ **Name**  
+ Gibt einen beschreibenden Namen für diesen Tasksequenzschritt an.  
 
- **Description**  
- Permet, si vous le souhaitez, d'entrer une description de cette étape de séquence de tâches.  
+ **Beschreibung**  
+ Hiermit können Sie optional eine Beschreibung für diesen Tasksequenzschritt eingeben.  
 
- **Lecteur à chiffrer**  
- Indique le lecteur à chiffrer. Pour chiffrer le lecteur du système d'exploitation actuel, sélectionnez **Lecteur du système d'exploitation actuel** , puis configurez l'une des options suivantes de gestion des clés :  
+ **Wählen Sie das zu verschlüsselnde Laufwerk aus**  
+ Gibt das zu verschlüsselnde Laufwerk an. Um das aktuelle Betriebssystemlaufwerk zu verschlüsseln, wählen Sie **Aktuelles Betriebssystemlaufwerk** aus und konfigurieren anschließend eine der folgenden Optionen für die Schlüsselverwaltung.  
 
--   **TPM uniquement**: sélectionnez cette option pour utiliser uniquement le module de plateforme sécurisée (TPM).  
+-   **Nur TPM**: Wählen Sie diese Option, um nur Trusted Platform Module (TPM) zu verwenden.  
 
--   **Clé de démarrage sur USB uniquement**: sélectionnez cette option pour utiliser une clé de démarrage stockée sur une clé USB. Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce qu'un périphérique USB contenant une clé de démarrage BitLocker soit connecté à l'ordinateur.  
+-   **Nur Schlüssel zum Systemstart auf USB**: Wählen Sie diese Option, um einen auf einem USB-Flashlaufwerk gespeicherten Systemstartschlüssel zu verwenden. Wenn Sie diese Option auswählen, sperrt BitLocker den normalen Startvorgang, bis ein USB-Gerät mit einem BitLocker-Systemstartschlüssel an den Computer angeschlossen wird.  
 
--   **TPM et clé de démarrage sur USB**: sélectionnez cette option pour utiliser le module TPM et une clé de démarrage stockée sur une clé USB. Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce qu'un périphérique USB contenant une clé de démarrage BitLocker soit connecté à l'ordinateur.  
+-   **TPM &amp; Schlüssel zum Systemstart auf USB**: Wählen Sie diese Option, um TPM und einen auf einem USB-Flashlaufwerk gespeicherten Systemstartschlüssel zu verwenden. Wenn Sie diese Option auswählen, sperrt BitLocker den normalen Startvorgang, bis ein USB-Gerät mit einem BitLocker-Systemstartschlüssel an den Computer angeschlossen wird.  
 
--   **TPM et code confidentiel**: sélectionnez cette option pour utiliser le module TPM et un numéro d’identification personnel (code confidentiel). Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce que l'utilisateur fournisse le code confidentiel.  
+-   **TPM-und-PIN**: Wählen Sie diese Option, um TPM und eine persönliche Identifikationsnummer (PIN) zu verwenden. Wenn Sie diese Option auswählen, sperrt BitLocker den normalen Startvorgang, bis der Benutzer die PIN eingibt.  
 
- Pour chiffrer un lecteur de données spécifique autre qu'un lecteur de système d'exploitation, sélectionnez **Lecteur spécifique**, puis sélectionnez le lecteur dans la liste.  
+ Um ein bestimmtes Datenlaufwerk (kein Betriebssystemlaufwerk) zu verschlüsseln, wählen Sie **Bestimmtes Laufwerk**, und wählen Sie dann das Laufwerk in der Liste aus.  
 
- **Emplacement de création de la clé de récupération**  
- Pour indiquer l'emplacement où est créé le mot de passe de récupération, sélectionnez **Dans Active Directory** pour déposer le mot de passe dans Active Directory. Si vous sélectionnez cette option, vous devez étendre Active Directory au site afin que les informations de récupération BitLocker associées soient enregistrées. Vous pouvez décider de ne pas créer de mot de passe en sélectionnant **Ne pas créer de clé de récupération**. Toutefois, la création d'un mot de passe est recommandée.  
+ **Wählen Sie aus, wo der Wiederherstellungsschlüssel erstellt werden soll**  
+ Wählen Sie **In Active Directory** aus, um anzugeben, wo das Wiederherstellungskennwort erstellt werden soll, und um das Kennwort in Active Directory zu hinterlegen. Wenn Sie diese Option auswählen, müssen Sie Active Directory für den Standort erweitern, sodass die zugeordneten BitLocker-Wiederherstellungsinformationen gespeichert werden. Sie können auch beschließen, gar kein Kennwort zu erstellen, indem Sie **Keinen Wiederherstellungsschlüssel erstellen**auswählen. Das Erstellen eines Kennworts ist jedoch eine bewährte Methode.  
 
- **Attendez que BitLocker termine le processus de chiffrement des lecteurs avant de poursuivre l’exécution de la séquence de tâches**  
- Sélectionnez cette option pour exécuter le chiffrement de lecteur BitLocker avant d'exécuter la séquence de tâches suivante. Si elle est sélectionnée, le volume de disque entier est chiffré avant que l'utilisateur puisse se connecter à l'ordinateur.  
+ **Vor dem Fortsetzen der Tasksequenzausführung warten, bis BitLocker den Laufwerkverschlüsselungsvorgang auf allen Laufwerken abgeschlossen hat**  
+ Wählen Sie diese Option aus, damit die BitLocker-Laufwerkverschlüsselung abgeschlossen wird, bevor der nächste Schritt in der Tasksequenz ausgeführt wird. Wenn diese Option ausgewählt ist, wird das gesamte Datenträgervolume verschlüsselt, bevor sich der Benutzer beim Computer anmelden kann.  
 
- Le processus de chiffrement peut prendre des heures dans le cas du chiffrement d'un disque dur de taille importante. Si vous ne sélectionnez pas cette option, la séquence de tâches débutera immédiatement.  
+ Bei Verschlüsselung eines umfangreichen Festplattenlaufwerks kann es Stunden dauern, bevor der Verschlüsselungsvorgang abgeschlossen ist. Wenn diese Option nicht ausgewählt wird, kann die Tasksequenz sofort fortgesetzt werden.  
 
-##  <a name="BKMK_FormatandPartitionDisk"></a> Formater et partitionner le disque  
- Utilisez l'étape de la séquence de tâches **Formater et partitionner le disque** pour formater et partitionner un disque spécifié sur l'ordinateur de destination.  
+##  <a name="BKMK_FormatandPartitionDisk"></a> Datenträger formatieren und partitionieren  
+ Mit dem Tasksequenzschritt **Datenträger formatieren und partitionieren** können Sie einen angegebenen Datenträger auf einem Zielcomputer formatieren und partitionieren.  
 
 > [!IMPORTANT]  
->  Chaque paramètre défini pour cette étape de la séquence de tâches s'applique à un seul disque spécifié. Pour formater et partitionner un autre disque sur l'ordinateur de destination, vous devez ajouter à la séquence de tâches une étape supplémentaire **Formater et partitionner le disque** .  
+>  Jede von Ihnen für diesen Tasksequenzschritt angegebene Einstellung gilt nur für einen angegebenen Datenträger. Wenn Sie einen anderen Datenträger auf dem Zielcomputer formatieren und partitionieren möchten, müssen Sie der Tasksequenz einen weiteren Tasksequenzschritt zum **Formatieren und Partitionieren des Datenträgers** hinzufügen.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Formater et partitionner le disque](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
+ Dieser Tasksequenzschritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Aktion finden Sie unter [Format and Partition Disk Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Numéro du disque**  
- Numéro de disque physique à formater. Le numéro se base sur le classement d'énumération du disque Windows.  
+ **Datenträgernummer**  
+ Die Nummer des physischen Datenträgers, der formatiert wird Die Nummer basiert auf der Reihenfolge der Datenträgerenumeration in Windows.  
 
- **Type du disque**  
- Le type du disque formaté. Deux options sont disponibles dans la liste déroulante :  
+ **Datenträgertyp**  
+ Typ des Datenträgers, der formatiert wird In der Dropdownliste stehen zwei Optionen zur Auswahl zur Verfügung:  
 
--   Standard (MBR) – Secteur de démarrage principal.  
+-   Standard (MBR) – Master Boot Record.  
 
--   GPT – Table de partition GUID  
+-   GPT – GUID-Partitionstabelle  
 
 > [!NOTE]  
->  Si vous passez le type de disque de **Standard (MBR)** à **GPT**, et si la structure de la partition contient une partition étendue, toutes les partitions étendues et logiques seront supprimées de la structure. Un message vous invite à confirmer l'opération avant de valider le changement de type de disque.  
+>  Wenn Sie den Datenträgertyp von **Standard (MBR)** in **GPT**ändern und das Partitionslayout eine erweiterte Partition enthält, werden alle erweiterten und logischen Partitionen aus dem Layout entfernt. Sie werden aufgefordert, diese Aktion vor dem Ändern des Datenträgertyps zu bestätigen.  
 
  **Volume**  
- Informations spécifiques sur la partition ou le volume à créer, notamment :  
+ Spezielle Informationen zur Partition oder dem Volume, die/das erstellt wird, einschließlich:  
 
--   Nom  
+-   Name  
 
--   Espace disque restant  
+-   Verbleibender Speicherplatz  
 
- Pour créer une partition, cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Propriétés de la partition** . Vous pouvez indiquer le type de partition et la taille, et préciser s'il s'agit d'une partition de démarrage. Pour modifier une partition existante, cliquez sur la partition à modifier puis sur le bouton Propriétés. Pour plus d'informations sur la façon de configurer des partitions de disque dur, consultez l'une des ressources suivantes :  
+ Zum Erstellen einer neuen Partition klicken Sie auf **Neu** , um das Dialogfeld **Partitionseigenschaften** aufzurufen. Sie können den Typ und die Größe der Partition angeben. Außerdem können Sie angeben, ob es sich um eine Startpartition handeln soll. Zum Ändern einer vorhandenen Partition klicken Sie auf die zu ändernde Partition und dann auf die Schaltfläche „Eigenschaften“. Weitere Informationen zum Konfigurieren von Festplattenpartitionen finden Sie in einem der folgenden Themen:  
 
--   [Configurer des partitions de disque dur UEFI/GPT](http://go.microsoft.com/fwlink/?LinkID=272104)  
+-   [Konfigurieren von UEFI-/GPT-basierten Festplattenpartitionen](http://go.microsoft.com/fwlink/?LinkID=272104)  
 
--   [Configurer des partitions de disque dur BIOS/MBR](http://go.microsoft.com/fwlink/?LinkId=272105)  
+-   [Konfigurieren von BIOS-/MBR-basierten Festplattenpartitionen](http://go.microsoft.com/fwlink/?LinkId=272105)  
 
- Pour supprimer une partition, sélectionnez-la, puis cliquez sur **Supprimer**.  
+ Wählen Sie zum Löschen einer Partition die zu löschende Partition aus, und klicken Sie dann auf **Löschen**.  
 
-##  <a name="BKMK_InstallApplication"></a> Installer l’application  
- Utilisez l'étape de séquence de tâches **Installer l'application** pour installer des applications dans le cadre de la séquence de tâches. Cette étape peut installer un ensemble d'applications spécifiées par l'étape de séquence de tâches ou un ensemble d'applications spécifiées par une liste dynamique de variables de séquence de tâches. Lorsque cette étape est exécutée, l'installation de l'application commence immédiatement sans attendre un intervalle d'interrogation de stratégie.  
+##  <a name="BKMK_InstallApplication"></a> Anwendung installieren  
+ Mit dem Tasksequenzschritt **Anwendung installieren** können Sie Anwendungen als Teil der Tasksequenz installieren. Mit diesem Schritt können Sie einen Satz von Anwendungen installieren, die vom Tasksequenzschritt angegeben werden, oder einen Satz von Anwendungen, die von einer dynamischen Liste mit Tasksequenzvariablen angegeben werden. Wenn dieser Schritt ausgeführt wird, beginnt die Anwendungsinstallation sofort; das nächste Richtlinienabfrageintervall wird nicht abgewartet.  
 
- Les applications installées doivent répondre aux critères suivants :  
+ Von Anwendungen, die installiert werden, müssen die folgenden Kriterien erfüllt werden:  
 
--   L’application doit avoir un type de déploiement Windows Installer ou Programme d’installation de script. Les types de déploiement Package d’application Windows (fichier .appx) ne sont pas pris en charge.  
+-   Die Anwendung muss ein Bereitstellungstyp von Windows Installer oder des Skriptinstallationsprogramms sein. Bereitstellungstypen des Windows-App-Pakets (APPX-Datei) werden nicht unterstützt.  
 
--   Il doit être exécuté sous le compte système local et non le compte d'utilisateur.  
+-   Es muss unter dem lokalen Systemkonto ausgeführt werden und nicht unter dem Benutzerkonto.  
 
--   Il ne doit pas interagir avec le Bureau. Le programme doit s'exécuter en mode silencieux ou en mode sans assistance.  
+-   Es darf keine Interaktion mit dem Desktop erfolgen. Das Programm muss im Hintergrund oder in einem unbeaufsichtigten Modus ausgeführt werden.  
 
--   Il ne doit pas lancer un redémarrage seul. L'application doit demander un redémarrage à l'aide du code de redémarrage standard 3010, qui est un code de sortie. Ceci garantit que la séquence de tâches gérera correctement le redémarrage. Si l'application renvoie un code de sortie 3010, le moteur de séquences de tâches sous-jacent effectue le redémarrage. Après le redémarrage, la séquence de tâches se poursuit automatiquement.  
+-   Es darf durch die Anwendung kein eigenständiger Computerneustart initiiert werden. Ein Computerneustart muss über den Standardneustartcode (Exitcode 3010) angefordert werden. Dadurch wird sichergestellt, dass der Neustart ordnungsgemäß ausgeführt wird. Wenn ein Exitcode 3010 von der Anwendung zurückgegeben wird, so wird der Neustart vom zugrundeliegenden Tasksequenzmodul ausgeführt. Nach dem Neustart wird die Tasksequenz automatisch fortgesetzt.  
 
- Lorsque l'étape **Installer l'application** s'exécute, l'application vérifie l'applicabilité des règles de spécification et la méthode de détection sur les types de déploiement de l'application. Selon les résultats de cette vérification, l'application installe le type de déploiement applicable. Si un type de déploiement contient des dépendances, le type de déploiement dépendant est évalué et installé dans le cadre de l'étape Installer l'application. Les dépendances d'application ne sont pas prises en charge pour les médias autonomes.  
+ Bei Ausführung des Schritts **Anwendung installieren** wird die Anwendbarkeit der Anforderungsregeln und der Ermittlungsmethode für die Bereitstellungstypen der Anwendung geprüft. Auf Basis der Ergebnisse dieser Überprüfung wird der anwendbare Bereitstellungstyp installiert. Wenn ein Bereitstellungstyp Abhängigkeiten enthält, wird der abhängige Bereitstellungstyp im Rahmen des Anwendungsinstallationsschritts ausgewertet und installiert. Abhängigkeiten von Anwendungen werden für eigenständige Medien nicht unterstützt.  
 
 > [!NOTE]  
->  Pour installer une application qui en remplace une autre, les fichiers de contenu de l'application remplacée doivent être disponibles, sinon l'étape échoue. Par exemple, Microsoft Visio 2010 est installé sur un client ou dans une image capturée. Lorsque l'étape de séquence de tâches Installer l'application est exécutée pour installer Microsoft Visio 2013, les fichiers de contenu de Microsoft Visio 2010 (l'application remplacée) doivent être disponibles sur un point de distribution, sinon la séquence de tâches échoue. Un client ou une image capturée sans Microsoft Visio installé terminera l'installation de Microsoft Visio 2013 sans vérifier la présence des fichiers de contenu de Microsoft Visio 2010.  
+>  Zum Installieren einer Anwendung, die eine andere Anwendung ablöst, müssen die Inhaltsdateien für die abgelöste Anwendung verfügbar sein, andernfalls tritt beim Tasksequenzschritt ein Fehler auf. Beispiel: Microsoft Visio 2010 ist auf einem Client oder in einem erfassten Abbild installiert. Beim Ausführen des Tasksequenzschritts „Anwendung installieren“ zum Installieren von Microsoft Visio 2013 müssen die Inhaltsdateien für Microsoft Visio 2010 (die abgelöste Anwendung) an einem Verteilungspunkt verfügbar sein, andernfalls tritt bei der Tasksequenz ein Fehler auf. Auf einem Client oder erfassten Abbild ohne Microsoft Visio-Installation wird die Installation von Microsoft Visio 2013 durchgeführt, ohne nach den Microsoft Visio 2010-Inhaltsdateien zu suchen.  
 
 > [!NOTE]
-> Vous pouvez utiliser les variables intégrées SMSTSMPListRequestTimeoutEnabled et SMSTSMPListRequestTimeout pour activer et spécifier le délai d’attente (en millisecondes) d’une séquence de tâche avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+> Verwenden Sie die integrierten Variablen SMSTSMPListRequestTimeoutEnabled und SMSTSMPListRequestTimeout, um anzugeben, wie viele Millisekunden eine Tasksequenz nach dem erfolglosen Abrufen der Verwaltungspunktliste von Standortdiensten warten soll, bevor sie erneut versucht, eine Anwendung oder einen Softwareupdate zu installieren. Weitere Informationen finden Sie unter [Integrierte Tasksequenzvariablen](task-sequence-built-in-variables.md).
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Indiquez qu'il faut réessayer cette étape si l'ordinateur redémarre de façon inattendue. Vous pouvez également spécifier le nombre de nouvelles tentatives après un redémarrage.  
+-   Geben Sie an, dass Sie diesen Schritt wiederholen, wenn der Computer unerwartet neu gestartet wird. Sie können auch angeben, wie viele Wiederholungen nach einem Neustart erfolgen sollen.  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Installer les applications suivantes**  
- Ce paramètre spécifie les applications installées dans l'ordre dans lequel elles sont spécifiées.  
+ **Folgende Anwendungen installieren**  
+ Mit dieser Einstellung geben Sie die Anwendungen an, die in der Reihenfolge installiert werden, in der sie angegeben sind.  
 
- Configuration Manager éliminera toutes les applications désactivées ou les applications avec les paramètres suivants. Ces applications n'apparaissent pas dans la boîte de dialogue **Sélectionner l'application à installer** .  
+ Deaktivierte Anwendungen und Anwendungen mit den folgenden Einstellungen werden von Configuration Manager herausgefiltert. Diese Anwendungen erscheinen nicht im Dialogfeld **Zu installierende Anwendung auswählen** .  
 
--   Uniquement quand un utilisateur a ouvert une session  
+-   Nur wenn ein Benutzer angemeldet ist  
 
--   Exécuter avec les droits utilisateur  
+-   Mit Benutzerrechten ausführen  
 
- **Installer les applications en fonction de la liste de variables dynamiques**  
- Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les applications qui seront installées pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 01. La valeur de chaque variable doit contenir le nom de l'application et rien d'autre.  
+ **Anwendungen entsprechend der dynamischen Variablenliste installieren**  
+ Mit dieser Einstellung geben Sie den Basisnamen für einen Satz von Tasksequenzvariablen an, die für einen Sammlung oder einen Computer definiert sind. Von diesen Variablen werden die Anwendungen angegeben, die für die Sammlung bzw. den Computer installiert werden. Jeder Variablenname besteht aus einem allgemeinen Basisnamen sowie einem numerischen bei 01 beginnenden Suffix Der Wert jeder Variable darf nur den Namen der Anwendung und nichts anderes enthalten.  
 
- Pour les applications à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Général** de la boîte de dialogue **Propriétés** de l’application : **Autoriser cette application à être installée à partir de l’action de la séquence de tâches Installer l’application plutôt que de la déployer manuellement**.  
+ Bei Anwendungen, die mithilfe einer dynamischen Variablenliste installiert werden sollen, muss im Dialogfeld **Eigenschaften** der Anwendung auf der Registerkarte **Allgemein** die folgende Einstellung aktiviert sein: **Installation dieser Anwendung durch die Tasksequenzaktion „Anwendung installieren“ ohne Bereitstellung zulassen**  
 
 > [!NOTE]  
->  Vous ne pouvez pas installer d'applications à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
+>  Bei Bereitstellungen mit eigenständigen Medien können Sie Anwendungen nicht mithilfe einer dynamischen Variablenliste installieren.  
 
- Par exemple, pour installer une application unique à l'aide d'une variable de séquence de tâches nommée AA01, vous indiquez la variable suivante :  
+ Beispiel: Geben Sie folgende Variable an, um eine einzelne Anwendung mithilfe einer Tasksequenzvariablen namens AA01 zu installieren:  
 
-|Nom de la variable :|Valeur de la variable|  
+|Variablenname|Variablenwert|  
 |-------------------|--------------------|  
 |AA01|Microsoft Office|  
 
- Pour installer deux applications, vous indiqueriez les variables suivantes :  
+ Bei der Installation von zwei Anwendungen sind folgende zusätzliche Variablen anzugeben:  
 
-|Nom de la variable :|Valeur de la variable|  
+|Variablenname|Variablenwert|  
 |-------------------|--------------------|  
 |AA01|Microsoft Lync|  
 |AA02|Microsoft Office|  
 
- Les conditions suivantes affectent ce qui est installé :  
+ Es ist von folgenden Bedingungen abhängig, welche Komponenten installiert werden:  
 
--   Si la valeur d'une variable contient d'autres informations que le nom de l'application. Cette application n'est pas installée et la séquence de tâches continue.  
+-   Der Variablenwert enthält noch andere bzw. keine anderen Informationen als den Namen der Anwendung. Diese Anwendung wird nicht installiert, und die Tasksequenz wird fortgesetzt.  
 
--   Si aucune variable avec le nom de base et le suffixe « 01 » spécifiés n'est détectée, aucune application n'est installée. Quand vous sélectionnez **Continuer en cas d’erreur** sous l’onglet Options de l’étape de séquence de tâches, la séquence de tâches se poursuit quand l’installation d’une application échoue. Lorsque le paramètre n'est pas sélectionné, la séquence de tâches échoue et n'installe pas les autres applications.  
+-   Wenn keine Variable mit dem angegebenen Basisnamen und dem Suffix „01“ gefunden wird, werden keine Anwendungen installiert. Wenn Sie auf der Registerkarte „Optionen“ des Tasksequenzschritts die Option **Bei Fehler fortsetzen** auswählen, wird die Tasksequenz bei einem Fehler der Anwendungsinstallation fortgesetzt. Wenn die Einstellung nicht ausgewählt ist, tritt ein Fehler in der Tasksequenz auf, und die verbleibenden Anwendungen werden nicht installiert.  
 
- **Si l’installation d’une application échoue, continuer d’installer les autres applications de la liste**  
- Ce paramètre spécifie que l'étape se poursuit si l'installation d'une application individuelle échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
+ **Wenn ein Fehler bei einer Anwendungsinstallation auftritt, mit anderen Anwendungen in der Liste fortfahren**  
+ Mit dieser Einstellung geben Sie an, dass der Schritt fortgesetzt werden soll, wenn bei einer einzelnen Anwendungsinstallation ein Fehler auftritt. Wenn diese Einstellung angegeben ist, wird die Tasksequenz unabhängig davon, ob Installationsfehler zurückgegeben werden, fortgesetzt. Wenn diese Einstellung nicht angegeben ist und bei einer Installation ein Fehler auftritt, wird der Tasksequenzschritt sofort beendet.  
 
-##  <a name="BKMK_InstallDeploymentTools"></a> Installer les outils de déploiement  
- Utilisez l’étape de séquence de tâches **Installer les outils de déploiement** pour installer le package Configuration Manager qui contient les outils de déploiement Sysprep.  
+##  <a name="BKMK_InstallDeploymentTools"></a> Bereitstellungstools installieren  
+ Verwenden Sie den Tasksequenzschritt **Bereitstellungstools installieren**, um das Configuration Manager-Paket zu installieren, das die Sysprep-Bereitstellungstools enthält.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Package Sysprep**  
- Ce paramètre permet de spécifier le package Configuration Manager qui contient les outils de déploiement Sysprep pour les systèmes d’exploitation suivants :  
+ **Systemvorbereitungspaket**  
+ Mit dieser Einstellung geben Sie das Configuration Manager-Paket an, das die Sysprep-Bereitstellungstools für die folgenden Betriebssysteme enthält:  
 
 -   Windows XP SP3  
 
@@ -905,566 +903,566 @@ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. 
 
 -   Windows Server 2003 SP2  
 
-##  <a name="BKMK_InstallPackage"></a> Installer le package
+##  <a name="BKMK_InstallPackage"></a> Paket installieren
 
- Utilisez l'étape de séquence de tâches **Installer le package** pour installer des logiciels dans le cadre de la séquence de tâches. Lorsque cette étape est exécutée, l'installation commence immédiatement sans attendre un intervalle d'interrogation de stratégie.  
+ Mit dem Tasksequenzschritt **Paket installieren** können Sie Software als Teil der Tasksequenz installieren. Wenn dieser Schritt ausgeführt wird, beginnt die Installation sofort; das nächste Richtlinienabfrageintervall wird nicht abgewartet.  
 
- Le logiciel installé doit répondre aux critères suivants :  
+ Von Software, die installiert wird, müssen die folgenden Kriterien erfüllt werden:  
 
--   Il doit être exécuté sous le compte système local et non le compte d'utilisateur.  
+-   Es muss unter dem lokalen Systemkonto ausgeführt werden und nicht unter dem Benutzerkonto.  
 
--   Il ne doit pas interagir avec le Bureau. Le programme doit s'exécuter en mode silencieux ou en mode sans assistance.  
+-   Es sollte nicht mit dem Desktop interagieren. Das Programm muss im Hintergrund oder in einem unbeaufsichtigten Modus ausgeführt werden.  
 
--   Il ne doit pas lancer un redémarrage seul. Le logiciel doit demander un redémarrage à l'aide du code de redémarrage standard 3010, qui est un code de sortie. Ceci garantit que la séquence de tâches gérera correctement le redémarrage. Si le logiciel retourne un code de sortie 3010, le moteur de séquences de tâches sous-jacent effectue le redémarrage. La séquence de tâches continue automatiquement après celui-ci.  
+-   Es darf durch die Anwendung kein eigenständiger Computerneustart initiiert werden. Ein Computerneustart muss über den Standardneustartcode (Exitcode 3010) angefordert werden. Dadurch wird sichergestellt, dass der Tasksequenzschritt den Neustart ordnungsgemäß ausführt. Wenn ein Exitcode 3010 von der Software zurückgegeben wird, so wird der Neustart vom zugrundeliegenden Tasksequenzmodul ausgeführt. Nach dem Neustart wird die Tasksequenz automatisch fortgesetzt.  
 
- Les programmes qui utilisent l'option **Exécuter un autre programme en premier** pour installer un programme dépendant ne sont pas pris en charge lors du déploiement d'un système d'exploitation. Si l'option **Exécuter un autre programme en premier** est activée pour le logiciel et que le programme dépendant a déjà été exécuté sur l'ordinateur de destination, le programme dépendant sera exécuté et la séquence de tâches continuera. En revanche, si le programme dépendant n'a pas déjà été exécuté sur l'ordinateur de destination, l'étape de la séquence de tâches échouera.  
+ Programme, von denen die Option **Ein anderes Programm zuerst ausführen** zur Installation eines abhängigen Programms verwendet wird, werden bei der Bereitstellung eines Betriebssystems nicht unterstützt. Wenn die Option **Ein anderes Programm zuerst ausführen** für eine Software aktiviert ist und das abhängige Programm bereits auf dem Zielcomputer ausgeführt wurde, wird das abhängige Programm ausgeführt, und die Tasksequenz wird fortgesetzt. Wurde das abhängige Programm jedoch noch nicht auf dem Zielcomputer ausgeführt, tritt bei diesem Tasksequenzschritt ein Fehler auf.  
 
 > [!NOTE]  
->  Le site d'administration centrale ne dispose pas des stratégies de configuration de client requises pour activer l'agent de distribution logicielle au cours de l'exécution de la séquence de tâches. Lorsque vous créez un média autonome pour une séquence de tâches sur le site d'administration centrale et que la séquence de tâches contient une étape **Installer le package** , l'erreur suivante peut apparaître dans le fichier CreateTsMedia.log :  
+>  Der Standort der zentralen Verwaltung verfügt nicht über die erforderlichen Clientkonfigurationsrichtlinien, die während der Ausführung der Tasksequenz zum Aktivieren des Softwareverteilungs-Agents benötigt werden. Wenn Sie am Standort der zentralen Verwaltung eigenständige Medien für eine Tasksequenz erstellen und die Tasksequenz den Schritt **Paket installieren** enthält, kann in der Datei "CreateTsMedia.log" der folgende Fehler enthalten sein:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`  
 >   
->  Dans le cas de médias autonomes contenant une étape Installer le package, vous devez créer le média autonome sur un site principal sur lequel l'agent de distribution logicielle est activé ou insérer une étape **Exécuter la ligne de commande** entre l'étape **Configurer Windows et Configuration Manager** et la première étape **Installer le package** . L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
+>  Sie müssen eigenständige Medien, die über den Schritt **Paket installieren** verfügen, an einem primären Standort erstellen, für den der Softwareverteilungs-Agent aktiviert ist. Alternativ dazu können Sie den Schritt **Befehlszeile ausführen** nach dem Schritt **Windows und ConfigMgr einrichten** und vor dem ersten Schritt "Paket installieren" hinzufügen. Im Schritt **Befehlszeile ausführen** wird ein WMIC-Befehl ausgeführt, um den Softwareverteilungs-Agent vor der Ausführung des ersten Schritts "Paket installieren" zu aktivieren. Sie können im Tasksequenzschritt **Befehlszeile ausführen** Folgendes verwenden:  
 >   
->  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Command Line**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 >   
->  Pour plus d’informations sur la création d’un média autonome, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
+>  Weitere Informationen zum Erstellen eigenständiger Medien finden Sie unter [Erstellen eigenständiger Medien](../deploy-use/create-stand-alone-media.md).  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Installer un seul package logiciel**  
- Ce paramètre permet de spécifier un package logiciel Configuration Manager. L'étape attend que l'installation soit terminée.  
+ **Einzelnes Softwarepaket installieren**  
+ Diese Einstellung gibt ein Configuration Manager-Softwarepaket an. Bei diesem Schritt wird gewartet, bis die Installation abgeschlossen ist.  
 
- **Installer les packages logiciels en fonction de la liste de variables dynamiques**  
- Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les packages qui seront installés pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 001. La valeur de chaque variable doit contenir un ID de package et le nom du logiciel séparés par deux-points.  
+ **Softwarepakete entsprechend der dynamischen Variablenliste installieren**  
+ Mit dieser Einstellung geben Sie den Basisnamen für einen Satz von Tasksequenzvariablen an, die für einen Sammlung oder einen Computer definiert sind. Von diesen Variablen werden die Pakete angegeben, die für die Sammlung bzw. den Computer installiert werden. Jeder Variablenname besteht aus einem allgemeinen Basisnamen sowie einem numerischen bei 001 beginnenden Suffix. Der Wert jeder Variablen muss eine Paket-ID und den Namen der Software (durch einen Doppelpunkt getrennt) enthalten.  
 
- Pour les logiciels à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Avancé** de la boîte de dialogue **Propriétés** du package : **Autoriser l’installation de ce programme depuis la séquence de tâches d’installation du package sans le déployer**.  
+ Bei Software, die mithilfe einer dynamischen Variablenliste installiert werden soll, muss im Dialogfeld **Eigenschaften** des Pakets auf der Registerkarte **Erweitert** die folgende Einstellung aktiviert sein: **Installation dieses Programms aus der Tasksequenz „Paket installieren“ ohne Bereitstellung zulassen**  
 
 > [!NOTE]  
->  Vous ne pouvez pas installer de packages logiciels à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
+>  Bei Bereitstellungen mit eigenständigen Medien können Sie Softwarepakete nicht mithilfe einer dynamischen Variablenliste installieren.  
 
- Par exemple, pour installer un package logiciel unique à l'aide d'une variable de séquence de tâches nommée AA001, vous indiquez la variable suivante :  
+ Beispiel: Geben Sie folgende Variable an, um ein einzelnes Softwarepaket mithilfe einer Tasksequenzvariablen namens AA001 zu installieren:  
 
-|Nom de la variable :|Valeur de la variable|  
+|Variablenname|Variablenwert|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 
- Pour installer trois packages logiciels, vous indiqueriez les variables suivantes :  
+ Bei der Installation von drei Softwarepaketen sind folgende zusätzliche Variablen anzugeben:  
 
-|Nom de la variable :|Valeur de la variable|  
+|Variablenname|Variablenwert|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 |AA002|CEN00107:Install Silent|  
 |AA003|CEN00031:Install|  
 
- Les conditions suivantes affectent ce qui est installé :  
+ Es ist von folgenden Bedingungen abhängig, welche Komponenten installiert werden:  
 
--   Si la valeur d'une variable n'est pas créée au format approprié ou n'indique pas un ID et un nom d'application valides, l'installation du logiciel échoue.  
+-   Wenn der Wert einer Variablen nicht im richtigen Format erstellt wurde oder damit keine gültige Anwendungs-ID bzw. kein gültiger Anwendungsname angegeben wird, tritt bei der Installation der Software ein Fehler auf.  
 
--   Si l'ID de package contient des caractères en minuscules, l'installation de ce logiciel échoue.  
+-   Wenn die Paket-ID Kleinbuchstaben enthält, tritt bei der Installation der Software ein Fehler auf.  
 
--   Si aucune variable avec le nom de base et le suffixe « 001 » spécifiés n'est détectée, aucun package n'est installé et la séquence de tâches continue.  
+-   Wenn keine Variablen mit dem angegebenen Basisnamen und dem Suffix „001“ gefunden werden, werden keine Pakete installiert, und die Tasksequenz wird fortgesetzt.  
 
- **Si l’installation d’un package logiciel échoue, continuer d’installer les autres packages de la liste**  
- Ce paramètre spécifie que l'étape se poursuit si l'installation d'un package logiciel individuel échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
+ **Wenn ein Fehler bei einer Softwarepaketinstallation auftritt, mit anderen Paketen in der Liste fortfahren**  
+ Mit dieser Einstellung geben Sie an, dass der Schritt fortgesetzt werden soll, wenn bei einer einzelnen Softwarepaketinstallation ein Fehler auftritt. Wenn diese Einstellung angegeben ist, wird die Tasksequenz unabhängig davon, ob Installationsfehler zurückgegeben werden, fortgesetzt. Wenn diese Einstellung nicht angegeben ist und bei einer Installation ein Fehler auftritt, wird der Tasksequenzschritt sofort beendet.  
 
-##  <a name="BKMK_InstallSoftwareUpdates"></a> Installer les mises à jour logicielles  
- L'étape de séquence de tâches **Installer les mises à jour logicielles** permet d'installer les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles comme n’importe quel autre client géré par Configuration Manager. En particulier, cette étape n'installe que les mises à jour logicielles destinées aux regroupements dont l'ordinateur est actuellement membre.  
+##  <a name="BKMK_InstallSoftwareUpdates"></a> Softwareupdates installieren  
+ Verwenden Sie den Tasksequenzschritt **Softwareupdates installieren** zum Installieren von Softwareupdates auf einem Zielcomputer. Der Zielcomputer wird erst beim Ausführen dieses Tasksequenzschritts hinsichtlich anwendbarer Softwareupdates ausgewertet. An diesem Punkt wird der Zielcomputer wie jeder andere von Configuration Manager verwaltete Client hinsichtlich Softwareupdates ausgewertet. Insbesondere werden mit diesem Schritt nur Softwareupdates installiert, die für Sammlungen bestimmt sind, in denen der Computer derzeit Mitglied ist.  
 >  [!IMPORTANT]
->Nous vous recommandons fortement d’installer la dernière version de l’Agent Windows Update pour obtenir de meilleures performances lors de l’utilisation de l’étape de séquence de tâches Installer les mises à jour logicielles.
->* Pour Windows 7, consultez [l’article de la Base de connaissances 3161647](https://support.microsoft.com/kb/3161647).
->* Pour Windows 8, consultez [l’article de la Base de connaissances 3163023](https://support.microsoft.com/kb/3163023).
+>Es wird empfohlen, die neueste Version des Windows Update-Agents zu installieren, da die Leistung sich so deutlich verbessert, wenn Sie den Tasksequenzschritt „Softwareupdates installieren“ verwenden.
+>* Für Windows 7 siehe [Knowledge Base-Artikel 3161647](https://support.microsoft.com/kb/3161647).
+>* Für Windows 8 siehe [Knowledge Base-Artikel 3163023](https://support.microsoft.com/kb/3163023).
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Installer les mises à jour logicielles](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Install Software Updates Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
 
  > [!NOTE]
- > Vous pouvez utiliser les variables intégrées SMSTSMPListRequestTimeoutEnabled et SMSTSMPListRequestTimeout pour activer et spécifier le délai d’attente (en millisecondes) d’une séquence de tâche avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+ > Verwenden Sie die integrierten Variablen SMSTSMPListRequestTimeoutEnabled und SMSTSMPListRequestTimeout, um anzugeben, wie viele Millisekunden eine Tasksequenz nach dem erfolglosen Abrufen der Verwaltungspunktliste von Standortdiensten warten soll, bevor sie erneut versucht, eine Anwendung oder einen Softwareupdate zu installieren. Weitere Informationen finden Sie unter [Task sequence built-in variables (Integrierte Tasksequenzvariablen)](task-sequence-built-in-variables.md).
 
 > [!NOTE]
->Sous l’onglet des options, vous pouvez configurer une nouvelle tentative de cette séquence de tâches si l’ordinateur redémarre de façon inattendue. Par exemple, une installation de mise à jour logicielle qui redémarre automatiquement l’ordinateur. À compter de Configuration Manager 1602, vous pouvez configurer la variable SMSTSWaitForSecondReboot pour spécifier le temps (en secondes) pendant lequel la séquence de tâches doit rester suspendue après le redémarrage de l’ordinateur lors de l’installation de mises à jour logicielles. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+>Auf der Registerkarte „Optionen“ können Sie diese Tasksequenz so konfigurieren, dass eine Wiederholung erfolgt, wenn der Computer unerwartet neu gestartet wird. Beispiel: Die Installation eines Softwareupdates startet den Computer automatisch neu. Ab Configuration Manager 1602 können Sie die Variable SMSTSWaitForSecondReboot konfigurieren, um anzugeben, wie lang (in Sekunden) die Tasksequenz beim Installieren von Softwareupdates nach den Computerneustarts anhalten sollte. Weitere Informationen finden Sie unter [Integrierte Tasksequenzvariablen](task-sequence-built-in-variables.md).
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Indiquez qu'il faut réessayer cette étape si l'ordinateur redémarre de façon inattendue. Vous pouvez également spécifier le nombre de nouvelles tentatives après un redémarrage.  
+-   Geben Sie an, dass Sie diesen Schritt wiederholen, wenn der Computer unerwartet neu gestartet wird. Sie können auch angeben, wie viele Wiederholungen nach einem Neustart erfolgen sollen.  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Nécessaires pour l’installation – Mises à jour logicielles obligatoires seulement**  
- Sélectionnez cette option pour installer toutes les mises à jour logicielles signalées dans Configuration Manager comme étant obligatoires pour les ordinateurs de destination qui reçoivent la séquence de tâches. Les mises à jour logicielles obligatoires possèdent des échéances d'installation définies par l'administrateur.  
+ **Installation erforderlich – Nur obligatorische Softwareupdates**  
+ Wählen Sie diese Option aus, um alle Softwareupdates zu installieren, die in Configuration Manager als obligatorisch für die Tasksequenz empfangende Zielcomputer gekennzeichnet sind. Obligatorische Softwareupdates verfügen über vom Administrator definierte Installationsstichtage.  
 
- **Disponibles pour l’installation – Toutes les mises à jour logicielles**  
- Sélectionnez cette option pour installer toutes les mises à jour logicielles disponibles ciblant le regroupement Configuration Manager appelé à recevoir la séquence de tâches. Toutes les mises à jour logicielles disponibles seront installées sur les ordinateurs de destination.  
+ **Bereit zur Installation – Alle Softwareupdates**  
+ Wählen Sie diese Option aus, um alle Softwareupdates zu installieren, die für die Configuration Manager-Sammlung bestimmt sind, der die Tasksequenz zugewiesen wird. Alle verfügbaren Softwareupdates werden auf den Zielcomputern installiert.  
 
- **Évaluer les mises à jour logicielles à partir des résultats d’analyse en mémoire cache**  
-À compter de Configuration Manager version 1606, vous pouvez effectuer une analyse complète des mises à jour logicielles au lieu d’utiliser les résultats d’analyse en mémoire cache. Par défaut, la séquence de tâches utilise les résultats mis en cache. Vous pouvez décocher la case pour que le client se connecte au point de mise à jour logicielle pour traiter et télécharger le dernier catalogue de mises à jour logicielles. Vous pouvez sélectionnez cette option quand vous utilisez une séquence de tâches pour [capturer et créer une image de système d’exploitation](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), où vous savez qu’il y aura un grand nombre de mises à jour logicielles, surtout si la plupart auront des dépendances (besoin d’installer X avant qu’Y n’apparaisse comme applicable). Quand vous désactivez ce paramètre et que vous déployez la séquence de tâches sur un grand nombre de clients, ils se connectent tous au point de mise à jour logicielle en même temps. Cela peut entraîner des problèmes de performances pendant le processus et le téléchargement du catalogue. Dans la plupart des cas, nous vous recommandons d’utiliser le paramètre par défaut.
+ **Softwareupdates anhand von zwischengespeicherten Überprüfungsergebnissen auswerten**  
+Ab der Configuration Manager-Version 1606 steht Ihnen die Option zur Verfügung, eine vollständige Überprüfung für Softwareupdates durchzuführen statt die zwischengespeicherten Überprüfungsergebnisse zu verwenden. Standardmäßig verwendet die Tasksequenz zwischengespeicherte Ergebnisse. Sie können das Kontrollkästchen deaktivieren, damit der Client eine Verbindung mit dem Softwareupdatepunkt herstellen kann, um den neuesten Softwareupdatekatalog zu verarbeiten und herunterzuladen. Diese Option eignet sich, wenn Sie eine Tasksequenz zum [Erfassen und Erstellen eines Betriebssystemabbilds](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md) verwenden, und wissen, dass eine große Anzahl Softwareupdates notwendig sein wird und dass viele davon Abhängigkeiten aufweisen (X muss installiert sein, damit Y zur Verfügung steht). Wenn Sie diese Einstellung deaktivieren und die Tasksequenz für eine große Anzahl von Clients bereitstellen, werden alle zur selben Zeit eine Verbindung mit dem Softwareupdatepunkt herstellen. Dies kann während des Prozesses und dem Download des Katalogs zu Leistungsproblemen führen. Wir empfehlen in den meisten Fällen, die Standardeinstellung zu verwenden.
 
-Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a été introduite dans Configuration Manager version 1606 pour vous permettre de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
+Es wurde eine neue Tasksequenzvariable, SMSTSSoftwareUpdateScanTimeout, in Configuration Manager-Version 1606 eingeführt. Sie ermöglicht Ihnen, das Timeout für die Softwareupdateprüfung während des Tasksequenzschritts „Softwareupdates installieren“ zu kontrollieren. Der Standardwert beträgt 30 Minuten. Weitere Informationen finden Sie unter [Task sequence built-in variables (Integrierte Tasksequenzvariablen)](task-sequence-built-in-variables.md).
 
 
-##  <a name="BKMK_JoinDomainorWorkgroup"></a> Joindre le domaine ou le groupe de travail  
- L'étape de séquence de tâches **Joindre le domaine ou le groupe de travail** permet d'ajouter l'ordinateur de destination à un groupe de travail ou à un domaine.  
+##  <a name="BKMK_JoinDomainorWorkgroup"></a> Einer Domäne oder Arbeitsgruppe beitreten  
+ Mithilfe des Tasksequenzschritts **Einer Domäne oder Arbeitsgruppe beitreten** können Sie den Zielcomputer einer Arbeitsgruppe oder Domäne hinzufügen.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables de l’action de séquence de tâches Joindre le domaine ou le groupe de travail](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Join Domain or Workgroup Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Joindre un groupe de travail**  
- Sélectionnez cette option pour que l'ordinateur de destination fasse partie du groupe de travail spécifié. S'il est actuellement membre d'un domaine, la sélection de cette option le fera redémarrer.  
+ **Einer Arbeitsgruppe beitreten**  
+ Wählen Sie diese Option aus, um den Zielcomputer einer angegebenen Arbeitsgruppe hinzuzufügen. Wenn der Computer derzeit Mitglied einer Domäne ist, wird er durch Auswählen dieser Option neu gestartet.  
 
- **Joindre un domaine**  
- Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié.  
+ **Einer Domäne beitreten**  
+ Wählen Sie diese Option aus, um den Zielcomputer einer angegebenen Domäne hinzuzufügen.  
 
- Facultatif : entrez ou accédez à une unité d'organisation du domaine spécifié pour que l'ordinateur s'y joigne. Si celui-ci est actuellement membre d'un autre domaine ou groupe de travail, cela le fera redémarrer. Si l'ordinateur est déjà membre d'une autre unité d'organisation, les services de domaine Active Directory ne vous permettent pas de modifier l'unité d'organisation et ce paramètre est ignoré.  
+ Sie können optional eine Organisationseinheit (OU), der der Computer beitreten soll, eingeben oder in der angegebenen Domäne danach suchen. Wenn der Computer derzeit Mitglied einer anderen Domäne oder Arbeitsgruppe ist, wird er dadurch neu gestartet. Wenn der Computer bereits Mitglied einer anderen Organisationseinheit ist, lässt Active Directory-Domänendienste das Ändern der Organisationseinheit nicht zu, und die Einstellung wird ignoriert.  
 
- **Entrez le compte autorisé à joindre le domaine**  
- Cliquez sur **Définir** pour entrer un compte et un mot de passe ayant les autorisations pour joindre le domaine. Le compte doit être entré au format suivant :  
+ **Geben Sie das Konto ein, das zum Beitreten zur Domäne berechtigt ist**  
+ Klicken Sie auf **Festlegen** , um ein Konto (und Kennwort) mit der Berechtigungen für den Domänenbeitritt einzugeben. Das Konto muss im folgenden Format eingegeben werden  
 
- *Domaine\compte*  
+ *Domäne\Konto*  
 
-## <a name="BKMK_PrepareConfigMgrClientforCapture"></a> Préparer le client ConfigMgr pour capture  
-Utilisez l’étape **Préparer le client ConfigMgr pour capture** pour supprimer le client Configuration Manager ou configurer le client sur l’ordinateur de référence afin de le préparer pour la capture pendant le processus de création d’image.
+## <a name="BKMK_PrepareConfigMgrClientforCapture"></a> ConfigMgr-Client für Erfassung vorbereiten  
+Mithilfe des Tasksequenzschritts **ConfigMgr-Client für Erfassung vorbereiten** können Sie den Configuration Manager-Client vom Referenzcomputer entfernen oder konfigurieren, um ihn im Rahmen des Imageerstellungsprozesses für die Erfassung vorzubereiten.
 
-À partir de Configuration Manager version 1610, l’étape de préparation du client ConfigMgr supprime complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
+Ab Version 1610 von Configuration Manager wird der Configuration Manager-Client im Schritt „Configuration Manager-Client vorbereiten“ vollständig entfernt, und es werden nicht nur die wichtigen Informationen entfernt. Wenn die Tasksequenz das erfasste Betriebssystemimage bereitstellt, wird jedes Mal ein neuer Configuration Manager-Client installiert.  
 
-Avant Configuration Manager version 1610, cette étape effectuait les tâches suivantes :  
+Vor der Configuration Manager-Version 1610 werden bei diesem Schritt folgende Aufgaben ausgeführt:  
 
--   Supprime du fichier smscfg.ini présent dans le répertoire Windows la section des propriétés de configuration du client. Celles-ci comprennent des informations spécifiques au client, par exemple le GUID Configuration Manager, ainsi que d’autres identificateurs clients.  
+-   Entfernt den Abschnitt mit den Clientkonfigurationseigenschaften aus der Datei „smscfg.ini“ im Windows-Verzeichnis. Diese Eigenschaften umfassen clientspezifische Informationen, darunter die Configuration Manager-GUID und andere Clientbezeichner.  
 
--   Supprime tous les certificats d’ordinateur SMS ou Configuration Manager.  
+-   Löscht alle SMS- oder Configuration Manager-Computerzertifikate  
 
--   Supprime le cache du client Configuration Manager.  
+-   Löscht den Configuration Manager-Clientcache  
 
--   Efface la variable de site attribuée au client Configuration Manager.  
+-   Löscht die zugewiesene Standortvariable für den Configuration Manager-Client  
 
--   Supprime toutes les stratégies Configuration Manager locales.  
+-   Löscht alle lokalen Configuration Manager-Richtlinien  
 
--   Supprime la clé racine approuvée du client Configuration Manager.  
+-   Entfernt den vertrauenswürdigen Stammschlüssel für den Configuration Manager-Client  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
-##  <a name="BKMK_PrepareWindowsforCapture"></a> Préparer Windows pour capture  
- Utilisez l'étape de séquence de tâches **Préparer Windows pour capture** pour spécifier les options Sysprep à utiliser lors de la capture d'une image de système d'exploitation sur l'ordinateur de référence. Cette action de séquence de tâches exécute Sysprep, puis redémarre l'ordinateur dans l'image de démarrage Windows PE spécifiée pour la séquence de tâches. L'ordinateur de référence ne doit pas être lié à un domaine pour que cette action s'effectue correctement.  
+##  <a name="BKMK_PrepareWindowsforCapture"></a> Windows für die Erfassung vorbereiten  
+ Mithilfe des Tasksequenzschritts **Windows für die Erfassung vorbereiten** können Sie die Sysprep-Optionen angeben, die beim Erfassen eines Betriebssystemabbilds auf dem Referenzcomputer verwendet werden. Mit dieser Tasksequenzaktion wird Sysprep ausgeführt. Der Computer wird anschließend über das für die Tasksequenz angegebene Windows PE-Startabbild neu gestartet. Damit diese Aktion erfolgreich abgeschlossen werden kann, darf der Referenzcomputer keiner Domäne angehören.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Préparer Windows pour capture](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Prepare Windows for Capture Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Créer automatiquement la liste des pilotes de stockage de masse**  
- Sélectionnez cette option pour demander à Sysprep de générer automatiquement une liste de pilotes de stockage de masse à partir de l'ordinateur de référence. Cette option active l'option des pilotes de stockage de masse dans le fichier sysprep.inf sur l'ordinateur de référence. Pour plus d'informations à propos de ce paramètre, reportez-vous à la documentation de Sysprep.  
+ **Automatisch Liste der Massenspeichertreiber erstellen**  
+ Wählen Sie diese Option aus, damit Sysprep automatisch eine Liste der Massenspeichertreiber vom Referenzcomputer erstellt. Mit dieser Option wird die Option „Build Mass Storage Drivers“ (Massenspeichertreiber erstellen) in der Datei Sysprep.inf auf dem Referenzcomputer aktiviert. Weitere Informationen zu dieser Option finden Sie in der Sysprep-Dokumentation.  
 
- **Ne pas réinitialiser l’indicateur d’activation**  
- Choisissez cette option pour empêcher Sysprep de réinitialiser l'indicateur d'activation du produit.  
+ **Aktivierungskennzeichnung nicht zurücksetzen**  
+ Wählen Sie diese Option aus, damit Sysprep das Produktaktivierungsflag nicht zurücksetzt.  
 
-##  <a name="BKMK_PreProvisionBitLocker"></a> Préconfigurer BitLocker  
- Utilisez l'étape de séquence de tâches **Préconfigurer BitLocker** pour activer BitLocker sur un lecteur dans Windows PE. Seul l'espace disque utilisé étant chiffré, l'opération de chiffrement est beaucoup plus rapide. Vous appliquez les options de gestion de clés à l'aide de l'étape de séquence de tâches [Activer BitLocker](#BKMK_EnableBitLocker) une fois le système d'exploitation installé. Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard.  
+##  <a name="BKMK_PreProvisionBitLocker"></a> BitLocker vorab bereitstellen  
+ Verwenden Sie den Tasksequenzschritt **BitLocker vorab bereitstellen** zum Aktivieren von BitLocker auf einem Laufwerk in Windows PE. Es wird nur der auf dem Laufwerk verwendete Speicherplatz verschlüsselt, sodass die Verschlüsselungszeit erheblich verkürzt wird. Sie wenden die Schlüsselverwaltungsoptionen an, indem Sie den Tasksequenzschritt [Aktivieren von BitLocker](#BKMK_EnableBitLocker) nach der Betriebssysteminstallation ausführen. Dieser Schritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt.  
 
 > [!IMPORTANT]  
->  Pour préconfigurer BitLocker, vous devez déployer au minimum le système d'exploitation Windows 7 et le module de plateforme sécurisée doit être pris en charge et activé sur l'ordinateur.  
+>  Um BitLocker vorab bereitzustellen, müssen Sie Windows 7 oder höher als Betriebssystem bereitstellen, und TPM muss unterstützt werden und auf dem Computer aktiviert sein.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifiez un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Geben Sie einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Spécifiez des informations détaillées sur l'action effectuée lors de cette étape.  
+ **Beschreibung**  
+ Geben Sie ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion an.  
 
- **Appliquer BitLocker au lecteur spécifié**  
- Spécifiez le lecteur pour lequel vous souhaitez activer BitLocker. Seul l'espace utilisé sur le lecteur est chiffré.  
+ **BitLocker auf das angegebene Laufwerk anwenden**  
+ Geben Sie das Laufwerk aus, für das Sie BitLocker aktivieren möchten. Nur der verwendete Speicherplatz auf dem Laufwerk wird verschlüsselt.  
 
- **Ignorer cette étape pour les ordinateurs n’ayant pas un module de plateforme sécurisée ou lorsque celui-ci n’est pas activé**  
- Sélectionnez cette option pour ignorer le chiffrement de lecteur quand le matériel ne prend pas en charge le module de plateforme sécurisée ou quand celui-ci n'est pas activé. Par exemple, vous pouvez utiliser cette option lorsque vous déployez un système d'exploitation sur une machine virtuelle.  
+ **Diesen Schritt bei Computern überspringen, die nicht über ein TPM verfügen oder bei denen das TPM nicht aktiviert ist**  
+ Wählen Sie diese Option, um die Laufwerkverschlüsselung zu überspringen, wenn die Computerhardware TPM nicht unterstützt oder TPM nicht aktiviert ist. Sie können diese Option beispielsweise verwenden, wenn Sie ein Betriebssystem für einen virtuellen Computer bereitstellen.  
 
-##  <a name="BKMK_ReleaseStateStore"></a> Libérer le magasin d’état  
- Utilisez l'étape de séquence de tâches **Libérer le magasin d'état** pour informer le point de migration d'état que l'opération de capture ou de restauration est terminée. Cette étape est utilisée avec les étapes de séquences de tâches **Demander le magasin d'état**, **Capturer l'état utilisateur**et **Restaurer l'état utilisateur** pour migrer les données sur l'état de l'utilisateur à l'aide d'un point de migration de l'état et de l'outil de migration de l'état utilisateur (USMT).  
+##  <a name="BKMK_ReleaseStateStore"></a> Zustandsspeicher freigeben  
+ Mithilfe des Tasksequenzschritts **Zustandsspeicher freigeben** können Sie den Zustandsmigrationspunkt darüber benachrichtigen, dass die Erfassungs- oder Wiederherstellungsaktion abgeschlossen ist. Dieser Schritt wird zusammen mit den Tasksequenzschritten **Zustandsspeicher anfordern**, **Benutzerzustand erfassen**und **Benutzerzustand wiederherstellen** verwendet, um Benutzerzustandsdaten mithilfe von USMT und eines Zustandsmigrationspunkts zu migrieren.  
 
- Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
+ Weitere Informationen zum Verwalten des Benutzerzustands beim Bereitstellen von Betriebssystemen finden Sie unter [Verwalten des Benutzerzustands](../get-started/manage-user-state.md).  
 
- Si vous avez demandé l'accès à un point de migration d'état pour capturer l'état utilisateur dans l'étape de séquence de tâches **Demander le magasin d'état**  , cette étape informe le point de migration d'état que le processus de capture est terminé et que les données sur l'état utilisateur peuvent être restaurées. Le point de migration de l'état définit les autorisations de contrôle d'accès de l'état de capture pour qu'il ne soit accessible (en lecture seule) qu'à l'ordinateur de restauration.  
+ Wenn Sie im Tasksequenzschritt **Zustandsspeicher anfordern**  zum Erfassen des Benutzerzustands den Zugriff auf einen Zustandsmigrationspunkt angefordert haben, wird der Zustandsmigrationspunkt darüber benachrichtigt, dass der Erfassungsvorgang abgeschlossen ist und die Benutzerzustandsdaten zur Wiederherstellung zur Verfügung stehen. Der Zustandsmigrationspunkt legt die Zugriffssteuerungsberechtigungen für den erfassten Zustand so fest, dass nur der wiederherstellende Computer den (schreibgeschützten) Zugriff erhält.  
 
- Si vous avez demandé l'accès à un point de migration de l'état pour restaurer l'état utilisateur dans l'étape de la séquence de tâches **Demander le magasin d'état** , cette étape informe le point de migration de l'état que le processus de restauration est terminé. À ce stade, les paramètres de conservation que vous avez définis pour le point de migration de l'état sont activés.  
+ Wenn Sie im Tasksequenzschritt **Zustandsspeicher anfordern** zum Wiederherstellen des Benutzerzustands den Zugriff auf einen Zustandsmigrationspunkt angefordert haben, erhält der Zustandsmigrationspunkt vom Tasksequenzschritt eine Meldung, dass der Wiederherstellungsvorgang abgeschlossen ist. Zu diesem Zeitpunkt werden die von Ihnen konfigurierten Beibehaltungseinstellungen für den Zustandsmigrationspunkt aktiviert.  
 
 > [!IMPORTANT]  
->  Une bonne pratique consiste à définir **Continuer en cas d'erreur** pour toutes les étapes de séquence de tâches situées entre les étapes **Demander le magasin d'état** et **Libérer le magasin d'état** afin que chaque action de séquence de tâches **Demander le magasin d'état** corresponde à une action de séquence de tâches **Libérer le magasin d'état** .  
+>  Eine bewährte Methode besteht darin, die Option **Bei Fehler fortsetzen** für alle Tasksequenzschritte zwischen den Schritten **Zustandsspeicher anfordern** und **Zustandsspeicher freigeben** festzulegen, damit jede Tasksequenzaktion des Typs **Zustandsspeicher anfordern** über eine entsprechende Tasksequenzaktion des Typs **Zustandsspeicher freigeben** verfügt.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Libérer le magasin d’état](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Release State Store Sequence Action Variables](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
-##  <a name="BKMK_RequestStateStore"></a> Demander le magasin d’état  
- L'étape de séquence de tâches **Demander le magasin d'état** permet de demander l'accès à un point de migration d'état lors de la capture ou de la restauration de l'état d'un ordinateur.  
+##  <a name="BKMK_RequestStateStore"></a> Zustandsspeicher anfordern  
+ Fordern Sie mit dem Tasksequenzschritt **Zustandsspeicher anfordern** beim Erfassen oder Wiederherstellen eines Computerzustands Zugriff auf einen Zustandsmigrationspunkt an.  
 
- Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
+ Weitere Informationen zum Verwalten des Benutzerzustands beim Bereitstellen von Betriebssystemen finden Sie unter [Verwalten des Benutzerzustands](../get-started/manage-user-state.md).  
 
- Vous pouvez utiliser l'étape de séquence de tâches **Demander le magasin d'état** avec les étapes de séquences de tâches **Libérer le magasin d'état**, **Capturer l'état utilisateur**et **Restaurer l'état utilisateur** pour migrer l'état de l'ordinateur à l'aide d'un point de migration de l'état et de l'outil de migration de l'état utilisateur (User State Migration Tool, USMT).  
+ Sie können den Tasksequenzschritt **Zustandsspeicher anfordern** zusammen mit den Tasksequenzschritten **Zustandsspeicher freigeben**, **Benutzerzustand erfassen**und **Benutzerzustand wiederherstellen** verwenden, um den Computerzustand mithilfe von Windows-EasyTransfer bzw. USMT und eines Zustandsmigrationspunkts zu migrieren.  
 
 > [!NOTE]  
->  Si vous venez d'établir un nouveau rôle de site de point de migration d'état (SMP), vous devez attendre jusqu'à une heure avant que celui-ci soit disponible pour le stockage de l'état utilisateur. Pour accélérer ce processus, vous pouvez ajuster un paramètre de propriété du point de migration d'état afin de déclencher une mise à jour du fichier de contrôle de site.  
+>  Wenn Sie gerade eine neue Standortrolle für den Zustandsmigrationspunkt (State Migration Point, SMP) erstellt haben, kann es bis zu einer Stunde dauern, bis er für den Benutzerzustandsspeicher verfügbar ist. Um die Verfügbarkeit des SMP zu beschleunigen, können Sie alle SMP-Eigenschaftseinstellungen so anpassen, dass die Aktualisierung der Standortsteuerungsdatei ausgelöst wird.  
 
- Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard et dans Windows PE pour USMT en mode hors connexion. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Demander le magasin d’état](task-sequence-action-variables.md#BKMK_RequestState).  
+ Dieser Tasksequenzschritt wird in einem Standardbetriebssystem und in Windows PE für Offline-USMT ausgeführt. Weitere Informationen zu den Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Request State Store Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RequestState).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Capturer l’état à partir de l’ordinateur**  
- Localise un point de migration d'état qui répond aux conditions de configuration minimale requise configurées dans les paramètres de point de migration d'état (nombre maximal de clients et espace disque disponible minimal) mais ne garantie pas la disponibilité de l'espace au moment de la migration. La sélection de cette option fera une demande d'accès à un point de migration d'état afin de capturer un état et des paramètres utilisateur sur un ordinateur cible.  
+ **Zustand des Computers erfassen**  
+ Ermittelt einen Zustandsmigrationspunkt, der die in den Einstellungen für den Zustandsmigrationspunkt konfigurierten Mindestanforderungen erfüllt (maximale Anzahl von Clients und Mindestgröße des freien Speicherplatzes). Eine Gewährleistung, dass zum Zeitpunkt der Zustandsmigration genügend Speicherplatz zur Verfügung steht, wird mit dieser Option jedoch nicht gegeben. Durch Auswählen dieser Option wird Zugriff auf den Zustandsmigrationspunkt angefordert, um den Benutzerzustand und die Einstellungen eines Computers zu erfassen.  
 
- Si plusieurs points de migration d’état sont activés sur le site Configuration Manager, cette étape de séquence de tâches permet de rechercher un point de migration d’état qui dispose d’espace disque en demandant au point de gestion du site une liste des points de migration d’état, puis en évaluant chaque point afin d’en trouver un qui réponde aux conditions de configuration minimale requise.  
+ Wenn am Configuration Manager-Standort mehrere Zustandsmigrationspunkte aktiviert sind, wird mit diesem Tasksequenzschritt nach einem Zustandsmigrationspunkt mit verfügbarem Speicherplatz gesucht. Zu diesem Zweck wird der Verwaltungspunkt des Standorts nach einer Liste von Zustandsmigrationspunkten abgefragt. Anschließend werden die einzelnen Punkte bewertet, bis ein Punkt gefunden wird, der die Mindestanforderungen erfüllt.  
 
- **Restaurer l’état à partir d’un autre ordinateur**  
- Sélectionnez cette option si vous souhaitez accéder à un point de migration d'état pour restaurer un état et des paramètres utilisateur précédemment capturés sur un ordinateur de destination.  
+ **Zustand von anderem Computer wiederherstellen**  
+ Wählen Sie diese Option, um Zugriff auf einen Zustandsmigrationspunkt anzufordern, um einen zuvor erfassten Benutzerzustand und Einstellungen auf einem Bereitstellungszielcomputer wiederherzustellen.  
 
- Si le site Configuration Manager comporte plusieurs points de migration d’état, cette étape de séquence de tâches recherche le point de migration d’état sur lequel l’état de l’ordinateur de destination a été stocké.  
+ Wenn der Configuration Manager-Standort über mehrere Zustandsmigrationspunkte verfügt, wird mit diesem Tasksequenzschritt der Zustandsmigrationspunkt mit dem Computerzustand gesucht, der für den Bereitstellungszielcomputer gespeichert wurde.  
 
- **Nombre de tentatives**  
- Nombre de fois que cette étape de séquence de tâches tente de rechercher un point de migration d'état approprié avant d'échouer.  
+ **Anzahl von Wiederholungen**  
+ Die Anzahl der Versuche, die von diesem Tasksequenzschritt unternommen werden, um einen entsprechenden Zustandsmigrationspunkt zu suchen, bevor der Vorgang abgebrochen wird  
 
- **Délai de nouvelle tentative (en secondes)**  
- Durée en secondes pendant laquelle l'étape de séquence de tâches attend entre chaque tentative.  
+ **Wiederholungsverzögerung (in Sekunden)**  
+ Hiermit wird die Anzahl der Sekunden angegeben, die vom Tasksequenzschritt zwischen Wiederholversuchen gewartet wird.  
 
- **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau.**  
- Indique que les informations d’identification du compte d’accès réseau de Configuration Manager sont utilisées pour se connecter au point de migration d’état si le client Configuration Manager ne parvient pas à accéder au magasin d’état SMP via le compte d’ordinateur. Cette option est moins sécurisée car d'autres ordinateurs peuvent utiliser le compte d'accès réseau pour accéder à votre état stocké, mais elle peut s'avérer nécessaire si l'ordinateur de destination n'est pas lié à un domaine.  
+ **Das Netzwerkzugriffskonto verwenden, falls das Computerkonto keine Verbindung mit dem Zustandsspeicher herstellen kann.**  
+ Gibt an, dass mithilfe der Anmeldeinformationen des Configuration Manager-Netzwerkzugriffskontos eine Verbindung zum Zustandsmigrationspunkt hergestellt wird, wenn der Configuration Manager-Client nicht über das Computerkonto auf den SMP-Zustandsspeicher zugreifen kann. Diese Option ist weniger sicher, da von anderen Computern mithilfe des Netzwerkzugriffskontos auf Ihren gespeicherten Zustand zugegriffen werden könnte. Wenn der Zielcomputer noch keiner Domäne angehört, ist diese Option jedoch möglicherweise erforderlich.  
 
-##  <a name="BKMK_RestartComputer"></a> Redémarrer l’ordinateur  
- L'étape de séquence de tâches **Redémarrer l'ordinateur** permet de redémarrer l'ordinateur exécutant la séquence de tâches. Ceci fait, l'ordinateur passe automatiquement à l'étape suivante dans la séquence.  
+##  <a name="BKMK_RestartComputer"></a> Computer neu starten  
+ Verwenden Sie den Tasksequenzschritt **Computer neu starten** , um den Computer, auf dem die Tasksequenz ausgeführt wird, neu zu starten. Nach dem Neustart wird automatisch der nächste Schritt der Tasksequenz verarbeitet.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Dieser Schritt kann entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt werden. Weitere Informationen zu den Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Variablen der Tasksequenzaktion „Computer neu starten“](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **L’image de démarrage attribuée à cette séquence de tâches**  
- Sélectionnez cette option pour que l'ordinateur de destination utilise l'image de démarrage qui est attribuée à la séquence de tâches. L'image de démarrage sera utilisée pour exécuter des étapes de séquence de tâches ultérieures qui sont exécutées dans Windows PE.  
+ **Der Tasksequenz zugewiesenes Startimage**  
+ Wenn Sie diese Option auswählen, wird das der Tasksequenz zugewiesene Startabbild vom Zielcomputer verwendet. Das Startabbild wird zur Ausführung nachfolgender Tasksequenzschritte verwendet, die in Windows PE ausgeführt werden müssen.  
 
- **Le système d’exploitation par défaut installé actuellement**  
- Sélectionnez cette option pour que l'ordinateur de destination redémarre sous le système d'exploitation installé.  
+ **Aktuell installiertes Standardbetriebssystem**  
+ Wenn Sie diese Option auswählen, wird der Zielcomputer mit dem installierten Betriebssystem neu gestartet.  
 
- **Notifier l’utilisateur avant de redémarrer**  
- Sélectionnez cette option pour afficher une notification indiquant à l'utilisateur que l'ordinateur de destination sera redémarré. Cette option est activée par défaut.  
+ **Benutzer vor dem Neustart benachrichtigen**  
+ Wenn Sie diese Option auswählen, wird dem Benutzer eine Benachrichtigung angezeigt, dass der Zielcomputer neu gestartet wird. Diese Option ist standardmäßig ausgewählt.  
 
- **Message de notification**  
- Entrez un message de notification qui s'affiche à l'attention de l'utilisateur avant le redémarrage de l'ordinateur de destination.  
+ **Benachrichtigungsmeldung**  
+ Geben Sie eine Benachrichtigungsmeldung ein, die dem Benutzer vor einem Neustart des Zielcomputers angezeigt wird.  
 
- **Délai d’affichage du message**  
- Indiquez la durée en secondes dont dispose l'utilisateur avant le redémarrage de l'ordinateur de destination. Elle est de 60 (soixante) secondes par défaut.  
+ **Timeout der Meldungsanzeige**  
+ Geben Sie den Zeitraum in Sekunden an, der einem Benutzer bis zum Neustart des Zielcomputers verbleibt. Der Standardzeitraum beträgt sechzig (60) Sekunden.  
 
-##  <a name="BKMK_RestoreUserState"></a> Restaurer l’état utilisateur  
- Utilisez l'étape de séquence de tâches **Restaurer l'état utilisateur** pour lancer l'outil de migration de l'état utilisateur (USMT) afin de restaurer l'état et les paramètres utilisateur sur l'ordinateur de destination. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Capturer l'état utilisateur** .  
+##  <a name="BKMK_RestoreUserState"></a> Benutzerzustand wiederherstellen  
+ Mithilfe des Tasksequenzschritts **Benutzerzustand wiederherstellen** können Sie Windows-EasyTransfer (früher USMT) initiieren, um den Benutzerzustand und die Benutzereinstellungen auf einem Zielcomputer wiederzuherstellen. Dieser Tasksequenzschritt wird in Verbindung mit dem Tasksequenzschritt **Benutzerzustand erfassen** verwendet.  
 
- Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
+ Weitere Informationen zum Verwalten des Benutzerzustands beim Bereitstellen von Betriebssystemen finden Sie unter [Verwalten des Benutzerzustands](../get-started/manage-user-state.md).  
 
- Vous pouvez aussi utiliser l’étape de séquence de tâches **Restaurer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager. Dans USMT 3.0 et versions supérieures, cette option déchiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
+ Sie können auch den Tasksequenzschritt **Benutzerzustand wiederherstellen** zusammen mit den Tasksequenzschritten **Zustandsspeicher anfordern** und **Zustandsspeicher freigeben** verwenden, wenn Sie die Zustandseinstellungen in einem Zustandsmigrationspunkt am -Standort speichern oder von dort aus wiederherstellen möchten. In USMT 3.0 und höher wird der USMT-Zustandsspeicher mit dieser Option stets mit einem von Configuration Manager generierten und verwalteten Verschlüsselungsschlüssel entschlüsselt.  
 
- L'étape de séquence de tâches **Restaurer l'état utilisateur** permet de contrôler un sous-ensemble des options USMT les plus couramment utilisées. D'autres options de ligne de commande peuvent être spécifiées au moyen de la variable de séquence de tâches OSDMigrateAdditionalRestoreOptions.  
+ Mit dem Tasksequenzschritt **Benutzerzustand wiederherstellen** kann eine begrenzte Teilmenge der am häufigsten verwendeten USMT-Optionen gesteuert werden. Zusätzliche Befehlszeilenoptionen können mithilfe der Tasksequenzvariablen „OSDMigrateAdditionalRestoreOptions“ angegeben werden.  
 
 > [!IMPORTANT]  
->  Si vous utilisez l’étape de séquence de tâches **Restaurer l’état utilisateur** dans un but non lié à un scénario de déploiement de système d’exploitation, ajoutez immédiatement l’étape de séquence de tâches [Redémarrage de l'ordinateur](#BKMK_RestartComputer) après l’étape de séquence de tâches **Restaurer l’état utilisateur** .  
+>  Wenn Sie den Tasksequenzschritt **Benutzerzustand wiederherstellen** für eine Aufgabe verwenden, die nicht im Zusammenhang mit einem Szenario der Betriebssystembereitstellung steht, fügen Sie den Tasksequenzschritt [Computer neu starten](#BKMK_RestartComputer) unmittelbar nach dem Tasksequenzschritt **Benutzerzustand wiederherstellen** hinzu.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Restaurer l’état utilisateur](task-sequence-action-variables.md#BKMK_RestoreUserState).  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt. Weitere Informationen zu den Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Restore User State Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RestoreUserState).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Gibt einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt vorgenommene Aktion beschreibt.  
 
- **Description**  
- Fournit des informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Gibt ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion an.  
 
- **Package de l’outil de migration de l’état utilisateur**  
- Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape afin de l’utiliser pendant la restauration des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 d'USMT en fonction de l'architecture du système d'exploitation vers lequel vous restaurez l'état.  
+ **USMT-Paket (Migrationsprogramm für den Benutzerzustand)**  
+ Geben Sie das Configuration Manager-Paket ein, das die von diesem Schritt beim Wiederherstellen des Benutzerzustands und der Benutzereinstellungen zu verwendende USMT-Version enthält. Für dieses Paket ist kein Programm erforderlich. Beim Ausführen des Tasksequenzschritts wird die USMT-Version im angegebenen Paket ausgeführt. Geben Sie je nach Architektur des Betriebssystems, auf dem Sie den Zustand wiederherstellen, ein Paket an, das die 32-Bit-Version oder die x64-Version von Windows-EasyTransfer bzw. USMT enthält.  
 
- **Restaurer tous les profils utilisateur capturés présentant des options standard**  
- Restaure les profils utilisateur capturés qui présentent des options standard. Pour personnaliser les options à restaurer, sélectionnez **Personnaliser la façon dont les profils utilisateur sont capturés**.  
+ **Alle erfassten Benutzerprofile mit Standardoptionen wiederherstellen**  
+ Stellt die erfassten Benutzerprofile mit den Standardoptionen wieder her. Zum Anpassen der wiederherzustellenden Optionen wählen Sie **Erfassung der Benutzerprofile anpassen**aus.  
 
- **Personnaliser la restauration des profils utilisateur**  
- Permet de personnaliser les fichiers à restaurer sur l'ordinateur de destination. Cliquez sur **Fichiers** pour spécifier les fichiers de configuration du package USMT à utiliser pour restaurer les profils utilisateur. Pour ajouter un fichier de configuration, entrez le nom du fichier dans le champ **Nom de fichier** , puis cliquez sur **Ajouter**. Les fichiers de configuration qui seront utilisés pour cette opération sont présentés dans le volet Fichiers. Le fichier .xml que vous spécifiez définit le fichier utilisateur à restaurer.  
+ **Wiederherstellung von Benutzerprofilen anpassen**  
+ Ermöglicht Ihnen die Anpassung der Dateien, die Sie auf dem Zielcomputer wiederherstellen möchten. Klicken Sie auf **Dateien** , um im USMT-Paket die Konfigurationsdateien anzugeben, die Sie für die Wiederherstellung der Benutzerprofile verwenden möchten. Zum Hinzufügen einer Konfigurationsdatei geben Sie einen Namen im Feld **Dateiname** an, und klicken Sie dann auf **Hinzufügen**. Die Konfigurationsdateien, die für den Vorgang verwendet werden, werden im Bereich „Dateien“ angezeigt. Die von Ihnen angegebene XML-Datei legt fest, welche Benutzerdatei wiederhergestellt wird.  
 
- **Restaurer les profils utilisateur de l’ordinateur local**  
- Restaure les profils utilisateur de l'ordinateur local (c.-à-d. les profils autre que les profils utilisateur de domaine). Vous devez attribuer de nouveaux mots de passe aux comptes d'utilisateurs locaux car les mots de passe d'origine des comptes d'utilisateurs locaux ne peuvent pas être migrés. Entrez le nouveau mot de passe dans le champ **Mot de passe** , puis confirmez le mot de passe dans le champ **Confirmer le mot de passe** .  
+ **Lokale Computerbenutzerprofile wiederherstellen**  
+ Stellt die lokalen Computerbenutzerprofile (d. h. Nicht-Domänenbenutzer) wieder her. Sie müssen den wiederhergestellten lokalen Benutzerkonten neue Kennwörter zuweisen, da die Kennwörter der ursprünglichen lokalen Benutzerkonten nicht migriert werden können. Geben Sie das Kennwort im Feld **Kennwort** ein, und bestätigen Sie es im Feld **Kennwort bestätigen** .  
 
- **Continuer si certains fichiers ne peuvent pas être restaurés**  
- Poursuit le processus de restauration de l'état utilisateur et des paramètres correspondants, même si certains fichiers ne peuvent pas être restaurés. Cette option est activée par défaut. Si vous la désactivez et que des erreurs surviennent lors de la restauration des fichiers, l'étape de la séquence de tâches s'interrompt immédiatement en erreur et tous les fichiers ne seront pas restaurés.  
+ **Fortsetzen, wenn einige Dateien nicht wiederhergestellt werden können**  
+ Setzt die Wiederherstellung des Benutzerzustands und der Benutzereinstellungen auch dann fort, wenn einige Dateien nicht wiederhergestellt werden können. Diese Option ist standardmäßig aktiviert. Wenn Sie diese Option aktivieren und beim Wiederherstellen von Dateien Fehler auftreten, wird der Tasksequenzschritt sofort mit einem Fehler beendet, sodass nicht alle Dateien wiederhergestellt werden.  
 
- **Activer la journalisation documentée**  
- Activez cette option pour générer des informations de fichiers journaux plus détaillées. Lors de la restauration de l'état, le fichier Loadstate.log est généré et stocké par défaut dans le dossier de journalisation de la séquence de tâches du dossier \windows\system32\ccm\logs .  
+ **Ausführliche Protokollierung aktivieren**  
+ Aktivieren Sie diese Option, um ausführlichere Protokolldateiinformationen zu generieren. Beim Wiederherstellen des Zustands wird das Protokoll „Loadstate.log“ generiert und standardmäßig im Tasksequenzprotokoll im Ordner „\windows\system32\ccm\Logs “ gespeichert.  
 
-##  <a name="BKMK_RunCommandLine"></a> Exécuter la ligne de commande  
- L'étape de séquence de tâches **Exécuter la ligne de commande** permet d'exécuter une ligne de commande spécifiée.  
+##  <a name="BKMK_RunCommandLine"></a> Befehlszeile ausführen  
+ Mit dem Tasksequenzschritt **Befehlszeile ausführen** können Sie eine angegebene Befehlszeile ausführen.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Exécuter la ligne de commande](task-sequence-action-variables.md#BKMK_RunCommand).  
+ Dieser Schritt kann in einem Standardbetriebssystem oder in Windows PE ausgeführt werden. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Run Command Line Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RunCommand).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court, défini par l'utilisateur, qui décrit la ligne de commande exécutée.  
+ **Name**  
+ Gibt einen kurzen, benutzerdefinierten Namen an, der die auszuführende Befehlszeile beschreibt.  
 
- **Description**  
- Spécifie des informations plus détaillées sur la ligne de commande exécutée.  
+ **Beschreibung**  
+ Gibt ausführlichere Informationen zur ausgeführten Befehlszeile an.  
 
- **Ligne de commande**  
- Indique la ligne de commande exécutée. Ce champ doit obligatoirement être renseigné. Le fait d’inclure des extensions de noms de fichiers est une bonne pratique, par exemple, .vbs et .exe. Intégrez tous les fichiers de paramètres requis, les options des lignes de commande ou les commutateurs.  
+ **Befehlszeile**  
+ Gibt die ausgeführte Befehlszeile an. Dieses Feld ist erforderlich. Die Verwendung von Dateinamenerweiterungen, wie .vbs und .exe, ist eine bewährte Methode. Sie sollten alle erforderlichen Einstellungsdateien, Befehlszeilenoptionen oder -parameter einschließen.  
 
- Si le nom de fichier est spécifié sans extension, Configuration Manager essaie les extensions .com, .exe et .bat. Si le nom de fichier a une extension, mais qu’il ne s’agit pas d’un fichier exécutable, Configuration Manager essaie d’appliquer une association locale. Par exemple, si la ligne de commande est readme.gif, Configuration Manager démarre l’application spécifiée sur l’ordinateur de destination pour ouvrir les fichiers .gif.  
+ Wenn der Dateiname ohne Dateinamenerweiterung angegeben ist, versucht Configuration Manager, die Erweiterung .com, .exe oder .bat zu verwenden. Enthält der Dateiname eine Erweiterung, die keiner ausführbaren Datei zugeordnet ist, versucht Configuration Manager eine lokale Zuordnung anzuwenden. Lautet die Befehlszeile z.B. „readme.gif“, startet Configuration Manager die Anwendung, die auf dem Zielcomputer zum Öffnen von GIF-Dateien angegeben ist.  
 
- Exemples :  
+ Beispiele:  
 
  **setup.exe /a**  
 
  **cmd.exe /c copy Jan98.dat c:\sales\Jan98.dat**  
 
 > [!NOTE]  
->  Les actions de ligne de commande comme la redirection de la sortie, la canalisation ou la copie (voir exemple précédent) doivent être précédées de la commande **cmd.exe /c** pour s’exécuter correctement.  
+>  Befehlszeilenaktionen, wie Umleitung, Piping oder Kopieren, muss, wie im obigen Beispiel gezeigt, der Befehl **cmd.exe /c** vorangestellt werden, damit sie erfolgreich ausgeführt werden können.  
 
- **Désactiver la redirection du système de fichiers 64 bits**  
- Par défaut, dans un système d'exploitation 64 bits, l'exécutable de la ligne de commande est localisé et exécuté au moyen d'un redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions 32 bits des exécutables et les DLL du système d'exploitation.  La sélection de cette option désactive l'utilisation du redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions natives 64 bits des exécutables et les DLL du système d'exploitation.  Cette option est sans effet dans un système d'exploitation 32 bits.  
+ **64-Bit-Dateisystemumleitung deaktivieren**  
+ Unter einem 64-Bit-Betriebssystem wird die ausführbare Datei in der Befehlszeile standardmäßig gesucht und mithilfe des Dateisystem-Redirectors von WOW64 ausgeführt, sodass die 32-Bit-Versionen der ausführbaren Betriebssystemdateien und DLLs gefunden werden.  Wenn Sie diese deaktivieren, wird die Verwendung des Dateisystem-Redirectors von WOW64 deaktiviert, sodass die systemeigenen 64-Bit-Versionen der ausführbaren Betriebssystemdateien und DLLs gefunden werden können.  Unter einem 32-Bit-Betriebssystem hat das Auswählen dieser Option keine Auswirkungen.  
 
- **Démarrer dans**  
- Spécifie le dossier exécutable pour le programme, comprenant jusqu'à 127 caractères. Ce dossier peut être un chemin d'accès absolu sur l'ordinateur de destination ou un chemin d'accès relatif au dossier du point de distribution qui contient le package. Ce champ est facultatif.  
+ **Starten in**  
+ Gibt den ausführbaren Ordner für das Programm mit bis zu 127 Zeichen an. Für diesen Ordner kann ein absoluter Pfad auf dem Zielcomputer oder ein relativer Pfad zum Verteilungspunktordner mit dem Paket angegeben werden. Dieses Feld ist optional.  
 
- Exemples :  
+ Beispiele:  
 
  **c:\officexp**  
 
  **i386**  
 
 > [!NOTE]  
->  Le bouton **Parcourir** permet de rechercher des fichiers et des dossiers sur l'ordinateur local. Tous les éléments que vous sélectionnez de cette manière doivent également exister sur l'ordinateur de destination au même emplacement et avec les mêmes noms de fichiers et de dossiers.  
+>  Mithilfe der Schaltfläche **Durchsuchen** werden Dateien und Ordner auf dem lokalen Computer gesucht und ausgewählt, was bedeutet, dass sich alles, was Sie auf diese Weise auswählen, auch auf dem Zielcomputer an dem gleichen Speicherort befinden und den gleichen Datei- und Ordnernamen aufweisen muss.  
 
- **Package**  
- Quand, sur la ligne de commande, vous spécifiez des fichiers ou des programmes qui ne sont pas déjà présents sur l’ordinateur de destination, sélectionnez cette option pour spécifier le package Configuration Manager qui contient les fichiers appropriés. Le package n'exige pas de programme. Cette option n'est pas nécessaire si le fichier spécifié existe sur l'ordinateur de destination.  
+ **Paket**  
+ Wenn Sie Dateien oder Programme in der Befehlszeile angeben, die sich nicht bereits auf dem Zielcomputer befinden, wählen Sie diese Option aus, um das Configuration Manager-Paket anzugeben, das die entsprechenden Dateien enthält. Für das Paket ist kein Programm erforderlich. Diese Option ist nicht erforderlich, wenn die angegebenen Dateien auf dem Zielcomputer vorhanden sind.  
 
- **Délai**  
- Permet de spécifier une valeur qui représente le délai d’exécution de la ligne de commande autorisé par Configuration Manager. Cette valeur est comprise entre 1 et 999 minutes. La valeur par défaut est 15 minutes.  
+ **Timeout**  
+ Dieser Wert legt fest, wie lange Configuration Manager das Ausführen einer Befehlszeile zulässt. Dieser Wert kann aus dem Bereich von 1 bis 999 Minuten stammen. Der Standardwert beträgt 15 Minuten.  
 
- Cette option est désactivée par défaut.  
+ Diese Option ist standardmäßig deaktiviert.  
 
 > [!IMPORTANT]  
->  Si vous entrez une durée insuffisante au bon déroulement de l'étape Exécuter la ligne de commande de la séquence de tâches, cette étape échoue et risque d'entraîner l'échec de toute la séquence de tâches, en fonction des autres paramètres de contrôle. Si le délai expire, Configuration Manager met un terme au processus en ligne de commande.  
+>  Wenn Sie einen Wert festlegen, der dem Tasksequenzschritt „Befehlszeile ausführen“ nicht genug Zeit gewährt, um erfolgreich abgeschlossen zu werden, kann der Tasksequenzschritt nicht ausgeführt werden, was je nach Steuerungseinstellung möglicherweise die gesamte Tasksequenz fehlschlagen lässt. Wenn das Timeout abläuft, beendet Configuration Manager den Befehlszeilenprozess.  
 
- **Exécuter cette étape en tant que compte suivant**  
- Spécifie que la ligne de commande est exécutée en tant que compte d'utilisateur Windows et non en tant que compte système local.  
+ **Diesen Schritt mit folgendem Konto ausführen**  
+ Hiermit wird angegeben, dass die Befehlszeile unter einem anderen Windows-Benutzerkonto als dem lokalen Systemkonto ausgeführt wird.  
 
 > [!NOTE]  
->  Quand vous spécifiez un autre compte pour cette étape et que celle-ci intervient après une étape d’installation du système d’exploitation, le compte doit être ajouté à l’ordinateur pour permettre l’exécution de scripts ou de commandes simples, et le profil du compte d’utilisateur Windows doit être restauré pour exécuter des programmes plus complexes, tels que des fichiers MSI.  
+>  Wenn Sie ein anderes Konto für diesen Schritt angeben, und dies nach einem Betriebssystem-Installationsschritt vorkommt, muss das Konto auf dem Computer hinzugefügt werden, bevor Sie einfache Skripts oder Befehle ausführen können, und das Profil für das Windows-Benutzerkonto muss für komplexere Programme, z. B. einen MSI, wiederhergestellt werden.  
 
- **Compte**  
- Spécifie le compte d'utilisateur Windows Exécuter en tant que pour la ligne de commande de la séquence de tâches à exécuter par cette action. La ligne de commande s'exécute avec les autorisations du compte spécifié Cliquez sur **Définir** pour spécifier le compte de domaine ou le compte d'utilisateur local.  
+ **Konto**  
+ Gibt das Windows-Konto „Ausführen als“ für den Befehlszeilentask in der von dieser Aktion auszuführenden Tasksequenz an. Die Befehlszeile wird mit den Berechtigungen des angegebenen Kontos ausgeführt. Klicken Sie auf **Festlegen** , um das lokale Benutzer- oder Domänenkonto anzugeben.  
 
 > [!IMPORTANT]  
->  Si une action de séquence de tâches **Exécuter la ligne de commande** spécifiant un compte d'utilisateur est exécutée dans Windows PE, elle échoue car ce dernier ne peut être associé à un domaine. L'échec est enregistré dans le fichier smsts.log.  
+>  Wenn mit der Tasksequenzaktion **Befehlszeile ausführen** ein Benutzerkonto angegeben wird, schlägt diese Aktion beim Ausführen in Windows PE fehl, da Windows PE nicht mit einer Domäne verknüpft werden kann. Der Fehler wird in der Datei „smsts.log“ aufgezeichnet.  
 
-##  <a name="BKMK_RunPowerShellScript"></a> Exécuter le script PowerShell  
- Utilisez l'étape de séquence de tâches **Exécuter le script PowerShell** pour exécuter un script PowerShell spécifié.  
+##  <a name="BKMK_RunPowerShellScript"></a> PowerShell-Skript ausführen  
+ Verwenden Sie den Tasksequenzschritt **PowerShell-Skript ausführen** zum Ausführen eines angegebenen PowerShell-Skripts.  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour exécuter cette étape dans Windows PE, PowerShell doit être activé dans l'image de démarrage. Vous pouvez activer Windows PowerShell (WinPE-PowerShell) à partir de l'onglet **Composants facultatifs** dans les propriétés de l'image de démarrage. Pour plus d’informations sur la modification d’une image de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+ Dieser Schritt kann in einem Standardbetriebssystem oder in Windows PE ausgeführt werden. Um diesen Schritt in Windows PE auszuführen, muss PowerShell im Startabbild aktiviert sein. Sie können Windows PowerShell (WinPE-PowerShell) auf der Registerkarte **Optionale Komponenten** in den Eigenschaften des Startabbilds aktivieren. Weitere Informationen dazu, wie ein Startimage geändert wird, finden Sie unter [Verwalten von Startimages](../get-started/manage-boot-images.md).  
 
 > [!NOTE]  
->  PowerShell n'est pas activé par défaut sur les systèmes d'exploitation Windows Embedded.  
+>  PowerShell ist unter Windows Embedded-Betriebssystemen nicht standardmäßig aktiviert.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court, défini par l'utilisateur, qui décrit la ligne de commande exécutée.  
+ **Name**  
+ Gibt einen kurzen, benutzerdefinierten Namen an, der die auszuführende Befehlszeile beschreibt.  
 
- **Description**  
- Spécifie des informations plus détaillées sur la ligne de commande exécutée.  
+ **Beschreibung**  
+ Gibt ausführlichere Informationen zur ausgeführten Befehlszeile an.  
 
- **Package**  
- Indique le package Configuration Manager qui contient le script PowerShell. Un package peut contenir plusieurs scripts PowerShell.  
+ **Paket**  
+ Gibt das Configuration Manager-Paket mit dem PowerShell-Skript an. Ein Paket kann mehrere PowerShell-Skripts enthalten.  
 
- **Nom du script**  
- Spécifie le nom du script PowerShell à exécuter. Ce champ doit obligatoirement être renseigné.  
+ **Skriptname**  
+ Gibt den Namen des auszuführenden PowerShell-Skripts an. Dieses Feld ist erforderlich.  
 
- **Paramètres**  
- Spécifie les paramètres à passer au script Windows PowerShell. Configurez les paramètres comme si vous les ajoutiez au script Windows PowerShell à partir d'une ligne de commande.  
+ **Parameter**  
+ Gibt die an das Windows PowerShell-Skript zu übergebenden Parameter an. Konfigurieren Sie die Parameter wie beim Hinzufügen zum Windows PowerShell-Skript über die Befehlszeile.  
 
 > [!IMPORTANT]  
->  Spécifiez les paramètres consommés par le script, et non pour la ligne de commande Windows PowerShell.  
+>  Geben Sie die Parameter an, die vom Skript verwendet werden, nicht die für die Windows PowerShell-Befehlszeile.  
 >   
->  L'exemple suivant contient des paramètres valides :  
+>  Das folgende Beispiel enthält gültige Parameter:  
 >   
 >  **-MyParameter1 MyValue1 -MyParameter2 MyValue2**  
 >   
->  L'exemple suivant contient des paramètres non valides. Les éléments en gras sont des paramètres de ligne de commande Windows PowerShell (-nologo et -executionpolicy unrestricted). Ils ne sont pas consommés par le script.  
+>  Das folgende Beispiel enthält ungültige Parameter. Die fett formatierten Elemente sind Windows PowerShell-Befehlszeilenparameter (-nologo und -executionpolicy unrestricted) und werden vom Skript nicht verwendet.  
 >   
 >  **-nologo-executionpolicy unrestricted-File MyScript.ps1 -MyParameter1 MyValue1 -MyParameter2 MyValue2**  
 
- **Stratégie d'exécution de PowerShell**  
- L'option Stratégie d'exécution de PowerShell vous permet de déterminer les scripts Windows PowerShell (le cas échéant) qui pourront s'exécuter sur l'ordinateur. Choisissez l'une des stratégies d'exécution suivantes :  
+ **PowerShell-Ausführungsrichtlinie**  
+ Durch Auswahl der PowerShell-Ausführungsrichtlinie können Sie bestimmen, welche Windows PowerShell-Skripts (sofern vorhanden) auf dem Computer ausgeführt werden dürfen. Wählen Sie eine der folgenden Ausführungsrichtlinien aus:  
 
--   **AllSigned**: seuls les scripts signés par un éditeur approuvé peuvent être exécutés.  
+-   **Alle signiert**: Nur Skripts, die von einem vertrauenswürdigen Herausgeber signiert wurden, dürfen ausgeführt werden.  
 
--   **Undefined**: aucune stratégie d’exécution n’est définie. .  
+-   **Undefiniert**: Es ist keine Ausführungsrichtlinie definiert. .  
 
--   **Bypass**: charge tous les fichiers de configuration et exécute tous les scripts. Si vous exécutez un script non signé qui a été téléchargé depuis Internet, vous n'êtes pas invité à fournir d'autorisation avant son exécution.  
+-   **Umgehung**: Lädt alle Konfigurationsdateien und führt alle Skripts aus. Wenn Sie ein unsigniertes Skript ausführen, das aus dem Internet heruntergeladen wurde, werden Sie nicht zur Bestätigung aufgefordert, bevor es ausgeführt wird.  
 
 > [!IMPORTANT]  
->  PowerShell 1.0 ne prend pas en charge les stratégies d'exécution Non défini et Ignorer.  
+>  Die Ausführungsrichtlinien „Undefiniert“ und „Umgehung“ werden von PowerShell 1.0 nicht unterstützt.  
 
-##  <a name="BKMK_SetDynamicVariables"></a> Définir des variables dynamiques  
- Utilisez l'étape de séquence de tâches **Définir des variables dynamique** pour effectuer les opérations suivantes :  
+##  <a name="BKMK_SetDynamicVariables"></a> Dynamische Variablen festlegen  
+ Verwenden Sie den Tasksequenzschritt **Dynamische Variablen festlegen** zum Ausführen der folgenden Aufgaben:  
 
-1.  Recueillir des informations à partir de l'ordinateur et de l'environnement où il réside, puis définir des variables de séquence de tâches spécifiées avec les informations.  
+1.  Sammeln von Informationen vom Computer und aus der Umgebung, in der er sich befindet, und Festlegen angegebener Tasksequenzvariablen anhand dieser Informationen.  
 
-2.  Évaluer les règles définies et définir des variables de séquence de tâches en fonction des variables et des valeurs configurées pour les règles avec la valeur true.  
+2.  Auswerten definierter Regeln und Festlegen von Tasksequenzvariablen basierend auf den Variablen und Werten, die für als „Wahr“ ausgewertete Regeln konfiguriert wurden.  
 
- La séquence de tâches définit automatiquement les variables de séquence de tâches en lecture seule suivantes :  
+ Die Tasksequenz legt automatisch die folgenden schreibgeschützten Tasksequenzvariablen fest:  
 
  -   &#95;SMSTSMake  
 
@@ -1480,231 +1478,230 @@ Avant Configuration Manager version 1610, cette étape effectuait les tâches su
 
  -   &#95;SMSTSUUID  
 
- Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
+ Dieser Schritt kann entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt werden. Weitere Informationen zu Tasksequenzvariablen finden Sie unter [Tasksequenz-Aktionsvariablen](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
-**Nom**  
- Nom court défini par l'utilisateur pour cette étape de séquence de tâches.  
+**Name**  
+ Ein kurzer benutzerdefinierter Name für diesen Tasksequenzschritt.  
 
-**Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+**Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
-**Règles dynamiques et variables**  
- Pour définir une variable dynamique à utiliser dans la séquence de tâches, vous pouvez ajouter une règle, puis spécifier une valeur pour chaque variable que vous spécifiez pour la règle ou ajouter une ou plusieurs variables à définir sans ajouter de règle. Lorsque vous ajoutez une règle, vous pouvez choisir parmi les catégories suivantes :  
+**Dynamische Regeln und Variablen**  
+ Um eine dynamische Variable für die Verwendung in der Tasksequenz festzulegen, können Sie eine Regel hinzufügen und anschließend einen Wert für jede Variable angeben, die Sie für die Regel angeben, oder eine oder mehrere Variablen hinzufügen, ohne eine Regel hinzuzufügen. Wenn Sie eine Regel hinzufügen, können Sie unter den folgenden Regelkategorien wählen:  
 
- -   **Ordinateur**: utilisez cette catégorie de règle pour évaluer des valeurs d’étiquette d’inventaire, d’UUID, de numéro de série ou d’adresse MAC. Vous pouvez définir plusieurs valeurs et si l'une d'elles est true, la règle est évaluée comme vraie. Par exemple, la règle suivante est évaluée comme vraie si le numéro de série est 5892087, que l'adresse MAC soit égale ou non à 26-78-13-5A-A4-22.  
+ -   **Computer**: Verwenden Sie diese Regelkategorie, um Werte für Bestandskennzeichen, UUID, Seriennummer oder Mac-Adresse auszuwerten. Sie können mehrere Werte festlegen, und wenn jeder Wert wahr ist, wird die Regel als „Wahr“ ausgewertet. Die folgende Regel wird z. B. als „Wahr“ ausgewertet, wenn die Seriennummer 5892087 lautet, unabhängig davon, ob die MAC-Adresse 26-78-13-5A-A4-22 entspricht.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
--   **Emplacement**: utilisez cette catégorie de règle pour évaluer des valeurs de passerelle par défaut.  
+-   **Speicherort**: Verwenden Sie diese Regelkategorie, um Werte für das Standardgateway auszuwerten.  
 
--   **Marque et modèle**: utilisez cette catégorie de règle pour évaluer les valeurs de marque et de modèle d’un ordinateur. La marque et le modèle doivent tous deux être évalués comme vrais pour que la règle soit évaluée comme vraie.   
+-   **Hersteller und Modell**: Verwenden Sie diese Regelkategorie, um Werte für den Hersteller und das Modell eines Computers auszuwerten. Sowohl Hersteller als auch Modell müssen als „Wahr“ ausgewertet werden, damit die Regel als „Wahr“ ausgewertet wird.   
 
-    À partir de Configuration Manager version 1610, vous pouvez spécifier un astérisque (*****) et un point d’interrogation (**?**) comme caractères génériques, où ***** correspond à plusieurs caractères et **?** correspond à un caractère unique. Par exemple, la chaîne « DELL*900? » correspond à DELL-ABC-9001 et DELL9009.
+    Ab Version 1610 von Configuration Manager können Sie ein Sternchen (*****) und ein Fragezeichen (**?**) als Platzhalter an der Stelle angeben, an der ***** mehreren Zeichen und **?** entspricht. entspricht einem einzelnen Zeichen. Zum Beispiel die Zeichenfolge „DELL*900?“ wird „DELL-ABC-9001“ und „DELL9009“ entsprechen.
 
--   **Variable de séquence de tâches**: utilisez cette catégorie de règle pour ajouter une variable de séquence de tâches, une condition et une valeur à évaluer. La règle est évaluée comme vraie quand la valeur définie pour la variable remplit la condition spécifiée.  
+-   **Tasksequenzvariable**: Verwenden Sie diese Regelkategorie, um eine Tasksequenzvariable, eine Bedingung und einen Wert zum Auswerten anzugeben. Die Regel wird als „Wahr“ ausgewertet, wenn der für die Variable festgelegte Wert die angegebene Bedingung erfüllt.  
 
-Vous pouvez spécifier une ou plusieurs variables qui seront définies pour une règle évaluée comme vraie ou définir des variables sans utiliser de règle. Vous pouvez sélectionner parmi des variables existantes ou créer une variable personnalisée.  
+Sie können eine oder mehrere Variablen angeben, die für eine Regel festgelegt werden, die als „Wahr“ ausgewertet wird, oder Variablen ohne Verwendung einer Regel festlegen. Sie können eine vorhandene Variable auswählen oder eine benutzerdefinierte Variable erstellen.  
 
- -   **Variables de séquence de tâches existantes**: utilisez ce paramètre pour sélectionner une ou plusieurs variables dans la liste des variables de séquence de tâches existantes. Les variables tableau ne peuvent pas être sélectionnées.  
+ -   **Vorhandene Tasksequenzvariablen**: Verwenden Sie diese Einstellung, um eine oder mehrere Variablen aus einer Liste vorhandener Tasksequenzvariablen auszuwählen. Arrayvariablen stehen nicht zur Auswahl.  
 
- -   **Variables de séquence de tâches personnalisées**: utilisez ce paramètre pour définir une variable de séquence de tâches personnalisée. Vous pouvez également spécifier une variable de séquence de tâches existante. Cela est utile pour spécifier un tableau de variables existant, tel qu'OSDAdapter, car les tableaux de variables ne figurent pas dans la liste des variables de séquence de tâches existantes.  
+ -   **Benutzerdefinierte Tasksequenzvariablen**: Verwenden Sie diese Einstellung, um eine benutzerdefinierte Tasksequenzvariable zu definieren. Sie können auch eine vorhandene Tasksequenzvariable angeben. Dies ist nützlich, um ein vorhandenes Variablenarray wie z. B. OSDAdapter anzugeben, da Variablenarrays nicht in der Liste der vorhandenen Tasksequenzvariablen enthalten sind.  
 
-Après avoir sélectionné les variables pour une règle, vous devez fournir une valeur pour chaque variable. Lorsque la règle est évaluée comme vraie, la variable est définie à la valeur spécifiée. Pour chaque variable, vous pouvez sélectionner **Valeur secrète** pour masquer la valeur de la variable. Par défaut, certaines variables existantes (telles que la variable de séquence de tâches OSDCaptureAccountPassword) masquent les valeurs.  
+Nachdem Sie die Variablen für eine Regel ausgewählt haben, müssen Sie einen Wert für jede Variable angeben. Die Variable wird auf den angegebenen Wert festgelegt, wenn die Regel als „Wahr“ ausgewertet wird. Sie können für jede Variable **Geheimer Wert** auswählen, um den Wert der Variablen auszublenden. Standardmäßig werden Werte für einige vorhandene Variablen ausgeblendet, z. B. für die Tasksequenzvariable OSDCaptureAccountPassword.  
 
 > [!IMPORTANT]  
->  Quand vous importez une séquence de tâches lors de l'étape Définir des variables dynamiques et que l'option **Valeur secrète** est sélectionnée pour la valeur de la variable, la valeur est supprimée lorsque vous importez la séquence de tâches. Ainsi, vous devez réentrer la valeur de la variable dynamique après avoir importé la séquence de tâches.  
+>  Wenn Sie eine Tasksequenz mit dem Schritt „Dynamische Variablen festlegen“ importieren und **Geheimer Wert** für den Wert der Variablen ausgewählt ist, wird der Wert beim Importieren der Tasksequenz entfernt. Daher müssen Sie den Wert für die dynamische Variable nach dem Import der Tasksequenz erneut eingeben.  
 
-##  <a name="BKMK_SetTaskSequenceVariable"></a> Définir la variable de séquence de tâches  
-Utilisez l'étape de séquence de tâches **Définir la variable de séquence de tâches** pour définir la valeur d'une variable qui est utilisée avec la séquence de tâches.  
+##  <a name="BKMK_SetTaskSequenceVariable"></a> Tasksequenzvariable festlegen  
+Mithilfe des Tasksequenzschritts **Tasksequenzvariable festlegen** können Sie den Wert einer Variablen festlegen, die für die Tasksequenz verwendet wird.  
 
-Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Les variables de séquence de tâches sont lues par les actions et en déterminent le comportement. Pour plus d’informations sur les variables de séquence de tâches spécifiques, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
+Dieser Schritt kann entweder in einem Standardbetriebssystem oder in Windows PE ausgeführt werden. Tasksequenzvariablen werden von Tasksequenzaktionen gelesen und definieren das Verhalten dieser Aktionen. Weitere Informationen zu bestimmten Tasksequenzvariablen finden Sie unter [Tasksequenz-Aktionsvariablen](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur pour cette étape de séquence de tâches.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name für diesen Tasksequenzschritt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Variable de séquence de tâches**  
- Nom défini par l'utilisateur pour la variable de la séquence de tâches.  
+ **Tasksequenzvariable**  
+ Ein benutzerdefinierter Name für die Tasksequenzvariable.  
 
- **Valeur**  
- Valeur associée à la variable de la séquence de tâches. La valeur peut être une autre variable de séquence de tâches dans la syntaxe %<nom_variable\>%.  
+ **Wert**  
+ Der Wert, der der Tasksequenzvariable zugeordnet wird. Der Wert kann eine andere Tasksequenzvariable mit der Syntax %<varname\>% sein.  
 
-## <a name="hide-task-sequence-progress"></a>Masquer la progression de la séquence de tâches
+## <a name="hide-task-sequence-progress"></a>Ausblenden des Tasksequenzstatus
 <!-- 1354291 -->
-Dans la version 1706, vous pouvez contrôler le moment auquel la progression de la séquence de tâches s’affiche pour les utilisateurs finaux à l’aide d’une nouvelle variable. Dans votre séquence de tâches, suivez l’étape **Définir une variable de séquence de tâches** pour définir la valeur de la variable **TSDisableProgressUI** pour masquer ou afficher la progression de la séquence de tâches. Vous pouvez suivre l’étape Définir une variable de séquence de tâches plusieurs fois dans une séquence de tâches pour modifier la valeur de la variable. Cela vous permet de masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches.
+Mit dem Release 1706 können Sie mithilfe einer neuen Variablen steuern, wann Endbenutzern der Tasksequenzstatus angezeigt wird. Verwenden Sie in der Tasksequenz den Schritt **Tasksequenzvariable festlegen** zum Festlegen des Werts der Variablen **TSDisableProgressUI**, um den Tasksequenzstatus ein- oder auszublenden. Den Schritt „Tasksequenzvariable festlegen“ können Sie in einer Tasksequenz mehrmals verwenden, um den Wert der Variablen zu ändern. Dadurch können Sie den Tasksequenzstatus in unterschiedlichen Abschnitten der Tasksequenz anzeigen oder ausblenden.
 
- - **Pour masquer la progression de la séquence de tâches**  
-Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **True** pour masquer la progression de la séquence de tâches.
+ - **So blenden Sie den Tasksequenzstatus aus**  
+Verwenden Sie im Tasksequenz-Editor den Schritt [Tasksequenzvariable festlegen](#BKMK_SetTaskSequenceVariable) zum Festlegen des Werts der Variablen **TSDisableProgressUI** auf **TRUE**, um den Tasksequenzstatus auszublenden.
 
- - **Pour afficher la progression de la séquence de tâches**  
-Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **False** pour afficher la progression de la séquence de tâches.
+ - **So zeigen Sie den Tasksequenzstatus an**  
+Verwenden Sie im Tasksequenz-Editor den Schritt [Tasksequenzvariable festlegen](#BKMK_SetTaskSequenceVariable) zum Festlegen des Werts der Variablen **TSDisableProgressUI** auf **FALSE**, um den Tasksequenzstatus anzuzeigen.
 
-##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Configurer Windows et ConfigMgr  
- Utilisez l'étape de séquence de tâches **Configurer Windows et ConfigMgr** pour effectuer la transition de Windows PE vers le nouveau système d'exploitation. Cette étape de séquence de tâches est obligatoire dans tout déploiement de système d'exploitation, elle installe le client Configuration Manager dans le nouveau système d’exploitation et prépare la poursuite de l’exécution de la séquence de tâches dans le nouveau système d’exploitation.  
+##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Windows und ConfigMgr einrichten  
+ Mithilfe des Tasksequenzschritts **Windows und ConfigMgr einrichten** können Sie den Übergang von Windows PE zum neuen Betriebssystem vollziehen. Dieser Tasksequenzschritt muss bei jeder Betriebssystembereitstellung ausgeführt werden. Mit diesem Schritt wird der Configuration Manager-Client im neuen Betriebssystem installiert und die weitere Ausführung der Tasksequenz im neuen Betriebssystem ermöglicht.  
 
- Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Configurer Windows et ConfigMgr](task-sequence-action-variables.md#BKMK_SetupWindows).  
+ Dieser Schritt wird nur in Windows PE ausgeführt. Er wird nicht in einem Standardbetriebssystem ausgeführt. Weitere Informationen zu Tasksequenzvariablen für diese Tasksequenzaktion finden Sie unter [Variablen der Tasksequenzaktion „Windows und ConfigMgr einrichten“](task-sequence-action-variables.md#BKMK_SetupWindows).  
 
- L’action de séquence de tâches **Configurer Windows et Configuration Manager** remplace les variables de répertoire de sysprep.inf ou unattend.xml, comme %WINDIR% et %ProgramFiles%, par le répertoire d’installation Windows°PE X:\Windows. Les variables de séquence de tâches spécifiées au moyen de ces variables d'environnement seront ignorées.  
+ Mit der Tasksequenzaktion **Windows und ConfigMgr einrichten** werden sysprep.inf- oder unattend.xml-Verzeichnisvariablen wie %WINDIR% und %ProgramFiles% durch das Windows°PE-Installationsverzeichnis „X:\Windows“ ersetzt. Mit diesen Umgebungsvariablen angegebene Tasksequenzvariablen werden ignoriert.  
 
- Utilisez cette étape de séquence de tâches pour effectuer les actions suivantes :  
+ Verwenden Sie diesen Tasksequenzschritt zur Durchführung der nachstehend beschriebenen Aktionen:  
 
-1.  Préliminaires : Windows PE  
+1.  Vorbereitende Maßnahmen: Windows°PE  
 
-    1.  Effectue la substitution de variable de séquence de tâches dans le fichier unattend.xml.  
+    1.  Ersetzt die Tasksequenzvariable in der Datei „unattend.xml“.  
 
-    2.  Télécharge le package qui contient le client Configuration Manager et le place dans l’image déployée.  
+    2.  Das Paket, das den Configuration Manager-Client enthält, wird heruntergeladen und in das bereitgestellte Image eingefügt.  
 
-2.  Configuration de Windows  
+2.  Einrichten von Windows  
 
-    1.  Installation à base d'image.  
+    1.  Imagebasierte Installation.  
 
-        1.  Désactive le client Configuration Manager dans l’image (autrement dit, le démarrage automatique est désactivé pour le service du client Configuration Manager).  
+        1.  Der Configuration Manager-Client im Image wird deaktiviert (d.h. der automatische Start für den Configuration Manager-Clientdienst wird deaktiviert).  
 
-        2.  Met à jour le Registre dans l'image déployée pour garantir que le système d'exploitation déployé démarre en utilisant la même lettre de lecteur que celle figurant sur l'ordinateur de référence.  
+        2.  Es wird ein Update der Registrierung im bereitgestellten Abbild ausgeführt, um zu sicherzustellen, dass das bereitgestellte Betriebssystem mit demselben Laufwerksbuchstaben gestartet wird wie auf dem Referenzcomputer.  
 
-        3.  Redémarre dans le système d'exploitation déployé.  
+        3.  Es wird ein Neustart im bereitgestellten Betriebssystem ausgeführt.  
 
-        4.  La mini-installation de Windows s'exécute en utilisant le fichier sysprep.inf ou unattend.xml spécifié précédemment et dont toutes les interactions avec l'utilisateur sont supprimées. Remarque : si **Appliquer les paramètres réseau** indique qu’il faut joindre un domaine, cette information se trouve dans le fichier sysprep.inf ou unattend.xml et la mini-installation de Windows effectue la jonction.  
+        4.  Die Windows-Miniinstallation wird unter Verwendung der zuvor angegebenen Datei sysprep.inf oder unattend.xml ausgeführt. Bei diesem Vorgang werden alle Interaktionen mit Endbenutzern unterdrückt. Hinweis: Wenn unter **Netzwerkeinstellungen anwenden** ein Domänenbeitritt angegeben wurde, wird diese Information in der Datei „sysprep.inf“ oder „unattend.xml“ gespeichert, und der Domänenbeitritt erfolgt im Rahmen der Windows-Miniinstallation.  
 
-    2.  Installation avec Setup.exe.  Exécute le fichier Setup.exe qui suit le processus d’installation de Windows classique :  
+    2.  Setup.exe-basierte Installation.  Führt „Setup.exe“ aus. Dieser Vorgang entspricht dem normalen Windows-Installationsprozess:  
 
-        1.  Copie le package d'installation du système d'exploitation spécifié dans une séquence de tâches **Appliquer le système d'exploitation** précédente sur le disque dur.  
+        1.  Das zu einem früheren Zeitpunkt in der Tasksequenz **Betriebssystem anwenden** angegebene Betriebssystem wird auf die Festplatte kopiert.  
 
-        2.  Redémarre dans le système d'exploitation qui vient d'être déployé.  
+        2.  Es wird ein Neustart im neu bereitgestellten Betriebssystem ausgeführt.  
 
-        3.  La mini-installation de Windows s'exécute en utilisant le fichier sysprep.inf ou unattend.xml spécifié précédemment et dont tous les paramètres d'interface avec l'utilisateur sont supprimés. Remarque : si **Appliquer les paramètres réseau** indique qu’il faut joindre un domaine, cette information se trouve dans le fichier sysprep.inf ou unattend.xml et la mini-installation de Windows effectue la jonction.  
+        3.  Die Windows-Miniinstallation wird unter Verwendung der zuvor angegebenen Datei sysprep.inf oder unattend.xml ausgeführt. Bei diesem Vorgang werden alle Einstellungen der Benutzeroberfläche unterdrückt. Hinweis: Wenn unter **Netzwerkeinstellungen anwenden** ein Domänenbeitritt angegeben wurde, wird diese Information in der Datei „sysprep.inf“ oder „unattend.xml“ gespeichert, und der Domänenbeitritt erfolgt im Rahmen der Windows-Miniinstallation.  
 
-3.  Configurer le client Configuration Manager  
+3.  Einrichten des Configuration Manager-Clients  
 
-    1.  Une fois la mini-installation de Windows terminée, la séquence de tâches reprend à l’aide de setupcomplete.cmd.  
+    1.  Nachdem die Windows-Miniinstallation abgeschlossen ist, wird die Tasksequenz mithilfe von „setupcomplete.cmd“ fortgesetzt.  
 
-    2.  Active ou désactive le compte d'administrateur local en fonction de l'option sélectionnée dans l'étape **Appliquer les paramètres Windows** .  
+    2.  Das lokale Administratorkonto wird aktiviert oder deaktiviert, je nachdem, welche Option im Schritt **Windows-Einstellungen anwenden** ausgewählt wurde.  
 
-    3.  Installe le client Configuration Manager en utilisant le package précédemment téléchargé (1.b) et les propriétés d’installation spécifiées dans l’éditeur de séquence de tâches. Le client est installé en « mode de préparation » afin de l'empêcher de traiter les requêtes des nouvelles stratégies avant la fin de la séquence de tâches.  
+    3.  Der Configuration Manager-Client wird mithilfe des zuvor heruntergeladenen Downloadpakets (1.b) und unter Verwendung der im Tasksequenz-Editor angegebenen Installationseigenschaften installiert. Der Client wird im Bereitstellungsmodus installiert, um zu verhindern, dass neue Richtlinienanforderungen verarbeitet werden, bevor die Tasksequenz abgeschlossen ist.  
 
-    4.  Attend que le client soit totalement opérationnel.  
+    4.  Wartet, bis der Client voll funktionstüchtig ist.  
 
-    5.  Si l'ordinateur fonctionne dans un environnement doté de la protection d'accès réseau, le client vérifie l'existence de mises à jour requises et les installe afin qu'elles soient toutes présentes avant que la séquence de tâches continue son exécution.  
+    5.  Wenn der Computer in einer Umgebung mit aktiviertem Netzwerkzugriffsschutz ausgeführt wird, führt der Client eine Überprüfung auf Updates durch und installiert alle erforderlichen Updates. Damit wird gewährleistet, dass alle erforderlichen Updates vorhanden sind, bevor die Tasksequenz weiter ausgeführt wird.  
 
-4.  La séquence de tâches continue son exécution en passant à l'étape suivante.  
+4.  Die Ausführung der Tasksequenz wird mit dem nächsten Schritt fortgesetzt.  
 
 > [!NOTE]  
->  L'action de séquence de tâches **Configurer Windows et ConfigMgr** est responsable de l'exécution de la stratégie de groupe sur l'ordinateur nouvellement installé. La stratégie de groupe est appliquée après la fin de la séquence de tâches.  
+>  Die Tasksequenzaktion **Windows und ConfigMgr einrichten** ist für die Ausführung des Tools „Gruppenrichtlinie“ auf dem neu installierten Computer verantwortlich. Die Gruppenrichtlinie wird nach Abschluss der Tasksequenz angewendet.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Ne sélectionnez pas l'option permettant de continuer la séquence de tâches si une erreur se produit pendant l'exécution de l'étape. Si une erreur se produit, la séquence de tâches échoue, que vous ayez sélectionné ou non ce paramètre.  
+-   Wählen Sie nicht aus, dass die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt. Bei einem Fehler wird die Tasksequenz nicht ausgeführt, und zwar unabhängig davon, ob Sie diese Einstellung auswählen oder nicht.  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
+ **Name**  
+ Gibt einen kurzen benutzerdefinierten Namen an, der die in diesem Schritt vorgenommene Aktion beschreibt.  
 
- **Description**  
- Spécifie des informations supplémentaires sur l'action effectuée à cette étape.  
+ **Beschreibung**  
+ Gibt zusätzliche Informationen zu der in diesem Schritt ausgeführten Aktion an.  
 
- **Package client**  
- Indique le package d’installation du client Configuration Manager qui sera utilisé par cette séquence de tâches. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client que vous souhaitez utiliser pour installer le client Configuration Manager.  
+ **Clientpaket**  
+ Gibt das Configuration Manager-Clientinstallationspaket an, das von diesem Tasksequenzschritt verwendet wird. Klicken Sie auf **Durchsuchen**, und wählen Sie das Clientinstallationspaket aus, das Sie zum Installieren des Configuration Manager-Clients verwenden möchten.  
 
- **Utiliser le package client de préproduction quand il est disponible**  
- Spécifie que, si un package client de préproduction est disponible, la séquence de tâches l’utilise à la place du package client de production. En règle générale, le client de préproduction est une version plus récente testée dans l’environnement de production. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client de préproduction que vous souhaitez utiliser pour installer le client Configuration Manager.  
+ **Clientpaket vor der Produktion verwenden, wenn verfügbar**  
+ Gibt an, dass im Tasksequenzschritt bei Verfügbarkeit eines Präproduktionsclient-Pakets dieses Paket anstelle des Produktionsclientpakets verwendet wird. Der Präproduktionsclient ist normalerweise eine neuere Version, die in der Produktionsumgebung getestet wird. Klicken Sie auf **Durchsuchen**, und wählen Sie das Präproduktions-Clientinstallationspaket aus, das Sie zum Installieren des Configuration Manager-Clients verwenden möchten.  
 
- **Propriétés d’installation**  
- L'attribution de site et la configuration par défaut sont automatiquement spécifiées par l'action de la séquence de tâches. Ce champ permet de spécifier les propriétés d'installation supplémentaires à utiliser lorsque vous installez le client. Pour entrer plusieurs propriétés d'installation, séparez-les par un espace.  
+ **Installationseigenschaften**  
+ Die Standortzuweisung und die Standardkonfiguration werden von der Tasksequenzaktion automatisch angegeben. Sie können in diesem Feld zusätzliche Installationseigenschaften angeben, die bei der Installation des Clients verwendet werden sollen. Wenn sie mehrere Installationseigenschaften eingeben möchten, müssen Sie sie durch ein Leerzeichen trennen.  
 
- Vous pouvez spécifier des options de ligne de commande à utiliser lors de l'installation du client. Par exemple, vous pouvez entrer **/skipprereq: silverlight.exe** pour informer CCMSetup.exe de ne pas installer le composant requis Microsoft Silverlight. Pour plus d’informations sur les options de ligne de commande disponibles pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client](../../core/clients/deploy/about-client-installation-properties.md).  
+ Sie können Befehlszeilenoptionen angeben, die während der Clientinstallation verwendet werden sollen. Sie können beispielsweise **/skipprereq: silverlight.exe** eingeben, um „CCMSetup.exe“ anzuweisen, die erforderliche Komponente Microsoft Silverlight nicht zu installieren. Weitere Informationen zu diesen Befehlszeileneigenschaften für CCMSetup.exe finden Sie unter [Informationen zu Clientinstallationseigenschaften](../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="BKMK_UpgradeOS"></a> Mettre à niveau le système d’exploitation  
- Utilisez l’étape de séquence de tâches **Mettre à niveau le système d’exploitation** pour mettre à niveau un système d’exploitation Windows 7, Windows 8, Windows 8.1 ou Windows 10 existant vers Windows 10.  
+##  <a name="BKMK_UpgradeOS"></a> Betriebssystem aktualisieren  
+ Verwenden Sie den Tasksequenzschritt **Betriebssystem aktualisieren** zum Aktualisieren eines vorhandenen Windows 7-, Windows 8-, Windows 8.1- oder Windows 10-Betriebssystems auf Windows 10.  
 
- Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
+ Dieser Tasksequenzschritt wird nur in einem Standardbetriebssystem ausgeführt. Er wird nicht in Windows PE ausgeführt.  
 
-### <a name="details"></a>Détails  
- Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
+### <a name="details"></a>Details  
+ Die in diesem Abschnitt beschriebenen Einstellungen können Sie auf der Registerkarte **Eigenschaften** für diesen Schritt konfigurieren.  
 
- En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
+ Verwenden Sie zudem die Registerkarte **Optionen** für die folgenden Aktionen:  
 
--   Désactiver l'étape.  
+-   Schritt deaktivieren  
 
--   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+-   Angeben, ob die Tasksequenz fortgesetzt wird, wenn während der Ausführung dieses Schritts ein Fehler auftritt  
 
--   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+-   Bedingungen angeben, die für die Ausführung dieses Schritts erfüllt sein müssen  
 
- **Nom**  
- Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
+ **Name**  
+ Ein kurzer benutzerdefinierter Name, der die in diesem Schritt ausgeführte Aktion beschreibt.  
 
- **Description**  
- Informations plus détaillées sur l'action effectuée dans cette étape.  
+ **Beschreibung**  
+ Ausführlichere Informationen zu der in diesem Schritt ausgeführten Aktion.  
 
- **Package de mise à niveau**  
- Sélectionnez cette option pour spécifier le package de mise à niveau de système d’exploitation Windows 10 à utiliser pour la mise à niveau.  
+ **Upgradepaket**  
+ Wählen Sie diese Option aus, um das für das Upgrade zu verwendende Windows 10-Betriebssystemupgradepaket anzugeben.  
 
- **Chemin source**  
- Spécifie un chemin local ou réseau vers le support Windows 10 utilisé (correspond à l’option de ligne de commande /installFrom). Vous pouvez également spécifier une variable, comme %mycontentpath% ou %DPC01%. Quand vous utilisez une variable pour le chemin source, elle doit être spécifiée plus tôt dans la séquence de tâches. Par exemple, si vous utilisez l’étape [Télécharger le contenu du package](#BKMK_DownloadPackageContent) dans la séquence de tâches, vous pouvez spécifier une variable pour l’emplacement du package de mise à niveau du système d’exploitation. Ensuite, vous pouvez utiliser cette variable pour le chemin source de cette étape.  
+ **Quellpfad**  
+ Gibt einen lokalen oder Netzwerkpfad zu den zu verwendenden Windows 10-Medien an (entspricht der Befehlszeilenoption „/installFrom“). Sie können auch eine Variable angeben, z. B. %mycontentpath% oder %DPC01%. Wenn Sie eine Variable als Quellpfad verwenden, muss diese zuvor in der Tasksequenz festgelegt werden. Wenn Sie beispielsweise den Schritt [Paketinhalt herunterladen](#BKMK_DownloadPackageContent) in der Tasksequenz verwenden, können Sie eine Variable für den Speicherort des Betriebssystemupgradepakets festlegen. Anschließend können Sie die Variable in diesem Schritt als Quellpfad verwenden.  
 
- **Édition**  
- Spécifiez l’édition au sein du support du système d’exploitation à utiliser pour la mise à niveau.  
+ **Edition**  
+ Geben Sie die für das Upgrade zu verwendende Edition in den Betriebssystemmedien an.  
 
- **Clé du produit**  
- Spécifier la clé de produit à appliquer au processus de mise à niveau  
+ **Product Key**  
+ Geben Sie den auf den Upgradeprozess anzuwendenden Product Key an.  
 
- **Fournir le contenu du pilote suivant à l’installation de Windows pendant la mise à niveau**  
- Sélectionnez ce paramètre pour ajouter des pilotes à l’ordinateur de destination pendant le processus de mise à niveau (correspond à l’option de ligne de commande /InstallDriver). Les pilotes doivent être compatibles avec Windows 10. Spécifiez l’une des options suivantes :  
+ **Folgenden Treiberinhalt während des Upgrades für Windows Setup bereitstellen**  
+ Wählen Sie diese Einstellung aus, um während des Upgradeprozesses Treiber zum Zielcomputer hinzuzufügen (entspricht der Befehlszeilenoption „/InstallDriver“). Die Treiber müssen mit Windows 10 kompatibel sein. Geben Sie eine der folgenden Optionen an:  
 
--   **Package de pilotes** : cliquez sur **Parcourir** et sélectionnez un package de pilotes existant dans la liste.  
+-   **Treiberpaket**: Klicken Sie auf **Durchsuchen** , und wählen Sie ein vorhandenes Treiberpaket aus der Liste aus.  
 
--   **Contenu intermédiaire** : sélectionnez cette option pour spécifier l’emplacement du package de pilotes. Vous pouvez spécifier un dossier local, un chemin réseau ou une variable de séquence de tâches. Quand vous utilisez une variable pour le chemin source, elle doit être spécifiée plus tôt dans la séquence de tâches. Par exemple, en utilisant l’étape [Télécharger le contenu du package](task-sequence-steps.md#BKMK_DownloadPackageContent).  
+-   **Bereitgestellter Inhalt**: Wählen Sie diese Option, um den Speicherort für das Treiberpaket anzugeben. Sie können einen lokalen Ordner, einen Netzwerkpfad oder eine Tasksequenzvariable angeben. Wenn Sie eine Variable als Quellpfad verwenden, muss diese zuvor in der Tasksequenz festgelegt werden. Zum Beispiel mithilfe des Schritts [Download Package Content](task-sequence-steps.md#BKMK_DownloadPackageContent) .  
 
- **Délai d’expiration (minutes)**  
- Indique le nombre de minutes pendant lesquelles le programme d’installation doit s’exécuter avant que Configuration Manager fasse échouer l’étape de séquence de tâches.  
+ **Timeout (Minuten)**  
+ Gibt an, wie lange Setup ausgeführt werden muss (in Minuten), bevor Configuration Manager für den Tasksequenzschritt einen Fehler ausgibt.  
 
- **Effectuer une analyse de compatibilité d’installation de Windows sans démarrer la mise à niveau**  
- Spécifie l’exécution de l’analyse de compatibilité de l’installation de Windows sans démarrer le processus de mise à niveau (correspond à l’option de ligne de commande /Compat ScanOnly). Vous devez quand même déployer toute la source de d’installation quand vous utilisez cette option. Le programme d’installation renvoie un code de sortie suite à l’analyse. Le tableau suivant indique certains des codes de sortie les plus courants.  
+ **Kompatibilitätsprüfung für Windows Setup ausführen, ohne Upgrade zu starten**  
+ Gibt an, dass die Windows Setup-Kompatibilitätsüberprüfung ohne Starten des Upgradeprozesses ausgeführt werden soll (entspricht der Befehlszeilenoption „/Compat ScanOnly“). Wenn Sie diese Option verwenden, müssen Sie trotzdem die gesamte Installationsquelle bereitstellen. Setup gibt als Ergebnis der Überprüfung einen Exitcode zurück. Die folgende Tabelle enthält einige der häufigeren Exitcodes.  
 
-|Code de sortie|Détails|  
+|Exitcode|Details|  
 |-|-|  
-|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Aucun problème de compatibilité (« réussite »).|  
-|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0XC1900208)|Problèmes de compatibilité pouvant donner lieu à une action.|  
-|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Le choix de migration sélectionné n’est pas disponible. Par exemple, une mise à niveau depuis Entreprise vers Professionnel.|  
-|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Non éligible pour Windows 10.|  
-|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Espace disque disponible insuffisant.|  
+|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Keine Kompatibilitätsprobleme (Erfolg).|  
+|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0xC1900208)|Kompatibilitätsprobleme mit Handlungsbedarf.|  
+|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Ausgewählte Migrationsoption ist nicht verfügbar, z. B. Enterprise zu Professional.|  
+|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Nicht für Windows 10 geeignet.|  
+|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0xC190020E)|Nicht genügend freier Speicherplatz.|  
 
- Pour plus d’informations sur ce paramètre, consultez [Options de ligne de commande du programme d’installation de Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
+ Weitere Informationen zu diesem Parameter finden Sie unter [Windows Setup-Befehlszeilenoptionen](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
 
- **Ignorer les messages de compatibilité révocables**  
- Spécifie que le programme d’installation a terminé l’installation, en ignorant tous les messages de compatibilité révocables (correspond à l’option de ligne de commande /Compat IgnoreWarning).  
+ **Alle ablehnbaren Kompatibilitätsmeldungen ignorieren**  
+ Gibt an, dass Setup die Installation abschließt und dabei alle vernachlässigbaren Kompatibilitätsmeldungen ignoriert (entspricht der Befehlszeilenoption „/Compat IgnoreWarning“).  
 
- **Mettre à jour dynamiquement l’installation de Windows avec Windows Update**  
- Spécifie si le programme d’installation effectue les opérations de mise à jour dynamique, comme la recherche, le téléchargement et l’installation des mises à jour (correspond à l’option de ligne de commande /DynamicUpdate). Ce paramètre n’est pas compatible avec les mises à jour logicielles Configuration Manager, mais il peut être activé quand vous gérez les mises à jour à l’aide de WSUS (autonome) ou Windows Update.  
+ **Windows Setup dynamisch mit Windows Update aktualisieren**  
+ Gibt an, ob Setup dynamische Updatevorgänge durchführt, z. B. Suchen, Herunterladen und Installieren von Updates (entspricht der Befehlszeilenoption „/DynamicUpdate“). Diese Einstellung ist nicht kompatibel mit Configuration Manager-Softwareupdates, kann aber aktiviert werden, wenn Sie Updates mit WSUS (eigenständig) oder Windows Update verarbeiten.  
 
- **Remplacer la stratégie et utiliser Microsoft Update par défaut**: sélectionnez ce paramètre pour remplacer temporairement la stratégie locale, en temps réel, pour exécuter des opérations de mise à jour dynamique et permettre à l’ordinateur d’obtenir des mises à jour par le biais de Windows Update.  
-
+ **Richtlinie überschreiben und standardmäßiges Microsoft Update verwenden**: Wenn Sie diese Einstellung auswählen, wird die lokale Richtlinie vorübergehend in Echtzeit außer Kraft gesetzt, um dynamische Updatevorgänge auszuführen und den Computer Updates von Windows Update abrufen zu lassen.  

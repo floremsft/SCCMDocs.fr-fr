@@ -1,191 +1,183 @@
 ---
-title: "Créer des profils de connexion à distance | Microsoft Docs"
-description: "Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail."
+title: Erstellen von Remoteverbindungsprofilen | Microsoft-Dokumentation
+description: "Verwenden Sie Remoteverbindungsprofile für System Center Configuration Manager, um Ihren Benutzern das Herstellen einer Remoteverbindung zu Ihren Arbeitscomputern zu ermöglichen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8c6eabc4-5dda-4682-b03e-3a450e6ef65a
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: 72fc94c6449649656a7e8b81659c2b5cc2551107
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Remoteverbindungsprofile in System Center Configuration Manager
 
-# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Profils de connexion à distance dans System Center Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+Verwenden Sie Remoteverbindungsprofile für System Center Configuration Manager, um Benutzern das Herstellen von Remoteverbindungen mit Arbeitscomputern zu ermöglichen, wenn keine Verbindung mit der Domäne besteht oder ihre PCs mit dem Internet verbunden sind.  
 
-Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail quand ils ne sont pas connectés au domaine ou si leurs ordinateurs personnels sont connectés à Internet.  
+ Benutzer können über die folgenden Gerätetypen eine Verbindung mit ihrem Arbeits-PC herstellen:  
 
- Les utilisateurs peuvent se connecter à leur ordinateur professionnel à partir des types d'appareils suivants :  
+-   Computer, auf denen Microsoft Windows ausgeführt wird  
 
--   Ordinateurs qui exécutent Microsoft Windows  
+-   Geräte, auf denen iOS ausgeführt wird  
 
--   Appareils qui exécutent iOS  
+-   Geräte, auf denen Android ausgeführt wird  
 
--   Appareils qui exécutent Android  
+Mit Remoteverbindungsprofilen können Sie Benutzern die Einstellungen für die Remotedesktopverbindung in Ihrer Configuration Manager-Hierarchie bereitstellen. Benutzer können dann mithilfe des Unternehmensportals über Remotedesktop unter Verwendung der vom Unternehmensportal bereitgestellten Einstellungen der Remotedesktopverbindung auf ihre primären Arbeitscomputer zugreifen.  
 
-Les profils de connexion à distance vous permettent de déployer des paramètres de connexion Bureau à distance sur les utilisateurs dans votre hiérarchie Configuration Manager. Les utilisateurs peuvent ensuite utiliser le portail d'entreprise pour accéder à leurs ordinateurs professionnels principaux via le Bureau à distance en utilisant les paramètres de connexion Bureau à distance fournis par le portail d'entreprise.  
-
-Microsoft Intune est nécessaire si vous voulez que les utilisateurs se connectent à leurs PC de travail via le portail d’entreprise. Si vous n’utilisez pas Intune, les utilisateurs peuvent toujours utiliser les informations du profil de connexion à distance pour se connecter à leurs PC de travail à l’aide du Bureau à distance via une connexion VPN.  
-
-> [!IMPORTANT]  
->  Quand vous indiquez des paramètres de profil de connexion à distance à l’aide de la console Configuration Manager, ils sont stockés dans la stratégie locale de l’ordinateur client. Ces paramètres risquent donc de remplacer les paramètres du Bureau à distance configurés par une autre application. En outre, si vous utilisez la stratégie de groupe Windows pour configurer les paramètres du Bureau à distance, les paramètres spécifiés dans la stratégie de groupe remplacent ceux configurés à l’aide de Configuration Manager.  
-
- Quand vous installez Configuration Manager, un groupe de sécurité, **Connexion de PC à distance**, est créé. Ce groupe est renseigné lorsque vous déployez un profil de connexion à distance qui inclut les principaux utilisateurs de l'ordinateur sur lequel vous déployez le profil. Bien qu'un administrateur local puisse ajouter des noms d'utilisateur à ce groupe, ces utilisateurs sont retirés du groupe lors de l'évaluation de la compatibilité des profils de connexion à distance déployés.  
-
- Si vous ajoutez manuellement un utilisateur à ce groupe, l'utilisateur peut initier des connexions à distance, mais les informations de connexion ne seront pas publiées dans le portail d'entreprise.  
-
- Si vous supprimez manuellement du groupe un utilisateur qui a été ajouté par Configuration Manager, Configuration Manager corrige automatiquement ce changement en rajoutant l’utilisateur lors de la prochaine évaluation de la compatibilité du profil de connexion à distance.  
+Wenn Sie möchten, dass Benutzer mithilfe des Unternehmensportals eine Verbindung mit ihrem Arbeits-PC herstellen können, ist Microsoft Intune erforderlich. Wenn Sie Intune nicht verwenden, können Benutzer die Informationen aus dem Remoteverbindungsprofil dennoch zum Herstellen einer Verbindung mit ihrem Arbeits-PC verwenden, indem sie Remotedesktop über eine VPN-Verbindung nutzen.  
 
 > [!IMPORTANT]  
->  Si la relation d’affinité entre utilisateur et appareil change (par exemple, l’ordinateur auquel se connecte un utilisateur n’est plus un appareil principal de l’utilisateur), Configuration Manager désactive le profil de connexion à distance et les paramètres du Pare-feu Windows pour empêcher les connexions à l’ordinateur.  
+>  Beim Angeben von Einstellungen für Remoteverbindungsprofile über die Configuration Manager-Konsole werden diese in der lokalen Richtlinie des Clientcomputers gespeichert. Durch diese Einstellungen können die von einer anderen Anwendung konfigurierten Remotedesktop-Einstellungen außer Kraft gesetzt werden. Wenn Sie die Remotedesktopeinstellungen mit der Windows-Gruppenrichtlinie konfigurieren, setzen die in der Gruppenrichtlinie angegebenen Einstellungen zudem die mithilfe von Configuration Manager konfigurierten Einstellungen außer Kraft.  
 
-## <a name="prerequisites"></a>Conditions préalables  
+ Beim Installieren von Configuration Manager wird die neue Sicherheitsgruppe **Remotecomputerverbindung** erstellt. Diese Gruppe wird aufgefüllt, wenn Sie ein Remoteverbindungsprofil mit den primären Benutzern des Computers bereitstellen, auf dem Sie das Profil bereitstellen. Der lokale Administrator kann dieser Gruppe zwar Benutzernamen hinzufügen, aber diese Benutzer werden bei der nächsten Kompatibilitätsauswertung der bereitgestellten Remoteverbindungsprofile aus der Gruppe entfernt.  
 
-### <a name="external-dependencies"></a>Dépendances externes  
+ Wenn Sie dieser Gruppe einen Benutzer manuell hinzufügen, kann der Benutzer Remoteverbindungen initiieren, aber die Verbindungsinformationen werden nicht im Unternehmensprotal veröffentlicht.  
 
-|Dépendance|Informations complémentaires|  
+ Wenn Sie einen Benutzer manuell aus der Gruppe entfernen, der von Configuration Manager hinzugefügt wurde, wird diese Änderung von Configuration Manager automatisch rückgängig gemacht, indem der Benutzer bei der nächsten Kompatibilitätsauswertung des Remoteverbindungsprofils wieder hinzugefügt wird.  
+
+> [!IMPORTANT]  
+>  Wenn sich die Affinität zwischen Benutzer und Gerät ändert (wenn beispielsweise der Computer, mit dem ein Benutzer eine Verbindung herstellt, nicht mehr das primäre Gerät des Benutzers ist), werden das Remoteverbindungsprofil und die Windows-Firewall-Einstellungen von Configuration Manager deaktiviert, um zu verhindern, dass Verbindungen mit dem Computer hergestellt werden.  
+
+## <a name="prerequisites"></a>Voraussetzungen  
+
+### <a name="external-dependencies"></a>Externe Abhängigkeiten  
+
+|Abhängigkeit|Weitere Informationen|  
 |----------------|----------------------|  
-|Serveur de passerelle Bureau à distance.|Si vous souhaitez autoriser les utilisateurs à se connecter en dehors du domaine de la société, sur Internet, vous devez installer et configurer un serveur de passerelle Bureau à distance.<br /><br /> Si les paramètres Bureau à distance ou services Terminal Server sont gérés par une autre application ou les paramètres de stratégie de groupe, les profils de connexion à distance risquent de ne pas fonctionner correctement. Quand vous déployez des profils de connexion à distance à partir de la console Configuration Manager, ses paramètres sont stockés dans la stratégie locale de l’ordinateur client. Ces paramètres risquent donc de remplacer les paramètres du Bureau à distance configurés par une autre application. En outre, si vous utilisez les paramètres de stratégie de groupe pour configurer les paramètres du Bureau à distance, les paramètres spécifiés dans la stratégie de groupe remplacent ceux configurés par Configuration Manager.<br /><br /> Pour plus d'informations sur la procédure d'installation et de configuration d'un serveur de passerelle Bureau à distance, consultez la documentation Windows Server.|  
-|Si les ordinateurs clients exécutent un pare-feu basé sur l'hôte, il doit autoriser le programme Mstsc.exe.|Lorsque vous configurez un profil de connexion à distance, vous devez activer le paramètre **Autoriser l'exception de pare-feu Windows pour les connexions sur les domaines Windows et sur les réseaux privés** . Quand ce paramètre est activé, Configuration Manager configure automatiquement le Pare-feu Windows pour autoriser le programme Mstsc.exe. Toutefois, si les ordinateurs clients exécutent un autre pare-feu basé sur l'hôte, vous devez configurer manuellement cette dépendance de pare-feu.<br /><br /> Les paramètres de stratégie de groupe pour configurer le Pare-feu Windows peuvent remplacer la configuration définie dans Configuration Manager. Si vous utilisez stratégie de groupe pour configurer le pare-feu Windows, assurez-vous que les paramètres de stratégie de groupe ne bloquent pas le programme Mstsc.exe.|  
+|Remotedesktop-Gatewayserver.|Falls Sie Benutzern die Möglichkeit einräumen möchten, von außerhalb der Unternehmensdomäne über das Internet eine Verbindung herzustellen, müssen Sie einen Remotedesktop-Gatewayserver installieren und konfigurieren.<br /><br /> Werden die Einstellungen für Remotedesktop oder Terminaldienste über eine andere Anwendung oder Gruppenrichtlinieneinstellungen verwaltet, funktionieren Remoteverbindungsprofile eventuell nicht ordnungsgemäß. Beim Bereitstellen von Remoteverbindungsprofilen über die Configuration Manager-Konsole werden die Einstellungen in der lokalen Richtlinie des Clientcomputers gespeichert. Durch diese Einstellungen können die von einer anderen Anwendung konfigurierten Remotedesktop-Einstellungen außer Kraft gesetzt werden. Wenn Sie die Remotedesktopeinstellungen mit Gruppenrichtlinieneinstellungen konfigurieren, werden mit den in den Gruppenrichtlinieneinstellungen angegebenen Einstellungen zudem die von Configuration Manager konfigurierten Einstellungen außer Kraft gesetzt.<br /><br /> Weitere Informationen zum Installieren und Konfigurieren des Remotedesktop-Gatewayservers finden Sie in der Dokumentation zu Windows Server.|  
+|Wenn auf Clientcomputern eine hostbasierte Firewall ausgeführt wird, muss die Ausführung von „mstsc.exe“ zugelassen sein.|Beim Konfigurieren eines Remoteverbindungsprofils müssen Sie die Einstellung **Windows-Firewall-Ausnahme für Windows-Domänen und in privaten Netzwerken Verbindungen zulassen** aktivieren. Ist diese Einstellung aktiviert, wird die Windows-Firewall von Configuration Manager automatisch so konfiguriert, dass die Ausführung von „mstsc.exe“ zugelassen wird. Wird auf den Clientcomputern allerdings eine andere hostbasierte Firewall ausgeführt, müssen Sie die betreffende Firewallabhängigkeit manuell konfigurieren.<br /><br /> Durch die Gruppenrichtlinieneinstellungen für die Konfiguration der Windows-Firewall kann die in Configuration Manager eingerichtete Konfiguration außer Kraft gesetzt werden. Wenn Sie zum Konfigurieren der Windows-Firewall eine Gruppenrichtlinie verwenden, sollten Sie sicherstellen, dass die entsprechenden Einstellungen die Ausführung von „mstsc.exe“ nicht blockieren.|  
 
-### <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
+### <a name="configuration-manager-dependencies"></a>Abhängigkeiten in Configuration Manager  
 
-|Dépendance|Plus d'informations|  
+|Abhängigkeit|Weitere Informationen|  
 |----------------|----------------------|  
-|Configuration Manager doit être connecté à Microsoft Intune (« configuration hybride »).|Pour plus d’informations sur la connexion de Configuration Manager à Microsoft Intune, consultez Gérer les appareils mobiles avec Configuration Manager et Microsoft Intune.|  
-|Pour qu'un utilisateur se connecte à un ordinateur professionnel sur le réseau de l'entreprise, cet ordinateur doit être un appareil principal de l'utilisateur.|Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
-|Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les profils de connexion à distance.|Le rôle de sécurité **Gestionnaire de paramètres de compatibilité** inclut les autorisations nécessaires pour gérer les profils de connexion à distance. Pour plus d'informations, voir <br />[Configurer l’administration basée sur des rôles](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
+|Configuration Manager muss mit Microsoft Intune verbunden sein (eine sogenannte Hybridkonfiguration).|Weitere Informationen zum Herstellen einer Verbindung zwischen Configuration Manager und Microsoft Intune finden Sie unter „Verwalten von mobilen Geräten mit Configuration Manager und Microsoft Intune“.|  
+|Benutzer können nur dann eine Verbindung mit einem Arbeitscomputer im Unternehmensnetzwerk aufbauen, wenn es sich bei dem betreffenden Rechner um das primäre Gerät des Benutzers handelt.|Weitere Informationen zur Affinität zwischen Benutzer und Gerät finden Sie unter [Verknüpfen von Benutzern und Geräten mit Affinität zwischen Benutzer und Gerät](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
+|Für die Verwaltung von Remoteverbindungsprofilen sind spezielle Sicherheitsberechtigungen erforderlich.|In der Sicherheitsrolle **Kompatibilitätseinstellungs-Manager** sind die erforderlichen Berechtigungen zum Verwalten von Remoteverbindungsprofilen enthalten. Weitere Informationen finden Sie unter <br />[Konfigurieren der rollenbasierten Verwaltung](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
 
-## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Considérations relatives à la sécurité et à la confidentialité pour les profils de connexion à distance  
+## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Überlegungen zu Sicherheit und Datenschutz für Remoteverbindungsprofile  
 
-### <a name="security-considerations"></a>Considérations relatives à la sécurité  
+### <a name="security-considerations"></a>Sicherheitsüberlegungen  
 
-|Meilleure pratique de sécurité|Informations complémentaires|  
+|Bewährte Sicherheitsmethode|Weitere Informationen|  
 |----------------------------|----------------------|  
-|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Étant donné que vous devez activer **Autoriser tous les utilisateurs principaux de l'ordinateur professionnel à se connecter à distance** avant de pouvoir déployer un profil de connexion à distance, spécifiez toujours manuellement l'affinité entre utilisateur et appareil. Ne considérez pas les informations collectées à partir d'utilisateurs ou de l'appareil comme faisant autorité. Si vous déployez des profils de connexion à distance alors que l'affinité entre utilisateur et appareil n'est pas spécifiée par un utilisateur administratif approuvé, des utilisateurs non autorisés peuvent recevoir des privilèges élevés et être en mesure de se connecter à distance aux ordinateurs.<br /><br /> Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB (Server Message Block) ou IPsec (Internet Protocol security) entre les ordinateurs clients et le point de gestion.|  
-|Limiter les droits d'administrateur local sur l'ordinateur du serveur de site.|Un utilisateur disposant de droits d’administrateur local sur le serveur de site peut ajouter manuellement des membres au groupe de sécurité Connexion de PC à distance, qui est créé et géré automatiquement par Configuration Manager. Cela peut provoquer une élévation des privilèges dans la mesure où les membres qui sont ajoutés à ce groupe bénéficient d'autorisations Bureau à distance.|  
+|Geben Sie manuell die Affinität zwischen Benutzer und Gerät an, statt zuzulassen, dass die Benutzer das primäre Gerät selbst bestimmen. Aktivieren Sie darüber hinaus die verwendungsbasierte Konfiguration nicht.|Da Sie die Option **Allen primären Benutzern des Arbeitscomputers Remoteverbindungen gestatten** aktivieren müssen, bevor Sie ein Remoteverbindungsprofil bereitstellen können, geben Sie die Affinität zwischen Benutzer und Gerät immer manuell an. Betrachten Sie die Informationen, die von Benutzern oder Geräten gesammelt werden, nicht als autorisierend. Wenn Sie Remoteverbindungsprofile bereitstellen und die Affinität zwischen Benutzer und Gerät nicht von einem vertrauenswürdigen Administrator angegeben wurde, kann dies zu Rechteerweiterungen führen, und nicht autorisierte Benutzer können nachfolgend möglicherweise Remoteverbindungen mit Computern herstellen.<br /><br /> Wenn Sie eine nutzungsbasierte Konfiguration aktivieren, werden diese Informationen über Statusmeldungen erfasst, für die von Configuration Manager keine Sicherheit geboten wird. Sie können diese Bedrohung durch SMB-Signaturen (Server Message Block) oder IPsec (Internet Protocol Security) zwischen Clientcomputern und dem Verwaltungspunkt verringern.|  
+|Schränken Sie lokale Administratorrechte auf dem Standortservercomputer ein.|Ein Benutzer mit lokalen Administratorrechten für den Standortserver kann der Sicherheitsgruppe „Remotecomputerverbindung“, die von Configuration Manager automatisch erstellt und verwaltet wird, manuell Mitglieder hinzufügen. Dies kann zu einer Rechteerweiterung führen, da Mitgliedern, die dieser Gruppe hinzugefügt wurden, in der Folge Remotedesktopberechtigungen erteilt werden.|  
 
-### <a name="privacy-considerations"></a>Considérations relatives à la confidentialité  
+### <a name="privacy-considerations"></a>Überlegungen zum Datenschutz  
 
--   Si un utilisateur établit une connexion vers un ordinateur professionnel à partir du portail d'entreprise, un fichier comportant l'extension .rdp ou .wsrdp est téléchargé. Il contient le nom de l'appareil et le nom du serveur de passerelle Bureau à distance qui est requis pour ouvrir la session Bureau à distance. L'extension de fichier varie selon le système d'exploitation de l'appareil. Par exemple, les systèmes d’exploitation Windows 7 et Windows 8 utilisent un fichier .rdp, et Windows 8.1 utilise un fichier .wsrdp.  
+-   Wenn ein Benutzer über das Unternehmensportal eine Verbindung mit einem Arbeitscomputer initiiert, wird eine Datei mit der Erweiterung RDP oder WSRDP heruntergeladen, die den Gerätenamen und den Namen des Remotedesktop-Gatewayservers enthält, der für den Aufbau der Remotedesktopverbindung erforderlich ist. Die Dateierweiterung hängt vom Betriebssystem des Geräts ab. Beispielsweise wird von den Betriebssystemen Windows 7 und Windows 8 eine RDP-Datei verwendet, während bei Windows 8.1 eine WSRDP-Datei verwendet wird.  
 
--   L'utilisateur peut choisir d'ouvrir ou d'enregistrer le fichier .rdp. Si l'utilisateur choisit d'ouvrir le fichier .rdp, celui-ci peut être stocké dans le cache du navigateur Web, selon les paramètres de rétention configurés pour le navigateur. Si l'utilisateur choisit d'enregistrer le fichier, le fichier n'est pas stocké dans le cache du navigateur. Le fichier est enregistré jusqu'à ce que l'utilisateur le supprime manuellement.  
+-   Der Benutzer kann die RDP-Datei wahlweise öffnen oder speichern. Falls er die RDP-Datei öffnet, wird sie je nach Beibehaltungseinstellungen des Browsers möglicherweise im Cache des Webbrowsers gespeichert. Wenn der Benutzer entscheidet, die Datei zu speichern, wird die Datei nicht im Browsercache gespeichert. Die Datei wird gespeichert, bis der Benutzer sie manuell löscht.  
 
--   Le fichier .wsrdp est téléchargé et automatiquement enregistré localement. La prochaine fois que l'utilisateur exécutera une session Bureau à distance, le fichier sera écrasé.  
+-   Die WSRDP-Datei wird heruntergeladen und automatisch lokal gespeichert. Bei der nächsten Ausführung einer Remotedesktopverbindung wird die Datei überschrieben.  
 
--   Avant de configurer les profils de connexion à distance, analysez vos besoins en matière de confidentialité.  
+-   Berücksichtigen Sie beim Konfigurieren von Remoteverbindungsprofilen Ihre Datenschutzanforderungen.  
 
 
-## <a name="create-a-remote-connection-profile"></a>Créer un profil de connexion à distance
+## <a name="create-a-remote-connection-profile"></a>Erstellen eines Remoteverbindungsprofils
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Profils de connexion à distance**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Remoteverbindungsprofile**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil de connexion à distance**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Remoteverbindungsprofil erstellen**.  
 
-4.  Dans la page **Général** de l’ **Assistant Créer un profil de connexion à distance**, spécifiez un nom et une description éventuelle pour le profil en utilisant un maximum de 256 caractères pour chaque élément.  
+4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Remoteverbindungsprofilen**einen Namen und optional eine Beschreibung für das Profil ein (jeweils maximal 256 Zeichen).  
 
-5.  Dans la page **Paramètres de profil**, spécifiez les paramètres suivants pour le profil de connexion à distance :  
+5.  Geben Sie auf der Seite mit den **Profileinstellungen** die folgenden Einstellungen für das Remoteverbindungsprofil ein:  
 
-    -   **Nom complet et port du serveur de passerelle Bureau à distance (facultatif)** : spécifiez le nom du serveur de passerelle Bureau à distance à utiliser pour les connexions.  
+    -   **Vollständiger Name und Port des Remotedesktop-Gatewayservers (optional)** : Geben Sie den Namen des Remotedesktop-Gatewayservers an, der für Verbindungen verwendet wird.  
 
         > [!NOTE]  
-        >  Configuration Manager ne gère pas l’utilisation d’un nom de domaine internationalisé pour spécifier un serveur dans cette zone.  
+        >  Die Verwendung eines internationalisierten Domänennamens zur Angabe eines Servers in diesem Feld wird in Configuration Manager nicht unterstützt.  
         >   
-        >  Le nom du serveur ne peut pas dépasser 256 caractères et peut contenir des caractères majuscules, des caractères minuscules, des caractères numériques et les caractères **–** et **_** , séparés par des points.  
+        >  Der Servername darf nicht länger als 256 Zeichen sein. Er darf Groß- und Kleinbuchstaben, Ziffern und die Zeichen **–** und **_** enthalten, die durch Punkte voneinander getrennt sind.  
 
-    -   **Autoriser des connexions uniquement sur les ordinateurs qui exécutent le Bureau à distance avec authentification au niveau du réseau**  
+    -   **Verbindungen nur von Computern zulassen, auf denen Remotedesktop mit Authentifizierung auf Netzwerkebene ausgeführt wird**  
 
-6.  Sélectionnez **Activé** ou **Désactivé** pour chacun des paramètres de connexion suivants :  
+6.  Wählen Sie für jede der folgenden Verbindungseinstellungen **Aktiviert** oder **Deaktiviert** aus:  
 
-    -   **Autoriser les connexions à distance aux ordinateurs professionnels**  
+    -   **Remoteverbindungen mit Arbeitscomputern zulassen**  
 
-    -   **Autoriser tous les utilisateurs principaux de l'ordinateur professionnel à se connecter à distance**  
+    -   **Allen primären Benutzern des Arbeitscomputers Remoteverbindungen gestatten**  
 
-    -   **Autoriser l'exception du Pare-feu Windows pour les connexions sur des domaines Windows et sur des réseaux privés**  
+    -   **Windows-Firewallausnahme für Verbindungen in Windows-Domänen und privaten Netzwerken zulassen**  
 
     > [!IMPORTANT]  
-    >  Ces trois paramètres doivent être les mêmes pour pouvoir continuer l'Assistant.  
+    >  Sie können erst mit der nächsten Seite des Assistenten fortfahren, wenn alle drei Einstellungen identisch sind.  
 
-7.  Dans la page **Résumé**, passez en revue les actions à exécuter, puis terminez l’Assistant.  
+7.  Überprüfen Sie auf der Seite **Zusammenfassung** die durchzuführenden Aktionen, und schließen Sie dann den Assistenten ab.  
 
- Le nouveau profil de connexion à distance figure dans le nœud **Profils de connexion distance** dans l'espace de travail **Ressources et Conformité** .  
+ Das neue Remoteverbindungsprofil wird im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Remoteverbindungsprofile** angezeigt.  
 
-Déployer un profil de connexion à distance  
+Bereitstellen eines Remoteverbindungsprofils  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Profils de connexion à distance**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität** > **Kompatibilitätseinstellungen** > **Remoteverbindungsprofile**.  
 
-3.  Dans la liste **Profils de connexion à distance** , sélectionnez le profil de connexion à distance que vous souhaitez déployer, puis, dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+3.  Wählen Sie in der Liste **Remoteverbindungsprofile** das Remoteverbindungsprofil aus, das Sie bereitstellen möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
-4.  Dans la boîte de dialogue **Déployer le profil de connexion à distance** , spécifiez les éléments suivants :  
+4.  Geben Sie im Dialogfeld **Remoteverbindungsprofil bereitstellen** die folgenden Informationen an:  
 
-    -   **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement de périphériques sur lequel vous souhaitez déployer le profil de connexion à distance.  
+    -   **Sammlung** : Klicken Sie auf **Durchsuchen** , um die Benutzersammlung auszuwählen, in der Sie das Remoteverbindungsprofil bereitstellen möchten.  
 
-    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement le profil de connexion à distance quand il n’est pas compatible sur un appareil (par exemple, s’il n’est pas présent).  
+    -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird:** Aktivieren Sie diese Option, damit das Remoteverbindungsprofil automatisch wiederhergestellt wird, wenn auf einem Gerät Inkompatibilitäten erkannt werden, z.B. weil es nicht vorhanden ist.  
 
-    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement sur lequel vous déployez le profil de connexion à distance, activez cette option pour permettre à Configuration Manager de résoudre le profil de connexion à distance en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Wiederherstellung außerhalb des Wartungsfensters zulassen:** Wenn ein Wartungsfenster für die Sammlung konfiguriert wurde, für die das Remoteverbindungsprofil bereitgestellt wird, aktivieren Sie diese Option, damit das Profil außerhalb des Wartungsfensters von Configuration Manager wiederhergestellt werden kann. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la compatibilité du profil de connexion à distance est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
+    -   **Warnung generieren** : Aktivieren Sie diese Option zum Konfigurieren einer Warnung, die generiert wird, sobald die Kompatibilität eines Remoteverbindungsprofils zu einem bestimmten Datum und einer bestimmten Uhrzeit unterhalb eines angegebenen Prozentsatzes liegt. Sie können außerdem angeben, ob eine Warnung an System Center Operations Manager gesendet werden soll.  
 
-    -   **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifiez le calendrier selon lequel le profil de connexion à distance déployé est évalué sur les appareils. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
+    -   **Geben Sie den Zeitplan für die Kompatibilitätsauswertung dieser Konfigurationsbasislinie an** : Geben Sie den Zeitplan an, nach dem das bereitgestellte Remoteverbindungsprofil auf Geräten ausgewertet wird. Sie können wahlweise einen einfachen oder einen benutzerdefinierten Zeitplan angeben.  
 
     > [!TIP]  
-    >  Si un périphérique quitte un regroupement sur lequel un profil de connexion à distance a été déployé, les paramètres du profil de connexion à distance sont désactivés sur le périphérique. Toutefois, pour que cela s'effectue correctement, vous devez déjà avoir déployé au moins un élément de configuration ou une ligne de base de configuration contenant un élément de configuration de votre site.  
+    >  Wenn ein Gerät aus einer Sammlung ausscheidet, in der ein Remoteverbindungsprofil bereitgestellt wurde, werden die Einstellungen diese Profils auf dem Gerät deaktiviert. Dieser Vorgang kann jedoch nur dann ordnungsgemäß ausgeführt werden, wenn Sie zuvor wenigstens ein Konfigurationselement oder eine Konfigurationsbasislinie bereitgestellt haben, die ein Konfigurationselement von Ihrem Standort enthält.  
     >   
-    >  Le profil est évalué par les appareils quand l’utilisateur se connecte.  
+    >  Das Profil wird von Geräten ausgewertet, wenn sich der Benutzer anmeldet.  
     >   
-    >  Supposons deux profils de connexion à distance déployés sur le même regroupement d’appareils. Dans l’un des profils, l’option **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** est cochée et dans l’autre, cette même option n’est pas cochée. De plus, les deux profils de connexion à distance contiennent des paramètres de connexion différents. Dans ce cas, le profil dans lequel l’option n’est pas cochée peut remplacer les paramètres de l’autre profil. Ce type de déploiement de profil de connexion à distance n’est pas pris en charge par Configuration Manager.  
+    >  Wenn zwei Remoteverbindungsprofile für die gleiche Gerätesammlung bereitgestellt werden, bei denen in einem Fall die Option **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird** aktiviert ist, im anderen Fall jedoch nicht, und beide Remoteverbindungsprofile unterschiedliche Verbindungseinstellungen enthalten, werden die Einstellungen des Profils mit aktivierter Option möglicherweise von dem anderen Profil außer Kraft gesetzt. Diese Art der Remoteverbindungsprofil-Bereitstellung wird von Configuration Manager nicht unterstützt.  
 
-5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer le profil de connexion à distance** et pour créer le déploiement.  
+5.  Klicken Sie auf **OK** , um das Dialogfeld **Remoteverbindungsprofile bereitstellen** zu schließen und die Bereitstellung zu erstellen.  
 
-## <a name="monitor-a-remote-connection-profile"></a>Surveiller un profil de connexion à distance  
+## <a name="monitor-a-remote-connection-profile"></a>Überwachen eines Remoteverbindungsprofils  
 
-### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Afficher les résultats de compatibilité dans la console Configuration Manager  
+### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Anzeigen von Kompatibilitätsergebnissen in der Configuration Manager-Konsole  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **Déploiements**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung** > **Bereitstellungen**.  
 
-3.  Dans la liste **Déploiements** , sélectionnez le déploiement du profil de connexion à distance dont vous souhaitez vérifier les informations de compatibilité.  
+3.  Wählen Sie in der Liste **Bereitstellungen** die Bereitstellung der Remoteverbindungsprofile aus, für die Sie die Kompatibilitätsinformationen prüfen möchten.  
 
-4.  Vous pouvez consulter un résumé des informations relatives à la compatibilité du déploiement du profil de connexion à distance sur la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement du profil de connexion à distance puis, dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Afficher l'état** pour ouvrir la page **État du déploiement** .  
+4.  Zusammenfassende Informationen zur Kompatibilität der Bereitstellung der Remoteverbindungsprofile finden Sie auf der Hauptseite. Wählen Sie zum Anzeigen ausführlicherer Informationen die Bereitstellung der Remoteverbindungsprofile aus, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Status anzeigen** , um die Seite **Bereitstellungsstatus** anzuzeigen.  
 
-     La page **État du déploiement** contient les onglets suivants :  
+     Auf der Seite **Bereitstellungsstatus** sind die folgenden Registerkarten enthalten:  
 
-    -   **Compatible :** affiche la compatibilité du profil de connexion à distance en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui sont compatibles avec le profil de connexion à distance. Le volet **Détails du bien** affiche également les périphériques compatibles avec ce profil. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires.  
+    -   **Kompatibel:** Hiermit wird die Kompatibilität des Remoteverbindungsprofils basierend auf der Anzahl der betroffenen Bestände angezeigt. Sie können auf eine Regel doppelklicken, um im Arbeitsbereich **Bestand und Kompatibilität** unter dem Knoten **Benutzer** einen temporären Knoten zu erstellen. In diesem Knoten sind alle Geräte enthalten, die mit dem Remoteverbindungsprofil kompatibel sind. Im Bereich **Bestandsdetails** werden zudem die Geräte angezeigt, die mit diesem Profil kompatibel sind. Doppelklicken Sie auf ein Gerät in der Liste, um weitere Informationen anzuzeigen.  
 
         > [!IMPORTANT]  
-        >  Un profil de connexion à distance n'est pas évalué s'il n'est pas applicable sur un périphérique client. Toutefois, il est retourné comme conforme.  
+        >  Ein Remoteverbindungsprofil wird nicht ausgewertet, wenn es für ein Clientgerät nicht gilt. Es wird jedoch als kompatibel zurückgegeben.  
 
-    -   **Erreur :** affiche la liste de toutes les erreurs pour le déploiement du profil de connexion à distance sélectionné en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui ont généré des erreurs avec ce profil. Lorsque vous sélectionnez un périphérique, le volet **Détails du bien** affiche les périphériques qui sont concernés par le problème sélectionné. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires sur le problème.  
+    -   **Fehler:** Hiermit wird eine Liste aller Fehler für die ausgewählte Bereitstellung des Remoteverbindungsprofils basierend auf der Anzahl der betroffenen Bestände angezeigt. Sie können auf eine Regel doppelklicken, um im Arbeitsbereich **Bestand und Kompatibilität** unter dem Knoten **Benutzer** einen temporären Knoten zu erstellen. In diesem Knoten sind alle Geräte enthalten, für die bei diesem Profil Fehler erzeugt wurden. Wenn Sie ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Geräte angezeigt, die vom ausgewählten Problem betroffen sind. Doppelklicken Sie auf ein Gerät in der Liste, um weitere Informationen zum Problem anzuzeigen.  
 
-    -   **Non compatible :** affiche la liste de toutes les règles non compatibles au sein du profil de connexion à distance en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui ne sont pas compatibles avec ce profil. Lorsque vous sélectionnez un périphérique, le volet **Détails du bien** affiche les périphériques qui sont concernés par le problème sélectionné. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires sur le problème.  
+    -   **Nicht kompatibel:** Hiermit wird eine Liste aller nicht kompatiblen Regeln im Remoteverbindungsprofil basierend auf der Anzahl der betroffenen Bestände angezeigt. Sie können auf eine Regel doppelklicken, um im Arbeitsbereich **Bestand und Kompatibilität** unter dem Knoten **Benutzer** einen temporären Knoten zu erstellen. In diesem Knoten sind alle Geräte enthalten, für die bei diesem Profil Fehler erzeugt wurden. Wenn Sie ein Gerät auswählen, werden im Bereich **Bestandsdetails** die Geräte angezeigt, die vom ausgewählten Problem betroffen sind. Doppelklicken Sie auf ein Gerät in der Liste, um weitere Informationen zum Problem anzuzeigen.  
 
-    -   **Inconnu :** affiche la liste de tous les appareils qui n’ont pas signalé de compatibilité pour le déploiement du profil de connexion à distance sélectionné, avec l’état du client actuel des appareils.  
+    -   **Unbekannt:** Hiermit wird eine Liste aller Geräte angezeigt, von denen keine Kompatibilität der ausgewählten Bereitstellung des Remoteverbindungsprofils zusammen mit dem aktuellen Clientstatus von Geräten gemeldet wurde.  
 
-5.  Sur la page **État du déploiement** , vous pouvez consulter des informations détaillées sur la compatibilité du profil de connexion à distance déployé. Un nœud temporaire est créé sous le nœud **Déploiements** qui vous aide à retrouver rapidement ces informations.  
+5.  Auf der Seite **Bereitstellungsstatus** finden Sie ausführliche Informationen zur Kompatibilität des bereitgestellten Remoteverbindungsprofils. Unter dem Knoten **Bereitstellungen** wird ein temporärer Knoten erstellt, mit dessen Hilfe Sie die Informationen schnell wiederfinden können.  
 
-### <a name="view-compliance-results-with-reports"></a>Afficher les résultats de compatibilité avec les rapports  
- Configuration Manager inclut des rapports intégrés que vous pouvez utiliser pour surveiller les informations sur les profils de connexion à distance. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
+### <a name="view-compliance-results-with-reports"></a>Anzeigen von Kompatibilitätsergebnissen mit Berichten  
+ Configuration Manager enthält integrierte Berichte, mit deren Hilfe Sie Informationen zu Remoteverbindungsprofilen überwachen können. Diese Berichte verfügen über die Berichtskategorie **Kompatibilitäts- und Einstellungsverwaltung**.  
 
 > [!IMPORTANT]  
->  Vous devez utiliser un caractère générique (%) lorsque vous utilisez les paramètres **Filtre de périphérique** et **Filtre d'utilisateur** dans les rapports des paramètres de compatibilité.  
+>  Sie müssen ein Platzhalterzeichen (%) verwenden, wenn Sie in Berichten zu Kompatibilitätseinstellungen die Parameter **Gerätefilter** und **Benutzerfilter** eingestellt haben.  
 
- Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](/sccm/core/servers/manage/reporting).  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+ Weitere Informationen zum Konfigurieren der Berichterstellung in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](/sccm/core/servers/manage/reporting).  

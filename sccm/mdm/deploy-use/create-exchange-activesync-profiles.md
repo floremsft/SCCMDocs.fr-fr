@@ -1,181 +1,177 @@
 ---
-title: "Créer des profils de messagerie Exchange ActiveSync | Microsoft Docs"
-description: "Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune."
+title: Erstellen von Exchange ActiveSync-E-Mail-Profilen | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie E-Mail-Profile in System Center Configuration Manager erstellen und konfigurieren, die mit Microsoft Intune verwendet werden.
 ms.custom: na
 ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 120442be-179e-450c-a0c4-284046895da3
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
-ms.contentlocale: fr-fr
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Erstellen von Exchange ActiveSync-E-Mail-Profilen in System Center Configuration Manager
 
-# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Profils de messagerie Exchange ActiveSync dans System Center Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+Mit Microsoft Intune und Exchange ActiveSync können Sie Geräte mit E-Mail-Profilen und -Einschränkungen einrichten. Dies ermöglicht Benutzern bei minimal erforderlicher eigener Einrichtung den Zugriff auf E-Mails im Unternehmen über ihre Geräte.  
 
-Avec Microsoft Intune et Exchange ActiveSync, vous pouvez configurer des appareils avec des profils de messagerie et des restrictions. Cela permet à vos utilisateurs d’accéder à la messagerie d’entreprise sur leurs appareils avec une installation minimale requise de leur part.  
-
- Vous pouvez configurer les types d'appareils suivants avec des profils de messagerie :  
+ Sie können die folgenden Gerätetypen mit E-Mail-Profilen konfigurieren:  
 
 - Windows 10
-- Windows Phone 8.1
+- Windows Phone 8.1
 - Windows Phone 8.0
-- iPhone exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
-- iPad exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
-- Samsung KNOX Standard 4 et versions ultérieures
+- iPhones unter iOS 5, iOS 6, iOS 7 und iOS 8  
+- iPads unter iOS 5, iOS 6, iOS 7 und iOS 8  
+- Samsung KNOX Standard (4 und höher)
 - Android for Work
 
-Pour déployer des profils de messagerie sur des appareils, vous devez inscrire ces derniers dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
+Um E-Mail-Profile für Geräte bereitzustellen, müssen Sie die Geräte in Intune registrieren. Informationen zum Registrieren von Geräten finden Sie unter [Verwalten mobiler Geräte mit Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
 
 > [!NOTE]
-> Intune propose deux profils de messagerie Android for Work, un pour chacune des applications de messagerie Gmail et Nine Work. Ces applications sont disponibles dans Google Play Store et prennent en charge les connexions à Exchange. Pour activer la connectivité de la messagerie, déployez l’une de ces applications de messagerie sur les appareils de vos utilisateurs, puis créez et déployez le profil approprié. Les applications de messagerie telles que Nine Work peuvent être payantes. Si vous avez des questions, consultez les détails de la licence de l’application ou contactez le fabricant de l’application.
+> Intune stellt zwei Android for Work-E-Mail-Profile bereit: eines für die Gmail-E-Mail-App und eines für die Nine Work-E-Mail-App. Diese Apps sind im Google Play Store erhältlich und unterstützen Verbindungen mit Exchange. Stellen Sie auf den Geräten der Benutzer eine dieser E-Mail-Apps bereit, erstellen Sie das entsprechende Profil, und stellen Sie dieses bereit, um die E-Mail-Konnektivität zu aktivieren. E-Mail-Apps wie Nine Work sind möglicherweise nicht frei. Lesen Sie dazu die Details der App-Lizenzierung, oder wenden Sie sich mit Ihren Fragen an das App-Unternehmen.
 
- En plus de configurer un compte de messagerie sur l’appareil, vous pouvez configurer des paramètres de synchronisation pour les contacts, les calendriers et les tâches.  
+ Zusätzlich zum Konfigurieren eines E-Mail-Kontos auf dem Gerät können Sie die Synchronisierungseinstellungen für Kontakte, Kalender und Aufgaben konfigurieren.  
 
- Lorsque vous créez un profil de messagerie, vous pouvez inclure un large éventail de paramètres de sécurité. Ces paramètres incluent des certificats pour l’identité, le chiffrement et la signature configurés à l’aide de profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
+ Wenn Sie ein E-Mail-Profil erstellen, können Sie eine Vielzahl von Sicherheitseinstellungen einfügen. Dazu gehören Zertifikate für Identität, Verschlüsselung und Signatur, die mithilfe von System Center Configuration Manager-Zertifikatprofilen eingerichtet wurden. Weitere Informationen zu Zertifikatprofilen finden Sie unter [Zertifikatprofile in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
 
-## <a name="create-an-exchange-activesync-email-profile"></a>Créer un profil de messagerie Exchange ActiveSync  
+## <a name="create-an-exchange-activesync-email-profile"></a>Erstellen eines Exchange ActiveSync-E-Mail-Profils  
 
-Pour créer un profil, vous pouvez utiliser l’Assistant Création d’un profil de messagerie Exchange ActiveSync. 
+Zum Erstellen eines Profils verwenden Sie den Assistenten zum Erstellen von Exchange ActiveSync-E-Mail-Profilen. 
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Bestand und Kompatibilität** aus.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de conformité**, puis **Accès aux ressources de l’entreprise** et choisissez **Profils de messagerie**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** die **Kompatibilitätseinstellungen**, dann den **Zugriff auf Unternehmensressourcen**, und wählen Sie anschließend **E-Mail-Profile** aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer un profil d’e-mail Exchange ActiveSync** pour lancer l’Assistant.
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Exchange ActiveSync-E-Mail-Profil erstellen** aus, um den Assistenten zu starten.
 
-4.  Sur la page **Général** de l’Assistant, configurez les éléments suivants :
+4.  Konfigurieren Sie auf der Seite **Allgemein** des Assistenten die folgenden Informationen:
 
-    - **Nom**. Fournissez un nom descriptif pour le profil de messagerie.
+    - **Name**. Geben Sie einen aussagekräftigen Namen für das E-Mail-Profil ein.
 
-    - **Description**. Si vous le souhaitez, entrez une description du profil de messagerie pour en faciliter l’identification dans la console Configuration Manager.
+    - **Beschreibung**. Wenn Sie möchten, können Sie eine Beschreibung des E-Mail-Profils eingeben, anhand derer Sie es in der Configuration Manager-Konsole erkennen können.
 
-    - **Ce profil de messagerie est pour Android for Work**. Choisissez cette option si vous déployez ce profil de messagerie uniquement sur des appareils Android for Work. Si vous cochez cette case, la page **Plateformes prises en charge** de l’Assistant ne s’affiche pas. Seuls les profils de messagerie Android for Work sont configurés.
+    - **Dieses Email Profil ist für Android for Work bestimmt**. Wählen Sie diese Option aus, wenn Sie dieses E-Mail-Profil nur für Android for Work-Geräte bereitstellen. Wenn Sie dieses Kontrollkästchen aktivieren, wird die Seite **Unterstützte Plattformen** des Assistenten nicht angezeigt. Nur Android for Work-E-Mail-Profile sind konfiguriert.
 
-4.  Sur la page **Exchange ActiveSync** de l’Assistant, spécifiez les informations suivantes :  
+4.  Geben Sie auf der Seite **Exchange ActiveSync** des Assistenten die folgenden Informationen an:  
 
-    -   **Hôte Exchange ActiveSync**. Spécifiez le nom d’hôte de l’instance Exchange Server d’entreprise qui héberge les services Exchange ActiveSync.  
+    -   **Exchange ActiveSync-Host**. Geben Sie den Hostnamen des Exchange-Servers Ihres Unternehmens an, der die Exchange ActiveSync-Dienste hostet.  
 
-    -   **Nom du compte**. Spécifiez le nom complet du compte de messagerie, tel qu’il apparaît aux utilisateurs sur leurs appareils.  
+    -   **Kontoname**. Geben Sie den Anzeigenamen für das E-Mail-Konto so an, wie er den Benutzern auf ihren Geräten angezeigt wird.  
 
-    -   **Nom d’utilisateur du compte**. Sélectionnez le mode de configuration du nom d’utilisateur du compte de messagerie sur les appareils clients. Vous pouvez sélectionner l’une des options suivantes dans la liste déroulante :  
+    -   **Kontobenutzername**. Wählen Sie aus, wie der Benutzernamen des E-Mail-Kontos auf Clientgeräten konfiguriert wird. Sie können eine der folgenden Optionen aus der Dropdownliste auswählen:  
 
-        -   **Nom principal de l’utilisateur**. Utilisez le nom principal complet de l’utilisateur pour la connexion à Exchange.  
+        -   **Benutzerprinzipalname**. Verwenden Sie den vollständigen Benutzerprinzipalnamen, um sich bei Exchange anzumelden.  
 
-        -   **Nom du compte**. Utilisez le nom complet du compte utilisateur à partir d’Active Directory.
+        -   **Kontoname**. Verwenden Sie den vollständigen Benutzerkontonamen von Active Directory.
 
-        -   **Adresse SMTP principale**. Utilisez l’adresse SMTP principale de l’utilisateur pour la connexion à Exchange.  
+        -   **Primäre SMTP-Adresse**. Verwenden Sie die primäre SMTP-Adresse des Benutzers zum Anmelden bei Exchange.  
 
-    -   **Adresse de messagerie**. Sélectionnez la façon dont l’adresse de messagerie de l’utilisateur est générée sur chaque appareil client. Vous pouvez sélectionner l’une des options suivantes dans la liste déroulante :  
+    -   **E-Mail-Adresse**. Wählen Sie, wie die E-Mail-Adresse für den Benutzer auf jedem Clientgerät generiert wird. Sie können eine der folgenden Optionen aus der Dropdownliste auswählen:  
 
-        -   **Adresse SMTP principale**. Utilisez l’adresse SMTP principale de l’utilisateur pour la connexion à Exchange.  
+        -   **Primäre SMTP-Adresse**. Verwenden Sie die primäre SMTP-Adresse des Benutzers zum Anmelden bei Exchange.  
 
-        -   **Nom principal de l’utilisateur**. Utilisez le nom principal complet de l'utilisateur comme adresse de messagerie.  
+        -   **Benutzerprinzipalname**. Der vollständige Benutzerprinzipalname wird als E-Mail-Adresse verwendet.  
 
-    -   **Domaine du compte**. Choisissez l'une des options suivantes :  
+    -   **Kontodomäne**. Wählen Sie eine der folgenden Optionen aus:  
 
-        -   **Obtenir à partir d'Active Directory**  
+        -   **Von Active Directory abrufen**  
 
-        -   **Personnalisé**  
+        -   **Benutzerdefiniert**  
 
-         Ce champ s’applique uniquement si **sAMAccountName** est sélectionné dans la liste déroulante **Nom d’utilisateur du compte** .  
+         Dieses Feld ist nur anwendbar, wenn **sAMAccountName** in der Dropdownliste **Kontobenutzername** ausgewählt wird.  
 
-    -   **Méthode d’authentification**. choisissez l'une des méthodes d'authentification suivantes à utiliser pour authentifier la connexion à Exchange ActiveSync :  
+    -   **Authentifizierungsmethode**. Wählen Sie eine der folgenden Authentifizierungsmethoden aus, die zum Authentifizieren der Verbindung mit Exchange ActiveSync verwendet wird:  
 
-        -   **Certificats**. Un certificat d’identité est utilisé pour authentifier la connexion Exchange ActiveSync.  
+        -   **Zertifikate**. Ein Identitätszertifikat wird für die Authentifizierung der Exchange ActiveSync-Verbindung verwendet.  
 
-        -   **Nom d’utilisateur et mot de passe**. L’utilisateur de l’appareil doit fournir un mot de passe pour se connecter à Exchange ActiveSync. (Le nom d’utilisateur est configuré en tant que partie du profil de messagerie).  
+        -   **Benutzername und Kennwort**. Der Gerätebenutzer muss ein Kennwort für die Verbindung mit Exchange ActiveSync angeben. (Der Benutzername ist als Teil des E-Mail-Profils konfiguriert.)  
 
-    -   **Certificat d’identité**. Cliquez sur **Sélectionner**, puis choisissez un certificat à utiliser pour l'identité.  
+    -   **Identitätszertifikat**. Wählen Sie **Auswählen** und dann ein Zertifikat für die Identität aus.  
 
-         Les certificats d’identité doivent être des certificats SCEP ; vous ne pouvez pas utiliser un certificat PFX.  Pour plus d’informations, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Als Identitätszertifikate lassen sich nur SCEP-Zertifikate und nicht PFX-Zertifikate verwenden.  Weitere Informationen erhalten Sie unter [Certificate profiles in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles) (Zertifikatprofile in System Center Configuration Manager).  
 
-         Cette option est disponible uniquement si vous avez sélectionné **Certificats** sous **Méthode d’authentification**.  
+         Diese Option ist nur verfügbar, wenn Sie unter **Authentifizierungsmethode** die Option **Zertifikate** ausgewählt haben.  
 
-    -   **Utiliser S/MIME**. Envoyez des messages électroniques en utilisant le chiffrement S/MIME. Cette option s'applique aux appareils iOS uniquement. Choisissez parmi les options suivantes :
+    -   **S/MIME verwenden**. Ausgehende E-Mails werden mithilfe von S/MIME-Verschlüsselung gesendet. Diese Option steht nur für iOS-Geräte zur Verfügung. Wählen Sie aus den folgenden Optionen:
 
-        -   **Certificats de signature**.  Choisissez **Sélectionner**, puis un profil de certificat à utiliser pour le chiffrement.  
+        -   **Signaturzertifikate**.  Klicken Sie auf **Auswählen** und wählen Sie dann ein Zertifikat für die Verschlüsselung aus.  
 
-            Le profil peut être un certificat SCEP ou PFX.  Toutefois, si la signature et le chiffrement sont tous deux utilisés, vous devez sélectionner des profils de certificat PFX pour *à la fois* la signature et le chiffrement.
+            Für das Profil kann entweder ein SCEP oder ein PFX-Zertifikat verwendet werden.  Wenn Sie jedoch sowohl die Signierung als auch die Verschlüsselung nutzen, müssen Sie für sowohl für die Signierung als auch für die Verschlüsselung PFX-Zertifikatprofile auswählen.**
 
-        -   **Certificats de chiffrement**. Cliquez sur **Sélectionner**, puis choisissez un certificat à utiliser pour le chiffrement. Vous pouvez uniquement sélectionner un certificat PFX pour l’utiliser en tant que certificat de chiffrement.
+        -   **Verschlüsselungszertifikate**. Wählen Sie **Auswählen** und dann ein Zertifikat für die Verschlüsselung aus. Sie können nur ein PFX-Zertifikat für die Verwendung als Verschlüsselungszertifikat auswählen.
 
-        -   Pour chiffrer tous les e-mails sur les appareils iOS, cochez la case **Exiger le chiffrement**.    
+        -   Um alle E-Mail auf iOS-Geräten zu verschlüsseln, aktivieren Sie das Kontrollkästchen **Verschlüsselung erforderlich**.    
 
-         Vous ne pouvez choisir des profils de certificat à ce stade que si vous les avez déjà créés.  Pour plus d’informations, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Sie müssen Zertifikatprofile erstellen, bevor Sie sie hier auswählen können.  Weitere Informationen erhalten Sie unter [Certificate profiles in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles) (Zertifikatprofile in System Center Configuration Manager).  
 
-## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Configurer les paramètres de synchronisation du profil de messagerie Exchange ActiveSync  
+## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Konfigurieren der Synchronisierungseinstellungen für das Exchange ActiveSync-E-Mail-Profil  
 
-Dans la page **Configurer les paramètres de synchronisation** de l'Assistant Création d'un profil de messagerie Exchange ActiveSync, indiquez les informations suivantes :  
+Geben Sie auf der Seite **Synchronisierungseinstellungen konfigurieren** des Assistenten zum Erstellen von Exchange ActiveSync-E-Mail-Profilen die folgenden Informationen an:  
 
--   **Planification**. Sélectionnez la planification selon laquelle les appareils vont synchroniser les données à partir d’Exchange Server. Cette option s'applique uniquement aux appareils Windows Phone. Choisissez parmi :  
+-   **Zeitplan**. Wählen Sie den Zeitplan aus, nach dem Geräte mit Daten vom Exchange-Server synchronisiert werden. Diese Option steht nur für Windows Phone-Geräte zur Verfügung. Wählen Sie aus:  
 
-    -   **Non configuré**. Aucun calendrier de synchronisation n’est appliqué. Cela permet aux utilisateurs de configurer leur propre calendrier de synchronisation.  
+    -   **Nicht konfiguriert**. Es wird kein Synchronisierungszeitplan erzwungen. Dies ermöglicht es Benutzern, ihren eigenen Synchronisierungszeitplan zu konfigurieren.  
 
-    -   **À la réception de messages**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées à la réception.  
+    -   **Bei Eintreffen von Nachrichten**. Daten wie E-Mails und Kalendereinträge werden bei ihrer Ankunft automatisch synchronisiert.  
 
-    -   **15 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 15 minutes.  
+    -   **15 Minuten**. Daten wie E-Mails und Kalendereinträge werden alle 15 Minuten automatisch synchronisiert.  
 
-    -   **30 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 30 minutes.  
+    -   **30 Minuten**. Daten wie E-Mails und Kalendereinträge werden alle 30 Minuten automatisch synchronisiert.  
 
-    -   **60 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 60 minutes.  
+    -   **60 Minuten**. Daten wie E-Mails und Kalendereinträge werden alle 60 Minuten automatisch synchronisiert.  
 
-    -   **Manuel**. L’utilisateur de l’appareil doit lancer la synchronisation manuellement.  
+    -   **Manuell**. Der Gerätebenutzer muss die Synchronisierung manuell starten.  
 
--   **Nombre de jours de courrier électronique à synchroniser**. Dans la liste déroulante, sélectionnez le nombre de jours de courrier électronique que vous souhaitez synchroniser. Choisissez l'une des valeurs suivantes :  
+-   **Anzahl der Tage für die E-Mail-Synchronisierung**. Wählen Sie in der Dropdownliste die Anzahl der Tage aus, für die E-Mails synchronisiert werden sollen. Wählen Sie einen der folgenden Werte aus:  
 
-    -   **Non configuré**. Le paramètre n’est pas appliqué. Cela permet aux utilisateurs de configurer la quantité de courrier électronique téléchargé sur leur appareil.  
+    -   **Nicht konfiguriert**. Die Einstellung wird nicht erzwungen. Damit können Benutzer konfigurieren, wie viele E-Mails auf ihr Gerät heruntergeladen werden.  
 
-    -   **Illimité**. Synchronisez tous les messages disponibles.  
+    -   **Unbegrenzt**. Alle verfügbaren E-Mail-Nachrichten werden synchronisiert.  
 
-    -   **1 jour**  
+    -   **1 Tag**  
 
-    -   **3 jours**  
+    -   **3 Tage**  
 
-    -   **1 semaine**  
+    -   **1 Woche**  
 
-    -   **2 semaines**  
+    -   **2 Wochen**  
 
-    -   **1 mois**  
+    -   **1 Monat**  
 
--   **Autoriser le déplacement des messages vers d’autres comptes de messagerie**. Choisissez cette option pour autoriser les utilisateurs à déplacer des messages électroniques entre différents comptes qu’ils ont configurés sur leur appareil. Cette option s'applique aux appareils iOS uniquement.  
+-   **Verschieben von Nachrichten in andere E-Mail-Konten zulassen**. Wählen Sie diese Option aus, damit Benutzer E-Mail-Nachrichten zwischen verschiedenen Konten verschieben können, die auf ihrem Gerät konfiguriert sind. Diese Option steht nur für iOS-Geräte zur Verfügung.  
 
--   **Autoriser l’envoi de courrier depuis des applications tierces**. Sélectionnez cette option pour autoriser les utilisateurs à envoyer du courrier électronique à partir de certaines applications de messagerie tierces non définies par défaut. Cette option s'applique aux appareils iOS uniquement.  
+-   **E-Mail-Versand aus Anwendungen von Drittanbietern zulassen.** Wählen Sie diese Option aus, um Benutzern das Senden von E-Mails von bestimmten nicht standardmäßigen E-Mail-Anwendungen von Drittanbietern zu ermöglichen. Diese Option steht nur für iOS-Geräte zur Verfügung.  
 
--   **Synchroniser les adresses de messagerie récemment utilisées**. Sélectionnez cette option pour synchroniser la liste des adresses de messagerie récemment utilisées sur l’appareil. Cette option s'applique aux appareils iOS uniquement.  
+-   **Zuletzt verwendete E-Mail-Adressen synchronisieren**. Wählen Sie diese Option aus, um die Liste der E-Mail-Adressen zu synchronisieren, die zuletzt auf dem Gerät verwendet wurden. Diese Option steht nur für iOS-Geräte zur Verfügung.  
 
--   **Utiliser SSL**. Sélectionnez cette option pour utiliser une communication SSL (Secure Sockets Layer) pour l’envoi et la réception des messages électroniques et pour communiquer avec le serveur Exchange.  
+-   **SSL verwenden**. Wählen Sie diese Option aus, um die SSL-Kommunikation (Secure Sockets Layer) beim Senden von E-Mails, beim Empfangen von E-Mails und für die Kommunikation mit dem Exchange-Server zu verwenden.  
 
--   **Type de contenu à synchroniser**. Sélectionnez les types de contenu à synchroniser avec des appareils. Cette option s'applique uniquement aux appareils Windows Phone. Choisissez parmi :  
+-   **Zu synchronisierender Inhaltstyp**. Wählen Sie die Inhaltstypen aus, die auf Geräten synchronisiert werden sollen. Diese Option steht nur für Windows Phone-Geräte zur Verfügung. Wählen Sie aus:  
 
-    -   **Courrier électronique**  
+    -   **E-Mail**  
 
-    -   **Contacts**  
+    -   **Kontakte**  
 
-    -   **Calendrier**  
+    -   **Kalender**  
 
-    -   **Tâches**  
+    -   **Aufgaben**  
 
-## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Spécifiez les plateformes prises en charge pour le profil de messagerie Exchange ActiveSync.  
+## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Angeben der unterstützten Plattformen für das Exchange ActiveSync-E-Mail-Profil  
 
-1.  Dans la page **Plateformes prises en charge** de l’Assistant Création d’un profil de messagerie Exchange ActiveSync, choisissez les systèmes d’exploitation sur lesquels le profil de messagerie Exchange ActiveSync va être installé. Vous pouvez également choisir **Sélectionner tout** pour installer le profil de messagerie sur tous les systèmes d'exploitation disponibles.  
+1.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten zum Erstellen von Exchange ActiveSync-E-Mail-Profilen die Betriebssysteme aus, unter denen das E-Mail-Profil installiert wird. Alternativ Wählen Sie **Alle auswählen** aus, um das E-Mail-Profil unter allen verfügbaren Betriebssystemen zu installieren.  
 
-2.  Fermez l'Assistant.
+2.  Beenden Sie den Assistenten.
 
-Pour plus d’informations sur le déploiement des profils de messagerie Exchange ActiveSync, consultez [Guide pratique pour déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
-
+Informationen zum Bereitstellen von Exchange ActiveSync-E-Mail-Profilen finden Sie unter [Bereitstellen von E-Mail-Profilen in System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  

@@ -1,115 +1,111 @@
 ---
-title: "Publication et schéma Active Directory | Microsoft Docs"
-description: "L’extension du schéma Active Directory pour System Center Configuration Manager permet de simplifier le processus de déploiement et de configuration des clients."
+title: "Veröffentlichung und das Active Directory-Schema | Microsoft-Dokumentation"
+description: "Das Erweitern des Active Directory-Schemas für System Center Configuration Manager vereinfacht das Bereitstellen und Konfigurieren von Clients."
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: bc15ee7e-4d0a-4463-ae2c-f72d8d45d65d
-caps.latest.revision: 17
-caps.handback.revision: 0
+caps.latest.revision: "17"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 88649111ea3a38c027efb4952211546afd0bf27e
 ms.openlocfilehash: 58beef440db8e019a06ce7c4c8eaabc8e85ce954
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-active-directory-for-site-publishing"></a>Préparer Active Directory pour la publication de site
+# <a name="prepare-active-directory-for-site-publishing"></a>Vorbereiten von Active Directory für die Veröffentlichung eines Standorts
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Quand vous étendez le schéma Active Directory pour System Center Configuration Manager, les nouvelles structures que vous introduisez dans Active Directory sont utilisées par les sites System Center Configuration Manager pour publier des informations importantes, à un emplacement sécurisé facilement accessible par les clients.  
+Beim Erweitern des Active Directory-Schemas für System Center Configuration Manager führen Sie neue Strukturen in Active Directory ein, die von Configuration Manager-Standorten zum Veröffentlichen wichtiger Informationen an einem sicheren Speicherort genutzt werden, wo Clients einfach auf sie zugreifen können.  
 
-Si vous gérez localement des clients, nous vous conseillons d’utiliser Configuration Manager avec un schéma Active Directory étendu. Un schéma étendu peut simplifier le processus de déploiement et de configuration des clients. Un schéma étendu permet également aux clients de localiser efficacement des ressources comme les serveurs de contenu et d’autres services fournis par les différents rôles de système de site Configuration Manager.  
+Zur Verwaltung lokaler Clients empfiehlt sich der Einsatz von Configuration Manager mit einem erweiterten Active Directory-Schema. Ein erweitertes Schema kann den Vorgang zum Bereitstellen und Einrichten von Clients vereinfachen. Durch ein erweitertes Schema können Clients außerdem Ressourcen wie Inhaltsserver und zusätzliche Dienste effizient lokalisieren, die von den verschiedenen Configuration Manager-Standortsystemrollen bereitgestellt werden.  
 
--   Si vous ne savez pas si vous avez intérêt à utiliser un schéma étendu pour le déploiement dans Configuration Manager, consultez [Extensions de schéma pour System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md) pour vous aider à prendre cette décision.  
+-   Wenn Sie nicht mit den Vorteilen eines erweiterten Schemas für eine Configuration Manager-Bereitstellung vertraut sind, kann der Artikel [Schemaerweiterungen für System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md) Sie bei der Entscheidung unterstützen.  
 
--   Si vous n’utilisez pas de schéma étendu, vous pouvez configurer d’autres méthodes, telles que DNS et WINS, pour rechercher des services et des serveurs de système de site. Ces méthodes d’emplacement de service nécessitent des configurations supplémentaires et ne sont pas la méthode préférée pour l’emplacement du service par les clients. Pour en savoir plus, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+-   Wenn Sie kein erweitertes Schema verwenden, können Sie andere Methoden wie z.B. DNS und WINS einrichten, um Dienste und Standortsystemserver zu identifizieren. Diese Methoden der Dienstidentifizierung erfordern zusätzliche Konfigurationen und stellen nicht die bevorzugte Methode für die Dienstidentifizierung durch Clients dar. Weitere Informationen finden Sie unter [Verstehen, wie Clients Standortressourcen und -dienste für System Center Configuration Manager suchen](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   Si votre schéma Active Directory a déjà été étendu pour Configuration Manager 2007 ou System Center 2012 Configuration Manager, vous n’avez pas d’autres tâches à effectuer. Les extensions de schéma demeurent inchangées et sont déjà en place.  
+-   Wenn Ihr Active Directory-Schema für Configuration Manager 2007 oder System Center 2012 Configuration Manager erweitert wurde, müssen Sie keine weiteren Schritte durchführen. Die Schemaerweiterungen sind unverändert und bereits vorhanden.  
 
-L’extension du schéma est une opération qui s’effectue une seule fois pour n’importe quelle forêt. Pour étendre le schéma Active Directory étendu, puis l’utiliser, procédez comme suit :  
+Das Erweitern des Schemas für jede Gesamtstruktur ist eine einmalige Aktion. Führen Sie die folgenden Schritte aus, um das Active Directory-Schema zu erweitern und dann zu verwenden:  
 
-## <a name="step-1-extend-the-schema"></a>Étape 1. Étendre le schéma  
-Pour étendre le schéma pour Configuration Manager, vous devez :  
+## <a name="step-1-extend-the-schema"></a>Schritt 1: Erweitern des Schemas  
+So erweitern Sie das Schema für Configuration Manager  
 
--   Utiliser un compte qui est membre du groupe de sécurité Administrateurs du schéma.  
+-   Verwenden Sie ein Konto, das Mitglied der Sicherheitsgruppe „Schema-Admins“ ist.  
 
--   Être connecté à un contrôleur de domaine principal du schéma.  
+-   Sie müssen am Schemamaster-Domänencontroller angemeldet sein.  
 
--   Exécuter l’outil **Extadsch.exe** , ou utiliser l’utilitaire de ligne de commande LDIFDE avec le fichier **ConfigMgr_ad_schema.ldf** . L’outil et le fichier se trouvent dans le dossier **SMSSETUP\BIN\X64** sur le média d’installation de Configuration Manager.  
+-   Führen Sie das Tool **Extadsch.exe** aus, oder verwenden Sie das Befehlszeilenprogramm LDIFDE mit der Datei **ConfigMgr_ad_schema.ldf** . Das Tool und die Datei befinden sich beide auf dem Configuration Manager-Installationsmedium im Ordner **SMSSETUP\BIN\X64**.  
 
-#### <a name="option-a-use-extadschexe"></a>Option A : utiliser Extadsch.exe  
+#### <a name="option-a-use-extadschexe"></a>Option A: Verwenden von „Extadsch.exe“  
 
-1.  Exécutez le fichier **extadsch.exe** pour ajouter les nouvelles classes et les nouveaux attributs au schéma Active Directory.  
+1.  Führen Sie **extadsch.exe** zum Hinzufügen der neuen Klassen und Attribute zum Active Directory-Schema aus.  
 
     > [!TIP]  
-    >  Exécutez cet outil à partir de la ligne de commande pour afficher les commentaires pendant son exécution.  
+    >  Führen Sie dieses Tool über die Befehlszeile aus, um während der Ausführung Feedback anzuzeigen.  
 
-2.  Pour vérifier que l’extension du schéma a réussi, examinez extadsch.log à la racine du lecteur du système.  
+2.  Überprüfen Sie in der Datei „extadsch.log“ im Stammverzeichnis des Systemlaufwerks, ob die Schemaerweiterung erfolgreich war.  
 
-#### <a name="option-b-use-the-ldif-file"></a>Option B : utiliser le fichier LDIF  
+#### <a name="option-b-use-the-ldif-file"></a>Option B: Verwenden der LDIF-Datei  
 
-1.  Modifiez le fichier **ConfigMgr_ad_schema.ldf** pour définir le domaine racine Active Directory à étendre :  
+1.  Bearbeiten Sie die Datei **ConfigMgr_ad_schema.ldf** zum Definieren der Active Directory-Stammdomäne, die Sie erweitern möchten:  
 
-    -   Remplacez toutes les instances du texte **DC=x** dans le fichier par le nom complet du domaine à étendre.  
+    -   Ersetzen Sie alle Vorkommen des Texts **DC=x** in der Datei durch den vollständigen Namen der zu erweiternden Domäne.  
 
-    -   Par exemple, si le nom complet du domaine à étendre est widgets.microsoft.com, remplacez toutes les instances de DC=x dans le fichier par **DC=widgets, DC=microsoft, DC=com**.  
+    -   Beispiel: Lautet der vollständige Name der zu erweiternden Domäne „widgets.microsoft.com“, ändern Sie in der Datei jedes Vorkommen von „DC=x“ in **DC=widgets, DC=microsoft, DC=com**.  
 
-2.  À l’aide de l’utilitaire de ligne de commande LDIFDE, importez le contenu du fichier **ConfigMgr_ad_schema.ldf** dans Active Directory Domain Services :  
+2.  Importieren Sie den Inhalt der Datei **ConfigMgr_ad_schema.ldf** mithilfe des Befehlszeilenprogramms LDIFDE in Active Directory Domain Services:  
 
-    -   Par exemple, la ligne de commande suivante importe les extensions de schéma dans Active Directory Domain Services, active la journalisation détaillée et crée un fichier journal pendant l’importation : **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;emplacement_de_stockage_du_fichier_journal\>**.  
+    -   Durch die folgende Befehlszeile werden z.B. die Schemaerweiterungen in Active Directory Domain Services importiert, die ausführliche Protokollierung aktiviert und eine Protokolldatei während des Importvorgangs erstellt: **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;Speicherort der Protokolldatei\>**.  
 
-3.  Pour vérifier si l’extension du schéma a réussi, examinez le fichier journal créé par la ligne de commande exécutée à l’étape précédente.  
+3.  Um zu prüfen, ob die Schemaerweiterung erfolgreich war, untersuchen Sie die Protokolldatei, die mithilfe der Befehlszeile aus dem vorherigen Schritt erstellt wurde.  
 
-## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Étape 2.  Créer le conteneur System Management et accorder des autorisations de sites au nouveau conteneur  
- Après avoir étendu le schéma, vous devez créer un conteneur nommé **System Management** dans Active Directory Domain Services (AD DS) :  
+## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Schritt 2.  Erstellen des System Management-Containers und Gewähren von Standortberechtigungen für den Container  
+ Nach dem Erweitern des Schemas müssen Sie in Active Directory Domain Services (AD DS) einen Container **Systemverwaltung** erstellen:  
 
--   Vous créez ce conteneur une fois pour toutes dans chaque domaine comportant un site principal ou secondaire qui publiera des données dans Active Directory.  
+-   Sie erstellen diesen Containers einmal in jeder Domäne, die über einen primären oder sekundären Standort verfügt, der Daten in Active Directory veröffentlicht.  
 
--   Pour chaque conteneur, vous accordez des autorisations au compte d’ordinateur de chaque serveur de site principal et secondaire appelé à publier les données sur ce domaine. Chaque compte doit avoir un **contrôle total** sur le conteneur avec l’autorisation avancée **Appliquer à** égale à **cet objet et tous ceux descendants**.  
+-   Jedem Container erteilen Sie Berechtigungen für das Computerkonto jedes primären und sekundären Standortservers, der Daten in dieser Domäne veröffentlicht. Jedes Konto benötigt **Vollzugriff** auf den Container mit der erweiterten Berechtigung **Anwenden auf**, die auf **Dieses und alle untergeordneten Objekte** festgelegt sein muss.  
 
-#### <a name="to-add-the-container"></a>Pour ajouter le conteneur  
+#### <a name="to-add-the-container"></a>So fügen Sie den Container hinzu  
 
-1.  Utilisez un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **Système** dans les services de domaine Active Directory.  
+1.  Verwenden Sie ein Konto, das im Container **System** in den Active Directory-Domänendiensten über die Berechtigung **Alle untergeordneten Objekte erstellen** verfügt.  
 
-2.  Exécutez **ADSI Edit** (adsiedit.msc) et connectez-vous au domaine du serveur de site.  
+2.  Führen Sie **ADSI Bearbeiten** (adsiedit.msc) aus, und stellen Sie eine Verbindung mit der Domäne des Standortservers her.  
 
-3.  Créez le conteneur :  
+3.  Erstellen des Containers:  
 
-    -   Développez **Domaine** &lt;nom_de_domaine_complet_ordinateur\>, développez &lt;nom_unique\>, cliquez avec le bouton droit sur **CN=System**, choisissez **Nouveau**, puis **Objet**.  
+    -   Erweitern Sie **Domain** &lt;vollständig qualifizierter Domänenname des Computers\>, erweitern Sie &lt;Distinguished Name\>, klicken Sie mit der rechten Maustaste auf **CN=System**, wählen Sie **Neu**, und wählen Sie dann **Objekt**.  
 
-    -   Dans la boîte de dialogue **Créer un objet**, choisissez **Conteneur**, puis **Suivant**.  
+    -   Wählen Sie im Dialogfeld **Objekt erstellen** die Option **Container**, und wählen Sie **Weiter**.  
 
-    -   Dans la zone **Valeur**, entrez **System Management**, puis choisissez **Suivant**.  
+    -   Geben Sie in das Feld **Wert** die Zeichenfolge **System Management** ein, und wählen Sie dann **Weiter**.  
 
-4.  Accordez les autorisations appropriées :  
+4.  Zuweisen von Berechtigungen:  
 
     > [!NOTE]  
-    >  Si vous préférez, vous pouvez utiliser d’autres outils, tels que l’outil d’administration Utilisateurs et ordinateurs Active Directory (DSA.msc) pour ajouter des autorisations au conteneur.  
+    >  Nach Wunsch können Sie mit anderen Tools wie „Active Directory-Benutzer und -Computer“ (dsa.msc) dem System Management-Container Berechtigungen hinzufügen.  
 
-    -   Cliquez avec le bouton droit sur **CN=System Management**, puis choisissez **Propriétés**.  
+    -   Klicken Sie mit der rechten Maustaste auf **CN=System Management**, und wählen Sie dann **Eigenschaften**.  
 
-    -   Choisissez l’onglet **Sécurité**, **Ajouter**, puis ajoutez le compte d’ordinateur de serveur de site avec l’autorisation **Contrôle intégral**.  
+    -   Wählen Sie die Registerkarte **Sicherheit**, wählen Sie **Hinzufügen**, und fügen Sie anschließend das Computerkonto des Standortservers mit der Berechtigung **Vollzugriff** hinzu.  
 
-    -   Choisissez **Avancé**, choisissez le compte d’ordinateur du serveur de site, puis choisissez **Modifier**.  
+    -   Wählen Sie **Erweitert**, wählen Sie das Computerkonto des Standortservers, und wählen Sie dann **Bearbeiten**.  
 
-    -   Dans la liste **Appliquer à**, choisissez **cet objet et tous ceux descendants**.  
+    -   Wählen Sie in der Liste **Anwenden auf** den Eintrag **Dieses und alle untergeordneten Objekte** aus.  
 
-5.  Choisissez **OK** pour fermer la console et enregistrer la configuration.  
+5.  Wählen Sie **OK**, um die Konsole zu schließen und die Konfiguration zu speichern.  
 
-## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Étape 3. Configurer les sites pour la publication de données sur Active Directory Domain Services  
- Après avoir configuré le conteneur, accordé les autorisations appropriées et installé un site principal Configuration Manager, vous pouvez configurer ce site pour la publication de données dans Active Directory.  
+## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Schritt 3. Einrichten von Standorten zur Veröffentlichung in Active Directory Domain Services  
+ Nachdem der Container eingerichtet wurde, Berechtigungen gewährt wurden und Sie einen primären Configuration Manager-Standort installiert haben, können Sie diesen Standort für das Veröffentlichen von Daten in Active Directory einrichten.  
 
- Pour plus d’informations sur la publication, consultez [Publier des données de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  
-
+ Informationen zum Veröffentlichen finden Sie unter [Veröffentlichen von Standortdaten für System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  

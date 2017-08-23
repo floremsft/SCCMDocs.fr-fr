@@ -1,43 +1,41 @@
 ---
-title: "Fonctionnalités de Technical Preview 1601 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1601 für Configuration Manager"
+description: "Erfahren Sie mehr zu den Features, die in Technical Preview für System Center Configuration Manager 1601 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aae1cf2f-2c04-4f68-a03a-f4a925433c09
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: 4da12425382c5d64602b2728e0e661c8cb89a5e4
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: ef0db5b11ae2be5edcb4db87400c5c273c89972e
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1601 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+In diesem Artikel werden die Features erläutert, die in der Technical Preview für System Center Configuration Manager 1601 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.  
 
- **Problèmes connus relatifs à cette version d’évaluation technique :**  
+ **Bekannte Probleme für diese Technical Preview:**  
 
--   quand vous gérez les **Options de mise à jour des clients** pour promouvoir un client de préproduction en production, le texte de la case à cocher affiche zéro (0) pour la version du client, au lieu du numéro réel de la build du client. La version du client de préproduction correcte est affichée sur la zone située au-dessus de cette option : il s’agit de la version du client qui est promue en production quand vous sélectionnez cette option.  
+-   Wenn Sie **Clientupdateoptionen** für das Heraufstufen eines Präproduktionsclients zur Produktionsversion verwalten, enthält der Text des Kontrollkästchens die Clientversion null (0) anstelle der tatsächlichen Clientbuildnummer. Die richtige Präproduktionsclientversion wird im Bereich über dieser Option angezeigt und ist die Clientversion, die zur Produktionsversion heraufgestuft wird, wenn Sie diese Option auswählen.  
 
--   Quand vous effectuez une mise à jour vers Technical Preview 1601  et que vous choisissez de tester le client Configuration Manager dans un regroupement de préproduction, le package du client pour le regroupement n’est pas mis à niveau. Ce problème concerne uniquement Technical Preview 1601.  
+-   Wenn Sie auf Technical Preview 1601 aktualisieren und das Testen des Configuration Manager-Clients in einer Präproduktionssammlung auswählen, wird kein Upgrade für das Clientpaket der Sammlung durchgeführt. Dieses Problem gilt nur für Technical Preview 1601.  
 
-     Pour contourner ces problèmes, procédez de l’une des façons suivantes :  
+     Zur Umgehung dieser Probleme führen Sie einen der folgenden Schritte aus:  
 
-    -   Exécutez le script SQL suivant sur la base de données du site principal :  
+    -   Führen Sie das folgende SQL-Skript für die Datenbank des primären Standorts aus:  
 
         ```  
         DECLARE @PilotingPkgID NVARCHAR(8)  
@@ -58,166 +56,165 @@ Cet article présente les fonctionnalités qui sont disponibles dans la version 
 
         ```  
 
-    -   Ajoutez un nouveau rôle système de site de point de distribution à votre site de laboratoire. Le nouveau point de distribution met à niveau le regroupement de préproduction avec le nouveau package du client.  
+    -   Fügen Sie Ihrem Laborstandort eine neue Verteilungspunkt-Standortsystemrolle hinzu. Der neue Verteilungspunkt aktualisiert die Präproduktionssammlung mit dem neuen Clientpaket.  
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-##  <a name="bkmk_hybrid1"></a> Améliorations apportées à l’intégration de Microsoft Intune  
-Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
+##  <a name="bkmk_hybrid1"></a> Verbesserungen bei der Microsoft Intune-Integration  
+In der Technical Preview-Version 1601 haben wir Unterstützung für die folgenden Features hinzugefügt:  
 
-### <a name="improvements-to-conditional-access"></a>Améliorations apportées à l’accès conditionnel  
+### <a name="improvements-to-conditional-access"></a>Verbesserungen beim bedingten Zugriff  
 
--   **Prise en charge de l’accès conditionnel pour les PC gérés par System Center Configuration Manager**  
+-   **Unterstützung des bedingten Zugriffs für PCs, die von System Center Configuration Manager verwaltet werden**  
 
-     Vous pouvez maintenant définir des stratégies d’accès conditionnel pour les PC gérés par System Center Configuration Manager, qui exige que les PC soient conformes à la stratégie de conformité pour accéder aux services Exchange Online et SharePoint Online.  Avec cette nouvelle fonctionnalité, vous pouvez également inscrire des PC auprès d’Azure AD via la stratégie de conformité, et surveiller et générer des rapports sur l’inscription Azure Active Directory.  
+     Sie können jetzt Richtlinien für den bedingten Zugriff für PCs festlegen, die von System Center Configuration Manager verwaltet werden. Dies erfordert, dass die PCs mit der Kompatibilitätsrichtlinie übereinstimmen, um auf Exchange Online- und SharePoint Online-Dienste zugreifen zu können.  Mithilfe dieser neuen Funktion können Sie auch PCs mithilfe dieser Kompatibilitätsrichtlinie bei Azure AD registrieren sowie die Azure AD-Registrierung überwachen und Berichte dazu erstellen.  
 
     > [!NOTE]  
-    >  L’accès conditionnel n’est pas encore pris en charge sur Windows 10.  
+    >  Bedingter Zugriff wird unter Windows 10 noch nicht unterstützt.  
 
-    Voici la configuration requise pour utiliser cette fonctionnalité :  
+    Es folgen die Voraussetzungen für die Verwendung dieses Features:  
 
-    -   Abonnement Premium à Azure Active Directory et Synchronisation ADFS.  
+    -   Azure Active Directory Premium-Abonnement und AD FS-Synchronisierung.  
 
-    -   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager.  
+    -   Microsoft Intune-Abonnement. Das Microsoft Intune-Abonnement muss in der Configuration Manager-Konsole konfiguriert werden.  
 
-    -   [Conditions requises pour l’inscription automatique à Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   [Voraussetzungen für die automatische Azure AD-Registrierung](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)  
 
-    Pour utiliser cette option, vous devez créer une stratégie de conformité dans Configuration Manager avec des règles spécifiques décrites ci-dessous, et définir une stratégie d’accès conditionnel dans la console Intune.  En outre, pour que l’accès soit autorisé seulement aux PC conformes, vous devez activer l’option **Les appareils doivent être conformes** comme spécification requise pour les PC Windows. Voici les règles de stratégie de conformité qui sont applicables aux ordinateurs gérés par System Center Configuration Manager.  
+    Zum Verwenden dieser Option müssen Sie in Configuration Manager eine Kompatibilitätsrichtlinie mit den nachstehend beschriebenen spezifischen Regeln erstellen und eine Richtlinie für den bedingten Zugriff in der Intune-Konsole festlegen.  Um außerdem sicherzustellen, dass nur kompatible PCs Zugriff haben, müssen Sie die Anforderung für Windows-PCs auf die Option **Geräte müssen kompatibel sein** festlegen. Es folgen die Regeln der Kompatibilitätsrichtlinie, die für von System Center Configuration Manager verwaltete PCs gelten.  
 
-    -   **Exiger l’inscription dans Azure Active Directory :** Cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Dans le cas contraire, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, cliquez [ici](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   **Registrierung in Azure Active Directory erfordern:** Dieser Regel überprüft, ob die Arbeitsplätze des Benutzergeräts und Azure AD miteinander verknüpft sind, und falls nicht, wird das Gerät automatisch in Azure AD registriert. Die automatische Registrierung wird nur unter Windows 8.1 unterstützt. Stellen Sie für Windows 7-PCs eine MSI-Datei bereit, um die automatische Registrierung durchzuführen. Weitere Informationen finden Sie [hier](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
-    -   **Toutes les mises à jour requises installées avec une échéance supérieure à X jours :** Cette règle vérifie si l’appareil de l’utilisateur a toutes les mises à jour obligatoires (spécifiées dans la règle **Mises à jour automatiques requises**) dans le délai et la période de grâce que vous avez spécifiés. Elle installe automatiquement toutes les mises à jour requises en attente.  
+    -   **Alle mit einem Stichtag älter als X Tage installierten benötigten Updates:** Diese Regel überprüft, ob das Gerät des Benutzers gemäß dem Stichtag und der Toleranzperiode, die Sie festgelegt haben, über alle erforderlichen Updates verfügt (entsprechend der Angabe in der Regel **Required automatic updates** (Erforderliche automatische Updates)), und installiert automatisch alle ausstehenden Updates.  
 
-    -   **Exiger le chiffrement de lecteur BitLocker :** Cette règle vérifie si le lecteur principal (par exemple C:\\) de l’appareil est chiffré avec BitLocker. Si le chiffrement BitLocker n’est pas activé sur le lecteur principal, l’accès de l’appareil aux services de messagerie et SharePoint est bloqué.  
+    -   **BitLocker-Laufwerkverschlüsselung erfordern:** Dies ist eine Prüfung, um herauszufinden, ob das primäre Laufwerk (z.B. C:\\) auf dem Gerät mit BitLocker verschlüsselt ist. Wenn die Bitlocker-Verschlüsselung auf dem primären Gerät nicht aktiviert ist, wird der Zugriff auf E-Mail- und SharePoint-Dienste blockiert.  
 
-    -   **Exiger un logiciel anti-programme malveillant :** Cette règle vérifie si le logiciel anti-programme malveillant (System Center Endpoint Protection ou Windows Defender uniquement) est activé et en cours d’exécution.  
-         S’il n’est pas activé, l’accès aux services de messagerie et SharePoint est bloqué.  
+    -   **Antischadsoftware erfordern:** Dies ist eine Prüfung, um herauszufinden, ob die Antischadsoftware (nur System Center Endpoint Protection oder Windows Defender) aktiviert ist und ausgeführt wird.  
+         Falls nicht, wird der Zugriff auf E-Mail- und SharePoint-Dienste blockiert.  
 
-    Les utilisateurs finaux bloqués en raison d’une non-conformité peuvent consulter des informations sur la conformité dans le Centre logiciel SCCM et lancer une nouvelle évaluation de la stratégie quand les problèmes de conformité sont résolus.  
+    Endbenutzer, die aufgrund von Nichtkompatibilität blockiert werden, erhalten im SCCM Software Center Informationen zur Kompatibilität. Für sie wird eine erneute Richtlinienauswertung ausgelöst, nachdem Kompatibilitätsprobleme behoben wurden.  
 
--   **Accès conditionnel avec le service d’attestation d’intégrité** Vous pouvez maintenant limiter l’accès aux services de messagerie et Office 365 en fonction de l’intégrité des appareils, qui est signalée par le service d’attestation d’intégrité.  En outre, les appareils gérés par Intune sont inclus dans les rapports d’intégrité des appareils.  
+-   **Bedingter Zugriff mit Integritätsnachweisdienst** Sie können jetzt den Zugriff auf E-Mail- und 0365-Dienste basierend auf der Integrität von Geräten gemäß der Meldung des Integritätsnachweisdiensts einschränken.  Darüber hinaus werden Geräte, die von Intune verwaltet werden, in die Geräte-Integritätsberichte einbezogen.  
 
-    Une nouvelle règle de conformité a été ajoutée à la console Configuration Manager pour vous permettre de spécifier si l’accès doit être autorisé ou refusé aux appareils en fonction de leur état d’intégrité.  Pour créer cette règle, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle.  Sélectionnez comme condition **Signalé comme ne posant aucun problème d’intégrité par le service HAS (Health Attestation Service)** pour la condition et affectez la valeur **True**.  Cette opération permet de garantir que seuls les appareils qui sont signalés comme étant en état d’intégrité auront accès aux ressources de votre entreprise. Pour plus d’informations sur le service d’attestation d’intégrité et sur la façon dont l’intégrité des appareils est signalée dans Intune, consultez [Attestation d’intégrité de l’appareil](#bkmk_devicehealth).  
+    Eine neue Kompatibilitätsregel wurde der Configuration Manager-Konsole hinzugefügt, mit der Sie angeben können, ob den Geräten basierend auf ihrem Integritätsstatus der Zugriff erlaubt oder nicht erlaubt werden soll.  Öffnen Sie den **Assistenten zum Erstellen von Kompatibilitätsrichtlinien**, und fügen Sie eine neue Regel hinzu, um diese Regel zu erstellen.  Wählen Sie die Option **Reported as health by Health Attestation Service** (Vom Integritätsnachweisdienst als fehlerfrei gemeldet) für die Bedingung aus, und legen Sie den Wert auf **TRUE** fest.  Dadurch wird sichergestellt, dass nur Geräte, die als fehlerfrei gemeldet werden, auf Ihre Unternehmensressourcen zugreifen können. Details zum Integritätsnachweisdienst und zur Meldung der Integrität der Geräte in Intune finden Sie unter [Nachweis der Geräteintegrität](#bkmk_devicehealth).  
 
--   **Nouveaux paramètres de stratégie de conformité :** Les nouveaux paramètres de stratégie de conformité vous aident à améliorer la sécurité et la protection sur les appareils utilisés pour accéder aux services de messagerie d’entreprise et SharePoint :  
+-   **Neue Kompatibilitätsrichtlinieneinstellungen:** Die neuen Kompatibilitätsrichtlinieneinstellungen dienen der Verbesserung der Sicherheit und des Schutzes auf Geräten, mit denen auf Unternehmens-E-Mail und SharePoint-Dienste zugegriffen wird:  
 
-    -   **Exiger les mises à jour automatiques :** Vous pouvez obliger les appareils dotés de Windows 8.1 ou version ultérieure à autoriser l’installation automatique des mises à jour, et spécifier la classe des mises à jour qui sont installées.  Vous pouvez choisir d’installer uniquement les mises à jour marquées comme importantes ou d’installer toutes les mises à jour recommandées.  
+    -   **Automatische Updates erforderlich:** Sie können anfordern, dass Geräte ab Windows 8.1 die automatische Installation von Updates zulassen, und auch die Klasse der Updates angeben, die installiert werden.  Sie können wahlweise nur als wichtig markierte Updates oder alle empfohlenen Updates installieren.  
 
-         Pour créer une règle pour les mises à jour automatiques, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle.  Sélectionnez **Classification minimale des mises à jour nécessaires** comme condition et définissez-la sur une des valeurs disponibles : **Aucun**, **Recommandé** et **Important**.  
+         Öffnen Sie den **Assistenten zum Erstellen von Kompatibilitätsrichtlinien**, und fügen Sie eine neue Regel hinzu, um eine Regel für automatische Updates zu erstellen.  Wählen Sie die **Mindestklassifizierung für erforderliche Updates** als Bedingung aus, und legen Sie den Wert auf einen der verfügbaren Werte fest: **Keine**, **Empfohlen** und **Wichtig**.  
 
-        -   **Aucun :** Les mises à jour logicielles sont installées automatiquement.  
+        -   **Keine:** Updates werden nicht automatisch installiert.  
 
-        -   **Recommandé :** Toutes les mises à jour recommandées sont installées.  
+        -   **Empfohlen:** Alle empfohlenen Updates werden installiert.  
 
-        -   **Important :** Seules les mises à jour classifiées comme importantes sont installées.  
+        -   **Wichtig:** Nur Updates, die als wichtig eingestuft werden, werden installiert.  
 
-    -   **Exiger un mot de passe pour déverrouiller des appareils mobiles :** Quand ce paramètre a la valeur **Oui**, les utilisateurs finaux doivent entrer un mot de passe avant de pouvoir accéder à leur appareil.  
+    -   **Kennwort zum Entsperren mobiler Geräte erforderlich:** Wenn diese Einstellung auf **Ja** festgelegt ist, müssen die Endbenutzer ein Kennwort eingeben, bevor er auf sein Gerät zugreifen kann.  
 
-         Pour créer une règle exigeant un mot de passe pour déverrouiller les appareils mobiles, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle. Sélectionnez **Exiger un mot de passe pour déverrouiller un appareil inactif** comme condition et définissez la valeur sur **True**.  
+         Öffnen Sie den **Assistenten zum Erstellen von Kompatibilitätsrichtlinien**, und fügen Sie eine neue Regel hinzu, um eine Regel für ein Kennwort zum Entsperren mobiler Geräte zu erstellen. Wählen Sie **Kennwort zum Entsperren eines inaktiven Geräts anfordern** als Bedingung aus, und legen Sie den Wert auf **TRUE** fest.  
 
-    -   **Minutes d’inactivité avant demande du mot de passe :** Spécifie la durée d’inactivité au terme de laquelle l’utilisateur doit entrer à nouveau son mot de passe.  
+    -   **Minuten Inaktivität vor erneuter Anforderung des Kennworts:** Gibt die Leerlaufzeit an, bevor der Benutzer sein Kennwort erneut eingeben muss.  
 
-         Pour créer cette règle, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle. Sélectionnez **Minutes d’inactivité avant qu’un mot de passe soit demandé** comme condition et définissez la valeur sur l’une des options disponibles : 1 minute, 5 minutes, 15 minutes, 30 minutes et 1 heure.  
+         Öffnen Sie den **Assistenten zum Erstellen von Kompatibilitätsrichtlinien**, und fügen Sie eine neue Regel hinzu, um diese Regel zu erstellen. Wählen Sie **Minuten Inaktivität vor erneuter Anforderung des Kennworts** als Bedingung aus, und legen den Wert auf eine der verfügbaren Optionen fest: 1 Minute, 5 Minuten, 15 Minuten, 30 Minuten, 1 Stunde.  
 
--   **Remplacer la règle par défaut : toujours autoriser les appareils inscrits et conformes à Intune à accéder à Exchange sur site :**  
+-   **Außerkraftsetzung der Standardregel – Über Intune registrierten und kompatiblen Geräten immer lokalen Zugriff auf Exchange gewähren:**  
 
-     Quand vous activez cette option, les appareils inscrits dans Intune et conformes aux stratégies de conformité sont autorisés à accéder à Exchange sur site. Cette règle remplace la règle par défaut, ce qui signifie que même si vous définissez la règle par défaut de façon à mettre en quarantaine ou à bloquer l’accès, les appareils inscrits et conformes peuvent néanmoins toujours accéder à Exchange sur site.  
-     Utilisez ce paramètre quand vous voulez que les appareils inscrits et conformes aient toujours accès à la messagerie via Exchange sur site.  
+     Wenn Sie diese Option aktivieren, dürfen Geräte, die bei Intune registriert sind und mit den Kompatibilitätsrichtlinien übereinstimmen, auf lokales Exchange zugreifen. Diese Regel setzt die Standardregel außer Kraft, was bedeutet, dass, selbst wenn Sie die Standardregel so festlegen, dass der Zugriff isoliert bzw. blockiert wird, registrierte und kompatible Geräte weiterhin auf lokales Exchange zugreifen können.  
+     Wählen Sie diese Einstellung, wenn registrierte und kompatible Geräte stets über lokales Exchange Zugriff auf E-Mail haben sollen.  
 
-     Cela est pris en charge sur les plateformes suivantes : Windows Phone 8 et versions ultérieures, iOS 6 et versions ultérieures. Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
+     Dies wird auf den folgenden Plattformen unterstützt: Windows Phone 8 und höher, iOS 6 und höher. Android 4.0 und höher, Samsung KNOX Standard 4.0 und höher  
 
-     Pour utiliser cette option, accédez à la page **Général** de l’**Assistant Configuration de la stratégie d’accès conditionnel** pour Exchange sur site.  
+     Wechseln Sie zur Seite **Allgemein** des **Assistenten zur Konfiguration der Richtlinie zum bedingten Zugriff** für lokales Exchange, um diese Option zu verwenden.  
 
-##  <a name="bkmk_clientStatus"></a> État de connexion du client  
-Depuis la version d’évaluation technique 1601, vous pouvez identifier rapidement dans la console Configuration Manager si un client est en ligne ou hors connexion. Avec des icônes et des colonnes mises à jour dans les listes d’appareils de la console, vous pouvez évaluer l’état des clients dans votre environnement pour identifier les zones à problème et d’autres problèmes nécessitant votre attention.  
+##  <a name="bkmk_clientStatus"></a> Onlinestatus von Clients  
+Ab Technical Preview Release 1601 können Sie in der Configuration Manager-Konsole auf einen Blick erkennen, ob ein Client online oder offline ist. Über aktualisierte Symbole und Spalten in den Geräteauflistungen in der Konsole können Sie den Status von Clients in Ihrer Umgebung beurteilen, um Problembereiche und andere Aspekte auszumachen, die ggf. Ihre Aufmerksamkeit erfordern.  
 
-Un client est en ligne s’il est actuellement connecté à un rôle de système de site du point de gestion Configuration Manager. Tant que le point de gestion reçoit des messages de type test ping du client, son état est en ligne. Si la gestion ne reçoit pas de message pendant environ 5 minutes, l’état du client devient hors connexion.  
+Ein Client ist online, wenn er aktuell mit einer Standortsystemrolle des Typs „Configuration Manager-Verwaltungspunkt“ verbunden ist. Solange der Verwaltungspunkt Ping-ähnliche Nachrichten vom Client empfängt, ist dessen Status online. Wenn der Verwaltungspunkt ca. 5 Minuten keine Nachricht erhält, ist der Status des Clients offline.  
 
-### <a name="icons-for-client-status"></a>Icônes d’état du client  
+### <a name="icons-for-client-status"></a>Symbole für den Clientstatus  
 
 |||  
 |-|-|  
-|![icône de statut de connexion des clients](media/online-status-icon.png)|Le client est en ligne.|  
-|![icône de statut déconnecté des clients](media/offline-status-icon.png)|Le client est hors connexion.|  
-|![icône de statut inconnu des clients](media/unknown-status-icon.png)|L’état du client est inconnu.|  
+|![Symbol für den Onlinestatus des Clients](media/online-status-icon.png)|Client ist online.|  
+|![Symbol für den Offlinestatus des Clients](media/offline-status-icon.png)|Client ist offline.|  
+|![Symbol für den unbekannten Status des Clients](media/unknown-status-icon.png)|Clientstatus ist unbekannt.|  
 
-### <a name="prerequisites"></a>Conditions préalables  
- L’état de connexion du client n’a pas de conditions préalables. Vous pouvez commencer à l’utiliser dès que la version d’évaluation technique 1601 de Configuration Manager est installée.  
+### <a name="prerequisites"></a>Voraussetzungen  
+ Für den Onlinestatus eines Clients gelten keine Voraussetzungen. Sie können mit seiner Nutzung beginnen, sobald Configuration Manager Technical Preview 1601 installiert ist.  
 
-### <a name="limitations"></a>Limitations  
- L’état de connexion du client est disponible seulement pour les ordinateurs Windows où le client Configuration Manager est installé. L’état de connexion du client n’est pas pris en charge pour les ordinateurs Mac, Linux ou UNIX, ni pour les appareils gérés à l’aide de la gestion des appareils mobiles sur site.  
+### <a name="limitations"></a>Einschränkungen  
+ Der Onlinestatus des Clients ist nur für Windows-Computer mit installiertem Configuration Manager-Client verfügbar. Der Onlinestatus des Clients wird nicht für Macintosh-, Linux- oder UNIX-Computer bzw. für Geräte mit lokaler Geräteverwaltung unterstützt.  
 
-### <a name="to-view-client-online-status"></a>Pour afficher l’état de connexion du client  
+### <a name="to-view-client-online-status"></a>So zeigen Sie den Onlinestatus von Clients an  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Appareils**.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Bestand und Kompatibilität > Übersicht > Geräte**.  
 
-2.  Cliquez avec le bouton droit dans l’en-tête de colonne, puis cliquez sur un des champs de l’état de connexion du client pour l’ajouter à la vue des appareils. Les champs sont :  
+2.  Klicken Sie mit der rechten Maustaste auf die Spaltenüberschrift, und klicken Sie dann auf die Felder für den Onlinestatus des Clients, um ihn der Geräteansicht hinzuzufügen. Die Felder heißen wie folgt:  
 
-    -   **Statut de connexion de l’appareil** indique si le client est actuellement en ligne ou hors connexion.  
+    -   Der**Onlinestatus des Geräts** gibt an, ob der Client derzeit online oder offline ist.  
 
-    -   **Heure de la dernière connexion** : indique quand l’état de connexion du client est passé de hors connexion à en ligne.  
+    -   **Zuletzt online** gibt an, wann sich der Status des Clients von offline in online geändert hat.  
 
-    -   **Heure de la dernière déconnexion** : indique quand l’état de connexion du client est passé de en ligne à hors connexion.  
+    -   **Zuletzt offline** gibt an,wann sich der Status des Clients von online in offline geändert hat.  
 
- Pour afficher les modifications récentes apportées à l’état du client, actualisez la console.  
+ Um die jüngsten Änderungen am Clientstatus anzuzeigen, aktualisieren Sie die Konsole.  
 
-##  <a name="bkmk_appmgmt1601"></a> Améliorations de la gestion d’applications  
- Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
+##  <a name="bkmk_appmgmt1601"></a> Verbesserungen bei der Anwendungsverwaltung  
+ In der Technical Preview-Version 1601 haben wir Unterstützung für die folgenden Features hinzugefügt:  
 
-### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gérer les applications pour appareils iOS achetées en volume  
- Certains magasins d’applications vous permettent d’acheter plusieurs licences pour une application que vous voulez utiliser dans votre entreprise. Vous pouvez ainsi réduire les coûts d’administration liés au suivi de plusieurs copies d’application achetées.  
+### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Verwalten von Apps für iOS-Geräte, die über ein Volumenprogramm erworben wurden  
+ Einige App-Stores bieten die Möglichkeit, mehrere Lizenzen für eine App zu erwerben, die in Ihrem Unternehmen ausgeführt werden soll. Dadurch können Sie den Verwaltungsaufwand reduzieren, der durch das Nachverfolgen mehrerer erworbener App-Kopien entsteht.  
 
- Configuration Manager vous aide maintenant à gérer les applications que vous avez achetées par le biais d’un programme de ce type, en important les informations de licence depuis le magasin d’applications et en effectuant le suivi du nombre de licences que vous avez utilisées.  
+ Configuration Manager unterstützt Sie nun bei der Verwaltung von Apps, die Sie über ein solches Programm erworben haben, indem die Lizenzinformationen aus dem App-Store importiert werden und nachverfolgt wird, wie viele Lizenzen Sie verwendet haben.  
 
- Pour plus de détails, consultez [Gérer les applications que vous avez achetées par le biais d’un programme d’achat en volume avec Configuration Manager](https://technet.microsoft.com/library/mt627954.aspx).  
+ Details finden Sie unter [Verwalten von Apps, die über ein Volumenprogramm mit Configuration Manager erworben wurden](https://technet.microsoft.com/library/mt627954.aspx).  
 
-### <a name="ios---app-configuration-for-applicationsbr-hybrid"></a>iOS : configuration d’applications pour les applications<br />Hybride  
- Certaines applications iOS prennent en charge les paramètres de préconfiguration, comme un serveur ou une base de données auquel l’application doit se connecter. Configuration Manager prend maintenant en charge le déploiement de stratégies de configuration d’applications sur l’appareil, ce qui permet à l’utilisateur d’utiliser l’application immédiatement sans avoir besoin de connaître ces informations. Les développeurs doivent activer cette fonctionnalité dans leurs applications.  
+### <a name="ios---app-configuration-for-applicationsbr-hybrid"></a>iOS – App-Konfiguration für Einstellungen<br />Hybrid  
+ Einige iOS-Apps unterstützen die Vorabkonfiguration von Einstellungen, wie z. B. eines Servers oder einer Datenbank, mit dem/der die Anwendung eine Verbindung herstellen soll. Configuration Manager unterstützt jetzt die Bereitstellung von App-Konfigurationsrichtlinien auf dem Gerät, wodurch der Benutzer die App sofort nutzen kann, ohne diese Informationen kennen zu müssen. Entwickler müssen diese Funktionalität in ihren Apps aktivieren.  
 
- Un nombre limité d’applications distribuées publiquement prennent actuellement en charge la préconfiguration des paramètres. Vous pouvez également disposer d’applications d’entreprise développées en interne et prenant en charge cette préconfiguration.  
+ Eine begrenzte Anzahl veröffentlichter Apps unterstützt derzeit die Vorabkonfiguration von Einstellungen, die ggf. auch von intern entwickelten spartenspezifischen Apps unterstützt werden.  
 
-#### <a name="prerequisites-for-this-scenario"></a>Conditions requises pour ce scénario  
+#### <a name="prerequisites-for-this-scenario"></a>Voraussetzungen für dieses Szenario  
 
--   Vous devez avoir ajouté un abonnement Microsoft Intune à Configuration Manager.  
+-   Sie müssen ein Microsoft Intune-Abonnement zu Configuration Manager hinzugefügt haben.  
 
--   Vous devez avoir ajouté un certificat APNs d’Apple valide à l’abonnement Intune.  
+-   Sie müssen dem Intune-Abonnement ein gültiges Apple APNs-Zertifikat hinzugefügt haben.  
 
--   Vous devez avoir déployé une application iOS qui prend en charge la configuration d’applications.  
+-   Sie müssen eine iOS-Anwendung bereitgestellt haben, die die Anwendungskonfiguration unterstützt.  
 
-#### <a name="try-it-out"></a>Essayez !  
- Une fois que les conditions ci-dessus sont remplies, vous devez créer une application Configuration Manager qui utilise un type de déploiement iOS. L’application que vous utilisez doit prendre en charge la configuration d’applications. Reportez-vous à la documentation du fournisseur de l’application pour savoir quels éléments spécifiques (paires nom/valeur) vous pouvez configurer.  
+#### <a name="try-it-out"></a>Probieren Sie es aus!  
+ Wenn die oben genannten Voraussetzungen erfüllt sind, müssen Sie eine Configuration Manager-Anwendung erstellen, die einen iOS-Bereitstellungstyp verwendet. Die App, die Sie verwenden, muss die Anwendungskonfiguration unterstützen. Konsultieren Sie die Dokumentation des App-Herstellers, um zu erfahren, welche spezifischen Elemente (Name-Wert-Paare) Sie konfigurieren können.  
 
- Ensuite, vous associez la stratégie de configuration d’applications avec le type de déploiement iOS lors du déploiement de l’application. Vous pouvez également déployer la stratégie à partir du nœud **Stratégies de configuration des applications**, ciblée vers une application et un regroupement existants.  
+ Anschließend ordnen Sie während der Bereitstellung der App die App-Konfigurationsrichtlinie dem iOS-Bereitstellungstyp zu. Sie können die Richtlinie auch mithilfe des Knotens **App-Konfigurationsrichtlinien** bereitstellen, der für eine vorhandene App und Sammlung bestimmt ist.  
 
- Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
+ Versuchen Sie, die folgende Aufgabe auszuführen, und verwenden Sie dann die Feedbackinformationen oben in diesem Thema, um uns Ihre Erfahrungen mitzuteilen:  
 
--   Si vous avez une application iOS qui prend en charge la configuration d’applications, consultez la documentation du fournisseur de l’application pour rechercher les paires nom/valeur que vous devez spécifier pour configurer l’application.  
+-   Wenn Sie eine iOS-App haben, die die App-Konfiguration unterstützt, konsultieren Sie die Dokumentation des App-Herstellers, um die Name-Werte-Paare zu bestimmen, die Sie zum Konfigurieren der Anwendung angeben müssen.  
 
--   Démarrez l’**Assistant Création d’une stratégie de configuration d’applications**. Dans la page **Stratégie iOS** de l’Assistant, essayez d’ajouter les paires nom/valeur trouvées dans la documentation du fournisseur de l’application. Vous pouvez aussi importer un fichier XML contenant les valeurs requises.  
+-   Starten Sie den **Assistenten zum Erstellen einer App-Konfigurationsrichtlinie**. Versuchen Sie auf der Seite **iOS-Richtlinie** des Assistenten die Name-Wert-Paare hinzuzufügen, die Sie in der Dokumentation des App-Herstellers gefunden haben, oder importieren Sie eine XML-Datei mit den erforderlichen Werten.  
 
--   Dans l’**Assistant Déploiement logiciel**, dans la page **Stratégie de configuration des applications**, associez la stratégie de configuration d’application que vous avez créée à un type de déploiement compatible de l’application.  
+-   Ordnen Sie im **Assistenten zum Bereitstellen von Software** auf der Seite **App-Konfigurationsrichtlinie** die von Ihnen erstellte App-Konfigurationsrichtlinie einem kompatiblen Bereitstellungstyp der Anwendung zu.  
 
-##  <a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de conformité  
- Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
+##  <a name="bkmk_compliance1601"></a> Verbesserungen für Kompatibilitätseinstellungen  
+ In der Technical Preview-Version 1601 haben wir Unterstützung für die folgenden Features hinzugefügt:  
 
-### <a name="microsoft-edge-browser-settings"></a>Paramètres du navigateur Microsoft Edge  
- De nouveaux paramètres du navigateur Microsoft Edge ont été ajoutés à l’élément de configuration de **Windows 8.1 et Windows 10** (les paramètres s’appliquent seulement aux appareils Windows 10).  
+### <a name="microsoft-edge-browser-settings"></a>Microsoft Edge-Browsereinstellungen  
+ Neue Einstellungen für den Microsoft Edge-Browser wurden zum Konfigurationselement **Windows 8.1 und Windows 10** hinzugefügt (Einstellungen gelten nur für Windows 10-Geräte).  
 
- Pour afficher les nouveaux paramètres, choisissez **Microsoft Edge** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
+ Wählen Sie auf der Seite für die **Geräteeinstellungen** des Konfigurationselements im **Assistenten zum Erstellen von Konfigurationselementen** die Option **Microsoft Edge** aus, um die neuen Einstellungen anzuzeigen.  
 
- Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Weitere Informationen finden Sie unter [Erstellen von Konfigurationselementen für Windows 8.1- und Windows 10-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="compliance-settings-for-windows-10-team-devices"></a>Paramètres de conformité pour les appareils Windows 10 Collaboration  
- Utilisez ces nouveaux paramètres de conformité pour configurer les appareils qui exécutent Windows 10 Collaboration, comme des appareils Surface Hub.  
+### <a name="compliance-settings-for-windows-10-team-devices"></a>Kompatibilitätseinstellungen für Windows 10 Team-Geräte  
+ Verwenden Sie diese neuen Kompatibilitätseinstellungen zum Konfigurieren von Geräten, auf denen Windows 10 Team ausgeführt wird, z. B. von Surface Hub-Geräten.  
 
- Pour afficher les nouveaux paramètres, cliquez sur **Windows 10 Collaboration** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
+ Wählen Sie auf der Seite für die **Geräteeinstellungen** des Konfigurationselements im **Assistenten zum Erstellen von Konfigurationselementen** die Option **Windows 10-Team** aus, um die neuen Einstellungen anzuzeigen.  
 
- Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Weitere Informationen finden Sie unter [Erstellen von Konfigurationselementen für Windows 8.1- und Windows 10-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="android---kiosk-mode-for-samsung-knox-standardbr-hybrid"></a>Android : mode plein écran pour Samsung KNOX Standard<br />Hybride  
- Le mode plein écran vous permet de verrouiller un appareil pour autoriser seulement certaines fonctionnalités. Par exemple, vous pouvez autoriser un appareil à exécuter seulement une application gérée que vous spécifiez ou vous pouvez désactiver les boutons de volume sur un appareil. Ces paramètres peuvent être utilisés pour un modèle de démonstration d'un appareil ou pour un appareil dédié à l'exécution d'une seule fonction, par exemple dans un point de vente. Ces paramètres ne sont pas disponibles pour les appareils Samsung KNOX Standard dans l’élément de configuration **Windows 8.1 et Windows 10** (les paramètres s’appliquent seulement aux appareils Windows 10).  
+### <a name="android---kiosk-mode-for-samsung-knox-standardbr-hybrid"></a>Android – Kioskmodus für Samsung KNOX Standard<br />Hybrid  
+ Sie können im Kioskmodus ein Gerät so sperren, dass nur bestimmte Features funktionieren. Beispielsweise können Sie festlegen, dass auf einem Gerät nur eine von Ihnen angegebene verwaltete App ausgeführt werden kann, oder Sie können die Lautstärkeregler eines Geräts deaktivieren. Diese Einstellungen können für ein Demomodell eines Geräts oder ein Gerät nützlich sein, das nur eine bestimmte Funktion ausführen soll, wie z. B. ein Point-of-Sale-Gerät. Diese Einstellungen sind nicht im Konfigurationselement **Windows 8.1 und Windows 10** (Einstellungen gelten nur für Windows 10-Geräte) für Samsung KNOX Standard-Geräte verfügbar.  
 
- Pour afficher les nouveaux paramètres, choisissez **Mode plein écran - Samsung KNOX** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
+ Um die neuen Einstellungen anzuzeigen, wählen Sie auf der Seite für die **Geräteeinstellungen** des Konfigurationselements im Assistenten zum **Erstellen von Konfigurationselementen** die Option **Kioskmodus – Samsung KNOX** aus.  
 
- Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
-
+ Weitere Informationen finden Sie unter [Erstellen von Konfigurationselementen für Windows 8.1- und Windows 10-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  

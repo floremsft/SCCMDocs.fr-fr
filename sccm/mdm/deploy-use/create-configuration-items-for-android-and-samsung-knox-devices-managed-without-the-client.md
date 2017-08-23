@@ -1,220 +1,216 @@
 ---
-title: "Créer des éléments de configuration pour les appareils Android et Samsung KNOX Standard gérés via Microsoft Intune | Microsoft Docs"
-description: "Utilisez l’élément de configuration Android et Samsung KNOX Standard de System Center Configuration Manager pour gérer les paramètres des appareils."
+title: "Erstellen von Konfigurationselementen für Android- und Samsung KNOX Standard-Geräte, die mit Intune verwaltet werden | Microsoft-Dokumentation"
+description: "Verwenden Sie das Konfigurationselement von System Center Configuration Manager für Android- und Samsung KNOX Standard-Geräte, die Geräteeinstellungen zu verwalten."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b66f3c4-e3bb-4f6a-abd5-55be649ff90d
-caps.latest.revision: 17
-caps.handback.revision: 0
+caps.latest.revision: "17"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b9261db93c9bf72c492e3c9be5b30f81835134a
 ms.openlocfilehash: c9961c2e9866199571a1b39a7b185cb6bb96f998
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Android et Samsung KNOX gérés sans le client System Center Configuration Manager
+# <a name="how-to-create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-system-center-configuration-manager-client"></a>Erstellen von Konfigurationselementen für Android- und Samsung KNOX-Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden
 
-Utilisez l’élément de configuration **Android et Samsung KNOX** de System Center Configuration Manager pour gérer les paramètres des appareils Android et Samsung KNOX qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
+Verwenden Sie das System Center Configuration Manager Konfigurationselement für **Android und Samsung KNOX**, um Einstellungen für Android- und Samsung KNOX-Geräte zu verwalten, die in Microsoft Intune registriert sind oder lokal von Configuration Manager verwaltet werden.  
 
-#### <a name="to-create-an-android-and-samsung-knox-configuration-item"></a>Pour créer un élément de configuration Android et Samsung KNOX  
+#### <a name="to-create-an-android-and-samsung-knox-configuration-item"></a>So erstellen Sie ein Konfigurationselement für Android und Samsung KNOX  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité**.  
+1. Wählen Sie in der Configuration Manager-Konsole **Bestand und Kompatibilität** aus.  
 
-2. Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de conformité**, puis choisissez **Éléments de configuration**.  
+2. Erweitern Sie im Arbeitsbereich **Bestand und Konformität** die **Konformitätseinstellungen**, und wählen Sie dann **Konfigurationselemente** aus.  
 
-3. Sous l’onglet **Accueil** , dans le groupe **Créer**, cliquez sur **Créer un élément de configuration**.  
+3. Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** die Option **Konfigurationselement erstellen** aus.  
 
-4. Dans la page **Général** de l’Assistant Création d’élément de configuration, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4. Geben Sie auf der Seite **Allgemein** des Assistenten zum Erstellen von Konfigurationselementen einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
 
-5. Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Android et Samsung KNOX**.  
+5. Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben** den Typ **Android und Samsung KNOX** aus.  
 
-6. Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6. Wählen Sie **Kategorien** aus, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
 
-7. Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes Android ou Samsung KNOX spécifiques chargées d’évaluer l’élément de configuration.  
+7. Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten die jeweilige Android- oder Samsung KNOX-Plattform zur Bewertung des Konfigurationselements aus.  
 
-8. Dans la page **Paramètres de l’appareil** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Informations de référence sur les paramètres d’élément de configuration Android et Samsung KNOX](#BKMK_setref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
-
-    > [!TIP]  
-    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
-
-9. Dans chaque page, configurez les paramètres dont vous avez besoin. Indiquez également si vous voulez les corriger quand ils ne sont pas conformes sur des appareils (quand cela est pris en charge).  
-
-10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
-
-    - **Aucun**. Les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
-
-    - **Informations**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
-
-    - **Avertissement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
-
-    - **Critique**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
-
-    - **Critique avec événement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
-
-11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+8. Wählen Sie auf der Seite **Geräteeinstellungen** des Assistenten die Einstellungsgruppe aus, die Sie konfigurieren möchten. Informieren Sie sich in diesem Thema unter [Referenz zu Einstellungen des Konfigurationselements für Android und Samsung KNOX](#BKMK_setref) über die Details, und klicken Sie dann auf **Weiter**.  
 
     > [!TIP]  
-    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+    >  Ist die gewünschte Einstellung nicht aufgeführt, aktivieren Sie das Kontrollkästchen **Zusätzliche Einstellungen konfigurieren, die in den Standardeinstellungsgruppen nicht enthalten sind**.  
 
-12. Fermez l'Assistant.  
+9. Konfigurieren Sie auf jeder Einstellungsseite die erforderlichen Einstellungen. Legen Sie außerdem fest, ob sie korrigiert werden sollen, wenn sie auf Geräten nicht kompatibel sind (sofern unterstützt).  
 
- Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et conformité** .  
+10. Sie können für jede Einstellungsgruppe auch den Schweregrad konfigurieren, der gemeldet wird, wenn die Inkompatibilität eines Konfigurationselements festgestellt wird:  
 
-## <a name="android-and-samsung-knox-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Android et Samsung KNOX  
+    - **Keiner**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
 
-### <a name="password"></a>Mot de passe  
-Ces paramètres s’appliquent aux périphériques Android et Samsung KNOX.  
+    - **Information**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
 
-|Paramètre|Détails|  
+    - **Warnung**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
+
+    - **Kritisch**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
+
+    - **Kritisch mit Ereignis**. Von Geräten, bei denen bei dieser Kompatibilitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird zudem im Anwendungsereignisprotokoll als Windows-Ereignis protokolliert.  
+
+11. Überprüfen Sie auf der Seite **Plattformanwendbarkeit** des Assistenten alle Einstellungen, die mit den zuvor ausgewählten unterstützten Plattformen nicht kompatibel sind. Sie können zurückkehren und diese Einstellungen entfernen oder den Vorgang fortsetzen.  
+
+    > [!TIP]  
+    >  Nicht unterstützte Einstellungen werden nicht auf Kompatibilität überprüft.  
+
+12. Beenden Sie den Assistenten.  
+
+ Sie können das neue Konfigurationselement im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Konfigurationselemente** anzeigen.  
+
+## <a name="android-and-samsung-knox-configuration-item-settings-reference"></a>Referenz zu Einstellungen des Konfigurationselements für Android und Samsung KNOX  
+
+### <a name="password"></a>Kennwort  
+Diese Einstellungen gelten für Android- und Samsung KNOX-Geräte.  
+
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Exiger des paramètres de mot de passe sur les appareils**|Exige un mot de passe sur les appareils pris en charge.|  
-|**Longueur minimale du mot de passe (caractères)**|Spécifie la longueur minimale du mot de passe.|  
-|**Expiration du mot de passe en jours**|Spécifie le nombre de jours avant qu’un mot de passe ne doive être modifié.|  
-|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l’appareil si le nombre d’échecs de tentative est atteint.|  
-|**Durée d’inactivité avant le verrouillage de l’appareil**|Spécifie le laps de temps au bout duquel l’appareil est verrouillé en cas de non-utilisation.|
-|**Qualité du mot de passe**|Spécifie le niveau de complexité du mot de passe requis et si les appareils biométriques peuvent être utilisés.|  
-|**Autoriser Smart Lock et d’autres agents de confiance**|Ce paramètre vous permet de contrôler la fonctionnalité Smart Lock sur les appareils Android compatibles. Cette fonctionnalité du téléphone vous permet de désactiver ou de contourner le mot de passe de l’écran de verrouillage de l’appareil si celui-ci se trouve dans un emplacement approuvé, comme quand il est connecté à un appareil Bluetooth spécifique ou quand il se trouve à proximité d’une balise NFC. Vous pouvez utiliser ce paramètre pour empêcher les utilisateurs finaux de configurer Smart Lock.|
-|**Empreinte digitale pour le déverrouillage (KNOX 5.0+)**|Autorise l’utilisation d’une empreinte digitale pour déverrouiller les appareils compatibles.|
+|**Kennworteinstellungen auf Geräten erforderlich**|Auf unterstützten Geräten ein Kennwort erfordern.|  
+|**Minimale Kennwortlänge (Zeichen)**|Legt die Mindestlänge für das Kennwort fest.|  
+|**Kennwortablauf in Tagen**|Legt fest, nach wie vielen Tagen ein Kennwort spätestens geändert werden muss.|  
+|**Anzahl der gespeicherten Kennwörter**|Verhindert die Wiederverwendung zuvor verwendeter Kennwörter.|  
+|**Anzahl der gescheiterten Anmeldeversuche vor dem Zurücksetzen eines Geräts**|Setzt das Gerät zurück, wenn diese Anzahl von Anmeldeversuchen fehlschlägt.|  
+|**Leerlaufzeit vor dem Sperren des Geräts**|Legt die Zeitspanne fest, nach der das Gerät bei Nichtverwendung gesperrt wird.|
+|**Kennwortqualität**|Legt den erforderlichen Grad der Kennwortkomplexität fest und bestimmt, ob biometrische Geräte zulässig sind.|  
+|**Zulassen von Smart Lock und anderen Vertrauens-Agents**|Damit können Sie das Smart Lock-Feature auf kompatiblen Android-Geräten steuern. Diese Telefonfunktion ermöglicht Ihnen das Deaktivieren oder Umgehen des Kennworts für den Gerätesperrbildschirm, wenn sich das Gerät an einem vertrauenswürdigen Standort befindet, z.B. wenn es mit einem bestimmten Bluetooth-Gerät verbunden ist oder sich in der Nähe eines NFC-Tags befindet. Mit dieser Einstellung können Sie verhindern, dass Benutzer Smart Lock konfigurieren.|
+|**Fingerabdruck zum Entsperren (KNOX 5.0+)**|Ermöglicht das Entsperren kompatibler Geräte mittels Fingerabdruck.|
 
-### <a name="device"></a>Appareil   
+### <a name="device"></a>Gerät   
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |------------------|-------------|  
-|**Numérotation vocale**|Active ou désactive la fonctionnalité de numérotation vocale sur l’appareil.|
-|**Assistant vocal**|Autorise l’utilisation du logiciel Assistant vocal sur l’appareil.|
-|**Capture d'écran**|Permet à l’utilisateur de capturer le contenu de l’écran en tant qu’image.|
-|**Envoi des données de diagnostic**|Autorise l’appareil à envoyer des informations de diagnostic à Google.|
-|**Géolocalisation**|Autorise l’appareil à utiliser les informations d’emplacement.|
-|**Copier et coller**|Autorise les fonctions Copier et Coller sur l’appareil.|
-|**Réinitialisation aux paramètres d’usine**|Autorise l'utilisateur à rétablir les paramètres d’usine de l’appareil.|  |
-|**Partage du Presse-papiers entre les applications**|Autorise l’utilisateur à utiliser le Presse-papiers pour copier-coller entre les applications.|  |
-|**BlueTooth**|Autorise l’utilisation de la fonction Bluetooth sur l’appareil.|
+|**Sprachwahlverfahren**|Aktiviert oder deaktiviert das Feature „Sprachwahlverfahren“ auf dem Gerät.|
+|**Sprach-Assistent**|Ermöglicht die Verwendung von Sprach-Assistent-Software auf dem Gerät.|
+|**Bildschirmaufnahme**|Ermöglicht dem Benutzer, den Bildschirminhalt als Image zu erfassen.|
+|**Übermittlung von Diagnosedaten**|Erlaubt dem Gerät, Diagnoseinformationen an Google zu senden.|
+|**Geolocation**|Erlaubt dem Gerät die Verwendung von Standortinformationen.|
+|**Kopieren und Einfügen**|Erlaubt die Verwendung der Funktionen zum Kopieren und Einfügen auf dem Gerät.|
+|**Zurücksetzen auf Werkseinstellungen**|Ermöglicht dem Benutzer das Zurücksetzen des Geräts auf die Werkseinstellungen.|  |
+|**Freigabe der Zwischenablage zwischen Anwendungen**|Ermöglicht dem Benutzer die Verwendung der Zwischenablage zum Kopieren und Einfügen zwischen Apps.|  |
+|**Bluetooth**|Ermöglicht die Verwendung von Bluetooth auf dem Gerät.|
 
-### <a name="store"></a>Magasin
+### <a name="store"></a>Speicher
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |------------------|-------------|  
-|**Boutique d'applications**|Autorise l’utilisateur à accéder à Google Play Store sur l’appareil.|
+|**Anwendungsstore**|Erlaubt dem Benutzer den Zugriff auf Google Play Store auf dem Gerät.|
 
-### <a name="browser"></a>Navigateur
+### <a name="browser"></a>Browser
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |------------------|-------------|  
-|**Autoriser le navigateur web**|Autorise l’utilisation du navigateur web par défaut de l’appareil.|
-|**Remplissage automatique**|Autorise l’utilisation de la fonction de remplissage automatique du navigateur web.|
-|**Active scripting**|Autorise le navigateur web de l’appareil à utiliser Active Scripting.|
-|**Bloqueur de fenêtres publicitaires**|Autorise l’utilisation du bloqueur de fenêtres publicitaires dans le navigateur web.|
-|**Cookies**|Autorise le navigateur web de l’appareil à utiliser les cookies.|
+|**Webbrowser zulassen**|Ermöglicht die Verwendung des Standardwebbrowsers des Geräts.|
+|**Automatisch ausfüllen**|Erlaubt die Verwendung der AutoAusfüllen-Funktion des Webbrowsers.|
+|**Active Scripting**|Ermöglicht dem Webbrowser des Geräts die Verwendung von Active Scripting.|
+|**Popupblocker**|Ermöglicht die Verwendung des Popupblockers im Webbrowser.|
+|**Cookies**|Ermöglicht dem Webbrowser des Geräts die Verwendung von Cookies.|
 
 ### <a name="cloud"></a>Cloud  
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Sauvegarde Google**|Autorise l’utilisation de la sauvegarde Google.|  
-|**Synchronisation automatique de compte Google**|Autorise la synchronisation automatique des paramètres du compte Google.|  
+|**Google-Sicherung**|Erlaubt die Verwendung der Google-Sicherung.|  
+|**Automatische Synchronisierung mit Google-Konto**|Ermöglicht die automatische Synchronisierung der Einstellungen von Google-Konten.|  
 
-### <a name="security"></a>Sécurité  
+### <a name="security"></a>Sicherheit  
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Messagerie SMS et MMS**|Autorise l’utilisation des messages SMS et MMS sur l’appareil.|
-|**Stockage amovible**|Autorise l’appareil à utiliser du stockage amovible, comme une carte SD.|
-|**Appareil photo**|Autorise l’utilisation de l’appareil photo de l’appareil.<br /><br /> S’applique aux périphériques Android et Samsung KNOX.|
-|**Communication en champ proche (NFC)**|Autorise les tâches qui utilisent la communication en champ proche si l’appareil la prend en charge.|
-|**YouTube**|Autorise l’utilisation de l’application YouTube sur l’appareil.<br /><br /> S’applique uniquement aux périphériques Samsung KNOX.|  
-|**Mise hors tension**|Autorise la mise hors tension de l'appareil.<br /><br /> S’applique uniquement aux périphériques Samsung KNOX.|  
+|**SMS- und MMS-Nachrichten**|Ermöglicht die Verwendung von SMS- und MMS-Nachrichten auf dem Gerät.|
+|**Wechselmedien**|Ermöglicht dem Gerät die Verwendung von Wechselmedien, z.B. SD-Karten.|
+|**Kamera**|Ermöglicht die Verwendung der Gerätekamera.<br /><br /> Gilt für Android- und Samsung KNOX-Geräte.|
+|**NFC (Near Field Communication)**|Erlaubt Aufgaben, die NFC (Near Field Communication) verwenden, wenn dies vom Gerät unterstützt wird.|
+|**YouTube**|Ermöglicht die Verwendung der YouTube-App auf dem Gerät.<br /><br /> Gilt nur für Samsung KNOX-Geräte.|  
+|**Ausschalten**|Ermöglicht das Ausschalten des Geräts.<br /><br /> Gilt nur für Samsung KNOX-Geräte.|  
 
-### <a name="roaming"></a>Itinérant
+### <a name="roaming"></a>Roaming
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |-------------|-------------|  
-|Itinérance vocale|Autorise l’itinérance vocale quand l’appareil se trouve sur un réseau cellulaire.|
-|Itinérance des données|Autorise l’itinérance de données quand l’appareil se trouve sur un réseau cellulaire.|
+|Sprachroaming|Lässt Sprachroaming über das Mobilfunknetz zu.|
+|Datenroaming|Lässt Datenroaming über das Mobilfunknetz zu.|
 
 
-### <a name="encryption"></a>Chiffrement  
- Ces paramètres s’appliquent aux périphériques Android et Samsung KNOX.  
+### <a name="encryption"></a>Verschlüsselung  
+ Diese Einstellungen gelten für Android- und Samsung KNOX-Geräte.  
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Chiffrement de la carte de stockage**|Requiert le chiffrement de la carte de stockage de l’appareil.|
-|**Chiffrement des fichiers sur l’appareil**|Requiert que les fichiers de l'appareil mobile soient chiffrés.|  
+|**Speicherkartenverschlüsselung**|Erfordert die Verschlüsselung der Speicherkarte des Geräts.|
+|**Dateiverschlüsselung auf Gerät**|Erfordert die Verschlüsselung von Dateien auf dem mobilen Gerät.|  
 
-### <a name="wireless-communications"></a>Communications sans fil
+### <a name="wireless-communications"></a>Funkkommunikation
 
-|Paramètre|Détails|  
+|Einstellung|Details|  
 |-------------|-------------|  
-|**Connexion réseau sans fil**|Autorise l’utilisation des fonctionnalités Wi-Fi de l’appareil.|
-|**Connexion Wi-Fi**|Autorise l’utilisation de la connexion Wi-Fi sur l’appareil.|
+|**Drahtlosnetzwerkverbindung**|Ermöglicht die Verwendung der WLAN-Funktionen des Geräts.|
+|**WLAN-Tethering**|Ermöglicht die Verwendung von WLAN-Tethering auf dem Gerät.|
 
 
-### <a name="compliant-and-noncompliant-apps-android"></a>Applications conformes et non conformes (Android)  
-Vous pouvez spécifier la liste des applications Android conformes ou non conformes dans votre entreprise. Vous pouvez ensuite utiliser des rapports pour afficher les appareils sur lesquels sont installées des applications non conformes et l’utilisateur associé.  
+### <a name="compliant-and-noncompliant-apps-android"></a>Kompatible und nicht kompatible Apps (Android)  
+Sie können eine Liste von Android-Apps angeben, die in Ihrem Unternehmen kompatibel oder nicht kompatibel sind. Anschließend können Sie mithilfe von Berichten Geräte, auf denen nicht kompatible Apps installiert sind, und dazugehörige Benutzer bestimmen.  
 
-Vous ne pouvez pas spécifier à la fois les applications conformes et non conformes dans le même élément de configuration.  
+Es ist nicht möglich, kompatible und nicht kompatible Apps im selben Konfigurationselement anzugeben.  
 
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Pour spécifier la liste des applications conformes ou non conformes  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>So geben Sie eine Liste mit kompatiblen bzw. nicht kompatiblen Apps an  
 
-Dans la page **Applications conformes et non conformes (Android)** , spécifiez les informations suivantes :  
+Geben Sie auf der Seite **Kompatible und nicht kompatible Apps (Android)** die folgenden Informationen ein:  
 
-|Paramètre|Plus d'informations|  
+|Einstellung|Weitere Informationen|  
 |-------------|----------------------|  
-|**Liste des applications non conformes**|Spécifie une liste d’applications qui sont signalées comme non conformes si elles sont installées par les utilisateurs.|  
-|**Liste des applications conformes**|Spécifie la liste des applications que les utilisateurs sont autorisés à installer. Toutes les autres applications installées sont signalées comme non conformes.|  
-|**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez le nom de votre choix, éventuellement l’éditeur de l’application, ainsi que l’URL de l’application dans la boutique d’applications.<br /><br /> Pour spécifier l’URL, dans la [section Applications de Google Play](https://play.google.com/store/apps), recherchez l’application à utiliser.<br /><br /> Ouvrez la page de l'application, puis copiez l'URL dans le Presse-papiers. Vous pouvez maintenant utiliser cette URL dans la liste des applications conformes ou non conformes.<br /><br /> **Exemple :** recherchez Google Play pour **Microsoft Office Mobile**. L’URL utilisée est **https://play.google.com/store/apps/details?id=com.microsoft.office.officehub**.|  
-|**Éditer**|Vous permet de modifier le nom, l’éditeur et l’URL de l’application sélectionnée.|  
-|**Supprimer**|Supprime l'application sélectionnée dans la liste.|  
-|**Importerer**|Importe une liste d’applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l’application, Éditeur, URL de l’application dans le fichier.|  
+|**Liste nicht kompatibler Apps**|Legt eine Liste von Apps fest, die als nicht kompatibel gemeldet werden, wenn sie von Benutzern installiert werden.|  
+|**Liste kompatibler Apps**|Legt eine Liste von Apps fest, die Benutzer installieren dürfen. Alle anderen installierten Apps werden als nicht kompatibel gemeldet.|  
+|**Hinzufügen**|Fügt eine App zur ausgewählten Liste hinzu. Geben Sie einen Namen Ihrer Wahl und optional den Herausgeber der App an. Geben Sie zudem die URL zur App im App-Store an.<br /><br /> Zum Angeben der URL suchen Sie im [Bereich „Apps“ von Google Play](https://play.google.com/store/apps) die App, die Sie verwenden möchten.<br /><br /> Öffnen Sie die Seite der App, und kopieren Sie die URL in die Zwischenablage. Jetzt können Sie diese als URL in der Liste mit kompatiblen oder nicht kompatiblen Apps verwenden.<br /><br /> **Beispiel:** Suchen Sie in Google Play nach **Microsoft Office Mobile**. Die URL, die Sie verwenden, ist **https://play.google.com/store/apps/details?id=com.microsoft.office.officehub**.|  
+|**Bearbeiten**|Ermöglicht Ihnen das Bearbeiten von Name, Herausgeber und URL der ausgewählten App.|  
+|**Entfernen**|Löscht die ausgewählte App aus der Liste.|  
+|**Importieren**|Importiert eine Liste von Apps, die Sie in einer CSV-Datei angegeben haben. Verwenden Sie in der Datei das Format, den Anwendungsnamen, den Herausgeber und die App-URL.|  
 
-## <a name="android-for-work-configuration-items"></a>Éléments de configuration Android for Work
-Android for Work a deux groupes de paramètres pour les éléments de configuration :
+## <a name="android-for-work-configuration-items"></a>Konfigurationselemente für Android for Work
+Android for Work hat zwei Einstellungsgruppen für Konfigurationselemente:
 
-- **Mot de passe**. Identique aux paramètres d’Android « classique ».
+- **Kennwort**. Identisch mit den Einstellungen für „klassisches“ Android.
 
-- **Profil professionnel**. Active les paramètres Android for Work suivants :
-  -    **Autoriser le partage de données entre les profils personnels et professionnels**
-  - **Masquer les notifications de profil professionnel quand l’appareil est verrouillé (Android 6.0+)**
-  -    **Configurer la stratégie d’autorisation d’application par défaut** (Android 6.0+)
+- **Work-Profil**. Ermöglicht die folgenden Android for Work-Einstellungen:
+  - **Ermöglicht die Datenfreigabe zwischen Arbeits- und persönlichen Profilen**
+  - **Arbeitsprofilbenachrichtigungen bei gesperrtem Gerät ausblenden** (Android 6.0 und höher)
+  - **Standard-App-Berechtigungsrichtlinie einrichten** (Android 6.0 und höher)
 
-Pour créer un élément de configuration dans le profil professionnel Android, choisissez **Android for Work** dans la page **Général** et configurez les paramètres pour chacun des groupes de paramètres. Ajoutez l’élément de configuration à une base de référence et procédez au déploiement normalement. Ces paramètres s’appliquent uniquement aux appareils inscrits en tant que Android for Work, et pas à ceux inscrits en tant que Android.
+Um ein Konfigurationselement im Android-Arbeitsprofil zu erstellen, wählen Sie **Android for Work** auf der Seite **Allgemein** aus, und konfigurieren Sie die Einstellungen für jede der Einstellungsgruppen, indem Sie das Konfigurationselement in die Baseline einfügen und wie gewohnt bereitstellen. Diese Einstellungen gelten nur für Geräte, die als „Android for Work“ registriert sind, und nicht für die Geräte, die nur als „Android“ registriert wurden.
 
-### <a name="kiosk-mode-samsung-knox-only"></a>Mode plein écran (Samsung KNOX uniquement)  
-Vous pouvez utiliser le mode plein écran pour verrouiller un appareil pour n’autoriser que le fonctionnement de certaines fonctionnalités. Par exemple, vous pouvez autoriser un appareil à exécuter seulement une application gérée que vous spécifiez ou vous pouvez désactiver les boutons de volume sur un appareil. Ces paramètres peuvent être utilisés pour un modèle de démonstration d’un appareil. Ou pour un appareil dédié à l’exécution d’une seule fonction, par exemple dans un point de vente.  
+### <a name="kiosk-mode-samsung-knox-only"></a>Kioskmodus (nur Samsung KNOX)  
+Mithilfe des Kioskmodus können Sie ein Gerät sperren, damit nur bestimmte Features verwendet werden können. Beispielsweise können Sie festlegen, dass auf einem Gerät nur eine von Ihnen angegebene verwaltete App ausgeführt werden kann, oder Sie können die Lautstärkeregler eines Geräts deaktivieren. Diese Einstellung können beispielsweise für ein Demomodell eines Geräts verwendet werden. oder für ein Gerät nützlich sein, das nur eine bestimmte Funktion ausführen soll, wie z.B. ein Point-of-Sale-Gerät.  
 
-#### <a name="to-configure-kiosk-mode-for-a-samsung-knox-device"></a>Pour configurer le mode plein écran pour un appareil Samsung KNOX  
+#### <a name="to-configure-kiosk-mode-for-a-samsung-knox-device"></a>So konfigurieren Sie den Kioskmodus für ein Samsung KNOX-Gerät  
 
-1. Dans la page **Configurer les paramètres du mode plein écran pour les appareils Samsung KNOX** de l’Assistant Création d’élément de configuration, spécifiez les informations suivantes :  
+1. Geben Sie im Assistenten zum Erstellen von Konfigurationselementen auf der Seite **Kioskmoduseinstellungen für Samsung KNOX-Geräte konfigurieren** die folgenden Informationen an:  
 
-   |Paramètre|Plus d'informations|  
+   |Einstellung|Weitere Informationen|  
    |-------------|----------------------|  
-   |**Sélectionner l’application**|Choisissez **Parcourir** pour sélectionner une application Android Configuration Manager (avec l’extension **.apk**) autorisée à s’exécuter quand l’appareil est en mode plein écran. Aucune autre application ne pourra s'exécuter sur l'appareil.|  
-   |**Boutons du volume**|Active ou désactive l'utilisation des boutons de volume sur l'appareil.|  
-   |**Bouton Veille et sortie de veille de l'écran**|Active ou désactive le bouton Veille/sortie de veille de l'écran sur l'appareil.|  
+   |**App auswählen**|Klicken Sie auf **Durchsuchen**, um eine Configuration Manager-Android-Anwendung (mit der Erweiterung **.apk**) auszuwählen, die beim Betrieb des Geräts im Kioskmodus ausgeführt werden darf. Andere Apps dürfen auf dem Gerät nicht ausgeführt werden.|  
+   |**Lautstärkeregler**|Aktiviert oder deaktiviert die Verwendung der Lautstärkeregler am Gerät.|  
+   |**Schaltfläche für Standby und Aktivieren**|Aktiviert oder deaktiviert die Taste für Standby/Aktivierung des Bildschirms am Gerät.|  
 
-2. Lorsque vous avez terminé, choisissez **Suivant**.  
+2. Klicken Sie danach auf **Weiter**.  
 
-## <a name="reports-for-monitoring"></a>Rapports et analyse
-Vous pouvez utiliser l’un des rapports suivants pour surveiller les applications conformes et non conformes :  
+## <a name="reports-for-monitoring"></a>Berichte für die Überwachung
+Sie können einen der folgenden Berichte verwenden, um kompatible und nicht kompatible Apps zu überwachen:  
 
-- **Liste des applications et des appareils non conformes d’un utilisateur spécifié**. Affiche des informations sur les utilisateurs et les appareils qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.  
+- **Liste der nicht kompatiblen Apps und Geräte für einen angegebenen Benutzer**. Zeigt Informationen zu Benutzern und Geräten an, die Apps installiert haben, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.  
 
-- **Résumé des utilisateurs ayant des applications non conformes**. Affiche des informations sur les utilisateurs qui ont installé des applications non conformes avec une stratégie que vous avez spécifiée.  
+- **Zusammenfassung der Benutzer mit nicht kompatiblen Apps**. Zeigt Informationen zu Benutzern an, die Apps installiert haben, die mit einer von Ihnen angegebenen Richtlinie nicht konform sind.  
 
-Pour plus d’informations sur la façon d’utiliser les rapports, consultez [Rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+Weitere Informationen zur Verwendung von Berichten finden Sie unter [Berichterstattung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-## <a name="see-also"></a>Voir aussi  
-[Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
-
+## <a name="see-also"></a>Weitere Informationen:  
+[Konfigurationselemente für Geräte, die ohne den System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

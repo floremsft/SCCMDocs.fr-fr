@@ -1,53 +1,49 @@
 ---
-title: 'Gestion des clients dans une infrastructure VDI (Virtual Desktop Infrastructure) | Microsoft Docs '
-description: "Gérez les clients System Center Configuration Manager dans une infrastructure VDI (Virtual Desktop Infrastructure)."
+title: 'Verwalten von Clients in einer virtuellen Desktopinfrastruktur (Virtual Desktop Infrastructure, VDI) | Microsoft-Dokumentation '
+description: Verwalten Sie System Center Configuration Manager-Clients in einer virtuellen Desktopinfrastruktur (VDI).
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: abd45393-d84e-4583-bc80-74bbb3709577
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 58251f6a4eebac4cba9f3d51f8d0aaad068c3ab8
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: d73daf6427b8c58d21d579f3b41df513cc3e3b0b
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Considérations sur la gestion des clients System Center Configuration Manager dans une infrastructure VDI
+# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Überlegungen zum Verwalten von System Center Configuration Manager-Clients in einer virtuellen Desktopinfrastruktur (VDI)
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager prend en charge l’installation du client Configuration Manager dans les scénarios VDI suivants :  
+System Center Configuration Manager unterstützt die Installation des Configuration Manager-Clients auf den folgenden Szenarios einer virtuellen Desktopinfrastruktur (VDI):  
 
--   **Machines virtuelles personnelles** : les machines virtuelles personnelles sont généralement utilisées quand vous voulez vous assurer que les données et les paramètres utilisateur sont conservés sur les machines virtuelles entre les sessions.  
+-   **Persönliche virtuelle Computer**: Persönliche virtuelle Computer werden normalerweise verwendet, wenn Sie sicherstellen möchten, dass Benutzerdaten und Benutzereinstellungen auf dem virtuellen Computer zwischen den Sitzungen beibehalten werden.  
 
--   **Sessions de services Bureau à distance** : les services Bureau à distance permettent à un serveur d’héberger plusieurs sessions clientes simultanées. Les utilisateurs peuvent se connecter à une session, puis exécuter des applications sur ce serveur.  
+-   **Remotedesktopdienste-Sitzungen**: Mit Remotedesktopdiensten können mehrere Clientsitzungen zugleich auf einem Server gehostet werden. Benutzer können eine Verbindung zu einer Sitzung herstellen und dann Anwendungen auf diesem Server ausführen.  
 
--   **Machines virtuelles regroupées** : les machines virtuelles regroupées ne sont pas conservées entre les sessions. Lorsqu'une session est fermée, toutes les données et tous les paramètres sont supprimés. Les machines virtuelles regroupées sont utiles lorsqu'il est impossible d'utiliser les services Bureau à distance, car une application métier requise ne peut pas s'exécuter sur le serveur Windows hébergeant les sessions clientes.  
+-   **Zusammengefasste virtuelle Computer**: Virtuelle Computer, die in einem Pool zusammengefasst sind, werden zwischen den Sitzungen nicht beibehalten. Wenn eine Sitzung geschlossen wird, werden alle Daten und Einstellungen verworfen. Zusammengefasste virtuelle Computer sind nützlich, wenn die Remotedesktopdienste nicht verwendet werden können, weil eine erforderliche Geschäftsanwendung nicht auf dem Windows-Server, auf dem die Clientsitzung gehostet wird, ausgeführt werden kann.  
 
- Le tableau suivant recense les éléments à prendre en considération pour la gestion du client Configuration Manager dans une infrastructure VDI.  
+ In der folgenden Tabelle sind Überlegungen zur Verwaltung des Configuration Manager-Clients in einer virtuellen Desktopinfrastruktur aufgelistet.  
 
-|Type de machine virtuelle|Éléments à prendre en considération|  
+|Virtueller Computertyp|Überlegungen|  
 |--------------------------|--------------------|  
-|Machines virtuelles personnelles|Configuration Manager traite les machines virtuelles personnelles comme un ordinateur physique. Le client Configuration Manager peut être préinstallé sur l’image de machine virtuelle ou déployé après avoir approvisionné la machine virtuelle.|  
-|Services Bureau à distance|Le client Configuration Manager n’est pas installé pour les sessions Bureau à distance individuelles. Ce client est plutôt installé une seule fois sur le serveur des services Bureau à distance. Toutes les fonctionnalités de Configuration Manager peuvent être utilisées sur le serveur des services Bureau à distance.|  
-|Machines virtuelles regroupées|Quand une machine virtuelle regroupée est mise hors service, les modifications que vous apportez à l’aide de Configuration Manager sont perdues.<br /><br /> Les données renvoyées par les fonctionnalités de Configuration Manager, telles que l’inventaire logiciel, l’inventaire matériel et le contrôle de logiciel peuvent ne pas répondre à vos besoins, car la machine virtuelle risque de ne fonctionner que sur une courte période. Envisagez d'exclure les ordinateurs virtuels regroupés des tâches d'inventaire.|  
+|Persönliche virtuelle Computer|Persönliche virtuelle Computer und physische Computer werden von Configuration Manager identisch behandelt. Der Configuration Manager-Client kann auf dem Image eines virtuellen Computers vorinstalliert oder nach der Bereitstellung des virtuellen Computers bereitgestellt werden.|  
+|Remotedesktopdienste|Der Configuration Manager-Client wird nicht für einzelne Remotedesktopsitzungen installiert. Er wird nur einmal auf dem Remotedesktopdienste-Server installiert. Alle Configuration Manager-Funktionen können auf dem Remotedesktopdienste-Server verwendet werden.|  
+|Zusammengefasste virtuelle Computer|Wenn ein in einem Pool zusammengefasster, virtueller Computer außer Betrieb genommen wird, gehen Änderungen, die Sie mithilfe von Configuration Manager vorgenommen haben, verloren.<br /><br /> Daten, die von Configuration Manager-Funktionen wie Hardwareinventur, Softwareinventur und Softwaremessung zurückgegeben werden, sind für Ihren Bedarf möglicherweise nicht relevant, da der virtuelle Computer möglicherweise nur für eine kurze Dauer funktionsfähig ist. Erwägen Sie, zusammengefasste virtuelle Computer von Inventurtasks auszuschließen.|  
 
- Sachant que la virtualisation prend en charge l’exécution de plusieurs clients Configuration Manager sur un même ordinateur physique, de nombreuses opérations du client possèdent un délai randomisé prédéfini pour les actions planifiées telles que l’inventaire matériel et logiciel, les analyses anti-programmes malveillants, les installations logicielles et les analyses de mises à jour logicielles. Ce délai permet de distribuer le traitement processeur et le transfert de données pour un ordinateur doté de plusieurs machines virtuelles qui exécutent le client Configuration Manager.  
+ Bei der Virtualisierung ist die Ausführung mehrerer Configuration Manager-Clients auf dem gleichen physischen Computer möglich. Aus diesem Grund haben viele Clientvorgänge eine integrierte zufällige Verzögerung für geplante Aktionen wie Hardware- und Softwareinventur, Antischadsoftwareüberprüfungen, Softwareinstallationen und Softwareupdateüberprüfungen. Hierdurch lassen sich die Prozessorauslastung und die Datenübertragung für einen Computer, der mehrere virtuelle Computer mit dem Configuration Manager-Client hat, leichter verteilen.  
 
 > [!NOTE]  
->  À l’exception des clients Windows Embedded en mode maintenance, les clients Configuration Manager qui ne s’exécutent pas dans des environnements virtualisés utilisent aussi ce délai randomisé. Quand le nombre de clients déployés est important, ce comportement permet d’éviter des pics d’utilisation de la bande passante réseau et de réduire les besoins de traitement processeur sur les systèmes de site Configuration Manager, tels que le point de gestion et le serveur de site. L’intervalle du délai varie en fonction de la fonctionnalité de Configuration Manager.  
+>  Diese zufällige Verzögerung wird auch von Configuration Manager-Clients verwendet, die nicht in virtualisierten Umgebungen ausgeführt werden, wobei Windows Embedded-Clients, die sich im Wartungsmodus befinden, die Ausnahme bilden. Wenn es viele bereitgestellte Clients gibt, lassen sich mit diesem Verhalten Spitzen bei der Netzwerkbandbreite vermeiden und die Prozessoranforderungen in den Configuration Manager-Standortsystemen verringern, beispielsweise auf dem Verwaltungspunkt und Standortserver. Das Verzögerungsintervall hängt von der Configuration Manager-Funktionalität ab.  
 >   
->  Le délai de randomisation est désactivé par défaut pour les mises à jour logicielles requises et les déploiements d’applications requis à l’aide du paramètre client suivant : **Agent ordinateur**: **Désactiver la randomisation des échéances**.
-
+>  Die zufällige Verzögerung wird für erforderliche Softwareupdates und Anwendungsbereitstellungen mithilfe der Clienteinstellung **Zufällige Stichtaganordnung deaktivieren**unter **Computer-Agent**standardmäßig deaktiviert.

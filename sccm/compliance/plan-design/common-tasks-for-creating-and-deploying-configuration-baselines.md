@@ -1,90 +1,87 @@
 ---
-title: "Tâches courantes pour les bases de référence de configuration - Configuration Manager | Microsoft Docs"
-description: "Découvrez comment créer et déployer des bases de référence de configuration System Center Configuration Manager."
+title: "Allgemeine Aufgaben für Konfigurationsbaselines – Configuration Manager | Microsoft-Dokumentation"
+description: Erfahren Sie, wie Sie System Center Configuration Manager-Konfigurationsbaselines erstellen und bereitstellen.
 ms.custom: na
 ms.date: 07/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bb6afeb-d267-4f9b-ade2-26e5400c223b
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
 ms.openlocfilehash: 5bf4457af6bedf7bc9cd73c879f1857209c0725d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager
+# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Allgemeine Aufgaben zum Erstellen und Bereitstellen von Konfigurationsbaselines mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique inclut des scénarios courants pour vous permettre de vous familiariser avec la création et le déploiement de bases de référence de configuration System Center Configuration Manager.  
+Dieses Thema enthält häufige Szenarios, mit deren Hilfe Sie mehr über das Erstellen und Bereitstellen von System Center Configuration Manager-Konfigurationsbaselines erfahren.  
 
- Si vous connaissez déjà les paramètres de compatibilité, vous trouverez une documentation détaillée sur toutes les fonctionnalités que vous utilisez dans les rubriques [Créer des bases de référence de configuration](../../compliance/deploy-use/create-configuration-baselines.md) et [Déployer des bases de référence de configuration](../../compliance/deploy-use/deploy-configuration-baselines.md).  
+ Wenn Sie bereits mit Konformitätseinstellungen vertraut sind, finden Sie eine ausführliche Dokumentation zu allen verwendbaren Funktionen in den Themen [Erstellen von Konfigurationsbaselines](../../compliance/deploy-use/create-configuration-baselines.md) und [Bereitstellen von Konfigurationsbaselines](../../compliance/deploy-use/deploy-configuration-baselines.md).  
 
- Avant de commencer, lisez [Bien démarrer avec les paramètres de compatibilité dans System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md) pour apprendre les notions de base sur les paramètres de compatibilité, et lisez également [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) pour implémenter tous les prérequis.  
+ Bevor Sie beginnen, lesen Sie [Erste Schritte mit Konformitätseinstellungen](../../compliance/get-started/get-started-with-compliance-settings.md), um einige Grundlagen zu Konformitätseinstellungen zu erhalten. Lesen Sie zudem [Planen und Konfigurieren von Konformitätseinstellungen](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md), um erforderliche Voraussetzungen zu implementieren.  
 
-## <a name="create-a-configuration-baseline"></a>Créer une base de référence de configuration  
- Dans cet exemple, vous avez créé un élément de configuration uniquement pour les ordinateurs Windows 10 qui exécutent le client Configuration Manager.  
+## <a name="create-a-configuration-baseline"></a>Erstellen einer Konfigurationsbaseline  
+ In diesem Beispiel haben Sie ein Konfigurationselement ausschließlich für Windows 10-PCs erstellt, auf denen der Configuration Manager-Client ausgeführt wird.  
 
- Cet élément de configuration met en œuvre un mot de passe obligatoire d’au moins 6 caractères sur les ordinateurs Windows 10. L’élément de configuration est nommé **Mise en œuvre de mot de passe Windows 10**.  
+ Dieses Konfigurationselement erzwingt ein erforderliches Kennwort mit mindestens 6 Zeichen auf Windows 10-PCs. Das Konfigurationselement hat den Namen **Windows 10 Password Enforcement**.  
 
-Utilisez la procédure suivante pour apprendre à ajouter cet élément de configuration à une base de référence de configuration pour la préparer au déploiement.  
+Mit dem folgenden Verfahren fügen Sie dieses Konfigurationselement zu einer Konfigurationsbaseline hinzu, um es für die Bereitstellung vorzubereiten.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Assets und Konformität** > **Konformitätseinstellungen** > **Konfigurationsbaselines**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une ligne de base de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationsbaseline erstellen**.  
 
-4.  Dans la boîte de dialogue **Créer une base de référence de configuration**, configurez les paramètres suivants :  
+4.  Konfigurieren Sie im Dialogfeld **Konfigurationsbaseline erstellen** die folgenden Einstellungen:  
 
-    -   **Nom** : entrez **Mots de passe Windows 10** (ou un autre nom de votre choix).  
+    -   **Name** : Geben Sie **Windows 10 Passwords** (oder einen anderen Namen Ihrer Wahl) ein.  
 
-5.  Cliquez sur **Ajouter** > **Éléments de Configuration**.  
+5.  Klicken Sie auf **Hinzufügen** > **Konfigurationselemente**.  
 
-6.  Dans la boîte de dialogue **Ajouter des éléments de configuration** , sélectionnez l’élément de configuration **Mise en œuvre de mot de passe Windows 10** que vous avez précédemment créé, puis cliquez sur **Ajouter**.  
+6.  Wählen Sie im Dialogfeld **Konfigurationselemente hinzufügen** das zuvor erstellte Konfigurationselement **Windows 10 Password Enforcement** aus, und klicken Sie dann auf **Hinzufügen**.  
 
-7.  Cliquez sur OK pour fermer la boîte de dialogue **Ajouter des éléments de configuration** et revenir à la boîte de dialogue **Créer une base de référence de configuration**.
+7.  Klicken Sie auf „OK“, um das Dialogfeld **Konfigurationselemente hinzufügen** zu schließen und zum Dialogfeld **Konfigurationsbaseline erstellen** zurückzukehren.
 
-8.  Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une ligne de base de configuration** .  
+8.  Klicken Sie auf **OK** , um das Dialogfeld **Konfigurationsbaseline erstellen** zu schließen.  
 
- Vous pouvez maintenant voir la base de référence de configuration dans le nœud **Bases de référence de configuration** de la console Configuration Manager.  
+ Sie sehen die Konfigurationsbaseline jetzt im Knoten **Konfigurationsbaselines** der Configuration Manager-Konsole.  
 
-## <a name="deploy-the-configuration-baseline"></a>Déployer la base de référence de configuration  
- Dans cet exemple, vous déployez la base de référence de configuration que vous avez créée au cours de la procédure précédente sur un regroupement d’ordinateurs.  
+## <a name="deploy-the-configuration-baseline"></a>Bereitstellen der Konfigurationsbaseline  
+ In diesem Beispiel stellen Sie die im vorherigen Verfahren erstellte Konfigurationsbaseline für eine Sammlung von Computern bereit.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Assets und Konformität** > **Konformitätseinstellungen** > **Konfigurationsbaselines**.  
 
-3.  Dans la liste des bases de référence de configuration, sélectionnez **Mots de passe Windows 10**.  
+3.  Wählen Sie aus der Liste der Konfigurationsbaselines **Windows 10 Passwords**aus.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+4.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen**.  
 
-5.  Dans la boîte de dialogue **Déployer des bases de référence de configuration**, configurez les paramètres suivants :  
+5.  Konfigurieren Sie im Dialogfeld **Konfigurationsbaselines bereitstellen** die folgenden Einstellungen:  
 
-    -   **Lignes de base de configuration sélectionnées** : vérifiez que la base de référence de configuration **Mots de passe Windows 10** a été automatiquement ajoutée à cette liste.  
+    -   **Ausgewählte Konfigurationsbaselines** : Stellen Sie sicher, dass die Konfigurationsbaseline **Windows 10 Passwords** automatisch dieser Liste hinzugefügt wurde.  
 
-    -   **Résoudre les règles non conformes lorsqu’elles sont prises en charge** : cochez cette case pour veiller à ce que, si les paramètres appropriés ne sont pas présents sur les appareils ciblés, ils soient corrigés par Configuration Manager.  
+    -   **Nicht konforme Regeln wiederherstellen, falls dies unterstützt wird**: Aktivieren Sie dieses Kontrollkästchen, um sicherzustellen, dass die Einstellungen von Configuration Manager wiederhergestellt werden, falls auf Zielgeräten nicht die richtigen Einstellungen vorhanden sind.  
 
-    -   **Regroupement** : cliquez sur **Parcourir** pour choisir le regroupement d’ordinateurs sur lequel la base de référence de configuration est évaluée et corrigée à des fins de compatibilité. Dans cet exemple, la base de référence de configuration a été déployée sur le regroupement **Tous les clients bureau et serveur** intégré.  
+    -   **Sammlung**: Klicken Sie auf **Durchsuchen**, um die Sammlung von Computern auszuwählen, auf denen die Konfigurationsbaseline ausgewertet und die Konformität wiederhergestellt wird. In diesem Beispiel wurde die Konfigurationsbaseline für die integrierte Sammlung **Alle Desktop- und Serverclients** bereitgestellt.  
 
         > [!TIP]  
-        >  Ne vous inquiétez pas si le regroupement que vous choisissez contient des ordinateurs ou périphériques qui n’exécutent pas Windows 10. Tant que vous avez configuré des plateformes prises en charge dans l’élément de configuration que vous avez créé, la compatibilité des seuls ordinateurs Windows 10 est évaluée.  
+        >  Es ist unerheblich, ob die ausgewählte Sammlung Computer oder Geräte enthält, auf denen nicht Windows 10 ausgeführt wird. Solange Sie im erstellten Konfigurationselement unterstützte Plattformen konfiguriert haben, wird nur die Konformität von Windows 10-PCs ausgewertet.  
 
-    -   Si nécessaire, configurez la planification selon laquelle la base de référence de configuration est évaluée. Sinon, conservez la valeur par défaut de **7 jours**.  
+    -   Konfigurieren Sie bei Bedarf den Zeitplan, nach dem die Konfigurationsbaseline ausgewertet wird. Andernfalls behalten Sie die Standardeinstellung **7 Tage**bei.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer des lignes de base de configuration** et créer le déploiement.  
+7.  Klicken Sie auf **OK** , um das Dialogfeld **Konfigurationsbaselines bereitstellen** zu schließen und die Bereitstellung zu erstellen.  
 
- Pour examiner rapidement les statistiques de compatibilité de ce déploiement, dans l’espace de travail **Surveillance** , cliquez sur **Déploiements**. Au bas de l’écran, un graphique **Statistiques de compatibilité** est visible.  
+ Um einen kurzen Blick auf die Konformitätsstatistik für diese Bereitstellung zu werfen, klicken Sie im Arbeitsbereich **Überwachung** auf **Bereitstellungen**. Am unteren Bildschirmrand wird ein Diagramm zur **Konformitätsstatistik** angezeigt.  
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Nächste Schritte 
 
-Pour plus d’informations sur la surveillance des bases de référence de configuration, consultez [Surveiller les paramètres de compatibilité](../../compliance/deploy-use/monitor-compliance-settings.md).  
-
+Ausführlichere Informationen zum Überwachen von Konfigurationsbaselines finden Sie unter [Überwachen von Konformitätseinstellungen](../../compliance/deploy-use/monitor-compliance-settings.md).  

@@ -1,117 +1,113 @@
 ---
-title: "Configurer l’état du client | Microsoft Docs"
-description: "Sélectionnez les paramètres d’état du client dans System Center Configuration Manager."
+title: Konfigurieren des Clientstatus | Microsoft-Dokumentation
+description: "Wählen Sie die Clientstatuseinstellungen in System Center Configuration Manager aus."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a2275ba2-c83d-43e7-90ed-418963a707fe
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: 22cc286baa72d3e356a07b91ee0a1be646fa8a9e
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 060d63ab8bce9c3bb39d2db404580b9f59416d33
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Comment configurer l’état du client dans System Center Configuration Manager
+# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Konfigurieren des Clientstatus in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Afin de surveiller l’état du client System Center Configuration Manager et de corriger les problèmes rencontrés, vous devez configurer votre site pour spécifier les paramètres qui sont utilisés pour marquer des clients comme inactifs et configurer des options pour vous avertir si l’activité du client passe sous un seuil spécifié. Il est également possible de désactiver la résolution automatique par les ordinateurs des problèmes rencontrés par l'état du client.  
+Sie müssen zunächst für Ihren Standort die Parameter einrichten, anhand derer Clients als inaktiv gekennzeichnet werden, und Benachrichtigungsoptionen für den Fall konfigurieren, dass ein angegebener Schwellenwert von einer Clientaktivität unterschritten wird, damit Sie den System Center Configuration Manager-Clientstatus überwachen und aufgetretene Probleme beheben können. Sie können außerdem Computer daran hindern, Clientstatusprobleme automatisch zu beheben.  
 
-##  <a name="BKMK_1"></a> Pour configurer l’état du client  
+##  <a name="BKMK_1"></a> So konfigurieren Sie den Clientstatus  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
 
-2.  Dans l'espace de travail **Surveillance** , cliquez sur **État du client**, puis dans l'onglet **Accueil** , dans le groupe **État du client** , cliquez sur **Paramètres d'état du client**.  
+2.  Klicken Sie im Arbeitsbereich **Überwachung** auf **Clientstatus**und dann auf der Registerkarte **Startseite** in der Gruppe **Clientstatus** auf **Client-Statuseinstellungen**.  
 
-3.  Dans la boîte de dialogue **Propriétés des paramètres d'état des clients** , spécifiez les valeurs suivantes pour déterminer l'activité du client :  
-
-    > [!NOTE]  
-    >  Si aucun des paramètres n'est satisfait, le client sera marqué comme inactif.  
-
-    -   **Demandes de stratégie client lors des jours suivants :** Spécifiez le nombre de jours depuis qu'un client a demandé une stratégie. La valeur par défaut est **7** jours.  
-
-    -   **Découverte par pulsations d'inventaire lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement de découverte par pulsations d'inventaire à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Inventaire matériel lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement d'inventaire matériel à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Inventaire des logiciels lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement d'inventaire logiciel à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Messages d'état lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé des messages d'état à la base de données du site. La valeur par défaut est **7** jours.  
-
-4.  Dans la boîte de dialogue **Propriétés des paramètres d'état des clients** , spécifiez la valeur suivante pour déterminer la durée pendant laquelle les données de l'historique d'état du client sont conservées :  
-
-    -   **Conserver l'historique de l'état du client pendant le nombre de jours suivant :** Spécifiez la durée pendant laquelle vous voulez que l'historique de l'état du client soit conservé dans la base de données du site. La valeur par défaut est **31** jours.  
-
-5.  Cliquez sur **OK** pour enregistrer les propriétés et fermer la boîte de dialogue **Propriétés des paramètres d'état des clients** .  
-
-##  <a name="BKMK_Schedule"></a> Pour configurer le calendrier de l’état du client  
-
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
-
-2.  Dans l'espace de travail **Surveillance** , cliquez sur **État du client**, puis dans l'onglet **Accueil** , dans le groupe **État du client** , cliquez sur **Planifier la mise à jour de l'état des clients**.  
-
-3.  Dans la boîte de dialogue **Planifier la mise à jour de l'état des clients** , configurez la fréquence à laquelle vous souhaitez que l'état des clients soit mis à jour, puis cliquez sur OK.  
+3.  Geben Sie im Dialogfeld **Eigenschaften der Clientstatuseinstellungen** die folgenden Werte zum Bestimmen der Clientaktivität an:  
 
     > [!NOTE]  
-    >  Lorsque vous modifiez la planification des mises à jour de l'état des clients, la mise à jour ne prend effet que lors de la mise à jour de l'état des clients suivante (selon le calendrier précédemment configuré).  
+    >  Wenn keine dieser Einstellungen zutrifft, wird der Client als inaktiv gekennzeichnet.  
 
-##  <a name="BKMK_2"></a> Pour configurer des alertes liées à l’état du client  
+    -   **Clientrichtlinienanforderungen innerhalb der folgenden Tage:** Geben Sie die Anzahl von Tagen seit der letzten Richtlinienanforderung durch einen Client an. Der Standardwert ist **7** Tage.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+    -   **Taktermittlung innerhalb der folgenden Tage:** Geben Sie die Anzahl von Tagen seit der letzten Übermittlung eines Frequenzermittlungsdatensatzes an die Standortdatenbank durch den Clientcomputer an. Der Standardwert ist **7** Tage.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements de périphériques**.  
+    -   **Hardwareinventur innerhalb der folgenden Tage:** Geben Sie die Anzahl von Tagen seit der letzten Übermittlung eines Hardwareinventurdatensatzes an die Standortdatenbank durch den Clientcomputer an. Der Standardwert ist **7** Tage.  
 
-3.  Dans la liste **Regroupements de périphériques** , sélectionnez le regroupement pour lequel vous souhaitez configurer des alertes, puis cliquez sur **Propriétés** dans l'onglet **Accueil** , du groupe **Propriétés**.  
+    -   **Softwareinventur innerhalb der folgenden Tage:** Geben Sie die Anzahl von Tagen seit der letzten Übermittlung eines Softwareinventurdatensatzes an die Standortdatenbank durch den Clientcomputer an. Der Standardwert ist **7** Tage.  
+
+    -   **Statusmeldungen innerhalb der folgenden Tage:** Geben Sie die Anzahl von Tagen seit der letzten Übermittlung von Statusmeldungen an die Standortdatenbank durch den Clientcomputer an. Der Standardwert ist **7** Tage.  
+
+4.  Geben Sie im Dialogfeld **Eigenschaften der Clientstatuseinstellungen** die folgenden Werte an, um festzulegen, wie lange Verlaufsdaten für den Clientstatus beibehalten werden:  
+
+    -   **Clientstatusverlauf für die folgende Anzahl von Tagen beibehalten:** Geben Sie an, wie lange der Clientstatusverlauf in der Standortdatenbank gespeichert werden soll. Der Standardwert ist **31** Tage.  
+
+5.  Klicken Sie auf **OK** , um die Eigenschaften zu speichern und das Dialogfeld **Eigenschaften der Clientstatuseinstellungen** zu schließen.  
+
+##  <a name="BKMK_Schedule"></a> So konfigurieren Sie den Zeitplan für den Clientstatus  
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**.  
+
+2.  Klicken Sie im Arbeitsbereich **Überwachung** auf **Clientstatus**und dann auf der Registerkarte **Startseite** in der Gruppe **Clientstatus** auf **Aktualisierung des Clientstatus planen**.  
+
+3.  Konfigurieren Sie im Dialogfeld **Aktualisierung des Clientstatus planen** das Intervall für die Aktualisierung des Clientstatus, und klicken Sie dann auf "OK".  
 
     > [!NOTE]  
-    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.  
+    >  Wenn Sie den Zeitplan für Clientstatusaktualisierungen ändern, treten die Änderungen erst mit der nächsten geplanten Clientstatusaktualisierung (nach dem zuvor konfigurierten Zeitplan) in Kraft.  
 
-4.  Sous l’onglet **Alertes** de la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*, cliquez sur **Ajouter**.  
+##  <a name="BKMK_2"></a> So konfigurieren Sie Warnungen für den Clientstatus  
+
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.  
+
+2.  Klicken Sie im Arbeitsbereich **Bestand und Kompatibilität** auf **Gerätesammlungen**.  
+
+3.  Wählen Sie in der Liste **Gerätesammlungen** die Sammlung aus, für die Sie Warnungen konfigurieren möchten, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** auf **Eigenschaften**.  
 
     > [!NOTE]  
-    >  L'onglet **Alertes** n'est visible que si le rôle de sécurité auquel vous êtes associé dispose d'autorisations pour les alertes.  
+    >  Es können keine Benachrichtigungen für Benutzersammlungen konfiguriert werden.  
 
-5.  Dans la boîte de dialogue **Ajouter de nouvelles alertes de regroupement** , choisissez les alertes que vous souhaitez générer lorsque les seuils d'état du client passent sous une valeur spécifique, puis cliquez sur **OK**.  
+4.  Klicken Sie auf der Registerkarte **Warnungen** des Dialogfelds **Eigenschaften** von *&lt;Sammlungsname\>* auf **Hinzufügen**.  
 
-6.  Dans la liste **Conditions** de l'onglet **Alertes** , sélectionnez chaque alerte relative à l'état du client, puis spécifiez les informations suivantes.  
+    > [!NOTE]  
+    >  Die Registerkarte **Warnungen** wird nur angezeigt, wenn die Ihnen zugewiesene Sicherheitsrolle über Berechtigungen für Warnungen verfügt.  
 
-    -   **Nom d’alerte** – Acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.  
+5.  Wählen Sie im Dialogfeld **Neue Sammlungswarnungen hinzufügen** die Warnungen aus, die beim Unterschreiten bestimmter Clientstatuswerte generiert werden sollen, und klicken Sie dann auf **OK**.  
 
-    -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
+6.  Wählen Sie auf der Registerkarte **Warnungen** in der Liste **Bedingungen** die einzelnen Clientstatuswarnungen aus, und geben Sie für jede Warnung die folgenden Informationen an:  
 
-    -   **Déclencher l’alerte** – Spécifiez le pourcentage seuil pour l’alerte.  
+    -   **Warnungsname** – Übernehmen Sie den Standardnamen, oder geben Sie einen neuen Namen für die Warnung ein.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*.  
+    -   **Warnungsschweregrad** – Wählen Sie in der Dropdownliste den Schweregrad aus, der in der Configuration Manager-Konsole angezeigt werden soll.  
 
-##  <a name="BKMK_3"></a> Pour exclure des ordinateurs de la résolution automatique  
+    -   **Warnung auslösen** – Geben Sie den Schwellenwert für die Warnung in Prozent an.  
 
-1.  Ouvrez l'éditeur du Registre sur l'ordinateur client pour lequel vous souhaitez désactiver la résolution automatique.  
+7.  Klicken Sie auf **OK**, um das Dialogfeld **Eigenschaften** von *&lt;Sammlungsname\>* zu schließen.  
+
+##  <a name="BKMK_3"></a> So schließen Sie Computer von der automatischen Wiederherstellung aus  
+
+1.  Öffnen Sie auf dem Clientcomputer, für den die automatische Wiederherstellung deaktiviert werden soll, den Registrierungs-Editor.  
 
     > [!WARNING]  
-    >  Une utilisation incorrecte de l'Éditeur du Registre peut éventuellement provoquer de graves problèmes, lesquels nécessitent parfois la réinstallation complète du système d'exploitation. Microsoft ne garantit pas la résolution des erreurs résultant d'une utilisation incorrecte de l'Éditeur du Registre. Les opérations exécutées dans l'Éditeur du Registre le sont à vos propres risques.  
+    >  Durch eine unsachgemäße Verwendung des Registrierungs-Editors können schwerwiegende Fehler auftreten, die möglicherweise eine Neuinstallation des Betriebssystems erforderlich machen. Microsoft kann nicht garantieren, dass Probleme, die aufgrund einer unsachgemäßen Verwendung des Registrierungs-Editors entstehen, behoben werden können. Die Verwendung des Registrierungs-Editors erfolgt auf eigene Gefahr.  
 
-2.  Accédez à **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
+2.  Wechseln Sie zu **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
 
-3.  Entrez l'une des valeurs suivantes pour cette clé de Registre :  
+3.  Geben Sie einen der folgenden Werte für diesen Registrierungsschlüssel an:  
 
-    -   **Vrai** – L’ordinateur client ne résoudra pas automatiquement les problèmes détectés. Vous serez toutefois alerté dans l'espace de travail **Surveillance** des problèmes survenus pour ce client.  
+    -   **True** – Auf dem Clientcomputer aufgetretene Probleme werden nicht automatisch behoben. Sie werden aber auch weiterhin im Arbeitsbereich **Überwachung** über Probleme bei diesem Client informiert.  
 
-    -   **Faux** – L’ordinateur client résoudra automatiquement les problèmes détectés et vous serez alerté dans l’espace de travail **Surveillance**. Il s'agit du paramètre par défaut.  
+    -   **False** – Auf dem Clientcomputer aufgetretene Probleme werden automatisch behoben, und Sie werden im Arbeitsbereich **Überwachung** darüber informiert. Dies ist die Standardeinstellung.  
 
-4.  Fermez l'éditeur du Registre.  
+4.  Schließen Sie den Registrierungs-Editor.  
 
- Vous pouvez également installer des clients à l'aide de la propriété d'installation CCMSetup **NotifyOnly** pour les exclure de la résolution automatique. Pour plus d’informations sur cette propriété d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
-
+ Sie können Clients auch mithilfe der CCMSetup-Installationseigenschaft **NotifyOnly** installieren, um sie von der automatischen Wiederherstellung auszuschließen. Weitere Informationen zu den Clientinstallationseigenschaften finden Sie unter [Informationen zu Clientinstallationseigenschaften in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  

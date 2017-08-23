@@ -1,184 +1,180 @@
 ---
-title: "Exemple de scénario : Déployer des clients Windows Embedded | Microsoft Docs"
-description: "Consultez un exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded."
+title: "Beispielszenario – Bereitstellen von Windows Embedded-Clients | Microsoft-Dokumentation"
+description: "Stellt ein Beispielszenario für die Bereitstellung und Verwaltung von System Center Configuration Manager-Clients auf Windows Embedded-Geräten dar."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 10049c89-b37c-472b-b317-ce4f56cd4be7
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a650ad8e7b1f9468dd04165a3e43a89387b5d696
-ms.openlocfilehash: b07af49e2fecf6cc41258c87794ca7952206bb8a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/17/2017
-
-
+ms.openlocfilehash: c535bc62497b5ff0b60ca266c28630d890af3604
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded
+# <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Beispielszenario für die Bereitstellung und Verwaltung von System Center Configuration Manager-Clients auf Windows Embedded-Geräten
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded activés pour les filtres d’écriture avec Configuration Manager. Si vos appareils incorporés ne prennent pas en charge les filtres d’écriture, ils se comportent comme des clients Configuration Manager standard et ces procédures ne s’appliquent pas.  
+In diesem Szenario wird gezeigt, wie Sie mithilfe von Configuration Manager Windows Embedded-Geräte mit aktivierten Schreibfiltern verwalten können. Wenn Ihre eingebetteten Geräte keine Schreibfilter unterstützen, entspricht ihr Verhalten dem Verhalten von Configuration Manager-Standardclients, und diese Verfahren werden nicht übernommen.  
 
-Coho Vineyard & Winery ouvre un centre d’accueil et a besoin de bornes qui utilisent Windows Embedded pour exécuter des présentations interactives. Le bâtiment du nouveau centre d’accueil n’étant pas proche du service informatique, les bornes doivent être gérées à distance. Outre le logiciel qui exécute les présentations, ces appareils doivent exécuter des logiciels anti-programmes malveillants actualisés pour se conformer aux stratégies de sécurité de l’entreprise. Les bornes doivent fonctionner 7 jours par semaine, sans interruption pendant les heures d’ouverture du centre d’accueil.  
+Coho Vineyard & Winery eröffnet demnächst ein Besucherzentrum und benötigt Kioske, auf denen Windows Embedded-Geräte ausgeführt werden, um interaktive Präsentationen auszuführen. Das Gebäude, in dem das neue Besucherzentrum untergebracht ist, liegt nicht in unmittelbarer Nähe der IT-Abteilung. Es ist daher wichtig, dass die Kioske remote verwaltet werden können. Zusätzlich von der Software zur Ausführung der Präsentationen muss auf den Geräten den Sicherheitsrichtlinien des Unternehmens entsprechend eine aktuelle Antischadsoftware ausgeführt werden. Die Kioske müssen während der Öffnungszeiten des Besucherzentrums sieben Tage die Woche ohne Ausfallzeiten geöffnet haben.  
 
- Coho utilise déjà Configuration Manager pour gérer les appareils de son réseau. Configuration Manager est configuré pour exécuter Endpoint Protection et pour installer les mises à jour logicielles et les applications. Toutefois, sachant que l’équipe informatique n’a jamais géré d’appareils Windows Embedded auparavant, Jane, administratrice de Configuration Manager, a mis en place un pilote pour gérer deux bornes situées dans le hall de réception.   
+ Coho führt Configuration Manager bereits zur Verwaltung von Geräten in ihrem Netzwerk aus. Configuration Manager wird so konfiguriert, dass Endpoint Protection ausgeführt wird und Softwareupdates und Anwendungen installiert werden. Allerdings hat das IT-Team keinerlei Erfahrungen mit der Verwaltung von Windows Embedded-Geräten. Jane, die für Configuration Manager zuständige Administratorin, führt daher einen Pilotversuch mit zwei zu verwaltenden Kiosken im Eingangsbereich durch.   
 
- Pour gérer ces appareils Windows Embedded à filtre d’écriture, Jane effectue les étapes suivantes pour installer le client Configuration Manager, le protéger à l’aide d’Endpoint Protection et installer le logiciel de présentation interactive.  
+ Zur Verwaltung dieser Windows Embedded-Geräte mit aktivierten Schreibfiltern führt Jane die nachstehenden Schritte aus, um den Configuration Manager-Client zu installieren, den Schutz des Clients mithilfe von Endpoint Protection zu gewährleisten und die Software für interaktive Präsentationen zu installieren.  
 
-1.  Jane s’informe de la manière dont les appareils Windows Embedded utilisent les filtres d’écriture, puis de la manière dont Configuration Manager peut simplifier cette utilisation en désactivant, puis en réactivant automatiquement ces filtres d’écriture, dans le but de conserver une installation logicielle.  
+1.  Jane informiert sich darüber, wie Schreibfilter von Windows Embedded-Geräten eingesetzt werden, und wie dieser Vorgang mithilfe von Configuration Manager erleichtert werden kann, indem die Schreibfilter automatisch deaktiviert und erneut aktiviert werden, um eine Softwareinstallation beizubehalten.  
 
-     Pour plus d’informations, consultez [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+     Weitere Informationen finden Sie unter [Planen der Clientbereitstellung auf Windows Embedded-Geräten in System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-2.  Avant d’installer le client Configuration Manager, Jane crée un regroupement d’appareils basé sur une requête pour les appareils Windows Embedded. Comme l’entreprise utilise des formats d’attribution de noms standard pour identifier ses ordinateurs, Jane peut identifier les appareils Windows Embedded de façon univoque par les six premières lettres du nom de l’ordinateur : **WEMDVC**. Elle utilise la requête WQL suivante pour créer ce regroupement : **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
+2.  Jane erstellt zunächst eine neue abfragebasierte Gerätesammlung für die Windows Embedded-Geräte, bevor sie den Configuration Manager-Client installiert. Da für die Computer des Unternehmens ein Standardbenennungsformat verwendet wird, kann Andrea die Windows Embedded-Geräte anhand der ersten sechs Buchstaben des jeweiligen Computernamens eindeutig identifizieren: **WEMDVC** Anhand der folgenden WQL-Abfrage erstellt sie diese Sammlung: **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
 
-     Ce regroupement lui permet de gérer les appareils Windows Embedded avec des options de configuration différentes des autres appareils. Elle utilise ce regroupement pour contrôler les redémarrages, déployer Endpoint Protection avec les paramètres du client et déployer l'application de présentation interactive.  
+     Mithilfe dieser Sammlung kann sie die Windows Embedded-Geräte mit anderen Konfigurationsoptionen als die anderen Geräte verwalten. Mit dieser Sammlung kann sie Neustarts steuern, Endpoint Protection mit Clienteinstellungen bereitstellen und die Anwendung für interaktive Präsentationen bereitstellen.  
 
-     Voir [Comment créer des regroupements dans System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+     Siehe [Erstellen von Sammlungen in System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-3.  Jane configure le regroupement pendant une fenêtre de maintenance pour veiller à ce que les redémarrages nécessaires pour installer l'application de présentation et toutes les éventuelles mises à jour ne se produisent pas pendant les heures d'ouverture du centre d'accueil. Le centre est ouvert de 9h00 à 18h00, du lundi au dimanche. Elle configure la fenêtre de maintenance de sorte à ce qu'elle se produise tous les jours, de 18h30 à 6h00.  
+3.  Andrea konfiguriert die Sammlung für ein Wartungsfenster, um sicherzustellen, dass keine der Neustarts, die möglicherweise bei der Installation der Präsentationsanwendung und von Upgrades erforderlich sind, während der Öffnungszeiten des Besucherzentrums ausgeführt werden. Die Öffnungszeiten sind täglich von 09:00 bis 18:00 Uhr. Sie konfiguriert das Wartungsfenster für 18:30 bis 06:00 Uhr täglich.  
 
-4.  Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+4.  Weitere Informationen finden Sie unter [Verwenden von Wartungsfenstern in System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-5.  Jane configure ensuite un paramètre client personnalisé pour les appareils en vue d'installer le client Endpoint Protection en sélectionnant **Oui** pour les paramètres suivants, puis elle déploie ce paramètre client personnalisé sur le regroupement d’appareils Windows Embedded :  
+5.  Anschließend konfiguriert Andrea eine benutzerdefinierte Geräteclienteinstellung zur Installation des Endpoint Protection-Clients. Dazu wählt sie für die nachfolgenden Einstellungen **Ja** aus und stellt dann diese Clienteinstellung der Windows Embedded-Gerätesammlung bereit:  
 
-    -   **Installer le client Endpoint Protection sur les ordinateurs clients**  
+    -   **Installieren des Endpoint Protection-Clients auf Clientcomputern**  
 
-    -   **Pour les appareils Windows Embedded munis de filtres d'écriture, valider l'installation du client Endpoint Protection (nécessite un redémarrage)**  
+    -   **Für Windows Embedded-Geräte mit Schreibfiltern Commit für Endpoint Protection-Clientinstallation ausführen (hierdurch werden Neustarts erforderlich)**  
 
-    -   **Autoriser l'installation et le redémarrage du client Endpoint Protection en dehors des fenêtres de maintenance**  
+    -   **Endpoint Protection-Clientinstallation und Neustarts außerhalb der Wartungsfenster zulassen**  
 
-     Quand le client Configuration Manager est installé, ces paramètres permettent d’installer le client Endpoint Protection et de garantir qu’il est maintenu dans le système d’exploitation pendant l’installation, au lieu d’être seulement écrit dans le segment de recouvrement. Les stratégies de sécurité de l'entreprise exigent une installation permanente du logiciel anti-programme malveillant et Jane ne veut pas prendre le risque de laisser les bornes sans protection même pendant un court instant alors qu'ils redémarrent.  
-
-    > [!NOTE]  
-    >  Les redémarrages requis pour installer le client Endpoint Protection ne se produisent qu'une seule fois, pendant la période d'installation des appareils et avant que le centre d'accueil ne soit opérationnel. À la différence du déploiement périodique d’applications ou de mises à jour de définitions logicielles, la prochaine installation du client Endpoint Protection sur le même appareil aura probablement lieu quand l’entreprise procédera à la mise à niveau vers la prochaine version de Configuration Manager.  
-
-     Pour plus d’informations, consultez [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
-
-6.  Maintenant que les paramètres de configuration du client sont en place, Jane prépare l’installation des clients Configuration Manager. Avant de pouvoir installer les clients, elle doit désactiver manuellement le filtre d'écriture sur les appareils Windows Embedded. Elle lit la documentation du fabricant qui accompagne les bornes et suit les instructions pour désactiver les filtres d'écriture.  
-
-     Jane renomme l’appareil pour qu’il utilise le format d’attribution de noms standard de l’entreprise, puis elle installe le client manuellement en exécutant CCMSetup à l’aide de la commande suivante, à partir d’un lecteur mappé qui contient les fichiers sources du client : **CCMSetup.exe /MP:mpserver.cohovineyardandwinery.com SMSSITECODE=CO1**  
-
-     Cette commande permet d'installer le client, d'affecter le client au point de gestion dont le nom de domaine complet de l'intranet est **mpserver.cohovineyardandwinery.com**, puis d'affecter le client au site principal nommé **CO1**.  
-
-     Jane sait qu'il faut toujours un certain temps pour que les clients s'installent et renvoient leur état au site. Par conséquent, elle patiente avant de confirmer l'installation correcte des clients, leur affectation au site et leur affichage en tant que clients dans le regroupement qu'elle a créé pour les appareils Windows Embedded.  
-
-     Comme contrôle supplémentaire, elle vérifie les propriétés de Configuration Manager dans le Panneau de configuration sur les appareils et les compare aux ordinateurs Windows standard gérés par le site. Par exemple, sous l'onglet **Composants** , l'élément **Agent de l'inventaire matériel** affiche **Activé**et sous l'onglet **Actions** figurent 11 actions disponibles, notamment **Cycle d'évaluation du déploiement de l'application** et **Cycle de collecte de données de découverte**.  
-
-     Certaine que les clients sont correctement installés et affectés, et que le point de gestion leur envoie la stratégie client, Jane active ensuite manuellement les filtres d'écriture en suivant les instructions du fabricant.  
-
-     Pour plus d'informations, voir :  
-
-    -   [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
-
-    -   [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md)  
-
-7.  Maintenant que le client Configuration Manager est installé sur les appareils Windows Embedded, Jane vérifie qu’elle peut les gérer de la même manière que les clients Windows standard. Par exemple, à partir de la console Configuration Manager, elle peut les gérer à distance à l’aide du contrôle à distance, leur appliquer la stratégie et afficher les propriétés du client, ainsi que l’inventaire matériel.  
-
-     Comme ces appareils sont joints à un domaine Active Directory, elle n’a pas besoin de les confirmer manuellement en tant que clients approuvés ; pour cela, elle utilise la console Configuration Manager.  
-
-     Pour plus d'informations, voir [How to manage clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
-
-8.  Pour installer le logiciel de présentation interactive, Jane exécute l' **Assistant Déploiement logiciel** et configure une application requise. Sur la page **Expérience utilisateur** de l'Assistant, dans la section **Traitement des filtres d'écriture pour les appareils Windows Embedded** , elle accepte l'option par défaut qui sélectionne **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
-
-     Jane garde cette option par défaut pour les filtres d'écriture pour garantir la conservation de l'application après un redémarrage, afin qu'elle soit toujours disponible pour les visiteurs qui utilisent les bornes. La fenêtre de maintenance quotidienne offre une période sans risque au cours de laquelle les redémarrages d'installation et les mises à jour peuvent se produire.  
-
-     Jane déploie l'application sur le regroupement d’appareils Windows Embedded.  
-
-     Pour plus d’informations, consultez [Comment déployer des applications avec System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
-
-9. Pour configurer les mises à jour de définitions pour Endpoint Protection, Jane utilise des mises à jour logicielles et exécute l'Assistant Création d'une règle de déploiement automatique. Elle sélectionne le modèle **Mises à jour de définitions** pour préremplir l'Assistant avec les paramètres appropriés à Endpoint Protection.  
-
-     Ces paramètres incluent les éléments suivants sur la page **Expérience utilisateur** de l'Assistant :  
-
-    -   **Comportement à l’échéance**: la case **Installation du logiciel** n’est pas cochée.  
-
-    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: la case **Valider les changements à l’échéance ou pendant une fenêtre de maintenance (redémarrage requis)** n’est pas cochée.  
-
-     Jane conserve ces paramètres par défaut. Associées à cette configuration, ces deux options permettent d'installer toutes les définitions de mises à jour logicielles pour Endpoint Protection dans le segment de recouvrement pendant la journée, sans attendre leur installation et leur validation au cours de la fenêtre de maintenance. Cette configuration respecte mieux la stratégie de sécurité de l'entreprise en ce qui concerne l'exécution par les ordinateurs d'une protection actualisée contre les programmes malveillants.  
+     Wenn der Configuration Manager-Client installiert ist, wird mit diesen Einstellungen der Endpoint Protection-Client installiert und sichergestellt, dass er nicht lediglich in die Überlagerung geschrieben, sondern im Betriebssystem als Teil der Installation beibehalten wird. Den Sicherheitsrichtlinien des Unternehmens entsprechend muss die Antischadsoftware stets installiert sein. Andrea möchte zudem nicht das Risiko eingehen, die Kioske bei einem Neustart auch nur für kurze Zeit ungeschützt zu lassen.  
 
     > [!NOTE]  
-    >  Contrairement aux installations logicielles des applications, les définitions de mises à jour logicielles pour Endpoint Protection peuvent se produire très fréquemment, voire même plusieurs fois par jour. Il s'agit souvent de petits fichiers. Pour ces types de déploiements liés à la sécurité, il s'avère souvent bénéfique de toujours procéder à l'installation dans le segment de recouvrement plutôt que d'attendre la fenêtre de maintenance. Le client Configuration Manager réinstalle rapidement les mises à jour de définitions logicielles si le l’appareil redémarre, car cette action lance un contrôle d’évaluation sans attendre la prochaine évaluation planifiée.  
+    >  Die bei der Installation des Endpoint Protection-Clients erforderlichen Neustarts finden lediglich während der Setupphase für die Geräte statt und bevor das Besucherzentrum eröffnet wird. Im Gegensatz zur periodischen Bereitstellung von Anwendungen oder Softwaredefinitionsupdates wird der Endpoint Protection-Client wahrscheinlich erst wieder auf dem gleichen Gerät installiert, wenn das Unternehmen das Upgrade auf die nächste Version von Configuration Manager durchführt.  
 
-     Jane sélectionne le regroupement d’appareils Windows Embedded pour la règle de déploiement automatique.  
+     Weitere Informationen finden Sie unter [Konfigurieren von Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
 
-     Pour plus d'informations, voir  
-                  Étape 3 : configurer les mises à jour logicielles de Configuration Manager pour fournir des mises à jour de définitions aux ordinateurs clients dans [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
+6.  Da die Konfigurationseinstellungen für den Client nun festliegen, bereitet Jane die Installation der Configuration Manager-Clients vor. Sie muss den Schreibfilter auf den Windows Embedded-Geräten manuell deaktivieren, bevor sie die Clients installieren kann. Sie liest die den Kiosken beiliegende OEM-Dokumentation und befolgt die dort beschriebenen Anweisungen zur Deaktivierung der Schreibfilter.  
 
-10. Jane décide de configurer une tâche de maintenance qui valide régulièrement toutes les modifications apportées au segment de recouvrement. Cette tâche consiste à prendre en charge le déploiement des définitions de mises à jour logicielles, afin de réduire le nombre de mises à jour qui s'accumulent et doivent être à nouveau installées, chaque fois que l’appareil redémarre. Elle sait, par expérience, que cela permet aux logiciels anti-programmes malveillants de s'exécuter plus efficacement.  
+     Andrea benennt das Gerät so um, dass es dem im Unternehmen geltenden Standardbenennungsformat entspricht. Dann installiert sie den Client manuell. Dazu führt sie CCMSetup mit folgendem Befehl von einem zugeordneten Laufwerk aus, auf dem sich die Clientquelldateien befinden: **CCMSetup.exe /MP:mpserver.cohovineyardandwinery.com SMSSITECODE=CO1**  
+
+     Mit diesem Befehl wird der Client installiert und dem Verwaltungspunkt mit dem Intranet-FQDN **mpserver.cohovineyardandwinery.com**sowie dem primären Standort **CO1**zugewiesen.  
+
+     Andrea weiß, dass es immer eine Weile dauert, bis die Installation von Clients abgeschlossen ist und der Clientstatus an den entsprechenden Standort gesendet wird. Darum prüft sie erst nach einer gewissen Wartezeit, ob die Clients installiert und dem Standort zugewiesen wurden und ob sie in der Sammlung, die sie für die Windows Embedded-Geräte erstellt hat, als Clients erscheinen.  
+
+     Zusätzlich prüft sie Eigenschaften von Configuration Manager in der Systemteuerung der Geräte und vergleicht diese mit Windows-Standardcomputern, die vom Standort verwaltet werden. Beispielsweise wird auf der Registerkarte **Komponenten** unter **Hardwareinventur-Agent** die Einstellung **Aktiviert**angezeigt. Auf der Registerkarte **Aktionen** sind 11 Aktionen verfügbar, darunter **Evaluationszyklus für die Anwendungsbereitstellung** und **Ermittlungsdaten-Sammlungszyklus**.  
+
+     Andrea ist sich nun sicher, dass die Clients erfolgreich installiert und zugewiesen wurden und dass bei ihnen Clientrichtlinien vom Verwaltungspunkt eingehen. Als Nächstes aktiviert sie die Schreibfilter anhand der OEM-Anweisungen manuell.  
+
+     Weitere Informationen finden Sie in folgenden Quellen:  
+
+    -   [Bereitstellen von Clients auf Windows-Computern in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+
+    -   [Zuweisen von Clients zu einem Standort in System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md)  
+
+7.  Der Configuration Manager-Client ist jetzt auf den Windows Embedded-Geräten installiert. Jane vergewissert sich nun, dass sie die Geräte genau wie Windows-Standardclients verwalten kann. Beispielsweise ist es ihr möglich, die Geräte über die Configuration Manager-Konsole mithilfe der Remotesteuerung remote zu verwalten, Clientrichtlinien für sie zu starten sowie Clienteigenschaften und eine Hardwareinventur anzuzeigen.  
+
+     Da diese Geräte einer Active Directory-Domäne hinzugefügt werden, muss sie sie nicht manuell als vertrauenswürdige Clients genehmigen, und bestätigt über die Configuration Manager-Konsole, dass die Geräte genehmigt sind.  
+
+     Weitere Informationen finden Sie unter [How to manage clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+
+8.  Andrea führt den **Assistenten zum Bereitstellen von Software** aus und konfiguriert eine erforderliche Anwendung, um die Software für interaktive Präsentationen zu installieren. Auf der Seite **Benutzerfreundlichkeit** des Assistenten akzeptiert sie im Bereich **Schreibfilterverarbeitung für Windows Embedded-Geräte** die Standardoption **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)**.  
+
+     Andrea behält diese Standardoption für Schreibfilter bei, um sicherzustellen, dass die Anwendung nach einem Neustart beibehalten wird und somit den Besuchern, die die Kioske benutzen, stets zur Verfügung steht. Mit dem täglichen Wartungsfenster wird ein sicherer Zeitraum bereitgestellt, in dem die bei Installationen und Updates erforderlichen Neustarts stattfinden können.  
+
+     Andrea stellt die Anwendung der Windows Embedded-Gerätesammlung bereit.  
+
+     Weitere Informationen finden Sie unter [Bereitstellen von Anwendungen mit System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
+
+9. Andrea verwendet Softwareupdates und führt den Assistenten zum Erstellen automatischer Bereitstellungsregeln aus, um Definitionsupdates für Endpoint Protection zu konfigurieren. Sie wählt die Vorlage **Definitionsupdates** aus, um den Assistenten mit Einstellungen aufzufüllen, die für Endpoint Protection geeignet sind.  
+
+     Dazu gehören die folgenden Einstellungen auf der Seite **Benutzerfreundlichkeit** des Assistenten:  
+
+    -   **Verhalten am Stichtag**: Das Kontrollkästchen **Softwareinstallation** ist nicht aktiviert.  
+
+    -   **Schreibfilterverarbeitung für Windows Embedded-Geräte**: Das Kontrollkästchen **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)** ist nicht aktiviert.  
+
+     Andrea behält diese Standardeinstellungen bei. Wenn diese beiden Optionen diese Konfiguration aufweisen, können alle Softwaredefinitionsupdates für Endpoint Protection tagsüber im Overlay installiert werden. Es ist nicht notwendig, mit Installation und Commit bis zum Wartungsfenster zu warten. Mit dieser Konfiguration wird die Sicherheitsrichtlinie des Unternehmens, laut der auf Computern aktuelle Antischadsoftware ausgeführt werden muss, am besten erfüllt.  
 
     > [!NOTE]  
-    >  Ces définitions de mises à jour logicielles seraient automatiquement validées dans l'image si les appareils embarqués exécutaient une autre tâche de gestion prenant en charge la validation des modifications. Par exemple, l'installation d'une nouvelle version du logiciel de présentation interactive permettrait également de valider les modifications pour les définitions de mises à jour logicielles. Ou bien, l'installation mensuelle de mises à jour logicielles standard au cours de la fenêtre de maintenance permettrait également de valider les modifications pour les définitions de mises à jour logicielles. En revanche, dans ce scénario, où les mises à jour logicielles standard ne s'exécutent pas et le logiciel de présentation interactive a peu de chances d'être souvent mis à jour, des mois peuvent passer avant que les mises à jour de définitions logicielles ne soient automatiquement validées dans l'image.  
+    >  Anders als Softwareinstallationen für Anwendungen können Softwaredefinitionsupdates für Endpoint Protection sehr häufig und sogar mehrmals täglich auftreten. Dabei handelt es sich oft um kleine Dateien. Für diese Arten sicherheitsbezogener Bereitstellungen ist es oft von Vorteil, immer im Overlay zu installieren, anstatt bis zum Wartungsfenster zu warten. Die Softwaredefinitionsupdates werden bei einem Geräteneustart schnell vom Configuration Manager-Client erneut installiert, da mit dieser Aktion eine Auswertungsüberprüfung gestartet und nicht auf die nächste geplante Auswertung gewartet wird.  
 
-     Jane crée d'abord une séquence de tâches personnalisée sans autre paramètre que le nom. Elle exécute l'Assistant Création d'une séquence de tâches :  
+     Andrea wählt die Windows Embedded-Gerätesammlung für die automatische Bereitstellungsregel aus.  
 
-    1.  Sur la page **Créer une séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**, puis cliquez sur **Suivant**.  
+     Weitere Informationen finden Sie unter  
+                  Schritt 3: Konfigurieren von Configuration Manager-Softwareupdates zum Bereitstellen von Definitionsupdates für Clientcomputer unter [Konfigurieren von Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
 
-    2.  Sur la page **Informations sur la séquence de tâches** , elle entre **Maintenance task to commit changes on embedded devices** pour le nom de la séquence de tâches, puis clique sur **Suivant**.  
+10. Andrea entscheidet sich dazu, einen Wartungstask zu konfigurieren, von dem für alle Änderungen im Overlay regelmäßig ein Commit ausgeführt wird. Mit diesem Task soll nicht nur die Bereitstellung von Softwaredefinitionsupdates unterstützt, sondern auch die Anzahl der Updates reduziert werden, die sich ansammeln und bei jedem Geräteneustart erneut installiert werden müssen. Nach ihrer Erfahrung trägt dies zu einer effizienteren Ausführung der Antischadsoftware bei.  
 
-    3.  Sur la page **Résumé** , elle sélectionne **Suivant**et termine l'Assistant.  
+    > [!NOTE]  
+    >  Für diese Softwaredefinitionsupdates würde automatisch ein Commit auf das Abbild ausgeführt, falls auf den eingebetteten Geräten ein anderer Verwaltungstask ausgeführt wird, von dem die Ausführung eines Commits für Änderungen unterstützt wird. Beispielsweise würde bei der Installation einer neuen Version der Software für interaktive Präsentationen auch ein Commit für die Änderungen an Softwaredefinitionsupdates ausgeführt. Ein Commit für die Änderungen an Softwaredefinitionsupdates könnte auch bei der monatlichen, während des Wartungsfensters stattfindenden Installation von Standardsoftwareupdates ausgeführt werden. In diesem Szenario jedoch werden keine Standardsoftwareupdates ausgeführt, und Updates für die Software für interaktive Präsentationen dürften eher selten vorkommen. Es könnte daher einige Monate dauern, bis für die Softwaredefinitionsupdates ein automatischer Commit auf das Abbild ausgeführt wird.  
 
-     Jane déploie ensuite cette séquence de tâches personnalisée sur le regroupement d’appareils Windows Embedded, puis elle configure la planification pour une exécution mensuelle. Dans le cadre des paramètres de déploiement, elle active la case à cocher **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)** pour conserver les modifications après un redémarrage. Pour configurer ce déploiement, elle sélectionne la séquence de tâches personnalisée qu'elle vient de créer, puis sous l'onglet **Accueil** , dans le groupe **Déploiement** , elle clique sur **Déployer** pour démarrer l'Assistant Déploiement logiciel :  
+     Andrea erstellt zuerst eine benutzerdefinierte Tasksequenz, die außer dem Namen keinerlei Einstellungen aufweist. Sie führt den Tasksequenzerstellungs-Assistenten aus:  
 
-    1.  Sur la page **Général** , elle sélectionne le regroupement d’appareils Windows Embedded, puis elle clique sur **Suivant**.  
+    1.  Auf der Seite **Neue Tasksequenz erstellen** wählt sie die Option **Neue benutzerdefinierte Tasksequenz erstellen**aus und klickt dann auf **Weiter**.  
 
-    2.  Sur la page **Paramètres de déploiement** , elle sélectionne **Obligatoire** pour l'option **Objet**, puis elle clique sur **Suivant**.  
+    2.  Auf der Seite **Informationen zur Tasksequenz** gibt sie den Tasksequenznamen **Maintenance task to commit changes on embedded devices** ein und klickt dann auf **Weiter**.  
 
-    3.  Sur la page **Planification** , elle clique sur **Nouveau** pour spécifier une planification hebdomadaire au cours de la fenêtre de maintenance, puis elle clique sur **Suivant**.  
+    3.  Auf der Seite **Zusammenfassung** klickt sie auf **Weiter**und schließt den Assistenten ab.  
 
-    4.  Elle termine l'Assistant sans apporter d'autres modifications.  
+     Dann stellt Andrea diese benutzerdefinierte Tasksequenz der Windows Embedded-Gerätesammlung bereit und legt im Zeitplan fest, dass die Tasksequenz jeden Monat ausgeführt werden soll. Im Rahmen der Bereitstellungseinstellungen aktiviert sie das Kontrollkästchen **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)** , damit die Änderungen nach einem Neustart beibehalten werden. Zum Konfigurieren dieser Bereitstellung wählt sie die von ihr erstellte benutzerdefinierte Tasksequenz aus. Dann klickt sie auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Bereitstellen** , um den Assistenten zum Bereitstellen von Software zu starten:  
 
-     Pour plus d'informations, voir  
-                  [Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager](../../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).  
+    1.  Auf der Seite **Allgemein** wählt sie die Windows Embedded-Gerätesammlung aus und klickt dann auf **Weiter**.  
 
-11. Pour que les bornes fonctionnent automatiquement, Jane écrit un script permettant de configurer les appareils comme suit :  
+    2.  Auf der Seite **Bereitstellungseinstellungen** wählt sie für **Erforderlich** den **Zweck**aus und klickt dann auf **Weiter**.  
 
-    -   Ouverture de session automatique via un compte invité sans mot de passe.  
+    3.  Auf der Seite **Zeitplanung** klickt sie auf **Neu** , um einen wöchentlichen Zeitplan während des Wartungsfensters anzugeben, und klickt dann auf **Weiter**.  
 
-    -   Exécution automatique du logiciel de présentation interactive au démarrage.  
+    4.  Sie schließt den Assistenten ohne weitere Änderungen ab.  
 
-     Jane utilise des packages et des programmes pour déployer ce script sur le regroupement d’appareils Windows Embedded. Lors de l'exécution de l'Assistant Déploiement logiciel, elle active là encore la case à cocher **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)** pour conserver les modifications après un redémarrage.  
+     Weitere Informationen finden Sie unter  
+                  [Verwalten von Tasksequenzen zum Automatisieren von Tasks in System Center Configuration Manager](../../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
-     Pour plus d’informations, consultez [Packages et programmes dans System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
+11. Die Kioske sollen automatisch ausgeführt werden. Andrea schreibt daher ein Skript, um die Geräte für die folgenden Einstellungen zu konfigurieren:  
 
-12. Le matin suivant, Jane contrôle les appareils Windows Embedded. Elle vérifie les éléments suivants :  
+    -   Verwenden der automatischen Anmeldung mithilfe eines Gastkontos ohne Kennwort  
 
-    -   La borne a ouvert automatiquement une session en utilisant le compte invité.  
+    -   Automatisches Ausführen der Software für interaktive Präsentationen beim Start  
 
-    -   Le logiciel de présentation interactive est en cours d'exécution.  
+     Andrea verwendet Pakete und Programme, um dieses Skript für die Windows Embedded-Gerätesammlung bereitzustellen. Beim Ausführen des Assistenten zum Bereitstellen von Software aktiviert sie das Kontrollkästchen **Änderungen zum Stichtag oder während eines Wartungsfensters ausführen (erfordert Neustart)** wieder, damit die Änderungen nach einem Neustart beibehalten werden.  
 
-    -   Le client Endpoint Protection est installé et dispose des dernières définitions de mises à jour logicielles.  
+     Weitere Informationen finden Sie unter [Pakete und Programme in System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
 
-    -   L’appareil a bien redémarré au cours de la fenêtre de maintenance.  
+12. Am nächsten Morgen überprüft Andrea die Windows Embedded-Geräte. Sie stellt Folgendes sicher:  
 
-     Pour plus d'informations, voir :  
+    -   Der Kiosk wurde mithilfe des Gastkontos automatisch angemeldet.  
 
-    -   [Guide pratique pour surveiller Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md)  
+    -   Die Software für interaktive Präsentationen wird ausgeführt.  
 
-    -   [Surveiller des applications avec System Center Configuration Manager](/sccm/apps/deploy-use/monitor-applications-from-the-console)  
+    -   Der Endpoint Protection-Client wurde installiert und verfügt über die aktuellen Softwaredefinitionsupdates.  
 
-13. Jane surveille les bornes et indique à son responsable que ces bornes sont correctement gérées. Ainsi, le centre d'accueil passe une commande de 20 bornes.  
+    -   Das Gerät wurde während des Wartungsfensters neu gestartet.  
 
-     Pour éviter de devoir installer manuellement le client Configuration Manager, ce qui nécessiterait de désactiver et d’activer manuellement les filtres d’écriture, Jane s’assure que la commande comprend une image personnalisée qui intègre déjà l’installation et l’affectation de site du client Configuration Manager. En outre, les noms des appareils sont attribués conformément au format choisi par la société.  
+     Weitere Informationen finden Sie in folgenden Quellen:  
 
-     Les bornes sont livrées au centre d'accueil une semaine après son ouverture. Pendant ce laps de temps, les bornes sont connectées au réseau. Toutes les opérations de gestion des appareils sont automatisées et aucun administrateur n'est requis localement. Jane vérifie que les bornes fonctionnent comme prévu :  
+    -   [Überwachen von Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md)  
 
-    -   Les clients installés sur les bornes réalisent une attribution de site et téléchargent la clé racine approuvée auprès des services de domaine Active Directory.  
+    -   [Überwachen von Anwendungen mit System Center Configuration Manager](/sccm/apps/deploy-use/monitor-applications-from-the-console)  
 
-    -   Les clients installés sur les bornes sont ajoutés automatiquement au regroupement d’appareils Windows Embedded et leur fenêtre de maintenance est configurée.  
+13. Andrea überwacht die Kioske und meldet deren erfolgreiche Verwaltung ihrem Manager. Das Ergebnis ist, dass 20 Kioske für das Besucherzentrum bestellt werden.  
 
-    -   Le client Endpoint Protection est installé et dispose des dernières définitions de mises à jour logicielles, pour la protection contre les programmes malveillants.  
+     Zum Vermeiden der manuellen Installation des Configuration Manager-Clients, das manuelles Deaktivieren und Aktivieren der Schreibfilter erfordert, stellt Jane sicher, dass die Bestellung ein benutzerdefiniertes Image mit den Installationsdaten und der Standortzuweisung des Configuration Manager-Clients enthält. Darüber hinaus werden die Geräte gemäß dem Benennungsformat des Unternehmens benannt.  
 
-    -   Le logiciel de présentation interactive est installé et s'exécute automatiquement. Il est entièrement prêt à l'emploi pour les visiteurs.  
+     Die Kioske werden eine Woche vor der Eröffnung an das Besucherzentrum geliefert. Während dieses Zeitraums sind die Kioske mit dem Netzwerk verbunden, und die gesamte Geräteverwaltung erfolgt automatisch, sodass kein lokaler Administrator erforderlich ist. Andrea vergewissert sich, dass die Kioske wie gewünscht funktionieren:  
 
-14. Au terme de cette configuration initiale, les redémarrages éventuellement nécessaires pour l'installation des mises à jour ont lieu seulement lorsque le centre d'accueil est fermé au public.  
+    -   Von den Clients auf den Kiosken wird die Standortzuweisung durchgeführt, und die vertrauenswürdigen Stammschlüssel werden aus den Active Directory-Domänendiensten heruntergeladen.  
 
+    -   Die Clients auf den Kiosken werden automatisch der Windows Embedded-Gerätesammlung hinzugefügt und per Wartungsfenster konfiguriert.  
+
+    -   Der Endpoint Protection-Client wurde installiert und verfügt über die aktuellen Softwaredefinitionsupdates für den Antischadsoftware-Schutz.  
+
+    -   Die Software für interaktive Präsentationen wurde installiert, wird automatisch ausgeführt und ist für Besucher bereit.  
+
+14. Nach diesem ersten Setup werden Neustarts, die für Updates ggf. erforderlich sind, nur bei geschlossenem Besucherzentrum ausgeführt.  

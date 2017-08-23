@@ -1,823 +1,819 @@
 ---
-title: Fichiers journaux pour Configuration Manager | Microsoft Docs
-description: "Utilisez des fichiers journaux pour résoudre des problèmes dans une hiérarchie System Center Configuration Manager."
+title: "Protokolldateien für Configuration Manager | Microsoft-Dokumentation"
+description: Verwenden Sie Protokolldateien bei der Problembehandlung in einer System Center Configuration Manager-Hierarchie.
 ms.custom: na
 ms.date: 7/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e1bc0063ab3d34410f7dbc773a5eacdd5eb6d2f
 ms.openlocfilehash: 28597cf1cb269fff0872c7f79ef961496aea32ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/05/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="log-files-in-system-center-configuration-manager"></a>Fichiers journaux dans System Center Configuration Manager
+# <a name="log-files-in-system-center-configuration-manager"></a>Protokolldateien in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, les composants des clients et des serveurs de site enregistrent les informations sur les processus dans des fichiers journaux individuels. Vous pouvez utiliser les informations contenues dans les fichiers journaux pour résoudre les problèmes susceptibles de se produit dans votre hiérarchie Configuration Manager. Par défaut, l’enregistrement des composants client et serveur dans le journal est activé dans Configuration Manager.   
+Von Client- und Standortserverkomponenten in System Center Configuration Manager werden Prozessinformationen in eigenen Protokolldateien aufgezeichnet. Mithilfe der Information in diesen Protokolldateien können Sie eventuell auftretende Probleme in Ihrer Configuration Manager-Hierarchie beheben. Die Client- und Serverkomponentenprotokollierung ist in Configuration Manager standardmäßig aktiviert.   
 
- Les sections suivantes contiennent des détails sur les différents fichiers journaux disponibles. Vous pouvez utiliser ces informations pour afficher et surveiller les fichiers journaux des clients et serveurs Configuration Manager afin de connaître les détails des opérations et pour identifier les informations sur les erreurs, qui peuvent vous aider à résoudre les problèmes.  
+ In den folgenden Abschnitten finden Sie Details zu den verschiedenen verfügbaren Protokolldateien. Verwenden Sie diese Informationen, um Protokolldateien der Betriebsdetails für Configuration Manager-Clients und -Server anzuzeigen und zu überwachen und die Fehlerinformationen zu ermitteln, mit denen Sie jegliche Probleme beheben können.  
 
--   [À propos des fichiers journaux de Configuration Manager](#BKMK_AboutLogs)  
+-   [Informationen zu Configuration Manager-Protokolldateien](#BKMK_AboutLogs)  
 
-    -   [Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration Manager](#BKMK_LogOptions)  
+    -   [Konfigurieren der Protokollierungsoptionen mithilfe des Dienst-Managers für Configuration Manager](#BKMK_LogOptions)  
 
-    -   [Localisation des fichiers journaux de Configuration Manager](#BKMK_LogLocation)  
+    -   [Suchen von Configuration Manager-Protokollen](#BKMK_LogLocation)  
 
--   [Journaux du client Configuration Manager](#BKMK_ClientLogs)  
+-   [Configuration Manager-Clientprotokolle](#BKMK_ClientLogs)  
 
-    -   [Opérations du client](#BKMK_ClientOpLogs)  
+    -   [Clientvorgänge](#BKMK_ClientOpLogs)  
 
-    -   [Fichiers journaux de l’installation du client](#BKMK_ClientInstallLog)  
+    -   [Protokolldateien zur Clientinstallation](#BKMK_ClientInstallLog)  
 
-    -   [Client pour Linux et UNIX](#BKMK_LogFilesforLnU)  
+    -   [Client für Linux und UNIX](#BKMK_LogFilesforLnU)  
 
-    -   [Client pour ordinateurs Mac](#BKMK_LogfilesforMac)  
+    -   [Client für Macintosh-Computer](#BKMK_LogfilesforMac)  
 
--   [Fichiers journaux du serveur de site Configuration Manager](#BKMK_ServerLogs)  
+-   [Protokolldateien für Configuration Manager-Standortserver](#BKMK_ServerLogs)  
 
-    -   [Journaux de serveur de site et de serveur de système de site](#BKMK_SiteSiteServerLog)  
+    -   [Protokolle für Standortserver und Standortsystemserver](#BKMK_SiteSiteServerLog)  
 
-    -   [Fichiers journaux de l’installation du serveur de site](#BKMK_SiteInstallLog)  
+    -   [Protokolldateien zur Standortserverinstallation](#BKMK_SiteInstallLog)  
 
-    -   [Fichiers journaux du point d’état de secours](#BKMK_FSPLog)  
+    -   [Protokolldateien für den Fallbackstatuspunkt](#BKMK_FSPLog)  
 
-    -   [Fichiers journaux du point de gestion](#BKMK_MPLog)  
+    -   [Protokolldateien für den Verwaltungspunkt](#BKMK_MPLog)  
 
-    -   [Fichiers journaux du point de mise à jour logicielle](#BKMK_SUPLog)  
+    -   [Protokolldateien für den Softwareupdatepunkt](#BKMK_SUPLog)  
 
--   [Fichiers journaux pour les fonctionnalités de Configuration Manager](#BKMK_FunctionLogs)  
+-   [Protokolldateien für Configuration Manager-Funktionen](#BKMK_FunctionLogs)  
 
-    -   [Gestion des applications](#BKMK_AppManageLog)  
+    -   [Anwendungsverwaltung](#BKMK_AppManageLog)  
 
-    -   [Asset intelligence](#BKMK_AILog)  
+    -   [Asset Intelligence](#BKMK_AILog)  
 
-    -   [Sauvegarde et récupération](#BKMK_BnRLog)  
+    -   [Sicherung und Wiederherstellung:](#BKMK_BnRLog)  
 
-    -   [Inscription de certificats](#BKMK_CertificateEnrollment)
+    -   [Zertifikatregistrierung](#BKMK_CertificateEnrollment)
 
-    -   [Notification du client](#BKMK_BGB)
+    -   [Clientbenachrichtigung](#BKMK_BGB)
 
-    -   [Passerelle de gestion cloud](#cloud-management-gateway)
+    -   [Cloudverwaltungsgateway](#cloud-management-gateway)
 
-    -   [Paramètres de conformité et accès aux ressources d’entreprise](#BKMK_CompSettingsLog)  
+    -   [Konformitätseinstellungen und Zugriff auf Unternehmensressourcen](#BKMK_CompSettingsLog)  
 
-    -   [Console Configuration Manager](#BKMK_ConsoleLog)  
+    -   [Configuration Manager-Konsole](#BKMK_ConsoleLog)  
 
-    -   [Gestion de contenu](#BKMK_ContentLog)  
+    -   [Content Management](#BKMK_ContentLog)  
 
-    -   [Détection](#BKMK_DiscoveryLog)  
+    -   [Ermittlung](#BKMK_DiscoveryLog)  
 
     -   [Endpoint Protection](#BKMK_EPLog)  
 
-    -   [Extensions](#BKMK_Extensions)  
+    -   [Erweiterungen](#BKMK_Extensions)  
 
-    -   [Inventaire](#BKMK_InventoryLog)  
+    -   [Inventur](#BKMK_InventoryLog)  
 
-    -   [Contrôle](#BKMK_MeteringLog)  
+    -   [Messung](#BKMK_MeteringLog)  
 
     -   [Migration](#BKMK_MigrationLog)  
 
-    -   [Appareils mobiles](#BKMK_MDMLog)  
+    -   [Mobile Geräte](#BKMK_MDMLog)  
 
-    -   [Déploiement de systèmes d’exploitation](#BKMK_OSDLog)  
+    -   [Betriebssystembereitstellung](#BKMK_OSDLog)  
 
-    -   [Gestion de l’alimentation](#BKMK_PowerMgmtLog)  
+    -   [Energieverwaltung](#BKMK_PowerMgmtLog)  
 
-    -   [Contrôle à distance](#BKMK_RCLog)  
+    -   [Remotesteuerung](#BKMK_RCLog)  
 
-    -   [Rapports](#BKMK_ReportLog)  
+    -   [Berichterstellung](#BKMK_ReportLog)  
 
-    -   [Administration basée sur des rôles](#BKMK_RBALog)  
+    -   [Rollenbasierte Verwaltung](#BKMK_RBALog)  
 
-    -   [Point de connexion de service](#BKMK_WITLog)  
+    -   [Dienstverbindungspunkt](#BKMK_WITLog)  
 
-    -   [Mises à jour logicielles](#BKMK_SU_NAPLog)  
+    -   [Softwareupdates](#BKMK_SU_NAPLog)  
 
-    -   [Wake On LAN](#BKMK_WOLLog)  
+    -   [Wake-On-LAN](#BKMK_WOLLog)  
 
-    -   [Maintenance de Windows 10](#BKMK_WindowsServicingLog)
+    -   [Windows 10-Wartung](#BKMK_WindowsServicingLog)
 
-    -   [Agent Windows Update](#BKMK_WULog)  
+    -   [Windows Update-Agent](#BKMK_WULog)  
 
-    -   [Serveur WSUS](#BKMK_WSUSLog)  
+    -   [WSUS-Server](#BKMK_WSUSLog)  
 
-##  <a name="BKMK_AboutLogs"></a> À propos des fichiers journaux de Configuration Manager  
- La plupart des processus dans Configuration Manager consignent des informations sur les opérations dans un fichier journal dédié à ce processus. Ces fichiers journaux sont identifiés par des extensions de fichier **.log** ou **.lo_**. Configuration Manager écrit dans un fichier .log jusqu’à ce que ce journal atteigne sa taille maximale. Une fois le journal plein, le fichier .log est copié vers un fichier portant le même nom mais avec l’extension .lo_, et le processus ou le composant continue à écrire dans le fichier .log. Quand le fichier .log atteint à nouveau sa taille maximale, le fichier .lo_ est remplacé et le processus se répète. Certains composants établissent un historique du fichier journal en ajoutant une date et une heure au nom du fichier journal, et en conservant l’extension .log. Le client pour Linux et UNIX constitue une exception à la taille maximale et à l’utilisation du fichier .lo_. Pour plus d’informations sur la façon dont le client pour Linux et UNIX utilise les fichiers journaux, consultez [Gérer des fichiers journaux dans le client pour Linux et UNIX](#BKMK_ManageLinuxLogs) dans cette rubrique.  
+##  <a name="BKMK_AboutLogs"></a> Informationen zu Configuration Manager-Protokolldateien  
+ Die meisten Prozesse in Configuration Manager schreiben Betriebsinformationen in eine spezielle Protokolldatei für den jeweiligen Prozess. Diese Protokolldateien werden durch die **.LOG** - oder **.LO_** -Erweiterung identifiziert. Configuration Manager schreibt in die LOG-Protokolldatei, bis das Protokoll die maximale Größe erreicht hat. Wenn dies eintritt, wird die LOG-Datei in eine Datei mit dem gleichen Namen, aber der Erweiterung „.LO_“ kopiert, und der Prozess oder die Komponente schreibt weiterhin in die LOG-Datei. Wenn die Größe der LOG-Datei erneut den zulässigen Maximalwert erreicht, wird die LO_-Datei überschrieben und der Prozess wiederholt. Bei einigen Komponenten wird ein Protokolldateiverlauf geführt, indem dem Namen der Protokolldatei ein Datum- und Zeitstempel hinzugefügt wird, wobei die Erweiterung „.LOG“ erhalten bleibt. Eine Ausnahme in Bezug auf die maximale Größe und Verwendung der .LO_-Datei stellt der Client für Linux und UNIX dar. Weitere Informationen darüber, wie Protokolldateien vom Client für Linux und UNIX verwendet werden, finden Sie unter [Verwalten von Protokolldateien beim Client für Linux und UNIX](#BKMK_ManageLinuxLogs) in diesem Thema.  
 
- Pour afficher les journaux, utilisez la visionneuse du journal Configuration Manager, CMTrace, qui se trouve dans le dossier \\\SMSSetup\\Tools du média source de Configuration Manager. Il est ajouté à toutes les images de démarrage ajoutées à la Bibliothèque de logiciels.  
+ Zum Anzeigen der Protokolle können Sie das Configuration Manager-Protokollanzeigetool „CMTrace“ verwenden, das sich im Ordner \\\SMSSETUP\TOOLS\\ der Configuration Manager-Quellmedien befindet. Das CMTrace-Tool wird ebenfalls allen Startimages hinzugefügt, die in die Softwarebibliothek aufgenommen werden.  
 
-###  <a name="BKMK_LogOptions"></a> Configurer des options de journalisation à l’aide du Gestionnaire de service de Configuration Manager  
- Dans Configuration Manager, vous pouvez changer l’emplacement de stockage des fichiers journaux, ainsi que la taille du fichier journal.  
+###  <a name="BKMK_LogOptions"></a> Konfigurieren der Protokollierungsoptionen mithilfe des Dienst-Managers für Configuration Manager  
+ Sie können den Speicherort und die Größe der Protokolldateien in Configuration Manager ändern.  
 
- Pour modifier la taille des fichiers journaux, changer le nom et l’emplacement du fichier journal, ou forcer plusieurs composants à écrire dans un même fichier journal, procédez comme suit.  
+ Im folgenden Verfahren wird beschrieben, wie Sie die Größe, den Namen und den Speicherort von Protokolldateien ändern oder mehrere Komponenten für das Schreiben in die gleiche Protokolldatei konfigurieren können.  
 
-#### <a name="to-modify-logging-for-a-component"></a>Pour modifier la journalisation pour un composant  
+#### <a name="to-modify-logging-for-a-component"></a>So ändern Sie die Protokollierung für eine Komponente:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**, sélectionnez **État du système**, puis sélectionnez **État du site** ou **État du composant**.  
-2.  Sous l’onglet **Accueil**, dans le groupe **Composant**, sélectionnez **Démarrer**, puis sélectionnez **Gestionnaire de service de Configuration Manager**.  
-3.  Quand le Gestionnaire de service de Configuration Manager s’ouvre, connectez-vous au site que vous voulez gérer. Si le site que vous voulez gérer n’apparaît pas, sélectionnez **Site**, sélectionnez **Se connecter** et entrez le nom du serveur de site pour le site correct.  
-4.  Développez le site et accédez à **Composants** ou à **Serveurs** selon l’emplacement où se trouvent les composants que vous voulez gérer.  
-5.  Dans le volet de droite, sélectionnez un ou plusieurs composants.  
-6.  Dans le menu **Composant**, sélectionnez **Journalisation**.  
-7.  Dans la boîte de dialogue **Enregistrement du composant Configuration Manager** , choisissez les options de configuration disponibles pour votre sélection.  
-8.  Cliquez sur **OK** pour enregistrer la configuration.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Überwachung**, dann auf **Systemstatus** und anschließend auf **Standortstatus** oder **Komponentenstatus**.  
+2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Komponente** auf **Starten**, und wählen Sie dann **Dienst-Manager für Configuration Manager** aus.  
+3.  Wenn der Dienst-Manager für Configuration Manager geöffnet wird, stellen Sie eine Verbindung mit dem zu verwaltenden Standort her. Wenn der zu verwaltende Standort nicht angezeigt wird, klicken Sie auf **Standort**, dann auf **Verbinden**, und geben Sie dann den Namen des Standortservers für den gewünschten Standort ein.  
+4.  Erweitern Sie den Standort und wechseln Sie zu **Komponenten** oder **Server**, je nachdem, wo die zu verwaltenden Komponenten sich befinden.  
+5.  Wählen Sie im rechten Fensterbereich eine oder mehrere Komponenten aus.  
+6.  Klicken Sie im Menü **Komponente** auf **Protokollierung**.  
+7.  Legen Sie im Dialogfeld **Configuration Manager-Komponentenprotokollierung** die verfügbaren Konfigurationsoptionen für Ihre Auswahl fest.  
+8.  Klicken Sie auf **OK**, um die Konfiguration zu speichern.  
 
-###  <a name="BKMK_LogLocation"></a> Localiser les fichiers journaux de Configuration Manager  
-Les fichiers journaux de Configuration Manager sont stockés à différents emplacements, qui dépendent du processus qui crée le fichier journal et de la configuration de vos systèmes de site. L’emplacement du fichier journal pouvant varier sur un ordinateur, utilisez la fonction de recherche pour localiser les fichiers journaux appropriés sur votre ordinateur Configuration Manager si vous devez résoudre les problèmes pour un scénario spécifique.  
+###  <a name="BKMK_LogLocation"></a> Suchen von Configuration Manager-Protokollen  
+Configuration Manager-Protokolldateien werden an verschiedenen Speicherorten gespeichert, die vom Prozess, von dem die Protokolldatei erstellt wurde sowie von der Konfiguration Ihrer Standortsysteme abhängig sind. Da der Speicherort der Protokolldatei auf einem Computern variieren kann, verwenden Sie die Suche, um die relevanten Protokolldateien auf Ihren Configuration Manager-Computern ausfindig zu machen, wenn Sie eine Problembehebung in einem bestimmten Szenario durchführen müssen.  
 
-##  <a name="BKMK_ClientLogs"></a> Journaux du client Configuration Manager  
-Les sections suivantes répertorient les fichiers journaux liés aux opérations et à l’installation du client.  
+##  <a name="BKMK_ClientLogs"></a> Configuration Manager-Clientprotokolle  
+In den folgenden Abschnitten werden die Protokolldateien für Clientvorgänge und die Clientinstallation aufgelistet.  
 
-###  <a name="BKMK_ClientOpLogs"></a> Opérations du client  
-Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le client Configuration Manager.  
+###  <a name="BKMK_ClientOpLogs"></a> Clientvorgänge  
+In der folgenden Tabelle werden die Protokolldateien auf dem Configuration Manager-Client aufgelistet.  
 
-|Nom du fichier journal|Description|  
+|Protokollname|Beschreibung|  
 |--------------|-----------------|  
-|CAS.log|Service d’accès au contenu. Conserve le cache du package local sur le client.|  
-|Ccm32BitLauncher.log|Enregistre les actions liées au démarrage des applications sur le client marqué « run as 32bit » (exécuter en 32 bits).|  
-|CcmEval.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager et des détails sur les composants exigés par le client Configuration Manager.|  
-|CcmEvalTask.log|Enregistre des activités d’évaluation liées à l’état du client Configuration Manager lancées par la tâche planifiée d’évaluation.|  
-|CcmExec.log|Enregistre les activités du client et du service Hôte d'agent SMS. Ce fichier journal inclut également des informations sur l'activation et la désactivation du proxy de mise en éveil.|  
-|CcmMessaging.log|Enregistre les activités liées à la communication entre le client et les points de gestion.|  
-|CCMNotificationAgent.log|Enregistre les activités liées aux opérations de notification du client.|  
-|Ccmperf.log|Enregistre les activités liées à la maintenance et la capture de données relatives aux compteurs de performances du client.|  
-|CcmRestart.log|Enregistre les activités de redémarrage du client.|  
-|CCMSDKProvider.log|Enregistre les activités pour les interfaces du kit de développement logiciel (SDK) client.|  
-|CertificateMaintenance.log|Conserve les certificats pour les points de gestion et le service de domaine Active Directory.|  
-|CIDownloader.log|Enregistre des détails sur les téléchargements des définitions des éléments de configuration.|  
-|CITaskMgr.log|Enregistre les tâches lancées pour chaque type d’application et de déploiement, comme le téléchargement de contenu, et les actions d’installation ou de désinstallation.|  
-|ClientAuth.log|Enregistre l’activité de signature et d’authentification pour le client.|  
-|ClientIDManagerStartup.log|Crée et conserve le GUID du client et identifie les tâches effectuées pendant l'inscription et l'attribution des clients.|  
-|ClientLocation.log|Enregistre les tâches liées à l'attribution d'un site client.|  
-|CMHttpsReadiness.log|Enregistre les résultats de l’exécution de l’outil d’évaluation d’analyse HTTPS de Configuration Manager. Cet outil vérifie si les ordinateurs disposent d’un certificat d’authentification de client PKI qui peut être utilisé avec Configuration Manager.|  
-|CmRcService.log|Enregistre des informations pour le service de contrôle à distance.|  
-|ContentTransferManager.log|Planifie le service BITS (Background Intelligent Transfer Service) ou SMB (Server Message Block) pour leur permettre de télécharger des packages ou d’y accéder.|  
-|DataTransferService.log|Enregistre toutes les communications BITS relatives à l'accès aux stratégies ou aux packages.|  
-|EndpointProtectionAgent|Enregistre des informations concernant l’installation du client System Center Endpoint Protection et l’application de la stratégie anti-programme malveillant à ce client.|  
-|execmgr.log|Enregistre des détails concernant les packages et les séquences de tâches qui s'exécutent sur le client.|  
-|ExpressionSolver.log|Enregistre des informations détaillées concernant les méthodes de détection améliorées utilisées quand la journalisation détaillée ou de débogage est activée.|  
-|ExternalEventAgent.log|Enregistre l'historique de la détection des programmes malveillants par Endpoint Protection et des événements liés à l'état du client.|  
-|FileBITS.log|Enregistre toutes les tâches d'accès aux packages SMB.|  
-|FileSystemFile.log|Enregistre l'activité du fournisseur de l'infrastructure de gestion Windows (WMI) pour l'inventaire logiciel et le regroupement de fichiers.|  
-|FSPStateMessage.log|Enregistre l'activité des messages d'état envoyés par le client au point d'état de secours.|  
-|InternetProxy.log|Enregistre l’activité de configuration de proxy et d’utilisation réseau pour le client.|  
-|InventoryAgent.log|Enregistre les activités de l'inventaire matériel et logiciel et les actions de découverte par pulsations effectuées sur le client.|  
-|LocationCache.log|Enregistre l’activité d’utilisation de l’emplacement du cache et de maintenance pour le client.|  
-|LocationServices.log|Enregistre l'activité du client pour la localisation des points de gestion, des points de mise à jour logicielle et des points de distribution.|  
-|MaintenanceCoordinator.log|Enregistre l’activité des tâches de maintenance générale pour le client.|  
-|Mifprovider.log|Enregistre l’activité du fournisseur WMI pour les fichiers .MIF (Management Information Format).|  
-|mtrmgr.log|Surveille tous les processus de contrôle des logiciels.|  
-|PolicyAgent.log|Enregistre les demandes de stratégie effectuées via le service de transfert de données.|  
-|PolicyAgentProvider.log|Enregistre les changements de stratégie.|  
-|PolicyEvaluator.log|Enregistre des détails concernant l'évaluation des stratégies sur les ordinateurs clients, dont les stratégies de mises à jour logicielles.|  
-|PolicyPlatformClient.log|Enregistre le processus de correction et de conformité pour tous les fournisseurs dans %Program Files%\Microsoft Policy Platform, à l’exception du fournisseur de fichier.|  
-|PolicySdk.log|Enregistre les activités pour les interfaces du kit de développement logiciel (SDK) de système de stratégie.|  
-|Pwrmgmt.log|Enregistre les informations liées à l'activation ou à la désactivation et à la configuration des paramètres client du proxy de mise en éveil.|  
-|PwrProvider.log|Enregistre les activités du fournisseur de la gestion de l’alimentation (PWRInvProvider) hébergé dans le service WMI. Sur toutes les versions prises en charge de Windows, le fournisseur énumère les paramètres actuels sur les ordinateurs pendant l'inventaire matériel et applique des paramètres de mode d'alimentation.|  
-|SCClient_&lt;*domaine*\>@&lt;*nom_utilisateur*\>_1.log|Enregistre l'activité dans le centre logiciel pour l'utilisateur spécifié sur l'ordinateur client.|  
-|SCClient_&lt;*domaine*\>@&lt;*nom_utilisateur*\>_2.log|Enregistre l'historique des activités dans le centre logiciel pour l'utilisateur spécifié sur l'ordinateur client.|  
-|Scheduler.log|Enregistre les activités des tâches planifiées pour toutes les opérations du client.|  
-|SCNotify_&lt;*domaine*\>@&lt;*nom_utilisateur*\>_1.log|Enregistre l'activité de notification des utilisateurs sur les logiciels pour l'utilisateur spécifié.|  
-|SCNotify_&lt;*domaine*\>@&lt;*nom_utilisateur*\>_1-&lt;*date_heure*>.log|Enregistre l'historique des informations de notification des utilisateurs sur les logiciels pour l'utilisateur spécifié.|  
-|setuppolicyevaluator.log|Enregistre la création de stratégies d'inventaire et de configuration dans WMI.|  
-|SleepAgent_&lt;*domaine*\>@SYSTEM_0.log|Fichier journal principal pour le proxy de mise en éveil.|  
-|smscliui.log|Enregistre l’utilisation du client Configuration Manager dans le Panneau de configuration.|  
-|SrcUpdateMgr.log|Enregistre l'activité pour les applications Windows Installer installées, qui sont mises à jour avec les emplacements sources du point de distribution actuel.|  
-|StatusAgent.log|Enregistre les messages d'état créés par les composants des clients.|  
-|SWMTRReportGen.log|Génère un rapport des données d’utilisation collectées par l’agent de contrôle. Ces données sont enregistrées dans le fichier journal Mtrmgr.log.|  
-|UserAffinity.log|Enregistre les détails relatifs à l'affinité entre appareil et utilisateur.|  
-|VirtualApp.log|Enregistre des informations spécifiques à l’évaluation des types de déploiement App-V (Application Virtualization).|  
-|Wedmtrace.log|Enregistre les opérations liées aux filtres d'écriture sur les clients Windows Embedded.|  
-|wakeprxy-install.log|Enregistre les informations liées à l’installation quand les clients reçoivent l’option du paramètre client d’activation du proxy de mise en éveil.|  
-|wakeprxy-uninstall.log|Enregistre les informations liées à la désinstallation du proxy de mise en éveil quand les clients reçoivent l’option de désactivation du paramètre client du proxy de mise en éveil, si ce proxy a été précédemment activé.|  
+|CAS.log|Der Content Access Service. Verwaltet den lokalen Paketcache auf dem Client.|  
+|Ccm32BitLauncher.log|Zeichnet Aktionen zum Starten von Anwendungen auf dem Client auf, die mit „Ausführen als 32-Bit“ gekennzeichnet sind.|  
+|CcmEval.log|Zeichnet Auswertungsaktivitäten für den Configuration Manager-Clientstatus auf sowie Details für Komponenten, die für den Configuration Manager-Client erforderlich sind|  
+|CcmEvalTask.log|Zeichnet die Auswertungsaktivitäten für den Configuration Manager-Clientstatus auf, die vom geplanten Auswertungstask initiiert werden|  
+|CcmExec.log|Zeichnet Aktivitäten des Clients und des SMS-Agent-Hostdiensts auf. Diese Protokolldatei enthält auch Informationen zum Aktivieren und Deaktivieren des Aktivierungsproxys.|  
+|CcmMessaging.log|Zeichnet Aktivitäten in Zusammenhang mit Kommunikation zwischen Client und Verwaltungspunkten auf.|  
+|CCMNotificationAgent.log|Zeichnet Aktivitäten im Zusammenhang mit Client-Benachrichtigungsoperationen auf.|  
+|Ccmperf.log|Zeichnet Aktivitäten im Zusammenhang mit Wartung und Erfassung von Daten zu Clientleistungsindikatoren auf.|  
+|CcmRestart.log|Zeichnet Neustartaktivitäten zu Clientdiensten auf.|  
+|CCMSDKProvider.log|Zeichnet Aktivitäten im Zusammenhang mit den Client-SDK-Schnittstellen auf.|  
+|CertificateMaintenance.log|Verwaltet Zertifikate für die Active Directory-Domänendienste und die Verwaltungspunkte.|  
+|CIDownloader.log|Zeichnet Details zu Downloads von Konfigurationselementdefinitionen auf.|  
+|CITaskMgr.log|Zeichnet Tasks auf, die für jede Anwendung und jeden Bereitstellungstyp initiiert werden, wie z.B. Herunterladen von Inhalten oder Installieren und Deinstallieren von Aktionen.|  
+|ClientAuth.log|Zeichnet das Signieren und Authentifizieren des Clients auf.|  
+|ClientIDManagerStartup.log|Erstellt und verwaltet die Client-GUID und identifiziert Tasks, die während der Anmeldung und Zuweisung von Clients ausgeführt werden.|  
+|ClientLocation.log|Zeichnet Tasks im Zusammenhang mit der Clientstandortzuweisung auf.|  
+|CMHttpsReadiness.log|Zeichnet die Ergebnisse der Ausführung des Configuration Manager-Tools zur Überprüfung der HTTPS-Bereitschaft auf. Mithilfe dieses Tools wird überprüft, ob Computer über ein PKI-Clientauthentifizierungszertifikat verfügen, das für Configuration Manager verwendet werden kann.|  
+|CmRcService.log|Zeichnet Informationen für den Remotesteuerungsdienst auf.|  
+|ContentTransferManager.log|Plant den intelligenten Hintergrundübertragungsdienst (Background Intelligent Transfer Service, BITS) oder den Server Message Block (SMB), um Pakete herunterzuladen oder darauf zuzugreifen.|  
+|DataTransferService.log|Zeichnet die gesamte BITS-Kommunikation für den Richtlinien- oder Paketzugriff auf.|  
+|EndpointProtectionAgent|Zeichnet Informationen zur Installation des System Center Endpoint Protection-Clients und zum Anwenden der Antischadsoftwarerichtlinie auf diesen Client auf.|  
+|execmgr.log|Zeichnet Details zu Paketen und Tasksequenzen auf, die auf dem Client ausgeführt werden.|  
+|ExpressionSolver.log|Zeichnet Details zu erweiterten Erkennungsmethoden auf, die verwendet werden, wenn die ausführliche oder die Debugprotokollierung aktiviert ist.|  
+|ExternalEventAgent.log|Zeichnet den Verlauf der Schadsoftware-Erkennung und von Ereignissen von Endpoint Protection auf, die mit dem Clientstatus in Verbindung stehen.|  
+|FileBITS.log|Zeichnet alle SMB-Paketzugriffsaufgaben auf.|  
+|FileSystemFile.log|Zeichnet die Aktivitäten des WMI-Anbieters (Windows Management Instrumentation) für Softwareinventur und Dateisammlung auf.|  
+|FSPStateMessage.log|Zeichnet die Aktivitäten im Zusammenhang mit Zustandsmeldungen auf, die vom Client an den Fallbackstatuspunkt gesendet werden.|  
+|InternetProxy.log|Zeichnet die Konfigurations- und Nutzungsaktivitäten des Netzwerkproxys für den Client auf.|  
+|InventoryAgent.log|Zeichnet Aktivitäten im Zusammenhang mit Hardwareinventur, Softwareinventur und Frequenzermittlung auf dem Client auf.|  
+|LocationCache.log|Zeichnet die Aktivitäten im Zusammenhang mit Standortcachenutzung und -wartung für den Client auf.|  
+|LocationServices.log|Zeichnet die Clientaktivitäten im Zusammenhang mit der Suche nach Verwaltungspunkten, Softwareupdatepunkten und Verteilungspunkten auf.|  
+|MaintenanceCoordinator.log|Zeichnet die Aktivitäten im Zusammenhang mit allgemeinen Wartungstasks für den Client auf.|  
+|Mifprovider.log|Zeichnet die Aktivitäten des WMI-Anbieters für MIF-Dateien auf.|  
+|mtrmgr.log|Überwacht alle Softwaremessungen.|  
+|PolicyAgent.log|Zeichnet mithilfe des Datenübertragungsdiensts übermittelte Richtlinienanforderungen auf.|  
+|PolicyAgentProvider.log|Zeichnet Richtlinienänderungen auf.|  
+|PolicyEvaluator.log|Zeichnet Details zur Auswertung von Richtlinien auf Clientcomputern, einschließlich Softwareupdates, auf.|  
+|PolicyPlatformClient.log|Zeichnet den Prozess für Wiederherstellung und Konformität für alle Anbieter in „%Program Files%\Microsoft Policy Platform“ mit Ausnahme des Dateianbieters auf.|  
+|PolicySdk.log|Zeichnet Aktivitäten für Schnittstellen des Richtliniensystem-SDK auf.|  
+|Pwrmgmt.log|Zeichnet Informationen zum Aktivieren oder Deaktivieren sowie Konfigurieren der Clienteinstellungen des Aktivierungsproxys auf.|  
+|PwrProvider.log|Zeichnet die Aktivitäten des Energieverwaltungsanbieters (PWRInvProvider) auf, der im WMI-Dienst (Windows Management Instrumentation) gehostet ist. Unter allen unterstützten Windows-Versionen zählt der Anbieter während der Hardwareinventur auf Computern die aktuellen Einstellungen auf und wendet Energiesparplaneinstellungen an.|  
+|SCClient_&lt;*Domäne*\>@&lt;*Benutzername*\>_1.log|Zeichnet die Aktivitäten im Software Center für den angegebenen Benutzer auf dem Clientcomputer auf.|  
+|SCClient_&lt;*Domäne*\>@&lt;*Benutzername*\>_2.log|Zeichnet die historischen Aktivitäten im Software Center für den angegebenen Benutzer auf dem Clientcomputer auf.|  
+|Scheduler.log|Zeichnet Aktivitäten geplanter Tasks für alle Clientvorgänge auf.|  
+|SCNotify_&lt;*Domäne*\>@&lt;*Benutzername*\>_1.log|Zeichnet die Aktivitäten im Zusammenhang mit Benutzerbenachrichtigungen über Software für den angegebenen Benutzer auf.|  
+|SCNotify_&lt;*Domäne*\>@&lt;*Benutzername*\>_1-&lt;*date_time*>.log|Zeichnet die historischen Informationen im Zusammenhang mit Benutzerbenachrichtigungen über Software für den angegebenen Benutzer auf.|  
+|setuppolicyevaluator.log|Zeichnet Aktivitäten im Zusammenhang mit Konfiguration und der Erstellung von Inventurrichtlinien in WMI auf.|  
+|SleepAgent_&lt;*Domäne*\>@SYSTEM_0.log|Die wichtigste Protokolldatei für Aktivierungsproxy.|  
+|smscliui.log|Zeichnet die Nutzung des Configuration Manager-Clients in der Systemsteuerung auf.|  
+|SrcUpdateMgr.log|Zeichnet Aktivitäten im Zusammenhang mit installierten Windows Installer-Anwendungen auf, für die mithilfe aktueller Verteilungspunktquellpfade ein Update ausgeführt wird.|  
+|StatusAgent.log|Zeichnet Statusmeldungen auf, die von Clientkomponenten erstellt werden.|  
+|SWMTRReportGen.log|Erstellt einen Verwendungsdatenbericht, der von dem Messungsagent gesammelt wird. Diese Daten werden in Mtrmgr.log protokolliert.|  
+|UserAffinity.log|Zeichnet Details zur Affinität zwischen Benutzer und Gerät auf.|  
+|VirtualApp.log|Zeichnet spezifische Informationen zur Auswertung der App-V-Bereitstellungstypen auf.|  
+|Wedmtrace.log|Zeichnet Vorgänge im Zusammenhang mit Schreibfiltern auf Windows Embedded-Clients auf.|  
+|wakeprxy-install.log|Zeichnet Installationsinformationen auf, wenn Clients die Clienteinstellungsoption zur Aktivierung des Aktivierungsproxy empfangen.|  
+|wakeprxy-uninstall.log|Zeichnet Informationen zur Deinstallation von Aktivierungsproxys auf, wenn von Clients die Clienteinstellungsoption „Aktivierungsproxys nicht zulassen“ empfangen wurde, wenn der Aktivierungsproxy bereits vorher zugelassen war.|  
 
-###  <a name="BKMK_ClientInstallLog"></a> Fichiers journaux de l’installation du client  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’installation du client Configuration Manager.  
+###  <a name="BKMK_ClientInstallLog"></a> Protokolldateien zur Clientinstallation  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen zur Installation des Configuration Manager-Clients enthalten.  
 
-|Nom du fichier journal|Description|  
+|Protokollname|Beschreibung|  
 |--------------|-----------------|  
-|ccmsetup.log|Enregistre les tâches de ccmsetup.exe liées au programme d’installation du client, à la mise à niveau du client et à la suppression de client. Permet de dépanner des problèmes d'installation du client.|  
-|ccmsetup-ccmeval.log|Enregistre les tâches de ccmsetup.exe liées à l’état et à la correction du client.|  
-|CcmRepair.log|Enregistre les activités de réparation de l'agent du client.|  
-|client.msi.log|Enregistre les tâches d'installation exécutées par client.msi. Permet de dépanner les problèmes d'installation ou de suppression du client.|  
+|ccmsetup.log|Zeichnet ccmsetup.exe-Tasks für Clienteinstellung, Clientupgrade und Cliententfernung auf. Ist für die Problembehandlung bei Clientinstallationsproblemen hilfreich.|  
+|ccmsetup-ccmeval.log|Zeichnet ccmsetup.exe-Tasks für Clientstatus und -wiederherstellung auf.|  
+|CcmRepair.log|Zeichnet Reparaturaktivitäten des Client-Agents auf.|  
+|client.msi.log|Zeichnet die von „client.msi“ ausgeführten Setuptasks auf. Ist für die Problembehandlung bei Problemen beim Installieren oder Entfernen von Clients hilfreich.|  
 
-###  <a name="BKMK_LogFilesforLnU"></a> Client pour Linux et UNIX  
- Le client Configuration Manager pour Linux et UNIX enregistre les informations dans les fichiers journaux suivants.  
+###  <a name="BKMK_LogFilesforLnU"></a> Client für Linux und UNIX  
+ Vom Configuration Manager-Client für Linux und UNIX werden Informationen in folgenden Protokolldateien aufgezeichnet.  
 
 > [!TIP]  
->  Depuis la mise à jour cumulative 1 pour Linux et UNIX, vous pouvez utiliser CMTrace pour voir les fichiers journaux du client pour Linux et UNIX.  
+>  Ab dem kumulativen Update 1 der Clients für Linux und UNIX können Sie CMTrace zum Anzeigen entsprechender Clientprotokolldateien für Linux und UNIX verwenden.  
 
 > [!NOTE]  
->  Lorsque vous utilisez la version initiale du client pour Linux et UNIX et faites référence à la documentation de cette section, remplacez les références suivantes pour chaque fichier ou processus :  
+>  Wenn Sie die Erstversion des Clients für Linux und UNIX verwenden und die Dokumentation in diesem Abschnitt nutzen, ersetzen Sie die folgenden Verweise in den einzelnen Dateien oder Prozessen:  
 >   
->  -   Remplacez **omiserver.bin** par **nwserver.bin**  
-> -   Remplacez **omi** par **nanowbem**  
+>  -   Ersetzen Sie **omiserver.bin** durch **nwserver.bin**  
+> -   Ersetzen Sie **omi** durch **nanowbem**  
 
-|Nom du fichier journal|Détails|  
+|Protokollname|Details|  
 |--------------|-------------|  
-|Scxcm.log|Fichier journal pour le service principal du client Configuration Manager pour Linux et UNIX (ccmexec.bin). Ce fichier journal contient des informations liées à l'installation et aux opérations en cours de ccmexec.bin.<br /><br /> Par défaut, ce fichier journal se trouve dans **/var/opt/microsoft/scxcm.log**<br /><br /> Pour définir un autre emplacement pour le fichier journal, modifiez **/opt/microsoft/configmgr/etc/scxcm.conf** et changez le champ **PATH** . Il n'est pas nécessaire de redémarrer l'ordinateur ou le service client pour appliquer la modification.<br /><br /> Vous pouvez définir le niveau de journalisation sur quatre valeurs différentes.|  
-|Scxcmprovider.log|Fichier journal pour le service CIM du client Configuration Manager pour Linux et UNIX (omiserver.bin). Ce fichier journal contient les informations liées aux opérations en cours de nwserver.bin.<br /><br /> Ce fichier journal se trouve dans**/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Pour définir un autre emplacement pour le fichier journal, modifiez **/opt/microsoft/omi/etc/scxcmprovider.conf** et changez le champ **PATH** . Il n'est pas nécessaire de redémarrer l'ordinateur ou le service client pour appliquer la modification.<br /><br /> Vous pouvez définir le niveau de journalisation sur trois valeurs différentes.|  
+|Scxcm.log|Das ist die Protokolldatei für den Kerndienst des Configuration Manager-Clients für Linux und UNIX (ccmexec.bin). Diese Protokolldatei enthält Informationen zur Installation und zum laufenden Vorgang von ccmexec.bin.<br /><br /> Standardmäßig befindet sich diese Datei unter **/var/opt/microsoft/scxcm.log**<br /><br /> Für das Ändern des Speicherorts der Protokolldatei bearbeiten Sie **/opt/microsoft/configmgr/etc/scxcm.conf** , und ändern Sie das Feld **PATH** . Sie müssen den Clientcomputer oder den Dienst nicht neu starten, damit die Änderungen wirksam werden.<br /><br /> Für den Protokolliergrad können Sie eine von vier unterschiedlichen Einstellungen vornehmen.|  
+|Scxcmprovider.log|Das ist die Protokolldatei für den CIM-Dienst des Configuration Manager-Clients für Linux und UNIX (omiserver.bin). Diese Protokolldatei enthält Informationen zu den laufenden Vorgängen von nwserver.bin.<br /><br /> Dieses Protokoll befindet sich unter**/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Für eine Änderung des Speicherorts der Protokolldatei bearbeiten Sie **/opt/microsoft/omi/etc/scxcmprovider.conf** , und ändern Sie das Feld **PATH** . Sie müssen den Clientcomputer oder den Dienst nicht neu starten, damit die Änderungen wirksam werden.<br /><br /> Für den Protokolliergrad können Sie eine von drei unterschiedlichen Einstellungen vornehmen.|  
 
- Les deux fichiers journaux prennent en charge plusieurs niveaux de journalisation :  
+ Beide Protokolldateien unterstützen mehrere Protokolliergrade:  
 
--   **scxcm.log**. Pour changer le niveau de journalisation, ouvrez **/opt/microsoft/configmgr/etc/scxcm.conf** et changez chaque instance de l’étiquette **MODULE** pour le niveau de journalisation souhaité :  
+-   **scxcm.log**. Für eine Änderung des Protokolliergrads bearbeiten Sie **/opt/microsoft/configmgr/etc/scxcm.conf** und ändern Sie jede Instanz des Tags **MODUL** auf den gewünschten Protokolliergrad  
 
-    -   ERROR : indique des problèmes nécessitant votre attention.  
+    -   FEHLER: Weist auf Probleme hin, die Ihr Eingreifen erfordern.  
 
-    -   WARNING : indique des problèmes possibles pour les opérations du client.  
+    -   WARNUNG: Weist auf mögliche Probleme für Clientvorgänge hin.  
 
-    -   INFO : une journalisation plus détaillée indiquant l’état de différents événements sur le client.  
+    -   INFO: Ausführlichere Protokollierung, durch die der Status verschiedener Ereignisse auf dem Client angegeben wird.  
 
-    -   TRACE : une journalisation détaillée généralement utilisée pour diagnostiquer les problèmes.  
+    -   ABLAUFVERFOLGUNG: Ausführliche Protokollierung, die normalerweise zur Problemdiagnose verwendet wird.  
 
--   **scxcmprovider.log**. Pour définir un autre niveau de journal, modifiez **/opt/microsoft/omi/etc/scxcmprovider.conf** et changez chaque instance de la balise **MODULE** au niveau de journal souhaité :  
+-   **scxcmprovider.log**. Für eine Änderung des Protokolliergrads bearbeiten Sie **/opt/microsoft/omi/etc/ scxcmprovider.conf** und ändern Sie jede Instanz des Tags **MODUL** in den erwünschten Protokolliergrad.  
 
-    -   ERROR : indique des problèmes nécessitant votre attention.  
+    -   FEHLER: Weist auf Probleme hin, die Ihr Eingreifen erfordern.  
 
-    -   WARNING : indique des problèmes possibles pour les opérations du client.
+    -   WARNUNG: Weist auf mögliche Probleme für Clientvorgänge hin.
 
-    -   INFO : une journalisation plus détaillée indiquant l’état de différents événements sur le client.  
+    -   INFO: Ausführlichere Protokollierung, durch die der Status verschiedener Ereignisse auf dem Client angegeben wird.  
 
-Dans des conditions de fonctionnement normales, utilisez le niveau de journalisation ERROR. Ce niveau de journalisation crée le fichier journal le plus petit. Au fil de l’augmentation du niveau de journalisation d’ERROR à WARNING, à INFO, puis à TRACE, un fichier journal à chaque fois plus volumineux est créé car plus de données sont écrites dans le fichier journal.  
+Unter normalen Betriebsbedingungen sollte der Protokollgrad FEHLER verwendet werden. Diese Protokollebene erstellt die kleinste Protokolldatei. Mit der Steigerung des Protokollgrads von FEHLER zu WARNUNG zu INFO zu ABLAUFVERFOLGUNG wird die Protokolldatei mit jedem Schritt größer, da mehr Daten hineingeschrieben werden.  
 
-####  <a name="BKMK_ManageLinuxLogs"></a> Gérer les fichiers journaux du client Linux et UNIX  
-Le client pour Linux et UNIX ne limite pas la taille maximale des fichiers journaux du client. Il ne copie pas non plus automatiquement le contenu de ses fichiers .log dans un autre fichier, comme un fichier .lo_. Si vous voulez contrôler la taille maximale des fichiers journaux, implémentez un processus pour gérer les fichiers journaux indépendamment du client Configuration Manager pour Linux et UNIX.  
+####  <a name="BKMK_ManageLinuxLogs"></a> Verwalten von Protokolldateien für den Client für Linux und UNIX  
+Auf dem Client für Linux und UNIX wird weder eine maximale Größe der Clientprotokolldateien vorgegeben noch werden die Inhalte der .LOG-Dateien automatisch in eine andere Datei, z.B. eine .LO_-Datei kopiert: Wenn Sie die maximale Größe von Protokolldateien steuern möchten, müssen Sie unabhängig vom Configuration Manager-Client für Linux und UNIX einen Prozess zum Verwalten der Protokolldateien implementieren.  
 
-Par exemple, vous pouvez utiliser la commande Linux et UNIX standard **logrotate** pour gérer la taille et la rotation des fichiers journaux du client. Le client Configuration Manager pour Linux et UNIX a une interface qui permet à **logrotate** de signaler au client le moment où la rotation des journaux est terminée. Le client peut ainsi reprendre la journalisation dans le fichier journal.  
+Beispielsweise können Sie den Linux- und UNIX-Standardbefehl **logrotate** verwenden, um die Größe und Rotation der Clientprotokolldateien zu verwalten. Auf dem Configuration Manager-Client für Linux und UNIX steht eine Schnittstelle zur Verfügung, mit deren Hilfe dem Client über **logrotate** signalisiert werden kann, wann die Protokollrotation abgeschlossen ist, sodass die Informationserfassung in der Protokolldatei wiederaufgenommen werden kann.  
 
-Pour plus d'informations sur **logrotate**, consultez la documentation des distributions Linux et UNIX que vous utilisez.  
+Weitere Informationen über **logrotate**finden Sie in der Dokumentation zu den Linux und UNIX-Verteilungen, die Sie verwenden.  
 
-###  <a name="BKMK_LogfilesforMac"></a> Client pour ordinateurs Mac  
-Le client Configuration Manager pour ordinateurs Mac enregistre les informations dans les fichiers journaux suivants.  
+###  <a name="BKMK_LogfilesforMac"></a> Client für Macintosh-Computer  
+Vom Configuration Manager-Client für Macintosh-Computer werden Informationen in folgenden Protokolldateien aufgezeichnet.  
 
-|Nom du fichier journal|Détails|  
+|Protokollname|Details|  
 |--------------|-------------|  
-|CCMClient-&lt;*date_heure*>.log|Enregistre les activités liées aux opérations du client Mac, notamment la gestion des applications, l’inventaire et la journalisation des erreurs.<br /><br /> Ce fichier journal se trouve dans le dossier /Library/Application Support/Microsoft/CCM/Logs sur l’ordinateur Mac.|  
-|CCMAgent-&lt;*date_heure*>.log|Enregistre les informations liées aux opérations du client, notamment les opérations d’ouverture et de fermeture de session utilisateur et l’activité de l’ordinateurs Mac.<br /><br /> Ce fichier journal se trouve dans le dossier ~/Library/Logs sur l’ordinateur Mac.|  
-|CCMNotifications-&lt;*date_heure*>.log|Enregistre les activités liées aux notifications Configuration Manage affichées sur l’ordinateur Mac.<br /><br /> Ce fichier journal se trouve dans le dossier ~/Library/Logs sur l’ordinateur Mac.|  
-|CCMPrefPane-&lt;*date_heure*>.log|Enregistre les activités liées à la boîte de dialogue Préférences de Configuration Manager sur l’ordinateur Mac, ce qui inclut l’état général et la journalisation des erreurs.<br /><br /> Ce fichier journal se trouve dans le dossier ~/Library/Logs sur l’ordinateur Mac.|  
+|CCMClient-&lt;*Datum_Zeit>*.log|Zeichnet Aktivitäten auf, die mit Vorgängen des Macintosh-Clients verknüpft sind. Dazu gehören Anwendungsverwaltung, Inventur und Fehlerprotokollierung.<br /><br /> Diese Protokolldatei befindet sich im Ordner „/Library/Application Support/Microsoft/CCM/Logs“ auf dem Macintosh-Computer.|  
+|CCMAgent-&lt;*Datum_Zeit>*.log|Zeichnet Informationen zu Clientvorgängen auf, einschließlich Benutzeranmeldungs- und abmeldungsvorgänge und Macintosh-Computeraktivität.<br /><br /> Diese Protokolldatei befindet sich im Ordner ~/Library/Logs auf dem Macintosh-Computer.|  
+|CCMNotifications-&lt;*Datum_Zeit>*.log|Zeichnet Aktivitäten auf, die mit Configuration Manager-Benachrichtigungen verknüpft sind, die auf dem Macintosh-Computer angezeigt werden.<br /><br /> Diese Protokolldatei befindet sich im Ordner ~/Library/Logs auf dem Macintosh-Computer.|  
+|CCMPrefPane-&lt;*Datum_Zeit>*.log|Zeichnet Aktivitäten auf, die mit dem Configuration Manager-Dialogfeld für Einstellungen auf dem Macintosh-Computer verknüpft sind. Dazu gehören der allgemeine Status und die Fehlerprotokollierung.<br /><br /> Diese Protokolldatei befindet sich im Ordner ~/Library/Logs auf dem Macintosh-Computer.|  
 
-Le fichier journal SMS_DM.log sur le serveur de système de site enregistre aussi les communications entre les ordinateurs Mac et le point de gestion configuré pour les appareils mobiles et les ordinateurs Mac.  
+Zusätzlich wird in der Protokolldatei „SMS_DM.log“ auf dem Standortsystemserver die Kommunikation zwischen Macintosh-Computern und dem Verwaltungspunkt aufgezeichnet, der für mobile Geräte und Mac-Computer aktiviert ist.  
 
-##  <a name="BKMK_ServerLogs"></a> Fichiers journaux du serveur de site Configuration Manager  
- Les sections suivantes répertorient les fichiers journaux qui se trouvent sur le serveur de site ou qui sont liés à des rôles de système de site spécifiques.  
+##  <a name="BKMK_ServerLogs"></a> Protokolldateien für Configuration Manager-Standortserver  
+ In den folgenden Abschnitten werden Protokolldateien aufgelistet, die sich auf dem Standortserver befinden oder im Zusammenhang mit bestimmten Standortsystemrollen stehen.  
 
-###  <a name="BKMK_SiteSiteServerLog"></a> Journaux de serveur de site et de serveur de système de site  
- Le tableau suivant répertorie les fichiers journaux qui se trouvent sur le serveur de site et les serveurs de système de site Configuration Manager.  
+###  <a name="BKMK_SiteSiteServerLog"></a> Protokolle für Standortserver und Standortsystemserver  
+ In der folgenden Tabelle werden die Protokolldateien auf dem Configuration Manager-Standortserver und den entsprechenden Standortsystemservern aufgelistet.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|adctrl.log|Enregistre les activités de traitement des inscriptions.|Serveur de site|  
-|ADForestDisc.log|Enregistre les actions de découverte de forêts Active Directory.|Serveur de site|  
-|ADService.log|Enregistre la création de compte et les détails des groupes de sécurité dans Active Directory.|Serveur de site|  
-|adsgdis.log|Enregistre les actions de découverte de groupe Active Directory.|Serveur de site|  
-|adsysdis.log|Enregistre les actions de découverte du système Active Directory.|Serveur de site|  
-|adusrdis.log|Enregistre les actions de découverte d'utilisateurs Active Directory.|Serveur de site|  
-|ccm.log|Enregistre les activités de l'installation poussée du client.|Serveur de site|  
-|CertMgr.log|Enregistre les activités de certificat pour la communication intra-site.|Serveur de système de site|  
-|chmgr.log|Enregistre les activités du gestionnaire d'intégrité du client.|Serveur de site|  
-|Cidm.log|Enregistre les modifications apportées aux paramètres du client par le Gestionnaire de données d'installation des clients (CIDM).|Serveur de site|  
-|colleval.log|Enregistre des détails concernant la création, la modification et la suppression de regroupements par l'Évaluateur de regroupements.|Serveur de site|  
-|compmon.log|Enregistre l'état des threads du composant surveillé pour le serveur de site.|Serveur de système de site|  
-|compsumm.log|Enregistre les tâches de l'Outil de synthèse d'état des composants.|Serveur de site|  
-|ComRegSetup.log|Enregistre l'installation initiale des résultats d'inscription COM d'un serveur de site.|Serveur de système de site|  
-|dataldr.log|Enregistre des informations sur le traitement des fichiers MIF et de l’inventaire matériel dans la base de données Configuration Manager.|Serveur de site|  
-|ddm.log|Enregistre les activités du gestionnaire de données de découverte.|Serveur de site|  
-|despool.log|Enregistre les transferts de communications entrantes de site à site.|Serveur de site|  
-|distmgr.log|Enregistre les détails concernant la création, la compression, la réplication delta et la mise à jour des informations des packages.|Serveur de site|  
-|EPCtrlMgr.log|Enregistre des informations concernant la synchronisation des informations sur les menaces de programmes malveillants à partir du serveur de rôle de système de site Endpoint Protection avec la base de données Configuration Manager.|Serveur de site|  
-|EPMgr.log|Enregistre l'état du rôle de système de site Endpoint Protection.|Serveur de système de site|  
-|EPSetup.log|Fournit des informations sur l'installation du rôle de système de site Endpoint Protection.|Serveur de système de site|  
-|EnrollSrv.log|Enregistre les activités du processus du service d'inscription.|Serveur de système de site|  
-|EnrollWeb.log|Enregistre les activités du processus du site Web d'inscription.|Serveur de système de site|  
-|fspmgr.log|Enregistre les activités du rôle de système de site d'un point d'état de secours.|Serveur de système de site|  
-|hman.log|Enregistre des informations sur les modifications de la configuration du site et sur la publication d’informations du site dans les services de domaine Active Directory.|Serveur de site|  
-|Inboxast.log|Enregistre les fichiers déplacés du point de gestion vers le dossier Boîtes de réception correspondant sur le serveur de site.|Serveur de site|  
-|inboxmgr.log|Enregistre les activités de transfert de fichier entre les dossiers des boîtes de réception.|Serveur de site|  
-|inboxmon.log|Enregistre le traitement des fichiers des boîtes de réception et des mises à jour du compteur de performances.|Serveur de site|  
-|invproc.log|Enregistre le transfert des fichiers MIF d'un site secondaire vers son site parent.|Serveur de site|  
-|migmctrl.log|Enregistre des informations sur les actions de migration qui impliquent des tâches de migration, des points de distribution partagés et des mises à niveau des points de distribution.|Site de plus haut niveau dans la hiérarchie Configuration Manager et chaque site principal enfant.<br /><br /> Dans une hiérarchie comportant plusieurs sites principaux, utilisez le fichier journal créé sur le site d’administration centrale.|  
-|mpcontrol.log|Enregistre l’inscription du point de gestion auprès de WINS (Windows Internet Name Service). Enregistre la disponibilité du point de gestion toutes les dix minutes.|Serveur de système de site|  
-|mpfdm.log|Enregistre les actions du composant du point de gestion qui déplace les fichiers du client vers le dossier Boîtes de réception correspondant sur le serveur de site.|Serveur de système de site|  
-|mpMSI.log|Enregistre des détails sur l’installation du point de gestion.|Serveur de site|  
-|MPSetup.log|Enregistre le processus de wrapper d'installation du point de gestion.|Serveur de site|  
-|netdisc.log|Enregistre les actions de découverte du réseau.|Serveur de site|  
-|ntsvrdis.log|Enregistre l'activité de découverte des serveurs de système de site.|Serveur de site|  
-|Objreplmgr|Enregistre le traitement des notifications de modification d'objet pour la réplication.|Serveur de site|  
-|offermgr.log|Enregistre les mises à jour des publications.|Serveur de site|  
-|offersum.log|Enregistre la synthèse des messages d'état du déploiement.|Serveur de site|  
-|OfflineServicingMgr.log|Enregistre les activités de mise à jour des fichiers d'image de systèmes d'exploitation.|Serveur de site|  
-|outboxmon.log|Enregistre le traitement des fichiers de la boîte d'envoi et des mises à jour du compteur de performances.|Serveur de site|  
-|PerfSetup.log|Enregistre les résultats de l'installation des compteurs de performance.|Serveur de système de site|  
-|PkgXferMgr.log|Enregistre les actions du composant SMS_Executive chargé de l’envoi de contenu d’un site principal vers un point de distribution distant.|Serveur de site|  
-|policypv.log|Enregistre les mises à jour des stratégies du client pour refléter les modifications apportées aux paramètres du client ou aux déploiements.|Serveur de site principal|  
-|rcmctrl.log|Enregistre les activités de réplication de la base de données entre les sites dans la hiérarchie.|Serveur de site|  
-|replmgr.log|Enregistre la réplication de fichiers entre les composants du serveur de site et le composant Planificateur.|Serveur de site|  
-|ResourceExplorer.log|Enregistre les erreurs, avertissements et informations liés à l’exécution de l’Explorateur de ressources.|Ordinateur qui exécute la console Configuration Manager|  
-|ruleengine.log|Enregistre des détails concernant les règles de déploiement automatique pour l'identification, le téléchargement de contenu et la création de groupe et de déploiement de mises à jour logicielles.|Serveur de site|  
-|schedule.log|Enregistre des détails concernant la réplication des travaux de site à site et de fichiers.|Serveur de site|  
-|Sender.log|Enregistre les fichiers qui sont transférés par réplication basée sur les fichiers entre les sites.|Serveur de site|  
-|sinvproc.log|Enregistre des informations sur le traitement des données d'inventaire logiciel vers la base de données de site.|Serveur de site|  
-|sitecomp.log|Enregistre des détails concernant la maintenance des composants du site installés sur tous les serveurs de système de site du site.|Serveur de site|  
-|sitectrl.log|Enregistre des modifications dans les paramètres du site apportées aux objets de contrôle de site dans la base de données.|Serveur de site|  
-|sitestat.log|Enregistre le processus de surveillance de la disponibilité et de l'espace disque de tous les systèmes de site.|Serveur de site|  
-|SmsAdminUI.log|Enregistre l’activité de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
-|SMSAWEBSVCSetup.log|Enregistre les activités d'installation du service Web du catalogue des applications.|Serveur de système de site|  
-|smsbkup.log|Enregistre les résultats du processus de sauvegarde de site.|Serveur de site|  
-|smsdbmon.log|Enregistre les modifications de la base de données.|Serveur de site|  
-|SMSENROLLSRVSetup.log|Enregistre les activités d'installation du service Web d'inscription.|Serveur de système de site|  
-|SMSENROLLWEBSetup.log|Enregistre les activités d'installation du site Web d'inscription.|Serveur de système de site|  
-|smsexec.log|Enregistre le traitement de tous les threads du composant de serveur de site.|Serveur de site ou serveur de système de site|  
-|SMSFSPSetup.log|Enregistre les messages générés par l'installation d'un point d'état de secours.|Serveur de système de site|  
-|SMSPORTALWEBSetup.log|Enregistre les activités d'installation du site Web du catalogue des applications.|Serveur de système de site|  
-|SMSProv.log|Enregistre les accès du fournisseur WMI à la base de données du site.|Ordinateur sur lequel le fournisseur SMS est installé|  
-|srsrpMSI.log|Enregistre des résultats détaillés du processus d'installation du point de rapport à partir de la sortie MSI.|Serveur de système de site|  
-|srsrpsetup.log|Enregistre les résultats du processus d'installation du point de rapport.|Serveur de système de site|  
-|statesys.log|Enregistre le traitement des messages du système d'état.|Serveur de site|  
-|statmgr.log|Enregistre l'écriture de tous les messages d'état dans la base de données.|Serveur de site|  
-|swmproc.log|Enregistre le traitement des fichiers et des paramètres de contrôle.|Serveur de site|  
+|adctrl.log|Zeichnet Aktivitäten im Zusammenhang mit der Anmeldungsverarbeitung auf.|Standortserver|  
+|ADForestDisc.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Gesamtstrukturermittlung auf.|Standortserver|  
+|ADService.log|Zeichnet Details zur Kontoerstellung und zu Sicherheitsgruppen in Active Directory auf.|Standortserver|  
+|adsgdis.log|Zeichnet Aktionen der Active Directory-Gruppenermittlung auf.|Standortserver|  
+|adsysdis.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Systemermittlung auf.|Standortserver|  
+|adusrdis.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Benutzerermittlung auf.|Standortserver|  
+|ccm.log|Zeichnet Aktivitäten im Zusammenhang mit der Clientpushinstallation auf.|Standortserver|  
+|CertMgr.log|Zeichnet die Zertifikataktivitäten für die standortinterne Kommunikation auf.|Standortsystemserver|  
+|chmgr.log|Zeichnet die Aktivitäten des Clientintegritäts-Managers auf.|Standortserver|  
+|Cidm.log|Zeichnet Änderungen an den Clienteinstellungen durch den SMS-Clientinstallationsdaten-Manager (CIDM) auf.|Standortserver|  
+|colleval.log|Zeichnet Details zum Erstellen, Ändern und Löschen von Sammlungen durch den Sammlungsauswerter auf.|Standortserver|  
+|compmon.log|Zeichnet den Status von Threadkomponenten auf, die für den Standortserver überwacht werden.|Standortsystemserver|  
+|compsumm.log|Zeichnet die Tasks der Statuszusammenfassung für Komponenten auf.|Standortserver|  
+|ComRegSetup.log|Zeichnet die Ergebnisse der Erstinstallation der COM-Registrierung für einen Standortserver auf.|Standortsystemserver|  
+|dataldr.log|Zeichnet Informationen zur Verarbeitung von MIF-Dateien und Hardwareinventur in der Configuration Manager-Datenbank auf.|Standortserver|  
+|ddm.log|Zeichnet die Aktivitäten des Ermittlungsdaten-Managers auf.|Standortserver|  
+|despool.log|Zeichnet die eingehende Datenkommunikation zwischen Standorten auf.|Standortserver|  
+|distmgr.log|Zeichnet Details zu Paketerstellung, Komprimierung, Deltareplikation und Informationsupdates auf.|Standortserver|  
+|EPCtrlMgr.log|Zeichnet Informationen zur Synchronisierung von Schadsoftwarebedrohungsdaten vom Endpoint Protection-Server für Standortsystemrollen in die Configuration Manager-Datenbank auf.|Standortserver|  
+|EPMgr.log|Zeichnet den Status der Endpoint Protection-Standortsystemrolle auf.|Standortsystemserver|  
+|EPSetup.log|Stellt Informationen zur Installation der Endpoint Protection-Standortsystemrolle bereit.|Standortsystemserver|  
+|EnrollSrv.log|Zeichnet Aktivitäten des Anmeldungsdienstprozesses auf.|Standortsystemserver|  
+|EnrollWeb.log|Zeichnet Aktivitäten des Anmeldungswebsiteprozesses auf.|Standortsystemserver|  
+|fspmgr.log|Zeichnet Aktivitäten der Fallbackstatuspunkt-Systemrolle auf.|Standortsystemserver|  
+|hman.log|Zeichnet Informationen zu Standortkonfigurationsänderungen und zur Veröffentlichung von Standortinformationen in den Active Directory Domain Services auf.|Standortserver|  
+|Inboxast.log|Zeichnet die Dateien auf, die vom Verwaltungspunkt in den entsprechenden Ordner INBOXES auf dem Standortserver verschoben werden.|Standortserver|  
+|inboxmgr.log|Zeichnet Aktivitäten im Zusammenhang mit der Dateiübertragung zwischen Eingangsboxordnern auf.|Standortserver|  
+|inboxmon.log|Zeichnet Aktivitäten in Zusammenhang mit der Verarbeitung von Eingangsboxdateien und Updates von Leistungsindikatoren auf.|Standortserver|  
+|invproc.log|Zeichnet die Weiterleitung von MIF-Dateien von einem sekundären Standort an dessen übergeordneten Standort auf.|Standortserver|  
+|migmctrl.log|Zeichnet Informationen zu Migrationsaktionen auf, einschließlich Migrationsaufträge, freigegebener Verteilungspunkte und Upgrades von Verteilungspunkten.|Standort der obersten Ebene in der Configuration Manager-Hierarchie und jeder untergeordnete primäre Standort<br /><br /> Verwenden Sie in einer Hierarchie mit mehreren primären Standorten die Protokolldatei, die auf dem Standort der zentralen Verwaltung erstellt wurde.|  
+|mpcontrol.log|Zeichnet die Registrierung des Verwaltungspunks in Windows Internet Name Service (WINS) auf. Zeichnet alle 10 Minuten die Verfügbarkeit des Verwaltungspunkts auf.|Standortsystemserver|  
+|mpfdm.log|Zeichnet die Aktionen der Verwaltungspunktkomponente auf, von der Clientdateien in den entsprechenden Ordner INBOXES auf dem Standortserver verschoben werden.|Standortsystemserver|  
+|mpMSI.log|Zeichnet die Details zur Installation des Verwaltungspunkts auf.|Standortserver|  
+|MPSetup.log|Zeichnet den Wrapperprozess der Verwaltungspunktinstallation auf.|Standortserver|  
+|netdisc.log|Zeichnet Aktionen im Zusammenhang mit der Netzwerkermittlung auf.|Standortserver|  
+|ntsvrdis.log|Zeichnet die Ermittlungsaktivitäten des Standortsystemservers auf.|Standortserver|  
+|Objreplmgr|Zeichnet die Verarbeitung von Objektänderungsbenachrichtigungen für die Replikation auf.|Standortserver|  
+|offermgr.log|Zeichnet Updates von Ankündigungen auf.|Standortserver|  
+|offersum.log|Zeichnet die Zusammenfassung von Bereitstellungstatusmeldungen auf.|Standortserver|  
+|OfflineServicingMgr.log|Zeichnet die Aktivitäten im Zusammenhang mit der Anwendung von Updates auf Betriebssystemabbilddateien auf.|Standortserver|  
+|outboxmon.log|Zeichnet Aktivitäten in Zusammenhang mit der Verarbeitung von Ausgangsboxdateien und Updates von Leistungsindikatoren auf.|Standortserver|  
+|PerfSetup.log|Zeichnet die Ergebnisse der Installation von Leistungsindikatoren auf.|Standortsystemserver|  
+|PkgXferMgr.log|Zeichnet die Aktionen der Komponente SMS-Executive auf, über die Inhalte von einem primären Standort an einen Remoteverteilungspunkt gesendet werden.|Standortserver|  
+|policypv.log|Zeichnet Aktualisierungen der Clientrichtlinien auf und spiegelt Änderungen der Clienteinstellungen oder -bereitstellungen wider.|Primärer Standortserver|  
+|rcmctrl.log|Zeichnet die Aktivitäten im Zusammenhang mit der Datenbankreplikation zwischen Standorten in der Hierarchie auf.|Standortserver|  
+|replmgr.log|Zeichnet die Replikation von Dateien zwischen Standortserverkomponenten und den Planerkomponenten auf.|Standortserver|  
+|ResourceExplorer.log|Zeichnet Fehler, Warnungen und Informationen zur Ausführung des Ressourcen-Explorers auf.|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|ruleengine.log|Zeichnet Details zu automatischen Bereitstellungsregeln im Zusammenhang mit Identifizierung, Inhaltsdownload sowie Erstellung von Softwareupdategruppen und Bereitstellungen auf.|Standortserver|  
+|schedule.log|Zeichnet Details zu Aufträgen zwischen Standorten sowie zur Dateireplikation auf.|Standortserver|  
+|sender.log|Zeichnet die Dateien auf, die mithilfe von dateibasierter Replikation zwischen Standorten übertragen werden.|Standortserver|  
+|sinvproc.log|Zeichnet Informationen zur Verarbeitung der Softwareinventurdaten in die Standortdatenbank auf.|Standortserver|  
+|sitecomp.log|Zeichnet Details zur Wartung der installierten Standortkomponenten auf allen Standortsystemservern des Standorts auf.|Standortserver|  
+|sitectrl.log|Zeichnet Änderungen der Standorteinstellungen auf, die an Standortsteuerungsobjekten in der Datenbank vorgenommen werden.|Standortserver|  
+|sitestat.log|Zeichnet den Verfügbarkeits- und Speicherplatzüberwachungsprozess aller Standortsysteme auf.|Standortserver|  
+|SmsAdminUI.log|Zeichnet die Aktivität der Configuration Manager-Konsole auf|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|SMSAWEBSVCSetup.log|Zeichnet die Installationsaktivitäten des Anwendungskatalog-Webdienstes auf.|Standortsystemserver|  
+|smsbkup.log|Zeichnet die Ausgabe des Standortsicherungsprozesses auf.|Standortserver|  
+|smsdbmon.log|Zeichnet Datenbankänderungen auf.|Standortserver|  
+|SMSENROLLSRVSetup.log|Zeichnet die Installationsaktivitäten des Anmeldungswebdienstes auf.|Standortsystemserver|  
+|SMSENROLLWEBSetup.log|Zeichnet die Installationsaktivitäten der Anmeldungswebsite auf.|Standortsystemserver|  
+|smsexec.log|Zeichnet die Verarbeitung aller Threads der Standortserverkomponenten auf.|Standortserver oder Standortsystemserver|  
+|SMSFSPSetup.log|Zeichnet Meldungen auf, die bei der Installation eines Fallbackstatuspunkts generiert werden.|Standortsystemserver|  
+|SMSPORTALWEBSetup.log|Zeichnet die Installationsaktivitäten der Anwendungskatalog-Website auf.|Standortsystemserver|  
+|SMSProv.log|Zeichnet den Zugriff des WMI-Anbieters auf die Standortdatenbank auf.|Computer mit dem SMS-Anbieter|  
+|srsrpMSI.log|Zeichnet detaillierte Ergebnisse der Installation des Berichterstattungspunkts aus der MSI-Ausgabe auf.|Standortsystemserver|  
+|srsrpsetup.log|Zeichnet Ergebnisse der Installation des Berichterstattungspunkts auf.|Standortsystemserver|  
+|statesys.log|Zeichnet die Verarbeitung von Systemzustandsmeldungen auf.|Standortserver|  
+|statmgr.log|Zeichnet Schreibvorgänge aller Statusmeldungen in die Datenbank auf.|Standortserver|  
+|swmproc.log|Zeichnet die Verarbeitung von Messungsdateien und -einstellungen auf.|Standortserver|  
 
-###  <a name="BKMK_SiteInstallLog"></a> Fichiers journaux de l’installation du serveur de site  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à l'installation du site.  
+###  <a name="BKMK_SiteInstallLog"></a> Protokolldateien zur Standortserverinstallation  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Standortinstallation enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrPrereq.log|Enregistre les activités d’évaluation et d’installation des composants prérequis.|Serveur de site|  
-|ConfigMgrSetup.log|Enregistre les résultats détaillés de l’installation du serveur de site.|Serveur de site|  
-|ConfigMgrSetupWizard.log|Enregistre les informations liées à l’activité dans l’Assistant Installation.|Serveur de site|  
-|SMS_BOOTSTRAP.log|Enregistre des informations sur l'avancement du lancement du processus d'installation de site secondaire. Les détails du processus d'installation proprement dit sont donnés dans ConfigMgrSetup.log.|Serveur de site|  
-|smstsvc.log|Enregistre des informations sur l’installation, l’utilisation et la suppression d’un service Windows utilisé pour tester la connectivité du réseau et les autorisations entre les serveurs, en utilisant le compte d’ordinateur du serveur à l’origine de la connexion.|Serveur de site et serveur de système de site|  
+|ConfigMgrPrereq.log|Zeichnet Aktivitäten im Zusammenhang mit der Auswertung und Installation von erforderlichen Komponenten auf.|Standortserver|  
+|ConfigMgrSetup.log|Zeichnet Ausgabedetails des Standortserver-Setups auf.|Standortserver|  
+|ConfigMgrSetupWizard.log|Zeichnet Informationen im Zusammenhang mit Aktivitäten im Setup-Assistenten auf.|Standortserver|  
+|SMS_BOOTSTRAP.log|Zeichnet Informationen zum Fortschritt beim Starten der Installation des sekundären Standorts auf. Informationen zum eigentlichen Installationsvorgang sind in ConfigMgrSetup.log enthalten.|Standortserver|  
+|smstsvc.log|Zeichnet Informationen zu Installation, Nutzung und Entfernung eines Windows-Dienstes auf, der zum Testen von Netzwerkverbindungen und Berechtigungen zwischen Servern mithilfe des Computerkontos des Servers, der die Verbindung initiiert, verwendet wird.|Standortserver und Standortsystemserver|  
 
-###  <a name="BKMK_FSPLog"></a> Fichiers journaux du point d’état de secours  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations sur le point d'état de secours.  
+###  <a name="BKMK_FSPLog"></a> Protokolldateien für den Fallbackstatuspunkt  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit dem Fallbackstatuspunkt enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|FspIsapi|Enregistre des détails concernant les communications au point d'état de secours à partir de clients hérités d'appareils mobiles et d'ordinateurs clients.|Serveur de système de site|  
-|fspMSI.log|Enregistre les messages générés par l'installation d'un point d'état de secours.|Serveur de système de site|  
-|fspmgr.log|Enregistre les activités du rôle de système de site d'un point d'état de secours.|Serveur de système de site|  
+|FspIsapi|Zeichnet Details zur Kommunikation von mobilen Legacyclient-Geräten und Clientcomputern mit dem Fallbackstatuspunkt auf.|Standortsystemserver|  
+|fspMSI.log|Zeichnet Meldungen auf, die bei der Installation eines Fallbackstatuspunkts generiert werden.|Standortsystemserver|  
+|fspmgr.log|Zeichnet Aktivitäten der Fallbackstatuspunkt-Systemrolle auf.|Standortsystemserver|  
 
-###  <a name="BKMK_MPLog"></a> Fichiers journaux du point de gestion  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations sur le point de gestion.  
+###  <a name="BKMK_MPLog"></a> Protokolldateien für den Verwaltungspunkt  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit dem Verwaltungspunkt enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CcmIsapi.log|Enregistre l'activité de la messagerie du client sur le point de terminaison.|Serveur de système de site|  
-|MP_CliReg.log|Enregistre l'activité de l'enregistrement du client traitée par le point de gestion.|Serveur de système de site|  
-|MP_Ddr.log|Enregistre la conversion d’enregistrements XML.ddr à partir des clients, puis les copie sur le serveur de site.|Serveur de système de site|  
-|MP_Framework.log|Enregistre les activités du point de gestion principal et des composants de l'infrastructure du client.|Serveur de système de site|  
-|MP_GetAuth.log|Enregistre les activités d'autorisation du client.|Serveur de système de site|  
-|MP_GetPolicy.log|Enregistre l'activité de demandes de stratégie des ordinateurs clients.|Serveur de système de site|  
-|MP_Hinv.log|Enregistre des détails concernant la conversion des enregistrements d'inventaire matériel XML à partir de clients ainsi que la copie de ces fichiers sur le serveur de site.|Serveur de système de site|  
-|MP_Location.log|Enregistre les demandes d'emplacement et les réponses données par les clients.|Serveur de système de site|  
-|MP_OOBMgr.log|Enregistre les activités du point de gestion liées à la réception d’un OTP de la part d’un client.|Serveur de système de site|  
-|MP_Policy.log|Enregistre la communication des stratégies.|Serveur de système de site|  
-|MP_Relay.log|Enregistre le transfert de fichiers qui sont collectés auprès du client.|Serveur de système de site|  
-|MP_Retry.log|Enregistre les processus des nouvelles tentatives d’inventaire matériel.|Serveur de système de site|  
-|MP_Sinv.log|Enregistre des détails concernant la conversion des enregistrements d'inventaire logiciel XML à partir de clients ainsi que la copie de ces fichiers sur le serveur de site.|Serveur de système de site|  
-|MP_SinvCollFile.log|Enregistre des détails concernant le regroupement de fichiers.|Serveur de système de site|  
-|MP_Status.log|Enregistre des détails concernant la conversion des fichiers de messages d'état XML.svf de clients et la copie de ces fichiers sur le serveur de site.|Serveur de système de site|  
-|mpcontrol.log|Enregistre l'inscription du point de gestion dans WINS. Enregistre la disponibilité du point de gestion toutes les dix minutes.|Serveur de site|  
-|mpfdm.log|Enregistre les actions du composant du point de gestion qui déplace les fichiers du client vers le dossier Boîtes de réception correspondant sur le serveur de site.|Serveur de système de site|  
-|mpMSI.log|Enregistre des détails sur l’installation du point de gestion.|Serveur de site|  
-|MPSetup.log|Enregistre le processus de wrapper d'installation du point de gestion.|Serveur de site|  
+|CcmIsapi.log|Zeichnet Aktivitäten im Zusammenhang mit Client-Messaging auf dem Endpunkt auf.|Standortsystemserver|  
+|MP_CliReg.log|Zeichnet die vom Verwaltungspunkt verarbeiteten Clientregistrierungsaktivitäten auf.|Standortsystemserver|  
+|MP_Ddr.log|Zeichnet die Konvertierung von XML DDR-Datensätzen von Clients auf und kopiert diese auf den Standortserver.|Standortsystemserver|  
+|MP_Framework.log|Zeichnet die Aktivitäten von Hauptverwaltungspunkt und Clientframeworkkomponenten auf.|Standortsystemserver|  
+|MP_GetAuth.log|Zeichnet Aktivitäten im Zusammenhang mit der Clientautorisierung auf.|Standortsystemserver|  
+|MP_GetPolicy.log|Zeichnet Aktivitäten im Zusammenhang mit Richtlinienanforderungen von Clientcomputern auf.|Standortsystemserver|  
+|MP_Hinv.log|Zeichnet Details zum Konvertieren von XML-Hardwareinventurdatensätzen von Clients und zum Kopieren der Dateien auf den Standortserver auf.|Standortsystemserver|  
+|MP_Location.log|Zeichnet Aktivitäten im Zusammenhang mit Suchanforderungen und Antworten von Clients auf.|Standortsystemserver|  
+|MP_OOBMgr.log|Zeichnet die Verwaltungspunktaktivitäten im Zusammenhang mit dem Empfangen von OTP von einem Client auf.|Standortsystemserver|  
+|MP_Policy.log|Zeichnet die Richtlinienkommunikation auf.|Standortsystemserver|  
+|MP_Relay.log|Zeichnet das Übertragen von Dateien auf, die vom Client gesammelt werden.|Standortsystemserver|  
+|MP_Retry.log|Zeichnet die Wiederholungsprozesse der Hardwareinventur auf.|Standortsystemserver|  
+|MP_Sinv.log|Zeichnet Details zum Konvertieren von XML-Softwareinventurdatensätzen von Clients und zum Kopieren der Dateien auf den Standortserver auf.|Standortsystemserver|  
+|MP_SinvCollFile.log|Zeichnet Details zur Dateisammlung auf.|Standortsystemserver|  
+|MP_Status.log|Zeichnet Details zum Konvertieren von XML-Statusmeldungsdateien (SVF-Dateien) von Clients und zum Kopieren der Dateien auf den Standortserver auf.|Standortsystemserver|  
+|mpcontrol.log|Zeichnet die Registrierung des Verwaltungspunks in WINS auf. Zeichnet alle 10 Minuten die Verfügbarkeit des Verwaltungspunkts auf.|Standortserver|  
+|mpfdm.log|Zeichnet die Aktionen der Verwaltungspunktkomponente auf, von der Clientdateien in den entsprechenden Ordner INBOXES auf dem Standortserver verschoben werden.|Standortsystemserver|  
+|mpMSI.log|Zeichnet die Details zur Installation des Verwaltungspunkts auf.|Standortserver|  
+|MPSetup.log|Zeichnet den Wrapperprozess der Verwaltungspunktinstallation auf.|Standortserver|  
 
-###  <a name="BKMK_SUPLog"></a> Fichiers journaux du point de mise à jour logicielle  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au point de mise à jour logicielle.  
+###  <a name="BKMK_SUPLog"></a> Protokolldateien für den Softwareupdatepunkt  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen zum Softwareupdatepunkt enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|objreplmgr.log|Enregistre les détails concernant la réplication des fichiers de notification de mises à jour logicielles, entre un site parent et des sites enfants.|Serveur de site|  
-|PatchDownloader.log|Enregistre des détails concernant le processus de téléchargement des mises à jour logicielles vers la destination de téléchargement, sur le serveur de site.|Ordinateur qui héberge la console Configuration Manager à partir de laquelle les téléchargements sont lancés|  
-|ruleengine.log|Enregistre des détails concernant les règles de déploiement automatique pour l'identification, le téléchargement de contenu et la création de groupe et de déploiement de mises à jour logicielles.|Serveur de site|  
-|SUPSetup.log|Enregistre des détails concernant l'installation du point de mise à jour logicielle. Lorsque l'installation d'un point de mise à jour logicielle se termine, la mention **Installation was successful** est consignée dans ce fichier journal.|Serveur de système de site|  
-|WCM.log|Enregistre les détails concernant la configuration du point de mise à jour logicielle et les connexions au serveur WSUS pour les catégories, les classifications et les langues des mises à jour souscrites.|Serveur de site qui se connecte au serveur WSUS|  
-|WSUSCtrl.log|Enregistre des détails concernant la configuration, la connectivité de la base de données et l'intégrité du serveur WSUS du site.|Serveur de système de site|  
-|wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de système de site|  
-|WUSSyncXML.log|Enregistre les détails concernant l’outil d’inventaire pour le processus de synchronisation de Microsoft Updates.|Ordinateur client configuré comme hôte de synchronisation pour l’outil d’inventaire de Microsoft Updates|  
+|objreplmgr.log|Zeichnet Details zur Replikation von Benachrichtigungsdateien für Softwareupdates von einem übergeordneten an untergeordnete Standorte auf.|Standortserver|  
+|PatchDownloader.log|Zeichnet Details zum Download von Softwareupdates von der Updatequelle in das Downloadziel auf dem Standortserver.|Der Computer, auf dem die Configuration Manager-Konsole gehostet wird, von der Downloads initiiert werden|  
+|ruleengine.log|Zeichnet Details zu automatischen Bereitstellungsregeln im Zusammenhang mit Identifizierung, Inhaltsdownload sowie Erstellung von Softwareupdategruppen und Bereitstellungen auf.|Standortserver|  
+|SUPSetup.log|Zeichnet Details zur Installation des Softwareupdatepunkts auf. Nach Abschluss der Softwareupdatepunkt-Installation wird **Installation was successful** in diese Protokolldatei geschrieben.|Standortsystemserver|  
+|WCM.log|Zeichnet Details zur Konfiguration des Softwareupdatepunkts und zum Herstellen einer Verbindung mit dem WSUS-Server für abonnierte Updatekategorien, Klassifizierungen und Sprachen auf.|Standortserver, die eine Verbindung mit dem WSUS-Server herstellen|  
+|WSUSCtrl.log|Zeichnet Details zur Konfiguration, Datenbankverbindungen und der Integrität von WSUS-Servern für den Standort auf.|Standortsystemserver|  
+|wsyncmgr.log|Zeichnet Details zum Synchronisierungsprozess für Softwareupdates auf.|Standortsystemserver|  
+|WUSSyncXML.log|Zeichnet Details zum Synchronisierungsvorgang des Inventurprogramms für Microsoft Updates auf.|Der Clientcomputer, der als Synchronisierungshost für das Inventurprogramm für Microsoft Updates konfiguriert ist|  
 
-##  <a name="BKMK_FunctionLogs"></a> Fichiers journaux pour les fonctionnalités de Configuration Manager  
- Les sections suivantes répertorient les fichiers journaux liés aux fonctions de Configuration Manager.  
+##  <a name="BKMK_FunctionLogs"></a> Protokolldateien für Configuration Manager-Funktionen  
+ In den folgenden Abschnitten werden Protokolldateien für die Funktionen in Configuration Manager aufgelistet.  
 
-###  <a name="BKMK_AppManageLog"></a> Gestion des applications  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion d’applications.  
+###  <a name="BKMK_AppManageLog"></a> Anwendungsverwaltung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Anwendungsverwaltung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|AppIntentEval.log|Enregistre des détails concernant l'état actuel et prévu des applications, leur applicabilité, si les exigences ont été respectées, les types de déploiement et les dépendances.|Client|  
-|AppDiscovery.log|Enregistre les détails concernant la découverte ou la détection des applications sur les ordinateurs clients.|Client|  
-|AppEnforce.log|Enregistre des détails concernant les actions de mise en œuvre (installation et désinstallation) effectuées pour les applications sur le client.|Client|  
-|awebsctl.log|Enregistre les activités de surveillance du rôle de système de site du point de service web du catalogue d’applications.|Serveur de système de site|  
-|awebsvcMSI.log|Enregistre les informations d'installation détaillées sur le rôle du système de site du point de service Web du catalogue d'applications.|Serveur de système de site|  
-|CCMSDKProvider.log|Enregistre les activités de la gestion des applications SDK.|Client|  
-|colleval.log|Enregistre des détails concernant la création, la modification et la suppression de regroupements par l'Évaluateur de regroupements.|Serveur de système de site|  
-|ConfigMgrSoftwareCatalog.log|Enregistre l'activité du catalogue d'applications, dont l'utilisation de Silverlight.|Client|  
-|portlctl.log|Enregistre les activités de surveillance du rôle de système de site du point de site Web du catalogue d'applications.|Serveur de système de site|  
-|portlwebMSI.log|Enregistre l'activité d'installation MSI pour le rôle de site Web du catalogue d'applications.|Serveur de système de site|  
-|PrestageContent.log|Enregistre les détails concernant l’utilisation de l’outil ExtractContent.exe sur un point de distribution préparé distant. Cet outil extrait le contenu qui a été exporté vers un fichier.|Serveur de système de site|  
-|ServicePortalWebService.log|Enregistre l'activité du service Web du catalogue d'applications.|Serveur de système de site|  
-|ServicePortalWebSite.log|Enregistre l'activité du site Web du catalogue d'applications.|Serveur de système de site|  
-|SMSdpmon.log|Enregistre des détails concernant la tâche planifiée de surveillance de l'intégrité du point de distribution configurée sur un point de distribution.|Serveur de site|  
-|SoftwareCatalogUpdateEndpoint.log|Enregistre les activités de gestion de l’URL du catalogue d’applications indiquée dans le Centre logiciel.|Client|  
-|SoftwareCenterSystemTasks.log|Enregistre les activités liées à la validation des composants prérequis du Centre logiciel.|Client|  
+|AppIntentEval.log|Zeichnet Details zum aktuellen und beabsichtigten Zustand von Anwendungen sowie zu ihrer Anwendbarkeit, Bereitstellungstypen, Abhängigkeiten und dazu, ob Anforderungen erfüllt wurden.|Client|  
+|AppDiscovery.log|Zeichnet die Details über die Ermittlung oder die Erkennung von Anwendungen auf Clientcomputern auf.|Client|  
+|AppEnforce.log|Zeichnet Details zu vorgenommenen Erzwingungsaktionen (Installieren und Deinstallieren) für Anwendungen auf dem Client auf.|Client|  
+|awebsctl.log|Zeichnet die Überwachungsmaßnahmen für die Standortsystemrolle „Anwendungskatalog-Webdienstpunkt“ auf.|Standortsystemserver|  
+|awebsvcMSI.log|Zeichnet detaillierte Installationsinformationen für die Standortsystemrolle „Anwendungskatalog-Webdienstpunkt“ auf.|Standortsystemserver|  
+|CCMSDKProvider.log|Zeichnet die Aktivitäten des Anwendungsverwaltungs-SDK auf.|Client|  
+|colleval.log|Zeichnet Details zum Erstellen, Ändern und Löschen von Sammlungen durch den Sammlungsauswerter auf.|Standortsystemserver|  
+|ConfigMgrSoftwareCatalog.log|Zeichnet die Aktivitäten des Anwendungskatalogs auf, darunter auch dessen Verwendung von Silverlight.|Client|  
+|portlctl.log|Zeichnet die Überwachungsmaßnahmen für die Standortsystemrolle „Anwendungskatalog-Websitepunkt“ auf.|Standortsystemserver|  
+|portlwebMSI.log|Zeichnet die MSI-Installationsaktivitäten für die Anwendungskatalog-Websiterolle auf.|Standortsystemserver|  
+|PrestageContent.log|Zeichnet die Details zur Verwendung des Tools ExtractContent.exe auf einem vorab bereitgestellten Remoteverteilungspunkt auf. Mit diesem Tool werden Inhalte extrahiert, die in eine Datei exportiert wurden.|Standortsystemserver|  
+|ServicePortalWebService.log|Zeichnet die Aktivitäten des Anwendungskatalog-Webdienstes auf.|Standortsystemserver|  
+|ServicePortalWebSite.log|Zeichnet die Aktivitäten der Anwendungskatalog-Website auf.|Standortsystemserver|  
+|SMSdpmon.log|Zeichnet Details zum geplanten Task für die Integritätsüberwachung des Verteilungspunkts auf, der auf einem Verteilungspunkt konfiguriert wurde.|Standortserver|  
+|SoftwareCatalogUpdateEndpoint.log|Zeichnet die Aktivitäten im Zusammenhang mit der Verwaltung der im Softwarecenter angezeigten URL für den Anwendungskatalog auf.|Client|  
+|SoftwareCenterSystemTasks.log|Zeichnet die Aktivitäten im Zusammenhang mit der Überprüfung der erforderlichen Komponenten für das Softwarecenter auf.|Client|  
 
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au déploiement des packages et des programmes.  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Bereitstellung von Paketen und Programmen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|colleval.log|Enregistre des détails concernant la création, la modification et la suppression de regroupements par l'Évaluateur de regroupements.|Serveur de site|  
-|execmgr.log|Enregistre des détails concernant les packages et les séquences de tâches qui s'exécutent.|Client|  
+|colleval.log|Zeichnet Details zum Erstellen, Ändern und Löschen von Sammlungen durch den Sammlungsauswerter auf.|Standortserver|  
+|execmgr.log|Zeichnet Details zu Paketen und ausgeführten Tasksequenzen auf.|Client|  
 
 ###  <a name="BKMK_AILog"></a> Asset Intelligence  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à Asset Intelligence.  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Asset Intelligence enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|AssetAdvisor.log|Enregistre les activités des actions d'inventaire d'Asset Intelligence.|Client|  
-|aikbmgr.log|Enregistre des détails concernant le traitement des fichiers XML à partir de la boîte de réception, pour la mise à jour du catalogue Asset Intelligence.|Serveur de site|  
-|AIUpdateSvc.log|Enregistre l’interaction du point de synchronisation Asset Intelligence avec SCO (System Center Online), le service web en ligne.|Serveur de système de site|  
-|AIUSMSI.log|Enregistre les détails concernant l’installation du rôle de système de site du point de synchronisation Asset Intelligence.|Serveur de système de site|  
-|AIUSSetup.log|Enregistre les détails concernant l’installation du rôle de système de site du point de synchronisation Asset Intelligence.|Serveur de système de site|  
-|ManagedProvider.log|Enregistre des détails concernant la découverte de logiciels avec une balise d'identification logicielle associée. Enregistre également les activités liées à l’inventaire matériel.|Serveur de système de site|  
-|MVLSImport.log|Enregistre des détails concernant le traitement de fichiers de licence importés.|Serveur de système de site|  
+|AssetAdvisor.log|Zeichnet Aktivitäten im Zusammenhang mit Asset Intelligence-Inventuraktionen auf.|Client|  
+|aikbmgr.log|Zeichnet Details zur Verarbeitung von XML-Dateien aus der Eingangsbox zum Update des Asset Intelligence-Katalogs auf.|Standortserver|  
+|AIUpdateSvc.log|Zeichnet Details zur Interaktion des Asset Intelligence-Synchronisierungspunkts mit System Center Online (SCO), dem Online-Webdienst, auf.|Standortsystemserver|  
+|AIUSMSI.log|Zeichnet Details zur Installation der Standortsystemrolle „Asset Intelligence-Synchronisierungspunkt“ auf.|Standortsystemserver|  
+|AIUSSetup.log|Zeichnet Details zur Installation der Standortsystemrolle „Asset Intelligence-Synchronisierungspunkt“ auf.|Standortsystemserver|  
+|ManagedProvider.log|Zeichnet Details zur Ermittlung von Software mit einem zugehörigen Software ID-Tag auf. Zeichnet zusätzlich Aktivitäten im Zusammenhang mit der Hardwareinventur auf.|Standortsystemserver|  
+|MVLSImport.log|Zeichnet Details zur Verarbeitung importierter Lizenzierungsdateien auf.|Standortsystemserver|  
 
-###  <a name="BKMK_BnRLog"></a> Sauvegarde et récupération  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux actions de sauvegarde et de restauration, notamment la réinitialisation de site, et aux modifications apportées au fournisseur SMS.  
+###  <a name="BKMK_BnRLog"></a> Sicherung und Wiederherstellung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Sicherungs- und Wiederherstellungsaktionen enthalten, darunter das Zurücksetzen von Standorten und Änderungen am SMS-Provider.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrSetup.log|Enregistre des informations sur les tâches d’installation et de restauration quand Configuration Manager restaure un site à partir d’une sauvegarde.|Serveur de site|  
-|smsbkup.log|Enregistre des détails concernant l'activité de sauvegarde du site.|Serveur de site|  
-|smssqlbkup.log|Enregistre les résultats du processus de sauvegarde de la base de données de site quand SQL Server est installé sur un serveur qui n’est pas le serveur de site.|Serveur de bases de données du site|  
-|Smswriter.log|Enregistre les informations sur l’état de l’enregistreur VSS Configuration Manager utilisé par le processus de sauvegarde.|Serveur de site|  
+|ConfigMgrSetup.log|Zeichnet Informationen zu Setup- und Wiederherstellungstasks auf, wenn in Configuration Manager ein Standort aus einer Sicherung wiederhergestellt wird|Standortserver|  
+|smsbkup.log|Erfasst Details zu Standortsicherungsaktivitäten.|Standortserver|  
+|smssqlbkup.log|Zeichnet die Ausgabe der Standortdatenbanksicherung auf, wenn SQL Server auf einem Server als dem Standortserver installiert ist.|Standortdatenbankserver|  
+|Smswriter.log|Zeichnet Informationen zum Zustand von Configuration Manager VSS Writer auf, der im Sicherungsprozess verwendet wird.|Standortserver|  
 
-###  <a name="BKMK_CertificateEnrollment"></a> Inscription de certificats  
- Le tableau suivant répertorie les fichiers journaux de Configuration Manager qui contiennent des informations relatives à l’inscription de certificats. L’inscription de certificats utilise le point d’inscription de certificats et le module de stratégie de Configuration Manager sur le serveur qui exécute le service d’inscription de périphérique réseau.  
+###  <a name="BKMK_CertificateEnrollment"></a> Zertifikatregistrierung  
+ In der folgenden Tabelle werden die Configuration Manager-Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Zertifikatregistrierung enthalten. Die Zertifikatregistrierung verwendet den Zertifikatregistrierungspunkt und das Configuration Manager-Richtlinienmodul auf dem Server, auf dem der Registrierungsdienst für Netzwerkgeräte ausgeführt wird.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|Crp.log|Enregistre les activités d’inscription.|Point d'enregistrement de certificat|  
-|Crpctrl.log|Enregistre le bon fonctionnement du point d'enregistrement de certificat.|Point d'enregistrement de certificat|  
-|Crpsetup.log|Enregistre des détails sur l'installation et la configuration du point d'enregistrement de certificat.|Point d'enregistrement de certificat|  
-|Crpmsi.log|Enregistre des détails sur l'installation et la configuration du point d'enregistrement de certificat.|Point d'enregistrement de certificat|  
-|NDESPlugin.log|Enregistre les activités de vérification des demandes d’accès et d’inscription des certificats.|Module de stratégie de Configuration Manager et service d’inscription d’appareils réseau|  
+|Crp.log|Zeichnet die Registrierungsaktivitäten auf.|Zertifikatregistrierungspunkt|  
+|Crpctrl.log|Zeichnet die Betriebsintegrität des Zertifikatregistrierungspunkts auf.|Zertifikatregistrierungspunkt|  
+|Crpsetup.log|Zeichnet Einzelheiten über die Installation und Konfiguration des Zertifikatregistrierungspunkts auf.|Zertifikatregistrierungspunkt|  
+|Crpmsi.log|Zeichnet Einzelheiten über die Installation und Konfiguration des Zertifikatregistrierungspunkts auf.|Zertifikatregistrierungspunkt|  
+|NDESPlugin.log|Zeichnet die Aktivitäten der Abfrageüberprüfung und Zertifikatregistrierung auf.|Configuration Manager-Richtlinienmodul und der Registrierungsdienst für Netzwerkgeräte|  
 
- En plus des fichiers journaux de Configuration Manager, consultez les journaux des applications Windows dans l’Observateur d’événements sur le serveur exécutant le service d’inscription d’appareils réseau et sur le serveur hébergeant le point d’enregistrement de certificat. Par exemple, recherchez des messages de la source **NetworkDeviceEnrollmentService** . Vous pouvez également utiliser les fichiers journaux suivants :  
+ Prüfen Sie außer den Configuration Manager-Protokolldateien auch die Windows-Anwendungsprotokolle in der Ereignisanzeige auf dem Server, auf dem der Registrierungsdienst für Netzwerkgeräte ausgeführt wird, sowie auf dem Hostserver des Zertifikatregistrierungspunkts. Achten Sie beispielsweise auf Nachrichten mit der Quellangabe **NetworkDeviceEnrollmentService** . Sie können auch die folgenden Protokolldateien verwenden:  
 
--   Fichiers journaux IIS pour le service d’inscription d’appareils réseau : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
+-   IIS-Protokolldateien für den Registrierungsdienst für Netzwerkgeräte: **&lt;Pfad\>\inetpub\logs\LogFiles\W3SVC1**  
 
--   Fichiers journaux IIS pour le point d’inscription du certificat : **&lt;chemin\>\inetpub\logs\LogFiles\W3SVC1**  
+-   IIS-Protokolldateien für den Zertifikatregistrierungspunkt: **&lt;Pfad\>\inetpub\logs\LogFiles\W3SVC1**  
 
--   Fichier journal de la stratégie d'inscription de périphérique réseau : **mscep.log**  
+-   Protokolldatei für den Registrierungsdienst für Netzwerkgeräte: **mscep.log**  
 
     > [!NOTE]  
-    >  Ce fichier se trouve dans le dossier du profil de compte du service d'inscription de périphériques réseau, par exemple, dans C:\Users\SCEPSvc. Pour plus d'informations sur l'activation de la journalisation pour le service d'inscription de périphériques réseau, consultez la section [Enable Logging (Activer la journalisation)](http://go.microsoft.com/fwlink/?LinkId=320576) dans l'article Network Device Enrollment Service (NDES) in Active Directory Certificate Services (AD CS) (Service d'inscription de périphériques réseau (NDES) dans les services de certificat Active Directory (AD CS)) sur le TechNet Wiki.  
+    >  Diese Datei befindet sich im Ordner des Kontoprofils des Registrierungsdiensts für Netzwerkgeräte, z. B. C:\Benutzer\SCEPSvc. Weitere Informationen zum Aktivieren der Protokollierung für den Registrierungsdienst für Netzwerkgeräte finden Sie im Abschnitt [Enable Logging (Aktivieren der Protokollierung)](http://go.microsoft.com/fwlink/?LinkId=320576) im Artikel „Network Device Enrollment Service (NDES) in Active Directory Certificate Services (AD CS)“ (Registrierungsdienst für Netzwerkgeräte (NDES) im Zertifikatdienst von Active Directory (AD CS)) im TechNet-Wiki.  
 
-###  <a name="BKMK_BGB"></a> Notification du client  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la notification du client.  
+###  <a name="BKMK_BGB"></a> Clientbenachrichtigung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Clientbenachrichtigungen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|bgbmgr.log|Enregistre les détails concernant les activités du serveur de site liées aux tâches de notification du client et au traitement en ligne, ainsi qu’aux fichiers d’état des tâches.|Serveur de site|  
-|BGBServer.log|Enregistre les activités du serveur de notification, comme la communication client-serveur et l’envoi de tâches aux clients. Enregistre également les informations sur la génération de fichiers en ligne et de fichiers d’état de tâche à envoyer au serveur de site.|Point de gestion|  
-|BgbSetup.log|Enregistre les activités du processus de wrapper d’installation du serveur de notification lors de l’installation et de la désinstallation.|Point de gestion|  
-|bgbisapiMSI.log|Enregistre les détails concernant l’installation et la désinstallation du serveur de notification.|Point de gestion|  
-|BgbHttpProxy.log|Enregistre les activités du proxy HTTP de notification lors de la transmission des messages des clients via HTTP depuis et vers le serveur de notification.|Client|  
-|CCMNotificationAgent.log|Enregistre les activités de l’agent de notification, comme la communication client-serveur, et des informations concernant les tâches reçues et distribuées aux autres agents de client.|Client|  
+|bgbmgr.log|Zeichnet Details zu den Aktivitäten auf dem Standortserver im Zusammenhang mit Clientbenachrichtigungstasks und der Verarbeitung von Online- und Taskstatusdateien auf.|Standortserver|  
+|BGBServer.log|Zeichnet die Aktivitäten des Benachrichtigungsservers auf, z.B. die Kommunikation zwischen Client und Server und das Verteilen von Tasks an Clients. Außerdem werden Informationen zur Erstellung von Online- und Taskstatusdateien aufgezeichnet, die an den Standortserver gesendet werden.|Verwaltungspunkt|  
+|BgbSetup.log|Zeichnet die Aktivitäten des Wrapperprozesses der Benachrichtigungsserverinstallation während der Installation und Deinstallation auf.|Verwaltungspunkt|  
+|bgbisapiMSI.log|Zeichnet Details zur Installation und Deinstallation des Benachrichtigungsservers auf.|Verwaltungspunkt|  
+|BgbHttpProxy.log|Zeichnet die Aktivitäten des Benachrichtigungs-HTTP-Proxys auf, wenn von diesem die Meldungen von Clients mittels HTTP von und an den Benachrichtigungsserver übermittelt werden.|Client|  
+|CCMNotificationAgent.log|Zeichnet die Aktivitäten des Benachrichtigungsagenten auf, wie die Client-Server-Kommunikation und Informationen zu empfangenen und an andere Clientagenten versendeten Tasks.|Client|  
 
-### <a name="cloud-management-gateway"></a>Passerelle de gestion cloud
+### <a name="cloud-management-gateway"></a>Cloudverwaltungsgateway
 
-Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la passerelle de gestion cloud.
+In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Cloudverwaltungsgateways enthalten.
 
 ||||
 |-|-|-|
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|
-|CloudMgr.log|Enregistre les détails concernant le déploiement du service de passerelle de gestion cloud, l’état du service en cours et les données d’utilisation associées au service.<br>Vous pouvez configurer le niveau de journalisation en modifiant le Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**|Le dossier *installdir* sur le serveur de site principal ou les autorités de certification.|
-|CMGSetup.log ou CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Enregistre des détails concernant la 2ème phase du déploiement de la passerelle de gestion cloud (déploiement local dans Azure)<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
-|CMGHttpHandler.log ou CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Enregistre des détails concernant la liaison du gestionnaire http de la passerelle de gestion cloud avec Internet Information Services dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
-|CMGService.log ou CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Enregistre des détails concernant le composant principal du service de passerelle de gestion cloud dans Azure<br>Vous pouvez configurer le niveau de journalisation à l’aide du paramètre **Niveau de suivi** (**Information** (par défaut), **Verbose**, **Error**) dans l’onglet de **configuration du portail Azure/services cloud**.|Le dossier **%approot%\logs** sur votre serveur Azure, ou le dossier SMS/Logs sur le serveur de système de site|
-|SMS_Cloud_ProxyConnector.log|Enregistre des détails sur la configuration des connexions entre le service de passerelle de gestion cloud et le point de connexion de passerelle de gestion cloud.|Serveur de système de site|
+|Protokollname|Beschreibung|Computer mit Protokolldatei|
+|CloudMgr.log|Zeichnet Details zur Bereitstellung des Cloudverwaltungsgateway-Dienstes, den laufenden Dienststatus und Nutzungsdaten, die mit dem Dienst verknüpft sind, auf.<br>Sie können die Protokollierungsstufe konfigurieren, indem Sie die Registrierung **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level** bearbeiten.|Der Ordner *installdir* auf dem primären Standortserver oder Clientzugriffsserver.|
+|CMGSetup.log oder CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Zeichnet Details über die 2. Phase der Bereitstellung des Cloudverwaltungsgateways (lokale Bereitstellung in Azure) auf.<br>Sie können die Protokollierungsstufe mithilfe der Einstellung **Ablaufverfolgungsebene** (**Informationen** (Standard), **Ausführlich**, **Fehler**) auf der Registerkarte **Azure-Portal\Konfiguration der Clouddienste** konfigurieren.|Die **%approot%\logs** auf Ihrem Azure-Server oder der Ordner „SMS/Logs“ auf dem Standortsystemserver|
+|CMGHttpHandler.log oder CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Zeichnet Details zur HTTP-Handlerbindung des Cloudverwaltungsgateways mit Internetinformationsdiensten in Azure auf.<br>Sie können die Protokollierungsstufe mithilfe der Einstellung **Ablaufverfolgungsebene** (**Informationen** (Standard), **Ausführlich**, **Fehler**) auf der Registerkarte **Azure-Portal\Konfiguration der Clouddienste** konfigurieren.|Die **%approot%\logs** auf Ihrem Azure-Server oder der Ordner „SMS/Logs“ auf dem Standortsystemserver|
+|CMGService.log oder CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Zeichnet Details über die Kernkomponente des Cloudverwaltungsgateway-Diensts in Azure auf.<br>Sie können die Protokollierungsstufe mithilfe der Einstellung **Ablaufverfolgungsebene** (**Informationen** (Standard), **Ausführlich**, **Fehler**) auf der Registerkarte **Azure-Portal\Konfiguration der Clouddienste** konfigurieren.|Die **%approot%\logs** auf Ihrem Azure-Server oder der Ordner „SMS/Logs“ auf dem Standortsystemserver|
+|SMS_Cloud_ProxyConnector.log|Zeichnet Details zum Einrichten von Verbindungen zwischen dem Cloud-Management-Gateway-Dienst und dem Verbindungspunkt für das Cloudverwaltungsgateway auf.|Standortsystemserver|
 
-<sup>1</sup> Il s’agit des fichiers journaux Configuration Manager locaux que le gestionnaire de service cloud synchronise toutes les 5 minutes à partir du stockage Azure. La passerelle de gestion cloud pousse les journaux vers le stockage Azure toutes les 5 minutes. Le délai maximal est donc de 10 minutes. Les commutateurs Verbose affecteront les journaux locaux et distants.
+<sup>1</sup> Hierbei handelt es sich um lokale Configuration Manager-Protokolldateien, die der Clouddienst-Manager alle 5 Minuten aus dem Azure-Speicher synchronisiert. Das Cloudverwaltungsgateway wird alle 5 Minuten Protokolle zum Azure-Speicher übertragen. Daher wird die maximale Verzögerung 10 Minuten betragen. Ausführliche Switches wirken sich auf lokale und Remoteprotokolle aus.
 
-- Pour résoudre les problèmes de déploiement, utilisez **CloudMgr.log** et **CMGSetup.log**
-- Pour la résolution des problèmes d’intégrité du service, utilisez **CMGService.log** et **SMS_Cloud_ProxyConnector.log**.
-- Pour résoudre les problèmes de trafic client, utilisez **CMGHttpHandler.log**, **CMGService.log** et **SMS_Cloud_ProxyConnector.log**.
+- Verwenden Sie für die Problembehandlung von Bereitstellungen **CloudMgr.log** und **CMGSetup.log**.
+- Verwenden Sie für die Problembehandlung der Dienstintegrität **CMGService.log** und **SMS_Cloud_ProxyConnector.log**.
+- Verwenden Sie für die Problembehandlung des Client-Datenverkehrs **CMGHttpHandler.log**, **CMGService.log** und **SMS_Cloud_ProxyConnector.log**.
 
-###  <a name="BKMK_CompSettingsLog"></a> Paramètres de conformité et accès aux ressources d’entreprise  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux paramètres de compatibilité et à l'accès aux ressources de l'entreprise.  
+###  <a name="BKMK_CompSettingsLog"></a> Konformitätseinstellungen und Zugriff auf Unternehmensressourcen  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Kompatibilitätseinstellungen und dem Zugriff auf Unternehmensressourcen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CIAgent.log|Enregistre des détails concernant le processus de correction et de compatibilité pour les paramètres de compatibilité, les mises à jour logicielles et la gestion d'applications.|Client|  
-|CITaskManager.log|Enregistre des informations sur la planification des tâches des éléments de configuration.|Client|  
-|DCMAgent.log|Enregistre les informations principales concernant l'évaluation, les rapports de conflit et la correction des éléments de configuration et des applications.|Client|  
-|DCMReporting.log|Enregistre des informations sur les rapports des résultats de la plateforme de stratégie sous forme de messages d'état pour les éléments de configuration.|Client|  
-|DcmWmiProvider.log|Enregistre des informations sur la lecture des synclets d’élément de configuration provenant de WMI.|Client|  
+|CIAgent.log|Zeichnet Details zum Wiederherstellungsprozess sowie zu Kompatibilität für Kompatibilitätseinstellungen, Softwareupdates und Anwendungsverwaltung auf.|Client|  
+|CITaskManager.log|Zeichnet Informationen zur Taskplanung für Konfigurationselemente auf.|Client|  
+|DCMAgent.log|Zeichnet detaillierte Informationen zu Auswertung, Konfliktberichterstattung und Wiederherstellung von Konfigurationselementen und Anwendungen auf.|Client|  
+|DCMReporting.log|Zeichnet Informationen zur Berichterstattung von Richtlinienplattformergebnissen in Statusmeldungen für Konfigurationselemente auf.|Client|  
+|DcmWmiProvider.log|Zeichnet Informationen im Zusammenhang mit dem Einlesen von Konfigurationselement-Synclets aus WMI auf.|Client|  
 
-###  <a name="BKMK_ConsoleLog"></a> Console Configuration Manager  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la console Configuration Manager.  
+###  <a name="BKMK_ConsoleLog"></a> Configuration Manager-Konsole  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen zur Configuration Manager-Konsole enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrAdminUISetup.log|Enregistre l’installation de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
-|SmsAdminUI.log|Enregistre des informations relatives au fonctionnement de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
-|SMSProv.log|Enregistre les activités effectuées par le fournisseur SMS. Les activités de la console Configuration Manager utilisent le fournisseur SMS.|Serveur de site ou serveur de système de site|  
+|ConfigMgrAdminUISetup.log|Zeichnet die Installation der Configuration Manager-Konsole auf|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|SmsAdminUI.log|Zeichnet Informationen zum Betrieb der Configuration Manager-Konsole auf|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|SMSProv.log|Zeichnet die vom SMS-Anbieter ausgeführten Aktivitäten auf. Configuration Manager-Konsolenaktivitäten verwenden den SMS-Anbieter.|Standortserver oder Standortsystemserver|  
 
-###  <a name="BKMK_ContentLog"></a> Gestion de contenu  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion de contenu.  
+###  <a name="BKMK_ContentLog"></a> Content Management  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Inhaltsverwaltung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CloudDP-&lt;guid\>.log|Enregistre les détails d'un point de distribution cloud spécifique, y compris des informations sur le stockage et l'accès au contenu.|Serveur de système de site|  
-|CloudMgr.log|Enregistre les détails concernant l’approvisionnement du contenu, sur la collecte de statistiques de stockage et de bande passante, et sur les actions lancées par l’administrateur pour arrêter ou démarrer le service cloud qui exécute un point de distribution cloud.|Serveur de système de site|  
-|DataTransferService.log|Enregistre toutes les communications BITS relatives à l'accès aux stratégies ou aux packages. Ce journal est également utilisé pour la gestion de contenu par les points de distribution d’extraction.|Ordinateur configuré comme point de distribution d’extraction|  
-|PullDP.log|Enregistre des détails concernant le contenu que le point de distribution d'extraction transfère à partir de points de distribution source.|Ordinateur configuré comme point de distribution d’extraction|  
-|PrestageContent.log|Enregistre les détails concernant l’utilisation de l’outil ExtractContent.exe sur un point de distribution préparé distant. Cet outil extrait le contenu qui a été exporté vers un fichier.|Rôle de système de site|  
-|SMSdpmon.log|Enregistre les détails concernant les tâches planifiées de surveillance de l’intégrité du point de distribution configurées sur un point de distribution.|Rôle de système de site|  
-|smsdpprov.log|Enregistre des détails concernant l'extraction des fichiers compressés reçus à partir d'un site principal. Ce journal est généré par le fournisseur WMI du point de distribution distant.|Ordinateur de point de distribution n’est pas au même emplacement que le serveur de site|  
+|CloudDP-&lt;guid\>.log|Zeichnet Einzelheiten eines speziellen cloudbasierten Verteilungspunkts auf, einschließlich Informationen über die Speicherung und den Zugriff auf Inhalten.|Standortsystemserver|  
+|CloudMgr.log|Zeichnet Einzelheiten über die Bereitstellung von Inhalten, die Sammlung von Speicherungs- und Bandbreitenstatistiken sowie vom Administrator ergriffene Maßnahmen zum Anhalten oder Starten des Clouddiensts, der an einem cloudbasierten Verteilungspunkt ausgeführt wird, auf.|Standortsystemserver|  
+|DataTransferService.log|Zeichnet die gesamte BITS-Kommunikation für den Richtlinien- oder Paketzugriff auf. Dieses Protokoll wird auch für das Content Management von Pullverteilungspunkten verwendet.|Ein Computer, der als Pullverteilungspunkt konfiguriert ist|  
+|PullDP.log|Zeichnet Details über Inhalte auf, die der Pullverteilungspunkt aus Quellverteilungspunkten überträgt.|Ein Computer, der als Pullverteilungspunkt konfiguriert ist|  
+|PrestageContent.log|Zeichnet die Details zur Verwendung des Tools ExtractContent.exe auf einem vorab bereitgestellten Remoteverteilungspunkt auf. Mit diesem Tool werden Inhalte extrahiert, die in eine Datei exportiert wurden.|Standortsystemrolle|  
+|SMSdpmon.log|Zeichnet Details zum geplanten Task für die Integritätsüberwachung des Verteilungspunkts auf, der auf einem Verteilungspunkt konfiguriert wurde.|Standortsystemrolle|  
+|smsdpprov.log|Zeichnet Details zur Extrahierung komprimierter Dateien auf, die von einem primären Standort stammen. Dieses Protokoll wird vom WMI-Anbieter des Remoteverteilungspunkts generiert.|Ein Verteilungspunktcomputer an einem anderen Standort als der Standortserver|  
 
 
-###  <a name="BKMK_DiscoveryLog"></a> Découverte  
-Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la détection.  
+###  <a name="BKMK_DiscoveryLog"></a> Ermittlung  
+In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen zur Ermittlung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|adsgdis.log|Enregistre les actions de la découverte du groupe de sécurité Active Directory.|Serveur de site|  
-|adsysdis.log|Enregistre les actions de découverte du système Active Directory.|Serveur de site|  
-|adusrdis.log|Enregistre les actions de découverte d'utilisateurs Active Directory.|Serveur de site|  
-|ADForestDisc.log|Enregistre les actions de découverte de forêts Active Directory.|Serveur de site|  
-|ddm.log|Enregistre les activités du gestionnaire de données de découverte.|Serveur de site|  
-|InventoryAgent.log|Enregistre les activités de l'inventaire matériel et logiciel et les actions de découverte par pulsations effectuées sur le client.|Client|  
-|netdisc.log|Enregistre les actions de découverte du réseau.|Serveur de site|  
+|adsgdis.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Sicherheitsgruppenermittlung auf.|Standortserver|  
+|adsysdis.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Systemermittlung auf.|Standortserver|  
+|adusrdis.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Benutzerermittlung auf.|Standortserver|  
+|ADForestDisc.log|Zeichnet Aktionen im Zusammenhang mit der Active Directory-Gesamtstrukturermittlung auf.|Standortserver|  
+|ddm.log|Zeichnet die Aktivitäten des Ermittlungsdaten-Managers auf.|Standortserver|  
+|InventoryAgent.log|Zeichnet Aktivitäten im Zusammenhang mit Hardwareinventur, Softwareinventur und Frequenzermittlung auf dem Client auf.|Client|  
+|netdisc.log|Zeichnet Aktionen im Zusammenhang mit der Netzwerkermittlung auf.|Standortserver|  
 
 ###  <a name="BKMK_EPLog"></a> Endpoint Protection  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à Endpoint Protection.  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Endpoint Protection enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|EndpointProtectionAgent.log|Enregistre des détails concernant l'installation du client Endpoint Protection et l'application de la stratégie anti-programme malveillant à ce client.|Client|  
-|EPCtrlMgr.log|Enregistre les détails concernant la synchronisation des informations sur les menaces de programmes malveillants à partir du serveur de rôle Endpoint Protection avec la base de données Configuration Manager.|Serveur de système de site|  
-|EPMgr.log|Surveille l'état du rôle de système de site Endpoint Protection.|Serveur de système de site|  
-|EPSetup.log|Fournit des informations sur l'installation du rôle de système de site Endpoint Protection.|Serveur de système de site|  
+|EndpointProtectionAgent.log|Zeichnet Details zur Installation des Endpoint Protection-Clients und zum Anwenden der Richtlinie für Antischadsoftware auf diesen Client auf.|Client|  
+|EPCtrlMgr.log|Zeichnet Details zur Synchronisierung von Schadsoftwarebedrohungsdaten vom Endpoint Protection-Rollenserver in die Configuration Manager-Datenbank auf.|Standortsystemserver|  
+|EPMgr.log|Überwacht den Status der Endpoint Protection-Standortsystemrolle.|Standortsystemserver|  
+|EPSetup.log|Stellt Informationen zur Installation der Endpoint Protection-Standortsystemrolle bereit.|Standortsystemserver|  
 
-###  <a name="BKMK_Extensions"></a> Extensions  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées aux extensions.  
+###  <a name="BKMK_Extensions"></a> Erweiterungen  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Erweiterungen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|AdminUI.ExtensionInstaller.log|Enregistre des informations sur le téléchargement des extensions de Microsoft et sur l'installation et la désinstallation de toutes les extensions.|Ordinateur qui exécute la console Configuration Manager|  
-|FeatureExtensionInstaller.log|Enregistre des informations sur l’installation et la suppression d’extensions individuelles quand elles sont activées ou désactivées dans la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
-|SmsAdminUI.log|Enregistre l’activité de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
+|AdminUI.ExtensionInstaller.log|Zeichnet Informationen zum Download von Erweiterungen von Microsoft sowie zur Installation und Deinstallation aller Erweiterungen auf.|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|FeatureExtensionInstaller.log|Zeichnet Informationen zur Installation und Deinstallation von einzelnen Erweiterungen auf, wenn diese in der Configuration Manager-Konsole aktiviert oder deaktiviert werden|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|SmsAdminUI.log|Zeichnet die Aktivität der Configuration Manager-Konsole auf|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
 
-###  <a name="BKMK_InventoryLog"></a> Inventaire  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au traitement des données d'inventaire.  
+###  <a name="BKMK_InventoryLog"></a> Inventur  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Verarbeitung von Inventurdaten enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|dataldr.log|Enregistre des informations sur le traitement des fichiers MIF et de l’inventaire matériel dans la base de données Configuration Manager.|Serveur de site|  
-|invproc.log|Enregistre le transfert des fichiers MIF d'un site secondaire vers son site parent.|Serveur de site secondaire|  
-|sinvproc.log|Enregistre des informations sur le traitement des données d'inventaire logiciel vers la base de données de site.|Serveur de site|  
+|dataldr.log|Zeichnet Informationen zur Verarbeitung von MIF-Dateien und Hardwareinventur in der Configuration Manager-Datenbank auf.|Standortserver|  
+|invproc.log|Zeichnet die Weiterleitung von MIF-Dateien von einem sekundären Standort an dessen übergeordneten Standort auf.|Sekundärer Standortserver|  
+|sinvproc.log|Zeichnet Informationen zur Verarbeitung der Softwareinventurdaten in die Standortdatenbank auf.|Standortserver|  
 
-###  <a name="BKMK_MeteringLog"></a> Contrôle  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées au contrôle.  
+###  <a name="BKMK_MeteringLog"></a> Messung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Messungen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|mtrmgr.log|Surveille tous les processus de contrôle des logiciels.|Serveur de site|  
+|mtrmgr.log|Überwacht alle Softwaremessungen.|Standortserver|  
 
 ###  <a name="BKMK_MigrationLog"></a> Migration  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la migration.  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Migration enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|migmctrl.log|Enregistre des informations sur les actions de migration qui impliquent des tâches de migration, des points de distribution partagés et des mises à niveau des points de distribution.|Site de plus haut niveau dans la hiérarchie Configuration Manager et chaque site principal enfant.<br /><br /> Dans une hiérarchie comportant des sites principaux multiples, utilisez le fichier journal créé sur le site d'administration centrale.|  
+|migmctrl.log|Zeichnet Informationen zu Migrationsaktionen auf, einschließlich Migrationsaufträge, freigegebener Verteilungspunkte und Upgrades von Verteilungspunkten.|Standort der obersten Ebene in der Configuration Manager-Hierarchie und jeder untergeordnete primäre Standort<br /><br /> Verwenden Sie in einer Hierarchie mit mehreren primären Standorten die Protokolldatei, die auf dem Standort der zentralen Verwaltung erstellt wurde.|  
 
-###  <a name="BKMK_MDMLog"></a> Appareils mobiles  
- Les sections suivantes répertorient les fichiers journaux qui contiennent des informations relatives à la gestion des appareils mobiles.  
+###  <a name="BKMK_MDMLog"></a> Mobile Geräte  
+ In den folgenden Abschnitten werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Verwaltung mobiler Geräte enthalten.  
 
-####  <a name="BKMK_EnrollmentLog"></a> Inscription  
- Le tableau suivant répertorie les journaux qui contiennent des informations relatives à l'inscription d'appareils mobiles.  
+####  <a name="BKMK_EnrollmentLog"></a> Registrierung  
+ In der folgenden Tabelle werden Protokolle aufgelistet, die Informationen im Zusammenhang mit der Anmeldung mobiler Geräte enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|DMPRP.log|Enregistre les communications entre les points de gestion activés pour les appareils mobiles et les points de terminaison du point de gestion.|Serveur de système de site|  
-|dmpmsi.log|Enregistre les données Windows Installer pour la configuration d'un point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DMPSetup.log|Enregistre la configuration du point de gestion lorsqu'il est activé pour les appareils mobiles.|Serveur de système de site|  
-|enrollsrvMSI.log|Enregistre les données Windows Installer pour la configuration d'un point d'inscription.|Serveur de système de site|  
-|enrollmentweb.log|Enregistre la communication entre les appareils mobiles et le point proxy d'inscription.|Serveur de système de site|  
-|enrollwebMSI.log|Enregistre les données Windows Installer pour la configuration d'un point proxy d'inscription.|Serveur de système de site|  
-|enrollmentservice.log|Enregistre la communication entre un point proxy d'inscription et un point d'inscription.|Serveur de système de site|  
-|SMS_DM.log|Enregistre les communications entre les appareils mobiles, les ordinateurs Mac et le point de gestion activé pour les appareils mobiles et les ordinateurs Mac.|Serveur de système de site|  
+|DMPRP.log|Zeichnet die Kommunikation zwischen Verwaltungspunkten, die für mobile Geräte aktiviert sind, und den Endpunkten der Verwaltungspunkte auf.|Standortsystemserver|  
+|dmpmsi.log|Zeichnet die Windows Installer-Daten für die Konfiguration eines für mobile Geräte aktivierten Verwaltungspunkts auf.|Standortsystemserver|  
+|DMPSetup.log|Zeichnet die Konfiguration des Verwaltungspunkts auf, wenn dieser für mobile Geräte aktiviert wird.|Standortsystemserver|  
+|enrollsrvMSI.log|Zeichnet die Windows Installer-Daten für die Konfiguration eines Anmeldungspunkts auf.|Standortsystemserver|  
+|enrollmentweb.log|Zeichnet die Kommunikation zwischen mobilen Geräten und dem Anmeldungsproxypunkt auf.|Standortsystemserver|  
+|enrollwebMSI.log|Zeichnet die Windows Installer-Daten für die Konfiguration eines Anmeldungsproxypunkts auf.|Standortsystemserver|  
+|enrollmentservice.log|Zeichnet die Kommunikation zwischen einem Anmeldungsproxypunkt und einem Anmeldungspunkt auf.|Standortsystemserver|  
+|SMS_DM.log|Zeichnet die Kommunikation zwischen mobilen Geräten, Macintosh-Computern und dem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
 
-####  <a name="BKMK_ExchSrvLog"></a> Connecteur Exchange Server  
- Les journaux suivants contiennent des informations relatives au connecteur Exchange Server.  
+####  <a name="BKMK_ExchSrvLog"></a> Exchange Server-Connector  
+ Die folgenden Protokolle enthalten Informationen im Zusammenhang mit dem Exchange Server-Connector.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|easdisc.log|Enregistre les activités et l'état du connecteur Exchange Server.|Serveur de site|  
+|easdisc.log|Zeichnet die Aktivitäten und den Status des Exchange Server-Connectors auf.|Standortserver|  
 
-####  <a name="BKMK_MDLegLog"></a> Client hérité d’appareil mobile  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au client hérité de l'appareil mobile.  
+####  <a name="BKMK_MDLegLog"></a> Legacyclient für mobile Geräte  
+ In der folgenden Tabelle werden Protokolle aufgelistet, die Informationen im Zusammenhang mit dem Legacyclient für mobile Geräte enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|DmCertEnroll.log|Enregistre des détails concernant l'inscription de certificats sur les clients hérités d'appareils mobiles.|Client|  
-|DMCertResp.htm|Enregistre la réponse HTML du serveur de certificats lorsque le programme d'inscription de client hérité d'appareil mobile demande un certificat PKI.|Client|  
-|DmClientHealth.log|Enregistre les GUID de tous les clients hérités des appareils mobiles qui communiquent avec le point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmClientRegistration.log|Enregistre les demandes d'inscription et leurs réponses de et vers les clients hérités d'appareils mobiles.|Serveur de système de site|  
-|DmClientSetup.log|Enregistre les données d'installation du client pour les clients hérités d'appareils mobiles.|Client|  
-|DmClientXfer.log|Enregistre les données de transfert de client pour les clients hérités d'appareils mobiles et les déploiements ActiveSync.|Client|  
-|DmCommonInstaller.log|Enregistre l'installation des fichiers de transfert du client pour configurer les fichiers de transfert de clients hérités d'appareils mobiles.|Client|  
-|DmInstaller.log|Enregistre si DMInstaller appelle DmClientSetup correctement et si DmClientSetup se termine avec ou sans erreur pour les clients hérités d'appareils mobiles.|Client|  
-|DmpDatastore.log|Enregistre toutes les connexions aux bases de données de site et les requêtes effectuées par le point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmpDiscovery.log|Enregistre toutes les données de découverte provenant des clients hérités d'appareils mobiles sur le point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmpHardware.log|Enregistre des données d'inventaire matériel provenant de clients hérités d'appareils mobiles sur le point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmpIsapi.log|Enregistre les communications du client hérité d'appareil mobile avec un point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|dmpmsi.log|Enregistre les données Windows Installer pour la configuration d'un point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DMPSetup.log|Enregistre la configuration du point de gestion lorsqu'il est activé pour les appareils mobiles.|Serveur de système de site|  
-|DmpSoftware.log|Enregistre des données de la distribution logicielle provenant de clients hérités d'appareils mobiles sur un point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmpStatus.log|Enregistre les données de messages d'état à partir de clients d'appareils mobiles sur un point de gestion activé pour les appareils mobiles.|Serveur de système de site|  
-|DmSvc.log|Enregistre les communications provenant de clients hérités d'appareils mobiles avec un point de gestion activé pour les appareils mobiles.|Client|  
-|FspIsapi.log|Enregistre des détails concernant les communications au point d'état de secours à partir de clients hérités d'appareils mobiles et d'ordinateurs clients.|Serveur de système de site|  
+|DmCertEnroll.log|Zeichnet Details zu Zertifikatanmeldungsdaten auf Legacyclients für mobile Geräte auf.|Client|  
+|DMCertResp.htm|Zeichnet die HTML-Antwort des Zertifikatsservers auf die Anforderung eines PKI-Zertifikats durch das Anmeldungsprogramm des Legacyclients für mobile Geräte auf.|Client|  
+|DmClientHealth.log|Zeichnet die GUIDs aller Legacyclients für mobile Geräte auf, die mit dem für mobile Geräte aktivierten Verwaltungspunkt kommunizieren.|Standortsystemserver|  
+|DmClientRegistration.log|Zeichnet Registrierungsanforderungen und -antworten im Zusammenhang mit Legacyclients für mobile Geräte auf.|Standortsystemserver|  
+|DmClientSetup.log|Zeichnet Daten des Client-Setup für Legacyclients für mobile Geräte auf.|Client|  
+|DmClientXfer.log|Zeichnet die Clientübertragungsdaten für Legacyclients für mobile Geräte und für ActiveSync-Bereitstellungen auf.|Client|  
+|DmCommonInstaller.log|Zeichnet die Installation von Clientübertragungsdateien für die Konfiguration von Übertragungsdateien von Legacyclients für mobile Geräte auf.|Client|  
+|DmInstaller.log|Zeichnet auf, ob „DmClientSetup“ ordnungsgemäß von „DMInstaller“ aufgerufen wird und ob „DmClientSetup“ erfolgreich oder mit einem Fehler auf Legacyclients für mobile Geräte abgeschlossen wird.|Client|  
+|DmpDatastore.log|Zeichnet alle Verbindungen zur Standortdatenbank und alle Abfragen vom für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|DmpDiscovery.log|Zeichnet alle Ermittlungsdaten von den Legacyclients für mobile Geräte auf dem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|DmpHardware.log|Zeichnet alle Hardwareinventurdaten von den Legacyclients für mobile Geräte auf dem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|DmpIsapi.log|Zeichnet die Kommunikation zwischen dem Legacyclient für mobile Geräte und dem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|dmpmsi.log|Zeichnet die Windows Installer-Daten für die Konfiguration eines für mobile Geräte aktivierten Verwaltungspunkts auf.|Standortsystemserver|  
+|DMPSetup.log|Zeichnet die Konfiguration des Verwaltungspunkts auf, wenn dieser für mobile Geräte aktiviert wird.|Standortsystemserver|  
+|DmpSoftware.log|Zeichnet Softwareverteilungsdaten von den Legacyclients für mobile Geräte auf einem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|DmpStatus.log|Zeichnet Statusmeldungsdaten von den Clients für mobile Geräte auf einem für mobile Geräte aktivierten Verwaltungspunkt auf.|Standortsystemserver|  
+|DmSvc.log|Zeichnet die Kommunikation zwischen dem Legacyclient für mobile Geräte und dem für mobile Geräte aktivierten Verwaltungspunkt auf.|Client|  
+|FspIsapi.log|Zeichnet Details zur Kommunikation von mobilen Legacyclient-Geräten und Clientcomputern mit dem Fallbackstatuspunkt auf.|Standortsystemserver|  
 
-###  <a name="BKMK_OSDLog"></a> Déploiement du système d’exploitation  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au déploiement du système d'exploitation.  
+###  <a name="BKMK_OSDLog"></a> Betriebssystembereitstellung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Bereitstellung von Betriebssystemen enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CAS.log|Enregistre des détails lorsque des points de distribution sont trouvés pour le contenu référencé.|Client|  
-|ccmsetup.log|Enregistre les tâches ccmsetup liées au programme d’installation client, à la mise à niveau du client et à la suppression de client. Permet de dépanner des problèmes d'installation du client.|Client|  
-|CreateTSMedia.log|Enregistre les détails sur la création de médias de séquence de tâches.|Ordinateur qui exécute la console Configuration Manager|  
-|DeployToVhd.log|Enregistre les détails concernant le processus de création et de modification de disque dur virtuel.|Ordinateur qui exécute la console Configuration Manager|  
-|Dism.log|Enregistre les actions d’installation de pilotes ou les actions d’application de mises à jour pour la maintenance hors connexion.|Serveur de système de site|  
-|distmgr.log|Enregistre les détails concernant la configuration de l’activation d’un point de distribution pour PXE (Preboot Execution Environment).|Serveur de système de site|  
-|DriverCatalog.log|Enregistre des détails concernant les pilotes de périphérique importés dans le catalogue de pilotes.|Serveur de système de site|  
-|mcsisapi.log|Enregistre les informations pour les transferts de packages en multidiffusion et les réponses aux demandes des clients.|Serveur de système de site|  
-|mcsexec.log|Enregistre les actions relatives au contrôle de l’intégrité, à l’espace de noms, à la création de sessions et à la vérification des certificats.|Serveur de système de site|  
-|mcsmgr.log|Enregistre les modifications apportées à la configuration, au mode de sécurité et à la disponibilité.|Serveur de système de site|  
-|mcsprv.log|Enregistre l'interaction du fournisseur de multidiffusion avec les services de déploiement Windows (WDS).|Serveur de système de site|  
-|MCSSetup.log|Enregistre des détails concernant l'installation du rôle de serveur de multidiffusion.|Serveur de système de site|  
-|MCSMSI.log|Enregistre des détails concernant l'installation du rôle de serveur de multidiffusion.|Serveur de système de site|  
-|Mcsperf.log|Enregistre des détails concernant les mises à jour du compteur de performance de multidiffusion.|Serveur de système de site|  
-|MP_ClientIDManager.log|Enregistre les réponses du point de gestion aux séquences de tâches de demandes d'ID du client initiées par l'environnement PXE ou le média de démarrage.|Serveur de système de site|  
-|MP_DriverManager.log|Enregistre les réponses du point de gestion aux demandes d'actions de la séquence de tâches Appliquer automatiquement les pilotes.|Serveur de système de site|  
-|OfflineServicingMgr.log|Enregistre les détails de la planification de la maintenance hors connexion et des actions d’application de mises à jour sur les fichiers WIM.|Serveur de système de site|  
-|Setupact.log|Enregistre des détails sur Windows Sysprep et les journaux d'installation.|Client|  
-|Setupapi.log|Enregistre des détails sur Windows Sysprep et les journaux d'installation.|Client|  
-|Setuperr.log|Enregistre des détails sur Windows Sysprep et les journaux d'installation.|Client|  
-|smpisapi.log|Enregistre des détails concernant les actions de capture de l'état du client et de restauration, et les informations de seuil.|Client|  
-|Smpmgr.log|Enregistre des détails concernant les résultats des modifications de configuration et des vérifications de l'intégrité du point de migration de l'état.|Serveur de système de site|  
-|smpmsi.log|Enregistre les détails d'installation et de configuration du point de migration d'état.|Serveur de système de site|  
-|smpperf.log|Enregistre les mises à jour du compteur de performances du point de migration d'état.|Serveur de système de site|  
-|smspxe.log|Enregistre les détails concernant les réponses aux clients qui effectuent un démarrage PXE et les détails concernant l’expansion d’images de démarrage et des fichiers de démarrage.|Serveur de système de site|  
-|smssmpsetup.log|Enregistre les détails d'installation et de configuration du point de migration d'état.|Serveur de système de site|  
-|Smsts.log|Enregistre les activités de séquences de tâches.|Client|  
-|TSAgent.log|Enregistre le résultat des dépendances des séquences de tâche avant de démarrer une séquence de tâches.|Client|  
-|TaskSequenceProvider.log|Enregistre des détails concernant les séquences de tâches importées, exportées ou modifiées.|Serveur de système de site|  
-|loadstate.log|Enregistre des détails concernant l'outil de migration de l'état utilisateur (USMT) et la restauration des données d'état de l'utilisateur.|Client|  
-|scanstate.log|Enregistre des détails concernant l'outil de migration de l'état utilisateur (USMT) et la capture des données d'état de l'utilisateur.|Client|  
+|CAS.log|Zeichnet die Details von Verteilungspunkten auf, die für referenzierten Inhalt gefunden werden.|Client|  
+|ccmsetup.log|Zeichnet ccmsetup-Tasks für Clienteinstellung, Clientupgrade und Cliententfernung auf. Ist für die Problembehandlung bei Clientinstallationsproblemen hilfreich.|Client|  
+|CreateTSMedia.log|Zeichnet Details zur Tasksequenz „Medienerstellung“ auf.|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|DeployToVhd.log|Hier werden Details zum VHD-Erstellungs- und Änderungsvorgang aufgezeichnet.|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|Dism.log|Zeichnet Aktionen im Zusammenhang mit der Treiberinstallation oder der Anwendung von Updates für die Offlinewartung auf.|Standortsystemserver|  
+|distmgr.log|Zeichnet Details zur Konfiguration beim Aktivieren eines Verteilungspunkts für Preboot Execution Environment (PXE) auf.|Standortsystemserver|  
+|DriverCatalog.log|Zeichnet Details zu Gerätetreibern auf, die in den Treiberkatalog importiert wurden.|Standortsystemserver|  
+|mcsisapi.log|Zeichnet Informationen im Zusammenhang mit Multicast-Paketübertragungen und Clientanforderungsantworten auf.|Standortsystemserver|  
+|mcsexec.log|Zeichnet Aktionen im Zusammenhang mit Integritätsprüfung, Namespaces, Sitzungserstellung und Zertifikatprüfung auf.|Standortsystemserver|  
+|mcsmgr.log|Zeichnet Änderungen an Konfiguration, Sicherheitsmodus und Verfügbarkeit auf.|Standortsystemserver|  
+|mcsprv.log|Zeichnet die Interaktion zwischen Multicastanbieter und WDS (Windows Deployment Services) auf.|Standortsystemserver|  
+|MCSSetup.log|Zeichnet Details zur Installation der Multicastserverrolle auf.|Standortsystemserver|  
+|MCSMSI.log|Zeichnet Details zur Installation der Multicastserverrolle auf.|Standortsystemserver|  
+|Mcsperf.log|Zeichnet Details zu Updates von Multicastleistungsindikatoren auf.|Standortsystemserver|  
+|MP_ClientIDManager.log|Zeichnet Antworten des Verwaltungspunkts auf Tasksequenzen zur Anforderung der Client-ID auf, die von PXE oder von Startmedien initiiert wurden.|Standortsystemserver|  
+|MP_DriverManager.log|Zeichnet Antworten des Verwaltungspunkts auf Aktionsanforderungen über die Tasksequenz „Treiber automatisch anwenden“ auf.|Standortsystemserver|  
+|OfflineServicingMgr.log|Zeichnet Details zur Planung von Offlinewartungsmaßnahmen und zum Anwenden von Updates auf WIM-Dateien des Betriebssystems auf.|Standortsystemserver|  
+|Setupact.log|Zeichnet Details zu Windows-Sysprep- und -Setup-Protokollen auf.|Client|  
+|Setupapi.log|Zeichnet Details zu Windows-Sysprep- und -Setup-Protokollen auf.|Client|  
+|Setuperr.log|Zeichnet Details zu Windows-Sysprep- und -Setup-Protokollen auf.|Client|  
+|smpisapi.log|Zeichnet Details zum Erfassen und Wiederherstellen des Clientzustands sowie Schwellenwertinformationen auf.|Client|  
+|Smpmgr.log|Zeichnet Details zu den Ergebnissen von Integritätsprüfungen und Konfigurationsänderungen von Zustandsmigrationspunkten auf.|Standortsystemserver|  
+|smpmsi.log|Zeichnet Installations- und Konfigurationsdetails zum Zustandsmigrationspunkt auf.|Standortsystemserver|  
+|smpperf.log|Zeichnet Details zu Updates von Leistungsindikatoren für Zustandsmigrationspunkte auf.|Standortsystemserver|  
+|smspxe.log|Zeichnet Details zu den Antworten an Clients mit PXE-Start sowie Details zur Erweiterung von Startimages und Startdateien auf.|Standortsystemserver|  
+|smssmpsetup.log|Zeichnet Installations- und Konfigurationsdetails zum Zustandsmigrationspunkt auf.|Standortsystemserver|  
+|Smsts.log|Zeichnet Tasksequenzaktivitäten auf.|Client|  
+|TSAgent.log|Zeichnet das Ergebnis von Tasksequenzabhängigkeiten vor dem Starten einer Tasksequenz auf.|Client|  
+|TaskSequenceProvider.log|Zeichnet Details zu Tasksequenzen auf, wenn diese importiert, exportiert oder bearbeitet werden.|Standortsystemserver|  
+|loadstate.log|Zeichnet Details zum Migrationsprogramm für den Benutzerzustand (USMT) sowie zur Wiederherstellung von Benutzerzustandsdaten auf.|Client|  
+|scanstate.log|Zeichnet Details zum Migrationsprogramm für den Benutzerzustand (USMT) sowie zur Erfassung von Benutzerzustandsdaten auf.|Client|  
 
-###  <a name="BKMK_PowerMgmtLog"></a> Gestion de l’alimentation  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations liées à la gestion de l'alimentation.  
+###  <a name="BKMK_PowerMgmtLog"></a> Energieverwaltung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Energiewaltung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|Pwrmgmt.log|Enregistre les détails concernant les activités de gestion de l’alimentation sur l’ordinateur client, notamment la surveillance et l’application de paramètres par l’agent du client de gestion de l’alimentation.|Client|  
+|Pwrmgmt.log|Zeichnet Details zu Energieverwaltungsaktivitäten auf dem Clientcomputer auf, einschließlich der Überwachung und Erzwingung von Einstellungen durch den Energieverwaltungsclient-Agent.|Client|  
 
-###  <a name="BKMK_RCLog"></a> Contrôle à distance  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au contrôle à distance.  
+###  <a name="BKMK_RCLog"></a> Remotesteuerung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Remotesteuerung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CMRcViewer.log|Enregistre des détails concernant l'activité de l'observateur de contrôle à distance.|Dans le dossier %temp% sur l’ordinateur qui exécute l’observateur de contrôle à distance|  
+|CMRcViewer.log|Zeichnet Details zur Aktivität des Remotesteuerungsviewers auf.|Im %temp%-Ordner auf dem Computer, auf dem der Remotesteuerungsviewer ausgeführt wird|  
 
-###  <a name="BKMK_ReportLog"></a> Rapports  
- Le tableau suivant répertorie les fichiers journaux de Configuration Manager qui contiennent des informations relatives à la création de rapports.  
+###  <a name="BKMK_ReportLog"></a> Berichterstellung  
+ In der folgenden Tabelle werden die Configuration Manager-Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Berichterstattung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|srsrp.log|Enregistre des informations sur l'activité et l'état du point de Reporting Services.|Serveur de système de site|  
-|srsrpMSI.log|Enregistre les résultats détaillés du processus d'installation du point de Reporting Services à partir des données fournies par MSI.|Serveur de système de site|  
-|srsrpsetup.log|Enregistre les résultats du processus d'installation du point de Reporting Services.|Serveur de système de site|  
+|srsrp.log|Zeichnet Informationen im Zusammenhang mit den Aktivitäten und dem Status des Reporting Services-Punkts auf.|Standortsystemserver|  
+|srsrpMSI.log|Zeichnet detaillierte Ergebnisse der Installation des Reporting Services-Punkts aus der MSI-Ausgabe auf.|Standortsystemserver|  
+|srsrpsetup.log|Zeichnet Ergebnisse der Installation des Reporting Services-Punkts auf.|Standortsystemserver|  
 
-###  <a name="BKMK_RBALog"></a> Administration basée sur des rôles  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la gestion de l'administration basée sur des rôles.  
+###  <a name="BKMK_RBALog"></a> Rollenbasierte Verwaltung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der rollenbasierten Verwaltung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|hman.log|Enregistre les informations concernant les modifications de la configuration du site et la publication d’informations du site sur les services de domaine Active Directory.|Serveur de site|  
-|SMSProv.log|Enregistre les accès du fournisseur WMI à la base de données du site.|Ordinateur sur lequel le fournisseur SMS est installé|  
+|hman.log|Zeichnet Informationen zu Standortkonfigurationsänderungen und zur Veröffentlichung von Standortinformationen in Active Directory Domain Services auf.|Standortserver|  
+|SMSProv.log|Zeichnet den Zugriff des WMI-Anbieters auf die Standortdatenbank auf.|Computer mit dem SMS-Anbieter|  
 
-###  <a name="BKMK_WITLog"></a> Point de connexion de service  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au point de connexion de service.  
+###  <a name="BKMK_WITLog"></a> Dienstverbindungspunkt  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit dem Dienstverbindungspunkt enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|CertMgr.log|Enregistre des informations concernant les certificats et le compte proxy.|Serveur de site|  
-|Colleval.log|Enregistre des détails concernant la création, la modification et la suppression de regroupements par l'Évaluateur de regroupements.|Site principal et site d'administration centrale|  
-|Cloudusersync.log|Enregistre l'activation des licences des utilisateurs.|Ordinateur avec le point de connexion de service|  
-|dataldr.log|Enregistre des informations sur le traitement des fichiers MIF.|Serveur de site|  
-|ddm.log|Enregistre les activités du gestionnaire de données de découverte.|Serveur de site|  
-|distmgr.log|Enregistre des détails concernant les requêtes de distribution de contenu.|Serveur de site de niveau supérieur|  
-|Dmpdownloader.log|Enregistre les détails concernant les téléchargements à partir de Microsoft Intune.|Ordinateur avec le point de connexion de service|  
-|Dmpuploader.log|Enregistre les détails concernant le chargement des modifications de la base de données sur Microsoft Intune.|Ordinateur avec le point de connexion de service|  
-|hman.log|Enregistre des informations concernant le transfert des messages.|Serveur de site|  
-|objreplmgr.log|Enregistre le traitement des stratégies et des affectations.|Serveur de site principal|  
-|Policypv.log|Enregistre la génération de stratégie de toutes les stratégies.|Serveur de site|  
-|outgoingcontentmanager.log|Enregistre le contenu chargé vers Microsoft Intune.|Ordinateur avec le point de connexion de service|  
-|sitecomp.log|Enregistre les détails de l’installation du point de connexion de service.|Serveur de site|  
-|SmsAdminUI.log|Enregistre l’activité de la console Configuration Manager.|Ordinateur qui exécute la console Configuration Manager|  
-|SMSProv.log|Enregistre les activités effectuées par le fournisseur SMS. Les activités de la console Configuration Manager utilisent le fournisseur SMS.|Ordinateur sur lequel le fournisseur SMS est installé|  
-|SrvBoot.log|Enregistre les détails du service d’installation du point de connexion de service.|Ordinateur avec le point de connexion de service|  
-|Statesys.log|Enregistre le traitement des messages de gestion d'appareil mobile.|Site principal et site d'administration centrale|  
+|CertMgr.log|Zeichnet Zertifikat- und Proxykontoinformationen auf.|Standortserver|  
+|colleval.log|Zeichnet Details zum Erstellen, Ändern und Löschen von Sammlungen durch den Sammlungsauswerter auf.|Primärer Standort und Standort der zentralen Verwaltung|  
+|Cloudusersync.log|Zeichnet die Lizenzaktivierung für Benutzer auf.|Computer mit dem Dienstverbindungspunkt|  
+|dataldr.log|Zeichnet Informationen über die Verarbeitung von MIF-Dateien auf.|Standortserver|  
+|ddm.log|Zeichnet die Aktivitäten des Ermittlungsdaten-Managers auf.|Standortserver|  
+|distmgr.log|Zeichnet Details zu Inhaltsverteilungsanforderungen auf.|Standortserver auf oberster Ebene|  
+|Dmpdownloader.log|Zeichnet Details zu Downloads von Microsoft Intune auf.|Computer mit dem Dienstverbindungspunkt|  
+|Dmpuploader.log|Zeichnet Details für das Hochladen von Datenbankänderungen in Microsoft Intune auf.|Computer mit dem Dienstverbindungspunkt|  
+|hman.log|Zeichnet Informationen zur Meldungsweiterleitung auf.|Standortserver|  
+|objreplmgr.log|Zeichnet die Verarbeitung von Richtlinien und Zuweisung auf.|Primärer Standortserver|  
+|policypv.log|Zeichnet die Richtliniengenerierung aller Richtlinien auf.|Standortserver|  
+|outgoingcontentmanager.log|Zeichnet Inhalte auf, die auf Microsoft Intune hochgeladen werden|Computer mit dem Dienstverbindungspunkt|  
+|sitecomp.log|Zeichnet Details zur Installation des Dienstverbindungspunkts auf.|Standortserver|  
+|SmsAdminUI.log|Zeichnet die Aktivität der Configuration Manager-Konsole auf|Computer, auf dem die Configuration Manager-Konsole ausgeführt wird|  
+|SMSProv.log|Zeichnet die vom SMS-Anbieter ausgeführten Aktivitäten auf. Configuration Manager-Konsolenaktivitäten verwenden den SMS-Anbieter.|Computer mit dem SMS-Anbieter|  
+|SrvBoot.log|Zeichnet Details zum Dienstverbindungspunkt-Installationsdienst auf.|Computer mit dem Dienstverbindungspunkt|  
+|Statesys.log|Zeichnet die Verarbeitung von Verwaltungsmeldungen zu mobilen Geräten auf.|Primärer Standort und Standort der zentralen Verwaltung|  
 
-###  <a name="BKMK_SU_NAPLog"></a> Mises à jour logicielles  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives aux mises à jour logicielles.  
+###  <a name="BKMK_SU_NAPLog"></a> Softwareupdates  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit Softwareupdates enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|Ccmperf.log|Enregistre les activités liées à la maintenance et la capture de données relatives aux compteurs de performances du client.|Client|  
-|PatchDownloader.log|Enregistre des détails concernant le processus de téléchargement des mises à jour logicielles vers la destination de téléchargement, sur le serveur de site.|Ordinateur qui héberge la console Configuration Manager à partir de laquelle les téléchargements sont lancés|  
-|PolicyEvaluator.log|Enregistre des détails concernant l'évaluation des stratégies sur les ordinateurs clients, dont les stratégies de mises à jour logicielles.|Client|  
-|RebootCoordinator.log|Enregistre des détails concernant la coordination des redémarrages du système sur des ordinateurs clients après l'installation de mises à jour logicielles.|Client|  
-|ScanAgent.log|Enregistre des détails concernant les demandes d'analyse pour les mises à jour logicielles, l'emplacement de WSUS et des actions connexes.|Client|  
-|SdmAgent.log|Enregistre les détails concernant le suivi des corrections et de la conformité. Cependant, le fichier journal des mises à jour logicielles, Updateshandler.log, fournit plus d’informations sur l’installation des mises à jour logicielles nécessaires pour la conformité.<br /><br /> Ce fichier journal est partagé avec les paramètres de compatibilité.|Client|  
-|ServiceWindowManager.log|Enregistre des détails concernant l'évaluation des fenêtres de maintenance.|Client|  
-|SmsWusHandler.log|Enregistre des détails concernant le processus d'analyse pour l'outil d'inventaire de Microsoft Updates.|Client|  
-|StateMessage.log|Enregistre les détails concernant les messages d’état des mises à jour logicielles qui sont créés et envoyés au point de gestion.|Client|  
-|SUPSetup.log|Enregistre des détails concernant l'installation du point de mise à jour logicielle. Lorsque l'installation d'un point de mise à jour logicielle se termine, la mention **Installation was successful** est consignée dans ce fichier journal.|Serveur de système de site|  
-|UpdatesDeployment.log|Enregistre des détails concernant les déploiements sur le client, y compris l'activation, l'évaluation et l'application des mises à jour logicielles. La journalisation documentée contient des informations supplémentaires sur l'interaction avec l'interface utilisateur du client.|Client|  
-|UpdatesHandler.log|Enregistre des détails concernant l'analyse de la compatibilité des mises à jour logicielles, ainsi que le téléchargement et l'installation des mises à jour logicielles sur le client.|Client|  
-|UpdatesStore.log|Enregistre des détails concernant l'état de compatibilité des mises à jour logicielles qui ont été évaluées au cours du cycle d'analyse de la compatibilité.|Client|  
-|WCM.log|Enregistre les détails concernant la configuration du point de mise à jour logicielle et les connexions au serveur WSUS pour les catégories, les classifications et les langues des mises à jour avec abonnement.|Serveur de site|  
-|WSUSCtrl.log|Enregistre des détails concernant la configuration, la connectivité de la base de données et l'intégrité du serveur WSUS du site.|Serveur de système de site|  
-|wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de site|  
-|WUAHandler.log|Enregistre des détails concernant l'agent Windows Update sur le client, lors de la recherche des mises à jour logicielles.|Client|  
+|Ccmperf.log|Zeichnet Aktivitäten im Zusammenhang mit Wartung und Erfassung von Daten zu Clientleistungsindikatoren auf.|Client|  
+|PatchDownloader.log|Zeichnet Details zum Download von Softwareupdates von der Updatequelle in das Downloadziel auf dem Standortserver.|Der Computer, auf dem die Configuration Manager-Konsole gehostet wird, von der Downloads initiiert werden|  
+|PolicyEvaluator.log|Zeichnet Details zur Auswertung von Richtlinien auf Clientcomputern, einschließlich Softwareupdates, auf.|Client|  
+|RebootCoordinator.log|Zeichnet Details zur Koordinierung von Systemneustarts auf Clientcomputern nach der Installation von Softwareupdates auf.|Client|  
+|ScanAgent.log|Zeichnet Details zu Überprüfungsanforderungen für Softwareupdates, zum WSUS-Speicherort sowie zu entsprechenden Aktionen auf.|Client|  
+|SdmAgent.log|Zeichnet Details zur Nachverfolgung von Wiederherstellung und Konformität auf. Die Protokolldatei für Softwareupdates „Updateshandler.log“ bietet jedoch umfangreichere Informationen zur Installation der für die Konformität benötigten Softwareupdates.<br /><br /> Diese Protokolldatei wird mit Kompatibilitätseinstellungen gemeinsam genutzt.|Client|  
+|ServiceWindowManager.log|Zeichnet Details zur Auswertung von Wartungsfenstern auf.|Client|  
+|SmsWusHandler.log|Zeichnet Details zum Überprüfungsvorgang für das Inventurprogramm für Microsoft Updates auf.|Client|  
+|StateMessage.log|Zeichnet Details zu Zustandsmeldungen für Softwareupdates auf, die erstellt und an den Verwaltungspunkt gesendet werden.|Client|  
+|SUPSetup.log|Zeichnet Details zur Installation des Softwareupdatepunkts auf. Nach Abschluss der Softwareupdatepunkt-Installation wird **Installation was successful** in diese Protokolldatei geschrieben.|Standortsystemserver|  
+|UpdatesDeployment.log|Zeichnet Details zu Bereitstellungen auf dem Client auf, einschließlich Softwareupdateaktivierung, Auswertung und Erzwingung. Die ausführliche Protokollierung zeigt zusätzliche Informationen zur Interaktion mit der Clientbenutzeroberfläche an.|Client|  
+|UpdatesHandler.log|Zeichnet Details zur Softwareupdate-Kompatibilitätsüberprüfung, zum Download und zur Installation von Softwareupdates auf dem Client auf.|Client|  
+|UpdatesStore.log|Zeichnet Details zum Kompatibilitätsstatus für Softwareupdates auf, die im Rahmen des Kompatibilitätsüberprüfungszyklus bewertet wurden.|Client|  
+|WCM.log|Zeichnet Details zur Konfiguration von Softwareupdatepunkten und zum Herstellen einer Verbindung mit WSUS-Server für abonnierte Updatekategorien, Klassifizierungen und Sprachen auf.|Standortserver|  
+|WSUSCtrl.log|Zeichnet Details zur Konfiguration, Datenbankverbindungen und der Integrität von WSUS-Servern für den Standort auf.|Standortsystemserver|  
+|wsyncmgr.log|Zeichnet Details zum Synchronisierungsprozess von Softwareupdates auf.|Standortserver|  
+|WUAHandler.log|Zeichnet Details zum Windows Update-Agent auf dem Client bei der Suche nach Softwareupdates auf.|Client|  
 
-###  <a name="BKMK_WOLLog"></a> Wake On LAN  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l’utilisation de Wake On LAN.  
+###  <a name="BKMK_WOLLog"></a> Wake-On-LAN  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Verwendung von Wake-On-LAN enthalten.  
 
 > [!NOTE]  
->  Quand vous complétez l’éveil par appel réseau (Wake On LAN) en utilisant le proxy de mise en éveil, cette activité est journalisée sur le client. Par exemple, consultez CcmExec.log et SleepAgent_<*domaine*\>@SYSTEM_0.log dans la section [Opérations du client](#BKMK_ClientOpLogs) de cette rubrique.  
+>  Wenn Sie Wake-On-LAN durch die Verwendung des Aktivierungsproxys ergänzen, wird diese Aktivität auf dem Client protokolliert. Siehe beispielsweise „CcmExec.log“ und SleepAgent_<*Domäne*\>@SYSTEM_0.log im Abschnitt [Clientvorgänge](#BKMK_ClientOpLogs) in diesem Thema.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|wolcmgr.log|Enregistre des détails concernant les clients auxquels des paquets de mise en éveil doivent être envoyés, le nombre de paquets de mise en éveil envoyés et le nombre de nouvelles tentatives.|Serveur de site|  
-|wolmgr.log|Enregistre des détails concernant les procédures de mise en éveil, notamment le moment opportun pour déclencher le réveil des déploiements configurés pour Wake On LAN.|Serveur de site|  
+|wolcmgr.log|Zeichnet Details dazu auf, welche Clients Aktivierungspakete erhalten müssen, die Anzahl der gesendeten Aktivierungspakete und die Anzahl an wiederholten Aktivierungspaketen.|Standortserver|  
+|wolmgr.log|Zeichnet Details zu Aktivierungsverfahren auf, beispielsweise zum Zeitpunkt der Aktivierung von Bereitstellungen, die für Wake-On-LAN konfiguriert wurden.|Standortserver|  
 
-###  <a name="BKMK_WindowsServicingLog"></a>Maintenance de Windows 10  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à la maintenance de Windows 10.  
+###  <a name="BKMK_WindowsServicingLog"></a> Windows 10-Wartung  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit der Windows 10-Wartung enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|Ccmperf.log|Enregistre les activités liées à la maintenance et la capture de données relatives aux compteurs de performances du client.|Client|  
-|CcmRepair.log|Enregistre les activités de réparation de l'agent du client.|Client|
-|PatchDownloader.log|Enregistre des détails concernant le processus de téléchargement des mises à jour logicielles vers la destination de téléchargement, sur le serveur de site.|Ordinateur qui héberge la console Configuration Manager à partir de laquelle les téléchargements sont lancés|  
-|PolicyEvaluator.log|Enregistre des détails concernant l'évaluation des stratégies sur les ordinateurs clients, dont les stratégies de mises à jour logicielles.|Client|  
-|RebootCoordinator.log|Enregistre des détails concernant la coordination des redémarrages du système sur des ordinateurs clients après l'installation de mises à jour logicielles.|Client|  
-|ScanAgent.log|Enregistre des détails concernant les demandes d'analyse pour les mises à jour logicielles, l'emplacement de WSUS et des actions connexes.|Client|  
-|SdmAgent.log|Enregistre les détails concernant le suivi des corrections et de la conformité. Cependant, le fichier journal des mises à jour logicielles, Updateshandler.log, fournit plus d’informations sur l’installation des mises à jour logicielles nécessaires pour la conformité.<br /><br /> Ce fichier journal est partagé avec les paramètres de compatibilité.|Client|  
-|ServiceWindowManager.log|Enregistre des détails concernant l'évaluation des fenêtres de maintenance.|Client|  
-|setupact.log|Fichier journal principal pour la plupart des erreurs qui se produisent pendant le processus d’installation de Windows. Le fichier journal se trouve dans le dossier %windir%\$Windows.~BT\sources\panther.|Client|
-|SmsWusHandler.log|Enregistre des détails concernant le processus d'analyse pour l'outil d'inventaire de Microsoft Updates.|Client|  
-|StateMessage.log|Enregistre des détails sur les messages d'état des mises à jour logicielles créés et envoyés au point de gestion.|Client|  
-|SUPSetup.log|Enregistre des détails concernant l'installation du point de mise à jour logicielle. Lorsque l'installation d'un point de mise à jour logicielle se termine, la mention **Installation was successful** est consignée dans ce fichier journal.|Serveur de système de site|  
-|UpdatesDeployment.log|Enregistre des détails concernant les déploiements sur le client, y compris l'activation, l'évaluation et l'application des mises à jour logicielles. La journalisation documentée contient des informations supplémentaires sur l'interaction avec l'interface utilisateur du client.|Client|  
-|Updateshandler.log|Enregistre des détails concernant l'analyse de la compatibilité des mises à jour logicielles, ainsi que le téléchargement et l'installation des mises à jour logicielles sur le client.|Client|  
-|UpdatesStore.log|Enregistre des détails concernant l'état de compatibilité des mises à jour logicielles qui ont été évaluées au cours du cycle d'analyse de la compatibilité.|Client|  
-|WCM.log|Enregistre les détails concernant la configuration du point de mise à jour logicielle et les connexions au serveur WSUS pour les catégories, les classifications et les langues des mises à jour avec abonnement.|Serveur de site|  
-|WSUSCtrl.log|Enregistre des détails concernant la configuration, la connectivité de la base de données et l'intégrité du serveur WSUS du site.|Serveur de système de site|  
-|wsyncmgr.log|Enregistre les détails concernant le processus de synchronisation des mises à jour logicielles.|Serveur de site|  
-|WUAHandler.log|Enregistre des détails concernant l'agent Windows Update sur le client, lors de la recherche des mises à jour logicielles.|Client|  
+|Ccmperf.log|Zeichnet Aktivitäten im Zusammenhang mit Wartung und Erfassung von Daten zu Clientleistungsindikatoren auf.|Client|  
+|CcmRepair.log|Zeichnet Reparaturaktivitäten des Client-Agents auf.|Client|
+|PatchDownloader.log|Zeichnet Details zum Download von Softwareupdates von der Updatequelle in das Downloadziel auf dem Standortserver.|Der Computer, auf dem die Configuration Manager-Konsole gehostet wird, von der Downloads initiiert werden|  
+|PolicyEvaluator.log|Zeichnet Details zur Auswertung von Richtlinien auf Clientcomputern, einschließlich Softwareupdates, auf.|Client|  
+|RebootCoordinator.log|Zeichnet Details zur Koordinierung von Systemneustarts auf Clientcomputern nach der Installation von Softwareupdates auf.|Client|  
+|ScanAgent.log|Zeichnet Details zu Überprüfungsanforderungen für Softwareupdates, zum WSUS-Speicherort sowie zu entsprechenden Aktionen auf.|Client|  
+|SdmAgent.log|Zeichnet Details zur Nachverfolgung von Wiederherstellung und Konformität auf. Die Protokolldatei für Softwareupdates „Updateshandler.log“ bietet jedoch umfangreichere Informationen zur Installation der für die Konformität benötigten Softwareupdates.<br /><br /> Diese Protokolldatei wird mit Kompatibilitätseinstellungen gemeinsam genutzt.|Client|  
+|ServiceWindowManager.log|Zeichnet Details zur Auswertung von Wartungsfenstern auf.|Client|  
+|setupact.log|Primäre Protokolldatei für die meisten Fehler, die während der Installation von Windows auftreten. Die Protokolldatei befindet sich im Ordner % windir%\$Windows.~BT\sources\panther.|Client|
+|SmsWusHandler.log|Zeichnet Details zum Überprüfungsvorgang für das Inventurprogramm für Microsoft Updates auf.|Client|  
+|StateMessage.log|Zeichnet Details zu Softwareupdate-Zustandsmeldungen auf, die erstellt und an den Verwaltungspunkt gesendet werden.|Client|  
+|SUPSetup.log|Zeichnet Details zur Installation des Softwareupdatepunkts auf. Nach Abschluss der Softwareupdatepunkt-Installation wird **Installation was successful** in diese Protokolldatei geschrieben.|Standortsystemserver|  
+|UpdatesDeployment.log|Zeichnet Details zu Bereitstellungen auf dem Client auf, einschließlich Softwareupdateaktivierung, Auswertung und Erzwingung. Die ausführliche Protokollierung zeigt zusätzliche Informationen zur Interaktion mit der Clientbenutzeroberfläche an.|Client|  
+|Updateshandler.log|Zeichnet Details zur Softwareupdate-Kompatibilitätsüberprüfung, zum Download und zur Installation von Softwareupdates auf dem Client auf.|Client|  
+|UpdatesStore.log|Zeichnet Details zum Kompatibilitätsstatus für Softwareupdates auf, die im Rahmen des Kompatibilitätsüberprüfungszyklus bewertet wurden.|Client|  
+|WCM.log|Zeichnet Details zur Konfiguration von Softwareupdatepunkten und zum Herstellen einer Verbindung mit WSUS-Server für abonnierte Updatekategorien, Klassifizierungen und Sprachen auf.|Standortserver|  
+|WSUSCtrl.log|Zeichnet Details zur Konfiguration, Datenbankverbindungen und der Integrität von WSUS-Servern für den Standort auf.|Standortsystemserver|  
+|wsyncmgr.log|Zeichnet Details zum Synchronisierungsprozess von Softwareupdates auf.|Standortserver|  
+|WUAHandler.log|Zeichnet Details zum Windows Update-Agent auf dem Client bei der Suche nach Softwareupdates auf.|Client|  
 
-###  <a name="BKMK_WULog"></a> Agent Windows Update  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives à l'agent Windows Update.  
+###  <a name="BKMK_WULog"></a> Windows Update-Agent  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit dem Windows Update-Agent enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|WindowsUpdate.log|Enregistre les détails concernant les connexions de l’agent Windows Update au serveur WSUS et la récupération des mises à jour logicielles pour l’évaluation de la conformité, et s’il existe des mises à jour pour les composants de l’agent.|Client|  
+|WindowsUpdate.log|Zeichnet Details dazu auf, wann der Windows Update-Agent eine Verbindung mit dem WSUS-Server herstellt und die Softwareupdates für die Konformitätsbewertung abruft und ob Updates für die Agent-Komponenten vorhanden sind.|Client|  
 
-###  <a name="BKMK_WSUSLog"></a> Serveur WSUS  
- Le tableau suivant répertorie les fichiers journaux qui contiennent des informations relatives au serveur WSUS.  
+###  <a name="BKMK_WSUSLog"></a> WSUS-Server  
+ In der folgenden Tabelle werden die Protokolldateien aufgelistet, die Informationen im Zusammenhang mit dem WSUS-Server enthalten.  
 
-|Nom du fichier journal|Description|Ordinateur sur lequel se trouve le fichier journal|  
+|Protokollname|Beschreibung|Computer mit Protokolldatei|  
 |--------------|-----------------|----------------------------|  
-|Change.log|Enregistre les détails concernant les informations de la base de données du serveur WSUS qui ont été modifiées.|Serveur WSUS|  
-|SoftwareDistribution.log|Enregistre les détails concernant les mises à jour logicielles qui sont synchronisées depuis la source de mise à jour configurée vers la base de données du serveur WSUS.|Serveur WSUS|  
-
+|Change.log|Zeichnet Details zu geänderten WSUS-Server-Datenbankinformationen auf.|WSUS-Server|  
+|SoftwareDistribution.log|Zeichnet Details zu Softwareupdates auf, die von der konfigurierten Updatequelle zur WSUS-Serverdatenbank synchronisiert werden.|WSUS-Server|  

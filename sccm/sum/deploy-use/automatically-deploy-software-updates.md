@@ -1,6 +1,6 @@
 ---
-title: "Déployer automatiquement des mises à jour logicielles | Documents Microsoft"
-description: "Déployez automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou en utilisant des règles ADR."
+title: Automatisches Bereitstellen von Softwareupdates | Microsoft Docs
+description: "Stellen Sie automatisch Softwareupdates durch Hinzufügen neuer Updates zu einer Updategruppe bereit, die mit einer aktiven Bereitstellung verknüpft ist, oder mithilfe von ADRs."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -9,313 +9,309 @@ ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 804a9d7a32cfbdb498c6748c5d99a1874261c231
-ms.contentlocale: fr-fr
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+#  <a name="BKMK_AutoDeploy"></a> Automatisches Bereitstellen von Softwareupdates  
 
-#  <a name="BKMK_AutoDeploy"></a> Déployer automatiquement des mises à jour logicielles  
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+ Softwareupdates können automatisch bereitgestellt werden. Zu diesem Zweck fügen Sie entweder einer Updategruppe mit einer aktiven Bereitstellung neue Softwareupdates hinzu, oder Sie verwenden automatische Bereitstellungsregeln (ADR). Die Bereitstellung per ADR eignet sich insbesondere für monatliche Softwareupdates („Patch-Dienstag“) und für die Verwaltung von Definitionsupdates. Wenn Sie Hilfe bei der Ermittlung der für Sie richtigen Bereitstellungsmethode benötigen, lesen Sie [Bereitstellen von Softwareupdates](deploy-software-updates.md).
 
- Vous pouvez déployer automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou vous pouvez utiliser une règle de déploiement automatique (ADR, Automatic Deployment Rule). D’une manière générale, vous utilisez des règles ADR pour déployer les mises à jour logicielles mensuelles (généralement appelées mises à jour Patch Tuesday) et pour la gestion des mises à jour de définitions. Si vous avez besoin d’aide pour déterminer la méthode de déploiement qui vous convient, voir [Déployer des mises à jour logicielles](deploy-software-updates.md).
-
-##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Ajouter des mises à jour logicielles à un groupe de mises à jour déployé  
-Après avoir créé et déployé un groupe de mises à jour logicielles, vous pouvez ajouter des mises à jour logicielles au groupe de mises à jour ; elles sont déployées automatiquement.  
+##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Hinzufügen von Softwareupdates zu einer bereitgestellten Updategruppe  
+Nachdem Sie eine Softwareupdategruppe erstellt und bereitgestellt haben, können Sie ihr Softwareupdates hinzufügen. Diese Updates werden dann ebenfalls automatisch bereitgestellt.  
 
 > [!IMPORTANT]  
->  Lorsque vous ajoutez des mises à jour logicielles à un groupe de mises à jour logicielles existant qui a déjà été déployé, l'ajout des mises à jour logicielles supplémentaires au déploiement peut prendre plusieurs minutes.  
+>  Wenn Sie einer vorhandenen, bereits bereitgestellten Softwareupdategruppe Softwareupdates hinzufügen, kann dieser Vorgang ein paar Minuten dauern.  
 
-Pour ajouter des mises à jour logicielles à un groupe de mises à jour existant, procédez comme suit.  
+Gehen Sie wie folgt vor, um einer vorhandenen Updategruppe Softwareupdates hinzuzufügen.  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Pour ajouter des mises à jour logicielles à un groupe de mises à jour logicielles existant  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>So fügen Sie Softwareupdates einer vorhandenen Softwareupdategruppe hinzu  
 
-1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Mises à jour logicielles**.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Übersicht** > **Softwareupdates**.  
 
-2.  Sélectionnez les mises à jour logicielles à ajouter au nouveau groupe de mises à jour logicielles.  
+2.  Wählen Sie die Softwareupdates aus, die der neuen Softwareupdategruppe hinzugefügt werden sollen.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Modifier l'adhésion**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Mitgliedschaft bearbeiten**.  
 
-4.  Sélectionnez le groupe de mises à jour logicielles auquel ajouter les mises à jour logicielles en tant que membres.  
+4.  Wählen Sie die Softwareupdategruppe aus, der Sie die Softwareupdates als Mitglieder hinzufügen möchten.  
 
-5.  Cliquez sur le nœud **Groupes de mises à jour logicielles** pour afficher le groupe de mises à jour logicielles.  
+5.  Klicken Sie auf den Knoten **Softwareupdategruppen** , um die Softwareupdategruppe anzuzeigen.  
 
-6.  Cliquez sur le groupe de mises à jour logicielles et, dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher une liste des mises à jour logicielles dans le groupe.  
+6.  Klicken Sie auf die Softwareupdategruppe. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Mitglieder anzeigen** , um eine Liste der Softwareupdates in der Gruppe anzuzeigen.  
 
-##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Créer une règle de déploiement automatique (ADR)  
-Vous pouvez approuver et déployer automatiquement des mises à jour logicielles en utilisant une règle ADR. Vous pouvez faire en sorte que la règle ajoute des mises à jour logicielles à un nouveau groupe de mises à jour logicielles chaque fois qu'elle s'exécute ou vous pouvez ajouter des mises à jour logicielles à un groupe existant. Lorsqu'une règle s'exécute et ajoute des mises à jour logicielles à un groupe existant, elle supprime toutes les mises à jour logicielles du groupe, puis elle ajoute au groupe les mises à jour logicielles qui répondent aux critères que vous définissez. Par exemple, pour exécuter une règle ADR dans le but de rechercher les nouvelles mises à jour logicielles chaque jour et les déployer sur les clients, vous devez choisir l’option de création d’un nouveau groupe de mises à jour logicielles au lieu d’ajouter les mises à jour logicielles à un groupe existant.  
+##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Erstellen einer automatischen Bereitstellungsregel  
+Sie können Softwareupdates mithilfe einer automatischen Bereitstellungsregel automatisch genehmigen und bereitstellen. Sie können festlegen, dass die Regel bei jeder Ausführung Softwareupdates zu einer neuen Softwareupdategruppe hinzufügt oder Softwareupdates zu einer vorhandenen Gruppe hinzufügt. Wenn eine Regel ausgeführt wird und Softwareupdates zu einer vorhandenen Gruppe hinzufügt, entfernt die Regel alle Softwareupdates aus der Gruppe und fügt dann die Softwareupdates, die die definierten Kriterien erfüllen, zur Gruppe hinzu. Um z. B. eine automatische Bereitstellungsregel auszuführen, die jeden Tag nach neu veröffentlichten Softwareupdates sucht und diese für Clients bereitstellt, müssen Sie die Option zum Erstellen einer neuen Softwareupdategruppe anstatt zum Hinzufügen von Softwareupdates zu einer vorhandenen Gruppe auswählen.  
 
 > [!WARNING]  
->  Avant de créer une règle ADR pour la première fois, vérifiez que la synchronisation des mises à jour logicielles est terminée sur le site. Cela s'avère particulièrement important lorsque vous exécutez Configuration Manager dans une langue autre que l'anglais, car les classifications des mises à jour logicielles s'affichent en anglais avant la première synchronisation, puis elles s'affichent dans la langue localisée une fois la synchronisation des mises à jour logicielles terminée. Les règles que vous créez avant de synchroniser les mises à jour logicielles risquent ne pas fonctionner correctement après la synchronisation car la chaîne de texte peut ne pas correspondre.  
+>  Überprüfen Sie, ob die Softwareupdatesynchronisierung am Standort abgeschlossen ist, und erstellen Sie erst dann die erste automatische Bereitstellungsregel. Dies ist insbesondere wichtig, wenn Sie Configuration Manager in einer anderen Sprache als Englisch ausführen. Die Softwareupdateklassifizierungen werden vor der ersten Synchronisierung in Englisch angezeigt und nach dem Abschluss der Softwareupdatesynchronisierung in der lokalisierten Sprache. Regeln, die Sie vor der Synchronisierung der Softwareupdates erstellen, können nach der Synchronisierung möglicherweise nicht verwendet werden, da die Textzeichenfolgen eventuell nicht übereinstimmen.  
 
- Utilisez la procédure suivante pour créer une règle ADR.  
+ Gehen Sie wie nachfolgend beschrieben vor, um eine automatische Bereitstellungsregel zu erstellen.  
 
-#### <a name="to-create-an-adr"></a>Pour créer une règle ADR  
+#### <a name="to-create-an-adr"></a>So erstellen Sie eine automatische Bereitstellungsregel  
 
-1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels****Vue d’ensemble** > **Mises à jour logicielles** > **Règles de déploiement automatique**.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** **Übersicht** > **Softwareupdates** > **Automatische Bereitstellungsregeln**.  
 
-2.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une règle de déploiement automatique**. L'Assistant Création d'une règle de déploiement automatique s'ouvre.  
+2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Automatische Bereitstellungsregel erstellen**. Der Assistent zum Erstellen automatischer Bereitstellungsregeln wird geöffnet.  
 
-3.  Sur la page **Général** , configurez les paramètres suivants :  
+3.  Konfigurieren Sie auf der Seite **Allgemein** die folgenden Einstellungen:  
 
-    -   **Nom :**spécifiez le nom de la règle ADR. Le nom doit être unique, permettre de décrire l'objectif de la règle et être identifiable parmi d'autres dans le site Configuration Manager.  
+    -   **Name**: Geben Sie den Namen der automatischen Bereitstellungsregel an. Der Name muss eindeutig sein, das Ziel der Regel angeben und sich am Configuration Manager-Standort leicht von anderen Namen unterscheiden lassen.  
 
-    -   **Description :**spécifiez une description pour la règle ADR. La description doit fournir une vue d'ensemble de la règle de déploiement et toutes autres informations pertinentes permettant de l'identifier et de la différencier des autres dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
+    -   **Beschreibung**: Geben Sie eine Beschreibung der automatischen Bereitstellungsregel an. Die Beschreibung muss einen Überblick über die Bereitstellungsregel und alle anderen relevanten Informationen umfassen, die die Identifizierung und Unterscheidung der Regel am Configuration Manager-Standort erleichtern. Das Feld „Beschreibung“ ist optional, hat eine Begrenzung auf 256 Zeichen und ist standardmäßig leer.  
 
-    -   **Sélectionner un modèle de déploiement**: indiquez si un modèle de déploiement enregistré précédemment doit être appliqué. Vous pouvez configurer un modèle de déploiement de sorte qu’il contienne plusieurs propriétés de déploiement de mises à jour logicielles communes, utilisables par la suite pour créer des règles ADR. Ces modèles permettent de garantir la cohérence entre des déploiements similaires et de gagner du temps.  
+    -   **Bereitstellungsvorlage auswählen**: Geben Sie an, ob eine zuvor gespeicherte Bereitstellungsvorlage angewendet werden soll. Sie können eine Bereitstellungsvorlage konfigurieren, die mehrere allgemeine Bereitstellungseigenschaften für Softwareupdates umfasst und bei der Erstellung automatischer Bereitstellungsregeln eingesetzt werden kann. Mit diesen Vorlagen sorgen Sie nicht nur für Konsistenz mit ähnlichen Bereitstellungen, sondern verringern auch Ihren Zeitaufwand.  
 
-         Vous pouvez opter pour l’un des modèles de déploiement de mises à jour logicielles prédéfinis à partir de l’Assistant Création d’une règle de déploiement automatique. Le modèle **Mises à jour de définitions** fournit des paramètres communs à utiliser lorsque vous déployez des mises à jour logicielles de définitions. Le modèle **Patch Tuesday** fournit des paramètres communs à utiliser lorsque vous déployez des mises à jour logicielles selon un cycle mensuel.  
+         Im Assistenten zum Erstellen automatischer Bereitstellungsregeln stehen zwei integrierte Vorlagen für die Softwareupdatebereitstellung zur Auswahl. Die Vorlage **Definitionsupdates** enthält allgemeine Einstellungen für die Bereitstellung von Softwaredefinitionsupdates. Die Vorlage **Patch-Dienstag** enthält allgemeine Einstellungen für die monatliche Bereitstellung von Softwaredefinitionsupdates.  
 
-    -   **Regroupement**: indique le regroupement cible à utiliser pour le déploiement. Les membres du regroupement reçoivent les mises à jour logicielles définies dans le déploiement.  
+    -   **Sammlung**: Gibt die für die Bereitstellung zu verwendende Zielsammlung an. Mitglieder dieser Sammlung erhalten die in der Bereitstellung definierten Softwareupdates.  
 
-    -   déterminer si des mises à jour logicielles seront ajoutées à un groupe de mises à jour logicielles nouveau ou existant. Dans la plupart des cas, vous choisirez probablement de créer un nouveau groupe de mises à jour logicielles au moment d’exécuter la règle ADR. Toutefois, vous pouvez choisir d'utiliser un groupe existant, si la règle s'exécute selon une planification plus agressive. Par exemple, si vous exécutez la règle quotidiennement pour des mises à jour de définitions, vous pouvez ajouter les mises à jour logicielles à un groupe de mises à jour logicielles existant.  
+    -   Entscheiden Sie, ob Softwareupdates einer neuen oder bereits vorhandenen Softwareupdategruppe hinzugefügt werden sollen. In den meisten Fällen dürften Sie sich dafür entscheiden, beim Ausführen der automatischen Bereitstellungsregel eine neue Softwareupdategruppe zu erstellen. Falls für die Regel ein aggressiverer Zeitplan gilt, bietet es sich jedoch an, eine vorhandene Gruppe auszuwählen. Wenn Sie die Regel beispielsweise täglich für Definitionsupdates ausführen, können Sie die Softwareupdates einer vorhandenen Softwareupdategruppe hinzufügen.  
 
-    -   **Activer le déploiement après l’exécution de cette règle**: indiquez si le déploiement des mises à jour logicielles doit être activé après l’exécution de la règle ADR. En ce qui concerne cette spécification, tenez compte des éléments suivants :  
+    -   **Bereitstellung nach Ausführung dieser Regel aktivieren**: Geben Sie an, ob die Softwareupdatebereitstellung nach der Ausführung der automatischen Bereitstellungsregel aktiviert werden soll. Hinsichtlich dieser Spezifikation ist Folgendes zu beachten:  
 
-        -   Lors de l'activation du déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles, le contenu des mises à jour logicielles est téléchargé si besoin, le contenu est copié vers les points de distribution spécifiés, puis les mises à jour logicielles sont déployées sur les clients dans le regroupement cible.  
+        -   Wenn Sie die Bereitstellung aktivieren, werden die Softwareupdates, die die in der Regel definierten Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Dann wird der Inhalt für die Softwareupdates nach Bedarf heruntergeladen und auf die angegebenen Verteilungspunkte kopiert. Schließlich werden die Softwareupdates den Clients in der Zielsammlung bereitgestellt.  
 
-        -   Lorsque vous n'activez pas le déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles et la stratégie de déploiement des mises à jour logicielles est configurée, mais les mises à jour logicielles ne sont pas téléchargées ni déployées sur les clients. Cette situation vous laisse le temps suffisant pour préparer le déploiement des mises à jour logicielles, vérifier que les mises à jour logicielles répondant aux critères sont adéquates, puis activer ultérieurement le déploiement.  
+        -   Wenn Sie die Bereitstellung nicht aktivieren, werden die Softwareupdates, die die in der Regel definierten Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Die Bereitstellungsrichtlinie für Softwareupdates ist zwar konfiguriert, aber die Softwareupdates werden nicht heruntergeladen oder den Clients bereitgestellt. Sie haben somit Zeit, die Bereitstellung der Softwareupdates vorzubereiten, zu prüfen, ob die den Kriterien entsprechenden Softwareupdates geeignet sind, sowie die Bereitstellung zu einem späteren Zeitpunkt zu aktivieren.  
 
-4.  Sur la page Paramètres de déploiement, configurez les paramètres suivants :  
+4.  Konfigurieren Sie auf der Seite Bereitstellungseinstellungen die folgenden Einstellungen:  
 
-    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indique si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil pour que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé.  
+    -   **Wake-on-LAN verwenden, um Clients für erforderliche Bereitstellungen zu aktivieren**: Gibt an, ob Wake-On-LAN am Stichtag aktiviert werden soll, damit Aktivierungspakete an Computer gesendet werden, für die mindestens eines der in der Bereitstellung enthaltenen Softwareupdates erforderlich ist. Alle Computer, die sich am Installationsstichtag im Energiesparmodus befinden, werden aktiviert, damit die Softwareupdateinstallation initiiert werden kann. Clients, die sich im Energiesparmodus befinden und für die keine der in der Bereitstellung enthaltenen Softwareupdates erforderlich sind, werden nicht gestartet. Diese Einstellung ist standardmäßig deaktiviert.  
 
         > [!WARNING]  
-        >  Avant de pouvoir utiliser cette option, vous devez configurer les ordinateurs et les réseaux pour l'éveil par appel réseau.  
+        >  Sie können diese Option nur verwenden, wenn Computer und Netzwerke für Wake-On-LAN konfiguriert sind.  
 
-    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
+    -   **Detailstufe**: Geben Sie die Detailstufe für die von den Clientcomputern zurückgegebenen Zustandsmeldungen an.  
 
         > [!IMPORTANT]  
-        >  Lorsque vous déployez des mises à jour de définitions, affectez au niveau de détails la valeur **Erreur uniquement** pour que le client envoie un message d'état uniquement lorsqu'une mise à jour de définition ne lui est pas remise. Sinon, le client envoie un grand nombre de messages d'état pouvant avoir un effet sur les performances du serveur de site.  
+        >  Stellen Sie die Detailstufe beim Bereitstellen von Definitionsupdates auf **Nur Fehler** ein, damit vom Client nur dann eine Zustandsmeldung zurückgegeben wird, wenn ein Definitionsupdate nicht an den Client geliefert werden kann. Andernfalls gehen vom Client zahlreiche Zustandsmeldungen ein, die sich auf die Leistung des Standortservers auswirken können.  
 
-    -   **Paramètre du contrat de licence**: indiquez si les mises à jour logicielles doivent être déployées automatiquement avec un contrat de licence associé. Certaines mises à jour logicielles comprennent un contrat de licence, dans le cas d'un Service Pack par exemple. Lorsque vous déployez automatiquement des mises à jour logicielles, le contrat de licence ne s'affiche pas et il n'est pas possible d'accepter le contrat de licence. Vous pouvez choisir de déployer automatiquement toutes les mises à jour logicielles indépendamment d'un contrat de licence associé ou de déployer uniquement les mises à jour logicielles qui ne sont associées à aucun contrat de licence.  
+    -   **Lizenzbedingungen**: Geben Sie an, ob Softwareupdates mit zugehörigen Lizenzbedingungen automatisch bereitgestellt werden sollen. Einige Softwareupdates enthalten Lizenzbedingungen, z. B. Service Packs. Bei der automatischen Bereitstellung von Softwareupdates werden die Lizenzbedingungen nicht angezeigt, und es gibt keine Option zum Annehmen der Lizenzbedingungen. Nach Wunsch können Sie alle Softwareupdates unabhängig von den zugehörigen Lizenzbedingungen automatisch bereitstellen. Sie können aber auch nur Softwareupdates bereitstellen, für die es keine zugehörigen Lizenzbedingungen gibt.  
 
         > [!NOTE]  
-        >  Pour consulter le contrat de licence d'une mise à jour logicielle, vous pouvez sélectionner la mise à jour logicielle dans le nœud **Toutes les mises à jour logicielles** de l'espace de travail **Bibliothèque de logiciels** , puis, sur l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Consulter le contrat de licence**.  
+        >  Zum Überprüfen der Lizenzbedingungen eines Softwareupdates wählen Sie das Softwareupdate im Arbeitsbereich **Softwarebibliothek** im Knoten **Alle Softwareupdates** aus. Klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Update** auf **Lizenz lesen**.  
         >   
-        >  Pour trouver des mises à jour logicielles avec un contrat de licence associé, vous pouvez ajouter la colonne **Termes du contrat de licence** au volet des résultats dans le nœud **Toutes les mises à jour logicielles** , puis cliquer sur l'en-tête de la colonne pour effectuer un tri selon les mises à jour logicielles associées à un contrat de licence.  
+        >  Zum Identifizieren der Softwareupdates mit zugehörigen Lizenzbedingungen fügen Sie dem Ergebnisbereich im Knoten **Alle Softwareupdates** die Spalte **Lizenzbedingungen** hinzu. Klicken Sie dann auf die Spaltenüberschrift, um die Spalte nach Softwareupdates mit Lizenzbedingungen zu sortieren.  
 
-5.  Dans la page Mises à jour logicielles, configurez les critères des mises à jour logicielles que la règle ADR récupère et ajoute au groupe de mises à jour logicielles.  
+5.  Konfigurieren Sie auf der Seite „Softwareupdates“ die Kriterien für die Softwareupdates, die von der automatischen Bereitstellungsregel abgerufen und der Softwareupdategruppe hinzugefügt werden.  
 
     > [!IMPORTANT]  
-    >  Dans une règle ADR, le nombre limite de mises à jour logicielles est de 1 000. Pour veiller à ce que les critères spécifiés sur cette page permettent de récupérer moins de 1 000 mises à jour logicielles, envisagez de définir les mêmes critères sur le nœud **Toutes les mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
+    >  Das Limit für Softwareupdates in einer automatischen Bereitstellungsregel ist 1.000. Wenn Sie sicherstellen möchten, dass mit den auf dieser Seite angegebenen Kriterien weniger als 1000 Softwareupdates abgerufen werden, empfiehlt es sich, die gleichen Kriterien im Arbeitsbereich **Softwarebibliothek** im Knoten **Alle Softwareupdates** festzulegen.  
 
     > [!NOTE]
-    > Depuis Configuration Manager version 1610, vous pouvez filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048** pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses pour une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée lorsque la bande passante du réseau est limitée. Pour plus d’informations, consultez [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
+    > Ab Version 1610 von Configuration Manager können Sie nach Inhaltsgrößen für Softwareupdates in automatischen Bereitstellungsregeln filtern. Sie können z.B. den Filter **Inhaltsgröße (KB)** auf **< 2048** festlegen, um nur die Softwareupdates herunterzuladen, die kleiner als 2 MB sind. Mit diesem Filter wird verhindert, dass große Softwareupdates automatisch heruntergeladen werden, um die vereinfachte Windows-Wartung vorheriger Versionen zu unterstützen, wenn die Bandbreite eingeschränkt ist. Details finden Sie unter [Configuration Manager und vereinfachte Windows-Wartung auf vorherigen Betriebssystemebene](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-6.  Dans la page Calendrier d’évaluation, indiquez si l’exécution de la règle ADR doit obéir à un calendrier. Si elle est activée, cliquez sur **Personnaliser** pour définir le calendrier périodique.  
+6.  Geben Sie auf der Seite „Auswertungszeitplan“ an, ob die Ausführung der automatischen Bereitstellungsregel nach einem Zeitplan aktiviert werden soll. Ist dies der Fall, klicken Sie auf **Anpassen** , und legen Sie den Wiederholungszeitplan fest.  
 
     > [!IMPORTANT]  
-    >  Le calendrier de synchronisation du point de mise à jour logicielle s'affiche pour vous aider à déterminer la fréquence du calendrier d'évaluation. Il est préférable de ne jamais définir le calendrier d'évaluation selon une fréquence supérieure au calendrier de synchronisation des mises à jour logicielles. La configuration de l'heure de début du calendrier se base sur l'heure locale de l'ordinateur qui exécute la console Configuration Manager.  
+    >  Der Zeitplan für die Synchronisierung des Softwareupdatepunkts wird angezeigt, damit Sie die Häufigkeit des Auswertungszeitplans leichter festlegen können. Legen Sie für den Auswertungszeitplan niemals eine Häufigkeit fest, die über den Zeitplan der Softwareupdatesynchronisierung hinausgeht. Die für den Zeitplan konfigurierte Startzeit basiert auf der lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird.  
 
     > [!NOTE]  
-    >  Pour exécuter manuellement la règle ADR, sélectionnez la règle, puis cliquez sur **Exécuter maintenant** sous l’onglet **Accueil** dans le groupe **Règle de déploiement automatique** . Avant d’exécuter manuellement la règle ADR, vérifiez que la synchronisation des mises à jour logicielles a été exécutée depuis la dernière exécution de la règle.  
+    >  Sie können die automatische Bereitstellungsregel manuell ausführen. Wählen Sie dazu die Regel aus, und klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Automatische Bereitstellungsregel** auf **Jetzt ausführen** . Führen Sie die automatische Bereitstellungsregel erst manuell aus, nachdem Sie überprüft haben, ob die Softwareupdatesynchronisierung seit der letzten Ausführung der Regel ausgeführt wurde.  
 
     > [!IMPORTANT]  
-    >  La règle ADR peut être évaluée jusqu’à trois fois par jour.  
+    >  Die Auswertung der automatischen Bereitstellungsregel kann dreimal täglich ausgeführt werden.  
 
-7.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
+7.  Konfigurieren Sie auf der Seite Bereitstellungszeitplan die folgenden Einstellungen:  
 
-    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
-
-        > [!NOTE]  
-        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
-
-    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
-
-        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
-
-        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
-
-    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
-
-        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
-
-        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+    -   **Auswertung planen**: Geben Sie an, ob die verfügbare Zeit und die Installationsstichtage von Configuration Manager mit UTC oder der lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird, ausgewertet werden sollen.  
 
         > [!NOTE]  
-        >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
+        >  Wenn Sie die Ortszeit auswählen und dann **So bald wie möglich** für **Zeitpunkt der Verfügbarkeit der Software** oder **Installationsstichtag** auswählen, wird die aktuelle Uhrzeit auf dem Computer mit der Configuration Manager-Konsole verwendet, um zu bestimmen, wann Updates verfügbar sind, oder auf einem Client installiert werden. Wenn sich der Client in einer anderen Zeitzone befindet, erfolgen diese Aktionen, sobald die Evaluierungszeit des Clients erreicht ist.  
+
+    -   **Zeitpunkt der Verfügbarkeit der Software**: Wählen Sie eine der folgenden Einstellungen aus, um anzugeben, wann die Softwareupdates den Clients zur Verfügung stehen:  
+
+        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern so bald wie möglich zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung ausgewählt ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Die zur Installation verfügbaren Updates können dann abgerufen werden.  
+
+        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern zu einem bestimmten Termin (Datum und Uhrzeit) zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung aktiviert ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Allerdings stehen die Softwareupdates in der Bereitstellung erst nach dem konfigurierten Termin (Datum und Uhrzeit) für die Installation zur Verfügung.  
+
+    -   **Installationsstichtag**: Wählen Sie eine der folgenden Einstellungen aus, um den Installationsstichtag für die Softwareupdates in der Bereitstellung anzugeben:  
+
+        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung so bald wie möglich automatisch installiert werden.  
+
+        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung zu einem bestimmten Termin (Datum und Uhrzeit) automatisch installiert werden. Configuration Manager bestimmt den Stichtag zum Installieren von Softwareupdates durch Hinzufügen der konfigurierten Intervalle **Bestimmte Zeit** zu **Zeitpunkt der Verfügbarkeit der Software**.  
+
+        > [!NOTE]  
+        >  Der tatsächliche Installationsstichtag ergibt sich aus der Addition des angezeigten Stichtags und eines willkürlichen Zeitraums von bis zu 2 Stunden. Dadurch werden die potenziellen Auswirkungen reduziert, die mit der gleichzeitigen Installation der Softwareupdates in der Bereitstellung durch alle Clientcomputer in der Zielsammlung einhergehen.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+        >  Sie können die Clienteinstellung **Zufällige Stichtaganordnung deaktivieren** für den **Computer-Agent** konfigurieren, um die zufällige Verzögerung der Installation für die erforderlichen Softwareupdates zu deaktivieren. Weitere Informationen finden Sie unter [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-8. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
+8. Konfigurieren Sie auf der Seite Benutzerfreundlichkeit die folgenden Einstellungen:  
 
-    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
+    -   **Benutzerbenachrichtigungen**: Geben Sie an, ob zum vorgegebenen **Zeitpunkt der Verfügbarkeit der Software** auf dem Clientcomputer eine Benachrichtigung zu den Softwareupdates im Softwarecenter angezeigt werden soll. Geben Sie auch an, ob auf den Clientcomputern Benutzerbenachrichtigungen angezeigt werden sollen.  
 
-    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Verhalten am Stichtag**: Geben Sie das gewünschte Verhalten am Stichtag der Softwareupdatebereitstellung an. Geben Sie an, ob die Softwareupdates in der Bereitstellung installiert werden sollen. Geben Sie auch, ob nach einer Softwareupdateinstallation unabhängig von einem konfigurierten Wartungsfenster ein Systemneustart ausgeführt werden soll. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
+    -   **Verhalten beim Geräteneustart**: Geben Sie an, ob nach der Installation der Softwareupdates ein Systemneustart auf den Servern und Arbeitsstationen unterdrückt werden soll, wenn der Systemneustart zum Abschließen der Installation erforderlich ist.  
 
         > [!IMPORTANT]  
-        >  La suppression du redémarrage système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.  
+        >  Das Unterdrücken von Systemneustarts kann in Serverumgebungen oder in Fällen hilfreich sein, in denen Computer nach der Installation von Softwareupdates nicht standardmäßig neu gestartet werden sollen. Allerdings kann dies zu einem unsicheren Computerzustand führen. Durch Erzwingen eines Neustarts hingegen wird gewährleistet, dass die Softwareupdateinstallation umgehend abgeschlossen wird.  
 
-    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
+    -   **Schreibfilterverarbeitung für Windows Embedded-Geräte**: Beim Bereitstellen von Softwareupdates für Windows Embedded-Geräte mit Schreibfilteraktivierung können Sie angeben, dass das Softwareupdate auf dem temporären Overlay installiert wird und die Änderungen entweder später, am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden sollen. Falls die Änderungen am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden, ist ein Neustart erforderlich, und die Änderungen werden auf dem Gerät beibehalten.  
 
         > [!NOTE]  
-        >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
+        >  Stellen Sie beim Bereitstellen eines Softwareupdates auf einem Windows Embedded-Gerät sicher, dass das Gerät Mitglied einer Sammlung ist, für die ein Wartungsfenster konfiguriert ist.  
 
-    - **Comportement de réévaluation du déploiement des mises à jour logicielles après le redémarrage** : à compter de Configuration Manager version 1606, sélectionnez ce paramètre pour configurer les déploiements de mises à jour logicielles de façon à ce que les clients exécutent une analyse de conformité des mises à jour logicielles immédiatement après avoir installé celles-ci et redémarré. Cela permet au client de vérifier la disponibilité de mises à jour logicielles supplémentaires devenues applicables après le redémarrage, puis de les installer (et devenir ainsi conforme) au cours d’une même fenêtre de maintenance.
+    - **Neubewertungsverhalten bei Softwareupdatebereitstellungen nach einem Neustart:** Ab Version 1606 von Configuration Manager können Sie mit dieser Einstellung die Bereitstellung von Softwareupdates so konfigurieren, dass Clients direkt nach dem Neustart im Anschluss an die Installation von Softwareupdates eine Complianceüberprüfung durchführen. So kann der Client nach zusätzlichen Softwareupdates suchen, die nach dem Neustart des Clients relevant werden, und diese im gleichen Wartungsfenster installieren (und so für Kompatibilität sorgen).
 
-9. Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement.  
-
-    > [!NOTE]  
-    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
-
-10. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
-
-    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
-
-    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
-
-    - **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BrandCache, consultez [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
-
-    - **Si les mises à jour logicielles ne sont pas disponibles sur le point de distribution de groupes actuels, voisins ou de site, téléchargez le contenu à partir de Microsoft Updates** : sélectionnez ce paramètre afin que les clients connectés à l’intranet téléchargent les mises à jour logicielles depuis Microsoft Update si les mises à jour logicielles ne sont pas disponibles sur les points de distribution. Les clients Internet peuvent toujours accéder à Microsoft Update pour obtenir le contenu des mises à jour logicielles.
-
-    - Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+9. Geben Sie auf der Seite „Warnungen“ an, wie Configuration Manager und System Center Operations Manager Warnungen für diese Bereitstellung generieren sollen.  
 
     > [!NOTE]  
-    >  Les clients demandent l'emplacement du contenu à partir d'un point de gestion pour les mises à jour logicielles dans un déploiement. Le comportement de téléchargement dépend de la manière dont vous avez configuré le point de distribution, le package de déploiement et les paramètres sur cette page. Pour plus d'informations, voir [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    >  Sie können die letzten Warnungen zu Softwareupdates im Arbeitsbereich **Softwarebibliothek** im Knoten **Softwareupdates** prüfen.  
 
-11. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour créer un package de déploiement :  
+10. Konfigurieren Sie auf der Seite Downloadeinstellungen die folgenden Einstellungen:  
 
-    1.  **Nom**: spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
+    - Geben Sie an, ob die Softwareupdates vom Client heruntergeladen und installiert werden, wenn ein Client mit einer langsamen Netzwerkverbindung oder einer Fallbackinhaltsquelle vorliegt.  
 
-    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
+    - Geben Sie an, ob die Softwareupdates vom Client von einem Fallbackverteilungspunkt heruntergeladen und installiert werden sollen, wenn der Inhalt für die Softwareupdates an einem bevorzugten Verteilungspunkt nicht verfügbar ist.  
 
-    3.  **Source du package**: spécifie l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour rechercher l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
+    - **Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen**: Geben Sie an, ob BranchCache beim Herunterladen von Inhalten verwendet werden soll. Weitere Informationen zu BranchCache finden Sie unter [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+
+    - **Inhalt von Microsoft Updates herunterladen, falls Softwareupdates in aktuellen oder benachbarten Begrenzungsgruppen oder in Standortbegrenzungsgruppen am Verteilungspunkt nicht verfügbar sind**: Wählen Sie diese Einstellung aus, damit Clients, die mit dem Intranet verbunden sind, Softwareupdates von Microsoft Update herunterladen, wenn keine Softwareupdates auf Verteilungspunkten verfügbar sind. Internetbasierte Clients können Softwareupdates immer von Microsoft Update herunterladen.
+
+    - Geben Sie an, ob es Clients mit einer getakteten Internetverbindung möglich sein soll, Inhalt nach dem Installationsstichtag herunterzuladen. Bei getakteten Internetverbindungen berechnen einige Internetanbieter die anfallenden Gebühren anhand der Datenmenge, die Sie senden und empfangen.  
+
+    > [!NOTE]  
+    >  Der Inhaltsort für die Softwareupdates in einer Bereitstellung wird von den Clients von einem Verwaltungspunkt angefordert. Das Downloadverhalten richtet sich danach, wie Sie den Verteilungspunkt, das Bereitstellungspaket und die Einstellungen auf dieser Seite konfiguriert haben. Weitere Informationen finden Sie unter [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+
+11. Wählen Sie auf der Seite Bereitstellungspaket ein vorhandenes Bereitstellungspaket aus, oder erstellen Sie anhand der nachfolgenden Einstellungen ein neues Bereitstellungspaket:  
+
+    1.  **Name**: Geben Sie den Namen des Bereitstellungspakets an. Dies muss ein eindeutiger Name sein, der den Paketinhalt beschreibt. Er ist auf 50 Zeichen begrenzt.  
+
+    2.  **Beschreibung**: Geben Sie eine Beschreibung mit Informationen zum Bereitstellungspaket an. Die Beschreibung ist auf 127 Zeichen begrenzt.  
+
+    3.  **Paketquelle**: Gibt den Speicherort der Quelldateien der Softwareupdates an.  Geben Sie für den Quellspeicherort einen Netzwerkpfad wie **\\\Server\Freigabename\Pfad**ein. Alternativ können Sie auf **Durchsuchen** klicken, um den Netzwerkpfad zu suchen. Sie müssen den freigegebenen Ordner für die Quelldateien des Bereitstellungspakets erstellen, bevor Sie mit der nächsten Seite fortfahren.  
 
         > [!NOTE]  
-        >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
+        >  Der von Ihnen angegebene Quellspeicherort des Bereitstellungspakets kann von keinem anderen Softwarebereitstellungspaket verwendet werden.  
 
         > [!IMPORTANT]  
-        >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
+        >  Das Computerkonto für den SMS-Anbieter und der Benutzer, der den Assistenten zum Herunterladen der Softwareupdates ausführt, müssen über die NTFS-Berechtigung **Schreiben** für den Downloadort verfügen. Sie müssen den Zugriff auf den Downloadort beschränken, um das Risiko zu verringern, dass Angreifer die Quelldateien der Softwareupdates manipulieren.  
 
         > [!IMPORTANT]  
-        >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
+        >  Sie können den Paketquellspeicherort in den Eigenschaften des Bereitstellungspakets ändern, nachdem das Bereitstellungspaket von Configuration Manager erstellt wurde. In diesem Fall müssen Sie jedoch zuerst den Inhalt von der ursprünglichen Paketquelle an den neuen Paketquellspeicherort kopieren.  
 
-    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
+    4.  **Sendepriorität**: Geben Sie die Sendepriorität für das Bereitstellungspaket an. Configuration Manager verwendet Sendepriorität für das Bereitstellungspaket beim Senden des Pakets an Verteilungspunkte. Bereitstellungspakete werden in der Reihenfolge ihrer Priorität gesendet: „Hoch“, „Mittel“ oder „Niedrig“. Pakete mit identischer Priorität werden in der Reihenfolge ihrer Erstellung gesendet. Wenn es keinen Rückstand gibt, wird das Paket unabhängig von seiner Priorität sofort verarbeitet.  
 
-12. Sur la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour logicielle. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
-
-    > [!NOTE]  
-    >  Cette page est disponible uniquement lorsque vous créez un nouveau package de déploiement de mise à jour logicielle.  
-
-13. Sur la page Emplacement de téléchargement, indiquez si les fichiers de mise à jour logicielle doivent être téléchargés à partir d'Internet ou de votre réseau local. Configurez les paramètres suivants :  
-
-    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un emplacement spécifié sur Internet. Ce paramètre est activé par défaut.  
-
-    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un répertoire local ou d’un dossier partagé. Ce paramètre s'avère utile lorsque l'ordinateur exécutant l'Assistant ne dispose d'aucun accès à Internet. N'importe quel ordinateur connecté à Internet peut préalablement télécharger les mises à jour logicielles et les stocker à un emplacement sur le réseau local qui est accessible à partir de l'ordinateur qui exécute l'Assistant.  
-
-14. Sur la page Sélection de la langue, sélectionnez les langues pour lesquelles les mises à jour logicielles sélectionnées sont téléchargées. Les mises à jour logicielles sont téléchargées uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour logicielles qui ne sont spécifiques à aucune langue sont toujours téléchargées. Par défaut, l'Assistant sélectionne les langues que vous avez configurées dans les propriétés du point de mise à jour logicielle. Au moins une langue doit être sélectionnée avant de passer à la page suivante. Quand vous sélectionnez uniquement des langues qui ne sont pas prises en charge par une mise à jour logicielle, le téléchargement échoue pour cette mise à jour logicielle.  
-
-15. Sur la page Résumé, passez en revue les paramètres. Pour enregistrer les paramètres dans un modèle de déploiement, cliquez sur **Enregistrer comme modèle**, entrez un nom et sélectionnez les paramètres à inclure dans le modèle, puis cliquez sur **Enregistrer**. Pour modifier un paramètre configuré, cliquez sur la page de l'Assistant associée et modifiez le paramètre.  
+12. Geben Sie auf der Seite Verteilungspunkte die Verteilungspunkte oder Verteilungspunktgruppen an, auf denen die Softwareupdatedateien gehostet werden sollen. Weitere Informationen zu Verteilungspunkten finden Sie unter [Konfigurationen für Verteilungspunkte](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
     > [!NOTE]  
-    >  Le nom du modèle peut comporter des caractères ASCII alphanumériques ainsi que les caractères **\\** (barre oblique inverse) ou **‘** (guillemet-apostrophe).  
+    >  Diese Seite ist nur verfügbar, wenn Sie ein neues Softwareupdate-Bereitstellungspaket erstellen.  
 
-16. Cliquez sur **Suivant** pour créer la règle ADR.  
+13. Geben Sie auf der Seite Downloadort an, ob die Softwareupdatedateien vom Internet oder aus dem lokalen Netzwerk heruntergeladen werden sollen. Konfigurieren Sie die folgenden Einstellungen:  
 
- La règle ADR s’exécute une fois que vous avez terminé l’Assistant. Elle permet d'ajouter les mises à jour logicielles qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, de télécharger les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site, de distribuer les mises à jour logicielles aux points de distribution configurés, puis de déployer le groupe de mises à jour logicielles sur les clients du regroupement cible.  
+    -   **Softwareupdates aus dem Internet herunterladen**: Wählen Sie diese Einstellung aus, um die Softwareupdates von einem bestimmten Speicherort im Internet herunterzuladen. Diese Einstellung ist standardmäßig aktiviert.  
 
-##  <a name="BKMK_AddDeploymentToADR"></a> Ajouter un nouveau déploiement à une règle ADR existante  
- Après avoir créé une règle ADR, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement.  
+    -   **Softwareupdates von einem Pfad im lokalen Netzwerk herunterladen**: Wählen Sie diese Einstellung aus, um die Softwareupdates aus einem lokalen Verzeichnis oder aus einem freigegebenen Ordner herunterzuladen. Diese Einstellung ist nützlich, wenn der Computer, auf dem der Assistent ausgeführt wird, keine Internetverbindung aufweist. Die Softwareupdates können von jedem Computer mit Internetzugriff vorläufig heruntergeladen und im lokalen Netzwerk an einem Speicherort abgelegt werden, der von dem Computer aus zugänglich ist, auf dem der Assistent ausgeführt wird.  
 
-#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Pour ajouter un nouveau déploiement à une règle ADR existante  
+14. Wählen Sie auf der Seite Sprachauswahl die Sprachen aus, für die die ausgewählten Softwareupdates heruntergeladen werden. Die Softwareupdates werden nur dann heruntergeladen, wenn sie in den ausgewählten Sprachen verfügbar sind. Softwareupdates, die nicht sprachspezifisch sind, werden immer heruntergeladen. Standardmäßig werden vom Assistenten die Sprachen ausgewählt, die Sie in den Eigenschaften des Softwareupdatepunkts konfiguriert haben. Es muss mindestens eine Sprache ausgewählt werden, bevor die nächste Seite angezeigt werden kann. Wenn Sie nur Sprachen auswählen, die von einem Softwareupdate nicht unterstützt werden, kann das Softwareupdate nicht heruntergeladen werden.  
 
-1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Mises à jour logicielles** > **Règles de déploiement automatique**, puis sélectionnez la règle de votre choix.  
+15. Überprüfen Sie die Einstellungen auf der Seite Zusammenfassung. Zum Speichern der Einstellungen in einer Bereitstellungsvorlage klicken Sie auf **Als Vorlage speichern**. Geben Sie einen Namen ein, wählen Sie die Einstellungen aus, die Sie in die Vorlage aufnehmen möchten, und klicken Sie auf **Speichern**. Zum Ändern einer konfigurierten Einstellung klicken Sie auf die entsprechende Assistentenseite, und nehmen Sie die Änderung vor.  
 
-2.  Sous l’onglet **Accueil** , dans le groupe **Règle de déploiement automatique** , cliquez sur **Ajouter un déploiement**. L’Assistant Ajout de déploiement s’ouvre.  
+    > [!NOTE]  
+    >  Der Vorlagenname kann alphanumerische ASCII-Zeichen sowie die Zeichen **\\** (umgekehrter Schrägstrich) oder **‘** (einfaches Anführungszeichen) enthalten.  
 
-3.  Dans la page **Regroupement** , configurez les paramètres suivants :  
+16. Klicken Sie auf **Weiter** , um die automatische Bereitstellungsregel zu erstellen.  
 
-    -   **Regroupement**: indique le regroupement cible à utiliser pour le déploiement. Les membres du regroupement reçoivent les mises à jour logicielles définies dans le déploiement.  
+ Nachdem Sie den Assistenten abgeschlossen haben, wird die automatische Bereitstellungsregel ausgeführt. Dabei werden die Softwareupdates, die die angegebenen Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Dann werden die Softwareupdates in die Inhaltsbibliothek auf dem Standortserver heruntergeladen und an die konfigurierten Verteilungspunkte verteilt. Die Softwareupdategruppe wird schließlich den Clients in der Zielsammlung bereitgestellt.  
 
-    -   **Activer le déploiement après l’exécution de cette règle**: indiquez si le déploiement des mises à jour logicielles doit être activé après l’exécution de la règle ADR. En ce qui concerne cette spécification, tenez compte des éléments suivants :  
+##  <a name="BKMK_AddDeploymentToADR"></a> Hinzufügen einer neuen Bereitstellung zu einer vorhandenen automatischen Bereitstellungsregel  
+ Nach der Erstellung einer automatischen Bereitstellungsregel können Sie zusätzliche Bereitstellungen zur Regel hinzufügen. Dies hilft Ihnen dabei, die Komplexität der Bereitstellung verschiedener Updates für verschiedene Sammlungen zu verwalten. Jede neue Bereitstellung verfügt über sämtliche Funktionen und die Bereitstellungsüberwachungsumgebung.  
 
-        -   Lors de l'activation du déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles, le contenu des mises à jour logicielles est téléchargé si besoin, le contenu est copié vers les points de distribution spécifiés, puis les mises à jour logicielles sont déployées sur les clients dans le regroupement cible.  
+#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>So fügen Sie einer vorhandenen automatischen Bereitstellungsregel eine neue Bereitstellung hinzu  
 
-        -   Lorsque vous n'activez pas le déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles et la stratégie de déploiement des mises à jour logicielles est configurée, mais les mises à jour logicielles ne sont pas téléchargées ni déployées sur les clients. Cette situation vous laisse le temps suffisant pour préparer le déploiement des mises à jour logicielles, vérifier que les mises à jour logicielles répondant aux critères sont adéquates, puis activer ultérieurement le déploiement.  
+1.  Navigieren Sie in der Configuration Manager-Konsole zu **Softwarebibliothek** > **Übersicht** > **Softwareupdates** > **Automatische Bereitstellungsregeln**, und wählen Sie dann die gewünschte Regel.  
 
-4.  Sur la page Paramètres de déploiement, configurez les paramètres suivants :  
+2.  Klicken Sie auf der Registerkarte **Start** in der Gruppe **Automatische Bereitstellungsregel** auf **Bereitstellung hinzufügen**. Der Assistent zum Hinzufügen einer Bereitstellung wird geöffnet.  
 
-    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indique si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil pour que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé.  
+3.  Konfigurieren Sie auf der Seite **Sammlung** die folgenden Einstellungen:  
+
+    -   **Sammlung**: Gibt die für die Bereitstellung zu verwendende Zielsammlung an. Mitglieder dieser Sammlung erhalten die in der Bereitstellung definierten Softwareupdates.  
+
+    -   **Bereitstellung nach Ausführung dieser Regel aktivieren**: Geben Sie an, ob die Softwareupdatebereitstellung nach der Ausführung der automatischen Bereitstellungsregel aktiviert werden soll. Hinsichtlich dieser Spezifikation ist Folgendes zu beachten:  
+
+        -   Wenn Sie die Bereitstellung aktivieren, werden die Softwareupdates, die die in der Regel definierten Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Dann wird der Inhalt für die Softwareupdates nach Bedarf heruntergeladen und auf die angegebenen Verteilungspunkte kopiert. Schließlich werden die Softwareupdates den Clients in der Zielsammlung bereitgestellt.  
+
+        -   Wenn Sie die Bereitstellung nicht aktivieren, werden die Softwareupdates, die die in der Regel definierten Kriterien erfüllen, einer Softwareupdategruppe hinzugefügt. Die Bereitstellungsrichtlinie für Softwareupdates ist zwar konfiguriert, aber die Softwareupdates werden nicht heruntergeladen oder den Clients bereitgestellt. Sie haben somit Zeit, die Bereitstellung der Softwareupdates vorzubereiten, zu prüfen, ob die den Kriterien entsprechenden Softwareupdates geeignet sind, sowie die Bereitstellung zu einem späteren Zeitpunkt zu aktivieren.  
+
+4.  Konfigurieren Sie auf der Seite Bereitstellungseinstellungen die folgenden Einstellungen:  
+
+    -   **Wake-on-LAN verwenden, um Clients für erforderliche Bereitstellungen zu aktivieren**: Gibt an, ob Wake-On-LAN am Stichtag aktiviert werden soll, damit Aktivierungspakete an Computer gesendet werden, für die mindestens eines der in der Bereitstellung enthaltenen Softwareupdates erforderlich ist. Alle Computer, die sich am Installationsstichtag im Energiesparmodus befinden, werden aktiviert, damit die Softwareupdateinstallation initiiert werden kann. Clients, die sich im Energiesparmodus befinden und für die keine der in der Bereitstellung enthaltenen Softwareupdates erforderlich sind, werden nicht gestartet. Diese Einstellung ist standardmäßig deaktiviert.  
 
         > [!WARNING]  
-        >  Avant de pouvoir utiliser cette option, vous devez configurer les ordinateurs et les réseaux pour l'éveil par appel réseau.  
+        >  Sie können diese Option nur verwenden, wenn Computer und Netzwerke für Wake-On-LAN konfiguriert sind.  
 
-    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
+    -   **Detailstufe**: Geben Sie die Detailstufe für die von den Clientcomputern zurückgegebenen Zustandsmeldungen an.  
 
         > [!IMPORTANT]  
-        >  Lorsque vous déployez des mises à jour de définitions, affectez au niveau de détails la valeur **Erreur uniquement** pour que le client envoie un message d'état uniquement lorsqu'une mise à jour de définition ne lui est pas remise. Sinon, le client envoie un grand nombre de messages d'état pouvant avoir un effet sur les performances du serveur de site.  
+        >  Stellen Sie die Detailstufe beim Bereitstellen von Definitionsupdates auf **Nur Fehler** ein, damit vom Client nur dann eine Zustandsmeldung zurückgegeben wird, wenn ein Definitionsupdate nicht an den Client geliefert werden kann. Andernfalls gehen vom Client zahlreiche Zustandsmeldungen ein, die sich auf die Leistung des Standortservers auswirken können.  
 
-5.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
+5.  Konfigurieren Sie auf der Seite Bereitstellungszeitplan die folgenden Einstellungen:  
 
-    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
-
-        > [!NOTE]  
-        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
-
-    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
-
-        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
-
-        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
-
-    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
-
-        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
-
-        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+    -   **Auswertung planen**: Geben Sie an, ob die verfügbare Zeit und die Installationsstichtage von Configuration Manager mit UTC oder der lokalen Zeit des Computers, auf dem die Configuration Manager-Konsole ausgeführt wird, ausgewertet werden sollen.  
 
         > [!NOTE]  
-        >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
+        >  Wenn Sie die Ortszeit auswählen und dann **So bald wie möglich** für **Zeitpunkt der Verfügbarkeit der Software** oder **Installationsstichtag** auswählen, wird die aktuelle Uhrzeit auf dem Computer mit der Configuration Manager-Konsole verwendet, um zu bestimmen, wann Updates verfügbar sind, oder auf einem Client installiert werden. Wenn sich der Client in einer anderen Zeitzone befindet, erfolgen diese Aktionen, sobald die Evaluierungszeit des Clients erreicht ist.  
+
+    -   **Zeitpunkt der Verfügbarkeit der Software**: Wählen Sie eine der folgenden Einstellungen aus, um anzugeben, wann die Softwareupdates den Clients zur Verfügung stehen:  
+
+        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern so bald wie möglich zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung ausgewählt ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Die zur Installation verfügbaren Updates können dann abgerufen werden.  
+
+        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung den Clientcomputern zu einem bestimmten Termin (Datum und Uhrzeit) zur Verfügung gestellt werden. Wenn diese Einstellung beim Erstellen der Bereitstellung aktiviert ist, wird die Clientrichtlinie von Configuration Manager aktualisiert. Clients werden beim nächsten Abfragezyklus der Clientrichtlinie von der Bereitstellung benachrichtigt. Allerdings stehen die Softwareupdates in der Bereitstellung erst nach dem konfigurierten Termin (Datum und Uhrzeit) für die Installation zur Verfügung.  
+
+    -   **Installationsstichtag**: Wählen Sie eine der folgenden Einstellungen aus, um den Installationsstichtag für die Softwareupdates in der Bereitstellung anzugeben:  
+
+        -   **So bald wie möglich**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung so bald wie möglich automatisch installiert werden.  
+
+        -   **Bestimmte Zeit**: Wählen Sie diese Einstellung aus, damit die Softwareupdates in der Bereitstellung zu einem bestimmten Termin (Datum und Uhrzeit) automatisch installiert werden. Configuration Manager bestimmt den Stichtag zum Installieren von Softwareupdates durch Hinzufügen der konfigurierten Intervalle **Bestimmte Zeit** zu **Zeitpunkt der Verfügbarkeit der Software**.  
+
+        > [!NOTE]  
+        >  Der tatsächliche Installationsstichtag ergibt sich aus der Addition des angezeigten Stichtags und eines willkürlichen Zeitraums von bis zu 2 Stunden. Dadurch werden die potenziellen Auswirkungen reduziert, die mit der gleichzeitigen Installation der Softwareupdates in der Bereitstellung durch alle Clientcomputer in der Zielsammlung einhergehen.  
         >   
-        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+        >  Sie können die Clienteinstellung **Zufällige Stichtaganordnung deaktivieren** für den **Computer-Agent** konfigurieren, um die zufällige Verzögerung der Installation für die erforderlichen Softwareupdates zu deaktivieren. Weitere Informationen finden Sie unter [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-6.  Sur la page Expérience utilisateur, configurez les paramètres suivants :  
+6.  Konfigurieren Sie auf der Seite Benutzerfreundlichkeit die folgenden Einstellungen:  
 
-    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
+    -   **Benutzerbenachrichtigungen**: Geben Sie an, ob zum vorgegebenen **Zeitpunkt der Verfügbarkeit der Software** auf dem Clientcomputer eine Benachrichtigung zu den Softwareupdates im Softwarecenter angezeigt werden soll. Geben Sie auch an, ob auf den Clientcomputern Benutzerbenachrichtigungen angezeigt werden sollen.  
 
-    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Verhalten am Stichtag**: Geben Sie das gewünschte Verhalten am Stichtag der Softwareupdatebereitstellung an. Geben Sie an, ob die Softwareupdates in der Bereitstellung installiert werden sollen. Geben Sie auch, ob nach einer Softwareupdateinstallation unabhängig von einem konfigurierten Wartungsfenster ein Systemneustart ausgeführt werden soll. Weitere Informationen zu Wartungsfenstern finden Sie unter [Verwenden von Wartungsfenstern](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
+    -   **Verhalten beim Geräteneustart**: Geben Sie an, ob nach der Installation der Softwareupdates ein Systemneustart auf den Servern und Arbeitsstationen unterdrückt werden soll, wenn der Systemneustart zum Abschließen der Installation erforderlich ist.  
 
         > [!IMPORTANT]  
-        >  La suppression du redémarrage système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.  
+        >  Das Unterdrücken von Systemneustarts kann in Serverumgebungen oder in Fällen hilfreich sein, in denen Computer nach der Installation von Softwareupdates nicht standardmäßig neu gestartet werden sollen. Allerdings kann dies zu einem unsicheren Computerzustand führen. Durch Erzwingen eines Neustarts hingegen wird gewährleistet, dass die Softwareupdateinstallation umgehend abgeschlossen wird.  
 
-    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
+    -   **Schreibfilterverarbeitung für Windows Embedded-Geräte**: Beim Bereitstellen von Softwareupdates für Windows Embedded-Geräte mit Schreibfilteraktivierung können Sie angeben, dass das Softwareupdate auf dem temporären Overlay installiert wird und die Änderungen entweder später, am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden sollen. Falls die Änderungen am Installationsstichtag oder während eines Wartungsfensters ausgeführt werden, ist ein Neustart erforderlich, und die Änderungen werden auf dem Gerät beibehalten.  
 
         > [!NOTE]  
-        >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
+        >  Stellen Sie beim Bereitstellen eines Softwareupdates auf einem Windows Embedded-Gerät sicher, dass das Gerät Mitglied einer Sammlung ist, für die ein Wartungsfenster konfiguriert ist.  
 
-7.  Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement.  
+7.  Geben Sie auf der Seite „Warnungen“ an, wie Configuration Manager und System Center Operations Manager Warnungen für diese Bereitstellung generieren sollen.  
 
     > [!WARNING]  
-    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
+    >  Sie können die letzten Warnungen zu Softwareupdates im Arbeitsbereich **Softwarebibliothek** im Knoten **Softwareupdates** prüfen.  
 
-8. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
+8. Konfigurieren Sie auf der Seite Downloadeinstellungen die folgenden Einstellungen:  
 
-    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
+    - Geben Sie an, ob die Softwareupdates vom Client heruntergeladen und installiert werden, wenn ein Client mit einer langsamen Netzwerkverbindung oder einer Fallbackinhaltsquelle vorliegt.  
 
-    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
+    - Geben Sie an, ob die Softwareupdates vom Client von einem Fallbackverteilungspunkt heruntergeladen und installiert werden sollen, wenn der Inhalt für die Softwareupdates an einem bevorzugten Verteilungspunkt nicht verfügbar ist.  
 
-    - **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BrandCache, consultez [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    - **Freigeben von Inhalten für andere Clients im gleichen Subnetz zulassen**: Geben Sie an, ob BranchCache beim Herunterladen von Inhalten verwendet werden soll. Weitere Informationen zu BranchCache finden Sie unter [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    - **Si les mises à jour logicielles ne sont pas disponibles sur le point de distribution de groupes actuels, voisins ou de site, téléchargez le contenu à partir de Microsoft Updates** : sélectionnez ce paramètre afin que les clients connectés à l’intranet téléchargent les mises à jour logicielles depuis Microsoft Update si les mises à jour logicielles ne sont pas disponibles sur les points de distribution. Les clients Internet peuvent toujours accéder à Microsoft Update pour obtenir le contenu des mises à jour logicielles.
+    - **Inhalt von Microsoft Updates herunterladen, falls Softwareupdates in aktuellen oder benachbarten Begrenzungsgruppen oder in Standortbegrenzungsgruppen am Verteilungspunkt nicht verfügbar sind**: Wählen Sie diese Einstellung aus, damit Clients, die mit dem Intranet verbunden sind, Softwareupdates von Microsoft Update herunterladen, wenn keine Softwareupdates auf Verteilungspunkten verfügbar sind. Internetbasierte Clients können Softwareupdates immer von Microsoft Update herunterladen.
 
-    - Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+    - Geben Sie an, ob es Clients mit einer getakteten Internetverbindung möglich sein soll, Inhalt nach dem Installationsstichtag herunterzuladen. Bei getakteten Internetverbindungen berechnen einige Internetanbieter die anfallenden Gebühren anhand der Datenmenge, die Sie senden und empfangen.  
 
     > [!NOTE]  
-    > Les clients demandent l'emplacement du contenu à partir d'un point de gestion pour les mises à jour logicielles dans un déploiement. Le comportement de téléchargement dépend de la manière dont vous avez configuré le point de distribution, le package de déploiement et les paramètres sur cette page. Pour plus d'informations, voir [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    > Der Inhaltsort für die Softwareupdates in einer Bereitstellung wird von den Clients von einem Verwaltungspunkt angefordert. Das Downloadverhalten richtet sich danach, wie Sie den Verteilungspunkt, das Bereitstellungspaket und die Einstellungen auf dieser Seite konfiguriert haben. Weitere Informationen finden Sie unter [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
-Pour plus d’informations sur le processus de déploiement, consultez [Software update deployment process](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess).
+Weitere Informationen zum Bereitstellungsprozess finden Sie unter [Software update deployment process](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess).
 
-## <a name="next-steps"></a>Étapes suivantes
-[Surveiller les mises à jour logicielles](monitor-software-updates.md)
-
+## <a name="next-steps"></a>Nächste Schritte
+[Überwachen von Softwareupdates](monitor-software-updates.md)

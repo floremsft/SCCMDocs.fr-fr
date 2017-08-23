@@ -1,160 +1,156 @@
 ---
-title: "Créer un média de démarrage - Configuration Manager | Microsoft Docs"
-description: "Un média de démarrage dans Configuration Manager facilite l’installation d’une nouvelle version de Windows ou le remplacement d’un ordinateur et le transfert de paramètres."
+title: "Erstellen von startbaren Medien – Configuration Manager | Microsoft-Dokumentation"
+description: "Startbare Medien in Configuration Manager erleichtern die Installation einer neuen Version von Windows oder ersetzen einen Computer und Übertragungseinstellungen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ead79e64-1b63-4d0d-8bd5-addff8919820
-caps.latest.revision: 11
-caps.handback.revision: 0
+caps.latest.revision: "11"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-bootable-media-with-system-center-configuration-manager"></a>Créer un média de démarrage avec System Center Configuration Manager
+# <a name="create-bootable-media-with-system-center-configuration-manager"></a>Erstellen startbarer Medien mit System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Un média de démarrage dans Configuration Manager contient l’image de démarrage, des commandes de prédémarrage facultatives et leurs fichiers associés, ainsi que les fichiers de Configuration Manager. Utilisez un média préparé pour les scénarios de déploiement de système d’exploitation suivants :  
+Startbare Medien in Configuration Manager enthalten das Startimage, optionale Prestart-Befehle und zugehörige Dateien sowie Configuration Manager-Dateien. Verwenden Sie vorab bereitgestellte Medien bei folgenden Szenarien für die Betriebssystembereitstellung:  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installieren einer neuen Version von Windows auf einem neuen Computer (Bare-Metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Remplacement d’un ordinateur existant et transfert des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Ersetzen eines vorhandenen Computers und Übertragen von Einstellungen](replace-an-existing-computer-and-transfer-settings.md)  
 
-##  <a name="BKMK_CreateBootableMedia"></a> Créer un média de démarrage  
- Quand vous démarrez sur le média de démarrage, l’ordinateur de destination démarre, se connecte au réseau, puis récupère la séquence de tâches, l’image du système d’exploitation et tout autre contenu nécessaire à partir du réseau. Étant donné que la séquence de tâches ne se trouve pas sur le média, vous pouvez modifier la séquence de tâches ou le contenu sans avoir à recréer le média. Les packages sur le média de démarrage ne sont pas chiffrés. Vous devez prendre les mesures de sécurité appropriées, telles que l’ajout d’un mot de passe au média, afin de garantir que le contenu du package est protégé contre les utilisateurs non autorisés.  
+##  <a name="BKMK_CreateBootableMedia"></a> Erstellen startbarer Medien  
+ Beim Starten von startbaren Medien geschieht Folgendes: Der Zielcomputer wird gestartet, eine Verbindung mit dem Netzwerk wird hergestellt und die angegebene Tasksequenz sowie das Betriebssystemabbild und sämtlicher anderer erforderlicher Inhalt aus dem Netzwerk werden abgerufen. Da sich die Tasksequenz nicht auf den Medien befindet, brauchen Sie die Medien nicht neu zu erstellen, wenn Sie die Tasksequenz oder den Inhalt ändern. Die Pakete auf startbaren Medien sind nicht verschlüsselt. Sie müssen den Paketinhalt mithilfe geeigneter Sicherheitsmaßnahmen vor dem Zugriff Unbefugter schützen, z. B. durch Hinzufügen eines Kennworts für die Medien.  
 
- Avant de créer un média de démarrage à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que toutes les conditions suivantes sont remplies :  
+ Bevor Sie startbaren Medien mithilfe des Assistenten zum Erstellen von Tasksequenzmedien erstellen, achten Sie darauf, dass alle folgenden  Bedingungen erfüllt sind:  
 
-|Tâche|Description|  
+|Aufgabe|Beschreibung|  
 |----------|-----------------|  
-|Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour déployer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Assurez-vous que l’image de démarrage contient les pilotes de stockage de masse et de réseau qui sont requis pour provisionner l’ordinateur de destination.|  
-|Créer une séquence de tâches pour déployer le système d’exploitation|Dans le cadre du média de démarrage, vous devez spécifier la séquence de tâches destinée à déployer le système d’exploitation. Pour connaître les étapes permettant de créer une séquence de tâches, consultez [Créer une séquence de tâches pour installer un système d’exploitation](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
-|Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Sont inclus l’image de démarrage et les autres fichiers de prédémarrage associés. L’Assistant collecte les informations à partir du point de distribution quand il crée le média de démarrage. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, consultez [À propos de la bibliothèque de contenu](../../core/plan-design/hierarchy/the-content-library.md).|  
-|Préparer le lecteur USB amovible|Pour un lecteur USB amovible :<br /><br /> Si vous envisagez d’utiliser un lecteur USB amovible, ce dernier doit être connecté à l’ordinateur sur lequel est exécuté l’Assistant et il doit être détectable par Windows en tant que périphérique amovible. L’Assistant écrit directement sur le lecteur USB quand il crée le média. Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.|  
-|Créer un dossier de sortie|Pour un ensemble de CD/DVD :<br /><br /> Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin de créer un média pour un ensemble de CD ou DVD, vous devez créer un dossier pour les fichiers de sortie créés par l'Assistant. Le média créé pour un ensemble de CD ou DVD est écrit sous forme de fichiers .iso directement dans le dossier.|  
+|Startabbild|Beachten Sie die folgenden Informationen zum Startabbild, das Sie in der Tasksequenz zum Bereitstellen des Betriebssystems verwenden:<br /><br /> - Die Architektur des Startimages muss für die Architektur des Zielcomputers geeignet sein. Beispielsweise kann ein x86- oder x64-Startabbild von einem x64-Zielcomputer gestartet und ausgeführt werden. Bei einem x86-Zielcomputer sind jedoch nur der Start und die Ausführung eines x86-Startabbilds möglich.<br />- Achten Sie darauf, dass das Startimage die zur Bereitstellung des Zielcomputers erforderlichen Netzwerk- und Massenspeichertreiber enthält.|  
+|Erstellen einer Tasksequenz zum Bereitstellen eines Betriebssystems|Als Teil der startbaren Medien müssen Sie die Tasksequenz zum Bereitstellen des Betriebssystems angeben. Die Schritte zum Erstellen einer neuen Tasksequenz finden Sie unter [Erstellen einer Tasksequenz zum Installieren eines Betriebssystems in System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
+|Verteilen aller der Tasksequenz zugeordneten Inhalte|Sie müssen alle für die Tasksequenz erforderlichen Inhalte auf mindestens einen Verteilungspunkt verteilen. Dies schließt das Startabbild und andere zugehörige Prestart-Dateien ein. Die Informationen werden vom Assistenten beim Erstellen startbarer Medien vom Verteilungspunkt abgerufen. Sie benötigen **Lesezugriffsrechte** für die Inhaltsbibliothek am Verteilungspunkt.  Weitere Informationen finden Sie unter [About the content library (Informationen zur Inhaltsbibliothek)](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Vorbereiten des USB-Wechseldatenträgers|Für einen USB-Wechseldatenträger:<br /><br /> Bei Verwendung eines USB-Wechseldatenträgers muss das USB-Laufwerk mit dem Computer verbunden werden, auf dem der Assistent ausgeführt wird. Das USB-Laufwerk muss zudem für Windows als Wechselmedium erkennbar sein. Beim Erstellen der Medien wird vom Assistenten direkt auf den USB-Datenträger geschrieben. Von eigenständigen Medien wird ein FAT32-Dateisystem verwendet. Sie können keine eigenständigen Medien auf einem USB-Speicherstick erstellen, der eine Datei mit einer Größe von mehr als 4 GB enthält.|  
+|Erstellen eines Ausgabeordners|Für einen CD/DVD-Satz:<br /><br /> Sie müssen für die vom Assistenten zum Erstellen von Tasksequenzmedien erstellten Ausgabedateien einen Ordner anlegen, bevor Sie den Assistenten ausführen, um Medien für einen CD- oder DVD-Satz zu erstellen. Die für einen CD- oder DVD-Satz erstellten Medien werden als ISO-Dateien direkt in den Ordner geschrieben.|  
 
- Pour créer un média de démarrage, procédez comme suit.  
+ Wenden Sie das folgende Verfahren an, um startbare Medien zu erstellen.  
 
-### <a name="to-create-bootable-media"></a>Pour créer un média de démarrage  
+### <a name="to-create-bootable-media"></a>So erstellen Sie startbare Medien  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Softwarebibliothek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Betriebssysteme**, und klicken Sie dann auf **Tasksequenzen**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Tasksequenzmedien erstellen** , um den Assistenten zum Erstellen von Tasksequenzmedien zu starten.  
 
-4.  Sur la page **Sélectionner le type de média** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
+4.  Geben Sie auf der Seite **Medientyp wählen** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
 
-    -   Sélectionnez **Média de démarrage**.  
+    -   Wählen Sie **Startbare Medien**aus.  
 
-    -   Éventuellement, si vous souhaitez uniquement autoriser le déploiement du système d'exploitation sans intervention de l'utilisateur, sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome**.  
+    -   Optional können Sie **Unbeaufsichtigte Betriebssystembereitstellung zulassen**auswählen, wenn Sie die Bereitstellung des Betriebssystems nur ohne Benutzereingabe gestatten möchten.  
 
         > [!IMPORTANT]  
-        >  Lorsque vous sélectionnez cette option, l'utilisateur n'est pas invité à fournir des informations de configuration réseau ou des séquences de tâches facultatives. Toutefois, l'utilisateur est toujours invité à fournir un mot de passe si le média est configuré avec la protection par mot de passe.  
+        >  Wenn Sie diese Option auswählen, wird der Benutzer nicht aufgefordert, Informationen zur Netzwerkkonfiguration oder optionale Tasksequenzen anzugeben. Allerdings wird der Benutzer weiterhin zur Eingabe eines Kennworts aufgefordert, wenn die Medien für den Kennwortschutz konfiguriert sind.  
 
-5.  Sur la page **Gestion du média** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
+5.  Geben Sie auf der Seite **Medienverwaltung** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
 
-    -   Sélectionnez **Média dynamique** si vous souhaitez autoriser un point de gestion à rediriger le média vers un autre point de gestion, basé sur l'emplacement du client dans les limites du site.  
+    -   Wählen Sie **Dynamisches Medium** aus, wenn Sie zulassen möchten, dass das Medium ausgehend vom Clientstandort innerhalb der Standortgrenzen von einem Verwaltungspunkt an einen anderen Verwaltungspunkt umgeleitet wird.  
 
-    -   Sélectionnez **Média basé sur le site** si vous souhaitez que le média contacte uniquement le point de gestion spécifié.  
+    -   Wählen Sie **Standortbasiertes Medium** aus, wenn Sie wünschen, dass von dem Medium nur mit dem angegebenen Verwaltungspunkt Kontakt aufgenommen wird.  
 
-6.  Dans la page **Type de média** , spécifiez si le média est un disque mémoire flash ou un ensemble de CD/DVD, puis cliquez pour configurer les éléments suivants :  
+6.  Geben Sie auf der Seite **Medientyp** an, ob das Medium ein Speicherstick oder ein CD/DVD-Satz ist, und klicken Sie dann, um Folgendes zu konfigurieren:  
 
     > [!IMPORTANT]  
-    >  Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.  
+    >  Von eigenständigen Medien wird ein FAT32-Dateisystem verwendet. Sie können keine eigenständigen Medien auf einem USB-Speicherstick erstellen, der eine Datei mit einer Größe von mehr als 4 GB enthält.  
 
-    -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
+    -   Wenn Sie **USB-Speicherstick**auswählen, geben Sie das Laufwerk an, auf dem der Inhalt gespeichert wird.  
 
-    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
+    -   Wenn Sie **CD/DVD-Satz**auswählen, geben Sie die Kapazität der Medien und Namen sowie Pfad der Ausgabedateien an. Die Ausgabedateien werden vom Assistenten an diesen Speicherort geschrieben. Beispiel: **\\\Servername\Ordner\Ausgabedatei.iso**  
 
-         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
-
-        > [!IMPORTANT]  
-        >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
-
-     Cliquez sur **Suivant**.  
-
-7.  Sur la page **Sécurité** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
-
-    -   Cochez la case **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager.  
-
-         Les ordinateurs inconnus sont les suivants :  
-
-        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
-
-        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
-
-        -   Un ordinateur qui n’est pas détecté par Configuration Manager.  
-
-    -   Activez la case à cocher **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média de démarrage.  
+         Wenn die Medienkapazität zu gering zum Speichern des gesamten Inhalts ist, werden mehrere Dateien erstellt, und Sie müssen den Inhalt auf mehreren CDs oder DVDs speichern. Falls mehrere Medien erforderlich sind, wird dem Namen jeder von Configuration Manager erstellten Ausgabedatei eine Sequenznummer hinzugefügt. Außerdem wird die Anwendung von Configuration Manager auf mehreren Medien gespeichert, wenn Sie eine Anwendung zusammen mit dem Betriebssystem bereitstellen und die Anwendung nicht auf ein einzelnes Medium passt. Wenn das eigenständige Medium ausgeführt wird, wird der Benutzer von Configuration Manager zum Angeben des nächsten Mediums aufgefordert, auf dem die Anwendung gespeichert ist.  
 
         > [!IMPORTANT]  
-        >  Une bonne pratique de sécurité consiste à toujours attribuer un mot de passe pour contribuer à protéger les médias de démarrage.  
+        >  Wenn Sie ein vorhandenes ISO-Abbild auswählen, wird dieses ISO-Abbild vom Assistenten zum Erstellen von Tasksequenzmedien auf dem Laufwerk oder der Freigabe gelöscht, sobald Sie mit der nächsten Seite des Assistenten fortfahren. Das vorhandene Abbild wird selbst dann gelöscht, wenn Sie den Assistenten anschließend abbrechen.  
 
-    -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
+     Klicken Sie auf **Weiter**.  
 
-    -   Pour les communications HTTPS, sélectionnez **Importer un certificat PKI**, puis spécifiez le certificat à importer et son mot de passe.  
+7.  Geben Sie auf der Seite **Sicherheit** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
 
-         Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+    -   Aktivieren Sie das Kontrollkästchen **Unterstützung für unbekannte Computer aktivieren**, um zuzulassen, dass von dem Medium ein Betriebssystem auf einem nicht von Configuration Manager verwalteten Computer bereitgestellt wird. Für diese Computer gibt es in der Configuration Manager-Datenbank keine Einträge.  
 
-    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+         Zu unbekannten Computern gehören die folgenden:  
 
-        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
+        -   Computer, auf denen kein Configuration Manager-Client installiert ist  
 
-        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur en attente de l'approbation de l'administrateur** si vous souhaitez que le média associe des utilisateurs à l'ordinateur de destination une fois l'approbation accordée. Cette fonctionnalité est basée sur l'étendue de la séquence de tâches qui déploie le système d'exploitation.  Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination, mais attend l'approbation d'un utilisateur administratif avant le déploiement du système d'exploitation.  
+        -   Computer, die nicht in Configuration Manager importiert wurden  
 
-        -   Spécifiez **Ne pas autoriser d'affinité entre périphérique et utilisateur** si vous ne souhaitez pas que le média associe des utilisateurs à l'ordinateur de destination. Dans ce scénario, la séquence de tâches n'associe pas d'utilisateurs à l'ordinateur de destination lorsqu'elle déploie le système d'exploitation.  
+        -   Computer, die von Configuration Manager nicht ermittelt wurden  
 
-8.  Sur la page **Image de démarrage** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+    -   Aktivieren Sie das Kontrollkästchen **Medien durch Kennwort schützen** , und geben Sie ein sicheres Kennwort ein, um das Medium vor dem Zugriff Unbefugter zu schützen. Wenn Sie ein Kennwort angeben, kann der Benutzer das startbare Medium nur nach Eingabe dieses Kennworts verwenden.  
+
+        > [!IMPORTANT]  
+        >  Aus Sicherheitsgründen wird empfohlen, zum Schutz startbarer Medien immer ein Kennwort zuzuweisen.  
+
+    -   Wählen Sie für die HTTP-Kommunikation die Option **Selbstsigniertes Medienzertifikat erstellen**aus, und geben Sie dann das Start- und Ablaufdatum des Zertifikats an.  
+
+    -   Wählen Sie für die HTTPS-Kommunikation **PKI-Zertifikat importieren**aus, und geben Sie dann das zu importierende Zertifikat und das zugehörige Kennwort an.  
+
+         Weitere Informationen zu diesem für Startimages verwendeten Clientzertifikat finden Sie unter [PKI certificate requirements (PKI-Zertifikatanforderungen)](../../core/plan-design/network/pki-certificate-requirements.md).  
+
+    -   **Affinität zwischen Benutzer und Gerät**: Geben Sie an, wie die Zuordnung von Benutzern zum Zielcomputer durch das Medium erfolgen soll, um die benutzerzentrierte Verwaltung in Configuration Manager zu unterstützen. Weitere Informationen dazu, wie die Affinität zwischen Benutzer und Gerät durch die Bereitstellung von Betriebssystemen unterstützt wird, finden Sie unter [Associate users with a destination computer (Zuordnen von Benutzern zu einem Zielcomputer)](../get-started/associate-users-with-a-destination-computer.md).  
+
+        -   Geben Sie **Affinität zwischen Benutzer und Gerät mit automatischer Genehmigung zulassen** an, wenn die Zuordnung von Benutzern zum Zielcomputer durch das Medium automatisch erfolgen soll. Diese Funktionalität basiert auf den Aktionen der Tasksequenz, von der das Betriebssystem bereitgestellt wird. In diesem Fall wird von der Tasksequenz während der Bereitstellung des Betriebssystems an den Zielcomputer eine Beziehung zwischen den angegebenen Benutzern und dem Zielcomputer erstellt.  
+
+        -   Geben Sie **Affinität zwischen Benutzer und Gerät mit ausstehender Genehmigung durch den Administrator zulassen** an, wenn die Zuordnung von Benutzern zum Zielcomputer durch das Medium nach einer entsprechenden Genehmigung erfolgen soll. Diese Funktionalität basiert auf dem Geltungsbereich der Tasksequenz, von der das Betriebssystem bereitgestellt wird.  In diesem Fall wird von der Tasksequenz eine Beziehung zwischen den angegebenen Benutzern und dem Zielcomputer erstellt. Es wird jedoch auf die Genehmigung durch den Administrator gewartet, bevor das Betriebssystem bereitgestellt wird.  
+
+        -   Geben Sie **Affinität zwischen Benutzer und Gerät nicht zulassen** an, wenn keine Zuordnung von Benutzern zum Zielcomputer durch das Medium erfolgen soll. In diesem Fall wird während der Bereitstellung des Betriebssystems keine Beziehung zwischen Benutzern und dem Zielcomputer erstellt.  
+
+8.  Geben Sie auf der Seite **Startabbild** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
 
     > [!IMPORTANT]  
-    >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
+    >  Die Architektur des verteilten Startabbilds muss für die Architektur des Zielcomputers geeignet sein. Beispielsweise kann ein x86- oder x64-Startabbild von einem x64-Zielcomputer gestartet und ausgeführt werden. Bei einem x86-Zielcomputer sind jedoch nur der Start und die Ausführung eines x86-Startabbilds möglich.  
 
-    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de destination.  
+    -   Geben Sie im Feld **Startabbild** das Startabbild zum Starten des Zielcomputers an.  
 
-    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
+    -   Geben Sie im Feld **Verteilungspunkt** den Verteilungspunkt an, auf dem das Startabbild sich befindet. Das Startabbild wird von dem Assistenten vom Verteilungspunkt abgerufen und auf das Medium geschrieben.  
 
         > [!NOTE]  
-        >  Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur le point de distribution.  
+        >  Sie benötigen ****  Lesezugriffsrechte für die Inhaltsbibliothek am Verteilungspunkt.  
 
-    -   Si vous créez un média de démarrage basé sur le site dans la page **Gestion du média** de l’Assistant, spécifiez un point de gestion à partir d’un site principal dans la zone **Point de gestion** .  
+    -   Wenn Sie auf der Seite **Medienverwaltung** des Assistenten standortbasierte startbare Medien erstellen, geben Sie im Feld **Verwaltungspunkt** einen Verwaltungspunkt eines primären Standorts an.  
 
-    -   Si vous créez un média de démarrage dynamique dans la page **Gestion du média** de l’Assistant, spécifiez les points de gestion de site principal à utiliser et un ordre de priorité pour les communications initiales dans **Points de gestion associés**.  
+    -   Wenn Sie auf der Seite **Medienverwaltung** des Assistenten dynamische startbare Medien erstellen, geben Sie die zu verwendenden Verwaltungspunkte des primären Standorts sowie eine Prioritätsreihenfolge für die erste Kommunikation im Feld **Zugehörige Verwaltungspunkte**an.  
 
-9. Sur la page **Personnalisation** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+9. Geben Sie auf der Seite **Anpassung** die folgenden Optionen an, und klicken Sie dann auf **Weiter**.  
 
-    -   Spécifiez les variables que la séquence de tâches utilise pour déployer le système d'exploitation.  
+    -   Geben Sie die Variablen an, die von der Tasksequenz zur Bereitstellung des Betriebssystems verwendet werden.  
 
-    -   Spécifiez les commandes de prédémarrage que vous voulez exécuter avant l'exécution de la séquence de tâches. Les commandes de prédémarrage sont un script ou un exécutable qui peut interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Pour plus d’informations, consultez [Commandes de prédémarrage pour les médias de séquence de tâches](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Geben Sie alle Prestart-Befehle an, die Sie vor der Tasksequenz ausführen möchten. Bei Prestart-Befehlen handelt es sich um eine Skriptdatei oder ausführbare Datei, über die eine Interaktion mit dem Benutzer in Windows PE möglich ist, bevor die Tasksequenz zur Installation des Betriebssystems ausgeführt wird. Weitere Informationen finden Sie unter [Prestart-Befehle für Tasksequenzmedien](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, y compris la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
+        >  Während der Erstellung der Tasksequenzmedien werden die Paket-ID und die Prestart-Befehlszeile einschließlich des Wertes vorhandener Tasksequenzvariablen von der Tasksequenz in die Protokolldatei „CreateTSMedia.log“ auf dem Computer geschrieben, auf dem die Configuration Manager-Konsole ausgeführt wird. Sie können diese Protokolldatei überprüfen, um den Wert für die Tasksequenzvariablen zu überprüfen.  
 
-         Si vous le souhaitez, activez la case à cocher **Fichiers pour la commande de prédémarrage** pour inclure tous les fichiers requis pour la commande de prédémarrage.  
+         Aktivieren Sie optional das Kontrollkästchen **Dateien für den Prestart-Befehl einbeziehen** , um alle für den Prestart-Befehl erforderlichen Dateien einzubeziehen.  
 
-10. Effectuez toutes les étapes de l'Assistant.  
+10. Schließen Sie den Assistenten ab.  
 
-## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Créer un média de démarrage sur un lecteur USB à partir d’un partage réseau
-Les informations fournies dans cette section indiquent comment créer un média de démarrage sur un lecteur flash USB qui n’est pas connecté à l’ordinateur exécutant la console Configuration Manager. Pour créer le média de démarrage sur le lecteur USB, vous pouvez créer le média de démarrage de séquence de tâches, monter l’image ISO, puis transférer les fichiers de l’image ISO sur le lecteur USB.
+## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Erstellen startbarer Medien auf einem USB-Laufwerk über eine Netzwerkfreigabe
+Die Informationen in diesem Abschnitt unterstützen Sie beim Erstellen startbarer Medien auf einem USB-Speicherstick, wenn der Speicherstick nicht mit dem Computer verbunden ist, auf dem die Configuration Manager-Konsole ausgeführt wird. Sie können zum Erstellen startbarer Medien auf dem USB-Laufwerk Tasksequenz-Bootmedien erstellen, die das ISO-Image bereitstellen, und die Dateien aus dem ISO-Image in das USB-Laufwerk verschieben.
 
-1. [Créez le média de démarrage de séquence de tâches](#to-create-task-boobable-media). Dans la page **Type de média**, sélectionnez **Ensemble CD/DVD**. L’Assistant écrit les fichiers de sortie à l’emplacement que vous spécifiez. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**.  
-2. Préparez le lecteur USB amovible. Le lecteur doit être formaté, vide et démarrable.
-3. Montez l’image ISO à partir de l’emplacement du partage, puis transférez les fichiers de l’image ISO sur le lecteur USB.
+1. [Create the task sequence boot media (Erstellen der Tasksquenz-Bootmedien)](#to-create-task-boobable-media). Wählen Sie auf der Seite **Medientyp** **CD/DVD-Satz** aus. Die Ausgabedateien werden vom Assistenten an den Speicherort geschrieben, den Sie angeben. Beispiel: **\\\Servername\Ordner\Ausgabedatei.iso**.  
+2. Bereiten Sie den USB-Wechseldatenträger vor. Der Datenträger muss formatiert, leer und startbar sein.
+3. Stellen Sie die ISO-Datei aus dem freigegebenen Speicherort bereit, und übertragen Sie die Dateien aus der ISO-Datei in das USB-Laufwerk.
 
-## <a name="next-steps"></a>Étapes suivantes  
-[Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  
-
+## <a name="next-steps"></a>Nächste Schritte  
+[Verwenden startbarer Medien zum Bereitstellen von Windows über das Netzwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  

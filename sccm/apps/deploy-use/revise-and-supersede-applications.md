@@ -1,137 +1,130 @@
 ---
-title: "Modifier et remplacer des applications | Documents Microsoft"
-description: "Découvrez comment travailler avec des versions d’application System Center Configuration Manager et remplacer des applications."
+title: "Überarbeiten und Ablösen von Anwendungen | Microsoft Docs"
+description: Erfahren Sie, wie Sie System Center Configuration Manager-Anwendungsversionen verwenden und Anwendungen ersetzen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 30170d70-489f-47f7-bebf-9ed0115db26b
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: a04ac74df97741f49d7aae7b599bb60d5725a592
 ms.openlocfilehash: 28bea9210c9c58dabbb00a995e78cfedd1738291
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="revise-and-supersede-applications-in-system-center-configuration-manager"></a>Modifier et remplacer des applications dans System Center Configuration Manager
+# <a name="revise-and-supersede-applications-in-system-center-configuration-manager"></a>Überarbeiten und Ablösen von Anwendungen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans cette rubrique, vous allez apprendre à utiliser des versions d’application System Center Configuration Manager et à remplacer des applications par une nouvelle version.  
+In diesem Thema erfahren Sie, wie Sie mit System Center Configuration Manager-Anwendungsversionen arbeiten und wie Anwendungen durch eine neue Version abgelöst werden.  
 
-##  <a name="application-revisions"></a>Modification d’une application  
- Lorsque vous apportez des modifications à une application ou à un type de déploiement contenu dans une application, Configuration Manager crée une nouvelle révision de l’application. Vous pouvez afficher l'historique des révisions de chaque application. Vous pouvez également afficher les propriétés de chaque révision, restaurer une révision précédente d'une application ou supprimer une ancienne révision.  
+##  <a name="application-revisions"></a>Anwendungsrevisionen  
+ Wenn Sie an einer Anwendung oder an einem in einer Anwendung enthaltenen Bereitstellungstyp Änderungen vornehmen, wird in Configuration Manager eine neue Revision der Anwendung erstellt. Sie können den Verlauf jeder Anwendungsrevision anzeigen. Außerdem können Sie die Eigenschaften anzeigen, eine ältere Revision einer Anwendung wiederherstellen oder eine ältere Revision löschen.  
 
-### <a name="to-display-an-application-revision-history"></a>Pour afficher un historique des révisions d'application  
+### <a name="to-display-an-application-revision-history"></a>So zeigen Sie einen Anwendungsrevisionsverlauf an  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**, puis choisissez l’application de votre choix.  
+1.  Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** und anschließend die gewünschte Anwendung aus.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Application**, choisissez **Historique de révision** pour ouvrir la boîte de dialogue **Historique de révision de l’application**.  
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Anwendung** die Option **Revisionsverlauf** aus, um das Dialogfeld **Anwendungsrevisionsverlauf** zu öffnen.  
 
-### <a name="to-view-an-application-revision"></a>Pour afficher une révision d'application  
+### <a name="to-view-an-application-revision"></a>So zeigen Sie eine Anwendungsrevision an  
 
-1.  Dans la boîte de dialogue **Historique de révision de l’application**, sélectionnez une révision d’application, puis choisissez **Afficher**.  
+1.  Wählen Sie im Dialogfeld **Anwendungsrevisionsverlauf** eine Anwendungsrevision aus, und wählen Sie dann **Anzeigen** aus.  
 
-2.  Dans la boîte de dialogue **Propriétés** , examinez les propriétés de l'application sélectionnée.  
-
-    > [!NOTE]  
-    >  Les propriétés d'application affichées sont en lecture seule.  
-
-3.  Fermez la boîte de dialogue **Propriétés** .  
-
-### <a name="to-restore-an-application-revision"></a>Pour restaurer une révision d'application  
-
-1.  Dans la boîte de dialogue **Historique de révision de l’application**, sélectionnez une révision d’application, puis choisissez **Restaurer**.  
-
-2.  Dans la boîte de dialogue **Confirmer la restauration de la révision**, choisissez **Oui** pour restaurer la révision d’application choisie.  
-
-### <a name="to-delete-an-application-revision"></a>Pour supprimer une révision d'application  
-
-1.  Dans la boîte de dialogue **Historique de révision de l’application**, sélectionnez une révision d’application, puis choisissez **Supprimer**.  
-
-2.  Dans la boîte de dialogue **Supprimer les révisions d’application inutilisées**, choisissez **Oui**.  
-
-> [!IMPORTANT]  
->  Pour que vous puissiez supprimer la révision d’application actuelle, l’application doit avoir été mise hors service et elle ne doit avoir aucune référence.  
-
-##  <a name="application-supersedence"></a>Remplacement d’une application  
- La fonctionnalité de gestion d’applications dans Configuration Manager vous permet de mettre à niveau ou de remplacer des applications existantes à l’aide d’une relation de remplacement. Quand vous remplacez une application, vous pouvez spécifier un nouveau type de déploiement qui remplacera le type de déploiement de l’application remplacée. Vous pouvez aussi indiquer si vous souhaitez mettre à niveau ou désinstaller l’application remplacée avant l’installation de l’application de remplacement.  
-
-> [!IMPORTANT]  
->  Lorsque l'option de désinstallation du type de déploiement remplacé est sélectionnée, un type de déploiement ne peut pas être remplacé par un type de déploiement qui a été déployé sur un autre type de regroupement.  Par exemple, un type de déploiement qui a été déployé sur un regroupement de périphériques ne peut pas être remplacé par un type de déploiement qui a été déployé sur un regroupement d'utilisateurs si l'option de désinstallation du type de déploiement remplacé est sélectionnée.  
-
-### <a name="decide-whether-to-upgrade-or-replace-an-application"></a>Décider s'il faut mettre à niveau ou remplacer une application  
- Vous spécifiez s'il faut remplacer ou mettre à niveau une application dans la boîte de dialogue **Spécifier les relations de remplacement** de la boîte de dialogue de propriétés de l'application. Le type de remplacement varie selon que vous sélectionnez ou non l'option **Désinstaller** dans cette boîte de dialogue :  
-
--   Si vous souhaitez procéder à une mise à jour vers une version plus récente de la même application (avec le même ID d’application), ne cochez **pas** l’option **Désinstaller**.  
-
--   Si vous souhaitez installer une autre application (avec un ID d'application différent), sélectionnez **Désinstaller**. Vous devez supprimer la version obsolète de l’application.  
-
-### <a name="supersede-dependent-applications"></a>Remplacer les applications dépendantes  
- Dans cet exemple, le terme **application maître** fait référence à l’application que vous déployez et qui a les dépendances.  
-
- Vous pouvez créer une relation de remplacement qui met à jour l’application dépendante vers une nouvelle version.  
-
-1.  Assurez-vous que la nouvelle application dépendante et l'application dépendante d'origine sont dans le même groupe de dépendance de l'application maître.  
-
-2.  Créez une relation de remplacement qui remplace l'application dépendante d'origine par la nouvelle application dépendante.  
-
- Pendant les nouvelles installations de l’application maître, la nouvelle application dépendante est installée. Les installations existantes de l’application maître sont mises à jour avec la nouvelle application dépendante.  
-
- Le résultat final est que tous les déploiements de l’application maître utilisent la nouvelle application dépendante.  
-
-### <a name="further-considerations"></a>Autres considérations  
-
--   Vous pouvez spécifier plusieurs relations de remplacement pour les applications dépendantes. L'application dépendante la plus élevée dans la chaîne de remplacement est installée.  
-
--   Les applications dépendantes doivent être déployées sur l’appareil où l’application maître est installée, sinon l’installation de l’application dépendante échoue.  
-
--   Pour les nouvelles installations de l'application maître, quand vous avez plusieurs dépendances, l'ordre de dépendance détermine quelle version de l'application dépendante est installée.  
-
-### <a name="to-specify-a-supersedence-relationship"></a>Pour spécifier une relation de remplacement  
-
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**, puis choisissez l’application qui remplace une autre application.  
-
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés** de nom_application.  
-
-4.  Sous l’onglet **Remplacement** de la boîte de dialogue **Propriétés de** *<nom_application\>*, cliquez sur **Ajouter**.  
-
-5.  Dans la boîte de dialogue **Spécifier une relation de remplacement** , cliquez sur **Parcourir**.  
-
-6.  Dans la boîte de dialogue **Choisir une application**, choisissez l’application que vous souhaitez remplacer, puis **OK**.  
-
-7.  Dans la boîte de dialogue **Spécifier une relation de remplacement**, sélectionnez le type de déploiement qui remplace le type de déploiement de l’application remplacée.  
+2.  Sehen Sie sich im Dialogfeld **Eigenschaften** die Eigenschaften der ausgewählten Anwendung an.  
 
     > [!NOTE]  
-    >  Par défaut, le nouveau type de déploiement ne désinstalle pas le type de déploiement de l’application remplacée. Ce scénario est couramment utilisé lorsque vous souhaitez déployer une mise à niveau vers une application existante. Sélectionnez **Désinstaller** pour supprimer le type de déploiement existant avant d'installer le nouveau type de déploiement. Si vous décidez de mettre à niveau une application, veillez à tester au préalable cette mise à niveau dans un environnement de laboratoire.  
+    >  Die angezeigten Anwendungseigenschaften sind schreibgeschützt.  
 
-8.  Choisissez **OK** pour fermer la boîte de dialogue **Spécifier une relation de remplacement**.  
+3.  Schließen Sie das Dialogfeld **Eigenschaften** .  
 
-9. Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+### <a name="to-restore-an-application-revision"></a>So stellen Sie eine Anwendungsrevision wieder her  
 
-### <a name="to-display-applications-that-supersede-the-current-application"></a>Pour afficher les applications qui remplacent l'application en cours  
+1.  Wählen Sie im Dialogfeld **Anwendungsrevisionsverlauf** eine Anwendungsrevision aus, und wählen Sie dann **Wiederherstellen** aus.  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels**.  
+2.  Wählen Sie im Dialogfeld zum**** Bestätigen der Wiederherstellung der Revision **Ja** aus, um die ausgewählte Anwendungsrevision wiederherzustellen.  
 
-2.  Dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion des applications**, choisissez **Applications**, puis choisissez l’application souhaitée.  
+### <a name="to-delete-an-application-revision"></a>So löschen Sie eine Anwendungsrevision  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés** de *<nom_application\>*.  
+1.  Wählen Sie im Dialogfeld **Anwendungsrevisionsverlauf** eine Anwendungsrevision aus, und wählen Sie dann **Löschen** aus.  
 
-4.  Sous l’onglet **Références** de la boîte de dialogue **Propriétés de** *<nom_application\>*, choisissez **Applications remplaçant cette application** dans la liste déroulante **Type de relation**.  
+2.  Wählen Sie im Dialogfeld zum**** Bestätigen des Löschens der Anwendungsrevision **Ja** aus.  
 
-5.  Consultez la liste des applications qui remplacent l’application sélectionnée, puis choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+> [!IMPORTANT]  
+>  Sie können die aktuelle Anwendungsrevision nur löschen, wenn die Anwendung zuvor außer Kraft gesetzt wurde und keine Verweise enthält.  
 
+##  <a name="application-supersedence"></a>Anwendungsablösung  
+ Die Anwendungsverwaltung in Configuration Manager ermöglicht es Ihnen, vorhandene Anwendungen mithilfe einer Ablösungsbeziehung zu aktualisieren oder zu ersetzen. Wenn Sie eine Anwendung ablösen, können Sie einen neuen Bereitstellungstyp als Ersatz für den Bereitstellungstyp der abgelösten Anwendung angeben. Sie können außerdem festlegen, ob vor dem Installieren der ablösenden Anwendung ein Upgrade der abzulösenden Anwendung ausgeführt oder die abzulösende Anwendung deinstalliert werden soll.  
 
+> [!IMPORTANT]  
+>  Wenn die Option zum Deinstallieren des abgelösten Bereitstellungstyps ausgewählt wurde, ist es nicht möglich, für die Ablösung einen Bereitstellungstyp zu verwenden, der für einen anderen Sammlungstyp bereitgestellt wurde.  Beispielsweise kann bei dieser Optionsauswahl ein Bereitstellungstyp, der für eine Gerätesammlung bereitgestellt wurde, nicht durch einen Bereitstellungstyp abgelöst werden, der für eine Benutzersammlung bereitgestellt wurde.  
 
-<!--HONumber=Dec16_HO3-->
+### <a name="decide-whether-to-upgrade-or-replace-an-application"></a>Festlegen, ob eine Anwendung ersetzt oder ein Upgrade ausgeführt werden soll  
+ Im Dialogfeld **Ablösungsbeziehung angeben** unter den Anwendungseigenschaften geben Sie an, ob eine Anwendung ersetzt oder ein Upgrade ausgeführt werden soll. Der Ablösungstyp hängt davon ab, ob Sie in diesem Dialogfeld die Option **Deinstallieren** aktivieren:  
 
+-   Wenn Sie ein Update auf eine neuere Version der gleichen Anwendung (mit der gleichen Anwendungs-ID) ausführen möchten, aktiveren Sie **nicht** die Option **Deinstallieren**.  
 
+-   Wenn Sie zu einer anderen Anwendung (mit einer anderen Anwendungs-ID) wechseln möchten, aktivieren Sie die Option **Deinstallieren**. Sie müssen die abgelöste Version der Anwendung entfernen.  
+
+### <a name="supersede-dependent-applications"></a>Ablösen abhängiger Anwendungen  
+ In diesem Beispiel bezieht sich **Masteranwendung** auf die von Ihnen bereitgestellte Anwendung, die die Abhängigkeiten enthält.  
+
+ Sie können eine Ablösungsbeziehung erstellen, mit der die abhängige Anwendung auf eine neue Version aktualisiert wird.  
+
+1.  Stellen Sie sicher, dass die neue abhängige Anwendung und die ursprüngliche abhängige Anwendung in der gleichen Abhängigkeitsgruppe der Masteranwendung enthalten sind.  
+
+2.  Erstellen Sie eine Ablösungsbeziehung, bei der die ursprüngliche abhängige Anwendung durch die neue abhängige Anwendung ersetzt wird.  
+
+ Während neuer Installationen der Masteranwendung wird die neue abhängige Anwendung installiert. Vorhandene Installationen der Masteranwendung werden mit der neuen abhängigen Anwendung aktualisiert.  
+
+ Als Endergebnis verwenden alle Bereitstellungen der Masteranwendung die neue abhängige Anwendung.  
+
+### <a name="further-considerations"></a>Weitere Überlegungen  
+
+-   Sie können mehrere Ablösungsbeziehungen für abhängige Anwendungen angeben. Die höchste abhängige Anwendung in der Ablösungskette wird installiert.  
+
+-   Abhängige Anwendungen müssen auf dem Gerät bereitgestellt werden, auf dem die Masteranwendung installiert ist. Andernfalls wird die abhängige Anwendung nicht installiert.  
+
+-   Wenn bei neuen Installationen der Masteranwendung mehrere Abhängigkeiten bestehen, bestimmt die Abhängigkeitsreihenfolge, welche Version der abhängigen Anwendung installiert wird.  
+
+### <a name="to-specify-a-supersedence-relationship"></a>So geben Sie eine Ablösungsbeziehung an  
+
+1.  Wählen Sie in der Configuration Manager-Konsole **Softwarebibliothek** > **Anwendungsverwaltung** > **Anwendungen** und anschließend die Anwendung aus, die eine andere ablösen soll.  
+
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus, um das Dialogfeld **Eigenschaften** für die Anwendung zu öffnen.  
+
+4.  Wählen Sie auf der Registerkarte **Ablösung** im Dialogfeld **Eigenschaften von** *<Anwendungsname\>* die Option **Hinzufügen** aus.  
+
+5.  Klicken Sie im Dialogfeld **Ablösungsbeziehung angeben** auf **Durchsuchen**.  
+
+6.  Wählen Sie im Dialogfeld **Anwendung auswählen** die Anwendung aus, die Sie ablösen möchten, und wählen Sie dann **OK** aus.  
+
+7.  Wählen Sie im Dialogfeld **Ablösungsbeziehung angeben** den Bereitstellungstyp aus, von dem der Bereitstellungstyp der abzulösenden Anwendung abgelöst werden soll.  
+
+    > [!NOTE]  
+    >  Standardmäßig wird der Bereitstellungstyp der abzulösenden Anwendung nicht vom neuen Bereitstellungstyp deinstalliert. Dieses Szenario wird häufig verwendet, wenn Upgrades für vorhandene Anwendungen bereitgestellt werden sollen. Wählen Sie **Deinstallieren** aus, um den vorhandenen Bereitstellungstyp zu deinstallieren, bevor der neue Bereitstellungstyp installiert wird. Probieren Sie das Upgrade zunächst in einer Testumgebung aus, bevor Sie es für eine Anwendung ausführen.  
+
+8.  Wählen Sie **OK** aus, um das Dialogfeld **Ablösungsbeziehung angeben** zu schließen.  
+
+9. Wählen Sie **OK** aus, um das Dialogfeld **Eigenschaften von** *<Anwendungsname\>* zu schließen.  
+
+### <a name="to-display-applications-that-supersede-the-current-application"></a>So zeigen Sie Anwendungen an, von der die aktuelle Anwendung abgelöst wird  
+
+1.  Wählen Sie in der Configuration Manager-Konsole die Option **Softwarebibliothek** aus.  
+
+2.  Erweitern Sie im Arbeitsbereich **Softwarebibliothek** den Bereich **Anwendungsverwaltung**, und wählen Sie **Anwendungen** und dann die gewünschte Anwendung aus.  
+
+3.  Wählen Sie auf der Registerkarte **Startseite** in der Gruppe **Eigenschaften** die Option **Eigenschaften** aus, um das Dialogfeld **Eigenschaften von** *<Anwendungsname\>* zu öffnen.  
+
+4.  Wählen Sie auf der Registerkarte **Referenzen** im Dialogfeld **Eigenschaften von** *<Anwendungsname\>* in der Dropdownliste **Beziehungstyp** die Option **Anwendungen, die diese Anwendung ablösen** aus.  
+
+5.  Prüfen Sie die Liste der Anwendungen, von denen die ausgewählte Anwendung abgelöst wird, und klicken Sie dann auf **OK**, um das Dialogfeld **Eigenschaften von** *<Anwendungsname\>* zu schließen.  

@@ -1,119 +1,112 @@
 ---
-title: "Présentation des rapports | Microsoft Docs"
-description: "En savoir plus sur l’ensemble d’outils et de ressources disponibles pour la gestion des rapports dans Configuration Manager."
+title: "Einführung in die Berichterstellung | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr zu den Tools und Ressourcen, die Ihnen für die Verwaltung der Berichterstattung in Configuration Manager zur Verfügung stehen."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 230be984-d2cd-4d53-bd7a-bc24dd93fc22
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 5846ca3c91626491b03b36dd17b454bb9382a8dc
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-reporting-in-system-center-configuration-manager"></a>Présentation des rapports dans System Center Configuration Manager
+# <a name="introduction-to-reporting-in-system-center-configuration-manager"></a>Einführung in die Berichterstellung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, les rapports fournissent un ensemble d’outils et de ressources vous permettant d’utiliser les fonctions de rapport avancées de SQL Server Reporting Services (SSRS), ainsi que les rapports détaillés du Générateur de rapports Reporting Services. La création de rapports vous permet de recueillir, d’organiser et de présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Les rapports vous permettent de disposer de nombreux rapports prédéfinis que vous pouvez utiliser comme tel ou adapter à vos besoins, et vous pouvez créer des rapports personnalisés. Utilisez les sections suivantes pour vous aider à gérer la création de rapports dans Configuration Manager.  
+Mit der Berichterstattung in System Center Configuration Manager stehen Ihnen eine Reihe von Tools und Ressourcen zur Verfügung, mit deren Hilfe Sie die erweiterten Berichterstattungsfunktionen von SQL Server Reporting Services (SSRS) sowie die umfassenden Gestaltungsmöglichkeiten des Berichts-Generators von Reporting Services nutzen können. Mithilfe der Berichterstattung von Configuration Manager können Sie Informationen zu Benutzern, Hardware- und Softwareinventur, Softwareupdates, Anwendungen, Standortstatus und anderen Configuration Manager-Operationen in Ihrer Organisation erfassen, organisieren und darstellen. Mit der Berichterstattung stehen Ihnen eine Reihe vordefinierter Berichte zur Verfügung, die Sie unverändert verwenden oder bei Bedarf an Ihre Anforderungen anpassen können, und Sie können zudem benutzerdefinierte Berichte erstellen. In den folgenden Abschnitten finden Sie Informationen zum Verwalten der Berichterstellung in Configuration Manager.  
 
-##  <a name="a-namebkmksqlserverreportingservicesa-sql-server-reporting-services"></a><a name="BKMK_SQLServerReportingServices"></a> SQL Server Reporting Services  
- SQL Server Reporting Services offre une gamme complète d'outils et de services prêts à être utilisés pour créer, déployer et gérer des rapports pour votre organisation, ainsi que des fonctionnalités de programmation vous permettant d'étendre et de personnaliser la fonctionnalité de création de rapport. Reporting Services est une plate-forme de création de rapport basée sur un serveur qui fournit des fonctionnalités complètes de création de rapports pour une variété de sources de données.  
+##  <a name="BKMK_SQLServerReportingServices"></a> SQL Server Reporting Services  
+ In SQL Server Reporting Services steht Ihnen eine vollständige Palette verwendungsbereiter Tools und Dienste zur Verfügung, mit deren Hilfe Sie Berichte für Ihr Unternehmen erstellen, bereitstellen und verwalten können, sowie Programmierungsfunktionen zum Erweitern und Anpassen der verfügbaren Berichterstattungsfunktionen. Reporting Services ist eine serverbasierte Berichterstattungsplattform, die umfassende Berichterstattungsfunktionen für zahlreiche Datenquellen bietet.  
 
- Configuration Manager utilise SQL Server Reporting Services comme solution de création de rapports. L'intégration avec Reporting Services offre les avantages suivants :  
+ Configuration Manager verwendet SQL Server Reporting Services als Berichterstattungslösung. Die Integration mit Reporting Services bietet die folgenden Vorteile:  
 
--   Utilise un système de création de rapports standard pour interroger la base de données Configuration Manager.  
+-   Verwendet ein Industriestandard-Berichterstattungssystem zum Abfragen der Configuration Manager-Datenbank.  
 
--   Affiche les rapports à l’aide de la Visionneuse de rapports Configuration Manager ou du Gestionnaire de rapports, qui est une connexion web au rapport.  
+-   Zeigt Berichte mithilfe der Configuration Manager-Berichtsanzeige an oder mithilfe des Berichts-Managers, einer webbasierten Verbindung mit dem Bericht.  
 
--   Fournit une performance, une disponibilité et une évolutivité élevées.  
+-   Bietet hohe Leistung, Verfügbarkeit und Skalierbarkeit.  
 
--   Fournit des abonnements pour les rapports auxquels les utilisateurs peuvent s'abonner. Par exemple, un directeur pourrait s'abonner à un envoi automatique par courrier électronique d'un rapport quotidien détaillant l'état du déploiement d'une mise à jour logicielle.  
+-   Ermöglicht das Abonnieren von Berichten. Beispielsweise kann ein Manager automatisch per E-Mail einen täglichen Bericht über den Status einer Softwareupdatebereitstellung erhalten.  
 
--   Exporte les rapports que les utilisateurs peuvent sélectionner dans différents formats souvent utilisés.  
+-   Exportiert Berichte, die Benutzer in einer Vielzahl von häufig verwendeten Formaten auswählen können.  
 
- Pour plus d'informations sur Reporting Services, voir [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) dans la documentation en ligne de SQL Server 2008.  
+ Weitere Informationen zu Reporting Services finden Sie unter [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) in der SQL Server 2008-Onlinedokumentation.  
 
-##  <a name="a-namebkmkreportingservicespointa-reporting-services-point"></a><a name="BKMK_ReportingServicesPoint"></a> Point Reporting Services  
- Le point de Reporting Services est un rôle de système de site installé sur un serveur qui exécute Microsoft SQL Server Reporting Services. Le point de Reporting Services copie les définitions de rapport Configuration Manager vers Reporting Services, crée des dossiers de rapports basés sur les catégories de rapports et paramètre les stratégies de sécurité des dossiers de rapports et des rapports en fonction des autorisations basées sur les rôles pour les utilisateurs administratifs de Configuration Manager. Toutes les 10 minutes, le point de Reporting Services se connecte à Reporting Services pour réappliquer la stratégie de sécurité si elle a été modifiée, par exemple, à l'aide du Gestionnaire de rapports. Pour plus d'informations sur la planification et l'installation d'un point de Reporting Services, consultez la documentation suivante :  
+##  <a name="BKMK_ReportingServicesPoint"></a> Reporting Services-Punkt  
+ Der Reporting Services-Punkt ist eine Standortsystemrolle, die auf einem Server installiert wird, auf dem Microsoft SQL Server Reporting Services ausgeführt wird. Der Reporting Services-Punkt kopiert die Configuration Manager-Berichtsdefinitionen an Reporting Services, erstellt auf Berichtskategorien basierende Berichtsordner und die Sicherheitsrichtlinie für Berichtsordner und berichtet anhand der rollenbasierten Berechtigungen für Configuration Manager-Administratoren. Alle zehn Minuten wird vom Reporting Services-Punkt eine Verbindung mit Reporting Services hergestellt, um die Sicherheitsrichtlinie erneut anzuwenden, falls diese, zum Beispiel durch die Verwendung des Berichts-Managers, geändert wurde. Weitere Informationen zum Planen und Installieren eines Reporting Services-Punkts finden Sie in der folgenden Dokumentation:  
 
--   [Planification de la création de rapports dans System Center Configuration Manager](planning-for-reporting.md)  
+-   [Planen der Berichterstellung in System Center Configuration Manager](planning-for-reporting.md)  
 
--   [Configuration des rapports dans System Center Configuration Manager](configuring-reporting.md)  
+-   [Konfigurieren der Berichterstellung in System Center Configuration Manager](configuring-reporting.md)  
 
-##  <a name="a-namebkmkconfigurationmanagerreportsa-configuration-manager-reports"></a><a name="BKMK_ConfigurationManagerReports"></a> Rapports de Configuration Manager  
- Configuration Manager offre des définitions de rapports pour plus de 400 rapports dans plus de 50 dossiers de rapports qui sont copiés dans le dossier de rapports racine dans SQL Server Reporting Services lors du processus d’installation du point de Reporting Services. Les rapports sont affichés sur la console Configuration Manager et sont organisés dans des sous-dossiers en fonction de la catégorie de rapport. Les rapports ne se propagent pas en amont ou en aval dans la hiérarchie Configuration Manager, mais s’exécutent uniquement par rapport à la base de données du site dans lequel ils sont créés. Toutefois, étant donné que Configuration Manager réplique les données globales dans toute la hiérarchie, vous avez accès aux informations de toute la hiérarchie. Lorsqu'un rapport récupère des données depuis la base de donnée d'un site, il a accès aux données du site lui-même ainsi qu'à celles des sites enfants, pour chaque site de la hiérarchie. Comme les autres objets Configuration Manager, un utilisateur administratif doit disposer des autorisations appropriées pour l’exécution ou la modification de rapports. Pour exécuter un rapport, un utilisateur administratif doit avoir l'autorisation **Exécuter le rapport** pour cet objet. Pour créer ou modifier un rapport, un utilisateur administratif doit avoir l'autorisation **Modifier le rapport** pour cet objet.  
+##  <a name="BKMK_ConfigurationManagerReports"></a> Configuration Manager-Berichte  
+ Configuration Manager stellt Berichtsdefinitionen für über 400 Berichte in über 50 Berichtsordnern bereit, die während der Installation des Reporting Services-Punkts in den Berichtsstammordner in SQL Server Reporting Services kopiert werden. Die Berichte werden in der Configuration Manager-Konsole angezeigt und dort anhand der Berichtskategorie in Unterordnern organisiert. Berichte werden in der Configuration Manager-Hierarchie nicht nach oben oder unten übermittelt. Sie werden nur für die Datenbank des Standorts ausgeführt, an dem sie erstellt werden. Da in Configuration Manager jedoch globale Daten über die gesamte Hierarchie repliziert werden, können Sie auf hierarchieweite Informationen zugreifen. Wenn für einen Bericht Daten aus einer Standortdatenbank abgerufen werden, liegen Zugriffsrechte für die Standortdaten von den aktuellen und untergeordneten Standorten sowie für globale Daten aller Standorte in der Hierarchie vor. Wie bei anderen Configuration Manager-Objekten benötigen Administratoren auch zum Ausführen und Ändern von Berichten die entsprechenden Berechtigungen. Administratoren müssen über die Berechtigung **Bericht ausführen** für das Objekt verfügen, um einen Bericht ausführen zu können. Administratoren müssen über die Berechtigung **Bericht ändern** für das Objekt verfügen, um einen Bericht erstellen oder ändern zu können.  
 
-###  <a name="a-namebkmkcreatingreportsa-creating-and-modifying-reports"></a><a name="BKMK_CreatingReports"></a> Création et modification de rapports  
- Configuration Manager utilise le Générateur de rapports Microsoft SQL Server comme outil exclusif pour la création et l’édition des rapports basés sur des modèles ou sur SQL. Quand vous créez ou modifiez un rapport sur la console Configuration Manager, le Générateur de rapports s’ouvre. Pour plus d’informations sur la gestion des rapports, consultez [Opérations et maintenance pour les rapports dans System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
+###  <a name="BKMK_CreatingReports"></a> Erstellen und Ändern von Berichten  
+ Configuration Manager verwendet den Berichts-Generator von SQL Server für modellbasierte und SQL-basierte Berichte als ausschließliches Erstellungs- und Bearbeitungstool. Beim Erstellen oder Bearbeiten eines Berichts in der Configuration Manager-Konsole wird der Berichts-Generator geöffnet. Weitere Informationen zur Verwaltung von Berichten finden Sie unter [Vorgänge und Wartungstasks für die Berichterstellung in System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
-###  <a name="a-namebkmkrunningreportsa-running-reports"></a><a name="BKMK_RunningReports"></a> Exécution des rapports  
- Quand vous exécutez un rapport depuis la console Configuration Manager, la Visionneuse de rapports s’ouvre et se connecte à Reporting Services. Une fois que vous avez spécifié les paramètres de rapport requis, Reporting Services récupère les données et affiche les résultats dans la visionneuse. Vous pouvez également vous connecter à SQL Services Reporting Services, à la source de données pour le site et exécuter des rapports.  
+###  <a name="BKMK_RunningReports"></a> Ausführen von Berichten  
+ Wenn Sie einen Bericht in der Configuration Manager-Konsole ausführen, wird die Berichtsanzeige geöffnet und eine Verbindung mit Reporting Services hergestellt. Nachdem Sie alle erforderlichen Berichtsparameter angegeben haben, werden die Daten von Reporting Services abgerufen, und das Ergebnis wird im Viewer angezeigt. Sie können auch eine Verbindung mit SQL Services Reporting Services und mit der Datenquelle für den Standort herstellen und dann Berichte ausführen.  
 
-###  <a name="a-namebkmkreportpromptsa-report-prompts"></a><a name="BKMK_ReportPrompts"></a> Invites de rapport  
- Dans Configuration Manager, une invite de rapport ou un paramètre de rapport est une propriété de rapport que vous pouvez configurer quand un rapport est créé ou modifié. Les invites de rapport sont créées dans le but de limiter ou de cibler les données extraites par un rapport. Un rapport peut contenir plusieurs invites, tant que celles-ci portent un nom unique et qu'elles contiennent uniquement des caractères alphanumériques conformes aux règles SQL Server pour les identificateurs.  
+###  <a name="BKMK_ReportPrompts"></a> Berichtaufforderungen  
+ Berichtaufforderungen oder Berichtsparameter in Configuration Manager sind Berichtseigenschaften, die beim Erstellen oder Ändern eines Berichts konfiguriert werden können. Berichtaufforderungen werden zum Begrenzen oder Auswählen der Zieldaten verwendet, die ein Bericht abruft. Ein Bericht kann mehrere Aufforderungen enthalten, solange die Namen der Aufforderungen eindeutig sind und nur alphanumerische Zeichen verwendet werden, die den Regeln für SQL Server-Bezeichner entsprechen.  
 
- Lorsque vous exécutez un rapport, l'invite appelle la valeur d'un paramètre requis et, en fonction de cette valeur, récupère les données du rapport. Par exemple, le rapport **Informations concernant un ordinateur spécifique** récupère les informations concernant un ordinateur spécifique et invite l'utilisateur administratif à entrer un nom d'ordinateur. Reporting Services transmet ensuite la valeur spécifiée à une variable définie dans l'instruction SQL du rapport.  
+ Beim Ausführen eines Berichts wird ein Wert für einen erforderlichen Parameter vom Benutzer angefordert, und auf Grundlage dieses Werts werden die Berichtsdaten abgerufen. So werden für den Bericht **Computerinformationen für einen bestimmten Computer** beispielsweise die Computerinformationen für einen bestimmten Computer abgerufen, und der Administrator wird aufgefordert, einen Computernamen einzugeben. Der angegebene Wert wird von Reporting Services an eine Variable weitergegeben, die in der SQL-Anweisung für den Bericht definiert ist.  
 
-###  <a name="a-namebkmkreportlinksa-report-links"></a><a name="BKMK_ReportLinks"></a> Liens de rapports  
- Dans Configuration Manager, les liens de rapports sont utilisés dans un rapport source pour permettre aux utilisateurs administratifs d’accéder facilement aux données supplémentaires, notamment les informations détaillées sur chaque élément contenu dans le rapport source. Si le rapport de destination nécessite l'exécution d'une ou de plusieurs invites d'exécution, le rapport source doit contenir une colonne avec les valeurs appropriées pour chaque invite. Vous devez spécifier le numéro de colonne qui fournit la valeur de l'invite. Par exemple, vous pouvez lier un rapport qui répertorie les ordinateurs nouvellement découverts à un rapport contenant les derniers messages reçus sur un ordinateur spécifique. Lorsque le lien est créé, vous pouvez indiquer que la colonne 2 du rapport source contient les noms d'ordinateurs ; il s'agit d'une invite requise pour le rapport de destination. Lorsque le rapport source est exécuté, les icônes de lien s'affichent à gauche de chaque ligne de données. Lorsque vous cliquez sur l'icône d'une ligne, la Visionneuse de rapports transmet la valeur dans la colonne spécifiée de cette ligne comme valeur d'invite nécessaire pour afficher le rapport de destination. Un rapport peut être configuré avec un seul lien, et ce lien peut être connecté à une seule ressource de destination.  
+###  <a name="BKMK_ReportLinks"></a> Berichtslinks  
+ Berichtlinks in Configuration Manager werden in einem Quellbericht dazu verwendet, Administratoren einen einfachen Zugriff auf zusätzliche Daten zu ermöglichen, z.B. auf genauere Informationen zu den Elementen im Quellbericht. Wenn zum Ausführen des Zielberichts eine oder mehrere Aufforderungen erforderlich sind, muss der Quellbericht eine Spalte mit den entsprechenden Werten für jede Aufforderung enthalten. Sie müssen die Nummer der Spalte angeben, die den Wert für die Aufforderung enthält. Es ist z. B. möglich, einen Bericht mit Computern, die kürzlich erkannt wurden, mit einem Bericht zu verknüpfen, der alle aktuellen Meldungen zu einem bestimmten Computer enthält. Beim Erstellen des Links können Sie angeben, dass z. B. Spalte 2 des Quellberichts Computernamen enthält, die an der Aufforderung des Zielberichts eingegeben werden müssen. Wenn Sie den Quellbericht ausführen, werden links neben jeder Datenzeile Verknüpfungssymbole angezeigt. Wenn Sie in einer Zeile auf ein Symbol klicken, wird der Wert in der angegebenen Spalte der Berichtsanzeige als Aufforderungswert übermittelt, der für die Anzeige des Zielberichts erforderlich ist. Sie können einen Bericht nur mit einem einzigen Link konfigurieren, über den eine Verbindung mit einer einzigen Zielressource hergestellt werden kann.  
 
 > [!WARNING]  
->  Si vous déplacez un rapport de destination vers un dossier de rapport différent, l'emplacement du rapport de destination change. Le lien de rapport du rapport source n'est pas automatiquement mis à jour avec le nouvel emplacement et le lien de rapport ne fonctionnera pas dans le rapport source.  
+>  Wenn Sie einen Zielbericht in einen anderen Berichtsordner verschieben, ändert sich der Speicherort für den Zielbericht. Der Berichtslink im Quellbericht wird nicht automatisch mit dem neuen Speicherort aktualisiert, sodass der Berichtslink im Quellbericht einen Fehler verursacht.  
 
-##  <a name="a-namebkmkreportfoldersa-report-folders"></a><a name="BKMK_ReportFolders"></a> Dossiers de rapports  
- Dans System Center Configuration Manager, les dossiers de rapports permettent de trier et de filtrer les rapports qui sont stockés dans Reporting Services. Les dossiers de rapport sont particulièrement utiles lorsque vous devez gérer plusieurs rapports. Lorsque vous installez un point de Reporting Services, les rapports sont copiés vers Reporting Services et organisés en plus de 50 dossiers de rapports. Les dossiers de rapports sont en lecture seule. Vous pouvez les modifier dans la console Configuration Manager.  
+##  <a name="BKMK_ReportFolders"></a> Berichtsordner  
+ Berichtsordner in System Center Configuration Manager bieten eine Methode für das Sortieren und Filtern von Berichten, die in Reporting Services gespeichert sind. Berichtordner sind besonders nützlich, wenn Sie viele Berichte verwalten müssen. Wenn Sie einen Reporting Services-Punkt installieren, werden Berichte in Reporting Services kopiert und in über 50 Berichtsordnern organisiert. Die Berichtsordner sind schreibgeschützt. Sie können sie in der Configuration Manager-Konsole nicht ändern.  
 
-##  <a name="a-namebkmkreportsubscriptionsa-report-subscriptions"></a><a name="BKMK_ReportSubscriptions"></a> Abonnements aux rapports  
- Un abonnement aux rapports dans Reporting Services est une demande récurrente de la remise d'un rapport à un moment donné ou en réponse à un événement et dans un format d'application que vous spécifiez à l'inscription. Les abonnements représentent une alternative à l'exécution d'un rapport à la demande. Les rapports à la demande nécessitent la sélection active du rapport, à chaque fois que vous souhaitez le visualiser. En revanche, les abonnements peuvent être utilisés pour planifier, puis automatiser la remise d'un rapport.  
+##  <a name="BKMK_ReportSubscriptions"></a> Berichtsabonnements  
+ Ein Berichtsabonnement in Reporting Services ist eine wiederholte Anfrage zur Übermittlung eines Berichts zu einem bestimmten Zeitpunkt oder bei Eintreten eines bestimmten Ereignisses. Das gewünschte Anwendungsdateiformat für den Bericht kann für das Abonnement angegeben werden. Abonnements sind eine Alternative zum Ausführen eines Berichts bei Bedarf. Bei der Berichterstattung bei Bedarf muss der Bericht immer wieder aktiv ausgewählt werden, um ihn anzeigen zu können. Mit Abonnements ist dagegen die geplante automatische Übermittlung eines Berichts möglich.  
 
- Vous pouvez gérer les abonnements aux rapports dans la console Configuration Manager. Elles sont traitées sur le serveur de rapports. Les abonnements sont distribués à l'aide des extensions de remise qui sont déployées sur le serveur. Par défaut, vous pouvez créer des abonnements qui envoient des rapports à un dossier partagé ou à une adresse électronique. Pour plus d’informations sur la gestion des abonnements au rapport, consultez [Opérations et maintenance pour les rapports dans System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
+ Sie können Berichtsabonnements in der Configuration Manager-Konsole verwalten. Sie werden auf dem Berichtsserver verarbeitet. Die Abonnements werden mithilfe von Übermittlungserweiterungen verteilt, die auf dem Server bereitgestellt werden. Standardmäßig können Sie Abonnements erstellen, um Berichte in einen freigegebenen Ordner oder an eine E-Mail-Adresse senden zu lassen. Weitere Informationen zur Verwaltung von Berichtabonnements finden Sie unter [Vorgänge und Wartungstasks für die Berichterstellung in System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
-##  <a name="a-namebkmkreportbuildera-report-builder"></a><a name="BKMK_ReportBuilder"></a> Générateur de rapports  
- Configuration Manager utilise le Générateur de rapports Microsoft SQL Server Reporting Services en tant qu’unique outil de création et de modification des rapports basés sur un modèle et des rapports basés sur SQL. Quand vous lancez l’action pour créer ou modifier un rapport dans la console Configuration Manager, le Générateur de rapports s’ouvre. Lorsque vous créez ou modifiez un rapport pour la première fois, le Générateur de rapports est installé automatiquement. La version du Générateur de rapports associée à la version installée de SQL Server s’ouvre quand vous exécutez ou modifiez des rapports.  
+##  <a name="BKMK_ReportBuilder"></a> Report Builder  
+ Configuration Manager verwendet den Berichts-Generator von Microsoft SQL Server Reporting Services sowohl für modellbasierte als auch für SQL-basierte Berichte als ausschließliches Erstellungs- und Bearbeitungstool. Beim Erstellen oder Bearbeiten eines Berichts in der Configuration Manager-Konsole wird der Berichts-Generator geöffnet. Report Builder wird automatisch installiert, wenn Sie zum ersten Mal einen Bericht erstellen oder ändern. Die Version von Report Builder, die der installierten Version von SQL Server zugeordnet ist, wird beim Ausführen oder Bearbeiten von Berichten geöffnet.  
 
- L'installation du Générateur de rapports ajoute la prise en charge de plus de 20 langues. Lorsque vous exécutez le Générateur de rapports, il affiche les données dans la langue du système d'exploitation qui s'exécute sur l'ordinateur local. Si le Générateur de rapports ne supporte pas cette langue, les données sont affichées en anglais. Le Générateur de rapports prend en charge toutes les fonctionnalités de SQL Server 2008 Reporting Services, qui inclut les fonctionnalités suivantes :  
+ Bei der Installation von Report Builder wird Unterstützung für mehr als 20 Sprachen hinzugefügt. Beim Ausführen von Report Builder werden Daten in der Sprache des Betriebssystems angezeigt, das auf dem lokalen Computer ausgeführt wird. Wenn diese Sprache von Report Builder nicht unterstützt wird, werden die Daten auf Englisch angezeigt. Von Report Builder wird der gesamte Funktionsumfang von SQL Server 2008 Reporting Services unterstützt, darunter die folgenden Funktionen:  
 
--   Il offre un environnement de création de rapports intuitif dont l'apparence est similaire à celle de Microsoft Office.  
+-   Intuitive Umgebung zum Erstellen von Berichten, die Microsoft Office ähnlich ist  
 
--   Il offre une mise en page flexible du rapport de SQL Server 2008 Report Definition Language (RDL).  
+-   Flexibles Berichtslayout der Berichtsdefinitionssprache (RDL) von SQL Server 2008  
 
--   Il fournit divers types d'affichage des données, dont des graphiques et des jauges.  
+-   Verschiedene Formen der Datenvisualisierung, darunter Diagramme und Anzeigen  
 
--   Il fournit des zones de texte enrichi.  
+-   Textfelder mit umfassenden Formatierungsmöglichkeiten  
 
--   Il permet des exportations vers Microsoft Word.  
+-   Exportieren nach Microsoft Word  
 
- Vous pouvez également ouvrir le Générateur de rapports depuis SQL Server Reporting Services.  
+ Sie können Report Builder auch aus SQL Server Reporting Services öffnen.  
 
-##  <a name="a-namebkmkreportmodelsa-report-models-in-sql-server-reporting-services"></a><a name="BKMK_ReportModels"></a> Modèles de rapports dans SQL Server Reporting Services  
- Dans Configuration Manager, SQL Reporting Services utilise des modèles de rapport pour aider l’utilisateur administratif à sélectionner les éléments de la base de données à inclure dans les rapports basés sur un modèle. L'utilisateur administratif chargé de générer le rapport peut choisir entre les vues et éléments spécifiques exposés dans le modèle de rapport. Au moins un modèle de rapport doit être disponible pour pouvoir générer des rapports basés sur un modèle. Les modèles de rapport sont dotés des fonctions ci-après :  
+##  <a name="BKMK_ReportModels"></a> Berichtsmodelle in SQL Server Reporting Services  
+ Administratoren werden von SQL Reporting Services in Configuration Manager mithilfe von Berichtsmodellen bei der Auswahl von Elementen aus der Datenbank unterstützt, die in modellbasierte Berichte eingeschlossen werden sollen. Dem Administrator, der den Bericht aufbaut, stehen mit Berichtsmodellen nur bestimmte Ansichten und Elemente zur Auswahl. Zur Erstellung von modellbasierten Berichten muss mindestens ein Berichtsmodell zur Verfügung stehen. Berichtsmodelle bieten die folgenden Features:  
 
--   Vous pouvez donner des noms plus pratiques aux champs des bases de données et aux vues pour faciliter la création de rapports. La connaissance de la structure de la base de données n'est pas nécessaire pour produire des rapports.  
+-   Sie können Datenbankfeldern und Ansichten logische Unternehmensnamen zuweisen, um die Erstellung von Berichten zu vereinfachen. Kenntnisse der Datenbankstruktur sind zum Erstellen von Berichten nicht erforderlich.  
 
--   Vous pouvez regrouper des éléments de façon logique.  
+-   Sie können Elemente logisch gruppieren.  
 
--   Vous pouvez définir des relations entre les éléments.  
+-   Sie können Beziehungen zwischen Elementen definieren.  
 
--   Vous pouvez sécuriser les éléments du modèle de manière à ce que les utilisateurs administratifs ne puissent visualiser que les données auxquelles ils sont autorisés à accéder.  
+-   Sie können Modellelemente sichern, sodass Administratoren nur die Daten angezeigt werden, für die sie die Berechtigung zum Anzeigen haben.  
 
- Même si Configuration Manager fournit des exemples de modèles de rapport, vous pouvez également définir des modèles de rapport afin de répondre aux besoins de votre entreprise. Pour plus d’informations sur la création des modèles de rapport, consultez [Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
+ Zwar sind in Configuration Manager Beispielmodellberichte enthalten, aber Sie können auch eigene Berichtsmodelle definieren, die Ihre speziellen Unternehmensanforderungen erfüllen. Weitere Informationen zum Erstellen von Berichtsmodellen finden Sie unter [Erstellen benutzerdefinierter Berichtsmodelle für System Center Configuration Manager in SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Planification de la création de rapports](planning-for-reporting.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+## <a name="next-steps"></a>Nächste Schritte
+[Planen der Berichterstellung](planning-for-reporting.md)

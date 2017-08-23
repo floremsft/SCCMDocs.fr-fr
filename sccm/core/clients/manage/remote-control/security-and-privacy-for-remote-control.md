@@ -1,67 +1,63 @@
 ---
-title: "Sécurité et confidentialité pour le contrôle à distance | Microsoft Docs"
-description: "Obtenez des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center Configuration Manager."
+title: "Sicherheit und Datenschutz für die Remotesteuerung | Microsoft-Dokumentation"
+description: "Erhalten Sie Informationen zu Sicherheit und Datenschutz für die Remotesteuerung in System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 272ee86b-d3d9-4fd9-b5c4-73e490e1a1e4
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
-ms.openlocfilehash: 342a58d2b7439f721381beb43188594b5278043d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 03b8ede7fa4f4c02ffb551bb28fe2db234d39b12
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour le contrôle à distance dans System Center Configuration Manager
+# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Sicherheit und Datenschutz für die Remotesteuerung in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
+In diesem Thema finden Sie Informationen zu Sicherheit und Datenschutz für die Remotesteuerung in System Center 2012 Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
- Utilisez les meilleures pratiques de sécurité suivantes lorsque vous gérez des ordinateurs client à l'aide du contrôle à distance.  
+##  <a name="BKMK_Security_HardwareInventory"></a> Bewährte Sicherheitsmethoden für die Remotesteuerung  
+ Wenden Sie die folgenden bewährten Sicherheitsmethoden an, wenn Sie Clientcomputer mithilfe von Remotesteuerung verwalten:  
 
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Bewährte Sicherheitsmethode|Weitere Informationen|  
 |----------------------------|----------------------|  
-|Quand vous vous connectez à un ordinateur distant, ne continuez pas si l’authentification NTLM est utilisée au lieu de l’authentification Kerberos.|Quand Configuration Manager détecte que la session de contrôle à distance est authentifiée à l’aide de NTLM plutôt que Kerberos, une invite apparaît pour vous avertir que l’identité de l’ordinateur distant ne peut pas être vérifiée. Ne poursuivez pas la session de contrôle à distance. L'authentification NTLM est un protocole d'authentification plus faible que Kerberos et elle est vulnérable à la relecture et à l'emprunt d'identité.|  
-|N’activez pas le partage du Presse-papiers dans l’observateur de contrôle à distance.|Le Presse-papiers prend en charge des objets tels que des fichiers exécutables ou du texte et il peut être utilisé par l’utilisateur sur l’ordinateur hôte pendant la session de contrôle à distance pour exécuter un programme sur l’ordinateur d’origine.|  
-|N’entrez pas de mots de passe pour les comptes privilégiés en cas d’administration à distance d’un ordinateur.|Des logiciels qui observent les saisies clavier peuvent intercepter le mot de passe. Ou bien, si le programme en cours d’exécution sur l’ordinateur client n’est pas celui auquel l’utilisateur du contrôle à distance pense, ce programme peut être en train de capturer le mot de passe. Lorsque des comptes et des mots de passe sont demandés, ils doivent être saisis par l'utilisateur final.|  
-|Verrouillez le clavier et la souris pendant une session de contrôle à distance.|Si Configuration Manager détecte que la connexion de contrôle à distance est terminée, Configuration Manager verrouille automatiquement le clavier et la souris afin qu’aucun utilisateur ne puisse prendre le contrôle de la session de contrôle à distance ouverte. Toutefois, cette détection peut ne pas se produire immédiatement et ne se produit pas si le service de contrôle à distance est terminé.<br /><br /> Sélectionnez l'action **Verrouiller le clavier distant et la souris** dans la fenêtre **Contrôle à distance ConfigMgr** .|  
-|N’autorisez pas les utilisateurs à configurer les paramètres de contrôle à distance dans le Centre logiciel.|N'activez pas le paramètre client **Les utilisateurs peuvent modifier les paramètres de stratégie ou de notification dans le Centre logiciel** pour empêcher l'espionnage des utilisateurs.<br /><br /> Ce paramètre est destiné à l’ordinateur et non à l’utilisateur connecté.|  
-|Activez le profil de pare-feu Windows **Domaine** .|Activez le paramètre client **Activer le contrôle à distance sur les profils d'exception de pare-feu clients** , puis sélectionnez le pare-feu Windows **Domaine** pour les ordinateurs de l'intranet.|  
-|Si vous fermez une session pendant un contrôle à distance et vous connectez en tant qu’utilisateur différent, assurez-vous de fermer la session avant de déconnecter la session de contrôle à distance.|Si vous ne fermez pas la session selon ce scénario, la session reste ouverte.|  
-|N’accordez pas aux utilisateurs des droits d’administrateur local.|Lorsque vous accordez aux utilisateurs des droits d'administrateur local, ils peuvent reprendre votre session de contrôle à distance ou compromettre vos informations d'identification.|  
-|Utilisez une stratégie de groupe ou Configuration Manager pour configurer les paramètres d’assistance à distance, mais pas les deux.|Vous pouvez utiliser Configuration Manager et une stratégie de groupe pour modifier la configuration des paramètres d’assistance à distance. Quand la stratégie de groupe est actualisée sur le client, par défaut, le processus est optimisé en modifiant uniquement les stratégies qui ont été modifiées sur le serveur. Configuration Manager modifie les paramètres de la stratégie de sécurité locale, qui ne peuvent pas être remplacés, sauf si la mise à jour de la stratégie de groupe est imposée.<br /><br /> Définir la stratégie aux deux emplacements peut provoquer des incohérences. Choisissez l'une des méthodes ci-dessous pour configurer vos paramètres d'assistance à distance.|  
-|Activez le paramètre client **Inviter l’utilisateur à autoriser le contrôle à distance**.|Bien qu'il soit possible de contourner ce paramètre client qui invite un utilisateur à confirmer une session de contrôle à distance, activez ce paramètre afin de réduire le risque d'espionnage des utilisateurs lorsqu'ils travaillent sur des tâches confidentielles.<br /><br /> En outre, apprenez aux utilisateurs à vérifier le nom du compte qui est affiché pendant la session de contrôle à distance et à fermer la session s'ils pensent que le compte n'est pas autorisé.|  
-|Limitez la liste des observateurs autorisés.|Des droits d'administrateur local ne sont pas nécessaires à l'utilisation du contrôle à distance par un utilisateur.|  
+|Wenn Sie eine Verbindung mit einem Remotecomputer herstellen, dann fahren Sie nicht fort, wenn NTLM-Authentifizierung statt Kerberos-Authentifizierung verwendet wird.|Wenn von Configuration Manager festgestellt wird, dass die Remotesteuerungssitzung mithilfe von NTLM statt Kerberos authentifiziert wird, erhalten Sie eine Warnmeldung, dass die Identität des Remotecomputers nicht überprüft werden kann. Setzen Sie die Remotesteuerungssitzung nicht fort. Das NTLM-Authentifizierungsprotokoll ist schwächer als Kerberos und anfällig für Replay sowie Identitätsvortäuschung.|  
+|Aktivieren Sie nicht die Freigabe der Zwischenablage im Remotesteuerungsviewer.|Die Zwischenablage unterstützt neben Text auch Objekte wie ausführbare Dateien und kann während der Remotesteuerungssitzung vom Benutzer des Hostcomputers zum Ausführen von Programmen auf dem Quellcomputer verwendet werden.|  
+|Geben Sie bei der Remoteverwaltung von Computern keine Kennwörter für privilegierte Konten ein.|Eine Software, die Tastatureingaben überwacht, kann das Kennwort möglicherweise ermitteln. Wenn das auf dem Clientcomputer ausgeführte Programm nicht das Programm ist, das der Remotesteuerungsbenutzer erwartet, kann dieses Programm das Kennwort unrechtmäßig erfassen. Sind Konten und Kennwörter erforderlich, sollte der Endbenutzer diese eingeben.|  
+|Sperren Sie während der Remotesteuerungssitzung Tastatur und Maus.|Wenn von Configuration Manager erkannt wird, dass die Remotesteuerungsverbindung beendet wurde, werden Tastatur und Maus automatisch von Configuration Manager gesperrt, sodass kein Benutzer die offene Remotesteuerungssitzung übernehmen kann. Diese Erkennung findet u. U. jedoch nicht sofort statt, und sie erfolgt gar nicht, wenn der Remotesteuerungsdienst beendet wurde.<br /><br /> Wählen Sie die Aktion **Remotetastatur und -maus sperren** im Fenster **ConfigMgr-Remotesteuerung** aus.|  
+|Gestatten Sie Benutzern nicht das Konfigurieren der Remotesteuerungseinstellungen im Softwarecenter.|Aktivieren Sie nicht die Clienteinstellung **Benutzer können Richtlinien- oder Benachrichtigungseinstellungen im Softwarecenter ändern** , um zu vermeiden, dass Benutzer ausspioniert werden können.<br /><br /> Diese Einstellung gilt für den Computer, nicht für den angemeldeten Benutzer.|  
+|Aktivieren Sie das Windows-Firewall-Profil **Domäne** .|Aktivieren Sie die Clienteinstellung **Remotesteuerung auf Clients aktivieren - Firewallausnahmeprofile** und wählen Sie die Windows-Firewall **Domäne** für die Computer im Intranet.|  
+|Wenn Sie sich während einer Remotesteuerungssitzung abmelden und als anderer Benutzer wieder anmelden, dann achten Sie darauf, sich abzumelden, bevor Sie die Remotesteuerungssitzung beenden.|Wenn Sie sich nicht wie beschrieben abmelden, bleibt die Sitzung geöffnet.|  
+|Gewähren Sie Benutzern keine lokalen Administratorrechte.|Wenn Sie Benutzern lokale Administratorrechte gewähren, könnten sie Ihre Remotesteuerungssitzung übernehmen oder Ihre Anmeldeinformationen gefährden.|  
+|Verwenden Sie zum Konfigurieren von Remoteunterstützungseinstellungen entweder Gruppenrichtlinien oder Configuration Manager, aber nicht beide zusammen.|Sie können Configuration Manager oder Gruppenrichtlinien verwenden, um Konfigurationsänderungen an den Remoteunterstützungseinstellungen vorzunehmen. Wenn Gruppenrichtlinien auf dem Client aktualisiert werden, wird der Prozess standardmäßig optimiert, indem nur die Richtlinien geändert werden, die auf dem Server geändert wurden. Configuration Manager ändert die Einstellungen in der lokalen Sicherheitsrichtlinie, die nicht überschrieben werden darf, es sei denn, das Gruppenrichtlinienupdate wird erzwungen.<br /><br /> Das Festlegen der Richtlinien an beiden Orten kann jedoch zu inkonsistenten Ergebnissen führen. Wählen Sie eine dieser Methoden aus, um die Remoteunterstützungseinstellungen zu konfigurieren.|  
+|Aktivieren Sie die Clienteinstellung **Benutzer zur Vergabe der Berechtigung für Remotesteuerung auffordern**.|Auch wenn es Möglichkeiten gibt, diese Clienteinstellung zu umgehen, die den Benutzer auffordert, die Remotesteuerungssitzung zu bestätigen, aktivieren Sie die Einstellung dennoch, um die Risiken zu reduzieren, dass Benutzer bei der Arbeit an vertraulichen Aufgaben ausgespäht werden.<br /><br /> Halten Sie zusätzlich die Benutzer dazu an, den Kontennamen zu überprüfen, der während der Remotesteuerungssitzung angezeigt wird, und die Verbindung zu trennen, wenn sie den Verdacht haben, dass das Konto nicht autorisiert ist.|  
+|Begrenzen Sie die Liste der zugelassenen Viewer.|Benutzer benötigen keine lokalen Administratorrechte, um die Remotesteuerung zu verwenden.|  
 
-### <a name="security-issues-for-remote-control"></a>Problèmes de sécurité pour le contrôle à distance  
- La gestion d'ordinateurs client à l'aide du contrôle à distance présente les problèmes de sécurité suivants :  
+### <a name="security-issues-for-remote-control"></a>Sicherheitsprobleme bei der Remotesteuerung  
+ Das Verwalten von Clientcomputern mit der Remotesteuerung birgt folgende Sicherheitsprobleme:  
 
--   Ne considérez pas les messages d’audit de contrôle à distance comme fiables.  
+-   Betrachten Sie Remotesteuerungs-Überwachungsmeldungen nicht als zuverlässig.  
 
-     Si vous démarrez une session de contrôle à distance et vous vous connectez ensuite à l’aide d’autres informations d’identification, c’est le compte d’origine qui envoie les messages d’audit et non le compte qui a utilisé les autres informations d’identification.  
+     Wenn Sie eine Remotesteuerungssitzung starten und sich dann mit alternativen Anmeldeinformationen anmelden, werden die Überwachungsmeldungen vom ursprünglichen Konto gesendet und nicht von dem Konto mit den alternativen Anmeldeinformationen.  
 
-     Les messages d’audit ne sont pas envoyés si vous copiez les fichiers binaires pour le contrôle à distance au lieu d’installer la console Configuration Manager, puis exécutez le contrôle à distance à partir de l’invite de commandes.  
+     Es werden keine Überwachungsmeldungen gesendet, wenn Sie die Binärdateien zur Remotesteuerung kopieren, anstatt die Configuration Manager-Konsole zu installieren, und dann die Remotesteuerung an der Eingabeaufforderung ausführen.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le contrôle à distance  
- Le contrôle à distance vous permet d’afficher les sessions actives sur les ordinateurs clients Configuration Manager et de consulter éventuellement des informations stockées sur ces ordinateurs. Par défaut, le contrôle à distance n’est pas activé.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Datenschutzinformationen zur Remotesteuerung  
+ Die Remotesteuerung ermöglicht das Anzeigen aktiver Sitzungen auf Configuration Manager-Clientcomputern, und möglicherweise aller auf diesen Computern gespeicherten Informationen. Die Remotesteuerung ist standardmäßig nicht aktiviert.  
 
- Bien que vous puissiez le configurer pour envoyer des avis importants et obtenir le consentement d'un utilisateur avant le début d'une session de contrôle à distance, il peut également surveiller les utilisateurs sans qu'ils le veuillent ou le sachent. Vous pouvez configurer le niveau d'accès Afficher uniquement, de sorte que rien ne puisse être modifié sur le contrôle à distance ou le contrôle intégral. Le compte de l'administrateur de connexion s'affiche dans la session de contrôle à distance pour aider les utilisateurs à savoir qui se connecte à leur ordinateur.  
+ Sie können die Remotesteuerung so konfigurieren, dass Benutzer vor Beginn einer Remotesteuerungssitzung eine deutliche Ankündigung erhalten und zustimmen können. Es ist allerdings auch möglich, Benutzer ohne deren Erlaubnis oder Wissen zu überwachen. Sie können die Zugriffsstufe "Nur anzeigen" konfigurieren, sodass per Remotesteuerung nichts verändert werden kann, oder "Vollzugriff". Während der Remotesteuerungssitzung wird das Konto des Administrators angezeigt, der die Verbindung herstellt, damit die Benutzer erkennen können, wer eine Verbindung mit ihrem Computer herstellt.  
 
- Par défaut, Configuration Manager accorde au groupe Administrateurs local des autorisations de contrôle à distance.  
+ In der Standardeinstellung von Configuration Manager werden der lokalen Administratorgruppe Remotesteuerungsberechtigungen gewährt.  
 
- Avant de configurer le contrôle à distance, analysez vos besoins en matière de confidentialité.  
-
+ Berücksichtigen Sie beim Konfigurieren der Remotesteuerung Ihre Datenschutzanforderungen.  

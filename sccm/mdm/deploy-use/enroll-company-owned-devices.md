@@ -1,50 +1,46 @@
 ---
-title: "Inscrire des appareils d’entreprise - Configuration Manager | Microsoft Docs"
-description: "Découvrez les différentes méthodes d’inscription des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager."
+title: "Registrieren von unternehmenseigenen Geräten – Configuration Manager | Microsoft-Dokumentation"
+description: "Erfahren Sie mehr über verschiedene Methoden für die Registrierung unternehmenseigener Geräte für Hybridbereitstellungen mit Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2754ce6-1460-4ddd-9050-2cc87e7964f4
-caps.latest.revision: 13
+caps.latest.revision: "13"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: f0b503d8c9eba2dd1b6eb4c41ec40c001b727326
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrire des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager
+# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Registrieren von unternehmenseigenen Geräten für Hybridbereitstellungen mit Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Les appareils d’entreprise ou d’organisation peuvent être gérés de différentes façons en fonction du type de l’appareil et de la méthode utilisée pour son achat.  
+Organisations- oder unternehmenseigene Geräte (COD) können mit einer Vielzahl von Methoden verwaltet werden, die vom Gerät und der Erwerbsart abhängen.  
 
-## <a name="enroll-device-enrollment-program-ios-devices"></a>Inscrire des appareils iOS à l’aide du programme d’inscription d’appareils DEP  
- Un profil d’inscription « à distance » est déployé sur les appareils ayant été achetés par le biais du programme DEP d’Apple. Quand l’utilisateur exécute l’Assistant Configuration sur l’appareil, cet appareil est automatiquement inscrit dans Intune.  Les appareils inscrits via le programme DEP ne peuvent pas être désinscrits par les utilisateurs. Pour plus d’informations, consultez [Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
+## <a name="enroll-device-enrollment-program-ios-devices"></a>Registrieren von iOS-Geräten des Programms zur Geräteregistrierung  
+ Stellt ein „drahtloses“ Registrierungsprofil für Geräte, die über das Geräteregistrierungsprogramm von Apple erworben wurden, bereit. Wenn der Benutzer den Setup-Assistenten auf dem Gerät ausführt, wird das Gerät in Intune registriert.  Die Registrierung von Geräten über DEP kann von Benutzern nicht rückgängig gemacht werden. Siehe [iOS-Registrierung im Programm zur Geräteregistrierung (Device Enrollment Program, DEP) für die Hybridbereitstellung mit Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
 
-## <a name="enroll-ios-devices-with-apple-configurator"></a>Inscrire des appareils iOS à l’aide de l’outil Apple Configurator  
- Avec cette méthode, l’administrateur doit préconfigurer l’inscription de l’appareil iOS après avoir établi une connexion USB entre l’appareil et un ordinateur Mac exécutant Apple Configurator. L’appareil est ensuite remis à l’utilisateur, qui doit exécuter l’Assistant Configuration pour configurer l’appareil avec les informations d’identification de son compte professionnel ou scolaire et terminer le processus d’inscription. Pour plus d’informations, consultez [Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
+## <a name="enroll-ios-devices-with-apple-configurator"></a>Registrieren von iOS-Geräten mit Apple Configurator  
+ Bei dieser Methode muss der Administrator eine USB-Verbindung zwischen dem iOS-Gerät und einem Macintosh-Computer mit Apple Configurator herstellen, um die Registrierung vorzukonfigurieren. Die Geräte werden dann an ihre Benutzer übergeben, die den Setup-Assistenten ausführen, das Gerät mit ihren Geschäfts-, Uni- oder Schulanmeldeinformationen konfigurieren und den Registrierungsprozess abschließen. Siehe [iOS-Hybridregistrierung mithilfe von Apple Configurator mit Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
 
-## <a name="device-enrollment-manager"></a>Gestionnaire d’inscription d’appareil  
- Les organisations peuvent utiliser Intune pour gérer un grand nombre d’appareils mobiles avec un seul compte d’utilisateur, appelé compte de gestionnaire d’inscription d’appareil. Après avoir créé un compte de gestionnaire d’inscription d’appareil, l’administrateur peut utiliser ce compte s’il a besoin d’inscrire plus de cinq appareils, qui est le nombre autorisé par défaut pour les utilisateurs standard. L’inscription d’appareils à l’aide d’un gestionnaire d’inscription d’appareil est possible uniquement pour les appareils qui ne sont pas dédiés à un utilisateur spécifique. Ces appareils sont appropriés pour les applications de point de vente ou les utilitaires, par exemple, mais ils ne le sont pas pour les utilisateurs qui doivent accéder à leurs e-mails ou à des ressources d’entreprise. Consultez [Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
+## <a name="device-enrollment-manager"></a>Geräteregistrierungsmanager  
+ Mit Intune können Organisationen eine Vielzahl mobiler Geräte mit einem einzelnen Benutzerkonto, auch Geräteregistrierungsmanager genannt, verwalten. Nach dem Erstellen eines Geräteregistrierungsmanager-Kontos kann dieses Konto von einem Manager verwendet werden, um mehr als die fünf Standardgeräte, die für normale Benutzer standardmäßig zulässig sind, zu registrieren. Das Registrieren von Geräten mit einem Geräteregistrierungsmanager funktioniert nur bei Geräten, die nicht von einem bestimmten Benutzer verwendet werden. Diese Geräte sind z.B. gut für POS- oder -Dienstprogramm-Apps, aber schlecht für Benutzer, die Zugriff auf E-Mails oder Unternehmensressourcen benötigen. Siehe [Geräte mit dem Geräteregistrierungsmanager mit Configuration Manager registrieren](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
 
-## <a name="user-affinity-for-managed-devices"></a>Affinité utilisateur pour les appareils gérés  
- Quand il configure des profils pour des appareils d’entreprise, l’administrateur peut spécifier si les appareils gérés prennent en charge l’*affinité utilisateur* qui associe un utilisateur spécifique avec l’appareil. Des appareils configurés avec une **affinité utilisateur** peuvent installer et exécuter l’application Portail d’entreprise pour télécharger des applications et gérer des appareils. Consultez [Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+## <a name="user-affinity-for-managed-devices"></a>Benutzeraffinität für verwaltete Geräte  
+ Beim Konfigurieren von Profilen für unternehmenseigene Geräte kann der Administrator angeben, ob die verwalteten Geräte *Benutzeraffinität* unterstützen. Damit werden bestimmte Benutzer mit dem Gerät identifiziert. Auf mit **user affinity** konfigurierten Geräten kann die Unternehmensportal-App installiert und ausgeführt werden, um Apps herunterzuladen und Geräte zu verwalten. Siehe [Benutzeraffinität für hybridverwaltete Geräte in Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-## <a name="manage-devices-with-activation-lock"></a>Gérer des appareils à l’aide du verrou d’activation  
- Microsoft Intune peut vous aider à gérer le verrou d’activation iOS, qui est une fonctionnalité de l’application Rechercher mon iPhone disponible sur les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Consultez [Gérer le verrou d’activation iOS avec System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
+## <a name="manage-devices-with-activation-lock"></a>Verwalten von Geräten mit Aktivierungssperre  
+ Microsoft Intune kann Sie beim Verwalten der iOS-Aktivierungssperre unterstützen. Dies ist ein Feature der App „Mein iPhone suchen“ für iOS 7.1 und höher. Die Aktivierungssperre wird automatisch aktiviert, wenn die iPhone-App „Mein iPhone suchen“ auf einem Gerät verwendet wird. Siehe [iOS-Aktivierungssperre mit System Center Configuration Manager verwalten](../../mdm/deploy-use/manage-ios-activation-lock.md).
 
- ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
+ ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Vorabdeklarieren von Geräten mit IMEI- oder iOS-Seriennummern
 
-Vous pouvez identifier des appareils d’entreprise en important leur numéro IMEI (International Mobile Equipment Identity) ou leur numéro de série iOS. Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) qui contient les numéros IMEI des appareils, ou saisir vous-même les informations sur les appareils.  Pour plus d’informations, consultez [Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).
-
+Sie können unternehmenseigene Geräte identifizieren, indem Sie deren IMEI-Nummern (International Station Mobile Equipment Identity) oder iOS-Seriennummern importieren. Sie können eine CSV-Datei (comma-separated values, durch Trennzeichen getrennte Datei) hochladen, die die IMEI-Nummern der Geräte enthält, oder Geräteinformationen manuell eingeben.  Siehe [Vorabdeklarieren von Geräten mit Hardware-ID-Nummern](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).

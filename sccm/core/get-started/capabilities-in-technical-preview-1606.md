@@ -1,269 +1,266 @@
 ---
-title: "Fonctionnalités de Technical Preview 1606 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1606 für Configuration Manager"
+description: "Erfahren Sie mehr über Features, die in Technical Preview für System Center Configuration Manager 1606 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 134a2f60-811e-4dc9-a8f5-1ce0018c5c12
-caps.latest.revision: 31
+caps.latest.revision: "31"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d08d1f9ccd995d544c3c21c4af52ede73343077
-ms.openlocfilehash: a84d3ab55066d26c3199ea374d8beb472d66f43f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 08747ca981f6697e2bd621afe5df0e3bd06b332d
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1606 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+In diesem Artikel werden die Features erläutert, die in Technical Preview für System Center Configuration Manager 1606 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates für Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
 
-**Problèmes connus dans cette version d’évaluation technique :**  
-*  Lorsque vous mettez à jour la version d’évaluation technique 1604 vers la version 1605, puis vers la version 1606, la mise à jour peut échouer et une erreur similaire à la suivante est enregistrée dans le fichier **cmupdate.log** :
+**Bekannte Probleme in dieser Technical Preview:**  
+*  Wenn Sie Technical Preview 1604 auf 1605, und dann auf Version 1606 aktualisieren, schlägt das Update möglicherweise fehl, und ein Fehler ähnlich dem folgenden in der Datei **cmupdate.log** wird protokolliert:
 
        ERROR: Failed to execute SQL Server command:  ~ ~-- Create site boundary group ~IF  dbo.fnIsCasOrStandalonePrimary() = 1 ~BEGIN ~   PRINT N'Create site boundary group during upgrade' ~   EXEC dbo.spBuildDefaultBoundaryGroups @UserName = N'SYSTEM' ~END          
 
-    Si cela se produit, dans le nœud **Mises à jour et maintenance**, cliquez sur **Rechercher les mises à jour**, puis **réessayez** l’installation de la mise à jour.
+    In diesem Fall, klicken Sie im Knoten **Updates und Wartung** auf **Nach Updates suchen**, und **Wiederholen** Sie dann die Installation des Updates.
     ***
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-## <a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
-Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
+## <a name="dmp_category"></a> Automatisches Kategorisieren von Geräten in Sammlungen
+Sie können Gerätekategorien erstellen, mit denen Geräte automatisch in Gerätesammlungen platziert werden, wenn Sie Configuration Manager mit Microsoft Intune verwenden. Benutzer müssen eine Gerätekategorie auswählen, wenn sie ein Gerät in Intune registrieren. Sie können außerdem die Kategorie eines Geräts in der Configuration Manager-Konsole ändern.
 
-**Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+**Wichtig:** Diese Funktion arbeitet mit der **Juni 2016**-Release von Microsoft Intune. Stellen Sie sicher, dass Sie über dieses Release verfügen, bevor Sie dieses Verfahren ausprobieren.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-### <a name="create-a-set-of-device-categories"></a>Créer un ensemble de catégories d’appareils
-1.  Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, développez **Vue d’ensemble**, puis cliquez sur **Regroupements d’appareils**.
-2.  Sous l’onglet **Accueil**, dans le groupe **Catégories**, cliquez sur **Gérer les catégories d’appareils**.
-3.  Dans la boîte de dialogue **Gérer les catégories d’appareils**, vous pouvez créer, modifier ou supprimer des catégories. Essayez de créer une nouvelle catégorie.
+### <a name="create-a-set-of-device-categories"></a>Erstellen Sie einen Satz von Gerätekategorien
+1.  Erweitern Sie **Überblick** im Arbeitsbereich **Bestand und Kompatibilität** der Configuration Manager-Konsole, und klicken Sie dann auf **Gerätesammlungen**.
+2.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Kategorien** auf **Gerätekategorien verwalten**.
+3.  Im Dialogfeld **Gerätekategorien verwalten** können Sie Kategorien erstellen, bearbeiten oder entfernen. Versuchen Sie, eine neue Kategorie zu erstellen.
 
-### <a name="associate-a-collection-with-a-device-category"></a>Associer un regroupement à une catégorie d’appareils
-Quand vous associez un regroupement à une catégorie d’appareils, tous les appareils de la catégorie que vous spécifiez sont ajoutés à ce regroupement.
-1.  Dans la boîte de dialogue **Propriétés** d’un regroupement d’appareils, cliquez sur **Ajouter une règle** > **Règle de catégorie d’appareils**.
-2.  Dans la boîte de dialogue **Créer une règle d’adhésion de catégorie d’appareils**, sélectionnez la catégorie à appliquer à tous les appareils du regroupement.
-3.  Fermez la boîte de dialogue **Créer une règle d’adhésion de catégorie d’appareils** et celle des propriétés du regroupement.
+### <a name="associate-a-collection-with-a-device-category"></a>Ordnen Sie eine Sammlung einer Gerätekategorie zu
+Wenn Sie eine Sammlung zu einer Gerätekategorie zuordnen, werden alle Geräte in der von Ihnen angegebenen Kategorie zu dieser Sammlung hinzugefügt.
+1.  Klicken Sie auf dem Dialogfeld für eine Gerätesammlung **Eigenschaften** auf **Regel hinzufügen** > **Gerätekategorieregel**.
+2.  Wählen Sie im Dialogfeld **Mitgliedschaftsregel für die Gerätekategorie erstellen** die Kategorie aus, die auf alle Geräte in der Sammlung angewendet wird.
+3.  Schließen Sie das Dialogfeld **Mitgliedschaftsregel für die Gerätekategorie auswählen** sowie das Dialogfeld Sammlungseigenschaften.
 
-### <a name="change-the-category-of-a-device"></a>Changer la catégorie d’un appareil
-1.  Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, développez **Vue d’ensemble**, puis cliquez sur **Appareils**.
-2.  Sélectionnez un appareil dans la liste **Appareils** et, sous l’onglet **Accueil**, dans le groupe **Appareil**, cliquez sur **Changer la catégorie**.
-3.  Dans la boîte de dialogue **Modifier la catégorie d’appareils**, choisissez la catégorie à appliquer à cet appareil, puis cliquez sur **OK**.
+### <a name="change-the-category-of-a-device"></a>Ändern der Gerätekategorie
+1.  Erweitern Sie den **Überblick** im Arbeitsbereich **Bestand und Kompatibilität** der Configuration Manager-Konsole, und klicken Sie dann auf **Geräte**.
+2.  Wählen Sie ein Gerät in der Liste **Geräte** aus, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Gerät** auf **Kategorie ändern**.
+3.  Wählen Sie im Dialogfeld **Gerätekategorie bearbeiten** die Kategorie aus, die auf dieses Gerät angewendet werden soll, und klicken Sie dann auf **OK**.
 
-## <a name="dmp_grace"></a> Période de grâce de mise en œuvre des déploiements d’applications et de mises à jour logicielles obligatoires
+## <a name="dmp_grace"></a> Erzwingung der Karenzzeit für erforderliche Anwendungen und Bereitstellungen von Softwareupdates
 
-Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour.
-Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard.
-Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+In einigen Fällen empfiehlt es sich, Benutzern mehr Zeit zum Installieren von erforderlichen Anwendungsbereitstellungen oder Softwareupdates, über die von Ihnen konfigurierten Fristen hinaus, zu geben. Dies kann erforderlich sein, wenn ein Computer für einen längeren Zeitraum ausgeschaltet war und eine große Anzahl von Anwendungs- oder Updatebereitstellungen installieren muss.
+Wenn z.B. ein Benutzer gerade aus dem Urlaub zurückgekehrt ist, muss er möglicherweise sehr lange warten, bis überfällige Anwendungsbereitstellungen installiert sind.
+Sie können jetzt eine zwingende Toleranzperiode definieren, um dieses Problem zu lösen. Dafür müssen Sie die Configuration Manager-Clienteinstellungen für eine Sammlung bereitstellen.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-Pour configurer la période de grâce, procédez comme suit :
+Führen Sie folgende Aktionen aus, um die Karenzzeit zu konfigurieren:
 
-1.  Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
-2.  Dans un nouveau déploiement d’application requis, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**.
-Tous les déploiements pour lesquels cette case à cocher est activée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utiliseront la période de grâce de mise en œuvre.
+1.  Auf der Seite **Computer-Agent** der Clienteinstellungen müssen Sie die neue Eigenschaft **Karenzzeit für Erzwingung nach Bereitstellungsfrist (Stunden)** mit einem Wert zwischen **1** und **120** Stunden konfigurieren.
+2.  Aktivieren Sie in einer neuen erforderlichen Anwendungsbereitstellung oder in den Eigenschaften einer vorhandenen Bereitstellung auf der Seite **Planung** das Kontrollkästchen **Erzwingung dieser Bereitstellung entsprechend den Benutzervoreinstellungen verzögern**, bis zu der Toleranzperiode, die in den Clienteinstellungen definiert ist.
+Alle Bereitstellungen, für die dieses Kontrollkästchen ausgewählt ist, und die für Geräte vorgesehen sind, für die Sie ebenfalls die Clienteinstellungen bereitgestellt haben, werden die Toleranzperiode verwenden.
 
-Si vous configurez une période de grâce de mise en œuvre et cochez la case, une fois que l’échéance d’installation d’application est atteinte, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée jusqu’à cette période de grâce. Toutefois, l’utilisateur peut toujours ouvrir le Centre logiciel et installer l’application à tout moment, s’il le souhaite. Une fois que la période de grâce a expiré, le comportement de mise en œuvre redevient normal pour les déploiements en retard.
-Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés.
+Wenn Sie eine Toleranzperiode konfigurieren und das Kontrollkästchen aktivieren, wird die Anwendung im ersten, nicht geschäftlichen Fenster installiert werden, das der Benutzer nach Ablauf der Frist konfiguriert. Der Benutzer kann jedoch weiterhin das Software Center öffnen und die Anwendung zu einem beliebigen Zeitpunkt installieren. Nach Ablauf der Toleranzperiode wird die Erzwingung auf normales Verhalten für überfällige Bereitstellungen zurückgesetzt.
+Ähnliche Optionen wurden zum Bereitstellungsassistenten für Softwareupdates, zum Assistenten für automatische Bereitstellungsregeln und den Eigenschaftenseiten hinzugefügt.
 
-##  <a name="dmp_devg"></a>Utilisation de Configuration Manager comme programme d’installation géré avec Device Guard
+##  <a name="dmp_devg"></a>Verwendung von Configuration Manager als verwalteter Installer mit Device Guard
 
-Device Guard est une fonctionnalité de Windows 10 qui utilise des fonctionnalités matérielles et logicielles pour contrôler de manière stricte ce qui est autorisé à s’exécuter sur l’appareil.
+Device Guard ist ein Windows 10-Feature, das Hardware- und Software-Features verwendet, um genau zu kontrollieren, was zur Ausführung auf dem Gerät zulässig ist.
 
-Vous pouvez lire une présentation détaillée de ce que fait Device Guard et de la manière dont il fonctionne dans [cet article Technet](https://technet.microsoft.com/itpro/windows/whats-new/device-guard-overview).
+Eine ausführliche Übersicht über die Funktionsweise und die Aktionen von Device Guard finden Sie in diesem [Technet-Artikel](https://technet.microsoft.com/itpro/windows/whats-new/device-guard-overview).
 
-Dans cette version, Configuration Manager peut interagir avec Device Guard et [Windows AppLocker](https://technet.microsoft.com/library/dd723678(v=ws.10).aspx) afin que les fichiers exécutables et DLL qui sont déployés avec Configuration Manager soient automatiquement approuvés quand ils proviennent d’un programme d’installation géré. Cela signifie que ces fichiers seront autorisés à s’exécuter sur l’appareil cible, alors que d’autres logiciels ne pourront pas s’exécuter, sauf s’ils sont explicitement autorisés à le faire par d’autres règles AppLocker.  
+In diesem Release kann Configuration Manager mit Device Guard und [Windows AppLocker](https://technet.microsoft.com/library/dd723678(v=ws.10).aspx) zusammenarbeiten, damit ausführbare und DLL-Dateien, die mit Configuration Manager bereitgestellt werden, automatisch als vertrauenswürdig eingestuft werden, da sie aus einem verwalteten Installationsprogramm stammen, d.h., sie können auf dem Zielgerät ausgeführt werden und andere Software nicht, außer wenn es durch andere AppLocker-Regeln zulässig gemacht wird.  
 
-Actuellement, cette fonctionnalité n’est pas configurable à partir de la console Configuration Manager. Configurer cette stratégie vous oblige à configurer une clé de Registre sur chaque client et à configurer les services Windows sur le client.
-Une fois cette opération effectuée, configurez le fichier de stratégie AppLocker. Après avoir configuré le fichier de stratégie, vous pouvez le déployer sur un appareil client compatible quelconque.
-
-
-Comme toutes les stratégies AppLocker, les stratégies avec des règles de programme d’installation géré peuvent s’exécuter dans deux modes :
-
-- Mode audit : Rien n’empêche les applications de s’exécuter, mais toutes les applications qui auraient été bloquées sont signalées dans un fichier journal (cette opération sera prise en charge dans une version ultérieure de Configuration Manager).
-- Mise en œuvre activée : Les applications sont bloquées et ne peuvent pas s’exécuter.
-
-Des informations complémentaires sur l’utilisation de Device Guard avec Configuration Manager sont disponibles dans le blog [Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/20/configmgr-as-a-managed-installer-with-win10).
-
-Articles complémentaires :
-
-- [Présentation de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies)
-- [Compatibilité et certification de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
-- [Guide de déploiement de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
-
- ##  <a name="dmp_onprem"></a> Points de gestion d’appareils multiples pour la gestion des appareils mobiles locale  
- Avec la version d’évaluation technique 1606, la gestion des appareils mobiles (MDM) locale prend en charge une nouvelle fonctionnalité de la mise à jour anniversaire de Windows 10, qui configure automatiquement un appareil inscrit pour bénéficier de plusieurs points de gestion d’appareil disponibles. Cette fonctionnalité permet à l’appareil de basculer vers un autre point de gestion d’appareil quand celui qu’il utilise normalement n’est pas disponible. Cette fonctionnalité fonctionne uniquement pour les PC dotés de la mise à jour anniversaire de Windows 10.  
-
-### <a name="try-it-out"></a>Essayez !  
-
-1.  Installez plusieurs points de gestion d’appareil dans votre hiérarchie.  
-
-2.  Inscrivez un appareil doté de la mise à jour anniversaire de Windows 10 pour la gestion des appareils mobiles locale.  
-
-Pour plus d’informations sur la façon de préparer votre site et d’inscrire des appareils pour la gestion des appareils mobiles locale, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
-
-## <a name="cloud_proxy"></a>Service proxy cloud pour la gestion des clients sur Internet
-
-Le service proxy cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et requiert un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle nommé Point du connecteur de proxy cloud. Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
-
-Vous utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point du connecteur de proxy cloud et configurer les rôles de système de site pour autoriser le trafic du proxy cloud. Le service proxy cloud ne prend en charge actuellement que les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle.
-
-Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. En plus de ces deux types de certificats, vous devez également configurer un certificat de gestion sur Azure, permettant à Configuration Manager de déployer le service proxy cloud.  
-
-### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Configuration requise pour le service proxy cloud dans la version d’évaluation technique 1606
-- Les ordinateurs clients et le serveur de système de site doivent exécuter le point du connecteur de proxy cloud.
-- Certificats SSL personnalisés provenant de l’autorité de certification interne : utilisés pour chiffrer la communication en provenance des ordinateurs clients et authentifier l’identité du service proxy cloud.
-- Abonnement Azure pour les services cloud.
-- Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
-
-### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Limitations du service proxy cloud dans la version d’évaluation technique 1606
-
-- Prend en charge uniquement les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle.
-- Les stratégies utilisateur ne sont pas prises en charge.
-- Ne peut pas être utilisé avec la [gestion des appareils mobiles locale](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) dans Configuration Manager.
-- Pris en charge uniquement sur la plateforme de cloud public d’Azure.
+Diese Funktion kann derzeit nicht über die Configuration Manager-Konsole konfiguriert werden. Zum Konfigurieren der Richtlinie müssen Sie einen Registrierungsschlüssel auf jedem Client und Windows-Dienste auf dem Client konfigurieren.
+Sobald dies geschehen ist, konfigurieren Sie die AppLocker-Richtliniendatei. Nachdem Sie die Richtliniendatei konfiguriert haben, können Sie sie auf allen kompatiblen Clientgeräten bereitstellen.
 
 
-### <a name="try-it-out"></a>Essayez !
+Wie alle AppLocker-Richtlinien können Richtlinien mit Manager Installer-Regeln in zwei Modi ausgeführt werden:
 
-Le processus de déploiement du service proxy cloud inclut les étapes suivantes :
+- Überwachungsmodus – Die Ausführung von Apps wird nicht verhindert, aber jede Anwendung, die blockiert worden wäre, wird in einer Protokolldatei gemeldet (Dies wird in einer späteren Release von Configuration Manager unterstützt).
+- Erzwingung aktiviert – Die Ausführung von Anwendungen wird blockiert.
 
-1. Créez et émettez un certificat SSL personnalisé pour le service proxy cloud.
-1. Exportez la racine du certificat client.
-2. Chargez le certificat de gestion dans Azure.
-3. Configurez le service proxy cloud dans la console Configuration Manager.
-4. Configurez le site principal pour utiliser l’authentification de certificat client.
-5. Ajoutez le point du connecteur de proxy cloud à votre site.
-6. Configurez les rôles de système de site pour accepter le trafic du proxy cloud.
+Weitere Informationen zur Verwendung von Device Guard mit Configuration Manager finden Sie auf dem [Enterprise Mobility und Security-Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/20/configmgr-as-a-managed-installer-with-win10).
 
-Les sections suivantes fournissent plus d’informations sur ces étapes.
+Weitere Informationen:
 
-#### <a name="create-a-custom-ssl-certificate"></a>Créer un certificat SSL personnalisé
+- [Einführung zu Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies)
+- [Device Guard-Zertifizierung und -Kompatibilität](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
+- [Device Guard-Bereitstellungshandbuch](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
 
-Vous pouvez créer un certificat SSL personnalisé pour le service proxy cloud de la même façon que vous le feriez pour un point de distribution basé sur le cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012), mais procédez différemment pour ce qui suit :
+ ##  <a name="dmp_onprem"></a> Verschiedene Geräteverwaltungspunkte für die lokale Verwaltung mobiler Geräte  
+ Mit Technical Preview 1606 unterstützt die lokale Verwaltung mobiler Geräte (MDM) jetzt eine neue Funktion im Windows 10 Anniversary Update, die ein registriertes Gerät automatisch konfiguriert, um mehr als einen Geräteverwaltungspunkt zur Verwendung zur Verfügung zu haben. Diese Funktion lässt Fallbacks des Geräts auf einen anderen Geräteverwaltungspunkt zu, wenn der normalerweise verwendete Punkt nicht verfügbar ist. Diese Funktion ist nur auf PCs verfügbar, auf denen das Windows 10 Anniversary Update installiert ist.  
 
-* Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
+### <a name="try-it-out"></a>Probieren Sie es aus!  
 
-#### <a name="export-the-client-certificates-root"></a>Exporter la racine du certificat client
+1.  Installieren Sie mehr als einen Geräteverwaltungspunkt in Ihrer Hierarchie.  
 
-Le moyen le plus simple pour exporter la racine des certificats clients utilisés sur le réseau consiste à ouvrir un certificat client sur l’une des machines jointes au domaine qui en possède un, et de le copier.
+2.  Registrieren Sie ein Gerät mit einem Windows 10 Anniversary Update für die lokale Verwaltung mobiler Geräte.  
+
+Informationen zum Vorbereiten Ihres Standorts und zur Registrierung von Geräten für die lokale Verwaltung mobiler Geräte, finden Sie unter [Verwalten mobiler Geräte mithilfe lokaler Infrastruktur in System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+
+## <a name="cloud_proxy"></a>Cloudproxydienst für die Verwaltung von Clients im Internet
+
+Der Cloudproxydienst bietet eine einfache Möglichkeit zum Verwalten von Configuration Manager-Clients im Internet. Der Dienst, der in Microsoft Azure bereitgestellt wird und ein Azure-Abonnement erfordert, stellt mithilfe einer neuen Rolle namens Cloudproxy-Connectorpunkt eine Verbindung mit Ihrer lokalen Configuration Manager-Infrastruktur her. Nachdem er bereitgestellt und konfiguriert wurde, können Clients auf lokale Configuration Manager-Standortsystemrollen zugreifen, unabhängig davon, ob sie mit dem internen, privaten Netzwerk oder über das Internet verbunden sind.
+
+Sie verwenden die Configuration Manager-Konsole zum Bereitstellen des Diensts in Azure, fügen die Cloudproxy-Connectorpunktrolle hinzu und konfigurieren Standortsystemrollen, damit sie den Cloudproxy-Datenverkehr zulassen. Der Cloudproxydienst unterstützt derzeit nur den Verwaltungspunkt, den Verteilungspunkt und Softwareupdatepunktrollen.
+
+Client-Zertifikate und Zertifikate für Secure Socket Layer (SSL) sind erforderlich, um Computer zu authentifizieren und die Kommunikation zwischen den verschiedenen Ebenen des Diensts verschlüsseln. In der Regel erhalten die Clientcomputer ein Clientzertifikat über das Durchsetzen von Gruppenrichtlinien. Zum Verschlüsseln des Datenverkehrs zwischen Clients und Standortsystemserver, der die Rollen hostet, müssen Sie ein benutzerdefiniertes SSL-Zertifikat von der Zertifizierungsstelle erstellen. Zusätzlich zu diesen beiden Zertifikattypen müssen Sie auch ein Verwaltungszertifikat in Azure einrichten, mit dem Configuration Manager den Cloudproxydienst bereitstellen kann.  
+
+### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Anforderungen für den Cloudproxydienst in TP 1606
+- Clientcomputer und der Standortsystemserver führen den Cloudproxy-Connectorpunkt aus.
+- Benutzerdefinierte SSL-Zertifikate von der internen Zertifizierungsstelle ‒ Werden zum Verschlüsseln der Kommunikation der Clientcomputer und zum Authentifizieren der Identität des Clouddiensts verwendet.
+- Azure-Abonnement für Clouddienste.
+- Azure-Verwaltungszertifikat ‒ Wird zur Authentifizierung von Configuration Manager mit Azure verwendet.
+
+### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Einschränkungen des Cloudproxydiensts in TP 1606
+
+- Unterstützt nur den Verwaltungspunkt, den Verteilungspunkt und Softwareupdatepunktrollen.
+- Benutzerrichtlinien werden nicht unterstützt.
+- Kann nicht mit [Lokale Verwaltung mobiler Geräte](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) in Configuration Manager verwendet werden.
+- Nur auf der öffentlichen Cloudplattform von Azure unterstützt.
+
+
+### <a name="try-it-out"></a>Probieren Sie es aus!
+
+Der Prozess für die Bereitstellung des Cloudproxydienstes umfasst die folgenden Schritte:
+
+1. Erstellen Sie ein benutzerdefiniertes SSL-Zertifikat und stellen Sie es für den Cloudproxydienst zur Verfügung.
+1. Exportieren Sie den Stamm des Clientzertifikats.
+2. Laden Sie das Verwaltungszertifikat in Azure hoch.
+3. Richten Sie den Cloudproxydienst in der Configuration Manager-Konsole ein.
+4. Konfigurieren Sie den primären Standort für die Nutzung der Clientzertifikatauthentifizierung.
+5. Fügen Sie den Cloudproxy-Connectorpunkt zu Ihrem Standort hinzu.
+6. Konfigurieren Sie die Standortsystemrollen, damit sie Cloudproxy-Datenverkehr akzeptieren.
+
+Die folgenden Abschnitte enthalten weitere Informationen zu diesen Schritten.
+
+#### <a name="create-a-custom-ssl-certificate"></a>Erstellen Sie ein benutzerdefiniertes SSL-Zertifikat
+
+Sie können ein benutzerdefiniertes SSL-Zertifikat für den Cloudproxydienst auf die gleiche Weise erstellen, wie Sie bei einem cloudbasierten Verteilungspunkt vorgehen würden. Führen Sie die Anweisungen zum [Bereitstellen des Dienstzertifikats für cloudbasierte Verteilungspunkte](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012) durch, tun Sie jedoch folgende Dinge anders:
+
+* Geben Sie beim Einrichten der Zertifikatvorlage die Berechtigungen **Lesen** und **Registrieren** für die Sicherheitsgruppe an, die Sie für Configuration Manager-Server einrichten.
+
+#### <a name="export-the-client-certificates-root"></a>Exportieren Sie das Clientstammzertifikat
+
+Die einfachste Möglichkeit zum Export der Clientstammzertifikate im Netzwerk ist, ein Clientzertifikat auf einem Computer zu öffnen und zu kopieren, der einer Domäne angehört, und der über eines verfügt.
 
 >[!NOTE]
->Des certificats clients sont requis sur chaque ordinateur que vous voulez gérer avec le service proxy cloud et sur le serveur de système de site qui héberge le point du connecteur de proxy cloud. Si vous devez ajouter un certificat client à l’une quelconque de ces machines, consultez [Déploiement du certificat client pour les ordinateurs Windows](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012).
+>Clientzertifikate sind auf jedem Computer erforderlich, den Sie mit dem Cloudproxydienst verwalten möchten und auf jedem Standortsystemserver, der den Cloudproxy-Connectorpunkt hostet. Wenn Sie jedem dieser Computer ein Clientzertifikat hinzufügen müssen, finden Sie mehr Informationen unter [Bereitstellen des Clientzertifikats für Windows-Computer](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012).
 
-1. Dans la fenêtre Exécuter, tapez **mmc** et appuyez sur Entrée.
-2. Dans le menu Fichier de la console de gestion, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.
-3. Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, cliquez sur **Certificats**, sur **Ajouter >**, sur **Compte d’ordinateur**, sur **Suivant**, sur **Ordinateur local**, puis sur **Terminer**. Cliquez sur **OK** pour fermer la boîte de dialogue.
-4. Accédez à **Certificats > Personnel > Certificats**.
-5. Double-cliquez sur le certificat pour l’authentification du client sur l’ordinateur, cliquez sur l’onglet Chemin d’accès de certification et double-cliquez sur l’autorité racine (en haut du chemin d’accès).
-6.  Cliquez sur l’onglet Détails, puis cliquez sur **Copier dans un fichier**.
-7. Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en aurez besoin pour configurer le service proxy cloud dans une étape ultérieure.
+1. Geben Sie im Ausführungsfenster **Mmc** ein, und drücken Sie die Eingabetaste.
+2. Klicken Sie in der Verwaltungskonsole im Menü „Datei“ auf **Snap-In hinzufügen/entfernen…**.
+3. Klicken Sie im Dialogfeld „Snap-Ins hinzufügen bzw. entfernen“ auf **Zertifikate**, auf **Hinzufügen >**, klicken Sie auf **Computerkonto**, klicken Sie auf **Weiter**, klicken Sie auf **Lokaler Computer**, und klicken Sie dann auf **Fertig stellen**. Klicken Sie auf **OK** , um das Dialogfeld zu schließen.
+4. Wechseln Sie zu **Zertifikate > Privat > Zertifikate**.
+5. Doppelklicken Sie auf das Zertifikat zur Clientauthentifizierung auf dem Computer, klicken Sie auf die Registerkarte „Zertifizierungspfad“, und doppelklicken Sie auf die Stammzertifizierungsstelle (am Anfang des Pfades).
+6.  Klicken Sie auf der Registerkarte „Details“, und klicken Sie auf **In Datei kopieren...**.
+7. Schließen Sie den Zertifikatexportassistenten ab, indem Sie das Standardzertifikatformat verwenden. Notieren Sie sich den Namen und den Speicherort des Stammzertifikats, das Sie erstellen. Sie benötigen es zum Konfigurieren des Cloudproxydiensts in einem späteren Schritt.
 
-#### <a name="upload-the-management-certificate-to-azure"></a>Charger le certificat de gestion dans Azure
+#### <a name="upload-the-management-certificate-to-azure"></a>Laden Sie das Verwaltungszertifikat in Azure hoch
 
-Un certificat de gestion Azure est requis pour que Configuration Manager puisse accéder à l’API Azure et configurer le service proxy cloud. Pour plus d’informations et des instructions sur la manière de charger un certificat de gestion, consultez les articles suivants dans la documentation Azure :
-- [Vue d’ensemble des certificats pour Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-certs-create/)
-- [Téléchargement d’un certificat de gestion API dans Azure Management](https://azure.microsoft.com/documentation/articles/azure-api-management-certs/).
+Ein Azure-Verwaltungszertifikat ist für Configuration Manager erforderlich, um auf die Azure-API zugreifen und den Cloudproxydienst zu konfigurieren. Weitere Informationen und Anweisungen zum Hochladen eines Verwaltungszertifikats finden Sie unter den folgenden Artikeln in der Azure-Dokumentation:
+- [Übersicht über Zertifikate für Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-certs-create/)
+- [Hochladen eines Verwaltungszertifikats für die Azure-Verwaltung-API](https://azure.microsoft.com/documentation/articles/azure-api-management-certs/).
 
-Veillez à copier l’ID d’abonnement associé au certificat de gestion. Vous en aurez besoin pour configurer le service proxy cloud dans la console Configuration Manager.
+Stellen Sie sicher, dass Sie die Abonnement-ID kopieren, die dem Verwaltungszertifikat zugeordnet ist. Sie werden Sie zum Konfigurieren des Cloudproxydiensts in der Configuration Manager-Konsole benötigen.
 
-#### <a name="set-up-cloud-proxy-service"></a>Configurer le service proxy cloud
+#### <a name="set-up-cloud-proxy-service"></a>Einrichten des Cloudproxydiensts
 
-1. Ouvrez la console Configuration Manager, puis accédez à **Administration > Services cloud > Service proxy cloud**.
-2. Cliquez sur **Créer un service proxy cloud**.
-3. Dans l’Assistant Création d’un service proxy cloud, entrez votre ID d’abonnement Azure (copié à partir du portail de gestion Azure), cliquez sur Parcourir et sélectionnez le fichier de certificat que vous avez chargé comme certificat de gestion Azure. Cliquez sur **Suivant**. Attendez quelques instants que la console se connecte à Azure.
-4. Remplissez les détails supplémentaires dans l’Assistant :
-    - Spécifiez la clé privée (fichier .pfx) que vous avez exportée à partir du certificat SSL personnalisé.
-    - Spécifiez le certificat racine exporté à partir du certificat client.
-    - Spécifiez le même nom de domaine complet de service que vous avez utilisé lorsque vous avez créé le nouveau modèle de certificat.
-    - Décochez la case à côté de **Vérifier la révocation des certificats clients** (sauf si vous publiez publiquement les informations de votre liste de révocation de certificats).
-    - Cliquez sur **Suivant** lorsque vous avez terminé.
-5. Vérifiez les paramètres et cliquez sur **Suivant**. Configuration Manager commence à configurer le service. Une fois que l’Assistant a terminé, vous pouvez cliquer sur **Fermer**, mais il faudra entre 5 et 15 minutes pour configurer complètement le service dans Azure. Vérifiez la colonne **État** du service proxy cloud nouvellement configuré pour déterminer quand le service est prêt.
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung > Clouddienste > Cloudproxydienst**.
+2. Klicken Sie auf **Cloudproxydienst erstellen** .
+3. Geben Sie im Assistenten zur Erstellung von Cloudproxydiensten Ihre Azure-Abonnement-ID (aus dem Azure-Verwaltungsportal kopiert) ein, klicken Sie auf „Durchsuchen“, und wählen Sie die Zertifikatdatei aus, die Sie als Azure-Verwaltungszertifikat hochgeladen haben. Klicken Sie auf **Weiter**. Warten Sie einige Augenblicke, bis sich die Konsole mit Azure verbindet.
+4. Füllen Sie die zusätzlichen Details im Assistenten aus:
+    - Geben Sie den privaten Schlüssel (PFX-Datei) an, den Sie aus dem benutzerdefinierten SSL-Zertifikat exportiert haben.
+    - Geben Sie das aus dem Clientzertifikat exportierte Stammzertifikat an.
+    - Geben Sie den gleichen FQDN-Dienstnamen an, den Sie bei der Erstellung der neuen Zertifikatvorlage verwendet haben.
+    - Deaktivieren Sie das Kontrollkästchen **Clientzertifikatsperre überprüfen** (es sei denn, Sie veröffentlichen Ihre CRL-Informationen).
+    - Klicken Sie auf **Weiter**, wenn Sie fertig sind.
+5. Überprüfen Sie die Einstellungen, und klicken Sie auf **Weiter**. Configuration Manager beginnt mit der Einrichtung des Diensts. Wenn der Assistent abgeschlossen ist, können Sie auf **Schließen** klicken, aber es wird 5 bis 15 Minuten dauern, um den Dienst vollständig in Azure bereitzustellen. Überprüfen Sie die Spalte **Status** für den neu eingerichteten Cloudproxydienst, um zu bestimmen, wann der Dienst bereit ist.
 
-#### <a name="configure-primary-site-for-client-certification-authentication"></a>Configurer le site principal pour l’authentification de certification de client
+#### <a name="configure-primary-site-for-client-certification-authentication"></a>Konfigurieren des primären Standorts für die Clientzertifikatauthentifizierung
 
-1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Sites**.
-2. Sélectionnez le site principal pour les clients que vous souhaitez gérer via le service proxy cloud, puis cliquez sur **Propriétés**.
-3. Sous l’onglet Communications des ordinateurs clients de la feuille de propriétés du site principal, cochez la case à côté de **Utiliser le certificat client PKI (fonctionnalité d’authentification du client) lorsqu’il est disponible**.
-4. Veillez à décocher la case à côté de **Les clients vérifient la liste de révocation des certificats (CRL) pour les systèmes de site**. Cette option serait nécessaire seulement si vous publiiez publiquement votre liste de révocation de certificats.
-5. Cliquez sur **OK**.
+1. Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung > Standortkonfiguration > Standorte**.
+2. Wählen Sie den primären Standort für die Clients aus, die Sie über den Cloudproxydienst verwalten möchten, und klicken Sie auf **Eigenschaften**.
+3. Aktivieren Sie das Kontrollkästchen neben **Use PKI client certificate (client authentication) when available**  (PKI-Clientzertifikat (Clientauthentifizierung) verwenden, sofern verfügbar) auf der Registerkarte Clientcomputerkommunikation im Eigenschaftenblatt für den primären Standort.
+4. Stellen Sie sicher, dass Sie das Kontrollkästchen neben **Die Zertifikatsperrliste für Standortsysteme wird von Clients überprüft**  deaktivieren. Diese Option wäre nur erforderlich, wenn Sie Ihre CRL veröffentlichen würden.
+5. Klicken Sie auf **OK**.
 
-#### <a name="add-the-cloud-proxy-connector-point"></a>Ajouter le point du connecteur de proxy cloud
+#### <a name="add-the-cloud-proxy-connector-point"></a>Hinzufügen des Cloudproxy-Connectorpunkts
 
-Le point du connecteur de proxy cloud est un nouveau rôle de système de site permettant de communiquer avec le service proxy cloud. Pour ajouter le point du connecteur de proxy cloud, suivez les instructions de la rubrique [Ajouter des rôles de système de site pour System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md).
+Der Verbindungspunkt für den Cloudproxy-Connectorpunkt ist eine neue Standortsystemrolle für die Kommunikation mit dem Cloudproxydienst. Wenn Sie den Cloudproxy-Connectorpunkt hinzufügen möchten, führen Sie die Anweisungen unter [Add site system roles for System Center Configuration Manager (Standortsystemrollen für System Center Configuration Manager hinzufügen)](../../core/servers/deploy/configure/add-site-system-roles.md) aus.
 
-#### <a name="configure-roles-for-cloud-proxy-traffic"></a>Configurer des rôles pour le trafic du proxy cloud
+#### <a name="configure-roles-for-cloud-proxy-traffic"></a>Konfigurieren von Rollen für Cloudproxy-Datenverkehr
 
-La dernière étape de la configuration du service proxy cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic du proxy cloud. Pour la version d’évaluation technique 1606, seuls les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle sont pris en charge pour le service proxy cloud. Vous devez configurer chaque rôle séparément.
+Der letzte Schritt bei der Einrichtung des Cloudproxydiensts ist das Konfigurieren der Standortsystemrollen zum Akzeptieren des Cloudproxy-Datenverkehrs. Für Tech Preview 1606 werden nur der Verwaltungspunkt, der Verteilungspunkt und Softwareupdatepunktrollen für den Cloudproxydienst unterstützt. Sie müssen jede Rolle einzeln konfigurieren.
 
-1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Serveurs et rôles de système de site**.
-2. Cliquez sur le serveur de système de site pour le rôle que vous souhaitez configurer pour le trafic du proxy cloud.
-3. Cliquez sur le rôle, puis sur **Propriétés**.
-4. Dans la feuille de propriétés du rôle, sous Connexions client, choisissez **HTTPS**, cochez la case à côté de **Autoriser le trafic du proxy cloud de Configuration Manager**, puis cliquez sur **OK**. Répétez ces étapes pour les autres rôles.
+1. Wechseln Sie in der Configuration Manager-Konsole zu **Verwaltung > Standortkonfiguration > Server und Standortsystemrollen**.
+2. Klicken Sie auf dem Standortsystemserver auf die Rolle, die Sie für den Cloudproxy-Datenverkehr konfigurieren möchten.
+3. Klicken Sie auf die Rolle und danach auf **Eigenschaften**.
+4. Wählen Sie auf der Eigenschaftenseite der Rolle unter „Clientverbindungen“ **HTTPS** aus, aktivieren Sie das Kontrollkästchen neben **Datenverkehr über Configuration Manager-Cloudproxy zulassen**, und klicken Sie dann auf **OK**. Wiederholen Sie diese Schritte für die übrigen Rollen.
 
-#### <a name="check-status-on-a-client-on-the-internet"></a>Vérifier l’état d’un client sur Internet
+#### <a name="check-status-on-a-client-on-the-internet"></a>Überprüfen des Status auf einem Client im Internet
 
-Une fois que le service et les rôles ont été entièrement configurés, les clients internes obtiennent l’emplacement du service proxy cloud à la prochaine demande d’emplacement. Les clients avec les informations d’emplacement mises à jour peuvent alors communiquer avec Configuration Manager sur Internet. Le cycle d’interrogation pour les demandes d’emplacement est de 24 heures. Si vous ne souhaitez pas attendre la demande d’emplacement normalement planifiée, vous pouvez forcer la demande en redémarrant le service hôte de l’agent SMS (ccmexec.exe) sur l’ordinateur.
+Nachdem der Dienst und die Rollen vollständig konfiguriert sind, erhalten interne Clients den Speicherort des Cloudproxydiensts bei der nächsten Speicherortanfrage. Clients mit aktualisierten Speicherortinformationen können dann mit Configuration Manager über das Internet kommunizieren. Der Abfragezyklus für Standortanfragen beträgt 24 Stunden. Wenn Sie nicht auf die normal geplante Standortanfragen warten möchten, können Sie sie erzwingen, indem Sie den SMS-Agent-Hostdienst (ccmexec.exe) auf dem Computer neustarten.
 
-Une fois que les clients possèdent les nouvelles informations d’emplacement pour le service proxy cloud, essayez de vérifier l’état des clients qui ne sont plus sur le réseau privé interne, mais qui ont accès à Internet. Vous pouvez également surveiller le trafic sur le service proxy cloud en accédant à **Administration > Services cloud > Service proxy cloud**, en sélectionnant le service dans le volet Liste et en consultant les informations de trafic dans le volet d’informations.   
+Nachdem Clients die neue Speicherortinformationen für Cloudproxydienst haben, überprüfen Sie den Status der Clients, die nicht mehr auf dem internen privaten Netzwerk sind, aber Zugriff auf das Internet haben. Sie können Datenverkehr auf dem Cloudproxydienst auch überwachen, indem Sie auf **Verwaltung > Clouddienste > Cloudproxydienst** den Dienst im Listenbereich auswählen und die Informationen zum Datenverkehr im Detailbereich anzeigen.   
 
-## <a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
+## <a name="manage_o365"></a>Verwaltung des Office 365-Client-Agents in Configuration Manager  
 
-À partir de la version d’évaluation technique 1606, vous pouvez utiliser un paramètre de l’agent client Configuration Manager, à la place d’une stratégie de groupe, pour permettre aux clients Office 365 de recevoir des mises à jour à partir de Configuration Manager. Après avoir configuré ce paramètre et déployé les mises à jour Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client pour télécharger les mises à jour Office 365 à partir d’un point de distribution et les installer. Configuration Manager effectue également l’inventaire du paramètre de l’agent client.
+Ab Technical Preview 1606 können Sie eine Configuration Manager-Client-Agenteinstellung anstatt der Gruppenrichtlinie verwenden, um Office 365-Clients zum Empfangen von Updates von Configuration Manager zu aktivieren. Nachdem Sie diese Einstellung konfiguriert und Updates für Office 365 bereitgestellt haben, kommuniziert der Configuration Manager-Client-Agent mit dem Office 365-Client-Agent, um Office 365-Updates von einem Verteilungspunkt herunterzuladen und zu installieren. Configuration Manager macht auch eine Bestandsaufnahme der Client-Agenteinstellungen.
 
-Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](https://technet.microsoft.com/library/mt741983.aspx).
+Weitere Informationen finden Sie unter [Verwalten von Office 365 ProPlus-Updates](https://technet.microsoft.com/library/mt741983.aspx).
 
-### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>Définir le paramètre du client Configuration Manager pour gérer l’agent Office 365 Client
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**.
-2. Ouvrez les paramètres d’appareil appropriés pour activer l’agent client. Pour plus d’informations sur les paramètres par défaut et personnalisés du client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
-3. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.  
+### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>Einrichten der Configuration Manager-Clienteinstellung, zum Verwalten des Office 365-Client-Agents
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Verwaltung** > **Übersicht** > **Clienteinstellungen**.
+2. Öffnen Sie die entsprechenden Geräteeinstellungen zum Aktivieren des Client-Agents. Weitere Informationen zu standardmäßigen und benutzerdefinierten Clienteinstellungen finden Sie unter [Konfigurieren von Clienteinstellungen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
+3. Klicken Sie auf **Softwareupdates** und wählen Sie **Ja** für die Einstellung **Verwaltung des Office 365-Client-Agents aktivieren** aus.  
 
 
-## <a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
-La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination.
-- Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606.
+## <a name="osdpreservedriveletter"></a>Die Tasksequenzvariable „OSDPreserveDriveLetter“ wurde als veraltet markiert.
+Die Tasksequenzvariable „OSDPreverveDriveLetter“ bestimmt, ob die Tasksequenz bei der Anwendung des Images auf einen Zielcomputer den in der WIM-Datei des Betriebssystemimages erfassten Laufwerkbuchstaben verwendet.
+- Die Tasksequenzvariable wurde in Technical Preview 1606 als veraltet markiert.
 
-Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination. 
+Während einer standardmäßigen Betriebssystembereitstellung bestimmt Windows Setup den Laufwerkbuchstaben, der am besten zur Verwendung geeignet ist (in der Regel C:). Wenn Sie ein anderes Laufwerk zur Verwendung angeben möchten, können Sie den Speicherort im Tasksequenzschritt „Betriebssystem anwenden“ ändern. Wechseln Sie zur Einstellung **Wählen Sie den Standort aus, an dem Sie dieses Betriebssystem anwenden möchten.** , wählen Sie **Bestimmter Buchstabe für logisches Laufwerk**  aus und wählen Sie das Laufwerk aus, das Sie verwenden möchten. Sie müssen dem gewählten Buchstaben auf dem Zielcomputer ein Laufwerk zuordnen. 
 
-## <a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
-Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
-- **Changement de nom du nœud :**
+## <a name="updatesandservicing"></a>Änderungen am Knoten „Updates und Wartung“
+Mit Technical Preview 1606 wurden mehrere Änderungen eingeführt, die für Updates und Wartung in der Configuration Manager-Konsole gelten:
+- **Änderung des Knotennamen:**
 
-    Dans l’espace de travail **Surveillance**, le nœud **État de maintenance du site** a été renommé en **État des mises à jour et de la maintenance**.
-- **État de l’installation plus détaillé :**
+    Im Arbeitsbereich **Überwachung** wurde der Knoten **Wartungsstatus des Standorts** in **Update- und Wartungsstatus** umbenannt.
+- **Erweiterung des Installationsstatus:**
 
-    Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
-    - **Téléchargement** (Cela s’applique uniquement au site de niveau supérieur où est installé le rôle de système de site de point de connexion de service)
-    - **Réplication**
-    - **Vérification de la configuration requise**
+    Wenn Sie den Updateinstallationsstatus für einen Standort anzeigen, zeigt die Konsole nun die Details zu den folgenden Aktionen getrennt an:
+    - **Herunterladen** (Dies gilt nur für den Standort der obersten Ebene, auf dem die Standortsystemrolle des Dienstverbindungspunkts installiert ist)
+    - **Replikation**
+    - **Prüfung der erforderlichen Komponenten**
     - **Installation**
 
-  De plus, des informations plus détaillées sont maintenant fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
--   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
+  Darüber hinaus stehen jetzt detailliertere Informationen zu jedem Schritt zur Verfügung, z.B. in welcher Protokolldatei Sie weitere Informationen finden.  
+-   **Neue Option zum Wiederholen von Fehlern der erforderlichen Komponente:**
 
-    Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** affiche le nouveau bouton **Ignorer les avertissements de configuration requise** sur le ruban.
+    In den Arbeitsbereichen **Verwaltung** und **Überwachung** enthält der Knoten **Updates und Wartung** eine neue Schaltfläche auf dem Menüband mit der Bezeichnung **Warnungen der erforderlichen Komponente ignorieren**.
 
-    Quand vous installez des mises à jour sans utiliser l’option Ignorer les avertissements de configuration requise (à partir de l’Assistant Mises à jour) et que l’installation des mises à jour s’arrête avec un état **Avertissement de configuration requise**, vous pouvez maintenant sélectionner le bouton **Ignorer les avertissements de configuration requise** dans le ruban pour ignorer les avertissements et continuer automatiquement l’installation des mises à jour.  
+    Wenn Sie Updates installieren, ohne die Option „Warnungen der erforderlichen Komponente ignorieren“ (innerhalb des Update-Assistenten) zu verwenden, und diese Updateinstallation im Status der **Warnung der erforderlichen Komponente** stoppt, können Sie **Warnungen der erforderlichen Komponente ignorieren** aus dem Menüband auswählen, um eine automatische Fortsetzung dieser Updateinstallation auszulösen, bei der die Warnungen der erforderlichen Komponente ignoriert werden.  
 
 
 
-- **Vue plus claire des mises à jour :**
+- **Übersichtlichere Ansicht der Updates:**
 
-    Quand vous affichez le nœud **Mises à jour et maintenance**, vous voyez maintenant uniquement la dernière mise à jour que vous avez installée, ainsi que les nouvelles mises à jour prêtes à être installées. Pour afficher les mises à jour précédemment installées, cliquez sur le nouveau bouton **Historique** dans le ruban.  
+    Wenn Sie den Knoten **Updates und Wartung** anzeigen, sehen Sie jetzt nur noch die zuletzt installierten Updates, und alle neuen Updates, die zur Installation für Sie bereitstehen. Wenn Sie bereits installierte Updates anzeigen möchten, klicken Sie auf die neue Schaltfläche **Verlauf**, die im Menüband erscheint.  
 
--   **Option renommée pour la pré-production :**
+-   **Umbenannte Option für die Präproduktion:**
 
-    Dans le nœud Mises à jour et maintenance, le bouton qui était appelé **Options du client** a été renommé **Promouvoir le client de préproduction**.
-
+    Auf dem Knoten „Updates und Wartung“ wurde die Schaltfläche **Clientoptionen** in **Präproduktionsclient höher stufen** umbenannt.

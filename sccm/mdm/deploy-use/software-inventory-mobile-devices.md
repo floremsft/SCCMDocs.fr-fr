@@ -1,47 +1,44 @@
 ---
-title: "Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune | Microsoft Docs"
-description: "Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune."
+title: "Softwareinventur für mobile Geräte, die bei Microsoft Intune registriert sind | Microsoft-Dokumentation"
+description: "Softwareinventur für mobile Geräte, die bei Microsoft Intune registriert sind."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a0eae17a-60a8-4132-91af-0b10ad338c92
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: 2ed79d02535768de136947e4a5b63ad186d9a3cd
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune
+# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Softwareinventur für mobile Geräte, die bei Microsoft Intune registriert sind
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
- Vous pouvez collecter un inventaire des applications installées sur des appareils mobiles. La liste des applications inventoriées varie selon que l'appareil appartient à l'entreprise ou à l'utilisateur. Pour les appareils personnels, les seules applications inventoriées sont celles qui sont gérées par Microsoft Intune.  
+ Sie können Inventurdaten zu Apps sammeln, die auf mobilen Geräten installiert sind. Welche Apps inventarisiert werden, hängt davon ab, ob es sich um ein firmeneigenes Gerät handelt, oder ob das Gerät dem Benutzer gehört. Für persönliche Geräte werden nur von Microsoft Intune verwaltete Apps inventarisiert.  
 
 > [!NOTE]  
->  L’inventaire sur les applications installées sur les appareils mobiles est collecté dans le cadre du processus d’[inventaire matériel](mobile-device-hardware-inventory-hybrid.md).  
+>  Inventurdaten zu auf mobilen Geräten installierten Apps werden bei der [Hardwareinventur](mobile-device-hardware-inventory-hybrid.md) gesammelt.  
 
- Voici les applications inventoriées pour les appareils personnels ou d’entreprise.  
+ Die folgende Liste umfasst die inventarisierten Apps für Geräte, die einem Benutzer gehören, und für Geräte, die dem Unternehmen gehören.  
 
-|Plate-forme|Pour les appareils personnels|Pour les appareils d’entreprise|  
+|Plattform|Geräte, die einem Benutzer gehören|Geräte, die dem Unternehmen gehören|  
 |--------------|---------------------------------|--------------------------------|  
-|Windows 10 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|
-|Windows 8.1 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|  
-|Windows Phone 8|Uniquement les applications gérées|Uniquement les applications gérées|  
-|Windows RT|Uniquement les applications gérées|Uniquement les applications gérées|  
-|iOS|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
-|Android|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
+|Windows 10 (ohne Configuration Manager-Client)|Nur verwaltete Apps|Nur verwaltete Apps|
+|Windows 8.1 (ohne Configuration Manager-Client)|Nur verwaltete Apps|Nur verwaltete Apps|  
+|Windows Phone 8|Nur verwaltete Apps|Nur verwaltete Apps|  
+|Windows RT|Nur verwaltete Apps|Nur verwaltete Apps|  
+|iOS|Nur verwaltete Apps|Alle auf dem Gerät installierten Apps|  
+|Android|Nur verwaltete Apps|Alle auf dem Gerät installierten Apps|  
 
-Pour en savoir plus sur l’utilisation de l’inventaire logiciel pour collecter des informations sur les fichiers se trouvant sur les appareils des clients, voir [Présentation de l’inventaire logiciel](../../core/clients/manage/inventory/introduction-to-software-inventory.md) et [Comment configurer l’inventaire logiciel](../../core/clients/manage/inventory/configure-software-inventory.md).
-
+Finden Sie unter [Einführung in die Softwareinventur](../../core/clients/manage/inventory/introduction-to-software-inventory.md) und [Konfigurieren der Softwareinventur ](../../core/clients/manage/inventory/configure-software-inventory.md) ausführliche Informationen zur Verwendung der Softwareinventur, um Dateiinformationen auf Clientgeräten zu sammeln.

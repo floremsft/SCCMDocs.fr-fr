@@ -1,83 +1,80 @@
 ---
-title: "Utiliser un média autonome pour déployer Windows sans utiliser le réseau | Microsoft Docs"
-description: "Utilisez un média autonome dans Configuration Manager pour déployer des systèmes d’exploitation lorsque la bande passante est limitée ou comme option pour actualiser, installer ou mettre à niveau des ordinateurs."
+title: "Verwenden eigenständiger Medien zum Bereitstellen von Windows ohne Verwendung des Netzwerks | Microsoft-Dokumentation"
+description: "Verwenden Sie eigenständige Medien in Configuration Manager zum Bereitstellen von Betriebssystemen, bei denen die Bandbreite eingeschränkt ist, oder als eine Option zum Auffrischen, Installieren oder Upgraden von Computern."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 58a0d2ae-de76-401f-b854-7a5243949033
-caps.latest.revision: 16
+caps.latest.revision: "16"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 30ae794381c6894e11b21a8167d0af60463c5279
-ms.lasthandoff: 12/16/2016
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Utiliser un média autonome pour déployer Windows sans utiliser le réseau dans System Center Configuration Manager
+# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Verwenden eigenständiger Medien zum Bereitstellen von Windows ohne Verwendung des Netzwerks in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Dans System Center Configuration Manager, un média autonome contient tout ce qui est nécessaire pour permettre le déploiement d’un système d’exploitation sur un ordinateur. Cela comprend l’image de démarrage, l’image du système d’exploitation et la séquence de tâches permettant d’installer le système d’exploitation, c’est-à-dire les applications, les pilotes, etc. Les déploiements de médias autonomes vous permettent de déployer des systèmes d'exploitation dans les conditions suivantes :  
+Eigenständige Medien in System Center Configuration Manager enthalten alles, was zur Bereitstellung des Betriebssystems auf einem Computer erforderlich ist. Hierzu gehören das Startabbild, das Betriebssystemabbild und die Tasksequenz zum Installieren des Betriebssystems sowie von Anwendungen, Treibern usw. Mit eigenständigen Medienbereitstellungen können Sie unter folgenden Umständen Betriebssysteme bereitstellen:  
 
--   dans les environnements où il n'est pas pratique de copier une image du système d'exploitation ou d'autres packages volumineux sur le réseau ;  
+-   In Umgebungen, in denen es nicht praktikabel ist, ein Betriebssystemabbild oder anderen große Pakete über das Netzwerk zu kopieren;  
 
--   dans les environnements sans connectivité réseau ou avec une connectivité réseau avec une faible bande passante.  
+-   in Umgebungen ohne Netzwerkverbindung oder mit geringer Netzwerkbandbreite.  
 
-Vous pouvez utiliser un média autonome dans les scénarios de déploiement de système d’exploitation suivants :  
+Sie können eigenständige Medien in folgenden Szenarien für die Betriebssystembereitstellung verwenden:  
 
--   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Aktualisieren eines vorhandenen Computers mit einer neuen Version von Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installieren einer neuen Version von Windows auf einem neuen Computer (Bare-Metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md)  
+-   [Upgrade von Windows auf die neueste Version](upgrade-windows-to-the-latest-version.md)  
 
- Exécutez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis préparez et créez le média autonome en vous aidant des indications fournies dans les sections suivantes.  
+ Führen Sie die Schritte in einem der Betriebssystembereitstellungsszenarien aus, und lesen Sie dann die folgenden Abschnitte, um die eigenständigen Medien vorzubereiten und zu erstellen.  
 
-## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Actions de séquence de tâches non prises en charge lors de l’utilisation d’un média autonome  
- Si vous avez effectué les étapes de l’un des scénarios de déploiement de système d’exploitation pris en charge, la séquence de tâches permettant de déployer ou mettre à niveau le système d’exploitation a été créée et tout le contenu associé a été distribué à un point de distribution. Quand vous utilisez un média autonome, voici les actions qui ne sont pas prises en charge dans la séquence de tâches :  
+## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Tasksequenzaktionen, die bei Verwendung eigenständiger Medien nicht unterstützt werden  
+ Wenn Sie die Schritte in einem der unterstützten Szenarien für die Betriebssystembereitstellung abgeschlossen haben, wurde die Tasksequenz zum Bereitstellen bzw. Aktualisieren des Betriebssystems erstellt, und alle dazugehörigen Inhalte wurden an einen Verteilungspunkt verteilt. Wenn Sie eigenständige Medien verwenden, werden die folgenden Aktionen in der Tasksequenz nicht unterstützt:  
 
--   Étape Appliquer automatiquement les pilotes dans la séquence de tâches. L’application automatique des pilotes de périphérique présents dans le catalogue de pilotes n’est pas prise en charge, mais vous pouvez choisir l’étape Appliquer le package de pilotes pour mettre à la disposition du programme d’installation de Windows un ensemble de pilotes spécifique.  
+-   Der Schritt „Treiber automatisch anwenden“ in der Tasksequenz. Die automatische Anwendung von Gerätetreibern aus dem Treiberkatalog wird nicht unterstützt, Sie können aber den Schritt „Treiberpaket anwenden“ auswählen, um Windows Setup eine angegebene Gruppe von Treibern verfügbar zu machen.  
 
--   Installation de mises à jour logicielles.  
+-   Installieren von Softwareupdates  
 
--   Installation du logiciel avant le déploiement du système d’exploitation.  
+-   Installieren von Software vor dem Bereitstellen des Betriebssystems  
 
--   Association d'utilisateurs à l'ordinateur de destination pour prendre en charge l'affinité entre appareil et utilisateur.  
+-   Zuweisen von Benutzern zum Zielcomputer, um die Affinität zwischen Benutzer und Gerät zu unterstützen  
 
--   Le package dynamique s'installe via la tâche Installer les packages.  
+-   Dynamische Paketinstallationen über den Task „Pakete installieren“.  
 
--   L'application dynamique s'installe via la tâche Installer l'application.  
+-   Dynamische Anwendungsinstallationen über den Task „Anwendung installieren“.  
 
 > [!NOTE]  
->  Si votre séquence de tâches servant à déployer un système d’exploitation comprend l’étape [Installer le package](../understand/task-sequence-steps.md#BKMK_InstallPackage) et que vous créez le média autonome sur un site d’administration centrale, une erreur peut se produire. Le site d'administration centrale ne dispose pas des stratégies de configuration de client requises pour activer l'agent de distribution logicielle au cours de l'exécution de la séquence de tâches. L’erreur suivante peut apparaître dans le fichier CreateTsMedia.log :  
+>  Wenn die Tasksequenz zum Bereitstellen eines Betriebssystems den Schritt [Paket installieren](../understand/task-sequence-steps.md#BKMK_InstallPackage) enthält und Sie die eigenständigen Medien an einem Standort der zentralen Verwaltung erstellen, kann ein Fehler auftreten. Der Standort der zentralen Verwaltung verfügt nicht über die erforderlichen Clientkonfigurationsrichtlinien, die während der Ausführung der Tasksequenz zum Aktivieren des Softwareverteilungs-Agents benötigt werden. In der Datei „CreateTsMedia.log“ wird möglicherweise der folgenden Fehler angezeigt:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`
 >   
->  Dans le cas d’un média autonome qui comprend une étape **Installer le package**, vous devez créer le média autonome sur un site principal sur lequel l’agent de distribution logicielle est activé ou ajoutez une étape [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine) après l’étape [Configurer Windows et ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) et avant la première étape **Installer le package** de la séquence de tâches. L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
+>  Sie müssen eigenständige Medien, die den Schritt **Paket installieren** aufweisen, an einem primären Standort erstellen, für den der Softwareverteilungs-Agent aktiviert ist. Alternativ dazu können Sie den Schritt [Befehlszeile ausführen](../understand/task-sequence-steps.md#BKMK_RunCommandLine) nach dem Schritt [Windows und ConfigMgr einrichten](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) und vor dem ersten Schritt **Paket installieren** hinzufügen. Im Schritt **Befehlszeile ausführen** wird ein WMIC-Befehl ausgeführt, um den Softwareverteilungs-Agent vor der Ausführung des ersten Schritts "Paket installieren" zu aktivieren. Sie können im Tasksequenzschritt **Befehlszeile ausführen** Folgendes verwenden:  
 >   
->  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Command Line**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 
-## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
- Quand vous utilisez un média autonome pour lancer le processus de déploiement de système d’exploitation, vous devez configurer le déploiement pour rendre le système d’exploitation accessible au média. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :  
+## <a name="configure-deployment-settings"></a>Konfigurieren von Bereitstellungseinstellungen  
+ Wenn Sie eigenständige Medien verwenden, um den Bereitstellungsprozess für das Betriebssystem zu starten, müssen Sie die Bereitstellung konfigurieren, um das Betriebssystem für die Medien zur Verfügung zu stellen. Sie können dies auf der Seite der **Bereitstellungseinstellungen** des Assistenten oder der Registerkarte für die **Bereitstellungseinstellungen** in den Eigenschaften für die Bereitstellung konfigurieren.  Konfigurieren Sie eine der folgenden Optionen für die Einstellung **Verfügbar machen für** :  
 
--   **Clients, média et environnement PXE Configuration Manager**  
+-   **Configuration Manager-Clients, Medien und PXE**  
 
--   **Média et environnement PXE uniquement**  
+-   **Nur Medien und PXE**  
 
--   **Média et environnement PXE uniquement (masqué)**  
+-   **Nur Medien und PXE (ausgeblendet)**  
 
-## <a name="create-the-stand-alone-media"></a>Créer le média autonome  
- Vous pouvez préciser si le média autonome est un disque mémoire flash USB ou un ensemble de CD/DVD. L’ordinateur qui démarre le média doit prendre en charge l’option que vous choisissez comme lecteur de démarrage. Pour plus d’informations, voir [Créer un média autonome](create-stand-alone-media.md).  
+## <a name="create-the-stand-alone-media"></a>Erstellen der eigenständigen Medien  
+ Sie können angeben, ob das eigenständige Medium ein USB-Flashlaufwerk oder ein CD/DVD-Satz ist. Der Computer, der die Medien startet, muss die Option unterstützen, die Sie als startbares Laufwerk auswählen. Weitere Informationen finden Sie unter [Erstellen eigenständiger Medien](create-stand-alone-media.md).  
 
-## <a name="install-the-operating-system-from-stand-alone-media"></a>Installer le système d’exploitation à partir d’un média autonome  
- Insérez le média autonome dans un lecteur de démarrage sur l’ordinateur, puis mettez-le sous tension pour installer le système d’exploitation.  
-
+## <a name="install-the-operating-system-from-stand-alone-media"></a>Installieren des Betriebssystems von eigenständigen Medien  
+ Legen Sie die eigenständigen Medien in ein startfähiges Laufwerk des Computers ein. Schalten Sie dann den Computer ein, um das Betriebssystem zu installieren.  

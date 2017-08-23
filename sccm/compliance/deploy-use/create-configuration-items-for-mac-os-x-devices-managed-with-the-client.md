@@ -1,179 +1,175 @@
 ---
-title: "Créer des éléments de configuration pour des appareils Macs gérés par le client - Configuration Manager | Microsoft Docs"
-description: "L’élément de configuration System Center Configuration Manager Mac OS X permet de gérer les paramètres des appareils Mac OS X."
+title: "Erstellen von Konfigurationselementen für clientverwaltete Macs – Configuration Manager | Microsoft-Dokumentation"
+description: "Verwenden Sie das System Center Configuration Manager-Konfigurationselement für Max OS X, um Einstellungen für Mac OS X-Geräte zu verwalten."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 722d5bf5-bedc-4dfc-b324-6eeb773874e9
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 541e5ad629a9e2ed9c353dff150f9b86b9d12b7d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager
-Utilisez l’élément de configuration System Center Configuration Manager **Mac OS X (personnalisé)** pour gérer les paramètres des appareils Mac OS X gérés par le client Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Erstellen von Konfigurationselementen für Mac OS X-Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden
+Verwenden Sie das System Center Configuration Manager-Konfigurationselement **Mac OS X (benutzerdefiniert)**, um Einstellungen für Mac OS X-Geräte zu verwalten, die mit dem Configuration Manager-Client verwaltet werden.  
   
- Le système d’exploitation Mac OS X utilise des fichiers de liste de propriétés (plist) pour stocker les paramètres d’application. Utilisez les paramètres de compatibilité pour évaluer et corriger les paramètres dans un fichier de liste de propriétés. Vous pouvez également gérer les paramètres Mac OS X en écrivant un script Shell qui retourne une valeur que vous pouvez évaluer et dont vous pouvez corriger la conformité.  
+ Anwendungseinstellungen werden im Mac OS X-Betriebssystem in Eigenschaftenlistendateien (bzw. Plist-Dateien) gespeichert. Verwenden Sie Kompatibilitätseinstellungen zum Auswerten und Wiederherstellen von Einstellungen in einer Eigenschaftenlistendatei. Sie können Mac OS X-Einstellungen auch mithilfe eines Shellskripts verwalten, das einen Wert zurückgibt, den Sie zum Auswerten und Wiederherstellen der Kompatibilität verwenden können.  
   
-### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>Pour créer un élément de configuration Mac OS X personnalisé  
+### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>So erstellen Sie ein benutzerdefiniertes Konfigurationselement für Mac OS X  
   
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et conformité**.  
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Konformität**.  
   
-2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Konformität** die **Konformitätseinstellungen**, und klicken Sie auf **Konfigurationselemente**.  
   
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Erstellen** auf **Konfigurationselement erstellen**.  
   
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4.  Geben Sie auf der Seite **Allgemein** des **Assistenten zum Erstellen von Konfigurationselementen**einen Namen und optional eine Beschreibung für das Konfigurationselement an.  
   
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Mac OS X (personnalisé)**.  
+5.  Wählen Sie unter **Typ des zu erstellenden Konfigurationselements angeben**den Typ **Mac OS X (benutzerdefiniert)**aus.  
   
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klicken Sie auf **Kategorien**, wenn Sie Kategorien erstellen und zuweisen, um das Durchsuchen und Filtern von Konfigurationselementen in der Configuration Manager-Konsole zu erleichtern.  
   
-7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les versions Max OS X spécifiques chargées d’évaluer l’élément de configuration.  
+7.  Wählen Sie auf der Seite **Unterstützte Plattformen** des Assistenten die jeweiligen Mac OS X-Versionen zur Auswertung des Konfigurationselements aus.  
   
-8.  Dans la page **Paramètres** de l’Assistant, vous allez ajouter les nouveaux paramètres dont la compatibilité sera évaluée sur les ordinateurs Mac. Cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Créer un paramètre** .  
+8.  Fügen Sie auf der Seite **Einstellungen** des Assistenten  neue Einstellungen hinzu, die hinsichtlich ihrer Kompatibilität auf Macintosh-Computern ausgewertet werden. Klicken Sie auf **Neu** , um das Dialogfeld **Einstellung erstellen** zu öffnen.  
   
-9. Dans la boîte de dialogue **Créer un paramètre** , entrez un nom unique et la description du paramètre.  
+9. Geben Sie im Dialogfeld **Einstellung erstellen** einen eindeutigen Namen und eine Beschreibung für die Einstellung ein.  
   
-10. Choisissez le **type de paramètre** souhaité, puis fournissez les informations requises, comme indiqué dans le tableau suivant :  
+10. Wählen Sie den gewünschten **Einstellungstyp** aus, und geben Sie die erforderlichen Informationen ein, wie in der folgenden Tabelle dargestellt:  
   
-    -   **Préférences Mac OS X** -  
+    -   **Einstellungen für Mac OS X** -  
   
-        -   **ID d’application** : spécifiez l’ID d’application du fichier de liste de propriétés à partir duquel vous voulez évaluer la conformité d’une clé.  
+        -   **Anwendungs-ID** : Geben Sie die Anwendungs-ID der Eigenschaftenlistendatei an, aus der die Kompatibilität eines Schlüssels ausgewertet werden soll.  
   
-             Par exemple, si vous souhaitez modifier les paramètres du navigateur Web Safari, vous pouvez utiliser **com.apple.Safari.plist**.  
+             Beispielsweise, wenn Sie Einstellungen für den Safari-Webbrowser bearbeiten möchten, können **com.apple.Safari.plist**.  
   
-        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante : */<dictionnaire>\>/<nom_clé\>*.  
-  
-            > [!IMPORTANT]  
-            >  Le nom de clé respecte la casse et il n’est pas évalué s’il diffère de celui indiqué sur l’ordinateur Mac. De plus, vous ne pouvez pas modifier le nom de clé une fois que vous l’avez spécifié. Si vous devez modifier le nom de clé, supprimez, puis recréez le paramètre.  
-  
-    -   **Script** -  
-  
-        -   **Script de découverte** : cliquez sur **Ajouter un Script**, puis entrez un script Shell pour évaluer la conformité des paramètres sur l’ordinateur Mac. Utilisez la commande **echo** dans le script Shell pour retourner des valeurs à Configuration Manager à des fins de conformité. Configuration Manager utilise les résultats retournés dans **STDOUT** pour évaluer la conformité.  
+        -   **Schlüssel** – Geben Sie den Namen des Schlüssels, der Kompatibilität auf Macintosh-Computer ausgewertet werden soll. Verwenden Sie die folgende Syntax: */<Wörterbuch\>/<Schlüsselname\>*.  
   
             > [!IMPORTANT]  
-            >  N’incluez pas la commande **reboot** dans le script de découverte. Étant donné que le script de découverte s'exécute chaque fois redémarrage du client, cela entraînera l'ordinateur Mac à redémarrer en permanence.  
+            >  Für den Schlüsselnamen muss die Groß-/Kleinschreibung beachtet werden, und er wird nicht ausgewertet, wenn er sich vom Schlüsselnamen auf dem Macintosh-Computer unterscheidet. Außerdem können Sie den Namen des Schlüssels nicht mehr bearbeiten, nachdem Sie ihn angegeben haben. Wenn Sie den Schlüsselnamen bearbeiten müssen, löschen und erstellen Sie dann die Einstellung erneut.  
   
-        -   **Script de correction (facultatif)** : cliquez éventuellement sur **Ajouter un script** , puis entrez un script Shell utilisé pour corriger les paramètres non compatibles trouvés sur les ordinateurs clients Mac.  
+    -   **Skript** -  
+  
+        -   **Ermittlungsskript** : Klicken Sie auf **Skript hinzufügen**, und geben Sie dann ein Shellskript ein, um Einstellungen auf dem Macintosh-Computer auf Kompatibilität zu untersuchen. Verwenden Sie den Befehl **echo** im Shellskript, um Werte zur Kompatibilität an Configuration Manager zurückzugeben. Configuration Manager verwendet die in **STDOUT** zurückgegebenen Ergebnisse, um die Kompatibilität auszuwerten.  
   
             > [!IMPORTANT]  
-            >  Pour vous assurer de ne pas introduire de caractères de mise en forme que l’ordinateur Mac ne sait pas interpréter, évitez d’utiliser les options Copier et Coller, mais tapez le script.  
+            >  Fügen Sie dem Ermittlungsskript nicht den Befehl **Neu starten** hinzu. Da das Ermittlungsskript bei jedem Neustart des Clients ausgeführt wird, würde dies dazu führen, dass der Macintosh-Computer immer wieder neu gestartet wird.  
   
-11. Choisissez le **Type de données** , c’est-à-dire le format dans lequel la condition retourne les données avant de les utiliser pour évaluer le paramètre.  
+        -   **Wiederherstellungsskript (optional)** : Optional können Sie auf **Skript hinzufügen** klicken und ein Shellskript eingeben, das zum Wiederherstellen aller auf dem Macintosh-Clientcomputer ermittelten nicht kompatiblen Einstellungen verwendet wird.  
+  
+            > [!IMPORTANT]  
+            >  Um sicherzustellen, dass Sie keine Formatierungszeichen einfügen, die der Macintosh-Computer nicht interpretieren kann, geben Sie das Skript manuell und nicht per Kopieren und Einfügen ein.  
+  
+11. Wählen Sie den **Datentyp** aus, d. h., das Format, in dem die Daten von der Bedingung zurückgegeben werden, bevor sie zum Auswerten der Einstellung verwendet werden.  
   
     > [!NOTE]  
-    >  Le type de données **Virgule flottante** prend en charge uniquement 3 chiffres après la virgule décimale.  
+    >  Vom Datentyp **Gleitkomma** werden nur 3 Ziffern nach dem Dezimalkomma unterstützt.  
     >   
-    >  Configuration Manager ne prend pas en charge l’utilisation du type de données **booléen** pour les paramètres de script de l’élément de configuration Mac. Définissez plutôt le type de données sur **Entier** et assurez-vous que le script renvoie une valeur entière.  
+    >  Configuration Manager unterstützt für die Skripteinstellungen von Macintosh-Konfigurationselementen nicht den Datentyp **Boolesch**. Legen Sie den Datentyp stattdessen auf **Ganze Zahl** fest, und stellen Sie sicher, dass das Skript einen ganzzahligen Wert zurückgibt.  
   
-12. Cliquez sur **OK** pour enregistrer le paramètre et fermer la boîte de dialogue **Créer un paramètre** , puis continuez à ajouter autant de paramètres que nécessaire.  
+12. Klicken Sie auf **OK** , um die Einstellung zu speichern und das Dialogfeld **Einstellung erstellen** zu schließen. Fügen Sie dann so viele weitere Einstellungen wie erforderlich hinzu.  
   
-13. Dans la page **Règles de compatibilité** de l’Assistant, vous spécifiez les conditions qui définissent la compatibilité d’un élément de configuration. Pour pouvoir évaluer la compatibilité d’un paramètre, celui-ci doit comporter au moins une règle de compatibilité. Cliquez sur **Nouveau** pour ajouter une nouvelle règle.  
+13. Geben Sie auf der Seite **Kompatibilitätsregeln** des Assistenten die Bedingungen an, mit denen die Kompatibilität eines Konfigurationselements definiert wird. Damit eine Einstellung auf Kompatibilität ausgewertet werden kann, muss sie über mindestens eine Kompatibilitätsregel verfügen. Klicken Sie auf **Neu** , um eine neue Regel hinzuzufügen.  
   
-14. Dans la boîte de dialogue **Créer une règle** , indiquez les informations suivantes :  
+14. Geben Sie im Dialogfeld **Regel erstellen** die folgenden Informationen an:  
   
-    -   **Nom :** Entrez un nom pour la règle de conformité.  
+    -   **Name:** Geben Sie einen Namen für die Kompatibilitätsregel ein.  
   
-    -   **Description :** Entrez une description pour la règle de conformité.  
+    -   **Beschreibung:** Geben Sie eine Beschreibung für die Kompatibilitätsregel ein.  
   
-    -   **Paramètre sélectionné :** Cliquez sur **Parcourir** pour ouvrir le **Sélectionner le paramètre** boîte de dialogue. Sélectionnez le paramètre que vous souhaitez définir une règle, ou cliquez sur **nouveau paramètre**. Lorsque vous avez terminé, cliquez sur **Sélectionner**.  
+    -   **Ausgewählte Einstellung:** Klicken Sie auf **Durchsuchen** So öffnen die **Einstellung auswählen** (Dialogfeld). Wählen Sie die Einstellung, die Sie verwenden möchten, eine Regel definieren, oder klicken Sie auf **neue Einstellung**. Klicken Sie dann auf **Auswählen**.  
   
         > [!TIP]  
-        >  Vous pouvez également cliquer sur **Propriétés** pour afficher des informations sur le paramètre actuellement sélectionné.  
+        >  Sie können zum Anzeigen von Informationen über die derzeit ausgewählte Einstellung auch auf **Eigenschaften** klicken.  
   
-    -   **Type de règle :** sélectionnez le type de règle de compatibilité à utiliser :  
+    -   **Regeltyp** Wählen Sie den zu verwendenden Kompatibilitätsregeltyp aus:  
   
-        -   **Valeur** : créez une règle qui compare la valeur renvoyée par l’élément de configuration à une valeur que vous spécifiez.  
+        -   **Wert** : Erstellen Sie eine Regel, mit deren Hilfe der vom Konfigurationselement zurückgegebene Wert mit einem von Ihnen angegebenen Wert verglichen wird.  
   
-        -   **Existentiel** : créez une règle qui évalue le paramètre, selon qu’il existe sur un périphérique.  
+        -   **Existenziell** : Erstellen Sie eine Regel, mit der die Einstellung abhängig davon ausgewertet wird, ob sie auf einem Gerät vorhanden ist.  
   
-    -   Pour un type de règle **Valeur**, spécifiez les informations suivantes :  
+    -   Geben Sie für eine Regel des Typs **Wert**die folgenden Informationen an:  
   
-        -   Le paramètre doit respecter la règle suivante : sélectionnez un opérateur et une valeur dont la compatibilité est évaluée avec le paramètre sélectionné. Vous pouvez utiliser les opérateurs suivants :  
+        -   Die folgende Regel muss von der Einstellung erfüllt werden. Wählen Sie einen Operator und einen Wert aus, die mit der ausgewählten Einstellung auf Kompatibilität ausgewertet werden. Folgende Operatoren können verwendet werden:  
   
-            -   **Égal à**  
+            -   **Gleich**  
   
-            -   **Non égal à**  
+            -   **Ungleich**  
   
-            -   **Supérieur à**  
+            -   **Größer als**  
   
-            -   **Inférieur à**  
+            -   **Kleiner als**  
   
-            -   **Entre**  
+            -   **Zwischen**  
   
-            -   **Supérieur ou égal à**  
+            -   **Größer oder gleich**  
   
-            -   **Inférieur ou égal à**  
+            -   **Kleiner oder gleich**  
   
-            -   **L’un des** : dans la zone de texte, spécifiez une seule entrée sur chaque ligne.  
+            -   **Eine von** : Geben Sie im Textfeld pro Zeile einen Eintrag an.  
   
-            -   **Aucun des** : dans la zone de texte, spécifiez une seule entrée sur chaque ligne.  
+            -   **Keine von** : Geben Sie im Textfeld pro Zeile einen Eintrag an.  
   
-        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles.  
+        -   **Nicht kompatible Regeln wiederherstellen, falls dies unterstützt wird** : Wählen Sie diese Option aus, wenn nicht kompatible Regeln von Configuration Manager automatisch wiederhergestellt werden sollen.  
   
             > [!IMPORTANT]  
-            >  Vous ne pouvez corriger que les règles non compatibles lorsque l'opérateur de règle est défini sur **Égal à**.  
+            >  Sie können nicht kompatible Regeln nur wiederherstellen, wenn der Regeloperator auf **Ist gleich**festgelegt ist.  
   
-        -   **Signaler la non-compatibilité si l’instance de ce paramètre est introuvable** : l’élément de configuration signale une non-compatibilité si ce paramètre est introuvable sur l’ordinateur Mac.  
+        -   **Nichtkompatibilität melden, wenn diese Einstellungsinstanz nicht gefunden wird** : Vom Konfigurationselement wird eine Nichtkompatibilität gemeldet, wenn diese Einstellung auf dem Macintosh-Computern nicht gefunden wird.  
   
-    -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé en cas d’échec de cette règle de compatibilité. Les niveaux de gravité disponibles sont les suivants :  
+    -   **Schweregrad der Nichtkompatibilität für Berichte** : Geben Sie den Schweregrad an, der gemeldet wird, wenn bei dieser Kompatibilitätsregel ein Fehler auftritt. Die folgenden Schweregrade sind verfügbar:  
   
-        -   **Aucun** : les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+        -   **Keine**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-        -   **Informations** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+        -   **Information**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Avertissement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+        -   **Warnung**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+        -   **Kritisch**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
   
-        -   **Critique avec événement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+        -   **Kritisch mit Ereignis**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird auch vom Macintosh-Clientcomputer protokolliert.  
   
-    -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
+    -   Geben Sie für eine Regel des Typs **Existenziell**die folgenden Informationen an:  
   
-        -   Choisissez parmi :  
+        -   Wählen Sie eine der folgenden:  
   
-            -   **Le paramètre doit exister sur les périphériques clients**  
+            -   **Diese Einstellung muss auf Clientgeräten vorhanden sein**  
   
-            -   **Le paramètre ne doit pas exister sur les périphériques clients**  
+            -   **Diese Einstellung darf auf Clientgeräten nicht vorhanden sein**  
   
-        -   **Gravité de non compatibilité pour les rapports :** Spécifier le niveau de gravité signalé en cas d'échec de cette règle de conformité. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Schweregrad der Nichtkompatibilität für Berichte:** Geben Sie den Schweregrad, der gemeldet wird, wenn es sich bei dieser Kompatibilitätsregel ein Fehler auftritt. Die folgenden Schweregrade sind verfügbar:  
   
-            -   **Aucun** : les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+            -   **Keine**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird kein Fehlerschweregrad für Configuration Manager-Berichte gemeldet.  
   
-            -   **Informations** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+            -   **Information**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Information** für Configuration Manager-Berichte gemeldet.  
   
-            -   **Avertissement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+            -   **Warnung**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Warnung** für Configuration Manager-Berichte gemeldet.  
   
-            -   **Critique** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+            -   **Kritisch**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet.  
   
-            -   **Critique avec événement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+            -   **Kritisch mit Ereignis**: Von Computern, bei denen bei dieser Konformitätsregel ein Fehler auftritt, wird der Fehlerschweregrad **Kritisch** für Configuration Manager-Berichte gemeldet. Dieser Schweregrad wird auch vom Macintosh-Clientcomputer protokolliert.  
   
         > [!NOTE]  
-        >  Les options affichées peuvent varier selon le type de paramètre pour lequel vous configurez une règle.  
+        >  Die angezeigten Optionen sind möglicherweise unterschiedlich, je nach Einstellungstyp, für den Sie eine Regel konfigurieren.  
   
-    -   Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une règle** .  
+    -   Klicken Sie auf **OK** , um das Dialogfeld **Regel erstellen** zu schließen.  
   
-15. Dans la page **Résumé** , vérifiez les paramètres du nouvel élément de configuration, puis terminez l’Assistant.  
+15. Bestätigen Sie auf der Seite **Zusammenfassung** die Einstellungen für das neue Konfigurationselement, und schließen Sie dann den Assistenten.  
   
- Le nouvel élément de configuration s’affiche dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité** .  
+ Das neue Konfigurationselement wird anschließend im Arbeitsbereich **Bestand und Kompatibilität** im Knoten **Konfigurationselement** angezeigt.  
   
- Si vous souhaitez maintenant ajouter cet élément de configuration à une base de référence de configuration, consultez [Comment créer des bases de référence de configuration dans System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md).  
+ Wenn Sie jetzt dieses Konfigurationselement einer Konfigurationsbasislinie hinzufügen möchten, gehen Sie zu [Erstellen von Konfigurationsbasislinien in System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md).  
   
-## <a name="see-also"></a>Voir aussi  
- [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
-
+## <a name="see-also"></a>Siehe auch  
+ [Konfigurationselemente für Geräte, die mit dem System Center Configuration Manager-Client verwaltet werden](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)

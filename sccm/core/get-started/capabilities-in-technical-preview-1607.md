@@ -1,81 +1,78 @@
 ---
-title: "Fonctionnalités de Technical Preview 1607 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1607 pour System Center Configuration Manager."
+title: "Funktionen in Technical Preview 1607 für Configuration Manager"
+description: "Erfahren Sie mehr zu den Features, die in System Center Configuration Manager Technical Preview 1607 zur Verfügung stehen."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2bb69547-3370-4860-96b0-7fb600c56482
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
 ms.openlocfilehash: 4717e0f8eef01501fb5b5790e855c476c1ca4590
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1607 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Funktionen in Technical Preview 1607 für System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Gilt für: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1607 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+In diesem Artikel werden die Features erläutert, die in der Technical Preview für System Center Configuration Manager 1607 verfügbar sind. Sie können diese Version installieren, um neue Funktionen für Ihren Configuration Manager Technical Preview-Standort zu aktualisieren oder hinzuzufügen.      Bevor Sie diese Version der Technical Preview installieren, lesen Sie das einführende Thema [Technical Preview für System Center Configuration Manager](../../core/get-started/technical-preview.md), um sich mit den allgemeinen Anforderungen und Einschränkungen bei der Verwendung einer Technical Preview vertraut zu machen, und zu erfahren, wie Sie Updates zwischen Versionen durchführen und Feedback zu den Features in einer Technical Preview geben können.    
 
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+**Im Folgenden werden neue Features aufgelistet, die Sie mit dieser Version ausprobieren können.**  
 
-## <a name="dmp_edition"></a>Améliorations apportées à la stratégie de mise à niveau de l’édition Windows 10
+## <a name="dmp_edition"></a>Verbesserungen an der Richtlinie für Windows 10-Editionsupgrades
 
-Dans cette version, les améliorations suivantes ont été apportées à cette stratégie :
+In dieser Release wurden die folgenden Verbesserungen an der Richtlinie vorgenommen:
 
-* Vous pouvez maintenant utiliser la stratégie de mise à niveau d’édition avec des PC Windows 10 qui exécutent le client Configuration Manager en plus des PC Windows 10 inscrits avec Microsoft Intune.
-* Vous pouvez effectuer la mise à niveau à partir de Windows 10 Professionnel vers l’une des plateformes de l’Assistant qui sont compatibles avec votre matériel.
+* Sie können nun die Richtlinie für Editionsupgrades mit Windows 10-PCs, die den Configuration Manager-Client ausführen, zusätzlich zu Windows 10-PCs verwenden, die in Microsoft Intune registriert sind.
+* Sie können von Windows 10 Professional auf beliebige Plattformen im Assistenten aktualisieren, die mit Ihrer Hardware kompatibel sind.
 
-[En savoir plus sur la stratégie de mise à niveau de l’édition Windows 10](/sccm/compliance/deploy-use/upgrade-windows-version)
+[Erfahren Sie mehr über die Richtlinie für Windows 10-Editionsupgrades.](/sccm/compliance/deploy-use/upgrade-windows-version)
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-1. Utilisez les informations de la [rubrique sur la stratégie de mise à niveau d’édition existante](/sccm/compliance/deploy-use/upgrade-windows-version) pour créer une stratégie de mise à niveau d’édition.
-2. Déployez cette stratégie sur un PC Windows 10 exécutant le client Configuration Manager.
-Une fois que la stratégie atteint un PC Windows ciblé, l’ordinateur est redémarré dans les deux heures pour appliquer la mise à niveau. Vous ne pouvez pas supprimer ce redémarrage. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.
+1. Informationen zum Erstellen einer Richtlinie für Editionsupgrades finden Sie unter [Thema der vorhandenen Editionsupgraderichtlinie](/sccm/compliance/deploy-use/upgrade-windows-version).
+2. Stellen Sie diese Richtlinie auf einem Windows 10-PC bereit, der den Configuration Manager-Client ausführt.
+Sobald die Richtlinie einen entsprechenden Windows-PC erreicht, wird der PC innerhalb von zwei Stunden zum Installieren des Upgrades neu gestartet. Derzeit können Sie diesen Neustart nicht unterdrücken. Stellen Sie sicher, dass Sie jeden Benutzer informieren, dem Sie die Richtlinie bereitstellen, oder planen Sie die Ausführung der Richtlinie außerhalb der Arbeitsstunden der Benutzer.
 
-### <a name="known-issue-with-this-release"></a>Problèmes connus pour cette version
-Dans les paramètres du client Configuration Manager, vous pouvez voir les paramètres pour **Mise à niveau d’édition**. Dans cette version, ces paramètres ne fonctionnent pas. Utilisez les instructions fournies plus haut pour mettre à niveau Windows 10 vers une version plus récente.
+### <a name="known-issue-with-this-release"></a>Bekannte Probleme in diesem Release
+In den Configuration Manager-Clienteinstellungen finden Sie möglicherweise Einstellungen für **Editionsupgrades**. In diesem Release sind diese Einstellungen nicht funktionsfähig. Verwenden Sie die Hinweise weiter oben, um für Windows 10 ein Upgrade auf eine neuere Version durchzuführen.
 
-## <a name="customizable-branding-for-software-center-dialogs"></a>Personnalisation des boîtes de dialogue du Centre logiciel
+## <a name="customizable-branding-for-software-center-dialogs"></a>Anpassbares Branding für Software Center-Dialogfelder
 
-Une marque personnalisée pour le Centre logiciel a été introduite dans Configuration Manager version 1602. Dans la version d’évaluation technique 1607, cette marque est désormais étendue à toutes les boîtes de dialogue associées et les notifications de la barre des tâches pour fournir une expérience plus cohérente aux utilisateurs du Centre logiciel.
+Benutzerdefiniertes Branding für das Softwarecenter wurde in Configuration Manager-Version 1602 eingeführt. In Technical Preview-Version 1607 ist dieses Branding jetzt auf alle zugehörigen Dialogfelder und Benachrichtigungen der Taskleiste ausgeweitet, um eine konsistentere Erfahrung für Softwarecenter-Benutzer zur Verfügung zu stellen.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probieren Sie es aus!
 
-Une marque personnalisée pour le Centre logiciel est appliquée selon les règles suivantes :
+Benutzerdefiniertes Branding für das Softwarecenter wird gemäß den folgenden Regeln angewendet:
 
-1. Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** **Nom d’organisation affiché dans le Centre logiciel**. Pour obtenir des instructions, consultez [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).
+1. Wenn die Standortserverrolle „Anwendungskatalog-Websitepunkt“ nicht installiert ist, zeigt das Softwarecenter den Organisationsnamen an, der in der **Computer-Agent**-Clienteinstellung **Im Softwarecenter angezeigter Organisationsname** angegeben ist. Eine Anleitung hierzu finden Sie unter [Konfigurieren von Clienteinstellungen](../../core/clients/deploy/configure-client-settings.md).
 
-2. Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications. Pour plus d’informations, consultez [Options de configuration pour le point du site web du catalogue des applications](../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md#BKMK_ApplicationCatalog_Website).
+2. Wenn die Standortserverrolle „Anwendungskatalog-Websitepunkt“ installiert ist, zeigt Software Center den Organisationsnamen und die Farbe an, der bzw. die in den Eigenschaften der Standortserverrolle „Anwendungskatalog-Websitepunkt“ angegeben sind. Weitere Informationen finden Sie unter [Konfigurationsoptionen für den Anwendungskatalog-Websitepunkt](../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md#BKMK_ApplicationCatalog_Website).
 
-3. Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de la société spécifiés dans les propriétés de l’abonnement Intune. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/mdm/deploy-use/configure-intune-subscription).
+3. Wenn ein Microsoft Intune-Abonnement konfiguriert und mit der Configuration Manager-Umgebung verbunden ist, zeigt das Softwarecenter den Organisationsnamen, die Farbe und das Unternehmenslogo entsprechend den Angaben in den Eigenschaften des Intune-Abonnements an. Weitere Informationen finden Sie unter [Configuring the Microsoft Intune subscription (Konfigurieren des Microsoft Intune-Abonnements)](/mdm/deploy-use/configure-intune-subscription).
 
-## <a name="use-the-same-network-adapter-for-multiple-pxe-initiated-deployments"></a>Utiliser la même carte réseau pour plusieurs déploiements établis par PXE
-Dans la version d’évaluation technique 1607, quand vous utilisez une carte Ethernet pour mettre en image plusieurs appareils (par exemple, une carte Ethernet USB que vous utilisez sur plusieurs appareils), vous pouvez activer un nouveau paramètre qui vous permet d’entrer des identificateurs de matériel pour les cartes Ethernet. Configuration Manager ignore les identificateurs de matériel dans la liste lors de l’installation PXE et pour l’inscription des clients.
+## <a name="use-the-same-network-adapter-for-multiple-pxe-initiated-deployments"></a>Verwenden derselben Netzwerkadapter für mehrere PXE-initiierte Bereitstellungen
+In Technical Preview-Version 1607 können Sie bei der Verwendung eines Ethernet-Adapters für das Abbilden mehrere Geräte (z.B. ein USB-Ethernetadapter, den Sie auf mehreren Geräten verwenden) eine neue Einstellung aktivieren, mit der Sie Hardware-IDs für die Ethernet-Adapter eingeben können. Configuration Manager ignoriert die Hardware-IDs in der Liste für die Clientregistrierung, oder wenn er eine PXE-Installation ausführt.
 
-Pour plus d’informations sur ce problème, consultez le [blog de l’équipe de support OSD Configuration Manager](https://blogs.technet.microsoft.com/system_center_configuration_manager_operating_system_deployment_support_blog/2015/08/27/reusing-the-same-nic-for-multiple-pxe-initiated-deployments-in-system-center-configuration-manger-osd/).  
+Weitere Informationen zu diesem Problem finden Sie auf dem englischsprachigen [Blog des Configuration Manager OSD-Supportteams](https://blogs.technet.microsoft.com/system_center_configuration_manager_operating_system_deployment_support_blog/2015/08/27/reusing-the-same-nic-for-multiple-pxe-initiated-deployments-in-system-center-configuration-manger-osd/).  
 
-### <a name="enable-the-feature-to-manage-duplicate-hardware-identifiers"></a>Activer la fonctionnalité pour gérer les identificateurs de matériel dupliqués  
-1. Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Services cloud** > **Mises à jour et maintenance** > **Fonctionnalités**.
-2. Dans le volet d’informations, sélectionnez **Gérer les identificateurs matériels dupliqués**.
-3. Sous l’onglet **Accueil**, dans le groupe **Fonctionnalités**, cliquez sur **Activer**.
+### <a name="enable-the-feature-to-manage-duplicate-hardware-identifiers"></a>Aktivieren des Features zum Verwalten von doppelten Hardware-IDs  
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Clouddienste** > **Updates und Wartung** > **Features**.
+2. Wählen Sie im Anzeigebereich **Doppelte Hardware-IDs verwalten** aus.
+3. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Features** auf **Aktivieren**.
 
-### <a name="add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Ajouter des identificateurs de matériel que Configuration Manager doit ignorer  
-1. Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.
-2. Dans l'onglet **Accueil** , dans le groupe **Sites** , cliquez sur **Paramètres de hiérarchie**.
-3. Accédez à l’onglet **Approbation client et enregistrements en conflit**.
-4. Cliquez sur **Ajouter** dans la section **Identificateurs de matériel dupliqués** pour ajouter de nouveaux identificateurs de matériel.
-
+### <a name="add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Hinzufügen von Hardware-IDs, die Configuration Manager ignorieren soll  
+1. Navigieren Sie in der Configuration Manager-Konsole zu **Verwaltung** > **Übersicht** > **Standortkonfiguration** > **Standorte**.
+2. Klicken Sie auf der Registerkarte **Startseite** in der Gruppe **Standorte** auf **Hierarchieeinstellungen**.
+3. Klicken Sie auf die Registerkarte **Clientgenehmigung und in Konflikt stehende Datensätze**.
+4. Klicken Sie im Abschnitt **Doppelte Hardware-IDs** auf **Hinzufügen**, um neue Hardware-IDs hinzuzufügen.

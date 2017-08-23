@@ -1,41 +1,38 @@
 ---
-title: Planifier la gestion des appareils mobiles hybride | Microsoft Docs
-description: Planifiez la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune.
+title: Planung hybrider MDM | Microsoft-Dokumentation
+description: "Planen Sie die hybride Verwaltung mobiler Geräte (Mobile Device Management, MDM) mit System Center Configuration Manager und Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
-caps.latest.revision: 34
-caps.handback.revision: 0
+caps.latest.revision: "34"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: 814fb545dae35c582146450c316446c21191002f
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Planifier une gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
+# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Planen der hybriden Verwaltung mobiler Geräte (MDM) mit System Center Configuration Manager und Microsoft Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez utiliser une seule solution de gestion, l’autorité de gestion des appareils mobiles, pour gérer vos appareils mobiles. Avant de sélectionner ce paramètre, vous devez [choisir entre la version autonome de Microsoft Intune et une gestion hybride des appareils mobiles avec Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
+Sie können nur eine Verwaltungslösung verwenden: die Autorität für die Verwaltung mobiler Geräte. Vor dem Einrichten dieser Einstellung sollten Sie [zwischen eigenständigem Microsoft Intune und der hybriden Verwaltung mobiler Geräte mit System Center Configuration Manager wählen](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
 
-En outre, le [guide de planification, de conception et d’implémentation du déploiement Intune](https://docs.microsoft.com/en-us/intune/plan-design/introduction) est une source d’informations fiable sur le processus de développement d’un plan de déploiement, de création d’une conception, d’intégration de Microsoft Intune et d’exécution d’un déploiement de production.
+Darüber hinaus bietet [Intune Deployment Planning, Design and Implementation Guide (Intune-Handbuch zum Planen, Entwerfen und Implementieren der Bereitstellung)](https://docs.microsoft.com/en-us/intune/plan-design/introduction) eine große Menge an Informationen zum Prozess der Entwicklung eines Bereitstellungsplans, der Erstellung eines Entwurfs, des Onboarding-Intune und der Überführung in die Produktion.
 
-- La page [Plateformes prises en charge](supported-device-platforms-for-hybrid.md) affiche la liste des plateformes d’appareils mobiles prises en charge par Configuration Manager via Microsoft Intune.
+- [Unterstützte Geräteplattformen](supported-device-platforms-for-hybrid.md) listet die Plattformen für mobile Geräte auf, die von Configuration Manager mithilfe von Microsoft Intune unterstützt werden.
 
-- La section relative aux [méthodes d’inscription des appareils](device-enrollment-methods.md) fournit des informations sur l’inscription d’appareils appartenant à des utilisateurs et des entreprises, ainsi que des fonctionnalités prises en charge.
+- [Geräteregistrierungsmethoden](device-enrollment-methods.md) enthält Informationen zum Registrieren von firmeneigenen und benutzereigenen Geräten und deren unterstützten Funktionen.
 
 
-### <a name="next-steps"></a>Étapes suivantes
- [Configurer une gestion hybride des appareils mobiles](../deploy-use/setup-hybrid-mdm.md)
-
+### <a name="next-steps"></a>Nächste Schritte
+ [Einrichten der hybriden Verwaltung mobiler Geräte](../deploy-use/setup-hybrid-mdm.md)

@@ -1,78 +1,71 @@
 ---
-
-title: Configurer Endpoint Protection | Microsoft Docs
-description: "Découvrez comment sélectionner et configurer des méthodes avec Endpoint Protection dans System Center Configuration Manager pour tenir à jour les définitions du logiciel anti-programme malveillant sur les ordinateurs clients."
+title: Konfigurieren von Endpoint Protection | Microsoft-Dokumentation
+description: "Erfahren Sie, wie Sie Methoden mit Endpoint Protection in System Center Configuration Manager auswählen und konfigurieren, um Antischadsoftwaredefinitionen auf den Clientcomputern auf dem neuesten Stand zu halten."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 537dd2a7-4e44-4877-b8dd-5e1499407f8d
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 9085a4daed409eeff4c95e5c467f123d0a38147a
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
-
+ms.openlocfilehash: b5da7900a4f8e2f330c4dcb2cac00b45099bd909
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+#  <a name="configure-definition-updates-for-endpoint-protection"></a>Konfigurieren von Definitionsupdates für Endpoint Protection  
 
-#  <a name="configure-definition-updates-for-endpoint-protection"></a>Configurer les mises à jour des définitions pour Endpoint Protection  
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+ Mit Endpoint Protection in System Center Configuration Manager können Sie anhand einer Reihe verfügbarer Methoden die Antischadsoftwaredefinitionen auf Clientcomputern in Ihrer Hierarchie auf dem neuesten Stand halten. Die Informationen in diesem Thema helfen Ihnen beim Auswählen und Konfigurieren dieser Methoden.
 
- Avec Endpoint Protection dans System Center Configuration Manager, vous pouvez utiliser une des diverses méthodes disponibles pour tenir à jour les définitions du logiciel anti-programme malveillant sur les ordinateurs clients de votre hiérarchie. Les informations contenues dans cette rubrique peuvent vous aider à sélectionner et à configurer ces méthodes.
+ Zum Aktualisieren von Antischadsoftwaredefinitionen können Sie eine oder mehrere der folgenden Methoden verwenden:
 
- Pour mettre à jour des définitions de logiciels anti-programmes malveillants, vous pouvez utiliser une ou plusieurs des méthodes suivantes :
+-   [Von Configuration Manager verteilte Updates](endpoint-definitions-configmgr.md) ‒ Diese Methode verwendet Configuration Manager-Softwareupdates, um Definitions- und Modulupdates auf Computern in Ihrer Hierarchie bereitzustellen.
 
--   [Mises à jour distribuées depuis Configuration Manager](endpoint-definitions-configmgr.md) : cette méthode utilise des mises à jour logicielles de Configuration Manager pour remettre les mises à jour du moteur et des définitions aux ordinateurs de votre hiérarchie.
+-   [Von WSUS (Windows Server Update Services) verteilte Updates](endpoint-definitions-wsus.md) ‒ Diese Methode verwendet Ihre WSUS-Infrastruktur, um Definitions- und Modulupdates auf Computern bereitzustellen.
 
--   [Mises à jour distribuées à partir de Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) : cette méthode utilise l’infrastructure WSUS pour remettre les mises à jour du moteur et des définitions aux ordinateurs.
+-   [Von Microsoft Update verteilte Updates](endpoint-definitions-microsoft-updates.md) ‒ Bei dieser Methode können Computer eine direkte Verbindung mit Microsoft Update herstellen, um die Definitions- und Modulupdates herunterzuladen. Diese Methode kann bei Computern nützlich sein, die nicht oft mit dem Firmennetzwerk verbunden sind.
 
--   [Mises à jour distribuées à partir de Microsoft Update](endpoint-definitions-microsoft-updates.md) : cette méthode permet aux ordinateurs de se connecter directement à Microsoft Update pour télécharger les mises à jour du moteur et des définitions. Cette méthode peut être utile pour les ordinateurs qui ne sont pas souvent connectés au réseau d’entreprise.
+-   [Von Microsoft Malware Protection Center verteilte Updates](endpoint-definitions-protection-center.md) ‒ bei dieser Methode werden Definitionsupdates vom Microsoft Malware Protection Center heruntergeladen.
 
--   [Mises à jour distribuées à partir du Centre de protection Microsoft contre les programmes malveillants](endpoint-definitions-protection-center.md) : cette méthode télécharge les mises à jour des définitions à partir du Centre de protection Microsoft contre les programmes malveillants.
+-   [Updates von UNC-Dateifreigaben](endpoint-definitions-network.md) ‒ Mit dieser Methode können Sie die neuesten Definitions- und Modulupdates in einer Freigabe auf dem Netzwerk speichern. Clients können dann zum Installieren der Updates auf das Netzwerk zugreifen.
 
--   [Mises à jour à partir de partages de fichiers UNC](endpoint-definitions-network.md) : avec cette méthode, vous pouvez enregistrer les dernières mises à jour du moteur et des définitions dans un partage sur le réseau. Les clients peuvent ensuite accéder au réseau pour installer les mises à jour.
-
- Vous pouvez configurer plusieurs sources de mise à jour de définition et contrôler l’ordre dans lequel elles sont évaluées et appliquées. Cette opération s’effectue dans la boîte de dialogue **Configurer les sources de mise à jour de définition** quand vous créez une stratégie de logiciel anti-programme malveillant.
+ Sie können mehrere Definitionsupdatequellen konfigurieren und die Reihenfolge steuern, in der diese bewertet und angewendet werden. Dies erfolgt über das Dialogfeld **Definitionsupdatequellen konfigurieren** beim Erstellen einer Richtlinie für Antischadsoftware.
 
 > [!IMPORTANT]
->  Pour les PC Windows 10, vous devez configurer Endpoint Protection pour mettre à jour les définitions de programmes malveillants pour Windows Defender.
+>  Auf Windows 10-PCs müssen Sie Endpoint Protection konfigurieren, um Antischadsoftwaredefinitionen für Windows Defender zu aktualisieren.
 
-## <a name="how-to-configure-definition-update-sources"></a>Comment configurer des sources de mise à jour de définition
- Utilisez la procédure suivante pour configurer les sources de mise à jour de définition à utiliser pour chaque stratégie de logiciel anti-programme malveillant.
+## <a name="how-to-configure-definition-update-sources"></a>Konfigurieren von Definitionsupdatequellen
+ Verwenden Sie das folgende Verfahren, um die Definitionsupdatequellen zu konfigurieren, die für die einzelnen Richtlinien für Antischadsoftware verwendet werden sollen.
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+1.  Klicken Sie in der Configuration Manager-Konsole auf **Bestand und Kompatibilität**.
 
-2.  Dans l’espace de travail **Ressources et Conformité** , développez **Endpoint Protection**, puis cliquez sur **Stratégies anti-programme malveillant**.
+2.  Erweitern Sie im Arbeitsbereich **Bestand und Kompatibilität** den Knoten **Endpoint Protection**, und klicken Sie dann auf **Richtlinien für Antischadsoftware**.
 
-3.  Ouvrez la page de propriétés de la **Stratégie de logiciel anti-programme malveillant par défaut** ou créez une stratégie de logiciel anti-programme malveillant. Pour plus d’informations sur la création de stratégies de logiciel anti-programme malveillant, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
+3.  Öffnen Sie die Eigenschaftenseite für die **Standardrichtlinie für Antischadsoftware** , oder erstellen Sie eine neue Richtlinie für Antischadsoftware. Weitere Informationen zum Erstellen von Richtlinien für Antischadsoftware finden Sie unter [Erstellen und Bereitstellen von Richtlinien für Antischadsoftware für Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-4.  Dans la section **Mises à jour de définitions** de la boîte de dialogue des propriétés du logiciel anti-programme malveillant, cliquez sur **Définir la source**.
+4.  Klicken Sie im Abschnitt **Definitionsupdates** des Dialogfelds mit Eigenschaften von Antischadsoftware auf **Quelle festlegen**.
 
-5.  Dans la boîte de dialogue **Configurer les sources de mise à jour de définition** , sélectionnez les sources à utiliser pour les mises à jour de définition. Vous pouvez cliquer sur **Haut** ou **Bas** pour modifier l’ordre dans lequel ces sources sont utilisées.
+5.  Wählen Sie im Dialogfeld **Definitionsupdatequellen konfigurieren** die Quellen aus, die für Definitionsupdates verwendet werden sollen. Sie können auf **Nach oben** oder **Nach unten** klicken, um die Reihenfolge zu ändern, in der diese Quellen verwendet werden.
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Configurer les sources de mise à jour de définition** .
+6.  Klicken Sie auf **OK** , um das Dialogfeld **Definitionsupdatequellen konfigurieren** zu schließen.
 
-## <a name="configure-endpoint-protection-definitions"></a>Configurer les définitions Endpoint Protection
+## <a name="configure-endpoint-protection-definitions"></a>Konfigurieren von Endpoint Protection-Definitionen
 
--   [Mises à jour distribuées depuis Configuration Manager](endpoint-definitions-configmgr.md) : cette méthode utilise des mises à jour logicielles de Configuration Manager pour remettre les mises à jour du moteur et des définitions aux ordinateurs de votre hiérarchie.
+-   [Von Configuration Manager verteilte Updates](endpoint-definitions-configmgr.md) ‒ Diese Methode verwendet Configuration Manager-Softwareupdates, um Definitions- und Modulupdates auf Computern in Ihrer Hierarchie bereitzustellen.
 
--   [Mises à jour distribuées à partir de Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) : cette méthode utilise l’infrastructure WSUS pour remettre les mises à jour du moteur et des définitions aux ordinateurs.
+-   [Von WSUS (Windows Server Update Services) verteilte Updates](endpoint-definitions-wsus.md) ‒ Diese Methode verwendet Ihre WSUS-Infrastruktur, um Definitions- und Modulupdates auf Computern bereitzustellen.
 
--   [Mises à jour distribuées à partir de Microsoft Update](endpoint-definitions-microsoft-updates.md) : cette méthode permet aux ordinateurs de se connecter directement à Microsoft Update pour télécharger les mises à jour du moteur et des définitions. Cette méthode peut être utile pour les ordinateurs qui ne sont pas souvent connectés au réseau d’entreprise.
+-   [Von Microsoft Update verteilte Updates](endpoint-definitions-microsoft-updates.md) ‒ Bei dieser Methode können Computer eine direkte Verbindung mit Microsoft Update herstellen, um die Definitions- und Modulupdates herunterzuladen. Diese Methode kann bei Computern nützlich sein, die nicht oft mit dem Firmennetzwerk verbunden sind.
 
--   Mises à jour distribuées à partir du Centre de protection Microsoft contre les programmes malveillants : cette méthode télécharge les mises à jour des définitions à partir du Centre de protection Microsoft contre les programmes malveillants.
+-   Von Microsoft Malware Protection Center verteilte Updates ‒ Bei dieser Methode werden Definitionsupdates vom Microsoft Malware Protection Center heruntergeladen.
 
--   [Mises à jour à partir de partages de fichiers UNC](endpoint-definitions-network.md) : avec cette méthode, vous pouvez enregistrer les dernières mises à jour du moteur et des définitions dans un partage sur le réseau. Les clients peuvent ensuite accéder au réseau pour installer les mises à jour.
-
+-   [Updates von UNC-Dateifreigaben](endpoint-definitions-network.md) ‒ Mit dieser Methode können Sie die neuesten Definitions- und Modulupdates in einer Freigabe auf dem Netzwerk speichern. Clients können dann zum Installieren der Updates auf das Netzwerk zugreifen.

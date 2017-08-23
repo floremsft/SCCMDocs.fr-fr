@@ -1,99 +1,92 @@
 ---
-title: "Surveiller des applications à partir de la console System Center Configuration Manager | Microsoft Docs"
-description: "Surveillez le déploiement de logiciels, notamment des mises à jour, des paramètres de compatibilité et des applications à l’aide de l’espace de travail Surveillance dans Configuration Manager."
+title: "Überwachen von Anwendungen in der System Center Configuration Manager-Konsole | Microsoft-Dokumentation"
+description: "Überwachen Sie die Bereitstellung von Software, einschließlich Updates, Kompatibilitätseinstellungen und Anwendungen, mithilfe des Arbeitsbereichs „Überwachung“ in Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 784c295c-b8b8-4202-ab9f-665908d49d6d
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-translationtype: Human Translation
-ms.sourcegitcommit: fd7ea34b605d70f2ba9bd40384eb566ec3a87430
 ms.openlocfilehash: 42d21d10489bffe32b875384f8801686239a0ba4
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Surveiller des applications à partir de la console System Center Configuration Manager
+# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Überwachen von Anwendungen in der System Center Configuration Manager-Konsole
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-System Center Configuration Manager permet de surveiller le déploiement de tous les logiciels : mises à jour logicielles, paramètres de compatibilité, applications, séquences de tâches, packages, programmes, etc. Vous pouvez surveiller les déploiements à l’aide de l’espace de travail **Surveillance** de la console Configuration Manager ou par le biais de rapports.  
+Sie können in System Center Configuration Manager die Bereitstellung der gesamten Software überwachen, z.B. Softwareupdates, Kompatibilitätseinstellungen, Anwendungen, Tasksequenzen sowie Pakete und Programme. Sie können Bereitstellungen über den Arbeitsbereich **Überwachung** in der Configuration Manager-Konsole oder mithilfe von Berichten überwachen.  
 
- Les applications de Configuration Manager prennent en charge la surveillance basée sur l’état, laquelle vous permet de suivre le dernier état du déploiement des applications pour les utilisateurs et les appareils. Ces messages d'état affichent des informations concernant des périphériques individuels. Par exemple, si une application est déployée sur un regroupement d’utilisateurs, vous pouvez voir l’état de compatibilité du déploiement ainsi que son objet dans la console Configuration Manager.  
+ Für Anwendungen in Configuration Manager wird eine zustandsbasierte Überwachung unterstützt, womit Sie den letzten Anwendungsbereitstellungszustand für Benutzer und Geräte nachverfolgen können. In diesen Zustandsmeldungen werden Informationen über einzelne Geräte angegeben. Wenn beispielsweise eine Anwendung für eine Sammlung von Benutzern bereitgestellt wird, können Sie den Kompatibilitätszustand und den Zweck der Bereitstellung in der Configuration Manager-Konsole anzeigen.  
 
-## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>En savoir plus sur les états de compatibilité dans System Center Configuration Manager
- L'état d'un déploiement d'application peut disposer de l'un des états de compatibilité suivants :  
+## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>Erfahren Sie mehr über Konformitätszustände des System Center Configuration Manager
+ Für einen Anwendungsbereitstellungszustand wird einer der folgenden Kompatibilitätszustände angezeigt:  
 
--   **Opération réussie** : le déploiement d'application a réussi ou était déjà installé.  
+-   **Erfolg** : Die Anwendung wurde erfolgreich bereitgestellt oder war bereits installiert.  
 
--   **En cours** : le déploiement d'application est en cours.  
+-   **In Bearbeitung** : Die Anwendungsbereitstellung wird ausgeführt.  
 
--   **Inconnu** : l'état du déploiement d'application n'a pas pu être déterminé. Cet état ne concerne pas les déploiements dont l'objet est **Disponible**. Cet état s'affiche généralement lorsque les messages d'état émanant du client n'ont pas encore été reçus.  
+-   **Unbekannt** : Der Zustand der Anwendungsbereitstellung konnte nicht ermittelt werden. Dieser Zustand gilt nicht für Bereitstellungen mit dem Zweck **Verfügbar**. Dieser Zustand wird in der Regel angezeigt, wenn noch keine Zustandsmeldungen vom Client eingegangen sind.  
 
--   **Config non satisfaite** : l'application n'a pas été déployée, car elle n'était pas conforme à une dépendance ou à une règle de spécification, ou car le système d'exploitation sur lequel elle a été déployée n'était pas concerné.  
+-   **Anforderungen nicht erfüllt** : Die Anwendung wurde nicht bereitgestellt, weil sie mit einer Abhängigkeit oder einer Anforderungsregel nicht kompatibel war oder weil das Zielbetriebssystem für die Bereitstellung ungültig war.  
 
--   **Erreur** : le déploiement d'application a échoué à cause d'une erreur.  
+-   **Fehler** : Bei der Bereitstellung der Anwendung ist ein Fehler aufgetreten.  
 
-Vous pouvez consulter des informations supplémentaires pour chaque état de compatibilité, dont des sous-catégories de l’état de compatibilité ainsi que le nombre d’utilisateurs et d’appareils de cette catégorie. Par exemple, l'état de compatibilité **Erreur** comprend les sous-catégories suivantes :  
+Sie können für jeden Konformitätszustand zusätzliche Informationen anzeigen, wie zum Beispiel Unterkategorien im Konformitätszustand oder die Anzahl der Benutzer und Geräte in dieser Kategorie. Der Kompatibilitätszustand **Fehler** enthält beispielsweise die folgenden Unterkategorien:  
 
--   Erreur lors de l'évaluation de la configuration requise  
+-   Fehler beim Auswerten von Anforderungen  
 
--   Erreurs liées au contenu  
+-   Inhaltsfehler  
 
--   Erreurs d'installation  
+-   Installationsfehler  
 
- Lorsque plusieurs états de compatibilité s'appliquent à un déploiement d'application, vous pouvez consulter l'état de l'agrégat dont la compatibilité est la plus faible. Exemple :  
+ Wenn auf eine Anwendungsbereitstellung mehrere Kompatibilitätszustände zutreffen, wird der aggregierte Zustand mit der geringsten Kompatibilität angezeigt. Beispiel:  
 
-    -   Si un utilisateur se connecte à deux appareils et que l’installation de l’application réussit sur un appareil, mais échoue sur le deuxième, l’état du déploiement de l’agrégat de l’application pour cet utilisateur a l’état **Erreur**.  
+    -   Wenn ein Benutzer sich auf zwei Geräten anmeldet und die Anwendung auf einem Gerät erfolgreich ist, auf dem anderen dagegen ein Fehler auftritt, wird für diesen Benutzer der Aggregatzustand **Fehler**für die Anwendungsbereitstellung angezeigt.  
 
-    -   Si une application est déployée sur tous les utilisateurs se connectant à un ordinateur donné, vous recevez plusieurs résultats de déploiement pour cet ordinateur. Si l'un des déploiements échoue, l'état du déploiement de l'agrégat pour l'ordinateur est **Erreur**.  
+    -   Wenn eine Anwendung für alle Benutzer bereitgestellt wird, die sich auf einem Computer anmelden, werden für diesen Computer mehrere Bereitstellungsergebnisse angezeigt. Wenn bei einer Bereitstellung ein Fehler auftritt, wird für den Computer der Aggregatbereitstellungszustand **Fehler**angezeigt.  
 
-L'état du déploiement des packages et des programmes n'est pas agrégé.  
+Der Bereitstellungszustand für Paket- und Programmbereitstellungen wird nicht aggregiert.  
 
- Utilisez ces sous-catégories pour vous aider à identifier rapidement tous les problèmes importants d'un déploiement d'application. Vous pouvez aussi consulter des informations complémentaires sur les périphériques qui entrent dans une sous-catégorie d'un état de compatibilité.  
+ Mithilfe dieser Unterkategorien können Sie Probleme bei der Anwendungsbereitstellung schnell identifizieren. Sie können außerdem zusätzliche Informationen zu den Geräten anzeigen, die zu einer bestimmten Unterkategorie eines Kompatibilitätszustands gehören.  
 
- Dans Configuration Manager, la gestion des applications inclut plusieurs rapports intégrés qui vous permettent de surveiller des informations concernant les applications et les déploiements. Ces rapports affichent la catégorie de rapport **Distribution de logiciels – Surveillance des applications**.  
+ Die Anwendungsverwaltung in Configuration Manager umfasst mehrere integrierte Berichte, mit deren Hilfe Daten zu Anwendungen und Bereitstellungen überwacht werden können. Die Berichte gehören zur Berichtkategorie **Softwareverteilung – Anwendungsüberwachung**.  
 
- Pour plus d’informations sur la configuration de la création de rapports dans Configuration Manager, consultez [Création de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Weitere Informationen zum Konfigurieren der Berichterstellung in Configuration Manager finden Sie unter [Berichterstellung in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>Surveiller l’état d’une application dans la console Configuration Manager  
+## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>Überwachen des Zustands einer Anwendung in der Configuration Manager-Konsole  
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance** > **Déploiements**.  
+1.  Wählen Sie in der Configuration Manager-Konsole die Optionen **Überwachung** > **Bereitstellungen** aus.  
 
-3.  Pour consulter les détails du déploiement pour chaque état de compatibilité et les appareils dans cet état, sélectionnez un déploiement puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Afficher l’état** pour ouvrir le volet **État du déploiement**. Dans ce volet, vous pouvez consulter les biens de chaque état de compatibilité. Choisissez un bien pour obtenir des informations plus détaillées sur son état de déploiement.  
+3.  Wenn Sie die Bereitstellungsdetails für jeden Konformitätszustand und die Geräte in diesem Zustand überprüfen möchten, wählen Sie eine Bereitstellung aus, und klicken Sie dann auf der Registerkarte **Startseite** in der Gruppe **Bereitstellung** auf **Status anzeigen**, um den Bereich **Bereitstellungsstatus** anzuzeigen. In diesem Bereich können Sie für alle Kompatibilitätszustände anzeigen, welche Bestände den jeweiligen Zustand aufweisen. Wählen Sie einen Bestand aus, um detaillierte Informationen zu dessen Bereitstellungsstatus anzuzeigen.  
 
     > [!NOTE]  
-    >  Le nombre d'éléments pouvant être affichés dans le volet **État du déploiement** est limité à 20 000. Si vous avez besoin de voir plus d’éléments, utilisez les rapports Configuration Manager pour afficher les données d’état.  
+    >  Im Bereich **Bereitstellungsstatus** können maximal 20.000 Elemente angezeigt werden. Verwenden Sie Configuration Manager-Berichte, um Anwendungsstatusdaten zu einer größeren Anzahl von Elementen anzuzeigen.  
     >   
-    >  L'état des types de déploiement est agrégé dans le volet **État du déploiement** . Pour voir des informations plus détaillées sur les types de déploiement, utilisez le rapport **Erreurs d'infrastructure de l'application** appartenant à la catégorie de rapports **Distribution de logiciels - Surveillance des applications**.  
+    >  Der Status von Bereitstellungstypen wird im Bereich **Bereitstellungsstatus** aggregiert. Verwenden Sie den Bericht **Fehler in der Anwendungsinfrastruktur** in der Berichtskategorie **Softwareverteilung – Anwendungsüberwachung**, um ausführlichere Informationen zu Bereitstellungstypen anzuzeigen.  
 
-4.  Pour consulter des informations d’état général d’un déploiement d’application, sélectionnez un déploiement, puis choisissez l’onglet **Résumé** de la fenêtre **Déploiement sélectionné**.  
+4.  Wählen Sie eine Bereitstellung aus, und wählen Sie dann im Fenster **Ausgewählte Bereitstellungseigenschaften** die Registerkarte **Zusammenfassung** aus, um allgemeine Statusinformationen zu einer Anwendungsbereitstellung anzuzeigen.  
 
-5.  Pour consulter des informations sur le type de déploiement d’applications, sélectionnez un déploiement, puis choisissez l’onglet **Types de déploiement** de la fenêtre **Déploiement sélectionné**.  
+5.  Wählen Sie eine Bereitstellung aus, und wählen Sie dann im Fenster **Ausgewählte Bereitstellungseigenschaften** die Registerkarte **Bereitstellungstypen** aus, um Informationen zum Anwendungsbereitstellungstyp zu überprüfen.  
 
-Les informations affichées dans le volet **État du déploiement** après avoir choisi **Afficher l’état** sont des données transmises en temps réel depuis la base de données Configuration Manager. Les informations affichées sous les onglets **Résumé** et **Types de déploiement** sont des données résumées.
+Bei den Informationen, die nach der Auswahl von **Status anzeigen** im Bereich **Bereitstellungsstatus** angezeigt werden, handelt es sich um Livedaten aus der Configuration Manager-Datenbank. Bei den Informationen, die auf den Registerkarten **Zusammenfassung** und **Bereitstellungstypen** angezeigt werden, handelt es sich um zusammengefasste Daten.
 
-Si les données affichées sous les onglets **Résumé** et **Types de déploiement** ne correspondent pas à celles affichées dans le volet **État du déploiement**, choisissez **Exécuter le résumé** pour mettre à jour les données figurant sous ces onglets. Vous pouvez configurer la fréquence par défaut de la synthèse du déploiement d'applications en suivant cette procédure :  
+Wählen Sie **Zusammenfassung ausführen** aus, wenn die auf den Registerkarten **Zusammenfassung** und **Bereitstellungstypen** angezeigten Daten nicht mit den Daten im Bereich **Bereitstellungsstatus** übereinstimmen, um die Daten auf diesen Registerkarten zu aktualisieren. Gehen Sie folgendermaßen vor, um das Standardintervall für die Zusammenfassung von Anwendungsbereitstellungsdaten zu konfigurieren:  
 
-1. Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Sites**.
+1. Wählen Sie in der Configuration Manager-Konsole **Verwaltung** > **Standortkonfiguration** > **Standorte** aus.
 
-2. Dans la liste **Sites**, sélectionnez le site dont vous souhaitez configurer l’intervalle de résumé puis, sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Outils de synthèse d’état**.
+2. Wählen Sie in der Liste **Standorte** den Standort aus, für den Sie das Zusammenfassungsintervall konfigurieren möchten, und wählen Sie dann auf der Registerkarte **Startseite** in der Gruppe **Einstellungen** **Statuszusammenfassungen** aus.
 
-3. Dans la boîte de dialogue **Outils de synthèse d’état**, choisissez **Outil de synthèse du déploiement d’application**, puis **Modifier**.  
+3. Wählen Sie im Dialogfeld **Statuszusammenfassungen** **Anwendungsbereitstellung – Zusammenfassung** aus, und wählen Sie dann **Bearbeiten** aus.  
 
-4. Dans la boîte de dialogue **Application Deployment Summarizer Properties** (Propriétés de l’outil de synthèse du déploiement d’application), configurez la fréquence de la synthèse, puis choisissez **OK**.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+4. Konfigurieren Sie im Dialogfeld **Anwendungsbereitstellung – Zusammenfassung** die erforderlichen Zusammenfassungsintervalle, und wählen Sie dann **OK** aus.  

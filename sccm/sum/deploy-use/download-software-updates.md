@@ -1,6 +1,6 @@
 ---
-title: "Télécharger des mises à jour logicielles - Configuration Manager | Microsoft Docs"
-description: "Utilisez l’Assistant Téléchargement des mises à jour logicielles pour télécharger les mises à jour logicielles et les distribuer aux points de distribution afin qu’elles soient prêtes à être déployées sur les clients."
+title: "Herunterladen von Softwareupdates – Configuration Manager | Microsoft-Dokumentation"
+description: "Verwenden Sie den Assistenten zum Herunterladen von Softwareupdates, um Softwareupdates zu erhalten und an Verteilungspunkte zu verteilen, damit sie für Clients bereitgestellt werden können."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -9,34 +9,27 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4e44e2b8f6baf020c3b7742bafd607082ffacaa4
 ms.openlocfilehash: f38f72f9f547b82c92789f02975cbd0193b79b2d
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="download-software-updates"></a>Herunterladen von Softwareupdates  
 
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-
-# <a name="download-software-updates"></a>Télécharger les mises à jour logicielles  
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-Vous avez le choix entre plusieurs méthodes pour télécharger les mises à jour logicielles dans Configuration Manager. Quand vous créez une règle de déploiement automatique (ADR) ou que vous déployez manuellement des mises à jour logicielles, celles-ci sont téléchargées vers la bibliothèque de contenu du serveur de site. Ensuite, les mises à jour logicielles sont copiées dans la bibliothèque de contenu sur les points de distribution associés au package de déploiement configuré. Si vous souhaitez télécharger les mises à jour logicielles avant de les déployer, vous pouvez utiliser l'Assistant Téléchargement des mises à jour. Cela vous permet de vérifier que les mises à jour logicielles sont disponibles sur les points de distribution avant de les déployer sur les ordinateurs clients.  
+Es stehen mehrere Methoden zum Herunterladen von Softwareupdates in Configuration Manager zur Verfügung. Wenn Sie eine automatische Bereitstellungsregel (automatic deployment rule, ADR) erstellen oder Softwareupdates manuell bereitstellen, werden die Softwareupdates in die Inhaltsbibliothek auf dem Standortserver heruntergeladen. Dann werden die Softwareupdates in die Inhaltsbibliothek auf den Verteilungspunkten kopiert, die dem konfigurierten Bereitstellungspaket zugeordnet sind. Wenn Sie die Softwareupdates vor der Bereitstellung herunterladen möchten, verwenden Sie den Assistenten zum Herunterladen von Updates. Auf diese Weise können Sie überprüfen, ob die Softwareupdates auf Verteilungspunkten verfügbar sind, bevor Sie die Softwareupdates an Clientcomputer bereitstellen.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Content status monitoring](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
+>  Informationen zur Überwachung des Inhaltsstatus finden Sie unter [Content status monitoring](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
 
-Pour télécharger des mises à jour logicielles à l'aide de l'Assistant Téléchargement de mises à jour logicielles, procédez comme suit.  
+Gehen Sie wie folgt vor, um Softwareupdates mit dem Assistenten zum Herunterladen von Softwareupdates herunterzuladen.  
 
-#### <a name="to-download-software-updates"></a>Pour télécharger des mises à jour logicielles  
-[!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
+#### <a name="to-download-software-updates"></a>So laden Sie Softwareupdates herunter  
+[!INCLUDE[Downloadupdates](..\includes\downloadupdates.md)]
 <!---
 1.  In the Configuration Manager console, navigate to **Software Library** > **Software Updates**.  
 
@@ -119,4 +112,3 @@ Pour télécharger des mises à jour logicielles à l'aide de l'Assistant Télé
 9. On the **Summary** page, verify the settings that you selected in the wizard, and then click **Next** to download the software updates.  
 
 10. On the **Completion** page, verify that the software updates were successfully downloaded, and then click **Close**.  --->
-

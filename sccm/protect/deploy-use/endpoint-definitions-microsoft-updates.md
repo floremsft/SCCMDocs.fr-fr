@@ -1,51 +1,46 @@
 ---
-title: "Définitions de programmes malveillants Endpoint Protection à partir d’un partage réseau | Microsoft Docs"
-description: "Apprenez à activer le téléchargement des définitions de programmes malveillants Endpoint Protection à partir de Microsoft Updates pour Configuration Manager."
+title: Endpoint Protection-Schadsoftwaredefinitionen von der Netzwerkfreigabe | Microsoft-Dokumentation
+description: "Erfahren Sie, wie Sie Schadsoftwaredefinitionen für Endpoint Protection aus Microsoft Updates für Configuration Manager herunterladen."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ab7626ae-d4bf-4ca6-ab25-c61f96800a02
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
-ms.openlocfilehash: 344f551a370378620d3d11870993a77e60f9f685
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 58c468fc3d4427cc1f2a8f197ab784a767151203
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="enable-endpoint-protection-malware-definitions-to-download-from-microsoft-updates-for-configuration-manager"></a>Aktivieren der Endpoint Protection-Schadsoftwaredefinitionen zum Herunterladen aus Microsoft Updates für Configuration Manager
 
-# <a name="enable-endpoint-protection-malware-definitions-to-download-from-microsoft-updates-for-configuration-manager"></a>Activer le téléchargement des définitions de programmes malveillants Endpoint Protection à partir de Microsoft Updates pour Configuration Manager
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
- Quand vous choisissez de télécharger des mises à jour de définition à partir de Microsoft Update, les clients vérifient le site Microsoft Update à l’intervalle défini dans la section **Mises à jour de définitions** de la boîte de dialogue Stratégie de logiciel anti-programme malveillant.
+ Wenn Sie das Herunterladen von Definitionsupdates von Microsoft Update auswählen, prüfen die Clients die Microsoft Update-Website in dem Intervall, das im Dialogfeld für die Richtlinie für Antischadsoftware im Abschnitt **Definitionsupdates** definiert ist.
 
- Cette méthode peut être utile quand le client ne dispose pas de connectivité au site Configuration Manager ou que vous voulez permettre aux utilisateurs de lancer des mises à jour de définitions.
-
-> [!IMPORTANT]
->  Les clients doivent avoir accès à Microsoft Update sur Internet pour pouvoir utiliser cette méthode de téléchargement des mises à jour de définitions.
-
-## <a name="using-the-microsoft-malware-protection-center-to-download-definitions"></a>Utilisation du Centre de protection Microsoft contre les programmes malveillants pour télécharger des définitions
- Vous pouvez configurer les clients pour télécharger les mises à jour de définitions à partir du Centre de protection Microsoft contre les programmes malveillants. Cette option est utilisée par les clients Endpoint Protection pour télécharger les mises à jour de définitions s’ils n’ont pas pu les télécharger à partir d’une autre source. Cette méthode de mise à jour peut être utile si un problème détecté au niveau de votre infrastructure Configuration Manager empêche la remise des mises à jour.
+ Diese Methode kann nützlich sein, wenn der Client nicht mit dem Configuration Manager-Standort verbunden ist, oder wenn die Benutzer in der Lage sein sollen, Definitionsupdates einzuleiten.
 
 > [!IMPORTANT]
->  Les clients doivent avoir accès à Microsoft Update sur Internet pour pouvoir utiliser cette méthode de téléchargement des mises à jour de définition.
+>  Clients müssen auf Microsoft Update im Internet zugreifen können, um diese Methode zum Herunterladen von Definitionsupdates nutzen zu können.
+
+## <a name="using-the-microsoft-malware-protection-center-to-download-definitions"></a>Verwenden des Microsoft Center zum Schutz vor Schadsoftware zum Herunterladen von Definitionen
+ Sie können Clients zum Herunterladen von Definitionsupdates aus dem Microsoft Center zum Schutz vor Schadsoftware konfigurieren. Diese Option wird von Endpoint Protection-Clients zum Herunterladen von Definitionsupdates verwendet, wenn das Herunterladen von Updates aus einer anderen Quelle nicht möglich war. Diese Updatemethode ist nützlich, wenn ein Problem mit Ihrer Configuration Manager-Infrastruktur besteht, durch das die Bereitstellung von Updates verhindert wird.
+
+> [!IMPORTANT]
+>  Clients müssen auf Microsoft Update im Internet zugreifen können, um diese Methode zum Herunterladen von Definitionsupdates nutzen zu können.
 
 
 > [!div class="button"]
-[Étape suivante >](endpoint-antimalware-policies.md)
+[Nächster Schritt >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Retour >](endpoint-configure-alerts.md)
-
+[Zurück >](endpoint-configure-alerts.md)

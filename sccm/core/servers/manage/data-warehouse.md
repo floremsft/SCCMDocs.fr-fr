@@ -1,13 +1,12 @@
 ---
-title: "Entrepôt de données | Microsoft Docs"
-description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
+title: Data Warehouse | Microsoft-Dokumentation
+description: "Data Warehouse-Dienstpunkt und -Datenbank für System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
@@ -15,183 +14,181 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: HT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
-ms.contentlocale: fr-fr
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-#  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Point de service de l’entrepôt de données pour System Center Configuration Manager
-*S’applique à : System Center Configuration Manager (Current Branch)*
+#  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Der Data Warehouse-Dienstpunkt für System Center Configuration Manager
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Depuis la version 1702, vous pouvez utiliser le point de service de l’entrepôt de données pour stocker des données d’historique à long terme et créer des rapports sur celles-ci pour votre déploiement de Configuration Manager.
+Ab Version 1702 können Sie den Data Warehouse-Dienstpunkt verwenden, um langfristige Verlaufsdaten zur Bereitstellung für Configuration Manager zu speichern und hierfür Berichte zu erstellen.
 
 > [!TIP]
-> Le point de service de l’entrepôt de données est une fonctionnalité en préversion introduite dans la version 1702. Pour savoir comment l’activer, voir [Fonctionnalités en préversion dans System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+> Der Data Warehouse Dienstpunkt, der mit Version 1702 eingeführt wurde, ist ein vorab veröffentlichtes Feature. Wie Sie es aktivieren, erfahren Sie unter [Use pre-release features (Verwenden vorab veröffentlichter Features)](/sccm/core/servers/manage/pre-release-features).
 
-> À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
+> Ab Version 1706 können ist diese Funktion kein vorab veröffentlichtes Feature mehr.
 
-L’entrepôt de données prend en charge jusqu’à 2 To de données, avec des horodatages pour le suivi des modifications. Pour stocker des données, vous utilisez des synchronisations automatisées entre la base de données du site Configuration Manager et la base de données de l’entrepôt de données. Ces informations sont ensuite accessibles à partir de votre point de Reporting Services. Les données qui sont synchronisées avec la base de données de l’entrepôt de données sont conservées pendant trois ans. Périodiquement, une tâche intégrée supprime les données datant de plus de trois ans.
+Das Data Warehouse unterstützt ein Datenvolumen von bis zu 2 TB, inklusive der Zeitstempel für Änderungsnachverfolgung. Die Speicherung der Daten wird durch die automatisierte Synchronisierung der Configuration Manager-Standortdatenbank mit der Data Warehouse-Datenbank erreicht. Auf diese Information kann dann vom Reporting Services-Punkt aus zugegriffen werden. Mit der Data Warehouse-Datenbank synchronisierte Daten werden drei Jahre lang aufbewahrt. Daten, die älter als drei Jahre sind, werden in regelmäßigen Abständen mithilfe einer eingebauten Aufgabe entfernt.
 
-Les données synchronisées incluent les éléments suivants, qui proviennent des groupes des données de site et des données globales :
-- Intégrité de l’infrastructure
-- Sécurité
-- Compatibilité
-- Programme malveillant   
-- Déploiements de logiciels
-- Détails d’inventaire (toutefois, l’historique d’inventaire n’est pas synchronisé)
+Zu synchronisierten Daten zählen folgende Gruppen von globalen und Standortdaten:
+- Infrastrukturintegrität
+- Sicherheit
+- Konformität
+- Malware   
+- Softwarebereitstellungen
+- Inventurdetails (Der Inventurverlauf wird allerdings nicht synchronisiert)
 
-Une fois installé, le rôle de système de site installe et configure la base de données de l’entrepôt de données. Il installe également plusieurs rapports, afin que vous puissiez facilement rechercher ces données et créer des rapports les concernant.
+Bei der Installation der Standortsystemrolle wird auch die Data Warehouse-Datenbank installiert und konfiguriert. Außerdem werden mehrere Berichte installiert, damit Sie leicht nach diesen Daten suchen und über diese berichten können.
 
 
 
-## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Conditions préalables pour le point de service de l’entrepôt de données
-- Le rôle de système de site d’entrepôt de données est pris en charge uniquement sur le site de niveau supérieur de la hiérarchie. (Un site d’administration centrale ou site principal autonome.)
-- L’ordinateur sur lequel vous installez le rôle de système de site nécessite .NET Framework 4.5.2 ou version ultérieure.
-- Le compte de l’ordinateur sur lequel vous installez le rôle de système de site est utilisé pour synchroniser les données avec la base de données de l’entrepôt de données. Ce compte nécessite les autorisations suivantes :  
-  - des autorisations de niveau **administrateur local** sur l’ordinateur qui hébergera la base de données de l’entrepôt de données ;
-  - des autorisations **DB_owner** la base de données de l’entrepôt de données.
-  - des autorisations **DB_reader** et **execute** sur la base de données des sites de niveau supérieur.
-- La base de données de l’entrepôt de données nécessite l’utilisation de SQL Server 2012 ou version ultérieure. L’édition peut être Standard, Entreprise ou Datacenter.
-- Les configurations de SQL Server suivantes sont prises en charge pour héberger la base de données de l’entrepôt :  
-  - Une instance par défaut
-  - Instance nommée
-  - Groupe de disponibilité SQL Server AlwaysOn
-  - Cluster de basculement SQL Server
--   Quand la base de données de l’entrepôt de données ne se trouve pas au même emplacement que la base de données du serveur de site, vous devez disposer d’une licence distincte pour chaque instance de SQL Server qui héberge la base de données.
-- Si vous utilisez des [vues distribuées](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), le rôle de système de site de point de service de l’entrepôt de données doit être installé sur le serveur qui héberge la base de données de site des sites d’administration centrale.
+## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Voraussetzungen für den Data Warehouse-Dienstpunkt
+- Die Data Warehouse-Standortsystemrolle wird nur am Standort auf der obersten Ebene der Hierarchie unterstützt. Dabei handelt es sich um einen zentralen Verwaltungsstandort oder einen eigenständigen primären Standort.
+- Der Computer, auf dem die Standortsystemrolle installiert ist, erfordert .NET Framework 4.5.2 oder höher.
+- Das Computerkonto des Computers, auf dem Sie die Standortsystemrolle installieren, wird verwendet, um Daten mit der Data Warehouse-Datenbank zu synchronisieren. Für dieses Konto sind folgende Berechtigungen erforderlich:  
+  - Ein lokaler **Administrator** auf dem Computer, auf dem die Data Warehouse-Datenbank gehostet werden soll – wenn es sich um einen Remotecomputer handelt.
+  - Die Berechtigung **DB-owner** in der Data Warehouse-Datenbank.
+  - Die Berechtigungen **DB_reader** und **Ausführen** für die Standortdatenbank der obersten Ebene der Standorte.
+- Für die Data Warehouse-Datenbank wird SQL Server 2012 oder neuer benötigt. Sie können die Editionen Standard, Enterprise oder Datacenter verwenden.
+- Die folgenden SQL Server-Konfigurationen können zum Hosten der Warehouse-Datenbank verwendet werden:  
+  - Standardinstanz
+  - Benannte Instanz
+  - SQL Server Always On-Verfügbarkeitsgruppe
+  - SQL Server-Failovercluster
+-   Wenn die Data Warehouse-Datenbank sich nicht am selben Ort wie die Standortserverdatenbank befindet, benötigen eine separate Lizenz für jeden SQL-Server, der die Datenbank hostet.
+- Bei Verwendung von [verteilten Ansichten](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews) muss die Standortsystemrolle des Data Warehouse-Dienstpunkts auf dem Server installiert sein, auf dem die Standortdatenbank des zentralen Administrationsstandorts gehostet wird.
 
 
 
 > [!IMPORTANT]  
-> L’entrepôt de données n’est pas pris en charge lorsque l’ordinateur qui exécute le point de service de l’entrepôt de données ou qui héberge la base de données de l’entrepôt de données exécute l’une des langues suivantes :
-> - JPN – Japonais
-> - KOR – Coréen
-> - CHS – Chinois simplifié
-> - CHT – Chinois traditionnel Ce problème sera résolu dans une version à venir.
+> Das Data Warehouse wird nicht unterstützt, wenn der Computer, der den Data Warehouse-Dienstpunkt ausführt oder die Data Warehouse-Datenbank hostet, eine der folgenden Sprachen ausführt:
+> - JPN – Japanisch
+> - KOR – Koreanisch
+> - CHS – Einfaches Chinesisch
+> - CHT – Traditionelles Chinesisch. Dieses Problem wird in einem zukünftigen Release behoben.
 
 
-## <a name="install-the-data-warehouse"></a>Installer l’entrepôt de données
-Chaque hiérarchie prend en charge une seule instance de ce rôle, sur n’importe quel système de site du site de niveau supérieur. L’instance SQL Server qui héberge la base de données de l’entrepôt peut être locale ou distante par rapport au rôle de système de site. Bien que l’entrepôt de données fonctionne avec le point de Reporting Services installé sur le même site, il n’est pas nécessaire d’installer les deux rôles de système de site sur le même serveur.   
+## <a name="install-the-data-warehouse"></a>So installieren Sie Data Warehouse
+Jede Hierarchie unterstützt auf jedem Standortsystem des obersten Standorts eine einzelne Instanz dieser Rolle. Der SQL Server, der die Datenbank für Warehouse hostet, kann für die Standortsystemrolle sowohl lokal als auch remote sein. Obwohl Data Warehouse mit dem Reporting Services-Punkt funktioniert, der am gleichen Standort installiert ist, müssen die beiden Standortsystemrollen nicht auf dem gleichen Server installiert werden.   
 
-Pour installer le rôle, vous pouvez utiliser deux assistants : **l’Assistant Ajout des rôles de système de site** ou **l’Assistant Création d’un serveur de système de site**. Pour plus d’informations, consultez [Installer des rôles de système de site](/sccm/core/servers/deploy/configure/install-site-system-roles).  
+Um die Rolle zu installieren, verwenden Sie den **Assistent zum Hinzufügen von Standortsystemrollen** oder den **Assistent zum Erstellen von Standortsystemservern**. Weitere Informationen finden Sie unter [Installieren von Standortsystemrollen](/sccm/core/servers/deploy/configure/install-site-system-roles).  
 
-Quand vous installez le rôle, Configuration Manager crée la base de données de l’entrepôt de données pour vous sur l’instance de SQL Server que vous spécifiez. Si vous spécifiez le nom d’une base de données existante (comme vous le feriez si vous [déplaciez la base de données de l’entrepôt de données vers un nouveau serveur SQL Server](#move-the-data-warehouse-database)), Configuration Manager ne crée pas une base de données, mais utilise à la place celle que vous spécifiez.
+Bei der Installation einer Rolle erstellt Configuration Manager die Data Warehouse-Datenbank auf der von Ihnen bestimmten Instanz von SQL Server für Sie. Wenn Sie den Namen einer bereits vorhandenen Datenbank angeben (wie bei [Verschieben der Data Warehouse-Datenbank auf einen neuen SQL Server](#move-the-data-warehouse-database)), wird Configuration Manager keine neue Datenbank erstellen, sondern stattdessen die von Ihnen bestimmte verwenden.
 
-### <a name="configurations-used-during-installation"></a>Configurations utilisées lors de l’installation
-Page **Sélection du rôle système** :  
+### <a name="configurations-used-during-installation"></a>Konfigurationen, die während der Installation verwendet werden.
+Seite **Auswahl der Systemrolle**:  
 
-Page **Général** :
--   **Paramètres de connexion de la base de données de l’entrepôt de données Configuration Manager** :
- - **Nom de domaine complet de SQL Server** :  
- spécifiez le nom de domaine complet (FQDN) du serveur qui héberge le point de service de l’entrepôt de données et la base de données.
- - **Nom d’instance SQL Server, le cas échéant** :   
- si vous n’utilisez pas une instance par défaut de SQL Server, vous devez spécifier l’instance utilisée.
- - **Nom de la base de données** :   
- indiquez le nom de la base de données de l’entrepôt de données. Le nom de la base de données ne doit pas dépasser 10 caractères. (La longueur du nom prise en charge sera augmentée dans une version ultérieure.)
- Configuration Manager crée la base de données de l’entrepôt de données en lui donnant ce nom. Si vous spécifiez un nom de base de données qui existe déjà sur l’instance de SQL Server, Configuration Manager utilise cette base de données.
- - **Port SQL Server utilisé pour la connexion** :   
- spécifiez le numéro de port TCP/IP configuré pour l’instance SQL Server qui héberge la base de données de l’entrepôt de données. Ce port est utilisé par le service de synchronisation de l’entrepôt de données pour se connecter à la base de données de ce dernier.  
+Seite **Allgemein**:
+-   **Datenbankverbindungseinstellungen für das Configuration Manager-Data Warehouse**:
+ - **Vollqualifizierter SQL Server-Domänenname**:  
+ Geben Sie den FQDN des Servers an, der den Data Warehouse-Dienstpunkt hostet.
+ - **SQL Server-Instanzname (falls zutreffend)**:   
+ Wenn Sie keine Standardinstanz des SQL Servers verwenden, müssen Sie die Instanz festlegen.
+ - **Datenbankname**:   
+ Legen Sie einen Namen für die Data Warehouse-Datenbank fest. Der Name der Datenbank darf nicht länger als 10 Zeichen sein. (Die unterstützte Länge wird in einer zukünftigen Version erhöht werden).
+ Configuration Manager erstellt die Data Warehouse-Datenbank mit diesem Namen. Wenn ein Datenbankname angegeben wird, der bereits in der Instanz von SQL Server existiert, verwendet Configuration Manager diese Datenbank.
+ - **Verwendeter SQL Server-Port für die Verbindung**:   
+ Geben Sie die Portnummer des TCP/IP an, die für den SQL Server konfiguriert ist, der die Data Warehouse-Datenbank hostet. Dieser Port wird vom Data Warehouse-Synchronisierungsdienst verwendet, um eine Verbindung mit der Data Warehouse-Datenbank herzustellen.  
 
-Page **Calendrier des synchronisations** :   
-- **Calendrier des synchronisations** :
- - **Heure de début** :  
- indiquez l’heure de début de la synchronisation de l’entrepôt de données.
- - **Périodicité** :
-    - **Tous les jours** : permet d’indiquer que la synchronisation doit s’exécuter chaque jour.
-    - **Hebdomadaire** : permet de spécifier une seule journée chaque semaine ainsi qu’une périodicité hebdomadaire pour la synchronisation.
+Seite **Synchronisierungszeitplan**:   
+- **Synchronisierungszeitplan**:
+ - **Startzeit**:  
+ Geben Sie die Zeit an, zu der mit der Synchronisierung von Data Warehouse begonnen werden soll.
+ - **Wiederholungsmuster**:
+    - **Täglich**: Legen Sie fest, dass die Synchronisierung täglich durchgeführt wird.
+    - **Wöchentlich**: Legen Sie einen Tag in der Woche fest, an dem die Synchronisierung wöchentlich durchgeführt werden soll.
 
-## <a name="reporting"></a>Rapports
-Une fois que vous avez installé un point de service de l’entrepôt de données, plusieurs rapports sont disponibles sur le point de Reporting Services installé sur le même site. Si vous installez le point de service de l’entrepôt de données avant d’installer un point de Reporting Services, les rapports sont automatiquement ajoutés lorsque vous installez le point de Reporting Services.
+## <a name="reporting"></a>Berichterstellung
+Nachdem Sie einen Data Warehouse-Dienstpunkt installiert haben, sind mehrere Berichte unter dem Reporting Services-Punkt verfügbar, der am gleichen Standort installiert ist. Wenn Sie den Data Warehouse-Dienstpunkt vor der Installation eines Reporting Services-Punkts installieren, werden die Berichte automatisch mit der späteren Installation des Reporting Services-Punkt hinzugefügt.
 
-Le rôle de système de site de l’entrepôt de données inclut les rapports suivants, qui appartiennent à la catégorie **Entrepôt de données** :
- - **Déploiement de l’application - Historique** :   
- Affiche les détails du déploiement d’application pour une application et un ordinateur spécifiques.
- - **Endpoint Protection et Compatibilité des mises à jour logicielles - Historique** : affiche les ordinateurs sur lesquels des mises à jour logicielles n’ont pas été effectuées.  
- - **Inventaire matériel général - Historique** :   
- Affiche tout l’inventaire matériel pour un ordinateur spécifique.
- - **Inventaire logiciel général - Historique** :   
- Affiche tout l’inventaire logiciel pour un ordinateur spécifique.
- - **Vue d'ensemble de l'intégrité de l'infrastructure - Historique** :  
- affiche une vue d’ensemble de l’intégrité de votre infrastructure Configuration Manager.
- - **Liste des programmes malveillants détectés - Historique** :    
- Affiche les programmes malveillants qui ont été détectés dans l’organisation.
- - **Résumé de la distribution de logiciels - Historique** :   
- Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.
-
-
-## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Étendre un site principal autonome existant vers une hiérarchie
-Avant d’installer un site d’administration centrale pour développer un site principal autonome existant, vous devez désinstaller le rôle de point de service de l’entrepôt de données. Après avoir installé le site d’administration centrale, vous pouvez installer le rôle de système de site sur ce site.  
-
-Contrairement au déplacement de la base de données de l’entrepôt de données, cette modification entraîne une perte des données historiques que vous avez synchronisées sur le site principal. La sauvegarde de la base de données depuis le site principal et sa restauration sur le site d’administration centrale ne sont pas prises en charge.
+Die Data Warehouse-Standortsystemrolle beinhaltet folgende Berichte in der Kategorie **Data Warehouse**:
+ - **Anwendungsbereitstellungsbericht – Verlauf**:   
+ Anzeigen von Details zur Anwendungsbereitstellung für eine bestimmte Anwendung und einen bestimmten Computer
+ - **Endpoint Protection und Software Update-Kompatibilitätsbericht – Verlauf**: Anzeigen von Computern mit fehlenden Softwareupdates.  
+ - **Bestandsbericht zur gesamten Hardware – Verlauf**:   
+ Anzeigen des gesamten Hardwarebestands für einen bestimmten Computer.
+ - **Bestandsbericht zur gesamten Software – Verlauf**:   
+ Anzeigen des gesamten Softwarebestands für einen bestimmten Computer.
+ - **Übersicht der Infrastrukturintegrität – Verlauf**:  
+ Zeigt eine Übersicht der Integrität der Configuration Manager-Infrastruktur an
+ - **Liste der erkannten Malware – Verlauf**:    
+ Zeigt Malware an, die in der Organisation gefunden wurde.
+ - **Zusammenfassungsbericht der Softwareverteilung – Verlauf**:   
+ Eine Zusammenfassung der Softwareverteilung für eine bestimmte Ankündigung und einen bestimmten Computer.
 
 
+## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Erweitern eines vorhandenen eigenständigen primären Standorts in eine Hierarchie
+Bevor Sie einen Standort der zentralen Verwaltung installieren können, um einen vorhandenen eigenständigen primären Standort zu erweitern, müssen Sie zunächst die Rolle „Data Warehouse-Dienstpunkt“ installieren. Nach der Installation des Standorts der zentralen Verwaltung können Sie die Standortsystemrolle am Standort der zentralen Verwaltung installieren.  
+
+Im Gegensatz zum Bewegen der Data Warehouse-Datenbank führt diese Änderung zum Verlust aller Verlaufsdaten, die vorher am primären Standort synchronisiert wurden. Eine Sicherung der Datenbank am primären Standort und eine Wiederherstellung am Standort der zentralen Verwaltung wird nicht unterstützt.
 
 
-## <a name="move-the-data-warehouse-database"></a>Déplacer la base de données de l’entrepôt de données
-Procédez comme suit pour déplacer la base de données de l’entrepôt de données vers un nouveau serveur SQL Server :
 
-1.  Utilisez SQL Server Management Studio pour sauvegarder la base de données de l’entrepôt de données. Ensuite, restaurez cette base de données sur un serveur SQL Server sur le nouvel ordinateur qui héberge l’entrepôt de données.   
+
+## <a name="move-the-data-warehouse-database"></a>Verschieben der Data Warehouse-Datenbank
+Führen Sie zum Verschieben der Data Warehouse-Datenbank auf einen neuen Server von SQL Server die folgenden Schritte aus:
+
+1.  Verwenden Sie SQL Server Management Studio, um die Datawarehouse-Datenbank zu sichern. Stellen Sie dann die Datenbank in einem SQL Server auf einem Computer wieder her, auf dem das Data Warehouse gehostet wird.   
 > [!NOTE]     
-> Après avoir restauré la base de données sur le nouveau serveur, vérifiez que les autorisations d’accès à la base de données sont les mêmes sur la nouvelle base de données de l’entrepôt de données que sur la base de données de l’entrepôt de données d’origine.  
+> Nachdem Sie die Datenbank auf dem neuen Server wiederhergestellt haben, stellen Sie sicher, dass die Zugriffsberechtigungen der neuen Data Warehouse-Datenbank identisch zu den ursprüngliche Data Warehouse-Datenbank sind.  
 
-2.  Utilisez la console Configuration Manager pour supprimer du serveur actuel le rôle de système de site du point de service de l’entrepôt de données.
-3.  Réinstallez le point de service de l’entrepôt de données et spécifiez le nom du nouveau serveur SQL Server et de l’instance qui héberge la base de données de l’entrepôt de données que vous avez restaurée.
-4.  Une fois le rôle de système de site installé, le déplacement est terminé.
+2.  Verwenden Sie die Configuration Manager-Konsole, um die Standortsystemrolle des Data Warehouse-Dienstpunktes vom aktuellen Server zu entfernen.
+3.  Installieren Sie den Data Warehouse-Dienstpunkt neu, und geben Sie den Namen des neuen Servers von SQL Server und der Instanz an, die die von Ihnen wiederhergestellte Data Warehouse-Datenbank hosten.
+4.  Nach der Installation der Standortsystemrolle ist der Verschiebevorgang abgeschlossen.
 
-## <a name="troubleshooting-data-warehouse-issues"></a>Résolution des problèmes relatifs à l’entrepôt de données
-**Fichiers journaux** :  
-utilisez les journaux suivants pour examiner les problèmes d’installation du point de service de l’entrepôt de données ou de synchronisation des données :
- - *DWSSMSI.log* et *DWSSSetup.log* : utilisez ces journaux pour examiner les erreurs survenues lors de l’installation du point de service de l’entrepôt de données.
- - *Microsoft.ConfigMgrDataWarehouse.log* : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
+## <a name="troubleshooting-data-warehouse-issues"></a>Problembehandlung von Data Warehouse-Problemen
+**Protokolldateien**:  
+Verwenden Sie die folgenden Protokolle zur Untersuchung von Problemen bei der Installation des Data Warehouse-Dienstpunktes oder der Synchronisierung von Daten:
+ - *DWSSMSI.log* und *DWSSSetup.log*: Verwenden Sie diese Protokolle, um Fehler bei der Installation des Data Warehouse-Dienstpunktes zu untersuchen.
+ - *Microsoft.ConfigMgrDataWarehouse.log*: Verwenden Sie dieses Protokoll, um die Datensynchronisation zwischen der Standortdatenbank und der Data Warehouse-Datenbank zu untersuchen.
 
-**Échec d’installation**  
- L’installation du point de service de l’entrepôt de données échoue sur un serveur de système de site distant quand le premier rôle de système de site installé sur cet ordinateur est celui de l’entrepôt de données.  
-  - **Solution** :   
-    Assurez-vous que l’ordinateur sur lequel vous installez le point de service de l’entrepôt de données héberge au moins un autre rôle de système de site.  
-
-
-**Problèmes de synchronisation connus**   
-La synchronisation échoue et génère le message suivant dans le fichier *Microsoft.ConfigMgrDataWarehouse.log* : **« Impossible de remplir des objets de schéma ».**  
- - **Solution** :  
-    Assurez-vous que le compte de l’ordinateur qui héberge le rôle de système de site est bien **db_owner** sur la base de données de l’entrepôt de données.
-
-Les rapports de l’entrepôt de données ne s’ouvrent pas lorsque la base de données de l’entrepôt de données et le point de Reporting Services se trouvent sur des systèmes de site différents.  
-
- - **Solution** :  
-    Accordez au **compte du point de Reporting Services** l’autorisation d’accès **db_datareader** à la base de données de l’entrepôt de données.
-
-Lorsque vous ouvrez un rapport de l’entrepôt de données, l’erreur suivante est renvoyée :
-
-*Une erreur s’est produite lors du traitement du rapport. (rsProcessingAborted) Impossible de créer une connexion à la source de données 'AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_'. (rsErrorOpeningConnection) Une connexion a été établie avec le serveur, mais une erreur s’est ensuite produite pendant la négociation préalable à l’ouverture de session. (Fournisseur : fournisseur SSL, erreur : 0 - La chaîne de certificats a été fournie par une autorité qui n’est pas approuvée.)*
-
-- **Solution** : procédez comme suit pour configurer les certificats.
-
-  1. Sur l’ordinateur qui héberge la base de données de l’entrepôt de données :
-
-    1. Ouvrez IIS, cliquez sur **Certificats de serveur**, puis cliquez avec le bouton droit sur **Créer un certificat auto-signé** et spécifiez le « nom convivial » du nom du certificat en tant que **certificat d’identification SQL Server de l’entrepôt de données**. Sélectionnez le magasin de certificats en tant que **Applications personnelles**.
-    2. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Configuration du réseau SQL Server**, cliquez avec le bouton droit pour sélectionner **Propriétés** sous **Protocoles pour MSSQLSERVER**. Ensuite, sur l’onglet **Certificat**, sélectionnez le **certificat d’identification SQL Server de l’entrepôt de données** et enregistrez les modifications.  
-    3. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Services SQL Server**, redémarrez le **service SQL Server** et le **Reporting Service**.
-    4.  Ouvrez la console MMC (Microsoft Management Console) et ajoutez le composant logiciel enfichable relatif aux **certificats**, puis sélectionnez la gestion du certificat pour le **compte d’ordinateur** de la machine locale. Ensuite, dans la console MMC, développez le dossier **Applications personnelles** > **Certificats** et exportez le **certificat d’identification SQL Server de l’entrepôt de données** en tant que fichier **Binaire codé DER X.509 (.cer)**.    
-  2.    Sur l’ordinateur qui héberge SQL Server Reporting Services, ouvrez la console MMC et ajoutez le composant logiciel enfichable **Certificats**. Ensuite, sélectionnez la gestion du certificat pour le **Compte d’ordinateur**. Sous le dossier **Autorités de certification racine reconnues**, importez le **certificat d’identification SQL Server de l’entrepôt de données**.
+**Fehler beim Einrichten**  
+ Die Installation des Data Warehouse-Dienstpunkts schlägt auf einem Remote-Standortsystemserver fehl, wenn Data Warehouse die erste Standortsystemrolle ist, die auf diesem Computer installiert wird.  
+  - **Lösung**:   
+    Stellen Sie sicher, das der Computer, auf dem Sie den Data Warehouse-Dienstpunkt installieren möchten, bereits mindestens eine Standortsystemrolle hostet.  
 
 
-## <a name="data-warehouse-dataflow"></a>Flux de données de l’entrepôt de données   
-![Flux_entrepôtdedonnées](./media/datawarehouse.png)
+**Bekannte Probleme beim Synchronisieren**:   
+Die Synchronisierung schlägt mit folgender Meldung im *Microsoft.ConfigMgrDataWarehouse.log* fehl: „**failed to populate schema objects**“ (Auffüllen der Schemaobjekte fehlgeschlagen)  
+ - **Lösung**:  
+    Stellen Sie sicher, dass das Computerkonto des Computers, der die Standortsystemrolle hostet, in der Data Warehouse-Datenbank ein **db_owner** ist.
 
-**Synchronisation et stockage des données**
+Data Warehouse-Berichte können nicht geöffnet werden, wenn die Data Warehouse-Datenbank und der Reporting Services-Punkt sich auf unterschiedlichen Standortsystemen befinden.  
 
-| Étape   | Détails  |
+ - **Lösung**:  
+    Geben Sie dem **Konto des Reporting Services-Punkts** die Berechtigung **db_datareader** für die Data Warehouse-Datenbank.
+
+Beim Öffnen eines Data Warehouse-Berichts wird folgender Fehler zurückgegeben:
+
+*Fehler bei der Berichtsverarbeitung. (rsProcessingAborted) Es kann keine Verbindung mit der „AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_“-Datenquelle hergestellt werden. (rsErrorOpeningConnection) Es konnte eine Verbindung mit dem Server hergestellt werden, doch während des Handshakes vor der Anmeldung trat ein Fehler auf. (Anbieter: SSL-Anbieter, Fehler: 0 – Die Zertifikatkette wurde von einer nicht vertrauenswürdigen Zertifizierungsstelle ausgestellt.)*
+
+- **Lösung**: So konfigurieren Sie Zertifikate:
+
+  1. Auf dem Computer, auf dem der Serverteil des Data Warehouse gehostet wird:
+
+    1. Öffnen Sie IIS, klicken Sie auf **Serverzertifikate**, klicken Sie mit der rechten Maustaste auf **Selbstsigniertes Zertifikat erstellen**, und geben Sie dann den „geeigneten Namen“ des Zertifikatnamens als **Data Warehouse SQL Server Identification Certificate** (Data Warehouse SQL Server-Idenfikationszertifikat) an. Wählen Sie für Zertifikatspeicher **Persönlich** aus.
+    2. Öffnen Sie unter **SQL Server-Netzwerkkonfiguration** **SQL Server Configuration Manager**, und klicken Sie unter **Protocols for MSSQLSERVER** (Protokolle für MMSSQLSERVER) mit der rechten Maustaste auf **Eigenschaften**. Wählen Sie dann auf der Registerkarte **Zertifikate** **Data Warehouse SQL Server Identification Certificate** (Data Warehouse SQL Server-Idenfikationszertifikat) als Zertifikat aus, und speichern Sie dann die Änderungen.  
+    3. Öffnen Sie unter **SQL Server-Dienste** **SQL Server Configuration Manager**, und starten Sie den **SQL Server-Dienst** und den **Berichtsdienst** neu.
+    4.  Öffnen Sie die Microsoft Management Console (MMC), und fügen Sie das Snap-In für **Zertifikate** hinzu; wählen Sie dann aus, dass Sie die **Computerkonten** des lokalen Computer verwalten möchten. Erweitern Sie dann in der MMC den Ordner **Persönlich** > **Zertifikate**, und exportieren Sie das **Data Warehouse SQL Server Identification Certificate** (Data Warehouse SQL Server-Idenfikationszertifikat) als **DER-codierte binäre X.509 (.CER)**.Datei.    
+  2.    Öffnen Sie auf dem Computer, der SQL Server-Reporting Services hostet, die MMC, und fügen Sie das Snap-In für **Zertifikate** hinzu. Wählen Sie dann aus, dass Sie Zertifikate für das **Computerkonto** verwalten möchten. Importieren Sie im Ordner **Als vertrauenswürdig eingestufte Stammzertifizierungsstelle** das **Data Warehouse SQL Server Identification Certificate** (Data Warehouse SQL Server-Idenfikationszertifikat).
+
+
+## <a name="data-warehouse-dataflow"></a>Data Warehouse-Datenfluss   
+![Datawarehouse_flow](./media/datawarehouse.png)
+
+**Datenspeicher und Synchronisierung**
+
+| Schritt   | Details  |
 |:------:|-----------|  
-| **1**  |  Le serveur de site transfère et stocke les données dans la base de données de site.  |  
-| **2**  |      Selon sa planification et de sa configuration, le point de service de l’entrepôt de données obtient des données de la base de données de site.  |  
-| **3**  |  Le point de service de l’entrepôt de données transfère et stocke une copie des données synchronisées dans la base de données de l’entrepôt de données. |  
-**Rapports**
+| **1**  |  Der Standortserver überträgt und speichert Daten in der Standortdatenbank.  |  
+| **2**  |      Basierend auf Zeitplan und Konfiguration, ruft der Data Warehouse-Dienstpunkt Daten aus der Standortdatenbank ab.  |  
+| **3**  |  Der Data Warehouse-Dienstpunkt überträgt und speichert eine Kopie der synchronisierten Daten in der Data Warehouse-Datenbank. |  
+**Berichterstellung**
 
-| Étape   | Détails  |
+| Schritt   | Details  |
 |:------:|-----------|  
-| **A**  |  Via des rapports intégrés, un utilisateur demande des données. La demande est transmise au point de Reporting Services à l’aide de SQL Server Reporting Services. |  
-| **B**  |      La plupart des rapports concernent des informations actuelles et ces demandes sont exécutées sur la base de données de site. |  
-| **C**  | Quand un rapport demande des données d’historique, à l’aide de l’un des rapports avec la *Catégorie* **Entrepôt de données**, la demande s’exécute sur la base de données de l’entrepôt de données.   |  
-
+| **A**  |  Mithilfe integrierter Berichte fordert ein Benutzer Daten an. Diese Anforderung wird mittels SQL Server Reporting Services an den Reporting Services-Punkt übertragen. |  
+| **B**  |      Die meisten Berichte gelten für aktuelle Informationen. Diese Anfragen werden in der Standortdatenbank ausgeführt. |  
+| **C**  | Wenn ein Bericht über einen der Berichte mit der *Kategorie* **Data Warehouse** alte Daten anfordert, ist die Data Warehouse-Datenbank das Ziel der Anfrage.   |  

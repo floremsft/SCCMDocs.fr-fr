@@ -1,314 +1,310 @@
 ---
-title: "Planification du déploiement de clients sur des ordinateurs Linux et UNIX | Microsoft Docs"
-description: "Planifiez le déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager."
+title: Planen der Clientbereitstellung auf Linux- und UNIX-Computern | Microsoft-Dokumentation
+description: Planen Sie die Clientbereitstellung auf Linux- und UNIX-Computern in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 44153689-70e8-42ad-9ae8-17ae35f6a2e3
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55c953f312a9fb31e7276dde2fdd59f8183b4e4d
-ms.openlocfilehash: dad941d5984fc7e0b43954b14c3966bb2632ad05
-ms.contentlocale: fr-fr
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 367ffb919a1adb9a0530f7357a0fcf1e6636af08
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Planification du déploiement de clients sur des ordinateurs Linux et UNIX dans System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Planen der Clientbereitstellung auf Linux- und UNIX-Computern in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Vous pouvez installer le client System Center Configuration Manager sur des ordinateurs exécutant Linux ou UNIX. Ce client est conçu pour les serveurs qui fonctionnent en tant qu'ordinateur de groupe de travail, et le client ne prend pas en charge l'interaction avec les utilisateurs connectés. Une fois que le logiciel client est installé et que le client a établi la communication avec le site Configuration Manager, vous gérez le client à l’aide de la console et des rapports Configuration Manager.  
+Sie können den System Center Configuration Manager-Client auf Computern installieren, die unter Linux oder UNIX ausgeführt werden. Dieser Client wurde für Server entwickelt, die als Arbeitsgruppencomputer fungieren. Eine Interaktion mit angemeldeten Benutzern wird vom Client nicht unterstützt. Nach der Installation der Clientsoftware und nachdem die Kommunikation zwischen Client und Configuration Manager-Standort hergestellt wurde, können Sie den Client mithilfe der Configuration Manager-Konsole und Berichten verwalten.  
 
 > [!NOTE]  
->  Le client Configuration Manager pour les ordinateurs Linux et UNIX ne prend pas en charge les fonctionnalités de gestion suivantes :  
+>  Der Configuration Manager-Client für Linux- und UNIX-Computer unterstützt die folgenden Verwaltungsfunktionen:  
 >   
->  -   Installation poussée du client  
-> -   Déploiement du système d'exploitation  
-> -   Déploiement d'application ; à la place, déployez des logiciels à l'aide de packages et programmes.  
-> -   Inventaire logiciel  
-> -   Mises à jour logicielles  
-> -   Paramètres de compatibilité  
-> -   Contrôle à distance  
-> -   Gestion de l'alimentation  
-> -   Vérification et correction de l'état du client  
-> -   Gestion des clients basés sur Internet  
+>  -   Clientpushinstallation  
+> -   Betriebssystembereitstellung  
+> -   Anwendungsbereitstellung; stattdessen Bereitstellen von Software mithilfe von Paketen und Programmen.  
+> -   Softwareinventur  
+> -   Softwareupdates  
+> -   Kompatibilitätseinstellungen  
+> -   Remotesteuerung  
+> -   Energieverwaltung  
+> -   Clientprüfung des Clientstatus und Wiederherstellung  
+> -   Internetbasierte Clientverwaltung  
 
- Pour plus d’informations sur les distributions Linux et UNIX prises en charge et le matériel requis pour prendre en charge le client pour Linux et UNIX, consultez [Matériel recommandé pour System Center Configuration Manager](../../../../core/plan-design/configs/recommended-hardware.md).  
+ Weitere Informationen zu den unterstützten Linux- und UNIX-Distributionen sowie zur Hardware, die zum Unterstützen des Clients für Linux und UNIX erforderlich ist, finden Sie unter [Empfohlene Hardware für System Center Configuration Manager](../../../../core/plan-design/configs/recommended-hardware.md).  
 
- Aidez-vous des informations de cet article pour planifier le déploiement du client Configuration Manager pour Linux et UNIX.  
+ Verwenden Sie die Informationen in diesem Artikel, die Ihnen beim Planen der Bereitstellung des Configuration Manager-Clients für Linux und UNIX helfen.  
 
-##  <a name="BKMK_ClientDeployPrereqforLnU"></a> Conditions préalables pour le déploiement du client sur des serveurs Linux et UNIX  
- Utilisez les informations suivantes pour déterminer les conditions préalables pour que doivent avoir mis en place installer le client pour Linux et UNIX.  
+##  <a name="BKMK_ClientDeployPrereqforLnU"></a> Erforderliche Komponenten für die Clientbereitstellung für Linux- und UNIX-Server  
+ Verwenden Sie die folgende Informationen bestimmen, ob die erforderlichen Komponenten, die direkt auf erfolgreich sein müssen, den Client für Linux und UNIX installieren.  
 
-###  <a name="BKMK_ClientDeployExternalforLnU"></a> Dépendances externes à Configuration Manager :  
- Les tableaux suivants décrivent les systèmes d'exploitation UNIX et Linux requis et les dépendances des packages.  
+###  <a name="BKMK_ClientDeployExternalforLnU"></a> Externe Abhängigkeiten von Configuration Manager  
+ In der folgenden Tabelle werden die erforderlichen UNIX- und Linux-Betriebssysteme und Paketabhängigkeiten beschrieben.  
 
- **Red Hat Enterprise Linux ES 4**  
+ **Red Hat Enterprise Linux ES Release 4**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc|Bibliothèques standards C|2.3.4-2|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.7a-43.1|  
-|PAM|Modules d'authentification enfichables|0.77-65.1|  
+|glibc|C-Standardbibliotheken|2.3.4-2|  
+|Openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.7a-43.1|  
+|PAM|Pluggable Authentication Modules|0.77-65.1|  
 
- **Red Hat Enterprise Linux Server 5.1 (Tikanga)**  
+ **Red Hat Enterprise Linux Server Release 5.1 (Tikanga)**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc|Bibliothèques standards C|2.5-12|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8b-8.3.el5|  
-|PAM|Modules d'authentification enfichables|0.99.6.2-3.14.el5|  
+|glibc|C-Standardbibliotheken|2.5-12|  
+|Openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8b-8.3.el5|  
+|PAM|Pluggable Authentication Modules|0.99.6.2-3.14.el5|  
 
- **Red Hat Enterprise Linux Server 6**  
+ **Red Hat Enterprise Linux Server Release 6**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc|Bibliothèques standards C|2.12-1.7|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|1.0.0-4|  
-|PAM|Modules d'authentification enfichables|1.1.1-4|  
+|glibc|C-Standardbibliotheken|2.12-1.7|  
+|Openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|1.0.0-4|  
+|PAM|Pluggable Authentication Modules|1.1.1-4|  
 
- **Solaris 9 SPARC**  
+ **Solaris 9 SPARC**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Correctifs du système d'exploitation requis|Fuites de mémoire PAM|112960-48|  
-|SUNWlibC|Compilateurs Sun Workshop fournis en standard libC (sparc)|5.9,REV=2002.03.18|  
-|SUNWlibms|Forte développeur regroupée partagé libm (sparc)|5.9,REV=2001.12.10|  
-|Openssl|SMCosslg (sparc)<br /><br /> Sun ne fournit pas de version d'OpenSSL pour Solaris 9 SPARC. Une version est disponible sur Sunfreeware.|0.9.7g|  
-|PAM|Modules d'authentification enfichables<br /><br /> SUNWcsl, Solaris Core, (partagé Libs) (sparc)|11.9.0,REV=2002.04.06.15.27|  
+|Erforderliches Betriebssystem-Patches|PAM-Speicherleck|112960-48|  
+|SUNWlibC|Sun Workshop Compilers Bundled libC (sparc)|5.9,REV=2002.03.18|  
+|SUNWlibms|Vorreiterrolle Developer gebündelt freigegebene Libm (Sparc)|5.9,REV=2001.12.10|  
+|Openssl|SMCosslg (Sparc)<br /><br /> Sun bietet keine OpenSSL-Version für Solaris 9 SPARC. Eine Version ist verfügbar von Sunfreeware.|0.9.7g|  
+|PAM|Pluggable Authentication Modules<br /><br /> Package SUNWcsl zu finden, Core Solaris, (freigegebene Bibliotheken) (Sparc)|11.9.0,REV=2002.04.06.15.27|  
 
- **Solaris 10 SPARC**  
+ **Solaris 10 SPARC**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Correctifs du système d'exploitation requis|Fuites de mémoire PAM|117463-05|  
-|SUNWlibC|Compilateurs Sun Workshop fournis en standard libC (sparc)|5.10, REV=2004.12.22|  
-|SUNWlibms|Bibliothèques Math & Microtasking (Usr) (sparc)|5.10, REV=2004.11.23|  
-|SUNWlibmsr|Bibliothèques Math & Microtasking (Root) (sparc)|5.10, REV=2004.11.23|  
-|SUNWcslr|Bibliothèques Core Solaris (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
-|SUNWcsl|Bibliothèques Core Solaris (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
-|Openssl|SUNopenssl-libraries (Usr)<br /><br /> Sun fournit les bibliothèques OpenSSL pour Solaris 10 SPARC. Elles sont fournies avec le système d'exploitation.|11.10.0,REV=2005.01.21.15.53|  
-|PAM|Modules d'authentification enfichables<br /><br /> SUNWcsr, Core Solaris, (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
+|Erforderliches Betriebssystem-Patches|PAM-Speicherleck|117463-05|  
+|SUNWlibC|Sun Workshop Compilers Bundled libC (sparc)|5.10, REV=2004.12.22|  
+|SUNWlibms|Math- und Microtasking-Bibliotheken (Usr) (sparc)|5.10, REV=2004.11.23|  
+|SUNWlibmsr|Math- und Microtasking-Bibliotheken (Root) (sparc)|5.10, REV=2004.11.23|  
+|SUNWcslr|Core-Solaris-Bibliotheken (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
+|SUNWcsl|Core-Solaris-Bibliotheken (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
+|Openssl|SUNopenssl-Bibliotheken (Usr)<br /><br /> Sun stellt die OpenSSL-Bibliotheken für Solaris 10 SPARC bereit. Diese werden zusammen mit dem Betriebssystem ausgeliefert.|11.10.0,REV=2005.01.21.15.53|  
+|PAM|Pluggable Authentication Modules<br /><br /> SUNWcsr, Core Solaris, (Root) (Sparc)|11.10.0, REV=2005.01.21.15.53|  
 
- **Solaris 10 x86**  
+ **Solaris 10 x86**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Correctifs du système d'exploitation requis|Fuites de mémoire PAM|117464-04|  
-|SUNWlibC|LibC regroupés de compilateurs Sun atelier (i386)|5.10,REV=2004.12.20|  
-|SUNWlibmsr|Bibliothèques Math & Microtasking (Root) (i386)|5.10, REV=2004.12.18|  
-|SUNWcsl|Solaris, (et les bibliothèques partagées) de base (i386)|11.10.0,REV=2005.01.21.16.34|  
-|SUNWcslr|Bibliothèques de Solaris principales (racine) (i386)|11.10.0, REV=2005.01.21.16.34|  
-|Openssl|Bibliothèques SUNWopenssl ; Bibliothèques OpenSSL (Usr) (i386)|11.10.0, REV=2005.01.21.16.34|  
-|PAM|Modules d'authentification enfichables<br /><br /> Installation principale, Solaris, (Root)(i386)|11.10.0,REV=2005.01.21.16.34|  
+|Erforderliches Betriebssystem-Patches|PAM-Speicherleck|117464-04|  
+|SUNWlibC|Sun Workshop Compiler gebündelt LibC (i386)|5.10,REV=2004.12.20|  
+|SUNWlibmsr|Math- und Microtasking-Bibliotheken (Root) (i386)|5.10, REV=2004.12.18|  
+|SUNWcsl|Core Solaris, (Freigabebibliotheken) (i386)|11.10.0, REV=2005.01.21.16.34|  
+|SUNWcslr|Core Solaris-Bibliotheken (Root) (i386)|11.10.0, REV=2005.01.21.16.34|  
+|Openssl|SUNWopenssl-Bibliotheken; OpenSSL-Bibliotheken (Usr) (i386)|11.10.0, REV=2005.01.21.16.34|  
+|PAM|Pluggable Authentication Modules<br /><br /> SUNWcsr Core Solaris, (Root)(i386)|11.10.0, REV=2005.01.21.16.34|  
 
- **Solaris 11 SPARC**  
+ **Solaris 11 SPARC**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
 |SUNWlibC|Sun Workshop Compilers Bundled libC|5.11, REV=2011.04.11|  
-|SUNWlibmsr|Bibliothèques Math & Microtasking (Root)|5.11, REV=2011.04.11|  
-|SUNWcslr|Core Solaris Libraries (Root)|11.11, REV=2009.11.11|  
-|SUNWcsl|Core Solaris, (Shared Libs)|11.11, REV=2009.11.11|  
+|SUNWlibmsr|Math- und Microtasking-Bibliotheken (Root)|5.11, REV=2011.04.11|  
+|SUNWcslr|Core-Solaris-Bibliotheken (Root)|11.11, REV=2009.11.11|  
+|SUNWcsl|Core Solaris, (Freigabebibliotheken)|11.11, REV=2009.11.11|  
 |SUNWcsr|Core Solaris, (Root)|11.11, REV=2009.11.11|  
-|SUNWopenssl-libraries|Bibliothèques OpenSSL (Usr)|11.11.0,REV=2010.05.25.01.00|  
+|SUNWopenssl-Bibliotheken|OpenSSL-Bibliotheken (Usr)|11.11.0, REV=2010.05.25.01.00|  
 
- **Solaris 11 x86**  
+ **Solaris 11 x86**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------|-----------|---------------|  
 |SUNWlibC|Sun Workshop Compilers Bundled libC|5.11, REV=2011.04.11|  
-|SUNWlibmsr|Bibliothèques Math & Microtasking (Root)|5.11, REV=2011.04.11|  
-|SUNWcslr|Core Solaris Libraries (Root)|11.11, REV=2009.11.11|  
-|SUNWcsl|Core Solaris, (Shared Libs)|11.11, REV=2009.11.11|  
+|SUNWlibmsr|Math- und Microtasking-Bibliotheken (Root)|5.11, REV=2011.04.11|  
+|SUNWcslr|Core-Solaris-Bibliotheken (Root)|11.11, REV=2009.11.11|  
+|SUNWcsl|Core Solaris, (Freigabebibliotheken)|11.11, REV=2009.11.11|  
 |SUNWcsr|Core Solaris, (Root)|11.11, REV=2009.11.11|  
-|SUNWopenssl-libraries|Bibliothèques OpenSSL (Usr)|11.11.0,REV=2010.05.25.01.00|  
+|SUNWopenssl-Bibliotheken|OpenSSL-Bibliotheken (Usr)|11.11.0, REV=2010.05.25.01.00|  
 
- **SUSE Linux Enterprise Server 9 (i586)**  
+ **SUSE Linux Enterprise Server 9 (i586)**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
 |Service Pack 4|SUSE Linux Enterprise Server 9||  
-|Système d'exploitation Patch lib gcc-41.rpm|Bibliothèque standard partagée|41-4.1.2_20070115-0.6|  
-|Système d'exploitation Patch lib stdc++-41.rpm|Bibliothèque standard partagée|41-4.1.2_20070115-0.6|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.7d-15.35|  
-|PAM|Modules d'authentification enfichables|0.77-221-11|  
+|OS Patch lib gcc-41.rpm|Standardfreigabebibliothek|41-4.1.2_20070115-0.6|  
+|OS Patch lib stdc++-41.rpm|Standardfreigabebibliothek|41-4.1.2_20070115-0.6|  
+|Openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.7d-15.35|  
+|PAM|Pluggable Authentication Modules|0.77-221-11|  
 
- **SUSE Linux Enterprise Server 10 SP1 (i586)**  
+ **SUSE Linux Enterprise Server 10 SP1 (i586)**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc-2,4-31,30|Bibliothèque standard partagée C|2.4-31.30|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8a-18.15|  
-|PAM|Modules d'authentification enfichables|0.99.6.3-28.8|  
+|glibc-2,4-31,30|C-Standardfreigabebibliothek|2.4-31.30|  
+|OpenSSL|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8a-18.15|  
+|PAM|Pluggable Authentication Modules|0.99.6.3-28.8|  
 
- **SUSE Linux Enterprise Server 11 (i586)**  
+ **SUSE Linux Enterprise Server 11 (i586)**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc-2.9-13.2|Bibliothèque standard partagée C|2.9-13.2|  
-|PAM|Modules d'authentification enfichables|pam-1.0.2-20.1|  
+|glibc-2.9-13.2|C-Standardfreigabebibliothek|2.9-13.2|  
+|PAM|Pluggable Authentication Modules|pam-1.0.2-20.1|  
 
  **Universal Linux (Debian package) Debian, Ubuntu Server**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|libc6|Bibliothèque standard partagée C|2.3.6|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8 ou 1.0|  
-|PAM|Modules d'authentification enfichables|0.79-3|  
+|libc6|C-Standardfreigabebibliothek|2.3.6|  
+|OpenSSL|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8 oder 1.0|  
+|PAM|Pluggable Authentication Modules|0.79-3|  
 
  **Universal Linux (RPM package) CentOS, Oracle Linux**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|glibc|Bibliothèque standard partagée C|2.5-12|  
-|Openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8 ou 1.0|  
-|PAM|Modules d'authentification enfichables|0.99.6.2-3.14|  
+|glibc|C-Standardfreigabebibliothek|2.5-12|  
+|OpenSSL|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8 oder 1.0|  
+|PAM|Pluggable Authentication Modules|0.99.6.2-3.14|  
 
- **IBM AIX 5L 5.3**  
+ **IBM AIX 5L 5.3**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Version du système d'exploitation|Version du système d'exploitation|AIX 5.3, technologie niveau 6, Service Pack 5|  
+|BS-Version|Betriebssystemversion|AIX 5.3, Technology Level 6, Service Pack 5|  
 |xlC.rte|XL C/C++ Runtime|9.0.0.2|  
-|openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8.4|  
+|openssl.base|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8.4|  
 
- **IBM AIX 6.1**  
+ **IBM AIX 6.1**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Version du système d'exploitation|Version du système d'exploitation|AIX 6.1, technologie de tout niveau et tout Service Pack|  
+|BS-Version|Betriebssystemversion|AIX 6.1, alle Technology Level und Service Packs|  
 |xlC.rte|XL C/C++ Runtime|9.0.0.5|  
-|OpenSSL/openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|0.9.8.4|  
+|OpenSSL/openssl.base|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|0.9.8.4|  
 
- **IBM AIX 7.1 (Power)**  
+ **IBM AIX 7.1 (Power)**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|Version du système d'exploitation|Version du système d'exploitation|AIX 7.1, technologie de tout niveau et tout Service Pack|  
+|BS-Version|Betriebssystemversion|AIX 7.1, alle Technology Level und Service Packs|  
 |xlC.rte|XL C/C++ Runtime||  
-|OpenSSL/openssl.base|Bibliothèque OpenSSL, protocole de communication réseau sécurisé||  
+|OpenSSL/openssl.base|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)||  
 
- **HP-UX 11i v2 IA 64**  
+ **HP-UX 11i v2 IA 64**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
-|HPUXBaseOS|Système d'exploitation de base|B.11.23|  
+|HPUXBaseOS|Basisinstallation des Betriebssystems|B.11.23|  
 |HPUXBaseAux|HP-UX Base OS Auxiliary|B.11.23.0706|  
-|HPUXBaseAux.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.07l.003|  
-|PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
+|HPUXBaseAux.openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|A.00.09.07l.003|  
+|PAM|Pluggable Authentication Modules|Unter HP-UX sind PAM ein Teil der Kernbetriebssystemkomponenten. Es bestehen keine weiteren Abhängigkeiten.|  
 
- **HP-UX 11i v2 PA-RISC**  
+ **HP-UX 11i v2 PA-RISC**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
 |HPUX11i-OE|HP-UX Foundation Operating Environment|B.11.23.0706|  
-|OS-Core.MinimumRuntime.CORE-SHLIBS|Bibliothèques d'outils de développement compatibles|B.11.23|  
+|OS-Core.MinimumRuntime.CORE-SHLIBS|Kompatible Entwicklungstoolbibliotheken|B.11.23|  
 |HPUXBaseAux|HP-UX Base OS Auxiliary|B.11.23.0706|  
-|HPUXBaseAux.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.071.003|  
-|PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
+|HPUXBaseAux.openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|A.00.09.071.003|  
+|PAM|Pluggable Authentication Modules|Unter HP-UX sind PAM ein Teil der Kernbetriebssystemkomponenten. Es bestehen keine weiteren Abhängigkeiten.|  
 
- **HP-UX 11i v3 PA-RISC**  
+ **HP-UX 11i v3 PA-RISC**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
 |HPUX11i-OE|HP-UX Foundation Operating Environment|B.11.31.0709|  
-|OS-Core.MinimumRuntime.CORE2-SHLIBS|Bibliothèques spécifiques de l'émulateur IA|B.11.31|  
-|openssl/Openssl.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.08d.002|  
-|PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
+|OS-Core.MinimumRuntime.CORE2-SHLIBS|Spezielle IA-Emulationsbibliotheken|B.11.31|  
+|openssl/Openssl.openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|A.00.09.08d.002|  
+|PAM|Pluggable Authentication Modules|Unter HP-UX sind PAM ein Teil der Kernbetriebssystemkomponenten. Es bestehen keine weiteren Abhängigkeiten.|  
 
- **HP-UX 11i v3 IA64**  
+ **HP-UX 11i v3 IA64**  
 
-|Package requis|Description|Version minimale|  
+|Erforderliches Paket|Beschreibung|Mindestversion|  
 |----------------------|-----------------|---------------------|  
 |HPUX11i-OE|HP-UX Foundation Operating Environment|B.11.31.0709|  
-|OS-Core.MinimumRuntime.CORE-SHLIBS|Bibliothèques spécifiques de développement IA|B.11.31|  
-|SysMgmtMin|Outils minimum de déploiement logiciel|B.11.31.0709|  
-|SysMgmtMin.openssl|Bibliothèque OpenSSL, protocole de communication réseau sécurisé|A.00.09.08d.002|  
-|PAM|Modules d'authentification enfichables|Sous HP-UX, PAM fait partie des composants centraux du système d’exploitation. Il n’y a pas d’autre dépendance.|  
+|OS-Core.MinimumRuntime.CORE-SHLIBS|Spezielle IA-Entwicklungsbibliotheken|B.11.31|  
+|SysMgmtMin|Minimale Softwarebereitstellungstools|B.11.31.0709|  
+|SysMgmtMin.openssl|OpenSSL-Bibliotheken; SNC-Protokoll (Secure Network Communications)|A.00.09.08d.002|  
+|PAM|Pluggable Authentication Modules|Unter HP-UX sind PAM ein Teil der Kernbetriebssystemkomponenten. Es bestehen keine weiteren Abhängigkeiten.|  
 
- **Dépendances de Configuration Manager :** le tableau suivant répertorie les rôles de système de site qui prennent en charge des clients Linux et UNIX. Pour plus d’informations sur ces rôles de système de site, consultez [Déterminer les rôles de système de site pour les clients System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+ **Abhängigkeiten in Configuration Manager:** Die folgende Tabelle enthält die Standortsystemrollen, die Linux- und UNIX-Clients unterstützen. Weitere Informationen über diese Standortsystemrollen finden Sie unter [Ermitteln der Standortsystemrollen für System Center Configuration Manager-Clients](../../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
-|Système de site Configuration Manager|Plus d'informations|  
+|Configuration Manager-Standortsystem|Weitere Informationen|  
 |---------------------------------------|----------------------|  
-|Point de gestion|Bien qu’un point de gestion ne soit pas nécessaire pour installer un client Configuration Manager pour Linux et UNIX, vous devez disposer d’un point de gestion pour transférer les informations entre les ordinateurs clients et les serveurs Configuration Manager. Sans point de gestion, vous ne pouvez pas gérer les ordinateurs clients.|  
-|Point de distribution|Le point de distribution n’est pas nécessaire pour installer un client Configuration Manager pour Linux et UNIX. Toutefois, le rôle de système de site est requis si vous déployez des logiciels sur des serveurs Linux et UNIX.<br /><br /> Dans la mesure où le client Configuration Manager pour Linux et UNIX ne prend pas en charge le protocole SMB, les points de distribution que vous utilisez avec le client doivent prendre en charge la communication HTTP ou HTTPS.|  
-|Point d’état de secours|Le point d’état de secours n’est pas nécessaire pour installer un client Configuration Manager pour Linux et UNIX. Toutefois, le point d’état de secours permet aux ordinateurs du site Configuration Manager d’envoyer des messages d’état quand ils ne peuvent pas communiquer avec un point de gestion. Client peut également envoyer leur état d'installation pour le point d'état de secours.|  
+|Verwaltungspunkt|Obgleich kein Verwaltungspunkt notwendig ist, um einen Configuration Manager-Client für Linux und UNIX zu installieren, muss ein Verwaltungspunkt vorhanden sein, um Informationen zwischen Clientcomputern und Configuration Manager-Servern zu übertragen. Ohne Verwaltungspunkt können Sie Clientcomputer nicht verwalten.|  
+|Verteilungspunkt|Der Verteilungspunkt ist nicht erforderlich, um einen Configuration Manager-Client für Linux und UNIX zu installieren. Die Standortsystemrolle ist jedoch erforderlich, wenn Sie Software für Linux- und UNIX-Servern bereitstellen.<br /><br /> Da der Configuration Manager-Client für Linux und UNIX Kommunikation mit dem SMB nicht unterstützt, müssen die Verteilungspunkte, die Sie mit dem Client verwenden, HTTP oder HTTPS-Kommunikation unterstützen.|  
+|Fallbackstatuspunkt|Der Fallbackstatuspunkt ist nicht erforderlich, um einen Configuration Manager-Client für Linux und UNIX zu installieren. Jedoch ermöglicht der Fallbackstatuspunkt Computern am Configuration Manager-Standort, Zustandsmeldungen zu senden, wenn sie nicht mit einem Verwaltungspunkt kommunizieren können. Clients kann auch deren Installationsstatus an den Fallbackstatuspunkt senden.|  
 
- **Pare-feu exigences**: Assurez-vous que les pare-feu ne bloquent pas les communications sur les ports que vous spécifiez en tant que ports de demande client. Le client pour Linux et UNIX communique directement avec les points de gestion, les points de distribution et les points d’état de secours.  
+ **Firewall-Anforderungen**: Stellen Sie sicher, dass Firewalls nicht Kommunikation über die Ports blockieren, die Sie als clientanforderungsports angeben. Der Client für Linux und UNIX kommuniziert direkt mit Verwaltungspunkten, Verteilungspunkten und Fallbackstatuspunkten.  
 
- Pour plus d’informations sur les ports de demande et de communication client, consultez  [Configurer le client pour Linux et UNIX pour qu’il localise des points de gestion](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
+ Weitere Informationen zur Clientkommunikation und zu Anforderungsports finden Sie unter  [Konfigurieren des Clients für Linux und UNIX für die Suche nach Verwaltungspunkten](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
 
-##  <a name="BKMK_PlanningforCommunicationsforLnU"></a> Planification des communications entre les approbations de forêts pour les serveurs Linux et UNIX  
- Les serveurs Linux et UNIX que vous gérez avec Configuration Manager fonctionnent comme des clients de groupe de travail et nécessitent des configurations similaires à celles des clients Windows situés dans un groupe de travail. Pour plus d’informations sur les communications à partir d’ordinateurs qui se trouvent dans des groupes de travail, consultez la section [Communications dans les forêts Active Directory](../../../../core/plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest) dans la rubrique [Communications entre points de terminaison dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+##  <a name="BKMK_PlanningforCommunicationsforLnU"></a> Planen der Kommunikation zwischen Gesamtstruktur-Vertrauensstellungen für Linux- und UNIX-Server  
+ Linux- und UNIX-Server, die Sie mit Configuration Manager verwalten, stellen Clients in Arbeitsgruppen dar und erfordern ähnliche Konfigurationen wie Windows-basierte Clients, die sich in einer Arbeitsgruppe befinden. Informationen über die Kommunikation von Computern, die sich in Arbeitsgruppen befinden, finden Sie unter [Kommunikation zwischen Active Directory-Gesamtstrukturen](../../../../core/plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest) im Thema [Datenübertragungen zwischen Endpunkten in System Center Configuration Manager](../../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-###  <a name="BKMK_ServiceLocationforLnU"></a> Emplacement du service par le client pour Linux et UNIX  
- La tâche de recherche d'un serveur de système de site qui fournit le service aux clients est appelée emplacement de service. Contrairement à un client fonctionnant sous Windows, le client pour Linux et UNIX n'utilise pas Active Directory pour l'emplacement de service. De plus, le client Configuration Manager pour Linux et UNIX ne prend pas en charge une propriété cliente qui spécifie le suffixe de domaine d’un point de gestion. Au lieu de cela, le client a eu connaissance des serveurs de système de site supplémentaires qui fournissent des services aux clients à partir d'un point de gestion connu que vous affectez lorsque vous installez le logiciel client.  
+###  <a name="BKMK_ServiceLocationforLnU"></a> Dienstidentifizierung nach Client für Linux und UNIX  
+ Der Task zum Auffinden von einem Standort befindet, der Dienst für Clients bereitstellt wird als Speicherort bezeichnet. Im Gegensatz zu einem Windows-basierter Client verwendet der Client für Linux und UNIX nicht Active Directory nach Diensten suchen. Darüber hinaus unterstützt der Configuration Manager-Client für Linux und UNIX keine Clienteigenschaft, die das Domänensuffix eines Verwaltungspunkts angibt. Der Client erfährt stattdessen zusätzliche standortsystemserver umfassen, die Dienste für Clients von einem bekannten Verwaltungspunkt, die Sie zuweisen bereitstellen, wenn Sie die Clientsoftware installieren.  
 
- Pour plus d’informations sur l’emplacement de service, consultez la section [Emplacement du service et façon dont les clients déterminent leur point de gestion attribué](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) dans la rubrique [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Weitere Informationen zur Dienstidentifizierung finden Sie im Abschnitt [Dienstidentifizierung und wie Clients den ihnen zugewiesenen Verwaltungspunkt ermitteln](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) im Thema [Verstehen, wie Clients Standortressourcen und -dienste für System Center Configuration Manager suchen](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-##  <a name="BKMK_SecurityforLnU"></a> Planification de la sécurité et des certificats pour les serveurs Linux et UNIX  
- Pour des communications sécurisées et authentifiées avec les sites Configuration Manager, le client Configuration Manager pour Linux et UNIX utilise le même modèle de communication que le client Configuration Manager pour Windows.  
+##  <a name="BKMK_SecurityforLnU"></a> Planen der Sicherheit und Zertifikate für Linux- und UNIX-Server  
+ Für die sichere und authentifizierte Kommunikation mit Configuration Manager-Standorten verwendet der Configuration Manager-Client für Linux und UNIX das gleiche Modell für die Kommunikation wie der Configuration Manager-Client für Windows.  
 
- Quand vous installez le client pour Linux et UNIX, vous pouvez lui affecter un certificat PKI qui lui permet d’utiliser le protocole HTTPS pour communiquer avec les sites Configuration Manager. Si vous n'affectez pas un certificat PKI, le client crée un certificat auto-signé et communique uniquement par HTTP.  
+ Wenn Sie den Linux- und UNIX-Client installieren, können Sie dem Client ein PKI-Zertifikat zuweisen, das ihm die HTTPS-Kommunikation mit Configuration Manager-Standorten ermöglicht. Wenn Sie keine PKI-Zertifikat zuweisen, wird der Client ein selbstsigniertes Zertifikat erstellt und nur von HTTP kommuniziert.  
 
- Les clients qui sont fournis un certificat PKI lorsqu'ils installent utilisent HTTPS pour communiquer avec les points de gestion. Lorsqu'un client est impossible de trouver un point de gestion qui prend en charge le protocole HTTPS, il revient pour utiliser HTTP avec le certificat PKI fourni.  
+ Clients, die ein PKI-Zertifikat bereitgestellt werden, bei der Installation verwenden Sie HTTPS für die Kommunikation mit Verwaltungspunkten. Wenn ein Client nicht an einen Verwaltungspunkt zu finden, der HTTPS unterstützt, wird es zurückgreifen, um HTTP mit dem bereitgestellten PKI-Zertifikat verwenden.  
 
- Lorsqu'un client Linux ou UNIX utilise un certificat PKI vous n'êtes pas obligé de les approuver. Quand un client utilise un certificat auto-signé, passez en revue les paramètres de hiérarchie pour l’approbation du client dans la console Configuration Manager. Si la méthode d'approbation du client n'est pas **Approuver automatiquement tous les ordinateurs (non recommandés)**, vous devez approuver manuellement le client.  
+ Bei ein Linux- oder UNIX-Client ein PKI-Zertifikat wird verwendet, müssen Sie keinen sie genehmigen. Wenn ein Client ein selbstsigniertes Zertifikat verwendet, überprüfen Sie die Hierarchieeinstellungen für die Clientgenehmigung in der Configuration Manager-Konsole. Die Genehmigung-Methode ist nicht **alle Computer (nicht empfohlen) automatisch genehmigen**, müssen Sie den Client manuell genehmigen.  
 
- Pour plus d’informations sur l’approbation manuelle du client, consultez la section [Gérer les clients à partir du nœud Appareils](../../../../core/clients/manage/manage-clients.md#BKMK_ManagingClients_DevicesNode) dans la rubrique [Comment gérer les clients dans System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+ Weitere Informationen dazu, wie Sie den Client manuell genehmigen, finden Sie im Abschnitt [Manage Clients from the Devices Node](../../../../core/clients/manage/manage-clients.md#BKMK_ManagingClients_DevicesNode) (Verwalten von Clients mithilfe des Knotens „Geräte“) im Thema [How to manage clients in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md) (Verwalten von Clients in System Center Configuration Manager).  
 
- Pour plus d’informations sur l’utilisation des certificats dans Configuration Manager, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Informationen zum Verwenden von Zertifikaten in Configuration Manager gehen Sie auf die Seite [PKI-Zertifikatanforderungen für System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-###  <a name="BKMK_AboutCertsforLnU"></a> À propos des certificats pour les serveurs Linux et UNIX  
- Le client Configuration Manager pour Linux et UNIX utilise un certificat auto-signé ou un certificat PKI X.509, comme les clients Windows. Aucune modification des exigences PKI pour les systèmes de site Configuration Manager n’est nécessaire quand vous gérez des clients Linux et UNIX.  
+###  <a name="BKMK_AboutCertsforLnU"></a> Informationen zu Zertifikaten für die Verwendung durch Linux- und UNIX-Server  
+ Der Configuration Manager-Client für Linux und UNIX verwendet genau wie Windows-basierte Clients ein selbstsigniertes Zertifikat oder ein X.509-PKI-Zertifikat. Bezüglich der PKI-Anforderungen an Configuration Manager-Standortsysteme bestehen bei der Verwaltung von Linux- und UNIX-Clients keine Unterschiede.  
 
- Les certificats utilisés pour les clients Linux et UNIX qui communiquent avec les systèmes de site Configuration Manager doivent être au format PKCS#12 (Public Key Certificate Standard). De plus, vous devez connaître le mot de passe pour pouvoir l’indiquer au client quand vous spécifiez le certificat PKI.  
+ Die Zertifikate für Linux- und UNIX-Clients, die mit Configuration Server-Standortsystemen kommunizieren, müssen das PKCS#12-Format (Public Key Certificate Standard) aufweisen, und das Kennwort muss bekannt sein, damit Sie es für den Client angeben können, wenn Sie das PKI-Zertifikat festlegen.  
 
- Le client Configuration Manager pour Linux et UNIX ne prend en charge qu’un seul certificat PKI. Il ne prend pas en charge plusieurs certificats. Ainsi, les critères de sélection de certificat que vous configurez pour un site Configuration Manager ne s’appliquent pas.  
+ Der Configuration Manager-Client für Linux und UNIX unterstützt ein einzelnes PKI-Zertifikat und nicht mehrere Zertifikate. Deshalb gelten die Zertifikatauswahlkriterien für einen Configuration Manager-Standort nicht.  
 
-###  <a name="BKMK_ConfigCertsforLnU"></a> Configuration de certificats pour les serveurs Linux et UNIX  
- Pour configurer l’utilisation des communications HTTPS par un client Configuration Manager pour les serveurs Linux et UNIX, vous devez configurer le client pour qu’il utilise un certificat PKI au moment de son installation. Vous ne pouvez pas configurer un certificat avant l'installation du logiciel client.  
+###  <a name="BKMK_ConfigCertsforLnU"></a> Konfigurieren von Zertifikaten für Linux- und UNIX-Server  
+ Um einen Configuration Manager-Client für Linux- und UNIX-Server für die HTTPS-Kommunikation zu konfigurieren, müssen Sie den Client bei der Installation für die Verwendung eines PKI-Zertifikats konfigurieren. Sie können nicht für ein Zertifikat vor der Installation der Clientsoftware bereitstellen.  
 
- Lorsque vous installez un client qui utilise un certificat PKI, vous utilisez le paramètre de ligne de commande **- /usepkicert** pour spécifier l'emplacement et le nom d'un fichier PKCS #12 qui contient le certificat PKI. En outre, vous devez utiliser le paramètre de ligne de commande **- certpw** pour spécifier le mot de passe du certificat.  
+ Wenn Sie einen Client, die ein PKI-Zertifikat verwendet installieren, verwenden Sie den Befehlszeilenparameter **- UsePKICert** geben Sie den Speicherort und den Namen einer PKCS #12-Datei, die das PKI-Zertifikat enthält. Darüber hinaus müssen Sie den Befehlszeilenparameter verwenden **- Certpw** Sie das Kennwort für das Zertifikat an.  
 
- Si vous ne spécifiez pas **- /usepkicert**, le client génère un certificat auto-signé et tente de communiquer avec les serveurs de système de site via le protocole HTTP uniquement.  
+ Wenn Sie keinen angeben **- UsePKICert**, der Client ein selbstsigniertes Zertifikat generiert und standortsystemservern ausschließlich über HTTP zu kommunizieren versucht.  
 
-##  <a name="BKMK_NoSHA-256"></a> À propos des systèmes d’exploitation Linux et UNIX qui ne prennent pas en charge SHA-256  
- Les systèmes d’exploitation Linux et UNIX suivants, pris en charge en tant que clients pour Configuration Manager, ont été publiés avec des versions d’OpenSSL qui ne prennent pas en charge SHA-256 :  
+##  <a name="BKMK_NoSHA-256"></a> Informationen zu Linux- und UNIX-Betriebssystemen, die SHA-256 nicht unterstützen  
+ Die folgenden Linux- und UNIX-Betriebssysteme, die als Clients für Configuration Manager unterstützt werden, wurden mit OpenSSL-Versionen ohne SHA-256-Unterstützung freigegeben:  
 
--   Red Hat Enterprise Linux Version 4 (x 86/x 64)  
+-   Red Hat Enterprise Linux-Version 4 (X 86/X 64)  
 
--   Solaris Version 9 (SPARC) et Solaris 10 (SPARC/x 86)  
+-   Solaris 9 (SPARC) und Solaris-Version 10 (SPARC/X 86)  
 
 -   SUSE Linux Enterprise Server Version 9 (x 86)  
 
--   Version de HP-UX 11iv2 (PA-RÎCH/IA64)  
+-   HP-UX-Version 11iv2 (PA-RISH/IA64)  
 
- Pour gérer ces systèmes d’exploitation avec Configuration Manager, vous devez installer le client Configuration Manager pour Linux et UNIX avec un commutateur de ligne de commande qui indique au client d’ignorer la validation de SHA-256. Les clients Configuration Manager qui s’exécutent sur ces versions de système d’exploitation fonctionnent dans un mode moins sécurisé que les clients qui prennent en charge SHA-256. Ce mode de fonctionnement moins sécurisé a le comportement suivant :  
+ Zum Verwalten dieser Betriebssysteme mit Configuration Manager müssen Sie den Configuration Manager-Client für Linux und UNIX mit einem Befehlszeilenschalter installieren, der den Client anweist, die SHA-256-Überprüfung zu überspringen. Unter diesen Betriebssystemversionen ausgeführte Configuration Manager-Clients werden in einem weniger sicheren Modus ausgeführt als Clients, die SHA-256 unterstützen. Dieser weniger sicheren Betriebsmodus weist das folgende Verhalten:  
 
--   Les clients ne valident pas la signature de serveur de site associée qu'ils demandent à partir d'un point de gestion de stratégie.  
+-   Clients überprüfen zugeordnete Richtlinien von einem Verwaltungspunkt angeforderten Site Server Signatur nicht.  
 
--   Les clients ne valident pas le hachage des packages qu'ils téléchargent à partir d'un point de distribution.  
+-   Den Hash für Pakete überprüfen, die sie von einem Verteilungspunkt herunterladen Clients nicht.  
 
 > [!IMPORTANT]  
->  Le **ignoreSHA256validation** option permet d'exécuter le client pour les ordinateurs Linux et UNIX en mode moins sécurisé. Cela est voulu pour une utilisation sur des plates-formes plus anciennes qui n'inclut pas de prise en charge de l'algorithme SHA-256. Ceci est un remplacement de la sécurité et n'est pas recommandé par Microsoft, mais est pris en charge pour une utilisation dans un environnement de centre de données sécurisé et fiable.  
+>  Die **ignoreSHA256validation** Option können Sie den Client für Linux und UNIX-Computer in einer weniger sicheren Modus ausführen. Dies ist für die Verwendung auf älteren Plattformen vorgesehen, die keine Unterstützung für SHA-256 eingefügt haben. Eine Außerkraftsetzung für die Sicherheit und wird nicht von Microsoft empfohlen, dies ist für eine sichere und vertrauenswürdige Datacenter-Umgebung unterstützt wird.  
 
- Durant l’installation du client Configuration Manager pour Linux et UNIX, le script d’installation vérifie la version du système d’exploitation. Par défaut, si la version du système d’exploitation est identifiée comme ayant été publiée sans une version d’OpenSSL prenant en charge SHA-256, l’installation du client Configuration Manager se solde par un échec.  
+ Bei der Installation des Configuration Manager-Clients für Linux und UNIX überprüft das Installationsskript die Version des Betriebssystems. Wenn die Betriebssystemversion als eine Version identifiziert wird, die ohne OpenSSL mit SHA-256-Unterstützung freigegeben wurde, tritt bei der Installation des Configuration Manager-Clients ein Fehler auf.  
 
- Pour installer le client Configuration Manager sur les systèmes d’exploitation Linux et UNIX qui n’ont pas été publiés avec une version d’OpenSSL prenant en SHA-256, vous devez utiliser le commutateur de ligne de commande **ignoreSHA256validation**. Quand vous utilisez cette option de ligne de commande sur un système d’exploitation Linux ou UNIX applicable, le client Configuration Manager ignore la validation de SHA-256. Une fois l’installation effectuée, le client n’utilise pas SHA-256 pour signer les données qu’il envoie aux systèmes de site via HTTP. Pour plus d’informations sur la configuration des clients Linux et UNIX pour utiliser des certificats, consultez [Planning for Security and Certificates for Linux and UNIX Servers](#BKMK_SecurityforLnU) dans cette rubrique. Pour plus d’informations sur l’utilisation de SHA-256, consultez la section [Configurer la signature et le chiffrement](../../../../core/plan-design/security/configure-security.md#BKMK_ConfigureSigningEncryption) dans la rubrique [Configurer la sécurité dans System Center Configuration Manager](../../../../core/plan-design/security/configure-security.md).  
+ Um den Configuration Manager-Client auf Linux- und UNIX-Betriebssystemen zu installieren, die ohne eine Version von OpenSSL freigegeben wurden, die SHA-256 unterstützen, müssen Sie den Befehlszeilenschalter **ignoreSHA256validation** für die Installation verwenden. Wenn Sie diese Befehlszeilenoption für ein entsprechendes Linux- oder UNIX-Betriebssystem verwenden, überspringt der Configuration Manager-Client die SHA-256-Überprüfung und verwendet nach der Installation kein SHA-256 zum Signieren der Daten, die er über HTTP an Standortsysteme übermittelt. Informationen zum Konfigurieren von Linux- und UNIX-Clients für die Verwendung von Zertifikaten finden Sie unter [Planning for Security and Certificates for Linux and UNIX Servers](#BKMK_SecurityforLnU) in diesem Thema. Informationen zur Erforderung von SHA-256 finden Sie unter dem Abschnitt [Konfigurieren von Signierung und Verschlüsselung ](../../../../core/plan-design/security/configure-security.md#BKMK_ConfigureSigningEncryption) im Thema [Konfigurieren der Sicherheit in System Center Configuration Manager](../../../../core/plan-design/security/configure-security.md).  
 
 > [!NOTE]  
->  L'option de ligne de commande **ignoreSHA256validation** est ignorée sur les ordinateurs qui exécutent une version de Linux et UNIX publié avec les versions d'OpenSSL qui prennent en charge SHA-256.  
-
+>  Die Befehlszeilenoption **ignoreSHA256validation** wird auf Computern mit einer Version von Linux und UNIX, die veröffentlicht mit OpenSSL-Versionen, die SHA-256-Unterstützung ignoriert.  

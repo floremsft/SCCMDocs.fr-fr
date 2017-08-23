@@ -1,7 +1,6 @@
 ---
-
-title: "Exemple de scénario pour le déploiement et la surveillance des mises à jour logicielles de sécurité | Microsoft Docs"
-description: "Suivez cet exemple de scénario pour découvrir comment utiliser les mises à jour logicielles dans Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité mensuelles publiées par Microsoft."
+title: "Beispielszenario für die Bereitstellung und Überwachung von Sicherheitssoftwareupdates | Microsoft-Dokumentation"
+description: "Verwenden Sie dieses Beispielszenario zum Verwenden von Softwareupdates in Configuration Manager, um die von Microsoft monatlich veröffentlichten Sicherheitssoftwareupdates bereitzustellen und zu überwachen."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -9,93 +8,85 @@ manager: angrobe
 ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.service: 
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
-translationtype: Human Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
 ms.openlocfilehash: 0e6e2b3a9455bb6eda437eb1325aaaadb3d83420
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Exemple de scénario d’utilisation de System Center Configuration Manager pour le déploiement et la surveillance des mises à jour logicielles de sécurité publiées chaque mois par Microsoft
+# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Beispielszenario für die Verwendung von System Center Configuration Manager zum Bereitstellen und Überwachen der monatlichen Sicherheitsupdates von Microsoft
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
-Cette rubrique présente un exemple de scénario qui montre comment utiliser les mises à jour logicielles dans System Center Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité publiées chaque mois par Microsoft.  
+In diesem Thema wird ein Beispielszenario angegeben, wie Sie Softwareupdates in System Center Configuration Manager verwenden können, um die von Microsoft monatlich veröffentlichten Sicherheitssoftwareupdates bereitzustellen und zu überwachen.  
 
- Dans ce scénario, John est l’administrateur de Configuration Manager à la Woodgrove Bank. Il doit créer une stratégie de déploiement de mises à jour logicielles respectant les conditions et les spécifications suivantes :  
+ In diesem Szenario ist John der Configuration Manager-Administrator bei der Woodgrove Bank. John muss eine Bereitstellungsstrategie für ein Softwareupdate mit folgenden Bedingungen und Anforderungen erstellen:  
 
--   Un déploiement actif de mises à jour logicielles doit avoir lieu une semaine après la publication par Microsoft des mises à jour logicielles de sécurité, le deuxième mardi de chaque mois. Cet événement est souvent désigné par l'expression « Patch Tuesday ».  
+-   Eine aktive Softwareupdatebereitstellung wird eine Woche nach Veröffentlichung der Sicherheitssoftwareupdates durch Microsoft, jeden zweiten Dienstag des Monats, durchgeführt. Dieses Ereignis wird in der Regel als Patch-Dienstag bezeichnet.  
 
--   Les mises à jour logicielles sont téléchargées et répliquées sur les points de distribution. Un déploiement est ensuite testé sur un sous-ensemble de clients, avant que John ne déploie entièrement les mises à jour logicielles dans son environnement de production.  
+-   Softwareupdates werden heruntergeladen und auf Verteilungspunkten bereitgestellt. Dann wird die Bereitstellung an einer Teilmenge von Clients getestet, bevor John die Softwareupdates vollständig in seiner Produktionsumgebung bereitstellt.  
 
--   John doit pouvoir surveiller la compatibilité des mises à jour logicielles par mois ou par année.  
+-   John muss die Kompatibilität der Softwareupdates pro Monat oder Jahr überwachen können.  
 
- Dans ce scénario, nous supposons que l'infrastructure du point de mise à jour logicielle a déjà été mise en œuvre. Utilisez les informations ci-dessous pour planifier et configurer les mises à jour logicielles dans Configuration Manager.  
+ In diesem Szenario wird davon ausgegangen, dass die Infrastruktur der Softwareupdatepunkte bereits implementiert wurde. Verwenden Sie die folgenden Informationen zum Planen und Konfigurieren von Softwareupdates in Configuration Manager.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|Passez en revue les concepts clés liés aux mises à jour logicielles.|[Présentation des mises à jour logicielles](../understand/software-updates-introduction.md)|  
-|Planifiez les mises à jour logicielles. Ces informations vous aident à déterminer l'infrastructure de point de mise à jour logicielle et à planifier les besoins en capacité, l'installation du point de mise à jour logicielle, les paramètres de synchronisation et les paramètres des clients pour les mises à jour logicielles.|[Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md)|  
-|Configurez les mises à jour logicielles. Ces informations vous aident à installer et à configurer les points de mise à jour logicielle de votre hiérarchie, et facilitent également la configuration et la synchronisation des mises à jour logicielles.<br /><br /> Dans ce scénario, John planifie les synchronisations des mises à jour logicielles pour qu’elles aient lieu le deuxième mercredi de chaque mois. Il s’assure ainsi de toujours récupérer les dernières mises à jour logicielles de sécurité auprès de Microsoft.|[Synchroniser les mises à jour logicielles](../get-started/synchronize-software-updates.md)|  
+|Überprüfen der wichtigsten Konzepte für die Softwareupdates.|[Einführung zu Softwareupdates](../understand/software-updates-introduction.md)|  
+|Einplanen von Softwareupdates. Diese Informationen helfen Ihnen beim Planen im Hinblick auf Kapazitätsüberlegungen, bei der Ermittlung der Infrastruktur der Softwareupdatepunkte, der Installation von Softwareupdatepunkten, bei Synchronisierungseinstellungen sowie den Clienteinstellungen für Softwareupdates.|[Planen von Softwareupdates](../plan-design/plan-for-software-updates.md)|  
+|Konfigurieren von Softwareupdates. Diese Informationen helfen Ihnen beim Installieren und Konfigurieren von Softwareupdatepunkten in der Hierarchie sowie beim Konfigurieren und Synchronisieren von Softwareupdates.<br /><br /> In diesem Szenario konfiguriert John den Zeitplan für die Softwareupdatesynchronisierung so, dass diese am zweiten Mittwoch eines jeden Monats ausgeführt wird, um sicherzustellen, dass immer die aktuellsten Sicherheitssoftwareupdates von Microsoft abgerufen werden.|[Synchronisieren von Softwareupdates](../get-started/synchronize-software-updates.md)|  
 
- Les sections suivantes de cette rubrique présentent des exemples d’étapes à suivre pour déployer et surveiller les mises à jour logicielles de sécurité dans Configuration Manager au sein de votre organisation.
+ In den folgenden Abschnitten in diesem Thema wird eine beispielhafte Schritt-für-Schritt-Anleitung zur Verfügung gestellt, um Ihnen beim Bereitstellen und Überwachen der Sicherheitssoftwareupdates für Configuration Manager in Ihrem Unternehmen zu helfen.
 
-##  <a name="a-namebkmkstep1a-step-1-create-a-software-update-group-for-yearly-compliance"></a><a name="BKMK_Step1"></a> Étape 1 : Créer un groupe de mises à jour logicielles pour la compatibilité annuelle  
- John crée un groupe de mises à jour logicielles, qu’il va ensuite utiliser pour surveiller la compatibilité de toutes les mises à jour logicielles de sécurité déployées en 2016. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="BKMK_Step1"></a> Schritt 1: Erstellen einer Softwareupdategruppe für jährliche Kompatibilität  
+ John erstellt eine Softwareupdategruppe, die er zur Überwachung aller 2016 von ihm veröffentlichten Sicherheitssoftwareupdates verwenden kann. Er führt die Schritte in der folgenden Tabelle aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|Dans le nœud **Toutes les mises à jour logicielles** de la console Configuration Manager, John ajoute des critères pour afficher uniquement les mises à jour logicielles de sécurité ayant été publiées ou révisées en 2015 et respectant les critères suivants :<br /><br /><ul><li>**Critère**: Date de publication ou de révision</li><li>**Condition**: est supérieure ou égale à une date spécifique<br />**Valeur**: 01/01/2015</li><li>**Critères**: Classification des mises à jour<br />**Valeur**: Mises à jour de sécurité</li><li>**Critère**: Expiré <br />**Valeur**: Non</li></ul>|Aucune information supplémentaire|
-|John ajoute toutes les mises à jour logicielles ainsi filtrées à un nouveau groupe de mises à jour logicielles respectant les spécifications suivantes :<br /><br /><ul><li>**Nom**: Groupe de compatibilité - Mises à jour de sécurité Microsoft 2015</li><li>**Description**: Mises à jour logicielles|[Ajouter des mises à jour logicielles à un groupe de mises à jour](add-software-updates-to-an-update-group.md)|  
+|John fügt Kriterien im Knoten **Alle Softwareupdates** in der Configuration Manager-Konsole hinzu, um nur Sicherheitssoftwareupdates anzuzeigen, die im Jahr 2015 veröffentlicht oder überarbeitet wurden und folgenden Kriterien entsprechen:<br /><br /><ul><li>**Kriterien**: Veröffentlichungs- oder Überarbeitungsdatum</li><li>**Bedingung**: stimmt mit einem bestimmten Datum überein oder liegt danach<br />**Wert**: 1.1.2015</li><li>**Kriterien**: Updateklassifizierung<br />**Wert**: Sicherheitsupdates</li><li>**Kriterien**: Abgelaufen <br />**Wert**: Nein</li></ul>|Keine zusätzlichen Informationen|
+|John fügt alle gefilterten Softwareupdates zur neuen Softwareupdategruppe mit folgenden Anforderungen hinzu:<br /><br /><ul><li>**Name**: Kompatibilitätsgruppe – Microsoft-Sicherheitsupdates 2015</li><li>**Beschreibung**: Softwareupdates|[Hinzufügen von Softwareupdates zu einer Updategruppe](add-software-updates-to-an-update-group.md)|  
 
-##  <a name="a-namebkmkstep2a-step-2-create-an-automatic-deployment-rule-for-the-current-month"></a><a name="BKMK_Step2"></a> Étape 2 : Créer une règle de déploiement automatique pour le mois actuel  
- John crée une règle de déploiement automatique pour les mises à jour logicielles de sécurité publiées par Microsoft pour le mois en cours. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="BKMK_Step2"></a> Schritt 2: Erstellen einer automatischen Bereitstellungsregel für den aktuellen Monat  
+ John erstellt eine automatische Bereitstellungsregel für Sicherheitsoftwareupdates, die von Microsoft für den laufenden Monat veröffentlicht werden. Er führt die Schritte in der folgenden Tabelle aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|John crée une règle de déploiement automatique respectant les spécifications suivantes :<br /><br /><ol><li>Sous l'onglet **Général** , John effectue la configuration suivante :<br /> <ul><li>Spécifie **Mises à jour de sécurité mensuelles** comme nom.</li><li>Sélectionne un regroupement de tests contenant un petit nombre de clients.</li><li>Sélectionne **Créer un groupe de mises à jour logicielles**.</li><li>Vérifie que l’option **Activer le déploiement après l’exécution de cette règle** n’est pas sélectionnée.</li></ul></li><li>Sous l'onglet **Paramètres de déploiement** , John sélectionne les paramètres par défaut.</li><li>Dans la page **Mises à jour logicielles**, John configure les filtres de propriétés et les critères de recherche suivants :<br /><ul><li>Date de publication ou de révision : **Dernier mois**.</li><li>Classification des mises à jour : **Mises à jour de sécurité**.</li></ul></li><li>Dans la page **Évaluation**, John configure la règle pour qu’elle soit exécutée à intervalle régulier, le **deuxième mardi** de **chaque mois**. John vérifie également que les synchronisations sont planifiées pour s’exécuter le **deuxième mercredi** de chaque **mois**.</li><li>John conserve les paramètres par défaut des pages Calendrier de déploiement, Expérience utilisateur, Alertes et Paramètres de téléchargement.</li><li>Dans la page **Package de déploiement**, John spécifie un nouveau package de déploiement.</li><li>Sur les pages Emplacement de téléchargement et Sélection de la langue, John conserve les paramètres par défaut.</li></ol>|[Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md)|  
+|John erstellt eine automatische Bereitstellungsregel mit folgenden Anforderungen:<br /><br /><ol><li>Auf der Registerkarte **Allgemein** nimmt John folgende Konfiguration vor:<br /> <ul><li>Er legt **Monatliche Sicherheitsupdates** für den Namen fest.</li><li>Er wählt eine Testsammlung mit einer begrenzten Anzahl von Clients aus.</li><li>Er wählt **Erstellen einer neuen Softwareupdategruppe** aus.</li><li>Er stellt sicher, dass **Bereitstellen nach Ausführung dieser Regel aktivieren** nicht aktiviert ist.</li></ul></li><li>Auf der Registerkarte **Bereitstellungseinstellungen** wählt John die Standardeinstellungen aus.</li><li>Auf der Seite der **Softwareupdates** konfiguriert John folgende Eigenschaftsfilter und Suchkriterien:<br /><ul><li>Veröffentlichungs- oder Überarbeitungsdatum **Letzter Monat**.</li><li>Updateklassifizierung **Sicherheitsupdates**.</li></ul></li><li>Auf der Seite **Auswertung** aktiviert John die Regel zur Ausführung am **zweiten Donnerstag** jeden **Monats**. Außerdem stellt John sicher, dass sein Synchronisierungszeitplan so eingestellt ist, dass er am **zweiten Mittwoch** jeden **Monats** ausgeführt wird.</li><li>John verwendet die Standardeinstellungen auf den Seiten für Bereitstellungszeitplan, Benutzerfreundlichkeit, Warnungen und Downloadeinstellungen.</li><li>Auf der Seite **Bereitstellungspakete** legt John ein neues Bereitstellungspaket fest.</li><li>John verwendet die Standardeinstellungen auf den Seiten für Downloadort und Sprachauswahl.</li></ol>|[Automatisches Bereitstellen von Softwareupdates](automatically-deploy-software-updates.md)|  
 
-##  <a name="a-namebkmkstep3a-step-3-verify-that-software-updates-are-ready-to-deploy"></a><a name="BKMK_Step3"></a> Étape 3 : Vérifier que les mises à jour logicielles sont prêtes à être déployées  
- Le deuxième jeudi de chaque mois, John vérifie que les mises à jour logicielles sont prêtes à être déployées. Il effectue l’étape suivante.  
+##  <a name="BKMK_Step3"></a> Schritt 3: Überprüfen, ob Softwareupdates bereitgestellt werden können  
+ Jeden zweiten Donnerstag jedes Monats überprüft John, ob die Softwareupdates bereitgestellt werden können. Er führt die folgenden Aktionen aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|John vérifie que la synchronisation des mises à jour logicielles s'est bien déroulée.|[État de synchronisation des mises à jour logicielles](monitor-software-updates.md#BKMK_SUSyncStatus)|  
+|John stellt sicher, dass die Synchronisierung der Softwareupdates erfolgreich abgeschlossen wurde.|[Status der Softwareupdatesynchronisierung](monitor-software-updates.md#BKMK_SUSyncStatus)|  
 
-##  <a name="a-namebkmkstep4a-step-4-deploy-the-software-update-group"></a><a name="BKMK_Step4"></a> Étape 4 : déployer le groupe de mises à jour logicielles  
- Une fois qu'il a vérifié que les mises à jour logicielles sont prêtes à être déployées, John les déploie. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="BKMK_Step4"></a> Schritt 4: Bereitstellen der Softwareupdategruppe  
+ Nachdem er überprüft hat, ob die Softwareupdates bereitgestellt werden können, stellt er diese bereit. Er führt die Schritte in der folgenden Tabelle aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|John crée deux déploiements de test pour le nouveau groupe de mises à jour logicielles. Pour chaque déploiement, il envisage les environnements suivants :<br /><br /> **Déploiement de test des stations de travail**: pour le déploiement de test des stations de travail, John effectue les opérations suivantes :<br /><br /><ul><li>Spécifie un regroupement de déploiements qui contient un sous-ensemble de clients de station de travail, en vue de vérifier le déploiement.</li><li>Configure les paramètres de déploiement appropriés pour les clients de station de travail de son environnement.</li></ul><br />**Déploiement de test des serveurs**: pour le déploiement de test des serveurs, John effectue les opérations suivantes :<br /><br /><ul><li>Spécifie un regroupement de déploiements qui contient un sous-ensemble de clients de serveur, en vue de vérifier le déploiement.</li><li>Configure les paramètres de déploiement appropriés pour les clients de serveur de son environnement.</li></ul>|[Déployer des mises à jour logicielles](deploy-software-updates.md)|  
-|John vérifie que les déploiements de test ont été correctement déployés.|[État de déploiement des mises à jour logicielles](monitor-software-updates.md#BKMK_SUDeployStatus)|  
-|John met à jour les deux déploiements en utilisant les nouveaux regroupements contenant ses stations de travail et ses serveurs de production.|Aucune information supplémentaire|  
+|John erstellt zwei Testbereitstellungen für die neue Softwareupdategruppe. Er erwägt für jede Bereitstellung die folgenden Umgebungen:<br /><br /> **Arbeitsstation-Testbereitstellung**: John berücksichtigt Folgendes für die Testbereitstellung der Arbeitsstation:<br /><br /><ul><li>Er gibt eine Bereitstellungssammlung an, die eine Teilmenge der Arbeitsstationsclients enthält, um die Bereitstellung zu überprüfen.</li><li>Er konfiguriert die Bereitstellungseinstellungen, die für die Arbeitsstationsclients in seiner Umgebung zutreffen.</li></ul><br />**Servertestbereitstellung**: John berücksichtigt Folgendes für die Servertestbereitstellung:<br /><br /><ul><li>Er gibt eine Bereitstellungssammlung an, die eine Teilmenge der Serverclients enthält, um die Bereitstellung zu überprüfen.</li><li>Er konfiguriert die Bereitstellungseinstellungen, die für die Serverclients in seiner Umgebung zutreffen.</li></ul>|[Bereitstellen von Softwareupdates](deploy-software-updates.md)|  
+|John überprüft, ob die Testbereitstellungen erfolgreich bereitgestellt wurden.|[Status der Softwareupdatebereitstellung](monitor-software-updates.md#BKMK_SUDeployStatus)|  
+|John aktualisiert die zwei Bereitstellungen mit neuen Sammlungen, die seine Produktionsarbeitsstationen und -server beinhalten.|Keine zusätzlichen Informationen|  
 
-##  <a name="a-namebkmkstep5a-step-5-monitor-compliance-for-deployed-software-updates"></a><a name="BKMK_Step5"></a> Étape 5 : Surveiller la compatibilité des mises à jour logicielles déployées  
- John surveille la compatibilité de ses déploiements de mises à jour logicielles. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="BKMK_Step5"></a> Schritt 5: Überwachen der Kompatibilität für bereitgestellte Softwareupdates  
+ John überwacht die Kompatibilität seiner Softwareupdatebereitstellungen. Er führt den Schritt in der folgenden Tabelle aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|John surveille l’état du déploiement des mises à jour logicielles dans la console Configuration Manager et examine les rapports de déploiement de mises à jour logicielles accessibles via la console.|[Surveiller les mises à jour logicielles dans System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
+|John überwacht den Status der Softwareupdatebereitstellung in der Configuration Manager-Konsole und überprüft die in der Konsole verfügbaren Berichte zur Softwareupdatebereitstellung.|[Überwachen von Softwareupdates in System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
 
-##  <a name="a-namebkmkstep6a-step-6-add-monthly-software-updates-to-the-yearly-update-group"></a><a name="BKMK_Step6"></a> Étape 6 : Ajouter les mises à jour logicielles mensuelles au groupe de mises à jour annuel  
- John ajoute les mises à jour logicielles du groupe de mises à jour logicielles mensuel au groupe de mises à jour logicielles annuel. Il suit la procédure décrite dans le tableau ci-dessous.  
+##  <a name="BKMK_Step6"></a> Schritt 6: Hinzufügen monatlicher Softwareupdates zur jährlichen Updategruppe  
+ John fügt die Softwareupdates aus der monatlichen Softwareupdategruppe zur jährlichen Softwareupdategruppe hinzu. Er führt den Schritt in der folgenden Tabelle aus.  
 
-|Processus|Référence|  
+|Prozess|Reference|  
 |-------------|---------------|  
-|John sélectionne les mises à jour logicielles dans le groupe de mises à jour logicielles mensuel et ajoute les mises à jour logicielles au groupe de mises à jour logicielles qu'il a créé pour la compatibilité annuelle. Il effectue un suivi de la compatibilité des mises à jour logicielles et crée différents rapports à des fins de gestion.|[Ajouter des mises à jour logicielles à un groupe de mises à jour déployé](add-software-updates-to-an-update-group.md)|  
+|John wählt die Softwareupdates aus der monatlichen Softwareupdategruppe aus und fügt die Softwareupdates zu der Softwareupdategruppe hinzu, die er für die jährliche Kompatibilität erstellt hat. Er verfolgt die Softwareupdatekompatibilität und erstellt verschiedene Berichte für die Geschäftsleitung.|[Hinzufügen von Softwareupdates zu einer bereitgestellten Updategruppe](add-software-updates-to-an-update-group.md)|  
 
-John a procédé correctement au déploiement mensuel des mises à jour logicielles de sécurité. Il continue de surveiller la compatibilité des mises à jour logicielles et de créer les rapports correspondants, pour vérifier que les clients de son environnement respectent les niveaux de compatibilité définis.  
+John hat seine monatliche Bereitstellung für Sicherheitssoftwareupdates erfolgreich abgeschlossen. Er überwacht weiterhin die Kompatibilität der Softwareupdates und erstellt Meldungen dazu, um sicherzustellen, dass sich die Clients in seiner Umgebung innerhalb der zulässigen Kompatibilitätsstufen bewegen.  
 
-##  <a name="a-namebkmkmonthlyprocessa-recurring-monthly-process-to-deploy-software-updates"></a><a name="BKMK_MonthlyProcess"></a> Processus périodique mensuel de déploiement des mises à jour logicielles  
- À partir du deuxième mois de déploiement des mises à jour logicielles, John suit les étapes trois à six, afin de déployer les mises à jour logicielles de sécurité publiées chaque mois par Microsoft.  
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+##  <a name="BKMK_MonthlyProcess"></a> Regelmäßiger monatlicher Prozess zur Bereitstellung von Softwareupdates  
+ Nach dem ersten Monat, in dem John Softwareupdates bereitgestellt hat, führt er die Schritte 3 bis 6 aus, um die von Microsoft veröffentlichten Sicherheitssoftwareupdates bereitzustellen.  

@@ -1,54 +1,50 @@
 ---
-title: Configurer la gestion des appareils mobiles hybride | Microsoft Docs
-description: "Configurez une inscription d’appareils hybride avec Configuration Manager et Intune."
+title: "Einrichten der hybriden Verwaltung mobiler Geräte | Microsoft-Dokumentation"
+description: "Richten Sie die Registrierung von Hybridgeräten mit Configuration Manager und Intune ein."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
-caps.latest.revision: 34
-caps.handback.revision: 0
+caps.latest.revision: "34"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: c494fcc38955571c06507278a1ae88e5777b5708
-ms.contentlocale: fr-fr
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 08/07/2017
 ---
+# <a name="setup-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Einrichten der hybriden Verwaltung mobiler Geräte (Mobile Device Management, MDM) mit System Center Configuration Manager und Microsoft Intune
 
-# <a name="setup-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer une gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune
-
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Gilt für: System Center Configuration Manager (Current Branch)*
 
 
-Avant de pouvoir gérer des appareils iOS, Windows et Android avec Configuration Manager, vous devez les inscrire dans Intune. Effectuez les étapes suivantes pour configurer une inscription d’appareils hybride avec Configuration Manager via Intune. En effectuant les étapes suivantes, vous allez activer l’inscription BYOD (« Apportez votre propre appareil ») pour vos utilisateurs. Ces étapes sont également des conditions préalables pour [l’inscription d’appareils BYOD](enroll-hybrid-ios-mac.md) et [l’inscription d’appareils appartenant à l’entreprise](enroll-company-owned-devices.md).
+Bevor Sie iOS, Windows und Android-Geräte mit Configuration Manager verwalten können, müssen sie mit Intune registriert werden. Verwenden Sie die folgenden Schritte, um die Registrierung von Hybridgeräten mit Configuration Manager und Intune einzurichten. Mithilfe der folgenden Schritte aktivieren Sie die BYOD-Registrierung (Bring Your Own Device) für Ihre Benutzer. Diese Schritte sind auch Voraussetzungen für die [Registrierung von BYOD-Geräten](enroll-hybrid-ios-mac.md) und die [Registrierung von unternehmenseigenen Geräten](enroll-company-owned-devices.md).
 
- |Étapes|Détails|  
+ |Schritte|Details|  
  |-----------|-------------|  
- |**Étape 1 :** [Créer un regroupement MDM](create-mdm-collection.md)|Créez un regroupement d’utilisateurs Configuration Manager comprenant les utilisateurs dont les appareils peuvent être inscrits|  
- |**Étape 2 :** [Respecter les critères pour les noms de domaine](confirm-dns.md)|Vérifiez que le service de nom de domaine (DNS) de votre organisation et la gestion des utilisateurs Active Directory répondent aux critères MDM|
- |**Étape 3 :** [Configurer l’abonnement Intune](configure-intune-subscription.md)|Le service Intune vous permet de gérer des appareils via Internet.|  
- |**Étape 4 :** [Ajouter les conditions générales](terms-and-conditions.md)| Créez des conditions générales que les utilisateurs doivent accepter pour pouvoir utiliser l’application Portail d’entreprise|
- |**Étape 5 :** [Créer un point de connexion de service](create-service-connection-point.md)|Le point de connexion de service envoie des informations sur les paramètres et le déploiement des logiciels à Configuration Manager. De plus, il récupère les messages d’état et d’inventaire à partir des appareils mobiles. |  
- |**Étape 6 :** [Activer l’inscription de la plateforme](enable-platform-enrollment.md)|L’inscription des appareils iOS et Windows à des fins de gestion des appareils mobiles nécessite des étapes supplémentaires pour l’établissement de la communication entre le service et les appareils. Android ne nécessite aucune configuration supplémentaire.|  
- |**Étape 7 :** [Configurer une gestion supplémentaire](set-up-additional-management.md)|(Facultatif) Configurer les éléments de configuration et l’accès conditionnel des appareils inscrits|
- |**Étape 8 :** [Vérifier la configuration MDM](verify-mdm-configuration.md)|Affichez les fichiers journaux pour vérifier que le point de connexion de service a été créé et que les comptes d’utilisateur se synchronisent.|
+ |**Schritt 1:** [Erstellen einer MDM-Sammlung](create-mdm-collection.md)|Erstellen Sie eine Configuration Manager-Benutzersammlung mit Benutzern, deren Geräte registriert werden können.|  
+ |**Schritt 2:** [Anforderungen an den Domänennamen](confirm-dns.md)|Bestätigen Sie, dass der Domain Name Service (DNS) Ihrer Organisation und die Active Directory-Benutzerverwaltung die MDM-Anforderungen erfüllen.|
+ |**Schritt 3:** [Konfigurieren des Intune-Abonnements](configure-intune-subscription.md)|Der Intune-Dienst ermöglicht die Verwaltung von Geräten über das Internet.|  
+ |**Schritt 4:** [Hinzufügen von Geschäftsbedingungen](terms-and-conditions.md)| Erstellen Sie Geschäftsbedingungen, die von Benutzern akzeptiert werden müssen, bevor die Unternehmensportal-App verwendet werden kann.|
+ |**Schritt 5:** [Erstellen eines Dienstverbindungspunkts](create-service-connection-point.md)|Vom Dienstverbindungspunkt werden Einstellungen und Softwarebereitstellungsinformationen an Configuration Manager gesendet sowie Status- und Inventurmeldungen von mobilen Geräten abgerufen. |  
+ |**Schritt 6:** [Aktivieren der Plattformregistrierung](enable-platform-enrollment.md)|Die MDM-Registrierung für iOS- und Windows-Geräte erfordert zusätzliche Schritte für die Kommunikation zwischen dem Dienst und Geräten. Für Android ist keine weitere Konfiguration erforderlich.|  
+ |**Schritt 7:** [Einrichten zusätzlicher Verwaltung](set-up-additional-management.md)|(Optional) Richten Sie Konfigurationselemente und den bedingten Zugriff für registrierte Geräte ein.|
+ |**Schritt 8:** [Überprüfen der MDM-Konfiguration](verify-mdm-configuration.md)|Zeigen Sie Protokolldateien an, um zu bestätigen, dass der Dienstverbindungspunkt erfolgreich erstellt wurde und Benutzerkonten synchronisiert werden.|
 
-Vous recherchez Intune sans Configuration Manager ?
+Möchten Sie Intune ohne Configuration Manager?
 > [!div class="button"]
-[Afficher les documents relatifs à Intune >](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
+[Intune Dokumente anzeigen >](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
 
 
-## <a name="enroll-devices"></a>Inscrire des appareils
-Une fois la configuration de la gestion hybride terminée, les appareils peuvent être inscrits dans Configuration Manager de plusieurs manières :
-- **Appareils appartenant à l’entreprise :** dans la section décrivant [l’inscription des appareils appartenant à l’entreprise](enroll-company-owned-devices.md), vous trouverez de l’aide sur les différents moyens d’inscrire des appareils appartenant à l’entreprise, en fonction des plateformes.
-- **Appareils appartenant aux utilisateurs (BYOD) :** la section relative à [l’inscription des appareils appartenant aux utilisateurs (BYOD)](enroll-hybrid-ios-mac.md) fournit des informations sur les différentes méthodes d’inscription d’appareils appartenant à l’utilisateur.
-
+## <a name="enroll-devices"></a>Registrieren von Geräten
+Nachdem das Hybrid-Setup abgeschlossen ist, können die Geräte im Configuration Manager auf verschiedene Arten registriert werden:
+- **Unternehmenseigene Geräte (company-owned devices, COD):** [Registrieren von unternehmenseigenen Geräten](enroll-company-owned-devices.md) enthält Anleitungen für bestimmte Arten der Registrierung von unternehmenseigenen Geräten.
+- **Benutzergeräte (bring your own device, BYOD):** [Enroll user-owned (BYOD) devices (Registrieren von Benutzergeräten (BYOD))](enroll-hybrid-ios-mac.md) enthält Anleitungen für verschiedene Registrierungsarten von benutzereigenen Geräten.
